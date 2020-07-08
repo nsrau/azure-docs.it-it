@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
 ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77469766"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Abilitazione di Diagnostica di Azure in servizi cloud di Azure
@@ -136,7 +135,7 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Aggiungere un file XML al progetto **WorkerRole1** facendo clic con il pulsante destro del mouse sul progetto **WorkerRole1** e scegliendo **Aggiungi** -> **Nuovo elemento** -> **Visual C# items** -> **Data** -> **File XML**di dati degli elementi di Visual C#. Assegnare al file il nome "WadExample.xml".
+2. Aggiungere un file XML al progetto **WorkerRole1** facendo clic con il pulsante destro del mouse sul progetto **WorkerRole1** e scegliendo **Aggiungi** -> **Nuovo elemento** -> Elementi di Visual **C#**  ->  **Dati**  ->  di **File XML**. Assegnare al file il nome "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 3. Associare WadConfig.xsd al file di configurazione. Assicurarsi che la finestra dell'editor di WadExample.xml sia la finestra attiva. Premere **F4** per aprire la finestra **Proprietà**. Fare clic sulla proprietà **Schemi** nella finestra **Proprietà**. Fare clic su **...** in the **Schemi** . Fare clic su **Aggiungi...** , passare al percorso in cui si è salvato il file XSD e selezionare il file WadConfig.xsd. Fare clic su **OK**.
@@ -186,7 +185,7 @@ In **Esplora server** di Visual Studio passare all'account di archiviazione di w
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
-## <a name="configuration-file-schema"></a>Schema del file di configurazione
+## <a name="configuration-file-schema"></a>Schema dei file di configurazione
 Il file di configurazione della diagnostica definisce i valori usati per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica. Vedere il [riferimento allo schema più recente](/azure/azure-monitor/platform/diagnostics-extension-schema) per i valori validi ed alcuni esempi.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi

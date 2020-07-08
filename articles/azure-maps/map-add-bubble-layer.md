@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77208557"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Aggiungere un livello bolle a una mappa
@@ -21,7 +20,7 @@ ms.locfileid: "77208557"
 Questo articolo illustra come eseguire il rendering dei dati punto da un'origine dati come livello Bubble su una mappa. I livelli Bubble eseguono il rendering dei punti come cerchi sulla mappa con un raggio fisso di pixel. 
 
 > [!TIP]
-> Per impostazione predefinita i livelli bolle eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di `filter` geometria dei punti, impostare `['==', ['geometry-type'], 'Point']` la `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` proprietà del livello su o se si desidera includere anche le funzionalità multipoint.
+> Per impostazione predefinita i livelli bolle eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di geometria dei punti, impostare la `filter` proprietà del livello su `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se si desidera includere anche le funzionalità multipoint.
 
 ## <a name="add-a-bubble-layer"></a>Aggiungere un livello per le bolle
 
@@ -53,7 +52,7 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 }));
 ```
 
-Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
+Di seguito è riportato l'esempio di codice completo e funzionante della funzionalità precedente.
 
 <br/>
 
@@ -62,7 +61,7 @@ Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funz
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Mostrare etichette con un livello bolle
 
-Questo codice illustra come usare un livello Bubble per eseguire il rendering di un punto sulla mappa. E come usare un livello di simboli per eseguire il rendering di un'etichetta. Per nascondere l'icona del livello di simboli, impostare la `image` proprietà delle opzioni dell'icona su `'none'`.
+Questo codice illustra come usare un livello Bubble per eseguire il rendering di un punto sulla mappa. E come usare un livello di simboli per eseguire il rendering di un'etichetta. Per nascondere l'icona del livello di simboli, impostare la `image` proprietà delle opzioni dell'icona su `'none'` .
 
 <br/>
 
@@ -94,7 +93,7 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Creare un'origine dati](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di simbolo](map-add-pin.md)
+> [Aggiungere un livello per i simboli](map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)

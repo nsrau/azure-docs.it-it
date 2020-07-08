@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77587924"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Rilevamento avanzato degli attacchi multifase in Sentinel di Azure
@@ -38,7 +37,7 @@ Questo rilevamento è abilitato per impostazione predefinita in Sentinel di Azur
 
 1. Se non è già stato fatto, accedere al [portale di Azure](https://portal.azure.com).
 
-2. Passare ad **Azure Sentinel** > **Configuration** > **Analytics**
+2. Passare ad **Azure Sentinel**  >  **Configuration**  >  **Analytics**
 
 3. Selezionare **regole attive** e individuare **Rilevamento attacchi multifase avanzati** nella colonna **nome** . Controllare la colonna **stato** per verificare se il rilevamento è abilitato o disabilitato.
 
@@ -49,7 +48,7 @@ Questo rilevamento è abilitato per impostazione predefinita in Sentinel di Azur
 I modelli di regole non sono applicabili per il rilevamento degli attacchi multifase avanzati.
 
 > [!NOTE]
-> Azure Sentinel usa attualmente i dati cronologici per 30 giorni per eseguire il training dei sistemi di machine learning. Questi dati vengono sempre crittografati usando le chiavi di Microsoft mentre passano attraverso la pipeline di machine learning. Tuttavia, i dati di training non vengono crittografati con le [chiavi gestite dal cliente (CMK)](customer-managed-keys.md) se è stato abilitato CMK nell'area di lavoro di Azure Sentinel. Per rifiutare esplicitamente la fusione, passare ad **Azure Sentinel** \> **Configuration** \> ** \> Analytics Active \> Rules Advanced MultiStage Attack Detection** e nella colonna **stato** selezionare **Disable (Disabilita).**
+> Azure Sentinel usa attualmente i dati cronologici per 30 giorni per eseguire il training dei sistemi di machine learning. Questi dati vengono sempre crittografati usando le chiavi di Microsoft mentre passano attraverso la pipeline di machine learning. Tuttavia, i dati di training non vengono crittografati con le [chiavi gestite dal cliente (CMK)](customer-managed-keys.md) se è stato abilitato CMK nell'area di lavoro di Azure Sentinel. Per rifiutare esplicitamente la fusione, passare ad **Azure Sentinel**   \>  **Configuration**   \>  **Analytics \> Active rules \> Advanced MultiStage Attack Detection** e nella colonna **stato** selezionare **Disable (Disabilita).**
 
 ## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion con Palo Alto Networks e Microsoft Defender ATP
 
@@ -89,7 +88,7 @@ Grazie al rilevamento avanzato degli attacchi multifase, Azure Sentinel supporta
 
 È necessario disporre del [connettore Azure ad Identity Protection data](connect-azure-ad-identity-protection.md) e dei connettori di [cloud app Security](connect-cloud-app-security.md) configurati.
 
-Nelle descrizioni seguenti, Azure Sentinel visualizzerà il valore effettivo dei dati rappresentati in questa pagina come variabili tra parentesi quadre. \<Ad esempio, il nome visualizzato effettivo di un account anziché il *nome account*> e il numero effettivo anziché \<il *numero*>.
+Nelle descrizioni seguenti, Azure Sentinel visualizzerà il valore effettivo dei dati rappresentati in questa pagina come variabili tra parentesi quadre. Ad esempio, il nome visualizzato effettivo di un account anziché \<*account name*> e il numero effettivo anziché \<*number*> .
 
 ### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Trasferimento Impossibile a una posizione atipica seguita da un'attività anomala di Office 365
 
@@ -97,45 +96,45 @@ Ci sono sette possibili eventi imprevisti di Azure Sentinel che combinano la tra
 
 - **Trasferimento Impossibile a posizioni atipiche che portano alla cassetta postale di Office 365 exfiltration**
     
-    Questo avviso indica che un evento di accesso \<in base al nome dell' *account*> da un percorso non possibile \<a un *percorso*>, una posizione atipica, seguita da una regola di invio sospetta della posta in arrivo, è stata impostata nella posta in arrivo di un utente.
+    Questo avviso indica un evento di accesso da \<*account name*> un percorso non possibile a un \<*location*> percorso atipico, seguito da una regola di invio della posta in arrivo sospetta impostata nella posta in arrivo di un utente.
     
-    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. Il \< *nome dell'account* utente> ha creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di \<posta elettronica in arrivo all' *indirizzo di posta elettronica* indirizzo esterno>.
+    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. L'utente ha \<*account name*> creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di posta elettronica in arrivo all'indirizzo esterno \<*email address*> .
 
 - **Trasferimento Impossibile a posizioni atipiche che comportano attività amministrative sospette per le app Cloud**
     
-    Questo avviso indica che un evento di accesso \<in base al nome dell' *account*> da un percorso non possibile \<a un *percorso*>, una località atipica.
+    Questo avviso indica un evento di accesso da \<*account name*> un percorso non possibile a un \<*location*> percorso atipico.
     
-    Successivamente, il \< *nome dell'account* dell'account> \<eseguito sopra il *numero*> le attività amministrative in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eseguito le \<*number*> attività amministrative in una singola sessione.
 
 - **Trasferimento Impossibile a posizioni atipiche che comportano l'eliminazione di file di massa**
     
-    Questo avviso \<indica che un evento di accesso in base al *nome account*> alla \< *località*>, una posizione atipica. 
+    Questo avviso indica un evento di accesso da \<*account name*> a \<*location*> , una posizione atipica. 
     
-    Successivamente, il \< *nome dell'account* dell'account \<> eliminato il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eliminato \<*number of*> i file univoci in una singola sessione.
 
 - **Trasferimento Impossibile a posizioni atipiche che portano al download di file di massa**
     
-    Questo avviso indica che un evento di accesso \<in base al nome dell' *account*> da un percorso non possibile \<a un *percorso*>, una località atipica. 
+    Questo avviso indica un evento di accesso da \<*account name*> un percorso non possibile a un \<*location*> percorso atipico. 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<scaricato oltre il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account è stato \<*account name*> scaricato su \<*number of*> file univoci in una singola sessione.
 
 - **Trasferimento Impossibile a posizioni atipiche che comportano la rappresentazione di Office 365**
     
-    Questo avviso indica che un evento di accesso \<in base al nome dell' *account*> da un percorso non possibile \<a un *percorso*>, una località atipica. 
+    Questo avviso indica un evento di accesso da \<*account name*> un percorso non possibile a un \<*location*> percorso atipico. 
     
-    Successivamente, il \< *nome dell'account* dell'account> eseguita una quantità\<insolita (*numero di attività*>) di attività di rappresentazione in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eseguito una quantità insolita \<*number of activities*> di attività di rappresentazione in una singola sessione.
 
 - **Trasferimento Impossibile a posizioni atipiche che portano alla condivisione di file di massa**
     
-    Questo avviso indica che un evento di accesso \<in base al nome dell' *account*> da un percorso non possibile \<a un *percorso*>, una località atipica. 
+    Questo avviso indica un evento di accesso da \<*account name*> un percorso non possibile a un \<*location*> percorso atipico. 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<condiviso per il *numero di* file> univoci in una singola sessione.
+    Quindi, l'account \<*account name*> condivideva i \<*number of*> file univoci in una singola sessione.
 
 - **Trasferimento Impossibile a posizioni atipiche che portano a ransomware nell'app Cloud**
     
-    Questo avviso indica che un evento di accesso \<in base al nome dell' *account*> da un percorso non possibile \<a un *percorso*>, una località atipica. 
+    Questo avviso indica un evento di accesso da \<*account name*> un percorso non possibile a un \<*location*> percorso atipico. 
     
-    Successivamente, il \< *nome dell'account* dell'account \<> il *numero di* file> caricato ed eliminato un \<totale di un *numero* di file>. 
+    Successivamente, l'account ha \<*account name*> caricato i \<*number of*> file ed eliminato un totale di \<*number of*> file. 
     
     Questo modello di attività è indicativo di un potenziale attacco ransomware.
 
@@ -146,45 +145,45 @@ Esistono sette possibili eventi imprevisti di Azure Sentinel che combinano l'att
 
 - **Evento di accesso da una posizione non nota che conduce alla cassetta postale di Exchange Online exfiltration**
     
-    \<Questo avviso indica un evento di accesso in base al *nome account*> dalla \< *località*>, un percorso non noto, seguito da una regola di invio sospetta della posta in arrivo è stata impostata nella posta in arrivo di un utente.
+    Questo avviso è un'indicazione di un evento di accesso da una \<*account name*> \<*location*> posizione non nota, seguita da una regola di invio di posta in arrivo sospetta impostata nella posta in arrivo di un utente.
     
-    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. Il \< *nome dell'account* utente> ha creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di \<posta elettronica in arrivo all' *indirizzo di posta elettronica* indirizzo esterno>. 
+    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. L'utente ha \<*account name*> creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di posta elettronica in arrivo all'indirizzo esterno \<*email address*> . 
 
 - **Evento di accesso da una posizione non nota che causa un'attività amministrativa sospetta per le app Cloud**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> dalla \< *località*>, una posizione non nota. 
+    Questo avviso indica un evento di accesso da \<*account name*> \<*location*> una posizione non nota. 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<eseguito su un *numero di*> attività amministrative in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eseguito le \<*number of*> attività amministrative in una singola sessione.
 
 - **Evento di accesso da una posizione non nota che causa l'eliminazione di file di massa**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> dalla \< *località*>, una posizione non nota. 
+    Questo avviso indica un evento di accesso da \<*account name*> \<*location*> una posizione non nota. 
     
-    Successivamente, il \< *nome dell'account* dell'account \<> eliminato il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eliminato \<*number of*> i file univoci in una singola sessione.
 
 - **Evento di accesso da una posizione non nota che conduce al download di file di massa**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> dalla \< *località*>, una posizione non nota. 
+    Questo avviso indica un evento di accesso da \<*account name*> \<*location*> una posizione non nota. 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<scaricato oltre il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account è stato \<*account name*> scaricato su \<*number of*> file univoci in una singola sessione.
 
 - **Evento di accesso da una posizione non nota che conduce alla rappresentazione di Office 365**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> dalla \< *località*>, una posizione non nota.
+    Questo avviso indica un evento di accesso da \<*account name*> \<*location*> una posizione non nota.
     
-    Successivamente, il \< *nome dell'account* dell'account> rappresentato \<per il *numero di*> account diversi in una singola sessione.
+    Successivamente, l'account è \<*account name*> rappresentato su \<*number of*> account diversi in una singola sessione.
 
 - **Evento di accesso da una posizione non nota che conduce alla condivisione di file di massa**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> dalla \< *località*>, una posizione non nota. 
+    Questo avviso indica un evento di accesso da \<*account name*> \<*location*> una posizione non nota. 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<condiviso per il *numero di* file> univoci in una singola sessione.
+    Quindi, l'account \<*account name*> condivideva i \<*number of*> file univoci in una singola sessione.
 
 - **Evento di accesso da una posizione non nota che conduce a ransomware nell'app Cloud**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> dalla \< *località*>, una posizione non nota. 
+    Questo avviso indica un evento di accesso da \<*account name*> \<*location*> una posizione non nota. 
     
-    Successivamente, il \< *nome dell'account* dell'account \<> il *numero di* file> caricato ed eliminato un \<totale di un *numero* di file>. 
+    Successivamente, l'account ha \<*account name*> caricato i \<*number of*> file ed eliminato un totale di \<*number of*> file. 
     
     Questo modello di attività è indicativo di un potenziale attacco ransomware.
 
@@ -194,45 +193,45 @@ Esistono sette possibili eventi imprevisti di Azure Sentinel che combinano l'att
 
 - **Evento di accesso da un dispositivo infetto che conduce alla cassetta postale di Office 365 exfiltration**
     
-    Questo avviso indica un evento di accesso in base al nome di \< *account*> da un dispositivo potenzialmente infetto da malware, seguito da una regola di invio di posta in arrivo sospetta impostata nella posta in arrivo di un utente.
+    Questo avviso indica un evento di accesso da \<*account name*> un dispositivo potenzialmente infetto da malware, seguito da una regola di invio di posta in arrivo sospetta impostata nella posta in arrivo di un utente.
     
-    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. Il \< *nome dell'account* utente> ha creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di \<posta elettronica in arrivo all' *indirizzo di posta elettronica* indirizzo esterno>. 
+    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. L'utente ha \<*account name*> creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di posta elettronica in arrivo all'indirizzo esterno \<*email address*> . 
 
 - **Evento di accesso da un dispositivo infetto che causa attività amministrative sospette per le app Cloud**
     
-    Questo avviso indica un evento di accesso in base \<al *nome account*> da un dispositivo potenzialmente infetto da malware.
+    Questo avviso indica un evento di accesso da \<*account name*> un dispositivo potenzialmente infetto da malware.
     
-    Successivamente, il \< *nome dell'account* dell'account> \<eseguito su un *numero di*> attività amministrative in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eseguito le \<*number of*> attività amministrative in una singola sessione.
 
 - **Evento di accesso da un dispositivo infetto che causa l'eliminazione di file di massa**
     
-    Questo avviso indica un evento di accesso in base \<al *nome account*> da un dispositivo potenzialmente infetto da malware. 
+    Questo avviso indica un evento di accesso da \<*account name*> un dispositivo potenzialmente infetto da malware. 
     
-    Successivamente, il \< *nome dell'account* dell'account \<> eliminato il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eliminato \<*number of*> i file univoci in una singola sessione.
 
 - **Evento di accesso da un dispositivo infetto che conduce al download di file di massa**
     
-    Questo avviso indica un evento di accesso in base \<al *nome account*> da un dispositivo potenzialmente infetto da malware. 
+    Questo avviso indica un evento di accesso da \<*account name*> un dispositivo potenzialmente infetto da malware. 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<scaricato oltre il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account è stato \<*account name*> scaricato su \<*number of*> file univoci in una singola sessione.
 
 - **Evento di accesso da un dispositivo infetto che conduce alla rappresentazione di Office 365**
     
-    Questo avviso indica un evento di accesso in base \<al *nome account*> da un dispositivo potenzialmente infetto da malware. 
+    Questo avviso indica un evento di accesso da \<*account name*> un dispositivo potenzialmente infetto da malware. 
     
-    Successivamente, il \< *nome dell'account* dell'account> rappresentato \<per il *numero di*> account diversi in una singola sessione.
+    Successivamente, l'account è \<*account name*> rappresentato su \<*number of*> account diversi in una singola sessione.
 
 - **Evento di accesso da un dispositivo infetto che conduce alla condivisione di file di massa**
     
-    Questo avviso indica un evento di accesso in base \<al *nome account*> da un dispositivo potenzialmente infetto da malware. 
+    Questo avviso indica un evento di accesso da \<*account name*> un dispositivo potenzialmente infetto da malware. 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<condiviso per il *numero di* file> univoci in una singola sessione.
+    Quindi, l'account \<*account name*> condivideva i \<*number of*> file univoci in una singola sessione.
 
 - **Evento di accesso da un dispositivo infetto che conduce a ransomware nell'app Cloud**
     
-    Questo avviso indica un evento di accesso in base \<al *nome account*> da un dispositivo potenzialmente infetto da malware. 
+    Questo avviso indica un evento di accesso da \<*account name*> un dispositivo potenzialmente infetto da malware. 
     
-    Successivamente, il \< *nome dell'account* dell'account \<> il *numero di* file> caricato ed eliminato un \<totale di un *numero* di file>. 
+    Successivamente, l'account ha \<*account name*> caricato i \<*number of*> file ed eliminato un totale di \<*number of*> file. 
     
     Questo modello di attività è indicativo di un potenziale attacco ransomware.
 
@@ -242,45 +241,45 @@ Esistono sette possibili eventi imprevisti di Azure Sentinel che combinano l'att
 
 - **Evento di accesso da un indirizzo IP anonimo che conduce alla cassetta postale di Office 365 exfiltration**
     
-    Questo avviso \<indica un evento di accesso in base al *nome account*> da un indirizzo IP del proxy \< *Anonimo>,* seguito da una regola di inoltro della posta in arrivo sospetta impostata nella posta in arrivo di un utente.
+    Questo avviso indica un evento di accesso da \<*account name*> un indirizzo IP proxy anonimo \<*IP address*> , seguito da una regola di inoltro della posta in arrivo sospetta impostata nella posta in arrivo di un utente.
     
-    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. Il \< *nome dell'account* utente> ha creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di \<posta elettronica in arrivo all' *indirizzo di posta elettronica* indirizzo esterno>. 
+    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. L'utente ha \<*account name*> creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di posta elettronica in arrivo all'indirizzo esterno \<*email address*> . 
 
 - **Evento di accesso da un indirizzo IP anonimo che causa un'attività amministrativa sospetta dell'app Cloud**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> da un indirizzo IP del proxy \< *Anonimo>.* 
+    Questo avviso indica un evento di accesso da \<*account name*> un indirizzo IP proxy anonimo \<*IP address*> . 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<eseguito su un *numero di*> attività amministrative in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eseguito le \<*number of*> attività amministrative in una singola sessione.
 
 - **Evento di accesso da un indirizzo IP anonimo che causa l'eliminazione di file di massa**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> da un indirizzo IP del proxy \< *Anonimo>.* 
+    Questo avviso indica un evento di accesso da \<*account name*> un indirizzo IP proxy anonimo \<*IP address*> . 
     
-    Successivamente, il \< *nome dell'account* dell'account \<> eliminato il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eliminato \<*number of*> i file univoci in una singola sessione.
 
 - **Evento di accesso da un indirizzo IP anonimo che conduce al download di file di massa**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> da un indirizzo IP del proxy \< *Anonimo>.* 
+    Questo avviso indica un evento di accesso da \<*account name*> un indirizzo IP proxy anonimo \<*IP address*> . 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<scaricato oltre il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account è stato \<*account name*> scaricato su \<*number of*> file univoci in una singola sessione.
 
 - **Evento di accesso da un indirizzo IP anonimo che conduce alla rappresentazione di Office 365**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> da un indirizzo IP del proxy \< *Anonimo>.* 
+    Questo avviso indica un evento di accesso da \<*account name*> un indirizzo IP proxy anonimo \<*IP address*> . 
     
-    Successivamente, il \< *nome dell'account* dell'account> rappresentato \<per il *numero di*> account diversi in una singola sessione.
+    Successivamente, l'account è \<*account name*> rappresentato su \<*number of*> account diversi in una singola sessione.
 
 - **Evento di accesso da un indirizzo IP anonimo che conduce alla condivisione di file di massa**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> da un indirizzo IP del proxy \< *Anonimo>.* 
+    Questo avviso indica un evento di accesso da \<*account name*> un indirizzo IP proxy anonimo \<*IP address*> . 
     
-    Successivamente, il \< *nome dell'account* dell'account> \<condiviso per il *numero di* file> univoci in una singola sessione.
+    Quindi, l'account \<*account name*> condivideva i \<*number of*> file univoci in una singola sessione.
 
 - **Evento di accesso da un indirizzo IP anonimo a ransomware nell'app Cloud**
     
-    Questo avviso indica un evento di accesso in base al \< *nome account*> da un indirizzo IP del proxy \< *Anonimo>.* 
+    Questo avviso indica un evento di accesso da \<*account name*> un indirizzo IP proxy anonimo \<*IP address*> . 
     
-    Successivamente, il \< *nome dell'account* dell'account \<> il *numero di* file> caricato ed eliminato un \<totale di un *numero* di file>. 
+    Successivamente, l'account ha \<*account name*> caricato i \<*number of*> file ed eliminato un totale di \<*number of*> file. 
     
     Questo modello di attività è indicativo di un potenziale attacco ransomware.
 
@@ -290,45 +289,45 @@ Esistono sette possibili eventi imprevisti di Azure Sentinel che combinano l'att
 
 - **Evento di accesso dall'utente con credenziali perse che portano alla cassetta postale di Office 365 exfiltration**
     
-    Questo avviso indica che l'evento di accesso in base \<al nome dell' *account*> usato le credenziali perse, seguito da una regola di invio della posta in arrivo sospetta impostata nella posta in arrivo di un utente. 
+    Questo avviso indica che l'evento di accesso per le \<*account name*> credenziali perse, seguito da una regola di invio sospetta della posta in arrivo è stata impostata nella posta in arrivo di un utente. 
     
-    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. Il \< *nome dell'account* utente> ha creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di \<posta elettronica in arrivo all' *indirizzo di posta elettronica* indirizzo esterno>. 
+    Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. L'utente ha \<*account name*> creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di posta elettronica in arrivo all'indirizzo esterno \<*email address*> . 
 
 - **Evento di accesso dall'utente con credenziali perse che causano attività amministrative sospette per le app Cloud**
     
-    Questo avviso indica che l'evento di accesso in base \<al nome dell' *account*> usato le credenziali perse.
+    Questo avviso indica che l'evento di accesso è stato usato per le \<*account name*> credenziali perse.
     
-    Successivamente, il \< *nome dell'account* dell'account> \<eseguito su un *numero di*> attività amministrative in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eseguito le \<*number of*> attività amministrative in una singola sessione.
 
 - **Evento di accesso dall'utente con credenziali perse che portano all'eliminazione di file di massa**
     
-    Questo avviso indica che l'evento di accesso in base \<al nome dell' *account*> usato le credenziali perse.
+    Questo avviso indica che l'evento di accesso è stato usato per le \<*account name*> credenziali perse.
     
-    Successivamente, il \< *nome dell'account* dell'account \<> eliminato il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account ha \<*account name*> eliminato \<*number of*> i file univoci in una singola sessione.
 
 - **Evento di accesso dall'utente con credenziali perse che portano al download di file di massa**
     
-    Questo avviso indica che l'evento di accesso in base \<al nome dell' *account*> usato le credenziali perse.
+    Questo avviso indica che l'evento di accesso è stato usato per le \<*account name*> credenziali perse.
     
-    Successivamente, il \< *nome dell'account* dell'account> \<scaricato oltre il *numero di* file> univoci in una singola sessione.
+    Successivamente, l'account è stato \<*account name*> scaricato su \<*number of*> file univoci in una singola sessione.
 
 - **Evento di accesso dall'utente con credenziali perse che portano alla rappresentazione di Office 365**
     
-    Questo avviso indica che l'evento di accesso in base \<al nome dell' *account*> usato le credenziali perse. 
+    Questo avviso indica che l'evento di accesso è stato usato per le \<*account name*> credenziali perse. 
     
-    Successivamente, il \< *nome dell'account* dell'account> rappresentato \<per il *numero di*> account diversi in una singola sessione.
+    Successivamente, l'account è \<*account name*> rappresentato su \<*number of*> account diversi in una singola sessione.
 
 - **Evento di accesso dall'utente con credenziali perse che portano alla condivisione di file di massa**
     
-    Questo avviso indica che l'evento di accesso in base \<al nome dell' *account*> usato le credenziali perse.
+    Questo avviso indica che l'evento di accesso è stato usato per le \<*account name*> credenziali perse.
     
-    Successivamente, il \< *nome dell'account* dell'account> \<condiviso per il *numero di* file> univoci in una singola sessione.
+    Quindi, l'account \<*account name*> condivideva i \<*number of*> file univoci in una singola sessione.
 
 - **Evento di accesso dall'utente con credenziali perse al ransomware nell'app Cloud**
     
-    Questo avviso indica che l'evento di accesso in base \<al nome dell' *account*> usato le credenziali perse. 
+    Questo avviso indica che l'evento di accesso è stato usato per le \<*account name*> credenziali perse. 
     
-    Successivamente, il \< *nome dell'account* dell'account \<> il *numero di* file> caricato ed eliminato un \<totale di un *numero* di file>. 
+    Successivamente, l'account ha \<*account name*> caricato i \<*number of*> file ed eliminato un totale di \<*number of*> file. 
     
     Questo modello di attività è indicativo di un potenziale attacco ransomware.
 

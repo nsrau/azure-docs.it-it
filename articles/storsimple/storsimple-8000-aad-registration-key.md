@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: b16132c24d35ee2c9902fa2b21c44416d8376b4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77470905"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usare la nuova autenticazione per StorSimple
@@ -42,7 +41,7 @@ Se si usa StorSimple serie 8000, verificare che l'URL seguente sia incluso nelle
 | Modello URL                         | Cloud | Componente/funzionalità         |
 |------------------------------------|-------|----------------------------------|
 | `https://login.windows.net`        | Azure Public |Servizio di autenticazione di Azure Active Directory      |
-| `https://login.microsoftonline.us` | Enti pubblici Stati Uniti |Servizio di autenticazione di Azure Active Directory      |
+| `https://login.microsoftonline.us` | US Gov |Servizio di autenticazione di Azure Active Directory      |
 
 Per un elenco completo dei modelli URL per i dispositivi della serie StorSimple 8000, passare a [Modelli URL per le regole del firewall](storsimple-8000-system-requirements.md#url-patterns-for-firewall-rules).
 

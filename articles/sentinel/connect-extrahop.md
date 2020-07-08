@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 8d82d8c5a76c34875e9a4aae22c547aec897c18a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588298"
 ---
 # <a name="connect-extrahop-revealx"></a>Connettere ExtraHop Reveal(x)
@@ -34,7 +33,7 @@ Il connettore ExtraHop Reveal (x) Data consente di connettere facilmente il sist
 
 ## <a name="connect-azure-sentinel-to-extrahop-revealx"></a>Connettere Azure Sentinel a ExtraHop Reveal (x)
 
-1. Nel portale di Azure passare ad **Azure Sentinel** > **Data** Connector e quindi selezionare il connettore **ExtraHop Reveal (x)** .
+1. Nel portale di Azure passare ad **Azure Sentinel**  >  **Data** Connector e quindi selezionare il connettore **ExtraHop Reveal (x)** .
 
 2. Selezionare **Apri connettore pagina**.
 
@@ -44,6 +43,6 @@ Il connettore ExtraHop Reveal (x) Data consente di connettere facilmente il sist
 In questo documento si è appreso come connettere ExtraHop Reveal (x) ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 
 

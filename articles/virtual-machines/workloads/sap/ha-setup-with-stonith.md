@@ -14,10 +14,9 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77615091"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configurazione della disponibilità elevata in SUSE con STONITH
@@ -145,8 +144,8 @@ Fare clic su **cancel** (Annulla), perché il pacchetto halk2 è già installato
 
 Fare clic su **continua**
 
-Valore previsto = numero di nodi distribuiti (in questo caso 2) ![YaST-cluster-Security. png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) fare clic su **Avanti**
-![YaST-cluster-Configure-Csync2](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) . png aggiungere i nomi dei nodi e quindi fare clic su "Aggiungi file suggeriti"
+Valore previsto = numero di nodi distribuiti (in questo caso 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) fare clic su **Avanti** 
+ ![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) aggiungere i nomi dei nodi e quindi fare clic su "Aggiungi file suggeriti"
 
 Fare clic su "Turn csync2 ON" (Attiva csync2)
 
@@ -160,8 +159,8 @@ L'autenticazione viene eseguita usando gli indirizzi IP e le chiavi precondivise
 
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
-Fare clic su **Next**
-![YaST-cluster-Service. png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+Fare clic su **Avanti** 
+ ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 L'impostazione predefinita di Booting (Avvio) è "Off" (No). Impostarlo su "On" (Sì) per avviare Pacemaker durante il bootstrap. È possibile effettuare la scelta in base ai requisiti di configurazione.
 Fare clic su **Next** (Avanti) per completare la configurazione del cluster.
@@ -257,7 +256,7 @@ Eseguire il comando *crm_mon* per assicurarsi che **entrambi** i nodi siano onli
 ```
 crm_mon
 ```
-![CRM-Mon. png](media/HowToHLI/HASetupWithStonith/crm-mon.png) è inoltre possibile accedere a Hawk per verificare lo stato del cluster *https://\<del nodo IP>:7630*. L'utente predefinito è hacluster e la password è linux. Se necessario, è possibile modificare la password usando il comando *passwd*.
+![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) È anche possibile accedere a hawk per controllare lo stato del cluster *https://\<node IP>:7630*. L'utente predefinito è hacluster e la password è linux. Se necessario, è possibile modificare la password usando il comando *passwd*.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. configurare le proprietà e le risorse del cluster 
 Questa sezione descrive i passaggi per configurare le risorse del cluster.
@@ -322,7 +321,7 @@ crm configure load update crm-vip.txt
 Quando si esegue il comando *crm_mon*, è possibile visualizzare le due risorse.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-È anche possibile visualizzare lo stato nell' *indirizzo IP\<del nodo https://>:7630/CIB/Live/state*
+È anche possibile visualizzare lo stato all'indirizzo *https://\<node IP address>:7630/cib/live/state*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -334,11 +333,11 @@ Service pacemaker stop
 Arrestare ora il servizio Pacemaker in **node2**. È stato effettuato il failover delle risorse in **node1**
 
 **Prima del failover**  
-![Before-failover. png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
 **Dopo il failover**  
-![after-failover. png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
-![CRM-Mon-after-failover. png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
+![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## <a name="9-troubleshooting"></a>9. risoluzione dei problemi
@@ -371,7 +370,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scenario 2: yast2 non mostra la visualizzazione grafica
 In questo documento viene usata la schermata grafica di yast2 per configurare il cluster a disponibilità elevata. Se yast2 non si apre con la finestra grafica illustrata e genera l'errore Qt, seguire questa procedura. Se si apre con la finestra grafica, è possibile ignorare la procedura.
 
-**Erroree**
+**Errore**
 
 ![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 

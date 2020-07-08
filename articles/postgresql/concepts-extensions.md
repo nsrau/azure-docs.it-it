@@ -7,17 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77201272"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Estensioni di PostgreSQL nel database di Azure per PostgreSQL-server singolo
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni raggruppano più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un unico comando. Dopo essere stato caricato nel database, le estensioni funzionano come le funzionalità predefinite.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Come usare le estensioni di PostgreSQL
-Per poter usare le estensioni di PostgreSQL è prima necessario installarle nel database. Per installare un'estensione specifica, eseguire il comando [Crea estensione](https://www.postgresql.org/docs/current/sql-createextension.html) dallo strumento PSQL per caricare gli oggetti inclusi nel pacchetto nel database.
+Per poter usare le estensioni di PostgreSQL è prima necessario installarle nel database. Per installare un'estensione specifica, eseguire il comando [Crea estensione](https://www.postgresql.org/docs/current/sql-createextension.html)   dallo strumento PSQL per caricare gli oggetti inclusi nel pacchetto nel database.
 
 Database di Azure per PostgreSQL supporta un subset di estensioni chiave come indicato di seguito. Queste informazioni sono disponibili anche eseguendo `SELECT * FROM pg_available_extensions;`. Le estensioni oltre a quelle elencate non sono supportate. Non è possibile creare un'estensione personalizzata nel database di Azure per PostgreSQL.
 
@@ -215,7 +214,7 @@ L'impostazione `pg_stat_statements.track`, che controlla le istruzioni conteggia
 Attualmente, le connessioni in uscita da database di Azure per PostgreSQL non sono supportate, tranne che per le connessioni ad altri server di database di Azure per PostgreSQL.
 
 ## <a name="uuid"></a>uuid
-Se si prevede di `uuid_generate_v4()` usare dall' [estensione uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html), provare a confrontare con `gen_random_uuid()` dall' [estensione pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html) per ottenere i vantaggi delle prestazioni.
+Se si prevede di usare `uuid_generate_v4()` dall' [estensione uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html), provare a confrontare con `gen_random_uuid()` dall' [estensione pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html) per ottenere i vantaggi delle prestazioni.
 
 ## <a name="pgaudit"></a>pgAudit
 L' [estensione pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md) fornisce la registrazione di controllo di sessione e oggetti. Per informazioni su come usare questa estensione in database di Azure per PostgreSQL, vedere l' [articolo sui concetti di controllo](concepts-audit.md). 
@@ -231,7 +230,7 @@ TimescaleDB è un database di serie temporali assemblato come estensione per Pos
 [Scopri di più su TimescaleDB](https://docs.timescale.com/latest), un marchio registrato di [scala cronologica, Inc.](https://www.timescale.com/) Database di Azure per PostgreSQL offre la versione open source della scala cronologica. Per informazioni sulle funzionalità della scala cronologica disponibili in questa versione, vedere [il confronto dei prodotti in scala cronologica](https://www.timescale.com/products/).
 
 ### <a name="installing-timescaledb"></a>Installazione di TimescaleDB
-Per installare TimescaleDB, è necessario includerlo nelle librerie di precaricamento condivise del server. Per rendere effettiva una modifica al `shared_preload_libraries` parametro Postgres è necessario **riavviare il server** . È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).
+Per installare TimescaleDB, è necessario includerlo nelle librerie di precaricamento condivise del server. Per rendere effettiva una modifica al parametro Postgres è `shared_preload_libraries` necessario **riavviare il server** . È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).
 
 Utilizzando la [portale di Azure](https://portal.azure.com/):
 
@@ -258,7 +257,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 È ora possibile creare un'ipertabella TimescaleDB [da zero](https://docs.timescale.com/getting-started/creating-hypertables) o migrare [i dati di serie temporali esistenti in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
 ### <a name="restoring-a-timescale-database"></a>Ripristino di un database di scala cronologica
-Per ripristinare un database di scala cronologica utilizzando pg_dump e pg_restore, è necessario eseguire due procedure di supporto nel database di `timescaledb_pre_restore()` destinazione `timescaledb_post restore()`: e.
+Per ripristinare un database di scala cronologica utilizzando pg_dump e pg_restore, è necessario eseguire due procedure di supporto nel database di destinazione: `timescaledb_pre_restore()` e `timescaledb_post restore()` .
 
 Preparare innanzitutto il database di destinazione:
 

@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 5529989384df75b592afa8f5e4960eb9817fb2d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77472518"
 ---
 # <a name="manage-ssh-access-for-domain-accounts-in-azure-hdinsight"></a>Gestire l'accesso SSH per gli account di dominio in Azure HDInsight
@@ -20,15 +19,15 @@ Nei cluster protetti, per impostazione predefinita, tutti gli utenti del dominio
 
 ## <a name="manage-access"></a>Gestire l'accesso
 
-Per modificare l'accesso SSH a utenti o gruppi specifici, `/etc/ssh/sshd_config` eseguire l'aggiornamento in ogni nodo.
+Per modificare l'accesso SSH a utenti o gruppi specifici, eseguire l'aggiornamento `/etc/ssh/sshd_config` in ogni nodo.
 
-1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster in uso e quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Aprire il `ssh_confi`file g.
+1. Aprire il `ssh_confi` file g.
 
     ```bash
     sudo nano /etc/ssh/sshd_config
@@ -54,11 +53,11 @@ Per modificare l'accesso SSH a utenti o gruppi specifici, `/etc/ssh/sshd_config`
 
 ## <a name="ssh-authentication-log"></a>Log di autenticazione SSH
 
-Il log di autenticazione SSH è `/var/log/auth.log`scritto in. Se vengono visualizzati errori di accesso tramite SSH per gli account locali o di dominio, sarà necessario esaminare il log per eseguire il debug degli errori. Spesso il problema potrebbe essere correlato a account utente specifici ed è in genere consigliabile provare altri account utente o SSH usando l'utente SSH predefinito (account locale) e quindi provare a kinit.
+Il log di autenticazione SSH è scritto in `/var/log/auth.log` . Se vengono visualizzati errori di accesso tramite SSH per gli account locali o di dominio, sarà necessario esaminare il log per eseguire il debug degli errori. Spesso il problema potrebbe essere correlato a account utente specifici ed è in genere consigliabile provare altri account utente o SSH usando l'utente SSH predefinito (account locale) e quindi provare a kinit.
 
 ## <a name="ssh-debug-log"></a>Log di debug SSH
 
-Per abilitare la registrazione dettagliata, sarà necessario riavviare `sshd` con l' `-d` opzione. Come `/usr/sbin/sshd -d` è possibile eseguire `sshd` anche su una porta personalizzata, ad esempio 2222, in modo da non dover arrestare il daemon ssh principale. È anche possibile usare `-v` l'opzione con il client SSH per ottenere più log (visualizzazione lato client degli errori).
+Per abilitare la registrazione dettagliata, sarà necessario riavviare `sshd` con l' `-d` opzione. Come `/usr/sbin/sshd -d` è possibile eseguire anche `sshd` su una porta personalizzata, ad esempio 2222, in modo da non dover arrestare il daemon ssh principale. È anche possibile usare `-v` l'opzione con il client SSH per ottenere più log (visualizzazione lato client degli errori).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

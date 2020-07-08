@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
 ms.openlocfilehash: b41db629c5308348f632b3dc51c75822ba361c60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77591354"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in Windows con Azure NetApp Files (SMB) per le applicazioni SAP
@@ -59,7 +58,7 @@ ms.locfileid: "77591354"
 
 Questo articolo descrive come distribuire, configurare le macchine virtuali, installare il Framework del cluster e installare un sistema SAP NetWeaver 7,50 a disponibilità elevata nelle VM Windows usando [SMB](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) in [Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
 
-Il livello del database non è illustrato in dettaglio in questo articolo. Si presuppone che la [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) di Azure sia già stata creata.  
+Il livello del database non è descritto in dettaglio in questo articolo. Si presuppone che la [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) di Azure sia già stata creata.  
 
 Leggere prima di tutto i documenti e le note SAP seguenti:
 
@@ -81,13 +80,13 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 * [Aggiungere la porta probe nella configurazione del cluster ASC](sap-high-availability-installation-wsfc-file-share.md)
 * [Installazione di un'istanza di (A) SCS in un cluster di failover](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Creare un volume SMB per Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
-* [Applicazioni SAP NetApp su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
+* [Applicazioni NetApp SAP su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
 
 ## <a name="overview"></a>Panoramica
 
 SAP ha sviluppato un nuovo approccio e un'alternativa per i dischi condivisi del cluster per il clustering di un'istanza ASCS/SCS di SAP in un cluster di failover di Windows. Invece di usare i dischi condivisi del cluster, è possibile usare una condivisione file SMB per distribuire i file dell'host globale SAP. Azure NetApp Files supporta SMBv3 (insieme a NFS) con ACL NTFS usando Active Directory. Azure NetApp Files è automaticamente a disponibilità elevata (in quanto si tratta di un servizio PaaS). Queste funzionalità rendono Azure NetApp Files ottima opzione per ospitare la condivisione file SMB per SAP Global.  
 Sono supportati sia [servizi di dominio Azure Active Directory (ad)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) che [Active Directory Domain Services (ad DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) . Con Azure NetApp Files è possibile usare controller di dominio Active Directory esistenti. I controller di dominio possono essere in Azure come macchine virtuali o in locale tramite la VPN ExpressRoute o S2S. In questo articolo verrà usato il controller di dominio in una macchina virtuale di Azure.  
-La disponibilità elevata per i servizi SAP NetWeaver Central richiede l'archiviazione condivisa. Per ottenere questo risultato in Windows, fino a questo momento era necessario compilare il cluster SOFS o usare il disco condiviso del cluster s/w come il valore di base. A questo punto è possibile ottenere la disponibilità elevata di SAP NetWeaver usando l'archiviazione condivisa, distribuita in Azure NetApp Files. L'uso di Azure NetApp Files per l'archiviazione condivisa Elimina la necessità di SOFS o di un valore di tipo.  
+La disponibilità elevata per SAP NetWeaver Central Services richiede l'archiviazione condivisa. Per ottenere questo risultato in Windows, fino a questo momento era necessario compilare il cluster SOFS o usare il disco condiviso del cluster s/w come il valore di base. È ora possibile ottenere la disponibilità elevata di SAP NetWeaver usando l'archiviazione condivisa, distribuita in Azure NetApp Files. L'uso di Azure NetApp Files per l'archiviazione condivisa Elimina la necessità di SOFS o di un valore di tipo.  
 
 > [!NOTE]
 > Il clustering di istanze ASCS/SCS di SAP tramite con condivisione file è supportato per SAP NetWeaver 7.40 (e versioni successive) con kernel SAP versione 7.49 o versione successiva.  
@@ -113,7 +112,7 @@ Eseguire i passaggi seguenti, come preparazione per l'uso di Azure NetApp Files.
 4. Azure NetApp Files risorse devono trovarsi nella subnet delegata. Seguire le istruzioni in [delegare una subnet per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) per creare una subnet delegata.  
 
 > [!IMPORTANT]
-> È necessario creare connessioni di Active Directory prima di creare un volume SMB. Esaminare i [requisiti per le connessioni Active Directory](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections).  
+> È necessario creare le connessioni Active Directory prima di creare un volume SMB. Esaminare i [requisiti per le connessioni Active Directory](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections).  
 
 5. Creare Active Directory connessione, come descritto in [creare una connessione Active Directory](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#create-an-active-directory-connection)  
 6. Creare un volume SMB Azure NetApp Files SMB seguendo le istruzioni in [aggiungere un volume SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#add-an-smb-volume)  
@@ -147,7 +146,7 @@ Per SAP è necessario il seguente software:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Installare un'istanza di ASC/SCS nel primo nodo del cluster ASC/SCS
 
-1. Installare un'istanza di SAP ASC/SCS nel primo nodo del cluster. Avviare lo strumento di installazione di SAP SWPM, quindi passare a: **prodotto** > **DBMS** > installazione > server applicazioni ABAP (o Java) > sistema a disponibilità elevata > istanza di ASC/SCS > primo nodo del cluster.  
+1. Installare un'istanza di SAP ASC/SCS nel primo nodo del cluster. Avviare lo strumento di installazione di SAP SWPM, quindi passare a: **prodotto**  >  **DBMS** > installazione > server applicazioni ABAP (o Java) > sistema a disponibilità elevata > istanza di ASC/SCS > primo nodo del cluster.  
 
 2. Selezionare il **cluster di condivisione file** come configurazione della condivisione del cluster in SWPM.  
 3. Quando vengono richiesti i **parametri del cluster del sistema SAP**, immettere il nome host per la condivisione SMB Azure NetApp files già creata come **nome host della condivisione file**.  In questo esempio, il nome host della condivisione SMB è **anfsmb-9562**. 
@@ -158,11 +157,11 @@ Per SAP è necessario il seguente software:
 > [!TIP]
 > Se il controllo dei prerequisiti in SWPM indica che la condizione di dimensioni di swapping non è stata soddisfatta, è possibile modificare le dimensioni di swapping passando a Computer locale>proprietà di sistema>impostazioni prestazioni>> memoria virtuale avanzata>.  
 
-4. Configurare una risorsa cluster SAP, ovvero `SAP-SID-IP` la porta Probe, usando PowerShell. Eseguire questa configurazione in uno dei nodi del cluster SAP ASC/SCS, come descritto in [configurare la porta Probe](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761).
+4. Configurare una risorsa cluster SAP, ovvero la `SAP-SID-IP` porta Probe, usando PowerShell. Eseguire questa configurazione in uno dei nodi del cluster SAP ASC/SCS, come descritto in [configurare la porta Probe](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761).
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Installare un'istanza di ASC/SCS nel secondo nodo del cluster ASC/SCS
 
-1. Installare un'istanza di SAP ASC/SCS nel secondo nodo del cluster. Avviare lo strumento di installazione di SAP SWPM, quindi passare a **prodotto** > **DBMS** > installazione > server applicazioni ABAP (o Java) > sistema a disponibilità elevata > istanza di ASC/SCS > nodo cluster aggiuntivo.  
+1. Installare un'istanza di SAP ASC/SCS nel secondo nodo del cluster. Avviare lo strumento di installazione di SAP SWPM, quindi passare a **prodotto**  >  **DBMS** > installazione > server applicazioni ABAP (o Java) > sistema a disponibilità elevata > istanza di ASC/SCS > nodo cluster aggiuntivo.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installare un'istanza di DBMS e i server applicazioni SAP
 
@@ -177,9 +176,9 @@ Per completare l'installazione di SAP, installare:
 ### <a name="fail-over-from-cluster-node-a-to-cluster-node-b-and-back"></a>Eseguire il failover dal nodo A al nodo B e viceversa del cluster
 In questo scenario di test verrà fatto riferimento al nodo del cluster sapascs1 come nodo A e al nodo del cluster sapascs2 come nodo B.
 
-1. Verificare che le risorse del cluster siano in esecuzione nel nodo ![a. figura 1: risorse del cluster di failover di Windows Server in esecuzione nel nodo a prima del test di failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
+1. Verificare che le risorse del cluster siano in esecuzione nel nodo A. ![ Figura 1: risorse del cluster di failover di Windows Server in esecuzione nel nodo A prima del test di failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
 
-2. Riavviare il nodo A del cluster. Le risorse del cluster SAP vengono spostate nel nodo B ![del cluster. figura 2: risorse del cluster di failover di Windows Server in esecuzione sul nodo b dopo il test di failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
+2. Riavviare il nodo A del cluster. Le risorse del cluster SAP vengono spostate nel nodo B del cluster. ![ Figura 2: risorse del cluster di failover di Windows Server in esecuzione sul nodo B dopo il test di failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
 
 
 ## <a name="lock-entry-test"></a>Test voce di blocco
@@ -195,9 +194,9 @@ In questo scenario di test verrà fatto riferimento al nodo del cluster sapascs1
 Per altre informazioni, vedere [risoluzione dei problemi relativi al failover di Accodamento in ASC con ERS](https://wiki.scn.sap.com/wiki/display/SI/Troubleshooting+for+Enqueue+Failover+in+ASCS+with+ERS)
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP 
 * HANA in Azure (istanze di grandi dimensioni), vedere [disponibilità elevata e ripristino di emergenza di SAP Hana (istanze large) in Azure](hana-overview-high-availability-disaster-recovery.md).
-* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha].
+* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha]

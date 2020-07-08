@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617321"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e condivisione file per le istanze di SAP ASCS/SCS in Azure
@@ -231,13 +230,13 @@ Non esistono particolari considerazioni per il caso in cui servizi DBMS differen
 
 Creare il volume e la condivisione file seguenti nel cluster SOFS:
 
-* Struttura del file `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST nel volume condiviso cluster SOFS (CSV)
+* Struttura del file SAP GLOBALHOST `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` nel volume condiviso cluster SOFS (CSV)
 
 * Condivisione file SAPMNT
 
 * Configurare la sicurezza nella condivisione file e nella cartella SAPMNT con il controllo completo per:
-    * Il gruppo utenti del dominio \<DOMAIN>\SAP_\<SID>_GlobalAdmin
-    * Gli oggetti del computer per i nodi cluster SAP ASCS/SCS \<DOMAIN>\ClusterNode1$ e \<DOMAIN>\ClusterNode2$
+    * Il \<DOMAIN> gruppo di \<SID> utenti \ SAP_ _GlobalAdmin
+    * Gli oggetti computer del nodo del cluster SAP ASC/SCS \<DOMAIN> \ClusterNode1 $ e \<DOMAIN> \ClusterNode2 $
 
 Per creare il volume CSV con resilienza di mirroring, eseguire i cmdlet di PowerShell seguenti in uno dei nodi del cluster SOFS:
 
@@ -299,7 +298,7 @@ Come descritto in [Creare un nome host virtuale per l'istanza ASCS/SCS di SAP in
 
 Installare un'istanza di SAP ASC/SCS nel primo nodo del cluster. Per installare l'istanza, nello strumento di installazione SAP SWPM passare a:
 
-**\<Prodotto>**  >   >  **Installation** >  >  >  **Java****First cluster node** ** \<sistema DBMS>** installazione del**server applicazioni ABAP** (o Java) > nodo del primo cluster dell'**istanza ASC/SCS**del **sistema a disponibilità elevata**.
+**\<Product>** > **\<DBMS>** > **Installazione**  >  di **Server applicazioni ABAP** (o **Java**) > **sistema a disponibilità elevata**  >  **istanza ASC/SCS**  >  **primo nodo del cluster**.
 
 ### <a name="add-a-probe-port"></a>Aggiungere una porta probe
 
@@ -309,12 +308,12 @@ Configurare una porta probe SAP-SID-IP della risorsa cluster SAP tramite PowerSh
 
 Installare un'istanza di SAP ASC/SCS nel secondo nodo del cluster. Per installare l'istanza, nello strumento di installazione SAP SWPM passare a:
 
-**\<Prodotto>**  >   >  **Installation** >  >  >  **Java****Additional cluster node** ** \<sistema DBMS>** installazione del**server applicazioni ABAP** (o Java) > nodo del cluster aggiuntivo dell'**istanza ASC/SCS**del **sistema a disponibilità elevata**.
+**\<Product>** > **\<DBMS>** > **Installazione**  >  di **Server applicazioni ABAP** (o **Java**) > **sistema a disponibilità elevata**  >  **istanza ASC/SCS**  >  **nodo del cluster aggiuntivo**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Aggiornare il profilo dell'istanza di SAP ASCS/SCS
 
-Aggiornare i parametri nel SID del profilo \<dell'istanza di SAP ASC/SCS>_ASC/SCS\<Nr>_ \<> host.
+Aggiornare i parametri nel profilo dell'istanza di SAP ASC/SCS \<SID> _ASC \<Nr> /SCS_ \<Host> .
 
 
 | Nome parametro | Valore del parametro |

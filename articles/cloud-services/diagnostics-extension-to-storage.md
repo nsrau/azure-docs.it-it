@@ -1,6 +1,6 @@
 ---
 title: Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure
-description: Informazioni su come raccogliere i dati di diagnostica di Azure in un account di archiviazione di Azure in modo che sia possibile visualizzarli con uno dei diversi strumenti disponibili.
+description: Informazioni su come raccogliere i dati di diagnostica di Azure in un account di Archiviazione di Azure per visualizzarli con uno dei diversi strumenti disponibili.
 services: azure-monitor
 author: bwren
 ms.service: azure-monitor
@@ -9,10 +9,9 @@ ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77472674"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure
@@ -37,7 +36,7 @@ A seconda del tipo di dati di diagnostica da raccogliere, Diagnostica di Azure u
 | Log di IIS 7.0 |BLOB |
 | Log dell'infrastruttura Diagnostica di Azure |Tabella |
 | Log di analisi delle richieste non riuscite |BLOB |
-| Log eventi di Windows |Tabella |
+| Registri eventi di Windows |Tabella |
 | Contatori delle prestazioni |Tabella |
 | Dump di arresto anomalo |BLOB |
 | Log degli errori personalizzati |BLOB |

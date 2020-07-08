@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77530250"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Binding di output del servizio SignalR per funzioni di Azure
@@ -21,7 +20,7 @@ Usare l'associazione di output *SignalR* per inviare uno o più messaggi con il 
 
 L'associazione di output consente inoltre di gestire i gruppi.
 
-Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](functions-bindings-signalr-service.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-signalr-service.md).
 
 ## <a name="broadcast-to-all-clients"></a>Trasmettere a tutti i client
 
@@ -423,7 +422,7 @@ public SignalRMessage sendMessage(
 
 ---
 
-## <a name="group-management"></a>Gestione dei gruppi
+## <a name="group-management"></a>Gestione di gruppi
 
 Il servizio SignalR consente agli utenti di essere aggiunti ai gruppi. I messaggi possono quindi essere inviati a un gruppo. È possibile usare l' `SignalR` associazione di output per gestire l'appartenenza a un gruppo di un utente.
 
@@ -484,7 +483,7 @@ public static Task RemoveFromGroup(
 
 Nell'esempio seguente viene aggiunto un utente a un gruppo.
 
-Esempio di *Function. JSON*
+Esempio *function.js*
 
 ```json
 {
@@ -522,7 +521,7 @@ public static Task Run(
 
 Nell'esempio seguente viene rimosso un utente da un gruppo.
 
-Esempio di *Function. JSON*
+Esempio *function.js*
 
 ```json
 {
@@ -565,7 +564,7 @@ public static Task Run(
 
 Nell'esempio seguente viene aggiunto un utente a un gruppo.
 
-Esempio di *Function. JSON*
+Esempio *function.js*
 
 ```json
 {
@@ -593,7 +592,7 @@ module.exports = async function (context, req) {
 
 Nell'esempio seguente viene rimosso un utente da un gruppo.
 
-Esempio di *Function. JSON*
+Esempio *function.js*
 
 ```json
 {
@@ -623,7 +622,7 @@ module.exports = async function (context, req) {
 
 Nell'esempio seguente viene aggiunto un utente a un gruppo.
 
-Esempio di *Function. JSON*
+Esempio *function.js*
 
 ```json
 {
@@ -650,7 +649,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 
 Nell'esempio seguente viene rimosso un utente da un gruppo.
 
-Esempio di *Function. JSON*
+Esempio *function.js*
 
 ```json
 {
@@ -725,26 +724,26 @@ public SignalRGroupAction removeFromGroup(
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `SignalRConnectionInfo` attributo.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `SignalRConnectionInfo`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type**| n/d | Il valore deve essere impostato su `signalRConnectionInfo`.|
-|**direzione**| n/d | Il valore deve essere impostato su `in`.|
-|**name**| n/d | Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
+|**direction**| n/d | Il valore deve essere impostato su `in`.|
+|**nome**| n/d | Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
 |**hubName**|**HubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
 |**userId**|**UserId**| Facoltativo: valore dell'attestazione dell'identificatore utente da impostare nel token della chiave di accesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR
 
-La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `SignalR` attributo.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `SignalR`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type**| n/d | Il valore deve essere impostato su `signalR`.|
-|**direzione**| n/d | Il valore deve essere impostato su `out`.|
-|**name**| n/d | Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
+|**direction**| n/d | Il valore deve essere impostato su `out`.|
+|**nome**| n/d | Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
 |**hubName**|**HubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
 |**connectionStringSetting**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
 

@@ -17,10 +17,9 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77565894"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
@@ -46,7 +45,7 @@ Questo articolo è incentrato sulle seguenti funzionalità principali di gestion
 * Gestione delle identità e dell'accesso degli utenti
 * Registrazione del dispositivo
 * Privileged Identity Management
-* Identity Protection
+* Protezione dell'identità
 * Soluzione ibrida di gestione delle identità/Azure AD Connect
 * Verifiche di accesso di Azure AD
 
@@ -158,7 +157,7 @@ Altre informazioni:
 * [Che cos'è Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Assegnare ruoli della directory di Azure AD in PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Protezione dell'identità
 
 Azure AD Identity Protection è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection trae vantaggio dalle funzionalità di rilevamento anomalie di Azure AD, disponibili tramite i report di Anomalie dell'attività di Azure AD. Identity Protection introduce anche nuovi tipi di rilevamento del rischio in grado di rilevare le anomalie in tempo reale.
 
@@ -171,7 +170,7 @@ Altre informazioni:
 
 Le soluzioni di gestione delle identità di Microsoft abbracciano funzionalità locali e basate sul cloud, creando una singola identità utente per l’autenticazione e l’autorizzazione per tutte le risorse, indipendentemente dalla loro ubicazione. Tutto questo viene chiamato Identità ibrida. Azure AD Connect è lo strumento di Microsoft progettato per soddisfare e raggiungere gli obiettivi relativi alla soluzione ibrida di gestione delle identità. Consente quindi di fornire agli utenti un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD. Offre le funzionalità seguenti:
 
-* Synchronization
+* Sincronizzazione
 * Integrazione di AD FS e federazione
 * Autenticazione pass-through
 * Monitoraggio dell'integrità

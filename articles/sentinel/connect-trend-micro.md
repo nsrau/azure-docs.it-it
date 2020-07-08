@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: a25d76b4b8a6f516de70604146bd1b236ba3ca1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588026"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Connetti tendenza Micro Deep Security
@@ -32,7 +31,7 @@ Trend Micro Deep Security Connector consente di connettere facilmente i log di s
 
 ## <a name="connect-azure-sentinel-to-trend-micro-deep-security"></a>Connettere Sentinel di Azure a Trend Micro Deep Security
 
-1. Nel portale di Azure passare a**connettori dati** **sentinella** > di Azure e quindi selezionare il connettore per la **sicurezza di tendenza Micro Deep** .
+1. Nel portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore per la **sicurezza di tendenza Micro Deep** .
 
 2. Selezionare **Apri connettore pagina**.
 
@@ -42,6 +41,6 @@ Trend Micro Deep Security Connector consente di connettere facilmente i log di s
 In questo documento si è appreso come connettere Trend Micro Deep Security a Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 
 

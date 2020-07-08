@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77209699"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Aggiungere un livello simbolo a una mappa
@@ -23,7 +22,7 @@ Connettere un simbolo a un'origine dati e usarlo per eseguire il rendering di un
 Il rendering dei livelli simbolo viene eseguito tramite WebGL. Usare un livello di simboli per eseguire il rendering di grandi raccolte di punti sulla mappa. Rispetto al marcatore HTML, il livello dei simboli esegue il rendering di un numero elevato di dati punto sulla mappa, con prestazioni migliori. Tuttavia, il livello dei simboli non supporta gli elementi CSS e HTML tradizionali per lo stile.  
 
 > [!TIP]
-> Per impostazione predefinita, i livelli simbolo eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di `filter` geometria dei punti, impostare `['==', ['geometry-type'], 'Point']` la `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` proprietà del livello su o, se si desidera, includere anche le funzionalità multipoint.
+> Per impostazione predefinita, i livelli simbolo eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di geometria dei punti, impostare la `filter` proprietà del livello su `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` , se si desidera, includere anche le funzionalità multipoint.
 
 Maps image sprite Manager carica le immagini personalizzate usate dal livello symbol. Supporta i formati di immagine seguenti:
 
@@ -56,12 +55,12 @@ dataSource.add(new atlas.data.Point([0, 0]));
 
 Sono disponibili quattro tipi diversi di dati punto che è possibile aggiungere alla mappa:
 
-- Geometria del punto GeoJSON: questo oggetto contiene solo una coordinata di un punto e nient'altro. È `atlas.data.Point` possibile utilizzare la classe helper per creare facilmente questi oggetti.
-- GeoJSON MultiPoint Geometry: questo oggetto contiene le coordinate di più punti e nient'altro. È `atlas.data.MultiPoint` possibile utilizzare la classe helper per creare facilmente questi oggetti.
-- Funzionalità GeoJSON: questo oggetto è costituito da qualsiasi geometria GeoJSON e da un set di proprietà che contengono i metadati associati alla geometria. È `atlas.data.Feature` possibile utilizzare la classe helper per creare facilmente questi oggetti.
+- Geometria del punto GeoJSON: questo oggetto contiene solo una coordinata di un punto e nient'altro. `atlas.data.Point`È possibile utilizzare la classe helper per creare facilmente questi oggetti.
+- GeoJSON MultiPoint Geometry: questo oggetto contiene le coordinate di più punti e nient'altro. `atlas.data.MultiPoint`È possibile utilizzare la classe helper per creare facilmente questi oggetti.
+- Funzionalità GeoJSON: questo oggetto è costituito da qualsiasi geometria GeoJSON e da un set di proprietà che contengono i metadati associati alla geometria. `atlas.data.Feature`È possibile utilizzare la classe helper per creare facilmente questi oggetti.
 - `atlas.Shape`la classe è simile alla funzionalità GeoJSON. Entrambe sono costituite da una geometria GeoJSON e da un set di proprietà che contengono i metadati associati alla geometria. Se un oggetto GeoJSON viene aggiunto a un'origine dati, è possibile eseguirne facilmente il rendering in un livello. Tuttavia, se la proprietà coordinate dell'oggetto GeoJSON viene aggiornata, l'origine dati e la mappa non cambiano. Questo perché non è presente alcun meccanismo nell'oggetto JSON per attivare un aggiornamento. La classe Shape fornisce funzioni per l'aggiornamento dei dati in esso contenuti. Quando viene apportata una modifica, l'origine dati e la mappa vengono automaticamente notificati e aggiornati. 
 
-L'esempio di codice seguente crea una geometria del punto GeoJSON e la `atlas.Shape` passa alla classe per facilitarne l'aggiornamento. Il centro della mappa viene inizialmente usato per eseguire il rendering di un simbolo. Un evento Click viene aggiunto alla mappa in modo tale che, quando viene attivato, le coordinate del mouse vengono utilizzate con la `setCoordinates` funzione Shapes. Le coordinate del mouse vengono registrate al momento dell'evento click. Quindi `setCoordinates` aggiorna la posizione del simbolo sulla mappa.
+L'esempio di codice seguente crea una geometria del punto GeoJSON e la passa alla classe per facilitarne l' `atlas.Shape` aggiornamento. Il centro della mappa viene inizialmente usato per eseguire il rendering di un simbolo. Un evento Click viene aggiunto alla mappa in modo tale che, quando viene attivato, le coordinate del mouse vengono utilizzate con la `setCoordinates` funzione Shapes. Le coordinate del mouse vengono registrate al momento dell'evento click. Quindi `setCoordinates` Aggiorna la posizione del simbolo sulla mappa.
 
 <br/>
 
@@ -69,7 +68,7 @@ L'esempio di codice seguente crea una geometria del punto GeoJSON e la `atlas.Sh
 </iframe>
 
 > [!TIP]
-> Per impostazione predefinita, i livelli dei simboli ottimizzano il rendering dei simboli nascondendo i simboli che si sovrappongono. Quando si esegue lo zoom avanti, i simboli nascosti diventano visibili. Per disabilitare questa funzionalità ed eseguire il rendering di tutti i simboli in qualsiasi `allowOverlap` momento, impostare `iconOptions` la proprietà `true`delle opzioni su.
+> Per impostazione predefinita, i livelli dei simboli ottimizzano il rendering dei simboli nascondendo i simboli che si sovrappongono. Quando si esegue lo zoom avanti, i simboli nascosti diventano visibili. Per disabilitare questa funzionalità ed eseguire il rendering di tutti i simboli in qualsiasi momento, impostare la `allowOverlap` proprietà delle `iconOptions` Opzioni su `true` .
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Aggiungere un'icona personalizzata a un livello simbolo
 
@@ -81,7 +80,7 @@ Il rendering dei livelli simbolo viene eseguito tramite WebGL. Di conseguenza tu
 </iframe>
 
 > [!TIP]
-> Azure Maps Web SDK offre diversi modelli di immagine personalizzabili che è possibile usare con il livello dei simboli. Per altre informazioni, vedere il documento [come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md) .
+> Azure Maps Web SDK offre diversi modelli di immagine personalizzabili che è possibile usare con il livello simbolo. Per altre informazioni, vedere il documento [Come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md).
 
 ## <a name="customize-a-symbol-layer"></a>Personalizzare un livello simbolo 
 
@@ -93,7 +92,7 @@ Per il livello simbolo sono disponibili numerose opzioni di stile. Di seguito è
 </iframe>
 
 > [!TIP]
-> Quando si desidera eseguire il rendering del testo solo con un livello di simbolo, è possibile nascondere l'icona `image` impostando la proprietà delle opzioni `'none'`dell'icona su.
+> Quando si desidera eseguire il rendering del testo solo con un livello di simbolo, è possibile nascondere l'icona impostando la `image` proprietà delle opzioni dell'icona su `'none'` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -132,7 +131,7 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Aggiungere un livello per i poligoni](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello Bubble](map-add-bubble-layer.md)
+> [Aggiungere un livello per le bolle](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere marcatori HTML](map-add-bubble-layer.md)

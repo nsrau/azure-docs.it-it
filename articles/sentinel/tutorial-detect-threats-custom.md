@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: cea7429ecea105355b0afe306bfa334e55d5d9c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77585108"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Esercitazione: creare regole analitiche personalizzate per rilevare minacce sospette
 
-Dopo aver [connesso le origini](quickstart-onboard.md) dati ad Azure Sentinel, è possibile creare regole personalizzate che consentono di cercare criteri specifici nell'ambiente in uso e generare eventi imprevisti quando i criteri vengono confrontati in modo da poterli analizzare. Questa esercitazione consente di creare regole personalizzate per rilevare le minacce con Azure Sentinel.
+Dopo aver [connesso le origini dati](quickstart-onboard.md)   ad Azure Sentinel, è possibile creare regole personalizzate che consentono di cercare criteri specifici nell'ambiente in uso e generare eventi imprevisti quando i criteri vengono confrontati in modo da poterli analizzare. Questa esercitazione consente di creare regole personalizzate per rilevare le minacce con Azure Sentinel.
 
 Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
 > [!div class="checklist"]
@@ -59,7 +58,7 @@ Questa esercitazione consente di rilevare le minacce con Azure Sentinel.
      \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
       > [!NOTE]
-      > La lunghezza della query deve avere una lunghezza compresa tra 1 e 10.000 caratteri e \*non può contenere " \*Search" o "Union".
+      > La lunghezza della query deve avere una lunghezza compresa tra 1 e 10.000 caratteri e non può contenere "Search \* " o "Union \* ".
 
     1. Usare la sezione **entità map** per collegare i parametri dei risultati della query a entità riconosciute da Azure Sentinel. Queste entità costituiscono la base per un'ulteriore analisi, incluso il raggruppamento di avvisi in eventi imprevisti nella scheda **Impostazioni evento imprevisto** .
     1. Nella sezione **pianificazione query** impostare i parametri seguenti:

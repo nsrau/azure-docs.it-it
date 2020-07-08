@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593901"
 ---
 # <a name="istio"></a>Istio
@@ -20,7 +19,7 @@ ms.locfileid: "77593901"
 
 ## <a name="architecture"></a>Architecture
 
-Istio fornisce un piano dati composto da sidecar basati su [invio][envoy-proxy]. Questi proxy intelligenti controllano tutto il traffico di rete all'interno e all'esterno delle app e dei carichi di lavoro in rete.
+Istio fornisce un piano dati composto da sidecar basati su [invio][envoy-proxy]. Questi proxy intelligenti controllano tutto il traffico di rete in ingresso e in uscita da carichi di lavoro e app con mesh.
 
 Il piano di controllo gestisce la configurazione, i criteri e i dati di telemetria tramite i [componenti][what-is-istio]seguenti:
 
@@ -60,7 +59,7 @@ Gli obiettivi di progettazione seguenti [guidano][design-goals] il progetto Isti
 - **Uniformità dei criteri** : coerenza nella definizione dei criteri in diverse risorse.
 
 
-### <a name="capabilities"></a>Capabilities
+### <a name="capabilities"></a>Funzionalità
 
 In Istio è disponibile il set di funzionalità seguente:
 

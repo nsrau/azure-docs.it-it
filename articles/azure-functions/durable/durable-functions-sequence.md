@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562063"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Concatenamento di funzioni in Funzioni permanenti - Esempio di sequenza di Hello
@@ -32,7 +31,7 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=13-25)]
 
-Tutte le funzioni di orchestrazione C# devono avere un parametro di tipo `DurableOrchestrationContext` disponibile nell'assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Questo oggetto Context consente di chiamare altre funzioni di *attività* e passare parametri di input `CallActivityAsync` usando il relativo metodo.
+Tutte le funzioni di orchestrazione C# devono avere un parametro di tipo `DurableOrchestrationContext` disponibile nell'assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Questo oggetto Context consente di chiamare altre funzioni di *attività* e passare parametri di input usando il relativo `CallActivityAsync` metodo.
 
 Il codice chiama `E1_SayHello` tre volte in sequenza con valori dei parametri diversi. Il valore restituito di ogni chiamata viene aggiunto all'elenco `outputs`, che viene restituito al termine della funzione.
 
@@ -64,7 +63,7 @@ Tutte le funzioni di orchestrazione JavaScript devono includere il [ `durable-fu
 2. Per la funzione viene eseguito il wrapping in una chiamata al metodo `durable-functions` del modulo `orchestrator` (qui `df`).
 3. La funzione deve essere sincrona. Poiché il metodo 'orchestrator' gestisce la chiamata a 'context.done', la funzione deve semplicemente restituire.
 
-L' `context` oggetto contiene un `df` oggetto di contesto dell'orchestrazione durevole che consente di chiamare altre funzioni di *attività* e passare `callActivity` parametri di input usando il relativo metodo. Il codice chiama `E1_SayHello` tre volte in sequenza con valori di parametro diversi, usando `yield` per indicare che l'esecuzione deve attendere la restituzione delle chiamate di funzioni di attività asincrone. Il valore restituito di ogni chiamata viene aggiunto alla `outputs` matrice, che viene restituita alla fine della funzione.
+L' `context` oggetto contiene un `df` oggetto di contesto dell'orchestrazione durevole che consente di chiamare altre funzioni di *attività* e passare parametri di input usando il relativo `callActivity` metodo. Il codice chiama `E1_SayHello` tre volte in sequenza con valori di parametro diversi, usando `yield` per indicare che l'esecuzione deve attendere la restituzione delle chiamate di funzioni di attività asincrone. Il valore restituito di ogni chiamata viene aggiunto alla `outputs` matrice, che viene restituita alla fine della funzione.
 
 ---
 
@@ -74,17 +73,17 @@ L' `context` oggetto contiene un `df` oggetto di contesto dell'orchestrazione du
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=27-32)]
 
-Le attività usano `ActivityTrigger` l'attributo. Usare l'oggetto `IDurableActivityContext` fornito per eseguire azioni correlate all'attività, ad esempio l'accesso al valore `GetInput<T>`di input usando.
+Le attività usano l' `ActivityTrigger` attributo. Usare l'oggetto fornito `IDurableActivityContext` per eseguire azioni correlate all'attività, ad esempio l'accesso al valore di input usando `GetInput<T>` .
 
 L'implementazione di `E1_SayHello` è un'operazione di formattazione delle stringhe relativamente semplice.
 
-Anziché eseguire l'associazione a `IDurableActivityContext`un oggetto, è possibile eseguire l'associazione direttamente al tipo passato nella funzione Activity. Ad esempio:
+Anziché eseguire l'associazione a un oggetto `IDurableActivityContext` , è possibile eseguire l'associazione direttamente al tipo passato nella funzione Activity. Ad esempio:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.JSON
+#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.js
 
 Il file *function.json* per la funzione di attività `E1_SayHello` è simile a quello di `E1_HelloSequence` ad eccezione del fatto che usa un tipo di associazione `activityTrigger` anziché un tipo di associazione `orchestrationTrigger`.
 
@@ -105,23 +104,23 @@ A differenza di una funzione di orchestrazione di JavaScript, una funzione di at
 
 ### <a name="httpstart-client-function"></a>Funzione client HttpStart
 
-È possibile avviare un'istanza della funzione dell'agente di orchestrazione utilizzando una funzione client. Si userà la funzione `HttpStart` attivata tramite HTTP per avviare le istanze di `E1_HelloSequence`.
+È possibile avviare un'istanza della funzione dell'agente di orchestrazione utilizzando una funzione client. Si userà la `HttpStart` funzione attivata tramite HTTP per avviare le istanze di `E1_HelloSequence` .
 
 # <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs?range=13-30)]
 
-Per interagire con gli agenti di orchestrazione, la funzione `DurableClient` deve includere un'associazione di input. Il client viene utilizzato per avviare un'orchestrazione. Può inoltre essere utile per restituire una risposta HTTP contenente URL per verificare lo stato della nuova orchestrazione.
+Per interagire con gli agenti di orchestrazione, la funzione deve includere un' `DurableClient` associazione di input. Il client viene utilizzato per avviare un'orchestrazione. Può inoltre essere utile per restituire una risposta HTTP contenente URL per verificare lo stato della nuova orchestrazione.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-#### <a name="httpstartfunctionjson"></a>HttpStart/function. JSON
+#### <a name="httpstartfunctionjson"></a>HttpStart/function.js
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json?highlight=16-20)]
 
-Per interagire con gli agenti di orchestrazione, la funzione `durableClient` deve includere un'associazione di input.
+Per interagire con gli agenti di orchestrazione, la funzione deve includere un' `durableClient` associazione di input.
 
-#### <a name="httpstartindexjs"></a>HttpStart/index. js
+#### <a name="httpstartindexjs"></a>HttpStart/index.js
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 

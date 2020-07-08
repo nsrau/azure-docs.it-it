@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564857"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporamento di un flusso video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js  
@@ -55,7 +54,7 @@ Il primo passaggio consiste nel creare una pagina HTML standard contenente l'ele
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Aggiunta del lettore DASH.js
-Per aggiungere l'implementazione di riferimento Dash. js all'applicazione, è necessario estrarre il file Dash. all. js dalla versione più recente del progetto Dash. js. Il file deve essere quindi salvato nella cartella JavaScript dell'applicazione. Si tratta di un file di riferimento che raccoglie tutto il codice dash.js necessario in un unico file. Esaminando l'archivio dash.js sarà possibile identificare i singoli file, il codice di test e molto altro, ma se si vuole solo usare il file dash.js, questo sarà l'unico elemento effettivamente necessario.
+Per aggiungere l'implementazione di riferimento dash.js all'applicazione, è necessario recuperare il file di dash.all.js dalla versione più recente di dash.js Project. Il file deve essere quindi salvato nella cartella JavaScript dell'applicazione. Si tratta di un file di riferimento che raccoglie tutto il codice dash.js necessario in un unico file. Esaminando l'archivio dash.js sarà possibile identificare i singoli file, il codice di test e molto altro, ma se si vuole solo usare il file dash.js, questo sarà l'unico elemento effettivamente necessario.
 
 Per aggiungere il lettore dash.js a un'applicazione, aggiungere un tag di script alla sezione di intestazione del file basicPlayer.html:
 
@@ -109,7 +108,7 @@ Per riprodurre un video, passare nel browser al file basicPlayback.html e fare c
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

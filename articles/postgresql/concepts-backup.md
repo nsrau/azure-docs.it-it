@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 3e6dfd5882e49ad903e8cff6f0ec7f3d6bd4a8b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77619616"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server singolo
@@ -19,7 +18,7 @@ Database di Azure per PostgreSQL crea automaticamente backup del server e li arc
 
 ## <a name="backups"></a>Backup
 
-Database di Azure per PostgreSQL esegue il backup dei file di dati e del log delle transazioni. A seconda delle dimensioni massime di archiviazione supportate, si accettano backup completi e differenziali (4 TB Max Storage Servers) o backup di snapshot (fino a 16 TB Max Storage Server). Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
+Database di Azure per PostgreSQL esegue il backup dei file di dati e del log delle transazioni. A seconda delle massime dimensioni di archiviazione supportate, vengono eseguiti backup completi e differenziali (server di archiviazione da 4 TB al massimo) o backup di snapshot (server di archiviazione fino a 16 TB al massimo). Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
 
 Non è possibile esportare i file di backup. I backup possono essere usati solo per le operazioni di ripristino nel database di Azure per PostgreSQL. È possibile utilizzare [pg_dump](howto-migrate-using-dump-and-restore.md) per copiare un database.
 
@@ -46,7 +45,7 @@ In Database di Azure per PostgreSQL, l'esecuzione di un ripristino crea un nuovo
 
 Sono disponibili due tipi di ripristino:
 
-- Il **ripristino temporizzato** è disponibile con entrambe le opzioni di ridondanza per il backup e crea un nuovo server nella stessa area del server originale.
+- Il **ripristino temporizzato** è disponibile con entrambe le opzioni di ridondanza dei backup e crea un nuovo server nella stessa area del server originale.
 - Il **ripristino geografico** è disponibile solo se il server è stato configurato per l'archiviazione con ridondanza geografica e consente di ripristinare il server in un'area diversa.
 
 Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero di solito è inferiore a 12 ore.

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77566149"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creazione di macchine virtuali VMware nel cloud privato
@@ -96,7 +95,7 @@ Le sezioni seguenti contengono informazioni facoltative sulla configurazione dei
 
 ## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Aggiungere utenti e origini identità a vCenter (facoltativo)
 
-CloudSimple assegna un account utente vCenter predefinito con username `cloudowner@cloudsimple.local`. Per iniziare, non è necessaria alcuna configurazione di account aggiuntiva.  CloudSimple assegna normalmente agli amministratori i privilegi necessari per eseguire le normali operazioni.  Configurare Active Directory locale o Azure AD come [origine di identità aggiuntiva](set-vcenter-identity.md) nel cloud privato.
+CloudSimple assegna un account utente vCenter predefinito con username `cloudowner@cloudsimple.local` . Per iniziare, non è necessaria alcuna configurazione di account aggiuntiva.  CloudSimple assegna normalmente agli amministratori i privilegi necessari per eseguire le normali operazioni.  Configurare Active Directory locale o Azure AD come [origine di identità aggiuntiva](set-vcenter-identity.md) nel cloud privato.
 
 ## <a name="create-a-dns-and-dhcp-server-optional"></a>Creazione di un server DNS e DHCP (facoltativo)
 
@@ -139,7 +138,7 @@ Le pagine di rete nel portale di CloudSimple consentono di specificare la config
 5. Se lo si desidera, utilizzare il dispositivo di scorrimento per modificare il timeout di inattività.
 6. Immettere l'indirizzo IP locale per cui si vuole assegnare un indirizzo IP pubblico.
 7. Se lo si desidera, immettere un nome DNS associato.
-8. Fare clic su **Fine**.
+8. Fare clic su **Done**.
 
     ![IP pubblico](media/quick-create-pc-public-ip.png)
 
@@ -225,6 +224,6 @@ Per installare una soluzione, è necessario richiedere privilegi aggiuntivi per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Utilizzare VM di VMware in Azure](quickstart-create-vmware-virtual-machine.md)
+* [Usare VM di VMware in Azure](quickstart-create-vmware-virtual-machine.md)
 * [Connettersi alla rete locale usando Azure ExpressRoute](on-premises-connection.md)
 * [Configurare i gateway VPN nella rete CloudSimple](vpn-gateway.md)

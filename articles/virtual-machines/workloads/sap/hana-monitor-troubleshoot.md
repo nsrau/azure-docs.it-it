@@ -14,10 +14,9 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617067"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitoraggio e risoluzione dei problemi dal lato HANA
@@ -75,7 +74,7 @@ Uno dei controlli più importanti per SAP HANA in Linux consiste nel verificare 
 
 Il seguente comando di Linux non deve restituire alcun valore: **rpm -qa | grep ulimit**. Nel caso sembrasse che _ulimit_ è installato, disinstallarlo immediatamente.
 
-## <a name="memory"></a>Memoria
+## <a name="memory"></a>Memory
 
 È possibile osservare che la quantità di memoria allocata per il database SAP HANA è maggiore del previsto. Gli avvisi seguenti indicano problemi con un utilizzo elevato della memoria:
 
@@ -93,10 +92,10 @@ Per i passaggi dettagliati di risoluzione dei problemi, vedere il sito [SAP HANA
 Vedere la [nota SAP #2081065 dedicata alla risoluzione dei problemi di rete di SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e svolgere i passaggi di risoluzione dei problemi riportati in questa nota SAP.
 
 1. Analisi del tempo di round trip tra client e server.
-  A. Eseguire lo script SQL [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  R. Eseguire lo script SQL [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Analizzare le comunicazioni internodo.
-  A. Eseguire lo script SQL [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  R. Eseguire lo script SQL [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
 3. Eseguire il comando di Linux **ifconfig** (l'output mostra se si verificano perdite di pacchetti).
 4. Eseguire il comando di Linux **tcpdump**.
@@ -147,7 +146,7 @@ Eseguire la stessa operazione per HANA\_Configuration\_Minichecks e cercare even
 
 Output di esempio:
 
-**Hana\_Configuration\_MiniChecks\_rev 102.01 + 1** per verifiche generali SAP Hana.
+**Hana \_ Configuration \_ MiniChecks \_ REV 102.01 + 1** per verifiche generali SAP Hana.
 
 ![HANA\_Configuration\_MiniChecks\_Rev102.01+1 per controlli SAP HANA generali](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
 
@@ -159,11 +158,11 @@ Output di esempio:
 
 ![HANA\_Services\_Statistics per informazioni sul servizio SAP HANA](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
-**Hana\_Configuration\_Overview\_Rev110 +** per informazioni generali sull'istanza di SAP Hana.
+**Hana \_ Panoramica della configurazione \_ \_ Rev110 +** per informazioni generali sull'istanza di SAP Hana.
 
 ![HANA\_Configuration\_Overview\_Rev110+ per informazioni generali sull'istanza di SAP HANA](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-**Parametri\_di\_configurazione\_Hana Rev70 +** per controllare SAP Hana parametri.
+**Hana \_ Parametri di configurazione \_ \_ Rev70 +** per controllare SAP Hana parametri.
 
 ![HANA\_Configuration\_Parameters\_Rev70+ per controllare i parametri di SAP HANA](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 

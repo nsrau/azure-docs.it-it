@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77539111"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Scenario: avvisi non aggiornati di Apache Ambari in Azure HDInsight
@@ -74,7 +73,7 @@ Per eliminare un avviso non aggiornato, disabilitare e quindi riabilitarlo:
 
 Si verifica un periodo di tolleranza prima che un agente Ambari segnali che un avviso configurato ha perso la pianificazione. Se l'avviso non ha superato l'orario pianificato ma è stato eseguito entro il periodo di tolleranza, l'avviso non aggiornato non viene generato.
 
-Il valore `alert_grace_period` predefinito è 5 secondi. È possibile configurare questa impostazione in/etc/Ambari-Agent/conf/Ambari-Agent.ini. Per gli host in cui si verificano gli avvisi non aggiornati a intervalli regolari, provare ad aumentare il valore di 10. Quindi, riavviare l'agente Ambari.
+Il `alert_grace_period` valore predefinito è 5 secondi. È possibile configurare questa impostazione in/etc/Ambari-Agent/conf/ambari-agent.ini. Per gli host in cui si verificano gli avvisi non aggiornati a intervalli regolari, provare ad aumentare il valore di 10. Quindi, riavviare l'agente Ambari.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: a780a42179a0bacf0e4a12ba1e75ae84943539b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190731"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Risolvere i problemi dell'estensione VM di Azure
@@ -42,7 +41,7 @@ Codice errore: "151099"
 
 Questo errore può verificarsi se l'agente guest di Azure nella macchina virtuale non è nello stato pronto.
 
-È possibile controllare lo stato dell'agente guest di Azure nella [portale di Azure](https://portal.azure.com/). Passare alla macchina virtuale che si sta tentando di proteggere e controllare lo stato in**Impostazioni** >  **VM** > **Proprietà** > **stato agente**. Nella maggior parte dei casi, lo stato dell'agente è pronto dopo il riavvio della macchina virtuale. Tuttavia, se non è possibile riavviare il computer o se il problema persiste, completare i passaggi seguenti per la risoluzione dei problemi:
+È possibile controllare lo stato dell'agente guest di Azure nella [portale di Azure](https://portal.azure.com/). Passare alla macchina virtuale che si sta tentando di proteggere e controllare lo stato **VM**in  >  **Impostazioni**VM  >  **Proprietà**  >  **stato agente**. Nella maggior parte dei casi, lo stato dell'agente è pronto dopo il riavvio della macchina virtuale. Tuttavia, se non è possibile riavviare il computer o se il problema persiste, completare i passaggi seguenti per la risoluzione dei problemi:
 
 - [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [L'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)

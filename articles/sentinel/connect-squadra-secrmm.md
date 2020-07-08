@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: d904e51321870fb4b61a237c23e425034b76dc0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588111"
 ---
 # <a name="connect-your-squadra-technologies-secrmm-data-to-azure-sentinel"></a>Connetti i dati di squadra Technologies secRMM ad Azure Sentinel 
@@ -53,5 +52,5 @@ Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log A
 In questo documento si è appreso come connettere squadra Technologies secRMM ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 

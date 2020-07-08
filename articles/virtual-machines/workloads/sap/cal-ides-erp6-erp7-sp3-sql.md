@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77616697"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
@@ -105,7 +104,7 @@ Dopo l'accesso a SAP CAL, la prima pagina visualizzata è di solito la pagina **
 
     ![Modalità SAP CAL di base: creare un'istanza](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-1. Scegliere **Crea**. Dopo alcuni minuti, a seconda della dimensione e della complessità della soluzione, di cui SAP CAL fornisce una stima, la soluzione viene visualizzata come attiva e pronta all'uso: 
+1. Fare clic su **Crea**. Dopo alcuni minuti, a seconda della dimensione e della complessità della soluzione, di cui SAP CAL fornisce una stima, la soluzione viene visualizzata come attiva e pronta all'uso: 
 
     ![Istanze di SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 

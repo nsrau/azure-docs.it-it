@@ -7,17 +7,16 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
 ms.openlocfilehash: 78132a53313f4a8ee5c10af340c8dab08c3e42c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595825"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizzare CoreDNS con il servizio Azure Kubernetes
 
 Azure Kubernetes Service (AKS) usa il progetto [CoreDNS][coredns] per la gestione e la risoluzione del DNS del cluster con tutti i cluster *1.12. x* e versioni successive. In precedenza è stato usato il progetto Kube-DNS. Questo progetto Kube-DNS è ora deprecato. Per ulteriori informazioni sulla personalizzazione di CoreDNS e Kubernetes, vedere la [documentazione ufficiale upstream][corednsk8s].
 
-Poiché AKS è un servizio gestito, non è possibile modificare la configurazione principale per CoreDNS ( *CoreFile*). Usare invece un *ConfigMap* Kubernetes per eseguire l'override delle impostazioni predefinite. Per visualizzare il valore predefinito di AKS CoreDNS ConfigMaps, `kubectl get configmaps --namespace=kube-system coredns -o yaml` usare il comando.
+Poiché AKS è un servizio gestito, non è possibile modificare la configurazione principale per CoreDNS ( *CoreFile*). Usare invece un *ConfigMap* Kubernetes per eseguire l'override delle impostazioni predefinite. Per visualizzare il valore predefinito di AKS CoreDNS ConfigMaps, usare il `kubectl get configmaps --namespace=kube-system coredns -o yaml` comando.
 
 Questo articolo illustra come usare ConfigMaps per le opzioni di personalizzazione di base di CoreDNS in AKS. Questo approccio è diverso dalla configurazione di CoreDNS in altri contesti, ad esempio l'uso di CoreFile. Verificare la versione di CoreDNS in esecuzione perché i valori di configurazione possono variare tra le versioni.
 
@@ -26,7 +25,7 @@ Questo articolo illustra come usare ConfigMaps per le opzioni di personalizzazio
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 ## <a name="what-is-supportedunsupported"></a>Elementi supportati/non supportati
 
@@ -71,7 +70,7 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> Il comando precedente è corretto. Mentre si sta cambiando `coredns`, la distribuzione si trova sotto il nome del **DNS Kube** .
+> Il comando precedente è corretto. Mentre si sta cambiando `coredns` , la distribuzione si trova sotto il nome del **DNS Kube** .
 
 ## <a name="custom-forward-server"></a>Server di invio personalizzato
 

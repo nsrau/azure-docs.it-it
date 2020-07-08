@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523110"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Informazioni su Identity Secure Score in Azure Active Directory
@@ -48,7 +47,7 @@ Applicando le azioni di miglioramento, è possibile:
 
 ## <a name="how-do-i-get-my-secure-score"></a>Come si ottiene il punteggio di sicurezza?
 
-Il Punteggio di sicurezza identità è disponibile in tutte le edizioni di Azure AD. Le organizzazioni possono accedere al Punteggio sicuro dell'identità dall' **portale di Azure** > **Azure Active Directory** > **Security** > **Punteggio sicuro**per l'identità di sicurezza.
+Il Punteggio di sicurezza identità è disponibile in tutte le edizioni di Azure AD. Le organizzazioni possono accedere al Punteggio sicuro dell'identità dall' **portale di Azure**  >  **Azure Active Directory**  >  **Security**  >  **Punteggio sicuro**per l'identità di sicurezza.
 
 ## <a name="how-does-it-work"></a>Come funziona?
 

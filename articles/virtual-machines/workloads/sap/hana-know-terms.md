@@ -14,21 +14,20 @@ ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6785ae821f701121185f0064c6317c69d50191ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617056"
 ---
 # <a name="know-the-terms"></a>Conoscere i termini
 
 Nella guida all'architettura e alla distribuzione vengono comunemente usati alcuni termini. Tenere presenti i termini seguenti e i relativi significati.
 
-- **IaaS**: infrastruttura distribuita come servizio.
-- **PaaS**: piattaforma distribuita come servizio.
-- **SaaS**: software come servizio.
-- **Componente SAP**: singola applicazione SAP, ad esempio ECC (ERP Central Component), BW (Business Warehouse), Solution Manager o EP (Enterprise Portal). I componenti SAP possono essere basati su tecnologie ABAP o Java tradizionali o su un'applicazione non basata su NetWeaver, ad esempio Business Objects.
-- **Ambiente SAP**: raggruppamento logico di uno o più componenti SAP per l'esecuzione di una funzione aziendale, ad esempio sviluppo, controllo della qualità, formazione, ripristino di emergenza o produzione.
+- **IaaS**: Infrastructure as a Service, Infrastruttura distribuita come servizio.
+- **PaaS**: Platform as a Service, Piattaforma distribuita come servizio.
+- **SaaS**: Software as a Service, Software come un servizio.
+- **Componente SAP**: singola applicazione SAP, ad esempio ERP Central Component (ecc), Business Warehouse (BW), Solution Manager o Enterprise Portal (EP). I componenti SAP possono essere basati su tecnologie ABAP o Java tradizionali o su un'applicazione non basata su NetWeaver, ad esempio Business Objects.
+- **Ambiente SAP**: uno o più componenti SAP raggruppati in modo logico per eseguire una funzione aziendale, ad esempio sviluppo, controllo di qualità, formazione, ripristino di emergenza o produzione.
 - **Panorama**applicativo SAP: fa riferimento a tutti gli asset SAP nel panorama it. Il panorama applicativo SAP include tutti gli ambienti di produzione e non produzione.
 - **Sistema SAP**: combinazione del livello DBMS e del livello applicazione, ad esempio di un sistema di sviluppo SAP ERP, un sistema di test SAP BW e un sistema di produzione SAP CRM. Le distribuzioni di Azure non supportano la divisione di questi due livelli tra l'istanza locale e Azure. Un sistema SAP deve essere distribuito o in locale o in Azure. I diversi sistemi di un panorama applicativo SAP possono essere distribuiti in Azure o in locale. È ad esempio possibile distribuire i sistemi di sviluppo e test SAP CRM in Azure e il sistema di produzione SAP CRM in locale. Nel caso di SAP HANA in Azure (istanze Large), è previsto che il livello applicazione SAP dei sistemi SAP sia ospitato in VM e l'istanza di SAP HANA correlata sia ospitata in un'unità nel modulo di SAP HANA in Azure (istanze Large).
 - **Modulo per istanze Large**: stack dell'infrastruttura hardware con certificazione SAP HANA TDI, dedicato all'esecuzione di istanze di SAP HANA in Azure.

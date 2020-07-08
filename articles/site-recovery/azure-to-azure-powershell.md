@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ms.openlocfilehash: 583511194fb100add1d5fc4ea9c06a869cf652b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77212289"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell
@@ -41,7 +40,7 @@ Si apprenderà come:
 Prima di iniziare:
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
 - Esaminare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
-- Si dispone del modulo `Az` Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+- Si dispone del `Az` modulo Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Accedere alla sottoscrizione di Microsoft Azure
 
@@ -59,7 +58,7 @@ Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 ## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>Ottenere i dettagli della macchina virtuale da replicare
 
-In questo articolo, una macchina virtuale nell'area Stati Uniti orientali viene replicata e ripristinata nell'area Stati Uniti occidentali 2. La macchina virtuale da replicare ha un disco del sistema operativo e un singolo disco dati. Il nome della macchina virtuale usata nell'esempio è `AzureDemoVM`.
+In questo articolo, una macchina virtuale nell'area Stati Uniti orientali viene replicata e ripristinata nell'area Stati Uniti occidentali 2. La macchina virtuale da replicare ha un disco del sistema operativo e un singolo disco dati. Il nome della macchina virtuale usata nell'esempio è `AzureDemoVM` .
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -115,7 +114,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
-Creare un insieme di credenziali di Servizi di ripristino. In questo esempio viene creato un insieme di credenziali `a2aDemoRecoveryVault` di servizi di ripristino denominato nell'area Stati Uniti occidentali 2.
+Creare un insieme di credenziali di Servizi di ripristino. In questo esempio viene creato un insieme di credenziali di servizi di ripristino denominato `a2aDemoRecoveryVault` nell'area Stati Uniti occidentali 2.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -170,7 +169,7 @@ L'oggetto di infrastruttura nell'insieme di credenziali rappresenta un'area di A
 - È possibile creare un solo oggetto di infrastruttura per ogni area.
 - Se è già stata abilitata la replica di Site Recovery per una VM nel portale di Azure, Site Recovery crea automaticamente un oggetto di infrastruttura. Se per un'area esiste un oggetto di infrastruttura, non è possibile crearne un altro.
 
-Prima di iniziare, è importante comprendere che Site Recovery operazioni vengono eseguite in modo asincrono. Quando si avvia un'operazione, viene inviato un processo di Azure Site Recovery e viene restituito un oggetto di monitoraggio del processo, Usare l'oggetto di rilevamento del processo per ottenere lo stato più recente del`Get-AzRecoveryServicesAsrJob`processo () e per monitorare lo stato dell'operazione.
+Prima di iniziare, è importante comprendere che Site Recovery operazioni vengono eseguite in modo asincrono. Quando si avvia un'operazione, viene inviato un processo di Azure Site Recovery e viene restituito un oggetto di monitoraggio del processo, Usare l'oggetto di rilevamento del processo per ottenere lo stato più recente del processo ( `Get-AzRecoveryServicesAsrJob` ) e per monitorare lo stato dell'operazione.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -620,7 +619,7 @@ Al termine della riprotezione, è possibile eseguire il failover in direzione in
 
 ## <a name="disable-replication"></a>Disabilitare la replica
 
-È possibile disabilitare la replica con `Remove-AzRecoveryServicesAsrReplicationProtectedItem` il cmdlet.
+È possibile disabilitare la replica con il `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet.
 
 ```azurepowershell
 Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem

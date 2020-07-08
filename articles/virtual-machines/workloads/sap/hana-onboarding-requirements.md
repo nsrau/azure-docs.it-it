@@ -14,10 +14,9 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617010"
 ---
 # <a name="onboarding-requirements"></a>Requisiti di onboarding

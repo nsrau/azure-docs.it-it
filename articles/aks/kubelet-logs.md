@@ -5,10 +5,9 @@ services: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595383"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Ottenere i log di kubelet dai nodi del cluster del servizio Azure Kubernetes
@@ -19,7 +18,7 @@ Questo articolo illustra come è possibile usare `journalctl` per visualizzare i
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Creare una connessione SSH
 

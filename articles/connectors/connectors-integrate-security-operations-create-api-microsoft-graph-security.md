@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: b4f51b192d1a7c0ee14a769321793753e8217dea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77598834"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
@@ -50,7 +49,7 @@ Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Secu
 
   * Durante la prima esecuzione dell'app per la logica, l'app può richiedere il consenso dell'amministratore del tenant di Azure AD tramite l'[esperienza di consenso per le applicazioni](../active-directory/develop/application-consent-experience.md).
    
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere alle entità di Microsoft Graph Security, ad esempio gli avvisi. Per usare un trigger di sicurezza Microsoft Graph, è necessaria un'app per la logica vuota. Per usare un'azione di sicurezza Microsoft Graph, è necessaria un'app per la logica che inizia con il trigger appropriato per lo scenario.
 
@@ -91,15 +90,15 @@ Questo esempio illustra come è possibile avviare un flusso di lavoro dell'app p
 
 1.  Nel trigger fornire le informazioni sugli avvisi che si desidera monitorare. Per ulteriori proprietà, aprire l'elenco **Aggiungi nuovo parametro** e selezionare un parametro per aggiungere tale proprietà al trigger.
 
-   | Proprietà | Property (JSON) | Obbligatoria | Type | Descrizione |
+   | Proprietà | Proprietà (JSON) | Obbligatoria | Type | Descrizione |
    |----------|-----------------|----------|------|-------------|
-   | **Intervallo** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p><p>- Mese: 1-16 mesi <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi <p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
+   | **Interval** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p><p>- Mese: 1-16 mesi <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi <p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
    | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** |
-   | **Fuso orario** | `timeZone` | No | Stringa | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |
-   | **Ora di inizio** | `startTime` | No | Stringa | Specificare una data e un'ora di inizio nel formato seguente: <p><p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, se si desidera il 18 settembre 2017 alle 2:00 PM, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio ora solare Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** Questa ora di inizio ha un numero massimo di 49 anni nel futuro e deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Fuso orario** | `timeZone` | No | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |
+   | **Ora di inizio** | `startTime` | No | string | Specificare una data e un'ora di inizio nel formato seguente: <p><p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, se si desidera il 18 settembre 2017 alle 2:00 PM, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio ora solare Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** Questa ora di inizio ha un numero massimo di 49 anni nel futuro e deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
-1.  Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione.
+1.  Al termine, sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
 1.  Continuare ad aggiungere una o più azioni all'app per la logica per le attività da eseguire con i risultati del trigger.
 
@@ -107,7 +106,7 @@ Questo esempio illustra come è possibile avviare un flusso di lavoro dell'app p
 
 Di seguito sono riportate informazioni più dettagliate sull'uso delle varie azioni disponibili con il connettore di Microsoft Graph Security.
 
-### <a name="manage-alerts"></a>Gestisci avvisi
+### <a name="manage-alerts"></a>Gestire gli avvisi
 
 Per filtrare, ordinare oppure ottenere i risultati più recenti, fornire *solo* i [parametri di query ODATA supportati da Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Non specificare* l'URL di base completo o l'azione HTTP, ad esempio `https://graph.microsoft.com/v1.0/security/alerts` o l'operazione `GET` o `PATCH`. Ecco un esempio specifico che illustra i parametri per un'azione **Ottieni avvisi** quando si vuole un elenco degli avvisi con gravità alta:
 
@@ -117,7 +116,7 @@ Per altre informazioni sulle query che è possibile usare con questo connettore,
 
 | Azione | Descrizione |
 |--------|-------------|
-| **Ottenere gli avvisi** | Ottenere gli avvisi filtrati in base a una o più [Proprietà](https://docs.microsoft.com/graph/api/resources/alert)dell'avviso `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`, ad esempio. | 
+| **Ottenere gli avvisi** | Ottenere gli avvisi filtrati in base a una o più [proprietà dell'avviso](https://docs.microsoft.com/graph/api/resources/alert), ad esempio `Provider eq 'Azure Security Center' or 'Palo Alto Networks'` . | 
 | **Get alert by ID** (Ottieni avviso in base all'ID) | Ottenere un avviso specifico in base all'ID dell'avviso. | 
 | **Aggiorna avviso** | Aggiornare un avviso specifico in base all'ID dell'avviso. Per assicurarsi di passare le proprietà obbligatorie e modificabili nella richiesta, vedere le [proprietà modificabili per gli avvisi](https://docs.microsoft.com/graph/api/alert-update). Ad esempio, per assegnare un avviso a un analista della sicurezza in modo che possa svolgere indagini, è possibile aggiornare la proprietà **Assegnato a** dell'avviso. |
 |||
@@ -133,12 +132,12 @@ Microsoft Graph supporta le [*sottoscrizioni*](https://docs.microsoft.com/graph/
 | **Creare sottoscrizioni** | [Creare una sottoscrizione](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) per ricevere notifiche in caso di modifiche. È possibile filtrare la sottoscrizione in base agli specifici tipi di avviso a cui si è interessati. È ad esempio creare una sottoscrizione che invia una notifica in caso di avvisi con gravità alta. |
 | **Get active subscriptions** (Ottieni sottoscrizioni attive) | [Ottenere le sottoscrizioni non scadute](https://docs.microsoft.com/graph/api/subscription-list). | 
 | **Update subscription** (Aggiorna sottoscrizione) | [Aggiornare una sottoscrizione](https://docs.microsoft.com/graph/api/subscription-update) specificando l'ID sottoscrizione. Ad esempio, per estendere la sottoscrizione, è possibile aggiornare la proprietà `expirationDateTime` della sottoscrizione. | 
-| **Elimina sottoscrizione** | [Eliminare una sottoscrizione](https://docs.microsoft.com/graph/api/subscription-delete) specificando l'ID sottoscrizione. | 
+| **Eliminare una sottoscrizione** | [Eliminare una sottoscrizione](https://docs.microsoft.com/graph/api/subscription-delete) specificando l'ID sottoscrizione. | 
 ||| 
 
 ### <a name="manage-threat-intelligence-indicators"></a>Gestione degli indicatori di intelligence per le minacce
 
-Per filtrare, ordinare oppure ottenere i risultati più recenti, fornire *solo* i [parametri di query ODATA supportati da Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Non specificare* l'URL di base completo o l'azione HTTP, ad esempio `https://graph.microsoft.com/beta/security/tiIndicators` o l'operazione `GET` o `PATCH`. Di seguito è riportato un esempio specifico che mostra i parametri per un'azione **Get tiIndicators** quando si desidera un elenco con `DDoS` il tipo di minaccia:
+Per filtrare, ordinare oppure ottenere i risultati più recenti, fornire *solo* i [parametri di query ODATA supportati da Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Non specificare* l'URL di base completo o l'azione HTTP, ad esempio `https://graph.microsoft.com/beta/security/tiIndicators` o l'operazione `GET` o `PATCH`. Di seguito è riportato un esempio specifico che mostra i parametri per un'azione **Get tiIndicators** quando si desidera un elenco con il `DDoS` tipo di minaccia:
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 

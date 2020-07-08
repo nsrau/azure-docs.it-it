@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/23/2019
 ms.author: memildin
 ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77604666"
 ---
 # <a name="adaptive-application-controls"></a>Controlli delle applicazioni adattivi
@@ -65,7 +64,7 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
 
 1. Selezionare la scheda **consigliata** per un elenco di gruppi con le raccomandazioni per il controllo delle applicazioni:
 
-   ![Consigliato](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Implementazione consigliata](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
    L'elenco include:
 
@@ -178,6 +177,6 @@ In questo documento si è appreso come usare il controllo delle applicazioni ada
 
 * [Gestione e risposta agli avvisi di sicurezza nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
 * [Monitoraggio dell'integrità della sicurezza nel centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
-* [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
+* [Informazioni sugli avvisi di sicurezza nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
 * [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.

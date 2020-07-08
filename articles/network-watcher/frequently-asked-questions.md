@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
 ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471857"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Domande frequenti su Azure Network Watcher
@@ -104,7 +103,7 @@ I log di flusso NSG sono compatibili con gli endpoint di servizio senza richiede
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual è la differenza tra i log dei flussi versioni 1 & 2?
-Log dei flussi versione 2 introduce il concetto di *stato del flusso* & archivia le informazioni su byte e pacchetti trasmessi. [Altre](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)informazioni.
+Log dei flussi versione 2 introduce il concetto di *stato del flusso* & archivia le informazioni su byte e pacchetti trasmessi. [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
 
 ## <a name="next-steps"></a>Passaggi successivi
  - Passare alla [pagina Panoramica della documentazione](https://docs.microsoft.com/azure/network-watcher/) per alcune esercitazioni per iniziare a usare Network Watcher.

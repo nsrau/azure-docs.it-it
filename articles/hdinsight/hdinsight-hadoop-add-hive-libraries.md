@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471024"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight
@@ -29,7 +28,7 @@ L'uso dell'azione script in questo articolo rende disponibili le librerie quando
 
 ## <a name="the-script"></a>Lo script
 
-**Posizione degli script**
+**Percorso script**
 
 [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
@@ -59,13 +58,13 @@ L'uso dell'azione script in questo articolo rende disponibili le librerie quando
     |Proprietà |valore |
     |---|---|
     |Tipo di script|- Personalizzato|
-    |Name|Librerie |
+    |Nome|Librerie |
     |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |Tipo/i di nodo|Head, ruolo di lavoro|
     |Parametri|immettere l'indirizzo WASB per l'account di archiviazione e il contenitore che contiene i file con estensione jar. Ad esempio: `wasbs://libs@mystorage.blob.core.windows.net/`.|
 
     > [!NOTE]
-    > Per Apache Spark 2,1, usare questo URI dello script bash `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`:.
+    > Per Apache Spark 2,1, usare questo URI dello script bash: `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh` .
 
 1. Continuare il provisioning del cluster come descritto in [Effettuare il provisioning dei cluster HDInsight in Linux](hdinsight-hadoop-provision-linux-clusters.md).
 

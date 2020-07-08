@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425885"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Usare MirrorMaker per replicare gli argomenti di Apache Kafka con Kafka in HDInsight
@@ -63,7 +62,7 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
 
 1. Creare due nuovi gruppi di risorse:
 
-    |Gruppo di risorse | Percorso |
+    |Gruppo di risorse | Location |
     |---|---|
     | Kafka-primario-RG | Stati Uniti centrali |
     | Kafka-secondario-RG | Stati Uniti centro-settentrionali |
@@ -90,8 +89,8 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
 
 Configurare la pubblicità IP per consentire a un client di connettersi tramite indirizzi IP del Broker anziché nomi di dominio.
 
-1. Passare al dashboard di Ambari per il cluster primario: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-1. Selezionare **Servizi** > **Kafka**. CliSelectck la scheda **configs (configurazioni** ).
+1. Passare al dashboard di Ambari per il cluster primario: `https://PRIMARYCLUSTERNAME.azurehdinsight.net` .
+1. Selezionare **Servizi**  >  **Kafka**. CliSelectck la scheda **configs (configurazioni** ).
 1. Aggiungere le seguenti righe di configurazione alla sezione del **modello Kafka-ENV** inferiore. Selezionare **Salva**.
 
     ```
@@ -105,13 +104,13 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
 1. Immettere una nota nella schermata **Salva configurazione** e fare clic su **Salva**.
 1. Se viene visualizzato un avviso di configurazione, fare clic su **continua**.
 1. Selezionare **OK** in **Salva modifiche configurazione**.
-1.  > Selezionare **Riavvia riavvio****tutti interessati** nella notifica **riavvio richiesto** . Selezionare **Confirm restart all**.
+1. Selezionare **Riavvia riavvio**  >  **tutti interessati** nella notifica **riavvio richiesto** . Selezionare **Confirm restart all**.
 
     ![Riavvio di Apache Ambari tutti interessati](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configurare Kafka per l'ascolto su tutte le interfacce di rete.
     
-1. Rimanere nella scheda **configs (configurazioni** ) in **Services** > **Kafka**. Nella sezione **Kafka broker** impostare la proprietà **Listeners** su `PLAINTEXT://0.0.0.0:9092`.
+1. Rimanere nella scheda **configs (configurazioni** ) in **Services**  >  **Kafka**. Nella sezione **Kafka broker** impostare la proprietà **Listeners** su `PLAINTEXT://0.0.0.0:9092` .
 1. Selezionare **Salva**.
 1. Selezionare **Riavvia**e **confermare riavvia tutto**.
 
@@ -136,7 +135,7 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
 
     Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Usare il comando seguente per creare una variabile con gli host Apache Zookeeper per il cluster primario. Le stringhe like `ZOOKEEPER_IP_ADDRESS1` devono essere sostituite con gli indirizzi IP effettivi registrati in precedenza `10.23.0.11` , `10.23.0.7`ad esempio e. Se si usa la risoluzione FQDN con un server DNS personalizzato, attenersi alla [procedura seguente](apache-kafka-get-started.md#getkafkainfo) per ottenere i nomi broker e Zookeeper.:
+1. Usare il comando seguente per creare una variabile con gli host Apache Zookeeper per il cluster primario. Le stringhe like `ZOOKEEPER_IP_ADDRESS1` devono essere sostituite con gli indirizzi IP effettivi registrati in precedenza, ad esempio `10.23.0.11` e `10.23.0.7` . Se si usa la risoluzione FQDN con un server DNS personalizzato, attenersi alla [procedura seguente](apache-kafka-get-started.md#getkafkainfo) per ottenere i nomi broker e Zookeeper.:
 
     ```bash
     # get the zookeeper hosts for the primary cluster
@@ -250,9 +249,9 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
 
         Per configurare il cluster secondario per la creazione automatica di argomenti, seguire questa procedura:
 
-        1. Passare al dashboard di Ambari per il cluster secondario: `https://SECONDARYCLUSTERNAME.azurehdinsight.net`.
-        1. Fare clic su **Servizi** > **Kafka**. Fare clic sulla scheda **Configurazioni** .
-        1. Nel campo __filtro__ immettere un valore di `auto.create`. In questo modo, l'elenco di proprietà verrà filtrato e verrà visualizzata l'impostazione `auto.create.topics.enable`.
+        1. Passare al dashboard di Ambari per il cluster secondario: `https://SECONDARYCLUSTERNAME.azurehdinsight.net` .
+        1. Fare clic su **Servizi**  >  **Kafka**. Fare clic sulla scheda **Configurazioni** .
+        1. Nel campo __filtro__ immettere un valore di `auto.create` . In questo modo, l'elenco di proprietà verrà filtrato e verrà visualizzata l'impostazione `auto.create.topics.enable`.
         1. Cambiare il valore di `auto.create.topics.enable` impostandolo su true e quindi selezionare __Salva__. Aggiungere una nota, quindi selezionare di nuovo __Salva__ .
         1. Selezionare il servizio __Kafka__ , selezionare __Riavvia__, quindi fare clic su __Riavvia tutti gli interessati__. Quando richiesto, selezionare __Confirm restart all__.
 
@@ -270,8 +269,8 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
 
     |Parametro |Descrizione |
     |---|---|
-    |--consumer. config|specifica il file che contiene le proprietà del consumer. Queste proprietà vengono usate per creare un consumer che legge dal cluster Kafka *primario* .|
-    |--Producer. config|specifica il file che contiene le proprietà del producer. Queste proprietà vengono usate per creare un producer che scrive nel cluster Kafka *secondario* .|
+    |--consumer.config|specifica il file che contiene le proprietà del consumer. Queste proprietà vengono usate per creare un consumer che legge dal cluster Kafka *primario* .|
+    |--producer.config|specifica il file che contiene le proprietà del producer. Queste proprietà vengono usate per creare un producer che scrive nel cluster Kafka *secondario* .|
     |--whitelist|Un elenco di argomenti che MirrorMaker replica dal cluster primario al database secondario.|
     |--Num. flussi|numero di thread consumer da creare.|
 
@@ -292,7 +291,7 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    L'elenco di argomenti include `testtopic`ora, che viene creato quando MirrorMaster esegue il mirroring dell'argomento dal cluster primario al database secondario. I messaggi recuperati dall'argomento sono identici a quelli immessi nel cluster primario.
+    L'elenco di argomenti include ora `testtopic` , che viene creato quando MirrorMaster esegue il mirroring dell'argomento dal cluster primario al database secondario. I messaggi recuperati dall'argomento sono identici a quelli immessi nel cluster primario.
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 

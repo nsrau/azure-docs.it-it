@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
 ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77591915"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS in VM di Azure in Red Hat Enterprise Linux per SAP NetWeaver
@@ -62,7 +61,7 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
 * [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
+* [Distribuzione di Macchine virtuali di Microsoft Azure per SAP in Linux (questo articolo)][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
 * [Documentazione del prodotto per Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * Documentazione generale di RHEL
@@ -98,11 +97,11 @@ Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possi
    4. Nome utente, password amministratore o chiave SSH  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    5. Subnet ID  
-      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come**&lt;ID&gt;sottoscrizione**/subscriptions//resourceGroups/**&lt;nome&gt;gruppo di risorse**/Providers/Microsoft.Network/virtualNetworks/**&lt;nome&gt;rete virtuale**/Subnets/**&lt;nome subnet&gt; **
+      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come** &lt; ID &gt; sottoscrizione**/subscriptions//resourceGroups/nome** &lt; gruppo &gt; di risorse**** &lt; &gt; ** /Providers/Microsoft.Network/virtualNetworks/nome** &lt; rete &gt; virtuale**/Subnets/nome subnet
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
-Prima di tutto è necessario creare le macchine virtuali per questo cluster. Successivamente, creare un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end. Si consiglia [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+Prima di tutto è necessario creare le macchine virtuali per questo cluster. Successivamente, creare un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end. Si consiglia di usare [Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Creare un gruppo di risorse
 1. Creare una rete virtuale
@@ -351,8 +350,8 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]**, applicabile a tut
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Installare SAP ASCS e il database](high-availability-guide-rhel.md)
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [disponibilità elevata e ripristino di emergenza di SAP Hana (istanze large) in Azure](hana-overview-high-availability-disaster-recovery.md).
-* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha].
+* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha]

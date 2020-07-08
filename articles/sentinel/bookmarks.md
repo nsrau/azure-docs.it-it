@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
 ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588689"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Tenere traccia dei dati durante la ricerca con Azure Sentinel
@@ -36,7 +35,7 @@ Inoltre, in anteprima, è possibile visualizzare i dati con segnalibro, facendo 
 
 ## <a name="add-a-bookmark"></a>Aggiungere un segnalibro
 
-1. Nella portale di Azure passare a **Sentinel** > **Threat Management** > **Hunting** per eseguire query per comportamenti sospetti e anomali.
+1. Nella portale di Azure passare a **Sentinel**  >  **Threat Management**  >  **Hunting** per eseguire query per comportamenti sospetti e anomali.
 
 2. Selezionare una delle query di caccia e a destra nei dettagli della query di caccia selezionare **Esegui query**. 
 
@@ -67,11 +66,11 @@ Inoltre, in anteprima, è possibile visualizzare i dati con segnalibro, facendo 
 
  
 > [!NOTE]
-> I risultati della query di log supportano i segnalibri ogni volta che questo riquadro viene aperto da Azure Sentinel. Ad esempio, si selezionano i**log** **generali** > dalla barra di spostamento, si selezionano i collegamenti degli eventi nel grafico indagini oppure si seleziona un ID avviso tra i dettagli completi di un evento imprevisto (attualmente in anteprima). Non è possibile creare segnalibri quando il riquadro **log** è aperto da altri percorsi, ad esempio direttamente da monitoraggio di Azure.
+> I risultati della query di log supportano i segnalibri ogni volta che questo riquadro viene aperto da Azure Sentinel. Ad esempio, si selezionano i **General**  >  **log** generali dalla barra di spostamento, si selezionano i collegamenti degli eventi nel grafico indagini oppure si seleziona un ID avviso tra i dettagli completi di un evento imprevisto (attualmente in anteprima). Non è possibile creare segnalibri quando il riquadro **log** è aperto da altri percorsi, ad esempio direttamente da monitoraggio di Azure.
 
 ## <a name="view-and-update-bookmarks"></a>Visualizzare e aggiornare i segnalibri 
 
-1. Nella portale di Azure passare a **Sentinel** > **Threat Management** > **Hunting**. 
+1. Nella portale di Azure passare a **Sentinel**  >  **Threat Management**  >  **Hunting**. 
 
 2. Selezionare la scheda **segnalibri** per visualizzare l'elenco dei segnalibri.
 
@@ -88,7 +87,7 @@ Inoltre, in anteprima, è possibile visualizzare i dati con segnalibro, facendo 
 > Queste funzionalità vengono fornite senza un contratto di servizio e non sono consigliate per i carichi di lavoro di produzione.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Nella portale di Azure passare alla scheda **Sentinel** > **Threat Management** > **Hunting** > **Bookmarks** e selezionare il segnalibro o i segnalibri che si desidera analizzare.
+1. Nella portale di Azure passare alla scheda **Sentinel**  >  **Threat Management**  >  **Hunting**  >  **Bookmarks** e selezionare il segnalibro o i segnalibri che si desidera analizzare.
 
 2. Nei dettagli del segnalibro verificare che sia stato eseguito il mapping di almeno un'entità. Per le **entità**, ad esempio, vengono visualizzate le voci relative a **IP**, **computer**o **account**.
 
@@ -103,7 +102,7 @@ Per istruzioni sull'uso del grafico di indagine, vedere [usare il grafico di ind
 > Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Nella portale di Azure passare alla scheda **Sentinel** > **Threat Management** > **Hunting** > **Bookmarks** e selezionare il segnalibro o i segnalibri che si desidera aggiungere a un evento imprevisto.
+1. Nella portale di Azure passare alla scheda **Sentinel**  >  **Threat Management**  >  **Hunting**  >  **Bookmarks** e selezionare il segnalibro o i segnalibri che si desidera aggiungere a un evento imprevisto.
 
 2. Selezionare **azioni evento imprevisto (anteprima)** dalla barra dei comandi:
     
@@ -115,20 +114,20 @@ Per istruzioni sull'uso del grafico di indagine, vedere [usare il grafico di ind
     - Per un nuovo evento imprevisto: facoltativamente, aggiornare i dettagli dell'evento imprevisto, quindi selezionare **Crea**.
     - Per aggiungere un segnalibro a un evento imprevisto esistente: selezionare un evento imprevisto e quindi selezionare **Aggiungi**. 
 
-Per visualizzare il segnalibro nell'evento imprevisto: passare a **Sentinel** > **Threat Management** > **Incidents** e selezionare l'evento imprevisto con il segnalibro. Selezionare **Visualizza dettagli completi**, quindi selezionare la scheda **segnalibri** .
+Per visualizzare il segnalibro nell'evento imprevisto: passare a **Sentinel**  >  **Threat Management**  >  **Incidents** e selezionare l'evento imprevisto con il segnalibro. Selezionare **Visualizza dettagli completi**, quindi selezionare la scheda **segnalibri** .
 
 > [!TIP]
 > In alternativa all'opzione **azioni evento imprevisto (anteprima)** sulla barra dei comandi, è possibile utilizzare il menu di scelta rapida (**...**) per uno o più segnalibri per selezionare le opzioni per la creazione di un **nuovo evento**imprevisto, l' **aggiunta all'evento**imprevisto esistente e la **rimozione da evento imprevisto**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Visualizzare i dati con segnalibro nei log
 
-Per visualizzare le query con segnalibro, i risultati o la cronologia, selezionare il segnalibro dalla scheda**segnalibri** **caccia** > e usare i collegamenti disponibili nel riquadro dei dettagli: 
+Per visualizzare le query con segnalibro, i risultati o la cronologia, selezionare il segnalibro dalla **Hunting**  >  scheda**segnalibri** caccia e usare i collegamenti disponibili nel riquadro dei dettagli: 
 
 - Consente di **visualizzare** la query di origine per visualizzare la query di origine nel riquadro **log** .
 
 - **Visualizzare i log dei segnalibri** per visualizzare tutti i metadati dei segnalibri, che includono chi ha eseguito l'aggiornamento, i valori aggiornati e l'ora in cui si è verificato l'aggiornamento.
 
-È anche possibile visualizzare i dati dei segnalibri non elaborati per tutti i segnalibri selezionando i **log dei segnalibri** nella barra dei comandi nella scheda**segnalibri** di **caccia** > :
+È anche possibile visualizzare i dati dei segnalibri non elaborati per tutti i segnalibri selezionando i **log dei segnalibri** nella barra dei comandi nella **Hunting**  >  scheda**segnalibri** di caccia:
 
 > [!div class="mx-imgBorder"]
 > ![Segnalibri-log](./media/bookmarks/bookmark-logs.png)
@@ -140,7 +139,7 @@ Questa visualizzazione Mostra tutti i segnalibri con i metadati associati. È po
 
 ## <a name="delete-a-bookmark"></a>Elimina un segnalibro
  
-1.  Nella portale di Azure passare alla scheda **Sentinel** > **Threat Management** > **Hunting** > **Bookmarks** e selezionare il segnalibro o i segnalibri che si desidera eliminare. 
+1.  Nella portale di Azure passare alla scheda **Sentinel**  >  **Threat Management**  >  **Hunting**  >  **Bookmarks** e selezionare il segnalibro o i segnalibri che si desidera eliminare. 
 
 2. Fare clic con il pulsante destro del mouse sulle selezioni e selezionare l'opzione per l'eliminazione del segnalibro o dei segnalibri. Ad esempio, **eliminare segnalibro** se è stato selezionato un solo segnalibro ed **eliminare 2 segnalibri** se sono stati selezionati due segnalibri.
     
@@ -152,5 +151,5 @@ Eliminando il segnalibro, il segnalibro verrà rimosso dall'elenco nella scheda 
 In questo articolo si è appreso come eseguire un'indagine di caccia usando i segnalibri in Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 
 
-- [Cercare in modo proattivo le minacce](hunting.md)
+- [Cercare le minacce in modo proattivo](hunting.md)
 - [Usare i notebook per eseguire campagne di caccia automatiche](notebooks.md)

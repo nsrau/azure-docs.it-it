@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d61600801286126ea6ffb9a97bc5655b6f233816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562191"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scenario di fan-out/fan-it in Funzioni permanenti - Esempio di backup cloud
@@ -31,7 +30,7 @@ Un approccio tramite Funzioni permanenti è caratterizzato da tutti i vantaggi c
 
 Questo articolo descrive le funzioni seguenti nell'app di esempio:
 
-* `E2_BackupSiteContent`: Funzione dell'agente di [orchestrazione](durable-functions-bindings.md#orchestration-trigger) che chiama `E2_GetFileList` per ottenere un elenco di file di cui eseguire `E2_CopyFileToBlob` il backup, quindi chiama per eseguire il backup di ogni file.
+* `E2_BackupSiteContent`: Funzione dell'agente di [orchestrazione](durable-functions-bindings.md#orchestration-trigger) che chiama `E2_GetFileList` per ottenere un elenco di file di cui eseguire il backup, quindi chiama `E2_CopyFileToBlob` per eseguire il backup di ogni file.
 * `E2_GetFileList`: [Funzione di attività](durable-functions-bindings.md#activity-trigger) che restituisce un elenco di file in una directory.
 * `E2_CopyFileToBlob`: Funzione di attività che esegue il backup di un singolo file nell'archivio BLOB di Azure.
 
@@ -57,7 +56,7 @@ Dopo l'attesa da `Task.WhenAll`, tutte le chiamate di funzione sono state comple
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-La funzione usa il file *Function. JSON* standard per le funzioni dell'agente di orchestrazione.
+La funzione usa l' *function.jsstandard on* per le funzioni dell'agente di orchestrazione.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/function.json)]
 
@@ -65,12 +64,12 @@ Il codice che implementa la funzione dell'agente di orchestrazione è il seguent
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
-Si noti la riga `yield context.df.Task.all(tasks);`. Non sono state restituite tutte `E2_CopyFileToBlob` le singole *not* chiamate alla funzione, che ne consentono l'esecuzione in parallelo. Quando si passa questa matrice di attività a `context.df.Task.all`, viene restituita un'attività che non verrà completata *fino al completamento di tutte le operazioni di copia*. Se si ha familiarità [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) con in JavaScript, questa non è una novità. La differenza è che queste attività possono essere eseguite contemporaneamente su più macchine virtuali e l'estensione Durable Functions garantisce che l'esecuzione end-to-end sia resiliente al riciclo dei processi.
+Si noti la riga `yield context.df.Task.all(tasks);`. `E2_CopyFileToBlob` *Non* sono state restituite tutte le singole chiamate alla funzione, che ne consentono l'esecuzione in parallelo. Quando si passa questa matrice di attività a `context.df.Task.all`, viene restituita un'attività che non verrà completata *fino al completamento di tutte le operazioni di copia*. Se si ha familiarità con [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, questa non è una novità. La differenza è che queste attività possono essere eseguite contemporaneamente su più macchine virtuali e l'estensione Durable Functions garantisce che l'esecuzione end-to-end sia resiliente al riciclo dei processi.
 
 > [!NOTE]
 > Anche se le attività sono concettualmente simili alle promesse JavaScript, le funzioni di orchestrazione dovrebbero usare `context.df.Task.all` e `context.df.Task.any` invece di `Promise.all` e `Promise.race` per gestire la parallelizzazione delle attività.
 
-Dopo aver ceduto da `context.df.Task.all`, sappiamo che tutte le chiamate di funzione sono state completate e hanno restituito valori. Ogni chiamata a `E2_CopyFileToBlob` restituisce il numero di byte caricato e di conseguenza per calcolare il numero di byte totale è sufficiente sommare tutti i valori restituiti.
+Dopo aver ceduto da `context.df.Task.all` , sappiamo che tutte le chiamate di funzione sono state completate e hanno restituito valori. Ogni chiamata a `E2_CopyFileToBlob` restituisce il numero di byte caricato e di conseguenza per calcolare il numero di byte totale è sufficiente sommare tutti i valori restituiti.
 
 ---
 
@@ -86,7 +85,7 @@ Le funzioni di attività helper, in modo analogo agli altri esempi, sono normali
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Il file *Function. JSON* per `E2_GetFileList` ha un aspetto simile al seguente:
+Il *function.jssu* file per è `E2_GetFileList` simile al seguente:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/function.json)]
 
@@ -108,7 +107,7 @@ La funzione usa il `readdirp` modulo (versione 2. x) per leggere in modo ricorsi
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=56-81)]
 
 > [!NOTE]
-> Per eseguire il codice di esempio `Microsoft.Azure.WebJobs.Extensions.Storage` , sarà necessario installare il pacchetto NuGet.
+> `Microsoft.Azure.WebJobs.Extensions.Storage`Per eseguire il codice di esempio, sarà necessario installare il pacchetto NuGet.
 
 La funzione usa alcune funzionalità avanzate delle associazioni di funzioni di Azure, ovvero l'uso del [ `Binder` parametro](../functions-dotnet-class-library.md#binding-at-runtime), ma non è necessario preoccuparsi di tali informazioni ai fini di questa procedura dettagliata.
 

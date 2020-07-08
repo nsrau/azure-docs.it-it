@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: eb099a786a84f9b7d0a6f0dc6e6df9c3459af295
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588230"
 ---
 # <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Connetti i tuoi prodotti Forcepoint ad Azure Sentinel
@@ -44,7 +43,7 @@ Configurare il prodotto Forcepoint per l'invio dei messaggi syslog in formato CE
 
 2. Cercare CommonSecurityLog per usare lo schema pertinente in Log Analytics con il nome DeviceVendor contiene ' Forcepoint '. 
 
-3. Continuare con il [passaggio 3: convalidare la connettività](connect-cef-verify.md).
+3. Continuare con il [PASSAGGIO 3: Convalidare la connettività](connect-cef-verify.md).
 
 
 
@@ -56,4 +55,4 @@ In questo documento si è appreso come connettere i prodotti Forcepoint ad Azure
 
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.

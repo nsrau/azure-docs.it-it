@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 86854fa22a49f09e5d3d2fc5fdb53c245850fbac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77587941"
 ---
 # <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Connettere Zimperium Mobile Threat Defense ad Azure Sentinel
@@ -68,7 +67,7 @@ In questo documento si è appreso come connettere Zimperium Mobile Threat Defens
 
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 
 Per ulteriori informazioni su Zimperium, vedere gli argomenti seguenti:
 

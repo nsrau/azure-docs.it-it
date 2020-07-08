@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77430942"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurare i criteri di sicurezza in criteri di Azure usando l'API REST
@@ -126,7 +125,7 @@ Questo esempio illustra come rimuovere un'assegnazione:
 |Accesso alla rete JIT |Monitorare il possibile accesso JIT (just-in-Time) di rete nel centro sicurezza di Azure |jitNetworkAccessMonitoringEffect |
 |Controlli delle applicazioni adattivi |Monitorare il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
 |Gruppi di sicurezza di rete |Monitorare gli accessi di rete permissivi nel Centro sicurezza di Azure |networkSecurityGroupsMonitoringEffect| 
-|Configurazioni di sicurezza |Monitorare le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
+|Configurazioni della sicurezza |Monitorare le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
 |Protezione degli endpoint |Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure |endpointProtectionMonitoringEffect |
 |Crittografia del disco |Monitorare i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure |diskEncryptionMonitoringEffect|
 |Valutazione della vulnerabilità |Monitorare le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure |vulnerabilityAssessmentMonitoringEffect|

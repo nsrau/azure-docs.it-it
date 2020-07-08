@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564024"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurare le origini di identità vCenter da usare Active Directory
@@ -58,9 +57,9 @@ Usare le informazioni nella tabella seguente durante la configurazione del domin
 | **Nome di dominio** | FQDN del dominio, ad esempio example.com. Non specificare un indirizzo IP in questa casella di testo. |
 | **Alias di dominio** | Nome NetBIOS del dominio. Se si usano le autenticazioni SSPI, aggiungere il nome NetBIOS del dominio Active Directory come alias dell'origine di identità. |
 | **DN di base per i gruppi** | Nome distinto di base per i gruppi. |
-| **URL server primario** | Server LDAP del controller di dominio primario per il dominio.<br><br>Usare il formato `ldap://hostname:port` o `ldaps://hostname:port`. La porta è in genere 389 per le connessioni LDAP e 636 per le connessioni LDAPs. Per Active Directory distribuzioni di controller multidominio, la porta è in genere 3268 per LDAP e 3269 per LDAPs.<br><br>Quando si usa `ldaps://` nell'URL LDAP primario o secondario, è necessario un certificato che stabilisce l'attendibilità per l'endpoint LDAPS del server Active Directory. |
+| **URL server primario** | Server LDAP del controller di dominio primario per il dominio.<br><br>Usare il formato  `ldap://hostname:port`   o  `ldaps://hostname:port` . La porta è in genere 389 per le connessioni LDAP e 636 per le connessioni LDAPs. Per Active Directory distribuzioni di controller multidominio, la porta è in genere 3268 per LDAP e 3269 per LDAPs.<br><br>Quando si usa  `ldaps://`   nell'URL LDAP primario o secondario, è necessario un certificato che stabilisce l'attendibilità per l'endpoint LDAPS del server Active Directory. |
 | **URL server secondario** | Indirizzo di un server LDAP del controller di dominio secondario usato per il failover. |
-| **Scegliere il certificato** | Se si vuole usare LDAPS con il server Active Directory LDAP o con l'origine identità del server OpenLDAP, dopo aver digitato `ldaps://` nella casella di testo URL viene visualizzato un pulsante Scegli certificato. Un URL secondario non è obbligatorio. |
+| **Scegliere il certificato** | Se si vuole usare LDAPs con il server Active Directory LDAP o con l'origine identità del server OpenLDAP, dopo aver digitato  `ldaps://`   nella casella di testo URL viene visualizzato un pulsante Scegli certificato. Un URL secondario non è obbligatorio. |
 | **Nome utente** | ID di un utente nel dominio che dispone almeno dell'accesso in sola lettura al DN di base per utenti e gruppi. |
 | **Password** | Password dell'utente specificato dal nome utente. |
 
@@ -118,7 +117,7 @@ Dopo aver stabilito la connessione di rete, seguire la procedura descritta in [a
 
     ![Single Sign On](media/OnPremAD02.png)
 
-5. Aprire la scheda **origini identità** e fare **+** clic su per aggiungere una nuova origine identità.
+5. Aprire la scheda **origini identità** e fare clic su **+** per aggiungere una nuova origine identità.
 
     ![Origini identità](media/OnPremAD03.png)
 
@@ -130,4 +129,4 @@ Dopo aver stabilito la connessione di rete, seguire la procedura descritta in [a
 
     ![Active Directory](media/OnPremAD05.png)
 
-8. Verificare le impostazioni e fare clic su **fine**.
+8. Rivedere le impostazioni e fare clic su **Finish** (Fine).

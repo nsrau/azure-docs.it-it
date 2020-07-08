@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77468763"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
@@ -93,22 +92,22 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |Name|Descrizione|
+        |Nome|Descrizione|
         |---|---|
         |id|ID video|
         |state|Lo stato del video|  
-    - Esempio: https:\//test.com/NotifyMe?ProjectName=MyProject&ID = 1234abcd&state = processed
+    - Esempio: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&state = processed
 - Persona identificata nel video:
   - Proprietà
     
-      |Name|Descrizione|
+      |Nome|Descrizione|
       |---|---|
       |id| ID video|
       |faceId|L'ID viso che appare nell'indice video|
       |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
       |personName|Il nome della persona|
         
-    - Esempio: https:\//test.com/NotifyMe?ProjectName=MyProject&ID = 1234abcd&FaceId = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
+    - Esempio: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceId = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
 
 ##### <a name="notes"></a>Note
 
@@ -126,7 +125,7 @@ Usare questo parametro se registrazioni non elaborate o esterne contengono rumor
 
 > [!NOTE]
 > Video Indexer copre fino a due tracce di audio. Se sono presenti più tracce audio nel file, verranno considerate come una traccia.<br/>
-Se si desidera indicizzare le tracce separatamente, sarà necessario estrarre il file audio pertinente e indicizzarlo come `AudioOnly`.
+Se si desidera indicizzare le tracce separatamente, sarà necessario estrarre il file audio pertinente e indicizzarlo come `AudioOnly` .
 
 Il prezzo dipende dall'opzione di indicizzazione selezionata.  
 
@@ -165,8 +164,8 @@ Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario 
     Per ottenere la chiave API, passare a questo flusso:
 
     * Passare a https://api-portal.videoindexer.ai/
-    * Login
-    * Passa alla sottoscrizione di**Authorization** -> **autorizzazione** per i **prodotti** -> 
+    * Accedi
+    * Passa alla **Products**  ->  **Authorization**  ->  **sottoscrizione di autorizzazione** per i prodotti
     * Copiare la **chiave primaria**
 * URL video: URL del file video/audio da indicizzare. L'URL deve puntare a un file multimediale; le pagine HTML non sono supportate. Il file può essere protetto da un token di accesso fornito come parte dell'URI e l'endpoint che gestisce il file deve essere protetto con il protocollo TLS 1.2 o versione successiva. L'URL deve essere codificato.
 

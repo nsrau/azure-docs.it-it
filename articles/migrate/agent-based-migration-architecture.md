@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
 ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425859"
 ---
 # <a name="agent-based-migration-architecture"></a>Architettura di migrazione basata su agente
@@ -73,7 +72,7 @@ Il servizio Mobility comunica con l'appliance di replica e i computer replicati.
 
 ## <a name="ports"></a>Porte
 
-**Dispositivo** | **Connessione**
+**Dispositivo** | **Connection**
 --- | --- 
 **Replica di computer** | Il servizio Mobility in esecuzione sulle VM comunica con l'appliance di replica locale sulla porta HTTPS 443 in ingresso, per la gestione della replica.<br/><br/> I computer inviano i dati di replica al server di elaborazione sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
 **Appliance di replica** | L'appliance di replica orchestra la replica con Azure tramite la porta HTTPS 443 in uscita.

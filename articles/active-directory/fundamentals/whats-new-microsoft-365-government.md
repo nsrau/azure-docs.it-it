@@ -14,10 +14,9 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425545"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novità relative a Azure Active Directory in Microsoft 365 Government
@@ -34,9 +33,9 @@ Questo articolo non si applica ai clienti di Microsoft 365 Government-GCC.
 
 ## <a name="changes-to-the-initial-domain-name"></a>Modifiche al nome di dominio iniziale
 
-Durante l'iscrizione iniziale dell'organizzazione per un servizio online Microsoft 365 Government, è stato richiesto di scegliere il nome di dominio dell'organizzazione `<your-domain-name>.onmicrosoft.com`. Se si dispone già di un nome di dominio con il suffisso. com, nulla cambierà.
+Durante l'iscrizione iniziale dell'organizzazione per un servizio online Microsoft 365 Government, è stato richiesto di scegliere il nome di dominio dell'organizzazione `<your-domain-name>.onmicrosoft.com` . Se si dispone già di un nome di dominio con il suffisso. com, nulla cambierà.
 
-Tuttavia, se si esegue l'iscrizione per un nuovo servizio Microsoft 365 Government, verrà chiesto di scegliere un nome di dominio usando il `.us` suffisso. Quindi, sarà `<your-domain-name>.onmicrosoft.us`.
+Tuttavia, se si esegue l'iscrizione per un nuovo servizio Microsoft 365 Government, verrà chiesto di scegliere un nome di dominio usando il `.us` suffisso. Quindi, sarà `<your-domain-name>.onmicrosoft.us` .
 
 >[!Note]
 >Questa modifica non si applica a tutti i clienti gestiti da provider di servizi cloud (CSP).

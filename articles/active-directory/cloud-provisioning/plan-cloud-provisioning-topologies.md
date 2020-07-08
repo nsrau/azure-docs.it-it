@@ -12,10 +12,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77620880"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Topologie e scenari supportati per il provisioning del Cloud Azure AD Connect
@@ -50,7 +49,7 @@ Una topologia comune è rappresentata da più insiemi di strutture di Active Dir
 Questo scenario è simile allo scenario a più foreste, tuttavia questo implica un ambiente di Azure AD Connect esistente e quindi l'introduzione di una nuova foresta con Azure AD Connect il provisioning cloud.  Per un esempio di questo scenario [, vedere Esercitazione: una foresta esistente con un singolo tenant di Azure ad](tutorial-existing-forest.md)
 
 ## <a name="piloting-azure-ad-connect-cloud-provisioning-in-an-existing-hybrid-ad-forest"></a>Distribuzione pilota Azure AD Connect il provisioning cloud in una foresta di Active Directory ibrida esistente
-![Topologia per una singola foresta e un singolo](media/plan-cloud-provisioning-topologies/migrate.png) tenant lo scenario pilota prevede l'esistenza di Azure AD Connect e Azure ad Connect il provisioning cloud nella stessa foresta e l'ambito degli utenti e dei gruppi di conseguenza. Nota: un oggetto deve essere nell'ambito solo in uno degli strumenti. 
+![Topologia per una singola foresta e un singolo tenant ](media/plan-cloud-provisioning-topologies/migrate.png) lo scenario pilota prevede l'esistenza di Azure ad Connect e Azure ad Connect il provisioning cloud nella stessa foresta e l'ambito degli utenti e dei gruppi di conseguenza. Nota: un oggetto deve essere nell'ambito solo in uno degli strumenti. 
 
 Per un esempio di questo scenario [, vedere Esercitazione: provisioning pilota Azure ad Connect Cloud in una foresta di Active Directory sincronizzata esistente](tutorial-pilot-aadc-aadccp.md)
 

@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77530263"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Binding di input del servizio SignalR per funzioni di Azure
@@ -18,7 +17,7 @@ Prima che un client possa connettersi al servizio Azure SignalR, deve recuperare
 
 Per altre informazioni su come questa associazione viene usata per creare una funzione "Negotiate" che può essere usata da un SDK client SignalR, vedere l' [articolo sviluppo e configurazione di funzioni di Azure](../azure-signalr/signalr-concept-serverless-development-config.md) nella documentazione relativa ai concetti del servizio SignalR.
 
-Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](functions-bindings-signalr-service.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-signalr-service.md).
 
 ## <a name="example"></a>Esempio
 
@@ -38,7 +37,7 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-L'esempio seguente illustra un'associazione di input di informazioni sulla connessione SignalR in un file *Function. JSON* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione per restituire le informazioni di connessione.
+Nell'esempio seguente viene illustrata un'associazione di input di informazioni sulla connessione di SignalR in una *function.jssu* file e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione per restituire le informazioni di connessione.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -94,7 +93,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-L'esempio seguente illustra un'associazione di input di informazioni sulla connessione SignalR in un file *Function. JSON* e una [funzione Python](functions-reference-python.md) che usa l'associazione per restituire le informazioni di connessione.
+Nell'esempio seguente viene illustrata un'associazione di input di informazioni sulla connessione di SignalR in una *function.jssu* file e una [funzione Python](functions-reference-python.md) che usa l'associazione per restituire le informazioni di connessione.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -151,7 +150,7 @@ Autenticazione servizio App imposta le intestazioni HTTP denominate `x-ms-client
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-È possibile impostare la `UserId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
+È possibile impostare la `UserId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}` .
 
 ```cs
 [FunctionName("negotiate")]
@@ -168,7 +167,7 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
+È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}` .
 
 Function.json di esempio:
 
@@ -199,7 +198,7 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
+È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}` .
 
 Function.json di esempio:
 
@@ -226,7 +225,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
+È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}` .
 
 Function.json di esempio:
 
@@ -258,7 +257,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`.
+È possibile impostare la `userId` proprietà dell'associazione sul valore di una delle intestazioni usando un' [espressione di associazione](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}` .
 
 ```java
 @FunctionName("negotiate")

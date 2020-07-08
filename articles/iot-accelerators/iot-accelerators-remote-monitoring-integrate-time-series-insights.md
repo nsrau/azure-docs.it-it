@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564645"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrare Azure Time Series Insights con il monitoraggio remoto
@@ -51,7 +50,7 @@ Successivamente, distribuire di Azure Time Series Insights come risorsa aggiunti
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Selezionare **Crea una risorsa** > **Internet delle cose** > **Time Series Insights**.
+1. Selezionare **Crea una risorsa**  >  **Internet delle cose**  >  **Time Series Insights**.
 
     ![Nuovo ambiente Azure Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
@@ -62,13 +61,13 @@ Successivamente, distribuire di Azure Time Series Insights come risorsa aggiunti
     | Nome ambiente | Nella schermata seguente viene usato il nome **contorosrmtsi**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
     | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Resource group | **Usa esistente**. Selezionare il nome del gruppo di risorse di monitoraggio remoto esistente. |
-    | Percorso | In questo esempio viene usata l'area **Stati Uniti orientali**. Creare l'ambiente nella stessa area della soluzione di monitoraggio remoto, se possibile. |
+    | Location | In questo esempio viene usata l'area **Stati Uniti orientali**. Creare l'ambiente nella stessa area della soluzione di monitoraggio remoto, se possibile. |
     | Sku |**S1** |
-    | Capacity | **1** |
+    | Capacità | **1** |
 
     ![Creare Azure Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
-1. Scegliere **Crea**. La creazione dell'ambiente può richiedere qualche minuto.
+1. Fare clic su **Crea**. La creazione dell'ambiente può richiedere qualche minuto.
 
 ## <a name="create-event-source"></a>Creare un'origine evento
 
@@ -80,7 +79,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
 
     ![Visualizzare le origini evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources.png)
 
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 
     ![Aggiungere un'origine evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources-add.png)
 
@@ -101,7 +100,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
 
     ![Creare un'origine evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Scegliere **Crea**.
+1. Fare clic su **Crea**.
 
 ## <a name="configure-the-data-access-policy"></a>Configurare i criteri di accesso ai dati
 
@@ -213,7 +212,7 @@ Configurare l'ambiente della distribuzione `basic` per i microservizi aggiornati
 
 1. Cercare l'applicazione **ContosoRM** e farci clic sopra.
 
-1. Passare a **Impostazioni** > **chiavi** , quindi creare una nuova chiave per l'applicazione. Assicurarsi di copiare il valore della chiave in una posizione sicura.
+1. Passare a **Impostazioni**  >  **chiavi** , quindi creare una nuova chiave per l'applicazione. Assicurarsi di copiare il valore della chiave in una posizione sicura.
 
 1. Estrarre il [file YAML di Docker compose più recente](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) dal repository GitHub usando il tag più recente. 
 

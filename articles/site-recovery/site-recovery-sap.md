@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190790"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello
@@ -119,7 +118,7 @@ Per avviare la replica di tutte le macchine virtuali dell'applicazione SAP al da
 
 ## <a name="networking-configuration"></a>Configurazione delle impostazioni di rete
 
-Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare > a **Impostazioni calcolo e rete****scheda di interfaccia di rete**.
+Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare a **Impostazioni calcolo e rete**  >  **scheda di interfaccia di rete**.
 
 ![Schermata che illustra come impostare un indirizzo IP privato nel riquadro della scheda di interfaccia di rete di Site Recovery](./media/site-recovery-sap/sap-static-ip.png)
 

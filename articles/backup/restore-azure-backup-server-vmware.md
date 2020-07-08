@@ -4,10 +4,9 @@ description: Usare server di Backup di Azure (MAB) per ripristinare le macchine 
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77212328"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Ripristinare macchine virtuali VMware
@@ -46,7 +45,7 @@ Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per r
 
       ![Selezione tipo di ripristino](./media/restore-azure-backup-server-vmware/recovery-type.png)
 
-8. Nella schermata **Riepilogo** controllare le impostazioni e fare clic su **Ripristina** per avviare il processo di ripristino. La schermata **Stato ripristino** Mostra l'avanzamento dell'operazione di ripristino.
+8. Nella schermata **Riepilogo** controllare le impostazioni e fare clic su **Ripristina** per avviare il processo di ripristino. Nella schermata **Stato ripristino** viene visualizzato l'avanzamento dell'operazione di ripristino.
 
 ## <a name="restore-an-individual-file-from-a-vm"></a>Ripristinare un singolo file da una macchina virtuale
 
@@ -76,7 +75,7 @@ Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per r
     ![Specificare il percorso per il ripristino dei file](./media/restore-azure-backup-server-vmware/specify-destination.png)
 
 9. Nella schermata **Specifica opzioni di ripristino** scegliere quale impostazione di sicurezza applicare. È possibile scegliere di modificare la limitazione per l'utilizzo della larghezza di banda di rete, ma la limitazione è disabilitata per impostazione predefinita. Anche le opzioni **Recupero basato su SAN** e **Notifica** non sono abilitate.
-10. Nella schermata **Riepilogo** controllare le impostazioni e fare clic su **Ripristina** per avviare il processo di ripristino. La schermata **Stato ripristino** Mostra l'avanzamento dell'operazione di ripristino.
+10. Nella schermata **Riepilogo** controllare le impostazioni e fare clic su **Ripristina** per avviare il processo di ripristino. Nella schermata **Stato ripristino** viene visualizzato l'avanzamento dell'operazione di ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

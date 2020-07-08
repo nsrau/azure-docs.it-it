@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ms.openlocfilehash: c24a840716841d04537ac5b77bcaf26fca4b78cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77561950"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Avvio di macchine virtuali Linux in grub rescue
@@ -41,13 +40,13 @@ Attenersi alla procedura di mitigazione riportata di seguito, a seconda dell'err
 
 * Se viene ricevuto l' **errore 15: file non trovato o disco RAM iniziale** o **file initrd/initramfs non trovato**, attenersi alla procedura riportata di seguito.
 
-    * Per il file `/boot/grub2/grub.cfg` mancante o `initrd/initramfs` procedere con il processo seguente:
+    * Per il file mancante `/boot/grub2/grub.cfg` o `initrd/initramfs` procedere con il processo seguente:
 
     1. Verificare `/etc/default/grub` che esista e abbia le impostazioni corrette/desiderate. Se non si sa quali sono le impostazioni predefinite, è possibile verificare con una VM funzionante.
 
     2. Eseguire quindi il comando seguente per rigenerare la configurazione:`grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * Se il file mancante è `/boot/grub/menu.lst`, questo errore è per le versioni precedenti del sistema operativo (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14,04**), quindi i comandi potrebbero essere diversi. Sarà necessario avviare un vecchio server e verificare che vengano forniti i comandi corretti.
+   * Se il file mancante è `/boot/grub/menu.lst` , questo errore è per le versioni precedenti del sistema operativo (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14,04**), quindi i comandi potrebbero essere diversi. Sarà necessario avviare un vecchio server e verificare che vengano forniti i comandi corretti.
 
 ### <a name="error---no-such-partition"></a>Errore-nessuna partizione di questo tipo
 
@@ -57,13 +56,13 @@ Attenersi alla procedura di mitigazione riportata di seguito, a seconda dell'err
 
 * Se si sta ricevendo l'errore **/boot/GRUB2/grub.cfg file non trovato**, attenersi alla procedura riportata di seguito.
 
-    * Per il file `/boot/grub2/grub.cfg` mancante o `initrd/initramfs` procedere con il processo seguente:
+    * Per il file mancante `/boot/grub2/grub.cfg` o `initrd/initramfs` procedere con il processo seguente:
 
     1. Verificare `/etc/default/grub` che esista e abbia le impostazioni corrette/desiderate. Se non si sa quali sono le impostazioni predefinite, è possibile verificare con una VM funzionante.
 
-    2. Eseguire quindi il comando seguente per rigenerare la configurazione: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
+    2. Eseguire quindi il comando seguente per rigenerare la configurazione: `grub2-mkconfig -o /boot/grub2/grub.cfg` .
 
-   * Se il file mancante è `/boot/grub/menu.lst`, questo errore è per le versioni precedenti del sistema operativo (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14,04**), in modo che i comandi possano rinviare. Avviare un vecchio server e testarlo per assicurarsi che vengano forniti i comandi corretti.
+   * Se il file mancante è `/boot/grub/menu.lst` , questo errore è per le versioni precedenti del sistema operativo (**RHEL 6. x**, **CentOS 6. x** e **Ubuntu 14,04**), in modo che i comandi possano rinviare. Avviare un vecchio server e testarlo per assicurarsi che vengano forniti i comandi corretti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,24 +6,23 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523037"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associazioni del servizio SignalR per Funzioni di Azure
 
 Questo set di articoli illustra come eseguire l'autenticazione e inviare messaggi in tempo reale ai client connessi al [servizio Azure SignalR](https://azure.microsoft.com/services/signalr-service/) usando le associazioni del servizio SignalR in funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per il servizio SignalR.
 
-| Action | Tipo |
+| Action | Type |
 |---------|---------|
 | Restituisce l'URL dell'endpoint del servizio e il token di accesso | [Binding di input](./functions-bindings-signalr-service-input.md) |
 | Inviare messaggi del servizio SignalR |[Binding di output](./functions-bindings-signalr-service-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Aggiungi all'app funzioni
 
-### <a name="functions-2x-and-higher"></a>Funzioni 2. x e versioni successive
+### <a name="functions-2x-and-higher"></a>Funzioni 2.x e versioni successive
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
@@ -43,7 +42,7 @@ Per informazioni dettagliate su come configurare e usare insieme il servizio Sig
 
 ### <a name="annotations-library-java-only"></a>Libreria Annotations (solo Java)
 
-Per usare le annotazioni del servizio SignalR nelle funzioni Java, è necessario aggiungere una dipendenza all'artefatto di *Azure-Functions-Java-Library-SignalR* (versione 1,0 o successiva) al file *POM. XML* .
+Per usare le annotazioni del servizio SignalR nelle funzioni Java, è necessario aggiungere una dipendenza all'artefatto di *Azure-Functions-Java-Library-SignalR* (versione 1,0 o successiva) al file di *pom.xml* .
 
 ```xml
 <dependency>

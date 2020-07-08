@@ -7,10 +7,9 @@ ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77482973"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure
@@ -22,7 +21,7 @@ La distribuzione per la sincronizzazione del contenuto on demand si basa sul [mo
 
 Per abilitare la sincronizzazione del contenuto, passare alla pagina del servizio app nel [portale di Azure](https://portal.azure.com).
 
-Nel menu a sinistra fare clic su **Deployment Center** > **OneDrive** o **Dropbox** > **autorizza**. Seguire le istruzioni di autorizzazione. 
+Nel menu a sinistra fare clic su **Deployment Center**  >  **OneDrive** o **Dropbox**  >  **autorizza**. Seguire le istruzioni di autorizzazione. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
@@ -54,7 +53,7 @@ Quando si vuole sincronizzare il contenuto nella cartella cloud con il servizio 
 
 Per disabilitare la sincronizzazione del contenuto, passare alla pagina del servizio app nel [portale di Azure](https://portal.azure.com).
 
-Nel menu a sinistra fare clic su **centro** > distribuzione**Disconnetti**.
+Nel menu a sinistra fare clic su **centro distribuzione**  >  **Disconnetti**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

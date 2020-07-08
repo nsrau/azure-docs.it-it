@@ -10,10 +10,9 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77505569"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
@@ -79,7 +78,7 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 | Creare una VM notebook |   | **&check;** | |     |
 
 > [!WARNING]
-> Non è supportato lo stato di un'area di lavoro di Azure Machine Learning in una sottoscrizione diversa o di trasferimento della sottoscrizione proprietaria a un nuovo tenant. Questa operazione può causare errori.
+> Lo spostamento dell’area di lavoro di Azure Machine Learning in una diversa sottoscrizione o della sottoscrizione proprietaria su un nuovo tenant non è supportato in quanto ciò può provocare errori.
 
 ## <a name="create-a-workspace"></a><a name='create-workspace'></a>Creare un'area di lavoro
 
@@ -93,7 +92,7 @@ Esistono diversi modi per creare un'area di lavoro:
 * Se si lavora in Visual Studio Code, utilizzare l' [estensione vs code](tutorial-setup-vscode-extension.md).
 
 > [!NOTE]
-> Il nome dell'area di lavoro non fa distinzione tra maiuscole e minuscole.
+> Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
 
 ## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Eseguire l'aggiornamento a Enterprise Edition
 
@@ -113,7 +112,7 @@ Quando si crea una nuova area di lavoro, vengono create automaticamente diverse 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare Azure Machine Learning, vedere:
+Per un'introduzione ad Azure Machine Learning, vedere:
 
 + [Panoramica di Azure Machine Learning](overview-what-is-azure-ml.md)
 + [Creare un'area di lavoro](how-to-manage-workspace.md)

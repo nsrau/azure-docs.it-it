@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77605214"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guida per gli sviluppatori di modelli di anteprima Plug and Play
@@ -97,7 +96,7 @@ In un'interfaccia sono presenti alcuni campi obbligatori:
 
 In questo semplice esempio esiste un solo campo di telemetria. Una descrizione del campo minima presenta:
 
-- `@type`: specifica il tipo di funzionalità: `Telemetry`, `Property`o `Command`.
+- `@type`: specifica il tipo di funzionalità: `Telemetry` , `Property` o `Command` .
 - `name`: fornisce il nome del valore di telemetria.
 - `schema`: specifica il tipo di dati per i dati di telemetria. Questo valore può essere un tipo primitivo, ad esempio Double, Integer, Boolean o String. Sono supportati anche tipi di oggetti complessi, matrici e mappe.
 
@@ -111,7 +110,7 @@ Per impostazione predefinita, le proprietà sono di sola lettura. Le proprietà 
 
 Non è necessario che i dispositivi siano connessi per impostare i valori delle proprietà. I valori aggiornati vengono trasferiti quando il dispositivo si connette successivamente all'hub. Questo comportamento si applica sia alle proprietà di sola lettura che a quelle scrivibili.
 
-Non usare le proprietà per inviare dati di telemetria dal dispositivo. Una proprietà di sola lettura, ad esempio `temperatureSetting=80` , deve indicare che la temperatura del dispositivo è stata impostata su 80 e che il dispositivo sta provando a raggiungere o rimanere in corrispondenza della temperatura.
+Non usare le proprietà per inviare dati di telemetria dal dispositivo. Una proprietà di sola lettura, ad esempio, `temperatureSetting=80` deve indicare che la temperatura del dispositivo è stata impostata su 80 e che il dispositivo sta provando a raggiungere o rimanere in corrispondenza della temperatura.
 
 Per le proprietà scrivibili, l'applicazione del dispositivo restituisce un codice di stato desiderato, una versione e una descrizione per indicare se ha ricevuto e applicato il valore della proprietà.
 
@@ -121,17 +120,17 @@ Per impostazione predefinita, l'hub Internet instrada tutti i messaggi di teleme
 
 È possibile usare [endpoint personalizzati e regole di routing dell'hub](../iot-hub/iot-hub-devguide-messages-d2c.md) Internet per inviare dati di telemetria ad altre destinazioni, ad esempio l'archiviazione BLOB o altri hub eventi. Le regole di routing utilizzano le proprietà del messaggio per selezionare i messaggi.
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 I comandi sono sincroni o asincroni. Per impostazione predefinita, un comando sincrono deve essere eseguito entro 30 secondi e il dispositivo deve essere connesso all'arrivo del comando. Se il dispositivo risponde nel tempo o il dispositivo non è connesso, il comando ha esito negativo.
 
 Usare i comandi asincroni per le operazioni a esecuzione prolungata. Il dispositivo invia le informazioni di stato usando i messaggi di telemetria. Questi messaggi di stato hanno le proprietà di intestazione seguenti:
 
-- `iothub-command-name`: nome del comando, ad esempio `UpdateFirmware`.
+- `iothub-command-name`: nome del comando, ad esempio `UpdateFirmware` .
 - `iothub-command-request-id`: ID richiesta generato sul lato server e inviato al dispositivo nella chiamata iniziale.
-- `iothub-interface-id`: ID dell'interfaccia su cui è definito questo comando, ad esempio `urn:example:AssetTracker:1`.
- `iothub-interface-name`: nome dell'istanza di questa interfaccia, ad esempio `myAssetTracker`.
-- `iothub-command-statuscode`: codice di stato restituito dal dispositivo, ad esempio `202`.
+- `iothub-interface-id`: ID dell'interfaccia su cui è definito questo comando, ad esempio `urn:example:AssetTracker:1` .
+ `iothub-interface-name`: nome dell'istanza di questa interfaccia, ad esempio `myAssetTracker` .
+- `iothub-command-statuscode`: codice di stato restituito dal dispositivo, ad esempio `202` .
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
@@ -182,29 +181,29 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 Internet delle cose Plug and Play consente di usare i dispositivi che hanno registrato le proprie funzionalità con l'hub Internet delle cose. Ad esempio, è possibile accedere direttamente alle proprietà e ai comandi di un dispositivo.
 
-Per usare un Plug and Play dispositivo connesso all'hub Internet delle cose, usare l'API REST dell'hub Internet delle cose o uno degli SDK del linguaggio Internet delle cose. Gli esempi seguenti usano l'API REST dell'hub Internet. La versione corrente dell'API è `2019-07-01-preview`. Accodare `?api-version=2019-07-01-preview` le chiamate a Rest pi.
+Per usare un Plug and Play dispositivo connesso all'hub Internet delle cose, usare l'API REST dell'hub Internet delle cose o uno degli SDK del linguaggio Internet delle cose. Gli esempi seguenti usano l'API REST dell'hub Internet. La versione corrente dell'API è `2019-07-01-preview` . Accodare `?api-version=2019-07-01-preview` le chiamate a Rest pi.
 
-Per ottenere il valore di una proprietà del dispositivo, ad esempio la versione del`fwVersion`firmware () `DeviceInformation` nell'interfaccia del termostato, si usa l'API REST di Digital gemelli.
+Per ottenere il valore di una proprietà del dispositivo, ad esempio la versione del firmware ( `fwVersion` ) nell' `DeviceInformation` interfaccia del termostato, si usa l'API REST di Digital gemelli.
 
-Se il dispositivo termostato viene `t-123`chiamato, si ottengono tutte le proprietà di tutte le interfacce implementate dal dispositivo con una chiamata Get dell'API REST:
+Se il dispositivo termostato viene chiamato `t-123` , si ottengono tutte le proprietà di tutte le interfacce implementate dal dispositivo con una chiamata Get dell'API REST:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-In genere, tutte le proprietà di tutte le interfacce sono accessibili con questo modello API `{device-id}` Rest, dove è l'identificatore del dispositivo:
+In genere, tutte le proprietà di tutte le interfacce sono accessibili con questo modello API REST, dove `{device-id}` è l'identificatore del dispositivo:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-Se si conosce il nome dell'interfaccia, ad esempio `deviceInformation`, e si desidera ottenere proprietà per l'interfaccia specifica, definire l'ambito della richiesta a un'interfaccia specifica in base al nome:
+Se si conosce il nome dell'interfaccia, ad esempio `deviceInformation` , e si desidera ottenere proprietà per l'interfaccia specifica, definire l'ambito della richiesta a un'interfaccia specifica in base al nome:
 
 ```REST
 GET /digitalTwins/t-123/interfaces/deviceInformation
 ```
 
-Più in generale, è possibile accedere alle proprietà di un'interfaccia specifica tramite questo modello API `device-id` Rest, dove è l'identificatore per `{interface-name}` il dispositivo e è il nome dell'interfaccia:
+Più in generale, è possibile accedere alle proprietà di un'interfaccia specifica tramite questo modello API REST, dove `device-id` è l'identificatore per il dispositivo e `{interface-name}` è il nome dell'interfaccia:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces/{interface-name}

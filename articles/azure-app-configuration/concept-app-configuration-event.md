@@ -8,10 +8,9 @@ ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523799"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reazione agli eventi di configurazione app Azure
@@ -39,17 +38,17 @@ App Azure eventi di configurazione contengono tutte le informazioni necessarie p
 
 > |Proprietà|Type|Descrizione|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |argomento|stringa|ID Azure Resource Manager completo della configurazione dell'app che genera l'evento.|
-> |subject|stringa|URI del valore della chiave che rappresenta l'oggetto dell'evento.|
-> |eventTime|stringa|Data/ora in cui è stato generato l'evento, in formato ISO 8601.|
-> |eventType|stringa|"Microsoft. AppConfiguration. KeyValueModified" o "Microsoft. AppConfiguration. KeyValueDeleted".|
-> |ID|stringa|Identificatore univoco di questo evento.|
-> |dataVersion|stringa|Versione dello schema dell'oggetto dati.|
-> |metadataVersion|stringa|Versione dello schema delle proprietà di primo livello.|
-> |data|oggetto|Raccolta di dati evento specifici della configurazione di app Azure|
-> |Data. Key|stringa|Chiave del valore della chiave che è stato modificato o eliminato.|
-> |Data. Label|stringa|Etichetta, se presente, del valore della chiave che è stato modificato o eliminato.|
-> |Data. ETag|stringa|Per `KeyValueModified` l'ETag del nuovo valore di chiave. Per `KeyValueDeleted` l'ETag del valore della chiave che è stato eliminato.|
+> |argomento|string|ID Azure Resource Manager completo della configurazione dell'app che genera l'evento.|
+> |subject|string|URI del valore della chiave che rappresenta l'oggetto dell'evento.|
+> |eventTime|string|Data/ora in cui è stato generato l'evento, in formato ISO 8601.|
+> |eventType|string|"Microsoft. AppConfiguration. KeyValueModified" o "Microsoft. AppConfiguration. KeyValueDeleted".|
+> |ID|string|Identificatore univoco di questo evento.|
+> |dataVersion|string|Versione dello schema dell'oggetto dati.|
+> |metadataVersion|string|Versione dello schema delle proprietà di primo livello.|
+> |data|object|Raccolta di dati evento specifici della configurazione di app Azure|
+> |Data. Key|string|Chiave del valore della chiave che è stato modificato o eliminato.|
+> |Data. Label|string|Etichetta, se presente, del valore della chiave che è stato modificato o eliminato.|
+> |Data. ETag|string|Per `KeyValueModified` l'ETag del nuovo valore di chiave. Per `KeyValueDeleted` l'ETag del valore della chiave che è stato eliminato.|
 
 Di seguito è riportato un esempio di un evento KeyValueModified:
 ```json

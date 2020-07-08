@@ -7,22 +7,21 @@ ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593727"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Installare Linkerd nel servizio Azure Kubernetes (AKS)
 
 [Linkerd][linkerd-github] è un progetto open source mesh e [CNCF incubating][linkerd-cncf]. Linkerd è una rete di servizi ultraleggeri che fornisce funzionalità che includono la gestione del traffico, l'identità del servizio e la sicurezza, l'affidabilità e l'osservabilità. Per ulteriori informazioni su Linkerd, vedere le [domande frequenti su Linkerd][linkerd-faq] e la documentazione sull' [architettura Linkerd][linkerd-architecture] .
 
-Questo articolo illustra come installare Linkerd. Il file `linkerd` binario client Linkerd viene installato nel computer client e i componenti Linkerd vengono installati in un cluster KUBERNETES in AKS.
+Questo articolo illustra come installare Linkerd. Il `linkerd` file binario client Linkerd viene installato nel computer client e i componenti Linkerd vengono installati in un cluster Kubernetes in AKS.
 
 > [!NOTE]
-> Queste istruzioni fanno riferimento alla `stable-2.6.0`versione di Linkerd.
+> Queste istruzioni fanno riferimento alla versione di Linkerd `stable-2.6.0` .
 >
-> Linkerd `stable-2.6.x` può essere eseguito con le versioni `1.13+`di Kubernetes. È possibile trovare altre versioni stabili e perimetrali di Linkerd in [GitHub-Linkerd Releases][linkerd-github-releases].
+> Linkerd `stable-2.6.x` può essere eseguito con le versioni di Kubernetes `1.13+` . È possibile trovare altre versioni stabili e perimetrali di Linkerd in [GitHub-Linkerd Releases][linkerd-github-releases].
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -35,7 +34,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster AKS `1.13` (Kubernetes e versioni successive, con RBAC abilitato) e `kubectl` che sia stata stabilita una connessione con il cluster. Se occorre assistenza con uno di questi elementi, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart].
+I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster AKS (Kubernetes `1.13` e versioni successive, con RBAC abilitato) e che sia stata stabilita una `kubectl` connessione con il cluster. Se occorre assistenza con uno di questi elementi, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart].
 
 Tutti i pod Linkerd devono essere pianificati per l'esecuzione nei nodi Linux. questa configurazione è l'impostazione predefinita nel metodo di installazione descritto di seguito e non richiede alcuna configurazione aggiuntiva.
 
@@ -117,7 +116,7 @@ linkerd-version
 Status check results are √
 ```
 
-A questo punto è possibile installare i componenti di Linkerd. Usare i `linkerd` file `kubectl` binari e per installare i componenti Linkerd nel cluster AKS. Verrà `linkerd` creato automaticamente uno spazio dei nomi e i componenti verranno installati in questo spazio dei nomi.
+A questo punto è possibile installare i componenti di Linkerd. Usare i `linkerd` `kubectl` file binari e per installare i componenti Linkerd nel cluster AKS. `linkerd`Verrà creato automaticamente uno spazio dei nomi e i componenti verranno installati in questo spazio dei nomi.
 
 ```console
 linkerd install | kubectl apply -f -
@@ -129,7 +128,7 @@ A questo punto, è stato distribuito Linkerd nel cluster AKS. Per assicurarsi ch
 
 ## <a name="validate-the-linkerd-installation"></a>Convalidare l'installazione di Linkerd
 
-Verificare che le risorse siano state create correttamente. Usare i comandi [kubectl Get SVC][kubectl-get] e [kubectl Get Pod][kubectl-get] per eseguire una `linkerd` query sullo spazio dei nomi, in cui sono stati `linkerd install` installati i componenti Linkerd dal comando:
+Verificare che le risorse siano state create correttamente. Usare i comandi [kubectl Get SVC][kubectl-get] e [kubectl Get Pod][kubectl-get] per eseguire una query sullo `linkerd` spazio dei nomi, in cui sono stati installati i componenti Linkerd dal `linkerd install` comando:
 
 ```console
 kubectl get svc --namespace linkerd --output wide

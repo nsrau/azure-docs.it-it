@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
 ms.openlocfilehash: c1e5ca8b0bb828e5e8ce896bba6a5278266b118e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77560083"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop cluster con account di archiviazione con trasferimento sicuro in Azure HDInsight
@@ -32,13 +31,13 @@ Per aggiornare un account di archiviazione esistente con portale di Azure, veder
 
 ### <a name="powershell"></a>PowerShell
 
-Per il cmdlet di PowerShell [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount), verificare `-EnableHttpsTrafficOnly` che il parametro `1`sia impostato su.
+Per il cmdlet di PowerShell [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount), verificare `-EnableHttpsTrafficOnly` che il parametro sia impostato su `1` .
 
 Per aggiornare un account di archiviazione esistente con PowerShell, vedere [richiedere il trasferimento sicuro con PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per il comando dell'interfaccia della riga di comando di Azure [AZ storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), verificare che il parametro `--https-only` sia impostato su. `true`
+Per il comando dell'interfaccia della riga di comando di Azure [AZ storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), verificare che il parametro `--https-only` sia impostato su `true` .
 
 Per aggiornare un account di archiviazione esistente con l'interfaccia della riga di comando di Azure, vedere [Require Secure transfer with Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 

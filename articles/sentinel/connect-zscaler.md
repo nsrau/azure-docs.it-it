@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: cc784afe5db64ccc4aad13fae7a2fa748e4befa3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77587992"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Connettere l'accesso a Internet di zScaler ad Azure Sentinel
@@ -43,14 +42,14 @@ Questo articolo illustra come connettere il dispositivo zScaler Internet Access 
    > Questa soluzione supporta syslog RFC 3164 o RFC 5424.
 
 
-1. Per utilizzare lo schema pertinente in Log Analytics per gli eventi CEF, cercare `CommonSecurityLog`.
-1. Continuare con il [passaggio 3: convalidare la connettività](connect-cef-verify.md).
+1. Per utilizzare lo schema pertinente in Log Analytics per gli eventi CEF, cercare `CommonSecurityLog` .
+1. Continuare con il [PASSAGGIO 3: Convalidare la connettività](connect-cef-verify.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere zScaler Internet Access ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 
 

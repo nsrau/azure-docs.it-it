@@ -6,26 +6,25 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77462106"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Cenni preliminari sulle associazioni e sui trigger HTTP di funzioni di Azure
 
 Funzioni di Azure può essere richiamato tramite richieste HTTP per compilare API senza server e rispondere ai [webhook](https://en.wikipedia.org/wiki/Webhook).
 
-| Action | Tipo |
+| Action | Type |
 |---------|---------|
 | Eseguire una funzione da una richiesta HTTP | [Trigger](./functions-bindings-http-webhook-trigger.md) |
-| Restituisce una risposta HTTP da una funzione |[Binding di output](./functions-bindings-http-webhook-output.md) |
+| Restituire una risposta HTTP da una funzione |[Binding di output](./functions-bindings-http-webhook-output.md) |
 
 Per impostazione predefinita, il codice in questo articolo è la sintassi di .NET Core, usata nelle funzioni versione 2. x e successive. Per informazioni sulla sintassi 1.x, consultare i [modelli delle funzioni 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="add-to-your-functions-app"></a>Aggiungi all'app funzioni
 
-### <a name="functions-2x-and-higher"></a>Funzioni 2. x e versioni successive
+### <a name="functions-2x-and-higher"></a>Funzioni 2.x e versioni successive
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
@@ -48,4 +47,4 @@ Le app di funzioni 1. x hanno automaticamente un riferimento al pacchetto NuGet 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Eseguire una funzione da una richiesta HTTP](./functions-bindings-http-webhook-trigger.md)
-- [Restituisce una risposta HTTP da una funzione](./functions-bindings-http-webhook-output.md)
+- [Restituire una risposta HTTP da una funzione](./functions-bindings-http-webhook-output.md)

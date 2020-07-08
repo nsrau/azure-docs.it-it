@@ -6,10 +6,9 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77252228"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatizzare l'installazione del servizio Mobility
@@ -77,7 +76,7 @@ Nella tabella seguente sono riepilogati gli strumenti e i processi per l'automaz
 
 1. Copiare i file di installazione nella condivisione di rete:
 
-   - Per Windows, copiare _Microsoft-ASR_UA_version_Windows_GA_date_Release. exe_ in _nella mobsvcwindows_.
+   - Per Windows, copiare _Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ in _nella mobsvcwindows_.
    - Per Linux, copiare i file seguenti in _MobSvcLinux_:
      - _Microsoft-ASR_UARHEL6 -64release. tar. gz_
      - _Microsoft-ASR_UARHEL7 -64release. tar. gz_
@@ -88,14 +87,14 @@ Nella tabella seguente sono riepilogati gli strumenti e i processi per l'automaz
 
 1. Come descritto nelle procedure seguenti, copiare il codice nelle cartelle Windows o Linux. Il presupposto è che:
 
-   - L'indirizzo IP del server di configurazione `192.168.3.121`è.
-   - La condivisione file di rete protetta `\\ContosoSecureFS\MobilityServiceInstallers`è.
+   - L'indirizzo IP del server di configurazione è `192.168.3.121` .
+   - La condivisione file di rete protetta è `\\ContosoSecureFS\MobilityServiceInstallers` .
 
 ### <a name="copy-code-to-the-windows-folder"></a>Copiare il codice nella cartella Windows
 
 Copiare il codice seguente:
 
-- Salvare il codice nella cartella _nella mobsvcwindows_ come _Install. bat_.
+- Salvare il codice nella cartella _nella mobsvcwindows_ come _install.bat_.
 - Sostituire i `[CSIP]` segnaposto in questo script con i valori effettivi dell'indirizzo IP del server di configurazione.
 - Lo script supporta le nuove installazioni dell'agente del servizio Mobility e gli aggiornamenti agli agenti già installati.
 
@@ -338,15 +337,15 @@ cd /tmp
 
 ### <a name="create-a-package"></a>Creare un pacchetto
 
-1. Accedere alla console di Configuration Manager e passare a **raccolta** > software**gestione** > applicazioni**pacchetti**.
-1. Fare clic con il pulsante destro del mouse su **pacchetti** > **Crea pacchetto**
+1. Accedere alla console di Configuration Manager e passare a **raccolta software**  >  **Gestione applicazioni**  >  **pacchetti**.
+1. Fare clic con il pulsante destro del mouse su **pacchetti**  >  **Crea pacchetto**
 1. Specificare i dettagli del pacchetto, inclusi nome, descrizione, produttore, lingua e versione.
 1. Selezionare **questo pacchetto contiene i file di origine**.
 1. Fare clic su **Sfoglia**e selezionare la condivisione di rete e la cartella che contiene il programma di installazione pertinente (_nella mobsvcwindows_ o _MobSvcLinux_). Quindi selezionare **Avanti**.
 
    ![Schermata di Creazione guidata pacchetto e programma](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-1. In **scegliere il tipo di programma da creare** pagina selezionare **programma** > standard**Avanti**.
+1. In **scegliere il tipo di programma da creare** pagina selezionare **programma standard**  >  **Avanti**.
 
    ![Schermata di Creazione guidata pacchetto e programma](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
@@ -392,7 +391,7 @@ cd /tmp
    - Per evitare riavvii non necessari, pianificare l'installazione del pacchetto durante la finestra di manutenzione mensile o degli aggiornamenti software.
 
 1. Nella pagina **punti di distribuzione** configurare le impostazioni e completare la procedura guidata.
-1. Monitorare lo stato di avanzamento della distribuzione nella console di Configuration Manager. Passare a **monitoraggio** > **distribuzioni** > _\<il\>nome del pacchetto_.
+1. Monitorare lo stato di avanzamento della distribuzione nella console di Configuration Manager. Passare a **monitoraggio**  >  **distribuzioni**  >  _\<your package name\>_ .
 
 ### <a name="uninstall-the-mobility-service"></a>Disinstallare il servizio Mobility
 

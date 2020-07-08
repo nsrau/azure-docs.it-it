@@ -14,10 +14,9 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77616873"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup e ripristino del sistema operativo per SKU di tipo II di indicatori di revisione 3
@@ -31,7 +30,7 @@ Questo documento descrive i passaggi per eseguire un backup e un ripristino a li
 >[!NOTE]
 >Gli script di backup del sistema operativo usano il software ReaR preinstallato nel server.  
 
-Al termine del provisioning da parte del team `Service Management` Microsoft, per impostazione predefinita, il server viene configurato con due pianificazioni di backup per eseguire il backup del file System livello di backup del sistema operativo. È possibile controllare le pianificazioni dei processi di backup usando il comando seguente:
+Al termine del provisioning da parte del `Service Management` team Microsoft, per impostazione predefinita, il server viene configurato con due pianificazioni di backup per eseguire il backup del file System livello di backup del sistema operativo. È possibile controllare le pianificazioni dei processi di backup usando il comando seguente:
 ```
 #crontab –l
 ```
@@ -99,4 +98,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-Lo screenshot seguente illustra il ripristino di un backup completo: ![REARTOOLCONFIGURATION. png](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+Lo screenshot seguente illustra il ripristino di un backup completo: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

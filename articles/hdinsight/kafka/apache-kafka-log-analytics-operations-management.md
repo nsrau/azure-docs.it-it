@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
 ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471181"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analizzare i log per Apache Kafka in HDInsight
@@ -23,9 +22,9 @@ Informazioni su come usare i log di monitoraggio di Azure per analizzare i log g
 
 ## <a name="logs-location"></a>Percorso dei log
 
-I log Apache Kafka nel cluster si trovano in `/var/log/kafka`. I registri Kafka non vengono salvati né salvati in permanenza tra i cicli di vita del cluster, indipendentemente dal fatto che vengano usati i dischi gestiti. La tabella seguente illustra i log disponibili.
+I log Apache Kafka nel cluster si trovano in `/var/log/kafka` . I registri Kafka non vengono salvati né salvati in permanenza tra i cicli di vita del cluster, indipendentemente dal fatto che vengano usati i dischi gestiti. La tabella seguente illustra i log disponibili.
 
-|Registro |Descrizione |
+|File di log |Descrizione |
 |---|---|
 |Kafka. out|stdout e stderr del processo Kafka. In questo file sono disponibili i log di avvio e arresto di Kafka.|
 |Server. log|Log del server Kafka principale. Tutti i log del broker Kafka si concludono qui.|

@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: bbc77340375b22f137045d68b7449dd1e8adc4b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588383"
 ---
 # <a name="connect-citrix-analytics-security"></a>Connettere Citrix Analytics (Security) 
@@ -36,7 +35,7 @@ L'integrazione di Citrix Analytics (sicurezza) con Azure Sentinel consente di es
 
 ## <a name="connect-azure-sentinel-to-citrix-analytics-security"></a>Connettere Sentinel di Azure a Citrix Analytics (sicurezza)
 
-1. Nel portale di Azure passare a**connettori dati** **sentinella** > di Azure e quindi selezionare il connettore **Citrix Analytics (sicurezza)** .
+1. Nel portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore **Citrix Analytics (sicurezza)** .
 
 2. Selezionare **Apri connettore pagina**.
 
@@ -46,6 +45,6 @@ L'integrazione di Citrix Analytics (sicurezza) con Azure Sentinel consente di es
 In questo documento si è appreso come connettere Citrix Analytics (sicurezza) ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 
 

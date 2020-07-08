@@ -10,10 +10,9 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 711071e08a52a0075512bc8b3ffe14707238cdfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77209297"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gestire il servizio ricerca cognitiva di Azure con PowerShell
@@ -42,7 +41,7 @@ All'interno di un servizio, la creazione e la gestione dei contenuti sono tramit
 
 ## <a name="check-versions-and-load-modules"></a>Controllare le versioni e caricare i moduli
 
-Gli esempi in questo articolo sono interattivi e richiedono autorizzazioni elevate. È necessario installare Azure PowerShell ( **AZ** Module). Per ulteriori informazioni, vedere [Install Azure PowerShell](/powershell/azure/overview).
+Gli esempi in questo articolo sono interattivi e richiedono autorizzazioni elevate. È necessario installare Azure PowerShell ( **AZ** Module). Per altre informazioni, vedere [Installare Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="powershell-version-check-51-or-later"></a>Verifica della versione di PowerShell (5,1 o versione successiva)
 
@@ -193,11 +192,11 @@ Tags
 
 [**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) viene usato per eseguire il rollover delle [chiavi API](search-security-api-keys.md)di amministrazione. Vengono create due chiavi amministratore con ogni servizio per l'accesso autenticato. Le chiavi sono obbligatorie per ogni richiesta. Entrambe le chiavi di amministrazione sono equivalenti dal punto di vista funzionale, concedendo l'accesso in scrittura completo a un servizio di ricerca con la possibilità di recuperare informazioni oppure di creare ed eliminare qualsiasi oggetto. Esistono due chiavi in modo che sia possibile utilizzarne una mentre si sostituisce l'altra. 
 
-È possibile rigenerare solo una alla volta, specificata come chiave `primary` o. `secondary` Per il servizio senza interruzioni, ricordarsi di aggiornare tutto il codice client per l'uso di una chiave secondaria durante il rollover della chiave primaria. Evitare di modificare le chiavi mentre le operazioni sono in corso.
+È possibile rigenerare solo una alla volta, specificata come `primary` `secondary` chiave o. Per il servizio senza interruzioni, ricordarsi di aggiornare tutto il codice client per l'uso di una chiave secondaria durante il rollover della chiave primaria. Evitare di modificare le chiavi mentre le operazioni sono in corso.
 
 Come si può immaginare, se si rigenerano le chiavi senza aggiornare il codice client, le richieste che usano la chiave precedente avranno esito negativo. La rigenerazione di tutte le nuove chiavi non blocca definitivamente il servizio ed è comunque possibile accedere al servizio tramite il portale. Dopo la rigenerazione delle chiavi primarie e secondarie, è possibile aggiornare il codice client per l'uso delle nuove chiavi e le operazioni riprenderanno di conseguenza.
 
-I valori per le chiavi API vengono generati dal servizio. Non è possibile fornire una chiave personalizzata per l'uso di ricerca cognitiva di Azure. Analogamente, non esiste alcun nome definito dall'utente per le chiavi API di amministrazione. I riferimenti alla chiave sono stringhe fisse, `primary` ovvero o `secondary`. 
+I valori per le chiavi API vengono generati dal servizio. Non è possibile fornire una chiave personalizzata per l'uso di ricerca cognitiva di Azure. Analogamente, non esiste alcun nome definito dall'utente per le chiavi API di amministrazione. I riferimenti alla chiave sono stringhe fisse, `primary` ovvero o `secondary` . 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593768"
 ---
 # <a name="linkerd"></a>Linkerd
@@ -20,7 +19,7 @@ ms.locfileid: "77593768"
 
 ## <a name="architecture"></a>Architecture
 
-Linkerd fornisce un piano dati costituito da sidecar di [Linkerd][linkerd-proxy] per proxy specialistici ultraleggeri. Questi proxy intelligenti controllano tutto il traffico di rete all'interno e all'esterno delle app e dei carichi di lavoro in rete. I proxy espongono anche le metriche tramite gli endpoint di metrica [Prometeo][prometheus] .
+Linkerd fornisce un piano dati costituito da sidecar di [Linkerd][linkerd-proxy] per proxy specialistici ultraleggeri. Questi proxy intelligenti controllano tutto il traffico di rete in ingresso e in uscita da carichi di lavoro e app con mesh. I proxy espongono anche le metriche tramite gli endpoint di metrica [Prometeo][prometheus] .
 
 Il piano di controllo gestisce la configurazione e i dati di telemetria aggregati tramite i [componenti][linkerd-architecture]seguenti:
 
@@ -59,7 +58,7 @@ I principi di progettazione seguenti [guidano][design-principles] il progetto Li
 - **Basta lavorare** : non interrompere le applicazioni esistenti e non è necessaria una configurazione complessa.
 
 
-### <a name="capabilities"></a>Capabilities
+### <a name="capabilities"></a>Funzionalità
 
 In Linkerd è disponibile il set di funzionalità seguente:
 

@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588145"
 ---
 # <a name="connect-one-identity-safeguard"></a>Connettere una sicurezza di identità
@@ -31,7 +30,7 @@ Il One Identity SafeGuard Data Connector migliora il connettore CEF (Common Even
 
 ## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Connettere Sentinel di Azure a un'identità di sicurezza
 
-1. Nel portale di Azure passare a**connettori dati** **sentinella** > di Azure e quindi selezionare il connettore di **sicurezza di identità** .
+1. Nel portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore di **sicurezza di identità** .
 
 2. Selezionare **Apri connettore pagina**.
 
@@ -42,6 +41,6 @@ Il One Identity SafeGuard Data Connector migliora il connettore CEF (Common Even
 In questo documento si è appreso come connettere una sicurezza di identità ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 
 

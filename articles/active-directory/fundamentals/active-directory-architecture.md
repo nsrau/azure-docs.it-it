@@ -14,10 +14,9 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 854fb4649f8c1113f20abe5807dd0ce473ba6ee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77368073"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Che cos'è l'architettura di Azure Active Directory?
@@ -79,7 +78,7 @@ Le operazioni di lettura (che sono più numerose di quelle di scrittura di diver
 
 Una scrittura viene impegnata in modo durevole in almeno due Data Center prima che venga riconosciuta. Questo problema si verifica eseguendo prima il commit della scrittura sul database primario e quindi replicando immediatamente la scrittura in almeno un altro Data Center. Questa azione di scrittura garantisce che una potenziale perdita irreversibile del data center che ospita il database primario non comporti la perdita di dati.
 
-Azure AD ha un [Obiettivo tempo di ripristino ](https://en.wikipedia.org/wiki/Recovery_time_objective) pari a zero per non perdere dati sui failover. ad esempio:
+Azure AD ha un [Obiettivo tempo di ripristino ](https://en.wikipedia.org/wiki/Recovery_time_objective) pari a zero per non perdere dati sui failover. Ciò include:
 
 * Rilascio di token e operazioni di lettura directory
 * Solo circa 5 minuti obiettivo tempo di ripristino concessi per le operazioni di scrittura nella directory

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562123"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
@@ -38,7 +37,7 @@ Questo esempio monitora le condizioni meteo correnti di una località e avvisa u
 
 Questo esempio prevede l'uso dell'API Weather Underground per controllare le condizioni meteo correnti di una località.
 
-Prima di tutto, è necessario un account Weather Underground. È possibile crearne uno gratuitamente all' [https://www.wunderground.com/signup](https://www.wunderground.com/signup)indirizzo. Dopo avere creato l'account, sarà necessario acquisire una chiave API. È possibile eseguire questa operazione visitando [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)e quindi selezionando Impostazioni chiave. Il piano gratuito Stratus Developer è sufficiente per eseguire questo esempio.
+Prima di tutto, è necessario un account Weather Underground. È possibile crearne uno gratuitamente all'indirizzo [https://www.wunderground.com/signup](https://www.wunderground.com/signup) . Dopo avere creato l'account, sarà necessario acquisire una chiave API. È possibile eseguire questa operazione visitando [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1) e quindi selezionando Impostazioni chiave. Il piano gratuito Stratus Developer è sufficiente per eseguire questo esempio.
 
 Dopo avere acquisito la chiave API, aggiungere l'**impostazione app** seguente all'app per le funzioni.
 
@@ -60,7 +59,7 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
-L'agente di orchestrazione richiede un percorso da monitorare e un numero di telefono a cui inviare un messaggio quando l'oggetto diventa chiaro in corrispondenza della posizione. Questi dati vengono passati all'agente di orchestrazione come oggetto `MonitorRequest` fortemente tipizzato.
+L'agente di orchestrazione richiede un percorso da monitorare e un numero di telefono a cui inviare un messaggio quando l'oggetto diventa chiaro in corrispondenza della posizione. Questi dati vengono passati all'agente di orchestrazione come oggetto fortemente tipizzato `MonitorRequest` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -114,7 +113,7 @@ La funzione **E3_SendGoodWeatherAlert** usa l'associazione di Twilio per inviare
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
 > [!NOTE]
-> Per eseguire il codice di esempio `Microsoft.Azure.WebJobs.Extensions.Twilio` , sarà necessario installare il pacchetto NuGet.
+> `Microsoft.Azure.WebJobs.Extensions.Twilio`Per eseguire il codice di esempio, sarà necessario installare il pacchetto NuGet.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

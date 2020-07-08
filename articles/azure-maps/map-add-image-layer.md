@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77209716"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Aggiungere un livello per le immagini a una mappa
@@ -38,7 +37,7 @@ Il livello immagine supporta i formati di immagine seguenti:
 
 ## <a name="add-an-image-layer"></a>Aggiungere un livello per le immagini
 
-Il codice seguente sovrappone un'immagine di una [mappa di Newark, New Jersey, da 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) sulla mappa. Un [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) viene creato passando un URL a un'immagine e le coordinate per i quattro angoli nel formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+Il codice seguente sovrappone un'immagine di una [mappa di Newark, New Jersey, da 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) sulla mappa. Un [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) viene creato passando un URL a un'immagine e le coordinate per i quattro angoli nel formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -64,7 +63,7 @@ Ecco l'esempio di codice completo per l'esecuzione del codice precedente.
 
 In questo esempio viene illustrato come aggiungere informazioni sulla sovrapposizione di base KML come livello immagine sulla mappa. Le sovrapposizioni di base KML forniscono coordinate Nord, Sud, est e ovest e una rotazione in senso antiorario. Tuttavia, il livello immagine prevede le coordinate per ogni angolo dell'immagine. La sovrimpressione del terreno KML in questo esempio è per la Cattedrale di Chartres ed è originata da [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-Il codice usa la funzione `getCoordinatesFromEdges` statica della classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Calcola i quattro angoli dell'immagine usando le informazioni relative a nord, Sud, est, ovest e rotazione della sovrimpressione del terreno KML.
+Il codice usa la funzione statica della `getCoordinatesFromEdges` classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Calcola i quattro angoli dell'immagine usando le informazioni relative a nord, Sud, est, ovest e rotazione della sovrimpressione del terreno KML.
 
 <br/>
 
