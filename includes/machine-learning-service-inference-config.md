@@ -13,7 +13,7 @@ ms.locfileid: "80159413"
 ---
 Le voci nel `inferenceconfig.json` documento vengono mappate ai parametri per la classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
-| Entità JSON | Parametro del metodo | Descrizione |
+| Entità JSON | Parametro del metodo | Description |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Percorso di un file locale che contiene il codice da eseguire per l'immagine. |
 | `sourceDirectory` | `source_directory` | Facoltativa. Percorso delle cartelle che contengono tutti i file per creare l'immagine, semplificando l'accesso a tutti i file all'interno della cartella o della sottocartella. È possibile caricare un'intera cartella dal computer locale come dipendenze per il servizio Web. Nota: i percorsi di entry_script, conda_file e extra_docker_file_steps sono percorsi relativi del percorso source_directory. |

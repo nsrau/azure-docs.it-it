@@ -13,7 +13,7 @@ ms.locfileid: "82204500"
 ---
 Nella tabella seguente sono elencati i limiti associati ai diversi livelli di servizio S1, S2, S3 e F1. Per informazioni sul costo di ogni *unità* in ogni livello, vedere [prezzi di hub Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Risorsa | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
+| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
 | --- | --- | --- | --- | --- |
 | Messaggi al giorno |400.000 |6\.000.000 |300.000.000 |8\.000 |
 | Unità massime |200 |200 |10 |1 |

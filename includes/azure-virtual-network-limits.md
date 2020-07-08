@@ -21,7 +21,7 @@ I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure
 > [!NOTE]
 > Sono stati aumentati di recente tutti i limiti predefiniti fino al rispettivo massimo. Se non è presente alcuna colonna limite massimo, la risorsa non ha limiti regolabili. Se questi limiti sono aumentati in base al supporto in passato e non vengono visualizzati limiti aggiornati nelle tabelle seguenti, [aprire una richiesta di assistenza clienti online senza alcun addebito](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
-| Risorsa | Limite | 
+| Resource | Limite | 
 | --- | --- |
 | Reti virtuali |1\.000 |
 | Subnet per rete virtuale |3,000 |
@@ -65,7 +65,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 
 **Load Balancer Standard**
 
-| Risorsa                                | Limite         |
+| Resource                                | Limite         |
 |-----------------------------------------|-------------------------------|
 | Servizi di bilanciamento del carico                          | 1\.000                         |
 | Regole per risorsa                      | 1\.500                         |
@@ -81,7 +81,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 
 **Load Balancer di base**
 
-| Risorsa                                | Limite        |
+| Resource                                | Limite        |
 |-----------------------------------------|------------------------------|
 | Servizi di bilanciamento del carico                          | 1\.000                        |
 | Regole per risorsa                      | 250                          |

@@ -18,7 +18,7 @@ ms.locfileid: "80272631"
 
 È possibile aumentare i limiti massimi del servizio su richiesta. Se sono necessari altri servizi all'interno della stessa sottoscrizione, contattare il supporto tecnico di Azure.
 
-| Risorsa            | Gratuito<sup>1</sup> | Basic | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource            | Gratuito<sup>1</sup> | Basic | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
 | Numero massimo di servizi    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
 | Scalabilità massima in unità di ricerca (SU)<sup>2</sup> |N/D |3 unità di ricerca |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |
