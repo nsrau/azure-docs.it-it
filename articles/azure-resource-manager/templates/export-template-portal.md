@@ -3,12 +3,12 @@ title: Esporta modello in portale di Azure
 description: Usare portale di Azure per esportare un modello di Azure Resource Manager dalle risorse nella sottoscrizione.
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 8cdba58a7a2ba998bac7fc0225ff957047cd69b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273735"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057705"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Esportazione di una singola e più risorse in un modello in portale di Azure
 
@@ -105,11 +105,11 @@ Per esportare una risorsa:
 
 1. Selezionare il gruppo di risorse che si vuole esportare.
 
-1. Selezionare il collegamento in **distribuzioni**.
+1. Selezionare il collegamento in **Distribuzioni**.
 
-   ![Seleziona cronologia di distribuzione](./media/export-template-portal/select-deployment-history.png)
+   ![Selezionare la cronologia delle distribuzioni](./media/export-template-portal/select-deployment-history.png)
 
-1. Selezionare una delle distribuzioni dalla cronologia di distribuzione.
+1. Selezionare una delle distribuzioni dalla cronologia delle distribuzioni.
 
    ![Selezionare la distribuzione](./media/export-template-portal/select-details.png)
 
@@ -121,5 +121,5 @@ Per esportare una risorsa:
 
 - Informazioni su come esportare modelli con l'interfaccia della riga di comando di [Azure](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)o l' [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 - Per informazioni sulla sintassi del modello di Gestione risorse, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).
-- Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](/azure/azure-resource-manager/).
+- Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](../index.yml).
 - Per visualizzare gli schemi del modello di Azure Resource Manager, vedere informazioni di [riferimento sui modelli](/azure/templates/).

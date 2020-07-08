@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/06/2020
 ms.author: diberry
-ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683105"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057875"
 ---
 # <a name="iterative-app-design-for-luis"></a>Progettazione di app iterative per LUIS
 
 Un'app Language Understanding (LUIS) apprende ed esegue in modo più efficiente l'iterazione. Di seguito è riportato un tipico ciclo di iterazione:
 
 * Crea nuova versione
-* Modificare lo schema dell'app LUIS. È possibile creare, ad esempio:
+* Modificare lo schema dell'app LUIS. Ciò include:
     * Intent con espressioni di esempio
     * Entità
     * Funzionalità
@@ -107,11 +107,22 @@ Clonare una versione esistente da utilizzare come punto di partenza per ogni nuo
 
 Le versioni con Training non sono disponibili automaticamente nell' [endpoint](luis-glossary.md#endpoint)dell'app Luis. È necessario [pubblicare](luis-how-to-publish-app.md) o ripubblicare una versione affinché sia disponibile nell'endpoint dell'app Luis. È possibile pubblicare in **gestione temporanea** e **produzione**, fornendo due versioni dell'app disponibili nell'endpoint. Se è necessario che in un endpoint siano disponibili più versioni dell'app, è necessario esportare la versione e reimportarla in una nuova app. La nuova app presenta un ID app diverso.
 
-### <a name="import-and-export-a-version"></a>Importare ed esportare una versione
+### <a name="import-a-version"></a>Importa una versione
 
-È possibile importare una versione a livello di app. Tale versione diventa la versione attiva e usa l'ID versione nella `versionId` proprietà del file dell'app. È anche possibile importare in un'app esistente a livello di versione. La nuova versione diventa quella attiva.
+È possibile **importare** una versione come nuova:
+* App con un nuovo ID app
+* Versione di un'app esistente
 
-Una versione può essere esportata anche a livello di app o di versione. L'unica differenza è che la versione esportata a livello di app è la versione attualmente attiva, mentre a livello di versione è possibile scegliere qualsiasi versione da esportare nella pagina **[Settings](luis-how-to-manage-versions.md)** (Impostazioni).
+Tale versione diventa la versione attiva e usa l'ID versione nella `versionId` proprietà del file dell'app.
+
+### <a name="export-a-version"></a>Esportare una versione
+
+Una versione può essere **esportata** dal portale Luis a livello di app o di versione:
+
+* Livello app: selezionare app nella pagina **app personali** e quindi selezionare **Esporta** .
+* Livello di versione: selezionare collegamento app nella pagina **app personali** , selezionare **Gestisci**e selezionare le **versioni**
+
+L'unica differenza è che a livello di app, la versione esportata è la versione attualmente attiva, mentre a livello di versione, è possibile scegliere qualsiasi versione da esportare nella pagina **[Impostazioni](luis-how-to-manage-versions.md)** .
 
 Il file esportato **non** contiene:
 
@@ -132,7 +143,7 @@ Iniziare con la [clonazione](luis-how-to-manage-versions.md#clone-a-version) da 
 
 Ogni autore apporta modifiche alla propria versione dell'app. Quando l'autore è soddisfatto del modello, esportare le nuove versioni in file JSON.
 
-Le app esportate, i file con estensione JSON o LU possono essere confrontate per le modifiche. Combinare i file per creare un singolo file della nuova versione. Modificare la `versionId` proprietà per indicare la nuova versione unita. Importare la versione nell'app originale.
+Le app esportate `.json` o `.lu` i file possono essere confrontati per le modifiche. Combinare i file per creare un singolo file della nuova versione. Modificare la `versionId` proprietà per indicare la nuova versione unita. Importare la versione nell'app originale.
 
 Questo metodo consente di disporre di una versione attiva, di una versione di staging e di una versione pubblicata. È possibile confrontare i risultati della versione attiva con una versione pubblicata (fase o produzione) nel [riquadro test interattivo](luis-interactive-test.md).
 
@@ -150,4 +161,4 @@ Al termine di un ciclo di iterazione, è possibile ripetere il processo. Iniziar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Concetti di [collaborazione](luis-concept-keys.md).
+Concetti di [collaborazione](luis-how-to-azure-subscription.md).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251011"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057467"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Esercitazioni avanzate del flusso di lavoro Premium del codificatore multimediale
 ## <a name="overview"></a>Panoramica
@@ -187,7 +187,7 @@ Per fare in modo che il flusso di lavoro determini automaticamente la proprietà
 
 L'editor espressioni consente di immettere qualsiasi valore letterale, combinato con una o più variabili. Le variabili iniziano con un simbolo di dollaro. Quando si preme il tasto $, l'editor visualizzerà una casella a discesa con le variabili disponibili. In questo caso si userà una combinazione tra la variabile della directory di output e la variabile del nome file di input di base:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4`
 
 ![Expression Editor compilato](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
@@ -265,16 +265,16 @@ Nota: è possibile ripetere questo processo per tutte le altre combinazioni di v
 
 La denominazione dell'output dei file può essere controllata con le espressioni nella finestra di progettazione. Aprire il riquadro delle proprietà per uno dei componenti File Output e aprire l'editor espressioni per la proprietà File. Il primo file di output è stato configurato con l'espressione seguente (vedere l'esercitazione per la codifica da un [file MXF in un MP4 a velocità in bit singola](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4`
 
 Il nome file viene quindi determinato da due variabili: la directory di output in cui scrivere e il nome di base del file di origine. La prima viene esposta come proprietà nella radice del flusso di lavoro e il secondo viene determinato dal file in arrivo. La directory di output è quella usata per il test locale. Il motore del flusso di lavoro eseguirà l'override di questa proprietà quando il flusso di lavoro verrà eseguito dal processore multimediale basato sul cloud in Servizi multimediali di Azure.
 Per assegnare a entrambi i file di output una denominazione di output coerente, modificare l'espressione di denominazione del primo file in:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 e la seconda in:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Effettuare un'esecuzione di test intermedia per verificare che entrambi i file di output MP4 vengano generati correttamente.
 
@@ -287,7 +287,7 @@ Come sarà illustrato in seguito, quando si genera un file con estensione ISM da
 
 Creare un terzo componente File Output per l'output del flusso in uscita dal muxer e configurare l'espressione di denominazione file come:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4`
 
 ![Creazione di File Output con il muxer audio](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
@@ -319,7 +319,7 @@ La generazione del file manifesto per il set di MP4 può essere eseguita con un 
 
 Come per gli altri componenti di output dei file, configurare il nome di output del file ism con un'espressione:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism`
 
 Il flusso di lavoro completato è simile al seguente:
 
@@ -342,11 +342,11 @@ Nel flusso di lavoro precedente è stata specificata una semplice espressione co
 
 Ad esempio, il componente File Output per il primo file video è configurato con questa espressione:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 Invece per il secondo video di output, l'espressione è:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Non sarebbe più lineare, meno soggetto a errori e più pratico, se fosse possibile rimuovere alcune duplicazioni e rendere il tutto più facilmente configurabile? Fortunatamente è possibile: le funzionalità delle espressioni della finestra di progettazione unite alla possibilità di creare proprietà personalizzate nella radice del flusso di lavoro offrono un livello di praticità aggiuntivo.
 
@@ -391,7 +391,7 @@ Modificando uno dei tre valori vengono riconfigurati e modificati anche i valori
 ### <a name="have-generated-output-file-names-rely-on-published-property-values"></a><a id="MXF_to__multibitrate_MP4_output_files"></a>Fare in modo che i nomi file di output generati si basino sui valori delle proprietà pubblicati
 Invece di impostare come hardcoded i nomi file generati, ora è possibile modificare l'espressione del nome file in ogni componente File Output in modo che si basi sulle proprietà delle velocità in bit pubblicate nella radice del grafico. Iniziando dal primo componente File Output, trovare la proprietà File e modificare l'espressione in questo modo:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4`
 
 I diversi parametri di questa espressione sono accessibili e possono essere immessi premendo il simbolo di dollaro sulla tastiera mentre è attiva la finestra dell'espressione. Uno dei parametri disponibili è la proprietà video1bitrate pubblicata prima.
 
@@ -401,11 +401,11 @@ I diversi parametri di questa espressione sono accessibili e possono essere imme
 
 Eseguire le stesse operazioni per il componente File Output per il secondo video:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4`
 
 e per il componente File Output solo audio:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4`
 
 Se ora si modifica la velocità in bit per uno dei file video o audio, il rispettivo codificatore verrà riconfigurato e la convenzione dei nomi file basata sulla velocità in bit verrà rispettata automaticamente.
 
@@ -462,11 +462,11 @@ Diversamente dai video MP4, il componente JPG Encoder genererà più di un file.
 
 *Introduzione di Scene Search JPG File Writer*
 
-Configurare la proprietà Output Folder Path con l'espressione: ${ROOT_outputWriteDirectory}
+Configurare la proprietà percorso cartella di output con l'espressione:`${ROOT_outputWriteDirectory}`
 
 e la proprietà Filename Prefix con:
 
-    ${ROOT_sourceFileBaseName}_thumb_
+`${ROOT_sourceFileBaseName}_thumb_`
 
 Il prefisso determinerà come vengono denominati i file delle anteprime. Come suffisso verrà usato un numero indicante la posizione dell'anteprima nel flusso.
 
@@ -551,11 +551,11 @@ Aprire ora le proprietà di taglio dal trimmer audio e configurare sia l'ora di 
 
 Per l'ora di inizio del taglio dell'audio:
 
-    ${ROOT_TrimmingStartTime}
+`${ROOT_TrimmingStartTime}`
 
 e per l'ora di fine:
 
-    ${ROOT_TrimmingEndTime}
+`${ROOT_TrimmingEndTime}`
 
 ### <a name="finished-workflow"></a><a id="time_based_trim_finish"></a>Flusso di lavoro completato
 ![Flusso di lavoro completato](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
@@ -591,7 +591,7 @@ Gli script vengono scritti in Groovy, un linguaggio di scripting compilato in mo
 
 Verrà ora scritto un semplice script di Groovy hello world nel contesto di realizeScript. Immettere nell'editor quanto segue:
 
-    node.log("hello world");
+`node.log("hello world");`
 
 Ora effettuare un'esecuzione di test locale. Dopo questa esecuzione, esaminare (nella scheda System del componente con script) la proprietà Logs.
 
@@ -761,7 +761,7 @@ Queste modifiche sono state apportate con normali operazioni di manipolazione de
 
 *Registrazione dell'elenco di clip risultante*
 
-Effettuare un'esecuzione di test per visualizzare come i flussi video e audio sono stati tagliati. Quando si effettueranno altre esecuzioni di test con valori diversi per i punti di taglio, si noterà che tali valori non verranno tenuti in considerazione perché la finestra di progettazione, diversamente dal runtime di Azure, NON esegue l'override del file XML dell'elenco di clip a ogni esecuzione. Ciò significa che solo la prima volta che sono stati impostati i punti in e out, il codice XML verrà trasformato, in tutte le altre volte la clausola Guard (if (`clipListXML.indexOf("<trim>") == -1`)) impedirà al flusso di lavoro di aggiungere un altro elemento Trim quando ne è già presente uno.
+Effettuare un'esecuzione di test per visualizzare come i flussi video e audio sono stati tagliati. Quando si effettueranno altre esecuzioni di test con valori diversi per i punti di taglio, si noterà che tali valori non verranno tenuti in considerazione perché la finestra di progettazione, diversamente dal runtime di Azure, NON esegue l'override del file XML dell'elenco di clip a ogni esecuzione. Ciò significa che solo la prima volta che sono stati impostati i punti in e out, il codice XML verrà trasformato, in tutte le altre volte la clausola Guard (if ( `clipListXML.indexOf("<trim>") == -1` )) impedirà al flusso di lavoro di aggiungere un altro elemento Trim quando ne è già presente uno.
 
 Per semplificare il test locale del flusso di lavoro, è consigliabile aggiungere un codice di manutenzione che controlla se è già presente un elemento trim. In questo caso, è possibile rimuoverlo prima di continuare a modificare il file XML con i nuovi valori. Invece di usare le normali manipolazioni di stringa, è probabilmente più sicuro eseguire questa operazione con l'analisi del modello a oggetti XML effettivo.
 
@@ -955,5 +955,5 @@ Con la semplice clausola guard seguente, è possibile controllare se il taglio �
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

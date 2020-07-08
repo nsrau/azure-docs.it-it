@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f18eea697e875cc926e8fbaa0f61cf2d4639be0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248359"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057518"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gestire i gruppi di risorse Azure Resource Manager tramite Azure PowerShell
 
@@ -74,7 +74,7 @@ Per altre informazioni su come Azure Resource Manager Ordina l'eliminazione dell
 
 Vedere [distribuire le risorse in un gruppo di risorse esistente](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
-Per convalidare la distribuzione di un gruppo di risorse, vedere [test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+Per convalidare la distribuzione di un gruppo di risorse, vedere [test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Distribuire un gruppo di risorse e le risorse
 
@@ -223,5 +223,5 @@ Il [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-con
 
 - Per informazioni Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](overview.md).
 - Per informazioni sulla sintassi del modello di Gestione risorse, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../templates/template-syntax.md).
-- Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](/azure/azure-resource-manager/).
+- Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](../index.yml).
 - Per visualizzare gli schemi del modello di Azure Resource Manager, vedere informazioni di [riferimento sui modelli](/azure/templates/).

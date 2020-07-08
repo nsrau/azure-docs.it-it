@@ -60,8 +60,6 @@
       href: ddos-best-practices.md
     - name: Acquisizione di sottodomini e DNS tralasciati
       href: subdomain-takeover.md
-    - name: Baseline sicurezza di Protezione DDoS
-      href: ddos-protection-security-baseline.md
     - name: Architettura di rete ibrida sicura
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
 - name: Sicurezza IaaS

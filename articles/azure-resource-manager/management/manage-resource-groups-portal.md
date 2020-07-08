@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6788651928b631d9298867a140f29b273f14734
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632981"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057552"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse Azure Resource Manager usando il portale di Azure
 
@@ -44,8 +44,8 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un p
    - **Area**: selezionare una località di Azure, ad esempio **Stati Uniti centrali**.
 
      ![Creare un gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
-5. Selezionare **Verifica + crea**
-6. Selezionare **Create** (Crea). La creazione di un gruppo di risorse richiede alcuni secondi.
+5. Selezionare **Rivedi e crea**
+6. Selezionare **Crea**. La creazione di un gruppo di risorse richiede alcuni secondi.
 7. Selezionare **Aggiorna** dal menu superiore per aggiornare l'elenco dei gruppi di risorse e quindi selezionare il gruppo di risorse appena creato per aprirlo. In alternativa, selezionare **notifica**(icona a campana) nella parte superiore e quindi selezionare **Vai al gruppo di risorse** per aprire il gruppo di risorse appena creato
 
     ![Vai al gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
@@ -86,7 +86,7 @@ Dopo aver creato un modello di Gestione risorse, è possibile usare il portale d
 
 Il blocco impedisce ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente le risorse critiche, ad esempio la sottoscrizione di Azure, il gruppo di risorse o la risorsa. 
 
-1. Aprire il gruppo di risorse che si vuole eliminare.  Vedere [aprire gruppi di risorse](#open-resource-groups).
+1. Aprire il gruppo di risorse che si desidera bloccare.  Vedere [aprire gruppi di risorse](#open-resource-groups).
 2. Nel riquadro sinistro selezionare **blocchi**.
 3. Per aggiungere un blocco al gruppo di risorse, selezionare **Aggiungi**.
 4. Immettere il **nome del blocco**, il tipo di **blocco**e le **Note**. I tipi di blocco sono di sola **lettura**ed **Elimina**.
@@ -111,5 +111,5 @@ Il [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-con
 
 - Per informazioni Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](overview.md).
 - Per informazioni sulla sintassi del modello di Gestione risorse, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../templates/template-syntax.md).
-- Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](/azure/azure-resource-manager/).
+- Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](../index.yml).
 - Per visualizzare gli schemi del modello di Azure Resource Manager, vedere informazioni di [riferimento sui modelli](/azure/templates/).

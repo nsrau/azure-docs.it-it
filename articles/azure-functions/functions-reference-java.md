@@ -3,12 +3,12 @@ title: Guida di riferimento per gli sviluppatori Java per Funzioni di Azure
 description: Informazioni sullo sviluppo di funzioni con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 6ce886fd0ca47d728a115427b354442fd259e714
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648243"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057603"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -50,20 +50,6 @@ mvn archetype:generate \
 
 Per iniziare a usare questo archetipo, vedere [Avvio rapido Java](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
 
-## <a name="create-kotlin-functions-preview"></a>Creare funzioni Kotlin (anteprima)
-
-Esiste anche un archetipo Maven per generare funzioni Kotlin. Tale archetipo, attualmente in anteprima, è pubblicato con il seguente _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
-
-Il comando seguente genera un nuovo progetto di funzione Java usando questo archetipo:
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
-
-Per iniziare a usare questo archetipo, vedere [Avvio rapido Kotlin](functions-create-first-kotlin-maven.md).
-
 ## <a name="folder-structure"></a>Struttura di cartelle
 
 Di seguito è illustrata la struttura di cartelle di un progetto Java di Funzioni di Azure:
@@ -89,8 +75,6 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
-
-_* Il progetto Kotlin ha un aspetto molto simile perché si tratta sempre di Maven_
 
 È possibile usare un file [host.json](functions-host-json.md) per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione java) e il proprio file di configurazione delle associazioni (function.json).
 
@@ -391,7 +375,7 @@ Nell'esempio precedente, `queryValue` è associato al parametro della stringa di
 
 ## <a name="execution-context"></a>Contesto di esecuzione
 
-L'oggetto `ExecutionContext` definito in `azure-functions-java-library` contiene metodi helper per comunicare con il runtime di Funzioni.
+L'oggetto `ExecutionContext` definito in `azure-functions-java-library` contiene metodi helper per comunicare con il runtime di Funzioni. Per ulteriori informazioni, vedere l' [articolo di riferimento ExecutionContext](/java/api/com.microsoft.azure.functions.executioncontext).
 
 ### <a name="logger"></a>Logger
 
