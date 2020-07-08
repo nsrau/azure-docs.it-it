@@ -1,72 +1,68 @@
 ---
 title: 'Visualizzare le route valide di un hub virtuale: rete WAN virtuale di Azure | Microsoft Docs'
-description: Route valide per un hub virtuale in una rete WAN virtuale di Azure
+description: Come visualizzare le route valide per un hub virtuale in una rete WAN virtuale di Azure
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1173da81736661048d1e4e12d9919bc2aadf73ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20cdc55b474034480392f9dfb05b20ad25df6939
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73515850"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037767"
 ---
-# <a name="view-effective-routes-of-a-virtual-hub"></a>Visualizzare le route valide di un hub virtuale
+# <a name="view-virtual-hub-effective-routes"></a>Visualizzare le route effettive dell'hub virtuale
 
-È possibile visualizzare tutte le route dell'hub WAN virtuale nel portale di Azure. Per visualizzare le route, passare all'hub virtuale e quindi selezionare **routing-> visualizzare le route valide**.
+È possibile visualizzare tutte le route dell'hub WAN virtuale nel portale di Azure. Questo articolo illustra la procedura per visualizzare le route valide. Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul routing di hub virtuali](about-virtual-hub-routing.md).
 
-## <a name="understanding-routes"></a><a name="understand"></a>Informazioni sulle route
+> [!NOTE]
+> Nel portale di Azure, alcune di queste funzionalità potrebbero ancora essere implementate e non saranno disponibili fino alla settimana del 3 agosto. 
+>
 
-L'esempio seguente può essere utile per comprendere meglio il modo in cui viene visualizzato il routing WAN virtuale.
+## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Selezionare le connessioni o le tabelle di route
 
-In questo esempio è presente una rete WAN virtuale con tre hub. Il primo Hub si trova nell'area Stati Uniti orientali, il secondo hub è nell'area Europa occidentale e il terzo hub si trova nell'area Stati Uniti occidentali. In una rete WAN virtuale tutti gli hub sono interconnessi. In questo esempio si presuppone che gli hub Stati Uniti orientali ed Europa occidentale dispongano di connessioni da rami locali (spoke) e reti virtuali di Azure (spoke).
+1. Passare all'hub virtuale e quindi selezionare **routing**. Nella pagina routing selezionare **Route effettive**.
+1. Dall'elenco a discesa è possibile selezionare il **tipo di connessione** o una tabella di **Route**. Se non viene visualizzata l'opzione tabella di route, significa che non è stata configurata una tabella di route personalizzata o predefinita in questo hub virtuale.
+1. Dall'elenco a discesa per le **connessioni/tabelle di route**è possibile scegliere tra gli elementi seguenti:
 
-Il peering di Azure VNet spoke (10.4.0.0/16) con un'appliance virtuale di rete (10.4.0.6) viene ulteriormente associato a un VNet (10.5.0.0/16). Per ulteriori informazioni sulla tabella di route dell'hub, vedere [informazioni aggiuntive](#abouthubroute) più avanti in questo articolo.
+   * Connessione alla rete virtuale
+   * Connessione sito VPN
+   * Connessione ExpressRoute
+   * Connessione da punto a sito
+   * Tabella di route
 
-In questo esempio si presuppone anche che il ramo 1 dell'Europa occidentale sia connesso all'hub Stati Uniti orientali, oltre che all'hub Europa occidentale. Un circuito ExpressRoute nell'area Stati Uniti orientali connette il ramo 2 all'hub Stati Uniti orientali.
+   :::image type="content" source="./media/effective-routes-virtual-hub/routing.png" alt-text="Routing":::
 
-![diagramma](./media/effective-routes-virtual-hub/diagram.png)
+## <a name="view-output"></a><a name="output"></a>Visualizzare l'output
 
-## <a name="view-effective-routes"></a><a name="view"></a>Visualizzare le route valide
+L'output della pagina mostra i campi seguenti:
 
-Quando si seleziona "Visualizza route valide" nel portale, viene prodotto l'output visualizzato nella tabella di [Route Hub](#routetable) per l'hub Stati Uniti orientali.
+* **Prefix**: prefisso dell'indirizzo noto all'entità corrente.
+* **Tipo di hop successivo**: può essere una connessione di rete virtuale, VPN_S2S_Gateway, ExpressRouteGateway, Hub remoto o firewall di Azure.
+* **Hop successivo**: si tratta dell'indirizzo IP oppure Mostra semplicemente il collegamento per indicare l'hub corrente.
+* **Origin**: ID risorsa dell'origine di routing.
+* **Come percorso**: l'attributo BGP come percorso (sistema autonomo) elenca tutti i numeri As che devono essere attraversati per raggiungere la posizione in cui il prefisso a cui è collegato il percorso è annunciato da.
 
-Per applicare questa prospettiva, la prima riga implica che l'hub Stati Uniti orientali ha appreso il percorso di 10.20.1.0/24 (ramo 1) a causa della connessione al *tipo di hop successivo* della VPN ("hop successivo" gateway VPN Instance0 IP 10.1.0.6, Instance1 IP 10.1.0.7). *Origine route* punta all'ID risorsa. *As Path* indica il percorso As per il ramo 1.
+### <a name="example"></a><a name="example"></a>Esempio
 
-### <a name="hub-route-table"></a><a name="routetable"></a>Tabella di route Hub
+I valori nella tabella di esempio seguente implicano che la connessione o la tabella di route dell'hub virtuale abbia appreso il percorso di 10.2.0.0/24 (un prefisso di ramo). Ha appreso la route a causa del **tipo di hop successivo della vpn** VPN_S2S_Gateway con l'ID di risorsa del gateway VPN **hop successivo** . **Origine route** fa riferimento all'ID risorsa della tabella/connessione del gateway o della route VPN di origine. **As Path** indica il percorso As per il ramo.
 
 Utilizzare la barra di scorrimento nella parte inferiore della tabella per visualizzare il percorso "AS".
 
 | **Prefisso** |  **Tipo hop successivo** | **Hop successivo** |  **Origine route** |**Percorso AS** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.20.1.0/24|Connessione |10.1.0.6, 10.1.0.7| /Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
-|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-GW|21000|
-|10.23.1.0/24| Connessione |10.1.0.6, 10.1.0.7|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
-|10.4.0.0/16|Connessione alla rete virtuale| Collegamento |  |  |
-|10.5.0.0/16| Indirizzo IP| 10.4.0.6|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/Table_1| |
-|0.0.0.0/0| Indirizzo IP| `<Azure Firewall IP>` |/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/Table_1| |
-|10.22.1.0/16| Hub remoto|10.8.0.6, 10.8.0.7|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/westhub_| 4848-22000 |
-|10.9.0.0/16| Hub remoto|  Collegamento |/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/westhub_1| |
+| 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/Subscriptions/ `<sub id>` /ResourceGroups/ `<resource group name>` /providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 
->[!NOTE]
-> Se gli hub Stati Uniti orientali e Europa occidentale non comunicano tra loro nella topologia di esempio, la route appresa (10.9.0.0/16) non esiste. Gli hub pubblicizzano solo le reti direttamente connesse.
->
+**Considerazioni**
 
-## <a name="additional-information"></a><a name="additional"></a>Informazioni aggiuntive
+* Se viene visualizzato 0.0.0.0/0 nell'output **Get effective Routes** , significa che la route esiste in una delle tabelle di route. Tuttavia, se la route è stata configurata per Internet, per la connessione è necessario un flag aggiuntivo **"enableInternetSecurity": true** . La route valida nella scheda di interfaccia di rete della macchina virtuale non visualizzerà la route se il flag "enableInternetSecurity" nella connessione è "false".
 
-### <a name="about-the-hub-route-table"></a><a name="abouthubroute"></a>Informazioni sulla tabella di route dell'hub
-
-è possibile creare una route dell'hub virtuale e applicare la route alla tabella della route dell'hub virtuale. È possibile applicare più route alla tabella di route dell'hub virtuale. In questo modo è possibile impostare una route per VNet di destinazione tramite un indirizzo IP (in genere l'appliance virtuale di rete in una VNet spoke). Per altre informazioni su appliance virtuali, vedere [indirizzare il traffico da un hub virtuale a un appliance virtuale di](virtual-wan-route-table-portal.md)dispositivo.
-
-### <a name="about-default-route-00000"></a><a name="aboutdefaultroute"></a>Informazioni sulla route predefinita (0.0.0.0/0)
-
-Un hub virtuale è in grado di propagare una route predefinita acquisita a una rete virtuale, una VPN da sito a sito e una connessione ExpressRoute se il flag è' Enabled ' nella connessione. Questo flag è visibile quando si modifica una connessione di rete virtuale, una connessione VPN o una connessione ExpressRoute. ' EnableInternetSecurity ' è sempre false per impostazione predefinita nelle connessioni VNet, ExpressRoute e VPN dell'hub.
-
-La route predefinita non ha origine nell'hub WAN virtuale. La route predefinita viene propagata se è già stata acquisita dall'hub WAN virtuale come risultato della distribuzione di un firewall nell'hub o se è abilitato il tunneling forzato in un altro sito connesso.
+* Il campo della **route predefinita propagate** viene visualizzato nel portale WAN virtuale di Azure quando si modifica una connessione di rete virtuale, una connessione VPN o una connessione ExpressRoute. Questo campo indica il flag **enableInternetSecurity** , che è sempre per impostazione predefinita "false" per le connessioni EXPRESSROUTE e VPN, ma "true" per le connessioni di rete virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla rete WAN virtuale, vedere [Panoramica di WAN virtuale](virtual-wan-about.md).
+* Per ulteriori informazioni sulla rete WAN virtuale, vedere [Panoramica di WAN virtuale](virtual-wan-about.md).
+* Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul routing di hub virtuali](about-virtual-hub-routing.md).

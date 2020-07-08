@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
-ms.topic: conceptual
-ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: how-to
+ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394397"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037257"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense negli strumenti di analisi di flusso di Azure per Visual Studio Code
 
@@ -34,13 +34,12 @@ Le funzionalità di IntelliSense negli strumenti di analisi di flusso per VS Cod
 
 Strumenti di analisi di flusso per VS Code IntelliSense offre diversi tipi di completamenti, tra cui suggerimenti per i server di linguaggio, frammenti di codice e semplici completamenti testuali basati su parole.
 
-|       |         |       |
-| ----- | ------- | ----- |
+|Completion     |  Type       |
+| ----- | ------- |
 | Parole chiave | `keyword`
 | Funzioni | `build-in function`, `user defined function`  |
 | Nome del set di dati| `input`, `output`, `intermediate result set`|
 | Nome della colonna del set di dati|`input`, `intermediate result set`|
-|
 
 #### <a name="name-completion"></a>Completamento del nome
 

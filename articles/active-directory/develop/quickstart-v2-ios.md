@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: b4092ac7bdd03d2e978cd9d9a8aa9fd2aaf1cdd2
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: bd17c20707c3bf1a153e9209cd7e2ec279de0501
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733292"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554047"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
 
@@ -173,7 +173,7 @@ let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, r
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
 
-> |Dove: ||
+> |Dove: | Descrizione |
 > |---------|---------|
 > | `clientId` | ID dell'applicazione registrata in *portal.azure.com* |
 > | `authority` | Endpoint di Microsoft Identity Platform. Nella maggior parte dei casi sarà *https<span/>://login.microsoftonline.com/common* |
@@ -237,7 +237,7 @@ let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParamete
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
-> |Dove:||
+> |Dove:| Descrizione |
 > |---------|---------|
 > | `scopes` | Contiene gli ambiti richiesti, ovvero `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate (`api://<Application ID>/access_as_user`) |
 
@@ -257,7 +257,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 }
 ```
 
-> |Dove: ||
+> |Dove: | Descrizione |
 > |---------|---------|
 > | `scopes` | Contiene gli ambiti richiesti, ovvero `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate (`api://<Application ID>/access_as_user`) |
 > | `account` | Indica l'account per il quale viene richiesto un token. Questo argomento di avvio rapido riguarda un'applicazione con singolo account. Se si vuole creare un'app con più account, è necessario definire la logica per identificare l'account da usare per le richieste di token usando `accountsFromDeviceForParameters:completionBlock:` e passando il valore corretto di `accountIdentifier` |

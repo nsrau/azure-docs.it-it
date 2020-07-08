@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, tracking-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 90954ea2754fd77f1612bd616acb7d3c88e50816
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c8fab1449c72dc3e1a27506e97272e322c0e8c6e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558660"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553877"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app console Python usando l'identità dell'app
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app console Python usando l'identità dell'app
 
 In questo avvio rapido verrà scritta un'applicazione Python che ottiene un token di accesso usando l'identità dell'app e quindi chiama l'API Microsoft Graph per visualizzare un [elenco di utenti](https://docs.microsoft.com/graph/api/user-list) nella directory. Questo scenario è utile nelle situazioni in cui un processo headless automatico o un servizio di Windows deve essere eseguito con un'identità di applicazione, invece che con l'identità di un utente.
 
@@ -189,7 +189,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Dove: ||
+> | Dove: |Descrizione |
 > |---------|---------|
 > | `config["secret"]` | È il segreto client creato per l'applicazione nel portale di Azure. |
 > | `config["client_id"]` | **ID applicazione (client)** dell'applicazione registrata nel portale di Azure. Questo valore è riportato nella pagina **Panoramica** dell'app nel portale di Azure. |
@@ -210,7 +210,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Dove:| |
+> |Dove:| Descrizione |
 > |---------|---------|
 > | `config["scope"]` | Contiene gli ambiti richiesti. Per i client riservati, dovrebbe essere usato un formato simile a `{Application ID URI}/.default` per indicare che gli ambiti che vengono richiesti sono quelli definiti in modo statico nell'oggetto app impostato nel portale di Azure. Per Microsoft Graph, `{Application ID URI}` punta a `https://graph.microsoft.com`. Per le API Web personalizzate, `{Application ID URI}` è definito nella sezione **Esporre un'API** della registrazione dell'applicazione (anteprima) del portale di Azure. |
 

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 2e225d4d37f6bdb3d50b32f6464456e4f7fa0036
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 6f4c18d0fb2a4414dc98100dcec85161fdda85f0
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853950"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554094"
 ---
-# <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso Microsoft Identity Platform a un'app Web ASP.NET
+# <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso Microsoft Identity Platform a un'app Web ASP.NET
 In questa guida introduttiva si usa un esempio di codice per illustrare in che modo l'app Web ASP.NET può accedere ad account personali (hotmail.com, outlook.com e di altro tipo) e account aziendali e dell'istituto di istruzione da qualsiasi istanza di Azure Active Directory (Azure AD).  Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
@@ -156,7 +156,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Where  |  |
+> |Where  | Descrizione |
 > |---------|---------|
 > | `ClientId`     | ID dell'applicazione registrata nel portale di Azure |
 > | `Authority`    | Endpoint del servizio token di sicurezza per l'utente da autenticare. In genere <https://login.microsoftonline.com/{tenant}/v2.0> per il cloud pubblico, dove {tenant} è il nome del tenant, l'ID del tenant, oppure *common* per un riferimento all'endpoint comune (usato per le applicazioni multi-tenant) |

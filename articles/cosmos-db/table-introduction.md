@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a6ae308faf31b3d3eb0c9f287dd5bd791f628e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695250"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557533"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduzione ad Azure Cosmos DB: API di tabella
 
@@ -32,7 +32,7 @@ Le applicazioni scritte per l'archivio tabelle di Azure possono essere trasferit
 ## <a name="table-offerings"></a>Offerte per tabelle
 Se attualmente si usa l'archivio tabelle di Azure, passando all'API Tabelle di Azure Cosmos DB è possibile ottenere i vantaggi seguenti:
 
-| | Archiviazione tabelle di Azure | API Tabelle di Azure Cosmos DB |
+| Funzionalità | Archiviazione tabelle di Azure | API Tabelle di Azure Cosmos DB |
 | --- | --- | --- |
 | Latenza | Veloce, senza limiti superiori per la latenza. | Latenza pari a singole unità di millisecondi per letture e scritture, supportata da latenza minore di 10 ms per le letture e scritture al 99° percentile, su qualsiasi scala e ovunque nel mondo. |
 | Velocità effettiva | Modello a velocità effettiva variabile. Le tabelle hanno un limite di scalabilità di 20.000 operazioni al secondo. | Altamente scalabile con [velocità effettiva riservata dedicata per tabella](request-units.md), supportata da contratti di servizio. Non esiste un limite superiore di velocità effettiva per gli account, che supportano oltre 10 milioni di operazioni al secondo per tabella. |

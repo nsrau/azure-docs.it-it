@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 811daf9b1bf5bf26419385517a67cd22cb8346e6
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e5debf66b91ebd73bb4a4972a907ef7a283f0044
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85570211"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965926"
 ---
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/formrecognizer) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Pacchetto (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Esempi](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
@@ -82,9 +82,9 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 In questo caso si eseguirà l'autenticazione dei due oggetti client con le variabili di sottoscrizione definite in precedenza. Si userà un oggetto **AzureKeyCredential** in modo che, se necessario, sia possibile aggiornare la chiave API senza creare nuovi oggetti client.
 
 ```python
-form_recognizer_client = FormRecognizerClient(endpoint=self.endpoint, credential=AzureKeyCredential(self.key))
+form_recognizer_client = FormRecognizerClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
-form_training_client = FormTrainingClient(self.endpoint, AzureKeyCredential(self.key))
+form_training_client = FormTrainingClient(endpoint, AzureKeyCredential(key))
 ```
 
 ## <a name="define-variables"></a>Definire le variabili
@@ -231,7 +231,7 @@ Eseguire il training di modelli personalizzati per riconoscere tutti i campi e i
 Il codice seguente usa il client di training con la funzione **begin_training** per eseguire il training di un modello in un determinato set di documenti.
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=False)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=False)
 model = poller.result()
 ```
 
@@ -262,7 +262,7 @@ for submodel in model.submodels:
 > Per eseguire il training con etichette, è necessario avere file speciali di informazioni sulle etichette ( *\<filename\>.pdf. labels.json*) nel contenitore di archiviazione BLOB insieme ai documenti di training. Lo [Strumento di etichettatura campioni Riconoscimento modulo](../../quickstarts/label-tool.md) fornisce un'interfaccia utente che consente di creare questi file di etichette. Una volta creati, è possibile chiamare la funzione **begin_training** con il parametro *use_training_labels* impostato su `true`.
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=True)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=True)
 model = poller.result()
 ```
 

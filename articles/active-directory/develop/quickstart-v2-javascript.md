@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 047e03c4fa5916119036c5e539674dc48a6c77aa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322822"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554018"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Avvio rapido: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
@@ -204,7 +204,7 @@ Il codice di avvio rapido illustra anche come inizializzare la libreria MSAL:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Where  |  |
+> |Where  | Descrizione |
 > |---------|---------|
 > |`clientId`     | ID dell'applicazione registrata nel portale di Azure.|
 > |`authority`    | (Facoltativo) URL dell'autorità che supporta i tipi di account, come descritto nella sezione di configurazione precedente. L'autorità predefinita è `https://login.microsoftonline.com/common`. |
@@ -232,7 +232,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Where  |  |
+> |Where  | Descrizione |
 > |---------|---------|
 > | `scopes`   | (Facoltativo) Contiene gli ambiti richiesti per il consenso dell'utente al momento dell'accesso, ad esempio: `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate, ovvero `api://<Application ID>/access_as_user`. |
 
@@ -262,7 +262,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Where  |  |
+> |Where  | Descrizione |
 > |---------|---------|
 > | `scopes`   | Contiene gli ambiti da restituire nel token di accesso per l'API, ad esempio: `[ "mail.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate, ovvero `api://<Application ID>/access_as_user`.|
 

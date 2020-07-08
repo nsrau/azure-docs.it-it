@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 362f6d1f4e50e1cc78c8897499b9f6593096162b
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d68017bcddf43066dd989904578b7d09a84f4a9e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536013"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553871"
 ---
-# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Guida introduttiva: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
+# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Avvio rapido: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
 Questo avvio rapido contiene un esempio di codice che illustra come un'applicazione UWP (Universal Windows Platform) può consentire l'accesso a utenti con account personali, aziendali o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
@@ -133,7 +133,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Dove: ||
+> |Dove: | Descrizione |
 > |---------|---------|
 > | `ClientId` | **ID applicazione (client)** dell'applicazione registrata nel portale di Azure. Questo valore è riportato nella pagina **Panoramica** dell'app nel portale di Azure. |
 
@@ -155,7 +155,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Dove:||
+> |Dove:| Descrizione |
 > |---------|---------|
 > | `scopes` | Contiene gli ambiti richiesti, ad esempio `{ "user.read" }` per Microsoft Graph o `{ "api://<Application ID>/access_as_user" }` per le API Web personalizzate. |
 
@@ -170,7 +170,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Dove: ||
+> |Dove: | Descrizione |
 > |---------|---------|
 > | `scopes` | Contiene gli ambiti richiesti, ad esempio `{ "user.read" }` per Microsoft Graph o `{ "api://<Application ID>/access_as_user" }` per le API Web personalizzate |
 > | `firstAccount` | Specifica il primo account utente nella cache (MSAL supporta più utenti in una singola app) |

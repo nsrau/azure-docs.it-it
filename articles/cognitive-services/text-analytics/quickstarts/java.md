@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 68095a86d3593349a356a6ee44e3f75ab5726979
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: d6278452eda0a6a043654d90519374a741caf76a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611000"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027993"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Avvio rapido: Usare Java per chiamare il servizio cognitivo Analisi del testo di Azure
 <a name="HOLTop"></a>

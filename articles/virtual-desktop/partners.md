@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15bfb1e4d21e4f91cb37fed6e43b4e03f5643b13
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692210"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038056"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -33,12 +33,12 @@ Citrix estende il valore del desktop virtuale di Windows con strumenti aziendali
 
 ![Logo VMware](./media/partners/vmware.png)
 
-VMware Horizon cloud in Microsoft Azure offre alle organizzazioni la possibilità di connettere la propria istanza di Microsoft Azure al piano di controllo cloud Horizon semplice e intuitivo, creando una soluzione protetta, completa e ospitata sul cloud per la distribuzione di applicazioni e desktop virtualizzati di Windows. Con la versione di desktop virtuale di Windows, VMware ha collaborato con Microsoft per estendere le funzionalità del desktop virtuale di Windows ai clienti che usano Horizon cloud in Microsoft Azure. Questa funzionalità sarà disponibile in Tech Preview entro la fine del 2019.
- 
-Come provider approvato, i vantaggi di desktop virtuale di Windows verranno estesi a VMware Horizon cloud su Microsoft Azure clienti, tra cui Windows 10 Enterprise per più sessioni, Windows 7 con aggiornamenti della sicurezza estesi gratuiti per un massimo di tre anni, oltre a FSLogix. Inoltre, i clienti riceveranno le funzionalità di livello aziendale di Horizon cloud, ad esempio il supporto per endpoint di ampio respiro; broker globale, ottimizzato per il cloud; opzioni e configurazioni flessibili per i desktop; gestione dell'ambiente utente; e il supporto per gli ambienti ibridi.
+VMware Horizon cloud in Microsoft Azure è un servizio cloud nativo che consente alle organizzazioni di distribuire rapidamente desktop e applicazioni remote dalle sottoscrizioni di Microsoft Azure esistenti sfruttando tutte le funzionalità di VMware Horizon. Horizon cloud usa il piano di controllo Horizon per fornire un'unica interfaccia di gestione per tutti gli ambienti Horizon, in locale o nel cloud. Questo consente la virtualizzazione del desktop ibrido e consente ai clienti di spostare i carichi di lavoro in Azure in base alla propria velocità.
 
-- [Iscriviti alla versione Tech Preview di Horizon cloud in Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
+Come provider approvato da desktop virtuale Windows, VMware può aiutare i clienti che desiderano utilizzare desktop virtuale di Windows, sfruttando al tempo stesso le funzionalità aggiuntive offerte da VMware Horizon, ad esempio il risparmio energetico integrato e facile da usare, il monitoraggio basato sul cloud e il protocollo Blast Extreme. Queste funzionalità si adattano alle mutevoli condizioni di rete in tempo reale per offrire un'esperienza utente costantemente eccellente. VMware Horizon cloud è dotato anche di volumi di app VMware e Dynamic Environment Manager, che aggiungono funzionalità avanzate di gestione dell'ambiente utente e delle applicazioni che funzionano con MSIX app alleghi e FSLogix.
+
 - [Accedere al sito Web del partner](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+- [Leggere la documentazione tecnica di VMware Horizon cloud](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
 
 ## <a name="10zig"></a>10ZiG
 
@@ -102,6 +102,28 @@ deviceTRUST estende il valore di desktop virtuale di Windows con la tecnologia d
 
 - [Accedere al sito Web del partner](https://devicetrust.com/wvd).
 
+## <a name="ekran-system"></a>Sistema ekran
+
+![Logo del sistema ekran](./media/partners/ekran.png)
+
+Il sistema ekran è un partner per desktop virtuale Windows che consente ai team IT di monitorare tutte le attività degli utenti remoti in Microsoft Azure macchine virtuali. Con il sistema ekran, è possibile registrare l'attività sullo schermo per ogni sessione utente in applicazioni pubblicate o desktop virtuali, raccogliendo un'ampia gamma di metadati ricchi di contesto, ad esempio nomi di applicazioni, titoli di finestre attive, URL visitati e sequenze di tasti. Le funzionalità avanzate offrono visibilità approfondita e tempi di risposta rapidi agli eventi imprevisti, rendendo il sistema ekran una soluzione efficiente di gestione delle minacce e di conformità.  
+
+Le licenze di endpoint a virgola mobile univoche dei client di sistema ekran sono automatizzate per supportare i desktop virtuali a modifica dinamica. Il sistema ekran consente di annullare automaticamente l'assegnazione delle licenze da desktop virtuali non permanenti eliminati e di rimuoverli dal database. Il sistema ekran si integra perfettamente con Azure Active Directory e Sentinel di Azure.
+
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
+- [Passare alla pagina del partner](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="flexxible-it"></a>Flexxible
+
+![Logo Flexxible IT](./media/partners/flexxible.png)
+
+Flexxible è un partner per desktop virtuale di Windows che offre alle organizzazioni la possibilità di scalare, monitorare ed eseguire in modo efficiente l'infrastruttura dell'area di lavoro Citrix e desktop virtuale di Windows. Flexxible | SUITE consente agli amministratori IT di effettuare il provisioning intelligente e gestire i carichi di lavoro di desktop virtuali Windows in locale e ospitati in Azure.
+ 
+Flexxible IT è la tecnologia che estende il valore sia del desktop virtuale Windows nativo che dell'area di lavoro Citrix automatizzando i processi comuni per semplificare la configurazione dell'infrastruttura, il provisioning del desktop e la gestione quotidiana. Senza necessità di script di PowerShell complessi o di processi manuali che richiedono molto tempo, SUITE offre una distribuzione desktop scalabile, un monitoraggio completo e la creazione di report e la gestione delegata sicura. Queste funzionalità consentono di concentrarsi sulla distribuzione di livelli avanzati di servizio e di un'esperienza di desktop virtuale Windows di qualità per gli utenti.
+
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A).
+- [Accedere al sito Web del partner](https://www.flexxible.com/suite-for-windows-virtual-desktop).
+
 ## <a name="hp"></a>HP
 
 ![Logo HP](./media/partners/hp.png)
@@ -127,7 +149,7 @@ Il sistema operativo IGEL supporta tutte le app virtuali, i desktop e i protocol
 
 ![Logo di ivanti](./media/partners/ivanti.png)
 
-Ivanti User Workspace Manager è un servizio di Windows Virtual Desktop aggiunto che semplifica la distribuzione e la gestione dei desktop separando i dati utente dal desktop per una portabilità senza problemi. Con ivanti, gli utenti possono distribuire progetti complessi, ad esempio la migrazione a Windows 10, l'adozione di Office 365 o lo spostamento rapido dei servizi nel cloud. 
+Ivanti User Workspace Manager è un servizio di Windows Virtual Desktop aggiunto che semplifica la distribuzione e la gestione dei desktop separando i dati utente dal desktop per una portabilità senza problemi. Con ivanti, gli utenti possono distribuire progetti complessi, ad esempio la migrazione a Windows 10, l'adozione Microsoft 365 o lo spostamento rapido dei servizi nel cloud. 
 
 Quando viene usato con desktop virtuale di Windows, gestione dell'area di lavoro per gli utenti di ivanti offre una semplice gestione contestuale dell'esperienza desktop utente, eliminando i tempi di accesso più lunghi ed eliminando gli incubi di criteri di gruppo. Ivanti User Workspace Manager: i modelli predefiniti semplificano l'installazione per gli utenti tramite agenti e la console esistente. Il gestore dell'area di lavoro utenti di ivanti offre desktop reattivi e sicuri che gli utenti amano, risparmiando denaro sui server, gestendo più efficacemente gli utenti e riducendo i rischi per la sicurezza degli endpoint. 
 
@@ -163,6 +185,7 @@ Il software per l'aggregazione e la distribuzione di applicazioni liquit consent
 
 In qualità di partner di integrazione certificata, liquit consente di accelerare la transizione al cloud senza un ritardo di RIP e sostituzione. Desktop virtuale di Windows è in grado di connettersi facilmente a un ambiente esistente, creare un'area di lavoro e distribuire il desktop. È quindi possibile eseguire la migrazione del tempo dalle piattaforme precedenti e apportare modifiche al back-end senza che gli utenti ne abbiano notato. Ottieni un'esperienza coerente con l'utente finale, un'infrastruttura flessibile e Mantieni il controllo delle tue applicazioni ovunque si trovino.
 
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yol8).
 - [Accedere al sito Web del partner](https://www.liquit.com/wvd/).
 
 ## <a name="login-vsi"></a>Accesso VSI
@@ -236,6 +259,17 @@ Le soluzioni Desktop remoto Commander di RDPSoft migliorano l'amministrazione di
 
 - [Accedere al sito Web del partner](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
 
+## <a name="rimo3"></a>Rimo3
+
+![Logo Rimo3](./media/partners/rimo3.png)
+
+Rimo3 migliora l'esperienza del desktop virtuale Windows accelerando la distribuzione e migliorando la gestione delle modifiche in corso. Rimo3 fornisce ai team IT le informazioni necessarie per supportare il portfolio di applicazioni per la preparazione della migrazione di Azure dei carichi di lavoro dell'applicazione. Gli utenti possono caricare le applicazioni e testarle nell'area di lavoro desktop virtuale Windows di destinazione in modo rapido e senza problemi. Gli utenti possono anche comprendere in modo proattivo l'effetto di eventuali modifiche apportate dall'organizzazione per il rollup di nuove applicazioni e aggiornamenti. Infine, gli amministratori IT possono sfruttare la funzionalità di test di fumo intelligente Rimo3's e automatizzare il test delle funzionalità senza interrompere le sessioni utente.
+
+Rimo3 offre una piattaforma di test di applicazioni automatizzata, scalabile e di facile utilizzo. Questa piattaforma include le funzionalità per tutti e tre i concetti fondamentali di test delle applicazioni: compatibilità, funzionalità e prestazioni. Consente a organizzazioni, leader e team di migliorare la continuità aziendale, adottare modifiche più velocemente e ottimizzare l'esperienza utente.
+
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
+- [Accedere al sito Web del partner](https://rimo3.com/outcomes/).
+
 ## <a name="sepago"></a>sepago
 
 ![logo sepago](./media/partners/sepago.png)
@@ -245,7 +279,7 @@ sepago è stato creato in 2002 da quattro amici a Colonia. Attualmente, sepago �
 il laboratorio di innovazione e sviluppo di sepago crea soluzioni intelligenti con Big Data e tecnologie di intelligenza artificiale. Queste soluzioni si concentrano sul miglioramento dell'attività, dell'esperienza utente e dell'amministrazione dei prodotti partner come desktop virtuale di Windows.
 
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
-- [Accedere al sito Web del partner](https://www.sepago.de/wvd-value-add-tools/).
+- [Accedere al sito Web del partner](https://www.sepago.de/en/).
 
 ## <a name="thinprint"></a>ThinPrint
 

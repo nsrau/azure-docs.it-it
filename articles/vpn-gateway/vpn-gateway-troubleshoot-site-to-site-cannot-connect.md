@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75862578"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037835"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
 
@@ -40,7 +40,7 @@ Controllare il tipo del gateway VPN di Azure.
 
 2. Verificare che il dispositivo VPN sia configurato correttamente. Per altre informazioni, vedere [Esempi di modifica di configurazione dispositivo](vpn-gateway-about-vpn-devices.md#editing).
 
-### <a name="step-2-verify-the-shared-key"></a>Passaggio 2. Verificare la chiave condivisa
+### <a name="step-2-verify-the-shared-key"></a>Passaggio 2: Verificare la chiave condivisa
 
 Confrontare la chiave condivisa del dispositivo VPN locale con quella del gateway VPN della rete virtuale per verificare che corrispondano. 
 
@@ -60,11 +60,15 @@ Per visualizzare la chiave condivisa per la connessione VPN di Azure, usare uno 
 
 Per il modello di distribuzione di Azure Resource Manager:
 
-    Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```azurepowershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```
 
 Per il modello di distribuzione classica:
 
-    Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```azurepowershell
+Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```
 
 ### <a name="step-3-verify-the-vpn-peer-ips"></a>Passaggio 3. Verificare gli IP dei peer VPN
 

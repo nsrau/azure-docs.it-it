@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e2ba749b64a6d44c9aa6b03352910ab24771084
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835649"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037614"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all'uso di Analisi di flusso di Azure: Rilevamento delle frodi in tempo reale
 
@@ -47,7 +47,7 @@ Per esaminare i risultati del processo di Analisi di flusso, è anche necessario
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Creare hub eventi di Azure per inserire eventi
 
-Per analizzare un flusso di dati, *inserirlo* in Azure. Un modo comune per inserire i dati consiste nell'usare gli [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md), che consentono di inserire milioni di eventi al secondo e quindi elaborare e archiviare le relative informazioni. Per questa esercitazione si creerà un hub eventi e quindi l'app generatore degli eventi di chiamata invierà i dati a tale hub. Per altre informazioni sugli hub eventi, vedere la [documentazione del bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus/).
+Per analizzare un flusso di dati, *inserirlo* in Azure. Un modo comune per inserire i dati consiste nell'usare gli [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md), che consentono di inserire milioni di eventi al secondo e quindi elaborare e archiviare le relative informazioni. Per questa esercitazione si creerà un hub eventi e quindi l'app generatore degli eventi di chiamata invierà i dati a tale hub.
 
 >[!NOTE]
 >Per una versione più dettagliata di questa procedura, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). 
@@ -202,7 +202,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di input  |  CallStream   |  Immettere un nome per identificare l'input del processo.   |
-   |Subscription   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure in cui è stato creato l'hub eventi.   |
+   |Subscription   |  \<Your subscription\> |  Selezionare la sottoscrizione di Azure in cui è stato creato l'hub eventi.   |
    |Spazio dei nomi dell'hub eventi  |  asa-eh-ns-demo |  Inserire il nome dello spazio dei nomi dell'hub eventi.   |
    |Nome dell'hub eventi  | asa-eh-frauddetection-demo | Selezionare il nome dell'hub eventi.   |
    |Nome criteri hub eventi  | asa-policy-manage-demo | Selezionare i criteri di accesso creati in precedenza.   |
@@ -372,7 +372,7 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. In questa 
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di output  |  CallStream-FraudulentCalls   |  Immettere un nome per identificare l'output del processo.   |
-   |Subscription   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
+   |Subscription   |  \<Your subscription\> |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
    |Account di archiviazione  |  asaehstorage |  Immettere il nome dell'account di archiviazione creato. |
    |Contenitore  | asa-fraudulentcalls-demo | Scegliere Crea nuovo e immettere un nome di contenitore. |
 

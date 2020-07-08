@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: fd44c07ea44e7487a22b0de67737dcc135c813b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263198"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038039"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -96,7 +96,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **PowerQueryOnline** | Power Query online. | Entrambe | No | No |
 | **Bus di servizio** | Traffico del bus di servizio di Azure che usa il livello di servizio Premium. | In uscita | Sì | Sì |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Nota:* questo tag rappresenta l'endpoint del servizio Service Fabric per il piano di controllo per l'area. Ciò consente ai clienti di eseguire operazioni di gestione per i propri cluster Service Fabric dalle rispettive reti virtuali (endpoint, ad esempio https:// westus.servicefabric.azure.com) | Entrambe | No | No |
-| **Sql** | Database SQL di Azure, Database di Azure per MySQL, Database di Azure per PostgreSQL e Azure SQL Data Warehouse.<br/><br/>*Nota:* il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. Tale tag non si applica all'istanza gestita di SQL. | In uscita | Sì | Sì |
+| **Sql** | Database SQL di Azure, Database di Azure per MySQL, Database di Azure per PostgreSQL e Azure SQL Data Warehouse.<br/><br/>*Nota:* il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. Questo tag non è applicabile a SQL Istanza gestita. | In uscita | Sì | Sì |
 | **SqlManagement** | Traffico di gestione per le distribuzioni dedicate SQL. | Entrambe | No | Sì |
 | **Storage** | Archiviazione di Azure. <br/><br/>*Nota:* il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Archiviazione di Azure, ma non uno specifico account di archiviazione di Azure. | In uscita | Sì | Sì |
 | **StorageSyncService** | Servizio di sincronizzazione archiviazione | Entrambe | No | No |
@@ -139,6 +139,8 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 - [Azure US Gov](https://www.microsoft.com/download/details.aspx?id=57063)  
 - [Azure per la Cina](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure Germania](https://www.microsoft.com/download/details.aspx?id=57064)   
+
+Gli intervalli di indirizzi IP in questi file sono in notazione CIDR. 
 
 > [!NOTE]
 >Un subset di queste informazioni è stato pubblicato in file XML per [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure Cina](https://www.microsoft.com/download/details.aspx?id=42064) e [Azure Germania](https://www.microsoft.com/download/details.aspx?id=54770). Tali download XML saranno deprecati entro il 30 giugno 2020 e non saranno più disponibili dopo tale data. È consigliabile eseguire la migrazione usando l'API di individuazione o i download di file JSON come descritto nelle sezioni precedenti.
