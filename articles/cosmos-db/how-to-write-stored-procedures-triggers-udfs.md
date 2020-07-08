@@ -3,15 +3,15 @@ title: Scrivere stored procedure, trigger e funzioni definite dall'utente in Azu
 description: Informazioni su come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: tisande
-ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e9ebd8de956437273246d08821fc87838089a256
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262872"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 
@@ -52,21 +52,42 @@ Quando si crea un elemento usando stored procedure, l'elemento viene inserito ne
 
 La stored procedure include anche un parametro per impostare la descrizione, cioè un valore booleano. Quando il parametro è impostato su true e la descrizione non è presente, la stored procedure genererà un'eccezione. In caso contrario, il resto della stored procedure rimane in esecuzione.
 
-L'esempio seguente stored procedure accetta un nuovo elemento di Azure Cosmos come input, lo inserisce nel contenitore Azure Cosmos e restituisce l'ID per l'elemento appena creato. In questo esempio, viene usato l'esempio ToDoList dall'[API SQL .NET di avvio rapido](create-sql-api-dotnet.md)
+L'esempio seguente stored procedure accetta come input una matrice di nuovi elementi di Azure Cosmos, li inserisce nel contenitore Azure Cosmos e restituisce il numero degli elementi inseriti. In questo esempio, viene usato l'esempio ToDoList dall'[API SQL .NET di avvio rapido](create-sql-api-dotnet.md)
 
 ```javascript
-function createToDoItem(itemToCreate) {
+function createToDoItems(items) {
+    var collection = getContext().getCollection();
+    var collectionLink = collection.getSelfLink();
+    var count = 0;
 
-    var context = getContext();
-    var container = context.getCollection();
+    if (!items) throw new Error("The array is undefined or null.");
 
-    var accepted = container.createDocument(container.getSelfLink(),
-        itemToCreate,
-        function (err, itemCreated) {
-            if (err) throw new Error('Error' + err.message);
-            context.getResponse().setBody(itemCreated.id)
-        });
-    if (!accepted) return;
+    var numItems = items.length;
+
+    if (numItems == 0) {
+        getContext().getResponse().setBody(0);
+        return;
+    }
+
+    tryCreate(items[count], callback);
+
+    function tryCreate(item, callback) {
+        var options = { disableAutomaticIdGeneration: false };
+
+        var isAccepted = collection.createDocument(collectionLink, item, options, callback);
+
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
+
+    function callback(err, item, options) {
+        if (err) throw err;
+        count++;
+        if (count >= numItems) {
+            getContext().getResponse().setBody(count);
+        } else {
+            tryCreate(items[count], callback);
+        }
+    }
 }
 ```
 
@@ -366,7 +387,7 @@ Per esempi su come registrare e usare una funzione definita dall'utente, vedere 
 
 ## <a name="logging"></a>Registrazione 
 
-Quando si usano stored procedure, trigger o funzioni definite dall'utente, è possibile registrare i passaggi usando `console.log()` il comando. Questo comando consente di concentrare una stringa per `EnableScriptLogging` il debug quando è impostato su true, come illustrato nell'esempio seguente:
+Quando si usano stored procedure, trigger o funzioni definite dall'utente, è possibile registrare i passaggi usando il `console.log()` comando. Questo comando consente di concentrare una stringa per il debug quando `EnableScriptLogging` è impostato su true, come illustrato nell'esempio seguente:
 
 ```javascript
 var response = await client.ExecuteStoredProcedureAsync(

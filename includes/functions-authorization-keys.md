@@ -4,14 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 926434d7110877e234888682cb6c946afe3ae685
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 046bd8fcbb8fab50269c8d35da0956bdc63f2304
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298600"
 ---
 Funzioni consente di usare in fase di sviluppo le chiavi che rendono più difficile accedere agli endpoint di funzione HTTP. A meno che il livello di accesso HTTP in una funzione attivata tramite HTTP non sia impostato su `anonymous`, le richieste devono includere una chiave di accesso all'API. 
+
+Sebbene le chiavi forniscano un meccanismo di sicurezza predefinito, è consigliabile prendere in considerazione opzioni aggiuntive per proteggere un endpoint HTTP nell'ambiente di produzione. Ad esempio, in genere non è consigliabile distribuire il segreto condiviso nelle app pubbliche. Se la funzione viene chiamata da un client pubblico, è consigliabile implementare un altro meccanismo secrity. Per altre informazioni, vedere [Proteggere un endpoint HTTP nell'ambiente di produzione](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
+
+Quando si rinnovano i valori della chiave della funzione, è necessario ridistribuire manualmente i valori di chiave aggiornati a tutti i client che chiamano la funzione.  
 
 #### <a name="authorization-scopes-function-level"></a>Ambiti di autorizzazione (a livello di funzione)
 

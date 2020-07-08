@@ -6,17 +6,17 @@ author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 23e3ccff11dc33858249565d3ad8396b19dd87c6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: e529e398b90050bf654c702ec34686bdc173c9e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85299331"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Partner di business intelligence per Azure Synapse Analytics
 
@@ -44,6 +44,6 @@ Per creare una soluzione completa di data warehouse con il pool Synapse SQL all'
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su altri partner, vedere [Partner di integrazione di dati](sql-data-warehouse-partner-data-integration.md) e [Partner di gestione di dati](sql-data-warehouse-partner-data-management.md).
+Per altre informazioni su altri partner, vedere [partner di integrazione dei dati](sql-data-warehouse-partner-data-integration.md), partner [Gestione dati](sql-data-warehouse-partner-data-management.md) e [partner di machine learning e intelligenza artificiale](sql-data-warehouse-partner-machine-learning-ai.md).
 
  

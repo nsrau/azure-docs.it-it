@@ -4,15 +4,15 @@ description: Questo documento fornisce le tecniche di ottimizzazione post-migraz
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: lbosq
-ms.openlocfilehash: ce33651aae64d0a90264dde6da64b4044c6ce132
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 055604c399aa1641e823f24af499102bfff3ed0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063600"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263093"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Passaggi di ottimizzazione post-migrazione quando si usa l'API di Azure Cosmos DB per MongoDB
 
@@ -35,7 +35,7 @@ In questa guida si apprenderà come:
 2. Dal [portale di Azure](https://www.portal.azure.com/), nel riquadro sinistro aprire il menu **tutte le risorse** e individuare l'account Azure Cosmos DB a cui è stata eseguita la migrazione dei dati.
 3. Aprire il pannello della **stringa di connessione** . Il riquadro destro contiene tutte le informazioni necessarie per connettersi correttamente all'account.
 4. Usare le informazioni di connessione nella configurazione dell'applicazione (o in altri punti rilevanti) per riflettere la connessione dell'API Azure Cosmos DB per MongoDB nell'app.
-![Stringa di connessione](./media/mongodb-post-migration/connection-string.png)
+:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Stringa di connessione":::
 
 Per altri dettagli, vedere la pagina [connettere un'applicazione MongoDB a Azure Cosmos DB](connect-mongodb-account.md) .
 

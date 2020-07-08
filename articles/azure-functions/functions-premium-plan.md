@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276907"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298515"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -27,11 +27,11 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-In questo esempio sostituire `<RESOURCE_GROUP>` con il gruppo di risorse e `<PLAN_NAME>` con un nome per il piano univoco nel gruppo di risorse. Specificare un [valore `<REGION>`supportato ](https://azure.microsoft.com/global-infrastructure/services/?products=functions). Per creare un piano Premium che supporta Linux, includere l' `--is-linux` opzione.
+In questo esempio sostituire `<RESOURCE_GROUP>` con il gruppo di risorse e `<PLAN_NAME>` con un nome per il piano univoco nel gruppo di risorse. Specificare un [valore `<REGION>` supportato ](https://azure.microsoft.com/global-infrastructure/services/?products=functions). Per creare un piano Premium che supporta Linux, includere l' `--is-linux` opzione.
 
 Dopo aver creato il piano, è possibile usare il comando [AZ functionapp create](/cli/azure/functionapp#az-functionapp-create) per creare l'app per le funzioni. Nel portale vengono creati contemporaneamente il piano e l'app. Per un esempio di script dell'interfaccia della riga di comando di Azure completo, vedere [creare un'app per le funzioni in un piano Premium](scripts/functions-cli-create-premium-plan.md).
 
-## <a name="features"></a>Caratteristiche
+## <a name="features"></a>Funzionalità
 
 Per le app per le funzioni distribuite in un piano Premium sono disponibili le funzionalità seguenti.
 
@@ -61,11 +61,13 @@ Per altre informazioni, vedere [integrare l'app per le funzioni con un VNet](fun
 
 ### <a name="rapid-elastic-scale"></a>Scalabilità elastica rapida
 
-Altre istanze di calcolo vengono aggiunte automaticamente per l'app usando la stessa logica di scalabilità rapida del piano a consumo.  Per altre informazioni sul funzionamento della scalabilità, vedere [scalabilità e hosting di funzioni](./functions-scale.md#how-the-consumption-and-premium-plans-work).
+Altre istanze di calcolo vengono aggiunte automaticamente per l'app usando la stessa logica di scalabilità rapida del piano a consumo. Le app nello stesso piano di servizio app vengono ridimensionate indipendentemente l'una dall'altra in base alle esigenze di una singola app. Tuttavia, le app per le funzioni nello stesso piano di servizio app condividono le risorse delle macchine virtuali per ridurre i costi, quando possibile. Il numero di app associate a una macchina virtuale dipende dal footprint di ogni app e dalle dimensioni della macchina virtuale.
+
+Per altre informazioni sul funzionamento della scalabilità, vedere [scalabilità e hosting di funzioni](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 ### <a name="longer-run-duration"></a>Durata dell'esecuzione più lunga
 
-Per una singola esecuzione, le funzioni di Azure in un piano a consumo sono limitate a 10 minuti.  Nel piano Premium, per la durata dell'esecuzione viene impostato un valore predefinito di 30 minuti per impedire l'esecuzione di Runaway. Tuttavia, è possibile [modificare la configurazione host. JSON](./functions-host-json.md#functiontimeout) per rendere questa operazione non vincolata per le app del piano Premium (garantita 60 minuti).
+Per una singola esecuzione, le funzioni di Azure in un piano a consumo sono limitate a 10 minuti.  Nel piano Premium, per la durata dell'esecuzione viene impostato un valore predefinito di 30 minuti per impedire l'esecuzione di Runaway. Tuttavia, è possibile [modificare la host.jsnella configurazione](./functions-host-json.md#functiontimeout) per rendere questa operazione non vincolata per le app del piano Premium (garantita 60 minuti).
 
 ## <a name="plan-and-sku-settings"></a>Impostazioni del piano e dello SKU
 
@@ -88,7 +90,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimensioni delle istanze.  Ti verrà addebitato il numero totale di core e memoria utilizzati al secondo.  L'app può essere ridimensionata automaticamente a più istanze in base alle esigenze.  
 
-|SKU|Core|Memoria|Archiviazione|
+|SKU|Core|Memory|Archiviazione|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7 GB|250 GB|
@@ -97,7 +99,7 @@ Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimens
 ### <a name="memory-utilization-considerations"></a>Considerazioni sull'utilizzo della memoria
 L'esecuzione in un computer con una maggiore quantità di memoria non significa sempre che l'app per le funzioni utilizzerà tutta la memoria disponibile.
 
-Ad esempio, un'app per le funzioni JavaScript è vincolata dal limite di memoria predefinito in node. js. Per aumentare il limite di memoria fisso, aggiungere l'impostazione `languageWorkers:node:arguments` dell'app con un `--max-old-space-size=<max memory in MB>`valore di.
+Ad esempio, un'app per le funzioni JavaScript è vincolata dal limite di memoria predefinito in Node.js. Per aumentare il limite di memoria fisso, aggiungere l'impostazione dell'app `languageWorkers:node:arguments` con un valore di `--max-old-space-size=<max memory in MB>` .
 
 ## <a name="region-max-scale-out"></a>Scale Out area massima
 

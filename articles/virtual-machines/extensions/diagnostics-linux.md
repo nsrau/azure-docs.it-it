@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 4c34996cb47b1f09f47454f162674248820ce975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: HT
+ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298957"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
@@ -74,7 +74,12 @@ Distribuzioni e versioni supportate:
 
 ### <a name="sample-installation"></a>Installazione di esempio
 
-Prima dell'esecuzione, inserire i valori corretti per le variabili nella prima sezione:
+> [!NOTE]
+> Per uno degli esempi, inserire i valori corretti per le variabili nella prima sezione prima di eseguire. 
+
+La configurazione di esempio scaricata in questi esempi raccoglie un set di dati standard e li invia all'archiviazione tabelle. L'URL per la configurazione di esempio e il relativo contenuto sono soggetti a modifiche. Nella maggior parte dei casi è consigliabile scaricare una copia del file JSON delle impostazioni del portale e personalizzarla in base alle proprie esigenze, quindi fare in modo che tutti i modelli o le automazioni create usino la versione personalizzata del file di configurazione anziché scaricare l'URL ogni volta.
+
+#### <a name="azure-cli-sample"></a>Esempio di interfaccia della riga di comando Azure
 
 ```azurecli
 # Set your Azure VM diagnostic variables correctly below
@@ -103,8 +108,6 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-
-La configurazione di esempio scaricata in questi esempi raccoglie un set di dati standard e li invia all'archiviazione tabelle. L'URL per la configurazione di esempio e il relativo contenuto sono soggetti a modifiche. Nella maggior parte dei casi è consigliabile scaricare una copia del file JSON delle impostazioni del portale e personalizzarla in base alle proprie esigenze, quindi fare in modo che tutti i modelli o le automazioni create usino la versione personalizzata del file di configurazione anziché scaricare l'URL ogni volta.
 
 #### <a name="powershell-sample"></a>Esempio PowerShell
 
@@ -170,7 +173,7 @@ Questo set di informazioni per la configurazione contiene informazioni riservate
 }
 ```
 
-Nome | valore
+Nome | Valore
 ---- | -----
 storageAccountName | Nome dell'account di archiviazione in cui l'estensione scrive i dati.
 storageAccountEndPoint | (facoltativo) Endpoint che identifica il cloud in cui esiste l'account di archiviazione. Se questa impostazione è assente, LAD per impostazione predefinita considera il cloud pubblico di Azure, `https://core.windows.net`. Per usare un account di archiviazione in Azure Germania, Azure per enti pubblici o Azure Cina, impostare questo valore di conseguenza.
@@ -439,6 +442,9 @@ sinks | (facoltativo) Un elenco di nomi delimitato da virgole di sink aggiuntivi
 
 Consente di controllare l'acquisizione dei file di registro. LAD acquisisce le nuove righe di testo quando vengono scritte nel file e le scrive nelle righe della tabella e/o nei sink specificati, JsonBlob o EventHub.
 
+> [!NOTE]
+> i FileLog vengono acquisiti da un sottocomponente di LAD chiamato `omsagent` . Per raccogliere i file di log, è necessario assicurarsi che l' `omsagent` utente disponga delle autorizzazioni di lettura per i file specificati, nonché delle autorizzazioni di esecuzione per tutte le directory nel percorso del file. Per verificarlo, è possibile eseguire `sudo su omsagent -c 'cat /path/to/file'` dopo l'installazione di Lad.
+
 ```json
 "fileLogs": [
     {
@@ -451,7 +457,7 @@ Consente di controllare l'acquisizione dei file di registro. LAD acquisisce le n
 
 Elemento | valore
 ------- | -----
-file | Il percorso completo del file di registro da esaminate e acquisire. Il percorso deve indicare solo un file. Non è possibile indicare una directory o i caratteri jolly.
+file | Il percorso completo del file di registro da esaminate e acquisire. Il percorso deve indicare solo un file. Non è possibile indicare una directory o i caratteri jolly. L'account utente ' omsagent ' deve avere accesso in lettura al percorso del file.
 tabella | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato, come specificato nella configurazione protetta, in cui vengono scritte nuove righe dalla "coda" del file.
 sinks | (facoltativo) Un elenco di nomi delimitato da virgole di sink aggiuntivi a cui vengono inviate le righe del registro.
 
@@ -564,23 +570,36 @@ Byte al secondo | Numero di byte letti o scritti al secondo
 
 È possibile ottenere i valori aggregati per tutti i dischi impostando `"condition": "IsAggregate=True"`. Per ottenere le informazioni per un dispositivo specifico, ad esempio dev/sdf1, impostare `"condition": "Name=\\"/dev/sdf1\\""`.
 
-## <a name="installing-and-configuring-lad-30-via-cli"></a>Installazione e configurazione di LAD 3.0 tramite l'interfaccia della riga di comando
+## <a name="installing-and-configuring-lad-30"></a>Installazione e configurazione di LAD 3,0
 
-Supponendo che le impostazioni protette si trovino nel file PrivateConfig.json e che le informazioni di configurazione pubbliche si trovino in PublicConfig.json, eseguire questo comando:
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+Supponendo che le impostazioni protette si trovino nel file ProtectedSettings.json e che le informazioni di configurazione pubbliche siano in PublicSettings.js, eseguire questo comando:
 
 ```azurecli
-az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-Il comando presuppone che si stia usando la modalità di Gestione risorse di Azure (arm) dell'interfaccia della riga di comando di Azure. Per configurare LAD per le macchine virtuali che usano il modello di distribuzione classico (ASM), passare alla modalità "asm" (`azure config mode asm`) e omettere il nome del gruppo di risorse nel comando. Per altre informazioni, vedere la [documentazione sull'interfaccia della riga di comando multipiattaforma](https://docs.microsoft.com/azure/xplat-cli-connect).
+Il comando presuppone che si stia usando la modalità Azure Resource Manager (ARM) dell'interfaccia della riga di comando di Azure. Per configurare LAD per le macchine virtuali che usano il modello di distribuzione classico (ASM), passare alla modalità "asm" (`azure config mode asm`) e omettere il nome del gruppo di risorse nel comando. Per altre informazioni, vedere la [documentazione sull'interfaccia della riga di comando multipiattaforma](https://docs.microsoft.com/azure/xplat-cli-connect).
+
+### <a name="powershell"></a>PowerShell
+
+Supponendo che le impostazioni protette si trovino nella `$protectedSettings` variabile e le informazioni di configurazione pubbliche si trovino nella `$publicSettings` variabile, eseguire questo comando:
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+```
 
 ## <a name="an-example-lad-30-configuration"></a>Una configurazione di LAD 3.0 di esempio
 
 In base alle definizioni precedenti, ecco una configurazione dell'estensione 3.0 LAD di esempio con alcune spiegazioni. Per applicare questo esempio al caso in questione, è necessario usare il nome dell'account di archiviazione, il token SAS dell'account e i token SAS di EventHubs.
 
-### <a name="privateconfigjson"></a>PrivateConfig.json
+> [!NOTE]
+> A seconda se si usa l'interfaccia della riga di comando di Azure o PowerShell per installare LAD, il metodo per fornire impostazioni pubbliche e protette sarà diverso. Se si usa l'interfaccia della riga di comando di Azure, salvare le impostazioni seguenti per ProtectedSettings.json e PublicSettings.json da usare con il comando di esempio precedente. Se si usa PowerShell, salvare le impostazioni in `$protectedSettings` e eseguendo `$publicSettings` `$protectedSettings = '{ ... }'` .
 
-Queste impostazioni private consentono di configurare:
+### <a name="protected-settings"></a>Impostazioni protette
+
+Queste impostazioni protette configurano:
 
 * un account di archiviazione
 * un token SAS dell'account corrispondente
@@ -628,7 +647,7 @@ Queste impostazioni private consentono di configurare:
 }
 ```
 
-### <a name="publicconfigjson"></a>PublicConfig.json
+### <a name="public-settings"></a>Impostazioni pubbliche
 
 Con queste impostazioni pubbliche il LAD:
 

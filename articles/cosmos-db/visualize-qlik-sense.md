@@ -4,15 +4,15 @@ description: Questo articolo descrive i passaggi necessari per connettere Azure 
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3a955060eb5f19544860c1c97abe1577084bef24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67985553"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263348"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Connettere Qlik Sense ad Azure Cosmos DB e visualizzare i dati
 
@@ -54,7 +54,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che le risorse seg
 
 1. Aprire Qlik Sense e selezionare **Create new app** (Crea nuova app). Specificare un nome per l'app, quindi selezionare **Create** (Crea).
 
-   ![Creare una nuova app di Qlik Sense](./media/visualize-qlik-sense/create-new-qlik-sense-app.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="Creare una nuova app di Qlik Sense":::
 
 2. Dopo aver creato correttamente la nuova app, selezionare **Open app** (Apri app) e scegliere **Add data from files and other sources** (Aggiungi dati da file e altre origini). 
 
@@ -62,15 +62,15 @@ Prima di seguire le istruzioni di questo articolo, verificare che le risorse seg
 
 4. Passare a **User DSN** (DSN utente) e scegliere la connessione ODBC creata in precedenza. Specificare un nome per la connessione e selezionare **Create** (Crea). 
 
-   ![Crea una nuova connessione](./media/visualize-qlik-sense/create-new-connection.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Creare una nuova connessione":::
 
 5. Dopo aver creato la connessione, è possibile scegliere il database, la raccolta che contiene i dati dei videogiochi e quindi visualizzarli in anteprima.
 
-   ![Scegliere il database e la raccolta](./media/visualize-qlik-sense/choose-database-and-collection.png) 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Scegliere il database e la raccolta"::: 
 
 6. Successivamente, selezionare **Add data** (Aggiungi dati) per caricarli in Qlik Sense. Dopo aver caricato i dati in Qlik Sense, è possibile generare informazioni dettagliate ed eseguire analisi sui dati. È possibile usare le informazioni dettagliate o creare la propria app esplorando le vendite dei videogiochi. La figura seguente mostra un esempio. 
 
-   ![Visualizzare i dati](./media/visualize-qlik-sense/visualize-data.png)
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Visualizzare i dati":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>Limitazioni durante la connessione con ODBC 
 

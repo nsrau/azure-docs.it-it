@@ -3,15 +3,16 @@ title: Usare i comandi e le funzionalità predefiniti dei notebook C# in Azure C
 description: Informazioni su come usare i comandi e le funzionalità predefiniti per eseguire operazioni comuni con i notebook C# predefiniti di Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 94cb23b1795a93462a0356fb0af215601edb9d64
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: d9d48e825adeecd54375ce13c612d4a0c6eaaa18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263416"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Usare i comandi e le funzionalità predefiniti dei notebook C# in Azure Cosmos DB (anteprima)
 
@@ -114,14 +115,14 @@ Per filtrare e visualizzare una raccolta di elementi, è possibile usare lo stru
 
 Nell'esempio *GetingStarted_Csharp.ipynb* è possibile stampare la variabile con il risultato, ovvero ``telemetryEvents``. Per la versione integrale dell'esempio, vedere il [notebook GettingStarted_Csharp.ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb). 
 
-![Cella query CSharp](media/use-notebook-features-and-commands/csharp-query-cell.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Cella query CSharp":::
 
-![nteract data explorer](media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="nteract data explorer":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Usare il visualizzatore del dizionario predefinito
 È possibile usare il visualizzatore del dizionario predefinito per visualizzare una variabile. In una cella, inserire la variabile che si desidera visualizzare nell'ultima riga, e che verrà automaticamente visualizzata quando si esegue la cella.
 
-![Visualizzatore del dizionario predefinito](media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Visualizzatore del dizionario predefinito":::
 
 ## <a name="upload-json-items-to-a-container"></a>Caricare gli elementi JSON in un contenitore
 È possibile usare il comando magic ``%%upload`` per caricare dati da un file JSON in un contenitore Azure Cosmos specificato. Eseguire il comando seguente per caricare gli elementi:
@@ -159,7 +160,7 @@ Sostituire ``{notebookName}`` con il nome del notebook da eseguire. Il notebook 
 ## <a name="reset-notebooks-workspace"></a>Reimpostare l'area di lavoro dei notebook
 Per ripristinare le impostazioni predefinite dell'area di lavoro dei notebook, selezionare **Reimposta area di lavoro** sulla barra dei comandi. I pacchetti installati personalizzati verranno rimossi e il server Jupyter verrà riavviato. I notebook, i file e le risorse di Azure Cosmos non saranno interessati.  
 
-![Reimpostare l'area di lavoro dei notebook](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Reimpostare l'area di lavoro dei notebook":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

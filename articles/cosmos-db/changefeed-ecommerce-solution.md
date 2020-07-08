@@ -4,15 +4,15 @@ description: Questo articolo descrive il modo in cui il feed delle modifiche pu�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ade688c3fe339db864994923d0ff40dfe41b7cb7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76513493"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263008"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
@@ -28,7 +28,7 @@ Se l'utente è interessato a guardare un video che illustra la soluzione prima d
 ## <a name="solution-components"></a>Componenti della soluzione
 Il diagramma seguente rappresenta il flusso di dati e i componenti coinvolti nella soluzione:
 
-![Immagine del progetto](./media/changefeed-ecommerce-solution/project-visual.png)
+:::image type="content" source="./media/changefeed-ecommerce-solution/project-visual.png" alt-text="Immagine del progetto" border="false":::
  
 1. **Generazione di dati:** il simulatore di dati viene usato per generare i dati delle vendite al dettaglio che rappresentano gli eventi, ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello e acquista un elemento. È possibile generare grandi set di dati di esempio tramite il generatore di dati. I dati di esempio generati contengono i documenti nel formato seguente:
    
@@ -169,7 +169,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
 
 3. Aggiungere i nomi della **raccolta** e del **database**. (Questi nomi devono essere **changefeedlabcollection** e **changefeedlabdatabase** a meno che non si scelga di assegnare un nome diverso.)
 
-   ![Aggiornare le stringhe di connessione](./media/changefeed-ecommerce-solution/update-connection-string.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Aggiorna stringhe di connessione":::
  
 4. Salvare le modifiche su tutti i file modificati.  
 
@@ -179,7 +179,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
 
 7. Se si passa a [portale di Azure](https://portal.azure.com/) , quindi all'account Cosmos DB all'interno del gruppo di risorse e quindi a **Esplora dati**, si vedranno i dati casuali importati nella **changefeedlabcollection** .
  
-   ![Dati generati nel portale](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Dati generati nel portale":::
 
 ## <a name="set-up-a-stream-analytics-job"></a>Configurazione di un processo di Analisi di flusso
 
@@ -189,7 +189,7 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
 
 2. Selezionare **Input** come illustrato di seguito.  
 
-   ![Creare input](./media/changefeed-ecommerce-solution/create-input.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Creare input":::
 
 3. Selezionare **+ Aggiungi input del flusso**. Quindi selezionare **Hub eventi** dal menu a discesa.  
 
@@ -221,7 +221,7 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
 
 8. Tornare quindi a **streamjob1** e selezionare **Modifica query**.
 
-   ![Edit query](./media/changefeed-ecommerce-solution/edit-query.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Modifica query":::
  
 9. Incollare la seguente query nella relativa finestra. La query **PREZZO MEDIO** calcola il prezzo medio di tutti gli elementi visualizzati da utenti, il prezzo medio di tutti gli elementi che vengono aggiunti ai carrelli degli utenti e il prezzo medio di tutti gli elementi che vengono acquistati dagli utenti. Questa metrica può aiutare le società di e-commerce a decidere a quali prezzi vendere gli elementi e in quale inventario investire. Ad esempio, se il prezzo medio degli elementi visualizzati è molto superiore al prezzo medio degli elementi acquistati, una società potrebbe scegliere di aggiungere elementi meno costosi per l'inventario.
 
@@ -314,7 +314,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
 
    Ecco come appare un dashboard di esempio con questi grafici:
 
-   ![visualizzazioni](./media/changefeed-ecommerce-solution/visualizations.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Visualizzazioni":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Facoltativo: visualizzazione con un sito di e-commerce
 
@@ -322,19 +322,19 @@ A questo punto, sarà possibile osservare come è possibile usare il nuovo strum
 
 1. Tornare alla [portale di Azure](https://portal.azure.com/), quindi all' **account di Cosmos DB**, quindi **Esplora dati**.  
 
-   Aggiungere due raccolte in **changefeedlabdatabase** - **prodotti** e **categorie** changefeedlabdatabase con capacità di archiviazione fissa.
+   Aggiungere due raccolte in **changefeedlabdatabase**  -  **prodotti** e **categorie** changefeedlabdatabase con capacità di archiviazione fissa.
 
    Aggiungere un'altra raccolta in **changefeedlabdatabase** chiamata **topItems** e **/Item** come chiave di partizione.
 
 2. Selezionare la raccolta **topItems** e in **Scalabilità e Impostazioni** impostare la **Durata (TTL)** su **30 secondi** in modo tale che topItems si aggiorni ogni 30 secondi.
 
-   ![Durata (TTL)](./media/changefeed-ecommerce-solution/time-to-live.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Durata (TTL)":::
 
 3. Per popolare la raccolta **topItems** con gli articoli più frequentemente acquistati, ritornare a **streamjob1** e aggiungere un nuovo **Output**. Selezionare **Cosmos DB**.
 
 4. Compilare i campi obbligatori nel modo seguente.
 
-   ![Output di Cosmos](./media/changefeed-ecommerce-solution/cosmos-output.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Output di Cosmos":::
  
 5. Se si aggiungono le query TOP 5 facoltativa nella parte precedente dell'esercitazione, passare alla parte 5a. In caso contrario, andare alla parte 5b.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 5a8b97e5bef57b29f388c86628f0af5d05e1724a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 502fbe3bc7b1de2038bc444ae5daf180cfc80203
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731651"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298991"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Passaggio 1: distribuire il server d'avanzamento log
 
@@ -69,13 +69,13 @@ Scegliere un daemon syslog per visualizzare la descrizione appropriata.
 
 1. **Configurazione del daemon syslog:**
 
-    1. Apre la porta 514 per la comunicazione TCP usando il file `/etc/rsyslog.conf`di configurazione syslog.
+    1. Apre la porta 514 per la comunicazione TCP usando il file di configurazione Syslog `/etc/rsyslog.conf` .
 
-    1. Configura il daemon per l'invio dei messaggi CEF all'agente di Log Analytics sulla porta TCP 25226, inserendo un file `security-config-omsagent.conf` di configurazione speciale nella directory `/etc/rsyslog.d/`del daemon syslog.
+    1. Configura il daemon per l'invio dei messaggi CEF all'agente di Log Analytics sulla porta TCP 25226, inserendo un file di configurazione speciale `security-config-omsagent.conf` nella directory del daemon syslog `/etc/rsyslog.d/` .
 
         Contenuto del `security-config-omsagent.conf` file:
 
-            :rawmsg, regex, "CEF\|ASA" ~
+            :rawmsg, regex, "CEF"|"ASA"
             *.* @@127.0.0.1:25226
 
 1. **Riavvio del daemon syslog**
@@ -101,9 +101,9 @@ Scegliere un daemon syslog per visualizzare la descrizione appropriata.
 
 1. **Configurazione del daemon syslog:**
 
-    1. Apre la porta 514 per la comunicazione TCP usando il file `/etc/syslog-ng/syslog-ng.conf`di configurazione syslog.
+    1. Apre la porta 514 per la comunicazione TCP usando il file di configurazione Syslog `/etc/syslog-ng/syslog-ng.conf` .
 
-    1. Configura il daemon per l'invio dei messaggi CEF all'agente di Log Analytics sulla porta TCP 25226, inserendo un file `security-config-omsagent.conf` di configurazione speciale nella directory `/etc/syslog-ng/conf.d/`del daemon syslog.
+    1. Configura il daemon per l'invio dei messaggi CEF all'agente di Log Analytics sulla porta TCP 25226, inserendo un file di configurazione speciale `security-config-omsagent.conf` nella directory del daemon syslog `/etc/syslog-ng/conf.d/` .
 
         Contenuto del `security-config-omsagent.conf` file:
 

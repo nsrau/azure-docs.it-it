@@ -3,14 +3,14 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298498"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>informazioni di riferimento su host. JSON per funzioni di Azure 2. x e versioni successive 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.jsdi riferimento per funzioni di Azure 2. x e versioni successive 
 
 > [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
 > * [Versione 1](functions-host-json-v1.md)
@@ -21,15 +21,15 @@ Il file di metadati *host.json* contiene le opzioni di configurazione globali ch
 > [!NOTE]
 > Questo articolo è per funzioni di Azure 2. x e versioni successive.  Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).
 
-Altre opzioni di configurazione delle app per le funzioni sono gestite nelle [impostazioni dell'app](functions-app-settings.md) (per le app distribuite) o nel file [local. Settings. JSON](functions-run-local.md#local-settings-file) (per lo sviluppo locale).
+Altre opzioni di configurazione delle app per le funzioni sono gestite nelle [impostazioni dell'app](functions-app-settings.md) (per le app distribuite) o nel file [local.settings.js](functions-run-local.md#local-settings-file) (per lo sviluppo locale).
 
-Le configurazioni in host. JSON correlate alle associazioni vengono applicate ugualmente a ogni funzione nell'app per le funzioni. 
+Le configurazioni in host.jsin relazione alle associazioni vengono applicate ugualmente a ogni funzione nell'app per le funzioni. 
 
 È anche possibile [eseguire l'override o applicare le impostazioni per ogni ambiente](#override-hostjson-values) usando le impostazioni dell'applicazione.
 
 ## <a name="sample-hostjson-file"></a>File di esempio host.json
 
-Nel file *host. JSON* di esempio seguente per la versione 2. x + sono state specificate tutte le opzioni possibili, escluse quelle che sono solo per uso interno.
+Nell'esempio seguente *host.jssu* file per la versione 2. x + sono state specificate tutte le opzioni possibili, escluse quelle che sono solo per uso interno.
 
 ```json
 {
@@ -140,10 +140,10 @@ Questa impostazione è un elemento figlio di [logging](#logging).
 
 Controlla le opzioni per Application Insights, incluse le [Opzioni di campionamento](./functions-monitoring.md#configure-sampling).
 
-Per la struttura JSON completa, vedere il [file host. JSON di esempio](#sample-hostjson-file)precedente.
+Per la struttura JSON completa, vedere l' [esempio precedente host.jssu file](#sample-hostjson-file).
 
 > [!NOTE]
-> Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights. Per evitare il campionamento dei `excludedTypes: "Request"` `samplingSettings` log, aggiungere al valore.
+> Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights. Per evitare il campionamento dei log, aggiungere `excludedTypes: "Request"` al `samplingSettings` valore.
 
 | Proprietà | Predefinito | Descrizione |
 | --------- | --------- | --------- | 
@@ -165,19 +165,19 @@ Per la struttura JSON completa, vedere il [file host. JSON di esempio](#sample-h
 | initialSamplingPercentage| 1.0 | Percentuale di campionamento iniziale applicata all'inizio del processo di campionamento per variare in modo dinamico la percentuale. Non ridurre il valore durante il debug. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | Quando viene modificato il valore della percentuale di campionamento, questa proprietà determina il periodo di tempo in cui Application Insights può generare nuovamente la percentuale di campionamento per acquisire più dati. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | Quando viene modificato il valore della percentuale di campionamento, questa proprietà determina il periodo di tempo in cui Application Insights può abbassare di nuovo la percentuale di campionamento per acquisire meno dati. |
-| minSamplingPercentage | 0,1 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale minima di campionamento consentita. |
-| maxSamplingPercentage | 0,1 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale massima di campionamento consentita. |
+| minSamplingPercentage | 0.1 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale minima di campionamento consentita. |
+| maxSamplingPercentage | 0.1 | Poiché la percentuale di campionamento varia, questa proprietà determina la percentuale massima di campionamento consentita. |
 | movingAverageRatio | 1.0 | Nel calcolo della media mobile, peso assegnato al valore più recente. Usare un valore uguale o inferiore a 1. I valori più bassi rendono l'algoritmo meno reattivo alle modifiche improvvise. |
-| excludedTypes | Null | Elenco delimitato da punti e virgola di tipi che non si desidera campionare. I tipi riconosciuti `Dependency`sono `Event`: `Exception`, `PageView`, `Request`,, `Trace`e. Tutte le istanze dei tipi specificati vengono trasmesse. i tipi non specificati vengono campionati. |
-| includedTypes | Null | Elenco delimitato da punti e virgola di tipi che si desidera campionare. un elenco vuoto implica tutti i tipi. Digitare elencato in `excludedTypes` tipi di override elencati qui. I tipi riconosciuti `Dependency`sono `Event`: `Exception`, `PageView`, `Request`,, `Trace`e. Le istanze dei tipi specificati sono campionate; i tipi non specificati o impliciti vengono trasmessi senza campionamento. |
+| excludedTypes | Null | Elenco delimitato da punti e virgola di tipi che non si desidera campionare. I tipi riconosciuti sono:,,, `Dependency` `Event` `Exception` `PageView` , `Request` e `Trace` . Tutte le istanze dei tipi specificati vengono trasmesse. i tipi non specificati vengono campionati. |
+| includedTypes | Null | Elenco delimitato da punti e virgola di tipi che si desidera campionare. un elenco vuoto implica tutti i tipi. Digitare elencato in `excludedTypes` tipi di override elencati qui. I tipi riconosciuti sono:,,, `Dependency` `Event` `Exception` `PageView` , `Request` e `Trace` . Le istanze dei tipi specificati sono campionate; i tipi non specificati o impliciti vengono trasmessi senza campionamento. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
 |Proprietà | Predefinito | Descrizione |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Abilita o Disabilita le informazioni di richiesta HTTP estese per i trigger HTTP: intestazioni di correlazione delle richieste in ingresso, supporto delle chiavi multistrumentazione, metodo HTTP, percorso e risposta. |
-| enableW3CDistributedTracing | true | Abilita o Disabilita il supporto del protocollo di traccia distribuita W3C (e attiva lo schema di correlazione legacy). Abilitata per impostazione `enableHttpTriggerExtendedInfoCollection` predefinita se è true. Se `enableHttpTriggerExtendedInfoCollection` è false, questo flag si applica solo alle richieste in uscita e non alle richieste in ingresso. |
-| enableResponseHeaderInjection | true | Abilita o Disabilita l'inserimento di intestazioni di correlazione di più componenti in risposte. L'abilitazione dell'inserimento consente Application Insights di creare una mappa dell'applicazione a quando vengono utilizzate più chiavi di strumentazione. Abilitata per impostazione `enableHttpTriggerExtendedInfoCollection` predefinita se è true. Questa impostazione non è applicabile `enableHttpTriggerExtendedInfoCollection` se è false. |
+| enableW3CDistributedTracing | true | Abilita o Disabilita il supporto del protocollo di traccia distribuita W3C (e attiva lo schema di correlazione legacy). Abilitata per impostazione predefinita se `enableHttpTriggerExtendedInfoCollection` è true. Se `enableHttpTriggerExtendedInfoCollection` è false, questo flag si applica solo alle richieste in uscita e non alle richieste in ingresso. |
+| enableResponseHeaderInjection | true | Abilita o Disabilita l'inserimento di intestazioni di correlazione di più componenti in risposte. L'abilitazione dell'inserimento consente Application Insights di creare una mappa dell'applicazione a quando vengono utilizzate più chiavi di strumentazione. Abilitata per impostazione predefinita se `enableHttpTriggerExtendedInfoCollection` è true. Questa impostazione non è applicabile se `enableHttpTriggerExtendedInfoCollection` è false. |
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
@@ -195,8 +195,8 @@ Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sul
 | isExceptionSnappointsEnabled | false | Abilita o Disabilita l'applicazione di filtri alle eccezioni. |
 | isLowPrioritySnapshotUploader | true | Determina se eseguire il processo SnapshotUploader alla priorità normale. |
 | maximumCollectionPlanSize | 50 | Il numero massimo di problemi che è possibile rilevare in qualsiasi momento in un intervallo compreso tra 1 e 9999. |
-| maximumSnapshotsRequired | 3 | Numero massimo di snapshot raccolti per un singolo problema, in un intervallo compreso tra 1 e 999. Un problema può essere considerato come una singola istruzione throw nell'applicazione. Quando il numero di snapshot raccolti per un problema raggiunge questo valore, non verranno raccolti altri snapshot per tale problema finché non vengono reimpostati i contatori dei problemi `problemCounterResetInterval`(vedere) `thresholdForSnapshotting` e il limite viene raggiunto nuovamente. |
-| problemCounterResetInterval | 24:00:00 | Con quale frequenza è possibile reimpostare i contatori dei problemi in un intervallo compreso tra un minuto e sette giorni. Quando viene raggiunto questo intervallo, tutti i conteggi dei problemi vengono reimpostati su zero. I problemi esistenti che hanno già raggiunto la soglia per gli snapshot, ma che non hanno ancora generato il numero di snapshot `maximumSnapshotsRequired`in, restano attivi. |
+| maximumSnapshotsRequired | 3 | Numero massimo di snapshot raccolti per un singolo problema, in un intervallo compreso tra 1 e 999. Un problema può essere considerato come una singola istruzione throw nell'applicazione. Quando il numero di snapshot raccolti per un problema raggiunge questo valore, non verranno raccolti altri snapshot per tale problema finché non vengono reimpostati i contatori dei problemi (vedere `problemCounterResetInterval` ) e il `thresholdForSnapshotting` limite viene raggiunto nuovamente. |
+| problemCounterResetInterval | 24:00:00 | Con quale frequenza è possibile reimpostare i contatori dei problemi in un intervallo compreso tra un minuto e sette giorni. Quando viene raggiunto questo intervallo, tutti i conteggi dei problemi vengono reimpostati su zero. I problemi esistenti che hanno già raggiunto la soglia per gli snapshot, ma che non hanno ancora generato il numero di snapshot in `maximumSnapshotsRequired` , restano attivi. |
 | provideAnonymousTelemetry | true | Determina se inviare dati di telemetria sull'utilizzo e sugli errori anonimi a Microsoft. Questa telemetria può essere usata se si contatta Microsoft per risolvere i problemi relativi al Snapshot Debugger. Viene usato anche per monitorare i modelli di utilizzo. |
 | reconnectInterval | 00:15:00 | Frequenza della riconnessione all'endpoint Snapshot Debugger. L'intervallo consentito è di un minuto a un giorno. |
 | shadowCopyFolder | Null | Specifica la cartella da usare per la copia shadow dei file binari. Se non è impostato, le cartelle specificate dalle seguenti variabili di ambiente vengono tentate in ordine: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
@@ -242,11 +242,16 @@ Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la durata del timeout per tutte le funzioni. Segue il formato stringa TimeSpan. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti.  
+Indica la durata del timeout per tutte le funzioni. Segue il formato stringa TimeSpan. 
 
-Nel piano Premium, l'intervallo valido è compreso tra 1 secondo e 60 minuti e il valore predefinito è 30 minuti.
+| Tipo di piano | Impostazione predefinita (min) | Massimo (min) |
+| -- | -- | -- |
+| Consumo | 5 | 10 |
+| Premium<sup>1</sup> | 30 | -1 (senza limiti)<sup>2</sup> |
+| Dedicato (servizio app) | 30 | -1 (senza limiti)<sup>2</sup> |
 
-In un piano dedicato (servizio app) non esiste alcun limite globale e il valore predefinito è 30 minuti. Il valore `-1` indica un'esecuzione non vincolata, ma è consigliabile mantenere un limite superiore fisso.
+<sup>1</sup> l'esecuzione del piano Premium è garantita solo per 60 minuti, ma tecnicamente non vincolata.   
+<sup>2</sup> il valore `-1` indica un'esecuzione non vincolata, ma è consigliabile mantenere un limite superiore fisso.
 
 ```json
 {
@@ -331,7 +336,7 @@ Questa impostazione è un elemento figlio di [logging](#logging). Controlla la r
 
 ## <a name="manageddependency"></a>managedDependency
 
-La dipendenza gestita è una funzionalità attualmente supportata solo con le funzioni basate su PowerShell. Consente la gestione automatica delle dipendenze da parte del servizio. Quando la `enabled` proprietà è impostata su `true`, il `requirements.psd1` file viene elaborato. Le dipendenze vengono aggiornate quando vengono rilasciate versioni secondarie. Per altre informazioni, vedere [dipendenza gestita](functions-reference-powershell.md#dependency-management) nell'articolo di PowerShell.
+La dipendenza gestita è una funzionalità attualmente supportata solo con le funzioni basate su PowerShell. Consente la gestione automatica delle dipendenze da parte del servizio. Quando la `enabled` proprietà è impostata su `true` , il `requirements.psd1` file viene elaborato. Le dipendenze vengono aggiornate quando vengono rilasciate versioni secondarie. Per altre informazioni, vedere [dipendenza gestita](functions-reference-powershell.md#dependency-management) nell'articolo di PowerShell.
 
 ```json
 {
@@ -379,7 +384,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 
 ## <a name="version"></a>version
 
-Questo valore indica la versione dello schema di host. JSON. La stringa `"version": "2.0"` di versione è obbligatoria per un'app per le funzioni destinata al runtime v2 o a una versione successiva. Nessuna modifica dello schema host. JSON tra V2 e V3.
+Questo valore indica la versione dello schema di host.js. La stringa `"version": "2.0"` di versione è obbligatoria per un'app per le funzioni destinata al runtime v2 o a una versione successiva. Non sono presenti host.jssulle modifiche dello schema tra V2 e V3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 
@@ -391,11 +396,11 @@ Un set di [directory codice condivise](functions-reference-csharp.md#watched-dir
 }
 ```
 
-## <a name="override-hostjson-values"></a>Eseguire l'override dei valori host. JSON
+## <a name="override-hostjson-values"></a>Esegui override host.jssui valori
 
-Potrebbero essere presenti istanze in cui si desidera configurare o modificare impostazioni specifiche in un file host. JSON per un ambiente specifico, senza modificare il file host. JSON.  È possibile eseguire l'override di valori specifici di host. JSON creando un valore equivalente come impostazione dell'applicazione. Quando il runtime trova un'impostazione dell'applicazione nel formato `AzureFunctionsJobHost__path__to__setting`, esegue l'override dell'impostazione host. JSON equivalente presente `path.to.setting` in in JSON. Se espressa come impostazione dell'applicazione, il punto (`.`) usato per indicare la gerarchia JSON viene sostituito da un doppio carattere di`__`sottolineatura (). 
+Potrebbero essere presenti istanze in cui si desidera configurare o modificare impostazioni specifiche in un host.jsfile per un ambiente specifico, senza modificare i host.jsnel file stesso.  È possibile eseguire l'override di host.jsspecifici nei valori creando un valore equivalente come impostazione dell'applicazione. Quando il runtime trova un'impostazione dell'applicazione nel formato `AzureFunctionsJobHost__path__to__setting` , esegue l'override dell'equivalente host.jssull'impostazione presente in `path.to.setting` in JSON. Se espressa come impostazione dell'applicazione, il punto ( `.` ) usato per indicare la gerarchia JSON viene sostituito da un doppio carattere di sottolineatura ( `__` ). 
 
-Si immagini, ad esempio, di voler disabilitare il campionamento di Application Insight durante l'esecuzione in locale. Se è stato modificato il file host. JSON locale per disabilitare Application Insights, è possibile che questa modifica venga inserita nell'app di produzione durante la distribuzione. Il modo più sicuro per eseguire questa operazione consiste nel creare invece un'impostazione `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` dell'applicazione `local.settings.json` come nel file. È possibile visualizzarlo nel file seguente `local.settings.json` , che non viene pubblicato:
+Si immagini, ad esempio, di voler disabilitare il campionamento di Application Insight durante l'esecuzione in locale. Se il host.jslocale è stato modificato per disabilitare Application Insights, è possibile che venga eseguito il push della modifica nell'app di produzione durante la distribuzione. Il modo più sicuro per eseguire questa operazione consiste nel creare invece un'impostazione dell'applicazione come `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` nel `local.settings.json` file. È possibile visualizzarlo nel file seguente `local.settings.json` , che non viene pubblicato:
 
 ```json
 {

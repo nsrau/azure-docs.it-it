@@ -1,19 +1,19 @@
 ---
 title: Creare un modello di Image Builder di Azure (anteprima)
 description: Informazioni su come creare un modello da usare con Image Builder di Azure.
-author: danis
+author: danielsollondon
 ms.author: danis
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 44cafd4ce7e36c34082ff3c5498c5bbc35282221
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263314"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di Image Builder di Azure 
 
@@ -29,7 +29,7 @@ Questo è il formato del modello di base:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+     },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -88,7 +88,7 @@ Per impostazione predefinita, Image Builder userà una macchina virtuale di comp
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-Per impostazione predefinita, Image Builder non modifica le dimensioni dell'immagine, usa le dimensioni dell'immagine di origine. È possibile aumentare le dimensioni del disco del sistema operativo (Win e Linux) in modo facoltativo e il valore 0 indica che si lascia la stessa dimensione dell'immagine di origine. 
+Per impostazione predefinita, Image Builder non modifica le dimensioni dell'immagine, usa le dimensioni dell'immagine di origine. È possibile aumentare **solo** le dimensioni del disco del sistema operativo (Win e Linux), questo è facoltativo e il valore 0 indica che la dimensione dell'immagine di origine è uguale a quella di. Non è possibile ridurre le dimensioni del disco del sistema operativo a dimensioni inferiori rispetto a quelle dell'immagine di origine.
 
 ```json
  {
@@ -521,7 +521,7 @@ L'output dell'immagine sarà una risorsa dell'immagine gestita.
  
 Proprietà distribute:
 - **type** - managedImage 
-- **imageId** - ID della risorsa dell'immagine di destinazione, formato previsto: /subscriptions/\<IDsottoscrizione>/resourceGroups/\<NomeGruppoRisorsa diDestinazione>/providers/Microsoft.Compute/images/\<NomeImmagine>
+- **imageId** : ID risorsa dell'immagine di destinazione, formato previsto:/subscriptions/ \<subscriptionId> /resourceGroups/ \<destinationResourceGroupName> /providers/Microsoft.Compute/images/\<imageName>
 - **location** - percorso dell'immagine gestita.  
 - **runOutputName** - nome univoco per identificare la distribuzione.  
 - **artifactTags** - facoltativo, tag della coppia chiave-valore specificata dall'utente.
@@ -561,7 +561,7 @@ Prima di poter distribuire in Raccolta immagini, è necessario creare una raccol
 Proprietà distribute per le raccolte di immagini condivise:
 
 - **type** - sharedImage  
-- **galleryImageId** - ID di Raccolta immagini condivise. Il formato è: /subscriptions/\<IDsottoscrizione>/resourceGroups/\<NomeGruppoRisorse>/providers/Microsoft.Compute/galleries/\<NomeRaccoltaImmaginiCondivise>/images/\<NomeRaccoltaImmagini>.
+- **galleryImageId** - ID di Raccolta immagini condivise. Il formato è:/subscriptions/ \<subscriptionId> /ResourceGroups/ \<resourceGroupName> /providers/Microsoft.Compute/Galleries/ \<sharedImageGalleryName> /images/ \<imageGalleryName> .
 - **runOutputName** - nome univoco per identificare la distribuzione.  
 - **artifactTags** - facoltativo, tag della coppia chiave-valore specificata dall'utente.
 - **replicationRegions** - matrice di aree per la replica. Una delle aree deve essere l'area in cui è distribuita la raccolta.

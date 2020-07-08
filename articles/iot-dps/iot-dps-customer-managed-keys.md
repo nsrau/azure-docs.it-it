@@ -8,20 +8,21 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: menchi
-ms.openlocfilehash: b065135715868094b7e248aebfca35f3b55a4c48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9b5a549d550f117e080fc64193fbe29658f401d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77675143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298226"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-device-provisioning-service"></a>Crittografia dei dati inattivi con chiavi gestite dal cliente per il servizio Device provisioning
 
 ## <a name="overview"></a>Panoramica
 
-Il servizio Device provisioning (DPS) supporta la crittografia dei dati inattivi con chiavi gestite dal cliente (CMK), note anche come BYOK (Bring your own key). DPS fornisce la crittografia dei dati inattivi e in transito. Per impostazione predefinita, DPS USA chiavi gestite da Microsoft per crittografare i dati. Con il supporto di CMK, i clienti possono ora scegliere di crittografare i dati inattivi con una chiave di crittografia della chiave, gestita dai clienti, usando il [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Il servizio Device provisioning (DPS) supporta la crittografia dei dati inattivi con chiavi gestite dal cliente (CMK), note anche come BYOK (Bring your own key). DPS fornisce la crittografia dei dati inattivi e in transito mentre viene scritta nei data center e la decrittografa per conto dell'utente, al momento dell'accesso. Per impostazione predefinita, DPS USA chiavi gestite da Microsoft per crittografare i dati inattivi. Con CMK è possibile ottenere un ulteriore livello di crittografia sulla base della crittografia della piattaforma predefinita, scegliendo di crittografare i dati inattivi con una chiave di crittografia chiave, gestiti tramite il [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Questo offre la flessibilità necessaria per creare, ruotare, disabilitare e revocare chiavi. Se CMK è configurato per il DPS, significa che la crittografia doppia è abilitata con due livelli di protezione che proteggono attivamente i dati. 
 
-Questa funzionalità richiede la creazione di un nuovo DPS, in una delle aree seguenti: Stati Uniti orientali, Stati Uniti occidentali 2 o Stati Uniti centro-meridionali. Per provare questa funzionalità, contattaci attraverso il [supporto tecnico Microsoft](https://azure.microsoft.com/support/create-ticket/). Condividere il nome della società e l'ID sottoscrizione quando si contatta il supporto tecnico Microsoft.
+Questa funzionalità richiede la creazione di un nuovo DPS. Per provare questa funzionalità, contattaci attraverso il [supporto tecnico Microsoft](https://azure.microsoft.com/support/create-ticket/). Condividere il nome della società e l'ID sottoscrizione quando si contatta il supporto tecnico Microsoft.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,15 +3,15 @@ title: Ridimensionare Azure Cosmos DB in base a una pianificazione tramite il ti
 description: Informazioni su come ridimensionare le modifiche nella velocità effettiva in Azure Cosmos DB usando PowerShell e funzioni di Azure.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 68ba40ea212c061fa5c8bbddc47ea0dfc6d8caa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75935168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262481"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Ridimensionare la velocità effettiva Azure Cosmos DB usando il trigger timer di funzioni di Azure
 
@@ -21,7 +21,7 @@ Le prestazioni di un account Azure Cosmos si basano sulla quantità di velocità
 
 ## <a name="throughput-scheduler-sample-project"></a>Progetto di esempio di utilità di pianificazione della velocità effettiva
 
-Per semplificare il processo di scalabilità Azure Cosmos DB in base a una pianificazione, è stato creato un progetto di esempio denominato [utilità di pianificazione della velocità effettiva di Azure Cosmos](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Questo progetto è un'app funzioni di Azure con due trigger timer, ovvero "ScaleUpTrigger" e "ScaleDownTrigger". I trigger eseguono uno script di PowerShell che imposta la velocità effettiva per ogni risorsa come definito `resources.json` nel file in ogni trigger. ScaleUpTrigger è configurato per l'esecuzione alle 8.00 UTC e il ScaleDownTrigger è configurato per l'esecuzione alle 18.00 UTC e tali orari possono essere facilmente aggiornati all'interno del `function.json` file per ogni trigger.
+Per semplificare il processo di scalabilità Azure Cosmos DB in base a una pianificazione, è stato creato un progetto di esempio denominato [utilità di pianificazione della velocità effettiva di Azure Cosmos](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Questo progetto è un'app funzioni di Azure con due trigger timer, ovvero "ScaleUpTrigger" e "ScaleDownTrigger". I trigger eseguono uno script di PowerShell che imposta la velocità effettiva per ogni risorsa come definito nel `resources.json` file in ogni trigger. ScaleUpTrigger è configurato per l'esecuzione alle 8.00 UTC e il ScaleDownTrigger è configurato per l'esecuzione alle 18.00 UTC e tali orari possono essere facilmente aggiornati all'interno del `function.json` file per ogni trigger.
 
 È possibile clonare questo progetto in locale, modificarlo per specificare le risorse di Azure Cosmos DB per la scalabilità verticale e orizzontale e la pianificazione per l'esecuzione. In seguito sarà possibile distribuirlo in una sottoscrizione di Azure e proteggerlo usando l'identità del servizio gestito con le autorizzazioni di [controllo degli accessi in base al ruolo](role-based-access-control.md) (RBAC) con il ruolo "operatore Azure Cosmos DB" per impostare la velocità effettiva negli account Azure Cosmos.
 

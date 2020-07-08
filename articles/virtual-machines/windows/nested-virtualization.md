@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 2c66f88cc49028fae50d89a9a7c24233d5a926b4
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: cf12e1c5c4f220aca7a1d1125581f41b1f0ada91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865707"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85297852"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -94,7 +94,7 @@ Creare una nuova scheda di rete virtuale per la macchina virtuale guest e config
 4. Creare un indirizzo IP per il gateway NAT.
     
 Per poter configurare il gateway, sono necessarie alcune informazioni sulla rete:    
-  * IPAddress: l'IP del gateway NAT specifica l'indirizzo IPv4 o IPv6 da usare come indirizzo predefinito del gateway per la subnet di rete virtuale. Il formato generico è a.b.c.1, ad esempio "192.168.0.1". Mentre la posizione finale non deve essere 0,1, di solito è (in base alla lunghezza del prefisso). In genere è consigliabile usare uno spazio degli indirizzi di rete privata conforme al documento RFC 1918. 
+  * IPAddress: l'IP del gateway NAT specifica l'indirizzo IPv4 o IPv6 da usare come indirizzo predefinito del gateway per la subnet di rete virtuale. Il formato generico è a.b.c.1, ad esempio "192.168.0.1". Mentre la posizione finale non deve essere 1, in genere è (basata sulla lunghezza del prefisso). In genere è consigliabile usare uno spazio degli indirizzi di rete privata conforme al documento RFC 1918. 
   * PrefixLength: la lunghezza del prefisso della subnet definisce le dimensioni della subnet locale (subnet mask). La lunghezza del prefisso della subnet è un valore intero compreso tra 0 e 32. Con 0 viene eseguito il mapping all'intera rete Internet, mentre con 32 si consente il mapping di un solo IP. I valori comuni sono compresi tra 24 e 12 a seconda del numero di IP che è necessario collegare al NAT. Un valore comune di PrefixLength è 24, che corrisponde a una subnet mask 255.255.255.0.
   * InterfaceIndex: il valore **ifIndex** corrisponde all'indice dell'interfaccia del commutatore virtuale creato nel passaggio precedente. 
 
@@ -118,7 +118,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 >[!IMPORTANT] 
 >
->L'agente guest di Azure non è supportato nelle macchine virtuali annidate e può causare problemi sia nell'host che nelle macchine virtuali annidate. Non installare l'agente di Azure nelle macchine virtuali annidate e non usare un'immagine per creare le macchine virtuali annidate in cui è già installato l'agente guest di Azure.Don't install the Azure agent on nested VMs, and don't use an image for creating the nested VMs that already has the Azure guest agent installed.
+>L'agente guest di Azure non è supportato nelle VM annidate e può causare problemi sia nell'host che nelle VM nidificate. Non installare l'agente di Azure nelle VM annidate e non usare un'immagine per la creazione delle VM nidificate in cui è già installato l'agente guest di Azure.
 
 1. Aprire la console di gestione di Hyper-V e creare una nuova macchina virtuale. Configurare la macchina virtuale per l'uso della nuova rete interna creata.
     
@@ -137,9 +137,9 @@ Per assegnare un indirizzo IP alla macchina virtuale guest, è possibile imposta
 ###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opzione 1: Configurare DHCP per l'assegnazione dinamica di un indirizzo IP alla macchina virtuale guest
 Seguire la procedura seguente per configurare DHCP nella macchina virtuale host per l'assegnazione dinamica degli indirizzi.
 
-#### <a name="install-dchp-server-on-the-azure-vm"></a>Installare il server DHCP nella macchina virtuale di Azure
+#### <a name="install-dhcp-server-on-the-azure-vm"></a>Installare il server DHCP nella macchina virtuale di Azure
 
-1. Aprire Server Manager. Nel dashboard fare clic su **Aggiungi ruoli e funzionalità**. Viene visualizzata la procedura guidata Aggiungi ruoli e funzionalità.
+1. Aprire Server Manager. Nel dashboard fare clic su **Aggiungi ruoli e funzionalità**. Verrà visualizzata l'Aggiunta guidata ruoli e funzionalità.
   
 2. Nella procedura guidata fare clic su **Avanti** finché non viene visualizzata la pagina Ruoli server.
   
@@ -155,7 +155,7 @@ Seguire la procedura seguente per configurare DHCP nella macchina virtuale host 
   
 3. Immettere un nome e una descrizione per l'ambito e quindi fare clic su **Avanti**.
   
-4. Definire un intervallo IP per il server DHCP, ad esempio da 192.168.0.100 a 192.168.0.200.
+4. Definire un intervallo IP per il server DHCP, ad esempio 192.168.0.100 in 192.168.0.200.
   
 5. Fare clic su **Avanti** finché non viene visualizzata la pagina Gateway predefinito. Come gateway predefinito immettere l'indirizzo IP creato in precedenza, ad esempio 192.168.0.1, quindi fare clic su **Aggiungi**.
   

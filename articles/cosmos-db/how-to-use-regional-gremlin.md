@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2019
-ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4880fa5bdccdc6416962e2f7e6da395f3db7be44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78897870"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263596"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Endpoint a livello di area per l'account del database a grafo di Azure Cosmos DB
 Il database a grafo di Azure Cosmos DB è [distribuito a livello globale](distribute-data-globally.md), pertanto le applicazioni possono usare più endpoint di lettura. Le applicazioni che necessitano dell'accesso in scrittura in più posizioni devono abilitare la funzionalità [multimaster](how-to-multi-master.md).
@@ -43,7 +43,7 @@ Il record CNAME dell'account di database globale punta sempre a un'area di scrit
 
 Il modo più semplice per ottenere l'elenco delle aree per l'account del database a grafo di Azure Cosmos DB consiste nell'usare il pannello di panoramica nel portale di Azure. Questa soluzione funziona per le applicazioni che non cambiano spesso area o che sono in grado di aggiornare l'elenco tramite la propria configurazione.
 
-![Recuperare le aree dell'account del database a grafo di Cosmos DB dal portale](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
+:::image type="content" source="./media/how-to-use-regional-gremlin/get-end-point-portal.png " alt-text="Recuperare le aree dell'account del database a grafo di Cosmos DB dal portale":::
 
 L'esempio riportato di seguito illustra i principi generali dell'accesso all'endpoint Gremlin a livello di area. L'applicazione deve considerare il numero di aree a cui inviare il traffico e il numero di client Gremlin corrispondenti di cui creare un'istanza.
 

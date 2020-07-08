@@ -3,15 +3,15 @@ title: Effettuare il provisioning della velocità effettiva per il database in A
 description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di database in Azure Cosmos DB usando il portale di Azure, l'interfaccia della riga di comando, PowerShell e altri SDK.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 63f8d408d76cfce86c254ad3840c2f0eefb09fd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263640"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Effettuare il provisioning della velocità effettiva standard (manuale) per un database in Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Questo articolo illustra come effettuare il provisioning della velocità effetti
    * Immettere una velocità effettiva, ad esempio 1000 UR/sec.
    * Selezionare **OK**.
 
-    ![Screenshot della finestra di dialogo Nuovo database](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Screenshot della finestra di dialogo Nuovo database":::
 
 ## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Effettuare il provisioning della velocità effettiva usando l'interfaccia della riga di comando di Azure o PowerShell
 

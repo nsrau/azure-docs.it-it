@@ -4,24 +4,24 @@ description: Informazioni di riferimento su log e metriche per il monitoraggio d
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: d243224192b5761af45d387690f5fb41b84481e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262736"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Informazioni di riferimento sui dati di monitoraggio di Azure Cosmos DB
 Questo articolo fornisce un riferimento ai dati di log e delle metriche raccolti per analizzare le prestazioni e la disponibilità di Azure Cosmos DB. Per informazioni dettagliate sulla raccolta e l'analisi dei dati di monitoraggio per Azure Cosmos DB, vedere [Cosmos DB di monitoraggio](monitor-cosmos-db.md) .
 
 
 ## <a name="resource-logs"></a>Log risorse
-La tabella seguente elenca le proprietà per i log delle risorse Azure Cosmos DB quando vengono raccolti nei log di monitoraggio di Azure o nell'archiviazione di Azure. Nei log di monitoraggio di Azure vengono raccolti nella tabella **AzureDiagnostics** con un valore **ResourceProvider** pari a *Microsoft. DOCUMENTDB*. 
+La tabella seguente elenca le proprietà per i log delle risorse Azure Cosmos DB quando vengono raccolti nei log di monitoraggio di Azure o nell'archiviazione di Azure. Nei log di monitoraggio di Azure vengono raccolti nella tabella **AzureDiagnostics** con un valore **ResourceProvider** pari a *MICROSOFT.DOCUMENTDB*. 
 
 | Proprietà o campo di Archiviazione di Azure | Proprietà dei log di monitoraggio di Azure | Descrizione |
 | --- | --- | --- |
@@ -42,6 +42,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Cosmos DB
 | **requestLength** | **requestLength_s** | Lunghezza della richiesta in byte. |
 | **responseLength** | **responseLength_s** | Lunghezza della risposta in byte.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Questo valore è non vuoto quando vengono usati [token di risorsa](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) per l'autenticazione. Il valore punta all'ID risorsa dell'utente. |
+| **responseLength** | **responseLength_s** | Lunghezza della risposta in byte.|
 
 Per un elenco di tutte le categorie di log di monitoraggio di Azure e i collegamenti agli schemi associati, vedere [categorie e schemi dei log di monitoraggio di Azure](../azure-monitor/platform/diagnostic-logs-schema.md). 
 
@@ -103,4 +104,4 @@ Per un elenco di tutte le metriche di supporto di monitoraggio di Azure (incluso
 ## <a name="see-also"></a>Vedere anche
 
 - Per una descrizione del monitoraggio Azure Cosmos DB, vedere [Azure Cosmos DB di monitoraggio](monitor-cosmos-db.md) .
-- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [monitoraggio delle risorse di Azure con](../azure-monitor/insights/monitor-azure-resource.md) monitoraggio di Azure.
+- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md).

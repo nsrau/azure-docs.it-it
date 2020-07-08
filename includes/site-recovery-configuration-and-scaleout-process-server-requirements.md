@@ -1,20 +1,20 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/10/2018
+ms.date: 06/23/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 1aaec104e9130eeef723c6505e04e3317271566b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234150"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85292147"
 ---
 **Requisiti del server di configurazione e di elaborazione**
 
@@ -34,7 +34,7 @@ Spazio libero su disco (disco di conservazione) | 600 GB
 
 **Componente** | **Requisito** 
 --- | ---
-Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
+Sistema operativo | R2 per Windows Server 2012 <br> Windows Server 2016
 Impostazioni locali del sistema operativo | Inglese (en-*)
 Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
@@ -52,14 +52,12 @@ Tipo di scheda di interfaccia di rete | VMXNET3 (se il server di configurazione 
  |
 **Accesso a Internet** (il server deve accedere agli URL seguenti, direttamente o tramite proxy):|
 \*.backup.windowsazure.com | Usato per il coordinamento e il trasferimento dei dati replicati
-\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati replicati
-\*.blob.core.windows.net | Usato per accedere all'account di archiviazione in cui sono archiviati i dati replicati
+\*.blob.core.windows.net | Consente di accedere all'account di archiviazione in cui sono archiviati i dati replicati. È possibile specificare l'URL specifico dell'account di archiviazione della cache.
 \*.hypervrecoverymanager.windowsazure.com | Usato per il coordinamento e le operazioni di gestione della replica
-https:\//management.azure.com | Usato per il coordinamento e le operazioni di gestione della replica 
-*.services.visualstudio.com | Usato per scopi di telemetria (facoltativo)
+https:\//login.microsoftonline.com | Usato per il coordinamento e le operazioni di gestione della replica 
 time.nist.gov | Usato per controllare la sincronizzazione dell'ora tra sistema e ora globale
 time.windows.com | Usato per controllare la sincronizzazione dell'ora tra sistema e ora globale
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.Live.com </li><li> https:\//Graph.Windows.NET </li><li> https:\//login.windows.net </li><li> https:\//www.Live.com </li><li> https:\//www.Microsoft.com </li></ul> | L'installazione di OVF richiede l'accesso a questi URL. Vengono usati per il controllo di accesso e la gestione delle identità Azure Active Directory.
+| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.Live.com </li><li> https: \/ /Graph.Windows.NET </li><li> https:\//login.windows.net </li><li> *. services.visualstudio.com (facoltativo) </li><li> https: \/ /www.Live.com </li><li> https: \/ /www.Microsoft.com </li></ul> | L'installazione di OVF richiede l'accesso a questi URL aggiuntivi. Vengono usati per il controllo di accesso e la gestione delle identità Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Per completare il download di MySQL. </br> In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che anche l'URL della rete CDN sia incluso nell'elenco elementi consentiti, se necessario.
 |
 

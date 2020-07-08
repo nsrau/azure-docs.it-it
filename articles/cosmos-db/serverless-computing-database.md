@@ -3,15 +3,15 @@ title: Elaborazione di database senza server con funzioni Azure Cosmos DB e di A
 description: Informazioni su come Funzioni di Azure e Azure Cosmos DB possono essere usati insieme per creare app di elaborazione senza server guidate dagli eventi.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985253"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263261"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
 
@@ -33,7 +33,7 @@ Funzioni di Azure e Azure Cosmos DB consentono di integrare i database e le app 
 
 Il diagramma seguente illustra ognuna di questi tre integrazioni: 
 
-![Modalità di integrazione di Azure Cosmos DB e Funzioni di Azure](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-azure-functions-integration.png" alt-text="Modalità di integrazione di Azure Cosmos DB e Funzioni di Azure" border="false":::
 
 Il trigger di funzioni di Azure, l'associazione di input e l'associazione di output per Azure Cosmos DB possono essere usati nelle combinazioni seguenti:
 
@@ -61,7 +61,7 @@ Nelle implementazioni IoT, è possibile richiamare una funzione quando viene mos
 
 La figura seguente mostra il codice scritto nel portale di Azure per questo trigger.
 
-![Creare un trigger di funzioni di Azure per Cosmos DB nel portale di Azure](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Creare un trigger di funzioni di Azure per Cosmos DB nel portale di Azure":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Caso d'uso finanziario: trigger timer e associazione di input
 
@@ -75,13 +75,13 @@ Nelle implementazioni finanziarie, è possibile richiamare una funzione quando u
 
 Le immagini seguenti mostrano il codice nel portale di Azure per questo scenario.
 
-![File index.js di un trigger timer per uno scenario finanziario](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="File index.js di un trigger timer per uno scenario finanziario":::
 
-![File Run.csx di un trigger timer per uno scenario finanziario](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="File Run.csx di un trigger timer per uno scenario finanziario":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Caso d'uso del gioco: trigger di funzioni di Azure e binding di output per Cosmos DB 
 
-Nei giochi, quando viene creato un nuovo utente è possibile cercare altri utenti che potrebbero conoscerlo usando l'[API Gremlin di Azure Cosmos DB](graph-introduction.md). È quindi possibile eseguire la scrittura dei risultati in un [database SQL di Azure Cosmos DB] per semplificarne il recupero.
+Nei giochi, quando viene creato un nuovo utente è possibile cercare altri utenti che potrebbero conoscerlo usando l'[API Gremlin di Azure Cosmos DB](graph-introduction.md). È quindi possibile scrivere i risultati in un [database di Azure Cosmos DB o SQL]() per facilitarne il recupero.
 
 **Implementazione:** Usare un trigger di funzioni di Azure e un'associazione di output per Cosmos DB
 

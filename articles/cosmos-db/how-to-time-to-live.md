@@ -3,15 +3,15 @@ title: Configurare e gestire il time to Live in Azure Cosmos DB
 description: Informazioni su come configurare e gestire la durata (TTL) in un contenitore e un elemento in Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 11f5615d44cef4b6717dc9fe2004a64cf2f800ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbddcb8627c78544d603e1ea3ca33bc410419da1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124126"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263623"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 
@@ -32,9 +32,9 @@ Usare la procedura seguente per abilitare la durata (TTL) in un contenitore senz
    * Aprire la finestra **Scalabilità e impostazioni**.
    * In **Impostazione** trovare **Durata (TTL)**.
    * Selezionare **Sì (nessun valore predefinito)** oppure selezionare **Sì** e impostare un valore TTL
-   * Fare clic su **Salva** per salvare le modifiche.
+   * È consigliabile fare clic su **Salva** per salvare le modifiche.
 
-   ![Configurare la durata (TTL) nel portale di Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Configurare la durata (TTL) nel portale di Azure":::
 
 * Se DefaultTimeToLive è Null, la durata TTL è disattivata
 * Se DefaultTimeToLive è -1, l'impostazione della durata TTL è attivata (nessun valore predefinito)
@@ -53,7 +53,7 @@ Per creare o abilitare la durata (TTL) in un contenitore, vedere.
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-.NET SDK v2 (Microsoft. Azure. DocumentDB)
+.NET SDK v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Create a new container with TTL enabled and without any expiration value
@@ -86,7 +86,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
-Java SDK v4 (Maven com. Azure:: Azure-Cosmos)
+Java SDK v4 (Maven com.azure::azure-cosmos)
 
 ```java
 CosmosAsyncContainer container;
@@ -119,7 +119,7 @@ Per impostare la durata (TTL) in un contenitore, è necessario specificare un nu
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-.NET SDK v2 (Microsoft. Azure. DocumentDB)
+.NET SDK v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Create a new container with TTL enabled and a 90 day expiration
@@ -152,7 +152,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
-Java SDK v4 (Maven com. Azure:: Azure-Cosmos)
+Java SDK v4 (Maven com.azure::azure-cosmos)
 
 ```java
 CosmosAsyncContainer container;
@@ -201,7 +201,7 @@ Oltre a impostare una durata (TTL) predefinita per un contenitore, è possibile 
 
 * Se la durata (TTL) è disabilitata a livello di contenitore, il campo TTL dell'elemento viene ignorato finché la durata (TTL) non viene abilitata nuovamente per il contenitore.
 
-### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>portale di Azure
+### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portale di Azure
 
 Usare la procedura seguente per abilitare la durata (TTL) in un elemento:
 
@@ -216,7 +216,7 @@ Usare la procedura seguente per abilitare la durata (TTL) in un elemento:
    * Aprire la finestra **Scalabilità e impostazioni**.
    * In **Impostazione** trovare **Durata (TTL)**.
    * Selezionare **on (nessun valore predefinito)** o selezionare **on** e impostare un valore TTL. 
-   * Fare clic su **Salva** per salvare le modifiche.
+   * È consigliabile fare clic su **Salva** per salvare le modifiche.
 
 5. Passare quindi all'elemento per cui si desidera impostare la durata, aggiungere la proprietà `ttl` e selezionare **Aggiorna**. 
 
@@ -272,7 +272,7 @@ const itemDefinition = {
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
-Java SDK v4 (Maven com. Azure:: Azure-Cosmos)
+Java SDK v4 (Maven com.azure::azure-cosmos)
 
 ```java
 // Include a property that serializes to "ttl" in JSON
@@ -353,7 +353,7 @@ SalesOrder salesOrder = new SalesOrder(
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-.NET SDK v2 (Microsoft. Azure. DocumentDB)
+.NET SDK v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -385,7 +385,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
-Java SDK v4 (Maven com. Azure:: Azure-Cosmos)
+Java SDK v4 (Maven com.azure::azure-cosmos)
 
 ```java
 // This examples leverages the Sales Order class above.
@@ -427,7 +427,7 @@ Se è stata impostata la durata (TTL) per un elemento e non si vuole più una sc
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-.NET SDK v2 (Microsoft. Azure. DocumentDB)
+.NET SDK v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -460,7 +460,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
-Java SDK v4 (Maven com. Azure:: Azure-Cosmos)
+Java SDK v4 (Maven com.azure::azure-cosmos)
 
 ```java
 // This examples leverages the Sales Order class above.
@@ -502,7 +502,7 @@ Per disabilitare la durata (TTL) in un contenitore e impedire al processo in bac
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-.NET SDK v2 (Microsoft. Azure. DocumentDB)
+.NET SDK v2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Get the container, update DefaultTimeToLive to null
@@ -529,7 +529,7 @@ await client.GetContainer("database", "container").ReplaceContainerAsync(contain
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
-Java SDK v4 (Maven com. Azure:: Azure-Cosmos)
+Java SDK v4 (Maven com.azure::azure-cosmos)
 
 ```java
 CosmosContainerProperties containerProperties = new CosmosContainerProperties("myContainer", "/myPartitionKey");

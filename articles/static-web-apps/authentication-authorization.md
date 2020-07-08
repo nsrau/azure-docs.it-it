@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85297070"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticazione e autorizzazione per App Web statiche di Azure (anteprima)
 
@@ -192,6 +192,10 @@ Per bloccare un provider, è possibile creare [regole di route](routes.md) per r
   "statusCode": "404"
 }
 ```
+
+## <a name="restrictions"></a>Restrizioni
+
+Vedere l' [articolo sulle quote](quotas.md) per limitazioni e limitazioni generali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,25 +4,25 @@ description: Informazioni su come recuperare le metriche di esecuzione delle que
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
-ms.openlocfilehash: 48b9a67de5c870a187ee008bd97265760ca6c341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8bec102064d6269964cb917d745af206acf948ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70998374"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262549"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Ottenere le metriche di esecuzione delle query SQL e analizzare le prestazioni delle query con .NET SDK
 
-Questo articolo illustra come profilare le prestazioni delle query SQL in Azure Cosmos DB. Questa profilatura può essere eseguita `QueryMetrics` usando recuperato da .NET SDK ed è descritta in dettaglio qui. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) è un oggetto fortemente tipizzato con informazioni sull'esecuzione di query back-end. Queste metriche sono documentate più dettagliatamente nell'articolo [ottimizzare le prestazioni delle query](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
+Questo articolo illustra come profilare le prestazioni delle query SQL in Azure Cosmos DB. Questa profilatura può essere eseguita usando `QueryMetrics` recuperato da .NET SDK ed è descritta in dettaglio qui. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) è un oggetto fortemente tipizzato con informazioni sull'esecuzione di query back-end. Queste metriche sono documentate più dettagliatamente nell'articolo [ottimizzare le prestazioni delle query](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
 
 ## <a name="set-the-feedoptions-parameter"></a>Impostare il parametro FeedOptions
 
 Tutti gli overload di [DocumentClient. CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) accettano un parametro facoltativo [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) . Questa opzione consente di ottimizzare e parametrizzare l'esecuzione delle query. 
 
-Per raccogliere le metriche di esecuzione delle query SQL, è necessario impostare il parametro [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) su `true`. Se `PopulateQueryMetrics` si imposta su true, l'oggetto `FeedResponse` conterrà l'oggetto pertinente. `QueryMetrics` 
+Per raccogliere le metriche di esecuzione delle query SQL, è necessario impostare il parametro [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) su `true` . Se si imposta `PopulateQueryMetrics` su true, l'oggetto conterrà `FeedResponse` l'oggetto pertinente `QueryMetrics` . 
 
 ## <a name="get-query-metrics-with-asdocumentquery"></a>Ottenere le metriche di query con AsDocumentQuery ()
 Nell'esempio di codice seguente viene illustrato come recuperare le metriche quando si usa il metodo [AsDocumentQuery ()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) :
@@ -62,7 +62,7 @@ while (documentQuery.HasMoreResults)
 ```
 ## <a name="aggregating-querymetrics"></a>Aggregazione di QueryMetrics
 
-Nella sezione precedente si noti che erano presenti più chiamate al metodo [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) . Ogni chiamata ha restituito `FeedResponse` un oggetto con un dizionario di `QueryMetrics`; uno per ogni continuazione della query. Nell'esempio seguente viene illustrato come aggregare `QueryMetrics` questi elementi utilizzando LINQ:
+Nella sezione precedente si noti che erano presenti più chiamate al metodo [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) . Ogni chiamata ha restituito un `FeedResponse` oggetto con un dizionario di `QueryMetrics` ; uno per ogni continuazione della query. Nell'esempio seguente viene illustrato come aggregare questi elementi `QueryMetrics` utilizzando LINQ:
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -84,7 +84,7 @@ Console.WriteLine(aggregatedQueryMetrics);
 
 ## <a name="grouping-query-metrics-by-partition-id"></a>Raggruppamento di metriche di query in base all'ID partizione
 
-È possibile raggruppare `QueryMetrics` in base all'ID della partizione. Il raggruppamento in base all'ID di partizione consente di verificare se una partizione specifica causa problemi di prestazioni rispetto ad altri. Nell'esempio seguente viene illustrato come eseguire `QueryMetrics` il raggruppamento con LINQ:
+È possibile raggruppare `QueryMetrics` in base all'ID della partizione. Il raggruppamento in base all'ID di partizione consente di verificare se una partizione specifica causa problemi di prestazioni rispetto ad altri. Nell'esempio seguente viene illustrato come eseguire il raggruppamento `QueryMetrics` con LINQ:
 
 ```csharp
 List<KeyValuePair<string, QueryMetrics>> partitionedQueryMetrics = new List<KeyValuePair<string, QueryMetrics>>();
@@ -115,7 +115,7 @@ foreach(IGrouping<string, KeyValuePair<string, QueryMetrics>> grouping in groupe
 
 ## <a name="linq-on-documentquery"></a>LINQ su DocumentQuery
 
-È anche possibile ottenere `FeedResponse` da una query LINQ usando il `AsDocumentQuery()` metodo:
+È anche possibile ottenere `FeedResponse` da una query LINQ usando il `AsDocumentQuery()` Metodo:
 
 ```csharp
 IDocumentQuery<Document> linqQuery = client.CreateDocumentQuery(collection.SelfLink, feedOptions)
@@ -221,7 +221,7 @@ Total Query Execution Time               :        4,500.34 milliseconds
 
 Il che significa che la query ha richiesto 4,5 secondi per l'esecuzione (ed era solo una continuazione).
 
-Per ottimizzare questa query di esempio, evitare l'uso di UPPER nel filtro. Al contrario, quando i documenti vengono creati o aggiornati `c.description` , i valori devono essere inseriti in tutti i caratteri maiuscoli. La query diventa quindi: 
+Per ottimizzare questa query di esempio, evitare l'uso di UPPER nel filtro. Al contrario, quando i documenti vengono creati o aggiornati, i `c.description` valori devono essere inseriti in tutti i caratteri maiuscoli. La query diventa quindi: 
 
 ```sql
 SELECT VALUE c.description 

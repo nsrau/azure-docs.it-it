@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ead0041e26b5dff5cfd81b6fa02b7efff6e6e9d1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 8a86c1df5925097fa85d09590b59f8f30fde41d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85296322"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.
@@ -279,7 +279,7 @@ La soluzione [Hub eventi](https://github.com/Azure-Samples/streaming-at-scale/tr
 |    5\.000   |   18 |  P4   |
 |    10.000  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) supporta la scrittura in parallelo, denominata " Eredita schema di partizione", ma non è abilitata per impostazione predefinita. Tuttavia, l'abilitazione del partizionamento ereditario, assieme a una query completamente parallela, potrebbe non essere sufficiente per ottenere una velocità effettiva più elevata. Le velocità effettive di scrittura di SQL dipendono ampiamente dalla configurazione del database SQL di Azure e dallo schema della tabella. L'articolo relativo alle [prestazioni output di SQL](./stream-analytics-sql-output-perf.md) offre maggiori dettagli sui parametri che possono ottimizzare la velocità effettiva di scrittura. Come indicato nell'articolo [Output di Analisi di flusso di Azure nel database SQL di Azure](./stream-analytics-sql-output-perf.md#azure-stream-analytics), questa soluzione non viene ridimensionata in modo lineare come pipeline completamente parallela oltre 8 partizioni e potrebbe essere necessario eseguire nuovamente la partizione prima dell'output SQL (vedere [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Gli SKU Premium sono necessari per sostenere velocità di I/O elevate, oltre al sovraccarico dovuto ai backup del log effettuati ogni pochi minuti.
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) supporta la scrittura in parallelo, denominata " Eredita schema di partizione", ma non è abilitata per impostazione predefinita. Tuttavia, l'abilitazione del partizionamento ereditario, assieme a una query completamente parallela, potrebbe non essere sufficiente per ottenere una velocità effettiva più elevata. Le velocità effettiva di scrittura SQL dipendono significativamente dalla configurazione del database e dallo schema della tabella. L'articolo relativo alle [prestazioni output di SQL](./stream-analytics-sql-output-perf.md) offre maggiori dettagli sui parametri che possono ottimizzare la velocità effettiva di scrittura. Come indicato nell'articolo [Output di Analisi di flusso di Azure nel database SQL di Azure](./stream-analytics-sql-output-perf.md#azure-stream-analytics), questa soluzione non viene ridimensionata in modo lineare come pipeline completamente parallela oltre 8 partizioni e potrebbe essere necessario eseguire nuovamente la partizione prima dell'output SQL (vedere [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Gli SKU Premium sono necessari per sostenere velocità di I/O elevate, oltre al sovraccarico dovuto ai backup del log effettuati ogni pochi minuti.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Velocità di inserimento (eventi al secondo) | Unità di streaming | Risorse di output  |
@@ -290,7 +290,7 @@ La soluzione [Hub eventi](https://github.com/Azure-Samples/streaming-at-scale/tr
 
 L'output di [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) da Analisi di flusso è stato aggiornato per usare l'integrazione nativa con il [livello di compatibilità 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Il livello di compatibilità 1.2 consente una velocità effettiva significativamente superiore e riduce il consumo di UR rispetto al livello 1.1, che rappresenta il livello di compatibilità predefinito per i nuovi processi. La soluzione usa contenitori CosmosDB partizionati in /deviceId, mentre il resto della soluzione è configurato in modo identico.
 
-Tutti gli [esempi di streaming su larga scala di Azure](https://github.com/Azure-Samples/streaming-at-scale) usano un hub eventi alimentato da client di test di simulazione del carico come input. Ogni evento di input è un documento JSON da 1 kB, che converte facilmente i tassi di inserimento configurati in velocità effettiva (1 MB/s, 5 MB/s e 10 MB/s). Gli eventi simulano un dispositivo IoT che invia i dati JSON seguenti (in forma abbreviata) per un massimo di 1.000 dispositivi:
+Tutti gli [esempi di streaming su larga scala di Azure](https://github.com/Azure-Samples/streaming-at-scale) usano un hub eventi come input alimentato dalla simulazione dei client di test. Ogni evento di input è un documento JSON da 1 kB, che converte facilmente i tassi di inserimento configurati in velocità effettiva (1 MB/s, 5 MB/s e 10 MB/s). Gli eventi simulano un dispositivo IoT che invia i dati JSON seguenti (in forma abbreviata) per un massimo di 1.000 dispositivi:
 
 ```
 {

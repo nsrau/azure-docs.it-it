@@ -3,15 +3,15 @@ title: Usare i comandi e le funzionalità predefiniti dei notebook Python in Azu
 description: Informazioni su come usare i comandi e le funzionalità predefiniti per eseguire operazioni comuni con i notebook Python predefiniti di Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: a16b95249562db98d9382f8ca56bf4a27beba2fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: c35c34d5ffe3f3349430f17e71ad8192f4d8256e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263365"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Usare i comandi e le funzionalità predefiniti dei notebook Python in Azure Cosmos DB (anteprima)
 
@@ -23,7 +23,7 @@ Dopo aver abilitato il supporto per notebook per gli account Azure Cosmos, è po
 In una nuova cella di codice inserire ed eseguire il codice seguente, sostituendo ``PackageToBeInstalled`` con il pacchetto Python desiderato.
 ```python
 import sys
-!{sys.executable} -m pip install PackageToBeInstalled –user
+!{sys.executable} -m pip install PackageToBeInstalled --user
 ```
 Questo pacchetto sarà disponibile per l'uso da qualsiasi notebook nell'area di lavoro dell'account Azure Cosmos. 
 
@@ -140,7 +140,7 @@ pd.options.display.max_rows = None
 
 df_cosmos.groupby("Item").size()
 ```
-![nteract data explorer](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/nteract-built-in-chart.png" alt-text="nteract data explorer":::
 
 ## <a name="use-the-built-in-python-sdk"></a>Usare l'SDK Python predefinito
 La versione 4 dell'[SDK Python di Azure Cosmos DB per l'API SQL](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) è installata e inclusa nell'ambiente di notebook per l'account Azure Cosmos.
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Reimpostare l'area di lavoro dei notebook
 Per ripristinare le impostazioni predefinite dell'area di lavoro dei notebook, selezionare **Reimposta area di lavoro** sulla barra dei comandi. I pacchetti installati personalizzati verranno rimossi e il server Jupyter verrà riavviato. I notebook, i file e le risorse di Azure Cosmos non saranno interessati.  
 
-![Reimpostare l'area di lavoro dei notebook](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Reimpostare l'area di lavoro dei notebook":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
