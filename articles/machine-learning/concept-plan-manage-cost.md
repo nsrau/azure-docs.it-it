@@ -11,10 +11,9 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996331"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
@@ -104,8 +103,8 @@ In alcuni casi, è necessario configurare le esecuzioni di training per limitarn
 
 Ecco alcune opzioni:
 * Definire un parametro denominato `max_run_duration_seconds` in RunConfiguration per controllare la durata massima di un'esecuzione che può estendersi nel calcolo scelto (calcolo locale o remoto del cloud).
-* Per l' [ottimizzazione iperparametri](how-to-tune-hyperparameters.md#early-termination), definire un criterio di terminazione anticipato da un criterio bandito, un criterio di arresto medio o un criterio di selezione troncamento. Per controllare ulteriormente le sweep di iperparametri, usare parametri come `max_total_runs` o `max_duration_minutes`.
-* Per [Machine Learning automatizzato](how-to-configure-auto-train.md#exit), impostare criteri di terminazione simili `enable_early_stopping` usando il flag. Usare anche proprietà quali `iteration_timeout_minutes` e `experiment_timeout_minutes` per controllare la durata massima di un'esecuzione o per l'intero esperimento.
+* Per l' [ottimizzazione iperparametri](how-to-tune-hyperparameters.md#early-termination), definire un criterio di terminazione anticipato da un criterio bandito, un criterio di arresto medio o un criterio di selezione troncamento. Per controllare ulteriormente le sweep di iperparametri, usare parametri come `max_total_runs` o `max_duration_minutes` .
+* Per [Machine Learning automatizzato](how-to-configure-auto-train.md#exit), impostare criteri di terminazione simili usando il `enable_early_stopping` flag. Usare anche proprietà quali `iteration_timeout_minutes` e `experiment_timeout_minutes` per controllare la durata massima di un'esecuzione o per l'intero esperimento.
 
 ## <a name="use-low-priority-vms"></a>Usare macchine virtuali con priorità bassa
 
@@ -125,7 +124,7 @@ Impostare la priorità della VM in uno dei modi seguenti:
                                                                max_nodes=4)
     ```
 
-* Usando l'interfaccia della riga di `vm-priority`comando, impostare:
+* Usando l'interfaccia della riga di comando, impostare `vm-priority` :
 
     ```azurecli-interactive
     az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority

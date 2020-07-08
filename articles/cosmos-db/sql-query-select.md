@@ -7,15 +7,14 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005945"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Clausola SELECT in Azure Cosmos DB
 
-Ogni query è costituita `SELECT` da una clausola e dalle clausole [from](sql-query-from.md) e [where](sql-query-where.md) facoltative per gli standard SQL ANSI. In genere, l'origine nella `FROM` clausola è enumerata e la `WHERE` clausola applica un filtro sull'origine per recuperare un subset di elementi JSON. La `SELECT` clausola proietta quindi i valori JSON richiesti nell'elenco di selezione.
+Ogni query è costituita da una `SELECT` clausola e dalle clausole [from](sql-query-from.md) e [where](sql-query-where.md) facoltative per gli standard SQL ANSI. In genere, l'origine nella `FROM` clausola è enumerata e la `WHERE` clausola applica un filtro sull'origine per recuperare un subset di elementi JSON. La `SELECT` clausola proietta quindi i valori JSON richiesti nell'elenco di selezione.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -77,7 +76,7 @@ La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esatt
   
 ## <a name="examples"></a>Esempi
 
-L'esempio di query SELECT seguente `address` restituisce `Families` da `id` le `AndersenFamily`cui corrispondenze:
+L'esempio di query SELECT seguente restituisce `address` da le `Families` cui `id` corrispondenze `AndersenFamily` :
 
 ```sql
     SELECT f.address

@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
 ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83006326"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Trasferire gli artefatti in un altro registro
@@ -25,7 +24,7 @@ Il trasferimento è ideale per la copia di contenuto tra due registri contenitor
 
 In questo articolo si usano Azure Resource Manager le distribuzioni di modelli per creare ed eseguire la pipeline di trasferimento. L'interfaccia della riga di comando di Azure viene usata per il provisioning delle risorse associate, ad esempio i segreti È consigliabile usare l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
-Questa funzionalità è disponibile nel livello di servizio del registro contenitori **Premium** . Per informazioni sui limiti e i livelli di servizio del registro di sistema, vedere [livelli di container Registry di Azure](container-registry-skus.md).
+Questa funzionalità è disponibile per il livello di servizio **Premium** del registro contenitori. Per informazioni sui livelli di servizio del registro e sui limiti, vedere [livelli di Registro Azure Container](container-registry-skus.md).
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
@@ -132,7 +131,7 @@ Creare una risorsa ExportPipeline per il registro contenitori di origine usando 
 
 Copiare ExportPipeline Gestione risorse [i file modello](https://github.com/Azure/acr/tree/master/docs/image-transfer/ExportPipelines) in una cartella locale.
 
-Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json`:
+Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json` :
 
 |Parametro  |valore  |
 |---------|---------|
@@ -162,7 +161,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-Nell'output del comando prendere nota dell'ID risorsa (`id`) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. Ad esempio:
+Nell'output del comando prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. Ad esempio:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -178,7 +177,7 @@ Creare una risorsa ImportPipeline nel registro contenitori di destinazione usand
 
 Copiare ImportPipeline Gestione risorse [i file modello](https://github.com/Azure/acr/tree/master/docs/image-transfer/ImportPipelines) in una cartella locale.
 
-Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json`:
+Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json` :
 
 Parametro  |valore  |
 |---------|---------|
@@ -208,7 +207,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Se si prevede di eseguire l'importazione manualmente, prendere nota dell'ID risorsa (`id`) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. Ad esempio:
+Se si prevede di eseguire l'importazione manualmente, prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. Ad esempio:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -224,7 +223,7 @@ Creare una risorsa PipelineRun per il registro contenitori di origine usando la 
 
 Copiare PipelineRun Gestione risorse [i file modello](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Export) in una cartella locale.
 
-Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json`:
+Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json` :
 
 |Parametro  |valore  |
 |---------|---------|
@@ -232,7 +231,7 @@ Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json`
 |pipelineRunName     |  Nome scelto per l'esecuzione       |
 |pipelineResourceId     |  ID risorsa della pipeline di esportazione.<br/>Esempio: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`|
 |targetName     |  Nome scelto per il BLOB di artefatti esportato nell'account di archiviazione di origine, ad esempio *BLOB*
-|Artefatti | Matrice di elementi di origine da trasferire, come tag o digest del manifesto<br/>Esempio: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
+|artifacts | Matrice di elementi di origine da trasferire, come tag o digest del manifesto<br/>Esempio: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
 Eseguire [AZ Deployment Group create][az-deployment-group-create] per creare la risorsa PipelineRun. Nell'esempio seguente viene denominata la distribuzione *exportPipelineRun*.
 
@@ -257,7 +256,7 @@ az storage blob list \
 
 Usare lo strumento AzCopy o altri metodi per [trasferire i dati BLOB](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) dall'account di archiviazione di origine all'account di archiviazione di destinazione.
 
-Ad esempio, il comando [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) seguente copia il BLOB dal contenitore di *trasferimento* dell'account di origine al contenitore di *trasferimento* nell'account di destinazione. Se il BLOB esiste nell'account di destinazione, viene sovrascritto. L'autenticazione usa i token SAS con le autorizzazioni appropriate per i contenitori di origine e di destinazione. I passaggi per la creazione di token non vengono visualizzati.
+Ad esempio, il [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) comando seguente copia il BLOB dal contenitore di *trasferimento* dell'account di origine al contenitore di *trasferimento* nell'account di destinazione. Se il BLOB esiste nell'account di destinazione, viene sovrascritto. L'autenticazione usa i token SAS con le autorizzazioni appropriate per i contenitori di origine e di destinazione. I passaggi per la creazione di token non vengono visualizzati.
 
 ```console
 azcopy copy \
@@ -268,13 +267,13 @@ azcopy copy \
 
 ## <a name="trigger-importpipeline-resource"></a>Attiva risorsa ImportPipeline
 
-Se è stato abilitato `sourceTriggerStatus` il parametro di ImportPipeline (valore predefinito), la pipeline viene attivata dopo la copia del BLOB nell'account di archiviazione di destinazione. L'importazione degli artefatti può richiedere diversi minuti. Quando l'importazione viene completata correttamente, verificare l'importazione dell'artefatto elencando i repository nel registro contenitori di destinazione. Ad esempio, eseguire [AZ ACR repository list][az-acr-repository-list]:
+Se è stato abilitato il `sourceTriggerStatus` parametro di ImportPipeline (valore predefinito), la pipeline viene attivata dopo la copia del BLOB nell'account di archiviazione di destinazione. L'importazione degli artefatti può richiedere diversi minuti. Quando l'importazione viene completata correttamente, verificare l'importazione dell'artefatto elencando i repository nel registro contenitori di destinazione. Ad esempio, eseguire [AZ ACR repository list][az-acr-repository-list]:
 
 ```azurecli
 az acr repository list --name <target-registry-name>
 ```
 
-Se non è stato abilitato `sourceTriggerStatus` il parametro della pipeline di importazione, eseguire manualmente la risorsa ImportPipeline, come illustrato nella sezione seguente. 
+Se non è stato abilitato il `sourceTriggerStatus` parametro della pipeline di importazione, eseguire manualmente la risorsa ImportPipeline, come illustrato nella sezione seguente. 
 
 ## <a name="create-pipelinerun-for-import-with-resource-manager-optional"></a>Creare PipelineRun per l'importazione con Gestione risorse (facoltativo) 
  
@@ -282,7 +281,7 @@ Se non è stato abilitato `sourceTriggerStatus` il parametro della pipeline di i
 
 Copiare PipelineRun Gestione risorse [i file modello](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Import) in una cartella locale.
 
-Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json`:
+Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json` :
 
 |Parametro  |valore  |
 |---------|---------|
@@ -327,7 +326,7 @@ az deployment group delete \
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * **Errori Distribuzione modelli o errori**
-  * Se l'esecuzione di una pipeline ha esito `pipelineRunErrorMessage` negativo, esaminare la proprietà della risorsa di esecuzione.
+  * Se l'esecuzione di una pipeline ha esito negativo, esaminare la `pipelineRunErrorMessage` proprietà della risorsa di esecuzione.
   * Per gli errori di distribuzione del modello comuni, vedere [risolvere i problemi delle distribuzioni di modelli ARM](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)
 * **Problemi con l'esportazione o l'importazione di BLOB di archiviazione**
   * Il token di firma di accesso condiviso può essere scaduto o avere autorizzazioni insufficienti per l'esecuzione dell'esportazione o dell'importazione specificata

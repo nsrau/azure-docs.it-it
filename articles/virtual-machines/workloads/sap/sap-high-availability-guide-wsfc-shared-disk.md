@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf85632ff062bff5b71451379f37c14830bf6b68
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982956"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster in Azure
@@ -60,15 +59,15 @@ In Windows, un'istanza di SAP ASCS/SCS contiene i servizi centrali SAP, il serve
 Un'istanza di SAP ASCS/SCS include i componenti seguenti:
 
 * Servizi centrali SAP:
-    * Due processi, un server di messaggi e di Accodamento e \<un nome host virtuale ASC/SCS>, usato per accedere a questi due processi.
-    * Struttura del file: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<numero di istanza\>
+    * Due processi, un server di messaggi e di Accodamento e un oggetto \<ASCS/SCS virtual host name> , usato per accedere a questi due processi.
+    * Struttura di file: S:\usr\sap \\ &lt; SID &gt; \ ASC/SCS\<instance number\>
 
 
 * File host globali di SAP:
   * Struttura del file: S:\usr\sap\\&lt;SID&gt;\SYS\..
   * La condivisione file sapmnt, che consente l'accesso a questi file globali S:\usr\sap\\&lt;SID&gt;\SYS\... usando il percorso UNC seguente:
 
-    \\\\\><nome host virtuale ASC/SCS \sapmnt\\&lt;SID&gt;\sys\...
+    \\\\<nome host virtuale ASC/SCS \> \Sapmnt \\ &lt; SID &gt; \sys \. ..
 
 
 ![Figura 2: Processi, struttura del file e condivisione file sapmnt host globale di un'istanza di SAP ASCS/SCS][sap-ha-guide-figure-8001]
@@ -83,7 +82,7 @@ _**Figura 3:** Architettura a disponibilità elevata di SAP ASC/SCS con disco co
 
 > [!IMPORTANT]
 > Questi due componenti vengono eseguiti nella stessa istanza di SAP ASCS/SCS:
->* Lo stesso \<nome host virtuale ASC/SCS> viene usato per accedere ai processi del server SAP e di Accodamento e ai file dell'host globale SAP tramite la condivisione file sapmnt.
+>* Lo stesso \<ASCS/SCS virtual host name> viene usato per accedere ai processi del server e di Accodamento dei messaggi SAP e dei file dell'host globale SAP tramite la condivisione file sapmnt.
 >* Lo stesso disco condiviso del cluster S viene condiviso tra loro.
 >
 

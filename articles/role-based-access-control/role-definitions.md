@@ -16,10 +16,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996604"
 ---
 # <a name="understand-azure-role-definitions"></a>Informazioni sulle definizioni dei ruoli di Azure
@@ -168,7 +167,7 @@ Per supportare le operazioni sui dati, sono state aggiunte nuove proprietà dei 
 - Scrivere su un BLOB di archiviazione in un contenitore
 - Leggere un messaggio in una coda
 
-Di seguito è illustrata la definizione del ruolo [lettore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-reader) , che `Actions` include `DataActions` le operazioni in entrambe le proprietà e. Questo ruolo consente di leggere il contenitore BLOB e anche i dati di BLOB sottostanti.
+Di seguito è illustrata la definizione del ruolo [lettore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-reader) , che include le operazioni in entrambe le `Actions` `DataActions` proprietà e. Questo ruolo consente di leggere il contenitore BLOB e anche i dati di BLOB sottostanti.
 
 Ruolo lettore dati BLOB di archiviazione come visualizzato in Azure PowerShell:
 
@@ -252,7 +251,7 @@ Collaboratore ai dati del BLOB di archiviazione
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Poiché Alice ha un'azione con`*`carattere jolly () nell'ambito di una sottoscrizione, le relative autorizzazioni ereditano per consentire l'esecuzione di tutte le operazioni di gestione. Alice può leggere, scrivere ed eliminare i contenitori. Tuttavia non può eseguire operazioni sui dati senza eseguire passaggi aggiuntivi. Ad esempio, per impostazione predefinita, non può leggere i BLOB all'interno di un contenitore. Per leggere i BLOB, Alice deve prima recuperare le chiavi di accesso alle risorse di archiviazione e usarle per accedere ai BLOB.
+Poiché Alice ha un'azione con carattere jolly ( `*` ) nell'ambito di una sottoscrizione, le relative autorizzazioni ereditano per consentire l'esecuzione di tutte le operazioni di gestione. Alice può leggere, scrivere ed eliminare i contenitori. Tuttavia non può eseguire operazioni sui dati senza eseguire passaggi aggiuntivi. Ad esempio, per impostazione predefinita, non può leggere i BLOB all'interno di un contenitore. Per leggere i BLOB, Alice deve prima recuperare le chiavi di accesso alle risorse di archiviazione e usarle per accedere ai BLOB.
 
 Le autorizzazioni di Bob sono limitate solo a `Actions` e `DataActions` specificate nel ruolo di [collaboratore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) . In base al ruolo, Bob può eseguire sia operazioni di gestione sia operazioni sui dati. Ad esempio, Bob può leggere, scrivere ed eliminare i contenitori nell'account di archiviazione specificato ed è anche in grado di leggere, scrivere ed eliminare i BLOB.
 
@@ -297,7 +296,7 @@ L'autorizzazione `NotActions` specifica le operazioni di gestione che sono esclu
 > Se a un utente si assegna un ruolo che esclude un'operazione in `NotActions` e quindi si assegna un secondo ruolo che concede l'accesso alla stessa operazione, l'utente può eseguire tale operazione. `NotActions` non è una regola di negazione. È semplicemente un modo comodo per creare un set di operazioni consentite quando è necessario escludere operazioni specifiche.
 >
 
-## <a name="dataactions"></a>Dataactions
+## <a name="dataactions"></a>DataActions
 
 L'autorizzazione `DataActions` specifica le operazioni sui dati che il ruolo consente di eseguire sui dati all'interno dell'oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati di BLOB per un account di archiviazione, può leggere i BLOB all'interno di tale account. Di seguito sono riportati alcuni esempi di operazioni sui dati che possono essere usate in `DataActions`.
 

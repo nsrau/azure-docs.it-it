@@ -13,15 +13,14 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83004735"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
-Quando si crea un'istanza del servizio gestione API di Azure, Azure lo assegna a un sottodominio di `azure-api.net` (ad `apim-service-name.azure-api.net`esempio,). Tuttavia, è possibile esporre gli endpoint di gestione API usando il nome di dominio personalizzato, ad esempio **contoso.com**. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente agli endpoint esposti da un'istanza di gestione API.
+Quando si crea un'istanza del servizio gestione API di Azure, Azure lo assegna a un sottodominio di `azure-api.net` (ad esempio, `apim-service-name.azure-api.net` ). Tuttavia, è possibile esporre gli endpoint di gestione API usando il nome di dominio personalizzato, ad esempio **contoso.com**. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente agli endpoint esposti da un'istanza di gestione API.
 
 > [!IMPORTANT]
 > Gestione API accetta solo le richieste con valori di [intestazione host](https://tools.ietf.org/html/rfc2616#section-14.23) che corrispondono al nome di dominio predefinito o a uno dei nomi di dominio personalizzati configurati.
@@ -49,11 +48,11 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
     Sono disponibili diversi endpoint a cui è possibile assegnare un nome di dominio personalizzato. Attualmente sono disponibili gli endpoint seguenti:
 
-    - **Gateway** (il valore predefinito `<apim-service-name>.azure-api.net`è:),
+    - **Gateway** (il valore predefinito è: `<apim-service-name>.azure-api.net` ),
     - **Portale** (il valore predefinito è: `<apim-service-name>.portal.azure-api.net`),
     - **Gestione** (il valore predefinito è: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (il valore predefinito `<apim-service-name>.scm.azure-api.net`è:),
-    - **Newport** (valore predefinito: `<apim-service-name>.developer.azure-api.net`).
+    - **SCM** (il valore predefinito è: `<apim-service-name>.scm.azure-api.net` ),
+    - **Newport** (valore predefinito: `<apim-service-name>.developer.azure-api.net` ).
 
     > [!NOTE]
     > Solo l'endpoint del **gateway** è disponibile per la configurazione nel livello di consumo.
@@ -68,7 +67,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
     - Nel **certificato**selezionare un certificato da Key Vault. È anche possibile caricare un valido. File PFX e fornire la relativa **password**, se il certificato è protetto con una password.
 
     > [!NOTE]
-    > I nomi di dominio con caratteri `*.contoso.com` jolly, ad esempio, sono supportati in tutti i livelli eccetto il livello di consumo.
+    > I nomi di dominio con caratteri jolly, ad esempio, `*.contoso.com` sono supportati in tutti i livelli eccetto il livello di consumo.
 
     > [!TIP]
     > Si consiglia di usare [Azure Key Vault per la gestione dei certificati](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) e di impostarli per il rinnovo.

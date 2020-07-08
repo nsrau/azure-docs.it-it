@@ -11,17 +11,16 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d1d93bcd84fd9460e658b221089a4b24d46b0429
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005807"
 ---
 # <a name="common-parameters-and-headers"></a>Parametri e intestazioni comuni
 
 Le seguenti informazioni sono comuni a tutte le operazioni che è possibile eseguire in relazione alle risorse di Key Vault:
 
-- L'intestazione `Host` http deve essere sempre presente e deve specificare il nome host dell'insieme di credenziali. Esempio: `Host: contoso.vault.azure.net`. Si noti che la maggior parte delle `Host` tecnologie client popola l'intestazione dall'URI. Ad esempio, `GET https://contoso.vault.azure.net/secrets/mysecret{...}` imposta `Host` come `contoso.vault.azure.net`. Ciò significa che se si accede a Key Vault usando un indirizzo IP `GET https://10.0.0.23/secrets/mysecret{...}`non elaborato, ad esempio `Host` , il valore automatico dell'intestazione sarà errato e sarà necessario assicurarsi manualmente che `Host` l'intestazione contenga il nome host dell'insieme di credenziali.
+- L' `Host` intestazione HTTP deve essere sempre presente e deve specificare il nome host dell'insieme di credenziali. Esempio: `Host: contoso.vault.azure.net`. Si noti che la maggior parte delle tecnologie client popola l' `Host` intestazione dall'URI. Ad esempio, `GET https://contoso.vault.azure.net/secrets/mysecret{...}` imposta `Host` come `contoso.vault.azure.net` . Ciò significa che se si accede a Key Vault usando un indirizzo IP non elaborato, ad esempio `GET https://10.0.0.23/secrets/mysecret{...}` , il valore automatico dell' `Host` intestazione sarà errato e sarà necessario assicurarsi manualmente che l' `Host` intestazione contenga il nome host dell'insieme di credenziali.
 - Sostituire `{api-version}` con la versione dell'API nell'URI.
 - Sostituire `{subscription-id}` con l'identificatore della sottoscrizione nell'URI
 - Sostituire `{resource-group-name}` con il gruppo di risorse. Per altre informazioni, vedere Uso di gruppi di risorse per gestire le risorse di Azure.
@@ -41,9 +40,9 @@ Il servizio userà i codici di stato HTTP per indicare l'esito positivo o negati
    }  
 ```
 
-|Nome dell'elemento | Tipo | Descrizione |
+|Nome dell'elemento | Type | Descrizione |
 |---|---|---|
-| code | string | Il tipo di errore che si è verificato.|
+| codice | string | Il tipo di errore che si è verificato.|
 | message | string | Descrizione della causa dell'errore. |
 
 

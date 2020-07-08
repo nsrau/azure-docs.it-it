@@ -8,10 +8,9 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82983075"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Risolvere i problemi di Web Application Firewall (WAF) per il gateway applicazione Azure
@@ -182,7 +181,7 @@ Si tratta di un campo che è possibile escludere. Per ulteriori informazioni sug
 
 È anche possibile esaminare i log del firewall per ottenere le informazioni necessarie per visualizzare gli elementi da aggiungere all'elenco di esclusione. Per abilitare la registrazione, vedere [integrità back-end, log delle risorse e metriche per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md).
 
-Esaminare il registro del firewall e visualizzare il file PT1H. JSON per l'ora in cui si è verificata la richiesta da ispezionare.
+Esaminare il registro del firewall e visualizzare il PT1H.jsnel file per l'ora in cui si è verificata la richiesta da ispezionare.
 
 In questo esempio si può notare che sono presenti quattro regole con lo stesso ID transazione e che si sono verificate tutte nello stesso momento:
 
@@ -301,7 +300,7 @@ Fiddler è uno strumento utile ancora una volta per trovare i nomi delle intesta
 
 ![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
 
-Un altro modo per visualizzare le intestazioni di richiesta e risposta consiste nell'esaminare gli strumenti di sviluppo di Chrome. È possibile premere F12 o fare clic con il pulsante destro del mouse su > **controllare** -> **strumenti di sviluppo**, quindi selezionare la scheda **rete** . caricare una pagina Web, quindi fare clic sulla richiesta che si desidera controllare.
+Un altro modo per visualizzare le intestazioni di richiesta e risposta consiste nell'esaminare gli strumenti di sviluppo di Chrome. È possibile premere F12 o fare clic con il pulsante destro del mouse su > **controllare**  ->  **strumenti di sviluppo**, quindi selezionare la scheda **rete** . caricare una pagina Web, quindi fare clic sulla richiesta che si desidera controllare.
 
 ![F12 Chrome](../media/web-application-firewall-troubleshoot/chrome-f12.png)
 

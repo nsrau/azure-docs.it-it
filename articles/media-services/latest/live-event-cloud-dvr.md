@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
 ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995813"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta
@@ -33,7 +32,7 @@ Questa sezione illustra come usare un DVR durante un evento per controllare qual
 
 Il `archiveWindowLength` valore determina per quanto tempo un visualizzatore può passare dalla posizione Live corrente. Il `archiveWindowLength` valore determina anche per quanto tempo i manifesti client possono crescere.
 
-Si supponga `ArchiveWindowLength` di trasmettere una partita di calcio e di avere solo 30 minuti. Un visualizzatore che inizia a guardare l’evento 45 minuti dopo l’inizio della partita può tornare indietro al massimo fino all’indicatore di 15 minuti. Gli output Live per il gioco continueranno fino a quando l'evento Live non verrà interrotto. Il contenuto che si trova all'esterno di archiveWindowLength viene continuamente rimosso dalla risorsa di archiviazione ed è non recuperabile. In questo esempio il video tra l'inizio dell'evento e il contrassegno di 15 minuti è stato eliminato dal DVR e dal contenitore nell'archivio BLOB per l'asset. L'archivio non è reversibile e viene rimosso dal contenitore nell'archivio BLOB di Azure.
+Si supponga di trasmettere una partita di calcio e `ArchiveWindowLength` di avere solo 30 minuti. Un visualizzatore che inizia a guardare l’evento 45 minuti dopo l’inizio della partita può tornare indietro al massimo fino all’indicatore di 15 minuti. Gli output Live per il gioco continueranno fino a quando l'evento Live non verrà interrotto. Il contenuto che si trova all'esterno di archiveWindowLength viene continuamente rimosso dalla risorsa di archiviazione ed è non recuperabile. In questo esempio il video tra l'inizio dell'evento e il contrassegno di 15 minuti è stato eliminato dal DVR e dal contenitore nell'archivio BLOB per l'asset. L'archivio non è reversibile e viene rimosso dal contenitore nell'archivio BLOB di Azure.
 
 Un evento Live supporta fino a tre output Live in esecuzione simultanea (è possibile creare al massimo 3 registrazioni/archivi da un flusso live nello stesso momento). Questo supporto consente di pubblicare e archiviare parti diverse di un evento in base alle esigenze. Ad esempio, immaginiamo di dover trasmettere un feed lineare live 24x7 e di creare "registrazioni" dei diversi programmi nel corso della giornata da offrire ai clienti come contenuto visualizzabile su richiesta. Per questo scenario, creare prima di tutto un output Live primario con una breve finestra di archiviazione di 1 ora o meno, ovvero il flusso Live primario a cui si consentiranno i visualizzatori. È possibile creare un localizzatore di streaming per questo output Live e pubblicarlo nell'app o nel sito Web come feed in tempo reale. Mentre l'evento live è in esecuzione, è possibile creare a livello di codice un secondo output live simultaneo all'inizio di un programma (o 5 minuti prima per fornire alcuni handle per il trimming successivo). Questo secondo output live può essere eliminato 5 minuti dopo la fine del programma. Con questo secondo asset è possibile creare un nuovo localizzatore di streaming per pubblicare il programma come asset su richiesta nel catalogo dell'app. È possibile ripetere questo processo più volte per altri limiti del programma o elementi di rilievo da condividere come video su richiesta, mentre il feed "Live" dal primo output live continua a trasmettere il feed lineare.
 

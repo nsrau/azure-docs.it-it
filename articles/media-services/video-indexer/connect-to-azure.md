@@ -11,15 +11,14 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
 ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005937"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
-Quando si crea un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si riceve un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (in cui la quota non è limitata). Con una versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita agli utenti del sito Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti dell'API. Con l'opzione a pagamento, è possibile creare un account di Video Indexer connesso alla sottoscrizione di Azure e a un account di servizi multimediali di Azure. Paghi per minuti indicizzati e per gli addebiti relativi all'account multimediale.
+Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (senza limiti di quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2.400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, è possibile creare un account di Video Indexer connesso alla sottoscrizione di Azure e a un account di servizi multimediali di Azure. Paghi per minuti indicizzati e per gli addebiti relativi all'account multimediale.
 
 Questo articolo illustra come creare un account di Video Indexer connesso a una sottoscrizione di Azure e a un account di Servizi multimediali di Azure. L'argomento illustra i passaggi per la connessione ad Azure usando il flusso automatico (impostazione predefinita). Viene anche descritto come connettersi ad Azure manualmente (impostazioni avanzate).
 
@@ -131,7 +130,7 @@ Se la connessione ad Azure non è riuscita, è possibile tentare di risolvere il
     2. Selezionare il [metodo di autenticazione basata sull'entità servizio](../previous/media-services-portal-get-started-with-aad.md).
     3. Ottenere l'ID client e il segreto client
 
-        Dopo aver selezionato **le chiavi delle impostazioni**->**Keys**, aggiungere la **Descrizione**, fare clic su **Salva**e il valore della chiave viene popolato.
+        Dopo aver selezionato **le chiavi delle impostazioni** -> **Keys**, aggiungere la **Descrizione**, fare clic su **Salva**e il valore della chiave viene popolato.
 
         Se la chiave scade, il proprietario dell'account dovrà contattare Video Indexer supporto per rinnovare la chiave.
 

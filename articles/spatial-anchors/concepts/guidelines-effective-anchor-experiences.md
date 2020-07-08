@@ -9,10 +9,9 @@ ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005518"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Creare un'esperienza di ancoraggio efficace usando gli ancoraggi spaziali di Azure
@@ -76,7 +75,7 @@ Analogamente, negli ambienti in cui le funzionalità visive cambiano perché la 
 
 In molti casi, un ancoraggio è un punto di ingresso per l'esperienza dell'app. È consigliabile eseguire questo passaggio in modo rapido e affidabile in modo che gli utenti possano accedere alla propria esperienza. Il tempo di dedicare al modo in cui gli utenti troveranno gli ancoraggi è un passaggio di progettazione importante. È utile considerare la possibilità di trovare ancoraggi in termini di due scenari generali: *destinazioni* e *chat*.
 
-### <a name="targets"></a>Server di destinazione
+### <a name="targets"></a>Destinazioni
 
 Nello scenario di destinazione, la posizione di un ancoraggio è nota. Ad esempio, in un'app di disegno di realtà mista fittizia, un utente inserisce un'area di disegno virtuale sulla parete. Indica agli altri utenti della stanza di puntare i dispositivi nella stessa posizione sulla parete per individuare l'ancoraggio e iniziare l'esperienza.
 

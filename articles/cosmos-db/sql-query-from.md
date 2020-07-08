@@ -7,23 +7,22 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005865"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Clausola FROM in Azure Cosmos DB
 
-La clausola FROM`FROM <from_specification>`() è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Una query come `SELECT * FROM Families` enumera l'intero `Families` contenitore. È anche possibile usare la radice identificatore speciale per il contenitore invece di usare il nome del contenitore.
+La clausola FROM ( `FROM <from_specification>` ) è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Una query come `SELECT * FROM Families` enumera l'intero `Families` contenitore. È anche possibile usare la radice identificatore speciale per il contenitore invece di usare il nome del contenitore.
 
 La `FROM` clausola impone le regole seguenti per ogni query:
 
-* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Ecco `f` l'alias per `Families`. COME è una parola chiave facoltativa per l' [alias](sql-query-working-with-json.md#aliasing) dell'identificatore.  
+* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Ecco `f` l'alias per `Families` . COME è una parola chiave facoltativa per l' [alias](sql-query-working-with-json.md#aliasing) dell'identificatore.  
 
-* Una volta eseguito l'aliasing, non è possibile associare il nome di origine originale. Ad esempio, `SELECT Families.id FROM Families f` è sintatticamente non valido perché `Families` l'identificatore è stato associato a un alias e non è più possibile risolverlo.  
+* Una volta eseguito l'aliasing, non è possibile associare il nome di origine originale. Ad esempio, `SELECT Families.id FROM Families f` è sintatticamente non valido perché l'identificatore `Families` è stato associato a un alias e non è più possibile risolverlo.  
 
-* Tutte le proprietà a cui viene fatto riferimento devono essere complete per evitare qualsiasi binding ambiguo in assenza di una rigida aderenza allo schema. Ad esempio, `SELECT id FROM Families f` è sintatticamente non valido perché `id` la proprietà non è associata.
+* Tutte le proprietà a cui viene fatto riferimento devono essere complete per evitare qualsiasi binding ambiguo in assenza di una rigida aderenza allo schema. Ad esempio, `SELECT id FROM Families f` è sintatticamente non valido perché la proprietà `id` non è associata.
 
 ## <a name="syntax"></a>Sintassi
   
@@ -81,7 +80,7 @@ FROM <from_specification>
   
 - `<container_expression> '.' property_name`  
   
-  Specifica che il documento deve essere recuperato accedendo alla `property_name` proprietà.  
+  Specifica che il documento deve essere recuperato accedendo alla `property_name` Proprietà.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
@@ -147,7 +146,7 @@ I risultati sono:
     ]
 ```
 
-Nella query precedente è stata usata una matrice come origine, ma è anche possibile usare un oggetto come origine. La query considera qualsiasi valore JSON valido e definito nell'origine per l'inclusione nel risultato. Nell'esempio seguente viene escluso `Families` che non è `address.state` presente alcun valore.
+Nella query precedente è stata usata una matrice come origine, ma è anche possibile usare un oggetto come origine. La query considera qualsiasi valore JSON valido e definito nell'origine per l'inclusione nel risultato. Nell'esempio seguente viene escluso `Families` che non è presente alcun `address.state` valore.
 
 ```sql
     SELECT *

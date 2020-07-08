@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
 ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82997100"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Creare e gestire i record in Common Data Service usando app per la logica di Azure
@@ -51,7 +50,7 @@ Per questo esempio, aggiungere il trigger Common Data Service che viene attivato
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Ambiente** | Sì | Ambiente da monitorare, ad esempio, "Fabrikam Sales Production". Per altre informazioni, vedere [Panoramica di Power Platform-environments](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Environment** | Sì | Ambiente da monitorare, ad esempio, "Fabrikam Sales Production". Per altre informazioni, vedere [Panoramica di Power Platform-environments](https://docs.microsoft.com/power-platform/admin/environments-overview). |
    | **Entity Name** | Sì | Entità da monitorare, ad esempio, "Lead" |
    | **Ambito** | Sì | Origine che ha creato il nuovo record, ad esempio un utente nella propria business unit o qualsiasi utente dell'organizzazione. Questo esempio USA "business unit". |
    ||||
@@ -126,7 +125,7 @@ Per le azioni che restituiscono record, ad esempio l'azione **elenco record** , 
 
    ![Immettere una query di filtro ODATA per filtrare i record](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Per ulteriori informazioni sulle `$filter` opzioni di query di sistema, vedere [Common Data Service-filtrare i risultati](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Per ulteriori informazioni sulle `$filter` Opzioni di query di sistema, vedere [Common Data Service-filtrare i risultati](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Elencare i record in base a un ordine
 
@@ -140,7 +139,7 @@ Per le azioni che restituiscono record, ad esempio l'azione **elenco record** , 
 
    ![Immettere una query di filtro ODATA per l'ordinamento dei record](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Per ulteriori informazioni sulle `$orderby` opzioni di query di sistema, vedere [risultati dell'ordine Common Data Service](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Per ulteriori informazioni sulle `$orderby` Opzioni di query di sistema, vedere [risultati dell'ordine Common Data Service](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Tipi di dati dei campi
 
@@ -153,7 +152,7 @@ In questa tabella vengono descritti alcuni tipi di campo e i tipi di dati richie
 | Campo di testo | Riga di testo singola | Richiede una singola riga di testo o contenuto dinamico con tipo di dati text, ad esempio, queste proprietà: <p><p>- **Descrizione** <br>- **Categoria** |
 | Campo Integer | Numero intero | Richiede un intero o contenuto dinamico con tipo di dati Integer, ad esempio, queste proprietà: <p><p>- **Percentuale di completamento** <br>- **Durata** |
 | Campo Data | Data e ora | Richiede una data in formato MM/GG/YYY o contenuto dinamico con il tipo di dati date, ad esempio, queste proprietà: <p><p>- **Data creazione** <br>- **Data di inizio** <br>- **Inizio effettivo** <br>- **Fine effettiva** <br>- **Scadenza** |
-| Campo che fa riferimento a un altro record di entità | Chiave primaria | Richiede sia un ID record, ad esempio un GUID, sia un tipo di ricerca, il che significa che i valori dell'elenco di contenuto dinamico non funzionano, ad esempio, queste proprietà: <p><p>- **Proprietario**: deve essere un ID utente valido o un ID record del team. <br>- **Proprietario Type**: deve essere un tipo di ricerca, `systemusers` ad `teams`esempio o, rispettivamente. <p><p>- **Per quanto riguarda**, deve essere un ID record valido, ad esempio un ID account o un ID record contatto. <br>- **Relativa al tipo**: deve essere un tipo di ricerca `accounts` , `contacts`ad esempio o, rispettivamente. <p><p>- **Customer**: deve essere un ID record valido, ad esempio un ID account o un ID record di contatto. <br>- **Customer Type**: deve essere il tipo di ricerca, rispettivamente `accounts` , `contacts`, ad esempio o. |
+| Campo che fa riferimento a un altro record di entità | Chiave primaria | Richiede sia un ID record, ad esempio un GUID, sia un tipo di ricerca, il che significa che i valori dell'elenco di contenuto dinamico non funzionano, ad esempio, queste proprietà: <p><p>- **Proprietario**: deve essere un ID utente valido o un ID record del team. <br>- **Proprietario Type**: deve essere un tipo di ricerca, ad esempio `systemusers` o `teams` , rispettivamente. <p><p>- **Per quanto riguarda**, deve essere un ID record valido, ad esempio un ID account o un ID record contatto. <br>- **Relativa al tipo**: deve essere un tipo di ricerca `accounts` , ad esempio o `contacts` , rispettivamente. <p><p>- **Customer**: deve essere un ID record valido, ad esempio un ID account o un ID record di contatto. <br>- **Customer Type**: deve essere il tipo di ricerca, rispettivamente,, ad esempio `accounts` o `contacts` . |
 ||||
 
 Questo esempio Mostra come l'azione **Crea un nuovo record** crea un nuovo record "Tasks" associato ad altri record di entità, in particolare un record utente e un record di account. L'azione specifica gli ID e i tipi di ricerca per i record di entità utilizzando valori che corrispondono ai tipi di dati previsti per le proprietà pertinenti.
@@ -170,4 +169,4 @@ Per informazioni tecniche sulla base della descrizione di spavalderia del connet
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sugli altri [connettori per app per la logica di Azure](../connectors/apis-list.md)
+* Informazioni su altri [connettori per App per la logica di Azure](../connectors/apis-list.md)

@@ -12,10 +12,9 @@ ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
 ms.openlocfilehash: 055f651552313732c000a2e91d2862cda22a9c26
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995885"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
@@ -36,7 +35,7 @@ Questo articolo elenca alcuni dei limiti di Servizi multimediali di Microsoft Az
 
 | Risorsa | Limite predefinito | 
 | --- | --- | 
-| [Asset](assets-concept.md) per account di servizi multimediali | 1.000.000|
+| [Asset](assets-concept.md) per account di servizi multimediali | 1\.000.000|
 
 ## <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 
@@ -102,7 +101,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 | Risorsa | Limite predefinito | 
 | --- | --- | 
 | Opzioni per [criterio chiave](content-key-policy-concept.md) simmetrica |30 | 
-| Licenze al mese per ogni tipo di DRM nel servizio di distribuzione delle chiavi di servizi multimediali per account|1.000.000|
+| Licenze al mese per ogni tipo di DRM nel servizio di distribuzione delle chiavi di servizi multimediali per account|1\.000.000|
 
 ## <a name="support-ticket"></a>Ticket di supporto
 

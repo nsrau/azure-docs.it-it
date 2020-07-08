@@ -7,15 +7,14 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122775"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizzare un endpoint HTTP in funzioni di Azure
 
-Questo articolo illustra come funzioni di Azure consente di creare API altamente scalabili. Funzioni di Azure include una raccolta di trigger HTTP e binding incorporati, che semplificano la creazione di un endpoint in una varietà di linguaggi, tra cui node. js, C# e altro ancora. In questo articolo verrà personalizzato un trigger HTTP per gestire azioni specifiche nella progettazione dell'API. Si prepara anche la crescita dell'API grazie all'integrazione con Proxy di Funzioni di Azure e alla configurazione di API fittizie. Queste attività vengono eseguite sulla base dell'ambiente di calcolo senza server di funzioni, quindi non è necessario preoccuparsi di ridimensionare le risorse. è possibile concentrarsi solo sulla logica dell'API.
+Questo articolo illustra come funzioni di Azure consente di creare API altamente scalabili. Funzioni di Azure include una raccolta di trigger HTTP e binding incorporati, che semplificano la creazione di un endpoint in una varietà di linguaggi, tra cui Node.js, C# e altro ancora. In questo articolo verrà personalizzato un trigger HTTP per gestire azioni specifiche nella progettazione dell'API. Si prepara anche la crescita dell'API grazie all'integrazione con Proxy di Funzioni di Azure e alla configurazione di API fittizie. Queste attività vengono eseguite sulla base dell'ambiente di calcolo senza server di funzioni, quindi non è necessario preoccuparsi di ridimensionare le risorse. è possibile concentrarsi solo sulla logica dell'API.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -62,7 +61,7 @@ Testare quindi la funzione per verificarne il funzionamento con la nuova superfi
  
 1. Aggiungere parametri alla stringa di query nell'URL. 
 
-   Ad esempio, `/api/hello/?name=John`
+   Ad esempio: `/api/hello/?name=John`.
  
 1. Premere INVIO per verificare che funzioni. Dovrebbe essere visualizzata la risposta "*Hello John*".
 
@@ -128,7 +127,7 @@ Per creare questa API fittizia, si creerà un nuovo proxy, questa volta usando i
 
 Selezionare `proxies.json` nel riquadro di spostamento sinistro. Questo file archivia la configurazione per tutti i proxy. Se si usa uno dei [metodi di distribuzione delle funzioni](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), questo file viene mantenuto nel controllo del codice sorgente. Per altre informazioni su questo file, vedere [Configurazione avanzata](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
-Se la procedura è stata eseguita fino a questo punto, il file Proxys. JSON avrà un aspetto simile al seguente:
+Se la procedura è stata eseguita fino a questo punto, il proxies.jssu dovrebbe avere un aspetto analogo al seguente:
 
 ```json
 {
@@ -144,7 +143,7 @@ Se la procedura è stata eseguita fino a questo punto, il file Proxys. JSON avr�
 }
 ```
 
-Successivamente, si aggiungerà l'API fittizia. Sostituire il file Proxys. JSON con il codice seguente:
+Successivamente, si aggiungerà l'API fittizia. Sostituire il proxies.jsnel file con il codice seguente:
 
 ```json
 {

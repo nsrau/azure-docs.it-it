@@ -17,10 +17,9 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982973"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows tramite una condivisione file in Azure
@@ -70,10 +69,10 @@ Questa architettura è specifica nei modi seguenti:
 
 * I servizi centrali SAP, con la propria struttura di file e i propri processi di messaggistica e accodamento, sono separati dai file dell'host globale SAP.
 * I servizi centrali SAP vengono eseguiti in un'istanza ASCS/SCS di SAP.
-* L'istanza ASCS/SCS di SAP è inclusa in un cluster ed è possibile accedervi usando il nome dell'host virtuale \<nome host virtuale ASCS/SCS\>.
-* I file globali SAP vengono memorizzati nella condivisione file SMB ed è possibile accedervi usando il nome dell'host \<host globale SAP\>: \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+* L'istanza di SAP ASC/SCS è in cluster ed è accessibile tramite il \<ASCS/SCS virtual host name\> nome host virtuale.
+* I file globali SAP vengono inseriti nella condivisione file SMB e sono accessibili tramite il \<SAP global host\> nome host: \\ \\ &lt; SAP Global host &gt; \sapmnt \\ &lt; SID &gt; \sys \. .
 * L'istanza ASCS/SCS di SAP viene installata in un disco locale in entrambi i nodi del cluster.
-* Il nome di rete \<nome host virtuale ASCS/SCS\> è diverso dall'&lt;host globale SAP&gt;.
+* Il \<ASCS/SCS virtual host name\> nome di rete è diverso da quello dell' &lt; host globale SAP &gt; .
 
 ![Figure 2: Architettura a disponibilità elevata ASCS/SCS di SAP con condivisione file SMB][sap-ha-guide-figure-8004]
 
@@ -87,7 +86,7 @@ Prerequisiti per una condivisione file SMB:
     * I dischi usati per archiviare i file non devono essere un singolo punto di guasto.
     * Il tempo di inattività del server o della macchina virtuale non causa tempi di inattività nella condivisione file.
 
-Il ruolo cluster \<SID\> di SAP non contiene dischi condivisi nel cluster o una risorsa di cluster generica con condivisione file generica.
+Il \<SID\> ruolo cluster SAP non contiene dischi condivisi cluster o una risorsa cluster di condivisione file generica.
 
 
 ![Figura 3: Risorse ruolo cluster \<SID\> di SAP per l'uso di una condivisione file][sap-ha-guide-figure-8005]
@@ -137,17 +136,17 @@ Per usare una condivisione file di tipo scale-out, il sistema deve soddisfare i 
 * Per ottenere prestazioni di rete di buon livello tra le macchine virtuali, necessari per la sincronizzazione dei dischi di Spazi di archiviazione diretta, usare un tipo di macchina virtuale che abbia almeno una larghezza di banda "alta".
     Per altre informazioni, vedere le specifiche [DSv2-Series][dv2-series] e [DS-Series][ds-series].
 * È consigliabile riservare capacità non allocata nel pool di archiviazione. Se si lascia capacità non allocata nel pool di archiviazione, si lascia ai volumi lo spazio per il ripristino "sul posto" nel caso in cui un'unità si guasti. Questo approccio migliora le prestazioni e la sicurezza dei dati.  Per altre informazioni, vedere [Scelta delle dimensioni dei volumi][choosing-the-size-of-volumes-s2d].
-* Non è necessario configurare il servizio di bilanciamento del carico interno di Azure per il nome di rete della condivisione file di tipo scale-out, ad esempio per \<host globale SAP\>. Questa configurazione viene eseguita per il \<nome host virtuale ASCS/SCS\> dell'istanza ASCS/SCS di SAP o per il sistema DBMS. Una condivisione file di tipo scale-out scala orizzontalmente il carico su tutti i nodi del cluster. \<Host globale SAP\> Usa l'indirizzo IP locale per tutti i nodi del cluster.
+* Non è necessario configurare il servizio di bilanciamento del carico interno di Azure per il nome di rete della condivisione file di scalabilità orizzontale, ad esempio per \<SAP global host\> . Questa operazione viene eseguita per l' \<ASCS/SCS virtual host name\> istanza di SAP ASC/SCS o per il sistema DBMS. Una condivisione file di tipo scale-out scala orizzontalmente il carico su tutti i nodi del cluster. \<SAP global host\>Usa l'indirizzo IP locale per tutti i nodi del cluster.
 
 
 > [!IMPORTANT]
-> Non è possibile rinominare la condivisione file SAPMNT, che punta all'\<host globale SAP\>. SAP supporta solo il nome di condivisione "sapmnt".
+> Non è possibile rinominare la condivisione file SAPMNT, che fa riferimento a \<SAP global host\> . SAP supporta solo il nome di condivisione "sapmnt".
 >
 > Per altre informazioni, vedere [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395] (SAP Note 2492395 - È possibile modificare il nome di condivisione sapmnt?)
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configurare le istanze ASCS/SCS di SAP e una condivisione file di tipo scale-out in due cluster
 
-È possibile distribuire istanze ASCS/SCS di SAP in un unico cluster, con i rispettivi ruoli cluster \<SID\> SAP. In questo caso, si configura la condivisione file di tipo scale-out in un altro cluster, con un altro ruolo cluster.
+È possibile distribuire le istanze di SAP ASC/SCS in un cluster con il proprio \<SID\> ruolo del cluster SAP. In questo caso, si configura la condivisione file di tipo scale-out in un altro cluster, con un altro ruolo cluster.
 
 > [!IMPORTANT]
 >In questo scenario l'istanza ASCS/SCS di SAP è configurata per accedere all'host globale SAP usando il percorso UNC \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..

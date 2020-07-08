@@ -7,10 +7,9 @@ ms.date: 4/23/2020
 ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: e1babfa188a29e79cb52cd14af19d552123345f1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122676"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Esercitazione: Integrare Funzioni con una rete virtuale di Azure
@@ -34,7 +33,7 @@ Le funzioni in esecuzione nel piano Premium hanno le stesse funzionalità di hos
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questa esercitazione, è importante comprendere gli indirizzi IP e la suddivisione in subnet. È possibile iniziare con [questo articolo che illustra le nozioni di base sull'indirizzamento e la suddivisione in subnet](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Molti altri articoli e video sono disponibili online.
+Per questa esercitazione è importante comprendere l'indirizzamento IP e la creazione di subnet. Si può iniziare con [questo articolo che illustra le nozioni di base dell'indirizzamento e della creazione di subnet](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Molti altri articoli e video sono disponibili online.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -54,7 +53,7 @@ Successivamente, creare una macchina virtuale preconfigurata che esegue WordPres
 
 1. Scegliere **Wordpress Lemp max performance** nei risultati della ricerca. Selezionare un piano software di **Wordpress Lemp max performance per CentOS** come **piano software** e selezionare **Crea**.
 
-1. Nella scheda **nozioni di base** usare le impostazioni della macchina virtuale come specificato nella tabella sotto l'immagine:
+1. Nella scheda **Informazioni di base** usare le impostazioni della VM specificate nella tabella sotto l'immagine:
 
     ![Scheda nozioni di base per la creazione di una macchina virtuale](./media/functions-create-vnet/create-vm-1.png)
 
@@ -62,20 +61,20 @@ Successivamente, creare una macchina virtuale preconfigurata che esegue WordPres
     | ------------ | ---------------- | ---------------- |
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui vengono create le risorse. | 
     | **[Gruppo di risorse](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Scegliere `myResourceGroup` o il gruppo di risorse creato con l'app per le funzioni. L'uso dello stesso gruppo di risorse per l'app per le funzioni, la macchina virtuale WordPress e il piano di hosting rende più semplice la pulizia delle risorse al termine dell'esercitazione. |
-    | **Nome macchina virtuale** | VNET-Wordpress | Il nome della macchina virtuale deve essere univoco nel gruppo di risorse |
-    | **[Region](https://azure.microsoft.com/regions/)** | Europa Europa occidentale | Scegliere un'area vicina o vicina alle funzioni che accedono alla macchina virtuale. |
+    | **Nome macchina virtuale** | VNET-Wordpress | Il nome della VM deve essere univoco nel gruppo di risorse. |
+    | **[Area](https://azure.microsoft.com/regions/)** | Europa Europa occidentale | Scegliere un'area vicina o vicina alle funzioni che accedono alla macchina virtuale. |
     | **Dimensione** | B1S | Scegliere **modifica dimensioni** , quindi selezionare l'immagine standard B1S, che include 1 vCPU e 1 GB di memoria. |
     | **Tipo di autenticazione** | Password | Per usare l'autenticazione della password, è necessario specificare anche un **nome utente**, una **password**sicura e quindi **confermare la password**. Per questa esercitazione non è necessario accedere alla macchina virtuale, a meno che non sia necessario risolvere il problema. |
 
 1. Scegliere la scheda **rete** e in Configura reti virtuali selezionare **Crea nuovo**.
 
-1. In **Crea rete virtuale**usare le impostazioni nella tabella sotto l'immagine:
+1. In **Crea rete virtuale** usare le impostazioni della tabella sotto l'immagine:
 
     ![Scheda rete di Crea macchina virtuale](./media/functions-create-vnet/create-vm-2.png)
 
     | Impostazione      | Valore consigliato  | Descrizione      |
     | ------------ | ---------------- | ---------------- |
-    | **Nome** | myResourceGroup-VNET | È possibile usare il nome predefinito generato per la rete virtuale. |
+    | **Nome** | myResourceGroup-vnet | Si può usare il nome predefinito generato per la rete virtuale. |
     | **Intervallo di indirizzi** | 10.10.0.0/16 | Usare un singolo intervallo di indirizzi per la rete virtuale. |
     | **Nome della subnet** | Esercitazione-NET | Nome della subnet. |
     | **Intervallo di indirizzi** (subnet) | 10.10.1.0/24   | Le dimensioni della subnet definiscono il numero di interfacce che è possibile aggiungere alla subnet. Questa subnet viene usata dal sito WordPress.  Una `/24` subnet fornisce 254 indirizzi host. |
@@ -86,7 +85,7 @@ Successivamente, creare una macchina virtuale preconfigurata che esegue WordPres
 
 1. Scegliere la scheda **gestione** , quindi in **account di archiviazione di diagnostica**scegliere l'account di archiviazione creato con l'app per le funzioni.
 
-1. Selezionare **Rivedi e crea**. Al termine della convalida, selezionare **Crea**. Il processo di creazione della macchina virtuale richiede alcuni minuti. La VM creata può accedere solo alla rete virtuale.
+1. Selezionare **Rivedi e crea**. Al termine della convalida selezionare **Crea**. Il processo di creazione della VM richiederà alcuni minuti. La VM creata può accedere solo alla rete virtuale.
 
 1. Dopo aver creato la VM, scegliere **Vai alla risorsa** per visualizzare la pagina per la nuova macchina virtuale, quindi scegliere **rete** in **Impostazioni**.
 
@@ -102,7 +101,7 @@ Con un sito WordPress in esecuzione in una macchina virtuale in una rete virtual
 
 1. Nella nuova app per le funzioni selezionare **rete** nel menu a sinistra.
 
-1. In **integrazione VNet**selezionare **fare clic qui per configurare**.
+1. In **Integrazione rete virtuale** selezionare **Fare clic per configurare**.
 
     :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="Scegliere la rete nell'app per le funzioni":::
 
@@ -161,6 +160,6 @@ In questa esercitazione il sito WordPress funge da API che viene chiamata usando
 Le funzioni in esecuzione in un piano Premium condividono la stessa infrastruttura del servizio app sottostante come app Web nei piani PremiumV2. Tutta la documentazione per le [app Web nel servizio app Azure](../app-service/overview.md) si applica alle funzioni del piano Premium.
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sulle opzioni di rete in funzioni](./functions-networking-options.md)
+> [Altre informazioni sulle opzioni di rete in Funzioni](./functions-networking-options.md)
 
 [Piano Premium]: functions-scale.md#premium-plan

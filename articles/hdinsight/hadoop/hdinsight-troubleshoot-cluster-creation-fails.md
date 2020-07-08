@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
 ms.openlocfilehash: 14b449590f6ffc5e735faa26baadfcc4e526450c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996404"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Risolvere gli errori di creazione del cluster con Azure HDInsight
@@ -29,7 +28,7 @@ I problemi seguenti sono le cause principali più comuni per gli errori di creaz
 
 ## <a name="permissions-issues"></a>Problemi con le autorizzazioni
 
-Se si `AmbariClusterCreationFailedErrorCode`USA Azure Data Lake storage Gen2 e viene visualizzato l'errore: ":::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support.":::", aprire il portale di Azure, passare all'account di archiviazione e in controllo di accesso (IAM) assicurarsi che il **collaboratore dati BLOB di archiviazione** o il ruolo **proprietario dati BLOB di archiviazione** abbia assegnato l'accesso all' **identità gestita assegnata dall'utente** per la sottoscrizione. Per istruzioni dettagliate, vedere come [Configurare le autorizzazioni per l'identità gestita nell'account Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
+Se si usa Azure Data Lake storage Gen2 e viene visualizzato l'errore `AmbariClusterCreationFailedErrorCode` : " :::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support."::: ", aprire il portale di Azure, passare all'account di archiviazione e in controllo di accesso (IAM) assicurarsi che il **collaboratore dati BLOB di archiviazione** o il ruolo **proprietario dati BLOB di archiviazione** abbia assegnato l'accesso all' **identità gestita assegnata dall'utente** per la sottoscrizione. Per istruzioni dettagliate, vedere come [Configurare le autorizzazioni per l'identità gestita nell'account Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
 
 Se si usa Azure Data Lake Storage Gen1, vedere le istruzioni per l'installazione e la configurazione [qui](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 non è supportato per i cluster HBase e non è supportato nella versione 4,0 di HDInsight.
 
@@ -51,7 +50,7 @@ I firewall nella rete virtuale o nell'account di archiviazione possono negare la
 
 Consentire il traffico dagli indirizzi IP nella tabella seguente.
 
-| Indirizzo IP di origine | Destination | Direction |
+| Indirizzo IP di origine | Destination | Direzione |
 |---|---|---|
 | 168.61.49.99 | *: 443 | In ingresso |
 | 23.99.5.239 | *: 443 | In ingresso |
@@ -82,7 +81,7 @@ Controllare [lo stato di Azure](https://status.azure.com) per eventuali potenzia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Estendere Azure HDInsight usando una rete virtuale di Azure](../hdinsight-plan-virtual-network-deployment.md)
+* [Estendere Azure HDInsight usando Rete virtuale di Azure](../hdinsight-plan-virtual-network-deployment.md)
 * [Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 * [Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 * [Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora](../hdinsight-hadoop-provision-linux-clusters.md)

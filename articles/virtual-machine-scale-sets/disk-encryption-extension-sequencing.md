@@ -10,10 +10,9 @@ ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117258"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Usare Crittografia dischi di Azure con sequenziazione delle estensioni del set di scalabilità di macchine virtuali
@@ -155,7 +154,7 @@ Di seguito è riportato un esempio che usa "AzureDiskEncryption" seguito da "VMD
 ```
 
 Per un modello più dettagliato, vedere:
-* Applicare l'estensione di crittografia dischi di Azure dopo uno script della shell personalizzato che formatta il disco (Linux): [deploy-extseq-Linux-Ade-after-CustomScript. JSON](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+* Applicare l'estensione di crittografia dischi di Azure dopo uno script della shell personalizzato che formatta il disco (Linux): [deploy-extseq-linux-ADE-after-customscript.js](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

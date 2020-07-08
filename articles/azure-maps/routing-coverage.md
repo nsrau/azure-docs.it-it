@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e04f3d2f5ed575e9401c53faebd91b3bde004601
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123888"
 ---
 # <a name="azure-maps-routing-coverage"></a>Copertura per gli itinerari in Mappe di Azure
@@ -39,7 +38,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 
 ## <a name="africa"></a>Africa
 
-| Paese/Area geografica                 | Routing.         | Routing con traffico | Routing Truck |
+| Paese/Area geografica                 | Routing         | Routing con traffico | Routing Truck |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Algeria                        |        ✓       |                       |             |
 | Angola                         |        ✓       |                       |             |
@@ -70,7 +69,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Ruanda                         |        ✓       |                       |             |
 | Senegal                        |        ✓       |                       |             |
 | Seychelles                     |        ✓       |                       |             |
-| Sud Africa                   |        ✓       ||         ✓            |             |
+| Sudafrica                   |        ✓       ||         ✓            |             |
 | Swaziland                      |        ✓       |                       |             |
 | Tanzania                       |        ✓       |                       |             |
 | Togo                           |        ✓       |                       |             |
@@ -82,7 +81,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 
 ## <a name="americas"></a>Americhe
 
-| Paese/Area geografica                 | Routing.         | Routing con traffico | Routing Truck |
+| Paese/Area geografica                 | Routing         | Routing con traffico | Routing Truck |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argentina                      |        ✓       |         ✓            |     ✓       |
 | Antigua e Barbuda            |        ✓       |                      |             |
@@ -96,10 +95,10 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Costa Rica                     |        ✓       |                      |             |
 | Cuba                           |        ✓       |                      |             |
 | Dominica                       |        ✓       |                      |             |
-| Repubblica dominicana             |        ✓       |                      |             |
+| Repubblica Dominicana             |        ✓       |                      |             |
 | Ecuador                        |        ✓       |                      |             |
 | El Salvador                    |        ✓       |                      |             |
-| Guayana Francese                  |        ✓       |                      |             |
+| Guayana francese                  |        ✓       |                      |             |
 | Grenada                        |        ✓       |                      |             |
 | Guatemala                      |        ✓       |                      |             |
 | Guyana                         |        ✓       |                      |             |
@@ -127,7 +126,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 
 ## <a name="asia-pacific"></a>Asia Pacifico
 
-| Paese/Area geografica                 | Routing.         | Routing con traffico | Routing Truck |
+| Paese/Area geografica                 | Routing         | Routing con traffico | Routing Truck |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Australia                      |        ✓       |         ✓            |     ✓       |
 | + Isola Christmas              |        ✓       |                      |             |
@@ -154,7 +153,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 
 ## <a name="europe"></a>Europa
 
-| Paese/Area geografica                 | Routing.         | Routing con traffico | Routing Truck |
+| Paese/Area geografica                 | Routing         | Routing con traffico | Routing Truck |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Albania                        |        ✓       |                      |             |
 | Andorra                        |        ✓       |         ✓            |             |
@@ -166,7 +165,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Bulgaria                       |        ✓       |         ✓            |     ✓      | 
 | Croazia                        |        ✓       |         ✓            |     ✓      |
 | Cipro                         |        ✓       |                      |             |
-| Repubblica ceca                 |        ✓       |         ✓            |     ✓      |
+| Repubblica Ceca                 |        ✓       |         ✓            |     ✓      |
 | Danimarca                        |        ✓       |         ✓            |     ✓      |
 | + Isole Fær Øer                 |        ✓       |                      |             |
 | Estonia                        |        ✓       |         ✓            |     ✓      |
@@ -193,7 +192,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Macedonia del Nord                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldova                        |        ✓       |                      |             |
-| Principato di Monaco                         |        ✓       |         ✓            |             |
+| Monaco                         |        ✓       |         ✓            |             |
 | Montenegro                     |        ✓       |                      |     ✓      | 
 | Paesi Bassi                    |        ✓       |         ✓            |     ✓      | 
 | + Aruba                         |        ✓       |                      |             | 
@@ -228,9 +227,9 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 
 ## <a name="middle-east"></a>Medio Oriente
 
-| Paese/Area geografica                 | Routing.         | Routing con traffico | Routing Truck |
+| Paese/Area geografica                 | Routing         | Routing con traffico | Routing Truck |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
-| Bahrain                        |        ✓       |         ✓            |             |
+| Bahrein                        |        ✓       |         ✓            |             |
 | Iraq                           |        ✓       |                      |             |
 | Israele                         |        ✓       |         ✓            |             |
 | Giordania                         |        ✓       |                      |             |

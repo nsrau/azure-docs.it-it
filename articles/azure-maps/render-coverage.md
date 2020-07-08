@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123939"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
@@ -46,7 +45,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Ciad                             | ✓ | Ø |
 | Comore                          | ✓ | Ø |
 | Congo, Repubblica democratica | ✓ | ✓ |
-| Côte d’Ivoire (Costa d'Avorio)                    | ✓ | Ø |
+| Côte d'Ivoire (Costa d'Avorio)                    | ✓ | Ø |
 | Gibuti                         | ✓ | Ø |
 | Egitto                            | ✓ | ✓ |
 | Guinea Equatoriale                | ✓ | Ø |
@@ -72,14 +71,14 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Namibia                          | ✓ | ✓ |
 | Niger                            | ✓ | ✓ |
 | Nigeria                          | ✓ | ✓ |
-| Réunion                          | ✓ | ✓ |
+| Riunione                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
 | Sant'Elena, Ascensione e Tristan da Cunha | ✓ | Ø |
 | São Tomé e Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalia                          | ✓ | ✓ |
-| Sud Africa                     | ✓ | ✓ |
+| Sudafrica                     | ✓ | ✓ |
 | Sud Sudan                      | ✓ | ✓ |
 | Sudan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
@@ -113,10 +112,10 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
-| Repubblica dominicana        | ✓ | ✓ |
+| Repubblica Dominicana        | ✓ | ✓ |
 | Ecuador                   | ✓ | ✓ |
 | Isole Falkland | ✓ | ✓ |
-| Guayana Francese             | ✓ | ✓ |
+| Guayana francese             | ✓ | ✓ |
 | Groenlandia                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
 | Guadalupa                | ✓ | ✓ |
@@ -129,7 +128,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Messico                    | ✓ | ✓ |
 | Montserrat                | ✓ | ✓ |
 | Nicaragua                 | ✓ | ✓ |
-| Marianne Settentrionali  | ✓ | ✓ |
+| Isole Marianne Settentrionali  | ✓ | ✓ |
 | Panama                    | ✓ | ✓ | 
 | Paraguay                  | ✓ | ✓ |
 | Perù                      | ✓ | ✓ |
@@ -145,7 +144,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Georgia del Sud e Sandwich Australi | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
 | Trinidad e Tobago       | ✓ | ✓ |
-| Turks e Caicos, Isole  | ✓ | ✓ |
+| Isole Turks e Caicos  | ✓ | ✓ |
 | Stati Uniti             | ✓ | ✓ |
 | Uruguay                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
@@ -157,10 +156,10 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Afghanistan               |   | Ø |
-| Bahrain                   | ✓ | ✓ |
+| Bahrein                   | ✓ | ✓ |
 | Bangladesh                |   | Ø |
 | Bhutan                    |   | Ø |
-| Territorio britannico dell'Oceano Indiano |   | Ø |
+| Territorio britannico dell'Oceano indiano |   | Ø |
 | Brunei                    | ✓ | ✓ |
 | Cambogia                  |   | Ø |
 | Cina                     |   | Ø |
@@ -198,7 +197,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Taiwan                    | ✓ | ✓ |
 | Tagikistan                |   | Ø |
 | Thailandia                  | ✓ | ✓ |
-| Timor-Leste               |   | Ø |
+| Timor Leste               |   | Ø |
 | Turkmenistan              |   | Ø |
 | Emirati Arabi Uniti      | ✓ | ✓ |
 | Altre isole minori degli Stati Uniti |   | Ø |
@@ -210,20 +209,20 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 | Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
-| Samoa Americane            |   | ✓ |
+| Samoa americane            |   | ✓ |
 | Australia                 | ✓ | ✓ |
 | Isole Cook              |   | Ø |
 | Figi                      |   | Ø |
 | Polinesia Francese          |   | Ø |
 | Guam                      | ✓ | ✓ |
 | Kiribati                  |   | Ø |
-| Marshall          |   | Ø |
+| Isole Marshall          |   | Ø |
 | Micronesia                |   | Ø |
 | Nauru                     |   | Ø |
 | Nuova Caledonia             |   | Ø |
 | Nuova Zelanda               | ✓ | ✓ |
 | Niue                      |   | Ø |
-| Norfolk            |   | Ø |
+| Isola Norfolk            |   | Ø |
 | Palau                     |   | Ø |
 | Papua Nuova Guinea          |   | Ø |
 | Pitcairn                  |   | Ø |
@@ -251,7 +250,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Bulgaria                  | ✓ | ✓ |
 | Croazia                   | ✓ | ✓ |
 | Cipro                    | ✓ | ✓ |
-| Repubblica ceca            | ✓ | ✓ |
+| Repubblica Ceca            | ✓ | ✓ |
 | Danimarca                   | ✓ | ✓ |
 | Estonia                   | ✓ | ✓ |
 | Isole Fær Øer             | ✓ | Ø |
@@ -276,7 +275,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Macedonia del Nord           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
-| Principato di Monaco                    | ✓ | ✓ |
+| Monaco                    | ✓ | ✓ |
 | Montenegro                | ✓ | ✓ |
 | Paesi Bassi               | ✓ | ✓ |
 | Norvegia                    | ✓ | ✓ |

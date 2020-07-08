@@ -16,10 +16,9 @@ ms.date: 06/15/2018
 ms.author: daberry
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83120964"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione quando si crea una nuova macchina virtuale Windows in Azure
@@ -51,7 +50,7 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 **N<sup>2</sup>:** se il sistema operativo è Windows specializzato e viene caricato come generalizzato, si verificherà un errore di provisioning con la VM bloccata nella schermata di Configurazione guidata perché la nuova VM è in esecuzione con nome computer, nome utente e password originali.
 
-**Soluzione**
+**Risoluzione**
 
 Per risolvere entrambi gli errori, usare [Add-AzVhd per caricare il disco rigido virtuale originale](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), disponibile in locale, con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima sysprep.
 
@@ -61,7 +60,7 @@ Per risolvere entrambi gli errori, usare [Add-AzVhd per caricare il disco rigido
 
 **N<sup>4</sup>:** se il sistema operativo è Windows specializzato e viene acquisito come generalizzato, si verificherà un errore di provisioning perché la nuova VM è in esecuzione con nome computer, nome utente e password originali. La VM originale, inoltre, non può essere usata perché è contrassegnata come specializzata.
 
-**Soluzione**
+**Risoluzione**
 
 Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](../windows/create-vm-specialized.md) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
 
@@ -70,7 +69,7 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
 
 **Causa 1:** il cluster non supporta le dimensioni della VM richieste.
 
-**Soluzione 1:**
+**Risoluzione 1:**
 
 * Ripetere la richiesta usando una VM di dimensioni inferiori.
 * Se le dimensioni della VM richieste non possono essere modificate:

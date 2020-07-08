@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: d7ca2f07e4568257baf72f2f298631b86f776c2a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83119266"
 ---
 # <a name="add-a-popup-to-the-map"></a>Aggiungere un popup alla mappa
@@ -76,7 +75,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 });
 ```
 
-Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
+Di seguito è riportato l'esempio di codice completo e funzionante della funzionalità precedente.
 
 <br/>
 
@@ -290,7 +289,7 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 Vedere gli articoli seguenti che contengono esempi efficaci di codice completo:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di simbolo](./map-add-pin.md)
+> [Aggiungere un livello per i simboli](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un indicatore HTML](./map-add-custom-html.md)
