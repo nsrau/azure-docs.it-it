@@ -3,26 +3,26 @@ title: Matrice di supporto per il backup di condivisioni file di Azure
 description: Informazioni riepilogative su impostazioni e limitazioni del supporto per il backup di condivisioni file di Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 42578cc83ef193801fa700ec7d136385411e5f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806872"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice di supporto per il backup di condivisioni file di Azure
 
 Per eseguire il backup di condivisioni file di Azure è possibile usare il [servizio Backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview). Questo articolo riepiloga le impostazioni di supporto quando si esegue il backup di condivisioni file di Azure con Backup di Azure.
 
-## <a name="supported-geos"></a>Aree geografiche supportate
+## <a name="supported-regions"></a>Aree supportate
 
-Il backup di condivisioni file di Azure è disponibile nelle aree geografiche seguenti:
+### <a name="ga-regions-for-azure-file-shares-backup"></a>Aree GA per il backup di condivisioni file di Azure
 
-**Regioni di disponibilità generale**:<br>
-Australia sud-orientale (ASE), Canada centrale (CNC), Stati Uniti centro-occidentali (WCUS), Stati Uniti centro-meridionali (SCUS), Stati Uniti occidentali 2 (WUS 2), India meridionale (INS), Stati Uniti centro-settentrionali (NCUS), Giappone orientale (JPE), Brasile meridionale (BRS), Asia sud-orientale (SEA), Svizzera occidentale (SZW), Emirati Arabi Uniti centrali (UAC), Norvegia orientale (NWE), India occidentale (INW), Australia centrale (ACL), Corea centrale (KRC), Giappone occidentale (JPW), Sudafrica settentrionale (SAN), Regno Unito meridionale (UKS), Regno Unito occidentale (UKW), Corea meridionale (KRS), Europa settentrionale (NE), Germania settentrionale (GN), Norvegia occidentale (NWW), Sudafrica occidentale (SAW), Svizzera settentrionale (SZN), Germania centro-occidentale (GWC), Emirati Arabi Uniti settentrionali (UAN), Francia centrale (FRC), India centrale (INC), Canada orientale (CNE), Asia orientale (EA), Australia orientale (AE), Stati Uniti centrali (CUS), Stati Uniti occidentali (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), US DoD (area centrale) (UDC), US DoD (area orientale) (UDE)
+Il backup delle condivisioni file di Azure è disponibile in tutte le aree **ad eccezione** di: Germania centrale (sovrano), Germania nord-orientale (sovrano), Cina orientale, Cina orientale 2, Cina settentrionale, Cina settentrionale 2, US gov Iowa
 
-**Aree supportate (come parte dell'anteprima) ma non ancora con disponibilità generale**:<br>
-Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa occidentale (WE)
+### <a name="supported-regions-for-accidental-delete-protection"></a>Aree supportate per la protezione accidentale da eliminare
+
+Stati Uniti centro-occidentali, Australia sud-orientale, Canada centrale
 
 ## <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 
@@ -31,6 +31,7 @@ Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa occidentale 
 | Tipo di account            | Backup di Azure supporta le condivisioni file di Azure presenti negli account di archiviazione per uso generico V1, per uso generico V2 e account di archiviazione di tipo archiviazione file |
 | Prestazioni              | Backup di Azure supporta le condivisioni file negli account di archiviazione Standard e Premium |
 | Replica              | Sono supportate le condivisioni file di Azure negli account di archiviazione con qualsiasi tipo di replica |
+| Firewall abilitato         | Le condivisioni file di Azure negli account di archiviazione con regole del firewall che consentono ai servizi Microsoft Azure di accedere all'account di archiviazione sono supportate|
 
 ## <a name="supported-file-shares"></a>Condivisioni file supportate
 
@@ -45,14 +46,16 @@ Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa occidentale 
 
 | Impostazione                                                      | Limite |
 | ------------------------------------------------------------ | ----- |
-| Numero massimo di condivisioni file che possono essere protette al giorno per ogni insieme di credenziali | 200   |
+| Numero massimo di condivisioni file che possono essere protette per ogni insieme di credenziali al giorno| 200   |
 | Numero massimo di account di archiviazione che possono essere registrati al giorno per ogni insieme di credenziali | 50    |
+| Numero massimo di condivisioni file che possono essere protette per ogni insieme di credenziali | 2000   |
+| Numero massimo di account di archiviazione che è possibile registrare per ogni insieme di credenziali | 200   |
 
 ## <a name="backup-limits"></a>Limiti relativi a Backup
 
 | Impostazione                                      | Limite |
 | -------------------------------------------- | ----- |
-| Numero massimo di backup su richiesta al giorno | 4     |
+| Numero massimo di backup su richiesta al giorno | 10   |
 | Numero massimo di backup pianificati al giorno | 1     |
 
 ## <a name="restore-limits"></a>Limiti di ripristino

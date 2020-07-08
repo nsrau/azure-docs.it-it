@@ -3,17 +3,16 @@ title: Requisiti del pacchetto di disegni in Creator di Mappe di Azure
 description: Informazioni sui requisiti del pacchetto di disegni per convertire i file della progettazione di strutture in dati di mappa usando il servizio di conversione di Mappe di Azure
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/18/2020
+ms.date: 6/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791572"
 ---
 # <a name="drawing-package-requirements"></a>Requisiti del pacchetto di disegni
 
@@ -169,12 +168,13 @@ Un esempio di livello Zonelabel può essere considerato il livello ZONELABELS de
 
 La cartella ZIP deve contenere un file manifesto al livello radice della directory, che deve essere denominato **manifest.json**. Questo file descrive i file DWG per consentire al [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion) di analizzarne il contenuto. Verranno inseriti solo i file identificati dal manifesto. I file inclusi nella cartella ZIP ma che non sono correttamente elencati nel manifesto verranno ignorati.
 
-I percorsi dei file, nell'oggetto **buildingLevels** del file manifesto, devono essere relativi alla radice della cartella ZIP. Il nome del file DWG deve corrispondere esattamente al nome del livello della struttura. Ad esempio, un file DWG per il livello "seminterrato" si chiamerà "seminterrato.dwg". Un file DWG per il livello 2 sarà denominato "livello_2.dwg". Se il nome del livello include uno spazio, usare un carattere di sottolineatura. 
+I percorsi dei file, nell'oggetto **buildingLevels** del file manifesto, devono essere relativi alla radice della cartella ZIP. Il nome del file DWG deve corrispondere esattamente al nome del livello della struttura. Ad esempio, un file DWG per il livello "seminterrato" si chiamerà "seminterrato.dwg". Un file DWG per il livello 2 sarà denominato "livello_2.dwg". Se il nome del livello include uno spazio, usare un carattere di sottolineatura.
 
 Anche se sono previsti requisiti per l'uso degli oggetti del manifesto, non tutti gli oggetti sono obbligatori. La tabella seguente mostra gli oggetti obbligatori e facoltativi per la versione 1.1 del [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Oggetto | Obbligatoria | Descrizione |
 | :----- | :------- | :------- |
+| version | true |Versione dello schema del manifesto. Attualmente è supportata solo la versione 1,1.|
 | directoryInfo | true | Descrive le informazioni geografiche e di contatto della struttura. Può anche essere usato per descrivere informazioni geografiche e di contatto di un occupante. |
 | buildingLevels | true | Specifica i livelli degli edifici e i file che contengono la progettazione dei livelli. |
 | georeference | true | Contiene informazioni geografiche numeriche per il disegno della struttura. |
@@ -188,14 +188,14 @@ Le sezioni successive illustrano in dettaglio i requisiti per ogni oggetto.
 
 | Proprietà  | type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-| name      | string/int | true   |  Nome dell'edificio. |
-| streetAddress|    string/int |    false    | Indirizzo dell'edificio. |
-|unit     | string/int    |  false    |  Unità dell'edificio. |
-| locality |    string/int |    false |    Nome di un'area, un quartiere o un'area geografica. Ad esempio, "Overlake" o "Central District". La località non fa parte dell'indirizzo postale. |
+| name      | string | true   |  Nome dell'edificio. |
+| streetAddress|    string |    false    | Indirizzo dell'edificio. |
+|unit     | string    |  false    |  Unità dell'edificio. |
+| locality |    string |    false |    Nome di un'area, un quartiere o un'area geografica. Ad esempio, "Overlake" o "Central District". La località non fa parte dell'indirizzo postale. |
 | adminDivisions |    Matrice di stringhe JSON |    false     | Una matrice contenente le designazioni degli indirizzi (paese, provincia, città) o (paese, regione, città metropolitana, provincia). Usare i codici paese ISO 3166 e i codici stato/territorio ISO 3166-2. |
-| postalCode |    string/int    | false    | Il codice di smistamento postale. |
+| postalCode |    string    | false    | Il codice di smistamento postale. |
 | hoursOfOperation |    string |     false | Conforme al formato degli orari di apertura [OSM Opening Hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification). |
-| phone    | string/int |    false |    Numero di telefono associato all'edificio. Deve includere il codice paese. |
+| phone    | string |    false |    Numero di telefono associato all'edificio. Deve includere il codice paese. |
 | sito Web    | string |    false    | Sito Web associato all'edificio. Può iniziare con HTTP o HTTPS. |
 | nonPublic |    bool    | false | Flag che specifica se l'edificio è aperto al pubblico. |
 | anchorLatitude | NUMERIC |    false | Latitudine di un ancoraggio di struttura (puntina da disegno). |
@@ -207,13 +207,13 @@ Le sezioni successive illustrano in dettaglio i requisiti per ogni oggetto.
 
 L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
-|levelName    |string/int    |true |    Nome descrittivo del livello. Ad esempio: primo piano, atrio, parcheggio blu, seminterrato e così via.|
+|levelName    |string    |true |    Nome descrittivo del livello. Ad esempio: primo piano, atrio, parcheggio blu, seminterrato e così via.|
 |ordinal | integer |    true | Viene usato per determinare l'ordine verticale dei livelli. Ogni struttura deve avere un livello con ordinal 0. |
-|heightAboveFacilityAnchor | NUMERIC |    false |    Altezza del livello rispetto al pianoterra, in metri. |
+|heightAboveFacilityAnchor | NUMERIC | false |    Altezza del livello superiore all'ancoraggio in metri. |
 | verticalExtent | NUMERIC | false | Altezza da pavimento a soffitto (spessore) del livello, in metri. |
-|filename |    string/int |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
+|filename |    string |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
 
 ### <a name="georeference"></a>georeference
 
@@ -227,13 +227,13 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 | Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|exterior    |Matrice di string/int|    true|    Nomi dei livelli che definiscono il profilo della facciata dell'edificio.|
-|unit|    Matrice di string/int|    true|    Nomi dei livelli che definiscono le unità.|
-|wall|    Matrice di string/int    |false|    Nomi dei livelli che definiscono le pareti.|
-|door    |Matrice di string/int|    false   | Nomi dei livelli che definiscono le porte.|
-|unitLabel    |Matrice di string/int|    false    |Nomi dei livelli che definiscono i nomi delle unità.|
-|zona | Matrice di string/int    | false    | Nomi dei livelli che definiscono le zone.|
-|zoneLabel | Matrice di string/int |     false |    Nomi dei livelli che definiscono i nomi delle zone.|
+|exterior    |Matrice di stringhe|    true|    Nomi dei livelli che definiscono il profilo della facciata dell'edificio.|
+|unit|    Matrice di stringhe|    true|    Nomi dei livelli che definiscono le unità.|
+|wall|    Matrice di stringhe    |false|    Nomi dei livelli che definiscono le pareti.|
+|door    |Matrice di stringhe|    false   | Nomi dei livelli che definiscono le porte.|
+|unitLabel    |Matrice di stringhe|    false    |Nomi dei livelli che definiscono i nomi delle unità.|
+|zona | Matrice di stringhe    | false    | Nomi dei livelli che definiscono le zone.|
+|zoneLabel | Matrice di stringhe |     false |    Nomi dei livelli che definiscono i nomi delle zone.|
 
 ### <a name="unitproperties"></a>unitProperties
 
@@ -241,19 +241,19 @@ L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
 | Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|unitName    |string/int    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando nei livelli `unitLabel` è disponibile un'etichetta corrispondente `unitName`. |
-|categoryName|    string/int|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
+|unitName    |string    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando nei livelli `unitLabel` è disponibile un'etichetta corrispondente `unitName`. |
+|categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Matrice di stringhe |    false    |Indica i tipi di agenti mobili che possono attraversare l'unità. Ad esempio, "pedone". Questa proprietà informa le funzionalità di orientamento.  I valori consentiti sono `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hiredAuto`, `bus`, `railcar`, `emergency`, `ferry`, `boat` e `disallowed`.|
 |routeThroughBehavior|    string|    false    |Il comportamento del percorso attraverso l'unità. I calori consentiti sono `disallowed`, `allowed` e `preferred`. Il valore predefinito è `allowed`.|
 |occupants    |Matrice di oggetti directoryInfo |false    |Elenco di occupanti per l'unità. |
-|nameAlt|    string/int|    false|    Nome alternativo dell'unità. |
-|nameSubtitle|    string/int    |false|    Sottotitolo dell'unità. |
-|addressRoomNumber|    string/int|    false|    Numero di camera/unità/appartamento/suite dell'unità.|
-|verticalPenetrationCategory|    string/int|    false| Quando questa proprietà è definita, la caratteristica risultante sarà una penetrazione verticale invece di un'unità. Le penetrazioni verticali possono essere usate per passare ad altre penetrazioni verticali nei livelli al di sopra o al di sotto. La penetrazione verticale è un nome di [categoria](https://aka.ms/pa-indoor-spacecategories). Se questa proprietà è definita, la proprietà categoryName viene sostituita da verticalPenetrationCategory. |
+|nameAlt|    string|    false|    Nome alternativo dell'unità. |
+|nameSubtitle|    string    |false|    Sottotitolo dell'unità. |
+|addressRoomNumber|    string|    false|    Numero di camera/unità/appartamento/suite dell'unità.|
+|verticalPenetrationCategory|    string|    false| Quando questa proprietà è definita, la caratteristica risultante sarà una penetrazione verticale invece di un'unità. Le penetrazioni verticali possono essere usate per passare ad altre penetrazioni verticali nei livelli al di sopra o al di sotto. La penetrazione verticale è un nome di [categoria](https://aka.ms/pa-indoor-spacecategories). Se questa proprietà è definita, la proprietà categoryName viene sostituita da verticalPenetrationCategory. |
 |verticalPenetrationDirection|    string|    false    |Se la proprietà `verticalPenetrationCategory` è definita, facoltativamente definire la direzione valida dello spostamento. I valori consentiti sono `lowToHigh`, `highToLow`, `both` e `closed`. Il valore predefinito è `both`.|
 | nonPublic | bool | false | Indica se l'unità è aperta al pubblico. |
 | isRoutable | bool | false | Se è impostata su `false`, non è possibile entrare nell'unità né attraversarla. Il valore predefinito è `true`. |
-| isOpenArea | bool | false | Consente l'accesso dell'agente mobile all'unità senza la necessità di un'apertura. Per impostazione predefinita, questo valore è impostato su `true`, a meno che l'unità non abbia un'apertura. |
+| isOpenArea | bool | false | Consente all'agente di esplorazione di accedere all'unità senza la necessità di un'apertura collegata all'unità. Per impostazione predefinita, questo valore è impostato su `true` per le unità senza aperture; `false` per le unità con aperture.  L'impostazione `isOpenArea` manuale `false` su su un'unità senza aperture genera un avviso. Ciò è dovuto al fatto che l'unità risultante non sarà raggiungibile da un agente navigante.|
 
 ### <a name="the-zoneproperties-object"></a>Oggetto zoneProperties
 
@@ -261,10 +261,11 @@ L'oggetto `zoneProperties` contiene una matrice JSON di proprietà delle zone.
 
 | Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|zoneName        |string/int    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
-|categoryName|    string/int|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
-|zoneNameAlt|    string/int|    false    |Nome alternativo della zona.  |
-|zoneNameSubtitle|    string/int |    false    |Sottotitolo della zona. |
+|zoneName        |string    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
+|categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
+|zoneNameAlt|    string|    false    |Nome alternativo della zona.  |
+|zoneNameSubtitle|    string |    false    |Sottotitolo della zona. |
+|zoneSetId|    string |    false    | Impostare ID per stabilire la relazione tra più zone in modo che sia possibile eseguirvi query o selezionarle come gruppo. Ad esempio, zone che si estendono su più livelli. |
 
 ### <a name="sample-drawing-package-manifest"></a>Manifesto del pacchetto di disegni di esempio
 

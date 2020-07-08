@@ -8,12 +8,11 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 00cf806bf6575fd96af435abf8d0b3dd8734338a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 4c725fe74185088dea55b7506493fe667e71b7ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679667"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806636"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Somiglianza e punteggio in Ricerca cognitiva di Azure
 
@@ -38,7 +37,7 @@ Un profilo di punteggio fa parte della definizione dell'indice, costituita da ca
 
 <a name="scoring-statistics"></a>
 
-## <a name="scoring-statistics-and-sticky-sessions-preview"></a>Statistiche di punteggio e sessioni permanenti (anteprima)
+## <a name="scoring-statistics-and-sticky-sessions"></a>Statistiche di assegnazione dei punteggi e sessioni permanenti
 
 Ai fini della scalabilità, Ricerca cognitiva di Azure distribuisce ogni indice orizzontalmente tramite un processo di partizionamento orizzontale, il che significa che le parti di un indice sono fisicamente separate.
 
@@ -47,14 +46,14 @@ Per impostazione predefinita, il punteggio di un documento viene calcolato in ba
 Se si preferisce calcolare il punteggio in base alle proprietà statistiche in tutte le partizioni, è possibile aggiungere *scoringStatistics=global* come [parametro di query](https://docs.microsoft.com/rest/api/searchservice/search-documents) oppure aggiungere *"scoringStatistics": "global"* come parametro relativo al corpo della [richiesta di query](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
 L'uso di scoringStatistics garantirà che tutte le partizioni nella stessa replica restituiscano gli stessi risultati. Detto questo, le varie repliche possono essere leggermente diverse l'una dall'altra perché vengono sempre aggiornate in base alle ultime modifiche apportate all'indice. In alcuni scenari potrebbe essere necessario che gli utenti ottengano risultati più coerenti durante una "sessione di query". In tal caso, è possibile fornire un elemento `sessionId` come parte delle query. Tale elemento `sessionId` è una stringa univoca creata per fare riferimento a una sessione utente univoca.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
@@ -72,6 +71,37 @@ Per il momento, è possibile specificare quale algoritmo di classificazione di s
 Il frammento di video seguente offre una rapida spiegazione degli algoritmi di classificazione usati in Ricerca cognitiva di Azure. È possibile guardare il video completo per informazioni più dettagliate.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+<a name="featuresMode-param"></a>
+
+## <a name="featuresmode-parameter-preview"></a>parametro featuresMode (anteprima)
+
+Le richieste dei [documenti di ricerca](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) hanno un nuovo parametro [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) che può fornire dettagli aggiuntivi sulla pertinenza a livello di campo. Mentre `@searchScore` viene calcolato per tutto il documento (quanto pertinente è questo documento nel contesto di questa query), tramite featuresMode è possibile ottenere informazioni sui singoli campi, come espresso in una `@search.features` struttura. La struttura contiene tutti i campi utilizzati nella query, ovvero campi specifici tramite **searchFields** in una query o tutti i campi attribuiti come **ricercabili** in un indice. Per ogni campo si ottengono i valori seguenti:
+
++ Numero di token univoci trovati nel campo
++ Punteggio di somiglianza o misura della somiglianza del contenuto del campo rispetto al termine della query
++ Frequenza dei termini oppure numero di volte in cui il termine della query è stato trovato nel campo
+
+Per una query destinata ai campi "Description" e "title", una risposta che include `@search.features` potrebbe essere simile alla seguente:
+
+```json
+"value": [
+ {
+    "@search.score": 5.1958685,
+    "@search.features": {
+        "description": {
+            "uniqueTokenMatches": 1.0,
+            "similarityScore": 0.29541412,
+            "termFrequency" : 2
+        },
+        "title": {
+            "uniqueTokenMatches": 3.0,
+            "similarityScore": 1.75451557,
+            "termFrequency" : 6
+        }
+```
+
+È possibile utilizzare questi punti dati nelle soluzioni di assegnazione dei [punteggi personalizzate](https://github.com/Azure-Samples/search-ranking-tutorial) oppure utilizzare le informazioni per eseguire il debug dei problemi di rilevanza della ricerca.
 
 ## <a name="see-also"></a>Vedere anche
 

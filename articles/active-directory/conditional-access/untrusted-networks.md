@@ -4,19 +4,18 @@ description: Informazioni su come configurare un criterio di accesso condizional
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cedec7f0bd51460796d8138f8d481d2982098f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7986ca441f7d274670d8fa0238e7dcfa01497b6f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74380001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253172"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedura: richiedere l'autenticazione a più fattori per l'accesso da reti non attendibili con accesso condizionale   
 
@@ -28,8 +27,8 @@ Questo articolo fornisce le informazioni necessarie per configurare criteri di a
 
 Questo articolo presuppone che l'utente abbia familiarità con: 
 
-- [Concetti di base](overview.md) di Azure ad l'accesso condizionale 
-- [Procedure consigliate](best-practices.md) per la configurazione dei criteri di accesso condizionale nella portale di Azure
+- [Concetti di base](overview.md) dell'accesso condizionale di Azure AD 
+- [Procedure consigliate](best-practices.md) per la configurazione dei criteri di accesso condizionale nel portale di Azure
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 

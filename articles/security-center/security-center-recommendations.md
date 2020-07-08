@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245304"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791385"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Raccomandazioni di sicurezza nel Centro sicurezza di Azure 
 Questo argomento illustra come visualizzare e comprendere le raccomandazioni nel centro sicurezza di Azure per proteggere le risorse di Azure.
@@ -53,7 +52,7 @@ Il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificar
     È possibile filtrare le raccomandazioni. Per filtrare le raccomandazioni, selezionare **Filtro** nel pannello **Raccomandazioni**. Viene visualizzato il pannello **Filtro** in cui è possibile selezionare i valori relativi a gravità e stato da visualizzare.
 
    * **Raccomandazioni**: raccomandazione.
-   * Un punteggio **sicuro**: un punteggio generato dal centro sicurezza usando le raccomandazioni per la sicurezza e l'applicazione di algoritmi avanzati per determinare il livello di importanza di ogni raccomandazione. Per altre informazioni, vedere [calcolo del Punteggio sicuro](security-center-secure-score.md#secure-score-calculation).
+   * Un punteggio **sicuro**: un punteggio generato dal centro sicurezza usando le raccomandazioni per la sicurezza e l'applicazione di algoritmi avanzati per determinare il livello di importanza di ogni raccomandazione. Per altre informazioni, vedere [calcolo del Punteggio sicuro](secure-score-security-controls.md#how-your-secure-score-is-calculated).
    * **RISORSA**: elenca le risorse a cui si applica questa raccomandazione.
    * **Barre di stato**: descrive il livello di gravità di tale raccomandazione particolare:
        * **Alta (rossa)**: esiste una vulnerabilità con una risorsa significativa, ad esempio un'applicazione, una macchina virtuale o un gruppo di sicurezza di rete, che richiede attenzione.

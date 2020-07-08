@@ -7,19 +7,18 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791198"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creare o aggiornare i ruoli personalizzati di Azure usando il portale di Azure
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creare o aggiornare ruoli personalizzati di Azure con il portale di Azure
 
 Se i [ruoli predefiniti di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati di Azure. Analogamente ai ruoli predefiniti, è possibile assegnare ruoli personalizzati a utenti, gruppi ed entità servizio negli ambiti di sottoscrizione e gruppo di risorse. I ruoli personalizzati vengono archiviati in una directory di Azure Active Directory (Azure AD) e possono essere condivisi tra le sottoscrizioni. Ogni directory può avere un massimo di 5000 ruoli personalizzati. I ruoli personalizzati possono essere creati usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Questo articolo descrive come creare ruoli personalizzati usando il portale di Azure.
 
@@ -35,7 +34,7 @@ Azure dispone di migliaia di autorizzazioni che possono essere potenzialmente in
 
 | Metodo | Descrizione |
 | --- | --- |
-| Esaminare i ruoli esistenti | È possibile esaminare i ruoli esistenti per vedere quali autorizzazioni vengono usate. Per altre informazioni, vedere [ruoli predefiniti di Azure](built-in-roles.md). |
+| Esaminare i ruoli esistenti | È possibile esaminare i ruoli esistenti per vedere quali autorizzazioni vengono usate. Per altre informazioni, vedere [Ruoli predefiniti di Azure](built-in-roles.md). |
 | Cerca autorizzazioni per parola chiave | Quando si crea un ruolo personalizzato usando il portale di Azure, è possibile cercare le autorizzazioni in base alla parola chiave. Ad esempio, è possibile cercare le autorizzazioni per la *macchina virtuale* o la *fatturazione* . Questa funzionalità di ricerca è descritta più avanti nel [passaggio 4: autorizzazioni](#step-4-permissions). |
 | Scarica tutte le autorizzazioni | Quando si crea un ruolo personalizzato usando il portale di Azure, è possibile scaricare tutte le autorizzazioni come file CSV e quindi eseguire la ricerca nel file. Nel riquadro **Aggiungi autorizzazioni** fare clic sul pulsante **Scarica tutte le autorizzazioni** per scaricare tutte le autorizzazioni. Per ulteriori informazioni sul riquadro Aggiungi autorizzazioni, vedere [Step 4: Permissions](#step-4-permissions). |
 | Visualizzare le autorizzazioni nella documentazione | È possibile visualizzare le autorizzazioni disponibili in [Azure Resource Manager operazioni del provider di risorse](resource-provider-operations.md). |
@@ -196,15 +195,15 @@ Attenersi alla procedura seguente per aggiungere o rimuovere le autorizzazioni p
 
 1. Fare clic su **Aggiungi** per aggiungere l'autorizzazione all'elenco di autorizzazioni.
 
-    L'autorizzazione viene aggiunta come `Actions` o. `DataActions`
+    L'autorizzazione viene aggiunta come `Actions` o `DataActions` .
 
     ![Autorizzazione aggiunta](./media/custom-roles-portal/permissions-list-add.png)
 
-1. Per rimuovere le autorizzazioni, fare clic sull'icona Elimina alla fine della riga. In questo esempio, poiché un utente non deve avere la possibilità di creare ticket di supporto, `Microsoft.Support/*` l'autorizzazione può essere eliminata.
+1. Per rimuovere le autorizzazioni, fare clic sull'icona Elimina alla fine della riga. In questo esempio, poiché un utente non deve avere la possibilità di creare ticket di supporto, l' `Microsoft.Support/*` autorizzazione può essere eliminata.
 
 ### <a name="add-wildcard-permissions"></a>Aggiungi autorizzazioni con caratteri jolly
 
-A seconda della modalità con cui si è scelto di avviare, è possibile che nell'elenco\*di autorizzazioni siano disponibili le autorizzazioni con caratteri jolly (). Un carattere jolly\*() estende un'autorizzazione a tutti gli elementi che corrispondono alla stringa fornita. Si supponga, ad esempio, di voler aggiungere tutte le autorizzazioni relative a gestione costi di Azure ed esportazioni. È possibile aggiungere tutte le autorizzazioni seguenti:
+A seconda della modalità con cui si è scelto di avviare, è possibile che nell'elenco di autorizzazioni siano disponibili le autorizzazioni con caratteri jolly ( \* ). Un carattere jolly ( \* ) estende un'autorizzazione a tutti gli elementi che corrispondono alla stringa fornita. Si supponga, ad esempio, di voler aggiungere tutte le autorizzazioni relative a gestione costi di Azure ed esportazioni. È possibile aggiungere tutte le autorizzazioni seguenti:
 
 ```
 Microsoft.CostManagement/exports/action
@@ -224,7 +223,7 @@ Se si desidera aggiungere una nuova autorizzazione con caratteri jolly, non è p
 
 ### <a name="exclude-permissions"></a>Escludi autorizzazioni
 
-Se il ruolo dispone di un'autorizzazione\*con carattere jolly () e si desidera escludere o sottrarre autorizzazioni specifiche da tale autorizzazione con caratteri jolly, è possibile escluderle. Si immagini, ad esempio, di disporre dell'autorizzazione con caratteri jolly seguente:
+Se il ruolo dispone di un'autorizzazione con carattere jolly ( \* ) e si desidera escludere o sottrarre autorizzazioni specifiche da tale autorizzazione con caratteri jolly, è possibile escluderle. Si immagini, ad esempio, di disporre dell'autorizzazione con caratteri jolly seguente:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -236,7 +235,7 @@ Se non si desidera consentire l'eliminazione di un'esportazione, è possibile es
 Microsoft.CostManagement/exports/delete
 ```
 
-Quando si esclude un'autorizzazione, questa viene aggiunta come `NotActions` o. `NotDataActions` Le autorizzazioni di gestione effettive vengono calcolate aggiungendo tutti i `Actions` e quindi sottraendo tutti i `NotActions`. Le autorizzazioni effettive per i dati vengono calcolate aggiungendo tutti `DataActions` i e quindi sottraendo tutti i `NotDataActions`.
+Quando si esclude un'autorizzazione, questa viene aggiunta come `NotActions` o `NotDataActions` . Le autorizzazioni di gestione effettive vengono calcolate aggiungendo tutti i `Actions` e quindi sottraendo tutti i `NotActions` . Le autorizzazioni effettive per i dati vengono calcolate aggiungendo tutti i `DataActions` e quindi sottraendo tutti i `NotDataActions` .
 
 > [!NOTE]
 > L'esclusione di un'autorizzazione non equivale a un oggetto Deny. L'esclusione delle autorizzazioni è semplicemente un modo pratico per sottrarre le autorizzazioni da un'autorizzazione con caratteri jolly.
@@ -249,7 +248,7 @@ Quando si esclude un'autorizzazione, questa viene aggiunta come `NotActions` o. 
 
     ![Riquadro autorizzazioni di esclusione-autorizzazione selezionata](./media/custom-roles-portal/exclude-permissions-select.png)
 
-    L'autorizzazione viene aggiunta come `NotActions` o. `NotDataActions`
+    L'autorizzazione viene aggiunta come `NotActions` o `NotDataActions` .
 
     ![Autorizzazione esclusa](./media/custom-roles-portal/exclude-permissions-list-add.png)
 
@@ -269,7 +268,7 @@ Nella scheda **ambiti assegnabili** specificare la posizione in cui il ruolo per
 
 ## <a name="step-6-json"></a>Passaggio 6: JSON
 
-Nella scheda **JSON** viene visualizzato il ruolo personalizzato formattato in JSON. Se lo si desidera, è possibile modificare direttamente il codice JSON. Se si desidera aggiungere un'autorizzazione con carattere\*jolly (), è necessario utilizzare questa scheda.
+Nella scheda **JSON** viene visualizzato il ruolo personalizzato formattato in JSON. Se lo si desidera, è possibile modificare direttamente il codice JSON. Se si desidera aggiungere un'autorizzazione con carattere jolly ( \* ), è necessario utilizzare questa scheda.
 
 1. Per modificare il codice JSON, fare clic su **modifica**.
 
@@ -347,6 +346,6 @@ Per visualizzare i ruoli personalizzati, seguire questa procedura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un ruolo personalizzato di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Esercitazione: Creare un ruolo personalizzato di Azure con Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Ruoli personalizzati di Azure](custom-roles.md)
 - [Operazioni del provider di risorse Azure Resource Manager](resource-provider-operations.md)

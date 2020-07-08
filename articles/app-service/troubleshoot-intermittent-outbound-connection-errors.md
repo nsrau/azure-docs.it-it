@@ -7,12 +7,11 @@ ms.topic: troubleshooting
 ms.date: 03/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 028ddccdb989d35710e387081b08a3b973d75bdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80367551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252441"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
 
@@ -62,7 +61,7 @@ Per impostazione predefinita, le connessioni per NodeJS non vengono mantenute at
 Keep-alive HTTP
 
 * [per agentkeepalive](https://www.npmjs.com/package/agentkeepalive)
-* [Documentazione su node. js v 13.9.0](https://nodejs.org/api/http.html)
+* [Documentazione diNode.js v 13.9.0](https://nodejs.org/api/http.html)
 
 #### <a name="java"></a>Java
 
@@ -111,7 +110,7 @@ Per altri ambienti, consultare il provider o i documenti specifici del driver pe
 
 ### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a>Usare keep-alive per reimpostare il timeout di inattività per le connessioni uscita
 
-* Per implementare i keep-alive per le app node. js, esaminare [l'applicazione Node esegue](https://docs.microsoft.com/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide#my-node-application-is-making-excessive-outbound-calls)un numero eccessivo di chiamate in uscita.
+* Per implementare i keep-alive per le app Node.js, esaminare [l'applicazione Node esegue](https://docs.microsoft.com/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide#my-node-application-is-making-excessive-outbound-calls)un numero eccessivo di chiamate in uscita.
 
 ### <a name="additional-guidance-specific-to-app-service"></a>Altre linee guida specifiche per il servizio app:
 
@@ -160,7 +159,7 @@ Le connessioni TCP e le porte SNAT non sono direttamente correlate. Un rilevator
 
 ### <a name="webjobs-and-database-connections"></a>Processi Web e connessioni di database
  
-Se le porte SNAT sono esaurite, in cui i processi Web non sono in grado di connettersi al database SQL di Azure, non esiste alcuna metrica per mostrare il numero di connessioni aperte da ogni singolo processo dell'applicazione Web. Per trovare il processo Web problematico, spostare diversi processi Web in un altro piano di servizio app per verificare se la situazione è migliore o se un problema persiste in uno dei piani. Ripetere il processo fino a individuare i processo web problematici.
+Se le porte SNAT sono esaurite, in cui i processi Web non sono in grado di connettersi al database SQL, non esiste alcuna metrica per mostrare il numero di connessioni aperte da ogni singolo processo dell'applicazione Web. Per trovare il processo Web problematico, spostare diversi processi Web in un altro piano di servizio app per verificare se la situazione è migliore o se un problema persiste in uno dei piani. Ripetere il processo fino a individuare i processo web problematici.
 
 ### <a name="using-snat-ports-sooner"></a>Uso delle porte SNAT prima
 

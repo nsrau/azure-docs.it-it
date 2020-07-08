@@ -3,13 +3,12 @@ title: Domande frequenti
 description: Risposte alle domande frequenti relative al servizio istanze di contenitore di Azure
 author: dkkapur
 ms.topic: article
-ms.date: 04/10/2020
-ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115228"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806602"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Domande frequenti sulle istanze di contenitore di Azure
 
@@ -27,25 +26,28 @@ Le dimensioni dell'immagine del contenitore influiscano sul tempo necessario per
 
 Poiché uno dei fattori principali dei tempi di distribuzione è la dimensione dell'immagine, cercare i modi per ridurne le dimensioni. Rimuovere i livelli non necessari o ridurre le dimensioni dei livelli nell'immagine selezionando un'immagine del sistema operativo di base più chiara. Ad esempio, se si eseguono contenitori Linux, è consigliabile usare alpine come immagine di base anziché un server Ubuntu completo. Analogamente, per i contenitori di Windows, se possibile, usare un'immagine di base di nano server. 
 
-È anche necessario controllare l'elenco di immagini pre-memorizzate nella cache nelle immagini del contenitore di Azure, disponibili tramite l'API [Elenca immagini memorizzate nella cache](/rest/api/container-instances/listcachedimages) . Potrebbe essere possibile disattivare un livello immagine per una delle immagini pre-memorizzate nella cache. 
+È anche necessario controllare l'elenco di immagini pre-memorizzate nella cache nelle immagini del contenitore di Azure, disponibili tramite l'API [Elenca immagini memorizzate nella cache](/rest/api/container-instances/location/listcachedimages) . Potrebbe essere possibile disattivare un livello immagine per una delle immagini pre-memorizzate nella cache. 
 
 Vedere informazioni [aggiuntive più dettagliate](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) sulla riduzione del tempo di avvio del contenitore.
 
 ### <a name="what-windows-base-os-images-are-supported"></a>Quali immagini del sistema operativo di base di Windows sono supportate?
 
+> [!NOTE]
+> A causa di problemi con la compatibilità con le versioni precedenti dopo gli aggiornamenti di Windows in 2020, le versioni di immagine seguenti includono il numero di versione minimo consigliato per l'uso nell'immagine di base. Le distribuzioni correnti che usano versioni precedenti dell'immagine non sono interessate, ma le nuove distribuzioni devono rispettare le immagini di base seguenti. 
+
 #### <a name="windows-server-2016-base-images"></a>Immagini di base di Windows Server 2016
 
-* [Nano server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`,`sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,`10.0.14393.x`
+* [Nano server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` `10.0.14393.3506` o versione successiva
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` `10.0.14393.3506` o versione successiva
 
 > [!NOTE]
 > Le immagini di Windows basate sulla versione del canale semestrale 1709 o 1803 non sono supportate.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Immagini di base di Windows Server 2019 e client (anteprima)
 
-* [Nano server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.914` o versioni precedenti
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809` `10.0.17763.914` o versioni precedenti
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809` `10.0.17763.914` o versioni precedenti
+* [Nano server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.1040` o versione successiva
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019` , `1809` `10.0.17763.1040` o versioni successive
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809` `10.0.17763.1040` o versione successiva
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Quale livello immagine .NET o .NET Core è consigliabile usare nel contenitore? 
 
@@ -72,7 +74,7 @@ Sì (a volte). Vedere l'articolo sulle quote [e sui limiti](container-instances-
 
 ### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>È possibile distribuire con più di 4 core e 16 GB di RAM?
 
-Per il momento no. Attualmente, questi sono i valori massimi per un gruppo di contenitori. Contattare il supporto tecnico di Azure con requisiti o richieste specifici. 
+Non ancora. Attualmente, questi sono i valori massimi per un gruppo di contenitori. Contattare il supporto tecnico di Azure con requisiti o richieste specifici. 
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>Quando ACI si trova in un'area specifica?
 

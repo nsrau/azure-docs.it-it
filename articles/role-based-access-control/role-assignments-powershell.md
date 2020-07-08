@@ -8,20 +8,19 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: db6b38f142254fa1812f34674e6a870629713d7e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 46aea9ab113a0c75ed24497ee39793d08c4f7165
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790892"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure usando Azure PowerShell
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Questo articolo descrive come assegnare i ruoli usando Azure PowerShell.
 
@@ -34,9 +33,9 @@ Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
 - autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
 - [PowerShell in Azure cloud Shell](/azure/cloud-shell/overview) o [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="get-object-ids"></a>Ottenere gli ID oggetto
+## <a name="get-object-ids"></a>Recuperare ID oggetto
 
-Per aggiungere o rimuovere assegnazioni di ruolo, potrebbe essere necessario specificare l'ID univoco di un oggetto. Il formato dell'ID è: `11111111-1111-1111-1111-111111111111`. È possibile ottenere l'ID usando il portale di Azure o Azure PowerShell.
+Per aggiungere o rimuovere assegnazioni di ruolo, potrebbe essere necessario specificare l'ID univoco di un oggetto. Il formato dell'ID è il seguente: `11111111-1111-1111-1111-111111111111`. È possibile ottenere l'ID usando il portale di Azure o Azure PowerShell.
 
 ### <a name="user"></a>Utente
 
@@ -58,7 +57,7 @@ Get-AzADGroup -SearchString <group_name_in_quotes>
 
 ### <a name="application"></a>Applicazione
 
-Per ottenere l'ID oggetto per un'entità servizio Azure AD (identità usata da un'applicazione), è possibile usare [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). Per un'entità servizio, usare l'ID oggetto e **non** l'ID applicazione.
+Per ottenere l'ID oggetto per un'entità servizio Azure AD (identità usata da un'applicazione), è possibile usare [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). Per un'entità servizio usare l'ID oggetto, **non** l'ID applicazione.
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
@@ -67,7 +66,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ## <a name="add-a-role-assignment"></a>Aggiungi un'assegnazione di ruolo
 
-In controllo degli accessi in base al ruolo di Azure, è possibile aggiungere un'assegnazione di ruolo.
+Per concedere l'accesso mediante il controllo degli accessi in base al ruolo di Azure, aggiungere un'assegnazione di ruolo.
 
 ### <a name="user-at-a-resource-group-scope"></a>Utente in un ambito del gruppo di risorse
 
@@ -112,7 +111,7 @@ Per aggiungere un'assegnazione di ruolo usando l'ID del ruolo univoco anziché i
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-L'esempio seguente assegna il ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) all' *utente\@Alain example.com* nell'ambito del gruppo di risorse *Pharma-Sales* . Per ottenere l'ID del ruolo univoco, è possibile usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o vedere [ruoli predefiniti di Azure](built-in-roles.md).
+L'esempio seguente assegna il ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) all'utente *Alain \@ example.com* nell'ambito del gruppo di risorse *Pharma-Sales* . Per ottenere l'ID del ruolo univoco, è possibile usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o vedere [ruoli predefiniti di Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -207,7 +206,7 @@ CanDelegate        : False
 
 In controllo degli accessi in base al ruolo di Azure, rimuovere un'assegnazione di ruolo usando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
-L'esempio seguente rimuove l'assegnazione di ruolo *collaboratore macchina virtuale* dall'utente *Alain\@example.com* nel gruppo di risorse *Pharma-Sales* :
+L'esempio seguente rimuove l'assegnazione di ruolo *collaboratore macchina virtuale* dall'utente *Alain \@ example.com* nel gruppo di risorse *Pharma-Sales* :
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
@@ -230,6 +229,6 @@ Se viene visualizzato il messaggio di errore: "le informazioni fornite non sono 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Elencare le assegnazioni di ruolo di Azure usando Azure PowerShell](role-assignments-list-powershell.md)
-- [Esercitazione: concedere a un gruppo l'accesso alle risorse di Azure usando Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Esercitazione: creare un ruolo personalizzato di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Esercitazione: Concedere a un gruppo l'accesso alle risorse di Azure con Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Esercitazione: Creare un ruolo personalizzato di Azure con Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Gestire le risorse con Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

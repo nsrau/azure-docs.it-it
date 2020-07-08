@@ -6,12 +6,11 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 5dcdb03a6d4ec4f448108dbd771a44f362aa7f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: db5363c5d8adaf29e2c460d9ce36afa2d29ae8e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791657"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Risolvere i problemi comuni di Azure Spring cloud
 
@@ -35,7 +34,7 @@ Le associazioni al servizio potrebbero anche causare errori di avvio dell'applic
 
 > "Java. SQL. SQLException: il valore ' Coordinated Universal Time ' del fuso orario del server non è riconosciuto o rappresenta più di un fuso orario."
 
-Per correggere l'errore, passare `server parameters` alla dell'istanza di MySQL e modificare il `time_zone` valore da *sistema* a *+ 0:00*.
+Per correggere l'errore, passare alla `server parameters` dell'istanza di MySQL e modificare il `time_zone` valore da *sistema* a *+ 0:00*.
 
 
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>L'applicazione si arresta in modo anomalo o presenta un errore imprevisto
@@ -49,7 +48,7 @@ Quando si esegue il debug degli arresti anomali dell'applicazione, iniziare cont
 
   - `TomcatErrorCount`(_Tomcat. Global. Error_): qui vengono conteggiate tutte le eccezioni delle applicazioni Spring. Se questo numero è elevato, passare ad Azure Log Analytics per esaminare i log dell'applicazione.
 
-  - `AppMemoryMax`(_JVM. memory. max_): quantità massima di memoria disponibile per l'applicazione. Il valore può essere indefinito o potrebbe cambiare nel tempo, se definito. Se è definito, la quantità di memoria utilizzata e di cui è stato eseguito il commit è sempre minore o uguale a max. Tuttavia, un'allocazione di memoria potrebbe non `OutOfMemoryError` riuscire con un messaggio se l'allocazione tenta di aumentare la memoria utilizzata, in modo da *utilizzare > eseguito il commit*, anche se *utilizzata <= max* è ancora true. In una situazione di questo tipo, provare ad aumentare le dimensioni massime dell' `-Xmx` heap utilizzando il parametro.
+  - `AppMemoryMax`(_JVM. memory. max_): quantità massima di memoria disponibile per l'applicazione. Il valore può essere indefinito o potrebbe cambiare nel tempo, se definito. Se è definito, la quantità di memoria utilizzata e di cui è stato eseguito il commit è sempre minore o uguale a max. Tuttavia, un'allocazione di memoria potrebbe non riuscire con un `OutOfMemoryError` messaggio se l'allocazione tenta di aumentare la memoria utilizzata, in modo da *utilizzare > eseguito il commit*, anche se *utilizzata <= max* è ancora true. In una situazione di questo tipo, provare ad aumentare le dimensioni massime dell'heap utilizzando il `-Xmx` parametro.
 
   - `AppMemoryUsed`(_JVM. memory. used_): quantità di memoria in byte attualmente usata dall'applicazione. Per un'applicazione Java Load normale, questa serie metrica forma un modello a *dente di sega* , in cui l'utilizzo della memoria aumenta costantemente e diminuisce in piccoli incrementi e si abbassa improvvisamente, quindi il modello si ripete. Questa serie metrica si verifica a causa di Garbage Collection all'interno di una macchina virtuale Java, in cui le azioni di raccolta rappresentano le gocce sul modello a dente.
     
@@ -111,7 +110,7 @@ Tuttavia, se si tenta di configurare l'istanza del servizio cloud Spring di Azur
 
 Se si vuole configurare l'istanza del servizio cloud Spring di Azure usando il modello di Gestione risorse, vedere prima di tutto come [comprendere la struttura e la sintassi dei modelli Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 
-Il nome dell'istanza del servizio cloud di Azure Spring verrà usato per richiedere un nome di sottodominio in `azureapps.io`, pertanto l'installazione avrà esito negativo se il nome è in conflitto con uno esistente. È possibile trovare altri dettagli nei log attività.
+Il nome dell'istanza del servizio cloud di Azure Spring verrà usato per richiedere un nome di sottodominio in `azureapps.io` , pertanto l'installazione avrà esito negativo se il nome è in conflitto con uno esistente. È possibile trovare altri dettagli nei log attività.
 
 ### <a name="i-cant-deploy-a-jar-package"></a>Non è possibile distribuire un pacchetto JAR
 
@@ -160,7 +159,7 @@ Le variabili di ambiente informano il Framework di Azure Spring cloud, assicuran
 
 1. Passare a `https://<your application test endpoint>/actuator/health`.  
     - Una risposta simile a `{"status":"UP"}` indica che l'endpoint è stato abilitato.
-    - Se la risposta è negativa, includere la dipendenza seguente nel file *POM. XML* :
+    - Se la risposta è negativa, includere la dipendenza seguente nel file di *POM.xml* :
 
         ```xml
             <dependency>
@@ -169,7 +168,7 @@ Le variabili di ambiente informano il Framework di Azure Spring cloud, assicuran
             </dependency>
         ```
 
-1. Con l'endpoint dell'attuatore Spring Boot abilitato, passare alla portale di Azure e cercare la pagina di configurazione dell'applicazione.  Aggiungere una variabile di ambiente con il `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` nome e il `*` valore. 
+1. Con l'endpoint dell'attuatore Spring Boot abilitato, passare alla portale di Azure e cercare la pagina di configurazione dell'applicazione.  Aggiungere una variabile di ambiente con il nome `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` e il valore `*` . 
 
 1. Riavviare l'applicazione.
 
@@ -189,16 +188,18 @@ Le variabili di ambiente informano il Framework di Azure Spring cloud, assicuran
     }
     ```
 
-Cercare il nodo figlio denominato `systemEnvironment`.  Questo nodo contiene le variabili di ambiente dell'applicazione.
+Cercare il nodo figlio denominato `systemEnvironment` .  Questo nodo contiene le variabili di ambiente dell'applicazione.
 
 > [!IMPORTANT]
-> Ricordarsi di annullare l'esposizione delle variabili di ambiente prima di rendere l'applicazione accessibile al pubblico.  Passare alla portale di Azure, cercare la pagina di configurazione dell'applicazione ed eliminare questa variabile di ambiente: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
+> Ricordarsi di annullare l'esposizione delle variabili di ambiente prima di rendere l'applicazione accessibile al pubblico.  Passare alla portale di Azure, cercare la pagina di configurazione dell'applicazione ed eliminare questa variabile di ambiente: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Non è possibile trovare metriche o log per l'applicazione
 
 Passare a **gestione app** per assicurarsi che lo stato dell'applicazione sia _in esecuzione_ e _su_.
 
-Se è possibile visualizzare le metriche da _JVM_ ma nessuna metrica da _Tomcat_, verificare se la `spring-boot-actuator` dipendenza è abilitata nel pacchetto dell'applicazione e se è stata avviata correttamente.
+Verificare che Weather _JMX_ sia abilitato nel pacchetto dell'applicazione. Questa funzionalità può essere abilitata con la proprietà di configurazione `spring.jmx.enabled=true` .  
+
+Verificare `spring-boot-actuator` che la dipendenza sia abilitata nel pacchetto dell'applicazione e che venga avviata correttamente.
 
 ```xml
 <dependency>

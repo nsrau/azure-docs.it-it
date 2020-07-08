@@ -5,14 +5,13 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 06/08/2020
 ms.author: victorh
-ms.openlocfilehash: d1ec04a0c16feb6d404018ff9538b9572e1d71c2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791487"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -176,7 +175,7 @@ La capacità di velocità effettiva iniziale di Firewall di Azure è 2,5 - 3 Gbp
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo è necessario per aumentare le istanze di Firewall di Azure?
 
-Firewall di Azure viene ridimensionato gradualmente quando la velocità effettiva media o il consumo medio della CPU è pari al 60%. L'aumento delle istanze richiede da cinque a sette minuti. Quando si esegue il test delle prestazioni, verificare di eseguirlo per almeno 10-15 minuti e avviare nuove connessioni per sfruttare i vantaggi dei nodi firewall creati.
+Firewall di Azure viene ridimensionato gradualmente quando la velocità effettiva media o il consumo medio della CPU è pari al 60%. L'aumento delle istanze richiede da cinque a sette minuti. Quando si esegue il test delle prestazioni, assicurarsi di eseguire il test per almeno 10-15 minuti e avviare nuove connessioni per sfruttare i vantaggi dei nodi firewall appena creati.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Firewall di Azure consente l'accesso ad Active Directory per impostazione predefinita?
 
@@ -211,3 +210,11 @@ Un ping TCP non si connette effettivamente al nome di dominio completo di destin
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Sono previsti limiti per il numero di indirizzi IP supportati da gruppi IP?
 
 Sì. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
+
+## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>È possibile spostare un gruppo IP in un altro gruppo di risorse?
+
+No, il trasferimento di un gruppo IP a un altro gruppo di risorse non è attualmente supportato.
+
+## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Che cos'è il timeout di inattività TCP per il firewall di Azure?
+
+Un comportamento standard di un firewall di rete è garantire che le connessioni TCP vengano mantenute attive e chiuderle immediatamente se non è presente alcuna attività. Il timeout di inattività TCP del firewall di Azure è di quattro minuti. Questa impostazione non è configurabile. Se un periodo di inattività è più lungo del valore di timeout, non vi è alcuna garanzia che la sessione TCP o HTTP venga mantenuta. Una prassi comune consiste nell'usare una connessione TCP keep-alive per mantenere la connessione attiva per un periodo più lungo. Per ulteriori informazioni, vedere gli [esempi di .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).

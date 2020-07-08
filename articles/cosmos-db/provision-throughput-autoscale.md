@@ -5,13 +5,12 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/04/2020
+ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791147"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creare contenitori e database di Azure Cosmos con velocità effettiva a scalabilità automatica
 
@@ -29,7 +28,7 @@ I database e i contenitori di Azure Cosmos configurati con la velocità effettiv
 
 * **Scalabilità**: I database e i contenitori ridimensionano automaticamente la velocità effettiva con provisioning in base alle esigenze, senza interruzioni delle connessioni client o delle applicazioni né alcun impatto sui contratti di servizio di Azure Cosmos DB.
 
-* **Convenienza**: La scalabilità automatica consente di ottimizzare l'utilizzo di UR/sec e i costi grazie alla riduzione quando non è in uso. Si paga solo per le risorse necessarie per i carichi di lavoro su base oraria.
+* **Convenienza**: La scalabilità automatica consente di ottimizzare l'utilizzo di UR/sec e i costi grazie alla riduzione quando non è in uso. Si paga solo per le risorse necessarie per i carichi di lavoro su base oraria. Di tutte le ore in un mese, se si imposta la scalabilità automatica max ur/s (tmax) e si usa la quantità totale tmax per il 66% delle ore o meno, sarà possibile risparmiare con la scalabilità automatica. Per altre informazioni, vedere l'articolo [come scegliere tra la velocità effettiva con provisioning standard (manuale) e scalabilità](how-to-choose-offer.md) automatica.
 
 * **Disponibilità elevata**: I database e i contenitori che usano la scalabilità automatica usano lo stesso back-end di Azure Cosmos DB distribuito a livello globale, a tolleranza di errore e a disponibilità elevata per garantire la durabilità e un'elevata disponibilità dei dati.
 
@@ -57,8 +56,9 @@ Ogni ora viene addebitata la velocità effettiva più elevata `T` a cui il siste
 
 Il punto di ingresso per la velocità effettiva massima a scalabilità automatica `Tmax` inizia a 4000 UR/sec, che si ridimensiona tra 400 e 4000 UR/sec. È possibile impostare `Tmax` con incrementi di 1000 UR/sec e modificare il valore in qualsiasi momento.  
 
-## <a name="enable-autoscale-on-existing-resources"></a>Abilitare la scalabilità automatica per le risorse esistenti ##
-Usare il [portale di Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) per abilitare la scalabilità automatica per un database o un contenitore esistente. È possibile passare dalla velocità effettiva con provisioning a scalabilità automatica alla velocità effettiva con provisioning standard (manuale) e viceversa in qualsiasi momento. Per altre informazioni, vedere questa [documentazione](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work).
+## <a name="enable-autoscale-on-existing-resources"></a>Abilitare la scalabilità automatica per le risorse esistenti
+
+Usare il [portale di Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) per abilitare la scalabilità automatica per un database o un contenitore esistente. È possibile passare dalla velocità effettiva con provisioning a scalabilità automatica alla velocità effettiva con provisioning standard (manuale) e viceversa in qualsiasi momento. Per altre informazioni, vedere questa [documentazione](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work). Attualmente, per tutte le API, è possibile usare la portale di Azure solo per abilitare la scalabilità automatica sulle risorse esistenti.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limiti di archiviazione e velocità effettiva per la scalabilità automatica
 

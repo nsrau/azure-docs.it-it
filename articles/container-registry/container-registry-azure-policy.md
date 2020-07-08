@@ -2,24 +2,20 @@
 title: Conformità con criteri di Azure
 description: Assegnare criteri predefiniti in criteri di Azure per controllare la conformità dei registri contenitori di Azure
 ms.topic: article
-ms.date: 02/26/2020
-ms.openlocfilehash: a2bfdc18f4bbf16fe8fa6bcbcba7bab18aedabf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/11/2020
+ms.openlocfilehash: 6101db865749f98f50e04f1fec3b8009089b7908
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791895"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Controllare la conformità dei registri contenitori di Azure con criteri di Azure
 
 [Criteri di Azure](../governance/policy/overview.md) è un servizio di Azure che è possibile usare per creare, assegnare e gestire i criteri. Questi criteri applicano regole ed effetti diversi alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'azienda.
 
-Questo articolo introduce i criteri predefiniti (anteprima) per Container Registry di Azure. Usare questi criteri per controllare la conformità dei registri nuovi ed esistenti.
+Questo articolo presenta i criteri predefiniti per Azure Container Registry. Usare questi criteri per controllare la conformità dei registri nuovi ed esistenti.
 
 Non sono previsti addebiti per l'uso di criteri di Azure.
-
-> [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 ## <a name="built-in-policy-definitions"></a>Definizioni dei criteri predefiniti
 
@@ -27,7 +23,7 @@ Le definizioni dei criteri predefinite seguenti sono specifiche per Container Re
 
 [!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/policy/samples/bycat/policies-container-registry.md)]
 
-Vedere anche la definizione di criteri di rete incorporata: [[Anteprima] container Registry usare un endpoint del servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
+Vedere anche la definizione di criteri di rete incorporata: [container Registry dovrebbe usare un endpoint del servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
 ## <a name="assign-policies"></a>Assegnare criteri
 
@@ -42,13 +38,16 @@ Vedere anche la definizione di criteri di rete incorporata: [[Anteprima] contain
 
 Accedere alle informazioni di conformità generate dalle assegnazioni dei criteri usando il portale di Azure, gli strumenti da riga di comando di Azure o gli SDK di criteri di Azure. Per informazioni dettagliate, vedere [ottenere i dati di conformità delle risorse di Azure](../governance/policy/how-to/get-compliance-data.md).
 
-Quando una risorsa non è conforme, esistono molti motivi possibili. Per determinare il motivo o per trovare la modifica responsabile, vedere [determinare la non conformità](../governance/policy/how-to/determine-non-compliance.md).
+Quando una risorsa non è conforme, i motivi possibili sono molti. Per determinare il motivo o per trovare la modifica responsabile, vedere [determinare la non conformità](../governance/policy/how-to/determine-non-compliance.md).
 
 ### <a name="policy-compliance-in-the-portal"></a>Conformità dei criteri nel portale:
 
 1. Selezionare **tutti i servizi**e cercare i **criteri**.
 1. Selezionare **conformità**.
-1. Usare i filtri per limitare gli Stati di conformità o per cercare ![la conformità dei criteri](./media/container-registry-azure-policy/azure-policy-compliance.png)nel portale.
+1. Usare i filtri per limitare gli Stati di conformità o per cercare i criteri.
+
+    ![Conformità dei criteri nel portale](./media/container-registry-azure-policy/azure-policy-compliance.png)
+    
 1. Selezionare un criterio per esaminare i dettagli e gli eventi di conformità aggregati. Se necessario, selezionare un registro specifico per la conformità delle risorse.
 
 ### <a name="policy-compliance-in-the-azure-cli"></a>Conformità dei criteri nell'interfaccia della riga di comando di Azure
@@ -64,8 +63,8 @@ Output di esempio:
 ```
 Name                                                                                   ID
 -------------------------------------------------------------------------------------  --------------------------------------------------------------------------------------------------------------------------------
-[Preview]: Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
-[Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
+Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
+Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
 Eseguire quindi il comando [AZ Policy state list](/cli/azure/policy/state#az-policy-state-list) per restituire lo stato di conformità in formato JSON per tutte le risorse in un ID criterio specifico:
@@ -87,12 +86,8 @@ az policy state list \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sulle [definizioni](../governance/policy/concepts/definition-structure.md) e [sugli effetti](../governance/policy/concepts/effects.md) dei criteri di Azure
+* Scopri di più sulle [definizioni](../governance/policy/concepts/definition-structure.md) e [sugli effetti](../governance/policy/concepts/effects.md)dei criteri di Azure.
 
-* Creare una [definizione di criteri personalizzata](../governance/policy/tutorials/create-custom-policy-definition.md)
+* Creare una [definizione di criteri personalizzata](../governance/policy/tutorials/create-custom-policy-definition.md).
 
-* Altre informazioni sulle [funzionalità di governance](../governance/index.yml) in Azure
-
-
-<!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+* Scopri di più sulle [funzionalità di governance](../governance/index.yml) in Azure.

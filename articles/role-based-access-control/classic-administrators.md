@@ -8,18 +8,17 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734859"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791793"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -38,13 +37,13 @@ Questo articolo descrive come aggiungere o modificare i ruoli di coamministrator
 
     I coamministratori possono essere assegnati solo nell'ambito della sottoscrizione.
 
-1. Fare clic su **controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **Amministratori (versione classica)**.
 
     ![Screenshot che apre Amministratori (versione classica)](./media/classic-administrators/classic-administrators.png)
 
-1. Fare clic su **Aggiungi** > **co-amministratore** per aprire il riquadro Aggiungi co-amministratori.
+1. Fare clic su **Aggiungi**  >  **co-amministratore** per aprire il riquadro Aggiungi co-amministratori.
 
     Se l'opzione Aggiungi coamministratore è disabilitata, non dispone dell'autorizzazione.
 
@@ -83,7 +82,7 @@ Per informazioni sul confronto tra utenti membri e utenti guest, vedere [quali s
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Fare clic su **controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **Amministratori (versione classica)**.
 
@@ -126,9 +125,9 @@ Può essere presente un solo amministratore del servizio per ogni sottoscrizione
 | Account amministratore account | È possibile modificare l'amministratore del servizio in un account Microsoft diverso? | È possibile modificare l'amministratore del servizio in un account Azure AD nella stessa directory? | È possibile modificare l'amministratore del servizio in un account Azure AD in una directory diversa? |
 | --- | --- | --- | --- |
 | Account Microsoft | Sì | No | No |
-| Account di Azure AD | Sì | Sì | No |
+| Account Azure AD | Sì | Sì | No |
 
-Se l'amministratore dell'account è un account di Azure AD, è possibile modificare l'amministratore del servizio in un account di Azure AD nella stessa directory, ma non in una directory diversa. Ad esempio, abby@contoso.com può modificare l'amministratore del servizio bob@contoso.comin, ma non può modificare l'amministratore john@notcontoso.com del servizio john@notcontoso.com in a meno che non abbia una presenza nella directory contoso.com
+Se l'amministratore dell'account è un account di Azure AD, è possibile modificare l'amministratore del servizio in un account di Azure AD nella stessa directory, ma non in una directory diversa. Ad esempio, abby@contoso.com può modificare l'amministratore del servizio in bob@contoso.com , ma non può modificare l'amministratore del servizio in a john@notcontoso.com meno che non john@notcontoso.com abbia una presenza nella directory contoso.com
 
 Per ulteriori informazioni sugli account Microsoft e Azure AD, vedere [che cos'è Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
@@ -142,7 +141,7 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Fare clic su **Proprietà**.
+1. Scegliere **Proprietà**.
 
     L'amministratore account della sottoscrizione viene visualizzato nella casella **amministratore account** .
 
@@ -152,4 +151,4 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 
 * [Informazioni sui diversi ruoli](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md)
-* [Aggiungere o modificare gli amministratori della sottoscrizione di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)
+* [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

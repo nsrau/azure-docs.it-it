@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194912"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Eseguire il push dei dati in un indice di ricerca cognitiva di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -34,7 +33,7 @@ Per consentire la connessione del servizio Data Factory a un archivio dati local
 
 Gateway di gestione dati consente di connettere le origini dati locali ai servizi cloud in modo sicuro e gestito. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia che esegue il push dei dati da un archivio dati di origine a un indice di ricerca usando diversi strumenti o API.
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -47,7 +46,7 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 2. Creare **set** di dati per rappresentare i dati di input e di output per l'operazione di copia.
 3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per Data Factory entità usate per copiare dati nell'indice di ricerca, vedere [esempio JSON: copiare dati da un SQL Server locale a una sezione di Azure ricerca cognitiva index](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) di questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per Data Factory entità usate per copiare dati nell'indice di ricerca, vedere [esempio JSON: copiare dati da SQL Server a una sezione di Azure ricerca cognitiva index](#json-example-copy-data-from-sql-server-to-azure-cognitive-search-index) di questo articolo.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire Data Factory entità specifiche di un indice di ricerca:
 
@@ -108,7 +107,7 @@ La tabella seguente specifica se un tipo di dati di ricerca cognitiva di Azure �
 | String Array | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>Esempio JSON: copiare dati da SQL Server locali ad Azure ricerca cognitiva index
+## <a name="json-example-copy-data-from-sql-server-to-azure-cognitive-search-index"></a>Esempio JSON: copiare dati da SQL Server ad Azure ricerca cognitiva index
 
 L'esempio seguente mostra:
 
@@ -118,7 +117,7 @@ L'esempio seguente mostra:
 4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureSearchIndex](#dataset-properties).
 4. Una [pipeline](data-factory-create-pipelines.md) con un'attività di copia che usa [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) e [AzureSearchIndexSink](#copy-activity-properties).
 
-L'esempio copia i dati di una serie temporale da un database di SQL Server locale per eseguire la ricerca nell'indice ogni ora. Le proprietà JSON usate in questo esempio sono descritte nelle sezioni riportate dopo gli esempi.
+L'esempio copia i dati di una serie temporale da un database di SQL Server per eseguire la ricerca nell'indice ogni ora. Le proprietà JSON usate in questo esempio sono descritte nelle sezioni riportate dopo gli esempi.
 
 Come primo passaggio è necessario configurare Gateway di gestione dati nel computer locale. Le istruzioni sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) .
 

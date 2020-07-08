@@ -3,12 +3,11 @@ title: Sviluppare funzioni di Azure usando Visual Studio Code
 description: Informazioni su come sviluppare e testare funzioni di Azure usando l'estensione funzioni di Azure per Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 459162c277a9510297580a99acb8a88b0702a290
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732472"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare funzioni di Azure usando Visual Studio Code
 
@@ -31,7 +30,7 @@ L'estensione può essere usata con i linguaggi seguenti, che sono supportati dal
 
 <sup>*</sup>È necessario [impostare lo script C# come lingua del progetto predefinita](#c-script-projects).
 
-In questo articolo gli esempi sono attualmente disponibili solo per le funzioni JavaScript (node. js) e libreria di classi C#.  
+In questo articolo gli esempi sono attualmente disponibili solo per le funzioni JavaScript (Node.js) e libreria di classi C#.  
 
 Questo articolo fornisce informazioni dettagliate su come usare l'estensione funzioni di Azure per sviluppare funzioni e pubblicarle in Azure. Prima di leggere questo articolo, è necessario [creare la prima funzione usando Visual Studio Code](functions-create-first-function-vs-code.md).
 
@@ -85,10 +84,10 @@ Il modello di progetto crea un progetto nella lingua scelta e installa le dipend
 
 * **host.json**: consente di configurare l'host di Funzioni. Queste impostazioni si applicano quando si eseguono funzioni localmente e quando vengono eseguite in Azure. Per altre informazioni, vedere il [riferimento su host.json](functions-host-json.md).
 
-* **local. Settings. JSON**: mantiene le impostazioni usate quando si eseguono le funzioni localmente. Queste impostazioni vengono usate solo quando le funzioni sono in esecuzione localmente. Per ulteriori informazioni, vedere [file di impostazioni locali](#local-settings-file).
+* **local.settings.json**: mantiene le impostazioni usate quando si eseguono le funzioni localmente. Queste impostazioni vengono usate solo quando le funzioni sono in esecuzione localmente. Per ulteriori informazioni, vedere [file di impostazioni locali](#local-settings-file).
 
     >[!IMPORTANT]
-    >Poiché il file local. Settings. JSON può contenere segreti, è necessario escluderlo dal controllo del codice sorgente del progetto.
+    >Poiché il local.settings.jsnel file può contenere segreti, è necessario escluderlo dal controllo del codice sorgente del progetto.
 
 A seconda del linguaggio, vengono creati questi altri file:
 
@@ -96,11 +95,15 @@ A seconda del linguaggio, vengono creati questi altri file:
 
 * [File di libreria di classi HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) che implementa la funzione.
 
+A questo punto, è possibile aggiungere associazioni di input e di output alla funzione [aggiungendo un parametro a una funzione della libreria di classi C#](#add-input-and-output-bindings).
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-* Un file Package. JSON nella cartella radice.
+* package.jsnel file nella cartella radice.
 
-* Una cartella HttpExample che contiene il [file di definizione function. JSON](functions-reference-node.md#folder-structure) e il [file index. js](functions-reference-node.md#exporting-a-function), un file node. js che contiene il codice della funzione.
+* Una cartella HttpExample che contiene il [function.jsfile di definizione](functions-reference-node.md#folder-structure) e il file di [index.js](functions-reference-node.md#exporting-a-function), un file Node.js che contiene il codice della funzione.
+
+A questo punto, è possibile aggiungere associazioni di input e di output alla funzione [modificando il function.jssu file](#add-input-and-output-bindings).
 
 <!-- # [PowerShell](#tab/powershell)
 
@@ -113,8 +116,6 @@ A seconda del linguaggio, vengono creati questi altri file:
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
      -->
 ---
-
-A questo punto, è possibile aggiungere associazioni di input e di output alla funzione [modificando il file function. JSON](#add-a-function-to-your-project) o [aggiungendo un parametro a una funzione della libreria di classi C#](#add-a-function-to-your-project).
 
 È anche possibile [aggiungere una nuova funzione al progetto](#add-a-function-to-your-project).
 
@@ -148,7 +149,7 @@ Al progetto viene aggiunto un nuovo file di libreria di classi C# (. cs).
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-Nel progetto viene creata una nuova cartella. La cartella contiene un nuovo file function. JSON e il nuovo file di codice JavaScript.
+Nel progetto viene creata una nuova cartella. La cartella contiene un nuovo function.jsnel file e il nuovo file di codice JavaScript.
 
 ---
 
@@ -156,17 +157,17 @@ Nel progetto viene creata una nuova cartella. La cartella contiene un nuovo file
 
 È possibile espandere la funzione aggiungendo associazioni di input e di output. Il processo per l'aggiunta di binding dipende dalla lingua del progetto. Per altre informazioni sui binding, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
 
-Gli esempi seguenti si connettono a una `outqueue`coda di archiviazione denominata, in cui la stringa di connessione per l' `MyStorageConnection` account di archiviazione viene impostata nell'impostazione dell'applicazione in local. Settings. JSON.
+Gli esempi seguenti si connettono a una coda di archiviazione denominata `outqueue` , in cui la stringa di connessione per l'account di archiviazione viene impostata nell' `MyStorageConnection` impostazione dell'applicazione in local.settings.json.
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
-Aggiornare il metodo Function per aggiungere il parametro seguente alla definizione `Run` del metodo:
+Aggiornare il metodo Function per aggiungere il parametro seguente alla `Run` definizione del metodo:
 
 ```cs
 [Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
 ```
 
-Per questo codice è necessario aggiungere l'istruzione `using` seguente:
+Per questo codice è necessario aggiungere l' `using` istruzione seguente:
 
 ```cs
 using Microsoft.Azure.WebJobs.Extensions.Storage;
@@ -178,7 +179,7 @@ Per altre informazioni, vedere la documentazione sull' [associazione di output d
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-Visual Studio Code consente di aggiungere binding al file function. JSON attenendosi a un set di istruzioni appropriato. Per creare un'associazione, fare clic con il pulsante destro del mouse (Ctrl + clic su macOS) nel file **Function. JSON** nella cartella della funzione e selezionare **Aggiungi binding**:
+Visual Studio Code consente di aggiungere binding al function.jsnel file attenendosi a un set di istruzioni appropriato. Per creare un'associazione, fare clic con il pulsante destro del mouse (Ctrl + clic su macOS) il **function.js** nel file nella cartella della funzione e selezionare **Aggiungi binding**:
 
 ![Aggiungere un'associazione a una funzione JavaScript esistente ](media/functions-develop-vs-code/function-add-binding.png)
 
@@ -190,9 +191,9 @@ Di seguito sono riportate alcune richieste di esempio per definire una nuova ass
 | **Seleziona binding con direzione** | `Azure Queue Storage` | Il binding è un binding della coda di archiviazione di Azure. |
 | **Il nome usato per identificare questo binding nel codice** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
 | **La coda a cui verrà inviato il messaggio** | `outqueue` | Il nome della coda in cui scrive il binding. Se *queueName* non esiste, il binding lo crea al primo utilizzo. |
-| **Selezionare l'impostazione da "local. Settings. JSON"** | `MyStorageConnection` | Nome di un'impostazione dell'applicazione che contiene la stringa di connessione per l'account di archiviazione. L' `AzureWebJobsStorage` impostazione contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
+| **Selezionare l'impostazione da "local.settings.json"** | `MyStorageConnection` | Nome di un'impostazione dell'applicazione che contiene la stringa di connessione per l'account di archiviazione. L' `AzureWebJobsStorage` impostazione contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
 
-In questo esempio, l'associazione seguente viene aggiunta alla `bindings` matrice nel file function. JSON:
+In questo esempio, l'associazione seguente viene aggiunta alla `bindings` matrice nel function.jsnel file:
 
 ```javascript
 {
@@ -204,9 +205,9 @@ In questo esempio, l'associazione seguente viene aggiunta alla `bindings` matric
 }
 ```
 
-È anche possibile aggiungere la stessa definizione di associazione direttamente al file function. JSON.
+È anche possibile aggiungere la stessa definizione di associazione direttamente al function.js.
 
-Nel codice della funzione, l' `msg` associazione è accessibile da `context`, come nell'esempio seguente:
+Nel codice della funzione, l' `msg` associazione è accessibile da `context` , come nell'esempio seguente:
 
 ```javascript
 context.bindings.msg = "Name passed to the function: " req.query.name;
@@ -242,7 +243,7 @@ La procedura seguente consente di pubblicare il progetto in una nuova app per le
 
     ![Impostazioni dell'app per le funzioni](./media/functions-develop-vs-code/function-app-publish-project.png)
 
-1. Se non è stato eseguito l'accesso, viene richiesto di **accedere ad Azure**. È anche possibile **creare un account Azure gratuito**. Dopo aver eseguito l'accesso dal browser, tornare a Visual Studio Code.
+1. Se non è stato effettuato l'accesso, viene richiesto di **accedere ad Azure**. È anche possibile **creare un account Azure gratuito**. Dopo aver eseguito l'accesso dal browser, tornare a Visual Studio Code.
 
 1. Se si hanno più sottoscrizioni, **selezionare una sottoscrizione** per l'app per le funzioni e quindi selezionare **+ Crea nuovo app per le funzioni in Azure... _Avanzate_**. Questa opzione _avanzata_ offre un maggiore controllo sulle risorse create in Azure. 
 
@@ -254,8 +255,8 @@ La procedura seguente consente di pubblicare il progetto in una nuova app per le
     | Selezionare un sistema operativo | Windows | L'app per le funzioni viene eseguita in Windows. |
     | Selezionare un piano di hosting | Piano a consumo | Viene usato un [piano A consumo](functions-scale.md#consumption-plan) senza server che ospita. |
     | Selezionare un runtime per la nuova app | Lingua del progetto | Il runtime deve corrispondere al progetto che si sta pubblicando. |
-    | Selezionare un gruppo di risorse per le nuove risorse | Crea nuovo gruppo di risorse | Al prompt successivo, digitare il nome di un gruppo di risorse `myResourceGroup`, ad esempio, e quindi premere INVIO. È anche possibile selezionare un gruppo di risorse esistente. |
-    | Selezionare un account di archiviazione | Creare un nuovo account di archiviazione | Al prompt successivo, digitare un nome univoco globale per il nuovo account di archiviazione usato dall'app per le funzioni e quindi premere INVIO. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile selezionare un account esistente. |
+    | Selezionare un gruppo di risorse per le nuove risorse | Crea nuovo gruppo di risorse | Al prompt successivo, digitare il nome di un gruppo di risorse, ad esempio `myResourceGroup` , e quindi premere INVIO. È anche possibile selezionare un gruppo di risorse esistente. |
+    | Select a storage account (Selezionare un account di archiviazione) | Creare un nuovo account di archiviazione | Al prompt successivo, digitare un nome univoco globale per il nuovo account di archiviazione usato dall'app per le funzioni e quindi premere INVIO. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile selezionare un account esistente. |
     | Selezionare una località per le nuove risorse | region | Selezionare una località in un' [area](https://azure.microsoft.com/regions/) vicina o vicino ad altri servizi a cui accedono le funzioni. |
 
     Dopo la creazione dell'app per le funzioni viene visualizzata una notifica e viene applicato il pacchetto di distribuzione. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create.
@@ -267,13 +268,7 @@ Quando si configura la [distribuzione continua](functions-continuous-deployment.
 > [!IMPORTANT]
 > La pubblicazione in un'app per le funzioni esistente sovrascrive il contenuto di tale app in Azure.
 
-1. In Visual Studio Code selezionare F1 per aprire il riquadro comandi. Nel riquadro comandi cercare e selezionare **funzioni di Azure: Distribuisci in app per**le funzioni.
-
-1. Se non è stato eseguito l'accesso, viene richiesto di **accedere ad Azure**. Dopo aver eseguito l'accesso dal browser, tornare a Visual Studio Code. Se si hanno più sottoscrizioni, **selezionare una sottoscrizione** che contiene l'app per le funzioni.
-
-1. Selezionare l'app per le funzioni esistente in Azure. Quando viene visualizzato un avviso relativo alla sovrascrittura di tutti i file nell'app per le funzioni, selezionare **Distribuisci** per confermare l'avviso e continuare.
-
-Il progetto viene ricompilato, riassemblato e caricato in Azure. Il progetto esistente viene sostituito dal nuovo pacchetto e l'app per le funzioni viene riavviata.
+[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
 ## <a name="get-the-url-of-the-deployed-function"></a>Ottenere l'URL della funzione distribuita
 
@@ -287,7 +282,7 @@ L'URL della funzione viene copiato negli Appunti, insieme alle chiavi richieste 
 
 ## <a name="run-functions-locally"></a>Eseguire funzioni localmente
 
-L'estensione funzioni di Azure consente di eseguire un progetto di funzioni nel computer di sviluppo locale. Il runtime locale è lo stesso runtime che ospita l'app per le funzioni in Azure. Le impostazioni locali vengono lette dal [file local. Settings. JSON](#local-settings-file).
+L'estensione funzioni di Azure consente di eseguire un progetto di funzioni nel computer di sviluppo locale. Il runtime locale è lo stesso runtime che ospita l'app per le funzioni in Azure. Le impostazioni locali vengono lette dal [local.settings.jssul file](#local-settings-file).
 
 ### <a name="additional-requirements-for-running-a-project-locally"></a>Requisiti aggiuntivi per l'esecuzione locale di un progetto
 
@@ -301,7 +296,7 @@ Per eseguire localmente il progetto di funzioni, è necessario soddisfare i requ
     | -------- | --------- |
     | **C#** | [Estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Strumenti dell'interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger per l'estensione Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 o versione successiva](https://maven.apache.org/) |
-    | **JavaScript** | [Node. js](https://nodejs.org/)<sup>*</sup> |  
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Estensione di Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[3.6.8 tramite Python](https://www.python.org/downloads/) consigliato|
 
     <sup>*</sup>Versioni di LTS attive e di manutenzione (8.11.1 e 10.14.1 consigliate).
@@ -314,7 +309,7 @@ Questa sezione usa l' [estensione di archiviazione di Azure per Visual Studio Co
 
 Per impostare la stringa di connessione dell'account di archiviazione:
 
-1. In Visual Studio aprire **Cloud Explorer**, espandere **account** > di archiviazione account di**archiviazione**e quindi selezionare **Proprietà** e copiare il valore della **stringa di connessione primaria** .
+1. In Visual Studio aprire **Cloud Explorer**, espandere **account di archiviazione**account di  >  **archiviazione**e quindi selezionare **Proprietà** e copiare il valore della **stringa di connessione primaria** .
 
 2. Nel progetto aprire il file local.settings.json e impostare il valore della chiave **AzureWebJobsStorage** sulla stringa di connessione copiata.
 
@@ -334,7 +329,7 @@ Per altre informazioni, vedere [usare Azure Functions Core Tools][Azure Function
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-Per impostazione predefinita, queste impostazioni non vengono migrate automaticamente quando il progetto viene pubblicato in Azure. Al termine della pubblicazione, viene offerta la possibilità di pubblicare le impostazioni da local. Settings. JSON all'app per le funzioni in Azure. Per altre informazioni, vedere [pubblicare le impostazioni dell'applicazione](#publish-application-settings).
+Per impostazione predefinita, queste impostazioni non vengono migrate automaticamente quando il progetto viene pubblicato in Azure. Al termine della pubblicazione, viene offerta la possibilità di pubblicare le impostazioni da local.settings.jsall'app per le funzioni in Azure. Per altre informazioni, vedere [pubblicare le impostazioni dell'applicazione](#publish-application-settings).
 
 I valori in **ConnectionStrings** non vengono mai pubblicati.
 
@@ -347,7 +342,7 @@ I valori delle impostazioni dell'applicazione di funzione possono anche essere l
 
 ## <a name="application-settings-in-azure"></a>Impostazioni dell'applicazione in Azure
 
-Le impostazioni nel file local. Settings. JSON nel progetto devono essere le stesse delle impostazioni dell'applicazione nell'app per le funzioni in Azure. Qualsiasi impostazione aggiunta a local. Settings. JSON deve essere aggiunta anche all'app per le funzioni in Azure. Queste impostazioni non vengono caricate automaticamente quando si pubblica il progetto. Analogamente, tutte le impostazioni create nell'app per [le funzioni nel portale](functions-how-to-use-azure-function-app-settings.md#settings) devono essere scaricate nel progetto locale.
+Le impostazioni nel local.settings.jsfile del progetto devono essere le stesse delle impostazioni dell'applicazione nell'app per le funzioni in Azure. È necessario aggiungere anche le impostazioni aggiunte al local.settings.json all'app per le funzioni in Azure. Queste impostazioni non vengono caricate automaticamente quando si pubblica il progetto. Analogamente, tutte le impostazioni create nell'app per [le funzioni nel portale](functions-how-to-use-azure-function-app-settings.md#settings) devono essere scaricate nel progetto locale.
 
 ### <a name="publish-application-settings"></a>Pubblicare le impostazioni dell'applicazione
 
@@ -358,7 +353,7 @@ Il modo più semplice per pubblicare le impostazioni necessarie nell'app per le 
 È anche possibile pubblicare le impostazioni usando il comando **funzioni di Azure: Carica impostazioni locali** nel riquadro comandi. È possibile aggiungere singole impostazioni alle impostazioni dell'applicazione in Azure usando il comando **funzioni di Azure: Aggiungi nuova impostazione** .
 
 > [!TIP]
-> Assicurarsi di salvare il file local. Settings. JSON prima di pubblicarlo.
+> Assicurarsi di salvare il local.settings.jsnel file prima di pubblicarlo.
 
 Se il file locale è crittografato, viene decrittografato, pubblicato e crittografato di nuovo. Se sono presenti impostazioni che contengono valori in conflitto nei due percorsi, viene richiesto di scegliere come procedere.
 
@@ -368,7 +363,7 @@ Visualizzare le impostazioni dell'app esistente nell'area **Azure: Functions** e
 
 ### <a name="download-settings-from-azure"></a>Scaricare le impostazioni da Azure
 
-Se sono state create impostazioni dell'applicazione in Azure, è possibile scaricarle nel file local. Settings. JSON usando il comando **Azure Functions: Download Remote settings** .
+Se sono state create impostazioni dell'applicazione in Azure, è possibile scaricarle nel local.settings.jsfile usando il comando **funzioni di Azure: Scarica impostazioni remote** .
 
 Come per il caricamento, se il file locale è crittografato, viene decrittografato, aggiornato e crittografato di nuovo. Se sono presenti impostazioni che contengono valori in conflitto nei due percorsi, viene richiesto di scegliere come procedere.
 
@@ -397,17 +392,17 @@ Si consiglia di monitorare l'esecuzione delle funzioni integrando l'app per le f
 
 Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
 
-## <a name="c-script-projects"></a>Progetti\# script C
+## <a name="c-script-projects"></a>\#Progetti script C
 
 Per impostazione predefinita, tutti i progetti C# vengono creati come [progetti della libreria di classi compilata in c#](functions-dotnet-class-library.md). Se invece si preferisce usare i progetti script C#, è necessario selezionare lo script C# come lingua predefinita nelle impostazioni dell'estensione funzioni di Azure:
 
-1. Selezionare **File** > **Preferences**preferenze > file**Impostazioni**.
+1. Selezionare **File**  >  **Preferenze**file  >  **Impostazioni**.
 
-1. Passare a **User Settings** > **Extensions** > **funzioni di Azure**.
+1. Passare a **User Settings**  >  **Extensions**  >  **funzioni di Azure**.
 
 1. Selezionare **lo script C #** da **funzione di Azure: lingua del progetto**.
 
-Dopo aver completato questi passaggi, le chiamate effettuate agli strumenti di base sottostanti `--csx` includono l'opzione, che genera e pubblica i file di progetto di script C# (. CSX). Quando si specifica questa lingua predefinita, tutti i progetti creati per impostazione predefinita vengono creati per i progetti di script C#. Non viene richiesto di scegliere una lingua del progetto quando viene impostato un valore predefinito. Per creare progetti in altre lingue, è necessario modificare questa impostazione o rimuoverla dal file User Settings. JSON. Dopo aver rimosso questa impostazione, viene nuovamente richiesto di scegliere la lingua quando si crea un progetto.
+Dopo aver completato questi passaggi, le chiamate effettuate agli strumenti di base sottostanti includono l' `--csx` opzione, che genera e pubblica i file di progetto di script C# (. CSX). Quando si specifica questa lingua predefinita, tutti i progetti creati per impostazione predefinita vengono creati per i progetti di script C#. Non viene richiesto di scegliere una lingua del progetto quando viene impostato un valore predefinito. Per creare progetti in altre lingue, è necessario modificare questa impostazione o rimuoverla dall'utente settings.jssu file. Dopo aver rimosso questa impostazione, viene nuovamente richiesto di scegliere la lingua quando si crea un progetto.
 
 ## <a name="command-palette-reference"></a>Riferimento al riquadro comandi
 
@@ -424,25 +419,25 @@ L'estensione funzioni di Azure offre un'interfaccia grafica utile nell'area per 
 | **Elimina app per le funzioni** | Rimuove un'app per le funzioni dalla sottoscrizione in Azure. Quando nel piano di servizio app non sono presenti altre app, è possibile eliminarle. Altre risorse, ad esempio gli account di archiviazione e i gruppi di risorse, non vengono eliminate. Per rimuovere tutte le risorse, è necessario invece [eliminare il gruppo di risorse](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Il progetto locale non è interessato. |
 |**Funzione Delete**  | Rimuove una funzione esistente da un'app per le funzioni in Azure. Poiché questa eliminazione non influisce sul progetto locale, provare invece a rimuovere la funzione localmente e quindi a [ripubblicare il progetto](#republish-project-files). |
 | **Elimina proxy** | Rimuove un proxy di funzioni di Azure dall'app per le funzioni in Azure. Per altre informazioni sui proxy, vedere [usare proxy di funzioni di Azure](functions-proxies.md). |
-| **Elimina impostazione** | Elimina un'impostazione dell'app per le funzioni in Azure. Questa eliminazione non influisce sulle impostazioni nel file local. Settings. JSON. |
+| **Elimina impostazione** | Elimina un'impostazione dell'app per le funzioni in Azure. Questa eliminazione non influisce sulle impostazioni nel local.settings.jsfile. |
 | **Disconnetti dal repository**  | Rimuove la connessione di [distribuzione continua](functions-continuous-deployment.md) tra un'app per le funzioni in Azure e un repository del controllo del codice sorgente. |
-| **Scarica impostazioni remote** | Scarica le impostazioni dall'app per le funzioni scelta in Azure nel file local. Settings. JSON. Se il file locale è crittografato, viene decrittografato, aggiornato e crittografato di nuovo. Se sono presenti impostazioni che contengono valori in conflitto nei due percorsi, viene richiesto di scegliere come procedere. Prima di eseguire questo comando, assicurarsi di salvare le modifiche apportate al file local. Settings. JSON. |
-| **Modifica impostazioni** | Modifica il valore di un'impostazione dell'app per le funzioni esistente in Azure. Questo comando non influisce sulle impostazioni nel file local. Settings. JSON.  |
-| **Crittografa impostazioni** | Crittografa i singoli elementi nella `Values` matrice nelle [impostazioni locali](#local-settings-file). In questo file, `IsEncrypted` viene anche impostato su `true`, che specifica che il runtime locale definirà le impostazioni prima di utilizzarle. Crittografare le impostazioni locali per ridurre il rischio di perdita di informazioni importanti. In Azure le impostazioni dell'applicazione vengono sempre archiviate crittografate. |
+| **Scarica impostazioni remote** | Scarica le impostazioni dall'app per le funzioni scelta in Azure nel local.settings.jsfile. Se il file locale è crittografato, viene decrittografato, aggiornato e crittografato di nuovo. Se sono presenti impostazioni che contengono valori in conflitto nei due percorsi, viene richiesto di scegliere come procedere. Prima di eseguire questo comando, assicurarsi di salvare le modifiche apportate al local.settings.jssul file. |
+| **Modifica impostazioni** | Modifica il valore di un'impostazione dell'app per le funzioni esistente in Azure. Questo comando non influisce sulle impostazioni nel local.settings.jsfile.  |
+| **Crittografa impostazioni** | Crittografa i singoli elementi nella `Values` matrice nelle [impostazioni locali](#local-settings-file). In questo file, `IsEncrypted` viene anche impostato su `true` , che specifica che il runtime locale definirà le impostazioni prima di utilizzarle. Crittografare le impostazioni locali per ridurre il rischio di perdita di informazioni importanti. In Azure le impostazioni dell'applicazione vengono sempre archiviate crittografate. |
 | **Esegui ora funzione** | Avvia manualmente una [funzione attivata dal timer](functions-bindings-timer.md) in Azure. Questo comando viene usato per i test. Per altre informazioni sull'attivazione di funzioni non HTTP in Azure, vedere [eseguire manualmente una funzione non attivata tramite http](functions-manually-run-non-http.md). |
 | **Inizializzare il progetto per l'utilizzo con VS Code** | Aggiunge i file di progetto Visual Studio Code necessari a un progetto di funzioni esistente. Usare questo comando per lavorare con un progetto creato tramite gli strumenti di base. |
 | **Installare o aggiornare Azure Functions Core Tools** | Installa o aggiorna [Azure Functions Core Tools], che viene usato per eseguire localmente le funzioni. |
-| **Ripetere la distribuzione**  | Consente di ridistribuire i file di progetto da un repository git connesso a una distribuzione specifica in Azure. Per ripubblicare gli aggiornamenti locali da Visual Studio Code, [ripubblicare il progetto](#republish-project-files). |
-| **Rinomina impostazioni** | Modifica il nome della chiave di un'impostazione dell'app per le funzioni esistente in Azure. Questo comando non influisce sulle impostazioni nel file local. Settings. JSON. Dopo avere rinominato le impostazioni in Azure, è necessario [scaricare le modifiche nel progetto locale](#download-settings-from-azure). |
+| **Redeploy**  | Consente di ridistribuire i file di progetto da un repository git connesso a una distribuzione specifica in Azure. Per ripubblicare gli aggiornamenti locali da Visual Studio Code, [ripubblicare il progetto](#republish-project-files). |
+| **Rinomina impostazioni** | Modifica il nome della chiave di un'impostazione dell'app per le funzioni esistente in Azure. Questo comando non influisce sulle impostazioni nel local.settings.jsfile. Dopo avere rinominato le impostazioni in Azure, è necessario [scaricare le modifiche nel progetto locale](#download-settings-from-azure). |
 | **Riavvia** | Riavvia l'app per le funzioni in Azure. La distribuzione degli aggiornamenti riavvia anche l'app per le funzioni. |
-| **Imposta AzureWebJobsStorage**| Imposta il valore dell'impostazione `AzureWebJobsStorage` dell'applicazione. Questa impostazione è richiesta da funzioni di Azure. Viene impostato quando si crea un'app per le funzioni in Azure. |
+| **Imposta AzureWebJobsStorage**| Imposta il valore dell' `AzureWebJobsStorage` impostazione dell'applicazione. Questa impostazione è richiesta da funzioni di Azure. Viene impostato quando si crea un'app per le funzioni in Azure. |
 | **Inizia** | Avvia un'app per le funzioni arrestata in Azure. |
-| **Avviare i log in streaming** | Avvia i log in streaming per l'app per le funzioni in Azure. Se è necessario visualizzare le informazioni di registrazione quasi in tempo reale, usare i log in streaming durante la risoluzione dei problemi in remoto in Azure. Per altre informazioni, vedere [log in streaming](#streaming-logs). |
-| **Arresta** | Arresta un'app per le funzioni in esecuzione in Azure. |
+| **Avvia streaming dei log** | Avvia i log in streaming per l'app per le funzioni in Azure. Se è necessario visualizzare le informazioni di registrazione quasi in tempo reale, usare i log in streaming durante la risoluzione dei problemi in remoto in Azure. Per altre informazioni, vedere [log in streaming](#streaming-logs). |
+| **Stop** | Arresta un'app per le funzioni in esecuzione in Azure. |
 | **Arrestare i log in streaming** | Arresta i log in streaming per l'app per le funzioni in Azure. |
 | **Imposta/Nascondi come impostazione dello slot** | Se abilitata, assicura che un'impostazione dell'applicazione venga mantenute per uno slot di distribuzione specifico. |
 | **Disinstalla Azure Functions Core Tools** | Rimuove Azure Functions Core Tools, necessario per l'estensione. |
-| **Carica impostazioni locali** | Carica le impostazioni dal file local. Settings. JSON all'app per le funzioni scelta in Azure. Se il file locale è crittografato, viene decrittografato, caricato e crittografato di nuovo. Se sono presenti impostazioni che contengono valori in conflitto nei due percorsi, viene richiesto di scegliere come procedere. Prima di eseguire questo comando, assicurarsi di salvare le modifiche apportate al file local. Settings. JSON. |
+| **Carica impostazioni locali** | Carica le impostazioni dal local.settings.jssul file nell'app per le funzioni scelta in Azure. Se il file locale è crittografato, viene decrittografato, caricato e crittografato di nuovo. Se sono presenti impostazioni che contengono valori in conflitto nei due percorsi, viene richiesto di scegliere come procedere. Prima di eseguire questo comando, assicurarsi di salvare le modifiche apportate al local.settings.jssul file. |
 | **Visualizza il commit in GitHub** | Mostra il commit più recente in una distribuzione specifica quando l'app per le funzioni è connessa a un repository. |
 | **Visualizzare i log di distribuzione** | Mostra i log per una distribuzione specifica nell'app per le funzioni in Azure. |
 
@@ -452,5 +447,5 @@ Per altre informazioni sulle Azure Functions Core Tools, vedere [usare Azure Fun
 
 Per altre informazioni sullo sviluppo di funzioni come librerie di classi .NET, vedere [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md). Questo articolo fornisce anche collegamenti a esempi di come usare gli attributi per dichiarare i vari tipi di associazioni supportate da funzioni di Azure.
 
-[Estensione Funzioni di Azure per Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
+[Estensione di funzioni di Azure per Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 [Azure Functions Core Tools]: functions-run-local.md

@@ -7,111 +7,89 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: 421fddb819d4d396d3ab8890789e58ccb935cbc0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77462327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806812"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorare le operazioni e le attività di Azure ricerca cognitiva
 
-In questo articolo viene introdotto il monitoraggio a livello di servizio (risorsa), a livello di carico di lavoro (query e indicizzazione) e viene suggerito un Framework per il monitoraggio dell'accesso degli utenti.
+Questo articolo è una panoramica del monitoraggio di concetti e strumenti per ricerca cognitiva di Azure. Per il monitoraggio olistico, è possibile usare una combinazione di funzionalità predefinite e servizi di componenti aggiuntivi, ad esempio monitoraggio di Azure.
 
-Attraverso lo spettro, si userà una combinazione di infrastruttura incorporata e servizi di base come monitoraggio di Azure, oltre alle API del servizio che restituiscono statistiche, conteggi e stato. Comprendere la gamma di funzionalità consente di creare un ciclo di feedback per poter risolvere i problemi che emergono.
+È possibile tenere traccia dei seguenti elementi:
 
-## <a name="use-azure-monitor"></a>Usare Monitoraggio di Azure
+* Servizio: integrità/disponibilità e modifiche alla configurazione del servizio.
+* Archiviazione: usata e disponibile, con conteggi per ogni tipo di contenuto rispetto alla quota consentita per il livello di servizio.
+* Attività query: volume, latenza, query limitate o eliminate. Le richieste di query registrate richiedono [monitoraggio di Azure](#add-azure-monitor).
+* Attività di indicizzazione: richiede la [registrazione diagnostica](#add-azure-monitor) con monitoraggio di Azure.
 
-Molti servizi, tra cui Azure ricerca cognitiva, sfruttano [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/) per gli avvisi, le metriche e la registrazione dei dati di diagnostica. Per ricerca cognitiva di Azure, l'infrastruttura di monitoraggio predefinita viene usata principalmente per il monitoraggio a livello di risorse (integrità del servizio) e per il [monitoraggio delle query](search-monitor-queries.md).
+Un servizio di ricerca non supporta l'autenticazione per utente, pertanto non verranno trovate informazioni sull'identità nei log.
 
-Lo screenshot seguente consente di individuare le funzionalità di monitoraggio di Azure nel portale.
+## <a name="built-in-monitoring"></a>Monitoraggio predefinito
 
-+ La scheda **monitoraggio** , disponibile nella pagina Panoramica principale, Mostra le metriche principali a colpo d'occhio.
-+ **Log attività**, appena riportato di seguito panoramica, report sulle azioni a livello di risorsa: stato del servizio e notifiche delle richieste della chiave API.
-+ Il **monitoraggio**, più in basso nell'elenco, fornisce avvisi configurabili, metriche e log di diagnostica. Crearli quando sono necessari. Una volta raccolti e archiviati i dati, è possibile eseguire una query o visualizzare le informazioni per informazioni dettagliate.
+Il monitoraggio predefinito si riferisce alle attività registrate da un servizio di ricerca. Fatta eccezione per la diagnostica, non è necessaria alcuna configurazione per questo livello di monitoraggio.
+
+Azure ricerca cognitiva gestisce i dati interni in base a una pianificazione in sequenza di 30 giorni per la creazione di report sull'integrità del servizio e sulle metriche delle query, che è possibile trovare nel portale o tramite queste [API REST](#monitoring-apis).
+
+Lo screenshot seguente consente di individuare le informazioni di monitoraggio nel portale. I dati diventano disponibili non appena si inizia a usare il servizio. Le pagine del portale vengono aggiornate ogni pochi minuti.
+
+* Scheda **monitoraggio** , nella pagina Panoramica principale, Mostra il volume di query, la latenza e se il servizio è sotto pressione.
+* **Log attività**, nel riquadro di spostamento a sinistra, è connesso a Azure Resource Manager. Il log attività segnala le azioni intraprese da Gestione risorse: disponibilità e stato dei servizi, modifiche apportate alla capacità (repliche e partizioni) e attività correlate alle chiavi API.
+* Il **monitoraggio** delle impostazioni, più in basso, fornisce avvisi configurabili, metriche e log di diagnostica. Crearli quando sono necessari. Una volta raccolti e archiviati i dati, è possibile eseguire una query o visualizzare le informazioni per informazioni dettagliate.
 
 ![Integrazione di monitoraggio di Azure in un servizio di ricerca](./media/search-monitor-usage/azure-monitor-search.png
  "Integrazione di monitoraggio di Azure in un servizio di ricerca")
 
-### <a name="precision-of-reported-numbers"></a>Precisione dei numeri segnalati
+> [!NOTE]
+> Poiché le pagine del portale vengono aggiornate a intervalli di pochi minuti, i numeri riportati sono approssimativi, intesi a fornire un'idea generale del modo in cui il sistema sta rispondendo alle richieste. Le metriche effettive, ad esempio le query al secondo (query al secondo), possono essere superiori o inferiori al numero indicato nella pagina. Se la precisione è un requisito, provare a usare le API.
 
-Le pagine del portale vengono aggiornate ogni pochi minuti. Di conseguenza, i numeri segnalati nel portale sono approssimativi, intesi per fornire un senso generale del modo in cui il sistema sta rispondendo alle richieste. Le metriche effettive, ad esempio le query al secondo (query al secondo), possono essere superiori o inferiori al numero indicato nella pagina.
+<a name="monitoring-apis"> </a>
 
-## <a name="activity-logs-and-service-health"></a>Log attività e integrità dei servizi
+### <a name="apis-useful-for-monitoring"></a>API utili per il monitoraggio
 
-Il [**log attività**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) raccoglie informazioni da Azure Resource Manager e segnala le modifiche apportate all'integrità del servizio. È possibile monitorare il log attività per le condizioni critiche, di errore e di avviso correlate all'integrità del servizio.
+È possibile usare le API seguenti per recuperare le stesse informazioni disponibili nelle schede monitoraggio e utilizzo nel portale.
 
-Per le attività in-Service, ad esempio query, indicizzazione o creazione di oggetti, verranno visualizzate le notifiche informative generiche, ad esempio *Ottieni chiave amministratore* e *Ottieni chiavi di query* per ogni richiesta, ma non l'azione specifica stessa. Per informazioni su questa granularità, è necessario configurare la registrazione diagnostica.
+* [OTTENERE le statistiche del servizio](/rest/api/searchservice/get-service-statistics)
+* [OTTENERE statistiche sugli indici](/rest/api/searchservice/get-index-statistics)
+* [OTTENERE i conteggi dei documenti](/rest/api/searchservice/count-documents)
+* [OTTENERE lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status)
+
+### <a name="activity-logs-and-service-health"></a>Log attività e integrità dei servizi
+
+La pagina [**log attività**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) del portale raccoglie informazioni da Azure Resource Manager e segnala le modifiche apportate all'integrità del servizio. È possibile monitorare il log attività per le condizioni critiche, di errore e di avviso correlate all'integrità del servizio.
+
+Le voci comuni includono riferimenti a chiavi API: notifiche informative generiche, ad esempio *Ottieni chiave amministratore* e *Ottieni chiavi di query*. Queste attività indicano le richieste effettuate usando la chiave amministratore (crea o Elimina oggetti) o la chiave di query, ma non visualizzano la richiesta. Per informazioni su questa granularità, è necessario configurare la registrazione diagnostica.
 
 È possibile accedere al **log attività** nel riquadro di spostamento a sinistra o dalle notifiche nella barra dei comandi nella finestra superiore oppure dalla pagina **Diagnostica e risolvi i problemi**.
 
-## <a name="monitor-storage"></a>Monitorare l'archiviazione
+### <a name="monitor-storage-in-the-usage-tab"></a>Monitorare l'archiviazione nella scheda utilizzo
 
-Le pagine a schede incorporate nella pagina Panoramica segnalano l'utilizzo delle risorse. Queste informazioni diventano disponibili non appena si inizia a usare il servizio, senza che sia necessaria alcuna configurazione e la pagina viene aggiornata ogni pochi minuti. 
-
-Se è necessario prendere decisioni in merito al [livello da usare per i carichi di lavoro di produzione](search-sku-tier.md) o per stabilire se occorre [modificare il numero di repliche e partizioni attive](search-capacity-planning.md), queste metriche sono utili perché indicano con quale velocità vengono utilizzate le risorse e se la configurazione corrente è adeguata per gestire il carico esistente.
-
-Gli avvisi relativi all'archiviazione non sono attualmente disponibili. il consumo di spazio di archiviazione non viene aggregato o registrato nella tabella **AzureMetrics** di monitoraggio di Azure. È necessario [creare una soluzione personalizzata](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) che genera notifiche correlate alle risorse, in cui il codice controlla le dimensioni di archiviazione e gestisce la risposta. Per altre informazioni sulle metriche di archiviazione, vedere [ottenere le statistiche del servizio](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
-
-Per il monitoraggio visivo nel portale, la scheda **utilizzo** Mostra la disponibilità delle risorse rispetto ai [limiti](search-limits-quotas-capacity.md) correnti imposti dal livello di servizio. 
+Per il monitoraggio visivo nel portale, la scheda **utilizzo** Mostra la disponibilità delle risorse rispetto ai [limiti](search-limits-quotas-capacity.md) correnti imposti dal livello di servizio. Se è necessario prendere decisioni in merito al [livello da usare per i carichi di lavoro di produzione](search-sku-tier.md) o per stabilire se occorre [modificare il numero di repliche e partizioni attive](search-capacity-planning.md), queste metriche sono utili perché indicano con quale velocità vengono utilizzate le risorse e se la configurazione corrente è adeguata per gestire il carico esistente.
 
 La figura seguente è riferita al servizio gratuito, che prevede un limite di 3 oggetti di ogni tipo e 50 MB di spazio di archiviazione. Un servizio Basic o Standard ha limiti più elevati e se si aumenta il numero delle partizioni, lo spazio di archiviazione massimo aumenta in proporzione.
 
 ![Stato di utilizzo rispetto ai limiti del livello](./media/search-monitor-usage/usage-tab.png
  "Stato di utilizzo rispetto ai limiti del livello")
 
-## <a name="monitor-workloads"></a>Monitorare i carichi di lavoro
+> [!NOTE]
+> Gli avvisi relativi all'archiviazione non sono attualmente disponibili. il consumo di spazio di archiviazione non viene aggregato o registrato nella tabella **AzureMetrics** di monitoraggio di Azure. Per ottenere gli avvisi di archiviazione, è necessario [compilare una soluzione personalizzata](../azure-monitor/insights/solutions-creating.md) che genera notifiche correlate alle risorse, in cui il codice controlla le dimensioni di archiviazione e gestisce la risposta.
 
-Gli eventi registrati includono quelli correlati all'indicizzazione e alle query. La tabella **AzureDiagnostics** in log Analytics raccoglie dati operativi correlati a query e indicizzazione.
+<a name="add-azure-monitor"></a>
 
-La maggior parte dei dati registrati è per operazioni di sola lettura. Per le altre operazioni di creazione-aggiornamento-eliminazione non acquisite nel log, è possibile eseguire una query sul servizio di ricerca per ottenere informazioni sul sistema.
+## <a name="add-on-monitoring-with-azure-monitor"></a>Monitoraggio dei componenti aggiuntivi con monitoraggio di Azure
 
-| OperationName | Descrizione |
-|---------------|-------------|
-| ServiceStats | Questa operazione è una chiamata di routine per [ottenere le statistiche del servizio](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), chiamate direttamente o in modo implicito per popolare una pagina di panoramica del portale quando viene caricata o aggiornata. |
-| Query. search |  Richieste di query su un indice vedere [monitorare](search-monitor-queries.md) le query per ottenere informazioni sulle query registrate.|
-| Indexing. index  | Questa operazione è una chiamata per [aggiungere, aggiornare o eliminare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
-| indici. Prototipo | Si tratta di un indice creato dalla procedura guidata Importa dati. |
-| Indicizzatori. crea | Creare un indicizzatore in modo esplicito o implicito tramite la procedura guidata Importa dati. |
-| Indicizzatori. Get | Restituisce il nome di un indicizzatore ogni volta che viene eseguito l'indicizzatore. |
-| Indicizzatori. stato | Restituisce lo stato di un indicizzatore ogni volta che viene eseguito l'indicizzatore. |
-| Origini dati. Get | Restituisce il nome dell'origine dati ogni volta che viene eseguito un indicizzatore.|
-| Indexes. Get | Restituisce il nome di un indice ogni volta che viene eseguito un indicizzatore. |
+Molti servizi, tra cui Azure ricerca cognitiva, si integrano con [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/) per ulteriori avvisi, metriche e registrazione dei dati di diagnostica. 
 
-### <a name="kusto-queries-about-workloads"></a>Kusto query sui carichi di lavoro
+[Abilitare la registrazione diagnostica](search-monitor-logs.md) per un servizio di ricerca se si vuole controllare la raccolta dei dati e l'archiviazione. Gli eventi registrati acquisiti da monitoraggio di Azure vengono archiviati nella tabella **AzureDiagnostics** ed è costituito da dati operativi correlati a query e indicizzazione.
 
-Se è stata abilitata la registrazione, è possibile eseguire una query su **AzureDiagnostics** per un elenco di operazioni eseguite nel servizio e quando. È anche possibile correlare l'attività per esaminare le modifiche delle prestazioni.
+Monitoraggio di Azure offre diverse opzioni di archiviazione e la scelta determina come utilizzare i dati:
 
-#### <a name="example-list-operations"></a>Esempio: operazioni di elenco 
+* Scegliere archiviazione BLOB di Azure se si desidera [visualizzare i dati di log](search-monitor-logs-powerbi.md) in un report Power bi.
+* Scegliere Log Analytics se si desidera esplorare i dati tramite query kusto.
 
-Restituisce un elenco di operazioni e un conteggio di ciascuna di esse.
-
-```
-AzureDiagnostics
-| summarize count() by OperationName
-```
-
-#### <a name="example-correlate-operations"></a>Esempio: correlare le operazioni
-
-Correlare le richieste di query con le operazioni di indicizzazione ed eseguire il rendering dei punti dati in un grafico temporale per vedere le operazioni in coincidenza.
-
-```
-AzureDiagnostics
-| summarize OperationName, Count=count()
-| where OperationName in ('Query.Search', 'Indexing.Index')
-| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
-| render timechart
-```
-
-### <a name="use-search-apis"></a>Usare le API di ricerca
-
-Sia l'API REST di Azure ricerca cognitiva che .NET SDK forniscono l'accesso a livello di codice alle metriche dei servizi, alle informazioni sugli indici e agli indicizzatori e ai conteggi dei documenti.
-
-+ [OTTENERE le statistiche del servizio](/rest/api/searchservice/get-service-statistics)
-+ [OTTENERE statistiche sugli indici](/rest/api/searchservice/get-index-statistics)
-+ [OTTENERE i conteggi dei documenti](/rest/api/searchservice/count-documents)
-+ [OTTENERE lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status)
+Monitoraggio di Azure ha una propria struttura di fatturazione e i log di diagnostica a cui si fa riferimento in questa sezione hanno un costo associato. Per altre informazioni, vedere [utilizzo e costi stimati in monitoraggio di Azure](../azure-monitor/platform/usage-estimated-costs.md).
 
 ## <a name="monitor-user-access"></a>Monitorare l'accesso utente
 
@@ -128,4 +106,4 @@ Non è possibile registrare queste informazioni separatamente dalla stringa di q
 La fluidità con monitoraggio di Azure è essenziale per la supervisione di qualsiasi servizio di Azure, incluse risorse come Azure ricerca cognitiva. Se non si ha familiarità con monitoraggio di Azure, esaminare gli articoli correlati alle risorse. Oltre alle esercitazioni, l'articolo seguente è un valido punto di partenza.
 
 > [!div class="nextstepaction"]
-> [Monitoraggio delle risorse di Azure con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)
+> [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)

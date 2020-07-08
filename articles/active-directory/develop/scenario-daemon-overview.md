@@ -11,12 +11,11 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df06c4c55941f4424d6b90d2846af17bf055b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253121"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: applicazione daemon che chiama API Web
 
@@ -28,7 +27,7 @@ Scopri tutto quello che ti serve per creare un'applicazione daemon che chiama le
 
 ## <a name="overview"></a>Panoramica
 
-L'applicazione può acquisire un token per chiamare un'API Web per conto di se stesso (non per conto di un utente). Questo scenario è utile per le applicazioni daemon. Usa la concessione di [credenziali client](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 standard.
+L'applicazione può acquisire un token per chiamare un'API Web per conto di se stesso (non per conto di un utente). Questo scenario è utile per le applicazioni daemon. Usa la concessione di [credenziali client](v2-oauth2-client-creds-grant-flow.md) OAuth 2.0 standard.
 
 ![App daemon](./media/scenario-daemon-app/daemon-app.svg)
 
@@ -38,7 +37,7 @@ Di seguito sono riportati alcuni esempi di casi d'uso per le app daemon:
 - Applicazioni desktop (ad esempio, i servizi Windows nei processi Windows o daemon in Linux) che eseguono processi batch o un servizio del sistema operativo in esecuzione in background
 - API Web che devono modificare le directory, non utenti specifici
 
-Un altro caso comune in cui le applicazioni non daemon usano le credenziali client: anche quando agiscono per conto degli utenti, devono accedere a un'API Web o a una risorsa con la propria identità per motivi tecnici. Un esempio è l'accesso ai segreti in Azure Key Vault o un database SQL di Azure per una cache.
+Un altro caso comune in cui le applicazioni non daemon usano le credenziali client: anche quando agiscono per conto degli utenti, devono accedere a un'API Web o a una risorsa con la propria identità per motivi tecnici. Un esempio è l'accesso ai segreti in Azure Key Vault o nel database SQL di Azure per una cache.
 
 Applicazioni che acquisiscono un token per le proprie identità:
 

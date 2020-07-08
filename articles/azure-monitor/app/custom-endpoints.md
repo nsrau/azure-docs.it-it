@@ -3,16 +3,16 @@ title: applicazione Azure Insights sostituisce gli endpoint SDK predefiniti
 description: Modificare gli endpoint di Azure Application Insights SDK predefiniti per le aree come Azure per enti pubblici.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: f5bf5b07f7c058b4778e7695f150fdc71e048182
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194824"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights l'override degli endpoint predefiniti
 
-Per inviare dati da Application Insights a determinate aree, è necessario eseguire l'override degli indirizzi endpoint predefiniti. Ogni SDK richiede modifiche leggermente diverse, descritte in questo articolo. Per queste modifiche è necessario modificare il codice di esempio e sostituire i `QuickPulse_Endpoint_Address`valori `TelemetryChannel_Endpoint_Address`segnaposto `Profile_Query_Endpoint_address` per, e con gli indirizzi endpoint effettivi per l'area specifica. La fine di questo articolo contiene i collegamenti agli indirizzi degli endpoint per le aree in cui è necessaria questa configurazione.
+Per inviare dati da Application Insights a determinate aree, è necessario eseguire l'override degli indirizzi endpoint predefiniti. Ogni SDK richiede modifiche leggermente diverse, descritte in questo articolo. Per queste modifiche è necessario modificare il codice di esempio e sostituire i valori segnaposto per `QuickPulse_Endpoint_Address` , `TelemetryChannel_Endpoint_Address` e `Profile_Query_Endpoint_address` con gli indirizzi endpoint effettivi per l'area specifica. La fine di questo articolo contiene i collegamenti agli indirizzi degli endpoint per le aree in cui è necessaria questa configurazione.
 
 > [!NOTE]
 > Le [stringhe di connessione](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) sono il nuovo metodo preferito per l'impostazione di endpoint personalizzati all'interno Application Insights.
@@ -24,7 +24,7 @@ Per inviare dati da Application Insights a determinate aree, è necessario esegu
 # <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
-> Il file applicationinsights. config viene sovrascritto automaticamente ogni volta che viene eseguito un aggiornamento dell'SDK. Dopo l'esecuzione di un aggiornamento dell'SDK, assicurarsi di immettere nuovamente i valori dell'endpoint specifico dell'area.
+> Il file di applicationinsights.config viene sovrascritto automaticamente ogni volta che viene eseguito un aggiornamento dell'SDK. Dopo l'esecuzione di un aggiornamento dell'SDK, assicurarsi di immettere nuovamente i valori dell'endpoint specifico dell'area.
 
 ```xml
 <ApplicationInsights>
@@ -48,7 +48,7 @@ Per inviare dati da Application Insights a determinate aree, è necessario esegu
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Modificare il file appSettings. JSON nel progetto come indicato di seguito per modificare l'endpoint principale:
+Modificare il appsettings.jsnel file nel progetto come indicato di seguito per modificare l'endpoint principale:
 
 ```json
 "ApplicationInsights": {
@@ -59,7 +59,7 @@ Modificare il file appSettings. JSON nel progetto come indicato di seguito per m
   }
 ```
 
-I valori per la metrica dinamica e l'endpoint di query del profilo possono essere impostati solo tramite codice. Per eseguire l'override dei valori predefiniti per tutti i valori dell'endpoint tramite codice, apportare le `ConfigureServices` modifiche seguenti nel `Startup.cs` metodo del file:
+I valori per la metrica dinamica e l'endpoint di query del profilo possono essere impostati solo tramite codice. Per eseguire l'override dei valori predefiniti per tutti i valori dell'endpoint tramite codice, apportare le modifiche seguenti nel `ConfigureServices` metodo del `Startup.cs` file:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -76,13 +76,13 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Funzioni di Azure](#tab/functions)
 
-Per funzioni di Azure è ora consigliabile usare le [stringhe di connessione](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) impostate nelle impostazioni dell'applicazione della funzione. Per accedere alle impostazioni dell'applicazione per la funzione dall'interno del riquadro funzioni, selezionare **Impostazioni** > **Configuration** > **Impostazioni applicazione**di configurazione. 
+Per funzioni di Azure è ora consigliabile usare le [stringhe di connessione](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) impostate nelle impostazioni dell'applicazione della funzione. Per accedere alle impostazioni dell'applicazione per la funzione dall'interno del riquadro funzioni, selezionare **Impostazioni**  >  **Configuration**  >  **Impostazioni applicazione**di configurazione. 
 
 Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` valore:`Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 
-Modificare il file applicationinsights. XML per modificare l'indirizzo dell'endpoint predefinito.
+Modificare il file di applicationinsights.xml per modificare l'indirizzo dell'endpoint predefinito.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

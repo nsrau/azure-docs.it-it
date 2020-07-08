@@ -7,12 +7,11 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4fa3acf0e6cc767aeee4504bbc4df382a75e256b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: f5f40a615bc5faab6265f42d0728403e2735aa0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791623"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Supporto delle API in App Web statiche di Azure (anteprima) con Funzioni di Azure
 
@@ -33,6 +32,7 @@ App Web statiche di Azure fornisce un'API tramite Funzioni di Azure. Le funziona
 
 - Il prefisso della route dell'API deve essere _api_.
 - L'app per le funzioni dell'API deve essere in JavaScript.
+- Le regole di route per le funzioni API supportano solo i [reindirizzamenti](routes.md#redirects) e la [protezione delle route con i ruoli](routes.md#securing-routes-with-roles).
 - I trigger e le associazioni sono limitati a quelli [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Tutti gli altri [trigger e associazioni di Funzioni di Azure](../azure-functions/functions-triggers-bindings.md#supported-bindings), ad eccezione delle associazioni di output, sono limitati.
 - I log sono disponibili solo se all'app per le funzioni si aggiunge [Application Insights](../azure-functions/functions-monitoring.md).

@@ -4,19 +4,18 @@ description: Informazioni su come rimuovere i dispositivi non aggiornati dal dat
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdc011a39c5526e6a2577ab1b21567bbe64ffcc6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 292ba1d52b107acd164408767747e5a33cb0c67d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252696"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
 
@@ -151,7 +150,7 @@ $dt = [datetime]’2017/01/01’
 Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
-## <a name="what-you-should-know"></a>Informazioni importanti
+## <a name="what-you-should-know"></a>Informazioni utili
 
 ### <a name="why-is-the-timestamp-not-updated-more-frequently"></a>Perché il timestamp non viene aggiornato più frequentemente?
 

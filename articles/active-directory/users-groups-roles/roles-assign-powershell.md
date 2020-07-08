@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfcb00f56a3cc6f71729fbeaf317ce9447e120ed
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 2180451a1d0c377af1e6c3e7377e64d9cb62ef8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732056"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Assegnare ruoli personalizzati con ambito di risorse usando PowerShell in Azure Active Directory
 
@@ -32,13 +31,13 @@ Connettersi all'organizzazione Azure AD usando un account di amministratore glob
 
 ## <a name="prepare-powershell"></a>Preparare PowerShell
 
-Installare il modulo Azure AD PowerShell dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Importare quindi il modulo di anteprima di Azure AD PowerShell usando il comando seguente:
+Installare il modulo Azure AD PowerShell dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Importare quindi il modulo di anteprima di Azure AD PowerShell usando questo comando:
 
 ``` PowerShell
 import-module azureadpreview
 ```
 
-Per verificare che il modulo sia pronto per l'uso, associare la versione restituita dal comando seguente a quella elencata qui:
+Per verificare che il modulo sia pronto per l'uso, la versione restituita dal comando seguente deve corrispondere a quella elencata qui:
 
 ``` PowerShell
 get-module azureadpreview
@@ -52,7 +51,7 @@ A questo punto è possibile iniziare a usare i cmdlet nel modulo. Per una descri
 ## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Assegnare un ruolo a un utente o a un'entità servizio con ambito di risorsa
 
 1. Aprire il modulo di PowerShell Azure AD Preview.
-1. Eseguire l'accesso eseguendo il comando `Connect-AzureAD`.
+1. Eseguire l'accesso eseguendo il comando `Connect-AzureAD` .
 1. Creare un nuovo ruolo usando lo script di PowerShell seguente.
 
 ``` PowerShell

@@ -1,14 +1,13 @@
 ---
 title: Comprendere il funzionamento degli effetti
 description: Le definizioni di Criteri di Azure hanno diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
-ms.date: 05/20/2020
+ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2dc8303b630eb01de5c3ad9e3504dfec5256bc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 54c2a687c6386c075ef5802826bc60b87b4d3ee4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791419"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -22,22 +21,26 @@ Attualmente questi effetti sono supportati in una definizione dei criteri:
 - [Nega](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabilitato](#disabled)
-- [EnforceOPAConstraint](#enforceopaconstraint) (anteprima)
-- [EnforceRegoPolicy](#enforceregopolicy) (anteprima)
-- [Modificare](#modify)
+- [Modifica](#modify)
+
+Gli effetti seguenti sono _deprecati_:
+
+- [EnforceOPAConstraint](#enforceopaconstraint)
+- [EnforceRegoPolicy](#enforceregopolicy)
+
+> [!IMPORTANT]
+> Al posto degli effetti **EnforceOPAConstraint** o **EnforceRegoPolicy** , usare _Audit_ e _Deny_ con la modalità provider di risorse `Microsoft.Kubernetes.Data` . Le definizioni dei criteri predefinite sono state aggiornate. Quando vengono modificate le assegnazioni di criteri predefinite di queste definizioni di criteri predefinite, è necessario modificare il parametro _Effect_ in un valore nell'elenco _allowedValues_ aggiornato.
 
 ## <a name="order-of-evaluation"></a>Ordine di valutazione
 
-Le richieste per creare o aggiornare una risorsa tramite Azure Resource Manager vengono valutate per prime da Criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e valuta quindi la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. In questo modo si evita l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance progettati di Criteri di Azure.
+Le richieste di creazione o aggiornamento di una risorsa vengono valutate prima in base ai criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e valuta quindi la risorsa rispetto a ogni definizione. Per una [modalità gestione risorse](./definition-structure.md#resource-manager-modes), i criteri di Azure elaborano diversi effetti prima di passare la richiesta al provider di risorse appropriato. Questo ordine impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance progettati di criteri di Azure. Con una [modalità del provider di risorse](./definition-structure.md#resource-provider-modes), il provider di risorse gestisce la valutazione e il risultato e segnala i risultati ai criteri di Azure.
 
 - **Disabled** viene verificato per primo, per determinare se valutare la regola dei criteri.
-- Vengono quindi valutati **Append** e **Modify**. Dal momento che entrambi possono modificare la richiesta, una modifica apportata potrebbe impedire l'attivazione di un effetto Audit o Deny.
+- Vengono quindi valutati **Append** e **Modify**. Dal momento che entrambi possono modificare la richiesta, una modifica apportata potrebbe impedire l'attivazione di un effetto Audit o Deny. Questi effetti sono disponibili solo con una modalità Gestione risorse.
 - Successivamente viene valutato **Deny**. La valutazione di Deny prima di Audit impedisce la doppia registrazione di una risorsa non desiderata.
-- **Audit** viene quindi valutato prima che la richiesta venga passata al provider di risorse.
+- Il **controllo** viene valutato per ultimo.
 
-Dopo che il provider di risorse restituisce un codice di riuscita, vengono valutati **AuditIfNotExists** e **DeployIfNotExists** per determinare se è necessaria un'ulteriore registrazione della conformità o un'altra azione.
-
-Attualmente non è previsto alcun ordine di valutazione per gli effetti **EnforceOPAConstraint** o **EnforceRegoPolicy**.
+Quando il provider di risorse restituisce un codice di esito positivo in una richiesta in modalità Gestione risorse, **AuditIfNotExists** e **DeployIfNotExists** valutano per determinare se è necessaria una registrazione o un'azione di conformità aggiuntiva.
 
 ## <a name="append"></a>Accoda
 
@@ -73,7 +76,7 @@ Esempio 1: coppia **campo/valore** singola che usa un [alias](definition-structu
 }
 ```
 
-Esempio 2: coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) **\[\*\]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Usando l'alias **\[\*\]** , l'effetto accoda il **valore** a una matrice potenzialmente già esistente. Se la matrice non esiste, viene creata.
+Esempio 2: coppia **campo/valore** singola che usa un [alias](definition-structure.md#aliases) **\[\*\]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Usando l'alias **\[\*\]** , l'effetto accoda il **valore** a una matrice potenzialmente già esistente. Se la matrice non esiste ancora, viene creata.
 
 ```json
 "then": {
@@ -88,24 +91,30 @@ Esempio 2: coppia **campo/valore** singola che usa un [alias](definition-structu
 }
 ```
 
-
-
-
 ## <a name="audit"></a>Audit
 
 Audit viene usato per creare un evento di avviso nel log attività quando viene valutata una risorsa non conforme, ma non arresta la richiesta.
 
 ### <a name="audit-evaluation"></a>Valutazione di Audit
 
-Audit è l'ultimo effetto controllato da Criteri di Azure durante la creazione o l'aggiornamento di una risorsa. La risorsa viene quindi inviata da Criteri di Azure al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività e contrassegna la risorsa come non conforme.
+Audit è l'ultimo effetto controllato da Criteri di Azure durante la creazione o l'aggiornamento di una risorsa. Per una modalità Gestione risorse, i criteri di Azure inviano quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività e contrassegna la risorsa come non conforme.
 
 ### <a name="audit-properties"></a>Proprietà di Audit
 
-L'effetto Audit non ha proprietà aggiuntive da usare nella condizione **then** della definizione dei criteri.
+Per una modalità Gestione risorse, l'effetto di controllo non dispone di proprietà aggiuntive per l'utilizzo nella condizione **then** della definizione dei criteri.
+
+Per una modalità del provider di risorse `Microsoft.Kubernetes.Data` , l'effetto di controllo presenta le sottoproprietà aggiuntive seguenti dei **Dettagli**.
+
+- **constraintTemplate** (obbligatorio)
+  - Il modello Constraint CustomResourceDefinition (CRD) che definisce nuovi vincoli. Il modello definisce la logica Rego, lo schema Constraint e i parametri Constraint passati tramite **valori** da Criteri di Azure.
+- **vincolo** (obbligatorio)
+  - L'implementazione CRD del modello Constraint. Usa i parametri passati tramite **valori** come `{{ .Values.<valuename> }}`. Nell'esempio 2 riportato di seguito questi valori sono `{{ .Values.excludedNamespaces }}` e `{{ .Values.allowedContainerImagesRegex }}` .
+- **valori** (facoltativo)
+  - Definisce tutti i parametri e i valori da passare a Constraint. Ogni valore deve esistere nel modello Constraint CRD.
 
 ### <a name="audit-example"></a>Esempio di Audit
 
-Esempio: uso dell'effetto Audit.
+Esempio 1: uso dell'effetto di controllo per le modalità di Gestione risorse.
 
 ```json
 "then": {
@@ -113,9 +122,25 @@ Esempio: uso dell'effetto Audit.
 }
 ```
 
+Esempio 2: uso dell'effetto di controllo per una modalità del provider di risorse `Microsoft.Kubernetes.Data` . Le informazioni aggiuntive in **Dettagli** definiscono il modello di vincolo e la CRD da usare in Kubernetes per limitare le immagini del contenitore consentito.
+
+```json
+"then": {
+    "effect": "audit",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
+
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists consente il controllo sulle risorse che corrispondono alla condizione **if**, ma non ha i componenti specificati in **details** nella condizione **then**.
+AuditIfNotExists consente il controllo delle risorse _correlate_ alla risorsa che corrisponde alla condizione **if** , ma non hanno le proprietà specificate nei **Dettagli** della condizione **then** .
 
 ### <a name="auditifnotexists-evaluation"></a>Valutazione di AuditIfNotExists
 
@@ -125,7 +150,7 @@ AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una r
 
 La proprietà **details** degli effetti AuditIfNotExists ha tutte le sottoproprietà che definiscono le risorse correlate a cui corrispondere.
 
-- **Type** [obbligatorio]
+- **Tipo** (obbligatorio)
   - Specifica il tipo della risorsa correlata a cui corrispondere.
   - Se **details.type** è un tipo di risorsa sotto la condizione di risorsa **if**, il criterio esegue una query per le risorse di questo **tipo** nell'ambito della risorsa valutata. In caso contrario, il criterio esegue la query all'interno dello stesso gruppo di risorse della risorsa valutata.
 - **Name** (facoltativo)
@@ -185,17 +210,26 @@ Deny viene usato per impedire una richiesta di risorse che non corrisponde agli 
 
 ### <a name="deny-evaluation"></a>Valutazione di Deny
 
-Quando si crea o si aggiorna una risorsa corrispondente, Deny impedisce la richiesta prima che sia inviata al provider di risorse. La richiesta viene restituita come `403 (Forbidden)`. Nel portale l'accesso negato può essere visualizzato come stato della distribuzione impedita dall'assegnazione dei criteri.
+Quando si crea o si aggiorna una risorsa corrispondente in una modalità Gestione risorse, Deny impedisce la richiesta prima dell'invio al provider di risorse. La richiesta viene restituita come `403 (Forbidden)`. Nel portale l'accesso negato può essere visualizzato come stato della distribuzione impedita dall'assegnazione dei criteri. Per una modalità del provider di risorse, il provider di risorse gestisce la valutazione della risorsa.
 
 Durante la valutazione di risorse esistenti, le risorse che corrispondono a una definizione di criteri Deny vengono contrassegnate come non conformi.
 
 ### <a name="deny-properties"></a>Proprietà di Deny
 
-L'effetto Deny non ha proprietà aggiuntive da usare nella condizione **then** della definizione dei criteri.
+Per una modalità Gestione risorse, l'effetto nega non ha proprietà aggiuntive da usare nella condizione **then** della definizione dei criteri.
+
+Per la modalità del provider di risorse `Microsoft.Kubernetes.Data` , l'effetto di negazione presenta le sottoproprietà aggiuntive seguenti dei **Dettagli**.
+
+- **constraintTemplate** (obbligatorio)
+  - Il modello Constraint CustomResourceDefinition (CRD) che definisce nuovi vincoli. Il modello definisce la logica Rego, lo schema Constraint e i parametri Constraint passati tramite **valori** da Criteri di Azure.
+- **vincolo** (obbligatorio)
+  - L'implementazione CRD del modello Constraint. Usa i parametri passati tramite **valori** come `{{ .Values.<valuename> }}`. Nell'esempio 2 riportato di seguito questi valori sono `{{ .Values.excludedNamespaces }}` e `{{ .Values.allowedContainerImagesRegex }}` .
+- **valori** (facoltativo)
+  - Definisce tutti i parametri e i valori da passare a Constraint. Ogni valore deve esistere nel modello Constraint CRD.
 
 ### <a name="deny-example"></a>Esempio di Deny
 
-Esempio: uso dell'effetto Deny.
+Esempio 1: uso dell'effetto Deny per le modalità di Gestione risorse.
 
 ```json
 "then": {
@@ -203,6 +237,21 @@ Esempio: uso dell'effetto Deny.
 }
 ```
 
+Esempio 2: uso dell'effetto Deny per una modalità del provider di risorse `Microsoft.Kubernetes.Data` . Le informazioni aggiuntive in **Dettagli** definiscono il modello di vincolo e la CRD da usare in Kubernetes per limitare le immagini del contenitore consentito.
+
+```json
+"then": {
+    "effect": "deny",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
@@ -222,7 +271,7 @@ Durante un ciclo di valutazione, le definizioni dei criteri con un effetto Deplo
 
 La proprietà **details** dell'effetto DeployIfNotExists ha tutte le sottoproprietà che definiscono le risorse correlate a cui corrispondere e la distribuzione di modelli da eseguire.
 
-- **Type** [obbligatorio]
+- **Tipo** (obbligatorio)
   - Specifica il tipo della risorsa correlata a cui corrispondere.
   - Inizia cercando di recuperare una risorsa sottostante la risorsa della condizione **if**, quindi esegue una query all'interno dello stesso gruppo di risorse come risorsa della condizione **if**.
 - **Name** (facoltativo)
@@ -246,14 +295,14 @@ La proprietà **details** dell'effetto DeployIfNotExists ha tutte le sottopropri
   - Se qualsiasi risorsa correlata corrispondente restituisce true, l'effetto è soddisfatto e non attiva la distribuzione.
   - Può usare [field()] per controllare l'equivalenza con i valori nella condizione **if**.
   - Ad esempio, può essere usato per convalidare che la risorsa padre (nella condizione **if**) sia nello stesso percorso della risorsa della risorsa correlata corrispondente.
-- **roleDefinitionIds** [required]
+- **roleDefinitionIds** (obbligatorio)
   - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (facoltativo)
   - I valori consentiti sono _Subscription_ e _ResourceGroup_.
   - Imposta il tipo di distribuzione da attivare. _Subscription_ indica una [distribuzione a livello di sottoscrizione](../../../azure-resource-manager/templates/deploy-to-subscription.md), _ResourceGroup_ indica una distribuzione a un gruppo di risorse.
   - Una proprietà _location_ deve essere specificata in _Deployment_ quando si usano distribuzioni a livello di sottoscrizione.
   - L'impostazione predefinita è _ResourceGroup_.
-- **Deployment** [obbligatorio]
+- **Distribuzione** (obbligatoria)
   - Questa proprietà deve contenere la distribuzione di modelli completa passata all'API PUT `Microsoft.Resources/deployments`. Per altre informazioni, vedere l'[API REST per le distribuzioni](/rest/api/resources/deployments).
 
   > [!NOTE]
@@ -316,16 +365,15 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
 
 Questo effetto è utile per gli scenari di test o quando la definizione dei criteri ha parametrizzato l'effetto. Grazie a questa flessibilità è possibile disabilitare una singola assegnazione invece di disabilitare tutte le assegnazioni di quei criteri.
 
-Un'alternativa all'effetto Disabled è **enforcementMode, che è impostato nell'assegnazione dei criteri.
+Un'alternativa all'effetto disabilitato è **enforcementMode**, che viene impostato nell'assegnazione dei criteri.
 Quando **enforcementMode** viene _disabilitato_, le risorse vengono comunque valutate. La registrazione, ad esempio i log attività, e l'effetto del criterio non si verificano. Per altre informazioni, vedere [assegnazione di criteri - modalità di imposizione](./assignment-structure.md#enforcement-mode).
-
 
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
 Questo effetto viene usato con una _modalità_di definizione di criteri di `Microsoft.Kubernetes.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper v3 definite con [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) in [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) per i cluster Kubernetes in Azure.
 
 > [!NOTE]
-> [Criteri di Azure per Kubernetes](./policy-for-kubernetes.md) è in anteprima e supporta solo i pool di nodi Linux e le definizioni dei criteri predefinite.
+> [Criteri di Azure per Kubernetes](./policy-for-kubernetes.md) è in anteprima e supporta solo i pool di nodi Linux e le definizioni dei criteri predefinite. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri di anteprima limitati con effetto **EnforceOPAConstraint** e la categoria del **servizio Kubernetes** correlata verranno _deprecate_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceopaconstraint-evaluation"></a>Valutazione EnforceOPAConstraint
 
@@ -336,11 +384,11 @@ Ogni 15 minuti, viene completata un'analisi completa del cluster e i risultati v
 
 Nella proprietà **details** dell'effetto EnforceOPAConstraint sono presenti le sottoproprietà che descrivono la regola di controllo dell'ammissione Gatekeeper v3.
 
-- **constraintTemplate** [obbligatorio]
+- **constraintTemplate** (obbligatorio)
   - Il modello Constraint CustomResourceDefinition (CRD) che definisce nuovi vincoli. Il modello definisce la logica Rego, lo schema Constraint e i parametri Constraint passati tramite **valori** da Criteri di Azure.
-- **constraint** [obbligatorio]
+- **vincolo** (obbligatorio)
   - L'implementazione CRD del modello Constraint. Usa i parametri passati tramite **valori** come `{{ .Values.<valuename> }}`. Nell'esempio seguente questi valori sono `{{ .Values.cpuLimit }}` e `{{ .Values.memoryLimit }}`.
-- **valori** [facoltativo]
+- **valori** (facoltativo)
   - Definisce tutti i parametri e i valori da passare a Constraint. Ogni valore deve esistere nel modello Constraint CRD.
 
 ### <a name="enforceopaconstraint-example"></a>Esempio EnforceOPAConstraint
@@ -381,7 +429,7 @@ Esempio: Regola di controllo dell'ammissione di Gatekeeper v3 per impostare i li
 Questo effetto viene usato con una _modalità_di definizione dei criteri di `Microsoft.ContainerService.Data`. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper v2 definite con [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) in [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) nei [servizi Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Criteri di Azure per Kubernetes](./policy-for-kubernetes.md) è in anteprima e supporta solo i pool di nodi Linux e le definizioni dei criteri predefinite. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri in anteprima limitata con l'effetto **EnforceRegoPolicy** e la categoria **Servizio Kubernetes** sono in fase di _deprecazione_. Usare l'effetto aggiornato [EnforceOPAConstraint](#enforceopaconstraint).
+> [Criteri di Azure per Kubernetes](./policy-for-kubernetes.md) è in anteprima e supporta solo i pool di nodi Linux e le definizioni dei criteri predefinite. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri in anteprima limitata con l'effetto **EnforceRegoPolicy** e la categoria **Servizio Kubernetes** sono in fase di _deprecazione_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceregopolicy-evaluation"></a>Valutazione EnforceRegoPolicy
 
@@ -392,11 +440,11 @@ Ogni 15 minuti, viene completata un'analisi completa del cluster e i risultati v
 
 Nella proprietà **details** dell'effetto EnforceRegoPolicy sono presenti le sottoproprietà che descrivono la regola di controllo dell'ammissione Gatekeeper v2.
 
-- **policyId** [obbligatorio]
+- **policyId** (obbligatorio)
   - Un nome univoco passato come parametro alla regola di controllo dell'ammissione Rego.
-- **policy** [obbligatorio]
+- **criterio** (obbligatorio)
   - Specifica l'URI della regola di controllo dell'ammissione Rego.
-- **policyParameters** [facoltativo]
+- **policyParameters** (facoltativo)
   - Definisce tutti i parametri e i valori da passare al criterio Rego.
 
 ### <a name="enforceregopolicy-example"></a>Esempio EnforceRegoPolicy
@@ -445,15 +493,21 @@ Quando una definizione dei criteri che usa l'effetto Modify viene eseguita come 
 
 La proprietà **details** dell'effetto Modify include tutte le sottoproprietà che definiscono le autorizzazioni necessarie per la correzione e le **operazioni** usate per aggiungere, aggiornare o rimuovere i valori dei tag.
 
-- **roleDefinitionIds** [required]
+- **roleDefinitionIds** (obbligatorio)
   - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
   - Il ruolo definito deve includere tutte le operazioni concesse al ruolo [Contributor](../../../role-based-access-control/built-in-roles.md#contributor).
-- **operations** [obbligatorio]
+- **conflictEffect** (facoltativo)
+  - Determina la definizione di criteri "WINS" nel caso in cui più definizioni di criteri modifichino la stessa proprietà.
+    - Per le risorse nuove o aggiornate, la definizione dei criteri con _Deny_ ha la precedenza. Le definizioni dei criteri con _Audit_ ignorano tutte **le operazioni**. Se la definizione di un criterio è _negata_, la richiesta viene negata come conflitto. Se tutte le definizioni dei criteri includono _Audit_, nessuna delle **operazioni** delle definizioni dei criteri in conflitto verrà elaborata.
+    - Per le risorse esistenti, se più di una definizione di criteri contiene _Deny_, lo stato di conformità è _Conflict_. Se una o più definizioni di criteri contengono _Deny_, ogni assegnazione restituisce uno stato di conformità _non conforme_.
+  - Valori disponibili: _Audit_, _Deny_, _disabled_.
+  - Il valore predefinito è _Deny_.
+- **operazioni** (obbligatorio)
   - Una matrice di tutte le operazioni di tag da completare sulle risorse corrispondenti.
   - Proprietà:
-    - **operation** [obbligatorio]
+    - **operazione** (obbligatoria)
       - Definisce l'azione da intraprendere su una risorsa corrispondente. Le opzioni sono: _addOrReplace_, _Add_, _Remove_. _Add_ si comporta in modo analogo all'effetto [Append](#append).
-    - **field** [obbligatorio]
+    - **Field** (obbligatorio)
       - Il tag per aggiungere, sostituire o rimuovere. I nomi di tag devono rispettare la stessa convenzione di denominazione per altri [campi](./definition-structure.md#fields).
     - **value** (facoltativo)
       - Il valore su cui impostare i tag.
@@ -528,6 +582,7 @@ Esempio 2: Rimuovere il tag `env` e aggiungere il tag `environment` o sostituire
         "roleDefinitionIds": [
             "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
         ],
+        "conflictEffect": "deny",
         "operations": [
             {
                 "operation": "Remove",
@@ -542,8 +597,6 @@ Esempio 2: Rimuovere il tag `env` e aggiungere il tag `environment` o sostituire
     }
 }
 ```
-
-
 
 ## <a name="layering-policy-definitions"></a>Disposizione delle definizioni dei criteri su più livelli
 
@@ -579,6 +632,6 @@ Ogni assegnazione viene valutata singolarmente. Di conseguenza, non c'è alcuna 
 - Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md).
 - Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
-- Informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
+- Leggere le informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 - Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

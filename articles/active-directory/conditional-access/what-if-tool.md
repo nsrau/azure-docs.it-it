@@ -4,19 +4,18 @@ description: Informazioni su come è possibile comprendere l'impatto dei criteri
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 02/25/2020
+ms.topic: conceptual
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77620692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253138"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Risolvere i problemi usando lo strumento What If nell'accesso condizionale
 
@@ -30,9 +29,9 @@ Lo **strumento criteri di What If di accesso condizionale** consente di comprend
 
 Lo strumento **What If** fornisce un modo per determinare rapidamente i criteri applicati a un utente specifico. Queste informazioni possono essere usate, ad esempio, se è necessario risolvere un problema.    
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
-Nello **strumento di What If dell'accesso condizionale**, è prima di tutto necessario configurare le impostazioni dello scenario di accesso che si vuole simulare. Tali impostazioni includono:
+Nello **strumento di What If dell'accesso condizionale**, è prima di tutto necessario configurare le impostazioni dello scenario di accesso che si vuole simulare. Queste impostazioni includono:
 
 - L'utente da testare 
 - Le app cloud a cui l'utente proverà ad accedere
@@ -40,7 +39,7 @@ Nello **strumento di What If dell'accesso condizionale**, è prima di tutto nece
      
 Come passaggio successivo, è possibile avviare una simulazione per valutare le impostazioni. Una valutazione prende in esame solo i criteri abilitati.
 
-Al termine della valutazione, lo strumento genera un report dei criteri interessati.
+Al termine della valutazione, lo strumento genera un report dei criteri interessati. Per raccogliere altre informazioni sui criteri di accesso condizionale, la [cartella di lavoro di report e informazioni sull'accesso condizionale](howto-conditional-access-insights-reporting.md) può fornire dettagli aggiuntivi sui criteri in modalità solo report e tali criteri sono attualmente abilitati.
 
 ## <a name="running-the-tool"></a>Esecuzione dello strumento
 
@@ -70,7 +69,7 @@ Il valore predefinito di questa impostazione è **Tutte le app cloud**. Con l'im
 
 L'indirizzo IP è un singolo indirizzo IPv4 necessario per simulare la [condizione di posizione](location-condition.md). Rappresenta l'indirizzo per Internet del dispositivo usato dall'utente per eseguire l'accesso. È possibile verificare l'indirizzo IP di un dispositivo accedendo, ad esempio, al sito Web [What is my IP address](https://whatismyipaddress.com).    
 
-### <a name="device-platforms"></a>Piattaforme del dispositivo
+### <a name="device-platforms"></a>Piattaforme per dispositivi
 
 Questa impostazione simula la [condizione di piattaforme del dispositivo](concept-conditional-access-conditions.md#device-platforms) ed equivale all'opzione **Tutte le piattaforme (incluse quelle non supportate)**. 
 
@@ -104,6 +103,5 @@ Nell'elenco dei criteri che non si applicano all'utente è possibile trovare anc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare i criteri di accesso condizionale, vedere richiedere l'autenticazione a più fattori [per app specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere le [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md). 
-- Per informazioni sulla migrazione dei criteri classici, vedere [Eseguire la migrazione dei criteri classici nel portale di Azure](policy-migration.md).  
+- Altre informazioni sull'applicazione dei criteri di accesso condizionale sono reperibili usando la modalità di sola segnalazione dei criteri con informazioni dettagliate sull' [accesso condizionale e creazione di report](howto-conditional-access-insights-reporting.md).
+- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere [criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md). 

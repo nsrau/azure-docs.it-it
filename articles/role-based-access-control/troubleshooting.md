@@ -10,17 +10,16 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 58e7a46633b7bbdd6074fa7e511569ff9e2aebdf
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: ac5c19866a164bbc927d23495e9d6ec9a1ef6bfe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790705"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -28,7 +27,7 @@ Questo articolo risponde ad alcune domande comuni sul controllo degli accessi in
 
 ## <a name="azure-role-assignments-limit"></a>Limite assegnazioni di ruolo di Azure
 
-Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione. Questo limite include le assegnazioni di ruolo a livello di sottoscrizione, gruppo di risorse e ambito delle risorse. Se viene ricevuto il messaggio di errore "non è più possibile creare assegnazioni di ruolo (codice: RoleAssignmentLimitExceeded)" quando si tenta di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo nella sottoscrizione.
+Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione. Questo limite include le assegnazioni di ruolo negli ambiti di sottoscrizione, gruppo di risorse e risorsa. Se viene ricevuto il messaggio di errore "non è più possibile creare assegnazioni di ruolo (codice: RoleAssignmentLimitExceeded)" quando si tenta di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo nella sottoscrizione.
 
 > [!NOTE]
 > Il limite di assegnazioni di ruolo **2000** per ogni sottoscrizione è fisso e non può essere aumentato.
@@ -51,7 +50,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problemi con le assegnazioni di ruolo di Azure
 
-- Se non è possibile aggiungere un'assegnazione di ruolo nel **controllo di accesso (IAM)** di portale di Azure perché l'opzione **Aggiungi** > **assegnazione ruolo** è disabilitata o perché si riceve l'errore di autorizzazione "il client con ID oggetto non dispone dell'autorizzazione per eseguire l'azione", verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo con `Microsoft.Authorization/roleAssignments/write` l'autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator) , nell'ambito che si sta provando ad assegnare il ruolo.
+- Se non è possibile aggiungere un'assegnazione di ruolo nel **controllo di accesso (IAM)** di portale di Azure perché l'opzione **Aggiungi**  >  **assegnazione ruolo** è disabilitata o perché si riceve l'errore di autorizzazione "il client con ID oggetto non dispone dell'autorizzazione per eseguire l'azione", verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l' `Microsoft.Authorization/roleAssignments/write` autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator) , nell'ambito che si sta provando ad assegnare il ruolo.
 
 ## <a name="problems-with-custom-roles"></a>Problemi con i ruoli personalizzati
 
@@ -63,8 +62,8 @@ $ras.Count
 
 ## <a name="custom-roles-and-management-groups"></a>Ruoli personalizzati e gruppi di gestione
 
-- È possibile definire un solo gruppo di gestione `AssignableScopes` in di un ruolo personalizzato. L'aggiunta di un gruppo `AssignableScopes` di gestione a è attualmente in fase di anteprima.
-- I ruoli personalizzati `DataActions` con non possono essere assegnati all'ambito del gruppo di gestione.
+- È possibile definire un solo gruppo di gestione in `AssignableScopes` di un ruolo personalizzato. L'aggiunta di un gruppo di gestione a `AssignableScopes` è attualmente in fase di anteprima.
+- I ruoli personalizzati con `DataActions` non possono essere assegnati all'ambito del gruppo di gestione.
 - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione di ruolo.
 - Per altre informazioni sui ruoli personalizzati e sui gruppi di gestione, vedere [organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
@@ -81,7 +80,7 @@ $ras.Count
 ## <a name="access-denied-or-permission-errors"></a>Errori di accesso negato o autorizzazione
 
 - Se si riceve l'errore relativo alle autorizzazioni "Il client con ID oggetto non è autorizzato a eseguire l'azione sull'ambito (codice: AuthorizationFailed)" quando si cerca di creare una risorsa, verificare di aver effettuato l'accesso con un utente a cui è assegnato un ruolo con autorizzazione di scrittura alla risorsa nell'ambito selezionato. Ad esempio, per gestire le macchine virtuali in un gruppo di risorse, è necessario disporre del ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) nel gruppo di risorse (o nell'ambito padre). Per un elenco delle autorizzazioni per ogni ruolo predefinito, vedere [ruoli predefiniti di Azure](built-in-roles.md).
-- Se si riceve l'errore di autorizzazione "non si è autorizzati a creare una richiesta di supporto" quando si tenta di creare o aggiornare un ticket di supporto, verificare di avere eseguito l'accesso con un utente a cui è assegnato un ruolo `Microsoft.Support/supportTickets/write` che dispone dell'autorizzazione, ad esempio [supporto richieste di supporto](built-in-roles.md#support-request-contributor).
+- Se si riceve l'errore di autorizzazione "non si è autorizzati a creare una richiesta di supporto" quando si tenta di creare o aggiornare un ticket di supporto, verificare di avere eseguito l'accesso con un utente a cui è assegnato un ruolo che dispone dell' `Microsoft.Support/supportTickets/write` autorizzazione, ad esempio [supporto richieste di supporto](built-in-roles.md#support-request-contributor).
 
 ## <a name="role-assignments-with-identity-not-found"></a>Assegnazioni di ruolo con identità non trovate
 
@@ -98,7 +97,7 @@ Se di recente è stato invitato un utente durante la creazione di un'assegnazion
 
 Tuttavia, se questa entità di sicurezza non è un utente invitato recentemente, potrebbe trattarsi di un'entità di sicurezza eliminata. Se si assegna un ruolo a un'entità di sicurezza e successivamente si elimina tale entità di sicurezza senza prima rimuovere l'assegnazione di ruolo, l'entità di sicurezza sarà elencata come **identità non trovata** e un tipo **sconosciuto** .
 
-Se l'assegnazione di ruolo viene elencata utilizzando Azure PowerShell, è possibile che `DisplayName` venga visualizzato `ObjectType` un oggetto vuoto e un valore impostato su **Unknown**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) , ad esempio, restituisce un'assegnazione di ruolo simile all'output seguente:
+Se l'assegnazione di ruolo viene elencata utilizzando Azure PowerShell, è possibile che venga visualizzato un oggetto vuoto `DisplayName` e un `ObjectType` valore impostato su **Unknown**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) , ad esempio, restituisce un'assegnazione di ruolo simile all'output seguente:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -112,7 +111,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Analogamente, se si elenca questa assegnazione di ruolo usando l'interfaccia della riga di comando `principalName`di Azure, potrebbe essere presente un oggetto vuoto. Ad esempio, [AZ Role Assignment list](/cli/azure/role/assignment#az-role-assignment-list) restituisce un'assegnazione di ruolo simile all'output seguente:
+Analogamente, se si elenca questa assegnazione di ruolo usando l'interfaccia della riga di comando di Azure, potrebbe essere presente un oggetto vuoto `principalName` . Ad esempio, [AZ Role Assignment list](/cli/azure/role/assignment#az-role-assignment-list) restituisce un'assegnazione di ruolo simile all'output seguente:
 
 ```
 {
@@ -143,7 +142,7 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-Se viene ricevuto questo messaggio di errore, assicurarsi di specificare anche i `-Scope` parametri `-ResourceGroupName` o.
+Se viene ricevuto questo messaggio di errore, assicurarsi di specificare anche i `-Scope` `-ResourceGroupName` parametri o.
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -153,7 +152,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 In alcuni casi, Azure Resource Manager memorizza nella cache le configurazioni e i dati per migliorare le prestazioni. Quando si aggiungono o rimuovono le assegnazioni di ruolo, possono essere necessari fino a 30 minuti per rendere effettive le modifiche. Se si usa il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile forzare l'aggiornamento delle modifiche alle assegnazioni di ruolo effettuando la disconnessione e quindi di nuovo l'accesso. Se si apportano modifiche alle assegnazioni di ruolo con chiamate all'API REST, è possibile forzare l'aggiornamento semplicemente aggiornando il token di accesso.
 
-Se si aggiunge o rimuove un'assegnazione di ruolo nell'ambito del gruppo di gestione e il `DataActions`ruolo ha, l'accesso al piano dati potrebbe non essere aggiornato per diverse ore. Si applica solo all'ambito del gruppo di gestione e al piano dati.
+Se si aggiunge o rimuove un'assegnazione di ruolo nell'ambito del gruppo di gestione e il ruolo ha `DataActions` , l'accesso al piano dati potrebbe non essere aggiornato per diverse ore. Si applica solo all'ambito del gruppo di gestione e al piano dati.
 
 ## <a name="web-app-features-that-require-write-access"></a>Funzionalità dell'app Web che richiedono l'accesso in scrittura
 
