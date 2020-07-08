@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di Resource Graph e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
-ms.date: 03/07/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 944d0f2676f1a82c80be33a6c1a91d34bc8a32f7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654460"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970451"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -17,12 +17,13 @@ Il linguaggio di query di Azure Resource Graph supporta un certo numero di opera
 Questo articolo illustra i componenti del linguaggio supportati da Resource Graph:
 
 - [Tabelle di Resource Graph](#resource-graph-tables)
+- [Elementi di linguaggio personalizzati del grafico risorse](#resource-graph-custom-language-elements)
 - [Elementi supportati del linguaggio KQL](#supported-kql-language-elements)
 - [Caratteri di escape](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Tabelle di Resource Graph
 
-Resource Graph offre diverse tabelle per i dati archiviati relative ai tipi di risorsa di Resource Manager e alle relative proprietà. Queste tabelle possono essere usate con gli operatori `join` o `union` per ottenere proprietà da tipi di risorsa correlati. Di seguito è riportato l'elenco di tabelle disponibili in Resource Graph:
+Il grafico risorse fornisce diverse tabelle per i dati archiviati su Azure Resource Manager tipi di risorse e le relative proprietà. Queste tabelle possono essere usate con gli operatori `join` o `union` per ottenere proprietà da tipi di risorsa correlati. Di seguito è riportato l'elenco di tabelle disponibili in Resource Graph:
 
 |Tabelle di Resource Graph |Descrizione |
 |---|---|
@@ -61,6 +62,33 @@ Resources
 
 > [!NOTE]
 > Quando si limitano i risultati di `join` con `project`, la proprietà usata da `join` per correlare le due tabelle, _subscriptionId_ nell'esempio precedente, deve essere inclusa in `project`.
+
+## <a name="resource-graph-custom-language-elements"></a>Elementi di linguaggio personalizzati del grafico risorse
+
+### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>Sintassi di query condivise (anteprima)
+
+Come funzionalità di anteprima, è possibile accedere a una [query condivisa](../tutorials/create-share-query.md) direttamente in una query del grafico di risorse. Questo scenario rende possibile la creazione di query standard come query condivise e riutilizzarle. Per chiamare una query condivisa all'interno di una query di Graph di risorse, usare la `{{shared-query-uri}}` sintassi. L'URI della query condivisa è l' _ID risorsa_ della query condivisa nella pagina **delle impostazioni** per la query. In questo esempio, l'URI della query condivisa è `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS` .
+Questo URI punta alla sottoscrizione, al gruppo di risorse e al nome completo della query condivisa a cui si vuole fare riferimento in un'altra query. Questa query è identica a quella creata in [esercitazione: creare e condividere una query](../tutorials/create-share-query.md).
+
+> [!NOTE]
+> Non è possibile salvare una query che fa riferimento a una query condivisa come query condivisa.
+
+Esempio 1: usare solo la query condivisa
+
+I risultati di questa query del grafico risorse corrispondono alla query archiviata nella query condivisa.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+```
+
+Esempio 2: includere la query condivisa come parte di una query di dimensioni maggiori
+
+Questa query USA prima di tutto la query condivisa, quindi usa `limit` per limitare ulteriormente i risultati.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+| where properties_storageProfile_osDisk_osType =~ 'Windows'
+```
 
 ## <a name="supported-kql-language-elements"></a>Elementi supportati del linguaggio KQL
 

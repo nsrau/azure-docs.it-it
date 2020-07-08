@@ -1,17 +1,17 @@
 ---
-title: Soluzione Gestione di Office 365 in Azure | Microsoft Docs
+title: Soluzione di gestione di Office 365 in Azure
 description: In questo articolo vengono fornite informazioni dettagliate sulla configurazione e l'uso della soluzione Office 365 in Azure.  Include una descrizione dettagliata dei record di Office 365 creati in Monitoraggio di Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 2c6eb5407ec62b6e9e771ce257b66fca2a91e0a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d89c64b7ceea730dab61ffe1254d838d219b785
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82023606"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971046"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -19,7 +19,7 @@ ms.locfileid: "82023606"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Aggiornamento della soluzione
-> Questa soluzione è stata sostituita dalla soluzione di disponibilità generale di [Office 365](../../sentinel/connect-office-365.md) in [Sentinel di Azure](../../sentinel/overview.md) e dalla [soluzione Azure ad Reporting and Monitoring](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Insieme forniscono una versione aggiornata della soluzione Office 365 di monitoraggio di Azure precedente con un'esperienza di configurazione migliorata. È possibile continuare a usare la soluzione esistente fino al 30 luglio 2020.
+> Questa soluzione è stata sostituita dalla soluzione di disponibilità generale di [Office 365](../../sentinel/connect-office-365.md) in [Sentinel di Azure](../../sentinel/overview.md) e dalla [soluzione Azure ad Reporting and Monitoring](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Insieme forniscono una versione aggiornata della soluzione Office 365 di monitoraggio di Azure precedente con un'esperienza di configurazione migliorata. È possibile continuare a usare la soluzione esistente fino al 31 ottobre 2020.
 > 
 > Azure Sentinel è una soluzione di gestione degli eventi e delle informazioni di sicurezza nativa del cloud che inserisce log e fornisce funzionalità SIEM aggiuntive, tra cui rilevamenti, indagini, ricerche e informazioni dettagliate basate su Machine Learning. Con Azure Sentinel verranno ora importati i registri attività di Office 365 SharePoint e gestione di Exchange.
 > 
@@ -35,8 +35,8 @@ ms.locfileid: "82023606"
 >
 > ## <a name="frequently-asked-questions"></a>Domande frequenti
 > 
-> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-july-30th"></a>D: è possibile eseguire l'onboarding della soluzione di monitoraggio di Azure per Office 365 tra ora e il 30 luglio?
-> No, gli script di onboarding della soluzione Office 365 di monitoraggio di Azure non sono più disponibili. La soluzione verrà rimossa il 30 luglio.
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-october-31"></a>D: è possibile eseguire l'onboarding della soluzione di monitoraggio di Azure per Office 365 tra ora e 31 ottobre?
+> No, gli script di onboarding della soluzione Office 365 di monitoraggio di Azure non sono più disponibili. La soluzione verrà rimossa il 31 ottobre.
 > 
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>D: le tabelle e gli schemi verranno modificati?
 > Il nome e lo schema della tabella **OfficeActivity** rimarranno identici a quelli della soluzione corrente. È possibile continuare a usare le stesse query nella nuova soluzione, escluse le query che fanno riferimento a Azure AD dati.
@@ -102,11 +102,11 @@ ms.locfileid: "82023606"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>D: Azure Sentinel fornisce connettori aggiuntivi come parte della soluzione?
 > Sì, vedere [origini dati di Azure Sentinel Connect](../../sentinel/connect-data-sources.md).
 > 
-> ###    <a name="q-what-will-happen-on-july-30-do-i-need-to-offboard-beforehand"></a>D: cosa accade il 30 luglio? È necessario offboard in anticipo?
+> ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>D: cosa avverrà il 31 ottobre? È necessario offboard in anticipo?
 > 
 > - Non sarà possibile ricevere i dati dalla soluzione **Office365** . La soluzione non sarà più disponibile nel Marketplace
 > - Per i clienti di Azure Sentinel, la soluzione per l'area di lavoro Log Analytics **Office365** verrà inclusa nella soluzione **SecurityInsights** di Sentinel di Azure.
-> - Se la soluzione non viene offboardta manualmente, i dati verranno disconnessi automaticamente il 30 luglio.
+> - Se non si offboard la soluzione manualmente, i dati verranno disconnessi automaticamente il 31 ottobre.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>D: i dati vengono trasferiti alla nuova soluzione?
 > Sì. Quando si rimuove la soluzione **Office 365** dall'area di lavoro, i relativi dati diventeranno temporaneamente non disponibili perché lo schema è stato rimosso. Quando si Abilita il nuovo connettore **Office 365** in Sentinel, lo schema viene ripristinato nell'area di lavoro e tutti i dati già raccolti diventeranno disponibili. 
@@ -121,7 +121,7 @@ La soluzione di gestione di Office 365 consente di monitorare l'ambiente Office 
 - Risoluzione dei problemi operativi usando le [query di log](../log-query/log-query-overview.md) oltre ai dati di attività di Office 365 dell'organizzazione.
 
 
-## <a name="uninstall"></a>Disinstallazione
+## <a name="uninstall"></a>Disinstallare
 
 È possibile rimuovere la soluzione di Gestione di Office 365 seguendo la procedura descritta in [Rimuovere una soluzione di gestione](solutions.md#remove-a-monitoring-solution). In questo modo tuttavia la raccolta dei dati da Office 365 a Monitoraggio di Azure non verrà interrotta. Seguire la procedura seguente per annullare la sottoscrizione a Office 365 e interrompere la raccolta dei dati.
 
@@ -272,7 +272,7 @@ Le proprietà seguenti sono comuni a tutti i record di Office 365.
 | ResultStatus | Indica se l'azione (specificata nella proprietà Operation) è andata a buon fine o meno. I possibili valori sono Succeeded, PartiallySucceded o Failed. Per le attività dell'amministratore di Exchange, il valore è True o False. |
 | UserId | Il nome UPN (User Principal Name) dell'utente che ha eseguito l'azione ha generato la registrazione del record, ad esempio my_name@my_domain_name. Si noti che sono inclusi anche i record per l'attività eseguita dall'account di sistema (ad esempio SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un ID alternativo per l'utente identificato con la proprietà UserId.  Ad esempio, questa proprietà viene popolata con l'ID univoco passport (PUID) per gli eventi eseguiti dagli utenti in SharePoint, OneDrive for Business ed Exchange. Questa proprietà può inoltre specificare lo stesso valore della proprietà UserID per gli eventi che si verificano in altri servizi ed eventi eseguiti dall'account di sistema|
-| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministratore<br>Applicazione<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>Sistema |
+| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministratore<br>Applicazione<br>DcAdmin<br>Regular<br>Riservato<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Base di Azure Active Directory
@@ -465,7 +465,7 @@ La tabella seguente include le query di log di esempio per i record di aggiornam
 | Query | Descrizione |
 | --- | --- |
 |Conteggio di tutte le operazioni per la sottoscrizione di Office 365 |OfficeActivity &#124; summarize count() by Operation |
-|Uso di siti di SharePoint|OfficeActivity &#124; where OfficeWorkload = ~ "SharePoint" &#124; riepilogare Count () by SiteUrl \| sort by count ASC|
+|Uso di siti di SharePoint|OfficeActivity &#124; where OfficeWorkload = ~ "SharePoint" &#124; riepilogare Count () by SiteUrl \| Sort by count ASC|
 |Operazioni di accesso ai file per tipo di utente | OfficeActivity &#124; riepilogare Count () by UserType |
 |Azioni esterne di monitoraggio di Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|
 

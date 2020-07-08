@@ -1,14 +1,14 @@
 ---
-title: Estensione di criteri di Azure per Visual Studio Code
-description: Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare Gestione risorse alias.
-ms.date: 03/07/2020
+title: Estensione Criteri di Azure per Visual Studio Code
+description: Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare Azure Resource Manager alias.
+ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182566"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970757"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
 
@@ -34,7 +34,7 @@ Dopo aver soddisfatto i prerequisiti, è possibile installare l'estensione crite
 
 1. Aprire Visual Studio Code.
 
-1. Dalla barra dei menu passare a **Visualizza** > **estensioni**.
+1. Dalla barra dei menu passare a **Visualizza**  >  **estensioni**.
 
 1. Nella casella di ricerca immettere **criteri di Azure**.
 
@@ -68,7 +68,7 @@ Per valutare le risorse e gli alias di ricerca, è necessario connettersi all'ac
 
    - Riquadro comandi
 
-     Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Azure: Sign in (accedi**).
+     Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e immettere **Azure: Sign in (accedi**).
 
      :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Accesso al cloud di Azure per Visual Studio Code dal riquadro comandi" border="false":::
 
@@ -82,11 +82,11 @@ Quando si accede per la prima volta, solo le risorse e i criteri di sottoscrizio
 
    - Tavolozza comandi: 
 
-     Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Azure: selezionare sottoscrizioni**.
+     Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e immettere **Azure: selezionare sottoscrizioni**.
 
    - Piè di pagina della finestra
 
-     Nel piè di pagina della finestra nella parte inferiore della schermata selezionare il segmento che corrisponde ad **Azure: \<il proprio\>account**.
+     Nel piè di pagina della finestra nella parte inferiore della schermata selezionare il segmento che corrisponde ad **Azure: \<your account\> **.
 
 1. Utilizzare la casella filtro per trovare rapidamente le sottoscrizioni in base al nome. Quindi, selezionare o rimuovere il controllo da ogni sottoscrizione per impostare le sottoscrizioni visualizzate dall'estensione criteri di Azure. Al termine dell'aggiunta o della rimozione delle sottoscrizioni da visualizzare, selezionare **OK**.
 
@@ -99,7 +99,7 @@ L'estensione criteri di Azure elenca le risorse nelle sottoscrizioni selezionate
 - **Gruppi di risorse**
   - Tutte le risorse del gruppo di risorse in cui si trovano
 
-Per impostazione predefinita, l'estensione filtra la parte "provider di risorse" per le risorse e le risorse esistenti con alias dei criteri. Modificare questo comportamento in **Impostazioni** > **estensioni** > **criteri di Azure** per visualizzare tutti i provider di risorse senza filtro.
+Per impostazione predefinita, l'estensione filtra la parte "provider di risorse" per le risorse e le risorse esistenti con alias dei criteri. Modificare questo comportamento in **Impostazioni**  >  **estensioni**  >  **criteri di Azure** per visualizzare tutti i provider di risorse senza filtro.
 
 I clienti con centinaia o migliaia di risorse in una singola sottoscrizione possono preferire un metodo ricercabile per individuare le risorse. L'estensione criteri di Azure consente di cercare una risorsa specifica con i passaggi seguenti:
 
@@ -121,11 +121,14 @@ I clienti con centinaia o migliaia di risorse in una singola sottoscrizione poss
 
 ## <a name="discover-aliases-for-resource-properties"></a>Individuare gli alias per le proprietà delle risorse
 
-Quando si seleziona una risorsa, tramite l'interfaccia di ricerca o selezionandola in TreeView, l'estensione di criteri di Azure apre il file JSON che rappresenta la risorsa e tutti i relativi valori Gestione risorse proprietà.
+Quando si seleziona una risorsa, tramite l'interfaccia di ricerca o selezionandola in TreeView, l'estensione di criteri di Azure apre il file JSON che rappresenta la risorsa e tutti i relativi valori Azure Resource Manager proprietà.
 
-Una volta aperta una risorsa, il puntatore del mouse sul nome o sul valore della proprietà Gestione risorse Visualizza l'alias di criteri di Azure, se disponibile. In questo esempio, la risorsa è un `Microsoft.Compute/virtualMachines` tipo di risorsa e la proprietà **Properties. storageProfile. imageReference. offer** viene posizionata sopra. Il passaggio del mouse Mostra gli alias corrispondenti.
+Una volta aperta una risorsa, il puntatore del mouse sul nome o sul valore della proprietà Gestione risorse Visualizza l'alias di criteri di Azure, se disponibile. In questo esempio, la risorsa è un `Microsoft.Compute/virtualMachines` tipo di risorsa e la proprietà **Properties. StorageProfile. imageReference. offer** viene posizionata sopra. Il passaggio del mouse Mostra gli alias corrispondenti.
 
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Il passaggio del mouse sull'estensione criteri di Azure Mostra Gestione risorse alias proprietà" border="false":::
+
+> [!NOTE]
+> L'estensione VS Code espone solo le proprietà della modalità Resource Manager e non visualizza nessuna proprietà della modalità [Provider di risorse](../concepts/definition-structure.md#mode).
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>Cercare e visualizzare i criteri e le assegnazioni
 
@@ -149,15 +152,15 @@ L'estensione criteri di Azure elenca i tipi di criteri e le assegnazioni di crit
 
 Quando si seleziona un criterio o un'assegnazione, tramite l'interfaccia di ricerca o selezionandola in TreeView, l'estensione di criteri di Azure apre il JSON che rappresenta il criterio o l'assegnazione e tutti i relativi valori Gestione risorse proprietà. L'estensione può convalidare lo schema JSON di criteri di Azure aperto.
 
-## <a name="sign-out"></a>Disconnessione
+## <a name="sign-out"></a>Disconnetti
 
-Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e quindi immettere **Azure: disconnettersi**.
+Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e quindi immettere **Azure: disconnettersi**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
+- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md).
 - Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Informazioni su come [creare criteri a livello di codice](programmatically-create.md).
-- Informazioni su come monitorare e [aggiornare le risorse non conformi](remediate-resources.md).
-- Esaminare le funzionalità di un gruppo di gestione con [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Informazioni su come [correggere le risorse non conformi](remediate-resources.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

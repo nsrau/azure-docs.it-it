@@ -3,16 +3,16 @@ title: Funzioni di Azure Blueprints
 description: Descrive le funzioni disponibili per l'uso con gli artefatti del progetto in definizioni e assegnazioni Azure Blueprints.
 ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: e804cc98f7bd6d3e94e6b518f0ed0575f9f8f440
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: c402075aa9f6beb52e72454179c2e96d148c271f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834782"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970876"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funzioni da usare con Azure Blueprints
 
-Azure Blueprints offre funzioni che rendono più dinamica la definizione di un progetto. Queste funzioni sono destinate all'uso con definizioni di progetto e artefatti del progetto. Un elemento del modello di Resource Manager risorse supporta l'utilizzo completo delle funzioni di Resource Manager, oltre a ottenere un valore dinamico tramite un parametro di progetto.
+Azure Blueprints offre funzioni che rendono più dinamica la definizione di un progetto. Queste funzioni sono destinate all'uso con definizioni di progetto e artefatti del progetto. Un elemento del modello di Azure Resource Manager (modello ARM) supporta l'uso completo delle funzioni Gestione risorse, oltre a ottenere un valore dinamico tramite un parametro di progetto.
 
 Sono supportate le funzioni seguenti:
 
@@ -30,7 +30,7 @@ Sono supportate le funzioni seguenti:
 Restituisce un oggetto di proprietà popolato con gli output degli artefatti del progetto.
 
 > [!NOTE]
-> Non è possibile utilizzare la funzione `artifacts()` dall'interno di un modello di Resource Manager. La funzione può essere usata solo nel codice JSON della definizione di progetto o nell'artefatto JSON quando si gestisce il progetto con Azure PowerShell o l'API REST come parte di [Blueprints come codice](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+> `artifacts()`Non è possibile usare la funzione dall'interno di un modello ARM. La funzione può essere usata solo nel codice JSON della definizione di progetto o nell'artefatto JSON quando si gestisce il progetto con Azure PowerShell o l'API REST come parte di [Blueprints come codice](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### <a name="parameters"></a>Parametri
 
@@ -60,9 +60,9 @@ Oggetto delle proprietà di output. Le proprietà **output** proprietà dipendon
 }
 ```
 
-#### <a name="resource-manager-template-artifact"></a>Artefatto del modello di Resource Manager
+#### <a name="arm-template-artifact"></a>Artefatto modello ARM
 
-Le proprietà **output** dell'oggetto restituito vengono definite all'interno del modello di Resource Manager e restituite dalla distribuzione.
+Le proprietà **Outputs** dell'oggetto restituito sono definite nel modello ARM e restituite dalla distribuzione.
 
 #### <a name="role-assignment-artifact"></a>Artefatto dell'assegnazione di ruolo
 
@@ -78,7 +78,7 @@ Le proprietà **output** dell'oggetto restituito vengono definite all'interno de
 
 ### <a name="example"></a>Esempio
 
-Un artefatto del modello di Resource Manager con ID _myTemplateArtifact_ contenente la seguente proprietà di output di esempio:
+Un elemento del modello ARM con ID _myTemplateArtifact_ contenente la proprietà di output di esempio seguente:
 
 ```json
 {
@@ -134,7 +134,7 @@ Stringa di valori concatenati.
 
 ### <a name="remarks"></a>Osservazioni
 
-La funzione Azure Blueprint differisce dalla funzione del modello di Azure Resource Manager perché funziona solo con le stringhe.
+La funzione Azure Blueprint differisce dalla funzione del modello ARM perché funziona solo con le stringhe.
 
 ### <a name="example"></a>Esempio
 
@@ -158,7 +158,7 @@ Il valore del parametro di progetto o dell'artefatto del progetto specificato.
 
 ### <a name="remarks"></a>Osservazioni
 
-La funzione Azure Blueprint differisce dalla funzione del modello di Azure Resource Manager perché funziona solo con i parametri del progetto.
+La funzione Azure Blueprint differisce dalla funzione del modello ARM perché funziona solo con i parametri del progetto.
 
 ### <a name="example"></a>Esempio
 
@@ -218,7 +218,7 @@ L'oggetto restituito è nel formato seguente:
 
 ### <a name="remarks"></a>Osservazioni
 
-La funzione Azure Blueprint differisce dalla funzione del modello di Azure Resource Manager. Non è possibile usare la funzione `resourceGroup()` in un artefatto a livello di sottoscrizione o nella definizione del progetto. Può essere usata solo negli artefatti del progetto che fanno parte di un artefatto del gruppo di risorse.
+La funzione Azure Blueprint differisce dalla funzione del modello ARM. Non è possibile usare la funzione `resourceGroup()` in un artefatto a livello di sottoscrizione o nella definizione del progetto. Può essere usata solo negli artefatti del progetto che fanno parte di un artefatto del gruppo di risorse.
 
 Un utilizzo comune della funzione `resourceGroup()` consiste nel creare risorse nello stesso percorso dell'artefatto del gruppo di risorse.
 

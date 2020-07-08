@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: how-to
-ms.openlocfilehash: 5ac3991a52ab75dccd0033160d6e972d155a882b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723919"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85979918"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
@@ -24,9 +24,9 @@ Questo articolo illustra le operazioni in background che possono verificarsi per
 
 ### <a name="resize-timeout-or-failure"></a>Timeout ridimensionamento o errore
 
-Durante la creazione di un nuovo pool o il ridimensionamento di un pool esistente, si specifica il numero di nodi di destinazione.  L'operazione di creazione o ridimensionamento viene completata immediatamente, ma l'effettiva allocazione dei nuovi nodi o la rimozione dei nodi esistenti potrebbe richiedere diversi minuti.  Il timeout dell'operazione di ridimensionamento viene specificato nell'API di [creazione](https://docs.microsoft.com/rest/api/batchservice/pool/add) o [ridimensionamento](https://docs.microsoft.com/rest/api/batchservice/pool/resize). Se Batch non è in grado di ottenere il numero di nodi di destinazione durante il periodo di timeout del ridimensionamento, il pool entra in uno stato stabile e segnala errori di ridimensionamento.
+Durante la creazione di un nuovo pool o il ridimensionamento di un pool esistente, si specifica il numero di nodi di destinazione.  L'operazione di creazione o ridimensionamento viene completata immediatamente, ma l'effettiva allocazione dei nuovi nodi o la rimozione dei nodi esistenti potrebbe richiedere diversi minuti.  Il timeout dell'operazione di ridimensionamento viene specificato nell'API di [creazione](/rest/api/batchservice/pool/add) o [ridimensionamento](/rest/api/batchservice/pool/resize). Se Batch non è in grado di ottenere il numero di nodi di destinazione durante il periodo di timeout del ridimensionamento, il pool entra in uno stato stabile e segnala errori di ridimensionamento.
 
-La proprietà [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) relativa alla valutazione più recente elenca gli errori che si sono verificati.
+La proprietà [ResizeError](/rest/api/batchservice/pool/get#resizeerror) relativa alla valutazione più recente elenca gli errori che si sono verificati.
 
 Ecco alcune cause comuni degli errori di ridimensionamento:
 
@@ -34,31 +34,31 @@ Ecco alcune cause comuni degli errori di ridimensionamento:
   - Nella maggior parte dei casi il timeout predefinito di 15 minuti è sufficiente per completare l'allocazione o la rimozione dei nodi del pool.
   - Se occorre allocare un numero elevato di nodi, è consigliabile impostare il timeout di ridimensionamento su 30 minuti. È il caso ad esempio del ridimensionamento a più di 1.000 nodi da un'immagine di Azure Marketplace o a più di 300 nodi da un'immagine di macchina virtuale personalizzata.
 - Quota di core insufficiente
-  - Un account Batch può allocare un numero limitato di core in tutti i pool. Quando viene raggiunta la quota limite, Batch smette di allocare nodi. È possibile [aumentare](https://docs.microsoft.com/azure/batch/batch-quota-limit) la quota di core per consentire a Batch di allocare più nodi.
-- Indirizzi IP di subnet insufficienti quando un [pool è in una rete virtuale](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - Un account Batch può allocare un numero limitato di core in tutti i pool. Quando viene raggiunta la quota limite, Batch smette di allocare nodi. È possibile [aumentare](./batch-quota-limit.md) la quota di core per consentire a Batch di allocare più nodi.
+- Indirizzi IP di subnet insufficienti quando un [pool è in una rete virtuale](./batch-virtual-network.md)
   - Una subnet di rete virtuale deve disporre di un numero sufficiente di indirizzi IP non assegnati da allocare a ogni nodo di pool richiesto. In caso contrario non è possibile creare i nodi.
-- Risorse insufficienti quando un [pool è in una rete virtuale](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+- Risorse insufficienti quando un [pool è in una rete virtuale](./batch-virtual-network.md)
   - Se si creano risorse come servizi di bilanciamento del carico, IP pubblici e gruppi di sicurezza di rete nella stessa sottoscrizione dell'account Batch, verificare che le quote della sottoscrizione siano sufficienti per queste risorse.
 - Pool di grandi dimensioni con immagini di macchina virtuale personalizzate
   - L'allocazione di pool di grandi dimensioni che usano immagini di macchina virtuale personalizzate può richiedere più tempo, pertanto possono verificarsi timeout di ridimensionamento.  Vedere [Creare un pool con Raccolta immagini condivise](batch-sig-images.md) per consigli su limiti e configurazione.
 
 ### <a name="automatic-scaling-failures"></a>Errori di ridimensionamento automatico
 
-Si può anche impostare Azure Batch in modo da ridimensionare automaticamente il numero di nodi in un pool. A questo scopo occorre definire i parametri per la [formula di ridimensionamento automatico per un pool](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). Il servizio Batch usa quindi la formula per valutare periodicamente il numero di nodi nel pool e impostare un nuovo numero di destinazione. Possono verificarsi i tipi di problemi seguenti:
+Si può anche impostare Azure Batch in modo da ridimensionare automaticamente il numero di nodi in un pool. A questo scopo occorre definire i parametri per la [formula di ridimensionamento automatico per un pool](./batch-automatic-scaling.md). Il servizio Batch usa quindi la formula per valutare periodicamente il numero di nodi nel pool e impostare un nuovo numero di destinazione. Possono verificarsi i tipi di problemi seguenti:
 
 - La valutazione del ridimensionamento automatico non riesce.
 - L'operazione di ridimensionamento risultante non riesce con conseguente timeout.
 - Un problema nella formula di ridimensionamento automatico genera valori di destinazione dei nodi non corretti. Il ridimensionamento riesce oppure raggiunge il timeout.
 
-È possibile ottenere informazioni sull'ultima valutazione del ridimensionamento automatico usando la proprietà [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun). Questa proprietà indica il periodo della valutazione, i valori e il risultato, oltre agli eventuali errori di prestazioni.
+È possibile ottenere informazioni sull'ultima valutazione del ridimensionamento automatico usando la proprietà [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun). Questa proprietà indica il periodo della valutazione, i valori e il risultato, oltre agli eventuali errori di prestazioni.
 
-L'[evento di completamento del ridimensionamento del pool](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) acquisisce le informazioni su tutte le valutazioni.
+L'[evento di completamento del ridimensionamento del pool](./batch-pool-resize-complete-event.md) acquisisce le informazioni su tutte le valutazioni.
 
 ### <a name="delete"></a>Delete
 
 Quando si elimina un pool che contiene nodi, Batch elimina prima di tutto i nodi, quindi l'oggetto pool stesso. L'eliminazione dei nodi del pool può richiedere alcuni minuti.
 
-Lo [stato del pool](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) viene impostato su **deleting** durante il processo di eliminazione. L'applicazione chiamante può rilevare se l'eliminazione del pool richiede troppo tempo usando le proprietà **state** e **stateTransitionTime**.
+Lo [stato del pool](/rest/api/batchservice/pool/get#poolstate) viene impostato su **deleting** durante il processo di eliminazione. L'applicazione chiamante può rilevare se l'eliminazione del pool richiede troppo tempo usando le proprietà **state** e **stateTransitionTime**.
 
 ## <a name="pool-compute-node-errors"></a>Errori dei nodi di calcolo dei pool
 
@@ -131,7 +131,7 @@ Altri file vengono scritti per ogni attività eseguita in un nodo, ad esempio st
 Le dimensioni dell'unità temporanea dipendono dalle dimensioni della macchina virtuale. Quando si selezionano le dimensioni di una macchina virtuale è buona norma assicurarsi che lo spazio disponibile nell'unità temporanea sia sufficiente.
 
 - Nel portale di Azure, durante l'aggiunta di un pool è possibile visualizzare l'elenco completo delle dimensioni delle macchine virtuali ed è presente una colonna "Dimensioni disco risorsa".
-- Gli articoli che descrivono tutte le dimensioni delle macchine virtuali contengono tabelle con una colonna "Archiviazione temporanea", ad esempio [Dimensioni delle macchine virtuali con ottimizzazione per il calcolo](/azure/virtual-machines/windows/sizes-compute)
+- Gli articoli che descrivono tutte le dimensioni delle macchine virtuali contengono tabelle con una colonna "Archiviazione temporanea", ad esempio [Dimensioni delle macchine virtuali con ottimizzazione per il calcolo](../virtual-machines/sizes-compute.md)
 
 Per i file scritti dalle singole attività, è possibile specificare un periodo di conservazione per ogni attività, che determini per quanto tempo i file dell'attività debbano essere conservati prima di essere eliminati automaticamente. Il tempo di conservazione può essere ridotto per ridurre i requisiti di archiviazione.
 
@@ -140,17 +140,17 @@ Se lo spazio sul disco temporaneo si esaurisce (o quasi), il nodo passerà allo 
 
 ### <a name="what-to-do-when-a-disk-is-full"></a>Operazioni da eseguire quando un disco è pieno
 
-Determinare il motivo per cui il disco è pieno: Se non si è certi di cosa occupi spazio nel nodo, è consigliabile eseguire una procedura remota nel nodo ed esaminare manualmente i punti in cui lo spazio è esaurito. È anche possibile usare l'[API dei file di elenco processi batch](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) per esaminare i file nelle cartelle gestite da Batch (ad esempio, gli output delle attività). Si noti che questa API elenca solo i file inclusi nelle directory gestite da Batch; se le attività hanno creato file altrove, questi non verranno visualizzati.
+Determinare il motivo per cui il disco è pieno: Se non si è certi di cosa occupi spazio nel nodo, è consigliabile eseguire una procedura remota nel nodo ed esaminare manualmente i punti in cui lo spazio è esaurito. È anche possibile usare l'[API dei file di elenco processi batch](/rest/api/batchservice/file/listfromcomputenode) per esaminare i file nelle cartelle gestite da Batch (ad esempio, gli output delle attività). Si noti che questa API elenca solo i file inclusi nelle directory gestite da Batch; se le attività hanno creato file altrove, questi non verranno visualizzati.
 
 Assicurarsi che tutti i dati necessari siano stati recuperati dal nodo o caricati in un archivio durevole. La mitigazione del problema di esaurimento spazio sul disco comporta sempre l'eliminazione di dati per liberare spazio.
 
 ### <a name="recovering-the-node"></a>Recupero del nodo
 
-1. Se il pool è del tipo [C.loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration), è possibile ricreare l'immagine del nodo tramite l'[API di nuova creazione immagine Batch](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). L'intero disco verrà pulito. La nuova creazione dell'immagine non è attualmente supportata per i pool [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+1. Se il pool è del tipo [C.loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration), è possibile ricreare l'immagine del nodo tramite l'[API di nuova creazione immagine Batch](/rest/api/batchservice/computenode/reimage). L'intero disco verrà pulito. La nuova creazione dell'immagine non è attualmente supportata per i pool [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
-2. Se il pool è del tipo [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), è possibile rimuovere il nodo dal pool tramite l'[l'API di rimozione nodi](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Sarà quindi possibile aumentare di nuovo il pool per sostituire il nodo errato con uno aggiornato.
+2. Se il pool è del tipo [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), è possibile rimuovere il nodo dal pool tramite l'[l'API di rimozione nodi](/rest/api/batchservice/pool/removenodes). Sarà quindi possibile aumentare di nuovo il pool per sostituire il nodo errato con uno aggiornato.
 
-3.  Eliminare le attività o i processi completati in precedenza i cui dati delle attività sono ancora presenti nei nodi. Per un suggerimento relativo ai processi o ai dati delle attività nei nodi, è possibile consultare la [raccolta RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) nel nodo o i [file nel nodo](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Eliminando il processo verranno eliminate tutte le attività ad esso relative; l'eliminazione delle attività nel processo attiverà i dati nelle directory delle attività nel nodo da eliminare, liberando così spazio. Dopo avere liberato spazio sufficiente, riavviare il nodo, che uscirà dallo stato "Inutilizzabile" per tornare a quello "Inattivo".
+3.  Eliminare le attività o i processi completati in precedenza i cui dati delle attività sono ancora presenti nei nodi. Per un suggerimento relativo ai processi o ai dati delle attività nei nodi, è possibile consultare la [raccolta RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) nel nodo o i [file nel nodo](/rest/api/batchservice/file/listfromcomputenode). Eliminando il processo verranno eliminate tutte le attività ad esso relative; l'eliminazione delle attività nel processo attiverà i dati nelle directory delle attività nel nodo da eliminare, liberando così spazio. Dopo avere liberato spazio sufficiente, riavviare il nodo, che uscirà dallo stato "Inutilizzabile" per tornare a quello "Inattivo".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

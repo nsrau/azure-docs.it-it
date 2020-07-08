@@ -3,16 +3,17 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684287"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971097"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
-Oltre a eseguire attività di controllo e [correzione](../how-to/remediate-resources.md) per le risorse di Azure, con Criteri di Azure è possibile controllare le impostazioni all'interno di un computer. La convalida viene eseguita dall'estensione Configurazione guest e dal client. L'estensione, tramite il client, convalida impostazioni come:
+Criteri di Azure consente di controllare le impostazioni all'interno di un computer, sia per i computer in esecuzione in Azure che per i computer [connessi ad Arc](../../../azure-arc/servers/overview.md).
+La convalida viene eseguita dall'estensione Configurazione guest e dal client. L'estensione, tramite il client, convalida impostazioni come:
 
 - Configurazione del sistema operativo
 - Configurazione o presenza di applicazioni
@@ -21,13 +22,17 @@ Oltre a eseguire attività di controllo e [correzione](../how-to/remediate-resou
 Al momento, la maggior parte dei criteri di Configurazione guest di Criteri di Azure controlla solo le impostazioni all'interno del computer.
 Non vengono invece applicate le configurazioni. L'eccezione è rappresentata da un criterio predefinito [illustrato di seguito](#applying-configurations-using-guest-configuration).
 
+## <a name="enable-guest-configuration"></a>Abilita configurazione Guest
+
+Per controllare lo stato dei computer nell'ambiente, inclusi i computer in Azure e i computer connessi ad Arc, esaminare i dettagli seguenti.
+
 ## <a name="resource-provider"></a>Provider di risorse
 
 Prima di poter usare Configurazione guest, è necessario registrare il provider di risorse. Il provider di risorse viene registrato automaticamente se l'assegnazione dei criteri di Configurazione guest viene eseguita tramite il portale. È possibile eseguire la registrazione manuale tramite il [portale](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) o l'[interfaccia della riga di comando di Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
-## <a name="extension-and-client"></a>Estensione e client
+## <a name="deploy-requirements-for-azure-virtual-machines"></a>Distribuire i requisiti per le macchine virtuali di Azure
 
-Per controllare le impostazioni all'interno di un computer, viene abilitata un'[estensione macchina virtuale](../../../virtual-machines/extensions/overview.md). L'estensione scarica l'assegnazione dei criteri applicabile e la configurazione corrispondente.
+Per controllare le impostazioni all'interno di un computer, è abilitata un' [estensione della macchina virtuale](../../../virtual-machines/extensions/overview.md) e il computer deve disporre di un'identità gestita dal sistema. L'estensione scarica l'assegnazione dei criteri applicabile e la configurazione corrispondente. L'identità viene utilizzata per autenticare il computer durante la lettura e la scrittura nel servizio di configurazione Guest. L'estensione non è necessaria per i computer connessi ad Arc perché è inclusa nell'agente del computer connesso ad Arc.
 
 > [!IMPORTANT]
 > L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure. Per distribuire l'estensione su larga scala, assegnare le definizioni dei criteri seguenti: 
@@ -36,18 +41,18 @@ Per controllare le impostazioni all'interno di un computer, viene abilitata un'[
 
 ### <a name="limits-set-on-the-extension"></a>Limiti impostati per l'estensione
 
-Per limitare l'impatto dell'estensione sulle applicazioni in esecuzione all'interno del computer, Configurazione guest non può usare più del 5% della CPU. Questo limite si applica sia alle definizioni predefinite sia a quelle personalizzate.
+Per limitare l'impatto dell'estensione sulle applicazioni in esecuzione all'interno del computer, Configurazione guest non può usare più del 5% della CPU. Questo limite si applica sia alle definizioni predefinite sia a quelle personalizzate. Lo stesso vale per il servizio di configurazione Guest in Arc Connected Machine Agent.
 
 ### <a name="validation-tools"></a>Strumenti di convalida
 
 All'interno del computer, il client di Configurazione guest usa gli strumenti locali per eseguire il controllo.
 
-La tabella seguente elenca gli strumenti locali usati on ciascun sistema operativo supportato:
+Nella tabella seguente è riportato un elenco degli strumenti locali utilizzati in ogni sistema operativo supportato. Per il contenuto predefinito, la configurazione Guest gestisce automaticamente il caricamento di questi strumenti.
 
 |Sistema operativo|Strumento di convalida|Note|
 |-|-|-|
-|Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Se Ruby e Python non sono presenti nel computer, vengono installati dall'estensione Configurazione guest. |
+|Windows|[Configurazione dello stato desiderato di PowerShell](/powershell/scripting/dsc/overview/overview) V2| Caricato da un lato in una cartella usata solo da criteri di Azure. Non è in conflitto con Windows PowerShell DSC. PowerShell Core non è stato aggiunto al percorso di sistema.|
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Installa chef INSPEC versione 2.2.61 nel percorso predefinito e aggiunto al percorso di sistema. Sono installate anche le dipendenze per il pacchetto INSPEC, inclusi Ruby e Python. |
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
 
@@ -65,14 +70,10 @@ La tabella seguente elenca i sistemi operativi supportati nelle immagini di Azur
 |Microsoft|Windows Server|2012 e versioni successive|
 |Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3 e versioni successive|
-|Red Hat|Red Hat Enterprise Linux|7.4 e versioni successive|
+|Red Hat|Red Hat Enterprise Linux|7,4-7,8, 9,0 e versioni successive|
 |SUSE|SLES|12 SP3 e versioni successive|
 
 Le immagini di macchine virtuali personalizzate sono supportate dai criteri di Configurazione guest a condizione che il sistema operativo sia uno di quelli indicati nella tabella precedente.
-
-### <a name="unsupported-client-types"></a>Tipi di client non supportati
-
-Windows Server Nano Server non è supportato in nessuna versione.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Requisiti di rete dell'estensione Configurazione guest
 
@@ -87,7 +88,7 @@ I criteri **DeployIfNotExists** che aggiungono l'estensione alle macchine virtua
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione di Configurazione guest
 
-Ogni controllo eseguito da Configurazione guest richiede due definizioni dei criteri, **DeployIfNotExists** e **AuditIfNotExists**.
+Ogni controllo eseguito da Configurazione guest richiede due definizioni dei criteri, **DeployIfNotExists** e **AuditIfNotExists**. Le definizioni dei criteri **DeployIfNotExists** gestiscono le dipendenze per l'esecuzione di controlli in ogni computer.
 
 La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elementi seguenti:
 
@@ -116,7 +117,7 @@ Allineare i criteri ai propri requisiti o eseguire il mapping dei criteri a info
 
 Alcuni parametri supportano un intervallo di valori interi. L'impostazione Validità massima password, ad esempio, consente di controllare l'impostazione di Criteri di gruppo effettiva. Un intervallo di "1,70" indica che gli utenti devono modificare la password almeno ogni 70 giorni, ma non prima di un giorno.
 
-Se si assegnano i criteri usando un modello di distribuzione di Azure Resource Manager, usare un file di parametri per gestire le eccezioni. Archiviare i file in un sistema di controllo della versione come Git. I commenti sulle modifiche ai file indicano perché un'assegnazione è un'eccezione al valore previsto.
+Se si assegnano i criteri usando un modello di Azure Resource Manager (modello ARM), usare un file di parametri per gestire le eccezioni. Archiviare i file in un sistema di controllo della versione come Git. I commenti sulle modifiche ai file indicano perché un'assegnazione è un'eccezione al valore previsto.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Applicazione di configurazioni con Configurazione guest
 
@@ -183,7 +184,7 @@ Gli esempi di criteri predefiniti di Configurazione guest sono disponibili nelle
 - Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md).
 - Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
-- Vedere come [creare criteri a livello di codice](../how-to/programmatically-create.md).
+- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Leggere le informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
-- Leggere le informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md).
+- Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

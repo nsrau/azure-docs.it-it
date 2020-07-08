@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196273"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970485"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -27,7 +27,7 @@ Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristin
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quante origini dati o quanti elementi è possibile proteggere in un insieme di credenziali?
 
 In un insieme di credenziali è possibile proteggere fino a 2000 origini dati/elementi tra tutti i carichi di lavoro (macchine virtuali IaaS, SQL, AFS e così via).
-Ad esempio, se sono già state protette 500 macchine virtuali e 400 condivisioni di File di Azure nell'insieme di credenziali, è possibile proteggere solo fino a 1100 database SQL.
+Ad esempio, se sono già state protette 500 VM e 400 condivisioni File di Azure nell'insieme di credenziali, è possibile proteggere solo fino a 1100 database SQL.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Quanti criteri è possibile creare per ogni insieme di credenziali?
 
@@ -47,12 +47,16 @@ No. Non è possibile spostare i dati di backup archiviati in un insieme di crede
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>È possibile passare dall'archiviazione con ridondanza geografica all'archiviazione con ridondanza locale dopo un backup?
 
-No. Un insieme di credenziali di Servizi di ripristino può solo modificare le opzioni di archiviazione prima che un backup venga archiviato.
+Per impostazione predefinita, il tipo di replica di archiviazione è impostato su archiviazione con ridondanza geografica (GRS). Dopo aver configurato il backup, l'opzione per la modifica è disabilitata e non può essere modificata.
+
+![Tipo di replica di archiviazione](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+Se il backup è già stato configurato e deve essere spostato da GRS a con ridondanza locale, vedere [come passare da grs a con ridondanza locale dopo la configurazione del backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>È possibile eseguire un ripristino a livello di elemento per le macchine virtuali di cui è stato eseguito il backup in un insieme di credenziali di Servizi di ripristino?
 
 - Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per altre informazioni, vedere [questo articolo](backup-azure-restore-files-from-vm.md).
-- Il ripristino a livello di elemento non è supportato per i punti di ripristino online di macchine virtuali locali di cui è stato eseguito il backup con il server di Backup di Azure o System Center DPM.
+- ILR non è supportato per i punti di ripristino online delle macchine virtuali locali di cui è stato eseguito il backup dal server di backup di Azure o da System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 
@@ -75,7 +79,7 @@ Sì.
 
 Backup di Azure supporta i sistemi operativi per il backup di file, cartelle e applicazioni protetti tramite server di Backup di Azure e DPM.
 
-**OS** | **SKU** | **Informazioni dettagliate**
+**Sistema operativo** | **SKU** | **Dettagli**
 --- | --- | ---
 Workstation | |
 Windows 10 a 64 bit | Enterprise, Pro, Home | I computer devono eseguire i Service Pack e gli aggiornamenti più recenti.
@@ -113,10 +117,10 @@ Macchina virtuale di Azure | Vedere la [matrice di supporto per il backup di mac
 
 La tabella seguente illustra come vengono determinate le dimensioni di ogni origine dati.
 
-**Origine dati** | **Informazioni dettagliate**
+**Origine dati** | **Dettagli**
 --- | ---
 Volume |Quantità di dati sottoposti a backup della macchina virtuale a volume singolo sottoposta a backup.
-Database SQL Server |Dimensioni di un singolo database SQL di cui viene eseguito il backup.
+Database SQL Server |Dimensioni delle dimensioni del singolo database di cui viene eseguito il backup.
 SharePoint | Somma dei database di contenuto e configurazione in una farm di SharePoint di cui viene eseguito il backup.
 Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
 Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup.
@@ -190,7 +194,7 @@ No. Il ripristino è gratuito e non viene addebitato alcun costo per il traffico
 
 Quando vengono applicati nuovi criteri, vengono seguite la pianificazione e la conservazione stabilite dai nuovi criteri.
 
-- Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri.
+- Se la conservazione è estesa, i punti di ripristino esistenti vengono contrassegnati per mantenerli in base ai nuovi criteri.
 - Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione ed eliminati nel successivo processo di pulizia.
 
 ## <a name="encryption"></a>Crittografia
@@ -208,7 +212,7 @@ Sì. I dati in Azure vengono crittografati a riposo.
 
 Microsoft non decrittografa mai i dati di backup.
 
-### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Qual è la lunghezza minima di crittografia usata dalla chiave per crittografare i dati di backup?
+### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Qual è la lunghezza minima della chiave di crittografia usata per crittografare i dati di backup?
 
 Quando si usa l'agente di Backup di Azure, la chiave di crittografia deve contenere almeno 16 caratteri. Per le macchine virtuali di Azure non c'è un limite di lunghezza delle chiavi usate da Azure Key Vault.
 

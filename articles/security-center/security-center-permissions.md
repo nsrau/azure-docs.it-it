@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 953881b0c576ad6ce12a4dc44bb0980edd7bcd50
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106220"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970553"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
@@ -35,21 +35,20 @@ Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 > [!NOTE]
 > I ruoli di sicurezza, il lettore di sicurezza e l'amministratore della sicurezza possono accedere solo al centro sicurezza. I ruoli di sicurezza non hanno accesso ad altre aree del servizio di Azure come Archiviazione, Web e dispositivi mobili o Internet delle cose.
 >
->
 
 ## <a name="roles-and-allowed-actions"></a>Ruoli e azioni consentite
 
 La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza.
 
-| Ruolo | Modificare i criteri di sicurezza | Applicare i suggerimenti per la sicurezza per una risorsa</br> (incluso con ' correzione rapida!') | Ignorare gli avvisi e le raccomandazioni | Visualizzare gli avvisi e le raccomandazioni |
-|:--- |:---:|:---:|:---:|:---:|
-| Proprietario della sottoscrizione | ✔ | ✔ | ✔ | ✔ |
-| Collaboratore alla sottoscrizione | -- | ✔ | ✔ | ✔ |
-| Proprietario del gruppo di risorse | -- | ✔ | -- | ✔ |
-| Collaboratore del gruppo di risorse | -- | ✔ | -- | ✔ |
-| Lettore | -- | -- | -- | ✔ |
-| Amministrazione della protezione | ✔ | -- | ✔ | ✔ |
-| Ruolo con autorizzazioni di lettura per la sicurezza | -- | -- | -- | ✔ |
+|Action|Lettore di sicurezza/ <br> Reader |Amministrazione della protezione  |Collaboratore gruppo di risorse/ <br> Proprietario del gruppo di risorse  |Collaboratore alla sottoscrizione  |Proprietario della sottoscrizione  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Modificare i criteri di sicurezza|-|✔|-|-|✔|
+|Aggiungere/assegnare iniziative (inclusi) standard di conformità alle normative|-|-|-|-|✔|
+|Modificare il piano tariffario della sottoscrizione|-|✔|-|-|✔|
+|Abilitare/disabilitare il provisioning automatico|-|✔|✔|-|✔|
+|Applicare i suggerimenti per la sicurezza per una risorsa</br> e usare la [correzione rapida.](security-center-remediate-recommendations.md#quick-fix-remediation)|-|-|✔|✔|✔|
+|Ignora avvisi|-|✔|-|✔|✔|
+|Visualizzare gli avvisi e le raccomandazioni|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > È consigliabile assegnare il ruolo con il minor numero di autorizzazioni che permetta agli utenti di completare le attività. Assegnare ad esempio il ruolo di lettore agli utenti che devono visualizzare solo le informazioni sull'integrità della sicurezza di una risorsa, ma non eseguono alcuna azione, come l'applicazione di consigli e la modifica di criteri.

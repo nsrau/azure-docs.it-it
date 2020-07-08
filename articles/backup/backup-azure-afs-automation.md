@@ -3,12 +3,12 @@ title: Eseguire il backup di una condivisione file di Azure usando PowerShell
 description: Questo articolo illustra come eseguire il backup di una condivisione file di File di Azure usando il servizio backup di Azure e PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 53187152802908e94ee4a8a231d3b7874cf42422
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199346"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971029"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Eseguire il backup di una condivisione file di Azure usando PowerShell
 
@@ -60,7 +60,7 @@ Configurare PowerShell nel modo seguente:
 5. Nella pagina Web visualizzata verrà richiesto di immettere le credenziali dell'account.
 
     In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzAccount** tramite **-Credential**.
-   
+
     Se si è un partner CSP che lavora per conto di un tenant, specificare il cliente come tenant. Usare l'ID tenant o il nome di dominio primario del tenant. Un esempio è **Connect-AzAccount-tenant "fabrikam.com"**.
 
 6. Associare la sottoscrizione che si desidera utilizzare con l'account, perché un account può disporre di più sottoscrizioni:
@@ -95,20 +95,11 @@ Per creare un insieme di credenziali di servizi di ripristino, seguire questa pr
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Usare il cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) per creare l'insieme di credenziali. Specificare lo stesso percorso per l'insieme di credenziali usato per il gruppo di risorse.
+1. Usare il cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) per creare l'insieme di credenziali. Specificare lo stesso percorso per l'insieme di credenziali usato per il gruppo di risorse.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-
-3. Specificare il tipo di ridondanza da usare per l'archiviazione dell'insieme di credenziali. È possibile usare l'[archiviazione con ridondanza locale](../storage/common/storage-redundancy-lrs.md) o l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md).
-   
-   Nell'esempio seguente viene impostata l'opzione **-BackupStorageRedundancy** per il cmdlet [set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) per **testvault** impostato su **georidondante**:
-
-   ```powershell
-   $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-   Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
-   ```
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Visualizzare gli insiemi di credenziali in un abbonamento
 
@@ -246,20 +237,22 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+Per altre informazioni su come ottenere un elenco di condivisioni file per un account di archiviazione, vedere [questo articolo](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+
 ## <a name="important-notice-backup-item-identification"></a>Avviso importante: identificazione dell'elemento di backup
 
 In questa sezione viene illustrata una modifica importante nei backup delle condivisioni file di Azure in preparazione per la disponibilità generale.
 
-Quando si Abilita un backup per le condivisioni file di Azure, l'utente assegna al cliente un nome di condivisione file come nome dell'entità e viene creato un elemento di backup. Il nome dell'elemento di backup è un identificatore univoco creato dal servizio backup di Azure. L'identificatore è in genere un nome descrittivo. Tuttavia, per gestire lo scenario di eliminazione temporanea, in cui è possibile eliminare una condivisione file ed è possibile creare un'altra condivisione file con lo stesso nome, l'identità univoca di una condivisione file di Azure è ora un ID. 
+Quando si Abilita un backup per le condivisioni file di Azure, l'utente assegna al cliente un nome di condivisione file come nome dell'entità e viene creato un elemento di backup. Il nome dell'elemento di backup è un identificatore univoco creato dal servizio backup di Azure. L'identificatore è in genere un nome descrittivo. Tuttavia, per gestire lo scenario di eliminazione temporanea, in cui è possibile eliminare una condivisione file ed è possibile creare un'altra condivisione file con lo stesso nome, l'identità univoca di una condivisione file di Azure è ora un ID.
 
-Per individuare l'ID univoco di ogni elemento, eseguire il comando **Get-AzRecoveryServicesBackupItem** con i filtri rilevanti per **backupManagementType** e **WorkloadType** per ottenere tutti gli elementi pertinenti. Osservare quindi il campo nome nell'oggetto/risposta PowerShell restituito. 
+Per individuare l'ID univoco di ogni elemento, eseguire il comando **Get-AzRecoveryServicesBackupItem** con i filtri rilevanti per **backupManagementType** e **WorkloadType** per ottenere tutti gli elementi pertinenti. Osservare quindi il campo nome nell'oggetto/risposta PowerShell restituito.
 
 Si consiglia di elencare gli elementi e recuperare il nome univoco dal campo nome nella risposta. Utilizzare questo valore per filtrare gli elementi con il parametro *Name* . In caso contrario, usare il parametro *FriendlyName* per recuperare l'elemento con il relativo ID.
 
 > [!IMPORTANT]
-> Assicurarsi che PowerShell sia aggiornato alla versione minima (AZ. RecoveryServices 2.6.0) per i backup delle condivisioni file di Azure. Con questa versione, il filtro *FriendlyName* è disponibile per il comando **Get-AzRecoveryServicesBackupItem** . 
+> Assicurarsi che PowerShell sia aggiornato alla versione minima (AZ. RecoveryServices 2.6.0) per i backup delle condivisioni file di Azure. Con questa versione, il filtro *FriendlyName* è disponibile per il comando **Get-AzRecoveryServicesBackupItem** .
 >
-> Passare il nome della condivisione file di Azure al parametro *FriendlyName* . Se si passa il nome della condivisione file al parametro *Name* , questa versione genera un avviso per passare il nome al parametro *FriendlyName* . 
+> Passare il nome della condivisione file di Azure al parametro *FriendlyName* . Se si passa il nome della condivisione file al parametro *Name* , questa versione genera un avviso per passare il nome al parametro *FriendlyName* .
 >
 > Se non si installa la versione minima, potrebbe verificarsi un errore di script esistenti. Installare la versione minima di PowerShell usando il comando seguente:
 >
@@ -295,5 +288,5 @@ Gli snapshot di condivisione file di Azure vengono usati durante l'esecuzione de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [backup di file di Azure nel portale di Azure](backup-afs.md).
-- Vedere lo [script di esempio in GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) per l'uso di un Runbook di automazione di Azure per pianificare i backup.
+* Informazioni sul [backup di file di Azure nel portale di Azure](backup-afs.md).
+* Vedere lo [script di esempio in GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) per l'uso di un Runbook di automazione di Azure per pianificare i backup.

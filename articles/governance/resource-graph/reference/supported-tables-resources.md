@@ -1,14 +1,15 @@
 ---
-title: Tipi di risorse di Resource Manager supportati
-description: Elenco dei tipi di risorse di Resource Manager supportati da Azure Resource Graph e Cronologia modifiche.
-ms.date: 05/21/2020
+title: Tipi di risorse Azure Resource Manager supportati
+description: Fornire un elenco dei tipi di risorse Azure Resource Manager supportati da Azure Resource Graph e la cronologia delle modifiche.
+ms.date: 06/04/2020
 ms.topic: reference
-ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.custom: generated
+ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770585"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970570"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabella di Azure Resource Graph e riferimenti sui tipi di risorsa
 
@@ -484,13 +485,6 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- microsoft.security/securitystatuses
-- microsoft.security/securitystatuses/containerhosts
-- microsoft.security/securitystatuses/onpremisemachines
-- microsoft.security/securitystatuses/servers
-- microsoft.security/securitystatuses/subnets
-- microsoft.security/securitystatuses/virtualmachines
-- microsoft.security/securitystatusessummaries
 
 ## <a name="next-steps"></a>Passaggi successivi
 

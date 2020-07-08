@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de359f60b556390b8271b728580ef66ae53ffa
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 3a0295a73d325d8de7673b9a66c7047a80d82b09
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201721"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981856"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
 Multi-factor authentication è un ottimo modo per proteggere l'organizzazione, ma gli utenti spesso si sentono frustrati con il livello di sicurezza aggiuntivo oltre a dover ricordare le password. I metodi di autenticazione senza password sono più convenienti perché la password viene rimossa e sostituita da un elemento, più un elemento o un elemento che si conosce.
 
-|   | Un elemento | Un elemento o una conoscenza |
+| Authentication  | Un elemento | Un elemento o una conoscenza |
 | --- | --- | --- |
 | Accesso senza password | Dispositivo Windows 10, telefono o chiave di sicurezza | Biometrico o PIN |
 
@@ -116,7 +116,7 @@ I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di form
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
-| eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
+| Soluzioni TrustKey | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (gruppo Thales) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | Onespan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
@@ -125,7 +125,7 @@ I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di form
 > [!NOTE]
 > Se si acquista e si prevede di usare le chiavi di sicurezza basate su NFC, è necessario un lettore NFC supportato per la chiave di sicurezza. Il lettore NFC non è un requisito o una limitazione di Azure. Rivolgersi al fornitore della chiave di sicurezza basata su NFC per un elenco dei lettori NFC supportati.
 
-Se si è un fornitore e si desidera ottenere il dispositivo in questo elenco di dispositivi supportati, contattare [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
+Se si è un fornitore e si desidera ottenere il dispositivo in questo elenco di dispositivi supportati, contattare [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com) .
 
 ## <a name="what-scenarios-work-with-the-preview"></a>Quali scenari funzionano con l'anteprima?
 
@@ -154,8 +154,8 @@ Usare la tabella seguente per scegliere il metodo che supporterà i requisiti e 
 
 |Utente tipo|Scenario|Ambiente|Tecnologia con password|
 |:-|:-|:-|:-|
-|**Amministrazione**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
-|**Amministrazione**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|
+|**Admin**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
+|**Admin**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|
 |**Information Worker**|Lavoro di produttività|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
 |**Information Worker**|Lavoro di produttività| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|
 |**Ruolo di lavoro Frontline**|Chioschi in una fabbrica, impianto, vendita al dettaglio o immissione di dati|Dispositivi Windows 10 condivisi|Chiavi di sicurezza FIDO2|

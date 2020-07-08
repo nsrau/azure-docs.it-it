@@ -3,23 +3,23 @@ title: Progettare flussi di lavoro di criteri come codice
 description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di Criteri di Azure come codice e convalidare automaticamente le risorse.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684261"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970944"
 ---
 # <a name="design-policy-as-code-workflows"></a>Progettare flussi di lavoro di criteri come codice
 
 Lungo il percorso di implementazione dei processi di governance del cloud, arriva il momento in cui si è pronti a passare dalla gestione manuale di ogni definizione di criteri, tramite il portale di Azure o i vari SDK, a qualcosa di più gestibile e ripetibile su scala aziendale. Due degli approcci principali alla gestione dei sistemi su larga scala nel cloud sono:
 
-- Infrastruttura come codice: la pratica di trattare il contenuto che definisce gli ambienti, dai modelli di Resource Manager alle definizioni di criteri di Azure in Azure Blueprints, come codice sorgente.
+- Infrastruttura come codice: la pratica di trattare il contenuto che definisce gli ambienti, dal Azure Resource Manager modelli (modelli ARM) alle definizioni di criteri di Azure ai progetti di Azure, come codice sorgente.
 - DevOps: l'unione di persone, processi e prodotti per consentire il recapito continuo di valore agli utenti finali.
 
 Criteri come codice è la combinazione di queste idee. Essenzialmente, le definizioni dei criteri vengono mantenute nel controllo del codice sorgente e, ogni volta che viene apportata una modifica, tale modifica viene testata e convalidata. Tuttavia, questo non dovrebbe essere l'unico ambito del coinvolgimento dei criteri con Infrastruttura come codice o DevOps.
 
-Il passaggio della convalida dovrebbe essere un componente anche di altri flussi di lavoro di integrazione continua o distribuzione continua. Un esempio è la distribuzione di un ambiente applicativo o di un'infrastruttura virtuale. Integrando la convalida di Criteri di Azure fin dalle prime fasi del processo di compilazione e distribuzione, i team responsabili delle applicazioni e delle operazioni possono scoprire se le modifiche apportate non sono conformi molto prima che sia troppo tardi e passino alla fase di distribuzione in produzione.
+Il passaggio della convalida dovrebbe essere un componente anche di altri flussi di lavoro di integrazione continua o distribuzione continua. Un esempio è la distribuzione di un ambiente applicativo o di un'infrastruttura virtuale. Rendendo la convalida dei criteri di Azure un componente iniziale del processo di compilazione e distribuzione, i team delle applicazioni e delle operazioni individuano se le modifiche non sono conformi, molto prima che sia troppo tardi e si stia tentando di eseguire la distribuzione nell'ambiente di produzione.
 
 ## <a name="workflow-overview"></a>Panoramica del flusso di lavoro
 
@@ -115,7 +115,7 @@ Una volta completati tutti i controlli di convalida, aggiornare l'assegnazione i
 
 ## <a name="process-integrated-evaluations"></a>Valutazioni integrate nel processo
 
-Il flusso di lavoro generale dei criteri come codice prevede lo sviluppo e la distribuzione di criteri e iniziative in un ambiente su larga scala. La valutazione dei criteri, tuttavia, deve far parte del processo di distribuzione di qualsiasi flusso di lavoro che distribuisca o crei risorse in Azure, ad esempio la distribuzione di applicazioni o l'esecuzione di modelli di Resource Manager per creare un'infrastruttura.
+Il flusso di lavoro generale dei criteri come codice prevede lo sviluppo e la distribuzione di criteri e iniziative in un ambiente su larga scala. La valutazione dei criteri, tuttavia, deve far parte del processo di distribuzione per tutti i flussi di lavoro che distribuiscono o creano risorse in Azure, ad esempio la distribuzione di applicazioni o l'esecuzione di modelli ARM per la creazione dell'infrastruttura.
 
 In questi casi, dopo aver eseguito la distribuzione dell'applicazione o dell'infrastruttura in una sottoscrizione o un gruppo di risorse di test, è necessario eseguire la valutazione dei criteri per tale ambito convalidando tutti i criteri e le iniziative esistenti. Anche se in un ambiente di questo tipo potrebbero essere configurati con la proprietà **enforcementMode** _disabilitata_, è utile sapere in anticipo se la distribuzione di un'applicazione o di un'infrastruttura viola le definizioni dei criteri. La valutazione dei criteri deve quindi essere un passaggio di questi flussi di lavoro e contrassegnare come non riuscite le distribuzioni che creano risorse non conformi.
 

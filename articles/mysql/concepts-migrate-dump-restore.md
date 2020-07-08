@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: 158dd5e1f69340e233a0c2392d3f19fd5cf562ea
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: c30faa31f6f733f80d4bfd5184c09d9fdbd6f389
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845547"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971182"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
 Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL
@@ -67,7 +67,11 @@ I parametri da specificare sono:
 - [backupfile.sql] Filename per il backup del database 
 - [-opt] Opzione mysqldump 
 
-Ad esempio, per eseguire il backup di un database denominato "testdb" nel proprio server MySQL con il nome utente "testuser" e senza password in un file testdb_backup.sql, usare il comando seguente. Il comando esegue il backup del database `testdb` in un file denominato `testdb_backup.sql`, che contiene tutte le istruzioni SQL necessarie per ricreare il database. 
+Ad esempio, per eseguire il backup di un database denominato "testdb" nel proprio server MySQL con il nome utente "testuser" e senza password in un file testdb_backup.sql, usare il comando seguente. Il comando esegue il backup del database `testdb` in un file denominato `testdb_backup.sql`, che contiene tutte le istruzioni SQL necessarie per ricreare il database. Verificare che il nome utente ' testuser ' includa almeno il privilegio SELECT per le tabelle di cui è stato eseguito il dump, visualizzare la vista per le viste di cui è stato eseguito il dump, attivare per i trigger di cui è stato eseguito il dump e bloccare le tabelle se non si utilizza l'opzione--singola transazione
+
+```bash
+GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
+```
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -96,9 +100,10 @@ Aggiungere le informazioni di connessione in MySQL Workbench.
 Per preparare il database di Azure di destinazione per il server MySQL per caricamenti di dati più veloci, è necessario modificare i parametri del server e la configurazione seguenti.
 - max_allowed_packet: impostare su 1073741824 (ad esempio 1 GB) per evitare problemi di overflow dovuti a righe lunghe.
 - slow_query_log: impostare su OFF per disattivare il log di query lento. In questo modo si eliminerà l'overhead causato dalla registrazione lenta di query durante i caricamenti dei dati.
-- query_store_capture_mode: impostare entrambi su NONE per disattivare Query Store. In questo modo si eliminerà l'overhead causato dalle attività di campionamento di Query Store.
+- query_store_capture_mode: impostare su NONE per disattivare l'Query Store. In questo modo si eliminerà l'overhead causato dalle attività di campionamento di Query Store.
 - innodb_buffer_pool_size: aumentare le prestazioni del server a 32 SKU con ottimizzazione per la memoria vCore dal piano tariffario del portale durante la migrazione per aumentare innodb_buffer_pool_size. È possibile aumentare innodb_buffer_pool_size solo aumentando il calcolo per il database di Azure per il server MySQL.
-- innodb_write_io_threads & innodb_write_io_threads: passare a 16 dai parametri del server nel portale di Azure per migliorare la velocità di migrazione.
+- innodb_io_capacity & innodb_io_capacity_max: passare a 9000 dai parametri del server in portale di Azure per migliorare l'utilizzo di IO per ottimizzare la velocità di migrazione.
+- innodb_write_io_threads & innodb_write_io_threads: modificare in 4 i parametri del server in portale di Azure per migliorare la velocità di migrazione.
 - Aumentare il livello di archiviazione: le operazioni di I/O al secondo per il database di Azure per il server MySQL aumentano progressivamente con l'aumento del livello di archiviazione. Per caricamenti più veloci è consigliabile aumentare il livello di archiviazione per aumentare le operazioni di I/O al secondo di cui è stato eseguito il provisioning. Tenere presente che l'archiviazione può essere solo aumentata, non ridotta.
 
 Al termine della migrazione, è possibile ripristinare i valori precedenti dei parametri del server e della configurazione del livello di calcolo. 

@@ -10,14 +10,14 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/20/2020
+ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: c9304f4a958360d01d404d9b510feb5659e5436d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746754"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983306"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Modificare le impostazioni e il metodo di verifica a due fattori
 
@@ -88,7 +88,7 @@ Se si decide di modificare il metodo di verifica di sicurezza predefinito in uso
 
 1. Dalla sezione **Specificare la modalità di risposta** della pagina **Verifica aggiuntiva di sicurezza**, aggiornare le informazioni sul numero di telefono per il **Telefono per l'autenticazione** (dispositivo mobile primario) e il **Telefono ufficio**.
 
-1. Selezionare la casella accanto all'opzione **Telefono per l'autenticazione alternativo**, quindi digitare un numero di telefono secondario in cui è possibile ricevere messaggi di testo o telefonate se non è possibile accedere al dispositivo primario.
+1. Selezionare la casella accanto all'opzione **telefono per l'autenticazione alternativo** , quindi digitare un numero di telefono secondario in cui è possibile ricevere chiamate telefoniche se non è possibile accedere al dispositivo primario.
 
 1. Selezionare **Salva**.
 

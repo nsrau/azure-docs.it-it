@@ -3,12 +3,12 @@ title: Comprendere l'ordine della sequenza di distribuzione
 description: Informazioni sull'ordine predefinito in cui vengono distribuiti gli artefatti del progetto durante un'assegnazione di progetto e su come personalizzare l'ordine di distribuzione.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864522"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970621"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
 
@@ -28,21 +28,21 @@ Se la definizione del progetto non contiene alcuna direttiva per l'ordine di dis
 
 - Livello di abbonamento **assegnazione di ruolo** degli elementi ordinati per nome dell'artefatto
 - Livello di abbonamento **assegnazione del criterio** degli elementi ordinati per nome dell'artefatto
-- Livello di abbonamento **modello di Azure Resource Manager** degli elementi ordinati per nome dell'artefatto
+- Livello di sottoscrizione Azure Resource Manager gli artefatti del **modello** (modelli ARM) ordinati in base al nome dell'artefatto
 - **Gruppo di risorse** degli elementi (inclusi gli elementi figlio) ordinati per nome segnaposto
 
 In ciascun artefatto del **gruppo di risorse**, viene usato il seguente ordine di sequenza per creare artefatti all'interno di tale gruppo di risorse:
 
 - Figlio di gruppo di risorse **assegnazione di ruolo** degli elementi ordinati per nome dell'artefatto
 - Figlio di gruppo di risorse **assegnazione del criterio** degli elementi ordinati per nome dell'artefatto
-- Figlio di gruppo di risorse **modello di Azure Resource Manager** degli elementi ordinati per nome dell'artefatto
+- Gruppo di risorse elemento figlio **Azure Resource Manager modello** (modelli ARM) elementi ordinati per nome artefatto
 
 > [!NOTE]
 > L'uso di [artefatti ()](../reference/blueprint-functions.md#artifacts) crea una dipendenza implicita dall'elemento a cui si fa riferimento.
 
 ## <a name="customizing-the-sequencing-order"></a>Personalizzazione dell'ordine di sequenziazione
 
-Quando si compongono definizioni di progetti di grandi dimensioni, potrebbe essere necessario che le risorse vengano create in un ordine specifico. Il modello di utilizzo più comune di questo scenario è quello in cui la definizione di un progetto include diversi modelli di Azure Resource Manager. I progettisti di Azure gestiscono questo modello consentendo di definire l'ordine di sequenziazione.
+Quando si compongono definizioni di progetti di grandi dimensioni, potrebbe essere necessario che le risorse vengano create in un ordine specifico. Il modello di utilizzo più comune di questo scenario è quando la definizione di un progetto include diversi modelli ARM. I progettisti di Azure gestiscono questo modello consentendo di definire l'ordine di sequenziazione.
 
 Questa operazione viene eseguita definendo una proprietà `dependsOn` in JSON. La definizione del progetto, per i gruppi di risorse e gli oggetti artefatto supportano questa proprietà. `dependsOn` è una matrice di stringhe di nomi dell'elemento che deve essere creata prima che venga creato l'elemento specifico.
 
@@ -51,7 +51,7 @@ Questa operazione viene eseguita definendo una proprietà `dependsOn` in JSON. L
 
 ### <a name="example---ordered-resource-group"></a>Esempio: gruppo di risorse ordinato
 
-Questa definizione di progetto di esempio include un gruppo di risorse che ha definito un ordine di sequenziazione personalizzato dichiarando un valore per `dependsOn`, insieme a un gruppo di risorse standard. In questo caso, l'elemento denominato **assignPolicyTags** verrà elaborato prima del gruppo di risorse **ordered-rg**.
+Questa definizione di progetto di esempio include un gruppo di risorse che ha definito un ordine di sequenziazione personalizzato dichiarando un valore per `dependsOn` , insieme a un gruppo di risorse standard. In questo caso, l'elemento denominato **assignPolicyTags** verrà elaborato prima del gruppo di risorse **ordered-rg**.
 **standard-rg** verranno elaborati secondo l'ordine della sequenziazione predefinita.
 
 ```json
@@ -81,7 +81,7 @@ Questa definizione di progetto di esempio include un gruppo di risorse che ha de
 
 ### <a name="example---artifact-with-custom-order"></a>Esempio - elemento con ordinamento personalizzato
 
-Questo esempio è un artefatto dii criteri che dipende da un modello di Azure Resource Manager. Dall'ordinamento predefinito, verrebbe creato un artefatto dei criteri prima del modello di Azure Resource Manager. Questo ordinamento consente all'artefatto di criteri di attendere la creazione del modello di Azure Resource Manager.
+Questo esempio è un artefatto dei criteri che dipende da un modello ARM. Per impostazione predefinita, viene creato un artefatto dei criteri prima del modello ARM. Questo ordinamento consente all'elemento dei criteri di attendere la creazione del modello ARM.
 
 ```json
 {
@@ -100,7 +100,7 @@ Questo esempio è un artefatto dii criteri che dipende da un modello di Azure Re
 
 ### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Esempio: elemento del modello a livello di sottoscrizione a seconda di un gruppo di risorse
 
-Questo esempio è relativo a un modello di Gestione risorse distribuito a livello di sottoscrizione per dipendere da un gruppo di risorse. Nell'ordinamento predefinito, gli artefatti del livello di sottoscrizione vengono creati prima di tutti i gruppi di risorse e gli artefatti figlio in tali gruppi di risorse. Il gruppo di risorse è definito nella definizione del progetto come segue:
+Questo esempio è relativo a un modello ARM distribuito a livello di sottoscrizione per dipendere da un gruppo di risorse. Nell'ordinamento predefinito, gli artefatti del livello di sottoscrizione vengono creati prima di tutti i gruppi di risorse e gli artefatti figlio in tali gruppi di risorse. Il gruppo di risorse è definito nella definizione del progetto come segue:
 
 ```json
 "resourceGroups": {

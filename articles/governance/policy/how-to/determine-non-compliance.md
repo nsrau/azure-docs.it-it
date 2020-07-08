@@ -1,22 +1,21 @@
 ---
 title: Determinare le cause di non conformità
 description: Quando una risorsa non è conforme, i motivi possibili sono molti. Informazioni sulle possibili cause di non conformità.
-ms.date: 05/20/2020
+ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b26357e9957259470049209913501cc024caeaa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: d548f5b9db141eb6aed5984c43f00543d0228f31
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684237"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970774"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
 Quando si determina che una risorsa di Azure non è conforme a una regola dei criteri, è utile comprendere a quale parte della regola la risorsa non è conforme. È anche importante conoscere quale modifica ha trasformato una risorsa precedentemente conforme in una risorsa non conforme. È possibile trovare queste informazioni in due modi:
 
-> [!div class="checklist"]
-> - [Dettagli di conformità](#compliance-details)
-> - [Cronologia modifiche (anteprima)](#change-history)
+- [Dettagli di conformità](#compliance-details)
+- [Cronologia modifiche (anteprima)](#change-history)
 
 ## <a name="compliance-details"></a>Dettagli di conformità
 
@@ -188,9 +187,9 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="change-history-preview"></a><a name="change-history"/>Cronologia modifiche (anteprima)
+## <a name="change-history-preview"></a><a name="change-history"></a>Cronologia modifiche (anteprima)
 
-La nuova **anteprima pubblica** include gli ultimi 14 giorni di cronologia delle modifiche per tutte le risorse di Azure che supportano l'[eliminazione in modalità completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Viene attivato un rilevamento delle modifiche ogni volta che vengono aggiunte, rimosse o modificate le proprietà di Resource Manager.
+La nuova **anteprima pubblica** include gli ultimi 14 giorni di cronologia delle modifiche per tutte le risorse di Azure che supportano l'[eliminazione in modalità completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Il rilevamento delle modifiche viene attivato quando vengono aggiunte, rimosse o modificate le proprietà del Azure Resource Manager.
 
 1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 

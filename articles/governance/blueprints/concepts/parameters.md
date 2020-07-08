@@ -3,16 +3,16 @@ title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come usarli per creare progetti dinamici e protetti.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458489"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970638"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
-Un progetto completamente definito con vari artefatti, ad esempio gruppi di risorse, modelli di Resource Manager, criteri o assegnazioni di ruolo, consente la creazione rapida e coerente di oggetti all'interno di Azure. Per abilitare l'uso flessibile di questi contenitori e schemi progettuali riutilizzabili, Azure Blueprint supporta i parametri. Il parametro offre flessibilità nella modifica delle proprietà sugli elementi distribuiti dal progetto, sia durante la definizione che durante l'assegnazione.
+Un progetto completamente definito con vari elementi, ad esempio gruppi di risorse, modelli di Azure Resource Manager (modelli ARM), criteri o assegnazioni di ruolo, offre la creazione rapida e la creazione coerente di oggetti all'interno di Azure. Per abilitare l'uso flessibile di questi contenitori e schemi progettuali riutilizzabili, Azure Blueprint supporta i parametri. Il parametro offre flessibilità nella modifica delle proprietà sugli elementi distribuiti dal progetto, sia durante la definizione che durante l'assegnazione.
 
 Un esempio semplice è l'artefatto gruppo di risorse. Quando si crea un gruppo di risorse, occorre fornire due valori obbligatori: nome e località. Quando si aggiunge un gruppo di risorse al progetto, se i parametri non esistono, è necessario definire il nome e il percorso per ogni uso del progetto. Questa ripetizione potrebbe portare alla creazione di artefatti nello stesso gruppo di risorse a ogni uso del progetto. Le risorse all'interno di tale gruppo potrebbero essere duplicate e provocare un conflitto.
 
@@ -28,7 +28,7 @@ I parametri possono essere creati nel progetto stesso tramite l'API REST. Questi
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Uso dei parametri secureString e secureObject
 
-Anche se gli _artefatti_ di un modello di Resource Manager supportano parametri di tipo **secureString** e **secureObject**, Azure Blueprint richiede che ognuno di essi sia connesso ad Azure Key Vault. Questa misura di sicurezza impedisce la rischiosa prassi di archiviare i segreti insieme al progetto e incoraggia l'impiego di modelli sicuri. Progetti di Azure supporta questa misura di protezione, rilevamento l'inclusione dei parametri sicuro in un _artefatto_ del modello di Resource Manager. Il servizio richiede quindi, durante l'assegnazione, le seguenti proprietà di Key Vault per ogni parametro sicuro rilevato:
+Sebbene un _elemento_ modello ARM supporti i parametri dei tipi **secureString** e **secureObject** , i progettisti di Azure richiedono che ognuno di essi sia connesso a un Azure Key Vault. Questa misura di sicurezza impedisce la rischiosa prassi di archiviare i segreti insieme al progetto e incoraggia l'impiego di modelli sicuri. I progettisti di Azure supportano questa misura di sicurezza, individuando l'inclusione di un parametro sicuro in un _elemento_del modello ARM. Il servizio richiede quindi, durante l'assegnazione, le seguenti proprietà di Key Vault per ogni parametro sicuro rilevato:
 
 - ID risorsa dell'insieme di credenziali delle chiavi
 - Nome del segreto dell'insieme di credenziali delle chiavi
@@ -180,7 +180,7 @@ L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Impostazione dei parametri dinamici dall'API REST
 
-L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inserendo direttamente il valore. Anziché usare una funzione, ad esempio [Parameters ()](../reference/blueprint-functions.md#parameters), il valore specificato è una stringa appropriata. Gli artefatti per un gruppo di risorse sono definiti con un nome di modello e le proprietà **name** e **location**. Tutti gli altri parametri per ogni artefatto incluso sono definiti in **parameters** con una coppia di chiavi **\<name\>** e **value**. Se il progetto è configurato per un parametro dinamico non fornito durante l'assegnazione, l'assegnazione avrà esito negativo.
+L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inserendo direttamente il valore. Anziché usare una funzione, ad esempio [Parameters ()](../reference/blueprint-functions.md#parameters), il valore specificato è una stringa appropriata. Gli artefatti per un gruppo di risorse sono definiti con un nome di modello e le proprietà **name** e **location**. Tutti gli altri parametri per l'artefatto incluso sono definiti in **Parameters** con una **\<name\>** coppia di chiavi di **valori** e. Se il progetto è configurato per un parametro dinamico non fornito durante l'assegnazione, l'assegnazione avrà esito negativo.
 
 - URI DELL'API REST
 

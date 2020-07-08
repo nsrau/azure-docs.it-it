@@ -1,68 +1,33 @@
 ---
-title: Creare insiemi di credenziali dei servizi di ripristino
-description: Questo articolo illustra come creare insiemi di credenziali dei servizi di ripristino in cui archiviare i backup e i punti di ripristino.
-ms.reviewer: sogup
+title: Creare e configurare insiemi di credenziali dei servizi di ripristino
+description: Questo articolo illustra come creare e configurare insiemi di credenziali dei servizi di ripristino in cui archiviare i backup e i punti di ripristino.
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 65f7265dccc5fe28d3503e72bdd6e49123871594
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744934"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970528"
 ---
-# <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
+# <a name="create-and-configure-a-recovery-services-vault"></a>Creare e configurare un insieme di credenziali di servizi di ripristino
 
-Un insieme di credenziali dei Servizi di ripristino è un'entità che archivia i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali dei servizi di ripristino contiene anche i criteri di backup associati alle macchine virtuali protette.
-
-Per creare un insieme di credenziali dei servizi di ripristino:
-
-1. Accedere alla propria sottoscrizione nel [portale di Azure](https://portal.azure.com/).
-
-2. Nel menu a sinistra selezionare **Tutti i servizi**.
-
-    ![Selezionare tutti i servizi](./media/backup-create-rs-vault/click-all-services.png)
-
-3. Nella finestra di dialogo **Tutti i servizi** inserire **Servizi di ripristino**. L'elenco delle risorse filtra sulla base degli input. Nell'elenco delle risorse selezionare**Insieme di credenziali di Servizi di ripristino**.
-
-    ![Inserire e selezionare le insiemi di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/all-services.png)
-
-    Viene visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
-
-4. Nel dashboard di **Insiemi di credenziali dei Servizi di ripristino** selezionare **Aggiungi**.
-
-    ![Aggiungere un insieme di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/add-button-create-vault.png)
-
-    Si apre la finestra di dialogo **Insieme di credenziali dei Servizi di ripristino**. Fornire i valori per **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
-
-    ![Configurare l'insieme di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/create-new-vault-dialog.png)
-
-   - **Nome**: immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco nella sottoscrizione di Azure. Specificare un nome che contiene almeno due caratteri, ma non più di 50. Il nome deve iniziare con una lettera e deve contenere solo lettere, numeri e trattini.
-   - **Sottoscrizione**: scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure.
-   - **Gruppo di risorse**: usare un gruppo di risorse esistente oppure crearne uno nuovo. Selezionare **Usa esistente** e nell'elenco a discesa scegliere una risorsa per visualizzare l'elenco di gruppi di risorse disponibili nella sottoscrizione. Per creare un nuovo gruppo di risorse, selezionare **Crea nuovo** e inserire il nome. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-   - **Posizione**: selezionare l'area geografica per l'insieme di credenziali. Se si crea un insieme di credenziali per proteggere le macchine virtuali, l'insieme di credenziali **deve** trovarsi nella stessa area delle macchine virtuali.
-
-      > [!IMPORTANT]
-      > Se non si è certi della posizione della macchina virtuale, chiudere la finestra di dialogo. Passare all'elenco di macchine virtuali nel portale. Se si dispone di macchine virtuali in più aree, creare un insieme di credenziali di Servizi di ripristino in ogni area. Creare l'insieme di credenziali nella prima posizione prima di creare l'insieme di credenziali per un'altra posizione. Non è necessario specificare gli account di archiviazione per archiviare i dati di backup. Questo aspetto viene gestito automaticamente dall'insieme di credenziali dei servizi di ripristino e dal servizio Backup di Azure.
-      >
-      >
-
-5. Quando si è pronti per creare l'insieme di credenziali di Servizi di ripristino, selezionare **Crea**.
-
-    ![Creare l'insieme di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/click-create-button.png)
-
-    La creazione dell'insieme di credenziali di Servizi di ripristino può richiedere del tempo. Monitorare le notifiche di stato nell'area **Notifiche** nell'angolo in alto a destra del portale. Dopo essere stato creato, l'insieme di credenziali, sarà visualizzabile nell'insieme di credenziali di Servizi di ripristino. Se non viene visualizzato, selezionare **Aggiorna**.
-
-     ![Aggiornare l'elenco dell'insieme di credenziali di backup](./media/backup-create-rs-vault/refresh-button.png)
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="set-storage-redundancy"></a>Impostare la ridondanza di archiviazione
 
 Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insieme di credenziali. È necessario specificare la modalità di replica dell'archiviazione.
 
-1. Nel pannello **Insieme di credenziali dei servizi di ripristino** fare clic sul nuovo insieme di credenziali. Nella sezione **Impostazioni** fare clic su **Proprietà**.
-2. In **Proprietà**, in **configurazione backup**, fare clic su **Aggiorna**.
+> [!NOTE]
+> È necessario modificare il **tipo di replica di archiviazione** (con ridondanza locale o con ridondanza geografica) per un insieme di credenziali di servizi di ripristino prima di configurare i backup nell'insieme di credenziali. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata.
+>
+>- Se il backup non è ancora stato configurato, [attenersi alla procedura seguente](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) per esaminare e modificare le impostazioni.
+>- Se il backup è già stato configurato e deve essere spostato da GRS a con ridondanza locale, [esaminare queste soluzioni alternative](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-3. Selezionare il tipo di replica di archiviazione e fare clic su **Salva**.
+1. Nel pannello **Insieme di credenziali dei servizi di ripristino** fare clic sul nuovo insieme di credenziali. Nella sezione **Impostazioni** fare clic su **Proprietà**.
+1. In**Proprietà** fare clic su **Aggiornamento** in **Configurazione di backup**.
+
+1. Selezionare il tipo di replica di archiviazione e fare clic su **Salva**.
 
      ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -70,8 +35,8 @@ Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insiem
    - Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure.
    - Altre informazioni sulla ridondanza [geografica](../storage/common/storage-redundancy-grs.md) e [locale](../storage/common/storage-redundancy-lrs.md) .
 
-> [!NOTE]
-> Per modificare il **tipo di replica di archiviazione** (con ridondanza locale o con ridondanza geografica) per un insieme di credenziali di servizi di ripristino, è necessario eseguire prima di configurare i backup nell'insieme di credenziali. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata e non è possibile modificare il **tipo di replica di archiviazione**.
+>[!NOTE]
+>Le impostazioni di replica di archiviazione per l'insieme di credenziali non sono rilevanti per il backup della condivisione file di Azure perché la soluzione corrente è basata su snapshot e non sono presenti dati trasferiti nell'insieme di credenziali. Gli snapshot vengono archiviati nello stesso account di archiviazione della condivisione file di cui è stato eseguito il backup.
 
 ## <a name="set-cross-region-restore"></a>Imposta ripristino tra aree
 
@@ -90,11 +55,9 @@ Per questo processo, esistono implicazioni relative ai prezzi a livello di archi
 >- Esaminare la [matrice di supporto](backup-support-matrix.md#cross-region-restore) per un elenco di tipi e aree gestiti supportati.
 >- La funzionalità di ripristino tra aree (CRR) è ora visualizzata in anteprima in tutte le aree pubbliche di Azure.
 >- CRR è una funzionalità di consenso esplicito a livello di insieme di credenziali GRS (disattivata per impostazione predefinita).
->- Usare il comando seguente per caricare la sottoscrizione per questa funzionalità:<br>
->  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
->- Se si esegue l'onboarding in questa funzionalità durante l'anteprima pubblica limitata, il messaggio di posta elettronica di approvazione della verifica includerà i dettagli relativi ai criteri tariffari.
 >- Dopo aver acconsentito, potrebbero essere necessarie fino a 48 ore affinché gli elementi di backup siano disponibili nelle aree secondarie.
 >- Attualmente CRR è supportato solo per il tipo di gestione di backup-macchina virtuale di Azure ARM (la macchina virtuale di Azure classica non sarà supportata).  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
+>- Il ripristino tra aree attualmente non può essere ripristinato in GRS o con ridondanza locale una volta avviata la protezione per la prima volta.
 
 ### <a name="configure-cross-region-restore"></a>Configurare il ripristino tra aree
 
@@ -119,9 +82,56 @@ Informazioni su come [monitorare i processi di ripristino dell'area secondaria](
 
 Si consiglia vivamente di rivedere le impostazioni predefinite per il **tipo di replica di archiviazione** e **le impostazioni di sicurezza** prima di configurare i backup nell'insieme di credenziali.
 
-- Per impostazione predefinita, il **tipo di replica di archiviazione** è impostato su con **ridondanza geografica**. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata. Per esaminare e modificare le impostazioni, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) .
+- Per impostazione predefinita, il **tipo di replica di archiviazione** è impostato su con **ridondanza geografica** (GRS). Dopo aver configurato il backup, l'opzione per la modifica è disabilitata.
+  - Se il backup non è ancora stato configurato, [attenersi alla procedura seguente](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) per esaminare e modificare le impostazioni.
+  - Se il backup è già stato configurato e deve essere spostato da GRS a con ridondanza locale, [esaminare queste soluzioni alternative](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-- Per impostazione predefinita, l' **eliminazione** temporanea è **abilitata** negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose. Per esaminare e modificare le impostazioni, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) .
+- Per impostazione predefinita, l' **eliminazione** temporanea è **abilitata** negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose. Per esaminare e modificare le impostazioni, [seguire questa procedura](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) .
+
+### <a name="how-to-change-from-grs-to-lrs-after-configuring-backup"></a>Come passare da GRS a con ridondanza locale dopo aver configurato il backup
+
+Prima di decidere di passare da GRS ad archiviazione con ridondanza locale (con ridondanza locale), esaminare i compromessi tra i costi più bassi e la durabilità dei dati più elevata adatta allo scenario. Se è necessario passare da GRS a con ridondanza locale, sono disponibili due opzioni. Dipendono dai requisiti aziendali per conservare i dati di backup:
+
+- [Non è necessario mantenere i dati di backup precedenti](#dont-need-to-preserve-previous-backed-up-data)
+- [È necessario mantenere i dati di backup precedenti](#must-preserve-previous-backed-up-data)
+
+#### <a name="dont-need-to-preserve-previous-backed-up-data"></a>Non è necessario mantenere i dati di backup precedenti
+
+Per proteggere i carichi di lavoro in un nuovo insieme di credenziali con ridondanza locale, è necessario eliminare i dati e la protezione correnti nell'insieme di credenziali di GRS e i backup configurati di nuovo.
+
+>[!WARNING]
+>L'operazione seguente è distruttiva e non può essere annullata. Tutti i dati di backup e gli elementi di backup associati al server protetto verranno eliminati definitivamente. Procedere con cautela.
+
+Arrestare ed eliminare la protezione corrente nell'insieme di credenziali di GRS:
+
+1. Disabilitare l'eliminazione temporanea nelle proprietà dell'insieme di credenziali di GRS. Per disabilitare l'eliminazione temporanea, seguire [questa procedura](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) .
+
+1. Arrestare la protezione ed eliminare i backup dall'insieme di credenziali GRS esistente. Nel menu del dashboard dell'insieme di credenziali selezionare **elementi di backup**. Gli elementi elencati di seguito che devono essere spostati nell'insieme di credenziali con ridondanza locale devono essere rimossi insieme ai relativi dati di backup. Vedere come [eliminare gli elementi protetti nel cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) ed [eliminare gli elementi protetti in locale](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+1. Se si prevede di spostare AFS (condivisioni file di Azure), SQL Server o server SAP HANA, sarà necessario anche annullarne la registrazione. Nel menu del dashboard dell'insieme di credenziali selezionare **infrastruttura di backup**. Vedere come annullare [la registrazione di SQL Server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [annullare la registrazione di un account di archiviazione associato a condivisioni file di Azure](manage-afs-backup.md#unregister-a-storage-account)e [annullare la registrazione di un'istanza di SAP Hana](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+1. Dopo essere stati rimossi dall'insieme di credenziali di GRS, continuare a configurare i backup per il carico di lavoro nel nuovo insieme di credenziali con ridondanza locale.
+
+#### <a name="must-preserve-previous-backed-up-data"></a>È necessario mantenere i dati di backup precedenti
+
+Se è necessario mantenere i dati protetti correnti nell'insieme di credenziali di GRS e continuare la protezione in un nuovo insieme di credenziali di con ridondanza locale, sono disponibili opzioni limitate per alcuni carichi di lavoro:
+
+- Per MARS è possibile [arrestare la protezione con Mantieni dati](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) e registrare l'agente nel nuovo con ridondanza locale Vault.
+
+  - Il servizio backup di Azure continuerà a mantenere tutti i punti di ripristino esistenti dell'insieme di credenziali GRS.
+  - Dovrai pagare per preservare i punti di ripristino nell'insieme di credenziali di GRS.
+  - Sarà possibile ripristinare i dati di cui è stato eseguito il backup solo per i punti di ripristino non scaduti nell'insieme di credenziali di GRS.
+  - Sarà necessario creare una nuova replica iniziale dei dati nell'insieme di credenziali con ridondanza locale.
+
+- Per una macchina virtuale di Azure, è possibile [arrestare la protezione con Mantieni i dati](backup-azure-manage-vms.md#stop-protecting-a-vm) per la macchina virtuale nell'insieme di credenziali GRS, spostare la macchina virtuale in un altro gruppo di risorse e quindi proteggere la macchina virtuale nell'insieme di credenziali con ridondanza locale. Vedere [linee guida e limitazioni](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) per lo stato di trasferimento di una macchina virtuale in un altro gruppo di risorse.
+
+  Una macchina virtuale può essere protetta solo in un insieme di credenziali alla volta. Tuttavia, la macchina virtuale nel nuovo gruppo di risorse può essere protetta nell'insieme di credenziali di con ridondanza locale perché è considerata una macchina virtuale diversa.
+
+  - Il servizio backup di Azure manterrà i punti di ripristino di cui è stato eseguito il backup nell'insieme di credenziali di GRS.
+  - Dovrai pagare per mantenete i punti di ripristino nell'insieme di credenziali di GRS (vedere [prezzi di backup di Azure](azure-backup-pricing.md) per informazioni dettagliate).
+  - Sarà possibile ripristinare la macchina virtuale, se necessario, dall'insieme di credenziali di GRS.
+  - Il primo backup nell'insieme di credenziali con ridondanza locale della macchina virtuale nella nuova risorsa sarà una replica iniziale.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

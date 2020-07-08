@@ -5,19 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: 99c8d4e7e5263b8a7caf30833a899976d3cc829b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 89450e5518d854fbc31b43324ecb05f47e1ab5ac
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133695"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970995"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per PostgreSQL offre varie opzioni di monitoraggio che consentono di ottenere informazioni dettagliate sul comportamento del server.
 
 ## <a name="metrics"></a>Metriche
-Database di Azure per PostgreSQL offre varie metriche che consentono di ottenere informazioni approfondite sul comportamento delle risorse che supportano il server PostgreSQL. Ogni metrica viene emessa con una frequenza di un minuto e ha una cronologia che può arrivare fino a 30 giorni. È possibile configurare avvisi in base alle metriche. Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](howto-alert-on-metric.md). Le altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e l'archiviazione della cronologia. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Database di Azure per PostgreSQL offre varie metriche che consentono di ottenere informazioni approfondite sul comportamento delle risorse che supportano il server PostgreSQL. Ogni metrica viene emessa a una frequenza di un minuto e presenta fino a [93 giorni di cronologia](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). È possibile configurare avvisi in base alle metriche. Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](howto-alert-on-metric.md). Le altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e l'archiviazione della cronologia. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
@@ -26,7 +26,7 @@ Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 |---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
-|io_consumption_percent|Percentuale IO|Percentuale|Percentuale di I/O in uso.|
+|io_consumption_percent|Percentuale IO|Percentuale|Percentuale di I/O in uso. (Non applicabile ai server di livello Basic).|
 |storage_percent|Percentuale archiviazione|Percentuale|Percentuale di spazio di archiviazione usata rispetto al massimo del server.|
 |storage_used|Uso archiviazione|Byte|Quantità di spazio di archiviazione in uso. Lo spazio di archiviazione usato dal servizio può includere file di database, log delle transazioni e log del server.|
 |storage_limit|Limite archiviazione|Byte|Spazio di archiviazione massimo per il server.|
@@ -74,7 +74,7 @@ Le **notifiche di manutenzione pianificata** consentono di ricevere avvisi per l
 Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio**, vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Le notifiche di manutenzione pianificata sono attualmente in anteprima
+> Le notifiche di manutenzione pianificata sono attualmente disponibili in anteprima in tutte le aree **ad eccezione** degli Stati Uniti centro-occidentali
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Vedere [come configurare gli avvisi](howto-alert-on-metric.md) per istruzioni sulla creazione di un avviso per una metrica.

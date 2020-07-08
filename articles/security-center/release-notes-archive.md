@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 36c3515bbdd0f08063ecad2ba26fc7b92a5f0e19
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860903"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970689"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivio delle novità del Centro sicurezza di Azure
 
@@ -29,9 +29,37 @@ Questa pagina illustra quanto segue:
 - Correzioni di bug
 - Funzionalità deprecate
 
+
+## <a name="january-2020"></a>Gennaio 2020
+
+### <a name="enhanced-secure-score-preview"></a>Punteggio di sicurezza migliorato (anteprima)
+
+Una versione migliorata della funzionalità di punteggio di sicurezza del Centro sicurezza di Azure è ora disponibile in anteprima. In questa versione, più raccomandazioni vengono raggruppate nei controlli di sicurezza che riflettono meglio le superfici di attacco vulnerabili, limitando ad esempio l'accesso alle porte di gestione.
+
+Acquisire familiarità con le modifiche apportate al punteggio di sicurezza durante la fase di anteprima e determinare altre correzioni che consentiranno di proteggere ulteriormente l'ambiente.
+
+Altre informazioni su [Punteggio sicuro avanzato (anteprima)](secure-score-security-controls.md).
+
+
+
 ## <a name="november-2019"></a>Novembre 2019
 
-### <a name="threat-protection-for-azure-key-vault-in-public-preview-in-north-america-regions"></a>Protezione dalle minacce per Azure Key Vault in versione di anteprima pubblica nelle aree dell'America del Nord
+Gli aggiornamenti di novembre includono:
+ - [Protezione dalle minacce per Azure Key Vault in aree America del Nord (anteprima)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [La protezione dalle minacce per Archiviazione di Azure include lo screening della reputazione del malware](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
+ - [Automazione del flusso di lavoro con App per la logica (anteprima)](#workflow-automation-with-logic-apps-preview)
+ - [Correzione rapida per le risorse bulk disponibili a livello generale](#quick-fix-for-bulk-resources-generally-available)
+ - [Analizzare le immagini del contenitore per le vulnerabilità (anteprima)](#scan-container-images-for-vulnerabilities-preview)
+ - [Standard aggiuntivi di conformità con le normative (anteprima)](#additional-regulatory-compliance-standards-preview)
+ - [Protezione dalle minacce per il servizio Azure Kubernetes (anteprima)](#threat-protection-for-azure-kubernetes-service-preview)
+ - [Valutazione della vulnerabilità della macchina virtuale (anteprima)](#virtual-machine-vulnerability-assessment-preview)
+ - [Sicurezza dei dati avanzata per i server SQL in macchine virtuali di Azure (anteprima)](#advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview)
+ - [Supporto per criteri personalizzati (anteprima)](#support-for-custom-policies-preview)
+ - [Estensione della copertura del Centro sicurezza di Azure con piattaforma per community e partner](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
+ - [Integrazioni avanzate con l'esportazione di raccomandazioni e avvisi (anteprima)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
+ - [Eseguire l'onboarding dei server locali nel Centro sicurezza da Windows Admin Center (anteprima)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+
+### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>Protezione dalle minacce per Azure Key Vault in aree America del Nord (anteprima)
 
 Azure Key Vault è un servizio essenziale per la protezione dei dati e il miglioramento delle prestazioni delle applicazioni cloud che offre la possibilità di gestire in modo centralizzato chiavi, segreti, chiavi crittografiche e criteri nel cloud. Poiché Azure Key Vault archivia dati sensibili e aziendali critici, richiede la massima sicurezza per gli insiemi di credenziali delle chiavi e i dati archiviati.
 
@@ -146,6 +174,11 @@ Grazie a questa nuova esperienza, gli utenti potranno eseguire l'onboarding di u
 
 ## <a name="september-2019"></a>Settembre 2019
 
+Gli aggiornamenti di settembre includono:
+
+ - [Gestione delle regole con i miglioramenti apportati ai controlli applicazioni adattivi](#managing-rules-with-adaptive-application-controls-improvements)
+ - [Controllare la raccomandazione sulla sicurezza del contenitore usando Criteri di Azure](#control-container-security-recommendation-using-azure-policy)
+
 ### <a name="managing-rules-with-adaptive-application-controls-improvements"></a>Gestione delle regole con i miglioramenti apportati ai controlli applicazioni adattivi
 
 L'esperienza di gestione delle regole per le macchine virtuali che usano i controlli applicazioni adattivi è stata migliorata. I controlli applicazioni adattivi del Centro sicurezza di Azure consentono di controllare quali applicazioni possono essere eseguite nelle macchine virtuali. Oltre a un miglioramento generale per la gestione delle regole, un nuovo vantaggio consiste nella possibilità di controllare quali tipi di file verranno protetti quando si aggiunge una nuova regola.
@@ -161,6 +194,12 @@ Per visualizzare i criteri di sicurezza abilitati, dal Centro sicurezza aprire l
 
 
 ## <a name="august-2019"></a>Agosto 2019
+
+Gli aggiornamenti di agosto includono:
+
+ - [Accesso just-in-time (JIT) alla macchina virtuale per Firewall di Azure](#just-in-time-jit-vm-access-for-azure-firewall)
+ - [Correzione con un solo clic per migliorare il comportamento di sicurezza (anteprima)](#single-click-remediation-to-boost-your-security-posture-preview)
+ - [Gestione tra tenant](#cross-tenant-management)
 
 ### <a name="just-in-time-jit-vm-access-for-azure-firewall"></a>Accesso just-in-time (JIT) alla macchina virtuale per Firewall di Azure 
 
