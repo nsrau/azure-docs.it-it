@@ -3,12 +3,12 @@ title: Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 description: Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con un tempo di inattività minimo o insufficiente per il cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991212"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611629"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 
@@ -16,13 +16,13 @@ ms.locfileid: "80991212"
 
 La strategia generale per l'aggiornamento di un nodo del cluster Service Fabric per l'uso di Managed disks è:
 
-1. Distribuire un set di scalabilità di macchine virtuali altrimenti duplicato di quel tipo di [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) nodo, ma con l' `osDisk` oggetto managedDisk aggiunto alla sezione del modello di distribuzione del set di scalabilità di macchine virtuali. Il nuovo set di scalabilità deve essere associato allo stesso bilanciamento del carico/IP originale, in modo che i clienti non sperimentino un'interruzione del servizio durante la migrazione.
+1. Distribuire un set di scalabilità di macchine virtuali altrimenti duplicato di quel tipo di nodo, ma con l'oggetto [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) aggiunto alla `osDisk` sezione del modello di distribuzione del set di scalabilità di macchine virtuali. Il nuovo set di scalabilità deve essere associato allo stesso bilanciamento del carico/IP originale, in modo che i clienti non sperimentino un'interruzione del servizio durante la migrazione.
 
 2. Quando entrambi i set di scalabilità originali e aggiornati vengono eseguiti side-by-Side, disabilitare le istanze del nodo originale una alla volta in modo che i servizi di sistema (o le repliche dei servizi con stato) eseguano la migrazione al nuovo set di scalabilità.
 
 3. Verificare che il cluster e i nuovi nodi siano integri, quindi rimuovere il set di scalabilità originale e lo stato del nodo per i nodi eliminati.
 
-Questo articolo illustra i passaggi per l'aggiornamento del tipo di nodo primario di un cluster di esempio per l'uso di Managed disks, evitando al tempo stesso i tempi di inattività del cluster (vedere la nota riportata di seguito). Lo stato iniziale del cluster di test di esempio è costituito da un tipo di nodo di [durabilità Silver](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), supportato da un singolo set di scalabilità con cinque nodi.
+Questo articolo illustra i passaggi per l'aggiornamento del tipo di nodo primario di un cluster di esempio per l'uso di Managed disks, evitando al tempo stesso i tempi di inattività del cluster (vedere la nota riportata di seguito). Lo stato iniziale del cluster di test di esempio è costituito da un tipo di nodo di [durabilità Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), supportato da un singolo set di scalabilità con cinque nodi.
 
 > [!CAUTION]
 > Si verificherà un'interruzione con questa procedura solo se si dispone di dipendenze dal DNS del cluster, ad esempio quando si accede a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). La [procedura consigliata per l'architettura per i servizi front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) consiste nel disporre di un tipo di servizio di [bilanciamento del carico](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) davanti ai tipi di nodo per consentire lo swapping dei nodi senza interruzioni.
@@ -31,9 +31,9 @@ Ecco i [modelli e i cmdlet](https://github.com/microsoft/service-fabric-scripts-
 
 ## <a name="set-up-the-test-cluster"></a>Configurare il cluster di test
 
-Si configurano il cluster iniziale Service Fabric test. Per prima cosa, [scaricare](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) i modelli di esempio di Azure Resource Manager che verranno usati per completare questo scenario.
+Si configurano il cluster iniziale Service Fabric test. Per prima cosa, [scaricare](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) i modelli di esempio Azure Resource Manager che verranno usati per completare questo scenario.
 
-Accedere quindi al proprio account Azure.
+Successivamente, accedere all'account Azure.
 
 ```powershell
 # Sign in to your Azure account
@@ -44,7 +44,7 @@ I comandi seguenti consentono di generare un nuovo certificato autofirmato e di 
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Generare un certificato autofirmato e distribuire il cluster
 
-Per prima cosa, assegnare le variabili necessarie per la distribuzione di Service Fabric cluster. Modificare i valori per `resourceGroupName`, `certSubjectName`, `parameterFilePath`e `templateFilePath` per l'account e l'ambiente specifici:
+Per prima cosa, assegnare le variabili necessarie per la distribuzione del cluster Service Fabric. Modificare i valori per `resourceGroupName`, `certSubjectName`, `parameterFilePath`e `templateFilePath` per l'account e l'ambiente specifici:
 
 ```powershell
 # Assign deployment variables
@@ -57,11 +57,11 @@ $parameterFilePath = "C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
 ```
 
 > [!NOTE]
-> Verificare che il `certOutputFolder` percorso esista nel computer locale prima di eseguire il comando per distribuire un nuovo cluster Service Fabric.
+> Prima di eseguire il comando per distribuire un nuovo cluster Service Fabric, verificare che nel computer locale esista il percorso `certOutputFolder`.
 
-Aprire quindi il file [*Initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) e modificare i valori per `clusterName` e `dnsName` in modo che corrispondano ai valori dinamici impostati in PowerShell e salvare le modifiche.
+Successivamente, aprire il [*Initial-1NodeType-UnmanagedDisks.parameters.jsnel*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) file e modificare i valori per `clusterName` e `dnsName` in modo che corrispondano ai valori dinamici impostati in PowerShell e salvare le modifiche.
 
-Distribuire quindi il cluster di test di Service Fabric:
+Quindi distribuire il cluster di test di Service Fabric:
 
 ```powershell
 # Deploy the initial test cluster
@@ -74,7 +74,7 @@ New-AzServiceFabricCluster `
     -ParameterFile $parameterFilePath
 ```
 
-Al termine della distribuzione, individuare il file con *estensione pfx* (`$certPfx`) nel computer locale e importarlo nell'archivio certificati:
+Al termine della distribuzione, individuare il file *.pfx* (`$certPfx`) nel computer locale e importarlo nell'archivio certificati:
 
 ```powershell
 cd c:\certificates
@@ -99,9 +99,9 @@ $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourc
 $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
-Aprire il file [*Initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) e modificare i valori per `clusterName` e `dnsName` su un valore univoco.
+Aprire il [*Initial-1NodeType-UnmanagedDisks.parameters.jsnel*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) file e modificare i valori di `clusterName` e `dnsName` in un valore univoco.
 
-Infine, designare il nome di un gruppo di risorse per il cluster `templateFilePath` e `parameterFilePath` impostare i percorsi e dei file *Initial-1NodeType-UnmanagedDisks* :
+Infine, designare il nome di un gruppo di risorse per il cluster e impostare i `templateFilePath` `parameterFilePath` percorsi e dei file *Initial-1NodeType-UnmanagedDisks* :
 
 > [!NOTE]
 > Il gruppo di risorse designato deve esistere già e trovarsi nella stessa area del Key Vault.
@@ -126,7 +126,7 @@ New-AzResourceGroupDeployment `
     -Verbose
 ```
 
-### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Connettersi al nuovo cluster e controllare lo stato di integrità
+### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Connettersi al nuovo cluster e controllarne lo stato di integrità
 
 Connettersi al cluster e assicurarsi che tutti e cinque i relativi nodi siano integri (sostituendo `clusterName` le `thumb` variabili e per il cluster):
 
@@ -153,7 +153,7 @@ A questo punto, è possibile iniziare la procedura di aggiornamento.
 
 ## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>Distribuire un set di scalabilità aggiornato per il tipo di nodo primario
 
-Per eseguire l'aggiornamento o la *scalabilità verticale*di un tipo di nodo, è necessario distribuire una copia del set di scalabilità di macchine virtuali del tipo di nodo, che è altrimenti identico al set di scalabilità originale (incluso `nodeTypeRef`il `subnet`riferimento allo `loadBalancerBackendAddressPools`stesso,, e), con la differenza che include l'aggiornamento o le modifiche desiderate e la propria subnet separata e il pool di indirizzi NAT in ingresso Poiché si sta aggiornando un tipo di nodo primario, il nuovo set di scalabilità verrà contrassegnato`isPrimary: true`come Primary (), proprio come il set di scalabilità originale. Per gli aggiornamenti del tipo di nodo non primario, è sufficiente omettere questo.
+Per eseguire l'aggiornamento o la *scalabilità verticale*di un tipo di nodo, è necessario distribuire una copia del set di scalabilità di macchine virtuali del tipo di nodo, che è altrimenti identico al set di scalabilità originale (incluso il riferimento allo stesso `nodeTypeRef` , `subnet` , e), con `loadBalancerBackendAddressPools` la differenza che include l'aggiornamento o le modifiche desiderate e la propria subnet separata e il pool di indirizzi NAT in ingresso Poiché si sta aggiornando un tipo di nodo primario, il nuovo set di scalabilità verrà contrassegnato come Primary ( `isPrimary: true` ), proprio come il set di scalabilità originale. Per gli aggiornamenti del tipo di nodo non primario, è sufficiente omettere questo.
 
 Per praticità, le modifiche necessarie sono già state apportate nel [modello](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) *upgrade-1NodeType-2ScaleSets-ManagedDisks* e nei file dei [parametri](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) .
 
@@ -165,7 +165,7 @@ Di seguito sono riportate le modifiche della sezione per sezione del modello di 
 
 #### <a name="parameters"></a>Parametri
 
-Aggiungere i parametri per il nome dell'istanza, il numero e le dimensioni del nuovo set di scalabilità. Si noti `vmNodeType1Name` che è univoco per il nuovo set di scalabilità, mentre i valori di conteggio e dimensione sono identici al set di scalabilità originale.
+Aggiungere i parametri per il nome dell'istanza, il numero e le dimensioni del nuovo set di scalabilità. Si noti che `vmNodeType1Name` è univoco per il nuovo set di scalabilità, mentre i valori di conteggio e dimensione sono identici al set di scalabilità originale.
 
 **File modello**
 
@@ -204,7 +204,7 @@ Aggiungere i parametri per il nome dell'istanza, il numero e le dimensioni del n
 
 ### <a name="variables"></a>variables
 
-Nella sezione modello `variables` di distribuzione aggiungere una voce per il pool di indirizzi NAT in ingresso del nuovo set di scalabilità.
+Nella sezione modello di distribuzione `variables` aggiungere una voce per il pool di indirizzi NAT in ingresso del nuovo set di scalabilità.
 
 **File modello**
 
@@ -260,19 +260,19 @@ Dopo aver implementato tutte le modifiche nei file di modello e di parametri, pa
 
 Per distribuire la configurazione aggiornata, è prima di tutto necessario ottenere diversi riferimenti al certificato del cluster archiviato nel Key Vault. Il modo più semplice per trovare questi valori consiste nell'portale di Azure. Sono necessari gli elementi seguenti:
 
-* **URL Key Vault del certificato del cluster.** Dal Key Vault in portale di Azure selezionare **certificati** > *l'* > **identificatore del segreto**del certificato desiderato:
+* **URL Key Vault del certificato del cluster.** Dal Key Vault in portale di Azure selezionare **certificati**  >  *l'*  >  **identificatore del segreto**del certificato desiderato:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
     ```
 
-* **Identificazione personale del certificato del cluster.** Probabilmente è già presente se è stata effettuata [la connessione al cluster iniziale](#connect-to-the-new-cluster-and-check-health-status) per verificarne lo stato di integrità. Dallo stesso pannello**certificato (** > Certificates*your desired certificate*) in portale di Azure, copy **X. 509 SHA-1 identificazione personale (in esadecimale)**:
+* **Identificazione personale del certificato del cluster.** Probabilmente è già presente se è stata effettuata [la connessione al cluster iniziale](#connect-to-the-new-cluster-and-check-health-status) per verificarne lo stato di integrità. Dallo stesso pannello**certificato (Certificates**  >  *your desired certificate*) in portale di Azure, copy **X. 509 SHA-1 identificazione personale (in esadecimale)**:
 
     ```powershell
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
     ```
 
-* **ID risorsa della Key Vault.** Dal Key Vault in portale di Azure selezionare **Proprietà** > **ID risorsa**:
+* **ID risorsa della Key Vault.** Dal Key Vault in portale di Azure selezionare **Proprietà**  >  **ID risorsa**:
 
     ```powershell
     $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
@@ -280,7 +280,7 @@ Per distribuire la configurazione aggiornata, è prima di tutto necessario otten
 
 ### <a name="deploy-the-updated-template"></a>Distribuire il modello aggiornato
 
-Modificare `parameterFilePath` e `templateFilePath` , in base alle esigenze, quindi eseguire il comando seguente:
+Modificare `parameterFilePath` e `templateFilePath` in base alle esigenze quindi eseguire il comando seguente:
 
 ```powershell
 # Deploy the new scale set (upgraded to use managed disks) into the primary node type.
@@ -305,7 +305,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="migrate-seed-nodes-to-the-new-scale-set"></a>Migrare i nodi di inizializzazione al nuovo set di scalabilità
 
-A questo punto è possibile avviare la disabilitazione dei nodi del set di scalabilità originale. Quando questi nodi vengono disabilitati, i nodi di sistema e di inizializzazione vengono migrati alle macchine virtuali del nuovo set di scalabilità perché è anche contrassegnato come tipo di nodo primario.
+A questo punto è possibile avviare la disabilitazione dei nodi del set di scalabilità originale. Poiché tali nodi diventano disabilitati, i servizi di sistema e i nodi di inizializzazione eseguono la migrazione alle macchine virtuali del nuovo set di scalabilità poiché è anche contrassegnato come tipo di nodo primario.
 
 ```powershell
 # Disable the nodes in the original scale set.
@@ -317,16 +317,16 @@ foreach($name in $nodeNames){
 }
 ```
 
-Usare Service Fabric Explorer per monitorare la migrazione dei nodi di inizializzazione al nuovo set di scalabilità e la progressione dei nodi nel set di scalabilità originale dalla *disabilitazione* allo stato *disabilitato* .
+Usare Service Fabric Explorer per monitorare la migrazione dei nodi di inizializzazione al nuovo set di scalabilità e l'avanzamento dei nodi nel set di scalabilità originale dallo stato *Disattivazione* a quello *Disattivato*.
 
 ![Service Fabric Explorer che mostra lo stato dei nodi disabilitati](./media/upgrade-managed-disks/service-fabric-explorer-node-status.png)
 
 > [!NOTE]
-> Il completamento dell'operazione di disabilitazione in tutti i nodi del set di scalabilità originale potrebbe richiedere del tempo. Per garantire la coerenza dei dati, è possibile modificare un solo nodo di inizializzazione alla volta. Per ogni modifica del nodo di inizializzazione è necessario un aggiornamento del cluster. la sostituzione di un nodo di inizializzazione richiede quindi due aggiornamenti del cluster, uno per l'aggiunta e la rimozione di nodi. L'aggiornamento dei cinque nodi di inizializzazione in questo scenario di esempio provocherà dieci aggiornamenti del cluster.
+> Il completamento dell'operazione di disattivazione in tutti i nodi del set di scalabilità originale potrebbe richiedere del tempo. Per garantire la coerenza dei dati, è possibile modificare un solo nodo di inizializzazione alla volta. Per ogni modifica del nodo di inizializzazione è necessario un aggiornamento del cluster. La sostituzione di un nodo di inizializzazione richiede quindi due aggiornamenti del cluster, uno ciascuno per l'aggiunta e la rimozione di nodi. L'aggiornamento dei cinque nodi di inizializzazione in questo scenario di esempio comporterà dieci aggiornamenti del cluster.
 
 ## <a name="remove-the-original-scale-set"></a>Rimuovere il set di scalabilità originale
 
-Al termine dell'operazione di disabilitazione, rimuovere il set di scalabilità.
+Al termine dell'operazione di disattivazione, rimuovere il set di scalabilità.
 
 ```powershell
 # Remove the original scale set
@@ -340,7 +340,7 @@ Remove-AzVmss `
 Write-Host "Removed scale set $scaleSetName"
 ```
 
-In Service Fabric Explorer i nodi rimossi (e pertanto lo *stato di integrità del cluster*) verranno visualizzati in stato di *errore* .
+In Service Fabric Explorer i nodi rimossi (e di conseguenza lo *stato di integrità del cluster*) verranno visualizzati nello stato *Errore*.
 
 ![Service Fabric Explorer che mostra i nodi disabilitati in stato di errore](./media/upgrade-managed-disks/service-fabric-explorer-disabled-nodes-error-state.png)
 

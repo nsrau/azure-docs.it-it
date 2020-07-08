@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 244de9a3236977308a9f7bcaf5106e86a0984201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b581242ad5a23072731fc7d30e09e461590ec1ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024677"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801326"
 ---
 # <a name="what-are-application-templates"></a>Che cosa i modelli di applicazione?
 
@@ -56,6 +56,10 @@ Azure IoT Central è una piattaforma applicativa indipendente dal settore. I mod
   - Monitoraggio della qualità dell'acqua
 - [Assistenza sanitaria](../healthcare/overview-iot-central-healthcare.md).
   - Monitoraggio continuo del paziente
+
+## <a name="application-versions"></a>Versioni dell'applicazione
+
+I modelli sono associati a specifiche versioni dell'applicazione IoT Central. È possibile trovare la versione di un'applicazione nella pagina [informazioni sull'app](./howto-get-app-info.md) dal collegamento alla **Guida** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

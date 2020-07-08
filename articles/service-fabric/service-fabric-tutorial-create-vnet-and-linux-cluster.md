@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un cluster Linux di Service Fabric
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d6edc086233d757269c12e323241bc4bf55249f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611697"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -33,17 +33,17 @@ Scaricare i file del modello di Resource Manager seguenti:
 
 Per Ubuntu 16,04 LTS:
 
-* [File azuredeploy. JSON][template]
-* [File azuredeploy. Parameters. JSON][parameters]
+* [AzureDeploy.js][template]
+* [AzureDeploy.Parameters.js][parameters]
 
 Per Ubuntu 18,04 LTS:
 
-* [File azuredeploy. JSON][template2]
-* [File azuredeploy. Parameters. JSON][parameters2]
+* [AzureDeploy.js][template2]
+* [AzureDeploy.Parameters.js][parameters2]
 
 La differenza tra i due modelli è l'attributo **vmImageSku** impostato su "18,04-LTS" e il **typeHandlerVersion** di ogni nodo viene impostato su 1,1.
 
-Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [File azuredeploy. JSON][template] distribuisce un numero di risorse, incluse le seguenti.
+Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Il [AzureDeploy.jssu][template] distribuisce un numero di risorse, incluse le seguenti.
 
 ### <a name="service-fabric-cluster"></a>Cluster di Service Fabric
 
@@ -54,8 +54,8 @@ Nella risorsa **Microsoft.ServiceFabric/clusters** viene distribuito un cluster 
 * Sistema operativo: (Ubuntu 16,04 LTS/Ubuntu 18,04 LTS) (configurabile nei parametri del modello)
 * Protezione con certificato (configurabile nei parametri del modello)
 * Il [servizio DNS](service-fabric-dnsservice.md) è abilitato
-* [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronze (configurabile nei parametri del modello)
-* [Livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) dell'argento (configurabile nei parametri del modello)
+* [Livello di durabilità](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Bronze (configurabile nei parametri del modello)
+* [Livello di affidabilità](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) dell'argento (configurabile nei parametri del modello)
 * Endpoint di connessione client: 19000 (configurabile nei parametri del modello)
 * Endpoint del gateway HTTP: 19080 (configurabile nei parametri del modello)
 
@@ -160,7 +160,7 @@ Verificare di essere connessi e che il cluster sia integro usando il comando `sf
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se non si intende passare subito all'articolo successivo, è opportuno [eliminare il cluster](service-fabric-cluster-delete.md) per evitare di sostenere costi.
 

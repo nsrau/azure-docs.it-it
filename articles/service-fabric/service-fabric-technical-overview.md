@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611731"
 ---
 # <a name="service-fabric-terminology-overview"></a>Panoramica della terminologia di Service Fabric
 
@@ -58,7 +58,7 @@ Tutti i pacchetti di codice definiti come parte di una risorsa applicazione sono
 
 Per ulteriori informazioni, leggere l'articolo relativo al [modello di applicazione](service-fabric-application-model.md) .
 
-**Pacchetto dell'applicazione**: una directory del disco contenente il file `ApplicationManifest.xml` del tipo di applicazione. Fa riferimento ai pacchetti del servizio per ogni servizio che costituisce il tipo di applicazione. I file nella directory del pacchetto dell'applicazione vengono copiati nell'archivio immagini del cluster di Service Fabric. Un pacchetto dell'applicazione per il tipo di applicazione posta elettronica può ad esempio contenere riferimenti a un pacchetto del servizio di accodamento, un pacchetto del servizio front-end e un pacchetto del servizio di database.
+**Pacchetto dell'applicazione**: una directory del disco contenente il file del tipo di applicazione `ApplicationManifest.xml` . Fa riferimento ai pacchetti del servizio per ogni servizio che costituisce il tipo di applicazione. I file nella directory del pacchetto dell'applicazione vengono copiati nell'archivio immagini del cluster di Service Fabric. Un pacchetto dell'applicazione per il tipo di applicazione posta elettronica può ad esempio contenere riferimenti a un pacchetto del servizio di accodamento, un pacchetto del servizio front-end e un pacchetto del servizio di database.
 
 **Applicazione denominata**: dopo aver copiato un pacchetto dell'applicazione nell'archivio immagini, è possibile creare un'istanza dell'applicazione all'interno del cluster. Si crea un'istanza quando si specifica il tipo di applicazione del pacchetto dell'applicazione, usando il relativo nome o versione. A ogni istanza del tipo di applicazione viene assegnato un URI (Uniform Resource Identifier) simile al seguente: `"fabric:/MyNamedApp"`. All'interno di un cluster è possibile creare più applicazioni denominate da un singolo tipo di applicazione. È anche possibile creare applicazioni denominate da tipi di applicazione diversi. L'amministrazione e il controllo delle versioni sono gestiti in modo indipendente per ogni applicazione.
 
@@ -75,7 +75,7 @@ Le **repliche o istanze** fanno riferimento al codice (e allo stato per i serviz
 
 **Riconfigurazione** fa riferimento al processo di qualsiasi modifica nel set di repliche di un servizio. Vedere [riconfigurazione](service-fabric-concepts-reconfiguration.md).
 
-**Pacchetto del servizio**: una directory del disco contenente il file `ServiceManifest.xml` del tipo di servizio. Questo file fa riferimento al codice, ai dati statici e ai pacchetti di configurazione per il tipo di servizio. Il file `ApplicationManifest.xml` del tipo di applicazione fa riferimento ai file nella directory del pacchetto del servizio. Un pacchetto del servizio può ad esempio fare riferimento al codice, ai dati statici e ai pacchetti di configurazione che costituiscono un servizio di database.
+**Pacchetto del servizio**: una directory del disco contenente il file del tipo di servizio `ServiceManifest.xml` . Questo file fa riferimento al codice, ai dati statici e ai pacchetti di configurazione per il tipo di servizio. Il file `ApplicationManifest.xml` del tipo di applicazione fa riferimento ai file nella directory del pacchetto del servizio. Un pacchetto del servizio può ad esempio fare riferimento al codice, ai dati statici e ai pacchetti di configurazione che costituiscono un servizio di database.
 
 **Servizio denominato**: dopo aver creato un'applicazione denominata, è possibile creare un'istanza di uno dei relativi tipi di servizio all'interno del cluster. Specificare il tipo di servizio usando i relativi nome e versione. A ogni istanza del tipo di servizio viene assegnato un nome URI con un ambito definito dall'URI della relativa applicazione denominata. Se ad esempio si crea un servizio denominato "MyDatabase" all'interno di un'applicazione denominata "MyNamedApp", l'URI corrispondente sarà simile al seguente: `"fabric:/MyNamedApp/MyDatabase"`. All'interno di un'applicazione denominata è possibile creare vari servizi denominati. Ogni servizio denominato può avere uno schema di partizione e numeri di istanze o repliche specifici.
 
@@ -116,7 +116,7 @@ Per ulteriori informazioni sulla distribuzione di applicazioni nel servizio arch
 
 **Servizio di gestione della riparazione**: si tratta di un servizio facoltativo del sistema che consente di eseguire le azioni di correzione da eseguire in un cluster in modo sicuro, automatizzabile e trasparente. Repair Manager è utilizzato per:
 
-   - L'esecuzione delle riparazioni di manutenzione Azure su cluster di Service Fabric Azure con [durabilità Silver e Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster).
+   - L'esecuzione delle riparazioni di manutenzione Azure su cluster di Service Fabric Azure con [durabilità Silver e Gold](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
    - L’esecuzione di azioni di correttive per l’[applicazione di orchestrazione di patch](service-fabric-patch-orchestration-application.md)
 
 ## <a name="deployment-and-application-models"></a>Modelli di distribuzione e modelli applicativi
@@ -141,7 +141,7 @@ Il modello nativo supporta i framework Reliable Services e Reliable Actors che c
 
 **Contenitori**: Service Fabric supporta la distribuzione di contenitori Docker in Linux e di contenitori Windows Server in Windows Server 2016, nonché la modalità di isolamento di Hyper-V. Nel modello di [applicazione](service-fabric-application-model.md)Service Fabric, un contenitore rappresenta un host applicazione in cui vengono inserite più repliche del servizio. Service Fabric può eseguire qualsiasi contenitore e lo scenario è simile allo scenario degli eseguibili guest, in cui il pacchetto di un'applicazione esistente viene creato all'interno di un contenitore. Inoltre, è possibile [eseguire anche Service Fabric servizi all'interno di contenitori](service-fabric-services-inside-containers.md) .
 
-**Eseguibili Guest**: è possibile eseguire qualsiasi tipo di codice, ad esempio node. js, Python, Java o C++ in Azure Service Fabric come servizio. Service Fabric fa riferimento a questi tipi di servizi come eseguibili guest, considerati come servizi senza stato. I vantaggi dell'esecuzione di un eseguibile guest in un cluster di Service Fabric includono la disponibilità elevata, il monitoraggio dello stato, la gestione del ciclo di vita delle applicazioni, l’alta densità e l’individuabilità.
+**Eseguibili Guest**: è possibile eseguire qualsiasi tipo di codice, ad esempio Node.js, Python, Java o C++ in Azure Service Fabric come servizio. Service Fabric fa riferimento a questi tipi di servizi come eseguibili guest, considerati come servizi senza stato. I vantaggi dell'esecuzione di un eseguibile guest in un cluster di Service Fabric includono la disponibilità elevata, il monitoraggio dello stato, la gestione del ciclo di vita delle applicazioni, l’alta densità e l’individuabilità.
 
 Per ulteriori informazioni, leggere l'articolo [scegliere un modello di programmazione per il servizio](service-fabric-choose-framework.md) .
 
@@ -164,7 +164,7 @@ Ambienti diversi hanno diversi livelli di supporto per i Framework e i modelli d
 
 | Tipo di applicazione | Descritto da | Azure Service Fabric Mesh | Cluster di Azure Service Fabric (qualsiasi sistema operativo)| Cluster locale | Cluster autonomo |
 |---|---|---|---|---|---|
-| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | Supportato |Non supportato | Windows: supportato; Linux e Mac: non supportati | Windows: non supportato |
+| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | Supportato |Non supportate | Windows: supportato; Linux e Mac: non supportati | Windows: non supportato |
 |Applicazioni native di Service Fabric | Modello applicativo nativo (XML) | Non supportato| Supportato|Supportato|Windows: supportato|
 
 La tabella seguente descrive i diversi modelli applicativi e gli strumenti disponibili per tali modelli rispetto a Service Fabric.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4487d1452611b269eec756cdbc76e8e55c466cd2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801139"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al livello standard per la sicurezza avanzata
 
@@ -52,8 +52,8 @@ Per ottenere il livello standard:
 > Per abilitare tutte le funzionalità del Centro sicurezza, incluse le funzionalità di protezione dalle minacce, è necessario applicare il piano tariffario standard alla sottoscrizione contenente i carichi di lavoro applicabili. La configurazione dei prezzi per un'area di lavoro non Abilita l'accesso just-in-time alle macchine virtuali, i controlli delle applicazioni adattivi e i rilevamenti di rete per le risorse di Azure. 
 >
 > È possibile abilitare la protezione dalle minacce per gli **account di archiviazione di Azure** a livello di sottoscrizione o di risorsa.
-> È possibile abilitare la protezione dalle minacce per **SQL Server del database SQL di Azure** a livello di sottoscrizione o di risorsa.
-> È possibile abilitare la protezione dalle minacce per il **database di Azure per MariaDB/MySQL/PostgreSQL** solo a livello di risorsa.
+> È possibile abilitare la protezione dalle minacce per i **server SQL del database SQL di Azure** a livello di sottoscrizione o di risorsa.
+> È possibile abilitare la protezione dalle minacce per **Database di Azure per MariaDB/MySQL/PostgreSQL** solo a livello di risorsa.
 
 
 ## <a name="why-upgrade-to-standard"></a>Perché eseguire l'aggiornamento al livello standard?
@@ -63,7 +63,9 @@ Il Centro sicurezza offre maggiore sicurezza e protezione dalle minacce per i ca
 - **Avvisi di sicurezza** : usare l'analisi avanzata e il Microsoft Intelligent Security Graph per ottenere un limite rispetto agli attacchi informatici in continua evoluzione. Sfrutta i vantaggi delle analisi comportamentali predefinite e di apprendimento automatico per identificare gli attacchi e gli exploit zero-day. Monitora le reti, i computer e i servizi cloud per rilevare attacchi imminenti e attività post violazione. Semplifica l'investigazione con strumenti interattivi e intelligence per le minacce contestuale.
 - **Analisi delle vulnerabilità per le macchine virtuali** : è possibile distribuire facilmente uno scanner a tutte le macchine virtuali che fornisce la soluzione più avanzata del settore per la gestione delle vulnerabilità. Visualizzare, analizzare e correggere i risultati direttamente nel centro sicurezza. 
 - **Controlli di accesso e applicazioni** : blocca il malware e altre applicazioni indesiderate applicando i consigli per l'inserimento nell'elenco elementi consentiti di Machine Learning adattati ai carichi di lavoro Ridurre la superficie di attacco alla rete con l'accesso just-in-Time controllato alle porte di gestione nelle macchine virtuali di Azure. Questo riduce drasticamente l'esposizione a forza bruta e ad altri attacchi di rete.
-- **Funzionalità di sicurezza del contenitore** : vantaggi della gestione delle vulnerabilità e della protezione dalle minacce in tempo reale negli ambienti in contenitori. Quando si Abilita la risorsa registri contenitori, potrebbe essere necessario 12hrs fino a quando non vengono abilitate tutte le funzionalità.
+- **Funzionalità di sicurezza del contenitore** : vantaggi della gestione delle vulnerabilità e della protezione dalle minacce in tempo reale negli ambienti in contenitori. Quando si Abilita la risorsa registri contenitori, potrebbe essere necessario 12hrs fino a quando non vengono abilitate tutte le funzionalità. Gli addebiti sono basati sul numero di immagini di contenitori univoche inserite nel registro di sistema connesso. Dopo che un'immagine è stata analizzata una volta, non verrà addebitata di nuovo, a meno che non venga modificata e sottoposta a push ancora una volta. 
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

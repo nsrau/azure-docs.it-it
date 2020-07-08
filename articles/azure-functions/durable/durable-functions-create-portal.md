@@ -4,12 +4,12 @@ description: Informazioni su come installare l'estensione Durable Functions per 
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 7aa283480d95693e2630e24d5642fc7cb909b34b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 7eee3c36620d0cc9f5906e355b76e7418c61b477
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807962"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni permanenti con il portale di Azure
 
@@ -58,7 +58,7 @@ Se si stanno creando funzioni Durable Functions in JavaScript, è necessario ins
 
    ![Esecuzione npm install in Kudu](./media/durable-functions-create-portal/kudu-npm-install.png)
    
-5. Infine, abilitare la modalità di compatibilità [https://docs.microsoft.com/en-us/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1 ] aggiungendo un'impostazione dell'app `FUNCTIONS_V2_COMPATIBILITY_MODE` con il valore `true`.
+5. Infine, [abilitare la modalità di compatibilità](https://docs.microsoft.com/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1) aggiungendo un'impostazione dell'app con il `FUNCTIONS_V2_COMPATIBILITY_MODE` valore `true` .
 
 ## <a name="create-an-orchestrator-function"></a>Creare una funzione di agente di orchestrazione
 
@@ -83,7 +83,7 @@ Se si stanno creando funzioni Durable Functions in JavaScript, è necessario ins
 1. Usare uno strumento HTTP come Postman o cURL per inviare una richiesta POST all'URL copiato. L'esempio seguente è un comando cURL che invia una richiesta POST alla funzione permanente:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence --header "Content-Length: 0"
     ```
 
     In questo esempio, `{your-function-app-name}` corrisponde al dominio che equivale al nome dell'app per le funzioni. Il messaggio di risposta contiene un set di endpoint URI che è possibile usare per monitorare e gestire l'esecuzione, con un aspetto simile al seguente:

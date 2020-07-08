@@ -2,14 +2,14 @@
 title: Risolvere i problemi comuni
 description: Informazioni su come risolvere i problemi comuni durante la distribuzione, l'esecuzione o la gestione di istanze di contenitore di Azure
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeb4517f5be7fff9c29487d6521f80ee697c0e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807843"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
 
@@ -20,16 +20,17 @@ Se è necessario supporto aggiuntivo, vedere la **Guida** disponibile e le opzio
 ## <a name="issues-during-container-group-deployment"></a>Problemi durante la distribuzione del gruppo di contenitori
 ### <a name="naming-conventions"></a>Convenzioni di denominazione
 
-Quando si definisce la specifica del contenitore, determinati parametri devono essere conformi a limitazioni di denominazione. Nella tabella seguente sono disponibili i requisiti specifici per le proprietà dei gruppi di contenitori. Per altre informazioni sulle convenzioni di denominazione di Azure, vedere [Regole di denominazione e restrizioni][azure-name-restrictions] nel Centro architettura di Azure.
+Quando si definisce la specifica del contenitore, determinati parametri devono essere conformi a limitazioni di denominazione. Nella tabella seguente sono disponibili i requisiti specifici per le proprietà dei gruppi di contenitori. Per altre informazioni, vedere [convenzioni di denominazione][azure-name-restrictions] nell'centro architetture di Azure e [regole di denominazione e restrizioni per le risorse di Azure][naming-rules].
 
 | Scope | Length | Maiuscole/minuscole | Caratteri validi | Schema consigliato | Esempio |
 | --- | --- | --- | --- | --- | --- |
-| Nome del gruppo di contenitori | 1-64 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Nome contenitore | 1-64 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nome contenitore<sup>1</sup> | 1-63 |Lettere minuscole | Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-container<number>` |`web-batch-container1` |
 | Porte del contenitore | Tra 1 e 65535 |Integer |Numero intero compreso tra 1 e 65535 |`<port-number>` |`443` |
 | Etichetta del nome DNS | 5-63 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>` |`frontend-site1` |
 | Variabile di ambiente | 1-63 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e carattere di sottolineatura '_' in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>` |`MY_VARIABLE` |
-| Nome del volume | 5-63 |Non fa distinzione tra maiuscole e minuscole |Lettere minuscole, numeri e trattini in un punto qualsiasi, tranne il primo o l'ultimo carattere. Non può contenere due trattini consecutivi. |`<name>` |`batch-output-volume` |
+| Nome del volume | 5-63 |Lettere minuscole |Alfanumerico e trattini ovunque tranne il primo o l'ultimo carattere. Non può contenere due trattini consecutivi. |`<name>` |`batch-output-volume` |
+
+<sup>1</sup> Restrizione anche per i nomi dei gruppi di contenitori quando non vengono specificati indipendentemente dalle istanze di contenitore, ad esempio con le `az container create` distribuzioni di comandi.
 
 ### <a name="os-version-of-image-not-supported"></a>Versione del sistema operativo dell'immagine non supportata
 
@@ -186,7 +187,7 @@ Un altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio de
 
 #### <a name="cached-images"></a>Immagini memorizzate nella cache
 
-Istanze di contenitore di Azure usa un meccanismo di memorizzazione nella cache per velocizzare il tempo di avvio dei contenitori per le immagini `nanoserver:1809`basate `servercore:ltsc2019`su immagini `servercore:1809`di [base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported)comuni, tra cui, e. Anche le immagini Linux usate di `ubuntu:1604` frequente `alpine:3.6` , ad esempio e, vengono memorizzate nella cache. Per un elenco aggiornato di immagini e tag memorizzati nella cache, usare l'API [Elenca immagini memorizzate nella cache][list-cached-images] .
+Istanze di contenitore di Azure usa un meccanismo di memorizzazione nella cache per velocizzare il tempo di avvio dei contenitori per le immagini basate su [Immagini di base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported)comuni, tra cui `nanoserver:1809` , `servercore:ltsc2019` e `servercore:1809` . Anche le immagini Linux usate di frequente, ad esempio `ubuntu:1604` e, `alpine:3.6` vengono memorizzate nella cache. Per un elenco aggiornato di immagini e tag memorizzati nella cache, usare l'API [Elenca immagini memorizzate nella cache][list-cached-images] .
 
 > [!NOTE]
 > L'uso di immagini basate su Windows Server 2019 in istanze di Azure Container è disponibile in anteprima.
@@ -199,11 +200,11 @@ Al momento della creazione iniziale, è possibile che per i contenitori Windows 
 
 Istanze di Azure Container non espone l'accesso diretto all'infrastruttura sottostante che ospita i gruppi di contenitori. È incluso l'accesso all'API Docker in esecuzione nell'host del contenitore e che esegue contenitori con privilegi. Se è necessaria l'interazione con Docker, vedere la [documentazione di riferimento su REST](https://aka.ms/aci/rest) per vedere cosa è supportato dall'API di Istanze di contenitore di Azure. Se mancano informazioni, inviare una richiesta al [forum di commenti e suggerimenti per Istanze di contenitore di Azure](https://aka.ms/aci/feedback).
 
-### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>L'indirizzo IP del gruppo di contenitori potrebbe non essere accessibile a causa di porte non corrispondenti
+### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Gli indirizzi IP del gruppo contenitore potrebbero non essere accessibili a causa di porte non corrispondenti
 
-Istanze di contenitore di Azure non supporta ancora il mapping delle porte come con la normale configurazione di Docker. Se si rileva che l'indirizzo IP di un gruppo di contenitori non è accessibile quando si ritiene che sia necessario, assicurarsi di aver configurato l'immagine del contenitore per l'ascolto delle stesse porte esposte nel `ports` gruppo di contenitori con la proprietà.
+Istanze di contenitore di Azure non supporta ancora il mapping delle porte come con la normale configurazione di Docker. Se si rileva che l'indirizzo IP di un gruppo di contenitori non è accessibile quando si ritiene che sia necessario, assicurarsi di aver configurato l'immagine del contenitore per l'ascolto delle stesse porte esposte nel gruppo di contenitori con la `ports` Proprietà.
 
-Se si vuole verificare che le istanze di contenitore di Azure possano restare in ascolto sulla porta configurata nell'immagine del contenitore, testare `aci-helloworld` una distribuzione dell'immagine che espone la porta. Eseguire anche l' `aci-helloworld` app in modo che sia in ascolto sulla porta. `aci-helloworld`accetta una variabile `PORT` di ambiente facoltativa per sostituire la porta predefinita 80 su cui è in ascolto. Ad esempio, per testare la porta 9000, impostare la [variabile di ambiente](container-instances-environment-variables.md) quando si crea il gruppo di contenitori:
+Se si vuole verificare che le istanze di contenitore di Azure possano restare in ascolto sulla porta configurata nell'immagine del contenitore, testare una distribuzione dell' `aci-helloworld` immagine che espone la porta. Eseguire anche l' `aci-helloworld` app in modo che sia in ascolto sulla porta. `aci-helloworld`accetta una variabile di ambiente facoltativa `PORT` per sostituire la porta predefinita 80 su cui è in ascolto. Ad esempio, per testare la porta 9000, impostare la [variabile di ambiente](container-instances-environment-variables.md) quando si crea il gruppo di contenitori:
 
 1. Configurare il gruppo di contenitori per esporre la porta 9000 e passare il numero di porta come valore della variabile di ambiente. L'esempio è formattato per la shell bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, sarà necessario modificare di conseguenza l'assegnazione di variabili.
     ```azurecli
@@ -212,8 +213,8 @@ Se si vuole verificare che le istanze di contenitore di Azure possano restare in
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Trovare l'indirizzo IP del gruppo di contenitori nell'output del comando di `az container create`. Cercare il valore di **IP**. 
-1. Dopo aver eseguito il provisioning del contenitore, passare all'indirizzo IP e alla porta dell'app contenitore nel browser, ad esempio: `192.0.2.0:9000`. 
+1. Trovare l'indirizzo IP del gruppo di contenitori nell'output del comando di `az container create` . Cercare il valore di **IP**. 
+1. Dopo aver eseguito il provisioning del contenitore, passare all'indirizzo IP e alla porta dell'app contenitore nel browser, ad esempio: `192.0.2.0:9000` . 
 
     Dovrebbe essere visualizzato il benvenuto in istanze di contenitore di Azure. messaggio visualizzato dall'app Web.
 1. Al termine del contenitore, rimuoverlo usando il `az container delete` comando:
@@ -228,6 +229,7 @@ Informazioni su come [recuperare log del contenitore ed eventi](container-instan
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
@@ -235,4 +237,4 @@ Informazioni su come [recuperare log del contenitore ed eventi](container-instan
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
-[list-cached-images]: /rest/api/container-instances/listcachedimages
+[list-cached-images]: /rest/api/container-instances/location/listcachedimages

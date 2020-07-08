@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4121482c37afcda0f580656bbe583128b7720fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829398"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -124,13 +124,13 @@ La maggior parte delle applicazioni deve archiviare i dati, quindi, tuttavia, si
 
   > **Uso consigliato**: quando l'app esegue l'archiviazione di dati non relazionali, ad esempio di coppie chiave-valore (tabelle), BLOB, condivisioni file o messaggi (code).
   >
-  > **Come iniziare**: scegliere uno dei tipi di archiviazione seguenti: [BLOB](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabelle](../../cosmos-db/table-storage-how-to-use-dotnet.md), [code](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [file](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Introduzione**: scegliere uno dei seguenti tipi di archiviazione: [BLOB](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabelle](../../cosmos-db/table-storage-how-to-use-dotnet.md), [Code](../../storage/queues/storage-dotnet-how-to-use-queues.md)o [file](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 - **Database SQL di Azure**: versione basata su Azure del motore di Microsoft SQL Server per l'archiviazione di dati tabulari relazionali nel cloud. Il database SQL offre prestazioni prevedibili, scalabilità senza tempi di inattività, continuità aziendale e protezione dei dati.
 
   > **Uso consigliato**: quando per l'applicazione è necessaria l'archiviazione dei dati con integrità referenziale, nonché il supporto delle transazioni e delle query T-SQL.
   >
-  > **Come iniziare**: [creare un database SQL in pochi minuti usando il Portale di Azure](../../sql-database/sql-database-get-started.md).
+  > Come **iniziare**: [creare un database nel database SQL di Azure in pochi minuti usando il portale di Azure](../../sql-database/sql-database-get-started.md).
 
 
 È possibile usare [Azure Data Factory](../../data-factory/introduction.md) per spostare in Azure dati locali esistenti. Se non si è pronti per spostare i dati nel cloud, [connessioni ibride](../../app-service/app-service-hybrid-connections.md) nel servizio app Azure consente di connettere l'app ospitata del servizio app alle risorse locali. È anche possibile connettersi ai servizi dati e di archiviazione di Azure dalle applicazioni locali.
@@ -163,7 +163,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
   >
   > **Come iniziare**: [usare un'immagine Docker personalizzata per il servizio app in Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 È fondamentale non solo sapere chi sta usando le applicazioni, ma anche impedire l'accesso non autorizzato alle risorse. In Azure sono disponibili diversi modi per autenticare i client delle app.
 
@@ -240,7 +240,7 @@ Azure offre due modi per gestire le applicazioni e i servizi dalla riga di coman
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Il [portale di Azure](https://portal.azure.com) è un'applicazione basata sul Web. È possibile usare la portale di Azure per creare, gestire e rimuovere risorse e servizi di Azure.  Sono inclusi:
+Il [portale di Azure](https://portal.azure.com) è un'applicazione basata sul Web. È possibile usare la portale di Azure per creare, gestire e rimuovere risorse e servizi di Azure. Sono inclusi:
 
 * Un dashboard configurabile
 * Strumenti di gestione risorse di Azure
@@ -255,7 +255,7 @@ Azure si basa su un set di API REST che supportano l'interfaccia utente del Port
 Oltre alle API REST, molti servizi di Azure consentono di gestire a livello di codice le risorse dalle applicazioni usando Azure SDK specifici della piattaforma, inclusi gli SDK per le piattaforme di sviluppo seguenti:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](https://docs.microsoft.com/azure/javascript/)
+-   [Node.js](https://docs.microsoft.com/azure/developer/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)
@@ -268,7 +268,7 @@ Per servizi quali [App per dispositivi mobili](../../app-service-mobile/app-serv
 
 L'esecuzione dell'app in Azure probabilmente comporta l'uso di più servizi di Azure. Questi servizi seguono lo stesso ciclo di vita e possono essere considerati come un'unità logica. Ad esempio, un'app Web può usare i servizi app Web, database SQL, Archiviazione, Cache Redis di Azure e Rete di distribuzione dei contenuti di Microsoft Azure. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) consente di usare le risorse dell'applicazione come gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse con un'unica operazione coordinata.
 
-Oltre a raggruppare e gestire in modo logico le risorse correlate, Azure Resource Manager include funzionalità di distribuzione che consentono di personalizzare la distribuzione e la configurazione delle risorse correlate. Ad esempio, è possibile usare Gestione risorse distribuire e configurare un'applicazione. Questa applicazione può essere costituita da più macchine virtuali, un servizio di bilanciamento del carico e un database SQL di Azure come singola unità.
+Oltre a raggruppare e gestire in modo logico le risorse correlate, Azure Resource Manager include funzionalità di distribuzione che consentono di personalizzare la distribuzione e la configurazione delle risorse correlate. Ad esempio, è possibile usare Gestione risorse distribuire e configurare un'applicazione. Questa applicazione può essere costituita da più macchine virtuali, un servizio di bilanciamento del carico e un database nel database SQL di Azure come singola unità.
 
 Per sviluppare questo tipo di distribuzioni si usa un modello di Azure Resource Manager, che è un documento in formato JSON. I modelli consentono di definire la distribuzione e di gestire le applicazioni tramite modelli dichiarativi, anziché tramite script. I modelli possono funzionare in ambienti diversi, ad esempio negli ambienti di test, staging e produzione. Ad esempio, è possibile usare i modelli per aggiungere un pulsante a un repository GitHub che distribuisce il codice nel repository in un set di servizi di Azure con un solo clic.
 

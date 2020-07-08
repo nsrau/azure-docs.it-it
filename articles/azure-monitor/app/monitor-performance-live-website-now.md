@@ -3,17 +3,17 @@ title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Micro
 description: Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. È possibile usare questa funzionalità con app Web ASP.NET ospitate in locale o con macchine virtuali.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536829"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807265"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
 > [!IMPORTANT]
-> Non è più consigliabile usare Status Monitor. È stata sostituita dall'agente Application Insights di monitoraggio di Azure (in precedenza denominato Status Monitor v2). Vedere la documentazione per le distribuzioni di [server locali](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) o per le [distribuzioni di macchine virtuali di Azure e set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Status Monitor non è più consigliabile per l'uso e **a partire dal 1 ° giugno 2021** questa versione di status monitor non sarà supportata. È stata sostituita dall'agente Application Insights di monitoraggio di Azure (in precedenza denominato Status Monitor v2). Vedere la documentazione per le distribuzioni di [server locali](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) o per le [distribuzioni di macchine virtuali di Azure e set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 È possibile instrumentare un'app Web attiva con Azure Application Insights senza dover modificare o ridistribuire il codice. È necessaria una sottoscrizione di [Microsoft Azure](https://azure.com) .
 
@@ -92,12 +92,12 @@ Questi sono alcuni passaggi che è possibile eseguire per verificare che l'insta
 
 - Confermare la presenza del file applicationinsights.config nella directory di destinazione dell'app e l'inclusione della ikey.
 
-- Se si ritiene che i dati non siano presenti, è possibile eseguire una query semplice [Analytics](../log-query/get-started-portal.md) per elencare tutti i ruoli del cloud che stanno inviando dati di telemetria.
+- Se si ritiene che i dati non siano presenti, è possibile eseguire una query in [Analytics](../log-query/get-started-portal.md) per elencare tutti i ruoli cloud che inviano dati di telemetria.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Per confermare che Application Insights sia stato associato correttamente è possibile eseguire [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in una finestra di comando per confermare applicationinsights.dll sia stato caricato da IIS.
+- Se è necessario verificare che Application Insights sia collegato correttamente, è possibile eseguire l' [handle di Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) in una finestra di comando per verificare che applicationinsights.dll sia stato caricato da IIS.
   ```cmd
   handle.exe /p w3wp.exe
   ```
@@ -298,7 +298,7 @@ Per le applicazioni già instrumentate in fase di compilazione:
  * Chiamate alle dipendenze (.NET 4.5) e valori restituiti nelle chiamate alle dipendenze (.NET 4.6)
  * Valori di analisi dello stack delle eccezioni
 
-[Altre informazioni](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Altre informazioni](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 

@@ -1,0 +1,171 @@
+---
+title: Transazioni distribuite in database cloud
+description: Panoramica delle transazioni di database elastico con il database SQL di Azure.
+services: sql-database
+ms.service: sql-database
+ms.subservice: scale-out
+ms.custom: sqldbrb=1
+ms.devlang: ''
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
+ms.date: 03/12/2019
+ms.openlocfilehash: 5c94234644fcefb70a40ba0b2c21e6e205be0e65
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829415"
+---
+# <a name="distributed-transactions-across-cloud-databases"></a>Transazioni distribuite in database cloud
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+Le transazioni di database elastico per il database SQL di Azure consentono di eseguire transazioni che si estendono su più database nel database SQL. Le transazioni di database elastico per il database SQL sono disponibili per le applicazioni .NET che usano ADO .NET e si integrano con la nota esperienza di programmazione usando le classi [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Per ottenere la libreria, vedere [Microsoft .NET Framework 4.6.1 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=49981).
+
+In locale, questo scenario richiede in genere l'esecuzione di Microsoft Distributed Transaction Coordinator (MSDTC). Poiché MSDTC non è disponibile per l'applicazione Platform-as-a-Service in Azure, la possibilità di coordinare le transazioni distribuite è stata ora integrata direttamente nel database SQL. Le applicazioni possono connettersi a qualsiasi database nel database SQL per avviare le transazioni distribuite e uno dei database coordina in modo trasparente la transazione distribuita, come illustrato nella figura seguente.
+
+  ![Transazioni distribuite con il database SQL di Azure tramite transazioni di database elastico ][1]
+
+## <a name="common-scenarios"></a>Scenari comuni
+
+Le transazioni di database elastico per il database SQL consentono alle applicazioni di apportare modifiche atomiche ai dati archiviati in diversi database nel database SQL. L'anteprima è incentrata sulle esperienze di sviluppo sul lato client in C# e .NET. Un'esperienza sul lato server con T-SQL è prevista per un momento successivo.  
+Le transazioni di database elastico sono destinate agli scenari seguenti:
+
+* Applicazioni a più database in Azure: con questo scenario, i dati vengono partizionati verticalmente tra più database nel database SQL, in modo che i diversi tipi di dati risiedano in database diversi. Alcune operazioni richiedono modifiche ai dati, conservate in due o più database. L'applicazione usa le transazioni di database elastico per coordinare le modifiche tra i database e garantire l'atomicità.
+* Applicazioni di database partizionati in Azure: con questo scenario, il livello dati usa la [libreria client dei database elastici](elastic-database-client-library.md) o il partizionamento automatico per partizionare orizzontalmente i dati in molti database nel database SQL. Un caso d'uso significativo è la necessità di eseguire modifiche atomiche per un'applicazione multi-tenant partizionata, quando le modifiche si estendono a più tenant. Si pensi ad esempio a un trasferimento da un tenant all'altro, entrambi residenti in database diversi. Un secondo caso è il partizionamento orizzontale con granularità fine per soddisfare le esigenze di capacità per un tenant di grandi dimensioni, che a sua volta implica in genere che alcune operazioni atomiche debbano estendersi su più database usati per lo stesso tenant. Un terzo caso sono gli aggiornamenti atomici per fare riferimento ai dati replicati tra i database. Le operazioni atomiche e transazionali che seguono questo schema ora possono essere coordinate in diversi database usando l'anteprima.
+  Le transazioni di database elastico usano il protocollo 2PC per garantire l'atomicità delle transazioni nei database. Si tratta di una soluzione ideale per le transazioni che coinvolgono meno di 100 database alla volta all'interno di una singola transazione. Questi limiti non vengono applicati, ma è necessario aspettarsi che le prestazioni e le percentuali di successo delle transazioni di database elastico vengano ridotte quando si superano questi limiti.
+
+## <a name="installation-and-migration"></a>Installazione e migrazione
+
+Le funzionalità per le transazioni di database elastico nel database SQL sono fornite tramite aggiornamenti alle librerie .NET System.Data.dll e System.Transactions.dll. Le DLL assicurano che il protocollo 2PC venga usato dove necessario per garantire l'atomicità. Per iniziare a sviluppare applicazioni che usano transazioni di database elastico, installare [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) o una versione successiva. Quando si esegue una versione precedente di .NET Framework, le transazioni non verranno alzate di livello a una transazione distribuita e verrà generata un'eccezione.
+
+Dopo l'installazione, è possibile utilizzare le API delle transazioni distribuite in System. Transactions con le connessioni al database SQL. Se sono disponibili applicazioni di MSDTC che usano queste API, è sufficiente ricompilare le applicazioni esistenti per .NET 4.6 dopo avere installato la versione 4.6.1 di Framework. Se i progetti sono destinati a .NET 4,6, useranno automaticamente le DLL aggiornate dalla nuova versione del Framework e le chiamate API delle transazioni distribuite in combinazione con le connessioni al database SQL avranno ora esito positivo.
+
+Tenere presente che le transazioni di database elastico non richiedono l'installazione di MSDTC. Al contrario, le transazioni di database elastico sono gestite direttamente da e all'interno del database SQL. Questo semplifica notevolmente gli scenari cloud poiché una distribuzione di MSDTC non è necessaria per l'utilizzo di transazioni distribuite con il database SQL. La sezione 4 illustra in dettaglio come distribuire le transazioni di database elastico e la versione di .NET Framework necessaria insieme alle proprie applicazioni cloud in Azure.
+
+## <a name="development-experience"></a>Esperienza di sviluppo
+
+### <a name="multi-database-applications"></a>Applicazioni con più database
+
+L'esempio di codice seguente usa l'esperienza di programmazione familiare con System.Transactions per .NET. La classe TransactionScope definisce una transazione di ambiente in .NET. Una "transazione di ambiente" risiede nel thread corrente. Tutte le connessioni aperte all'interno di TransactionScope partecipano alla transazione. Se partecipano diversi database, la transazione viene automaticamente elevata a transazione distribuita. Il risultato della transazione viene controllato impostando l'ambito da completare per indicare un commit.
+
+```csharp
+    using (var scope = new TransactionScope())
+    {
+        using (var conn1 = new SqlConnection(connStrDb1))
+        {
+            conn1.Open();
+            SqlCommand cmd1 = conn1.CreateCommand();
+            cmd1.CommandText = string.Format("insert into T1 values(1)");
+            cmd1.ExecuteNonQuery();
+        }
+
+        using (var conn2 = new SqlConnection(connStrDb2))
+        {
+            conn2.Open();
+            var cmd2 = conn2.CreateCommand();
+            cmd2.CommandText = string.Format("insert into T2 values(2)");
+            cmd2.ExecuteNonQuery();
+        }
+
+        scope.Complete();
+    }
+```
+
+### <a name="sharded-database-applications"></a>Applicazioni di database partizionato
+
+Le transazioni di database elastico per il database SQL supportano anche il coordinamento delle transazioni distribuite in cui si usa il metodo OpenConnectionForKey della libreria client dei database elastici per aprire le connessioni per un livello dati con scalabilità orizzontale. Considerare i casi in cui è necessario garantire la coerenza delle transazioni per le modifiche dei diversi valori delle chiavi di partizionamento orizzontale. Le connessioni alle partizioni che ospitano i diversi valori delle chiavi di partizionamento orizzontale sono negoziate tramite OpenConnectionForKey. In generale, le connessioni possono essere stabilite a partizioni diverse, in modo tale che per assicurare garanzie transazionali sia richiesta una transazione distribuita.
+Il seguente esempio di codice illustra questo approccio. Si presuppone che venga usata una variabile denominata shardmap per rappresentare un mappa partizioni dalla libreria client dei database elastici:
+
+```csharp
+    using (var scope = new TransactionScope())
+    {
+        using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
+        {
+            conn1.Open();
+            SqlCommand cmd1 = conn1.CreateCommand();
+            cmd1.CommandText = string.Format("insert into T1 values(1)");
+            cmd1.ExecuteNonQuery();
+        }
+
+        using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
+        {
+            conn2.Open();
+            var cmd2 = conn2.CreateCommand();
+            cmd2.CommandText = string.Format("insert into T1 values(2)");
+            cmd2.ExecuteNonQuery();
+        }
+
+        scope.Complete();
+    }
+```
+
+## <a name="net-installation-for-azure-cloud-services"></a>Installazione di .NET per i servizi cloud di Azure
+
+Azure offre diverse soluzioni per l'hosting di applicazioni .NET. Per un confronto delle diverse soluzioni, vedere [Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure](/azure/architecture/guide/technology-choices/compute-decision-tree). Se il sistema operativo guest della soluzione è precedente alla versione 4.6.1 di .NET richiesta per le transazioni elastiche, è necessario aggiornare il sistema operativo guest alla versione 4.6.1.
+
+Per il servizio app Azure, gli aggiornamenti al sistema operativo guest non sono attualmente supportati. Per le macchine virtuali di Azure, è sufficiente accedere alla macchina virtuale ed eseguire il programma di installazione del framework .NET più recente. Per i servizi cloud di Azure, è necessario includere l'installazione di una versione più recente di .NET nelle attività di avvio della distribuzione. I concetti e i passaggi sono documentati in [Installare .NET in un ruolo del servizio cloud](../../cloud-services/cloud-services-dotnet-install-dotnet.md).  
+
+Si noti che il programma di installazione per .NET 4.6.1 può richiedere più spazio di archiviazione temporaneo durante il processo di bootstrap nei servizi cloud di Azure rispetto al programma di installazione per .NET 4.6. Per garantire una corretta installazione, è necessario aumentare l'archiviazione temporanea per il servizio cloud di Azure nel file ServiceDefinition.csdef nella sezione LocalResources e le impostazioni di ambiente dell'attività di avvio, come illustrato nell'esempio seguente:
+
+```xml
+    <LocalResources>
+    ...
+        <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+        <LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <Startup>
+        <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+            <Environment>
+        ...
+                <Variable name="TEMP">
+                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+                </Variable>
+                <Variable name="TMP">
+                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+                </Variable>
+            </Environment>
+        </Task>
+    </Startup>
+```
+
+## <a name="transactions-across-multiple-servers"></a>Transazioni tra più server
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Il modulo Azure Resource Manager di Azure PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
+
+Le transazioni di database elastico sono supportate in server diversi nel database SQL di Azure. Quando le transazioni attraversano i limiti del server, è necessario immettere prima i server partecipanti in una relazione di comunicazione reciproca. Dopo aver stabilito la relazione di comunicazione, qualsiasi database in uno dei due server può partecipare alle transazioni elastiche con i database dell'altro server. Con le transazioni che si estendono su più di due server, è necessario disporre di una relazione di comunicazione per qualsiasi coppia di server.
+
+Usare i seguenti cmdlet di PowerShell per la gestione delle relazioni di comunicazione tra server per le transazioni di database elastici:
+
+* **New-AzSqlServerCommunicationLink**: usare questo cmdlet per creare una nuova relazione di comunicazione tra due server nel database SQL di Azure. La relazione è simmetrica, ovvero entrambi i server possono avviare le transazioni con l'altro server.
+* **Get-AzSqlServerCommunicationLink**: usare questo cmdlet per recuperare le relazioni di comunicazione esistenti e le relative proprietà.
+* **Remove-AzSqlServerCommunicationLink**: usare questo cmdlet per rimuovere una relazione di comunicazione esistente.
+
+## <a name="monitoring-transaction-status"></a>Monitoraggio dello stato delle transazioni
+
+Utilizzare le viste a gestione dinamica (DMV) nel database SQL per monitorare lo stato e lo stato delle transazioni di database elastico in corso. Tutte le DMV correlate alle transazioni sono rilevanti per le transazioni distribuite nel database SQL. È possibile trovare l'elenco corrispondente di DMV di seguito: [Funzioni e viste a gestione dinamica relative alle transazioni (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+
+Queste viste a gestione dinamica sono particolarmente utili:
+
+* **sys.dm\_tran\_active\_transactions**: elenca le transazioni attualmente attive e il relativo stato. La colonna UOW (unità di lavoro) può identificare le diverse transazioni figlio che appartengono alla stessa transazione distribuita. Tutte le transazioni all'interno della stessa transazione distribuita hanno lo stesso valore di unità di lavoro. Per altre informazioni, vedere la [documentazione sulle viste a gestione dinamica](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.dm\_tran\_database\_transactions**: fornisce altre informazioni sulle transazioni, ad esempio la posizione della transazione nel log. Per altre informazioni, vedere la [documentazione sulle viste a gestione dinamica](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.dm\_tran\_locks**: fornisce informazioni sui blocchi attualmente mantenuti dalle transazioni in corso. Per altre informazioni, vedere la [documentazione sulle viste a gestione dinamica](https://msdn.microsoft.com/library/ms190345.aspx).
+
+## <a name="limitations"></a>Limitazioni
+
+Le limitazioni seguenti si applicano attualmente alle transazioni di database elastico nel database SQL:
+
+* Sono supportate solo le transazioni tra database nel database SQL. Altri provider di risorse [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) e database esterni al database SQL non possono partecipare alle transazioni di database elastico. Ciò significa che le transazioni di database elastico non possono estendersi tra SQL Server locali e il database SQL di Azure. Per le transazioni distribuite in locale, continuare a usare MSDTC.
+* Sono supportate solo le transazioni coordinate tramite client da un'applicazione .NET. Il supporto sul lato server per T-SQL, ad esempio BEGIN DISTRIBUTED TRANSACTION, è pianificato, ma non ancora disponibile.
+* Le transazioni tra i servizi WCF non sono supportate. Ad esempio, si dispone di un metodo del servizio WCF che esegue una transazione. Se si racchiude la chiamata all'interno di un ambito della transazione, essa avrà esito negativo come eccezione [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per domande, contattare Microsoft nella pagina relativa a [Microsoft&una domanda per il database SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html). Per le richieste di funzionalità, aggiungerle al [Forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
+
+<!--Image references-->
+[1]: ./media/elastic-transactions-overview/distributed-transactions.png
+ 
