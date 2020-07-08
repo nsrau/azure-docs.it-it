@@ -8,16 +8,17 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 0945743fb2cf3e37345ff562250e48511944cee6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466171"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creare un endpoint privato per una connessione sicura ad Azure ricerca cognitiva
 
 In questo articolo si userà il portale di Azure per creare una nuova istanza del servizio ricerca cognitiva di Azure a cui non è possibile accedere tramite Internet. Si configurerà quindi una macchina virtuale di Azure nella stessa rete virtuale e la si userà per accedere al servizio di ricerca tramite un endpoint privato.
+
+Gli endpoint privati vengono forniti dal [collegamento privato di Azure](../private-link/private-link-overview.md)come servizio separato. Per ulteriori informazioni sui costi, vedere la [pagina](https://azure.microsoft.com/pricing/details/private-link/)relativa ai prezzi.
 
 > [!Important]
 > Il supporto per gli endpoint privati per ricerca cognitiva di Azure può essere configurato usando il portale di Azure o l' [API REST di gestione versione 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). Quando l'endpoint del servizio è privato, alcune funzionalità del portale sono disabilitate. Sarà possibile visualizzare e gestire le informazioni sul livello di servizio, ma l'accesso al portale per i dati di indicizzazione e i vari componenti del servizio, ad esempio le definizioni di indice, indicizzatore e competenze, è limitato per motivi di sicurezza.

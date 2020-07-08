@@ -5,15 +5,14 @@ author: normesta
 ms.service: storage
 ms.date: 02/14/2019
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 6c5f2a041f03d53e1ea7c3f981683f4b70d3963b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466001"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Eseguire la migrazione da un archivio HDFS locale ad archiviazione di Azure con Azure Data Box
 
@@ -59,11 +58,11 @@ Seguire questa procedura per copiare i dati tramite le API REST di archiviazione
 
 2. Nella finestra di dialogo Access Storage account and upload data copiare l' **endpoint del servizio BLOB** e la **chiave dell'account di archiviazione**. Dall'endpoint del servizio BLOB, omettere `https://` e la barra finale.
 
-    In questo caso, l'endpoint è: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. La parte host dell'URI da usare è: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Per un esempio, vedere come [connettersi a Rest su http](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    In questo caso, l'endpoint è: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` . La parte host dell'URI da usare è: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` . Per un esempio, vedere come [connettersi a Rest su http](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
      ![Finestra di dialogo "accedi a account di archiviazione e carica dati"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Aggiungere l'endpoint e l'indirizzo IP del nodo Data Box o Data Box Heavy `/etc/hosts` a in ogni nodo.
+3. Aggiungere l'endpoint e l'indirizzo IP del nodo Data Box o Data Box Heavy a `/etc/hosts` in ogni nodo.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -71,9 +70,9 @@ Seguire questa procedura per copiare i dati tramite le API REST di archiviazione
 
     Se si usa un altro meccanismo per DNS, è necessario assicurarsi che l'endpoint del Data Box possa essere risolto.
 
-4. Impostare la variabile `azjars` della shell sul percorso dei file `hadoop-azure` jar `azure-storage` e. È possibile trovare questi file nella directory di installazione di Hadoop.
+4. Impostare la variabile della shell sul `azjars` percorso dei `hadoop-azure` `azure-storage` file jar e. È possibile trovare questi file nella directory di installazione di Hadoop.
 
-    Per determinare se sono presenti file, usare il comando seguente: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Sostituire il `<hadoop_install_dir>` segnaposto con il percorso della directory in cui è stato installato Hadoop. Assicurarsi di usare percorsi completi.
+    Per determinare se sono presenti file, usare il comando seguente: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` . Sostituire il `<hadoop_install_dir>` segnaposto con il percorso della directory in cui è stato installato Hadoop. Assicurarsi di usare percorsi completi.
 
     Esempi:
 
@@ -135,7 +134,7 @@ Seguire questa procedura per copiare i dati tramite le API REST di archiviazione
 
     * Sostituire il `<destination_directory>` segnaposto con il nome della directory in cui si desidera copiare i dati.
 
-    L' `-libjars` opzione viene utilizzata per rendere disponibili `hadoop-azure*.jar` i file e `azure-storage*.jar` dipendenti di `distcp`. Questa situazione potrebbe essere già presente per alcuni cluster.
+    L' `-libjars` opzione viene utilizzata per rendere `hadoop-azure*.jar` disponibili i file e dipendenti `azure-storage*.jar` di `distcp` . Questa situazione potrebbe essere già presente per alcuni cluster.
 
     Nell'esempio seguente viene illustrato come `distcp` utilizzare il comando per copiare i dati.
 
@@ -153,7 +152,7 @@ Seguire questa procedura per copiare i dati tramite le API REST di archiviazione
 
     * Provare a modificare il numero di Mapper. (L'esempio precedente USA `m` = 4 Mapper).
 
-    * Provare a eseguire `distcp` più in parallelo.
+    * Provare a eseguire più `distcp` in parallelo.
 
     * Tenere presente che i file di grandi dimensioni offrono prestazioni migliori rispetto ai file piccoli.
 
@@ -215,7 +214,7 @@ Questo comando genera un elenco di file copiati con le relative autorizzazioni.
    ./copy-acls.py -s ./filelist.json -i ./id_map.json -g
    ```
 
-   Questo script genera un file denominato `id_map.json` contenente le identità di cui è necessario eseguire il mapping alle identità basate su Aggiungi.
+   Questo script genera un file denominato contenente `id_map.json` le identità di cui è necessario eseguire il mapping alle identità basate su Aggiungi.
 
 3. Aprire il file `id_map.json` in un editor di testo.
 
@@ -233,13 +232,13 @@ Eseguire questo comando per applicare le autorizzazioni ai dati copiati nell'acc
 
 * Sostituire il `<container-name>` segnaposto con il nome del contenitore.
 
-* Sostituire i `<application-id>` segnaposto e `<client-secret>` con l'ID applicazione e il segreto client raccolti al momento della creazione dell'entità servizio.
+* Sostituire i `<application-id>` `<client-secret>` segnaposto e con l'ID applicazione e il segreto client raccolti al momento della creazione dell'entità servizio.
 
 ## <a name="appendix-split-data-across-multiple-data-box-devices"></a>Appendice: suddividere i dati tra più dispositivi Data Box
 
 Prima di spostare i dati in un dispositivo di Data Box, è necessario scaricare alcuni script helper, assicurarsi che i dati siano organizzati per adattarsi a un dispositivo Data Box ed escludere eventuali file non necessari.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### <a name="download-helper-scripts-and-set-up-your-edge-node-to-run-them"></a>Scaricare gli script helper e configurare il nodo perimetrale per eseguirli
 
@@ -281,7 +280,7 @@ Se le dimensioni dei dati superano le dimensioni di un singolo dispositivo di Da
 
 Se i dati non superano le dimensioni di un dispositivo Data Box singe, è possibile passare alla sezione successiva.
 
-1. Con autorizzazioni elevate, eseguire `generate-file-list` lo script scaricato seguendo le istruzioni riportate nella sezione precedente.
+1. Con autorizzazioni elevate, eseguire lo `generate-file-list` script scaricato seguendo le istruzioni riportate nella sezione precedente.
 
    Ecco una descrizione dei parametri del comando:
 

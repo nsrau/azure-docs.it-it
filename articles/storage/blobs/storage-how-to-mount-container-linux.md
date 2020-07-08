@@ -4,16 +4,15 @@ description: Montare un contenitore di archiviazione BLOB di Azure con FUSE in L
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: a0a03df59bc6ecffcb4f0a701616297f2da78fdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3505cdaa009520f581e2ccf9f8bc60cbfb65586c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465474"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Come montare l'archivio BLOB come file system con blobfuse
 
@@ -52,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Allo stesso modo, modificare l' `.../ubuntu/16.04/...` URL `.../ubuntu/18.04/...` in o per fare riferimento a un'altra versione di Ubuntu.
+Allo stesso modo, modificare l'URL in `.../ubuntu/16.04/...` o `.../ubuntu/18.04/...` per fare riferimento a un'altra versione di Ubuntu.
 
 ### <a name="install-blobfuse"></a>Installare blobfuse
 
@@ -98,7 +97,7 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-`accountName` È il prefisso per l'account di archiviazione, non l'URL completo.
+`accountName`È il prefisso per l'account di archiviazione, non l'URL completo.
 
 Creare questo file usando:
 

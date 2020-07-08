@@ -8,22 +8,21 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8570bce87aeea5473b4aadf9bd30bc0a648a6f0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 40ff6c6c76e255945681e678ef296ffcf9978f61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72518304"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485184"
 ---
-# <a name="azcopy-bench"></a>azcopy bench
+# <a name="azcopy-benchmark"></a>Benchmark azcopy
 
 Esegue un benchmark delle prestazioni caricando i dati di test in una destinazione specificata. I dati di test vengono generati automaticamente.
 
 Il comando benchmark esegue lo stesso processo di caricamento come ' Copy ', ad eccezione del fatto che:
 
-  - Nessun parametro di origine.  Il comando richiede solo un URL di destinazione. Nella versione corrente, questo URL di destinazione deve fare riferimento a un contenitore BLOB.
+  - Nessun parametro di origine.  Il comando richiede solo un URL di destinazione. 
   
-  - Il payload viene descritto dai parametri della riga di comando, che controllano il numero di file generati automaticamente e la relativa dimensione. Il processo di generazione si verifica completamente in memoria. Il disco non viene utilizzato.
+  - Il payload è descritto dai parametri della riga di comando, che controllano il numero di file generati automaticamente e le relative dimensioni. Il processo di generazione si verifica completamente in memoria. Il disco non viene utilizzato.
   
   - Sono supportati solo alcuni dei parametri facoltativi disponibili per il comando copy.
   
@@ -38,20 +37,20 @@ Sono supportati tutti i tipi di autenticazione usuali. Tuttavia, l'approccio pi�
 ## <a name="examples"></a>Esempi
 
 ```azcopy
-azcopy bench [destination] [flags]
+azcopy benchmark [destination] [flags]
 ```
 
 Eseguire un test di benchmark con i parametri predefiniti (idoneo per le reti di benchmarking fino a 1 Gbps):'
 
-- azcopy Bench "https:///[account]. blob. Core. Windows. NET/[Container]? <SAS>"
+- azcopy Bench "https:///[account]. blob. Core. Windows. NET/[Container]? <SAS> "
 
-Eseguire un test di benchmark che carica i file 100, ogni 2 GiB di dimensioni: (adatta per il benchmarking su una rete veloce, ad esempio 10 Gbps):'
+Eseguire un test di benchmark che carica i file 100, ogni 2 GiB: (adatta per il benchmarking su una rete veloce, ad esempio 10 Gbps):'
 
-- azcopy Bench "https:///[account]. blob. Core. Windows. NET/[Container]? <SAS>" --file-count 100--size per file 2G
+- azcopy Bench "https:///[account]. blob. Core. Windows. NET/[Container]? <SAS> " --file-count 100--size per file 2G
 
-Come sopra, ma usare i file 50.000, ogni 8 MiB di dimensioni e calcolare gli hash MD5, nello stesso modo in cui il flag--put-MD5 esegue questa operazione nel comando copy. Lo scopo di--put-MD5 quando il benchmarking consiste nel verificare se il calcolo MD5 influisca sulla velocità effettiva per il numero e le dimensioni dei file selezionati:
+Eseguire un test di benchmark, ma usare i file 50.000, ogni 8 MB di dimensioni e calcolare gli hash MD5 (in modo analogo al `--put-md5` flag che esegue questa operazione nel comando copy). Lo scopo di `--put-md5` quando il benchmarking consiste nel verificare se il calcolo MD5 influisca sulla velocità effettiva per il numero e le dimensioni dei file selezionati:
 
-- azcopy Bench "https:///[account]. blob. Core. Windows. NET/[Container]? <SAS>" --file-count 50000--size-per-file 8--put-MD5
+- azcopy Bench "https:///[account]. blob. Core. Windows. NET/[Container]? <SAS> " --file-count 50000--size-per-file 8--put-MD5
 
 ## <a name="options"></a>Opzioni
 
@@ -76,6 +75,8 @@ Come sopra, ma usare i file 50.000, ogni 8 MiB di dimensioni e calcolare gli has
 **--Cap-Mbps UInt32**  Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
 
 **--output-** formato stringa di tipo dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo").
+
+**--trusted-Microsoft-suffissi** stringa specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: c232ab06d2b3a28dad7ae98a8f22f457778fd3e6
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83874075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488750"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrare Analisi di flusso di Azure con Azure Machine Learning (anteprima)
 
@@ -24,7 +23,7 @@ Completare i passaggi seguenti prima di aggiungere un modello di Machine Learnin
 
 1. Usare Azure Machine Learning per [distribuire il modello come servizio Web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. Lo script di assegnazione dei punteggi deve contenere [input e output di esempio](../machine-learning/how-to-deploy-and-where.md#example-entry-script) che vengono usati da Azure Machine Learning per generare una specifica relativa allo schema. Analisi di flusso di Azure usa lo schema per comprendere la firma della funzione del servizio Web.
+2. Lo script di assegnazione dei punteggi deve contenere [input e output di esempio](../machine-learning/how-to-deploy-and-where.md#example-entry-script) che vengono usati da Azure Machine Learning per generare una specifica relativa allo schema. Analisi di flusso di Azure usa lo schema per comprendere la firma della funzione del servizio Web. Questa [definizione di spavalderia di esempio](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) può essere usata come riferimento per assicurarsi che sia stata configurata correttamente.
 
 3. Assicurarsi che il servizio Web accetti e restituisca i dati serializzati JSON.
 

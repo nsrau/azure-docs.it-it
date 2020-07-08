@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: bb73494dd5fe22c3be645f732f9d0958e48edb64
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 6e0581912a619bec11be6d322e2987a4498c5170
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339366"
 ---
 # <a name="return-or-replace-your-azure-stack-edge-device"></a>Restituire o sostituire il dispositivo Azure Stack Edge
 
@@ -22,6 +21,7 @@ Questo articolo descrive come cancellare i dati e restituire il dispositivo Azur
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
+>
 > * Cancellare i dati dai dischi dati del dispositivo
 > * Aprire un ticket di supporto per restituire il dispositivo
 > * Imballare il dispositivo e pianificare il ritiro

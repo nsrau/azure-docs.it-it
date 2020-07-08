@@ -7,13 +7,12 @@ ms.author: mhopkins
 ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 74c023c06e7b28183a53772be6798419c91dd37a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 3d86b6e39d6199d2f0268070cfa5456e512daa49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692456"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465882"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gestire le proprietà e i metadati dei BLOB con .NET
 
@@ -30,14 +29,14 @@ Oltre ai dati che contengono, i BLOB supportano le proprietà di sistema e i met
 >
 > Per altre informazioni su questa funzionalità, vedere [gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
-Il recupero dei metadati e dei valori delle proprietà per una risorsa di archiviazione BLOB è un processo in due passaggi. Prima di poter leggere questi valori, è necessario recuperarli in modo esplicito chiamando `FetchAttributes` il `FetchAttributesAsync` metodo o. L'eccezione a questa regola è che i `Exists` metodi `ExistsAsync` e chiamano il metodo `FetchAttributes` appropriato dietro le quinte. Quando si chiama uno di questi metodi, non è necessario chiamare `FetchAttributes`anche.
+Il recupero dei metadati e dei valori delle proprietà per una risorsa di archiviazione BLOB è un processo in due passaggi. Prima di poter leggere questi valori, è necessario recuperarli in modo esplicito chiamando `FetchAttributes` il `FetchAttributesAsync` metodo o. L'eccezione a questa regola è che i `Exists` `ExistsAsync` metodi e chiamano il `FetchAttributes` metodo appropriato dietro le quinte. Quando si chiama uno di questi metodi, non è necessario chiamare anche `FetchAttributes` .
 
 > [!IMPORTANT]
-> Se si ritiene che i valori di proprietà o metadati per una risorsa di archiviazione non siano stati popolati, verificare che `FetchAttributes` il `FetchAttributesAsync` codice chiami il metodo o.
+> Se si ritiene che i valori di proprietà o metadati per una risorsa di archiviazione non siano stati popolati, verificare che il codice chiami il `FetchAttributes` `FetchAttributesAsync` metodo o.
 
 ## <a name="set-and-retrieve-properties"></a>Impostare e recuperare le proprietà
 
-Nell'esempio di codice seguente vengono `ContentType` impostate `ContentLanguage` le proprietà di sistema e su un BLOB.
+Nell'esempio di codice seguente vengono impostate le `ContentType` `ContentLanguage` proprietà di sistema e su un BLOB.
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -65,7 +64,7 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 }
 ```
 
-Per recuperare le proprietà del BLOB, `FetchAttributes` chiamare `FetchAttributesAsync` il metodo o sul BLOB per popolare `Properties` la proprietà. Nell'esempio di codice seguente vengono ottenute le proprietà di sistema di un BLOB e vengono visualizzati alcuni valori:
+Per recuperare le proprietà del BLOB, chiamare il `FetchAttributes` `FetchAttributesAsync` metodo o sul BLOB per popolare la `Properties` Proprietà. Nell'esempio di codice seguente vengono ottenute le proprietà di sistema di un BLOB e vengono visualizzati alcuni valori:
 
 ```csharp
 private static async Task GetBlobPropertiesAsync(CloudBlob blob)
@@ -94,7 +93,7 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 ## <a name="set-and-retrieve-metadata"></a>Impostare e recuperare i metadati
 
-È possibile specificare i metadati come uno o più coppie nome-valore in una risorsa BLOB o contenitore. Per impostare i `Metadata` metadati, aggiungere coppie nome-valore alla raccolta nella risorsa. Quindi, chiamare uno dei metodi seguenti per scrivere i valori:
+È possibile specificare i metadati come uno o più coppie nome-valore in una risorsa BLOB o contenitore. Per impostare i metadati, aggiungere coppie nome-valore alla `Metadata` raccolta nella risorsa. Quindi, chiamare uno dei metodi seguenti per scrivere i valori:
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
@@ -103,7 +102,7 @@ Le coppie nome/valore dei metadati sono intestazioni HTTP valide e devono essere
 
 Il nome dei metadati deve essere conforme alle convenzioni di denominazione degli identificatori C#. I nomi dei metadati mantengono il caso usato al momento della creazione, ma non fanno distinzione tra maiuscole e minuscole durante l'impostazione o la lettura. Se vengono inviate due o più intestazioni di metadati con lo stesso nome per una risorsa, archiviazione BLOB di Azure restituisce il codice di errore HTTP 400 (richiesta non valida).
 
-Nell'esempio di codice seguente vengono impostati i metadati su un BLOB. Un valore viene impostato utilizzando il `Add` metodo della raccolta. L'altro valore è impostato utilizzando la sintassi implicita chiave/valore.
+Nell'esempio di codice seguente vengono impostati i metadati su un BLOB. Un valore viene impostato utilizzando il metodo della raccolta `Add` . L'altro valore è impostato utilizzando la sintassi implicita chiave/valore.
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -130,7 +129,7 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 }
 ```
 
-Per recuperare i metadati, chiamare `FetchAttributes` il `FetchAttributesAsync` metodo o sul BLOB o sul contenitore per popolare `Metadata` la raccolta, quindi leggere i valori, come illustrato nell'esempio riportato di seguito.
+Per recuperare i metadati, chiamare `FetchAttributes` il `FetchAttributesAsync` metodo o sul BLOB o sul contenitore per popolare la `Metadata` raccolta, quindi leggere i valori, come illustrato nell'esempio riportato di seguito.
 
 ```csharp
 public static async Task ReadBlobMetadataAsync(CloudBlob blob)

@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 450aa58d4ad9cbb721e621ec3db8b4ca7e914aa1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 6fe25efe8f38772162c916c8d0b965267d457c0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488818"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Trasferimento di un Azure Key Vault a un'altra sottoscrizione
 
@@ -61,14 +60,13 @@ Assicurarsi di passare alla pagina Criteri di Azure nella portale di Azure ed es
 ### <a name="initial-steps-moving-key-vault"></a>Passaggi iniziali (trasferimento Key Vault)
 
 1. Accedere al Portale di Azure
-2. Passare all'insieme di credenziali delle chiavi
+2. Passare a Key Vault
 3. Fare clic sulla scheda "panoramica"
 4. Selezionare il pulsante "Sposta"
 5. Selezionare "sposta in un'altra sottoscrizione" dalle opzioni a discesa
 6. Selezionare il gruppo di risorse in cui si vuole spostare l'insieme di credenziali delle chiavi
-7. Selezionare il gruppo di risorse in cui si vuole spostare l'insieme di credenziali delle chiavi
-8. Confermare l'avviso relativo allo scambio di risorse
-9. Scegliere "OK"
+7. Confermare l'avviso relativo allo scambio di risorse
+8. Scegliere "OK"
 
 ### <a name="additional-steps-post-move"></a>Passaggi aggiuntivi (post-spostamento)
 

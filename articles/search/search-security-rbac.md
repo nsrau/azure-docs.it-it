@@ -7,13 +7,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 9262d01e35bd03a9116a30b070b023f578f0b15a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: 402fae5622219b14cfdab921ebe1a78ad5dd111e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84462839"
 ---
 # <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Impostare i ruoli RBAC per l'accesso amministrativo ad Azure ricerca cognitiva
 
@@ -31,9 +30,24 @@ Per ricerca cognitiva di Azure, i ruoli sono associati ai livelli di autorizzazi
 | Proprietario |Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario. |
 | Collaboratore |Stesso livello di accesso del Proprietario, tranne la gestione dei ruoli Controllo degli accessi in base al ruolo. Ad esempio, un Collaboratore può creare o eliminare un oggetto o visualizzare e rigenerare [chiavi API](search-security-api-keys.md), ma non può modificare le appartenenze ai ruoli. |
 | [Ruolo integrato di Collaboratore servizio di ricerca](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalente al ruolo di Collaboratore. |
-| Lettore |Visualizza le informazioni di base e le metriche del servizio. I membri con questo ruolo non possono visualizzare l’indice, l'indicizzatore, l’origine dati o informazioni sulla chiave.  |
+| Reader |Visualizza le informazioni di base e le metriche del servizio. I membri con questo ruolo non possono visualizzare l’indice, l'indicizzatore, l’origine dati o informazioni sulla chiave.  |
 
 I ruoli non concedono diritti di accesso all'endpoint di servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere [Gestire le chiavi API](search-security-api-keys.md).
+
+## <a name="permissions-table"></a>Tabella delle autorizzazioni
+
+Nella tabella seguente sono riepilogate le operazioni consentite in Azure ricerca cognitiva e la chiave che sblocca l'accesso a una determinata operazione.
+
+| Operazione | Autorizzazioni |
+|-----------|-------------------------|
+| Creare un servizio | Titolare della sottoscrizione di Azure |
+| Ridimensionare un servizio | Chiave amministratore, proprietario RBAC o collaboratore per la risorsa  |
+| Eliminare un servizio | Chiave amministratore, proprietario RBAC o collaboratore per la risorsa |
+| Creare, modificare, eliminare oggetti nel servizio: <br>Indici e parti componenti (incluse definizioni analizzatore, profili di punteggio, opzioni CORS), indicizzatori, origini dati, sinonimi, suggerimenti | Chiave amministratore, proprietario RBAC o collaboratore per la risorsa |
+| Eseguire una query su un indice | Chiave amministratore o di query (Controllo degli accessi in base al ruolo non applicabile) |
+| Informazioni sul sistema di query, ad esempio la restituzione di statistiche, conteggi ed elenchi di oggetti | Chiave amministratore, Controllo degli accessi in base al ruolo nella risorsa (Proprietario, Collaboratore, Lettore) |
+| Gestire le chiavi amministratore | Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione |
+| Gestire le chiavi di query |  Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione  |
 
 ## <a name="see-also"></a>Vedere anche
 

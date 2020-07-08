@@ -1,18 +1,17 @@
 ---
 title: Configurazione app Azure come origine griglia di eventi
-description: Questo articolo descrive come usare la configurazione di app Azure come origine evento di griglia di eventi. Che fornisce lo schema e i collegamenti agli articoli di esercitazione e procedure.
+description: Questo articolo descrive come usare la configurazione di app Azure come origine evento di griglia di eventi. Offre lo schema e i collegamenti ad articoli di esercitazione e procedure.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.author: babanisa
-ms.openlocfilehash: adb548ef8531698a2cb075fbc742bb20a02a434b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: e233b5d27df3e25c2d7c1464aea9a1e80dfbffb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84553160"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Configurazione app Azure come origine di griglia di eventi
 Questo articolo fornisce le proprietà e lo schema per gli eventi di configurazione app Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Viene inoltre visualizzato un elenco di guide introduttive ed esercitazioni per utilizzare app Azure configurazione come origine evento.
@@ -72,24 +71,24 @@ Lo schema per un evento di eliminazione chiave-valore è simile:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| ID | stringa | Identificatore univoco dell'evento. |
-| data | oggetto | Dati degli eventi di configurazione dell'app. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| ID | string | Identificatore univoco dell'evento. |
+| data | object | Dati degli eventi di configurazione dell'app. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| Key | stringa | Chiave del valore della chiave che è stato modificato o eliminato. |
-| label | stringa | Etichetta, se presente, del valore della chiave che è stato modificato o eliminato. |
-| etag | stringa | Per `KeyValueModified` l'ETag del nuovo valore di chiave. Per `KeyValueDeleted` l'ETag del valore della chiave che è stato eliminato. |
+| Key | string | Chiave del valore della chiave che è stato modificato o eliminato. |
+| label | string | Etichetta, se presente, del valore della chiave che è stato modificato o eliminato. |
+| etag | string | Per `KeyValueModified` l'ETag del nuovo valore di chiave. Per `KeyValueDeleted` l'ETag del valore della chiave che è stato eliminato. |
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 

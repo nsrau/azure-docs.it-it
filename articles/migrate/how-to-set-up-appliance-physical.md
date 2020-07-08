@@ -4,12 +4,11 @@ description: Informazioni su come configurare un appliance Azure Migrate per la 
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: ddc70ee9430d3a767ce01191824c150a4dbd5e6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6d9cc071ad5d81a09a14b12fe2acdf564c2ea6c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84331781"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurare un'appliance per i server fisici
 
@@ -51,20 +50,19 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo per il cloud pubblico: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
     - Esempio di utilizzo per il cloud per enti pubblici: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verificare i valori hash:
+3.  Verificare la versione più recente dell'appliance e i valori hash:
  
-    - Per il cloud pubblico (per la versione più recente dell'appliance):
+    - Per il cloud pubblico:
 
-        **Algoritmo** | **Valore hash**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+        **Scenario** | **Download*** | **Valore hash**
+        --- | --- | ---
+        Dispositivi fisici (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-    - Per Azure per enti pubblici (per la versione più recente dell'appliance):
+    - Per Azure per enti pubblici:
 
-        **Algoritmo** | **Valore hash**
-          --- | ---
-          MD5 | f81c155fc4a1409901caea948713913f
+        **Scenario** | **Download*** | **Valore hash**
+        --- | --- | ---
+        Dispositivi fisici (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Eseguire lo script del programma di installazione di Azure Migrate

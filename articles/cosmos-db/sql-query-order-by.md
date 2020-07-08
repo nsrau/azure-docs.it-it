@@ -4,18 +4,17 @@ description: Informazioni sulla clausola SQL ORDER BY per Azure Cosmos DB. Usare
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484334"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clausola ORDER BY in Azure Cosmos DB
 
-La clausola `ORDER BY` facoltativa consente di specificare l'ordinamento dei risultati restituiti dalla query.
+La clausola facoltativa `ORDER BY` consente di specificare l'ordinamento dei risultati restituiti dalla query.
 
 ## <a name="syntax"></a>Sintassi
   
@@ -33,7 +32,7 @@ ORDER BY <sort_specification>
   
    È possibile specificare più proprietà. I nomi delle proprietà devono essere univoci. La sequenza delle proprietà di ordinamento nella `ORDER BY` clausola definisce l'organizzazione del set di risultati ordinato. Ovvero, il set di risultati viene ordinato in base alla prima proprietà e quindi l'elenco così ordinato viene ordinato in base alla seconda proprietà e così via.  
   
-   I nomi di proprietà a cui viene `ORDER BY` fatto riferimento nella clausola devono corrispondere a una proprietà nell'elenco di selezione o a una proprietà definita nella raccolta specificata nella `FROM` clausola senza ambiguità.  
+   I nomi di proprietà a cui viene fatto riferimento nella `ORDER BY` clausola devono corrispondere a una proprietà nell'elenco di selezione o a una proprietà definita nella raccolta specificata nella `FROM` clausola senza ambiguità.  
   
 - `<sort_expression>`  
   
@@ -49,7 +48,7 @@ ORDER BY <sort_specification>
   
 ## <a name="remarks"></a>Osservazioni  
   
-   Per `ORDER BY` la clausola è necessario che i criteri di indicizzazione includano un indice per i campi da ordinare. Il runtime di query di Azure Cosmos DB supporta l'ordinamento in base a un nome di proprietà e non alle proprietà calcolate. Azure Cosmos DB supporta più `ORDER BY` proprietà. Per eseguire una query con più proprietà ORDER BY, è necessario definire un [indice composto](index-policy.md#composite-indexes) sui campi da ordinare.
+   `ORDER BY`Per la clausola è necessario che i criteri di indicizzazione includano un indice per i campi da ordinare. Il runtime di query di Azure Cosmos DB supporta l'ordinamento in base a un nome di proprietà e non alle proprietà calcolate. Azure Cosmos DB supporta più `ORDER BY` Proprietà. Per eseguire una query con più proprietà ORDER BY, è necessario definire un [indice composto](index-policy.md#composite-indexes) sui campi da ordinare.
 
 > [!Note]
 > Se le proprietà ordinate potrebbero non essere definite per alcuni documenti e si desidera recuperarle in una query ORDER BY, è necessario includere in modo esplicito questo percorso nell'indice. I criteri di indicizzazione predefiniti non consentiranno il recupero dei documenti in cui la proprietà di ordinamento non è definita. [Esaminare le query di esempio sui documenti con alcuni campi mancanti](#documents-with-missing-fields).
@@ -79,7 +78,7 @@ I risultati sono:
     ]
 ```
 
-La query seguente recupera le `id`famiglie in ordine di data di creazione dell'elemento. L' `creationDate` elemento è un numero che rappresenta l' *ora di epoche*o il tempo trascorso da Jan. 1, 1970 in secondi.
+La query seguente recupera le famiglie `id` in ordine di data di creazione dell'elemento. `creationDate`L'elemento è un numero che rappresenta l' *ora di epoche*o il tempo trascorso da Jan. 1, 1970 in secondi.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -114,9 +113,9 @@ Questa query recupera la famiglia `id` in ordine crescente in base al nome della
 
 ## <a name="documents-with-missing-fields"></a>Documenti con campi mancanti
 
-Le query `ORDER BY` con eseguite su contenitori con i criteri di indicizzazione predefiniti non restituiranno documenti in cui la proprietà di ordinamento non è definita. Se si desidera includere documenti in cui la proprietà di ordinamento non è definita, è necessario includere in modo esplicito questa proprietà nei criteri di indicizzazione.
+Le query con `ORDER BY` eseguite su contenitori con i criteri di indicizzazione predefiniti non restituiranno documenti in cui la proprietà di ordinamento non è definita. Se si desidera includere documenti in cui la proprietà di ordinamento non è definita, è necessario includere in modo esplicito questa proprietà nei criteri di indicizzazione.
 
-Ad esempio, di seguito è riportato un contenitore con criteri di indicizzazione che non includono in modo esplicito alcun percorso oltre `"/*"`:
+Ad esempio, di seguito è riportato un contenitore con criteri di indicizzazione che non includono in modo esplicito alcun percorso oltre `"/*"` :
 
 ```json
 {
@@ -131,9 +130,9 @@ Ad esempio, di seguito è riportato un contenitore con criteri di indicizzazione
 }
 ```
 
-Se si esegue una query che include `lastName` nella `Order By` clausola, i risultati includeranno solo i documenti per i quali `lastName` è stata definita una proprietà. Non è stato definito un percorso incluso esplicito `lastName` per, pertanto tutti i `lastName` documenti privi di non verranno visualizzati nei risultati della query.
+Se si esegue una query che include `lastName` nella `Order By` clausola, i risultati includeranno solo i documenti per i quali è stata `lastName` definita una proprietà. Non è stato definito un percorso incluso esplicito per `lastName` , pertanto tutti i documenti privi di `lastName` non verranno visualizzati nei risultati della query.
 
-Ecco una query che esegue l'ordinamento `lastName` in base a due documenti, uno dei quali non dispone `lastName` di una definizione:
+Ecco una query che esegue l'ordinamento `lastName` in base a due documenti, uno dei quali non dispone di una `lastName` definizione:
 
 ```sql
     SELECT f.id, f.lastName
@@ -141,7 +140,7 @@ Ecco una query che esegue l'ordinamento `lastName` in base a due documenti, uno 
     ORDER BY f.lastName
 ```
 
-I risultati includono solo il documento con una definizione `lastName`:
+I risultati includono solo il documento con una definizione `lastName` :
 
 ```json
     [
@@ -152,9 +151,9 @@ I risultati includono solo il documento con una definizione `lastName`:
     ]
 ```
 
-Se si aggiornano i criteri di indicizzazione del contenitore per includere in modo `lastName`esplicito un percorso per, nei risultati della query si includeranno documenti con una proprietà di ordinamento non definita. È necessario definire in modo esplicito il percorso per condurre questo valore scalare (e non oltre). È consigliabile usare il `?` carattere nella definizione del percorso nei criteri di indicizzazione per assicurarsi di indicizzare in modo esplicito la proprietà `lastName` e senza ulteriori percorsi annidati oltre. Se la `Order By` query utilizza un [indice composto](index-policy.md#composite-indexes), i risultati includeranno sempre i documenti con una proprietà di ordinamento non definita nei risultati della query.
+Se si aggiornano i criteri di indicizzazione del contenitore per includere in modo esplicito un percorso per `lastName` , nei risultati della query si includeranno documenti con una proprietà di ordinamento non definita. È necessario definire in modo esplicito il percorso per condurre questo valore scalare (e non oltre). È consigliabile usare il `?` carattere nella definizione del percorso nei criteri di indicizzazione per assicurarsi di indicizzare in modo esplicito la proprietà `lastName` e senza ulteriori percorsi annidati oltre. Se la `Order By` query utilizza un [indice composto](index-policy.md#composite-indexes), i risultati includeranno sempre i documenti con una proprietà di ordinamento non definita nei risultati della query.
 
-Di seguito sono riportati i criteri di indicizzazione di esempio che consentono di visualizzare i `lastName` documenti con un valore non definito nei risultati della query:
+Di seguito sono riportati i criteri di indicizzazione di esempio che consentono di visualizzare i documenti con un valore non definito `lastName` nei risultati della query:
 
 ```json
 {
@@ -172,7 +171,7 @@ Di seguito sono riportati i criteri di indicizzazione di esempio che consentono 
 }
 ```
 
-Se si esegue di nuovo la stessa query, i documenti mancanti `lastName` vengono visualizzati per primi nei risultati della query:
+Se si esegue di nuovo la stessa query, i documenti mancanti vengono `lastName` visualizzati per primi nei risultati della query:
 
 ```sql
     SELECT f.id, f.lastName
@@ -194,7 +193,7 @@ I risultati sono:
 ]
 ```
 
-Se si modifica il tipo di ordinamento `DESC`in, i documenti mancanti `lastName` vengono visualizzati per ultimi nei risultati della query:
+Se si modifica il tipo di ordinamento in `DESC` , i documenti mancanti vengono `lastName` visualizzati per ultimi nei risultati della query:
 
 ```sql
     SELECT f.id, f.lastName
@@ -216,8 +215,13 @@ I risultati sono:
 ]
 ```
 
+> [!Note]
+> Solo la versione 3.4.0 o successiva di .NET SDK supporta ORDER BY con tipi misti. Se pertanto si desidera eseguire l'ordinamento in base a una combinazione di valori non definiti e definiti, è consigliabile utilizzare questa versione (o versioni successive).
+
+Non è possibile controllare l'ordine in cui vengono visualizzati tipi diversi nei risultati. Nell'esempio precedente è stato illustrato il modo in cui i valori non definiti sono stati ordinati prima dei valori di stringa. Se, ad esempio, si desidera un maggiore controllo sull'ordinamento dei valori non definiti, è possibile assegnare a qualsiasi proprietà non definita un valore stringa "Aladin" o "zzzzzzzz" per assicurarsi che siano prima o per ultimi.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva](sql-query-getting-started.md)
+- [Introduzione](sql-query-getting-started.md)
 - [Indexing policies in Azure Cosmos DB](index-policy.md) (Criteri di indicizzazione in Azure Cosmos DB)
 - [Clausola limite OFFSET](sql-query-offset-limit.md)

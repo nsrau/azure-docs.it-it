@@ -3,12 +3,11 @@ title: Risoluzione dei problemi di Application Insights in un progetto Web Java
 description: Guida per la risoluzione dei problemi - monitoraggio di app Java live con Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 04e98938bc5dd17816ae873f122073212275a414
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484787"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
 Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco alcuni suggerimenti.
@@ -26,14 +25,13 @@ Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco 
 * Verificare che non vi siano nodi `<DisableTelemetry>true</DisableTelemetry>` nel file XML.
 * Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com. Vedere l' [elenco completo delle eccezioni del firewall](../../azure-monitor/app/ip-addresses.md)
 * Nella schermata iniziale di Microsoft Azure osservare la mappa dello stato dei servizi. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
-* [Attivare la registrazione](#debug-data-from-the-sdk) aggiungendo un `<SDKLogger />` elemento nel nodo radice del file ApplicationInsights. XML (nella cartella Resources del progetto) e verificare la presenza di voci precedute da ai: info/warn/Error per eventuali log sospetti. 
+* [Attivare la registrazione](#debug-data-from-the-sdk) aggiungendo un `<SDKLogger />` elemento sotto il nodo radice nel file di ApplicationInsights.xml (nella cartella risorse del progetto) e cercare le voci precedute da intelligenza artificiale: informazioni/avvisi/errori per eventuali log sospetti. 
 * Per verificare che Java SDK abbia caricato il file ApplicationInsights.xml corretto, esaminare i messaggi di output della console e cercare il messaggio "Configuration file has been successfully found".
 * Se il file di configurazione non è stato trovato, verificare i percorsi di ricerca di questo file nei messaggi di output e assicurarsi che il file ApplicationInsights.xml sia memorizzato in uno di tali percorsi. In linea di massima, il file di configurazione può essere salvato accanto ai file JAR di Application Insights SDK. In Tomcat, ad esempio, questo percorso corrisponde alla cartella WEB-INF/classes. Durante lo sviluppo è possibile inserire ApplicationInsights.xml nella cartella delle risorse del progetto Web.
 * Esaminare anche la [pagina dei problemi di GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) per i problemi noti con l'SDK.
 * Assicurarsi di usare la stessa versione degli appender di core, Web, agente e registrazione di Application Insights per evitare eventuali problemi di conflitto di versione.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Non vengono più visualizzati i dati disponibili in precedenza
-* Controllare il [blog sullo stato](https://blogs.msdn.com/b/applicationinsights-status/).
 * È stata raggiunta la quota mensile relativa ai punti dati? Aprire Impostazioni/quota e prezzi per individuarli. In tal caso, è possibile aggiornare il piano o pagare per la capacità aggiuntiva. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 * L'SDK è stato aggiornato di recente? Verificare che all'interno della directory del progetto siano presenti solo file con estensione JAR dell'SDK univoco. Non devono essere presenti due versioni diverse dell'SDK.
 * È stata considerata la risorsa AI corretta? Confrontare la chiave di strumentazione dell'applicazione con la risorsa in cui sono previsti i dati di telemetria. I valori devono corrispondere.
@@ -109,7 +107,7 @@ Per ottenere altre informazioni su quello che accade nell'API, aggiungere `<SDKL
 
 ### <a name="spring-boot-starter"></a>Starter Spring boot
 
-Per abilitare la registrazione dell'SDK con le app Spring boot con Application Insights Spring boot Starter, aggiungere il codice `application.properties` seguente al file:
+Per abilitare la registrazione dell'SDK con le app Spring boot con Application Insights Spring boot Starter, aggiungere il codice seguente al `application.properties` file:
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -126,7 +124,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Agente Java
 
-Per abilitare la registrazione dell'agente JVM, aggiornare il [file ai-Agent. XML](java-agent.md):
+Per abilitare la registrazione dell'agente JVM, aggiornare il [file diAI-Agent.xml](java-agent.md):
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
@@ -188,7 +186,7 @@ Application Insights usa `org.apache.http`. Questo è stato spostato all'interno
 * [Scrivere codice per tenere traccia dell'utilizzo dell'app][track]
 * [Acquisire i log di diagnostica][javalogs]
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottieni supporto
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Registrare un problema su GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 

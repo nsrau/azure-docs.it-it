@@ -4,19 +4,18 @@ description: Abilitare e configurare i criteri di rischio in Azure Active Direct
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 01/06/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75707006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84464165"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procedura: configurare e abilitare i criteri di rischio
 
@@ -45,7 +44,7 @@ La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri 
 
 ## <a name="exclusions"></a>Esclusioni
 
-Tutti i criteri consentono di escludere gli utenti, ad esempio l' [accesso di emergenza o gli account amministratore break-Glass](../users-groups-roles/directory-emergency-access.md). Le organizzazioni possono determinare che devono escludere altri account da criteri specifici in base al modo in cui vengono usati gli account. Tutte le esclusioni devono essere esaminate regolarmente per verificare se sono ancora applicabili.
+Tutti i criteri consentono di escludere gli utenti, ad esempio gli [account di accesso di emergenza o gli account amministratore critici](../users-groups-roles/directory-emergency-access.md). Le organizzazioni possono determinare che devono escludere altri account da criteri specifici in base al modo in cui vengono usati gli account. Tutte le esclusioni devono essere esaminate regolarmente per verificare se sono ancora applicabili.
 
 I [percorsi di rete](../conditional-access/location-condition.md) attendibili configurati vengono usati da Identity Protection in alcuni rilevamenti dei rischi per ridurre i falsi positivi.
 
@@ -54,29 +53,29 @@ I [percorsi di rete](../conditional-access/location-condition.md) attendibili co
 Per abilitare il rischio utente e i criteri di rischio di accesso, completare i passaggi seguenti.
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory** > **Panoramica**di**Security** > **Identity Protection** > .
+1. Passare a **Azure Active Directory**  >  Panoramica di**Security**  >  **Identity Protection**  >  **Overview**.
 1. Selezionare **Configura criteri di rischio utente**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
-      1. **Condizioni** - **utente rischiano** che Microsoft raccomandi di impostare questa opzione su **alta**.
+      1. **Condizioni**  -  di **Rischio utente** Microsoft consiglia di impostare questa opzione su **High**.
    1. Sotto **controlli**
       1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere la modifica della password**.
-   1. **Applicare i criteri** - **in**
+   1. **Imponi criteri**  -  **Il**
    1. **Salva** : questa azione consente di tornare alla pagina **Panoramica** .
 1. Selezionare **Configura criteri di rischio di accesso**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
-      1. **Condizioni** - per il**rischio di accesso,** Microsoft consiglia di impostare questa opzione su **media e versioni successive**.
+      1. **Condizioni**  -  di **Rischio di accesso** Microsoft consiglia di impostare questa opzione su **media e versioni successive**.
    1. Sotto **controlli**
       1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere l'autenticazione**a più fattori.
-   1. **Applicare i criteri** - **in**
+   1. **Imponi criteri**  -  **Il**
    1. **Salva**
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare i criteri di registrazione di Azure Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
+- [Abilitare i criteri di registrazione per l'autenticazione a più fattori di Azure](howto-identity-protection-configure-mfa-policy.md)
 
 - [Che cosa sono i rischi?](concept-identity-protection-risks.md)
 

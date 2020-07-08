@@ -6,17 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 06/03/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: ffebb8f82a69f0404974e6c8ea91bec951ca80e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f609cfb0945d79cfa8ae21b786a5761b92b9dabb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415778"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324624"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Riconfigurare il runtime di integrazione SSIS di Azure
 
@@ -27,19 +26,15 @@ Questo articolo descrive come configurare un runtime di integrazione Azure-SSIS 
 ## <a name="data-factory-ui"></a>Interfaccia utente di Data Factory 
 È possibile usare l'interfaccia utente di Data Factory per arrestare, modificare, riconfigurare o eliminare un runtime di integrazione Azure-SSIS. 
 
-1. Nell' **interfaccia utente di data factory**passare alla scheda **modifica** . Per avviare Data Factory interfaccia utente, fare clic su **crea & monitoraggio** sul home page del data factory.
-2. Nel riquadro sinistro fare clic su **Connessioni**.
-3. Nel riquadro destro passare a **Integration Runtime**. 
-4. È possibile usare i pulsanti nella colonna Azioni per **arrestare**, **modificare** o **eliminare** il runtime di integrazione. Il pulsante **Codice** nella colonna **Azioni** consente di visualizzare la definizione JSON associata al runtime di integrazione.  
-    
-    ![Azioni per il runtime di integrazione Azure-SSIS](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+1. Aprire Data Factory interfaccia utente selezionando il riquadro **autore & monitoraggio** sul home page del data factory.
+2. Selezionare l'hub **Gestisci** sotto **Home**, **modificare**e **monitorare** gli hub per visualizzare il riquadro **connessioni** .
 
 ### <a name="to-reconfigure-an-azure-ssis-ir"></a>Per riconfigurare un runtime di integrazione Azure-SSIS
-1. Arrestare il runtime di integrazione facendo clic su **Arresto** nella colonna **Azioni**. Per aggiornare la visualizzazione elenco, fare clic su **Aggiorna** sulla barra degli strumenti. Dopo l'arresto del runtime di integrazione, la prima azione consente di avviarlo. 
+Nel riquadro **Connessioni** dell'hub **Gestione**, passare alla pagina **Integration runtimes** (Runtime di integrazione) e selezionare **Aggiorna**. 
 
-    ![Azioni per il runtime di integrazione Azure-SSIS dopo l'arresto](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
-2. Per modificare o riconfigurare il runtime di integrazione, fare clic sul pulsante **Modifica** nella colonna **Azioni**. Nella finestra **Impostazione runtime di integrazione** modificare le impostazioni, ad esempio le dimensioni del nodo, il numero di nodi o il numero massimo di esecuzioni parallele per nodo. 
-3. Per riavviare il runtime di integrazione, fare clic sul pulsante **Avvia** nella colonna **Azioni**.     
+   ![Riquadro Connessioni](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
+
+   È possibile modificare o riconfigurare l'istanza di Azure-SSIS IR selezionando il nome corrispondente. È anche possibile selezionare i pulsanti pertinenti per monitorare/avviare/arrestare/eliminare l'istanza di Azure-SSIS IR, generare automaticamente una pipeline di Azure Data Factory con l'attività Esegui pacchetto SSIS per l'esecuzione nell'istanza di Azure-SSIS IR e visualizzare il codice o il payload JSON di tale istanza.  È possibile modificare o eliminare l'istanza di Azure-SSIS IR solo quando è arrestata.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -51,53 +46,52 @@ Dopo il provisioning e l’avvio di un'istanza di runtime di integrazione SSIS d
 
 1. Arrestare prima di tutto il runtime di integrazione SSIS di Azure usando il cmdlet [Stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) . Questo comando rilascia tutti i nodi e arresta la fatturazione.
 
-    ```powershell
-    Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
-    ```
+   ```powershell
+   Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
+   ```
 2. Riconfigurare quindi il Azure-SSIS IR usando il cmdlet [set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) . Il comando di esempio seguente consente applicare la scalabilità orizzontale a un runtime di integrazione SSIS di Azure per ottenere cinque nodi.
 
-    ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
-    ```  
+   ```powershell
+   Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
+   ```  
 3. Avviare quindi il runtime di integrazione SSIS di Azure usando il cmdlet [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) . Questo comando alloca tutti i nodi per i pacchetti SSIS in esecuzione.   
 
-    ```powershell
-    Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
-    ```
+   ```powershell
+   Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
+   ```
 
 ### <a name="delete-an-azure-ssis-ir"></a>Eliminare un runtime di integrazione SSIS di Azure
 1. In primo luogo elencare tutti i runtime di integrazione SSIS di Azure esistenti nella data factory.
 
-    ```powershell
-    Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
-    ```
+   ```powershell
+   Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
+   ```
 2. Arrestare quindi tutti i runtime di integrazione SSIS di Azure esistenti nella data factory.
 
-    ```powershell
-    Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
-    ```
+   ```powershell
+   Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+   ```
 3. Rimuovere tutti i runtime di integrazione SSIS di Azure esistenti nella data factory singolarmente.
 
-    ```powershell
-    Remove-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
-    ```
+   ```powershell
+   Remove-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+   ```
 4. Rimuovere infine la data factory.
 
-    ```powershell
-    Remove-AzDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
-    ```
+   ```powershell
+   Remove-AzDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
+   ```
 5. Se è stato creato un nuovo gruppo di risorse, rimuovere il gruppo di risorse.
 
-    ```powershell
-    Remove-AzResourceGroup -Name $ResourceGroupName -Force 
-    ```
+   ```powershell
+   Remove-AzResourceGroup -Name $ResourceGroupName -Force 
+   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui runtime SSIS di Azure, vedere gli argomenti seguenti: 
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo vengono fornite le informazioni sui runtime di integrazione in generale incluso il runtime di integrazione SSIS di Azure. 
-- [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). In questo articolo vengono fornite le istruzioni passo per passo per creare un runtime di integrazione SSIS di Azure e utilizzare un database SQL di Azure per ospitare il catalogo SSIS. 
-- [Procedura: come creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e offre istruzioni sull'uso dell'Istanza gestita di database SQL di Azure e sull'aggiunta del runtime di integrazione a una rete virtuale. 
+- [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). Questo articolo fornisce istruzioni dettagliate per creare un Azure-SSIS IR e usa il database SQL di Azure per ospitare il catalogo SSIS. 
+- [Procedura: come creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e fornisce istruzioni sull'uso di Azure SQL Istanza gestita e sull'aggiunta del runtime di integrazione a una rete virtuale. 
 - [Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md). Questo articolo offre informazioni concettuali sull'aggiunta di un runtime di integrazione Azure-SSIS a una rete virtuale di Azure. Indica inoltre i passaggi per usare il portale di Azure per configurare la rete virtuale in modo che il runtime di integrazione Azure-SSIS possa essere aggiunto alla rete virtuale. 
-- [Monitorare un runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo viene illustrato come recuperare informazioni su un runtime di integrazione SSIS di Azure e le descrizioni degli stati nelle informazioni restituite. 
- 
+- [Monitorare un runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo viene illustrato come recuperare informazioni su un runtime di integrazione SSIS di Azure e le descrizioni degli stati nelle informazioni restituite.

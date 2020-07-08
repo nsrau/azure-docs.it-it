@@ -1,20 +1,44 @@
 ---
-title: Gestione dei dati di Automazione di Azure
-description: Questo articolo descrive i concetti relativi alla gestione dei dati in Automazione di Azure, inclusi la conservazione dei dati e il backup.
+title: Sicurezza dei dati di automazione di Azure
+description: Questo articolo illustra in che modo automazione di Azure protegge la privacy e protegge i dati.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/23/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: de60ef31a39a698f9a797a5836546f9b75b67594
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343055"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 
-Questo articolo contiene diversi argomenti per la gestione dei dati in un ambiente di Automazione di Azure.
+Questo articolo contiene diversi argomenti che illustrano il modo in cui i dati vengono protetti e protetti in un ambiente di automazione di Azure.
+
+## <a name="tls-12-enforcement-for-azure-automation"></a>Imposizione di TLS 1,2 per automazione di Azure
+
+Per garantire la sicurezza dei dati in transito in automazione di Azure, si consiglia di configurare l'uso di Transport Layer Security (TLS) 1,2. Di seguito è riportato un elenco di metodi o client che comunicano tramite HTTPS al servizio di automazione:
+
+* Chiamate webhook
+
+* Ruoli di lavoro ibridi per Runbook, che includono computer gestiti da Gestione aggiornamenti e Rilevamento modifiche e inventario.
+
+* Nodi DSC
+
+Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. A partire da settembre 2020, si inizia a applicare TLS 1,2 e versioni successive del protocollo di crittografia.
+
+Non è consigliabile impostare in modo esplicito l'agente perché usi solo il protocollo TLS 1.2, a meno che non sia assolutamente necessario. Questa scelta potrebbe causare l'interruzione delle funzionalità di sicurezza a livello di piattaforma che consentono di rilevare automaticamente e sfruttare i vantaggi di protocolli più recenti e più sicuri quando saranno disponibili, ad esempio TLS 1.3.
+
+Per informazioni sul supporto di TLS 1,2 con l'agente di Log Analytics per Windows e Linux, che è una dipendenza per il ruolo di lavoro ibrido per Runbook, vedere [Panoramica di log Analytics Agent-TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+
+### <a name="platform-specific-guidance"></a>Indicazioni specifiche in base alla piattaforma
+
+|Piattaforma/linguaggio | Supporto | Altre informazioni |
+| --- | --- | --- |
+|Linux | Le distribuzioni Linux si basano generalmente su [OpenSSL](https://www.openssl.org) per supportare TLS 1.2.  | Controllare nel [log delle modifiche di OpenSSL](https://www.openssl.org/news/changelog.html) per assicurarsi che la versione di OpenSSL sia supportata.|
+| Windows 8.0 - 10 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora in uso.  |
+| Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Per verificare che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora utilizzate |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Supportato ma non abilitato per impostazione predefinita. | Vedere la pagina [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) (Impostazioni del Registro di sistema di Transport Layer Security (TLS)) per informazioni dettagliate su come eseguire l'abilitazione.  |
 
 ## <a name="data-retention"></a>Conservazione dei dati
 
@@ -53,16 +77,16 @@ Non è possibile esportare gli asset di Automazione di Azure: certificati, conne
 
 Non è possibile recuperare il valore delle variabili crittografate o i campi password delle credenziali mediante i cmdlet. Se non si conoscono questi valori, è possibile recuperarli in un runbook. Per recuperare i valori delle variabili, vedere [Asset di tipo variabile in Automazione di Azure](shared-resources/variables.md). Per altre informazioni sul recupero dei valori delle credenziali, vedere [Asset credenziali in Automazione di Azure](shared-resources/credentials.md).
 
- ### <a name="dsc-configurations"></a>Configurazioni DSC
+### <a name="dsc-configurations"></a>Configurazioni DSC
 
 È possibile esportare le configurazioni DSC in file di script tramite il portale di Azure o il cmdlet [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
 ) in Windows PowerShell. È possibile importare e usare queste configurazioni in un altro account di Automazione.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replica geografica in Automazione di Azure
 
-La replica geografica è standard negli account di Automazione di Azure. Quando si configura l'account, è possibile scegliere un'area primaria. Il servizio interno di replica geografica di Automazione assegna automaticamente un'area secondaria all'account. Il servizio esegue quindi il backup continuo dei dati dell'account dall'area primaria all'area secondaria. L'elenco completo delle aree primarie e secondarie è disponibile in [Continuità aziendale e ripristino di emergenza (BCDR): aree geografiche abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+La replica geografica è standard negli account di Automazione di Azure. Quando si configura l'account, è possibile scegliere un'area primaria. Il servizio interno di replica geografica di Automazione assegna automaticamente un'area secondaria all'account. Il servizio esegue quindi il backup continuo dei dati dell'account dall'area primaria all'area secondaria. L'elenco completo delle aree primarie e secondarie è disponibile in [Continuità aziendale e ripristino di emergenza (BCDR): aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md).
 
-Il backup creato dal servizio di replica geografica di Automazione è una copia completa degli asset di automazione, delle configurazioni e di elementi simili. Questo backup può essere usato se l'area primaria diventa inattiva e perde i dati. Nell'eventualità improbabile che vengano persi dei dati di un'area primaria, Microsoft tenta di ripristinarli. Se l'azienda non riesce a ripristinare i dati primari, viene usato il failover automatico e viene segnalata la situazione tramite la sottoscrizione di Azure. 
+Il backup creato dal servizio di replica geografica di Automazione è una copia completa degli asset di automazione, delle configurazioni e di elementi simili. Questo backup può essere usato se l'area primaria diventa inattiva e perde i dati. Nell'eventualità improbabile che vengano persi dei dati di un'area primaria, Microsoft tenta di ripristinarli. Se l'azienda non riesce a ripristinare i dati primari, viene usato il failover automatico e viene segnalata la situazione tramite la sottoscrizione di Azure.
 
 Il servizio di replica geografica di Automazione non è accessibile direttamente ai clienti esterni se si verifica un errore a livello di area. Se si vogliono mantenere la configurazione e i runbook di Automazione durante gli errori a livello di area:
 
@@ -77,4 +101,5 @@ Il servizio di replica geografica di Automazione non è accessibile direttamente
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sugli asset sicuri in Automazione di Azure, vedere [Crittografia di asset sicuri in Automazione di Azure](automation-secure-asset-encryption.md).
-* Per altre informazioni sulla replica geografica, vedere [Creazione e uso della replica geografica attiva](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).
+
+* Per altre informazioni sulla replica geografica, vedere [Creazione e uso della replica geografica attiva](../sql-database/sql-database-active-geo-replication.md).

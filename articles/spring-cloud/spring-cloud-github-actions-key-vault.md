@@ -6,12 +6,11 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945477"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484355"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticare Azure Spring cloud con Key Vault nelle azioni di GitHub
 Key Vault è un luogo sicuro per archiviare le chiavi. Gli utenti aziendali devono archiviare le credenziali per gli ambienti CI/CD nell'ambito che controllano. La chiave per ottenere le credenziali nell'insieme di credenziali delle chiavi deve essere limitata all'ambito della risorsa.  Ha accesso solo all'ambito dell'insieme di credenziali delle chiavi, non all'intero ambito di Azure. È come una chiave che può aprire solo una casella complessa e non una chiave master in grado di aprire tutte le porte di un edificio. Si tratta di un modo per ottenere una chiave con un'altra chiave, che risulta utile in un flusso di lavoro CICD. 
@@ -46,7 +45,7 @@ Passare al dashboard **Key Vault** in portale di Azure, fare clic sul menu di **
 
  ![Impostare i criteri di accesso](./media/github-actions/key-vault1.png)
 
-Copiare il nome delle credenziali, ad esempio `azure-cli-2020-01-19-04-39-02`. Aprire il menu **criteri di accesso** e fare clic sul collegamento **+ Aggiungi criteri di accesso** .  Selezionare `Secret Management` per **modello**, quindi selezionare **entità**. Incollare il nome delle credenziali nella casella **principale**/**Select** input:
+Copiare il nome delle credenziali, ad esempio `azure-cli-2020-01-19-04-39-02` . Aprire il menu **criteri di accesso** e fare clic sul collegamento **+ Aggiungi criteri di accesso** .  Selezionare `Secret Management` per **modello**, quindi selezionare **entità**. Incollare il nome delle credenziali nella casella **principale** / **Select** input:
 
  ![Select](./media/github-actions/key-vault2.png)
 
@@ -73,7 +72,7 @@ Anche in questo caso, i risultati sono:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Copiare l'intera stringa JSON.  Tornare a **Key Vault** dashboard. Aprire il menu **segreti** , quindi fare clic sul pulsante **genera/importa** . Immettere il nome del segreto, ad `AZURE-CRENDENTIALS-FOR-SPRING`esempio. Incollare la stringa di credenziali JSON nella casella di immissione **valore** . È possibile notare che la casella di input valore è un campo di testo a riga singola, anziché un'area di testo a più righe.  È possibile incollare la stringa JSON completa.
+Copiare l'intera stringa JSON.  Tornare a **Key Vault** dashboard. Aprire il menu **segreti** , quindi fare clic sul pulsante **genera/importa** . Immettere il nome del segreto, ad esempio `AZURE-CREDENTIALS-FOR-SPRING` . Incollare la stringa di credenziali JSON nella casella di immissione **valore** . È possibile notare che la casella di input valore è un campo di testo a riga singola, anziché un'area di testo a più righe.  È possibile incollare la stringa JSON completa.
 
  ![Credenziali dell'ambito completo](./media/github-actions/key-vault3.png)
 
@@ -92,7 +91,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}           # Strong box key you generated in the first step
     - uses: Azure/get-keyvault-secrets@v1.0
       with:
-        keyvault: "zlhe-test"
+        keyvault: "<Your Key Vault Name>"
         secrets: "AZURE-CREDENTIALS-FOR-SPRING"           # Master key to open all doors in the building
       id: keyvaultaction
     - uses: azure/login@v1

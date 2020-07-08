@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
-ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343021"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Intestazioni HTTP X-EC-Debug per il motore regole della rete CDN di Azure
 L' intestazione della richiesta di debug della cache, `X-EC-Debug`, fornisce ulteriori informazioni sui criteri della cache applicati all'asset richiesto. Queste intestazioni sono specifiche dei prodotti **Azure CDN Premium di Verizon**.
@@ -27,7 +26,7 @@ L' intestazione della richiesta di debug della cache, `X-EC-Debug`, fornisce ult
 ## <a name="usage"></a>Utilizzo
 La risposta inviata dai server POP a un utente include l'intestazione `X-EC-Debug` solo quando sono soddisfatte le condizioni seguenti:
 
-- Nel motore regole per la richiesta specificata è stata abilitata la [funzionalità relativa alle intestazioni di risposta di debug per la cache](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers).
+- Nel motore regole per la richiesta specificata è stata abilitata la [funzionalità relativa alle intestazioni di risposta di debug per la cache](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm).
 - La richiesta specificata definisce il set di intestazioni di risposta di debug per la cache che verrà incluso nella risposta.
 
 ## <a name="requesting-debug-cache-information"></a>Richiesta di informazioni di debug per la cache
@@ -54,7 +53,7 @@ Le intestazioni di risposta di debug per la cache possono essere richieste inclu
 ## <a name="cache-status-code-information"></a>Informazioni sul codice di stato della cache
 L'intestazione della risposta X-EC-Debug può identificare un server e il modo in cui ha gestito la risposta tramite le direttive seguenti:
 
-Intestazione | Descrizione
+Header | Descrizione
 -------|------------
 X-EC-Debug: x-ec-cache | Questa intestazione viene segnalata ogni volta che viene eseguito il routing di contenuto attraverso la rete CDN. Identifica il server POP che ha soddisfatto la richiesta.
 X-EC-Debug: x-ec-cache-remote | Questa intestazione viene visualizzata solo quando il contenuto richiesto è stato memorizzato nella cache in un server shield di origine o in un server gateway ADN.
@@ -103,7 +102,7 @@ L'intestazione di risposta `X-EC-Debug` che segnala se la richiesta fosse idonea
 
 Il termine usato nella sintassi dell'intestazione della risposta riportata sopra è definito nel modo seguente:
 
-valore  | Descrizione
+valore  | Description
 -------| --------
 YES    | Indica che il contenuto richiesto era idoneo per la memorizzazione nella cache.
 NO     | Indica che il contenuto richiesto non era idoneo per la memorizzazione nella cache. Questo stato può essere dovuto a una delle cause seguenti: <br /> - Configurazione specifica del cliente: una configurazione specifica del proprio account può impedire ai server POP di memorizzare un asset nella cache. Ad esempio, il motore regole può impedire la memorizzazione di un asset nella cache abilitando la funzionalità Ignora cache per le richieste qualificate.<br /> - Intestazioni di risposta della cache: le intestazioni Cache-Control ed Expires dell'asset richiesto possono impedire ai server POP di memorizzarla nella cache.

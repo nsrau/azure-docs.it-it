@@ -5,27 +5,60 @@ description: Informazioni su come distribuire un servizio Web con un modello in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8569f4751c54d7b37aa15737a9b3f7f394c7e26e
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.custom: seodec18, contperfq4, tracking-python
+ms.openlocfilehash: fabdbfbb90a14aa0f66e3d8a4eb5f6a428c6a0a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557370"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Informazioni su FPGA (Field-Programmable Gate Array) e su come eseguire la distribuzione
+
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo fornisce un'introduzione a FPGA (Field-Programmable Gate Array) e illustra come distribuire i modelli usando [Azure Machine Learning](overview-what-is-azure-ml.md) in un FPGA di Azure.
 
-Un circuito FPGA contiene un array di blocchi programmabili per la logica e una gerarchia di interconnessioni riconfigurabili. Le interconnessioni consentono di configurare questi blocchi in diversi modi dopo la produzione. I circuiti FPGA offrono una combinazione di programmabilità e prestazioni superiore agli altri chip.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGA rispetto a CPU, GPU e ASIC
+- Una sottoscrizione di Azure.  Se non se ne ha una, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- Quota FPGA. Usare l'interfaccia della riga di comando di Azure per verificare se è presente una quota:
+
+    ```azurecli-interactive
+    az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
+    ```
+
+    > [!TIP]
+    > Le altre posizioni possibili sono ``southeastasia`` , ``westeurope`` e ``westus2`` .
+
+    Il comando restituisce un testo simile al seguente:
+
+    ```text
+    CurrentValue    Limit    LocalName
+    --------------  -------  -------------------------
+    0               6        Standard PBS Family vCPUs
+    ```
+
+    Assicurarsi di avere almeno 6 vCPU in __currentValue__.
+
+    Se non si dispone della quota, inviare una richiesta all'indirizzo [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI) .
+
+- Un'area di lavoro di Azure Machine Learning e Azure Machine Learning SDK per Python installata. Per altre informazioni, vedere [creare un'area di lavoro](how-to-manage-workspace.md).
+ 
+- Python SDK per i modelli con accelerazione hardware:
+
+    ```bash
+    pip install --upgrade azureml-accel-models[cpu]
+    ```
+
+## <a name="what-are-fpgas"></a>Che cosa sono gli FPGA
+
+Un circuito FPGA contiene un array di blocchi programmabili per la logica e una gerarchia di interconnessioni riconfigurabili. Le interconnessioni consentono di configurare questi blocchi in diversi modi dopo la produzione. I circuiti FPGA offrono una combinazione di programmabilità e prestazioni superiore agli altri chip. 
 
 Il diagramma e la tabella seguenti evidenziano un confronto tra i circuiti FPGA e gli altri processori.
 
@@ -43,10 +76,14 @@ Gli FPGA in Azure si basano sui dispositivi FPGA di Intel, che i data scientist 
 Gli FPGA consentono di ottenere una bassa latenza per le richieste di inferenza in tempo reale (o punteggio del modello). Non sono necessarie richieste asincrone (invio in batch). L'invio in batch può causare latenza perché rende necessario elaborare più dati. Le implementazioni delle unità di elaborazione neurale non richiedono l'invio in batch; la latenza può pertanto essere più bassa rispetto ai processori CPU e GPU.
 
 ### <a name="reconfigurable-power"></a>Potenza riconfigurabile
+
 I circuiti FPGA possono essere riconfigurati per diversi tipi di modelli di Machine Learning. Questa flessibilità consente di accelerare le applicazioni basandosi sul modello ottimale di memoria e precisione numerica utilizzato. Dal momento che sono riconfigurabili, è possibile rimanere al passo con i requisiti degli algoritmi AI in costante evoluzione.
 
-## <a name="whats-supported-on-azure"></a>Attività supportate su Azure
-Microsoft Azure ha realizzato l'investimento in dispositivi FPGA per il cloud più importante al mondo. Con questa architettura hardware abilitata per FPGA, le reti neurali sottoposte a training vengono eseguite rapidamente e con una latenza inferiore. Azure può parallelizzare le reti neurali con training preliminare (DNN) su più FPGA per scalare orizzontalmente il servizio. È possibile eseguire training preliminare sulle reti neurali profonde, per utilità di funzioni complete per il trasferimento di apprendimento o per ottimizzazione con pesi aggiornati.
+### <a name="fpga-support-in-azure"></a>Supporto per FPGA in Azure
+
+Microsoft Azure ha realizzato l'investimento in dispositivi FPGA per il cloud più importante al mondo. Microsoft usa i circuiti FPGA per la valutazione delle reti neurali profonde, per la classificazione delle ricerche Bing e per l'accelerazione della tecnologia SDN (Software Defined Networking) per ridurre la latenza, rendendo disponibile la CPU per altre attività.
+
+Azure FPGA è integrato con Azure Machine Learning. Azure può parallelizzare le reti neurali con training preliminare (DNN) su più FPGA per scalare orizzontalmente il servizio. È possibile eseguire training preliminare sulle reti neurali profonde, per utilità di funzioni complete per il trasferimento di apprendimento o per ottimizzazione con pesi aggiornati.
 
 Gli FPGA in Azure supportano:
 
@@ -55,6 +92,7 @@ Gli FPGA in Azure supportano:
 + Hardware Intel FPGA
 
 Questi modelli di DNN sono attualmente disponibili:
+
   - ResNet 50
   - ResNet 152
   - DenseNet-121
@@ -62,6 +100,7 @@ Questi modelli di DNN sono attualmente disponibili:
   - UNITÀ SSD-VGG
 
 Gli FPGA sono disponibili nelle aree di Azure seguenti:
+
   - Stati Uniti orientali
   - Asia sud-orientale
   - Europa occidentale
@@ -72,63 +111,20 @@ Gli FPGA sono disponibili nelle aree di Azure seguenti:
 
 La **famiglia di macchine virtuali di Azure PBS** contiene Intel ARRIA 10 FPGA. Viene visualizzato come "famiglia PBS standard vCPU" quando si controlla l'allocazione delle quote di Azure. La VM PB6 ha sei vCPU e un FPGA e ne viene effettuato automaticamente il provisioning da Azure ML come parte della distribuzione di un modello in un FPGA. Viene usato solo con Azure ML e non può eseguire Bitstream arbitrari. Ad esempio, non sarà possibile eseguire il flashing di FPGA con Bitstream per eseguire operazioni di crittografia, codifica e così via.
 
-### <a name="scenarios-and-applications"></a>Scenari e applicazioni
-
-Azure FPGA è integrato con Azure Machine Learning. Microsoft usa i circuiti FPGA per la valutazione delle reti neurali profonde, per la classificazione delle ricerche Bing e per l'accelerazione della tecnologia SDN (Software Defined Networking) per ridurre la latenza, rendendo disponibile la CPU per altre attività.
-
-Negli scenari seguenti vengono usati gli FPGA:
-+ [Sistema di controllo ottico automatico](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
-
-+ [Mapping della copertura di terra](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
-
 ## <a name="deploy-models-on-fpgas"></a>Distribuire modelli in dispositivi FPGA
 
 È possibile distribuire un modello come servizio Web in FPGA con [Azure Machine Learning modelli con accelerazione hardware](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py). L'uso di FPGA fornisce un'inferenza di latenza estremamente bassa, anche con una singola dimensione del batch. L'inferenza o il punteggio del modello è la fase in cui il modello distribuito viene usato per la stima, più comunemente sui dati di produzione.
 
-### <a name="prerequisites"></a>Prerequisiti
-
-- Una sottoscrizione di Azure.  Se non se ne ha una, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
-
-- Quota FPGA. Usare l'interfaccia della riga di comando di Azure per verificare se è presente una quota:
-
-    ```azurecli-interactive
-    az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
-    ```
-
-    > [!TIP]
-    > Le altre posizioni possibili sono ``southeastasia``, ``westeurope``e ``westus2``.
-
-    Il comando restituisce un testo simile al seguente:
-
-    ```text
-    CurrentValue    Limit    LocalName
-    --------------  -------  -------------------------
-    0               6        Standard PBS Family vCPUs
-    ```
-
-    Assicurarsi di avere almeno 6 vCPU in __currentValue__.
-
-    Se non si dispone della quota, inviare una richiesta all'indirizzo [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
-
-- Un'area di lavoro di Azure Machine Learning e Azure Machine Learning SDK per Python installata. Per altre informazioni, vedere [creare un'area di lavoro](how-to-manage-workspace.md).
- 
-- Python SDK per i modelli con accelerazione hardware:
-
-    ```bash
-    pip install --upgrade azureml-accel-models[cpu]
-    ```
-
-### <a name="1-create-and-containerize-models"></a>1. creare e distribuire modelli
-
-Questo documento descrive come creare un grafico TensorFlow per la pre-elaborazione dell'immagine di input, impostarla come featurizer usando ResNet 50 in un FPGA, quindi eseguire le funzionalità tramite un classificatore sottoposto a training nel set di dati imagen.
-
-Seguire le istruzioni per:
+La distribuzione di un modello in un FPGA prevede i passaggi seguenti:
 
 * Definire il modello TensorFlow
-* Convertire il modello
-* Distribuire il modello
+* Convertire il modello in ONNX
+* Distribuire il modello nel cloud o in un dispositivo perimetrale
 * Utilizzare il modello distribuito
-* Eliminare i servizi distribuiti
+
+In questo esempio viene creato un grafico TensorFlow per pre-elaborare l'immagine di input, impostarla come featurizer usando ResNet 50 in un FPGA, quindi eseguire le funzionalità tramite un classificatore sottoposto a training nel set di dati imagen. Quindi, il modello viene distribuito in un cluster AKS.
+
+## <a name="1-define-the-tensorflow-model"></a>1. definire il modello TensorFlow
 
 Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) per creare una definizione del servizio. Una definizione del servizio è un file che descrive una pipeline di grafici (input, utilità di funzioni e classificatore) basata su TensorFlow. Il comando di distribuzione comprime automaticamente la definizione e i grafici in un file ZIP e carica il file zip in Archiviazione BLOB di Azure. Il DNN è già distribuito per l'esecuzione nell'FPGA.
 
@@ -144,7 +140,7 @@ Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/
    print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
    ```
 
-2. Pre-elaborazione immagine. L'input per il servizio Web è un'immagine JPEG.  Il primo passaggio consiste nel decodificare l'immagine JPEG e pre-elaborarla.  Le immagini JPEG vengono considerate come stringhe e il risultato è costituito da tensori che saranno l'input per il modello ResNet 50.
+1. Pre-elaborazione immagine. L'input per il servizio Web è un'immagine JPEG.  Il primo passaggio consiste nel decodificare l'immagine JPEG e pre-elaborarla.  Le immagini JPEG vengono considerate come stringhe e il risultato è costituito da tensori che saranno l'input per il modello ResNet 50.
 
    ```python
    # Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
@@ -229,6 +225,10 @@ Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/
      output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
      ```
 
+## <a name="2-convert-the-model"></a>2. convertire il modello
+
+Prima di distribuire il modello in FPGA, è necessario convertirlo in formato ONNX.
+
 1. [Registrare](concept-model-management-and-deployment.md) il modello usando l'SDK con il file zip nell'archiviazione BLOB di Azure. L'aggiunta di tag e altri metadati sul modello consente di tenere traccia dei modelli sottoposti a training.
 
    ```python
@@ -270,7 +270,9 @@ Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/
          converted_model.id, converted_model.created_time, '\n')
    ```
 
-1. Creare un'immagine Docker dal modello convertito e da tutte le dipendenze.  È quindi possibile distribuire e creare un'istanza dell'immagine docker.  Le destinazioni di distribuzione supportate includono AKS nel cloud o un dispositivo perimetrale, ad esempio [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  È anche possibile aggiungere tag e descrizioni per l'immagine Docker registrata.
+## <a name="3-containerize-and-deploy-the-model"></a>3. distribuire e distribuire il modello
+
+Creare un'immagine Docker dal modello convertito e da tutte le dipendenze.  È quindi possibile distribuire e creare un'istanza dell'immagine docker.  Le destinazioni di distribuzione supportate includono AKS nel cloud o un dispositivo perimetrale, ad esempio [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  È anche possibile aggiungere tag e descrizioni per l'immagine Docker registrata.
 
    ```python
    from azureml.core.image import Image
@@ -295,53 +297,60 @@ Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/
            i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
    ```
 
-### <a name="2-deploy-to-cloud-or-edge"></a>2. Distribuisci nel cloud o in un dispositivo perimetrale
+### <a name="deploy-to-aks-cluster"></a>Distribuire nel cluster AKS
 
-Per distribuire il modello come servizio Web in uno scenario di produzione su vasta scala, usare il servizio Azure Kubernetes. È possibile crearne uno nuovo usando Azure Machine Learning SDK, l'interfaccia della riga di comando o [Azure Machine Learning Studio](https://ml.azure.com).
+1. Per distribuire il modello come servizio Web in uno scenario di produzione su vasta scala, usare il servizio Azure Kubernetes. È possibile crearne uno nuovo usando Azure Machine Learning SDK, l'interfaccia della riga di comando o [Azure Machine Learning Studio](https://ml.azure.com).
 
-```python
-from azureml.core.compute import AksCompute, ComputeTarget
+    ```python
+    from azureml.core.compute import AksCompute, ComputeTarget
+    
+    # Specify the Standard_PB6s Azure VM and location. Values for location may be "eastus", "southeastasia", "westeurope", or "westus2". If no value is specified, the default is "eastus".
+    prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
+                                                        agent_count = 1,
+                                                        location = "eastus")
+    
+    aks_name = 'my-aks-cluster'
+    # Create the cluster
+    aks_target = ComputeTarget.create(workspace=ws,
+                                      name=aks_name,
+                                      provisioning_configuration=prov_config)
+    ```
 
-# Specify the Standard_PB6s Azure VM and location. Values for location may be "eastus", "southeastasia", "westeurope", or "westus2". If no value is specified, the default is "eastus".
-prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
-                                                    agent_count = 1,
-                                                    location = "eastus")
+    La distribuzione di AKS potrebbe richiedere circa 15 minuti.  Verificare che la distribuzione sia stata completata correttamente.
 
-aks_name = 'my-aks-cluster'
-# Create the cluster
-aks_target = ComputeTarget.create(workspace=ws,
-                                  name=aks_name,
-                                  provisioning_configuration=prov_config)
-```
+    ```python
+    aks_target.wait_for_completion(show_output=True)
+    print(aks_target.provisioning_state)
+    print(aks_target.provisioning_errors)
+    ```
 
-La distribuzione di AKS potrebbe richiedere circa 15 minuti.  Verificare che la distribuzione sia stata completata correttamente.
+1. Distribuire il contenitore nel cluster AKS.
 
-```python
-aks_target.wait_for_completion(show_output=True)
-print(aks_target.provisioning_state)
-print(aks_target.provisioning_errors)
-```
+    ```python
+    from azureml.core.webservice import Webservice, AksWebservice
+    
+    # For this deployment, set the web service configuration without enabling auto-scaling or authentication for testing
+    aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
+                                                    num_replicas=1,
+                                                    auth_enabled=False)
+    
+    aks_service_name = 'my-aks-service'
+    
+    aks_service = Webservice.deploy_from_image(workspace=ws,
+                                               name=aks_service_name,
+                                               image=image,
+                                               deployment_config=aks_config,
+                                               deployment_target=aks_target)
+    aks_service.wait_for_deployment(show_output=True)
+    ```
 
-Distribuire il contenitore nel cluster AKS.
-```python
-from azureml.core.webservice import Webservice, AksWebservice
+### <a name="deploy-to-a-local-edge-server"></a>Eseguire la distribuzione in un server perimetrale locale
 
-# For this deployment, set the web service configuration without enabling auto-scaling or authentication for testing
-aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
-                                                num_replicas=1,
-                                                auth_enabled=False)
+Tutti i [dispositivi Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
+) contengono un FPGA per l'esecuzione del modello.  È possibile eseguire un solo modello su FPGA in una sola volta.  Per eseguire un modello diverso, è sufficiente distribuire un nuovo contenitore. Le istruzioni e il codice di esempio sono disponibili in [questo esempio di Azure](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
-aks_service_name = 'my-aks-service'
+## <a name="4-consume-the-deployed-model"></a>4. utilizzo del modello distribuito
 
-aks_service = Webservice.deploy_from_image(workspace=ws,
-                                           name=aks_service_name,
-                                           image=image,
-                                           deployment_config=aks_config,
-                                           deployment_target=aks_target)
-aks_service.wait_for_deployment(show_output=True)
-```
-
-#### <a name="test-the-cloud-service"></a>Testare il servizio cloud
 L'immagine Docker supporta gRPC e TensorFlow che servono l'API "Predict".  Usare il client di esempio per chiamare l'immagine Docker per ottenere stime dal modello.  Il codice client di esempio è disponibile:
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
 - [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
@@ -385,7 +394,8 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-### <a name="clean-up-the-service"></a>Pulire il servizio
+## <a name="clean-up-resources"></a>Pulire le risorse
+
 Eliminare il servizio Web, l'immagine e il modello (l'operazione deve essere eseguita in questo ordine perché sono presenti dipendenze).
 
 ```python
@@ -396,11 +406,6 @@ registered_model.delete()
 converted_model.delete()
 ```
 
-### <a name="deploy-to-a-local-edge-server"></a>Eseguire la distribuzione in un server perimetrale locale
-
-Tutti i [dispositivi Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
-) contengono un FPGA per l'esecuzione del modello.  È possibile eseguire un solo modello su FPGA in una sola volta.  Per eseguire un modello diverso, è sufficiente distribuire un nuovo contenitore. Le istruzioni e il codice di esempio sono disponibili in [questo esempio di Azure](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
-
 ## <a name="secure-fpga-web-services"></a>Proteggere i servizi web FPGA
 
 Per proteggere i servizi Web di FPGA, vedere il documento relativo ai [servizi Web protetti](how-to-secure-web-service.md) .
@@ -410,9 +415,8 @@ Per proteggere i servizi Web di FPGA, vedere il documento relativo ai [servizi W
 Guarda i notebook, i video e i blog seguenti:
 
 + Diversi [notebook di esempio](https://aka.ms/aml-accel-models-notebooks)
-
 + [Hardware iperscalabile: ML su larga scala in Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
-
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063) (Informazioni sul cloud configurabile basato su Microsoft FPGA)
-
 + [Microsoft unveils Project Brainwave for real-time AI: project homepage](https://www.microsoft.com/research/project/project-brainwave/) (Microsoft presenta Project Brainwave per AI in tempo reale: home page)
++ [Sistema di controllo ottico automatico](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
++ [Mapping della copertura di terra](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)

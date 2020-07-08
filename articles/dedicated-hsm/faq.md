@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84310386"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -115,7 +114,7 @@ Sì, se si hanno moduli di protezione hardware Gemalto SafeNet locali. Esistono 
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>D: Quali sono i sistemi operativi supportati dal software client HSM dedicato?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtuali: VMware, hyperv, Xen, KVM
+* Virtuale: VMware, Hyper-V, Xen, KVM
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>D: Come si configura l'applicazione client per creare una configurazione a disponibilità elevata con più partizioni da più moduli di protezione hardware?
 
@@ -242,7 +241,7 @@ Microsoft non ha la possibilità di connettersi ai moduli di protezione hardware
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>D: cosa accade se è necessario riavviare il modulo HSM?
 
-Il modulo di protezione hardware dispone di un'opzione di riavvio dalla riga di comando. Tuttavia, si verificano problemi di blocco del riavvio in modo intermittente e per questo motivo è consigliabile per il riavvio sicuro che si genera una richiesta di supporto con Microsoft per il riavvio fisico del dispositivo. 
+Il modulo di protezione hardware dispone di un'opzione di riavvio dalla riga di comando. Tuttavia, si verificano problemi in cui il riavvio smette di rispondere in modo intermittente e per questo motivo è consigliabile per il riavvio sicuro che si genera una richiesta di supporto con Microsoft per riavviarlo fisicamente. 
 
 ## <a name="cryptography-and-standards"></a>Crittografia e standard
 

@@ -5,17 +5,16 @@ description: Come selezionare Azure Machine Learning algoritmi per l'apprendimen
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
-ms.openlocfilehash: ad384896301e809940f6e99df2f5562cfdb6a6fe
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 582d6077a4b84e5b2d8c0d69da7b00b807a355b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927582"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433153"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Come selezionare gli algoritmi per Azure Machine Learning
 
@@ -46,27 +45,27 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 
 Nella tabella seguente sono riepilogate alcune delle principali caratteristiche degli algoritmi delle famiglie di classificazione, regressione e clustering:
 
-| **Algoritmo** | **Precisione** | **Tempo di formazione** | **Linearità** | **Parametri** | **Note** |
+| **Algoritmo** | **Precisione** | **Tempo di formazione** | **Linearità** | **Parameters** | **Note** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Famiglia di classificazione** | | | | | |
-| [Regressione logistica a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Buone  |Veloce |Sì |4 | |
-| [Foresta delle decisioni a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Eccellenti |Moderata |No |5 |Mostra i tempi di assegnazione dei punteggi più lenti. Si consiglia di non utilizzare One-vs-All Multiclass, a causa di tempi di punteggio più lenti causati da un blocco battistrada nell'accumulo di stime ad albero |
-| [Albero delle decisioni con boosting a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Eccellenti |Moderata |No |6 |Footprint della memoria di grandi dimensioni |
-| [Rete neurale a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Buone |Moderata |No |8 | |
-| [Perceptron media a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Buone |Moderata |Sì |4 | |
-| [Macchina a vettori di supporto a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |Buone |Veloce |Sì |5 |Particolarmente valido per set di funzioni di grandi dimensioni |
-| [Regressione logistica multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |Buone |Veloce |Sì |4 | |
-| [Foresta delle decisioni multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Eccellenti |Moderata |No |5 |Mostra i tempi di assegnazione dei punteggi più lenti |
-| [Albero delle decisioni con boosting multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Eccellenti |Moderata |No |6 | Tende a migliorare l'accuratezza con un piccolo rischio di minore copertura |
-| [Rete neurale multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Buone |Moderata |No |8 | |
+| [Regressione logistica a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Buono  |Veloce |Sì |4 | |
+| [Foresta delle decisioni a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Eccellente |Moderato |No |5 |Mostra i tempi di assegnazione dei punteggi più lenti. Si consiglia di non utilizzare One-vs-All Multiclass, a causa di tempi di punteggio più lenti causati da un blocco battistrada nell'accumulo di stime ad albero |
+| [Albero delle decisioni con boosting a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Eccellente |Moderato |No |6 |Footprint della memoria di grandi dimensioni |
+| [Rete neurale a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Buono |Moderato |No |8 | |
+| [Perceptron media a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Buono |Moderato |Sì |4 | |
+| [Macchina a vettori di supporto a due classi](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |Buono |Veloce |Sì |5 |Particolarmente valido per set di funzioni di grandi dimensioni |
+| [Regressione logistica multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |Buono |Veloce |Sì |4 | |
+| [Foresta delle decisioni multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Eccellente |Moderato |No |5 |Mostra i tempi di assegnazione dei punteggi più lenti |
+| [Albero delle decisioni con boosting multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Eccellente |Moderato |No |6 | Tende a migliorare l'accuratezza con un piccolo rischio di minore copertura |
+| [Rete neurale multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Buono |Moderato |No |8 | |
 | [Una multiclasse One-vs-All](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |Visualizzare le proprietà del metodo a due classi selezionato |
 | **Famiglia di regressione** | | | | | |
-| [Regressione lineare](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Buone |Veloce |Sì |4 | |
-| [Regressione della foresta delle decisioni](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Eccellenti |Moderata |No |5 | |
-| [Regressione dell'albero delle decisioni con boosting](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Eccellenti |Moderata |No |6 |Footprint della memoria di grandi dimensioni |
-| [Regressione di rete neurale](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Buone |Moderata |No |8 | |
+| [Regressione lineare](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Buono |Veloce |Sì |4 | |
+| [Regressione della foresta delle decisioni](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Eccellente |Moderato |No |5 | |
+| [Regressione dell'albero delle decisioni con boosting](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Eccellente |Moderato |No |6 |Footprint della memoria di grandi dimensioni |
+| [Regressione di rete neurale](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Buono |Moderato |No |8 | |
 | **Famiglia di clustering** | | | | | |
-| [Clustering K-means](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |Eccellenti |Moderata |Sì |8 |Algoritmo di clustering |
+| [Clustering K-means](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |Eccellente |Moderato |Sì |8 |Algoritmo di clustering |
 
 ## <a name="requirements-for-a-data-science-scenario"></a>Requisiti per uno scenario di data science
 

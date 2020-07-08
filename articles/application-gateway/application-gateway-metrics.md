@@ -5,14 +5,13 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
+ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: a4770b3ae7c52b9a05ff704915a3e9f401fd1741
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: bf02bdc4d824a47bdaad4821ffc9562b9fe2dd40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84482624"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -24,7 +23,7 @@ Il gateway applicazione pubblica i punti dati, detti metrica, in [monitoraggio d
 
 Il gateway applicazione offre diverse metriche temporali predefinite relative alla richiesta e alla risposta, che sono tutte misurate in millisecondi. 
 
-![](./media/application-gateway-metrics/application-gateway-metrics.png)
+![Diagramma delle metriche temporali per il gateway applicazione.](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
@@ -54,7 +53,7 @@ Il gateway applicazione offre diverse metriche temporali predefinite relative al
 
   Si tratta dell'intervallo dal momento in cui il gateway applicazione riceve il primo byte della richiesta HTTP al momento in cui l'ultimo byte di risposta è stato inviato al client. Questo include il tempo di elaborazione impiegato dal gateway applicazione, il *tempo di risposta ultimo byte back-end*, il tempo impiegato dal gateway applicazione per inviare tutte le risposte e il RTT del *client*.
 
-- **RTT client**
+- **Client RTT (Scrittura in tempo reale client)**
 
   Tempo medio round trip tra i client e il gateway applicazione.
 
@@ -86,7 +85,7 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Unità di capacità correnti**
 
-   Il numero di unità di capacità utilizzate per bilanciare il carico del traffico. Esistono tre fattori determinanti per la capacità: unità di calcolo, connessioni permanenti e velocità effettiva. Ogni unità di capacità è composta al massimo: 1 unità di calcolo o 2500 connessioni permanenti o velocità effettiva di 2,22 Mbps.
+   Il numero di unità di capacità utilizzate per bilanciare il carico del traffico. Esistono tre fattori determinanti per la capacità: unità di calcolo, connessioni permanenti e velocità effettiva. Ogni unità di capacità è composta al massimo da: 1 unità di calcolo o 2500 connessioni persistenti o 2,22 Mbps di velocità effettiva.
 
 - **Unità di calcolo correnti**
 
@@ -133,15 +132,15 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
   Numero di codici di stato della risposta HTTP restituiti dai backend. Non sono inclusi i codici di risposta generati dal gateway applicazione. La distribuzione del codice di stato della risposta può essere ulteriormente classificata per visualizzare le risposte nelle categorie 2xx, 3xx, 4xx e 5xx.
 
-- **Numero di host integri**
+- **Numero host integro**
 
   Il numero di backend che sono determinati integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare il numero di host integri in un pool back-end specifico.
 
-- **Numero di host non integri**
+- **Numero host non integro**
 
   Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
   
-- **Richieste al minuto per host integro**
+- **Requests per minute per Healthy Host (Richieste al minuto per host integro)**
 
   Numero medio di richieste ricevute da ogni membro integro in un pool back-end in un minuto. È necessario specificare il pool back-end usando la dimensione *end di integri* .  
   
@@ -156,7 +155,7 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
   Visualizza l'utilizzo delle CPU allocate al gateway applicazione.  In condizioni normali, l'utilizzo della CPU non deve superare regolarmente il 90%, in quanto ciò potrebbe causare una latenza nei siti Web ospitati dietro il gateway applicazione e compromettere l'esperienza del client. È possibile controllare indirettamente o migliorare l'utilizzo della CPU modificando la configurazione del gateway applicazione tramite un aumento del numero di istanze o il passaggio a dimensioni di SKU maggiori oppure eseguendo entrambe queste operazioni.
 
-- **connessioni correnti**
+- **Connessioni correnti**
 
   Numero di connessioni correnti stabilite con il gateway applicazione
 
@@ -176,19 +175,19 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
   Numero di richieste riuscite gestite dal gateway applicazione. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazioni http del pool back-end specifico.
 
-- **Conteggio richieste bloccate del Web Application Firewall**
+- **Web Application Firewall Blocked Requests Count (Web application firewall - Conteggio richieste bloccate)**
 - **Distribuzione richieste bloccate del Web Application Firewall**
-- **Distribuzione della regola totale del firewall applicazione Web**
+- **Web Application Firewall Total Rule Distribution (Web application firewall - Distribuzione regole totali)**
 
 ### <a name="backend-metrics"></a>Metriche back-end
 
 Per il gateway applicazione sono disponibili le metriche seguenti:
 
-- **Numero di host integri**
+- **Numero host integro**
 
   Il numero di backend che sono determinati integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare il numero di host integri in un pool back-end specifico.
 
-- **Numero di host non integri**
+- **Numero host non integro**
 
   Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
 

@@ -2,18 +2,17 @@
 title: Eseguire la migrazione di Azure Data Lake Storage da Gen1 a Gen2
 description: Eseguire la migrazione di Azure Data Lake Storage da Gen1 a Gen2.
 author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: aa4881aef9f3a9ba5d19fb0b768f13a1eb372296
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c50ceae36c784b8b869977f14351ab5858fc7c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131426"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466018"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Eseguire la migrazione di Azure Data Lake Storage da Gen1 a Gen2
 
@@ -79,7 +78,7 @@ Eseguire la migrazione di dati, carichi di lavoro e applicazioni usando il model
    
 5. Aggiornare gli script per usare Data Lake Storage Gen2 [cmdlet di PowerShell](data-lake-storage-directory-file-acl-powershell.md)e i comandi dell'interfaccia della riga di comando di [Azure](data-lake-storage-directory-file-acl-cli.md).
    
-6. Cercare i riferimenti URI che contengono la stringa `adl://` nei file di codice o nei notebook di databricks, Apache hive file HQL o qualsiasi altro file usato come parte dei carichi di lavoro. Sostituire questi riferimenti con l' [URI formattato Gen2](data-lake-storage-introduction-abfs-uri.md) del nuovo account di archiviazione. Ad esempio, l'URI Gen1: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` potrebbe diventare `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
+6. Cercare i riferimenti URI che contengono la stringa `adl://` nei file di codice o nei notebook di databricks, Apache hive file HQL o qualsiasi altro file usato come parte dei carichi di lavoro. Sostituire questi riferimenti con l' [URI formattato Gen2](data-lake-storage-introduction-abfs-uri.md) del nuovo account di archiviazione. Ad esempio, l'URI Gen1: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` potrebbe diventare `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile` . 
 
 7. Configurare la sicurezza per l'account in modo da includere [ruoli di controllo degli accessi in base al ruolo](../common/storage-auth-aad-rbac-portal.md), sicurezza a livello di [file e cartelle](data-lake-storage-access-control.md)e [firewall e reti virtuali di archiviazione di Azure](../common/storage-network-security.md).
 
@@ -87,7 +86,7 @@ Eseguire la migrazione di dati, carichi di lavoro e applicazioni usando il model
 
 Quando si è certi che le applicazioni e i carichi di lavoro siano stabili in Gen2, è possibile iniziare a usare Gen2 per soddisfare gli scenari aziendali. Disattivare le pipeline rimanenti in esecuzione su Gen1 e rimuovere le autorizzazioni per l'account Gen1. 
 
-<a id="gen1-gen2-feature-comparison" />
+<a id="gen1-gen2-feature-comparison"></a>
 
 ## <a name="gen1-vs-gen2-capabilities"></a>Funzionalità di Gen1 e Gen2
 
@@ -96,16 +95,16 @@ In questa tabella vengono confrontate le funzionalità di Gen1 a quella di Gen2.
 |Area |Prima generazione   |Seconda generazione |
 |---|---|---|
 |Organizzazione dei dati|[Spazio dei nomi gerarchico](data-lake-storage-namespace.md)<br>Supporto di file e cartelle|[Spazio dei nomi gerarchico](data-lake-storage-namespace.md)<br>Supporto di contenitori, file e cartelle |
-|Ridondanza geografica| [CON ridondanza locale](../common/storage-redundancy.md#locally-redundant-storage)| [con ridondanza locale](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|Autenticazione|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Chiave di accesso condiviso](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
+|Ridondanza geografica| [Archiviazione con ridondanza locale](../common/storage-redundancy.md#locally-redundant-storage)| [con ridondanza locale](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
+|Authentication|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Chiave di accesso condiviso](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Autorizzazione|Gestione- [RBAC](../../role-based-access-control/overview.md)<br>Dati- [ACL](data-lake-storage-access-control.md)|Gestione- [RBAC](../../role-based-access-control/overview.md)<br>[ACL](data-lake-storage-access-control.md)dati, [RBAC](../../role-based-access-control/overview.md) |
 |Crittografia: dati inattivi|Lato server: con chiavi [gestite da Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o gestite dal [cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|Lato server: con chiavi [gestite da Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o gestite dal [cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Supporto di VNET|[integrazione rete virtuale](../../data-lake-store/data-lake-store-network-security.md)|[Endpoint di servizio](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [endpoint privati](../common/storage-private-endpoints.md)|
 |Esperienza per gli sviluppatori|[Rest](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [interfaccia](../../data-lake-store/data-lake-store-get-started-cli-2.0.md) della riga di comando di Azure|Disponibile a livello generale- [Rest](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>Anteprima pubblica- [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [interfaccia](data-lake-storage-directory-file-acl-cli.md) della riga di comando di Azure|
 |Log risorse|Log classici<br>[Monitoraggio di Azure integrato](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Log classici](../common/storage-analytics-logging.md) -disponibile a livello generale<br>Integrazione di monitoraggio di Azure-sequenza temporale TBD|
-|Ecosistema|[HDInsight (3,6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3,1 e versioni successive)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3,6, 4,0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5,1 e versioni successive)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
+|Ecosistema|[HDInsight (3,6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3,1 e versioni successive)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3,6, 4,0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5,1 e versioni successive)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
-<a id="migration-patterns" />
+<a id="migration-patterns"></a>
 
 ## <a name="gen1-to-gen2-patterns"></a>Modelli di Gen1 a Gen2
 

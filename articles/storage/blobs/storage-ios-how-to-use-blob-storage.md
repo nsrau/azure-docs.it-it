@@ -6,13 +6,12 @@ ms.author: mhopkins
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.topic: how-to
+ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465491"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Come usare l'archivio BLOB da iOS
 
@@ -82,7 +81,7 @@ L'altro modo per usare la libreria consiste nel creare il framework manualmente:
 #import <AZSClient/AZSClient.h>
 ```
 
-Se si usa Swift, è necessario creare un'intestazione di bridging e importare \<AZSClient/AZSClient.h> qui:
+Se si usa Swift, è necessario creare un'intestazione bridging e importarla \<AZSClient/AZSClient.h> :
 
 1. Creare un file di intestazione `Bridging-Header.h` e aggiungere l'istruzione di importazione precedente.
 2. Passare alla scheda *Build Settings* (Impostazioni compilazione) e cercare *Objective-C Bridging Header* (Intestazione provvisoria Objective-C).

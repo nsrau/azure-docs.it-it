@@ -4,16 +4,15 @@ description: Questo articolo illustra le funzionalità di monitoraggio e notific
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: de5a82f5ad1d8113b27c07484f2f08f4cf97c759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485094"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 
-Backup di Azure offre più soluzioni di backup in base al requisito di backup e alla topologia dell'infrastruttura (in locale rispetto ad Azure). Eventuali utenti o amministratori di backup dovrebbero vedere cosa accade in tutte le soluzioni e dovrebbero ricevere notifiche in scenari importanti. Questo articolo descrive in dettaglio le funzionalità di monitoraggio e notifica fornite dal servizio backup di Azure.
+Backup di Azure offre più soluzioni di backup in base al requisito di backup e alla topologia dell'infrastruttura (in locale rispetto ad Azure). Eventuali utenti o amministratori di backup dovrebbero vedere cosa accade in tutte le soluzioni e possono prevedere di ricevere notifiche in scenari importanti. Questo articolo descrive in dettaglio le funzionalità di monitoraggio e notifica fornite dal servizio backup di Azure.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Processi di backup nell'insieme di credenziali di servizi di ripristino
 
@@ -21,7 +20,7 @@ Backup di Azure offre funzionalità di monitoraggio e avviso predefinite per i c
 
 ![Monitoraggio incorporato dell'insieme di credenziali RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
 
-I processi vengono generati quando vengono eseguite operazioni quali la configurazione di backup, backup, ripristino, eliminazione del backup e così via.
+I processi vengono generati quando vengono eseguite operazioni quali la configurazione del backup, il backup, il ripristino, l'eliminazione del backup e così via.
 
 I processi dalle seguenti soluzioni di backup di Azure sono illustrati di seguito:
 
@@ -33,7 +32,7 @@ I processi dalle seguenti soluzioni di backup di Azure sono illustrati di seguit
 I processi da System Center Data Protection Manager (SC-DPM), server di Backup di Microsoft Azure (MAB) non vengono visualizzati.
 
 > [!NOTE]
-> I carichi di lavoro di Azure, ad esempio SQL e SAP HANA backup nelle VM di Azure, hanno un numero elevato di processi di backup. Ad esempio, i backup del log possono essere eseguiti ogni 15 minuti. Per questi carichi di lavoro di database vengono quindi visualizzate solo le operazioni attivate dall'utente. Le operazioni di backup pianificate non vengono visualizzate.
+> I carichi di lavoro di Azure, ad esempio SQL e SAP HANA backup nelle VM di Azure, hanno un numero elevato di processi di backup. Ad esempio, i backup del log possono essere eseguiti ogni 15 minuti. Per questi carichi di lavoro di database, vengono visualizzate solo le operazioni attivate dall'utente. Le operazioni di backup pianificate non vengono visualizzate.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Avvisi di backup nell'insieme di credenziali di servizi di ripristino
 
@@ -77,8 +76,8 @@ Le eccezioni sopra riportate sono progettate dal comprendere che il risultato di
 In base alla gravità dell'avviso, gli avvisi possono essere definiti in tre tipi:
 
 - **Critico**: in linea di principio, qualsiasi errore di backup o ripristino (pianificato o attivato dall'utente) provocherebbe la generazione di un avviso e verrebbe visualizzato come un avviso critico e anche per operazioni distruttive come l'eliminazione del backup.
-- **Avviso**: se l'operazione di backup ha esito positivo ma con pochi avvisi, questi vengono elencati come avvisi di avviso.
-- **Informativo**: a partire da oggi, il servizio backup di Azure non genera alcun avviso informativo.
+- **Avviso**: se l'operazione di backup ha esito positivo ma con pochi avvisi, vengono elencate come avvisi di avviso. Gli avvisi di avviso sono attualmente disponibili solo per i backup dell'agente di backup di Azure.
+- **Informativo**: attualmente, nessun avviso informativo viene generato dal servizio backup di Azure.
 
 ## <a name="notification-for-backup-alerts"></a>Notifica per gli avvisi di backup
 
@@ -89,9 +88,9 @@ Quando viene generato un avviso, viene inviata una notifica agli utenti. Backup 
 
 ![Notifica di posta elettronica incorporate dell'insieme di credenziali RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
-Quando la notifica viene configurata, si riceverà un messaggio di benvenuto o introduttivo. Questo conferma che backup di Azure può inviare messaggi di posta elettronica a questi indirizzi quando viene generato un avviso.<br>
+Quando viene configurata la notifica, si riceverà un messaggio di benvenuto o introduttivo. Questo conferma che backup di Azure può inviare messaggi di posta elettronica a questi indirizzi quando viene generato un avviso.<br>
 
-Se la frequenza è stata impostata su un digest orario e un avviso viene generato e risolto entro un'ora, non sarà parte del digest orario imminente.
+Se la frequenza è stata impostata su un digest orario e un avviso viene generato e risolto entro un'ora, non farà parte del digest orario imminente.
 
 > [!NOTE]
 >

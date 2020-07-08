@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 475c4fd6b34996c83035c4f7ef93b9fa02ded11f
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 48393ac14805c60ac12df9256f915721ee928758
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84552851"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opzioni di inserimento dei dati per flussi di lavoro Azure Machine Learning
 
@@ -30,7 +30,7 @@ Scegliere tra:
 
 L'inserimento dei dati è il processo in cui i dati non strutturati vengono estratti da una o più origini e quindi preparati per il training dei modelli di machine learning. È anche un tempo molto intenso, soprattutto se eseguito manualmente e se si dispone di grandi quantità di dati da più origini. L'automazione di questa operazione consente di liberare risorse e garantisce che i modelli usino i dati più recenti e applicabili.
 
-## <a name="azure-data-factory"></a>Data factory di Azure
+## <a name="azure-data-factory"></a>Azure Data Factory
 
 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) offre supporto nativo per il monitoraggio e i trigger dell'origine dati per le pipeline di inserimento dati.  
 
@@ -57,7 +57,7 @@ Questi passaggi e il diagramma seguente illustrano il flusso di lavoro di inseri
     
 Informazioni su come creare una pipeline di inserimento dei dati per Machine Learning con [Azure Data Factory](how-to-data-ingest-adf.md).
 
-## <a name="azure-machine-learning-python-sdk"></a>SDK Azure Machine Learning Python 
+## <a name="azure-machine-learning-python-sdk"></a>Python SDK di Azure Machine Learning 
 
 Con [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml)è possibile incorporare le attività di inserimento dei dati in un passaggio della [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md) .
 

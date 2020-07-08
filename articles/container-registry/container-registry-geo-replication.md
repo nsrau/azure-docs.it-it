@@ -1,16 +1,15 @@
 ---
 title: Eseguire la replica geografica di un registro
-description: Introduzione alla creazione e alla gestione di un registro contenitori di Azure con replica geografica, che consente di usare il registro per più aree con repliche a livello di area multimaster.
+description: Introduzione alla creazione e alla gestione di un registro contenitori di Azure con replica geografica, che consente di usare il registro per più aree con repliche a livello di area multimaster. La replica geografica è una funzionalità del livello di servizio Premium.
 author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711568"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84508795"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 

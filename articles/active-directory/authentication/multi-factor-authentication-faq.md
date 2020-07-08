@@ -11,23 +11,22 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d28f93f316ac2a63be6b3a8eb0b80678bd7607f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84483792"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
 Queste domande frequenti offrono risposte su Azure Multi-Factor Authentication e sull'uso del servizio Multi-Factor Authentication. Le domande sono suddivise fra servizio in generale, modelli di fatturazione, esperienze utente e risoluzione dei problemi.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori per gli utenti dovranno usare il servizio Azure Multi-Factor Authentication basato sul cloud. Gli attuali clienti che anno attivato il server MFA prima del 1° luglio potranno scaricare la versione più recente e gli aggiornamenti futuri, oltre a generare le credenziali di attivazione come di consueto.
 >
 > Le informazioni riportate di seguito relative all'server Multi-Factor Authentication di Azure sono valide solo per gli utenti che hanno già eseguito il server di autenticazione a più fattori.
 >
-> Le licenze basate sul consumo non sono più disponibili per i nuovi clienti a partire dal 1 ° settembre 2018.
+> Le licenze basate sul consumo non sono più disponibile per i nuovi clienti a partire dal 1° settembre 2018.
 > A partire dal 1 ° settembre 2018 non è più possibile creare nuovi provider di autenticazione. I provider di autenticazione esistenti potranno continuare a essere usati e aggiornato. L'autenticazione a più fattori continuerà a essere una funzionalità disponibile nelle licenze di Azure AD Premium.
 
 ## <a name="general"></a>Generale
@@ -70,7 +69,7 @@ In Canada vengono usati i codici brevi SMS seguenti:
 * *759731*
 * *673801*
 
-Non vi sono garanzie di recapito di messaggi di richiesta di SMS o Multi-Factor Authentication basati su voce coerenti con lo stesso numero. Per quanto riguarda gli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento, in quanto vengono apportate modifiche alla route per migliorare la distribuzione di SMS. Non sono supportati i codici brevi per i paesi o le aree oltre il Stati Uniti e il Canada.
+Non vi sono garanzie di recapito di messaggi di richiesta di SMS o Multi-Factor Authentication basati su voce coerenti con lo stesso numero. Nell'interesse degli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento per eseguire modifiche di route e migliorare il recapito degli SMS. Non sono supportati i codici brevi per i paesi o le aree oltre il Stati Uniti e il Canada.
 
 ## <a name="billing"></a>Fatturazione
 
@@ -163,7 +162,7 @@ L'amministratore può eliminare tutte le password di app dell'utente per impedir
 
 ### <a name="what-if-a-user-cant-sign-in-to-non-browser-apps"></a>Cosa accade se un utente non riesce ad accedere alle applicazioni non basate su browser?
 
-Se l'organizzazione usa ancora client legacy ed è stato [consentito l'uso delle password di app](howto-mfa-mfasettings.md#app-passwords), gli utenti non possono eseguire l'accesso a questi client legacy con il loro nome utente e password. Devono invece [impostare le password di app](../user-help/multi-factor-authentication-end-user-app-passwords.md). Gli utenti devono cancellare (eliminare) le informazioni di accesso, riavviare l'app e quindi accedere con il proprio nome utente e *password di app* anziché le password normali.
+Se l'organizzazione usa ancora client legacy ed è stato [consentito l'uso delle password di app](howto-mfa-app-passwords.md), gli utenti non possono eseguire l'accesso a questi client legacy con il loro nome utente e password. Devono invece [impostare le password di app](../user-help/multi-factor-authentication-end-user-app-passwords.md). Gli utenti devono cancellare (eliminare) le informazioni di accesso, riavviare l'app e quindi accedere con il proprio nome utente e *password di app* anziché le password normali.
 
 Se l'organizzazione non ha client legacy, non è necessario consentire agli utenti di creare password dell'app.
 
@@ -230,7 +229,7 @@ Esistono diversi motivi per cui agli utenti potrebbe essere chiesto di registrar
 - L'organizzazione ha creato e attivato un criterio di registrazione MFA che è stato applicato all'utente.
 - L'utente è stato registrato in precedenza per MFA, ma ha scelto un metodo di verifica che un amministratore ha poi disabilitato. Pertanto l'utente deve eseguire di nuovo la registrazione MFA per scegliere un nuovo metodo di verifica predefinito.
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>Errori
 
 * [Cosa dovrebbero fare gli utenti se viene visualizzato un messaggio di errore "richiesta di autenticazione non per un account attivato" quando si usano le notifiche di app per dispositivi mobili?](#what-should-users-do-if-they-see-an-authentication-request-is-not-for-an-activated-account-error-message-when-using-mobile-app-notifications)
 * [Cosa possono fare gli utenti se visualizzano un messaggio di errore 0x800434D4L durante l'accesso a un'applicazione non basata su browser?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application)
@@ -240,7 +239,7 @@ Esistono diversi motivi per cui agli utenti potrebbe essere chiesto di registrar
 Richiedere all'utente di completare la procedura seguente per rimuovere l'account dal Microsoft Authenticator, quindi aggiungerlo di nuovo:
 
 1. Passare al [profilo portale di Azure](https://account.activedirectory.windowsazure.com/profile/) e accedere con un account aziendale.
-2. Selezionare **Verifica aggiuntiva di sicurezza**.
+2. Selezionare **verifica aggiuntiva di sicurezza**.
 3. Rimuovere l'account esistente dall'app Microsoft Authenticator.
 4. Fare clic su **Configura**e quindi seguire le istruzioni per riconfigurare il Microsoft Authenticator.
 
@@ -257,4 +256,4 @@ Se la domanda non risponde qui, sono disponibili le opzioni di supporto seguenti
 * Cercare nella [Knowledge Base del supporto tecnico Microsoft](https://support.microsoft.com) le soluzioni ai problemi tecnici comuni.
 * Cercare e consultare le domande e le risposte tecniche della community o porre una domanda nel [Azure Active Directory domande e risposte&a](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 * Contattare Microsoft Professional tramite il [supporto server multi-factor authentication di Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando si contatta Microsoft, è utile includere il maggior numero possibile di informazioni relative al problema. Tali informazioni includono la pagina in cui viene visualizzato l'errore, il codice dell'errore specifico, l'ID della sessione specifico e l'ID dell'utente che visualizza l'errore.
-* Se si è un cliente legacy di PhoneFactor e si hanno domande o se è necessario assistenza per la reimpostazione di [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) una password, usare l'indirizzo di posta elettronica per aprire un caso di supporto.
+* Se si è un cliente legacy di PhoneFactor e si hanno domande o se è necessario assistenza per la reimpostazione di una password, usare l' [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) indirizzo di posta elettronica per aprire un caso di supporto.

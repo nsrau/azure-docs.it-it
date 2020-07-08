@@ -4,18 +4,17 @@ description: Informazioni sui log dei feed di modifiche nell'archivio BLOB di Az
 author: normesta
 ms.author: normesta
 ms.date: 11/04/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465185"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Supporto del feed delle modifiche nell'archivio BLOB di Azure (anteprima)
+# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Supporto del feed di modifiche in Archiviazione BLOB di Azure (anteprima)
 
 Lo scopo del feed delle modifiche è fornire i log delle transazioni di tutte le modifiche apportate ai BLOB e ai metadati del BLOB nell'account di archiviazione. Il feed di modifiche fornisce un registro **ordinato**, **garantito**, **durevole**, non **modificabile**e di sola **lettura** di queste modifiche. Le applicazioni client possono leggere questi log in qualsiasi momento, in streaming o in modalità batch. Il feed delle modifiche consente di creare soluzioni efficienti e scalabili che elaborano gli eventi di modifica che si verificano nell'account di archiviazione BLOB a un costo ridotto.
 
@@ -37,12 +36,12 @@ Il supporto del feed di modifiche è particolarmente adatto per gli scenari in c
 
   - Creare pipeline di applicazioni connesse che reagiscono a eventi di modifica o pianificano le esecuzioni in base all'oggetto creato o modificato.
   
-Il feed delle modifiche è una funzionalità prerequisito per il [ripristino temporizzato per i BLOB in blocchi](point-in-time-restore-overview.md).
+Il feed delle modifiche è una funzionalità prerequisito per la [replica di oggetti](object-replication-overview.md) e il [ripristino temporizzato per i BLOB in blocchi](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > Il feed di modifiche fornisce un modello di log durevole e ordinato delle modifiche che si verificano in un BLOB. Le modifiche vengono scritte e rese disponibili nel log del feed delle modifiche entro un ordine di pochi minuti della modifica. Se l'applicazione deve rispondere agli eventi in modo molto più rapido, provare a usare [gli eventi di archiviazione BLOB](storage-blob-event-overview.md) . [Gli eventi di archiviazione BLOB](storage-blob-event-overview.md) offrono eventi monouso in tempo reale che consentono alle applicazioni o alle funzioni di Azure di rispondere rapidamente alle modifiche apportate a un BLOB. 
 
-## <a name="enable-and-disable-the-change-feed"></a>Abilitare e disabilitare il feed delle modifiche
+## <a name="enable-and-disable-the-change-feed"></a>Abilitare e disabilitare il feed di modifiche
 
 È necessario abilitare il feed delle modifiche nell'account di archiviazione per avviare l'acquisizione e la registrazione delle modifiche. Disabilitare il feed delle modifiche per arrestare l'acquisizione delle modifiche. È possibile abilitare e disabilitare le modifiche usando Azure Resource Manager modelli nel portale o in PowerShell.
 
@@ -63,9 +62,9 @@ Ecco alcuni aspetti da tenere presenti quando si Abilita il feed delle modifiche
 
 Abilitare il feed delle modifiche nell'account di archiviazione usando portale di Azure:
 
-1. Nella [portale di Azure](https://portal.azure.com/)selezionare l'account di archiviazione.
+1. Selezionare l'account di archiviazione nel [portale di Azure](https://portal.azure.com/).
 
-2. Passare all'opzione **protezione dati** in **servizio BLOB**.
+2. Passare all'opzione **Protezione dati** in **Servizio BLOB**.
 
 3. Fare clic su **abilitato** in **feed modifiche BLOB**.
 
@@ -108,7 +107,7 @@ Usare un modello di Azure Resource Manager per abilitare il feed delle modifiche
 
 1. Nella portale di Azure scegliere **Crea una risorsa**.
 
-2. In **Cerca nel Marketplace** digitare **distribuzione modelli** e quindi premere **INVIO**.
+2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
 
 3. Scegliere **[Distribuisci un modello personalizzato](https://portal.azure.com/#create/Microsoft.Template)**, quindi scegliere **Compila modello personalizzato nell'editor**.
 
@@ -323,7 +322,7 @@ In questa sezione vengono descritti i problemi noti e le condizioni nell'antepri
 - I record degli eventi di modifica per ogni singola modifica possono apparire più di una volta nel feed di modifiche.
 - Non è ancora possibile gestire la durata dei file di log del feed di modifiche impostando i criteri di conservazione basati sul tempo su di essi e non è possibile eliminare i BLOB.
 - La `url` proprietà del file di log è attualmente sempre vuota.
-- La `LastConsumable` proprietà del file Segments. JSON non elenca il primo segmento finalizzato dal feed di modifiche. Questo problema si verifica solo dopo la finalizzazione del primo segmento. Tutti i segmenti successivi dopo la prima ora vengono acquisiti accuratamente nella `LastConsumable` Proprietà.
+- La `LastConsumable` proprietà del segments.jsnel file non elenca il primo segmento finalizzato dal feed di modifiche. Questo problema si verifica solo dopo la finalizzazione del primo segmento. Tutti i segmenti successivi dopo la prima ora vengono acquisiti accuratamente nella `LastConsumable` Proprietà.
 - Attualmente non è possibile visualizzare il contenitore **$blobchangefeed** quando si chiama l'API ListContainers e il contenitore non viene visualizzato in portale di Azure o Storage Explorer. È possibile visualizzare il contenuto chiamando direttamente l'API ListBlobs sul contenitore $blobchangefeed.
 - Gli account di archiviazione che hanno avviato in precedenza un [failover dell'account](../common/storage-disaster-recovery-guidance.md) possono avere problemi con il file di log che non viene visualizzato. Eventuali failover futuri degli account potrebbero influito anche sul file di log durante l'anteprima.
 

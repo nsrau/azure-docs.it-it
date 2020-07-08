@@ -8,16 +8,15 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484573"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure
 
-Azure ricerca cognitiva supporta [due approcci di base](search-what-is-data-import.md) per l'importazione di dati in un indice di ricerca: il *push* dei dati nell'indice a livello di codice o l'indirizzamento di un [indicizzatore di Azure ricerca cognitiva](search-indexer-overview.md) a un'origine dati supportata per il *pull* dei dati.
+Ricerca cognitiva di Azure supporta [due approcci di base](search-what-is-data-import.md) per l'importazione di dati in un indice di ricerca: eseguire il *push* dei dati nell'indice a livello di codice oppure puntare a un [indicizzatore di Ricerca cognitiva di Azure](search-indexer-overview.md) in un'origine dati supportata per eseguire il *pull* nei dati.
 
 Man mano che i volumi di dati crescono o si modificano le esigenze, è possibile che le strategie di indicizzazione semplici o predefinite non siano più pratiche. Per ricerca cognitiva di Azure, esistono diversi approcci per ospitare set di dati di dimensioni maggiori, da come si struttura una richiesta di caricamento dei dati, usando un indicizzatore specifico dell'origine per i carichi di lavoro pianificati e distribuiti.
 
@@ -52,7 +51,7 @@ In generale, è consigliabile aggiungere proprietà aggiuntive ai campi solo se 
 
 Uno dei meccanismi più semplici per l'indicizzazione di set di dati di grandi dimensioni consiste nell'inviare più documenti o record in un'unica richiesta. Se le dimensioni dell'intero payload sono inferiori a 16 MB, una richiesta può gestire fino a 1000 documenti in un'operazione di caricamento in blocco. Questi limiti si applicano se si usa l' [API REST di Add Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) o il [metodo index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) in .NET SDK. Per entrambe le API, è necessario creare il pacchetto di 1000 documenti nel corpo di ogni richiesta.
 
-L'utilizzo di batch per indicizzare i documenti consente di migliorare significativamente le prestazioni di indicizzazione. Determinare le dimensioni di batch ottimali per i dati è un componente fondamentale per ottimizzare le velocità di indicizzazione. I due fattori principali che influiscono sulle dimensioni ottimali del batch sono:
+L'utilizzo di batch per indicizzare i documenti consente di migliorare significativamente le prestazioni di indicizzazione. Determinare le dimensioni ottimali dei batch per i dati è fondamentale per ottimizzare la velocità di indicizzazione. I due fattori principali che influiscono sulle dimensioni ottimali dei batch sono i seguenti:
 + Schema dell'indice
 + Dimensioni dei dati
 
@@ -60,7 +59,7 @@ Poiché le dimensioni ottimali del batch dipendono dall'indice e dai dati, l'app
 
 ### <a name="number-of-threadsworkers"></a>Numero di thread/ruoli di lavoro
 
-Per sfruttare appieno le velocità di indicizzazione di Azure ricerca cognitiva, è probabile che sia necessario usare più thread per inviare le richieste di indicizzazione batch simultaneamente al servizio.  
+Per sfruttare appieno la velocità di indicizzazione di Ricerca cognitiva di Azure, sarà probabilmente necessario usare più thread per inviare simultaneamente richieste di indicizzazione in batch al servizio.  
 
 Il numero ottimale di thread è determinato da:
 
@@ -69,21 +68,21 @@ Il numero ottimale di thread è determinato da:
 + Dimensioni dei batch
 + Schema dell'indice
 
-È possibile modificare questo esempio ed eseguire il test con conteggi dei thread diversi per determinare il numero ottimale di thread per lo scenario. Tuttavia, se si dispone di più thread in esecuzione contemporaneamente, si dovrebbe essere in grado di sfruttare la maggior parte dei vantaggi dell'efficienza. 
+È possibile modificare questo esempio ed eseguire test con diversi conteggi dei thread per determinare il conteggio ottimale per lo scenario specifico. Con l'esecuzione simultanea di diversi thread, comunque, dovrebbe essere possibile sfruttare la maggior parte dei vantaggi in termini di efficienza. 
 
 > [!NOTE]
 > Aumentando il livello del servizio di ricerca o aumentando le partizioni, è necessario aumentare anche il numero di thread simultanei.
 
-Quando si aumentano le richieste che raggiungono il servizio di ricerca, è possibile che si verifichino [codici di stato http](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) che indicano che la richiesta non è stata completata correttamente. Durante l'indicizzazione, sono disponibili due codici di stato HTTP comuni:
+Quando si aumentano le richieste che raggiungono il servizio di ricerca, potrebbero essere visualizzati [codici di stato HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) che indicano che la richiesta non è stata interamente completata. Durante l'indicizzazione, i due codici di stato HTTP comuni sono i seguenti:
 
-+ **503 servizio non disponibile** : questo errore indica che il sistema è sottoposto a un carico elevato e non è possibile elaborare la richiesta in questo momento.
-+ **207 multistato** : questo errore indica che alcuni documenti sono stati completati, ma almeno uno ha avuto esito negativo.
++ **503 - Servizio non disponibile**. Questo errore indica che il sistema è in sovraccarico e al momento la richiesta non può essere elaborata.
++ **207 - Multi-Status**. Questo errore indica che alcuni documenti hanno avuto esito positivo, ma almeno uno ha avuto esito negativo.
 
 ### <a name="retry-strategy"></a>Strategia di ripetizione dei tentativi 
 
-Se si verifica un errore, le richieste devono essere ripetute usando una [strategia di ripetizione dei tentativi backoff esponenziale](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+Se si verifica un errore, le richieste dovranno essere ripetute usando una [strategia di ripetizione dei tentativi con backoff esponenziale](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-.NET SDK di Azure ricerca cognitiva ritenta automaticamente 503S e altre richieste non riuscite, ma è necessario implementare una logica personalizzata per ritentare 207S. È anche possibile usare strumenti open source come [Polly](https://github.com/App-vNext/Polly) per implementare una strategia di ripetizione dei tentativi.
+.NET SDK di Ricerca cognitiva di Azure ripete automaticamente le richieste con codice 503 e le altre richieste non riuscite, ma per ripetere le richieste con codice 207 è necessario implementare una logica personalizzata. È anche possibile usare strumenti open source come [Polly](https://github.com/App-vNext/Polly) per implementare una strategia di ripetizione dei tentativi.
 
 ### <a name="network-data-transfer-speeds"></a>Velocità di trasferimento dei dati di rete
 
@@ -139,7 +138,7 @@ Per gli indicizzatori la capacità di elaborazione si basa vagamente su un sotto
 
 1. Nella pagina **Panoramica** della dashboard del servizio di ricerca del [portale di Azure](https://portal.azure.com) controllare il **Piano tariffario** per confermarne la possibilità di gestione dell'indicizzazione parallela. I livelli Basic e Standard offrono più repliche.
 
-2. In **Impostazioni** > **ridimensionare** [aumentare le repliche](search-capacity-planning.md) per l'elaborazione parallela: una replica aggiuntiva per ogni carico di lavoro dell'indicizzatore. Indicare un numero sufficiente per il volume di query esistente. Sacrificare i carichi di lavoro delle query per l'indicizzazione non è un buon compromesso.
+2. È possibile eseguire tutti gli indicizzatori in parallelo come numero di unità di ricerca nel servizio. In **Impostazioni**  >  **ridimensionare** [aumentare le repliche](search-capacity-planning.md) o le partizioni per l'elaborazione parallela: una replica o una partizione aggiuntiva per ogni carico di lavoro dell'indicizzatore. Indicare un numero sufficiente per il volume di query esistente. Sacrificare i carichi di lavoro delle query per l'indicizzazione non è un buon compromesso.
 
 3. Distribuire i dati in più contenitori a un livello che può raggiungere gli indicizzatori di Azure ricerca cognitiva. Potrebbe trattarsi di tabelle multiple nel database SQL di Azure, contenitori multipli nel servizio Archiviazione BLOB di Azure o di raccolte multiple. Definire un oggetto di origine dati per ogni tabella o contenitore.
 

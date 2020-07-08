@@ -2,16 +2,13 @@
 title: Concetti - Ridimensionare le applicazioni nel servizio Azure Kubernetes
 description: Informazioni sul ridimensionamento nel servizio Azure Kubernetes, tra cui il ridimensionamento automatico orizzontale dei pod, il ridimensionamento automatico del cluster e il connettore di Istanze di Azure Container.
 services: container-service
-author: zr-msft
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: zarhoads
-ms.openlocfilehash: c5c1180acec726d0863e11a3fe0825ffc7c48e3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 83cbaf49f26a53518b1aa1e211b61af1959642a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232531"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465338"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
@@ -94,15 +91,15 @@ Per iniziare a usare le funzionalità di ridimensionamento delle applicazioni, s
 
 - Ridimensionare manualmente i [pod][aks-manually-scale-pods] o i [nodi][aks-manually-scale-nodes]
 - Usare il [ridimensionamento automatico orizzontale dei pod][aks-hpa]
-- Usare il [ridimensionamento automatico del cluster][aks-cluster-autoscaler]
+- Usare il [ridimensionamento][aks-cluster-autoscaler] automatico del cluster
 
 Per altre informazioni sui concetti fondamentali di Kubernetes e del servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Cluster e carichi di lavoro di Kubernetes/servizio Azure Kubernetes][aks-concepts-clusters-workloads]
+- [Kubernetes/Cluster e carichi di lavoro del servizio Azure Kubernetes][aks-concepts-clusters-workloads]
 - [Accesso e identità per Kubernetes/servizio Azure Kubernetes][aks-concepts-identity]
 - [Sicurezza di Kubernetes/servizio Azure Kubernetes][aks-concepts-security]
-- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
-- [Archiviazione in Kubernetes/servizio Azure Kubernetes][aks-concepts-storage]
+- [Kubernetes/Reti virtuali nel servizio Azure Kubernetes][aks-concepts-network]
+- [Kubernetes/Archiviazione nel servizio Azure Kubernetes][aks-concepts-storage]
 
 <!-- LINKS - external -->
 [virtual-kubelet]: https://virtual-kubelet.io/

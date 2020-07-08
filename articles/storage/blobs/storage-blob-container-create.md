@@ -4,16 +4,15 @@ description: Informazioni su come creare o eliminare un contenitore BLOB nell'ac
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 24e754a583125c962e67f849edcec8f8609746a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135939"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84464913"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Creare o eliminare un contenitore in archiviazione di Azure con .NET
 
@@ -35,7 +34,7 @@ Il formato dell'URI per un contenitore è il seguente:
 
 Per creare un contenitore, chiamare uno dei metodi seguenti:
 
-- [Crea](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
+- [Creare](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
@@ -119,7 +118,7 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 Per eliminare un contenitore in .NET, usare uno dei metodi seguenti:
 
-- [Elimina](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
+- [Eliminazione](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)

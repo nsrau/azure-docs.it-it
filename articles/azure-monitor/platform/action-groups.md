@@ -3,15 +3,14 @@ title: Creare e gestire gruppi di azione nel portale di Azure
 description: Informazioni su come creare e gestire gruppi di azione nel portale di Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 4/17/2020
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738819"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465253"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -118,7 +117,7 @@ L'azione Webhook dei gruppi di azione consente di sfruttare Azure Active Directo
     > Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles).
     
     - Modificare la chiamata a Connect-AzureAD dello script di PowerShell per usare l'ID tenant di Azure AD.
-    - Modificare la variabile dello script di PowerShell $myAzureADApplicationObjectId per usare l'ID oggetto dell'applicazione Azure AD
+    - Modificare la variabile dello script di PowerShell $myAzureADApplicationObjectId per usare l'ID oggetto dell'applicazione Azure AD.
     - Eseguire lo script modificato.
     
 1. Configurare l'azione del Webhook protetto del Gruppo di azioni.
@@ -217,7 +216,12 @@ Un Gruppo di azioni può contenere un numero limitato di azioni Voce.
 I prezzi per i paesi/regioni supportati sono elencati nella [pagina relativa ai prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
-I webhook vengono ripetuti usando le regole seguenti. Viene eseguito un massimo di 2 nuovi tentativi di chiamata webhook quando vengono restituiti i codici di stato HTTP seguenti: 408, 429, 503, 504 o l'endpoint HTTP non risponde. La prima ripetizione del tentativo avviene dopo 10 secondi. la seconda dopo 100 secondi. Dopo due errori, nessun gruppo di azioni chiamerà l'endpoint per 30 minuti. 
+I webhook vengono elaborati usando le regole seguenti
+- Una chiamata al webhook viene tentata un massimo di 3 volte.
+- La chiamata verrà ritentata se non viene ricevuta una risposta entro il periodo di timeout o viene restituito uno dei codici di stato HTTP seguenti: 408, 429, 503 o 504.
+- La prima chiamata attenderà 10 secondi per una risposta.
+- Il secondo e il terzo tentativo attendono 30 secondi per una risposta.
+- Dopo che i 3 tentativi di chiamare il webhook non sono riusciti, nessun gruppo di azione chiamerà l'endpoint per 15 minuti.
 
 Intervalli di indirizzi IP di origine
  - 13.72.19.232
@@ -245,7 +249,7 @@ Un Gruppo di azioni può contenere un numero limitato di azioni di tipo Webhook.
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [Comportamento degli avvisi SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Leggere le [informazioni sullo schema webhook degli avvisi del log attività](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Altre informazioni sul [connettore ITSM](../../azure-monitor/platform/itsmc-overview.md)
+* Altre informazioni sul [connettore ITSM](../../azure-monitor/platform/itsmc-overview.md).
 * Altre informazioni sulla [limitazione della frequenza](../../azure-monitor/platform/alerts-rate-limiting.md) degli avvisi.
 * Leggere una [panoramica degli avvisi del log attività](../../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

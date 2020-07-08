@@ -4,16 +4,15 @@ description: Linee guida per l'ottimizzazione delle prestazioni di Azure Data La
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f6cf551b95de8fc7fae83941e5109dfa823213af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465984"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Ottimizza Azure Data Lake Storage Gen2 per le prestazioni
 
@@ -46,7 +45,7 @@ Dopo aver risolto i colli di bottiglia provocati dall'hardware di origine e dall
 | Strumento               | Impostazioni     | Altre informazioni                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Collegamento](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Data factory di Azure| parallelCopies    | [Collegamento](../../data-factory/copy-activity-performance.md)                          |
+| Azure Data Factory| parallelCopies    | [Collegamento](../../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper)    |   [Collegamento](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Strutturare il set di dati

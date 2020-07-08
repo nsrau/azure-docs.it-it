@@ -2,28 +2,25 @@
 title: Integrare Azure NetApp Files con il servizio Azure Kubernetes
 description: Informazioni su come integrare Azure NetApp Files con il servizio Azure Kubernetes
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 09/26/2019
-ms.author: zarhoads
-ms.openlocfilehash: 1c4996df66d475c63110e3d2797f55598fd85b8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465644"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrare Azure NetApp Files con il servizio Azure Kubernetes
 
 [Azure NetApp files][anf] è un servizio di archiviazione di file a consumo e a prestazioni elevate di livello aziendale in esecuzione in Azure. Questo articolo illustra come integrare Azure NetApp Files con Azure Kubernetes Service (AKS).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 > [!IMPORTANT]
 > Il cluster AKS deve trovarsi anche [in un'area che supporta Azure NetApp files][anf-regions].
 
-È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -148,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Creare una `pv-nfs.yaml` definizione di PersistentVolume. Sostituire `path` con *CreationToken* e `server` con *IPAddress* del comando precedente. Ad esempio:
+Creare una `pv-nfs.yaml` definizione di PersistentVolume. Sostituire `path` con *creationToken* e `server` con *IPAddress* del comando precedente. Ad esempio:
 
 ```yaml
 ---
@@ -210,7 +207,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Montare con un pod
 
-Creare un `nginx-nfs.yaml` oggetto che definisce un pod che usa PersistentVolumeClaim. Ad esempio:
+Creare un oggetto `nginx-nfs.yaml` che definisce un pod che usa PersistentVolumeClaim. Ad esempio:
 
 ```yaml
 kind: Pod

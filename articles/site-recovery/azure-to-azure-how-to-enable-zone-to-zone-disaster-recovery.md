@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 27b433ba33d287a183d8ce6cc05d87649b2d0b00
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488937"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Abilitare il ripristino di emergenza da zona a zona per le macchine virtuali di Azure
 
@@ -20,7 +19,7 @@ Questo articolo descrive come eseguire la replica, il failover e il failback di 
 
 >[!NOTE]
 >
->- Site Recovery attualmente non supporta i piani di ripristino per il ripristino di emergenza da zona a zona. 
+>- Site Recovery attualmente non supporta i piani di ripristino per il ripristino di emergenza da zona a zona tramite il portale. Usare PowerShell o l'API REST per sfruttare i piani di ripristino per il ripristino di emergenza da zona a zona. 
 >- Il supporto per il ripristino di emergenza da zona a zona è attualmente limitato a due aree: Asia sudorientale e Regno Unito meridionale.  
 
 Site Recovery servizio contribuisce alla strategia di continuità aziendale e ripristino di emergenza, mantenendo le app aziendali in esecuzione, durante le interruzioni pianificate e non pianificate. Si tratta dell'opzione di ripristino di emergenza consigliata per rendere operativo le applicazioni in caso di interruzioni a livello di area.
@@ -88,7 +87,7 @@ Accedere al portale di Azure.
 
 1. Nel menu del portale di Azure selezionare Macchine virtuali oppure cercare e selezionare Macchine virtuali in qualsiasi pagina. Selezionare la macchina virtuale da replicare. Per il ripristino di emergenza da zona a zona, questa macchina virtuale deve essere già presente in una zona di disponibilità.
 
-2. In operazioni selezionare ripristino di emergenza.
+2. In Operazioni selezionare Ripristino di emergenza.
 
 3. Come illustrato di seguito, nella scheda nozioni di base selezionare ' Sì' per il ripristino di emergenza tra zone di disponibilità?'
 
@@ -113,10 +112,13 @@ Il piano tariffario per il ripristino di emergenza da zona a zona è identico a 
 Il contratto di RTO è identico a quello per Site Recovery complessiva. Si promettono RTO per un massimo di 2 ore. Non esiste alcun contratto di contratto per RPO.
 
 **3. la capacità è garantita nella zona secondaria?**
-Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità di infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery verranno distribuite nell'area di destinazione.
+Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità dell'infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery verranno distribuite nell'area di destinazione.
 
 **4. quali sistemi operativi sono supportati?**
 Il ripristino di emergenza da zona a zona supporta gli stessi sistemi operativi di Azure per il ripristino di emergenza di Azure. Vedere la matrice di supporto [qui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+
+**5. i gruppi di risorse di origine e di destinazione possono essere uguali?**
+No, è necessario eseguire il failover in un gruppo di risorse diverso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

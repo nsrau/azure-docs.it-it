@@ -4,19 +4,18 @@ description: Informazioni su come configurare i criteri di registrazione per l'a
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74382137"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84464335"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procedura: configurare i criteri di registrazione del Multi-Factor Authentication di Azure
 
@@ -36,13 +35,13 @@ Per altre informazioni su Azure Multi-Factor Authentication, vedere [che cos'è 
 ## <a name="policy-configuration"></a>Configurazione dei criteri
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Individuare i**criteri di registrazione**dell'autenticazione a più fattori **Azure Active Directory** > **Security** > **Identity Protection** > .
+1. Individuare i criteri di registrazione dell'autenticazione a più fattori **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **MFA registration policy**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
    1. Sotto **controlli**
       1. Verificare che la casella di controllo **Richiedi registrazione** autenticazione a più fattori di Azure sia selezionata e scegliere **Seleziona**.
-   1. **Applicare i criteri** - **in**
+   1. **Imponi criteri**  -  **Il**
    1. **Salva**
 
 ## <a name="user-experience"></a>Esperienza utente
@@ -55,8 +54,8 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare l'accesso e i criteri di rischio utente](howto-identity-protection-configure-risk-policies.md)
+- [Abilitare i criteri di rischio per accessi e utenti](howto-identity-protection-configure-risk-policies.md)
 
-- [Abilitare la reimpostazione della password self-service Azure AD](../authentication/howto-sspr-deployment.md)
+- [Abilitare la reimpostazione della password self-service di Azure AD](../authentication/howto-sspr-deployment.md)
 
 - [Abilitare Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

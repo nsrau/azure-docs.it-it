@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/12/2020
-ms.openlocfilehash: cba07b84a1ddc2b9362c818ae2d3747b98379f2e
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
-ms.translationtype: HT
+ms.date: 6/3/2020
+ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402652"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485225"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Raccomandazioni per le prestazioni in Database di Azure per MySQL
 
@@ -29,23 +28,25 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 Aprire **Raccomandazioni per le prestazioni** dalla sezione **Prestazioni intelligenti** della barra dei menu nella pagina del portale di Azure per il server MySQL.
 
-![Pagina di destinazione Elementi consigliati per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Pagina di destinazione Elementi consigliati per le prestazioni":::
 
 Selezionare **Analizza** e scegliere un database per avviare l'analisi. A seconda del carico di lavoro, l'operazione potrebbe richiedere alcuni minuti. Al termine dell'analisi, verrà inviata una notifica nel portale. L'analisi esegue un esame approfondito del database. Si consiglia quindi di effettuarla durante i periodi di minore traffico.
 
 Nella finestra **Raccomandazioni** viene visualizzato un elenco di raccomandazioni (se individuate) e l'ID di query da cui è stata generata ogni raccomandazione. Con l'ID di query è possibile usare la vista [mysql.query_store](concepts-query-store.md#mysqlquery_store) per altre informazioni sulla query.
 
-![Nuova pagina Raccomandazioni per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nuova pagina Raccomandazioni per le prestazioni":::
 
 Le raccomandazioni non vengono applicate automaticamente. Per applicare una raccomandazione, copiare il testo della query ed eseguirlo dal client preferito. Non dimenticare di eseguire le operazioni di test e monitoraggio per valutare la raccomandazione.
 
 ## <a name="recommendation-types"></a>Tipi di raccomandazione
 
-Attualmente sono supportate solo raccomandazioni di tipo *Crea indice*.
-
-### <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
+### <a name="index-recommendations"></a>Indicazioni sugli indici
 
 Le raccomandazioni di tipo *Crea indice* suggeriscono nuovi indici per velocizzare le query che, nell'ambito del carico di lavoro, vengono eseguite più di frequente o richiedono più tempo. Per questo tipo di raccomandazione è necessario che sia attivato [Query Store](concepts-query-store.md). Query Store raccoglie informazioni sulle query e fornisce le statistiche dettagliate di frequenza e runtime delle query usate dall'analisi per generare le raccomandazioni.
+
+### <a name="query-recommendations"></a>Suggerimenti per le query
+
+Le raccomandazioni per la query suggeriscono le ottimizzazioni e le riscritture per le query nel carico di lavoro. Identificando gli anti-pattern di query MySQL e correggendo la sintassi, è possibile migliorare le prestazioni delle query che richiedono molto tempo. Per questo tipo di raccomandazione è necessario che sia attivato Query Store. Query Store raccoglie informazioni sulle query e fornisce le statistiche dettagliate di frequenza e runtime delle query usate dall'analisi per generare le raccomandazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [monitoraggio e ottimizzazione](concepts-monitoring.md) in Database di Azure per MySQL.

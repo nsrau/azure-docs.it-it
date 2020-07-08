@@ -1,19 +1,18 @@
 ---
 title: Monitorare gli argomenti e le sottoscrizioni di eventi-IoT Edge di griglia di eventi di Azure | Microsoft Docs
 description: Monitorare gli argomenti e le sottoscrizioni di eventi
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4fbc5232722bfb08bde9be51d44e8e8d7514570
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086668"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84554364"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Monitorare gli argomenti e le sottoscrizioni di eventi
 
@@ -21,7 +20,7 @@ Griglia di eventi su Edge espone una serie di metriche per gli argomenti e le so
 
 ## <a name="enable-metrics"></a>Abilitazione di metriche
 
-Configurare il modulo per emettere le metriche impostando la `metrics__reporterType` variabile di ambiente `prometheus` su nelle opzioni di creazione del contenitore:
+Configurare il modulo per emettere le metriche impostando la `metrics__reporterType` variabile di ambiente su `prometheus` nelle opzioni di creazione del contenitore:
 
  ```json
         {

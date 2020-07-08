@@ -8,17 +8,16 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/05/2020
-ms.openlocfilehash: ccf9d0c3eef50c7dfd838f1929e52506e8984879
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/05/2020
+ms.openlocfilehash: e2b4233f8f59a26e7da532fca48aecbb41857b66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78395256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488631"
 ---
 # <a name="apply-transformation-module"></a>Modulo Apply Transformation
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Utilizzare questo modulo per modificare un set di dati di input in base a una trasformazione calcolata in precedenza.
 
@@ -32,13 +31,13 @@ La finestra di progettazione consente di salvare le trasformazioni dei dati come
 
 1. Selezionare la scheda **output + log** .
 
-1. Selezionare l' **icona Salva** per salvare la **trasformazione risultato**.
+1. Individuare l'output della trasformazione e selezionare il **set di dati Register** per salvarlo come modulo nella categoria **set** di dati nella tavolozza dei moduli.
 
 ## <a name="how-to-use-apply-transformation"></a>Come utilizzare Applica trasformazione  
   
 1. Aggiungere il modulo **Apply Transformation** alla pipeline. È possibile trovare questo modulo nella sezione **valutazione del punteggio &** della tavolozza dei moduli. 
   
-1. Trovare la trasformazione salvata che si vuole usare in **DataSets** > **My Datasets** nella tavolozza dei moduli.
+1. Trovare la trasformazione salvata che si vuole usare nei **set di impostazioni** della tavolozza dei moduli.
 
 1. Connettere l'output della trasformazione salvata alla porta di input sinistra del modulo **Apply Transformation** .
 

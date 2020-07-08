@@ -6,13 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/18/2020
-ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322091"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Selezione trasformazione nel flusso di dati di mapping
 
@@ -39,7 +38,10 @@ I mapping corretti possono essere utilizzati per eseguire il mapping di una sott
 
 ## <a name="rule-based-mapping"></a>mapping basato su regole
 
-Se si desidera eseguire il mapping di più colonne in una sola volta o passare a downstream le colonne, utilizzare il mapping basato su regole per definire i mapping utilizzando i modelli di colonna. Corrispondenza basata sulle colonne `name`, `type`, `stream`e `position` . È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. Per impostazione predefinita, tutte le proiezioni con colonne maggiori di 50 vengono predefinite in un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome inputted. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
+
+Se si desidera eseguire il mapping di più colonne in una sola volta o passare a downstream le colonne, utilizzare il mapping basato su regole per definire i mapping utilizzando i modelli di colonna. Corrispondenza basata sulle `name` colonne, `type` , `stream` e `position` . È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. Per impostazione predefinita, tutte le proiezioni con colonne maggiori di 50 vengono predefinite in un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome inputted. 
 
 Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **mapping basato su regole**.
 
@@ -49,7 +51,7 @@ Ogni mapping basato su regole richiede due input, ovvero la condizione su cui tr
 
 ![mapping basato su regole](media/data-flow/rule-based-mapping.png "mapping basato su regole")
 
-Utilizzare `$$` la sintassi per fare riferimento al nome di input di una colonna corrispondente. Utilizzando come esempio l'immagine precedente, si desidera che un utente desideri trovare la corrispondenza con tutte le colonne di stringa i cui nomi sono inferiori a sei caratteri. Se una colonna in ingresso è stata `test`denominata, l' `$$ + '_short'` espressione Rinomina la colonna `test_short`. Se è l'unico mapping esistente, tutte le colonne che non soddisfano la condizione verranno eliminate dai dati restituiti.
+Utilizzare `$$` la sintassi per fare riferimento al nome di input di una colonna corrispondente. Utilizzando come esempio l'immagine precedente, si desidera che un utente desideri trovare la corrispondenza con tutte le colonne di stringa i cui nomi sono inferiori a sei caratteri. Se una colonna in ingresso è stata denominata `test` , l'espressione `$$ + '_short'` Rinomina la colonna `test_short` . Se è l'unico mapping esistente, tutte le colonne che non soddisfano la condizione verranno eliminate dai dati restituiti.
 
 I modelli corrispondono alle colonne derivate e definite. Per visualizzare le colonne definite di cui è stato eseguito il mapping in base a una regola, fare clic sull'icona degli occhiali accanto alla regola. Verificare l'output usando l'anteprima dei dati.
 
@@ -59,7 +61,7 @@ Se si fa clic sull'icona con la freccia di espansione verso il basso, è possibi
 
 ![mapping basato su regole](media/data-flow/regex-matching.png "mapping basato su regole")
 
-L'esempio precedente corrisponde a un criterio `(r)` Regex o a qualsiasi nome di colonna che contiene un r minuscolo. Analogamente al mapping basato su regole standard, tutte le colonne corrispondenti vengono modificate dalla condizione a destra usando `$$` la sintassi.
+L'esempio precedente corrisponde a un criterio Regex `(r)` o a qualsiasi nome di colonna che contiene un r minuscolo. Analogamente al mapping basato su regole standard, tutte le colonne corrispondenti vengono modificate dalla condizione a destra usando la `$$` sintassi.
 
 Se nel nome della colonna sono presenti più corrispondenze Regex, è possibile fare riferimento a corrispondenze specifiche usando `$n` Where ' n'indica la corrispondenza. Ad esempio, "$2" si riferisce alla seconda corrispondenza all'interno di un nome di colonna.
 
@@ -69,11 +71,11 @@ Se la proiezione definita dispone di una gerarchia, è possibile utilizzare il m
 
 ![mapping basato su regole](media/data-flow/rule-based-hierarchy.png "mapping basato su regole")
 
-L'esempio precedente corrisponde a tutte le sottocolonne della colonna `a`complessa. `a`contiene due sottocolonne `b` e `c`. Lo schema di output includerà due `b` colonne `c` e la condizione ' name As ' sarà `$$`.
+L'esempio precedente corrisponde a tutte le sottocolonne della colonna complessa `a` . `a`contiene due sottocolonne `b` e `c` . Lo schema di output includerà due colonne `b` e `c` la condizione ' name As ' sarà `$$` .
 
 ### <a name="parameterization"></a>Parametrizzazione
 
-È possibile parametrizzare i nomi delle colonne utilizzando il mapping basato su regole. Usare la parola ```name``` chiave per trovare la corrispondenza con i nomi di colonna in ingresso rispetto a un parametro. Se, ad esempio, si dispone di un parametro ```mycolumn```del flusso di dati, è possibile creare una regola che corrisponde a qualsiasi nome ```mycolumn```di colonna uguale a. È possibile rinominare la colonna corrispondente in una stringa hardcoded come ' business Key ' e farvi riferimento in modo esplicito. In questo esempio la condizione di corrispondenza è ```name == $mycolumn``` e la condizione del nome è "business Key". 
+È possibile parametrizzare i nomi delle colonne utilizzando il mapping basato su regole. Usare la parola chiave ```name``` per trovare la corrispondenza con i nomi di colonna in ingresso rispetto a un parametro. Se, ad esempio, si dispone di un parametro del flusso di dati ```mycolumn``` , è possibile creare una regola che corrisponde a qualsiasi nome di colonna uguale a ```mycolumn``` . È possibile rinominare la colonna corrispondente in una stringa hardcoded come ' business Key ' e farvi riferimento in modo esplicito. In questo esempio la condizione di corrispondenza è ```name == $mycolumn``` e la condizione del nome è "business Key". 
 
 ## <a name="auto-mapping"></a>Mapping automatico
 

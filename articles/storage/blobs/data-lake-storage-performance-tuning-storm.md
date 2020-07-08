@@ -4,16 +4,15 @@ description: Linee guida per l'ottimizzazione delle prestazioni di Storm in Azur
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465916"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Ottimizzare le prestazioni: Storm, HDInsight & Azure Data Lake Storage Gen2
 
@@ -63,7 +62,7 @@ Si supponga di eseguire 8 thread bolt per core. Essendo i core 64, si vuole un t
 Dopo aver creato la topologia di base, è possibile valutare se modificare uno dei parametri:
 * **Number of JVMs per worker node** (Numero di JVM per nodo di lavoro). Se si ha una struttura dei dati di grandi dimensioni (ad esempio, tabella di ricerca) che si vuole ospitare in memoria, ogni JVM richiede una copia separata. In alternativa, è possibile usare la struttura dei dati in diversi thread se si hanno meno JVM. Per l'I/O del bolt, il numero di JVM non definisce una differenza significativa come il numero di thread aggiunti su tali JVM. Per semplicità, è consigliabile avere una sola JVM per ruolo di lavoro. A seconda delle operazioni eseguite dal bolt o dall'elaborazione dell'applicazione richiesta, potrebbe tuttavia essere necessario modificare questo numero.
 * **Number of spout executors** (Numero di executor spout). Poiché l'esempio precedente usa bolt per la scrittura in Data Lake Storage Gen2, il numero di spout non è strettamente correlato alle prestazioni del bolt. Tuttavia, a seconda della quantità di elaborazione o I/O in corso nello spout, è consigliabile ottimizzare gli spout per ottenere le massime prestazioni. Assicurarsi di avere sufficienti spout per poter mantenere occupati i bolt. Le velocità di output degli spout devono corrispondere alla velocità effettiva dei bolt. La configurazione effettiva varia a seconda dello spout.
-* **Number of tasks** (Numero di attività). Ogni bolt viene eseguito come thread singolo. Attività aggiuntive sui bolt non forniscono concorrenza aggiuntiva. Esse risultano utili solo se il processo di riconoscimento della tupla occupa una porzione importante del tempo di esecuzione del bolt. È consigliabile raggruppare più tuple in un'aggiunta di maggiori dimensioni prima di inviare un acknowledgement dal bolt. Nella maggior parte dei casi quindi più attività non offrono vantaggi aggiuntivi.
+* **Number of tasks** (Numero di attività). Ogni bolt viene eseguito come thread singolo. Attività aggiuntive sui bolt non forniscono concorrenza aggiuntiva. Esse risultano utili solo se il processo di riconoscimento della tupla occupa una porzione importante del tempo di esecuzione del bolt. È consigliabile raggruppare molte tuple in un accodamento maggiore prima di inviare un riconoscimento dal Bolt. Nella maggior parte dei casi quindi più attività non offrono vantaggi aggiuntivi.
 * **Local or shuffle grouping** (Raggruppamento locale o casuale). Quando questa impostazione è abilitata, le tuple vengono inviate ai bolt nello stesso processo di lavoro. In questo modo si riduce il numero di comunicazioni tra processi e chiamate di rete. Tale operazione è consigliata per la maggior parte delle topologie.
 
 Questo scenario di base è un buon punto di partenza. Usare i propri dati per un test per perfezionare i parametri precedenti e raggiungere così prestazioni ottimali.
@@ -72,7 +71,7 @@ Questo scenario di base è un buon punto di partenza. Usare i propri dati per un
 
 È possibile modificare le impostazioni seguenti per ottimizzare lo spout.
 
-- **Tuple timeout: topology.message.timeout.secs** (Timeout tuple: topology.message.timeout.secs). Questa impostazione determina il tempo impiegato da un messaggio per completare e ricevere l'acknowledgement prima che questo abbia esito negativo.
+- **Tuple timeout: topology.message.timeout.secs** (Timeout tuple: topology.message.timeout.secs). Questa impostazione determina la quantità di tempo necessaria per il completamento di un messaggio e la ricezione del riconoscimento, prima che venga considerato non riuscito.
 
 - **Max memory per worker process: worker.childopts** (Memoria massima per processo di lavoro: worker.childopts). Questa impostazione consente di specificare i parametri della riga di comando aggiuntivi per ruoli di lavoro Java. L'impostazione più comunemente usata in questo caso è XmX, che determina la memoria massima allocata nell'heap di JVM.
 
@@ -89,7 +88,7 @@ Quando la topologia è in esecuzione, è possibile monitorarla nell'interfaccia 
 
 * **Total process execution latency** (Latenza totale di esecuzione del processo). Tempo medio che la tupla impiega per essere emessa dallo spout, elaborata dal bolt e riconosciuta.
 
-* **Total bolt process latency** (Latenza totale del processo dei bolt). Tempo medio impiegato dalla tupla per ricevere un riconoscimento nel bolt.
+* **Total bolt process latency** (Latenza totale del processo dei bolt). Si tratta del tempo medio impiegato dalla tupla sul Bolt fino a quando non riceve un riconoscimento.
 
 * **Total bolt execute latency** (Latenza totale di esecuzione dei bolt). Tempo medio speso dal bolt nel metodo Execute.
 
@@ -110,7 +109,7 @@ Se si raggiungono i limiti di larghezza di banda di Data Lake Storage Gen2, è p
 
 Per verificare la presenza di limitazioni, abilitare la registrazione di debug sul lato client:
 
-1. In **Ambari** > **Storm** > **Config**config > **Advanced Storm-Worker-log4j**impostare ** &lt;root level = "info"&gt; ** su ** &lt;root level = "debug"&gt;**. Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
+1. In **Ambari**  >  **Storm**  >  **config**  >  **Advanced Storm-Worker-log4j**impostare ** &lt; root level = "info" &gt; ** su ** &lt; root level = "debug" &gt; **. Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
 2. Monitorare i log della topologia Storm sui nodi di lavoro (in /var/log/storm/worker-artifacts/&lt;NomeTopologia&gt;/&lt;porta&gt;/worker.log) per le eccezioni alle limitazioni di Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Passaggi successivi

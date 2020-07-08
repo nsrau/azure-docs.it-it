@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: cd4cc90fb102d517a47ba458619e22b8921dd498
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aed015b67aa36e7678b31d7f2f047cb1e77c6a3d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485325"
 ---
 # <a name="fail-back-vmware-vms-to-on-premises-site"></a>Eseguire il failback di macchine virtuali VMware nel sito locale
 
@@ -29,7 +28,7 @@ Questo articolo descrive come eseguire il failback di macchine virtuali di Azure
 
 ## <a name="run-a-failover-to-fail-back"></a>Eseguire un failover per eseguire il failback
 
-1. Verificare che le macchine virtuali di Azure siano riprotette e che vengano replicate nel sito locale. 
+1. Verificare che le macchine virtuali di Azure siano riprotette e che vengano replicate nel sito locale.
     - Una macchina virtuale richiede almeno un punto di ripristino per eseguire il failback.
     - Se si esegue il failback di un piano di ripristino, tutti i computer del piano dovrebbero avere almeno un punto di ripristino.
 2. Nell'insieme di credenziali > **gli elementi replicati**selezionare la macchina virtuale. Fare clic con il pulsante destro del mouse sulla macchina virtuale > **failover non pianificato**.

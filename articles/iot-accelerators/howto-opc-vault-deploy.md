@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84307929"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilare e distribuire il servizio di gestione certificati dell'insieme di credenziali OPC
 
@@ -51,8 +50,8 @@ In alternativa, è possibile clonare il repository direttamente in Visual Studio
 Uno script di PowerShell fornisce un modo semplice per distribuire il microservizio dell'insieme di credenziali OPC e l'applicazione.
 
 1. Aprire una finestra di PowerShell in corrispondenza della radice del repository. 
-3. Passare alla cartella `cd deploy`deploy.
-3. Scegliere un nome per `myResourceGroup` il quale è improbabile che si verifichi un conflitto con altre pagine Web distribuite. Vedere la sezione "nome del sito Web già in uso" più avanti in questo articolo.
+3. Passare alla cartella deploy `cd deploy` .
+3. Scegliere un nome per il `myResourceGroup` quale è improbabile che si verifichi un conflitto con altre pagine Web distribuite. Vedere la sezione "nome del sito Web già in uso" più avanti in questo articolo.
 5. Avviare la distribuzione con `.\deploy.ps1` per l'installazione interattiva oppure immettere una riga di comando completa:  
 `.\deploy.ps1  -subscriptionName "MySubscriptionName" -resourceGroupLocation "East US" -tenantId "myTenantId" -resourceGroupName "myResourceGroup"`
 7. Se si prevede di sviluppare con questa distribuzione, aggiungere `-development 1` per abilitare l'interfaccia utente di spavalderia e per distribuire le compilazioni di debug.
@@ -76,13 +75,13 @@ Uno script di PowerShell fornisce un modo semplice per distribuire il microservi
    > In caso di problemi, vedere la sezione "risoluzione degli errori di distribuzione" più avanti in questo articolo.
 
 8. Aprire il browser preferito e aprire la pagina dell'applicazione:`https://myResourceGroup.azurewebsites.net`
-8. Fornire all'app Web e al microservizio dell'insieme di credenziali OPC pochi minuti per scaldarsi dopo la distribuzione. Il home page Web potrebbe bloccarsi al primo utilizzo, fino a un minuto, fino a quando non si ottengono le prime risposte.
+8. Fornire all'app Web e al microservizio dell'insieme di credenziali OPC pochi minuti per scaldarsi dopo la distribuzione. Il home page Web potrebbe smettere di rispondere al primo utilizzo, fino a un minuto, fino a ottenere le prime risposte.
 11. Per esaminare l'API spavalderia, aprire:`https://myResourceGroup-service.azurewebsites.net`
-13. Per avviare un server GDS locale con dotnet, iniziare `.\myResourceGroup-gds.cmd`. Con Docker, avviare `.\myResourceGroup-dockergds.cmd`.
+13. Per avviare un server GDS locale con dotnet, iniziare `.\myResourceGroup-gds.cmd` . Con Docker, avviare `.\myResourceGroup-dockergds.cmd` .
 
 È possibile ridistribuire una compilazione con esattamente le stesse impostazioni. Tenere presente che tale operazione rinnova tutti i segreti dell'applicazione e può reimpostare alcune impostazioni nelle registrazioni dell'applicazione Azure Active Directory (Azure AD).
 
-È anche possibile ridistribuire solo i file binari dell'app Web. Con il parametro `-onlyBuild 1`, i nuovi pacchetti ZIP del servizio e l'app vengono distribuiti alle applicazioni Web.
+È anche possibile ridistribuire solo i file binari dell'app Web. Con il parametro `-onlyBuild 1` , i nuovi pacchetti ZIP del servizio e l'app vengono distribuiti alle applicazioni Web.
 
 Una volta completata la distribuzione, è possibile iniziare a usare i servizi. Vedere [Manage the OPC Vault Certificate Management Service](howto-opc-vault-manage.md).
 
@@ -94,8 +93,8 @@ Ecco come:
 2. Passare al gruppo di risorse in cui è stato distribuito il servizio.
 3. Scegliere **Elimina gruppo di risorse** e confermare.
 4. Dopo un breve periodo di tempo, tutti i componenti del servizio distribuiti vengono eliminati.
-5. Passare a **Azure Active Directory** > **registrazioni app**.
-6. Per ogni gruppo di risorse distribuito dovrebbero essere elencate tre registrazioni. Le registrazioni hanno i nomi seguenti: `resourcegroup-client`, `resourcegroup-module`,. `resourcegroup-service` Eliminare ogni registrazione separatamente.
+5. Passare a **Azure Active Directory**  >  **registrazioni app**.
+6. Per ogni gruppo di risorse distribuito dovrebbero essere elencate tre registrazioni. Le registrazioni hanno i nomi seguenti: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Eliminare ogni registrazione separatamente.
 
 Tutti i componenti distribuiti verranno ora rimossi.
 
@@ -107,7 +106,7 @@ Usare un nome di gruppo di risorse breve e semplice. Il nome viene usato anche p
 
 ### <a name="website-name-already-in-use"></a>Il nome del sito Web è già in uso
 
-È possibile che il nome del sito Web sia già in uso. È necessario usare un nome di gruppo di risorse diverso. I nomi host usati dallo script di distribuzione sono: https:\//resourcegroupname.azurewebsites.NET e https:\//resourgroupname-Service.azurewebsites.NET.
+È possibile che il nome del sito Web sia già in uso. È necessario usare un nome di gruppo di risorse diverso. I nomi host usati dallo script di distribuzione sono: https: \/ /resourcegroupname.azurewebsites.NET e https: \/ /resourgroupname-Service.azurewebsites.NET.
 Altri nomi dei servizi sono compilati dalla combinazione degli hash dei nomi brevi ed è improbabile che si verifichino conflitti con altri servizi.
 
 ### <a name="azure-ad-registration"></a>Registrazione di Azure AD 

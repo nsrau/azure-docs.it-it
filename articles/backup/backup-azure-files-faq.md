@@ -3,12 +3,11 @@ title: Domande frequenti sul backup di file di Azure
 description: In questo articolo vengono fornite le risposte alle domande comuni su come proteggere le condivisioni file di Azure con il servizio Backup di Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488699"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 
@@ -56,7 +55,7 @@ No. Tutte le condivisioni file di un account di archiviazione possono essere pro
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>È possibile recuperare una condivisione file di Azure eliminata?
 
-Quando si elimina una condivisione file di Azure, viene visualizzato l'elenco dei backup che verranno eliminati se si procede, con la relativa richiesta di conferma. Attualmente, non è possibile ripristinare una condivisione file di Azure eliminata.
+Se la condivisione file è nello stato di eliminazione temporanea, è necessario prima annullare l'eliminazione della condivisione file per eseguire l'operazione di ripristino. L'operazione di annullamento dell'eliminazione consente di portare la condivisione file nello stato attivo in cui è possibile eseguire il ripristino in qualsiasi momento. Per informazioni su come annullare l'eliminazione della condivisione file, visitare [questo collegamento](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) o vedere [annullare l'eliminazione dello script di condivisione file](./scripts/backup-powershell-script-undelete-file-share.md). Se la condivisione file viene eliminata definitivamente, non sarà possibile ripristinare il contenuto e gli snapshot.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>È possibile eseguire il ripristino dai backup se è stata interrotta la protezione in una condivisione file di Azure?
 
@@ -157,8 +156,4 @@ Di seguito è riportato un esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su altre aree di Backup di Azure, vedere queste domande frequenti sul backup:
-
-- [Domande frequenti sull'insieme di credenziali di Servizi di ripristino](backup-azure-backup-faq.md)
-- [Domande frequenti sul backup delle macchine virtuali di Azure](backup-azure-vm-backup-faq.md)
-- [Domande frequenti sull'agente di Backup di Azure](backup-azure-file-folder-backup-faq.md)
+- [Risolvere i problemi durante il backup delle condivisioni file di Azure](troubleshoot-azure-files.md)

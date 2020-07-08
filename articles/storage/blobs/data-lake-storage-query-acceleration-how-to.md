@@ -4,16 +4,15 @@ description: Usare l'accelerazione query (anteprima) per recuperare un subset di
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: d7213bb44503fbe191a69683188bdea6976827ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: cc9235f07c0829abfb8be42e83d05d8428bc1806
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930081"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465865"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrare i dati usando Azure Data Lake Storage Acceleration query (anteprima)
 
@@ -53,11 +52,11 @@ Accelerazione query (anteprima) è una nuova funzionalità per Azure Data Lake S
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-1. Scaricare i pacchetti di accelerazione delle query. È possibile ottenere un file con estensione zip compresso che contiene questi pacchetti usando il collegamento seguente [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net):. 
+1. Scaricare i pacchetti di accelerazione delle query. È possibile ottenere un file con estensione zip compresso che contiene questi pacchetti usando il collegamento seguente: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net) . 
 
 2. Estrarre il contenuto di questo file nella directory del progetto.
 
-3. Aprire il file di progetto (con*estensione csproj*) in un editor di testo e aggiungere i riferimenti al \<pacchetto all'\> interno dell'elemento Project.
+3. Aprire il file di progetto (con*estensione csproj*) in un editor di testo e aggiungere i riferimenti al pacchetto all'interno dell' \<Project\> elemento.
 
    ```xml
    <ItemGroup>
@@ -67,7 +66,7 @@ Accelerazione query (anteprima) è una nuova funzionalità per Azure Data Lake S
    </ItemGroup>
    ```
 
-4. Ripristinare i pacchetti dell'SDK di anteprima. Questo comando di esempio consente di ripristinare i pacchetti dell'SDK di anteprima `dotnet restore` usando il comando. 
+4. Ripristinare i pacchetti dell'SDK di anteprima. Questo comando di esempio consente di ripristinare i pacchetti dell'SDK di anteprima usando il `dotnet restore` comando. 
 
    ```console
    dotnet restore --source C:\Users\contoso\myProject
@@ -81,12 +80,12 @@ Accelerazione query (anteprima) è una nuova funzionalità per Azure Data Lake S
 
 ### <a name="java"></a>[Java](#tab/java)
 
-1. Creare una directory nella radice del progetto. La directory radice è la directory che contiene il file **POM. XML** .
+1. Creare una directory nella radice del progetto. La directory radice è la directory che contiene il file di **pom.xml** .
 
    > [!NOTE]
    > Gli esempi in questo articolo presuppongono che il nome della directory sia **lib**.
 
-2. Scaricare i pacchetti di accelerazione delle query. È possibile ottenere un file con estensione zip compresso che contiene questi pacchetti usando il collegamento seguente [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java):. 
+2. Scaricare i pacchetti di accelerazione delle query. È possibile ottenere un file con estensione zip compresso che contiene questi pacchetti usando il collegamento seguente: [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java) . 
 
 3. Estrarre i file nel file con estensione zip nella directory creata. In questo esempio, la directory è denominata **lib**. 
 
@@ -190,15 +189,15 @@ import org.apache.commons.csv.*;
 
 ## <a name="retrieve-data-by-using-a-filter"></a>Recuperare i dati tramite un filtro
 
-È possibile utilizzare SQL per specificare i predicati del filtro di riga e le proiezioni di colonna in una richiesta di accelerazione della query. Nel codice seguente viene eseguita una query su un file CSV nell'archivio e vengono restituite tutte le righe di dati `Hemingway, Ernest`in cui la terza colonna corrisponde al valore. 
+È possibile utilizzare SQL per specificare i predicati del filtro di riga e le proiezioni di colonna in una richiesta di accelerazione della query. Nel codice seguente viene eseguita una query su un file CSV nell'archivio e vengono restituite tutte le righe di dati in cui la terza colonna corrisponde al valore `Hemingway, Ernest` . 
 
 - Nella query SQL, la parola chiave `BlobStorage` viene usata per indicare il file su cui viene eseguita la query.
 
-- I riferimenti di colonna vengono `_N` specificati come dove la prima `_1`colonna è. Se il file di origine contiene una riga di intestazione, è possibile fare riferimento alle colonne in base al nome specificato nella riga di intestazione. 
+- I riferimenti di colonna vengono specificati come `_N` dove la prima colonna è `_1` . Se il file di origine contiene una riga di intestazione, è possibile fare riferimento alle colonne in base al nome specificato nella riga di intestazione. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Il metodo `BlobQuickQueryClient.QueryAsync` asincrono invia la query all'API di accelerazione della query e quindi trasmette nuovamente i risultati all'applicazione come oggetto [flusso](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) .
+Il metodo asincrono `BlobQuickQueryClient.QueryAsync` Invia la query all'API di accelerazione della query e quindi trasmette nuovamente i risultati all'applicazione come oggetto [flusso](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) .
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

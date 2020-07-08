@@ -4,15 +4,14 @@ description: Informazioni su come usare il feed delle modifiche nell'API Azure C
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 43743f62b08bb00403f5dac88682d06daab757a4
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: 417a1dbc72c3b3c35c501351dcc8bda9dc95a78d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431598"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Feed delle modifiche nell'API Azure Cosmos DB per Cassandra
 
@@ -21,6 +20,43 @@ Il supporto del [feed delle modifiche](change-feed.md) nell'API Azure Cosmos DB 
 Nell'esempio seguente viene illustrato come ottenere un feed delle modifiche in tutte le righe di una tabella API Cassandra spazio per la spaziatura con .NET. Il predicato COSMOS_CHANGEFEED_START_TIME () viene usato direttamente all'interno di CQL per eseguire query sugli elementi nel feed di modifiche da un'ora di inizio specificata (in questo caso DateTime corrente). È possibile scaricare l'esempio completo, per C# [qui](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) e per Java [qui](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
 In ogni iterazione, la query riprende in corrispondenza dell'ultimo punto in cui sono state lette le modifiche, usando lo stato di paging. È possibile visualizzare un flusso continuo di nuove modifiche apportate alla tabella nello spazio. Verranno visualizzate le modifiche apportate alle righe inserite o aggiornate. Il monitoraggio delle operazioni di eliminazione tramite il feed delle modifiche in API Cassandra non è attualmente supportato.
+
+# <a name="java"></a>[Java](#tab/java)
+
+```java
+        Session cassandraSession = utils.getSession();
+
+        try {
+              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+               LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
+               String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
+                    + dtf.format(now)+ "'";
+               
+             byte[] token=null; 
+             System.out.println(query); 
+             while(true)
+             {
+                 SimpleStatement st=new  SimpleStatement(query);
+                 st.setFetchSize(100);
+                 if(token!=null)
+                     st.setPagingStateUnsafe(token);
+                 
+                 ResultSet result=cassandraSession.execute(st) ;
+                 token=result.getExecutionInfo().getPagingState().toBytes();
+                 
+                 for(Row row:result)
+                 {
+                     System.out.println(row.getString("user_name"));
+                 }
+             }
+                    
+
+        } finally {
+            utils.close();
+            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+        }
+
+```
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -72,43 +108,6 @@ In ogni iterazione, la query riprende in corrispondenza dell'ultimo punto in cui
     }
 
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```java
-        Session cassandraSession = utils.getSession();
-
-        try {
-              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
-               LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
-               String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
-                    + dtf.format(now)+ "'";
-               
-             byte[] token=null; 
-             System.out.println(query); 
-             while(true)
-             {
-                 SimpleStatement st=new  SimpleStatement(query);
-                 st.setFetchSize(100);
-                 if(token!=null)
-                     st.setPagingStateUnsafe(token);
-                 
-                 ResultSet result=cassandraSession.execute(st) ;
-                 token=result.getExecutionInfo().getPagingState().toBytes();
-                 
-                 for(Row row:result)
-                 {
-                     System.out.println(row.getString("user_name"));
-                 }
-             }
-                    
-
-        } finally {
-            utils.close();
-            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
-        }
-
-```
 ---
 
 Per ottenere le modifiche apportate a una singola riga tramite chiave primaria, è possibile aggiungere la chiave primaria nella query. Nell'esempio seguente viene illustrato come tenere traccia delle modifiche per la riga in cui "user_id = 1"
@@ -146,4 +145,4 @@ I codici di errore e i messaggi seguenti sono supportati quando si usa il feed d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Gestire Azure Cosmos DB API Cassandra risorse tramite modelli Azure Resource Manager](manage-cassandra-with-resource-manager.md)
+* [Gestire le risorse dell'API Cassandra di Azure Cosmos DB con modelli di Azure Resource Manager](manage-cassandra-with-resource-manager.md)

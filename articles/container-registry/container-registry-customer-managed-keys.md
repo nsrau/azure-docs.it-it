@@ -1,15 +1,14 @@
 ---
 title: Crittografia dati inattivi con chiave gestita dal cliente
-description: Informazioni sulla crittografia dei dati inattivi del Registro Azure Container e su come crittografare il registro con una chiave gestita dal cliente archiviata in Azure Key Vault
+description: Informazioni sulla crittografia al resto del registro contenitori di Azure e su come crittografare il registro di sistema Premium con una chiave gestita dal cliente archiviata in Azure Key Vault
 ms.topic: article
 ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: a81305be13fd824e7674346aadcaddb83787322d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 393e51e687e95c1ff4c6a50429dd342005aad296
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509543"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Crittografare il registro usando una chiave gestita dal cliente
 

@@ -5,19 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 838a4123bd5007f987f27674862409445967a2d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/3/2020
+ms.openlocfilehash: 05bc0f1ae50f74cc7c8ab2b236d73bdb4a6fe787
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79528099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484684"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Raccomandazioni per le prestazioni nel Database di Azure per MariaDB
 
 **Si applica a:** Database di Azure per MariaDB 10,2
 
-La funzionalità raccomandazioni per le prestazioni analizza i database per creare suggerimenti personalizzati per migliorare le prestazioni. Per produrre le raccomandazioni, l'analisi esamina le varie caratteristiche del database, incluso lo schema. Abilitare [query Store](concepts-query-store.md) sul server per usare completamente la funzionalità delle raccomandazioni per le prestazioni. Se lo schema delle prestazioni è disattivato, l'attivazione di Query Store Abilita performance_schema e un subset di strumenti dello schema di prestazioni necessari per la funzionalità. Una volta implementate le indicazioni sulle prestazioni, è consigliabile testare le prestazioni per valutare l'effetto di tali modifiche.
+La funzionalità Raccomandazioni per le prestazioni analizza i database per creare suggerimenti personalizzati per migliorare le prestazioni. Per produrre le raccomandazioni, l'analisi prende in considerazione varie caratteristiche dei database, tra cui lo schema. Attivare [Query Store](concepts-query-store.md) sul server per sfruttare al massimo le potenzialità di Raccomandazioni per le prestazioni. Se performance_schema è disattivato, l'attivazione di Query Store attiva performance_schema e un subset di strumenti dello schema di prestazioni necessari per questa funzionalità. Dopo avere implementato una raccomandazione per le prestazioni, è necessario testare le prestazioni per valutare l'impatto di tali modifiche.
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -29,24 +28,25 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 Aprire **suggerimenti sulle prestazioni** dalla sezione **prestazioni intelligenti** della barra dei menu nella pagina portale di Azure per il server MariaDB.
 
-![Pagina di destinazione Elementi consigliati per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Pagina di destinazione Elementi consigliati per le prestazioni":::
 
-Selezionare **analizza** e scegliere un database che inizierà l'analisi. A seconda del carico di lavoro, l'analisi potrebbe richiedere alcuni minuti. Al termine dell'analisi, verrà inviata una notifica nel portale. L'analisi esegue un esame approfondito del database. Si consiglia di eseguire l'analisi durante i periodi di minore traffico.
+Selezionare **Analizza** e scegliere un database per avviare l'analisi. A seconda del carico di lavoro, l'operazione potrebbe richiedere alcuni minuti. Al termine dell'analisi, verrà inviata una notifica nel portale. L'analisi esegue un esame approfondito del database. Si consiglia quindi di effettuarla durante i periodi di minore traffico.
 
-Nella finestra **raccomandazioni** verrà visualizzato un elenco di raccomandazioni, se trovate, e l'ID di query correlato che ha generato questa raccomandazione. Con l'ID query è possibile usare la vista [MySQL. query_store](concepts-query-store.md#mysqlquery_store) per ottenere ulteriori informazioni sulla query.
+Nella finestra **Raccomandazioni** viene visualizzato un elenco di raccomandazioni (se individuate) e l'ID di query da cui è stata generata ogni raccomandazione. Con l'ID di query è possibile usare la vista [mysql.query_store](concepts-query-store.md#mysqlquery_store) per altre informazioni sulla query.
 
-![Nuova pagina Raccomandazioni per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nuova pagina Raccomandazioni per le prestazioni":::
 
-Le raccomandazioni non vengono applicate automaticamente. Per applicare la raccomandazione, copiare il testo della query ed eseguirlo dal client preferito. Ricordarsi di eseguire il test e il monitoraggio per valutare la raccomandazione.
+Le raccomandazioni non vengono applicate automaticamente. Per applicare una raccomandazione, copiare il testo della query ed eseguirlo dal client preferito. Non dimenticare di eseguire le operazioni di test e monitoraggio per valutare la raccomandazione.
 
 ## <a name="recommendation-types"></a>Tipi di raccomandazione
 
-Attualmente sono supportate solo le raccomandazioni *create index* .
+### <a name="index-recommendations"></a>Indicazioni sugli indici
 
-### <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
+Le raccomandazioni di tipo *Crea indice* suggeriscono nuovi indici per velocizzare le query che, nell'ambito del carico di lavoro, vengono eseguite più di frequente o richiedono più tempo. Per questo tipo di raccomandazione è necessario che sia attivato [Query Store](concepts-query-store.md). Query Store raccoglie informazioni sulle query e fornisce le statistiche dettagliate di frequenza e runtime delle query usate dall'analisi per generare le raccomandazioni.
 
-I suggerimenti per la *creazione* di indici suggeriscono nuovi indici per velocizzare le query di esecuzione più frequenti o che richiedono molto tempo nel carico di lavoro. Questo tipo di raccomandazione richiede l'abilitazione di [query Store](concepts-query-store.md) . Query Store raccoglie informazioni sulle query e fornisce le statistiche dettagliate sul runtime di query e sulla frequenza utilizzate dall'analisi per apportare le indicazioni.
+### <a name="query-recommendations"></a>Suggerimenti per le query
 
+Le raccomandazioni per la query suggeriscono le ottimizzazioni e le riscritture per le query nel carico di lavoro. Identificando gli anti-pattern della query MariaDB e correggendo la sintassi, è possibile migliorare le prestazioni delle query che richiedono molto tempo. Per questo tipo di raccomandazione è necessario che sia attivato Query Store. Query Store raccoglie informazioni sulle query e fornisce le statistiche dettagliate di frequenza e runtime delle query usate dall'analisi per generare le raccomandazioni.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sul [monitoraggio e l'ottimizzazione](concepts-monitoring.md) nel database di Azure per MariaDB.

@@ -4,29 +4,28 @@ description: Come configurare i dispositivi downstream o foglia per connettersi 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/08/2019
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 49a94b8877d46cf95ec8701f470d87e187713f69
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: c7de0fdf6a22b1414be297b6958841ba5c251c4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309221"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
-Questo articolo fornisce istruzioni per stabilire una connessione trusted tra dispositivi downstream e IoT Edge Gateway trasparenti. In uno scenario di gateway trasparente, uno o più dispositivi possono passare i messaggi tramite un singolo dispositivo gateway che gestisce la connessione all'hub. Un dispositivo downstream può essere qualsiasi applicazione o piattaforma la cui identità sia stata creata con il servizio cloud [hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub). In molti casi, queste applicazioni usano [Azure IoT SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo downstream potrebbe anche essere un'applicazione in esecuzione sul dispositivo IoT Edge Gateway.
+Questo articolo fornisce istruzioni per stabilire una connessione trusted tra dispositivi downstream e IoT Edge Gateway trasparenti. In uno scenario di gateway trasparente, uno o più dispositivi possono passare i messaggi tramite un singolo dispositivo gateway che gestisce la connessione all'hub.
 
-Sono disponibili tre passaggi generali per configurare una connessione del gateway trasparente corretta. Questo articolo illustra il terzo passaggio:
+Ci sono tre passaggi generali per configurare correttamente una connessione gateway trasparente. Questo articolo illustra il terzo passaggio:
 
-1. Il dispositivo gateway deve connettersi in modo sicuro ai dispositivi downstream, ricevere le comunicazioni dai dispositivi downstream e indirizzare i messaggi alla destinazione appropriata. Per altre informazioni, vedere [configurare un dispositivo IOT Edge per agire come gateway trasparente](how-to-create-transparent-gateway.md).
-2. Il dispositivo downstream deve avere un'identità del dispositivo per poter eseguire l'autenticazione con l'hub Internet e conoscere la comunicazione tramite il dispositivo gateway. Per altre informazioni, vedere [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md).
-3. **Il dispositivo downstream deve connettersi al dispositivo gateway in modo sicuro.**
+1. Configurare il dispositivo gateway come server in modo che i dispositivi downstream possano connettersi in modo sicuro. Configurare il gateway per ricevere messaggi dai dispositivi downstream e instradarli alla destinazione corretta. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge come gateway trasparente](how-to-create-transparent-gateway.md).
+2. Creare un'identità del dispositivo downstream in modo che sia in grado di eseguire l'autenticazione con l'hub Internet. Configurare il dispositivo downstream per l'invio di messaggi tramite il dispositivo gateway. Per altre informazioni, vedere [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md).
+3. **Connettere il dispositivo downstream al dispositivo gateway e iniziare a inviare messaggi.**
 
 Questo articolo presenta i problemi comuni relativi alle connessioni ai dispositivi downstream e contiene le istruzioni per configurare i dispositivi downstream attraverso le informazioni seguenti:
 
@@ -38,23 +37,23 @@ In questo articolo i termini *gateway* e *gateway IoT Edge* si riferiscono a un 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Disporre del file di certificato **Azure-IOT-Test-only. root. ca. cert. pem** generato in [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md) disponibile sul dispositivo downstream. Il dispositivo downstream usa questo certificato per convalidare l'identità del dispositivo gateway.
+* Fare in modo che il file del certificato CA radice usato per generare il certificato della CA del dispositivo in [configuri un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md) disponibile sul dispositivo downstream. Il dispositivo downstream usa questo certificato per convalidare l'identità del dispositivo gateway. Se sono stati usati i certificati demo, il certificato CA radice è denominato **Azure-IOT-Test-only. root. ca. cert. pem**.
 * Avere la stringa di connessione modificata che punta al dispositivo gateway, come illustrato in [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md).
 
 ## <a name="prepare-a-downstream-device"></a>Preparare un dispositivo downstream
 
-Un dispositivo downstream può essere qualsiasi applicazione o piattaforma la cui identità sia stata creata con il servizio cloud [hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub). In molti casi, queste applicazioni usano [Azure IoT SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo downstream potrebbe anche essere un'applicazione in esecuzione sul dispositivo IoT Edge Gateway. Un altro dispositivo IoT Edge, tuttavia, non può essere a valle di un gateway di IoT Edge.
+Un dispositivo downstream può essere qualsiasi applicazione o piattaforma la cui identità sia stata creata con il servizio cloud hub IoT di Azure. In molti casi, queste applicazioni usano [Azure IoT SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md). Un dispositivo downstream potrebbe anche essere un'applicazione in esecuzione sul dispositivo IoT Edge Gateway. Un altro dispositivo IoT Edge, tuttavia, non può essere a valle di un gateway di IoT Edge.
 
 >[!NOTE]
->I dispositivi Internet con identità registrate nell'hub Internet possono usare i [moduli gemelli](../iot-hub/iot-hub-devguide-module-twins.md) per isolare processi, hardware o funzioni differenti in un singolo dispositivo. I gateway IoT Edge supportano le connessioni del modulo downstream usando l'autenticazione con chiave simmetrica ma non l'autenticazione del certificato X. 509.
+>I dispositivi di Internet delle cose registrati con l'hub Internet possono usare i [moduli gemelli](../iot-hub/iot-hub-devguide-module-twins.md) per isolare processi, hardware o funzioni differenti in un singolo dispositivo. I gateway IoT Edge supportano le connessioni del modulo downstream usando l'autenticazione con chiave simmetrica ma non l'autenticazione del certificato X. 509.
 
 Per connettere un dispositivo downstream a un gateway Azure IoT Edge, sono necessari due elementi:
 
 * Un'applicazione o un dispositivo configurato con una stringa di connessione del dispositivo hub IoT cui siano aggiunte le informazioni necessarie per la connessione dell'applicazione o del dispositivo al gateway.
 
-    Questo passaggio è illustrato in [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md).
+    Questo passaggio è stato completato nell'articolo precedente, [autenticare un dispositivo downstream nell'hub Azure](how-to-authenticate-downstream-device.md#retrieve-and-modify-connection-string).
 
-* Il dispositivo o l'applicazione deve considerare attendibile il certificato **CA radice** del gateway per convalidare le connessioni TLS al dispositivo gateway.
+* Il dispositivo o l'applicazione deve considerare attendibile il **certificato CA radice** del gateway per convalidare le connessioni TLS (Transport Layer Security) al dispositivo gateway.
 
     Questo passaggio è illustrato in dettaglio nella parte restante di questo articolo. Questo passaggio può essere eseguito in uno dei due modi seguenti: installando il certificato della CA nell'archivio certificati del sistema operativo o (per alcune lingue) facendo riferimento al certificato all'interno delle applicazioni usando gli SDK Azure.
 
@@ -62,9 +61,9 @@ Per connettere un dispositivo downstream a un gateway Azure IoT Edge, sono neces
 
 La sfida di connettere in modo sicuro dispositivi downstream a IoT Edge viene gestita esattamente come per le altre comunicazioni client/server sicure che hanno luogo tramite internet. Un client e un server comunicano in modo sicuro tramite Internet usando il protocollo [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS viene integrato tramite costrutti di [infrastruttura a chiave pubblica (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) denominati certificati. TLS è una specifica abbastanza complessa e risolve un'ampia gamma di argomenti relativi alla protezione di due endpoint. Questa sezione riepiloga i concetti rilevanti per connettere in modo sicuro i dispositivi a un gateway IoT Edge.
 
-Quando un client si connette a un server, il server presenta una catena di certificati, denominata *catena di certificati server*. Una catena di certificati è in genere costituita da un certificato dell'autorità di certificazione (CA) radice, uno o più certificati della CA intermedia e infine il certificato del server stesso. Un client stabilisce relazioni di trust con un server verificando crittograficamente l'intera catena di certificati server. Questa convalida client della catena di certificati del server è detta *convalida della catena di server*. Il client verifica in modo crittografico il servizio per dimostrare il possesso della chiave privata associata al certificato del server in un processo denominato *prova di possesso*. La combinazione della convalida della catena di server e della prova di possesso è detta *autenticazione server*. Per convalidare una catena di certificati server, un client richiede una copia del certificato della CA radice che è stato usato per creare (o rilasciare) il certificato del server. Nel caso di connessione a siti Web, in genere un browser viene preconfigurato con certificati della CA di uso comune in modo da fornire al client un processo semplificato.
+Quando un client si connette a un server, il server presenta una catena di certificati, denominata *catena di certificati server*. Una catena di certificati è in genere costituita da un certificato dell'autorità di certificazione (CA) radice, uno o più certificati della CA intermedia e infine il certificato del server stesso. Un client stabilisce relazioni di trust con un server verificando crittograficamente l'intera catena di certificati server. Questa convalida client della catena di certificati del server è detta *convalida della catena di server*. Il client sfida il server a dimostrare il possesso della chiave privata associata al certificato del server in un processo denominato verifica *del possesso*. La combinazione della convalida della catena di server e della prova di possesso è detta *autenticazione server*. Per convalidare una catena di certificati server, un client richiede una copia del certificato della CA radice che è stato usato per creare (o rilasciare) il certificato del server. Nel caso di connessione a siti Web, in genere un browser viene preconfigurato con certificati della CA di uso comune in modo da fornire al client un processo semplificato.
 
-Quando un dispositivo si connette all'hub IoT di Azure, il dispositivo è il client e il servizio cloud hub IoT è il server. Il servizio cloud hub IoT è supportato da un certificato della CA radice denominato **Baltimore CyberTrust Root**, disponibile a livello pubblico e ampiamente utilizzato. Poiché il certificato della CA dell'hub IoT è già installato nella maggior parte dei dispositivi, molte implementazioni di TLS (OpenSSL, Schannel, LibreSSL) lo usano automaticamente durante la convalida del certificato server. Un dispositivo in grado di connettersi correttamente all'hub IoT può avere problemi quando tenta di connettersi a un gateway IoT Edge.
+Quando un dispositivo si connette all'hub IoT di Azure, il dispositivo è il client e il servizio cloud hub IoT è il server. Il servizio cloud hub IoT è supportato da un certificato della CA radice denominato **Baltimore CyberTrust Root**, disponibile a livello pubblico e ampiamente utilizzato. Poiché il certificato della CA dell'hub IoT è già installato nella maggior parte dei dispositivi, molte implementazioni di TLS (OpenSSL, Schannel, LibreSSL) lo usano automaticamente durante la convalida del certificato server. Tuttavia, un dispositivo che si connette correttamente all'hub delle cose potrebbe avere problemi durante il tentativo di connessione a un gateway IoT Edge.
 
 Quando un dispositivo si connette al gateway IoT Edge, il dispositivo downstream è il client, mentre il dispositivo gateway è il server. Azure IoT Edge permette agli operatori (o agli utenti) di creare catene di certificati del gateway in base alle esigenze. L'operatore può scegliere di usare un certificato della CA pubblico, come Baltimore, o un certificato della CA radice autofirmato (o interno). I certificati della CA pubblici prevedono costi associati e di conseguenza vengono usati in genere in scenari di produzione. I certificati della CA autofirmati vengono scelti per scenari di sviluppo e test. Gli articoli di installazione del gateway trasparente elencati nell'introduzione usano certificati CA radice autofirmati.
 
@@ -106,7 +105,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 È inoltre possibile installare i certificati utilizzando l'utilità **certlm** :
 
 1. Dal menu Start cercare e selezionare **Gestisci i certificati computer**. Verrà avviata un'utilità denominata **certlm**.
-2. Passare a **certificati-computer** > locale autorità di**certificazione radice attendibili**.
+2. Passare a **certificati-computer locale**  >  **autorità di certificazione radice attendibili**.
 3. Fare clic con il pulsante destro del mouse su **Certificati** e scegliere **Tutte le attività** > **Importa**. Viene avviata l'Importazione guidata certificati.
 4. Seguire i passaggi indicati e importare il file del certificato `<path>/azure-iot-test-only.root.ca.cert.pem`. Al termine, verrà visualizzato il messaggio "Importazione completata".
 
@@ -124,7 +123,7 @@ Prima di usare gli esempi a livello di applicazione, preparare due elementi:
 
 * Percorso completo del certificato della CA radice copiato e salvato in una posizione nel dispositivo downstream.
 
-    Ad esempio, `<path>/azure-iot-test-only.root.ca.cert.pem`
+    Ad esempio: `<path>/azure-iot-test-only.root.ca.cert.pem`.
 
 ### <a name="nodejs"></a>NodeJS
 
@@ -186,7 +185,7 @@ Questa sezione presenta un'applicazione di esempio per la connessione a un clien
 Questa sezione presenta un'applicazione di esempio per la connessione di un cliente dispositivo Python Azure IoT a un gateway IoT Edge.
 
 1. Ottenere l'esempio per **send_message_downstream** dagli [esempi di Azure Internet per dispositivi SDK per Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
-2. Impostare le `IOTHUB_DEVICE_CONNECTION_STRING` variabili `IOTEDGE_ROOT_CA_CERT_PATH` di ambiente e come specificato nei commenti dello script Python.
+2. Impostare le `IOTHUB_DEVICE_CONNECTION_STRING` `IOTEDGE_ROOT_CA_CERT_PATH` variabili di ambiente e come specificato nei commenti dello script Python.
 3. Per altre istruzioni su come eseguire l'esempio nel dispositivo, vedere la documentazione dell'SDK.
 
 ## <a name="test-the-gateway-connection"></a>Testare la connessione al gateway
@@ -199,7 +198,7 @@ openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azu
 
 Questo comando verifica le connessioni tramite MQTTS (porta 8883). Se si usa un protocollo diverso, modificare il comando in base alle esigenze per AMQPS (5671) o HTTPS (433)
 
-L'output di questo comando potrebbe essere lungo, incluse le informazioni su tutti i certificati nella catena. Se la connessione ha esito positivo, verrà visualizzata una riga `Verification: OK` come `Verify return code: 0 (ok)`o.
+L'output di questo comando potrebbe essere lungo, incluse le informazioni su tutti i certificati nella catena. Se la connessione ha esito positivo, verrà visualizzata una riga come `Verification: OK` o `Verify return code: 0 (ok)` .
 
 ![Verifica connessione gateway](./media/how-to-connect-downstream-device/verification-ok.png)
 

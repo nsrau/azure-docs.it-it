@@ -9,18 +9,17 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84310564"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VM di Azure spot per i set di scalabilità di macchine virtuali 
 
 L'uso di Azure spot nei set di scalabilità consente di sfruttare i vantaggi della capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento, quando Azure necessita della capacità, l'infrastruttura di Azure eliminerà le istanze di spot. Le istanze di spot sono quindi ottime per i carichi di lavoro in grado di gestire le interruzioni, ad esempio processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
 
-La quantità di capacità disponibile può variare in base alle dimensioni, all'area, all'ora del giorno e così via. Quando si distribuiscono istanze di spot nei set di scalabilità, Azure lo alloca solo se è disponibile una capacità, ma non esiste alcun contratto di contratto per queste istanze. Un set di scalabilità spot viene distribuito in un singolo dominio di errore e non offre garanzie di disponibilità elevata.
+La quantità di capacità disponibile dipende dalle dimensioni, dall'area, dal momento della giornata e da altri fattori. Quando si distribuiscono istanze di spot nei set di scalabilità, Azure lo alloca solo se è disponibile una capacità, ma non esiste alcun contratto di contratto per queste istanze. Un set di scalabilità spot viene distribuito in un singolo dominio di errore e non offre garanzie di disponibilità elevata.
 
 
 ## <a name="pricing"></a>Prezzi
@@ -28,7 +27,7 @@ La quantità di capacità disponibile può variare in base alle dimensioni, all'
 I prezzi per le istanze di spot sono variabili in base all'area e allo SKU. Per altre informazioni, vedere prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari statunitensi (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore `0.98765` è un prezzo massimo di $0,98765 USD all'ora. Se si imposta il prezzo massimo `-1` , l'istanza non verrà rimossa in base al prezzo. Il prezzo per l'istanza sarà il prezzo corrente per spot o il prezzo di un'istanza standard, che sempre è inferiore, purché siano disponibili capacità e quota.
+Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari statunitensi (USD), usando al massimo 5 cifre decimali. Ad esempio, il valore `0.98765`sarebbe un prezzo massimo di 0,98765 USD all'ora. Se si imposta il prezzo massimo `-1` , l'istanza non verrà rimossa in base al prezzo. Il prezzo per l'istanza sarà il prezzo corrente per spot o il prezzo di un'istanza standard, che sempre è inferiore, purché siano disponibili capacità e quota.
 
 ## <a name="eviction-policy"></a>Criteri di rimozione
 
@@ -38,7 +37,7 @@ Il criterio *deallocate* sposta le istanze eliminate nello stato arrestato-deall
 
 Se si desidera che le istanze nel set di scalabilità spot vengano eliminate al momento della rimozione, è possibile impostare i criteri di rimozione da *eliminare*. Con i criteri di rimozione impostati per l'eliminazione è quindi possibile creare nuove macchine virtuali aumentando il valore della proprietà del numero di istanze di set di scalabilità. Le macchine virtuali rimosse vengono eliminate insieme ai relativi dischi sottostanti, quindi non verrà addebitato alcun costo per l'archiviazione. Si può anche usare la funzionalità di ridimensionamento automatico dei set di scalabilità per cercare di compensare automaticamente le macchine virtuali rimosse, tuttavia non esiste alcuna garanzia di successo dell'allocazione. Si consiglia di usare la funzionalità di scalabilità automatica solo nei set di scalabilità di punti quando si impostano i criteri di rimozione da eliminare per evitare il costo dei dischi e raggiungere i limiti di quota. 
 
-Gli utenti possono acconsentire esplicitamente a ricevere notifiche in-VM tramite [Azure eventi pianificati](../virtual-machines/linux/scheduled-events.md). In questo modo si riceverà una notifica se le macchine virtuali vengono eliminate e saranno disponibili 30 secondi per completare i processi ed eseguire le attività di arresto prima dell'eliminazione. 
+Gli utenti possono acconsentire esplicitamente a ricevere notifiche nelle macchine virtuali con [Eventi pianificati di Azure](../virtual-machines/linux/scheduled-events.md). In questo modo riceveranno una notifica se le macchine virtuali vengono eliminate e avranno a disposizione 30 secondi per completare i processi ed eseguire le attività di arresto prima dell'eliminazione. 
 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Distribuzione di VM spot nei set di scalabilità
@@ -105,12 +104,12 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy`
 
 **D:** Una volta creato, è un'istanza di spot uguale all'istanza standard?
 
-**R:** Sì, ad eccezione del fatto che non esiste alcun contratto di contratto per le macchine virtuali spot e che possono essere rimossi in qualsiasi momento.
+**R:** Sì, ad eccezione del fatto che per le macchine virtuali spot non esiste un contratto di servizio e che possono essere eliminate in qualsiasi momento.
 
 
-**D:** Cosa fare quando si viene eliminati, ma è ancora necessaria una capacità?
+**D:** Cosa si può fare se la VM viene eliminata, ma è ancora necessaria capacità?
 
-**R:** È consigliabile usare VM standard anziché macchine virtuali spot se è necessaria immediatamente la capacità.
+**R:** È consigliabile usare le macchine virtuali standard anziché le macchine virtuali spot se si ha immediatamente bisogno di capacità.
 
 
 **D:** Come viene gestita la quota per spot?
@@ -118,9 +117,9 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy`
 **R:** Le istanze di spot e le istanze standard avranno pool di quote distinti. La quota spot verrà condivisa tra le macchine virtuali e le istanze del set di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
-**D:** È possibile richiedere una quota aggiuntiva per spot?
+**D:** È possibile richiedere una quota aggiuntiva per le macchine virtuali spot?
 
-**R:** Sì, sarà possibile inviare la richiesta per aumentare la quota per le VM spot tramite il [processo standard di richiesta di quota](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**R:** Sì, è possibile inviare la richiesta di aumento della quota per le macchine virtuali spot attraverso il [processo di richiesta di quota standard](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
 
 **D:** È possibile convertire I set di scalabilità esistenti in set di scalabilità spot?
@@ -148,25 +147,25 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy`
 **R:** È consigliabile impostare i criteri di rimozione per l'eliminazione quando si usa la scalabilità automatica. Questo avviene perché le istanze appena deallocate sono incluse nel calcolo delle capacità nel set di scalabilità. Quando si usa la scalabilità automatica, probabilmente verrà raggiunto rapidamente il numero di istanze di destinazione a causa delle istanze deallocate e rimosse. 
 
 
-**D:** Quali canali supportano le VM spot?
+**D:** Quali canali supportano le macchine virtuali spot?
 
-**R:** Vedere la tabella seguente per la disponibilità della macchina virtuale spot.
+**R:** Vedere la tabella seguente per la disponibilità di macchine virtuali spot.
 
 <a name="channel"></a>
 
-| Canali di Azure               | Disponibilità di macchine virtuali di Azure spot       |
+| Canali di Azure               | Disponibilità di macchine virtuali spot di Azure       |
 |------------------------------|-----------------------------------|
 | Enterprise Agreement         | Sì                               |
 | Pagamento in base al consumo                | Sì                               |
-| Provider di servizi cloud | [Contatta il tuo partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Provider di servizi cloud | [Contattare il partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Vantaggi                     | Non disponibile                     |
-| Sponsorizzato                    | Non disponibile                     |
+| Sponsorizzato                    | Sì                               |
 | Versione di valutazione gratuita                   | Non disponibile                     |
 
 
-**D:** Dove è possibile pubblicare domande?
+**D:** Dove è possibile pubblicare le domande?
 
-**R:** È possibile pubblicare e contrassegnare la domanda `azure-spot` con [Q&a](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**R:** È possibile pubblicare e contrassegnare la domanda con `azure-spot` in [Domande e risposte](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

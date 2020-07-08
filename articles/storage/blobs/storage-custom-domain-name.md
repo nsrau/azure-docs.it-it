@@ -1,31 +1,30 @@
 ---
-title: Eseguire il mapping di un dominio personalizzato a un endpoint di Archiviazione BLOB di Azure
+title: Eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure
 titleSuffix: Azure Storage
 description: Eseguire il mapping di un dominio personalizzato a un endpoint Web o di archiviazione BLOB in un account di archiviazione di Azure.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 95fd62584ef73f3f2f198c84913652f460fc5b1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465542"
 ---
-# <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Eseguire il mapping di un dominio personalizzato a un endpoint di Archiviazione BLOB di Azure
+# <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure
 
 È possibile eseguire il mapping di un dominio personalizzato a un endpoint del servizio BLOB o a un endpoint del [sito Web statico](storage-blob-static-website.md) . 
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> Questo mapping funziona solo per i sottodomini (ad esempio, `www.contoso.com`). Se si vuole che l'endpoint Web sia disponibile nel dominio radice (ad esempio, `contoso.com`), è necessario usare la rete CDN di Azure. Per istruzioni, vedere la sezione [eseguire il mapping di un dominio personalizzato con HTTPS abilitato in](#enable-https) questo articolo. Poiché il passaggio a questa sezione di questo articolo per abilitare il dominio radice del dominio personalizzato, il passaggio all'interno di questa sezione per l'abilitazione di HTTPS è facoltativo. 
+> Questo mapping funziona solo per i sottodomini (ad esempio, `www.contoso.com` ). Se si vuole che l'endpoint Web sia disponibile nel dominio radice (ad esempio `contoso.com` ,), è necessario usare la rete CDN di Azure. Per istruzioni, vedere la sezione [eseguire il mapping di un dominio personalizzato con HTTPS abilitato in](#enable-https) questo articolo. Poiché il passaggio a questa sezione di questo articolo per abilitare il dominio radice del dominio personalizzato, il passaggio all'interno di questa sezione per l'abilitazione di HTTPS è facoltativo. 
 
-<a id="enable-http" />
+<a id="enable-http"></a>
 
 ## <a name="map-a-custom-domain-with-only-http-enabled"></a>Eseguire il mapping di un dominio personalizzato con solo HTTP abilitato
 
@@ -33,7 +32,7 @@ Questo approccio è più semplice, ma consente solo l'accesso HTTP. Se l'account
 
 Per abilitare l'accesso HTTPS, vedere la sezione [eseguire il mapping di un dominio personalizzato con HTTPS abilitato](#enable-https) in questo articolo. 
 
-<a id="map-a-domain" />
+<a id="map-a-domain"></a>
 
 ### <a name="map-a-custom-domain"></a>Eseguire il mapping di un dominio personalizzato
 
@@ -50,7 +49,7 @@ Se non si desidera che il dominio sia temporaneamente non disponibile per gli ut
 
 : heavy_check_mark: passaggio 4: testare il dominio personalizzato.
 
-<a id="endpoint" />
+<a id="endpoint"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Passaggio 1: ottenere il nome host dell'endpoint di archiviazione 
 
@@ -71,7 +70,7 @@ Il nome host è l'URL dell'endpoint di archiviazione senza l'identificatore del 
   
    Impostare questo valore per un momento successivo.
 
-<a id="create-cname-record" />
+<a id="create-cname-record"></a>
 
 #### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>Passaggio 2: creare un record di nome canonico (CNAME) con il provider di dominio
 
@@ -87,11 +86,11 @@ Creare un record CNAME in modo che punti al nome host. Un record CNAME è un tip
 
 3. Creare un record CNAME. Come parte di tale record, fornire gli elementi seguenti: 
 
-   - Alias di `www` sottodominio, ad esempio `photos`o. Il sottodominio è obbligatorio. i domini radice non sono supportati. 
+   - Alias di sottodominio, ad esempio `www` o `photos` . Il sottodominio è obbligatorio. i domini radice non sono supportati. 
       
    - Il nome host ottenuto nella sezione [ottenere il nome host dell'endpoint di archiviazione](#endpoint) più indietro in questo articolo. 
 
-<a id="register" />
+<a id="register"></a>
 
 #### <a name="step-3-register-your-custom-domain-with-azure"></a>Passaggio 3: registrare il dominio personalizzato con Azure
 
@@ -105,7 +104,7 @@ Creare un record CNAME in modo che punti al nome host. Un record CNAME è un tip
 
 3. Nella casella di testo **nome dominio** immettere il nome del dominio personalizzato, incluso il sottodominio  
    
-   Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere `www.contoso.com`. Se il sottodominio è *Photos*, `photos.contoso.com`immettere.
+   Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere `www.contoso.com` . Se il sottodominio è *Photos*, immettere `photos.contoso.com` .
 
 4. Per registrare il dominio personalizzato, scegliere il pulsante **Salva** .
 
@@ -117,7 +116,7 @@ Per verificare che il mapping del dominio personalizzato all'endpoint del serviz
 
 Per accedere a un modulo Web nel contenitore *myforms* nel sottodominio personalizzato *photos.contoso.com*, è possibile ad esempio usare l'URI seguente: `http://photos.contoso.com/myforms/applicationform.htm`
 
-<a id="zero-down-time" />
+<a id="zero-down-time"></a>
 
 ### <a name="map-a-custom-domain-with-zero-downtime"></a>Eseguire il mapping di un dominio personalizzato senza tempi di inattività
 
@@ -136,7 +135,7 @@ Se il dominio attualmente supporta un'applicazione con un contratto di servizio 
 
 : heavy_check_mark: passaggio 5: testare il dominio personalizzato.
 
-<a id="endpoint-2" />
+<a id="endpoint-2"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Passaggio 1: ottenere il nome host dell'endpoint di archiviazione 
 
@@ -171,7 +170,7 @@ Creare un record CNAME temporaneo per puntare al nome host. Un record CNAME è u
 
 3. Creare un record CNAME. Come parte di tale record, fornire gli elementi seguenti: 
 
-   - Alias di `www` sottodominio, ad esempio `photos`o. Il sottodominio è obbligatorio. i domini radice non sono supportati.
+   - Alias di sottodominio, ad esempio `www` o `photos` . Il sottodominio è obbligatorio. i domini radice non sono supportati.
 
      Aggiungere il `asverify` sottodominio all'alias. Ad esempio, `asverify.www` o `asverify.photos`.
        
@@ -197,7 +196,7 @@ Quando si esegue la pre-registrazione del dominio personalizzato con Azure, si c
 
 3. Nella casella di testo **nome dominio** immettere il nome del dominio personalizzato, incluso il sottodominio  
    
-   Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere `www.contoso.com`. Se il sottodominio è *Photos*, `photos.contoso.com`immettere.
+   Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere `www.contoso.com` . Se il sottodominio è *Photos*, immettere `photos.contoso.com` .
 
 4. Selezionare la casella di controllo **Usa convalida CNAME indiretta**.
 
@@ -219,7 +218,7 @@ Creare un record CNAME temporaneo per puntare al nome host.
 
 3. Creare un record CNAME. Come parte di tale record, fornire gli elementi seguenti: 
 
-   - Alias di `www` sottodominio, ad esempio `photos`o. Il sottodominio è obbligatorio. i domini radice non sono supportati.
+   - Alias di sottodominio, ad esempio `www` o `photos` . Il sottodominio è obbligatorio. i domini radice non sono supportati.
       
    - Il nome host ottenuto nella sezione [ottenere il nome host dell'endpoint di archiviazione](#endpoint-2) più indietro in questo articolo. 
 
@@ -295,7 +294,7 @@ Per rimuovere la registrazione di un dominio personalizzato, usare il cmdlet di 
   ```
 ---
 
-<a id="enable-https" />
+<a id="enable-https"></a>
 
 ## <a name="map-a-custom-domain-with-https-enabled"></a>Eseguire il mapping di un dominio personalizzato con HTTPS abilitato
 

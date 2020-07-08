@@ -9,16 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: cb7f11f184ba8e19eb8786817da58edf8ddee44e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84448632"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Modulo di regressione dell'albero delle decisioni con boosting
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare questo modulo per creare un insieme di alberi di regressione con boosting. L' *incremento* significa che ogni albero dipende da alberi precedenti. L'algoritmo apprende inserendo il residuo degli alberi che lo precedono. Il boosting in un insieme di alberi delle decisioni tende quindi a migliorare la precisione, anche se con un rischio minimo di minore copertura.  
   
@@ -99,7 +98,7 @@ Il metodo di boosting dei gradienti può essere usato anche per problemi di clas
 
 Al termine del training:
 
-+ Per utilizzare il modello per il punteggio, connetterlo al [modello di Punteggio](./score-model.md)per stimare i valori per i nuovi esempi di input.
++ Per usare il modello per il punteggio, connettere [Train Model](train-model.md) a [Score Model](./score-model.md)per stimare i valori per i nuovi esempi di input.
 
 + Per salvare uno snapshot del modello sottoposto a training, selezionare scheda **output** nel riquadro destro del **modello** sottoposto a training e fare clic sull'icona **registra set di dati** . La copia del modello sottoposto a training verrà salvata come modulo nell'albero del modulo e non verrà aggiornata sulle esecuzioni successive della pipeline.
 

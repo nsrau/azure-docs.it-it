@@ -4,16 +4,15 @@ description: Creare certificati di test, installarli e gestirli in un dispositiv
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/02/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c18c3d560adb3c3cae54bda808ee5842c260fd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b13944e30c339357997fbc5f0919e5eb8485a0a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79539208"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84308779"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gestire i certificati in un dispositivo IoT Edge
 
@@ -23,10 +22,10 @@ Tutti i dispositivi IoT Edge usano i certificati per creare connessioni sicure t
 
 Quando si installa per la prima volta IoT Edge e si effettua il provisioning del dispositivo, il dispositivo viene configurato con certificati temporanei per poter testare il servizio.
 Questi certificati temporanei scadono entro 90 giorni oppure possono essere reimpostati riavviando il computer.
-Quando si è pronti per spostare i dispositivi in uno scenario di produzione o si vuole creare uno scenario di gateway, è necessario fornire i propri certificati.
+Quando ci si sposta in uno scenario di produzione o si vuole creare un dispositivo gateway, è necessario fornire i propri certificati.
 Questo articolo illustra i passaggi per installare i certificati nei dispositivi IoT Edge.
 
-Per altre informazioni sui diversi tipi di certificati e sui relativi ruoli in uno scenario di IoT Edge, vedere informazioni su [come Azure IOT Edge usa i certificati](iot-edge-certs.md).
+Per altre informazioni sui diversi tipi di certificati e sui relativi ruoli, vedere informazioni su [come Azure IOT Edge usa i certificati](iot-edge-certs.md).
 
 >[!NOTE]
 >Il termine "CA radice" usato in questo articolo si riferisce al certificato pubblico dell'autorità superiore della catena di certificati per la soluzione Internet delle cose. Non è necessario utilizzare la radice del certificato di un'autorità di certificazione con diffusore o la radice dell'autorità di certificazione dell'organizzazione. In molti casi, si tratta in realtà di un certificato pubblico CA intermedio.
@@ -62,31 +61,31 @@ Se, ad esempio, sono stati usati gli script di esempio per [creare i certificati
 
 1. Copiare i tre file di certificato e di chiave nel dispositivo IoT Edge.
 
-   È possibile usare un servizio come [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una funzione come [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) per spostare i file del certificato.  Se i certificati sono stati generati nel dispositivo IoT Edge stesso, è possibile ignorare questo passaggio e usare il percorso della directory di lavoro.
+   È possibile usare un servizio come [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.  Se i certificati sono stati generati nel dispositivo IoT Edge stesso, è possibile ignorare questo passaggio e usare il percorso della directory di lavoro.
 
 1. Aprire il file di configurazione del daemon di sicurezza di IoT Edge.
 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. Impostare le proprietà del **certificato** nel file config. YAML sul percorso completo dei file di certificato e di chiave nel dispositivo IOT Edge. Rimuovere il `#` carattere prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. Ad esempio:
+1. Impostare le proprietà del **certificato** in config. YAML sul percorso dell'URI del file del certificato e dei file di chiave nel dispositivo IOT Edge. Rimuovere il `#` carattere prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. Ad esempio:
 
    * Windows:
 
       ```yaml
       certificates:
-        device_ca_cert: "c:\\<path>\\device-ca.cert.pem"
-        device_ca_pk: "c:\\<path>\\device-ca.key.pem"
-        trusted_ca_certs: "c:\\<path>\\root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///C:/<path>/<device CA cert>"
+        device_ca_pk: "file:///C:/<path>/<device CA key>"
+        trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
       ```
 
    * Linux:
 
       ```yaml
       certificates:
-        device_ca_cert: "<path>/device-ca.cert.pem"
-        device_ca_pk: "<path>/device-ca.key.pem"
-        trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///<path>/<device CA cert>"
+        device_ca_pk: "file:///<path>/<device CA key>"
+        trusted_ca_certs: "file:///<path>/<root CA cert>"
       ```
 
 1. Nei dispositivi Linux, assicurarsi che l'utente **iotedge** disponga delle autorizzazioni di lettura per la directory che contiene i certificati.

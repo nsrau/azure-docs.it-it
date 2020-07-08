@@ -5,12 +5,11 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488036"
 ---
 # <a name="references"></a>Riferimenti
 
@@ -54,7 +53,7 @@ RoleAssignment  |RoleAssignment corrisponde all'assegnazione di un ruolo a un ut
 
 ### <a name="data-format"></a>Formato dati
 
-JSON è un formato di dati comune indipendente dal linguaggio che fornisce una semplice rappresentazione testuale di strutture di dati arbitrarie. Per ulteriori informazioni, vedere il [sito Web JSON](https://www.json.org/).
+JSON è un formato di dati comune indipendente dal linguaggio che offre una rappresentazione testuale semplice di strutture di dati arbitrarie. Per ulteriori informazioni, vedere il [sito Web JSON](https://www.json.org/).
 
 ## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 
@@ -74,17 +73,17 @@ Di seguito sono riportate le intestazioni di richiesta più comuni che è necess
 
 **Intestazione** | **Descrizione ed esempio**
 --- | ---
-Content-Type  | Formato della richiesta (Content-Type: Application/<format>). Per le API datahub di Azure FarmBeats, il formato è JSON. Content-Type: application/json
-Autorizzazione  | Specifica il token di accesso necessario per effettuare una chiamata API. Autorizzazione: Bearer <Access-token>
-Accept | Formato della risposta. Per le API datahub di Azure FarmBeats, il formato è JSON. Accept: Application/JSON
+Content-Type  | Formato della richiesta (Content-Type: application/<format>). Per le API datahub di Azure FarmBeats, il formato è JSON. Content-Type: application/json
+Autorizzazione  | Specifica il token di accesso necessario per effettuare una chiamata API. Authorization: Bearer <Access-Token>
+Accept | Formato della risposta. Per le API datahub di Azure FarmBeats, il formato è JSON. Accept: application/json
 
 ### <a name="api-requests"></a>Richieste API
 
 Per eseguire una richiesta API REST, combinare il metodo HTTP (GET, POST, PUT o DELETE), l'URL del servizio API, l'URI di una risorsa per eseguire query, inviare dati a, aggiornare o eliminare e quindi aggiungere una o più intestazioni di richiesta HTTP.
 
-L'URL del servizio API è l'URL di datahub, ad esempio https://\<yourdatahub-Website-Name>. azurewebsites.NET.
+L'URL del servizio API è l'URL di datahub, ad esempio https:// \<yourdatahub-website-name> . azurewebsites.NET.
 
-Facoltativamente, è possibile includere i parametri di query sulle chiamate GET da filtrare, limitare le dimensioni e ordinare i dati nelle risposte.
+Facoltativamente, è possibile includere parametri di query sulle chiamate GET da filtrare, di cui limitare le dimensioni e ordinare i dati nelle risposte.
 
 Per ottenere l'elenco dei dispositivi, viene usata la richiesta di esempio seguente:
 
@@ -92,7 +91,7 @@ Per ottenere l'elenco dei dispositivi, viene usata la richiesta di esempio segue
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
-Per la maggior parte delle chiamate GET, POST e PUT è necessario un corpo della richiesta JSON.
+La maggior parte delle chiamate GET, POST e PUT richiede un corpo della richiesta in formato JSON.
 
 La richiesta di esempio seguente crea un dispositivo. Questa richiesta ha input JSON con il corpo della richiesta.
 
@@ -111,7 +110,7 @@ Ad esempio, quando si esegue una query sull'elenco di dispositivi (GET Call on/d
 
 Le API datahub di Azure FarmBeats restituiscono gli errori HTTP standard. I codici di errore più comuni sono i seguenti:
 
- |Codice errore             | Descrizione |
+ |Codice di errore             | Descrizione |
  |---                    | --- |
  |200                    | Operazione completata |
  |201                    | Creazione (post) riuscita |
@@ -147,7 +146,7 @@ In questo esempio, quando è stata creata una farm, il campo obbligatorio "Name"
 
 È possibile accedere alle API di Azure FarmBeats da un utente o da una registrazione dell'app in Azure Active Directory. Per creare una registrazione dell'app in Azure Active Directory, seguire questa procedura:
 
-1. Passare alla [portale di Azure](https://portal.azure.com)e selezionare **Azure Active Directory** > **registrazioni app** > **nuova registrazione**. In alternativa, è possibile usare un account esistente.
+1. Passare alla [portale di Azure](https://portal.azure.com)e selezionare **Azure Active Directory**  >  **registrazioni app**  >  **nuova registrazione**. In alternativa, è possibile usare un account esistente.
 2. Per un nuovo account, procedere come segue:
 
     - Immettere un nome.
@@ -162,9 +161,18 @@ In questo esempio, quando è stata creata una farm, il campo obbligatorio "Name"
     - Tornare a **Panoramica**e selezionare il collegamento accanto a **Gestisci applicazione nella directory locale**.
     - Passare a **Proprietà** per acquisire l' **ID oggetto**.
 
-4. Passare a datahub spavalderia (https://<yourdatahub>. azurewebsites.NET/Swagger/index.html) ed eseguire le operazioni seguenti:
+4. Passare a datahub spavalderia (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) ed eseguire le operazioni seguenti:
     - Passare all' **API RoleAssignment**.
     - Eseguire un POST per creare un oggetto **RoleAssignment** per l' **ID oggetto** appena creato.
+ 
+```json
+{
+  "roleDefinitionId": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "objectId": "objectId from step 3 above",
+  "objectIdType": "ServicePrincipalId",
+  "tenantId": "tenant id of your Azure subscription"
+}
+```
 
   > [!NOTE]
   > Per ulteriori informazioni su come aggiungere utenti e Active Directory la registrazione, vedere [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
