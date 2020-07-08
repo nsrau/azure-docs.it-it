@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36268910003c4235d7ae60d2fd68bc30d7b8b858
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830010"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -22,9 +22,9 @@ Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilit
 Per determinare se è necessario un ridimensionamento è possibile monitorare le metriche seguenti.
 
 * Carico server Redis
-* Utilizzo della memoria
+* Utilizzo memoria
 * Larghezza di banda della rete
-* Utilizzo di CPU
+* Utilizzo CPU
 
 Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è possibile ridimensionare la cache in base a un piano tariffario superiore o inferiore che sia adatto all'applicazione. Per altre informazioni su come determinare il tipo di piano tariffario della cache appropriato, vedere l'articolo relativo all' [offerta e alle dimensioni di Cache Redis da usare](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
@@ -64,9 +64,11 @@ Oltre a usare il portale di Azure, per ridimensionare le istanze di Cache Redis 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile ridimensionare la cache di Azure per le istanze di redis con PowerShell usando il cmdlet [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando vengono modificate le `Size`proprietà, `Sku`o. `ShardCount` L'esempio seguente illustra come ridimensionare una cache denominata `myCache` in una cache di 2,5 GB. 
+È possibile ridimensionare la cache di Azure per le istanze di redis con PowerShell usando il cmdlet [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando `Size` `Sku` `ShardCount` vengono modificate le proprietà, o. L'esempio seguente illustra come ridimensionare una cache denominata `myCache` in una cache di 2,5 GB. 
 
-    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```powershell
+   Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```
 
 Per altre informazioni sul ridimensionamento con PowerShell, vedere le istruzioni per [ridimensionare una cache Redis di Azure mediante PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
@@ -78,6 +80,7 @@ Per altre informazioni sul ridimensionamento tramite l'interfaccia della riga di
 ### <a name="scale-using-maml"></a>Ridimensionare la cache tramite le librerie di gestione di Microsoft Azure
 Per ridimensionare le istanze di Cache Redis di Azure usando le [librerie di gestione di Microsoft Azure](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), chiamare il metodo `IRedisOperations.CreateOrUpdate` e passare la nuova dimensione di `RedisProperties.SKU.Capacity`.
 
+```csharp
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
@@ -95,6 +98,7 @@ Per ridimensionare le istanze di Cache Redis di Azure usando le [librerie di ges
         var redisParams = new RedisCreateOrUpdateParameters(redisProperties, redisCacheRegion);
         client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
     }
+```
 
 Per altre informazioni, vedere l'esempio relativo alla [gestione di Cache Redis di Azure tramite le librerie di gestione di Microsoft Azure](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) .
 

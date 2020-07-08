@@ -3,15 +3,15 @@ title: Visualizzare e gestire gli avvisi per il dispositivo StorSimple serie 800
 description: Vengono descritte le condizioni di avviso StorSimple e la loro gravità, come configurare le notifiche di avviso e come usare il servizio Gestione dispositivi StorSimple per gestire gli avvisi.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267820"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830044"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 
@@ -48,11 +48,11 @@ Gli avvisi possono avere diversi livelli di gravità, in base all'impatto determ
 > [!NOTE]
 > È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
 
-Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *StorSimple-Alerts-noreply\@mail.WindowsAzure.com* e descrivono la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per rimuovere il proprio indirizzo dall'elenco di notifica tramite posta elettronica.
+Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *StorSimple-Alerts-noreply \@ mail.WindowsAzure.com* e descrivono la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per rimuovere il proprio indirizzo dall'elenco di notifica tramite posta elettronica.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Per abilitare la notifica di posta elettronica degli avvisi per un dispositivo
 1. Passare al servizio Gestione dispositivi StorSimple. Nell'elenco dei dispositivi, selezionare e fare clic sul dispositivo da configurare.
-2. Passare a **Impostazioni** > **generale** per il dispositivo.
+2. Passare a **Impostazioni**  >  **generale** per il dispositivo.
 
    ![Pannello Avvisi](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
    
@@ -60,7 +60,7 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri
    
    1. Nel campo **Invia notifica tramite posta elettronica** selezionare **SÌ**.
    2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **SÌ** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
-   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *\@Somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo. 
+   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato * \@ Somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo. 
       
 3. Per inviare una notifica di posta elettronica di prova, fare clic su **Invia messaggio di posta elettronica di prova**. Il servizio Gestione dispositivi StorSimple visualizza i messaggi di stato e inoltra la notifica di prova.
 
@@ -120,6 +120,7 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 * [Avvisi di prestazioni](#performance-alerts)
 * [Avvisi di sicurezza](#security-alerts)
 * [Avvisi del pacchetto per il supporto](#support-package-alerts)
+* [Avvisi ambiente enclosure](#enclosure-environment-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Avvisi di connettività cloud
 
@@ -192,9 +193,9 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 | Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete ' DATA0' nel dispositivo * \<device1>* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e la lunghezza del prefisso '22 ' sul dispositivo * \<device1>* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per ulteriori informazioni sui modelli di URL in portale di Azure, vedere https:\//aka.ms/SS-8000-Network-reqs. Se si usa il cloud di Azure per enti pubblici, passare ai modelli\/di URL in https:/aka.ms/ss8000-gov-Network-reqs.|
+| Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete ' DATA0' sul dispositivo *\<device1>* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
+| L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e la lunghezza del prefisso '22 ' sul dispositivo *\<device1>* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per ulteriori informazioni sui modelli di URL in portale di Azure, vedere https: \/ /aka.ms/SS-8000-Network-reqs. Se si usa il cloud di Azure per enti pubblici, passare ai modelli di URL in https: \/ /aka.ms/ss8000-gov-Network-reqs.|
 
 ### <a name="performance-alerts"></a>Avvisi di prestazioni
 
@@ -219,7 +220,12 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 |:--- |:--- |:--- |
 | Creazione del pacchetto per il supporto non riuscita. |StorSimple: impossibile generare il pacchetto. |Ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. Dopo avere risolto il problema, cancellare questo avviso dalla pagina degli avvisi. |
 
+### <a name="enclosure-environment-alerts"></a>Avvisi ambiente enclosure
+
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
+|:--- |:--- |:--- |
+| Il sensore di temperatura ambiente del componente hardware segnala lo stato come non riuscito.  | Tipo enclosure: enclosure principale | Questo avviso viene generato quando l'ambiente esterno alla temperatura intorno a StorSimple è superiore a un intervallo accettabile. Controllare la temperatura all'esterno dell'ambiente o il flusso d'aria dallo sfiato AC nel Data Center. Quando la temperatura torna al normale, l'avviso viene cancellato automaticamente dopo che è trascorso del tempo. Se il problema persiste, contattare il supporto tecnico Microsoft.   |
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su [Errori di StorSimple e risoluzione dei problemi relativi alla distribuzione in dispositivi](storsimple-8000-troubleshoot-deployment.md).
-

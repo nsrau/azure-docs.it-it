@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79164878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830027"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Aggiungere risorse all'ambiente Integration Services (ISE) in app per la logica di Azure
 
 Dopo aver creato un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), aggiungere risorse come app per la logica, account di integrazione e connettori in modo che possano accedere alle risorse nella rete virtuale di Azure. Ad esempio, i connettori ISE gestiti che diventano disponibili dopo la creazione di ISE non vengono visualizzati automaticamente nella finestra di progettazione dell'app per la logica. Prima di poter usare questi connettori ISE, è necessario [aggiungerli e distribuirli](#add-ise-connectors-environment) manualmente in ISE, in modo che vengano visualizzati nella finestra di progettazione dell'app per la logica.
 
 > [!IMPORTANT]
-> Per interagire con le app per la logica e gli account di integrazione in un ISE, è necessario che entrambi usino lo *stesso ISE* della relativa posizione.
+> Per fare in modo che le app per la logica e gli account di integrazione interagiscano tra logo in un ISE, è necessario che entrambi usino lo *stesso ISE* come propria posizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,7 +26,7 @@ Dopo aver creato un [ambiente Integration Services (ISE)](../logic-apps/connect-
 
 * ISE creato per eseguire le app per la logica. Se non si dispone di un ISE, [creare prima un ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
-* Per creare, aggiungere o aggiornare le risorse distribuite in un ISE, è necessario assegnare il ruolo di proprietario o collaboratore a tale ISE oppure avere le autorizzazioni ereditate tramite la sottoscrizione di Azure o il gruppo di risorse di Azure associato a ISE. Per gli utenti che non dispongono di autorizzazioni proprietario, collaboratore o ereditato, è possibile assegnare il ruolo Collaboratore ambiente del servizio di integrazione o ambiente del servizio di integrazione ruolo sviluppatore. Per ulteriori informazioni sul controllo degli accessi in base al ruolo (RBAC), vedere [che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure](../role-based-access-control/overview.md)?
+* Per creare, aggiungere o aggiornare le risorse distribuite in un ISE, è necessario assegnare il ruolo di proprietario o collaboratore a tale ISE oppure avere le autorizzazioni ereditate tramite la sottoscrizione di Azure o il gruppo di risorse di Azure associato a ISE. Per gli utenti che non dispongono di autorizzazioni proprietario, collaboratore o ereditato, è possibile assegnare il ruolo Collaboratore ambiente del servizio di integrazione o ambiente del servizio di integrazione ruolo sviluppatore. Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 
 <a name="create-logic-apps-environment"></a>
 
@@ -34,7 +34,7 @@ Dopo aver creato un [ambiente Integration Services (ISE)](../logic-apps/connect-
 
 Per compilare app per la logica che vengono eseguite nell'ambiente Integration Services (ISE), seguire questa procedura:
 
-1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE in **Impostazioni**selezionare **app** > per la logica**Aggiungi**.
+1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE in **Impostazioni**selezionare app per la **logica**  >  **Aggiungi**.
 
    ![Aggiungere una nuova app per la logica ad ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -66,7 +66,7 @@ In base allo [SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-envir
 
 Per creare un account di integrazione che usa ISE, seguire questa procedura:
 
-1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE, in **Impostazioni**, selezionare **account** > di integrazione**Aggiungi**.
+1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE, in **Impostazioni**, selezionare **account di integrazione**  >  **Aggiungi**.
 
    ![Aggiungi nuovo account di integrazione a ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
@@ -113,7 +113,7 @@ I connettori gestiti da Microsoft che diventano disponibili dopo la creazione di
 
 Per usare i connettori personalizzati in ISE, creare i connettori personalizzati direttamente all'interno di ISE.
 
-1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE, in **Impostazioni**, selezionare **connettori** > personalizzati**Aggiungi**.
+1. Trovare e aprire ISE, se non è già aperto. Dal menu ISE, in **Impostazioni**, selezionare **connettori personalizzati**  >  **Aggiungi**.
 
    ![Crea connettore personalizzato](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 
