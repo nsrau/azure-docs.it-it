@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: d3a2dfba98f83d34c3e83ec865e3b692f7dbacd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3240151937a8ad758e4afe765341261069fd60e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254566"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Informazioni sulla fatturazione per la rete CDN di Azure
 
@@ -96,7 +96,7 @@ Se si usa uno dei servizi di Azure seguenti come origine della rete CDN, non ver
 - Rete virtuale
 - Load Balancer
 - Gateway applicazione
-- Azure DNS
+- DNS di Azure
 - ExpressRoute
 - Gateway VPN
 - Gestione traffico
@@ -106,7 +106,7 @@ Se si usa uno dei servizi di Azure seguenti come origine della rete CDN, non ver
 - Azure Bastion
 - Servizio app di Azure
 - Funzioni di Azure
-- Data factory di Azure
+- Azure Data Factory
 - Gestione API di Azure
 - Azure Batch 
 - Esplora dati di Azure
@@ -114,7 +114,8 @@ Se si usa uno dei servizi di Azure seguenti come origine della rete CDN, non ver
 - Azure Cosmos DB
 - Archivio Azure Data Lake
 - Azure Machine Learning 
-- Database SQL di Azure
+- database SQL di Azure
+- Istanza gestita di SQL di Azure
 - Cache Redis di Azure
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Ricerca per categorie su come gestire più efficacemente i costi

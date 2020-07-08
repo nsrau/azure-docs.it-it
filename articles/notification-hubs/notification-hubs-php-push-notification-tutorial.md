@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c4bf0569d6e2e595eb03c85abba7224b25b1864
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255450"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Come usare Hub di notifica da PHP
 
@@ -32,7 +30,7 @@ ms.locfileid: "76263847"
 In questo argomento viene illustrato come:
 
 * Compilare un client REST per le funzionalità di Hub di notifica in PHP.
-* Seguire l' [esercitazione introduttiva](notification-hubs-ios-apple-push-notification-apns-get-started.md) per la piattaforma mobile preferita, implementando la parte back-end in php.
+* Seguire le [notifiche push di invio alle app iOS usando hub di notifica di Azure](ios-sdk-get-started.md) per la piattaforma mobile preferita, implementando la parte back-end in php.
 
 ## <a name="client-interface"></a>Interfaccia del client
 
@@ -55,7 +53,7 @@ Per inviare una notifica nativa iOS:
 
 ## <a name="implementation"></a>Implementazione
 
-Se non è già stato fatto, seguire l' [esercitazione introduttiva] fino all'ultima sezione in cui è necessario implementare il back-end.
+Se non è già stato fatto, seguire la [esercitazione introduttiva] fino all'ultima sezione in cui è necessario implementare il back-end.
 Si può anche usare il codice dell'[esempio di wrapper REST PHP] e passare direttamente alla sezione [Completare l'esercitazione](#complete-tutorial).
 
 Tutti i dettagli per implementare un wrapper REST completo sono disponibili in [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). In questa sezione viene illustrata l'implementazione PHP dei passaggi principali necessari per accedere agli endpoint REST di Hub di notifica:
@@ -222,7 +220,7 @@ I metodi sopra indicati inviano una richiesta POST HTTP all'endpoint `/messages`
 
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end PHP.
 
-Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'[esercitazione introduttiva] a Hub di notifica:
+Inizializzare il client di hub di notifica (sostituire la stringa di connessione e il nome dell'hub come indicato nell'esercitazione introduttiva]):
 
     ```php
     $hub = new NotificationHub("connection string", "hubname");
@@ -291,4 +289,5 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](https://azure.microsoft.com/develop/php/).
 
 [esempio di wrapper REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[esercitazione introduttiva]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Inviare notifiche push alle app iOS con Hub di notifica di Azure](ios-sdk-get-started.md))
+

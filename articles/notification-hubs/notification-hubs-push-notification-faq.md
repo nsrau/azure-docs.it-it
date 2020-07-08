@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
 manager: femila
-editor: jwargo
 keywords: notifica push, notifiche push, notifiche push iOS, notifiche push android, push ios, push android
-ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -17,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263830"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255127"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
 
@@ -56,7 +54,7 @@ Per i livelli Basic e Standard di Hub di notifica, le applicazioni correttamente
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Come eseguire l'aggiornamento o il downgrade di un hub o di uno spazio dei nomi a un livello diverso?
 
-Passare a **[portale di Azure]** > **spazi dei nomi di hub di notifica** o hub di **notifica**. Selezionare la risorsa che si desidera aggiornare, quindi passare al **piano tariffario**. Tenere presenti i requisiti seguenti:
+Passare a **[portale di Azure]**  >  **spazi dei nomi di hub di notifica** o hub di **notifica**. Selezionare la risorsa che si desidera aggiornare, quindi passare al **piano tariffario**. Tenere presenti i requisiti seguenti:
 
 * Il piano tariffario aggiornato si applica a *tutti* gli hub nello spazio dei nomi in uso.
 * Se il conteggio dei dispositivi supera il limite del livello a cui si passa, è necessario eliminare i dispositivi prima effettuare il downgrade.
@@ -69,7 +67,7 @@ Gli SDK server sono disponibili per .NET, Java, Node.js, PHP e Python. Le API di
 
 ### <a name="which-client-platforms-do-you-support"></a>Quali piattaforme client sono supportate?
 
-Sono supportate le notifiche push per [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Novell ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Introduzione ad Hub di notifica].
+Sono supportate le notifiche push [per iOS](ios-sdk-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Novell [iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per ulteriori informazioni, vedere la pagina relativa alle [esercitazioni introduzione di hub di notifica](ios-sdk-get-started.md) .
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Sono supportate le notifiche via SMS, messaggi di posta elettronica o Web?
 
@@ -79,7 +77,7 @@ Hub di notifica invia notifiche ai dispositivi che eseguono app per dispositivi 
 
 Per informazioni dettagliate sul numero di dispositivi supportati, vedere la pagina [Prezzi di Hub di notifica].
 
-Se è necessario il supporto per più di 10 milioni dispositivi registrati, è necessario partizionare i dispositivi su più hub.
+Se è necessario il supporto per più di 10 milioni dispositivi registrati, è necessario partizionare i dispositivi in più spazi dei nomi.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Quante notifiche push si può inviare?
 
@@ -206,7 +204,6 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 [Prezzi di Hub di notifica]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [API REST di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Esercitazioni introduttive si Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Registrazione dal back-end dell'app]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Guida alla registrazione del back-end 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253495"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fattori che influenzano le prestazioni di Azure AD Connect
 
@@ -96,7 +96,7 @@ In un ciclo di sincronizzazione completa sono incluse le operazioni seguenti:
 > [!NOTE]
 > È necessaria un'attenta pianificazione quando si eseguono aggiornamenti in blocco di molti oggetti in Active Directory o in Azure AD. Con gli aggiornamenti in blocco, il processo di sincronizzazione delta richiederà più tempo per l'importazione, perché vengono modificati molti oggetti. Le importazioni possono richiedere molto tempo anche se l'aggiornamento in blocco non influisce sul processo di sincronizzazione. Ad esempio, l'assegnazione di licenze a molti utenti in Azure AD determinerà un ciclo di importazione lungo da Azure AD, ma non comporterà modifiche agli attributi in Active Directory.
 
-### <a name="synchronization"></a>Synchronization
+### <a name="synchronization"></a>Sincronizzazione
 
 Il runtime del processo di sincronizzazione ha le caratteristiche di prestazioni seguenti:
 
@@ -105,7 +105,7 @@ Il runtime del processo di sincronizzazione ha le caratteristiche di prestazioni
 * Anche l'esportazione è lineare.
 * La sincronizzazione aumenterà in modo esponenziale in base al numero di oggetti con riferimenti ad altri oggetti. Le appartenenze ai gruppi e i gruppi annidati hanno l'impatto maggiore sulle prestazioni, perché i membri fanno riferimento agli oggetti utente o ad altri gruppi. Questi riferimenti devono trovarsi e fare riferimento agli oggetti effettivi nel metaverse per completare il ciclo di sincronizzazione.
 
-### <a name="filtering"></a>Filtri
+### <a name="filtering"></a>Filtro
 
 Le dimensioni della topologia di Active Directory da importare è il fattore principale che influenza le prestazioni e il tempo complessivo richiesto dai componenti interni del motore di provisioning.
 
@@ -143,7 +143,7 @@ Le organizzazioni possono impedire il passaggio di determinati attributi in Azur
 
 ## <a name="azure-ad-connect-dependency-factors"></a>Fattori di dipendenza di Azure AD Connect
 
-Le prestazioni di Azure AD Connect dipendono dalle prestazioni delle directory connesse in cui vengono eseguite le importazioni e le esportazioni, ad esempio dalle dimensioni dell'istanza di Active Directory da importare o dalla latenza di rete per il servizio Azure AD. Il database SQL usato dal motore di provisioning influisce anche sulle prestazioni complessive del ciclo di sincronizzazione.
+Le prestazioni di Azure AD Connect dipendono dalle prestazioni delle directory connesse in cui vengono eseguite le importazioni e le esportazioni, ad esempio dalle dimensioni dell'istanza di Active Directory da importare o dalla latenza di rete per il servizio Azure AD. Il database SQL utilizzato dal motore di provisioning influisca inoltre sulle prestazioni complessive del ciclo di sincronizzazione.
 
 ### <a name="active-directory-factors"></a>Fattori di Active Directory
 
@@ -172,7 +172,7 @@ Le dimensioni della topologia di Active Directory di origine influiranno sulle p
 
 - Le organizzazioni con più di 100.000 utenti possono ridurre le latenze di rete usando lo stesso server come posizione condivisa per il database SQL e il motore di provisioning.
 - A causa dei requisiti di input e output (I/O) elevati su disco del processo di sincronizzazione, usare unità SSD per il database SQL del motore di provisioning per ottenere risultati ottimali. Se non è possibile, prendere in considerazione le configurazioni RAID 0 o RAID 1.
-- Non eseguire preventivamente una sincronizzazione completa perché potrebbe causare una varianza non necessaria e rallentare i tempi di risposta.
+- Non eseguire preventivamente la sincronizzazione completa. causa la varianza superflua e tempi di risposta più lenti.
 
 ## <a name="conclusion"></a>Conclusioni
 

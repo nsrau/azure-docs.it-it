@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: b1f11a1ff25117c07e61475e7e83fc0c170cd552
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414643"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254617"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formati di file supportati e codec di compressione in Azure Data Factory (legacy)
 
@@ -97,7 +97,7 @@ Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la propr
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No |
 
 >[!NOTE]
->Per il caso di applicazione incrociata di dati in una matrice in più righe (caso 1-> esempio 2 in [JsonFormat esempi](#jsonformat-example)), è possibile scegliere di espandere solo una `jsonNodeReference`singola matrice usando la proprietà.
+>Per il caso di applicazione incrociata di dati in una matrice in più righe (caso 1-> esempio 2 in [JsonFormat esempi](#jsonformat-example)), è possibile scegliere di espandere solo una singola matrice usando la proprietà `jsonNodeReference` .
 
 ### <a name="json-file-patterns"></a>Modelli di file JSON
 
@@ -429,7 +429,7 @@ Tenere presente quanto segue:
 > [!IMPORTANT]
 > Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file Parquet, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
 
-Per la copia in esecuzione sul runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file parquet, ADF individua il runtime *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* Java controllando prima di tutto il registro di sistema per jre *`JAVA_HOME`* , se non è stato trovato, controllando in secondo luogo la variabile di sistema per OpenJDK.
+Per la copia in esecuzione sul runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file parquet, ADF individua il runtime Java controllando prima di tutto il registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* di sistema per JRE, se non è stato trovato, controllando in secondo luogo la variabile *`JAVA_HOME`* di sistema per OpenJDK.
 
 - **Per usare JRE**: il runtime di integrazione a 64 bit richiede jre a 64 bit. disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
@@ -457,7 +457,7 @@ Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`
 | Single | Float | N/D | N/D |
 | Double | Double | N/D | N/D |
 | Decimal | Binary | Decimal | Decimal |
-| Stringa | Binary | Utf8 | Utf8 |
+| string | Binary | Utf8 | Utf8 |
 | Datetime | Int96 | N/D | N/D |
 | TimeSpan | Int96 | N/D | N/D |
 | DateTimeOffset | Int96 | N/D | N/D |
@@ -489,7 +489,7 @@ Tenere presente quanto segue:
 > [!IMPORTANT]
 > Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file ORC, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
 
-Per la copia in esecuzione sul runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file ORC, ADF individua il runtime *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* Java controllando prima di tutto il registro di sistema per jre *`JAVA_HOME`* , se non è stato trovato, controllando in secondo luogo la variabile di sistema per OpenJDK.
+Per la copia in esecuzione sul runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file ORC, ADF individua il runtime Java controllando prima di tutto il registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* di sistema per JRE, se non è stato trovato, controllando in secondo luogo la variabile *`JAVA_HOME`* di sistema per OpenJDK.
 
 - **Per usare JRE**: il runtime di integrazione a 64 bit richiede jre a 64 bit. disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
@@ -506,16 +506,16 @@ Per la copia in esecuzione sul runtime di integrazione self-hosted con la serial
 | Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
-| UInt64 | Stringa |
+| UInt64 | string |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| Stringa | string |
+| string | string |
 | Datetime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |
-| Guid | Stringa |
+| Guid | string |
 | Char | Char(1) |
 
 ## <a name="avro-format-legacy"></a><a name="avro-format"></a>Formato AVRO (legacy)
@@ -542,10 +542,10 @@ Tenere presente quanto segue:
 
 Azure Data Factory supporta la compressione/decompressione dei dati durante la copia. Quando si specifica una proprietà `compression` in un set di dati di input, l'attività di copia legge i dati compressi dall'origine e li decomprime. Quando si specifica la proprietà in un set di dati di output, l'attività di copia comprime e quindi scrive i dati nel sink. Di seguito vengono forniti alcuni scenari di esempio:
 
-* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli e scrivere i dati del risultato in un database SQL di Azure. Definire il set di dati di input del BLOB `compression` `type` di Azure con la proprietà come gzip.
-* Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in un BLOB di Azure. Si definisce un set di dati di output del `compression` `type` BLOB di Azure con la proprietà come gzip.
-* Leggere il file con estensione zip dal server FTP, decomprimerlo per ottenere i file all'interno e inserire i file in Azure Data Lake Store. Si definisce un set di dati FTP di `compression` `type` input con la proprietà ZipDeflate.
-* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. Definire il set di dati di input del `compression` `type` BLOB di Azure con impostato su gzip e `compression` `type` il set di dati di output con impostato su bzip2.
+* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli e scrivere i dati dei risultati nel database SQL di Azure. Definire il set di dati di input del BLOB di Azure con la `compression` `type` proprietà come gzip.
+* Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in un BLOB di Azure. Si definisce un set di dati di output del BLOB di Azure con la `compression` `type` proprietà come gzip.
+* Leggere il file con estensione zip dal server FTP, decomprimerlo per ottenere i file all'interno e inserire i file in Azure Data Lake Store. Si definisce un set di dati FTP di input con la `compression` `type` Proprietà ZipDeflate.
+* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. Definire il set di dati di input del BLOB di Azure con `compression` `type` impostato su gzip e il set di dati di output con `compression` `type` impostato su bzip2.
 
 Per specificare la compressione per un set di dati, usare la proprietà **compression** nel set di dati JSON come illustrato di seguito:
 
@@ -575,7 +575,7 @@ Per specificare la compressione per un set di dati, usare la proprietà **compre
 
 La sezione **compression** ha due proprietà:
 
-* **Tipo:** codec di compressione, che può essere **gzip**, **deflate**, **bzip2**o **ZipDeflate**. Nota Quando si usa l'attività di copia per decomprimere i file ZipDeflate e scrivere nell'archivio dati sink basato su file, i file verranno estratti nella `<path specified in dataset>/<folder named as source zip file>/`cartella:.
+* **Tipo:** codec di compressione, che può essere **gzip**, **deflate**, **bzip2**o **ZipDeflate**. Nota Quando si usa l'attività di copia per decomprimere i file ZipDeflate e scrivere nell'archivio dati sink basato su file, i file verranno estratti nella cartella: `<path specified in dataset>/<folder named as source zip file>/` .
 * **Level:** rapporto di compressione, che può essere **Optimal** o **Fastest**.
 
   * **Fastest:** l'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non viene compresso in modo ottimale.

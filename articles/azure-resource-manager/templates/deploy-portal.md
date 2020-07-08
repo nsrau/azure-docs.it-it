@@ -3,12 +3,12 @@ title: Distribuire le risorse con portale di Azure
 description: Usare portale di Azure e gestione risorse di Azure per distribuire le risorse in un gruppo di risorse nella sottoscrizione.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: ea2faf810b3a5d1b8fa46575201022a501cc7d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153438"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255263"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Distribuire le risorse con i modelli ARM e portale di Azure
 
@@ -82,11 +82,11 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
 
    ![Cercare la distribuzione del modello](./media/deploy-portal/search-template.png)
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 1. Vengono visualizzate diverse opzioni per la creazione di un modello:
 
     - **Compilare un modello personalizzato nell'editor**: creare un modello usando l'Editor modelli del portale.  L'editor è in grado di aggiungere uno schema del modello di risorsa.
-    - **Modelli comuni**: sono disponibili quattro modelli comuni per la creazione di una macchina virtuale Linux, una macchina virtuale Windows, un'applicazione Web e un database SQL di Azure.
+    - **Modelli comuni**: sono disponibili quattro modelli comuni per la creazione di una macchina virtuale Linux, una macchina virtuale Windows, un'applicazione Web e un database nel database SQL di Azure.
     - **Caricare un modello di Guida introduttiva di GitHub**: usare un modello di [avvio rapido](https://azure.microsoft.com/resources/templates/)esistente.
 
    ![Visualizzare le opzioni](./media/deploy-portal/see-options.png)
@@ -118,7 +118,7 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
     - **Località**: selezionare una località di Azure.
     - **Tipo di account di archiviazione**: usare il valore predefinito.
     - **Percorso**: usare il valore predefinito.
-    - **Accetto le condizioni riportate sopra**: selezionare.
+    - Accetto **i termini e le condizioni indicati in precedenza**: (Select)
 
 1. Selezionare **Acquisto**.
 

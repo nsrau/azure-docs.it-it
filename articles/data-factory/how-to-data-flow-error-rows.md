@@ -8,22 +8,22 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: makromer
-ms.openlocfilehash: 8225143bb75118620b45c2520bb62ea30501a617
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254413"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Gestire le righe degli errori di troncamento SQL in Data Factory flussi di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Uno scenario comune in Data Factory quando si usa il mapping di flussi di dati consiste nel scrivere i dati trasformati in un database SQL di Azure. In questo scenario, è possibile che venga troncata una condizione di errore comune che è necessario prevenire rispetto a. Attenersi alla seguente procedura per fornire la registrazione di colonne che non rientrano in una colonna di stringhe di destinazione, consentendo al flusso di dati di continuare in questi scenari.
+Uno scenario comune in Data Factory quando si usa il mapping di flussi di dati consiste nel scrivere i dati trasformati in un database nel database SQL di Azure. In questo scenario, è possibile che venga troncata una condizione di errore comune che è necessario prevenire rispetto a. Attenersi alla seguente procedura per fornire la registrazione di colonne che non rientrano in una colonna di stringhe di destinazione, consentendo al flusso di dati di continuare in questi scenari.
 
 ## <a name="scenario"></a>Scenario
 
-1. È presente una tabella di database SQL di Azure di destinazione ```nvarchar(5)``` con una colonna denominata "nome".
+1. È presente una tabella di database di destinazione con una ```nvarchar(5)``` colonna denominata "Name".
 
 2. All'interno del flusso di dati, si vuole eseguire il mapping dei titoli dei film dal sink alla colonna "nome" di destinazione.
 
@@ -40,9 +40,9 @@ Questo video illustra un esempio di impostazione della logica di gestione delle 
 
     ![suddivisione condizionale](media/data-flow/error1.png)
 
-2. Questa trasformazione Suddivisione condizionale definisce la lunghezza massima di "title" da cinque. Qualsiasi riga minore o uguale a cinque entra nel ```GoodRows``` flusso. Tutte le ```BadRows``` righe maggiori di cinque verranno inserite nel flusso.
+2. Questa trasformazione Suddivisione condizionale definisce la lunghezza massima di "title" da cinque. Qualsiasi riga minore o uguale a cinque entra nel ```GoodRows``` flusso. Tutte le righe maggiori di cinque verranno inserite nel ```BadRows``` flusso.
 
-3. A questo punto è necessario registrare le righe non riuscite. Aggiungere una trasformazione sink al flusso ```BadRows``` per la registrazione. Qui, si eseguirà il mapping automatico di tutti i campi in modo che sia disponibile la registrazione del record completo della transazione. Si tratta di un output di file CSV con valori delimitati da testo in un singolo file nell'archivio BLOB. Chiameremo il file di log "badrows. csv".
+3. A questo punto è necessario registrare le righe non riuscite. Aggiungere una trasformazione sink al ```BadRows``` flusso per la registrazione. Qui, si eseguirà il mapping automatico di tutti i campi in modo che sia disponibile la registrazione del record completo della transazione. Si tratta di un output di file CSV con valori delimitati da testo in un singolo file nell'archivio BLOB. Chiameremo il file di log "badrows.csv".
 
     ![Righe non valide](media/data-flow/error3.png)
     

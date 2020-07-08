@@ -4,16 +4,16 @@ description: Questo articolo presenta lo SKU dell'applicazione Azure Standard_v2
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 03/24/2020
+ms.topic: conceptual
+ms.date: 06/06/2020
 ms.author: victorh
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739482"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254345"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -32,7 +32,7 @@ Il nuovo SKU v2 include i miglioramenti seguenti:
 - **Miglioramenti delle prestazioni**: lo SKU v2 offre prestazioni di offload TLS 5 volte superiori rispetto allo SKU Standard/WAF.
 - **Tempi di distribuzione e di aggiornamento più veloci**: lo SKU v2 offre tempi di distribuzione e di aggiornamento più veloci rispetto allo SKU Standard/WAF. Include anche modifiche alla configurazione di WAF.
 
-![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+![Diagramma della zona di scalabilità automatica.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Aree supportate
 
@@ -45,7 +45,7 @@ Con lo SKU v2, il modello dei prezzi è associato al consumo e non più al numer
 - **Prezzo fisso**: prezzo orario (o per parte di ora) per il provisioning di un gateway Standard_v2 o WAF_v2. Si noti che un numero minimo di istanze aggiuntive pari a 0 garantisce comunque una disponibilità elevata del servizio, sempre inclusa nel prezzo fisso.
 - **Prezzo per unità di capacità**: costo in base al consumo addebitato in aggiunta al costo fisso. L'addebito per unità di capacità viene calcolato anche a livello di ora o di parte di ora. Esistono tre dimensioni per le unità di capacità: l'unità di calcolo, le connessioni correnti e la velocità effettiva. L'unità di calcolo è una misura della capacità del processore usata. I fattori che influiscono sull'unità di calcolo sono il numero di connessioni TLS/sec, i calcoli di URL Rewrite e l'elaborazione di regole di WAF. La connessione corrente è una misura delle connessioni TCP stabilite al gateway applicazione in un determinato intervallo di fatturazione. La velocità effettiva è la media di Megabit/sec elaborati dal sistema in un determinato intervallo di fatturazione.  La fatturazione viene effettuata a livello di unità di capacità per qualsiasi valore superiore al numero di istanze riservate.
 
-Ogni unità di capacità è composta al massimo da: 1 unità di calcolo o 2500 connessioni persistenti o 2,22 Mbps di velocità effettiva.
+Ogni unità di capacità è composta al massimo: 1 unità di calcolo, 2500 connessioni permanenti e velocità effettiva di 2,22 Mbps.
 
 Unità di calcolo nel dettaglio:
 

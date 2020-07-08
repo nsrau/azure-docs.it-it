@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7c15312b48e7118517894d8ffd4807e4892e03a3
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: e323c56f22c3a7d32bda5afe03a3462d3263f0d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233151"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254073"
 ---
 # <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>Uso dei processi di Analisi di flusso di Azure con SQL Edge
 
@@ -52,7 +52,7 @@ SQL Edge di Azure include un'implementazione nativa del runtime di analisi di fl
     |Campo      | Descrizione |
     |---------------|-------------|
     |Alias di output | Nome dell'alias di output.|
-    |Database | Nome del database SQL. Deve essere un nome valido di un database esistente nell'istanza di SQL Edge.|
+    |Database | Nome del database. Deve essere un nome valido di un database esistente nell'istanza di SQL Edge.|
     |Nome server | Dettagli relativi al nome (o indirizzo IP) e numero di porta dell'istanza di SQL. Come nome del server di una distribuzione di SQL Edge è possibile usare **tcp:.,1433**.|
     |Nome utente | Account di accesso SQL con accesso in lettura e scrittura dati al database specificato in precedenza.|
     |Password | Password dell'account di accesso SQL specificato in precedenza.|

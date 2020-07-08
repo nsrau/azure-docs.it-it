@@ -4,12 +4,12 @@ description: Usare Funzioni di Azure per pianificare un'attività che si connett
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366811"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254277"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
@@ -21,13 +21,13 @@ Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile
 
 + Completare la procedura descritta nell'articolo [creare la prima funzione usando Visual Studio](functions-create-your-first-function-visual-studio.md) per creare un'app per le funzioni locale destinata alla versione 2. x o a una versione successiva del runtime. È anche necessario aver pubblicato il progetto in un'app per le funzioni in Azure.
 
-+ Questo articolo illustra un comando Transact-SQL che esegue un'operazione di pulizia in blocco nella tabella **SalesOrderHeader** nel database di esempio AdventureWorksLT. Per creare il database di esempio AdventureWorksLT, completare la procedura nell'articolo [Creare un database SQL di Azure nel portale di Azure](../sql-database/sql-database-get-started-portal.md).
++ Questo articolo illustra un comando Transact-SQL che esegue un'operazione di pulizia in blocco nella tabella **SalesOrderHeader** nel database di esempio AdventureWorksLT. Per creare il database di esempio AdventureWorksLT, completare la procedura descritta nell'articolo [creare un database nel database SQL di Azure usando il portale di Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-+ È necessario aggiungere una [regola del firewall a livello di server](../sql-database/sql-database-get-started-portal-firewall.md) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva. Questa regola è necessaria per essere in grado di accedere all'istanza del database SQL dal computer locale.  
++ È necessario aggiungere una [regola del firewall a livello di server](../sql-database/sql-database-get-started-portal-firewall.md) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva. Questa regola è necessaria per poter accedere all'istanza del database SQL dal computer locale.  
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 
-È necessario ottenere la stringa di connessione per il database creato dopo avere completato [Creare un database SQL di Azure nel portale di Azure](../sql-database/sql-database-get-started-portal.md).
+È necessario ottenere la stringa di connessione per il database creato al termine della [creazione di un database nel database SQL di Azure usando il portale di Azure](../azure-sql/database/single-database-create-quickstart.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -43,7 +43,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Come procedu
 
 È necessario aver precedentemente pubblicato l'app in Azure. Se non è già stato fatto, [pubblicare l'app per le funzioni in Azure](functions-develop-vs.md#publish-to-azure).
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **pubblica** > **modifica app Azure impostazioni del servizio**. Selezionare **Aggiungi impostazione**, in **Nome nuova impostazione app** digitare `sqldb_connection` e selezionare **OK**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **pubblica**  >  **modifica app Azure impostazioni del servizio**. Selezionare **Aggiungi impostazione**, in **Nome nuova impostazione app** digitare `sqldb_connection` e selezionare **OK**.
 
     ![Impostazioni applicazioni per l'app per le funzioni.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -55,7 +55,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Come procedu
 
 ## <a name="add-the-sqlclient-package-to-the-project"></a>Aggiungere il pacchetto SqlClient al progetto
 
-È necessario aggiungere il pacchetto NuGet che contiene la libreria SqlClient. Questa libreria di accesso ai dati è necessaria per connettersi a un database SQL.
+È necessario aggiungere il pacchetto NuGet che contiene la libreria SqlClient. Questa libreria di accesso ai dati è necessaria per connettersi al database SQL.
 
 1. Aprire il progetto di app per le funzioni locali in Visual Studio 2019.
 
@@ -73,7 +73,7 @@ A questo punto, è possibile aggiungere il codice della funzione C# che si conne
 
 ## <a name="add-a-timer-triggered-function"></a>Aggiungere una funzione attivata da un timer
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **Aggiungi** > **nuova funzione di Azure**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **Aggiungi**  >  **nuova funzione di Azure**.
 
 1. Con il modello **Funzioni di Azure** selezionato, assegnare al nuovo elemento un nome simile a `DatabaseCleanup.cs` e selezionare **Aggiungi**.
 
@@ -131,7 +131,7 @@ Si vedrà ora come usare Funzioni con app per la logica per l'integrazione con a
 
 Per altre informazioni su Funzioni, vedere gli articoli seguenti:
 
-+ [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
++ [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
    Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 + [Test di Funzioni di Azure](functions-test-a-function.md)  
    Descrive diversi strumenti e tecniche per il test delle funzioni.  

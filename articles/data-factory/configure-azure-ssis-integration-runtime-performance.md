@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: ca88e42438c7cb48b062aa67d82053afbb9244bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255535"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurare il runtime di integrazione Azure-SSIS per garantire prestazioni elevate
 
@@ -51,25 +51,25 @@ $AzureSSISNodeNumber = 2
 # Azure-SSIS IR edition/license info: Standard or Enterprise
 $AzureSSISEdition = "Standard" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
 # Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
-$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your existing SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
 # For a Standard_D1_v2 node, up to 4 parallel executions per node are supported, but for other nodes, up to max(2 x number of cores, 8) are currently supported
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 # Virtual network info: Classic or Azure Resource Manager
-$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon
-$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your Managed Instance
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/SQL Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your SQL Managed Instance
 
 ### SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+$SSISDBServerEndpoint = "[your server name or managed instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
 # Authentication info: SQL or Azure Active Directory (AAD)
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication or leave it empty for AAD authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for AAD authentication]"
-$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
+$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for SQL Managed Instance]"
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** è la posizione per il nodo del ruolo di lavoro del runtime di integrazione. Il nodo del ruolo di lavoro mantiene una connessione costante al database del catalogo SSIS (SSISDB) in un database SQL di Azure. Impostare **AzureSSISLocation** sulla stessa posizione del server di database SQL che ospita SSISDB affinché il runtime di integrazione lavori nel modo più efficiente possibile.
+**AzureSSISLocation** è la posizione per il nodo del ruolo di lavoro del runtime di integrazione. Il nodo del ruolo di lavoro mantiene una connessione costante al database del catalogo SSIS (SSISDB) nel database SQL di Azure. Impostare **AzureSSISLocation** sullo stesso percorso di [SQL Server logico](../azure-sql/database/logical-servers.md) che ospita il database SSISDB, che consente al runtime di integrazione di funzionare nel modo più efficiente possibile.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Data Factory, incluso il runtime di integrazione Azure-SSIS, supporta le opzioni seguenti:
@@ -79,18 +79,18 @@ Data Factory, incluso il runtime di integrazione Azure-SSIS, supporta le opzioni
 -   Standard\_D2\_v2
 -   Standard\_D3\_v2
 -   Standard\_D4\_v2
--   D2\_\_standard V3
--   D4\_\_standard V3
--   D8\_\_standard V3
--   D16\_\_standard V3
--   D32\_\_standard V3
--   D64\_\_standard V3
--   E2\_\_standard V3
--   E4\_\_standard V3
--   E8\_\_standard V3
--   E16\_\_standard V3
--   E32\_\_standard V3
--   E64\_\_standard V3
+-   \_D2 standard \_ v3
+-   \_D4 standard \_ v3
+-   \_D8 standard \_ v3
+-   \_D16 standard \_ v3
+-   \_D32 standard \_ v3
+-   \_D64 standard \_ v3
+-   \_E2 standard \_ v3
+-   \_E4 standard \_ v3
+-   \_E8 standard \_ v3
+-   \_E16 standard \_ v3
+-   \_E32 standard \_ v3
+-   \_E64 standard \_ v3
 
 Nei test interni non ufficiali condotti dal team di progettazione SSIS, la serie D sembra essere più adatta all'esecuzione di pacchetti SSIS rispetto alla serie A.
 
@@ -121,7 +121,7 @@ Se i pacchetti da eseguire sono molti e la velocità effettiva complessiva è un
 Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode**, può aumentare la velocità effettiva complessiva del runtime di integrazione. Per i nodi Standard_D1_v2 sono supportate da 1 a 4 esecuzioni parallele per nodo. Per tutti gli altri tipi di nodi, sono supportati 1-max (2 x numero di core, 8) esecuzioni parallele per nodo. Se si vuole che **AzureSSISMaxParallelExecutionsPerNode** superi il valore massimo supportato, è possibile aprire un ticket di supporto ed è possibile aumentare il valore massimo per l'utente e dopo che è necessario usare Azure PowerShell per aggiornare **AzureSSISMaxParallelExecutionsPerNode**.
 È possibile stimare il valore appropriato in base al costo del pacchetto e alle configurazioni seguenti per i nodi del ruolo di lavoro. Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../virtual-machines/windows/sizes-general.md).
 
-| Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
+| Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2/2 x 500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4/4 x 500                         | 2 / 1500                                       |
@@ -129,18 +129,18 @@ Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti,
 | Standard\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16/16 x 500                       | 8 / 6000                                       |
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8/8 x 500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16/16 x 500                       | 8 / 2000                                       |
-| D2\_\_standard V3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4/6X500                         | 2 / 1000                                       |
-| D4\_\_standard V3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
-| D8\_\_standard V3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
-| D16\_\_standard V3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/48x500                        | 8 / 8000                                       |
-| D32\_\_standard V3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
-| D64\_\_standard V3| 64   | 256         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
-| E2\_\_standard V3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4/6X500                         | 2 / 1000                                       |
-| E4\_\_standard V3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
-| E8\_\_standard V3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
-| E16\_\_standard V3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32/48x500                       | 8 / 8000                                       |
-| E32\_\_standard V3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
-| E64\_\_standard V3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
+| \_D2 standard \_ v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4/6X500                         | 2 / 1000                                       |
+| \_D4 standard \_ v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
+| \_D8 standard \_ v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
+| \_D16 standard \_ v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/48x500                        | 8 / 8000                                       |
+| \_D32 standard \_ v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
+| \_D64 standard \_ v3| 64   | 256         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
+| \_E2 standard \_ v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4/6X500                         | 2 / 1000                                       |
+| \_E4 standard \_ v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
+| \_E8 standard \_ v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
+| \_E16 standard \_ v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32/48x500                       | 8 / 8000                                       |
+| \_E32 standard \_ v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
+| \_E64 standard \_ v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
 
 Di seguito sono riportate le linee guida per l'impostazione del valore corretto per la proprietà **AzureSSISMaxParallelExecutionsPerNode**: 
 
@@ -150,7 +150,7 @@ Di seguito sono riportate le linee guida per l'impostazione del valore corretto 
 
 ## <a name="ssisdbpricingtier"></a>SSISDBPricingTier
 
-**SSISDBPricingTier** è il piano tariffario per il database di catalogo SSIS (SSISDB) in un database SQL di Azure. Questa impostazione influisce sul numero massimo di ruoli di lavoro nell'istanza del runtime di integrazione, sulla velocità di accodamento dell'esecuzione di un pacchetto e sulla velocità di caricamento del log di esecuzione.
+**SSISDBPricingTier** è il piano tariffario per il database del catalogo SSIS (SSISDB) in nel database SQL di Azure. Questa impostazione influisce sul numero massimo di ruoli di lavoro nell'istanza del runtime di integrazione, sulla velocità di accodamento dell'esecuzione di un pacchetto e sulla velocità di caricamento del log di esecuzione.
 
 -   Se non si è interessati alla velocità di accodamento dell'esecuzione del pacchetto e di caricamento del log di esecuzione, è possibile scegliere il piano tariffario per database minimo. Il database SQL di Azure con prezzi Basic supporta 8 ruoli di lavoro in un'istanza di runtime di integrazione.
 

@@ -4,12 +4,12 @@ description: Panoramica dei modelli di integrazione di Smart Contract nell'antep
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: f9626edd5bd655e3de5d0f9648041faf832e3b84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254634"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modelli di integrazione dei contratti intelligenti
 
@@ -31,7 +31,7 @@ Le funzionalità nell'applicazione Web generata da Azure Blockchain Workbench ve
 
 L'API REST viene usata principalmente per i client interattivi, come le applicazioni Web, per dispositivi mobili e bot.
 
-In questa sezione vengono esaminati i modelli focalizzati sugli aspetti dell'API REST che inviano le transazioni a un libro mastro distribuito e i modelli che eseguono query sui dati sulle transazioni dal database SQL *fuori dalla catena* di Azure Blockchain Workbench.
+Questa sezione esamina i modelli incentrati sugli aspetti dell'API REST che inviano transazioni a un Ledger distribuito e modelli che eseguono query sui dati relativi alle transazioni dal database *fuori catena* di Azure blockchain Workbench.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>Invio di transazioni a un libro mastro distribuito da un sistema esterno
 
@@ -204,7 +204,7 @@ L'integrazione dei dati è ben nota:
 
 -   Azure Blockchain Workbench archivia i metadati sulle applicazioni, i flussi di lavoro, i contratti e le transazioni nell'ambito del normale funzionamento.
 -   Sistemi o strumenti esterni forniscono una o più finestre di dialogo per semplificare la raccolta delle informazioni relative al database, ad esempio nome del server di database, nome del database, tipo di autenticazione, credenziali di accesso e viste del database da usare.
--   Vengono scritte query sulle viste del database SQL per facilitare l'uso downstream da parte di sistemi esterni, servizi, report, strumenti di sviluppo e strumenti di produttività aziendali.
+-   Le query vengono scritte su viste di database per semplificare l'utilizzo a valle da sistemi esterni, servizi, report, strumenti di sviluppo e strumenti per la produttività aziendale.
 
 ## <a name="storage-integration"></a>Integrazione dell'archiviazione
 

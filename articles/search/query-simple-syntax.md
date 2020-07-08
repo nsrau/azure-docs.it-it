@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: dfd75ad2c6ae246bfe6ee8b983744b3db07a841f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b585a903267386358552154228705c1921df619
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255331"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintassi di query semplice in Azure ricerca cognitiva
 
@@ -21,13 +21,13 @@ Azure ricerca cognitiva implementa due linguaggi di query basati su Lucene: il p
 
 Il parser semplice è più flessibile e tenterà di interpretare una richiesta anche se non è perfettamente composta. Grazie a questa flessibilità, si tratta dell'impostazione predefinita per le query in Azure ricerca cognitiva. 
 
-La sintassi semplice viene usata per le espressioni di query passate `search` nel parametro di una [richiesta di ricerca dei documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents), da non confondere con la [sintassi OData](query-odata-filter-orderby-syntax.md) usata per il parametro [$Filter Expressions](search-filters.md) della stessa API di ricerca dei documenti. I `search` parametri `$filter` e hanno una sintassi diversa, con regole proprie per la costruzione di query, l'escape di stringhe e così via.
+La sintassi semplice viene usata per le espressioni di query passate nel `search` parametro di una [richiesta di ricerca dei documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents), da non confondere con la [sintassi OData](query-odata-filter-orderby-syntax.md) usata per il parametro [$Filter Expressions](search-filters.md) della stessa API di ricerca dei documenti. I `search` `$filter` parametri e hanno una sintassi diversa, con regole proprie per la costruzione di query, l'escape di stringhe e così via.
 
 Sebbene il parser semplice sia basato sulla classe del [parser di query semplice di Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) , l'implementazione in Azure ricerca cognitiva esclude la ricerca fuzzy. Se è necessaria la [ricerca fuzzy](search-query-fuzzy.md) o altri moduli di query avanzati, considerare invece la [sintassi di query Lucene completa](query-lucene-syntax.md) alternativa.
 
 ## <a name="invoke-simple-parsing"></a>Richiama l'analisi semplice
 
-La sintassi semplice è quella predefinita. La chiamata è necessaria solo se si sta reimpostando la sintassi da completa a semplice. Per impostare la sintassi in modo esplicito, usare il parametro di ricerca `queryType`. I valori validi `queryType=simple` includono `queryType=full`o, `simple` dove è l'impostazione predefinita `full` , e richiama il [parser di query Lucene completo](query-lucene-syntax.md) per query più avanzate. 
+La sintassi semplice è quella predefinita. La chiamata è necessaria solo se si sta reimpostando la sintassi da completa a semplice. Per impostare la sintassi in modo esplicito, usare il parametro di ricerca `queryType`. I valori validi includono `queryType=simple` o `queryType=full` , dove `simple` è l'impostazione predefinita, e `full` richiama il parser di [query Lucene completo](query-lucene-syntax.md) per query più avanzate. 
 
 ## <a name="syntax-fundamentals"></a> Nozioni fondamentali sulla sintassi
 
@@ -45,13 +45,13 @@ Il raggruppamento di campi è simile, ma definisce un singolo campo come ambito 
 
 Nella sintassi semplice, gli operatori di ricerca includono i seguenti caratteri:`+ | " ( ) ' \`  
 
-Se uno di questi caratteri fa parte di un token nell'indice, eseguirne l'escape anteponendo una singola barra rovesciata (`\`) nella query. Si supponga, ad esempio, di aver usato un analizzatore personalizzato per la suddivisione in token di termini interi e che l'indice contenga la stringa "Luxury + Hotel". Per ottenere una corrispondenza esatta in questo token, inserire un carattere di escape `search=luxury\+hotel`:. 
+Se uno di questi caratteri fa parte di un token nell'indice, eseguirne l'escape anteponendo una singola barra rovesciata ( `\` ) nella query. Si supponga, ad esempio, di aver usato un analizzatore personalizzato per la suddivisione in token di termini interi e che l'indice contenga la stringa "Luxury + Hotel". Per ottenere una corrispondenza esatta in questo token, inserire un carattere di escape:  `search=luxury\+hotel` . 
 
 Per semplificare le operazioni per i casi più comuni, esistono due eccezioni a questa regola in cui l'escape non è necessario:  
 
-+ L'operatore `-` not deve essere preceduto da un carattere di escape solo se è il primo carattere dopo uno spazio vuoto. Se l' `-` oggetto viene visualizzato al centro (ad esempio, `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`in), è possibile ignorare l'escape.
++ L'operatore NOT `-` deve essere preceduto da un carattere di escape solo se è il primo carattere dopo uno spazio vuoto. Se l'oggetto `-` viene visualizzato al centro (ad esempio, in `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD` ), è possibile ignorare l'escape.
 
-+ L'operatore `*` suffisso deve essere preceduto da un carattere di escape solo se è l'ultimo carattere prima di uno spazio vuoto. Se l' `*` oggetto viene visualizzato al centro (ad esempio, `4*4=16`in), non è necessario alcun escape.
++ L'operatore suffisso `*` deve essere preceduto da un carattere di escape solo se è l'ultimo carattere prima di uno spazio vuoto. Se l'oggetto `*` viene visualizzato al centro (ad esempio, in `4*4=16` ), non è necessario alcun escape.
 
 > [!NOTE]  
 > Per impostazione predefinita, l'analizzatore standard eliminerà e interromperà le parole su trattini, spazi vuoti, e commerciali e altri caratteri durante l' [analisi lessicale](search-lucene-query-architecture.md#stage-2-lexical-analysis). Se sono necessari caratteri speciali per restare nella stringa di query, potrebbe essere necessario un analizzatore che li mantiene nell'indice. Alcune opzioni includono gli [analizzatori del linguaggio](index-add-language-analyzers.md)naturale Microsoft, che conserva le parole con trattino o un analizzatore personalizzato per modelli più complessi. Per ulteriori informazioni, vedere [termini parziali, modelli e caratteri speciali](search-query-partial-matching.md).
@@ -61,6 +61,14 @@ Per semplificare le operazioni per i casi più comuni, esistono due eccezioni a 
 Assicurarsi che tutti i caratteri riservati e non sicuri siano codificati in un URL. Ad esempio,' #' è un carattere non sicuro perché è un identificatore di frammento/ancoraggio in un URL. Il carattere deve essere codificato al `%23`, se usato in un URL. ' &' è =' sono esempi di caratteri riservati in quanto delimitano i parametri e specificano i valori in Azure ricerca cognitiva. Per altri dettagli, vedere [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) .
 
 I caratteri non sicuri sono ``" ` < > # % { } | \ ^ ~ [ ]``. I caratteri riservati sono `; / ? : @ = + &`.
+
+### <a name="querying-for-special-characters"></a>Esecuzione di query per i caratteri speciali
+
+In alcuni casi, può essere necessario cercare un carattere speciale, ad esempio il "❤" emoji o il segno "€". In questi casi, assicurarsi che l'analizzatore usato non filtri tali caratteri.  L'analizzatore standard ignora molti dei caratteri speciali in modo che non diventino token nell'indice.
+
+Il primo passaggio consiste quindi nell'assicurarsi di usare un analizzatore che considererà questi token di elementi. Ad esempio, l'analizzatore "spazio" prende in considerazione le sequenze di caratteri separate da spazi vuoti come token, quindi la stringa "❤" verrebbe considerata un token. Un analizzatore come Microsoft English Analyzer ("en. Microsoft"), inoltre, prenderà in considerazione la stringa "€" come token. È possibile [testare un analizzatore](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) per visualizzare i token generati per una query specifica.
+
+Quando si usano i caratteri Unicode, assicurarsi che i simboli siano preceduti da un carattere di escape nell'URL della query (ad esempio per "❤" utilizzerà la sequenza di escape `%E2%9D%A4+` ). Postazione esegue automaticamente questa conversione.
 
 ###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Limiti delle dimensioni delle query
 
@@ -82,29 +90,29 @@ L'operatore OR è un carattere barra verticale o pipe. Ad esempio, `wifi | luxur
 
 ### <a name="not-operator--"></a>Operatore NOT `-`
 
-L'operatore NOT è un segno meno. Ad esempio, `wifi –luxury` cercherà i documenti che hanno il `wifi` termine e/o non hanno `luxury`.
+L'operatore NOT è un segno meno. Ad esempio, `wifi –luxury` cercherà i documenti che hanno il `wifi` termine e/o non hanno `luxury` .
 
-Il parametro **searchMode** su una richiesta di query controlla se un termine con l'operatore Not è individuato o ORed con altri termini nella query (presupponendo che `+` non `|` esista alcun operatore OR negli altri termini). I valori validi sono `any` o `all`.
+Il parametro **searchMode** su una richiesta di query controlla se un termine con l'operatore Not è individuato o ORed con altri termini nella query (presupponendo che non esista alcun `+` operatore OR negli `|` altri termini). I valori validi sono `any` o `all`.
 
 `searchMode=any`aumenta il richiamo delle query includendo più risultati e per impostazione predefinita `-` viene interpretato come "o not". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` o quelli non contenenti il termine `luxury`.
 
-`searchMode=all`aumenta la precisione delle query includendo un minor numero di risultati e, per impostazione predefinita, viene interpretato come "AND NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` e quelli non contenenti il termine "luxury". Si tratta di un comportamento verosimilmente più intuitivo per l'operatore `-`. Pertanto, è consigliabile `searchMode=all` utilizzare anziché `searchMode=any` se si desidera ottimizzare la ricerca di precisione anziché richiamare *e* gli utenti utilizzano spesso l' `-` operatore nelle ricerche.
+`searchMode=all`aumenta la precisione delle query includendo un minor numero di risultati e, per impostazione predefinita, viene interpretato come "AND NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` e quelli non contenenti il termine "luxury". Si tratta di un comportamento verosimilmente più intuitivo per l'operatore `-`. Pertanto, è consigliabile utilizzare `searchMode=all` anziché `searchMode=any` se si desidera ottimizzare la ricerca di precisione anziché richiamare *e* gli utenti utilizzano spesso l' `-` operatore nelle ricerche.
 
 Quando si decide di utilizzare un'impostazione di **searchMode** , considerare i modelli di interazione utente per le query in varie applicazioni. È più probabile che gli utenti che eseguono la ricerca di informazioni includano un operatore in una query, anziché i siti di e-commerce che dispongono di più strutture di navigazione predefinite.
 
 <a name="prefix-search"></a>
 
-## <a name="prefix-search"></a>Cerca prefisso
+## <a name="wildcard-prefix-matching--"></a>Corrispondenza del prefisso con caratteri jolly (*,?)
 
-L'operatore suffisso è un `*`asterisco. Ad esempio, `lingui*` troverà "linguistico" o "linguinei", ignorando la distinzione tra maiuscole e minuscole. 
+Per le query "inizia con" aggiungere un operatore di suffisso come segnaposto per il resto di un termine. Usare un asterisco `*` per più caratteri o `?` per i singoli caratteri. Ad esempio, `lingui*` corrisponderà a "linguistico" o "linguinei", ignorando la distinzione tra maiuscole e minuscole. 
 
-Analogamente ai filtri, una query di prefisso cerca una corrispondenza esatta. Di conseguenza, non esiste alcun punteggio di pertinenza (tutti i risultati ricevono un punteggio di ricerca di 1,0). Le query di prefisso possono essere lente, soprattutto se l'indice è di grandi dimensioni e il prefisso è costituito da un numero limitato di caratteri. 
+Analogamente ai filtri, una query di prefisso cerca una corrispondenza esatta. Di conseguenza, non esiste alcun punteggio di pertinenza (tutti i risultati ricevono un punteggio di ricerca di 1,0). Tenere presente che le query di prefisso possono essere lente, soprattutto se l'indice è di grandi dimensioni e il prefisso è costituito da un numero limitato di caratteri. Una metodologia alternativa, ad esempio la suddivisione in token n-grammi perimetrale, potrebbe risultare più rapida.
 
-Se si vuole eseguire una query con suffisso, che corrisponde all'ultima parte della stringa, usare una [ricerca con caratteri jolly](query-lucene-syntax.md#bkmk_wildcard) e la sintassi Lucene completa.
+Per altre varianti di query con caratteri jolly, ad esempio il suffisso o la corrispondenza degli infissi rispetto alla fine o al centro di un termine, usare la [sintassi Lucene completa per la ricerca con caratteri jolly](query-lucene-syntax.md#bkmk_wildcard).
 
 ## <a name="phrase-search-"></a>Ricerca frasi`"`
 
-Una ricerca di termini è una query per uno o più termini, in cui uno dei termini viene considerato una corrispondenza. Una frase di ricerca è una frase esatta racchiusa tra `" "`virgolette. Ad esempio, mentre `Roach Motel` (senza virgolette) cerca i documenti contenenti `Roach` e/o `Motel` ovunque e in qualsiasi ordine, `"Roach Motel"` (con le virgolette) troverà solo i documenti contenenti l'intera frase in quell'ordine specifico (l'analisi del testo è comunque applicabile).
+Una ricerca di termini è una query per uno o più termini, in cui uno dei termini viene considerato una corrispondenza. Una frase di ricerca è una frase esatta racchiusa tra virgolette `" "` . Ad esempio, se `Roach Motel` (senza virgolette) Cerca documenti contenenti `Roach` e/o `Motel` in qualsiasi punto in qualsiasi ordine, `"Roach Motel"` (con virgolette) corrisponderà solo ai documenti che contengono l'intera frase e in questo ordine (l'analisi lessicale si applica comunque).
 
 ## <a name="see-also"></a>Vedere anche  
 

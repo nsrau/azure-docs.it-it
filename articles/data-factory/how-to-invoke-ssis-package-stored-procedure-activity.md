@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: 7a935fa4c4e91cf8adcd6df467ac56eeecaf46c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 95f29331c723e584cdecdd27a714f22377dfd26d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605946"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253580"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS con l'attività stored procedure in Azure Data Factory
 
@@ -29,7 +29,7 @@ Questo articolo descrive come eseguire un pacchetto SSIS in una pipeline di Azur
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="azure-sql-database"></a>database SQL di Azure 
-La procedura dettagliata riportata in questo articolo usa un database SQL di Azure che ospita il catalogo SSIS. È anche possibile usare un'istanza gestita di database SQL di Azure.
+La procedura dettagliata in questo articolo usa il database SQL di Azure per ospitare il catalogo SSIS. È anche possibile usare Istanza gestita SQL di Azure.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Creare un runtime di integrazione SSIS di Azure
 Se non è disponibile, creare un runtime di integrazione SSIS di Azure seguendo le istruzioni dettagliate riportate in [Esercitazione: Distribuire pacchetti SSIS](tutorial-create-azure-ssis-runtime-portal.md).
@@ -53,16 +53,16 @@ La prima operazione da eseguire è creare una data factory usando il portale di 
   
      ![Il nome non è disponibile - Errore](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
-4. Per il **gruppo di risorse**, eseguire una delle operazioni seguenti:
+4. Per il **gruppo di risorse**, eseguire una di queste operazioni:
      
    - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
      Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
 4. Selezionare **V2** per **version**.
-5. Selezionare il **percorso** per il data factory. Nell'elenco a discesa vengono mostrate solo le località supportate da Data Factory. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre località.
+5. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate da Data Factory. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre località.
 6. Selezionare **Aggiungi al dashboard**.     
-7. Scegliere **Crea**.
+7. Fare clic su **Crea**.
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
      ![Riquadro Deploying data factory (Distribuzione della data factory)](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
@@ -80,7 +80,7 @@ In questo passaggio viene usata l'interfaccia utente di Data Factory per creare 
 2. Nella casella degli strumenti **Attività** espandere **Generale** e trascinare l'attività **Stored procedure** nell'area di progettazione della pipeline. 
 
     ![Trascinamento dell'attività stored procedure](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
-3. Nella finestra delle proprietà per l'attività stored procedure passare alla scheda **Account SQL** e fare clic su **+ Nuovo**. Viene creata una connessione al database SQL di Azure che ospita il catalogo SSIS (database SSISDB). 
+3. Nella finestra delle proprietà per l'attività stored procedure passare alla scheda **Account SQL** e fare clic su **+ Nuovo**. Si crea una connessione al database nel database SQL di Azure che ospita il catalogo SSIS (database SSISDB). 
    
     ![Pulsante Nuovo per il servizio collegato](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
 4. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura: 
@@ -98,7 +98,7 @@ In questo passaggio viene usata l'interfaccia utente di Data Factory per creare 
 5. Nella finestra Proprietà passare alla scheda **stored procedure** dalla scheda **account SQL** e seguire questa procedura: 
 
     1. Selezionare **Modifica**. 
-    2. Per il campo **Nome stored procedure** immettere `sp_executesql`. 
+    2. Per il campo **Nome stored procedure** immettere `sp_executesql` . 
     3. Fare clic su **+ Nuovo** nella sezione **Parametri stored procedure**. 
     4. Per il **nome** del parametro, immettere **stmt**. 
     5. Per il **tipo** del parametro, immettere **Stringa**. 
@@ -111,7 +111,7 @@ In questo passaggio viene usata l'interfaccia utente di Data Factory per creare 
         ```
 
         ![Servizio collegato per il database SQL di Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
-6. Per convalidare la configurazione della pipeline, fare clic su **Convalida** sulla barra degli strumenti. Per chiudere il **Pipeline Validation Report** (Report di convalida della pipeline) fare clic su **>>**.
+6. Per convalidare la configurazione della pipeline, fare clic su **Convalida** sulla barra degli strumenti. Per chiudere il **Pipeline Validation Report** (Report di convalida della pipeline) fare clic su **>>** .
 
     ![Convalidare la pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. Pubblicare la pipeline in Data Factory facendo clic sul pulsante **Publish All** (Pubblica tutto). 
@@ -134,7 +134,7 @@ In questa sezione si attiva un'esecuzione della pipeline e quindi la si monitora
 
     ![Esecuzioni attività](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
-4. È possibile eseguire la **query** seguente sul database SSISDB nel server SQL Azure per verificare che il pacchetto sia stato eseguito. 
+4. È possibile eseguire la **query** seguente sul database SSISDB nel database SQL per verificare che il pacchetto sia stato eseguito. 
 
     ```sql
     select * from catalog.executions
@@ -196,7 +196,7 @@ Tenere presente quanto segue:
 * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Creare un servizio collegato Database SQL di Azure
-Creare un servizio collegato per collegare il database SQL di Azure che ospita il catalogo SSIS alla data factory. Data Factory usa le informazioni in questo servizio collegato per connettersi al database SSISDB ed esegue una stored procedure per l'esecuzione di un pacchetto SSIS. 
+Creare un servizio collegato per collegare il database che ospita il catalogo SSIS al data factory. Data Factory usa le informazioni in questo servizio collegato per connettersi al database SSISDB ed esegue una stored procedure per l'esecuzione di un pacchetto SSIS. 
 
 1. Creare un file JSON denominato **AzureSqlDatabaseLinkedService.json** nella cartella **C:\ADF\RunSSISPackage** con il contenuto seguente: 
 
@@ -217,7 +217,7 @@ Creare un servizio collegato per collegare il database SQL di Azure che ospita i
 
 2. In **Azure PowerShell** passare alla cartella **C:\ADF\RunSSISPackage**.
 
-3. Eseguire il cmdlet **set-AzDataFactoryV2LinkedService** per creare il servizio collegato: **AzureSqlDatabaseLinkedService**. 
+3. Eseguire il cmdlet **Set-AzDataFactoryV2LinkedService** per creare il servizio collegato: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -353,7 +353,7 @@ Nel passaggio precedente è stata chiamata la pipeline su richiesta. È anche po
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    È possibile eseguire la query seguente rispetto al database SSISDB nel server SQL di Azure per verificare che il pacchetto sia stato eseguito. 
+    È possibile eseguire la query seguente sul database SSISDB nel database SQL per verificare che il pacchetto sia stato eseguito. 
 
     ```sql
     select * from catalog.executions

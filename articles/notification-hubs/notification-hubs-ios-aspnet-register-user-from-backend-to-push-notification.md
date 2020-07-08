@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3fec04a1a45f8b154e27a1e5303e44111f4cb421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71211880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253869"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 
@@ -124,7 +122,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
     Questo codice consente di impostare il token di dispositivo per la richiesta.
 
    > [!NOTE]
-   > A questo punto, il metodo non dovrebbe contenere altro codice. Se è già presente una chiamata al metodo `registerNativeWithDeviceToken` aggiunto durante l'esercitazione [Introduzione ad Hub di notifica](notification-hubs-ios-apple-push-notification-apns-get-started.md), è necessario impostare la chiamata come commento oppure rimuoverla.
+   > A questo punto, il metodo non dovrebbe contenere altro codice. Se si ha già una chiamata al `registerNativeWithDeviceToken` metodo che è stato aggiunto al termine dell'esercitazione [inviare notifiche push alle app iOS usando hub di notifica di Azure](ios-sdk-get-started.md) , è necessario impostare come commento o rimuovere la chiamata.
 
 8. Nel file `PushToUserAppDelegate.m` aggiungere il metodo del gestore seguente:
 
@@ -258,4 +256,4 @@ Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica
 
 <!-- URLs. -->
 [invio di notifiche agli utenti con Hub di notifica]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Introduzione ad Hub di notifica]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Introduzione ad Hub di notifica]: ios-sdk-get-started.md

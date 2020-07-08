@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75386732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255229"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -104,16 +104,16 @@ Nella sezione seguente la soluzione sarà configurata per usare le risorse cloud
 Per eseguire l'applicazione nel cloud, eseguire i passaggi seguenti:
 
 * Creare un servizio cloud di Azure.
-* Creare un database SQL di Azure.
+* Creare un database nel database SQL di Azure.
 * Creare un account di archiviazione di Azure.
-* Configurare la soluzione per l'uso del database SQL di Azure in caso di esecuzione in Azure.
+* Configurare la soluzione per l'uso del database durante l'esecuzione in Azure.
 * Configurare la soluzione per l'uso dell'account di archiviazione di Azure in caso di esecuzione in Azure.
 * Distribuire il progetto nel servizio cloud di Azure.
 
 ### <a name="create-an-azure-cloud-service"></a>Creazione di un servizio cloud di Azure
 Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 
-1. Nel browser aprire il [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com) nel browser.
 2. Fare clic su **Crea una risorsa > Calcolo > Servizio cloud**.
 
 3. Nella casella di input Nome DNS immettere un prefisso URL per il servizio cloud.
@@ -130,7 +130,7 @@ Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 
     ![Nuovo servizio cloud](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-an-azure-sql-database"></a>Creare un database SQL di Azure
+### <a name="create-a-database-in-azure-sql-database"></a>Creare un database nel database SQL di Azure
 Quando l'app è in esecuzione nel cloud, userà un database basato sul cloud.
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa > Database > Database SQL**.
@@ -152,7 +152,7 @@ Quando l'app è in esecuzione nel cloud, userà un database basato sul cloud.
 8. Selezionare **Consenti ai servizi di Azure di accedere al server**.
 9. Fare clic su **Seleziona** per il nuovo server.
 
-    ![Nuovo server di database SQL](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![Nuovo server](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Fare clic su **Crea**.
 
 ### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
@@ -182,8 +182,9 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
     La seguente figura illustra la creazione di un account di archiviazione con l'URL `csvccontosoads.core.windows.net`.
 
-### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Configurare la soluzione per l'uso del database SQL di Azure in caso di esecuzione in Azure
-Il progetto Web e il progetto ruolo di lavoro dispongono di una stringa di connessione di database specifica e quando l'app è in esecuzione in Azure ogni progetto deve fare riferimento al database SQL di Azure.
+### <a name="configure-the-solution-to-use-your-database-in-azure-sql-database-when-it-runs-in-azure"></a>Configurare la soluzione per l'uso del database nel database SQL di Azure durante l'esecuzione in Azure
+
+Il progetto Web e il progetto di ruolo di lavoro hanno una propria stringa di connessione al database e ogni progetto deve puntare al database nel database SQL di Azure quando l'app viene eseguita in Azure.
 
 Sarà necessario usare una [trasformazione Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) per il ruolo Web e un'impostazione dell'ambiente del servizio cloud per il ruolo di lavoro.
 
@@ -331,7 +332,7 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
     ![Nuovo progetto di servizio cloud](./media/cloud-services-dotnet-get-started/newcsproj.png)
 5. Quando appare la finestra di dialogo **Nuovo progetto ASP.NET** per il ruolo Web, scegliere il modello MVC, quindi fare clic su **Modifica autenticazione**.
 
-    ![Modifica autenticazione](./media/cloud-services-dotnet-get-started/chgauth.png)
+    ![Cambia l'autenticazione](./media/cloud-services-dotnet-get-started/chgauth.png)
 6. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione**, quindi fare clic su **OK**.
 
     ![Nessuna autenticazione](./media/cloud-services-dotnet-get-started/noauth.png)
@@ -353,7 +354,7 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
 6. Trovare il pacchetto NuGet *Microsoft.WindowsAzure.ConfigurationManager* e installarlo nel progetto del ruolo di lavoro.
 
 ### <a name="set-project-references"></a>Configurare le preferenze del progetto
-1. Nel progetto ContosoAdsWeb configurare un riferimento al progetto ContosoAdsCommon. Fare clic con il pulsante destro del mouse sul progetto ContosoAdsWeb, quindi fare clic su **riferimenti** - **Aggiungi riferimenti**. Nella finestra di dialogo **Gestione riferimenti** selezionare **Soluzione - Progetti** nel riquadro di sinistra, selezionare **ContosoAdsCommon**, quindi fare clic su **OK**.
+1. Nel progetto ContosoAdsWeb configurare un riferimento al progetto ContosoAdsCommon. Fare clic con il pulsante destro del mouse sul progetto ContosoAdsWeb, quindi fare clic su **riferimenti**  -  **Aggiungi riferimenti**. Nella finestra di dialogo **Gestione riferimenti** selezionare **Soluzione - Progetti** nel riquadro di sinistra, selezionare **ContosoAdsCommon**, quindi fare clic su **OK**.
 2. Nel progetto ContosoAdsWorker configurare un riferimento al progetto ContosoAdsCommon.
 
     ContosoAdsCommon includerà il modello di dati e la classe contesto di Entity Framework, che saranno usati dal front-end e dal back-end.
@@ -398,7 +399,7 @@ In questa sezione verranno configurate le stringhe di connessione di Archiviazio
 ### <a name="add-code-files"></a>Aggiungere file di codice
 In questa sezione, i file di codice saranno copiati dalla soluzione scaricata alla nuova soluzione. Le sezioni seguenti illustrano e spiegano parti chiave del codice.
 
-Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante destro del mouse sul progetto o sulla cartella e scegliere **Aggiungi** - **elemento esistente**. Selezionare i file da aggiungere, quindi fare clic su **Aggiungi**. Se viene richiesto di confermare che si vogliono sostituire i file esistenti, fare clic su **Sì**.
+Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante destro del mouse sul progetto o sulla cartella e scegliere **Aggiungi**  -  **elemento esistente**. Selezionare i file da aggiungere, quindi fare clic su **Aggiungi**. Se viene richiesto di confermare che si vogliono sostituire i file esistenti, fare clic su **Sì**.
 
 1. Nel progetto ContosoAdsCommon eliminare il file *Class1.cs* e sostituirlo con i file *Ad.cs* e *ContosoAdscontext.cs* dal progetto scaricato.
 2. Nel progetto ContosoAdsWeb aggiungere i file seguenti dal progetto scaricato.
@@ -530,7 +531,7 @@ Il file *Views\Home\Index.cshtml* visualizza i collegamenti di categoria nella h
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 Nel file *AdController.cs* il costruttore chiama il metodo `InitializeStorage` per creare oggetti della libreria del client di Archiviazione di Azure che forniscono un'API per l'uso di BLOB e code.
 
-Il codice ottiene quindi un riferimento al contenitore BLOB *images* , come illustrato in precedenza in *Global.asax.cs*. Durante questa operazione, imposta un [criterio per l'esecuzione di nuovi tentativi](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) predefinito appropriato per un'app Web. Il criterio per l'esecuzione di nuovi tentativi predefinito per il backoff esponenziale potrebbe sospendere l'app Web per più di un minuto in caso di nuovi tentativi ripetuti per un errore temporaneo. Il criterio di ripetizione dei tentativi specificato qui attende tre secondi dopo ogni tentativo, fino a un massimo di tre tentativi.
+Il codice ottiene quindi un riferimento al contenitore BLOB *images* , come illustrato in precedenza in *Global.asax.cs*. Durante questa operazione, imposta un [criterio per l'esecuzione di nuovi tentativi](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) predefinito appropriato per un'app Web. I criteri di ripetizione dei tentativi di backoff esponenziali predefiniti possono causare l'interruzione della risposta dell'app Web per più di un minuto in tentativi ripetuti per un errore temporaneo. Il criterio di ripetizione dei tentativi specificato qui attende tre secondi dopo ogni tentativo, fino a un massimo di tre tentativi.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -776,6 +777,3 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
 * [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/)
 * [Come scegliere un provider di servizi cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-

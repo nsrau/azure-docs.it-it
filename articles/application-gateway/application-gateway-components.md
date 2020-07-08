@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni sui vari componenti in un gat
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 90b3c3fd18bc9211c731ccf16dd646a64a4a1116
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254328"
 ---
 # <a name="application-gateway-components"></a>Componenti del gateway applicazione
 
@@ -126,7 +126,7 @@ Questo componente viene usato anche per:
 Un pool back-end instrada la richiesta ai server back-end che forniscono la richiesta. I pool back-end possono contenere:
 
 - Schede di interfaccia di rete
-- Set di scalabilità di macchine virtuali
+- set di scalabilità di macchine virtuali
 - Indirizzi IP pubblici
 - Indirizzi IP interni
 - Nome di dominio completo
@@ -152,6 +152,6 @@ Per altre informazioni, vedere [monitorare l'integrità del gateway applicazione
 
 Creare un gateway applicazione:
 
-* [Nella portale di Azure](quick-create-portal.md)
+* [Nel portale di Azure](quick-create-portal.md)
 * [Usando Azure PowerShell](quick-create-powershell.md)
 * [Usando l'interfaccia della riga di comando di Azure](quick-create-cli.md)

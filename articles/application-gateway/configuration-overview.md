@@ -4,15 +4,15 @@ description: Questo articolo descrive come configurare i componenti di applicazi
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254668"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -20,7 +20,7 @@ Applicazione Azure gateway è costituito da diversi componenti che è possibile 
 
 ![Diagramma di flusso dei componenti del gateway applicazione](./media/configuration-overview/configuration-overview1.png)
 
-Questa immagine illustra un'applicazione con tre listener. I primi due sono listener multisito rispettivamente per `http://acme.com/*` e. `http://fabrikam.com/*` Entrambi sono in ascolto sulla porta 80. Il terzo è un listener di base con terminazione Transport Layer Security (TLS) end-to-end, nota in precedenza come terminazione Secure Sockets Layer (SSL).
+Questa immagine illustra un'applicazione con tre listener. I primi due sono listener multisito `http://acme.com/*` rispettivamente per e `http://fabrikam.com/*` . Entrambi sono in ascolto sulla porta 80. Il terzo è un listener di base con terminazione Transport Layer Security (TLS) end-to-end, nota in precedenza come terminazione Secure Sockets Layer (SSL).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -48,7 +48,7 @@ Si consiglia di usare una dimensione della subnet pari ad almeno/28. Questa dime
 
 I gruppi di sicurezza di rete (gruppi) sono supportati nel gateway applicazione. Esistono tuttavia alcune restrizioni:
 
-- È necessario consentire il traffico Internet in ingresso sulle porte TCP 65503-65534 per lo SKU del gateway applicazione **V1 e le** porte TCP 65200-65535 per lo SKU V2 con la subnet di destinazione come tag del servizio **GatewayManager** e di origine. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) dai certificati di Azure. Le entità esterne, inclusi i clienti di tali gateway, non possono comunicare su questi endpoint.
+- È necessario consentire il traffico Internet in ingresso sulle porte TCP 65503-65534 per lo SKU del gateway applicazione v1 e sulle porte TCP 65200-65535 per lo SKU v2 con la subnet di destinazione impostata su **Qualsiasi** e l'origine impostata sul tag di servizio **GatewayManager**. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) dai certificati di Azure. Le entità esterne, inclusi i clienti di tali gateway, non possono comunicare su questi endpoint.
 
 - La connettività Internet in uscita non può essere bloccata. Le regole in uscita predefinite in NSG consentono la connettività Internet. È consigliabile:
 
@@ -219,14 +219,12 @@ Quando si crea un gateway applicazione usando il portale di Azure, si crea una r
 
 Quando si crea una regola, è possibile scegliere tra [ *base* e *basata sul percorso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
-- Scegliere di base se si desidera inviare tutte le richieste sul listener associato (ad esempio, *Blog<i></i>. contoso.com/\*)* a un singolo pool back-end.
+- Scegliere di base se si desidera inviare tutte le richieste sul listener associato (ad esempio, *Blog <i></i> . contoso.com/ \* )* a un singolo pool back-end.
 - Scegliere basato sul percorso se si desidera instradare le richieste da percorsi URL specifici a pool back-end specifici. Il modello di percorso viene applicato solo al percorso dell'URL, non ai parametri della query.
 
 #### <a name="order-of-processing-rules"></a>Ordine delle regole di elaborazione
 
-Per lo SKU V1, i criteri di ricerca delle richieste in ingresso vengono elaborati nell'ordine in cui i percorsi sono elencati nella mappa del percorso URL della regola basata sul percorso. Se una richiesta corrisponde al modello in due o più percorsi nella mappa di percorso, il percorso elencato per primo viene associato. E la richiesta viene trasmessa al back-end associato a tale percorso.
-
-Per lo SKU V2, una corrispondenza esatta è più alta rispetto all'ordine dei percorsi nel mapping del percorso URL. Se una richiesta corrisponde al modello in due o più percorsi, la richiesta viene trasmessa al back-end associato al percorso che corrisponde esattamente alla richiesta. Se il percorso nella richiesta in ingresso non corrisponde esattamente ad alcun percorso della mappa, la corrispondenza dei criteri della richiesta viene elaborata nell'elenco degli ordini della mappa di percorso per la regola basata sul percorso.
+Per lo SKU V1 e V2, i criteri di ricerca delle richieste in ingresso vengono elaborati nell'ordine in cui i percorsi sono elencati nella mappa del percorso URL della regola basata sul percorso. Se una richiesta corrisponde al modello in due o più percorsi nella mappa di percorso, il percorso elencato per primo viene associato. E la richiesta viene trasmessa al back-end associato a tale percorso.
 
 ### <a name="associated-listener"></a>Listener associato
 
@@ -250,7 +248,7 @@ Per una regola basata sul percorso, aggiungere più impostazioni HTTP back-end c
 
 ### <a name="redirection-setting"></a>Impostazione del reindirizzamento
 
-Se il reindirizzamento è configurato per una regola di base, tutte le richieste sul listener associato vengono reindirizzate alla destinazione. Si tratta di un reindirizzamento *globale* . Se il reindirizzamento è configurato per una regola basata sul percorso, vengono reindirizzate solo le richieste in un'area specifica del sito. Un esempio è un'area del carrello acquisti indicata da */cart/\**. Si tratta del reindirizzamento *basato sul percorso* .
+Se il reindirizzamento è configurato per una regola di base, tutte le richieste sul listener associato vengono reindirizzate alla destinazione. Si tratta di un reindirizzamento *globale* . Se il reindirizzamento è configurato per una regola basata sul percorso, vengono reindirizzate solo le richieste in un'area specifica del sito. Un esempio è un'area del carrello acquisti indicata da */cart/ \* *. Si tratta del reindirizzamento *basato sul percorso* .
 
 Per altre informazioni sui reindirizzamenti, vedere [Panoramica del reindirizzamento del gateway applicazione](redirect-overview.md).
 
@@ -309,7 +307,7 @@ Si noti che il nome del cookie di affinità predefinito è *ApplicationGatewayAf
 
 ### <a name="connection-draining"></a>Esaurimento delle connessioni
 
-Lo svuotamento delle connessioni consente di rimuovere normalmente i membri del pool back-end durante gli aggiornamenti pianificati dei servizi. È possibile applicare questa impostazione a tutti i membri di un pool back-end durante la creazione della regola. Garantisce che tutte le istanze di annullamento della registrazione di un pool back-end continuino a mantenere le connessioni esistenti e a gestire richieste in corso per un timeout configurabile e non ricevano nuove richieste o connessioni. L'unica eccezione è costituita dalle richieste associate per la deregistrazione delle istanze a causa dell'affinità di sessione gestita dal gateway e continueranno a essere inviate alle istanze di annullamento della registrazione. Lo svuotamento della connessione si applica alle istanze back-end che vengono rimosse in modo esplicito dal pool back-end.
+Lo svuotamento delle connessioni consente di rimuovere normalmente i membri del pool back-end durante gli aggiornamenti pianificati dei servizi. È possibile applicare questa impostazione a tutti i membri di un pool back-end abilitando lo svuotamento della connessione sull'impostazione HTTP. Garantisce che tutte le istanze di annullamento della registrazione di un pool back-end continuino a mantenere le connessioni esistenti e a gestire richieste in corso per un timeout configurabile e non ricevano nuove richieste o connessioni. L'unica eccezione è costituita dalle richieste associate per la deregistrazione delle istanze a causa dell'affinità di sessione gestita dal gateway e continueranno a essere inviate alle istanze di annullamento della registrazione. Lo svuotamento della connessione si applica alle istanze back-end che vengono rimosse in modo esplicito dal pool back-end.
 
 ### <a name="protocol"></a>Protocollo
 
@@ -378,7 +376,7 @@ Per un dominio personalizzato il cui nome DNS personalizzato esistente è mappat
 
 Questa funzionalità sostituisce l'intestazione *host* nella richiesta in ingresso nel gateway applicazione con il nome host specificato.
 
-Se, ad esempio, si specifica *www.contoso.com* nell'impostazione **nome host** , la richiesta originale *`https://appgw.eastus.cloudapp.azure.com/path1` viene modificata in *`https://www.contoso.com/path1` quando la richiesta viene trasmessa al server back-end.
+Se, ad esempio, si specifica *www.contoso.com* nell'impostazione **nome host** , la richiesta originale * `https://appgw.eastus.cloudapp.azure.com/path1` viene modificata in * `https://www.contoso.com/path1` quando la richiesta viene trasmessa al server back-end.
 
 ## <a name="back-end-pool"></a>Pool back-end
 

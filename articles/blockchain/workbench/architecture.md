@@ -4,12 +4,12 @@ description: Panoramica dell'architettura di anteprima di Azure blockchain Workb
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
-ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef56d0fdac74bf447fce01e772abed8a2b07c27b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74324889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253427"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Architettura di Azure Blockchain Workbench
 
@@ -43,12 +43,12 @@ Per altre informazioni, vedere: [Le applicazioni client di Azure Blockchain Work
 
 ## <a name="gateway-service-api"></a>API del servizio gateway
 
-Blockchain Workbench include un'API del servizio gateway basata su REST. Quando si scrive in una blockchain, l'API genera e invia messaggi a un gestore eventi. Quando vengono richiesti dati dall'API, le query vengono inviate al database SQL off-chain. Il database SQL contiene una replica di dati e metadati on-chain che fornisce le informazioni su contesto e configurazione per i contratti intelligenti supportati. Le query restituiscono i dati necessari dalla replica off-chain in un formato determinato dai metadati per il contratto.
+Blockchain Workbench include un'API del servizio gateway basata su REST. Quando si scrive in una blockchain, l'API genera e invia messaggi a un gestore eventi. Quando i dati vengono richiesti dall'API, le query vengono inviate al database fuori catena. Il database contiene una replica di dati e metadati in catena che fornisce informazioni di contesto e configurazione per i contratti intelligenti supportati. Le query restituiscono i dati necessari dalla replica off-chain in un formato determinato dai metadati per il contratto.
 
 Gli sviluppatori possono accedere all'API del servizio gateway per compilare o integrare soluzioni blockchain senza ricorrere ad app client Blockchain Workbench.
 
 > [!NOTE]
-> Per abilitare l'accesso autenticato all'API, vengono registrate due applicazioni client in Azure Active Directory. Azure Active Directory richiede la registrazione distinta di ogni tipo di applicazione, nativa e Web. 
+> Per abilitare l'accesso autenticato all'API, vengono registrate due applicazioni client in Azure Active Directory. Azure Active Directory richiede la registrazione distinta di ogni tipo di applicazione, nativa e Web.
 
 ## <a name="message-broker-for-incoming-messages"></a>Broker di messaggi per i messaggi in arrivo
 
@@ -70,7 +70,7 @@ I messaggi DLT (Distributed Ledger Technology) contengono i metadati per la scri
 
 ### <a name="database-consumer"></a>Consumer di database
 
-Il consumer di database riceve messaggi dal bus di servizio e inserisce i dati in un database collegato, ad esempio il database SQL.
+Il consumer di database accetta messaggi dal bus di servizio e inserisce i dati in un database collegato, ad esempio un database nel database SQL di Azure.
 
 ### <a name="storage-consumer"></a>Consumer di archiviazione
 
@@ -91,11 +91,11 @@ I libri mastri e i router di transazioni instradano le transazioni firmate alla 
 Un watcher DLT (Distributed Ledger Technology) monitora gli eventi che si verificano nelle blockchain collegate a Blockchain Workbench.
 Gli eventi riflettono informazioni rilevanti per persone e sistemi. Ad esempio, la creazione di nuove istanze di contratto, l'esecuzione di transazioni e le modifiche dello stato. Gli eventi vengono acquisiti e inviati al broker di messaggi in uscita, in modo da essere utilizzati dai consumer a valle.
 
-Ad esempio, il consumer SQL monitora gli eventi, li utilizza e popola il database SQL con i valori inclusi. La copia permette la ricreazione di una replica di dati on-chain in un archivio off-chain.
+Ad esempio, il consumer SQL monitora gli eventi, li utilizza e popola il database con i valori inclusi. La copia permette la ricreazione di una replica di dati on-chain in un archivio off-chain.
 
-## <a name="azure-sql-database"></a>Database SQL di Azure
+## <a name="azure-sql-database"></a>database SQL di Azure
 
-Il database SQL di Azure collegato a Blockchain Workbench archivia le definizioni dei contratti, i metadati di configurazione e una replica accessibile da SQL dei dati archiviati nella blockchain. È possibile visualizzare, analizzare ed eseguire query su questi dati in tutta semplicità accedendo direttamente al database. Gli sviluppatori e altri utenti possono usare il database per la creazione di report, l'analisi o altre integrazioni basate sui dati. Ad esempio, gli utenti possono visualizzare i dati delle transazioni tramite Power BI.
+Il database collegato a blockchain Workbench archivia le definizioni del contratto, i metadati di configurazione e una replica accessibile da SQL dei dati archiviati in blockchain. È possibile visualizzare, analizzare ed eseguire query su questi dati in tutta semplicità accedendo direttamente al database. Gli sviluppatori e altri utenti possono usare il database per la creazione di report, l'analisi o altre integrazioni basate sui dati. Ad esempio, gli utenti possono visualizzare i dati delle transazioni tramite Power BI.
 
 Questa risorsa di archiviazione off chain permette alle organizzazioni di eseguire query sui dati in SQL anziché in un libro mastro della blockchain. Inoltre, standardizzando in base a uno schema standard agnostico gli stack della tecnologia blockchain, la risorsa di archiviazione off-chain permette il riutilizzo dei report e di altri elementi in più progetti, scenari e organizzazioni.
 

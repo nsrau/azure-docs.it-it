@@ -9,16 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: ad4ffa71480a5af06c31872cbafcaab7719c55e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c71e4120d127277e8b46f59bfef7fca403847c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253762"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-create-pipelines.md)
 > * [Versione corrente](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -28,7 +28,7 @@ Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure 
 ## <a name="overview"></a>Panoramica
 Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività che insieme eseguono un compito. Una pipeline, ad esempio, può contenere un set di attività che inseriscono e puliscono i dati di log e quindi avviano un flusso di dati di mapping per analizzare i dati del log. La pipeline consente di gestire le attività come un set anziché singolarmente. Si distribuisce e si pianifica la pipeline anziché le attività in modo indipendente.
 
-Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da un Server SQL locale a un'archiviazione BLOB di Azure. Quindi, usare un'attività flusso di dati o un'attività del notebook di databricks per elaborare e trasformare i dati dall'archiviazione BLOB a un pool di analisi delle sinapsi di Azure in cui vengono compilate business intelligence soluzioni di creazione di report.
+Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da SQL Server in un archivio BLOB di Azure. Quindi, usare un'attività flusso di dati o un'attività del notebook di databricks per elaborare e trasformare i dati dall'archiviazione BLOB a un pool di analisi delle sinapsi di Azure in cui vengono compilate business intelligence soluzioni di creazione di report.
 
 Data Factory prevede tre raggruppamenti di attività: [attività di spostamento dei dati](copy-activity-overview.md), [attività di trasformazione dei dati](transform-data.md)e [attività di controllo](control-flow-web-activity.md). Un'attività può assumere zero o più [set](concepts-datasets-linked-services.md) di dati di input e generare uno o più [set](concepts-datasets-linked-services.md)di dati di output. Nel diagramma seguente viene illustrata la relazione tra attività, set di dati e pipeline in Data Factory:
 
@@ -56,7 +56,7 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Attività di Machine Learning: esecuzione batch e aggiornamento risorse](transform-data-using-machine-learning.md) | Macchina virtuale Azure
+[Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
 [Stored procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics.
 [Attività personalizzata](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -77,7 +77,7 @@ Attività di controllo | Descrizione
 [Per ogni](control-flow-for-each-activity.md) | L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione in cicli di questa attività è simile alla struttura di esecuzione in cicli Foreach nei linguaggi di programmazione.
 [Ottenere metadati](control-flow-get-metadata-activity.md) | Questa attività può essere usata per recuperare i metadati di tutti i dati in Azure Data Factory.
 [Attività della condizione If](control-flow-if-condition-activity.md) | Può essere usata per creare un ramo in base alla condizione che il valore restituito sia true o false. L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività quando la condizione restituisce `true` e un altro set di attività quando la condizione restituisce`false.`
-[Attività di ricerca](control-flow-lookup-activity.md) | L'attività Lookup può essere usata per la lettura o la ricerca di un record/nome di tabella/valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive.
+[Attività Lookup](control-flow-lookup-activity.md) | L'attività Lookup può essere usata per la lettura o la ricerca di un record/nome di tabella/valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive.
 [Imposta variabile](control-flow-set-variable-activity.md) | Impostare il valore di una variabile esistente.
 [Attività Until](control-flow-until-activity.md) | Implementa il ciclo Do-Until che è simile alla struttura di esecuzione cicli Do-Until nei linguaggi di programmazione. Esegue infatti un set di attività in un ciclo finché la condizione associata con l'attività restituisce true. È possibile specificare un valore di timeout per l'attività Until in Data Factory.
 [Attività Validation](control-flow-validation-activity.md) | Verificare che una pipeline continui l'esecuzione solo se esiste un set di dati di riferimento, soddisfa i criteri specificati oppure è stato raggiunto un timeout.
@@ -106,7 +106,7 @@ Ecco come una pipeline viene definita in formato JSON:
 }
 ```
 
-Tag | Descrizione | Type | Obbligatoria
+Tag | Descrizione | Type | Necessario
 --- | ----------- | ---- | --------
 name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 140</li><li>Deve iniziare con una lettera, numero o un carattere di sottolineatura (\_)</li><li>Non sono consentiti i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" </li></ul> | string | Sì
 description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | string | No
@@ -143,12 +143,12 @@ La tabella seguente descrive le proprietà all'interno della definizione JSON de
 
 Tag | Descrizione | Obbligatoria
 --- | ----------- | ---------
-name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività. <br/><ul><li>Numero massimo di caratteri: 55</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono consentiti i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sì</li></ul>
+name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività. <br/><ul><li>Numero massimo di caratteri: 55</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura ( \_ )</li><li>Non sono consentiti i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sì</li></ul>
 description | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
 type | Tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [Attività di spostamento dei dati](#data-movement-activities), [Attività di trasformazione dei dati](#data-transformation-activities) e [Attività di controllo](#control-flow-activities). | Sì
 linkedServiceName | Nome del servizio collegato usato dall'attività.<br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. | Sì per l'attività HDInsight, l'attività di assegnazione di punteggio Batch di Azure Machine Learning e l'attività stored procedure. <br/><br/>No per tutto il resto
 typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No
-policy | Criteri che influiscono sul comportamento di runtime dell'attività. Questa proprietà include un comportamento di timeout e ripetizione dei tentativi. Se non è specificato, vengono utilizzati i valori predefiniti. Per altre informazioni, vedere la sezione [Criteri di attività](#activity-policy). | No
+Criterio | Criteri che influiscono sul comportamento di runtime dell'attività. Questa proprietà include un comportamento di timeout e ripetizione dei tentativi. Se non è specificato, vengono utilizzati i valori predefiniti. Per altre informazioni, vedere la sezione [Criteri di attività](#activity-policy). | No
 dependsOn | Questa proprietà viene usata per definire le dipendenze delle attività e come le attività successive dipendono dalle attività precedenti. Per altre informazioni, vedere [Dipendenza delle attività](#activity-dependency). | No
 
 ### <a name="activity-policy"></a>Criteri di attività
@@ -182,7 +182,7 @@ Criteri che influiscono sul comportamento runtime di un'attività, offrendo le o
 }
 ```
 
-Nome JSON | Descrizione | Valori consentiti | Obbligatoria
+Nome JSON | Descrizione | Valori consentiti | Necessario
 --------- | ----------- | -------------- | --------
 timeout | Specifica il timeout per l'attività da eseguire. | TimeSpan | No. Il timeout predefinito è 7 giorni.
 retry | Numero massimo di tentativi | Integer | No. Il valore predefinito è 0
@@ -268,7 +268,7 @@ Ad esempio, se una pipeline dispone di un'attività A-> attività B, i diversi s
 `"
 
 ## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to an Azure SQL database.
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
 
 ```json
 {
@@ -358,7 +358,7 @@ In questa pipeline di esempio è presente un'attività di tipo **HDInsightHive**
 Tenere presente quanto segue:
 
 - Nella sezione attività esiste una sola attività con l'oggetto **type** impostato su **HDInsightHive**.
-- Il file di script hive, **partitionweblogs. HQL**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato AzureStorageLinkedService) e nella cartella script nel contenitore `adfgetstarted`.
+- Il file di script hive, **partitionweblogs. HQL**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato AzureStorageLinkedService) e nella cartella script nel contenitore `adfgetstarted` .
 - La sezione `defines` viene usata per specificare le impostazioni di runtime che vengono passate allo script Hive come valori di configurazione Hive, ad esempio `{hiveconf:inputtable}` e `${hiveconf:partitionedtable}`.
 
 La sezione **typeProperties** è diversa per ogni attività di trasformazione. Per altre informazioni sulle proprietà del tipo supportate per un'attività di trasformazione, fare clic sull'attività di trasformazione nelle [attività di trasformazione dei dati](#data-transformation-activities).
