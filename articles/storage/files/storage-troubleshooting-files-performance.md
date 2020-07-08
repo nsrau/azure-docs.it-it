@@ -3,16 +3,16 @@ title: Guida alla risoluzione dei problemi delle prestazioni File di Azure
 description: Problemi noti relativi alle prestazioni delle condivisioni file di Azure e delle soluzioni alternative associate.
 author: gunjanj
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511951"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
@@ -113,7 +113,7 @@ Mancanza di supporto per i lease di directory.
 ### <a name="workaround"></a>Soluzione alternativa
 
 - Se possibile, evitare un handle di apertura/chiusura eccessivo nella stessa directory entro un breve periodo di tempo.
-- Per le macchine virtuali Linux, aumentare il timeout della cache per la voce di directory specificando **actimeo =\<sec>** come opzione di montaggio. Per impostazione predefinita, si tratta di un secondo, quindi un valore maggiore, ad esempio tre o cinque, potrebbe essere utile.
+- Per le macchine virtuali Linux, aumentare il timeout della cache voce di directory specificando **actimeo = \<sec> ** come opzione di montaggio. Per impostazione predefinita, si tratta di un secondo, quindi un valore maggiore, ad esempio tre o cinque, potrebbe essere utile.
 - Per le macchine virtuali Linux, aggiornare il kernel a 4,20 o versione successiva.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS Bassi su CentOS/RHEL
@@ -160,7 +160,7 @@ I carichi di lavoro che si basano sulla creazione di un numero elevato di file n
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Nessuno.
+- No.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Rallentamento delle prestazioni da Windows 8.1 o Server 2012 R2
 
@@ -187,7 +187,7 @@ Maggiore della latenza prevista per l'accesso File di Azure per carichi di lavor
 6. Nel pannello **Configura logica** per i segnali passare alla dimensione **tipo di risposta** , fare clic sull'elenco a discesa **valori dimensione** e selezionare **SuccessWithThrottling** (per SMB) o **ClientThrottlingError** (per REST). 
 
   > [!NOTE]
-  > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata.  Per aggiungere il valore della dimensione, fare **+** clic accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError**, fare clic su **OK** , quindi ripetere il passaggio #6.
+  > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata.  Per aggiungere il valore della dimensione, fare clic **+** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError**, fare clic su **OK** , quindi ripetere il passaggio #6.
 
 7. Passare alla dimensione **condivisione file** , fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni di file su cui si vuole inviare l'avviso. 
 

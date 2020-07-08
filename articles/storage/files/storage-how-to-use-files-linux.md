@@ -3,16 +3,16 @@ title: Usare File di Azure con Linux | Microsoft Docs
 description: Informazioni su come montare una condivisione file di Azure tramite SMB in Linux.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fcc9876caf0c002650ab30b7eaed7dc44e2f135e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509847"
 ---
 # <a name="use-azure-files-with-linux"></a>Usare File di Azure con Linux
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate nelle distribuzioni Linux usando il [client del kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Questo articolo illustra due modi per montare una condivisione file di Azure: su richiesta con il comando `mount` e all'avvio creando una voce in `/etc/fstab`.
@@ -47,13 +47,13 @@ uname -r
     sudo apt install cifs-utils
     ```
 
-    In **Fedora** **Red Hat Enterprise Linux 8 +** e **CentOS 8 +** usare gestione `dnf` pacchetti:
+    In **Fedora** **Red Hat Enterprise Linux 8 +** e **CentOS 8 +** usare `dnf` Gestione pacchetti:
 
     ```bash
     sudo dnf install cifs-utils
     ```
 
-    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS**usare gestione `yum` pacchetti:
+    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS**usare `yum` Gestione pacchetti:
 
     ```bash
     sudo yum install cifs-utils 
@@ -94,12 +94,12 @@ uname -r
     Se non si è in grado di aprire la porta 445 nella rete aziendale o se questa operazione non viene eseguita da un ISP, è possibile usare una connessione VPN o ExpressRoute per aggirare la porta 445. Per altre informazioni, vedere [considerazioni sulla rete per l'accesso diretto alla condivisione file di Azure](storage-files-networking-overview.md).
 
 ## <a name="mounting-azure-file-share"></a>Montaggio della condivisione file di Azure
-Per usare una condivisione file di Azure con la distribuzione Linux, è necessario creare una directory che funga da punto di montaggio per la condivisione file di Azure. Un punto di montaggio può essere creato in qualsiasi punto del sistema Linux, ma è una convenzione comune per crearlo in/mnt. Dopo il punto di montaggio, è possibile `mount` usare il comando per accedere alla condivisione file di Azure.
+Per usare una condivisione file di Azure con la distribuzione Linux, è necessario creare una directory che funga da punto di montaggio per la condivisione file di Azure. Un punto di montaggio può essere creato in qualsiasi punto del sistema Linux, ma è una convenzione comune per crearlo in/mnt. Dopo il punto di montaggio, è possibile usare il `mount` comando per accedere alla condivisione file di Azure.
 
 Se lo si desidera, è possibile montare la stessa condivisione file di Azure in più punti di montaggio.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montare la condivisione file di Azure su richiesta con `mount`
-1. **Creare una cartella per il punto di montaggio**: `<your-resource-group>`sostituire `<your-storage-account>`, e `<your-file-share>` con le informazioni appropriate per l'ambiente:
+1. **Creare una cartella per il punto di montaggio**: sostituire `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` con le informazioni appropriate per l'ambiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -111,7 +111,7 @@ Se lo si desidera, è possibile montare la stessa condivisione file di Azure in 
     sudo mkdir -p $mntPath
     ```
 
-1. **Usare il comando di montaggio per montare la condivisione file di Azure**. Nell'esempio seguente, le autorizzazioni per file e cartelle di Linux locale sono predefinite 0755, ovvero di lettura, scrittura ed esecuzione per il proprietario (in base al proprietario Linux di file/directory), lettura ed esecuzione per gli utenti nel gruppo proprietario e lettura ed esecuzione per altri utenti nel sistema. È possibile utilizzare le `uid` opzioni `gid` di montaggio e per impostare l'ID utente e l'ID gruppo per il montaggio. È anche possibile usare `dir_mode` e `file_mode` per impostare le autorizzazioni personalizzate nel modo desiderato. Per ulteriori informazioni su come impostare le autorizzazioni, vedere [notazione numerica UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) in Wikipedia. 
+1. **Usare il comando di montaggio per montare la condivisione file di Azure**. Nell'esempio seguente, le autorizzazioni per file e cartelle di Linux locale sono predefinite 0755, ovvero di lettura, scrittura ed esecuzione per il proprietario (in base al proprietario Linux di file/directory), lettura ed esecuzione per gli utenti nel gruppo proprietario e lettura ed esecuzione per altri utenti nel sistema. È possibile utilizzare le `uid` `gid` Opzioni di montaggio e per impostare l'ID utente e l'ID gruppo per il montaggio. È anche possibile usare `dir_mode` e `file_mode` per impostare le autorizzazioni personalizzate nel modo desiderato. Per ulteriori informazioni su come impostare le autorizzazioni, vedere [notazione numerica UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) in Wikipedia. 
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -134,7 +134,7 @@ Se lo si desidera, è possibile montare la stessa condivisione file di Azure in 
 Dopo che la condivisione file di Azure è stata completata, è possibile usare `sudo umount $mntPath` per smontare la condivisione.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Creare un punto di montaggio permanente per la condivisione file di Azure con `/etc/fstab`
-1. **Creare una cartella per il punto di montaggio**: è possibile creare una cartella per un punto di montaggio in un punto qualsiasi dell'file System, ma è la convenzione comune per crearla in/mnt. Ad esempio, il comando seguente crea una nuova directory, sostituisce `<your-resource-group>`, `<your-storage-account>`e `<your-file-share>` con le informazioni appropriate per l'ambiente:
+1. **Creare una cartella per il punto di montaggio**: è possibile creare una cartella per un punto di montaggio in un punto qualsiasi dell'file System, ma è la convenzione comune per crearla in/mnt. Ad esempio, il comando seguente crea una nuova directory, sostituisce `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` con le informazioni appropriate per l'ambiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -173,7 +173,7 @@ Dopo che la condivisione file di Azure è stata completata, è possibile usare `
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Usare il comando seguente per aggiungere la riga seguente a `/etc/fstab` **: nell'esempio riportato di seguito, le autorizzazioni per file e cartella di Linux locale sono predefinite 0755, ovvero la lettura, la scrittura e l'esecuzione del proprietario (in base al proprietario Linux del file/directory), la lettura e l'esecuzione per gli utenti nel gruppo proprietario e la lettura e l'esecuzione per altri utenti nel sistema. È possibile utilizzare le `uid` opzioni `gid` di montaggio e per impostare l'ID utente e l'ID gruppo per il montaggio. È anche possibile usare `dir_mode` e `file_mode` per impostare le autorizzazioni personalizzate nel modo desiderato. Per ulteriori informazioni su come impostare le autorizzazioni, vedere [notazione numerica UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) in Wikipedia.
+1. **Usare il comando seguente per aggiungere la riga seguente a `/etc/fstab` **: nell'esempio riportato di seguito, le autorizzazioni per file e cartella di Linux locale sono predefinite 0755, ovvero la lettura, la scrittura e l'esecuzione del proprietario (in base al proprietario Linux del file/directory), la lettura e l'esecuzione per gli utenti nel gruppo proprietario e la lettura e l'esecuzione per altri utenti nel sistema. È possibile utilizzare le `uid` `gid` Opzioni di montaggio e per impostare l'ID utente e l'ID gruppo per il montaggio. È anche possibile usare `dir_mode` e `file_mode` per impostare le autorizzazioni personalizzate nel modo desiderato. Per ulteriori informazioni su come impostare le autorizzazioni, vedere [notazione numerica UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) in Wikipedia.
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -205,11 +205,11 @@ Dopo che la condivisione file di Azure è stata completata, è possibile usare `
     sudo apt update
     sudo apt install autofs
     ```
-    In **Fedora** **Red Hat Enterprise Linux 8 +** e **CentOS 8 +** usare gestione `dnf` pacchetti:
+    In **Fedora** **Red Hat Enterprise Linux 8 +** e **CentOS 8 +** usare `dnf` Gestione pacchetti:
     ```bash
     sudo dnf install autofs
     ```
-    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS**usare gestione `yum` pacchetti:
+    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS**usare `yum` Gestione pacchetti:
     ```bash
     sudo yum install autofs 
     ```
@@ -244,7 +244,7 @@ Dopo che la condivisione file di Azure è stata completata, è possibile usare `
 ## <a name="securing-linux"></a>Protezione di Linux
 Per montare una condivisione file di Azure in Linux, la porta 445 deve essere accessibile. Molte organizzazioni bloccano la porta 445 a causa dei rischi per la sicurezza associati a SMB 1. SMB 1, noto anche come CIFS (Common Internet file System), è un protocollo legacy file system incluso in molte distribuzioni Linux. SMB 1 è un protocollo obsoleto, inefficiente e, soprattutto, non sicuro. La novità è che File di Azure non supporta SMB 1 e, a partire dalla versione kernel Linux 4,18, Linux rende possibile disabilitare SMB 1. Prima di usare le condivisioni file SMB in produzione, è sempre [consigliabile](https://aka.ms/stopusingsmb1) disabilitare SMB 1 nei client Linux.
 
-A partire dal kernel Linux 4,18, il modulo kernel SMB, `cifs` denominato per motivi legacy, espone un nuovo parametro di modulo (spesso definito *in base a più documenti* esterni), denominato `disable_legacy_dialects`. Anche se introdotta nel kernel Linux 4,18, alcuni fornitori hanno sottoportato questa modifica ai kernel meno recenti supportati. Per praticità, nella tabella seguente viene illustrata in dettaglio la disponibilità di questo parametro del modulo nelle distribuzioni comuni di Linux.
+A partire dal kernel Linux 4,18, il modulo kernel SMB, denominato `cifs` per motivi legacy, espone un nuovo parametro di modulo (spesso definito *in* base a più documenti esterni), denominato `disable_legacy_dialects` . Anche se introdotta nel kernel Linux 4,18, alcuni fornitori hanno sottoportato questa modifica ai kernel meno recenti supportati. Per praticità, nella tabella seguente viene illustrata in dettaglio la disponibilità di questo parametro del modulo nelle distribuzioni comuni di Linux.
 
 | Distribuzione | Può disabilitare SMB 1 |
 |--------------|-------------------|
@@ -283,7 +283,7 @@ Prima di disabilitare SMB 1, è necessario verificare che il modulo SMB non sia 
 lsmod | grep cifs
 ```
 
-Per scaricare il modulo, prima di tutto smontare tutte le condivisioni `umount` SMB (usando il comando come descritto in precedenza). È possibile identificare tutte le condivisioni SMB montate nel sistema con il comando seguente:
+Per scaricare il modulo, prima di tutto smontare tutte le condivisioni SMB (usando il `umount` comando come descritto in precedenza). È possibile identificare tutte le condivisioni SMB montate nel sistema con il comando seguente:
 
 ```bash
 mount | grep cifs
@@ -301,13 +301,13 @@ sudo modprobe -r cifs
 sudo modprobe cifs disable_legacy_dialects=Y
 ```
 
-Infine, è possibile verificare che il modulo SMB sia stato caricato con il parametro esaminando i parametri caricati in `/sys/module/cifs/parameters`:
+Infine, è possibile verificare che il modulo SMB sia stato caricato con il parametro esaminando i parametri caricati in `/sys/module/cifs/parameters` :
 
 ```bash
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
-Per disabilitare in modo permanente SMB 1 su Ubuntu e distribuzioni basate su Debian, è necessario creare un nuovo file (se non si dispone già di opzioni personalizzate per altri moduli `/etc/modprobe.d/local.conf` ) chiamato con l'impostazione. Questa operazione può essere eseguita con il comando seguente:
+Per disabilitare in modo permanente SMB 1 su Ubuntu e distribuzioni basate su Debian, è necessario creare un nuovo file (se non si dispone già di opzioni personalizzate per altri moduli) chiamato `/etc/modprobe.d/local.conf` con l'impostazione. Questa operazione può essere eseguita con il comando seguente:
 
 ```bash
 echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
@@ -323,6 +323,6 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti:
 
-* [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md)
-* [DOMANDE FREQUENTI](../storage-files-faq.md)
+* [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
+* [Domande frequenti](../storage-files-faq.md)
 * [Risoluzione dei problemi](storage-troubleshoot-linux-file-connection-problems.md)

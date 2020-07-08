@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab9f34995cea0dee39fa002f0472298a31b9a48e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513975"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilizzo di Gestione snapshot StorSimple per connettere e gestire i dispositivi StorSimple
 ## <a name="overview"></a>Panoramica
@@ -166,7 +166,7 @@ Utilizzare la procedura seguente per eliminare la configurazione di un singolo d
 
 #### <a name="to-change-the-expired-password"></a>Per modificare la password scaduta
 1. Nel portale di Azure classico, avviare il servizio StorSimple Manager.
-2. Fare clic su **dispositivi** > **Configura** per il dispositivo.
+2. Fare clic su **dispositivi**  >  **Configura** per il dispositivo.
 3. Scorrere verso il basso fino alla sezione Gestione snapshot StorSimple. Immettere una password composta da 14-15 caratteri. Assicurarsi che la password contenga una combinazione di lettere maiuscole, minuscole, numeri e caratteri speciali.
 4. Immettere nuovamente la password per confermarla.
 5. Fare clic su **Save** nella parte inferiore della pagina.

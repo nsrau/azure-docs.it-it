@@ -3,16 +3,16 @@ title: Risolvere i problemi di File di Azure in Linux | Microsoft Docs
 description: Risoluzione dei problemi di File di Azure in Linux
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 95e220102cba290664a32cb6bbebef881ae4ffde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511999"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -80,7 +80,7 @@ Verificare che le regole di rete virtuale e di firewall siano configurate corret
 
 In Linux si riceve un messaggio di errore simile al seguente:
 
-**\<nome file> [autorizzazione negata] quota disco superata**
+**\<filename>[autorizzazione negata] Quota disco superata**
 
 ### <a name="cause"></a>Causa
 
@@ -106,14 +106,14 @@ Per chiudere gli handle aperti per una condivisione file, una directory o un fil
 - Usare il metodo di copia corretto:
     - Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
     - L'uso di CP o DD con Parallel può migliorare la velocità di copia, il numero di thread dipende dal caso d'uso e dal carico di lavoro. Gli esempi seguenti usano sei: 
-    - esempio CP (CP utilizzerà la dimensione del blocco predefinita del file system come dimensione del blocco): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - esempio CP (CP utilizzerà la dimensione del blocco predefinita del file system come dimensione del blocco): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - esempio di dd (questo comando imposta in modo esplicito le dimensioni del blocco su 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Strumenti di terze parti open source, ad esempio:
         - [Parallelo GNU](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) : Ordina i file e li comprime in partizioni.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) : USA fpart e uno strumento di copia per generare più istanze per eseguire la migrazione dei dati da src_dir a dst_url.
         - CP e [md5sum multithread](https://github.com/pkolano/mutil) multithreading basati su coreutils GNU.
-- Impostando in anticipo le dimensioni del file, invece di creare ogni scrittura di un'estensione di scrittura, contribuisce a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle Scritture, è possibile impostare le dimensioni del `truncate - size <size><file>` file di destinazione con il comando. Successivamente, `dd if=<source> of=<target> bs=1M conv=notrunc`tramite il comando viene copiato un file di origine senza dover aggiornare ripetutamente le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (si supponga che una condivisione sia montata in/mnt/share):
+- Impostando in anticipo le dimensioni del file, invece di creare ogni scrittura di un'estensione di scrittura, contribuisce a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle Scritture, è possibile impostare le dimensioni del file di destinazione con il `truncate - size <size><file>` comando. Successivamente, tramite `dd if=<source> of=<target> bs=1M conv=notrunc` il comando viene copiato un file di origine senza dover aggiornare ripetutamente le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (si supponga che una condivisione sia montata in/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
     - e quindi copiare i file senza estendere le Scritture in parallelo:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
@@ -135,7 +135,7 @@ Se il client Linux SMB non supporta la crittografia, montare File di Azure usand
 Quando si tenta di accedere o eliminare una condivisione file di Azure nel portale, è possibile che venga visualizzato l'errore seguente:
 
 Nessun accesso  
-Codice di errore: 403 
+Codice errore: 403 
 
 ### <a name="cause-1-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 1: le regole della rete virtuale o del firewall sono abilitate nell'account di archiviazione
 
@@ -206,7 +206,7 @@ Nelle piattaforme Linux/Unix il comando **cp -p** non riesce se file 1 e file 2 
 
 ### <a name="cause"></a>Causa
 
-Il flag force **f** in COPYFILE determina l'esecuzione di **cp -p -f** in Unix. Questo comando non riesce anche a mantenere il timestamp del file di cui non si è proprietari.
+Il flag di forza **f** in COPYFILE comporta l'esecuzione di **cp-p-f** su UNIX. Questo comando non riesce anche a mantenere il timestamp del file di cui non si è proprietari.
 
 ### <a name="workaround"></a>Soluzione alternativa
 

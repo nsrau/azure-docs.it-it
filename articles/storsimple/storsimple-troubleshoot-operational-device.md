@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ea5d89ae-e379-423f-b68b-53785941d9d0
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: twooley
-ms.openlocfilehash: ca79e4240c1a82e46bea44a9d018a3c681920480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e2e68c7016a37824f1bf307a676c39281d4d41d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75933288"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507821"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Risoluzione dei problemi relativi a un dispositivo StorSimple operativo
 > [!NOTE]
@@ -47,7 +47,7 @@ Nella tabella seguente vengono descritti gli errori che potrebbero verificarsi q
 
 | No. | Messaggio di errore o condizione | Possibili cause | Azione consigliata |
 |:--- |:--- |:--- |:--- |
-| 1 |Errore 350032: il dispositivo è già stato disattivato. |Questo errore verrà visualizzato se si esegue la configurazione guidata su un dispositivo disattivato. |[Contattare supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per i passaggi successivi. Un dispositivo disattivato non può essere messo in servizio. Prima di poter attivare nuovamente il dispositivo, potrebbe essere necessario un ripristino delle impostazioni predefinite. |
+| 1 |Errore 350032: il dispositivo è già stato disattivato. |Questo errore verrà visualizzato se si esegue la configurazione guidata su un dispositivo disattivato. |[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per i passaggi successivi. Un dispositivo disattivato non può essere messo in servizio. Prima di poter attivare nuovamente il dispositivo, potrebbe essere necessario un ripristino delle impostazioni predefinite. |
 | 2 |Invoke-HcsSetupWizard: ERROR_INVALID_FUNCTION (eccezione da HRESULT: 0x80070001) |L'aggiornamento del server DNS in corso ha esito negativo. Le impostazioni DNS sono impostazioni globali e vengono applicate a tutte le interfacce di rete abilitate. |Abilitare l'interfaccia e applicare nuovamente le impostazioni DNS. Siccome queste impostazioni sono globali, ciò potrebbe interferire con la rete per le altre interfacce abilitate. |
 | 3 |Il dispositivo apparirà online nel portale del servizio StorSimple Manager ma quando si tenta di completare l'installazione minima e salvare la configurazione, l'operazione ha esito negativo. |Durante l'installazione iniziale, il proxy Web non è stato configurato, anche se era disponibile un server proxy effettivo. |Usare il [cmdlet Test-HcsmConnection][2] per individuare l'errore. [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) se non si è in grado di risolvere il problema. |
 | 4 |Invoke-HcsSetupWizard: il valore non è compreso nell'intervallo previsto. |L'errore viene generato da una subnet mask non corretta. Le cause possibili sono: <ul><li> La subnet mask è mancante o vuota.</li><li>Il formato del prefisso Ipv6 non è corretto.</li><li>L'interfaccia è abilitata per il cloud, ma il gateway è mancante o non corretto.</li></ul>Considerare che DATI 0 è automaticamente abilitata per il cloud se configurata tramite la configurazione guidata. |Per determinare il problema, utilizzare la subnet 0.0.0.0 o 256.256.256.256 ed esaminare l'output. Immettere i valori corretti per la subnet mask, un gateway e un prefisso Ipv6, se necessario. |

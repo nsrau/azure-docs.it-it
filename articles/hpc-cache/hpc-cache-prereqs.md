@@ -3,19 +3,35 @@ title: Prerequisiti della cache HPC di Azure
 description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
-ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 06/01/2020
+ms.author: v-erkel
+ms.openlocfilehash: d7a5bfe56a17ecc2377be7b59dcbe3254d813a0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513254"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
 Prima di usare la portale di Azure per creare una nuova cache HPC di Azure, assicurarsi che l'ambiente soddisfi questi requisiti.
+
+## <a name="video-overviews"></a>Panoramica video
+
+Guardare questi video per una rapida panoramica dei componenti del sistema e di cosa è necessario per collaborare.
+
+(Fare clic sull'immagine del video o sul collegamento da controllare.)
+
+* [Come funziona](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/) : illustra il modo in cui la cache HPC di Azure interagisce con i client e l'archiviazione
+
+  [![immagine di anteprima video: cache HPC di Azure: come funziona (fare clic per visitare la pagina video)](media/video-2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
+
+* [Prerequisiti](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) : descrive i requisiti per l'archiviazione NAS, l'archiviazione BLOB di Azure, l'accesso alla rete e l'accesso client
+
+  [![immagine di anteprima video: cache HPC di Azure: prerequisiti (fare clic per visitare la pagina video)](media/video-3-prerequisites.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
+
+Per indicazioni specifiche, leggere la parte restante di questo articolo.
 
 ## <a name="azure-subscription"></a>Sottoscrizione di Azure
 
@@ -113,7 +129,7 @@ Altre informazioni sono disponibili in [risolvere i problemi relativi alla confi
 
   Assicurarsi che tutte le porte restituite dalla ``rpcinfo`` query consentano il traffico illimitato dalla subnet della cache HPC di Azure.
 
-  * Se non è possibile usare `rpcinfo` il comando, assicurarsi che queste porte usate di frequente consentano il traffico in ingresso e in uscita:
+  * Se non è possibile usare il `rpcinfo` comando, assicurarsi che queste porte usate di frequente consentano il traffico in ingresso e in uscita:
 
     | Protocollo | Porta  | Servizio  |
     |----------|-------|----------|

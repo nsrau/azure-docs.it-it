@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 87885d9b476582fcce53b8b960d24093693af4ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67876216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509388"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple come destinazione di backup con NetBackup
 
@@ -55,8 +55,8 @@ Come con qualsiasi soluzione di archiviazione, per ottenere un esito positivo è
 
 StorSimple è progettato per garantire l'archiviazione per le applicazioni che usano un working set di dati ben definito (dati attivi). In questo modello, il working set di dati viene archiviato nei livelli locali e il rimanente set di dati non in funzione, poco attivi o archiviati viene suddiviso in livelli nel cloud. Questo modello è illustrato nella figura seguente. La linea verde quasi piatta rappresenta i dati archiviati nei livelli locali del dispositivo StorSimple. La linea rossa rappresenta la quantità totale di dati archiviati nella soluzione StorSimple in tutti i livelli. Lo spazio tra la linea verde piatta e la curva esponenziale rossa rappresenta la quantità totale di dati archiviati nel cloud.
 
-**StorSimple tiering**Diagramma di suddivisione in livelli![StorSimple di StorSimple
-](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
+Suddivisione in **livelli StorSimple** 
+ ![ Diagramma di suddivisione in livelli StorSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 Tenendo presente questa architettura, si noterà che StorSimple è particolarmente adatto a essere usato come destinazione di backup. È possibile usare StorSimple per:
 -   Eseguire le operazioni di ripristino più frequenti dal working set di dati locale.
@@ -265,7 +265,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
 ### <a name="to-set-up-netbackup-storage"></a>Per configurare l'archiviazione di NetBackup
 
-1.  Nella console di amministrazione di NetBackup selezionare > **dispositivi** > di **gestione del dispositivo e dei supporti****pool di dischi**. Nella Configurazione guidata pool di dischi selezionare il tipo di server di archiviazione **AdvancedDisk** e poi fare clic su **Avanti**.
+1.  Nella console di amministrazione di NetBackup selezionare dispositivi di **gestione del dispositivo e dei supporti**  >  **Devices**  >  **pool di dischi**. Nella Configurazione guidata pool di dischi selezionare il tipo di server di archiviazione **AdvancedDisk** e poi fare clic su **Avanti**.
 
     ![Console di amministrazione di NetBackup, Configurazione guidata pool di dischi](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -277,7 +277,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
     ![Console di amministrazione di NetBackup, selezionare il volume StorSimple](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Immettere un nome per la destinazione di backup, **quindi selezionare** > avanti**Avanti** per terminare la procedura guidata.
+4.  Immettere un nome per la destinazione di backup, **quindi selezionare Avanti**  >  **Avanti** per terminare la procedura guidata.
 
 5.  Rivedere le impostazioni e selezionare **Finish** (Fine).
 
@@ -300,10 +300,10 @@ La figura seguente illustra il mapping di un volume tipico a un processo di back
 
 Di seguito è riportato un esempio di una pianificazione a rotazione GFS per quattro settimane, mensile e annuale:
 
-| Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
+| Frequenza/Tipo di backup | Completo | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
-| Ogni mese  | Sabato  |   |
+| Mensile  | Sabato  |   |
 | Annuale | Sabato  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Assegnazione di volumi StorSimple a un processo di backup NetBackup
@@ -316,7 +316,7 @@ Nella sequenza seguente si presuppone che NetBackup e l'host di destinazione sia
 
    ![Console di amministrazione di NetBackup, creare un nuovo criterio](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2. Nella finestra di dialogo **Add a New Policy** (Aggiungi nuovo criterio) inserire un nome per il criterio e quindi selezionare la casella di controllo **Use Policy Configuration Wizard** (Usa Configurazione guidata criteri). Fare clic su **OK**.
+2. Nella finestra di dialogo **Add a New Policy** (Aggiungi nuovo criterio) inserire un nome per il criterio e quindi selezionare la casella di controllo **Use Policy Configuration Wizard** (Usa Configurazione guidata criteri). Selezionare **OK**.
 
    ![Console di amministrazione di NetBackup, finestra di dialogo Add a New Policy (Aggiungi nuovo criterio)](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
@@ -340,7 +340,7 @@ Nella sequenza seguente si presuppone che NetBackup e l'host di destinazione sia
 
    ![Console di amministrazione di NetBackup, frequenza e rotazione dei backup per un nuovo criterio](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Selezionare **Avanti** > al**termine****successivo** > .  La pianificazione può essere modificata dopo la creazione dei criteri.
+8. Selezionare **Avanti**al  >  **Next**  >  **termine**successivo.  La pianificazione può essere modificata dopo la creazione dei criteri.
 
 9. Selezionare il criterio creato per espanderlo e selezionare **Pianificazioni**.
 
@@ -360,7 +360,7 @@ Nella sequenza seguente si presuppone che NetBackup e l'host di destinazione sia
 
     ![Console di amministrazione di NetBackup, modificare la finestra di avvio](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14. Fare clic su **OK**.
+14. Selezionare **OK**.
 
 15. Ripetere i passaggi da 10 a 14 per ogni backup incrementale. Selezionare il volume e la pianificazione appropriata per ogni backup creato.
 
@@ -408,13 +408,13 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Pianificazione di esempio GFS: rotazione GFS settimanale, mensile e annuale
 
-| Week | Full | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
+| Settimana | Completo | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
 |---|---|---|---|---|---|---|
 | Settimana 1 | Volume RAID locale  | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale |
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
-| Ogni mese | StorSimple Mensile |   |   |   |   |   |
+| Mensile | StorSimple Mensile |   |   |   |   |   |
 | Annuale | StorSimple Annuale  |   |   |   |   |   |
 
 
@@ -430,13 +430,13 @@ Dopo aver definito i pool di dischi iniziali, è necessario definire altri tre c
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Per assegnare volumi StorSimple a un processo di archiviazione e duplicazione di NetBackup
 
-1. Nella console di amministrazione di NetBackup selezionare **archiviazione** > criteri del**ciclo** > di vita dell'archiviazione**nuovi criteri del ciclo**di vita di archiviazione.
+1. Nella console di amministrazione di NetBackup selezionare **archiviazione**criteri del ciclo di vita dell'archiviazione  >  **Storage Lifecycle Policies**  >  **nuovi criteri del ciclo**di vita di archiviazione.
 
    ![Console di amministrazione di NetBackup, nuovi criteri del ciclo di vita di archiviazione](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
 2. Immettere un nome per lo snapshot e quindi selezionare **Add** (Aggiungi).
 
-3. Nella finestra di dialogo **New Operation** (Nuova operazione), sulla scheda **Properties** (Proprietà), per **Operation** (Operazione) selezionare **Backup**. Selezionare i valori desiderati per **Destination storage** (Archiviazione di destinazione), **Retention type** (Tipo di conservazione) e **Retention period** (Periodo di conservazione). Fare clic su **OK**.
+3. Nella finestra di dialogo **New Operation** (Nuova operazione), sulla scheda **Properties** (Proprietà), per **Operation** (Operazione) selezionare **Backup**. Selezionare i valori desiderati per **Destination storage** (Archiviazione di destinazione), **Retention type** (Tipo di conservazione) e **Retention period** (Periodo di conservazione). Selezionare **OK**.
 
    ![Console di amministrazione di NetBackup, finestra di dialogo New Operation (Nuova operazione)](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 

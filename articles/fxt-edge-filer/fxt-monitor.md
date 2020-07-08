@@ -3,15 +3,15 @@ title: Monitorare Azure FXT Edge Filer
 description: Come monitorare lo stato dell'hardware per la cache di archiviazione ibrida di Azure FXT Edge
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 3f422339af2040ad81c585c0e193e6cb3667b135
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7027fe9988c0c559db72c3c388c7a579d533c57e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72254881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509439"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Monitorare lo stato hardware del filer di Azure FXT Edge
 

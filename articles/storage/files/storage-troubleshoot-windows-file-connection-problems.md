@@ -3,20 +3,20 @@ title: Risolvere i problemi di File di Azure in Windows | Microsoft Docs
 description: Risoluzione dei problemi di File di Azure in Windows
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
-ms.date: 01/02/2019
+ms.topic: troubleshooting
+ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89a5fa0be104c3a7b7e035f82d2fed80d4781701
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383899"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511994"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
-Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Windows. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi per la risoluzione dei problemi di questo articolo, è anche possibile usare [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) per assicurarsi che l'ambiente client Windows disponga dei prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali. Queste informazioni sono disponibili anche nello strumento di [risoluzione dei problemi di condivisione file di Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , che fornisce i passaggi necessari per semplificare la connessione, il mapping e il montaggio di condivisioni file di Azure.
+Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Windows. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi per la risoluzione dei problemi di questo articolo, è anche possibile usare [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)   per assicurarsi che l'ambiente client Windows disponga dei prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali. Queste informazioni sono disponibili anche nello strumento di [risoluzione dei problemi di condivisione file di Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , che fornisce i passaggi necessari per semplificare la connessione, il mapping e il montaggio di condivisioni file di Azure.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Errore 5 durante il montaggio di una condivisione file di Azure
@@ -99,16 +99,16 @@ Se la connessione ha avuto esito positivo, verrà visualizzato l'output seguente
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Soluzione 1: usare Sincronizzazione file di Azure
-Sincronizzazione file di Azure possibile trasformare l'istanza locale di Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Sincronizzazione file di Azure funziona sulla porta 443 e pertanto può essere utilizzato come soluzione alternativa per accedere File di Azure da client con la porta 445 bloccata. [Informazioni su come configurare sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Sincronizzazione file di Azure possibile trasformare l'istanza locale di Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Sincronizzazione file di Azure usa la porta 443 e pertanto può essere usato come soluzione alternativa per accedere a File di Azure dai client in cui la porta 445 bloccata. [Informazioni su come configurare sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Soluzione 2: usare VPN
-Impostando una VPN per l'account di archiviazione specifico, il traffico passerà attraverso un tunnel sicuro anziché tramite Internet. Seguire le [istruzioni per configurare la VPN](storage-files-configure-p2s-vpn-windows.md) per accedere file di Azure da Windows.
+Impostando una VPN per l'account di archiviazione specifico, il traffico passerà attraverso un tunnel sicuro anziché tramite Internet. Seguire le [istruzioni per configurare la VPN](storage-files-configure-p2s-vpn-windows.md) per accedere a File di Azure da Windows.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Soluzione 3: sbloccare la porta 445 con l'aiuto dell'amministratore IT/ISP
 Collaborare con il reparto IT o l'ISP per aprire la porta 445 in uscita per gli [intervalli IP di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Soluzione 4: usare strumenti basati sull'API REST come Storage Explorer/PowerShell
-File di Azure supporta anche REST oltre a SMB. L'accesso REST funziona sulla porta 443 (TCP standard). Sono disponibili diversi strumenti che vengono scritti usando l'API REST che consente un'esperienza avanzata dell'interfaccia utente. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) è uno di essi. [Scaricare e installare Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) e connettersi alla condivisione file supportata da file di Azure. È anche possibile usare [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) che è anche l'API REST dell'utente.
+File di Azure supporta anche REST oltre a SMB. L'accesso a REST viene eseguito sulla porta 443, ovvero su TCP standard. Sono diversi gli strumenti scritti con l'API REST che consentono un'esperienza avanzata dell'interfaccia utente. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) è uno di essi. [Scaricare e installare Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) e connettersi alla condivisione file supportata da File di Azure. È anche possibile usare [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) che è anche l'API REST dell'utente.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Motivo 2: NTLMv1 è abilitato
 
@@ -149,7 +149,7 @@ Per chiudere gli handle aperti per una condivisione file, una directory o un fil
 Quando si tenta di accedere o eliminare una condivisione file di Azure nel portale, è possibile che venga visualizzato l'errore seguente:
 
 Nessun accesso  
-Codice di errore: 403 
+Codice errore: 403 
 
 ### <a name="cause-1-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 1: le regole della rete virtuale o del firewall sono abilitate nell'account di archiviazione
 
@@ -219,7 +219,7 @@ Se si esegue il mapping di una condivisione di file di Azure come amministratore
 Per impostazione predefinita, Esplora file di Windows non viene eseguito come amministratore. Se si esegue net use da un prompt dei comandi amministrativo, il mapping dell'unità di rete viene eseguito come amministratore. Poiché le unità mappate sono incentrate sull'utente, l'account utente usato per la connessione non ne consente la visualizzazione se tali unità sono state montate con un account utente diverso.
 
 ### <a name="solution"></a>Soluzione
-Montare la condivisione da una riga di comando senza privilegi di amministratore. In alternativa, è possibile seguire la procedura descritta in [questo argomento di TechNet](https://technet.microsoft.com/library/ee844140.aspx) per configurare il valore del Registro di sistema **EnableLinkedConnections**.
+Montare la condivisione da una riga di comando senza privilegi di amministratore. In alternativa, è possibile seguire [questo argomento TechNet](https://technet.microsoft.com/library/ee844140.aspx) per configurare il valore del registro di sistema **EnableLinkedConnections** .
 
 <a id="netuse"></a>
 ## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>Il comando net use non viene eseguito se l'account di archiviazione contiene una barra
@@ -255,7 +255,7 @@ Usare una delle soluzioni seguenti:
 
 -   Montare l'unità dallo stesso account utente che contiene l'applicazione. Si può usare uno strumento come PsExec.
 - Passare il nome e la chiave dell'account di archiviazione nei parametri di nome utente e password del comando net use.
-- Usare il comando cmdkey per aggiungere le credenziali in Gestione credenziali. Eseguire questa operazione da una riga di comando nel contesto dell'account del servizio tramite un account di accesso interattivo `runas`o utilizzando.
+- Usare il comando cmdkey per aggiungere le credenziali in Gestione credenziali. Eseguire questa operazione da una riga di comando nel contesto dell'account del servizio tramite un account di accesso interattivo o utilizzando `runas` .
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - Mappare direttamente la condivisione, senza usare una lettera di unità mappata. Alcune applicazioni potrebbero non riconnettersi alla lettera di unità in modo corretto, pertanto l'uso del percorso UNC completo è più affidabile. 
@@ -330,9 +330,9 @@ Attualmente, è possibile prendere in considerazione la ridistribuzione di AAD D
 ### <a name="self-diagnostics-steps"></a>Passaggi di diagnostica automatica
 Prima di tutto, assicurarsi di aver seguito tutti e quattro i passaggi per [abilitare l'autenticazione file di Azure ad](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
 
-Secondo, provare [a montare la condivisione file di Azure con la chiave dell'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se non è stato possibile eseguire il montaggio, scaricare [AzFileDiagnostics. ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) per convalidare l'ambiente in cui è in esecuzione il client, rilevare la configurazione del client incompatibile che potrebbe causare un errore di accesso per file di Azure, fornisce indicazioni dettagliate sulla correzione automatica e la raccolta delle tracce di diagnostica.
+Secondo, provare [a montare la condivisione file di Azure con la chiave dell'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se non è stato possibile eseguire il montaggio, scaricare [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) per convalidare l'ambiente in cui viene eseguito il client, rilevare la configurazione del client incompatibile che potrebbe causare un errore di accesso per file di Azure, fornire indicazioni dettagliate sulla correzione automatica e raccogliere le tracce di diagnostica.
 
-In terzo luogo, è possibile eseguire il cmdlet debug-AzStorageAccountAuth per eseguire un set di controlli di base sulla configurazione di Active Directory con l'utente di Active Directory connesso. Questo cmdlet è supportato nella [versione AzFilesHybrid v 0.1.2 +](https://github.com/Azure-Samples/azure-files-samples/releases). È necessario eseguire questo cmdlet con un utente di Active Directory che disponga dell'autorizzazione Owner per l'account di archiviazione di destinazione.  
+In terzo luogo, è possibile eseguire il cmdlet debug-AzStorageAccountAuth per eseguire un set di controlli di base sulla configurazione di Active Directory con l'utente di Active Directory connesso. Questo cmdlet è supportato nella [versione AzFilesHybrid v 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). È necessario eseguire questo cmdlet con un utente di AD che disponga dell'autorizzazione di proprietario per l'account di archiviazione di destinazione.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
@@ -342,12 +342,24 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 Il cmdlet esegue questi controlli in sequenza e fornisce indicazioni sugli errori:
 1. CheckPort445Connectivity: verificare che la porta 445 sia aperta per la connessione SMB
 2. CheckDomainJoined: verificare che il computer client sia aggiunto a un dominio di Active Directory
-3. CheckADObject: verificare che l'utente connesso disponga di una rappresentazione valida nel dominio di Active Directory a cui è associato l'account di archiviazione
+3. CheckADObject: verificare che nel Active Directory sia presente un oggetto che rappresenta l'account di archiviazione e abbia il nome SPN corretto (nome dell'entità servizio).
 4. CheckGetKerberosTicket: tentativo di ottenere un ticket Kerberos per connettersi all'account di archiviazione 
-5. CheckADObjectPasswordIsCorrect: assicurarsi che la password configurata nell'identità di Active Directory che rappresenta l'account di archiviazione corrisponda a quella della chiave di marciapiede dell'account di archiviazione
-6. CheckSidHasAadUser: verificare che l'utente di Active Directory connesso venga sincronizzato con Azure AD
+5. CheckADObjectPasswordIsCorrect: assicurarsi che la password configurata nell'identità di Active Directory che rappresenta l'account di archiviazione corrisponda a quella della chiave kerb1 o kerb2 dell'account di archiviazione.
+6. CheckSidHasAadUser: verificare che l'utente di Active Directory connesso venga sincronizzato con Azure AD. Se si vuole cercare se un utente di Active Directory specifico viene sincronizzato con Azure AD, è possibile specificare il nome utente e il dominio nei parametri di input.
+7. CheckAadUserHasSid: verificare se un utente Azure AD dispone di un SID in Active Directory, questo controllo richiede all'utente di immettere l'ID oggetto dell'utente Azure AD con parameter-ObjectId. 
+8. CheckStorageAccountDomainJoined: controllare le proprietà dell'account di archiviazione per verificare che l'autenticazione di Active Directory sia stata abilitata e che le proprietà di Active Directory dell'account siano state popolate.
 
-Si sta lavorando attivamente per estendere questo cmdlet di diagnostica per offrire indicazioni migliori per la risoluzione dei problemi.
+## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Impossibile configurare le autorizzazioni a livello di directory/file (ACL di Windows) con Esplora file di Windows
+
+### <a name="symptom"></a>Sintomo
+
+Quando si tenta di configurare gli ACL di Windows con Esplora file in una condivisione file montata, è possibile che si verifichino i sintomi seguenti:
+- Dopo aver fatto clic sull'autorizzazione di modifica nella scheda sicurezza, la procedura guidata di autorizzazione non viene caricata. 
+- Quando si tenta di selezionare un nuovo utente o gruppo, il percorso del dominio non Visualizza il dominio di servizi di dominio Active Directory appropriato. 
+
+### <a name="solution"></a>Soluzione
+
+È consigliabile usare [lo strumento icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) per configurare le autorizzazioni a livello di directory/file come soluzione alternativa. 
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

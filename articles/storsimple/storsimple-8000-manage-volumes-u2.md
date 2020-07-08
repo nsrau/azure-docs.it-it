@@ -3,15 +3,15 @@ title: Gestire i volumi StorSimple (aggiornamento 3)
 description: Viene illustrato come aggiungere, modificare, monitorare ed eliminare i volumi StorSimple e come portarli offline, se necessario.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508249"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
 
@@ -112,7 +112,7 @@ Il [volume è stato creato](storsimple-8000-deployment-walkthrough-u2.md#step-6-
       
        Se nel dispositivo 8100 si effettua il provisioning di un volume aggiunto in locale di 8,5 TB, ovvero le dimensioni massime consentite, si esaurisce tutto lo spazio locale disponibile nel dispositivo. Non è possibile creare volumi a livelli da quel punto in poi, perché non è disponibile spazio locale sul dispositivo per ospitare il working set del volume a livelli. Anche i volumi a livelli esistenti influiscono sullo spazio disponibile. Ad esempio, se nel dispositivo 8100 sono già presenti volumi a livelli di circa 106 TB, saranno disponibili solo 4 TB di spazio per i volumi aggiunti in locale.
 
-    6. Nel campo **Host connessi** fare clic sulla freccia. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a Ottenere il nome qualificato iSCSI di un host di Windows Server. Scegliere **Crea**. Verrà creato un volume con le impostazioni specificate.
+    6. Nel campo **Host connessi** fare clic sulla freccia. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a Ottenere il nome qualificato iSCSI di un host di Windows Server. Fare clic su **Crea**. Verrà creato un volume con le impostazioni specificate.
 
         ![Fare clic su Crea](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
@@ -163,7 +163,7 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
 
 7. Se si sta espandendo un volume, completare i passaggi seguenti nel computer host Windows:
    
-   1. Passare a **Computer Management** ->**gestione**computer Gestione disco.
+   1. Passare a gestione **computer**gestione  -> **disco**.
    2. Fare clic con il pulsante destro del mouse su **Gestione disco** e selezionare **Rescan Disks** (Ripeti analisi dischi).
    3. Nell'elenco dei dischi, selezionare il volume che è stato aggiornato, fare clic con il pulsante destro del mouse e quindi selezionare **Estendi Volume**. Verrà avviata la procedura guidata Estendi volume. Fare clic su **Avanti**.
    4. Completa la procedura guidata accettando i valori predefiniti. Dopo aver completato la procedura guidata, il volume dovrebbe mostrare l'aumento delle dimensioni.
@@ -229,7 +229,7 @@ Se si desidera convertire più volumi che supportano diversi carichi di lavoro, 
    
      ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
-7. Fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì** per avviare la procedura di conversione. 
+7. È consigliabile fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì** per avviare la procedura di conversione. 
 
     ![Salvare e confermare](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 

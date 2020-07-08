@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60630609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512975"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo
 
@@ -200,7 +200,7 @@ Un dispositivo StorSimple contiene allarmi acustici associati sia allo chassis p
 Nella tabella seguente vengono descritti i vari stati di allarme.  
 
 ### <a name="alarm-states"></a>Stati di allarme
-| Stato di allarme | Azione | Azione con il pulsante di disattivazione audio premuto |
+| Stato di allarme | Action | Azione con il pulsante di disattivazione audio premuto |
 | --- | --- | --- |
 | S0 |Modalità normale: invisibile all'utente |Doppio segnale acustico |
 | S1 |Modalità errore: 1 secondo accesa/1 secondo spenta |Passaggio da S2 a S3 (vedere le note) |
@@ -239,7 +239,7 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Errore di controllo dell’alimentazione dell’unità |Avviso - Interruzione dell'alimentazione dell’unità assente |S1 |Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità |Errore - Critico; interruzione dell'alimentazione unità |S1 |Errore del modulo |
 | Unità rimossa |Avviso |nessuno |Errore del modulo |
-| Disponibilità alimentazione insufficiente |Avviso |none |Errore del modulo |
+| Disponibilità alimentazione insufficiente |Avviso |Nessuno |Errore del modulo |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sui [componenti hardware e lo stato di StorSimple](storsimple-8000-monitor-hardware-status.md).

@@ -3,16 +3,16 @@ title: Migrazione della serie StorSimple 8000 a Sincronizzazione file di Azure
 description: Informazioni su come eseguire la migrazione di un'appliance StorSimple 8100 o 8600 a Sincronizzazione file di Azure.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 9091d3bd6b57f14bd12083319595cb855a0d42ee
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d6ad132513c2ec61dd5a290da1a88e50f0ad6eb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510361"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -23,7 +23,7 @@ La serie StorSimple 8000 raggiungerà la [fine del ciclo di vita](https://suppor
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
 > [!IMPORTANT]
-> Microsoft si impegna a supportare i clienti nella migrazione. Inviare AzureFiles@microsoft.com un messaggio di posta elettronica per un piano di migrazione personalizzato e per assistenza durante la migrazione.
+> Microsoft si impegna a supportare i clienti nella migrazione. Email AzureFilesMigration@microsoft . com per un piano di migrazione personalizzato e assistenza durante la migrazione.
 
 Sincronizzazione file di Azure è un servizio cloud Microsoft basato su due componenti principali:
 
@@ -458,5 +458,5 @@ Acquisire familiarità con Sincronizzazione file di Azure. Soprattutto con la fl
 Se viene visualizzato nella portale di Azure o negli eventi precedenti, che alcuni file non sono sincronizzati in modo permanente, consultare la guida alla risoluzione dei problemi per i passaggi necessari per risolvere questi problemi.
 
 * [Panoramica di Sincronizzazione file di Azure: aka.ms/AFS](https://aka.ms/AFS)
-* [Suddivisione in livelli cloud](storage-sync-cloud-tiering.md) 
+* [Suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md) 
 * [Guida alla risoluzione dei problemi di Sincronizzazione file di Azure](storage-sync-files-troubleshoot.md)

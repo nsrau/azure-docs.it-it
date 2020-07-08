@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: c8d8e3b9058b753dc2a6da35878449c94399225e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60723307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508045"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Usare il servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple
 
@@ -64,12 +64,12 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 | Informazioni sui modelli di larghezza di banda</br>Aggiunta di un modello di larghezza di banda</br>Modifica di un modello di larghezza di banda</br>Eliminazione di un modello di larghezza di banda</br>Utilizzo di un modello di larghezza di banda predefinito</br>Creazione di un modello di larghezza di banda giornaliero che viene avviato a un determinato orario |[Gestire i modelli di larghezza di banda](storsimple-8000-manage-bandwidth-templates.md) |
 | Informazioni sui record di controllo di accesso</br>Creare un record di controllo di accesso</br>Modificare un record di controllo di accesso</br>Eliminare un record di controllo di accesso |[Gestire record di controllo di accesso](storsimple-8000-manage-acrs.md) |
 | Visualizzare i dettagli di un processo</br>Annullare un processo |[Gestire i processi](storsimple-8000-manage-jobs-u2.md) |
-| Ricevere notifiche di avviso</br>Gestisci avvisi</br>Esaminare gli avvisi |[Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md) |
+| Ricevere notifiche di avviso</br>Gestire gli avvisi</br>Esaminare gli avvisi |[Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md) |
 | Creare grafici di monitoraggio |[Monitoraggio del dispositivo StorSimple](storsimple-monitor-device.md) |
 | Aggiungere un contenitore di volumi</br>Modificare un contenitore di volumi</br>Eliminare un contenitore di volumi |[Gestisci contenitori dei volumi](storsimple-8000-manage-volume-containers.md) |
 | Aggiungere un volume</br>Modificare un volume</br>Portare un volume offline</br>Eliminare un volume</br>Monitorare a volume |[Gestire i volumi](storsimple-8000-manage-volumes-u2.md) |
 | Modificare le impostazioni del dispositivo</br>Modificare le impostazioni di tempo</br>Modificare le impostazioni DNS.md</br>Configurare le interfacce di rete |[Modificare la configurazione per il dispositivo StorSimple](storsimple-8000-modify-device-config.md) |
-|  Visualizzare le impostazioni del proxy web |[Configurare il proxy Web per il dispositivo](storsimple-8000-configure-web-proxy.md) |
+| Visualizzare le impostazioni del proxy web |[Configurare il proxy Web per il dispositivo](storsimple-8000-configure-web-proxy.md) |
 | Modificare la password amministratore del dispositivo</br>Modificare la password di Gestione snapshot StorSimple |[Modificare le password di StorSimple](storsimple-8000-change-passwords.md) |
 | Configurare la gestione remota |[Connettersi in remoto al dispositivo StorSimple](storsimple-8000-remote-connect.md) |
 | Configurare le impostazioni degli avvisi |[Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md) |

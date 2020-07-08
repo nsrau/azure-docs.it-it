@@ -3,15 +3,15 @@ title: Spostare i dati in un contenitore cloud di cache HPC di Azure
 description: Come popolare l'archivio BLOB di Azure per l'uso con la cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fd21a78d0271f91d334bba5aba748f3770ad38cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac963fd01016506193aae0fab5582224b3957de8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508963"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Spostare i dati nell'archivio BLOB di Azure
 
@@ -58,7 +58,7 @@ Se non si vuole usare l'utilità CLFSLoad o se si vuole aggiungere una grande qu
 
 ![Diagramma che mostra lo spostamento dati multi-client a thread multipli: in alto a sinistra, da un'icona per la risorsa di archiviazione hardware locale partono più frecce. Le frecce puntano a quattro computer client. Da ogni computer client tre frecce puntano verso la cache HPC di Azure. Dalla cache HPC di Azure, più frecce puntano all'archiviazione BLOB.](media/hpc-cache-parallel-ingest.png)
 
-I ``cp`` comandi ``copy`` o usati in genere per trasferire i dati da un sistema di archiviazione a un altro sono processi a thread singolo che copiano un solo file alla volta. Ciò significa che il file server inserisce un solo file alla volta, ovvero uno spreco di risorse della cache.
+I ``cp`` ``copy`` comandi o usati in genere per trasferire i dati da un sistema di archiviazione a un altro sono processi a thread singolo che copiano un solo file alla volta. Ciò significa che il file server inserisce un solo file alla volta, ovvero uno spreco di risorse della cache.
 
 Questa sezione illustra le strategie per la creazione di un sistema di copia di file multiclient multithread per spostare i dati nell'archivio BLOB con la cache HPC di Azure. Spiega i concetti relativi al trasferimento di file e le decisioni da prendere per una copia dei dati efficiente usando più client e semplici comandi di copia.
 
@@ -77,7 +77,7 @@ Le strategie per l'inserimento di dati paralleli con la cache HPC di Azure inclu
 
 * Copia manuale: è possibile creare manualmente una copia multithread in un client eseguendo più di un comando copy contemporaneamente in background su set predefiniti di file o percorsi. Per informazioni dettagliate, vedere Inserimento di [dati nella cache HPC di Azure-metodo di copia manuale](hpc-cache-ingest-manual.md) .
 
-* La copia parzialmente automatizzata con ``msrsync``  -  ``msrsync`` è un'utilità wrapper che esegue ``rsync`` più processi paralleli. Per informazioni dettagliate, vedere Metodo di inserimento [dei dati nella cache HPC di Azure](hpc-cache-ingest-msrsync.md).
+* La copia parzialmente automatizzata con ``msrsync``  -  ``msrsync`` è un'utilità wrapper che esegue più processi paralleli ``rsync`` . Per informazioni dettagliate, vedere Metodo di inserimento [dei dati nella cache HPC di Azure](hpc-cache-ingest-msrsync.md).
 
 * Copia tramite script ``parallelcp`` : informazioni su come creare ed eseguire uno script di copia parallela nel [metodo di script di copia parallela della cache HPC di Azure](hpc-cache-ingest-parallelcp.md).
 

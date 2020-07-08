@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbac6eade634ffcfdc47ae3d22b32e0bd429b7c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513175"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installare l'aggiornamento 5 nel dispositivo StorSimple
 
@@ -78,21 +78,21 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 | JSON | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Aggiornamento software<br> Scaricare sia _HcsSoftwareUpdate.exe_ che _CisMSDAgent.exe_ |Normale <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate|
+| 1. |KB4037264 |Aggiornamento software<br> Scaricare sia _HcsSoftwareUpdate.exe_ che _CisMSDAgent.exe_ |Regular <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate|
 
 Se si esegue l'aggiornamento da un dispositivo che esegue l'aggiornamento 4, è sufficiente installare gli aggiornamenti cumulativi del sistema operativo come aggiornamenti di secondo livello.
 
 | JSON | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |Pacchetto di aggiornamenti cumulativi del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
+| 2A. |KB4025336 |Pacchetto di aggiornamenti cumulativi del sistema operativo <br> Scaricare Windows Server 2012 R2 |Regular <br></br>Senza interruzioni |- |SecondOrderUpdate|
 
 Se si esegue l'installazione da un dispositivo che esegue l'aggiornamento 3 o versione precedente, installare i componenti seguenti oltre agli aggiornamenti cumulativi.
 
 | JSON | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |Aggiornamenti di driver e firmware LSI <br> Aggiornamento del firmware USM (versione 3.38) |Normale <br></br>Senza interruzioni |~ 3 ore <br> (include 2A. + 2B. + 2 C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacchetto di aggiornamenti della sicurezza del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pacchetto di aggiornamenti del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |Aggiornamenti di driver e firmware LSI <br> Aggiornamento del firmware USM (versione 3.38) |Regular <br></br>Senza interruzioni |~ 3 ore <br> (include 2A. + 2B. + 2 C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacchetto di aggiornamenti della sicurezza del sistema operativo <br> Scaricare Windows Server 2012 R2 |Regular <br></br>Senza interruzioni |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pacchetto di aggiornamenti del sistema operativo <br> Scaricare Windows Server 2012 R2 |Regular <br></br>Senza interruzioni |- |SecondOrderUpdate|
 
 
 Potrebbe essere necessario anche installare gli aggiornamenti del firmware del disco sopra tutti gli aggiornamenti indicati nelle tabelle precedenti. È possibile verificare se sono necessari gli aggiornamenti del firmware del disco eseguendo il cmdlet `Get-HcsFirmwareVersion` . Se si stanno eseguendo le versioni del firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107` non è quindi necessario installare questi aggiornamenti.

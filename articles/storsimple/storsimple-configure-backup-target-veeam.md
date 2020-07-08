@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f2a514b6f44df7be15f18aa8f7c42668c872ab4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67875312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509694"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple come destinazione di backup con Veeam
 
@@ -56,8 +56,8 @@ Come con qualsiasi soluzione di archiviazione, per ottenere un esito positivo è
 
 StorSimple è progettato per garantire l'archiviazione per le applicazioni che usano un working set di dati ben definito (dati attivi). In questo modello, il working set di dati viene archiviato nei livelli locali e il rimanente set di dati non in funzione, poco attivi o archiviati viene suddiviso in livelli nel cloud. Questo modello è illustrato nella figura seguente. La linea verde quasi piatta rappresenta i dati archiviati nei livelli locali del dispositivo StorSimple. La linea rossa rappresenta la quantità totale di dati archiviati nella soluzione StorSimple in tutti i livelli. Lo spazio tra la linea verde piatta e la curva esponenziale rossa rappresenta la quantità totale di dati archiviati nel cloud.
 
-**StorSimple tiering**Diagramma di suddivisione in livelli![StorSimple di StorSimple
-](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
+Suddivisione in **livelli StorSimple** 
+ ![ Diagramma di suddivisione in livelli StorSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
 Tenendo presente questa architettura, si noterà che StorSimple è particolarmente adatto a essere usato come destinazione di backup. È possibile usare StorSimple per:
 
@@ -316,10 +316,10 @@ La figura seguente illustra il mapping di un volume tipico a un processo di back
 
 Di seguito è riportato un esempio di una pianificazione a rotazione GFS per quattro settimane, mensile e annuale:
 
-| Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
+| Frequenza/Tipo di backup | Completo | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
-| Ogni mese  | Sabato  |   |
+| Mensile  | Sabato  |   |
 | Annuale | Sabato  |   |
 
 
@@ -341,7 +341,7 @@ Per lo scenario di destinazione del backup primario, creare un processo giornali
 
     ![Console di gestione di Veeam, pagina del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
-4.  Selezionare i valori desiderati per **Backup proxy** (Proxy di backup) e **Backup repository** (Repository di backup). Selezionare un valore per **Restore points to keep on disk** (Punti di ripristino da mantenere su disco) in base alle definizioni RPO e RTO dell'ambiente per l'archivio collegato locale. Fare clic su **Avanzate**.
+4.  Selezionare i valori desiderati per **Backup proxy** (Proxy di backup) e **Backup repository** (Repository di backup). Selezionare un valore per **Restore points to keep on disk** (Punti di ripristino da mantenere su disco) in base alle definizioni RPO e RTO dell'ambiente per l'archivio collegato locale. Fare clic su **Advanced** (Avanzate).
 
     ![Console di gestione di Veeam, pagina del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
 
@@ -349,7 +349,7 @@ Per lo scenario di destinazione del backup primario, creare un processo giornali
 
     ![Console di gestione di Veeam, pagina delle impostazioni avanzate nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
-6. Sulla scheda **Storage** (Archiviazione) assicurasi che la casella di controllo **Enable inline data deduplication** (Abilita deduplicazione dei dati in linea) sia deselezionata. Selezionare la casella di controllo **Exclude swap file blocks** (Escludi blocchi di file di scambio) e selezionare la casella di controllo **Exclude deleted file blocks** (Escludi blocchi di file eliminati). Impostare **Compression level** (Livello di compressione) su **None** (Nessuno). Per avere prestazioni e deduplicazioni equilibrate impostare **Storage optimization** (Ottimizzazione archiviazione) su **LAN Target** (Destinazione LAN). Fare clic su **OK**.
+6. Sulla scheda **Storage** (Archiviazione) assicurasi che la casella di controllo **Enable inline data deduplication** (Abilita deduplicazione dei dati in linea) sia deselezionata. Selezionare la casella di controllo **Exclude swap file blocks** (Escludi blocchi di file di scambio) e selezionare la casella di controllo **Exclude deleted file blocks** (Escludi blocchi di file eliminati). Impostare **Compression level** (Livello di compressione) su **None** (Nessuno). Per avere prestazioni e deduplicazioni equilibrate impostare **Storage optimization** (Ottimizzazione archiviazione) su **LAN Target** (Destinazione LAN). Selezionare **OK**.
 
     ![Console di gestione di Veeam, pagina delle impostazioni avanzate nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
 
@@ -393,13 +393,13 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 
 Pianificazione della rotazione GFS settimanale, mensile e annuale
 
-| Week | Full | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
+| Settimana | Completo | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
 |---|---|---|---|---|---|---|
 | Settimana 1 | Volume RAID locale  | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale |
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
-| Ogni mese | StorSimple Mensile |   |   |   |   |   |
+| Mensile | StorSimple Mensile |   |   |   |   |   |
 | Annuale | StorSimple Annuale  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Assegnare volumi StorSimple a un processo di copia Veeam

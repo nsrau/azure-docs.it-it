@@ -4,21 +4,21 @@ description: Come installare uno strumento dell'interfaccia utente con un modell
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: abe9b060793983e42ab432924ca5d6d7f43d307d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514241"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Distribuire uno strumento di gestione con un modello di Azure Resource Manager
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 Le istruzioni di questo articolo illustrano come distribuire l'interfaccia utente usando un modello di Azure Resource Manager.
 
@@ -40,7 +40,7 @@ Prima di distribuire lo strumento di gestione, è necessario che un utente di Az
 
 - La funzionalità Multi-Factor Authentication (MFA) disabilitata
 - L'autorizzazione per creare risorse nella sottoscrizione di Azure
-- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questa procedura per verificare se l'utente ha le autorizzazioni necessarie in base alle istruzioni indicate in [Autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questa procedura per verificare se l'utente ha le autorizzazioni necessarie in base alle istruzioni indicate in [Autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Dopo aver distribuito e configurato lo strumento di gestione, è consigliabile chiedere a un utente di avviare l'interfaccia utente di gestione per verificarne il corretto funzionamento. L'utente che avvia l'interfaccia utente di gestione deve avere un'assegnazione di ruolo che gli consenta di visualizzare o modificare il tenant di Desktop virtuale Windows.
 
@@ -52,7 +52,7 @@ Per distribuire il modello di Azure Resource Manager, seguire queste istruzioni:
 
 1. Passare alla pagina [Azure RDS-Templates di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Distribuire il modello in Azure.
-    - Se la distribuzione viene eseguita in una sottoscrizione Enterprise, scorrere in basso e selezionare **Distribuisci in Azure**. 
+    - Se la distribuzione viene eseguita in una sottoscrizione Enterprise, scorrere in basso e selezionare **Distribuisci in Azure**.
     - Se la distribuzione in Azure viene eseguita in una sottoscrizione di Cloud Solution Provider, seguire queste istruzioni:
         1. Scorrere in basso e fare clic con il pulsante destro del mouse su **Distribuisci in Azure**, quindi scegliere **Copia collegamento**.
         2. Aprire un editor di testo, come il Blocco note, e incollarvi il collegamento.
@@ -71,11 +71,13 @@ Quando il modello di Azure Resource Manager di GitHub viene completato, nel port
 
 Prima di accedere e usare lo strumento di gestione, è necessario fornire il consenso per la nuova applicazione di Azure AD associata. Fornendo il consenso, si autorizza lo strumento di gestione a effettuare chiamate di gestione a Desktop virtuale Windows per conto dell'utente connesso.
 
-![Screenshot che mostra le autorizzazioni concesse quando si fornisce il consenso allo strumento di gestione dell'interfaccia utente.](../media/management-ui-delegated-permissions.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot che mostra le autorizzazioni concesse quando si fornisce il consenso allo strumento di gestione dell'interfaccia utente.](../media/management-ui-delegated-permissions.png)
 
 Per determinare quale utente è possibile usare per accedere allo strumento, passare alla [pagina di impostazioni utente di Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) e notare il valore di **Gli utenti possono fornire il consenso alle app che accedono ai dati aziendali per loro conto**.
 
-![Screenshot che mostra se gli utenti possono concedere il consenso alle applicazioni solo per se stessi.](../media/management-ui-user-consent-allowed.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot che mostra se gli utenti possono concedere il consenso alle applicazioni solo per se stessi.](../media/management-ui-user-consent-allowed.png)
 
 - Se il valore è impostato su **Sì**, è possibile accedere con qualsiasi account utente di Azure Active Directory e fornire il consenso solo per tale utente. Se tuttavia in seguito si accede allo strumento di gestione con un account utente diverso, è necessario eseguire di nuovo la stessa procedura di consenso.
 - Se il valore è impostato su **No**, è necessario accedere come amministratore globale in Azure Active Directory e fornire il consenso amministratore per tutti gli utenti della directory. Nessun altro utente visualizzerà la richiesta di consenso.
@@ -83,11 +85,12 @@ Per determinare quale utente è possibile usare per accedere allo strumento, pas
 
 Dopo aver deciso quale utente usare, seguire queste istruzioni per fornire il consenso allo strumento:
 
-1. Passare alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello (ad esempio, Apr3UX) e passare all'URL associato. ad esempio, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Passare alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello (ad esempio, Apr3UX) e passare all'URL associato. ad esempio, <https://rdmimgmtweb-210520190304.azurewebsites.net> .
 2. Accedere usando l'account utente appropriato di Azure Active Directory.
 3. Se l'autenticazione è stata eseguita con un amministratore globale, è ora possibile selezionare la casella di controllo accanto a **Acconsenti per conto dell'organizzazione**. Selezionare **Accetto** per fornire il consenso.
-   
-   ![Screenshot che mostra la pagina di consenso completa che verrà visualizzata per l'utente o l'amministratore.](../media/management-ui-consent-page.png)
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot che mostra la pagina di consenso completa che verrà visualizzata per l'utente o l'amministratore.](../media/management-ui-consent-page.png)
 
 A questo punto si potrà accedere allo strumento di gestione.
 
@@ -101,7 +104,7 @@ Per avviare lo strumento, seguire queste istruzioni:
 2. Accedere con le credenziali di Desktop virtuale Windows.
 3. Quando viene chiesto di scegliere un gruppo di tenant, selezionare **Default Tenant Group** (Gruppo di tenant predefinito) nell'elenco a discesa.
 4. Quando si seleziona **Default Tenant Group** (Gruppo di tenant predefinito), sul lato destro della finestra viene visualizzato un menu. In questo menu trovare il nome del gruppo di tenant e selezionarlo.
-  
+
   > [!NOTE]
   > Se è disponibile un gruppo di tenant personalizzato, immettere il nome manualmente invece di scegliere una voce dell'elenco a discesa.
 

@@ -3,16 +3,16 @@ title: Gestire i server registrati con Sincronizzazione file di Azure | Microsof
 description: Informazioni su come registrare e annullare la registrazione di Windows Server con un servizio di sincronizzazione archiviazione di File di Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255093"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509507"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -76,9 +76,6 @@ Per poter essere usato come *endpoint server* in un *gruppo di sincronizzazione*
 > Se il server è un membro di un cluster di failover, l'agente Sincronizzazione file di Azure deve essere installato in ogni nodo del cluster.
 
 #### <a name="register-the-server-using-the-server-registration-ui"></a>Registrare il server usando l'interfaccia utente di Registrazione server
-> [!Important]  
-> Le sottoscrizioni Cloud Solution Provider (CSP) non possono usare l'interfaccia utente Registrazione server. Usare invece PowerShell (di seguito in questa sezione).
-
 1. Se l'interfaccia utente di Registrazione server non viene avviata subito dopo aver completato l'installazione dell'agente Sincronizzazione file di Azure, può essere avviata manualmente eseguendo `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Fare clic su *Accesso* per accedere alla sottoscrizione di Azure. 
 
@@ -96,7 +93,7 @@ Per poter essere usato come *endpoint server* in un *gruppo di sincronizzazione*
 > Se il server è membro di un cluster di failover, ogni server deve eseguire la registrazione del server. Quando si visualizzano i server registrati nel portale di Azure, Sincronizzazione file di Azure riconosce automaticamente ogni nodo come membro dello stesso cluster di failover e raggruppa i nodi in modo appropriato.
 
 #### <a name="register-the-server-with-powershell"></a>Registrare il server con PowerShell
-È anche possibile eseguire la registrazione del server tramite PowerShell. Questo è l'unico modo supportato per registrare server per le sottoscrizioni Cloud Solution Provider (CSP):
+È anche possibile eseguire la registrazione del server tramite PowerShell. 
 
 ```powershell
 Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
@@ -161,7 +158,7 @@ Dato che Sincronizzazione file di Azure raramente è l'unico servizio in esecuzi
 È possibile limitare l'utilizzo della rete da parte di Sincronizzazione file di Azure usando i cmdlet `StorageSyncNetworkLimit`.
 
 > [!Note]  
-> I limiti di rete non si applicano quando viene effettuato l'accesso a un file a livelli o viene usato il cmdlet Invoke-StorageSyncFileRecall.
+> I limiti di rete non si applicano quando si accede a un file a livelli.
 
 È possibile, ad esempio, creare un nuovo limite di rete per fare il modo che Sincronizzazione file di Azure non usi più di 10 Mbps tra le 9:00 e le 17:00 durante la settimana lavorativa: 
 
@@ -187,6 +184,6 @@ Quando il servizio Sincronizzazione file di Azure è ospitato in una macchina vi
 
 ## <a name="see-also"></a>Vedere anche
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
-- [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+- [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 - [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)
 - [Risolvere i problemi di Sincronizzazione file di Azure](storage-sync-files-troubleshoot.md)

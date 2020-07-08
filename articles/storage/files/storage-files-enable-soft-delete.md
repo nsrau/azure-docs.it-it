@@ -1,23 +1,23 @@
 ---
 title: Abilitare l'eliminazione temporanea - Condivisioni file di Azure
-description: Informazioni su come abilitare la funzionalità di eliminazione temporanea per le condivisioni file di Azure per il ripristino dei dati e la prevenzione dell'eliminazione accidentale.
+description: Informazioni su come abilitare l'eliminazione temporanea (anteprima) in condivisioni file di Azure per il ripristino dei dati e impedire l'eliminazione accidentale.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 05/26/2020
+ms.topic: how-to
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 755ccd266b8a88471bf7dbc0d2deb790f35f3457
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 84da8993bd1b0a61ef885d03f7c2bc80b92d47cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883014"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510816"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Abilitare l'eliminazione temporanea in condivisioni file di Azure
 
-Archiviazione di Azure offre l'eliminazione temporanea per le condivisioni file, per consentire di ripristinare più facilmente i dati nel caso in cui vengano erroneamente eliminati da un'applicazione o da un utente con un altro account di archiviazione. Per altre informazioni sull'eliminazione temporanea, vedere [Come evitare l'eliminazione accidentale di condivisioni file di Azure](storage-files-prevent-file-share-deletion.md).
+Archiviazione di Azure offre l'eliminazione temporanea per le condivisioni file (anteprima), in modo che sia possibile ripristinare i dati in modo più semplice quando vengono eliminati erroneamente da un'applicazione o da un altro utente dell'account di archiviazione. Per altre informazioni sull'eliminazione temporanea, vedere [Come evitare l'eliminazione accidentale di condivisioni file di Azure](storage-files-prevent-file-share-deletion.md).
 
 Le sezioni seguenti illustrano come abilitare e usare l'eliminazione temporanea per le condivisioni file di Azure in un account di archiviazione esistente:
 
@@ -97,3 +97,7 @@ Per disabilitare l'eliminazione temporanea nell'account di archiviazione è poss
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
 ```
 ---
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per informazioni su un'altra forma di protezione e ripristino dei dati, vedere l'articolo [Panoramica degli snapshot di condivisione per file di Azure](storage-snapshots-files.md).

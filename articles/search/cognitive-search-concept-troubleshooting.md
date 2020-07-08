@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/08/2020
+ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510874"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Suggerimenti per l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 
@@ -49,7 +49,16 @@ In tal caso, è possibile indicare all'indicizzatore di ignorare gli errori. Ese
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Suggerimento 4: analizzare i modo approfondito gli aspetti non evidenti dei documenti 
+> [!NOTE]
+> Come procedura consigliata, impostare maxFailedItems, Maxfaileditems su 0 per i carichi di lavoro di produzione
+
+## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Suggerimento 4: usare le sessioni di debug per identificare e risolvere i problemi con il proprio insieme di competenze 
+
+Sessioni di debug è un editor visivo che funziona con un set di competenze esistente nel portale di Azure. All'interno di una sessione di debug è possibile identificare e risolvere gli errori, convalidare le modifiche ed eseguire il commit delle modifiche apportate a un competenze di produzione nella pipeline di arricchimento di intelligenza artificiale. Si tratta di una funzionalità di anteprima che consente di [leggere la documentazione](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Per altre informazioni sui concetti e sull'introduzione, vedere [sessioni di debug](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+
+Le sessioni di debug funzionano in un singolo documento sono un ottimo modo per creare in modo iterativo pipeline di arricchimento più complesse.
+
+## <a name="tip-5-looking-at-enriched-documents-under-the-hood"></a>Suggerimento 5: esaminare i documenti arricchiti dietro le quinte 
 I documenti arricchiti sono strutture temporanee create durante l'arricchimento e quindi eliminate al termine dell’elaborazione.
 
 Per acquisire uno snapshot del documento arricchito creato durante l'indicizzazione, aggiungere un campo denominato ```enriched``` all'indice. L'indicizzatore esegue automaticamente il dump nel campo di una rappresentazione stringa di tutti gli arricchimenti per il documento.
@@ -77,15 +86,15 @@ Aggiungere un campo ```enriched``` come parte della definizione di indice per sc
 }
 ```
 
-## <a name="tip-5-expected-content-fails-to-appear"></a>Suggerimento 5: impossibile visualizzare il contenuto previsto
+## <a name="tip-6-expected-content-fails-to-appear"></a>Suggerimento 6: non è possibile visualizzare il contenuto previsto
 
 Il contenuto mancante potrebbe essere il risultato di documenti eliminati durante l'indicizzazione. I livelli gratuiti e di base hanno un limite basso per quanto riguarda le dimensioni del documento. Qualsiasi file che superi il limite viene eliminato durante l'indicizzazione. È possibile controllare i documenti eliminati nel portale di Azure. Nel dashboard del servizio di ricerca, fare doppio clic sul riquadro degli indicizzatori. Esaminare la percentuale di esiti positivi dei documenti indicizzati. Se non è al 100%, è possibile selezionare la percentuale per ottenere maggiori dettagli. 
 
-Se il problema è correlato alle dimensioni del file, è possibile che venga visualizzato un errore simile al \<seguente: "il nome del file BLOB> \<" ha la dimensione delle dimensioni del file> byte, che supera le dimensioni massime per l'estrazione del documento per il livello di servizio corrente. " Per ulteriori informazioni sui limiti degli indicizzatori, vedere i [Limiti del servizio](search-limits-quotas-capacity.md).
+Se il problema è correlato alle dimensioni del file, potrebbe essere visualizzato un errore simile al seguente: "il BLOB \<file-name> " ha la dimensione di \<file-size> byte, che supera le dimensioni massime per l'estrazione del documento per il livello di servizio corrente. " Per ulteriori informazioni sui limiti degli indicizzatori, vedere i [Limiti del servizio](search-limits-quotas-capacity.md).
 
 Una secondo motivo per cui il contenuto non viene visualizzato potrebbe risiedere negli errori di mapping di input/output correlati. Ad esempio, il nome di destinazione di output è "Persone" ma il nome del campo indice è in minuscolo, "persone". Il sistema potrebbe restituire messaggi di operazione riuscita 201 per l'intera pipeline, pertanto si potrebbe ritenere che l'indicizzazione ha avuto esito positivo, quando in realtà un campo è vuoto. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Suggerimento 6: estendere l'elaborazione oltre il tempo di esecuzione massimo (finestra di 24 ore)
+## <a name="tip-7-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Suggerimento 7: estendere l'elaborazione oltre il tempo di esecuzione massimo (finestra di 24 ore)
 
 L’analisi delle immagini è complessa a livello computazionale anche per i casi semplici, pertanto, quando le immagini hanno dimensioni particolarmente grandi o sono particolarmente complesse, i tempi di elaborazione possono superare il tempo massimo consentito. 
 
@@ -98,7 +107,7 @@ Per gli indicizzatori pianificati, l'indicizzazione dell'ultimo documento valido
 
 Per l’indicizzazione basata sul portale (come descritto nella Guida introduttiva), selezionare l’opzione dell'indicizzatore "Esegui una volta" comporta la limitazione dell’elaborazione a 1 ora (`"maxRunTime": "PT1H"`). È possibile estendere la finestra di elaborazione a un valore maggiore.
 
-## <a name="tip-7-increase-indexing-throughput"></a>Suggerimento 7: aumentare la velocità effettiva di indicizzazione
+## <a name="tip-8-increase-indexing-throughput"></a>Suggerimento 8: aumentare la velocità effettiva di indicizzazione
 
 Per [indicizzazione parallela](search-howto-large-index.md), inserire i dati in più contenitori o più cartelle virtuali all'interno dello stesso contenitore. Creare quindi più coppie di origine dati e di indicizzatori. Tutti gli indicizzatori possono utilizzare lo stesso insieme di competenze e scrivere nello stesso indice di ricerca di destinazione, in modo che l'app per la ricerca non debba necessariamente essere a conoscenza di tale partizionamento.
 Per altre informazioni, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41546a449165951cd7b462d1db2b1b58ae74e407
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254508"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508096"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 1.0 nell'array virtuale StorSimple
 
@@ -30,6 +30,7 @@ Questo articolo descrive i passaggi necessari per installare l'aggiornamento 1.0
 È necessario applicare aggiornamenti software o aggiornamenti rapidi per mantenere l'array virtuale StorSimple sempre aggiornato. Prima di applicare un aggiornamento, si consiglia di portare offline i volumi o le condivisioni, prima nell'host e poi nel dispositivo. Questa operazione consente di eliminare qualsiasi rischio di danneggiamento dei dati. Quando i volumi o le condivisioni sono offline, è consigliabile eseguire anche un backup manuale del dispositivo.
 
 > [!IMPORTANT]
+>
 > - L'aggiornamento 1.0 corrisponde alla versione del software **10.0.10296.0** nel dispositivo. Per informazioni sulle novità in questo aggiornamento, vedere le [note sulla versione per l'aggiornamento 1.0](storsimple-virtual-array-update-1-release-notes.md).
 >
 > - Tenere presente che l'installazione di un aggiornamento o un hotfix potrebbe riavviare il dispositivo. Dato che l'array virtuale StorSimple è un dispositivo a nodo singolo, gli eventuali I/O in corso vengono interrotti e il dispositivo registra un periodo di inattività.
@@ -66,7 +67,7 @@ Se l'array virtuale esegue l'aggiornamento 0.6, eseguire i passaggi seguenti per
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Per scaricare l'aggiornamento o l'hotfix
 
-1. Avviare Internet Explorer e passare a [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Avviare Internet Explorer e passare a [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
 
@@ -99,11 +100,11 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Per installare l'aggiornamento o l'hotfix
 
-1. Nell'interfaccia utente Web locale passare a **manutenzione** > **aggiornamento software**. Prendere nota della versione del software in esecuzione. **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0,6 (10.0.10293.0). Se si esegue una versione precedente, installare prima l' [aggiornamento 0,6](storsimple-virtual-array-install-update-06.md) nel dispositivo e quindi applicare l'aggiornamento 1.**
+1. Nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Prendere nota della versione del software in esecuzione. **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0,6 (10.0.10293.0). Se si esegue una versione precedente, installare prima l' [aggiornamento 0,6](storsimple-virtual-array-install-update-06.md) nel dispositivo e quindi applicare l'aggiornamento 1.**
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
-2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
+2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Apply**.
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-1/update2m.png)
 
@@ -115,7 +116,7 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-1/update5m.png)
 
-5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a **manutenzione** > **aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10296** per l'aggiornamento 1.0.
+5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10296** per l'aggiornamento 1.0.
    
    > [!NOTE]
    > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale indica **10.0.0.0.0.10296**, mentre il portale di Azure indica **10.0.10296.0** per la stessa versione.

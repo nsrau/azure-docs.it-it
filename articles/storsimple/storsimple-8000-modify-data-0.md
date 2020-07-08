@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 3cf136c5ddec8f4998d15c597914e1f806453945
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1d5d57cab9906c04c5c207fa7df2d2fae6f749e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60631584"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514611"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modificare le impostazioni dell'interfaccia di rete DATA 0 in un dispositivo StorSimple serie 8000
 
@@ -58,7 +58,7 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
    
     Tra parentesi acute digitare i seguenti valori per DATA 0:
    
-   * Indirizzo IPv4
+   * IPv4 address (Indirizzo IPv4)
    * Gateway IPv4
    * Subnet mask IPv4
    * Indirizzo IPv4 fisso per controller 0

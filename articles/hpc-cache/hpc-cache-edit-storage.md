@@ -3,19 +3,22 @@ title: Aggiornare le destinazioni di archiviazione della cache HPC di Azure
 description: Come modificare le destinazioni di archiviazione della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/08/2020
-ms.author: rohogue
-ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: v-erkel
+ms.openlocfilehash: 0fa8be58db9754c652d6e1ee5349c950a1c19109
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75866996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513837"
 ---
 # <a name="edit-storage-targets"></a>Modificare le destinazioni di archiviazione
 
 È possibile rimuovere o modificare una destinazione di archiviazione dalla pagina **destinazioni di archiviazione** della cache.
+
+> [!TIP]
+> Il [video sulla gestione della cache HPC di Azure](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) illustra come modificare una destinazione di archiviazione.
 
 ## <a name="remove-a-storage-target"></a>Rimuovere una destinazione di archiviazione
 
@@ -35,7 +38,7 @@ Tutte le modifiche apportate ai file archiviati nella cache vengono scritte nel 
 
   * Percorso dello spazio dei nomi
   * Modello di utilizzo
-  * Export
+  * Esportazione
   * Esporta sottodirectory
 
 Non è possibile modificare il nome, il tipo o il sistema di archiviazione back-end di una destinazione di archiviazione (contenitore BLOB o nome host/indirizzo IP NFS). Se è necessario modificare queste proprietà, eliminare la destinazione di archiviazione e creare una sostituzione con il nuovo valore.

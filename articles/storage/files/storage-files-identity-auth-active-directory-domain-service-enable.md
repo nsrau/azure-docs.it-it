@@ -3,16 +3,16 @@ title: Usare Azure AD Domain Services per autorizzare l'accesso ai dati dei file
 description: Informazioni su come abilitare l'autenticazione basata su identità su Server Message Block (SMB) per File di Azure tramite Azure Active Directory Domain Services. Le macchine virtuali Windows (VM) appartenenti a un dominio possono quindi accedere alle condivisioni file di Azure usando le credenziali Azure AD.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 02/21/2020
+ms.topic: how-to
+ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cb173bcbf7cd163dca16c211d45018e0fe056edd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d9f7eccae6b87923b52119ded90ced5e4206d7b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510383"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services in File di Azure
 
@@ -22,6 +22,7 @@ Per una panoramica dell'autenticazione Azure AD su SMB per le condivisioni file 
 
 > [!NOTE]
 > File di Azure supporta l'autenticazione Kerberos con Azure AD DS con la crittografia RC4-HMAC. La crittografia Kerberos AES non è ancora supportata.
+> File di Azure supporta l'autenticazione per Azure AD DS con sincronizzazione completa con Azure AD. Se è stata abilitata la sincronizzazione con ambito in Azure AD DS che sincronizzano solo un set limitato di identità da Azure AD, non è supportata l'autenticazione e l'autorizzazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -54,6 +55,10 @@ Prima di abilitare Azure AD su SMB per le condivisioni file di Azure, assicurars
 1.  **Verificare la connettività di File di Azure tramite il montaggio di condivisioni file di Azure usando la chiave dell'account di archiviazione.**
 
     Per verificare che la macchina virtuale e la condivisione file siano configurate correttamente, provare a montare la condivisione file usando la chiave dell'account di archiviazione. Per altre informazioni, vedere [Montare una condivisione file di Azure e accedere alla condivisione in Windows](storage-how-to-use-files-windows.md).
+
+## <a name="regional-availability"></a>Disponibilità a livello di area
+
+File di Azure autenticazione con Azure AD DS è disponibile in [tutte le aree pubbliche di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Panoramica del flusso di lavoro
 
@@ -119,7 +124,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Per abilitare l'autenticazione Azure AD su SMB con l'interfaccia della riga di comando di Azure, installare la versione più recente dell'interfaccia della riga di comando (versione 2.0.70 o Per altre informazioni sull'installazione dell'interfaccia della riga di comando di Azure, vedere [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Per creare un nuovo account di archiviazione, chiamare[AZ storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e impostare la `--enable-files-aadds` proprietà su **true**. Nell'esempio seguente ricordare di sostituire i valori segnaposto con i propri valori. (Se si usa il modulo di anteprima precedente, il parametro per l'abilitazione della funzionalità è **file-AAD**).
+Per creare un nuovo account di archiviazione, chiamare [AZ storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e impostare la `--enable-files-aadds` proprietà su **true**. Nell'esempio seguente ricordare di sostituire i valori segnaposto con i propri valori. (Se si usa il modulo di anteprima precedente, il parametro per l'abilitazione della funzionalità è **file-AAD**).
 
 ```azurecli-interactive
 # Create a new storage account
@@ -142,4 +147,4 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 Per ulteriori informazioni su File di Azure e su come utilizzare Azure AD su SMB, vedere le risorse seguenti:
 
 - [Panoramica del supporto dell'autenticazione basata su identità File di Azure per l'accesso SMB](storage-files-active-directory-overview.md)
-- [DOMANDE FREQUENTI](storage-files-faq.md)
+- [Domande frequenti](storage-files-faq.md)

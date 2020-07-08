@@ -4,16 +4,16 @@ description: Informazioni su come creare processi di esportazione nel portale di
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a5afa6439caa6b7c1572447e3b212f3357bf296a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513499"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 
@@ -27,7 +27,7 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
 - Avere una sottoscrizione di Azure attiva che possa essere usata per il servizio Importazione/Esportazione.
 - Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-account-create.md).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks).
-- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com`.
+- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com` .
   - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
   - Generare un numero di tracciabilità per il processo di esportazione.
   - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati.
@@ -39,7 +39,7 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
 
 Per creare un processo di esportazione nel portale di Azure, eseguire le operazioni seguenti.
 
-1. Accedere all'indirizzo https://portal.azure.com/.
+1. Accedere all'indirizzo <https://portal.azure.com/>.
 2. Passare a **Tutti i servizi > Archiviazione > Processi di importazione/esportazione**.
 
     ![Passare a Processi di importazione/esportazione](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -90,7 +90,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
         > [!TIP]
         > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
-7. In **Riepilogo**:
+7. In **breve**:
 
     - Esaminare i dettagli del processo.
     - Annotare il nome del processo e le informazioni sul mittente della spedizione per spedire i dischi ad Azure.
@@ -129,7 +129,11 @@ L'esportazione è stata completata.
 
 Se si usa la versione 1.4.0.300 dello strumento WAImportExport, usare il comando seguente per sbloccare l'unità:
 
-    `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+Di seguito è riportato un esempio dell'input di esempio.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 Se si utilizzano versioni precedenti dello strumento, utilizzare la finestra di dialogo BitLocker per sbloccare l'unità.
 
@@ -143,17 +147,17 @@ Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessari
 2. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio: `C:\WaImportExportV1`.
 3. Aprire una finestra di PowerShell o della riga di comando con privilegi amministrativi. Per passare alla directory della cartella decompressa, eseguire il comando seguente:
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. Per controllare il numero di dischi necessari per i BLOB selezionati, eseguire il comando seguente:
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     I parametri vengono descritti nella tabella seguente:
 
     |Parametro della riga di comando|Descrizione|  
     |--------------------------|-----------------|  
-    |**/LogDir**|Facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
+    |**/LogDir**|Facoltativa. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
     |**Ésn**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|  
     |**/SK**|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
     |**/csas:**|Obbligatorio solo se non è specificata una chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'elenco dei BLOB da esportare nel processo di esportazione.|  

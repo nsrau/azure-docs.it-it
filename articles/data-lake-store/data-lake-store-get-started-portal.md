@@ -3,15 +3,15 @@ title: Introduzione a Azure Data Lake Storage Gen1-Portal
 description: Usare il portale di Azure per creare un account di Data Lake Storage Gen1 ed eseguire operazioni di base nell'account.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dac5976904263de40c7bc240bdb7deac1ec3df6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265584"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509201"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -56,7 +56,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
         Per altre informazioni, vedere [Crittografia dei dati in Azure Data Lake Storage Gen1](./data-lake-store-encryption.md).
 
-4. Scegliere **Crea**. Se si è scelto di aggiungere l'account al dashboard, viene visualizzato di nuovo il dashboard, dove è possibile visualizzare lo stato di avanzamento del provisioning dell'account Data Lake Storage Gen1. Una volta eseguito il provisioning dell'account Data Lake Storage Gen1, viene visualizzato il pannello dell'account.
+4. Fare clic su **Crea**. Se si è scelto di aggiungere l'account al dashboard, viene visualizzato di nuovo il dashboard, dove è possibile visualizzare lo stato di avanzamento del provisioning dell'account Data Lake Storage Gen1. Una volta eseguito il provisioning dell'account Data Lake Storage Gen1, viene visualizzato il pannello dell'account.
 
 ## <a name="assign-permissions-to-azure-key-vault"></a><a name="assign-permissions-to-azure-key-vault"></a>Assegnare le autorizzazioni per Azure Key Vault
 

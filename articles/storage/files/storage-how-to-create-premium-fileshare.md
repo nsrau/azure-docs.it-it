@@ -3,16 +3,16 @@ title: Creare una condivisione file di Azure Premium
 description: Questo articolo illustra come creare una condivisione file di Azure Premium.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7680a28b165dc252159cf95311439508d3c867e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79529108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509983"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Come creare una condivisione file di Azure Premium
 Le condivisioni file Premium sono offerte da supporti di archiviazione SSD (Solid-State Disk) e sono utili per i carichi di lavoro con utilizzo intensivo di i/o, inclusi i database di hosting e HPC (High Performance Computing). Le condivisioni file Premium sono ospitate in un tipo di account di archiviazione per scopi specifici, denominato account filestorage. Le condivisioni file Premium sono progettate per applicazioni a prestazioni elevate e di livello aziendale, garantendo una bassa latenza, IOPS elevate e condivisioni a velocità effettiva elevata.
@@ -46,6 +46,9 @@ Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. 
 1. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
 1. Selezionare la località per l'account di archiviazione o usare la località predefinita.
 1. Per **prestazioni** selezionare **Premium**.
+
+    È necessario selezionare **Premium** per l' **archiviazione filestorage** come opzione disponibile nell'elenco a discesa **tipo di account** .
+
 1. Selezionare **tipo di account** e scegliere **filestorage**.
 1. Lasciare la **replica** impostata sul valore predefinito di **archiviazione con ridondanza locale (con ridondanza locale)**.
 
@@ -67,7 +70,7 @@ Una volta creata la risorsa dell'account di archiviazione, passare a essa.
 
    ![Creare una condivisione file premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
-### <a name="clean-up-resources"></a>Pulizia delle risorse
+### <a name="clean-up-resources"></a>Pulire le risorse
 
 Per pulire le risorse create in questo articolo, è possibile eliminare semplicemente il gruppo di risorse. L'eliminazione del gruppo di risorse Elimina anche l'account di archiviazione associato e tutte le altre risorse associate al gruppo di risorse.
 
@@ -132,7 +135,7 @@ New-AzStorageShare `
    -Context $storageAcct.Context
 ```
 
-### <a name="clean-up-resources"></a>Pulizia delle risorse
+### <a name="clean-up-resources"></a>Pulire le risorse
 
 Per rimuovere il gruppo di risorse e tutte le risorse correlate, incluso il nuovo account di archiviazione, usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup): 
 
@@ -198,7 +201,7 @@ az storage share create \
     --name "myshare" 
 ```
 
-### <a name="clean-up-resources"></a>Pulizia delle risorse
+### <a name="clean-up-resources"></a>Pulire le risorse
 
 Per rimuovere il gruppo di risorse e tutte le risorse correlate, incluso il nuovo account di archiviazione, usare il comando [az group delete](/cli/azure/group).
 

@@ -3,16 +3,16 @@ title: Migrazione di Linux a Sincronizzazione file di Azure
 description: Informazioni su come eseguire la migrazione di file da un percorso server Linux a una distribuzione cloud ibrida con Sincronizzazione file di Azure e condivisioni file di Azure.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 3131d6a7e3675027968eadd5f3e3ca8a7f2449c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd2e4f5c81427413e3f3f3eceaa0cc41a3b9e318
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143567"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510367"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Eseguire la migrazione da Linux a una distribuzione cloud ibrida con Sincronizzazione file di Azure
 
@@ -24,7 +24,7 @@ Di conseguenza, la trasformazione dei servizi file in una distribuzione ibrida r
 
 L'obiettivo è spostare le condivisioni presenti sul server Samba Linux in un'istanza di Windows Server. Usare quindi Sincronizzazione file di Azure per una distribuzione cloud ibrida. Questa migrazione deve essere eseguita in modo da garantire l'integrità dei dati di produzione e la disponibilità durante la migrazione. Il secondo richiede il mantenimento del tempo di inattività minimo, in modo che possa rientrare o solo leggermente più di una normale finestra di manutenzione.
 
-## <a name="migration-overview"></a>Panoramica della migrazione
+## <a name="migration-overview"></a>Panoramica sulla migrazione
 
 Come indicato nell' [articolo Panoramica della migrazione](storage-files-migration-overview.md)di file di Azure, è importante usare lo strumento di copia e l'approccio corretti. Il server Samba Linux espone le condivisioni SMB direttamente nella rete locale. Robocopy, integrato in Windows Server, è il modo migliore per spostare i file in questo scenario di migrazione.
 
@@ -118,7 +118,7 @@ Sfondo:
 :::row-end:::
 :::row:::
    :::column span="1":::
-      /UNILOG:\<nome file\>
+      /UNILOG:\<file name\>
    :::column-end:::
    :::column span="1":::
       Restituisce lo stato di un file di log come Unicode (sovrascrive il log esistente).

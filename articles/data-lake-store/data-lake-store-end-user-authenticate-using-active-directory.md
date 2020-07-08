@@ -3,16 +3,16 @@ title: "Autenticazione dell'utente finale: Data Lake Storage Gen1 con Azure AD"
 description: Informazioni su come ottenere l'autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite Azure Active Directory
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5a0c3e1df5cd283ad08f905ed0bd4f329dcfcc7e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: ac585f1c215e5eb7ad5a6628ac85b70e7c76b14e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511313"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite Azure Active Directory
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Questo articolo illustra come creare un'**applicazione nativa di Azure AD per l'
 
     ![Ottenere il dominio AAD](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* ID del tenant di Azure. Per istruzioni su come recuperare l'ID tenant, vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* ID del tenant di Azure. Per istruzioni su come recuperare l'ID tenant, vedere [Ottenere l'ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## <a name="end-user-authentication"></a>Autenticazione dell'utente finale
 Questo meccanismo di autenticazione è l'approccio consigliato se si vuole che un utente finale accedi all'applicazione tramite Azure AD. L'applicazione può quindi accedere alle risorse di Azure con lo stesso livello di accesso dell'utente che ha effettuato l'accesso. L'utente finale deve fornire le sue credenziali periodicamente affinché l'applicazione possa mantenere attivo l'accesso.
@@ -78,7 +78,7 @@ Mentre si seguono le istruzioni nel collegamento, assicurarsi di selezionare **N
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Passaggio 2: Ottenere l'ID applicazione e l'URI di reindirizzamento
 
-Per recuperare l'ID applicazione, vedere [Ottenere l'ID applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+Per recuperare l'ID applicazione, vedere [Ottenere l'ID applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 Per recuperare l'URI di reindirizzamento, attenersi alla procedura seguente.
 
@@ -107,7 +107,7 @@ Per recuperare l'URI di reindirizzamento, attenersi alla procedura seguente.
 
     ![ID client](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
-    Fare clic su **Fine**.
+    Fare clic su **Done**.
 
 5. Ripetere gli ultimi due passaggi per concedere le autorizzazioni anche per le **API Gestione dei servizi di Windows Azure**.
 

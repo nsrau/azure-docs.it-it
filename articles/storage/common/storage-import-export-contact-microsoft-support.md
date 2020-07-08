@@ -4,16 +4,16 @@ description: Informazioni sulla registrazione di richieste di supporto per probl
 services: storsimple
 author: alkohli
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20ac33a26bfe24eb60e2febc1344859f4e54cdd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67621045"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514427"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Aprire un ticket di supporto per un processo di Importazione/Esportazione
 
@@ -33,7 +33,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 2. In **Nuova richiesta di supporto** selezionare **Informazioni di base**. In **Informazioni di base** seguire questa procedura:
     
     1. Nell'elenco a discesa **Tipo di problema** selezionare **Tecnico**.
-    2. Scegliere la **sottoscrizione**.
+    2. Scegliere la propria **sottoscrizione**.
     3. In **Servizio** selezionare **Servizi personali**. Nell'elenco a discesa selezionare una di queste opzioni: **Storage Account Management** (Gestione degli account di archiviazione), **BLOB** o **File**. 
         - Se si sceglie **Storage Account Management**(Gestione degli account di archiviazione), selezionare **Risorse** e **Piano di supporto**.
             ![Scegliere Gestione degli account di archiviazione](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
@@ -58,7 +58,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 4. In **Nuova richiesta di supporto** fare clic su **Passaggio 3 - Informazioni contatto**. In **Informazioni contatto** seguire la procedura seguente:
 
    1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
-   2. Nelle informazioni di contatto specificare nome, indirizzo di posta elettronica, contatto facoltativo, paese/area geografica. Selezionare la casella di controllo **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
+   2. In Informazioni di contatto specificare nome, posta elettronica, contatto facoltativo, paese/area. Selezionare la casella di controllo **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
    3. Fare clic su **Crea**.
    
        ![Informazioni contatto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

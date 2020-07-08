@@ -5,17 +5,17 @@ description: Panoramica degli endpoint privati per l'accesso sicuro agli account
 services: storage
 author: santoshc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513273"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Usare endpoint privati per archiviazione di Azure
 
@@ -82,8 +82,8 @@ Per l'esempio illustrato in precedenza, i record di risorse DNS per l'account di
 | Nome                                                  | Type  | valore                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<endpoint pubblico del servizio di archiviazione\>                   |
-| \<endpoint pubblico del servizio di archiviazione\>                   | Una     | \<Indirizzo IP pubblico del servizio di archiviazione\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| \<storage service public endpoint\>                   | Una     | \<storage service public IP address\>                 |
 
 Come indicato in precedenza, è possibile negare o controllare l'accesso per i client esterni a VNet tramite l'endpoint pubblico usando il firewall di archiviazione.
 
@@ -110,7 +110,7 @@ I nomi di zona DNS consigliati per gli endpoint privati per i servizi di archivi
 | Servizio file           | `privatelink.file.core.windows.net`  |
 | Servizio di accodamento          | `privatelink.queue.core.windows.net` |
 | Servizio tabelle          | `privatelink.table.core.windows.net` |
-| Siti web statici        | `privatelink.web.core.windows.net`   |
+| Siti Web statici        | `privatelink.web.core.windows.net`   |
 
 Per ulteriori informazioni sulla configurazione del server DNS per supportare endpoint privati, fare riferimento agli articoli seguenti:
 
@@ -137,9 +137,9 @@ Questo vincolo è il risultato delle modifiche DNS apportate quando l'account a2
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regole del gruppo di sicurezza di rete per le subnet con endpoint privati
 
-Attualmente, non è possibile configurare le regole del [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) (NSG) e le route definite dall'utente per gli endpoint privati. Le regole NSG applicate alla subnet che ospita l'endpoint privato vengono applicate all'endpoint privato. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
+Attualmente, non è possibile configurare le regole del [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) (NSG) e le route definite dall'utente per gli endpoint privati. Le regole NSG applicate alla subnet che ospita l'endpoint privato vengono applicate solo ad altri endpoint (ad esempio, NIC) rispetto all'endpoint privato. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare i firewall e le reti virtuali di archiviazione di Azure](storage-network-security.md)
-- [Raccomandazioni sulla sicurezza per l'archiviazione BLOB](../blobs/security-recommendations.md)
+- [Configurare i firewall e le reti virtuali di Archiviazione di Azure](storage-network-security.md)
+- [Raccomandazioni sulla sicurezza per archiviazione BLOB](../blobs/security-recommendations.md)

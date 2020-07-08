@@ -5,21 +5,20 @@ services: storsimple
 documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 116ac5c4efda87b5d16336dd326d516299f6955d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "61481938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514034"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Disattivare ed eliminare un dispositivo StorSimple
 
@@ -36,28 +35,29 @@ Quando si disattiva un dispositivo, tutti i dati archiviati localmente nel dispo
 >
 > Il processo di ripristino delle impostazioni di fabbrica elimina tutti i dati archiviati localmente sul dispositivo. Pertanto, è necessario eseguire uno snapshot nel cloud di tutti i dati prima di disattivare un dispositivo. In questo modo sarà possibile recuperare tutti i dati in una fase successiva.
 
+> [!NOTE]
+>
+> - Prima di disattivare un dispositivo fisico StorSimple o un’appliance cloud, assicurarsi che i dati del contenitore di volumi eliminato vengano effettivamente eliminati dal dispositivo. È possibile monitorare i grafici relativi all'utilizzo del cloud, e nel momento in cui viene visualizzato che l'utilizzo del cloud è in diminuzione a causa dei backup che sono stati eliminati, allora è possibile disattivare il dispositivo. Se si disattiva il dispositivo prima che si verifichi questo calo, i dati rimangono bloccati nell'account di archiviazione e ne conseguono addebiti.
+>
+> - Prima di disattivare un dispositivo fisico o un'appliance cloud StorSimple, arrestare o eliminare i client e gli host che dipendono da tale dispositivo.
+>
+> - Se gli account di archiviazione o i contenitori nell'account di archiviazione associato ai contenitori del volume sono già stati eliminati prima di eliminare i dati dal dispositivo, verrà visualizzato un errore e potrebbe non essere possibile eliminare i dati. Si consiglia di eliminare i dati nel dispositivo prima di eliminare l'account di archiviazione o i contenitori in esso contenuti. In questa situazione, tuttavia, sarà necessario procedere con la disattivazione e l'eliminazione dei dispositivi, presupponendo che i dati siano già stati rimossi dall'account di archiviazione.
+
 Dopo aver letto questa esercitazione, si sarà in grado di:
 
-* Disattivare un dispositivo ed eliminare i dati.
-* Disattivare un dispositivo e conservare i dati.
-
-> [!NOTE]
-> Prima di disattivare un dispositivo fisico o un'appliance cloud StorSimple, arrestare o eliminare i client e gli host che dipendono da tale dispositivo.
-
+- Disattivare un dispositivo ed eliminare i dati.
+- Disattivare un dispositivo e conservare i dati.
 
 ## <a name="deactivate-and-delete-data"></a>Disattivare ed eliminare i dati
 
 Se si vuole eliminare completamente il dispositivo senza conservarne i dati, seguire questa procedura.
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>Per disattivare il dispositivo ed eliminare i dati
+### <a name="to-deactivate-the-device-and-delete-the-data"></a>Per disattivare il dispositivo ed eliminare i dati
 
-1. Prima di disattivare un dispositivo, è necessario eliminare i contenitori del volume (e i volumi) associati al dispositivo. È possibile eliminare i contenitori dei volumi solo dopo aver eliminato i backup associati.
-
-    > [!NOTE]
-    > Prima di disattivare un dispositivo fisico StorSimple o un’appliance cloud, assicurarsi che i dati del contenitore di volumi eliminato vengano effettivamente eliminati dal dispositivo. È possibile monitorare i grafici relativi all'utilizzo del cloud, e nel momento in cui viene visualizzato che l'utilizzo del cloud è in diminuzione a causa dei backup che sono stati eliminati, allora è possibile disattivare il dispositivo. Se si disattiva il dispositivo prima che si verifichi questo calo, i dati rimangono bloccati nell'account di archiviazione e ne conseguono addebiti.
+1. Prima di disattivare un dispositivo, è necessario eliminare i contenitori del volume (e i volumi) associati al dispositivo. È possibile eliminare i contenitori dei volumi solo dopo aver eliminato i backup associati. Vedere la nota nella panoramica precedente prima di disattivare un dispositivo fisico StorSimple o un'appliance cloud.
 
 2. Disattivare il dispositivo come segue:
-   
+
    1. Passare al servizio Gestione dispositivi StorSimple e fare clic su **Dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo che si desidera disattivare, fare clic con il tasto destro del mouse e quindi fare clic su **Disattiva**.
 
         ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
@@ -79,7 +79,8 @@ Se si vuole eliminare completamente il dispositivo senza conservarne i dati, seg
 
 Se si è interessati all'eliminazione del dispositivo ma si vuole conservarne i dati, seguire questa procedura:
 
-#### <a name="to-deactivate-a-device-and-retain-the-data"></a>Per disattivare un dispositivo e conservare i dati
+### <a name="to-deactivate-a-device-and-retain-the-data"></a>Per disattivare un dispositivo e conservare i dati
+
 1. Disattivare il dispositivo. Tutti i contenitori del volume e gli snapshot del dispositivo vengono mantenuti.
    
    1. Passare al servizio Gestione dispositivi StorSimple e fare clic su **Dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo che si desidera disattivare, fare clic con il tasto destro del mouse e quindi fare clic su **Disattiva**.
@@ -99,7 +100,6 @@ Se si è interessati all'eliminazione del dispositivo ma si vuole conservarne i 
        ![Disattivare il dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Si riceverà una notifica una volta completata l'eliminazione. Viene inoltre aggiornato l'elenco dei dispositivi per riflettere l'eliminazione.
 
-     
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Disattivare ed eliminare un'appliance cloud
 
 Per un'appliance cloud StorSimple, la disattivazione dal portale dealloca ed elimina la macchina virtuale e le risorse create quando è stato eseguito il provisioning. Dopo la disattivazione dell'appliance cloud, non è possibile ripristinarne lo stato precedente.

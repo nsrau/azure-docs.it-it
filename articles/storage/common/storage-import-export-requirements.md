@@ -4,16 +4,16 @@ description: Informazioni sui requisiti hardware e software per il servizio Impo
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512418"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -50,7 +50,7 @@ Per altre informazioni sugli account di archiviazione, vedere [Panoramica degli 
 Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-account-create.md).
 
 > [!IMPORTANT]
-> Il servizio importazione/esportazione di Azure non supporta gli account di archiviazione in cui è stata abilitata la funzionalità degli endpoint del [servizio rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md). 
+> Il servizio importazione/esportazione di Azure non supporta gli account di archiviazione in cui è stata abilitata la funzionalità degli [endpoint del servizio rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)   . 
 
 ## <a name="supported-storage-types"></a>Tipi di archivio supportati
 
@@ -60,7 +60,7 @@ Con il servizio Importazione/Esportazione di Azure sono supportati i tipi di arc
 |Processo  |Servizio di archiviazione |Supportato  |Non supportato  |
 |---------|---------|---------|---------|
 |Importa     |  Archiviazione BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
-|Export     |   Archiviazione BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
+|Esportazione     |   Archiviazione BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
 
 
 ## <a name="supported-hardware"></a>Hardware supportato
@@ -72,17 +72,19 @@ Per il servizio Importazione/Esportazione di Azure è necessario usare dischi pe
 Con il servizio Importazione/Esportazione sono supportati i dischi inclusi nell'elenco seguente.
 
 
-|Tipo di disco  |Dimensioni  |Supportato |
+|Tipo di disco  |Dimensione  |Supportato |
 |---------|---------|---------|
 |SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
 I tipi di dischi seguenti non sono supportati:
+
 - USBs.
 - HDD esterno con adattatore USB incorporato.
 - Dischi che si trovano all'interno della custodia di un disco rigido esterno.
 
 Un singolo processo di importazione/esportazione può avere:
+
 - Un massimo di 10 HDD/SSD.
 - Una combinazione di HDD/SSD di qualsiasi dimensione.
 
@@ -90,9 +92,6 @@ Un numero elevato di unità può essere distribuito tra più processi e non esis
 
 Per la preparazione dei dischi rigidi e la copia dei dati tramite lo strumento WAImportExport, è possibile usare adattatori USB esterni. La maggior parte degli adattatori USB pronti all'uso di versione 3.0 o successiva dovrebbero essere adatti a tale scopo.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare lo strumento WAImportExport](storage-import-export-tool-how-to.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
-* [Esempio di API REST del servizio Importazione/Esportazione di Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

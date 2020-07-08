@@ -5,17 +5,17 @@ description: Usare l'API REST di archiviazione di Azure per effettuare una richi
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/01/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77916065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509184"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chiamare le operazioni dell'API REST con l'autorizzazione della chiave condivisa
 
@@ -63,9 +63,9 @@ Consultando l'articolo [Blob Service REST API](/rest/api/storageservices/Blob-Se
 
 Esaminare il riferimento per l'operazione [ListContainers](/rest/api/storageservices/List-Containers2) . Queste informazioni consentiranno di comprendere il punto in cui provengono alcuni dei campi nella richiesta e nella risposta.
 
-**Metodo della richiesta**: GET. Questo verbo è il metodo HTTP che si specifica come proprietà dell'oggetto della richiesta. Come altri valori per il verbo è possibile usare HEAD, PUT e DELETE, a seconda dell'API che si intende chiamare.
+**Metodo di richiesta**: Get. Questo verbo è il metodo HTTP che si specifica come proprietà dell'oggetto della richiesta. Come altri valori per il verbo è possibile usare HEAD, PUT e DELETE, a seconda dell'API che si intende chiamare.
 
-**URI**della richiesta `https://myaccount.blob.core.windows.net/?comp=list`:.L'URI della richiesta viene creato dall'endpoint `http://myaccount.blob.core.windows.net` dell'account di archiviazione BLOB e dalla `/?comp=list`stringa di risorsa.
+**URI della richiesta**: `https://myaccount.blob.core.windows.net/?comp=list` .L'URI della richiesta viene creato dall'endpoint dell'account di archiviazione BLOB `http://myaccount.blob.core.windows.net` e dalla stringa di risorsa `/?comp=list` .
 
 [Parametri dell'URI](/rest/api/storageservices/List-Containers2#uri-parameters): quando si chiama ListContainers è possibile usare parametri di query aggiuntivi, ad esempio *timeout* per definire il timeout della chiamata (in secondi) e *prefix* per applicare un filtro.
 
@@ -130,7 +130,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-Aggiungere le intestazioni della richiesta `x-ms-date` per `x-ms-version`e. In questo punto del codice si aggiungono anche le eventuali altre intestazioni della richiesta necessarie per la chiamata. In questo esempio non sono previste intestazioni aggiuntive. Un esempio di un'API che passa in intestazioni aggiuntive è l'operazione di impostazione dell'ACL del contenitore. Questa chiamata API aggiunge un'intestazione denominata "x-ms-blob-public-Access" e il valore per il livello di accesso.
+Aggiungere le intestazioni della richiesta per `x-ms-date` e `x-ms-version` . In questo punto del codice si aggiungono anche le eventuali altre intestazioni della richiesta necessarie per la chiamata. In questo esempio non sono previste intestazioni aggiuntive. Un esempio di un'API che passa in intestazioni aggiuntive è l'operazione di impostazione dell'ACL del contenitore. Questa chiamata API aggiunge un'intestazione denominata "x-ms-blob-public-Access" e il valore per il livello di accesso.
 
 ```csharp
 // Add the request headers for x-ms-date and x-ms-version.
@@ -177,7 +177,7 @@ Ora che è stata creata la richiesta, è possibile chiamare il metodo SendAsync 
 
 Se si usa uno sniffer di rete come [Fiddler](https://www.telerik.com/fiddler) quando si esegue la chiamata a SendAsync, è possibile visualizzare le informazioni della richiesta e della risposta, Vediamo. Il nome dell'account di archiviazione è *contosorest*.
 
-**Richiesta**
+**Richiesta:**
 
 ```
 GET /?comp=list HTTP/1.1
@@ -488,7 +488,7 @@ SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 
 I valori seguenti sono restituiti da [Fiddler](https://www.telerik.com/fiddler):
 
-**Richiesta**
+**Richiesta:**
 
 ```
 GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=list HTTP/1.1
@@ -563,7 +563,7 @@ Content-Length: 1135
 </EnumerationResults>
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo si è appreso come effettuare una richiesta all'API REST di archiviazione BLOB. Con la richiesta è possibile recuperare un elenco di contenitori o un elenco di BLOB in un contenitore. Si è appreso come creare la firma di autorizzazione per la chiamata all'API REST e come usarla nella richiesta REST. Infine, si è appreso come esaminare la risposta.
 

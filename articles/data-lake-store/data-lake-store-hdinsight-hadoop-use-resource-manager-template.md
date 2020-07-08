@@ -3,15 +3,15 @@ title: 'Modello: cluster HDInsight con Data Lake Storage Gen1'
 description: Usare i modelli di Azure Resource Manager per creare e usare i cluster HDInsight di Azure con Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 486809201db45e0f5bbeed870e24b1f63770e319
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 593edecd2cc1bbdd3627430af41c64be4d6a022b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508640"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Creare un cluster HDInsight con Data Lake Storage Gen1 usando un modello di Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -66,9 +66,9 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Il modello distribuisce i tipi di risorse seguenti:
 
-* [Microsoft.DataLakeStore/accounts](/azure/templates/microsoft.datalakestore/accounts)
+* [Microsoft. archivio data Lake/accounts](/azure/templates/microsoft.datalakestore/accounts)
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
+* [Microsoft. HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters)
 
 ## <a name="upload-sample-data-to-data-lake-storage-gen1"></a>Caricare dati di esempio in Data Lake Storage Gen1
 Il modello di Resource Manager crea un nuovo account Data Lake Storage Gen1 e lo associa al cluster HDInsight. È ora necessario caricare alcuni dati di esempio in Data Lake Storage Gen1. Questi dati saranno necessari più avanti nell'esercitazione per eseguire i processi da un cluster HDInsight che accede ai dati nell'account Data Lake Storage Gen1. Per istruzioni su come caricare i dati, vedere [Caricare un file nell'account Data Lake Storage Gen1](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).

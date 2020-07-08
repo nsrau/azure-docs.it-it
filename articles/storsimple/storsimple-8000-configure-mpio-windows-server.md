@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60363333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514331"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurare Multipath I/O per il dispositivo StorSimple
 
@@ -120,7 +120,7 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
    2. Dall'elenco a discesa **IP iniziatore** selezionare l'indirizzo IP dell'host.
    3. Nell’elenco a discesa **IP portale di destinazione** , selezionare l’IP dell’interfaccia dispositivo.
    4. Fare clic su **OK** per tornare alla finestra di dialogo **Iniziatore iSCSI - Proprietà**.
-9. Fare clic su **Proprietà**. Nella finestra di dialogo **Proprietà** fare clic su **Aggiungi sessione**.
+9. Scegliere **Proprietà**. Nella finestra di dialogo **Proprietà** fare clic su **Aggiungi sessione**.
 10. Nella finestra di dialogo **Connetti alla destinazione** selezionare la casella di controllo **Consenti percorsi multipli**. Fare clic su **Avanzate**.
 11. Nella finestra di dialogo **Impostazioni avanzate** eseguire le operazioni seguenti:
 
