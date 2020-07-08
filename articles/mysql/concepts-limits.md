@@ -5,161 +5,25 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/1/2020
-ms.openlocfilehash: 9cf5c958a0dd9a19e6b976ff36a18c45e062f604
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 6/25/2020
+ms.openlocfilehash: c562b8a82ef21e78eccad2c2ed6159251056f4fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392693"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
 
 ## <a name="server-parameters"></a>Parametri del server
 
-I valori minimo e massimo di molti parametri server comuni sono determinati dal piano tariffario e dai vCore. Per i limiti, fare riferimento alle tabelle seguenti.
-
-### <a name="max_connections"></a>max_connections
-
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
-|---|---|---|---|---|
-|Basic|1|50|10|50|
-|Basic|2|100|10|100|
-|Utilizzo generico|2|300|10|600|
-|Utilizzo generico|4|625|10|1250|
-|Utilizzo generico|8|1250|10|2500|
-|Utilizzo generico|16|2500|10|5000|
-|Utilizzo generico|32|5000|10|10000|
-|Utilizzo generico|64|10000|10|20000|
-|Con ottimizzazione per la memoria|2|600|10|800|
-|Con ottimizzazione per la memoria|4|1250|10|2500|
-|Con ottimizzazione per la memoria|8|2500|10|5000|
-|Con ottimizzazione per la memoria|16|5000|10|10000|
-|Con ottimizzazione per la memoria|32|10000|10|20000|
-
-Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
-> ERROR 1040 (08004): Troppe connessioni
-
-> [!IMPORTANT]
-> Per un'esperienza ottimale, è consigliabile usare un pool di connessioni come ProxySQL per gestire in modo efficiente le connessioni.
-
-La creazione di nuove connessioni client a MySQL richiede tempo e una volta stabilite, queste connessioni occupano risorse del database, anche se inattive. La maggior parte delle applicazioni richiede molte connessioni di breve durata, che generano questa situazione. Di conseguenza sarà disponibile un minor numero di risorse per il carico di lavoro effettivo e le prestazioni saranno ridotte. Un pool di connessioni che riduce le connessioni inattive e riutilizza le connessioni esistenti consente di evitare il problema. Per informazioni sulla configurazione di ProxySQL, visitare il [post di blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) di Microsoft.
-
-### <a name="query_cache_size"></a>query_cache_size
-
-La cache della query è disattivata per impostazione predefinita. Per abilitare la cache delle query, configurare il parametro `query_cache_type`. 
-
-Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size).
-
 > [!NOTE]
-> La cache delle query è deprecata a partire da MySQL 5.7.20 ed è stata rimossa in MySQL 8.0
+> Se si cercano valori min/max per parametri del server come `max_connections` e `innodb_buffer_pool_size` , queste informazioni sono state spostate nell'articolo **[parametri del server](./concepts-server-parameters.md)** .
 
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
-|---|---|---|---|---|
-|Basic|1|Non configurabile nel livello Basic|N/D|N/D|
-|Basic|2|Non configurabile nel livello Basic|N/D|N/D|
-|Utilizzo generico|2|0|0|16777216|
-|Utilizzo generico|4|0|0|33554432|
-|Utilizzo generico|8|0|0|67108864|
-|Utilizzo generico|16|0|0|134217728|
-|Utilizzo generico|32|0|0|134217728|
-|Utilizzo generico|64|0|0|134217728|
-|Con ottimizzazione per la memoria|2|0|0|33554432|
-|Con ottimizzazione per la memoria|4|0|0|67108864|
-|Con ottimizzazione per la memoria|8|0|0|134217728|
-|Con ottimizzazione per la memoria|16|0|0|134217728|
-|Con ottimizzazione per la memoria|32|0|0|134217728|
+Database di Azure per MySQL supporta l'ottimizzazione dei valori dei parametri del server. Valore minimo e massimo di alcuni parametri (ad esempio `max_connections`, `join_buffer_size` , `query_cache_size` ) è determinato dal piano tariffario e dal Vcore del server. Per ulteriori informazioni su questi limiti, fare riferimento ai [parametri del server](./concepts-server-parameters.md) .
 
-### <a name="sort_buffer_size"></a>sort_buffer_size
-
-Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size).
-
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
-|---|---|---|---|---|
-|Basic|1|Non configurabile nel livello Basic|N/D|N/D|
-|Basic|2|Non configurabile nel livello Basic|N/D|N/D|
-|Utilizzo generico|2|524288|32768|4194304|
-|Utilizzo generico|4|524288|32768|8388608|
-|Utilizzo generico|8|524288|32768|16777216|
-|Utilizzo generico|16|524288|32768|33554432|
-|Utilizzo generico|32|524288|32768|33554432|
-|Utilizzo generico|64|524288|32768|33554432|
-|Con ottimizzazione per la memoria|2|524288|32768|8388608|
-|Con ottimizzazione per la memoria|4|524288|32768|16777216|
-|Con ottimizzazione per la memoria|8|524288|32768|33554432|
-|Con ottimizzazione per la memoria|16|524288|32768|33554432|
-|Con ottimizzazione per la memoria|32|524288|32768|33554432|
-
-### <a name="join_buffer_size"></a>join_buffer_size
-
-Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size).
-
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
-|---|---|---|---|---|
-|Basic|1|Non configurabile nel livello Basic|N/D|N/D|
-|Basic|2|Non configurabile nel livello Basic|N/D|N/D|
-|Utilizzo generico|2|262144|128|268435455|
-|Utilizzo generico|4|262144|128|536870912|
-|Utilizzo generico|8|262144|128|1073741824|
-|Utilizzo generico|16|262144|128|2147483648|
-|Utilizzo generico|32|262144|128|4294967295|
-|Utilizzo generico|64|262144|128|4294967295|
-|Con ottimizzazione per la memoria|2|262144|128|536870912|
-|Con ottimizzazione per la memoria|4|262144|128|1073741824|
-|Con ottimizzazione per la memoria|8|262144|128|2147483648|
-|Con ottimizzazione per la memoria|16|262144|128|4294967295|
-|Con ottimizzazione per la memoria|32|262144|128|4294967295|
-
-### <a name="max_heap_table_size"></a>max_heap_table_size
-
-Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size).
-
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
-|---|---|---|---|---|
-|Basic|1|Non configurabile nel livello Basic|N/D|N/D|
-|Basic|2|Non configurabile nel livello Basic|N/D|N/D|
-|Utilizzo generico|2|16777216|16384|268435455|
-|Utilizzo generico|4|16777216|16384|536870912|
-|Utilizzo generico|8|16777216|16384|1073741824|
-|Utilizzo generico|16|16777216|16384|2147483648|
-|Utilizzo generico|32|16777216|16384|4294967295|
-|Utilizzo generico|64|16777216|16384|4294967295|
-|Con ottimizzazione per la memoria|2|16777216|16384|536870912|
-|Con ottimizzazione per la memoria|4|16777216|16384|1073741824|
-|Con ottimizzazione per la memoria|8|16777216|16384|2147483648|
-|Con ottimizzazione per la memoria|16|16777216|16384|4294967295|
-|Con ottimizzazione per la memoria|32|16777216|16384|4294967295|
-
-### <a name="tmp_table_size"></a>tmp_table_size
-
-Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size).
-
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
-|---|---|---|---|---|
-|Basic|1|Non configurabile nel livello Basic|N/D|N/D|
-|Basic|2|Non configurabile nel livello Basic|N/D|N/D|
-|Utilizzo generico|2|16777216|1024|67108864|
-|Utilizzo generico|4|16777216|1024|134217728|
-|Utilizzo generico|8|16777216|1024|268435456|
-|Utilizzo generico|16|16777216|1024|536870912|
-|Utilizzo generico|32|16777216|1024|1073741824|
-|Utilizzo generico|64|16777216|1024|1073741824|
-|Con ottimizzazione per la memoria|2|16777216|1024|134217728|
-|Con ottimizzazione per la memoria|4|16777216|1024|268435456|
-|Con ottimizzazione per la memoria|8|16777216|1024|536870912|
-|Con ottimizzazione per la memoria|16|16777216|1024|1073741824|
-|Con ottimizzazione per la memoria|32|16777216|1024|1073741824|
-
-### <a name="time_zone"></a>time_zone
-
-Per popolare le tabelle di fuso orario, è possibile chiamare la stored procedure `mysql.az_load_timezone` da uno strumento come la riga di comando di MySQL o MySQL Workbench. Fare riferimento agli articoli sul [portale di Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) o l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) per le modalità in cui è possibile chiamare la stored procedure e impostare i fusi orari a livello globale o di sessione.
-
-### <a name="innodb_file_per_table"></a>innodb_file_per_table
-
-MySQL archivia la tabella InnoDB in spazi di tabella diversi in base alla configurazione specificata durante la creazione della tabella. Lo [spazio di tabella del sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) è l'area di archiviazione per il dizionario dei dati InnoDB. Uno [spazio di tabella di un file per tabella](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contiene dati e indici per una sola tabella InnoDB e viene archiviato nel file system del file di dati in uso. Questo comportamento è controllato dal server dei parametri `innodb_file_per_table`. Impostando `innodb_file_per_table` su `OFF` InnoDB crea tabelle nello spazio di tabella del sistema. Altrimenti, InnoDB crea tabelle in spazi di tabella di un file per tabella.
-
-Database di Azure per MySQL supporta al massimo **1 TB** in un unico file di dati. Se le dimensioni del database sono maggiori di 1 TB, è necessario creare la tabella nello spazio di tabella [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Se si dispone di una singola tabella di dimensioni superiori a 1 TB, è necessario usare la tabella di partizione.
+Al momento della distribuzione iniziale, un server Azure per MySQL include le tabelle di sistema per le informazioni sul fuso orario, ma queste tabelle non vengono popolate. Per popolare le tabelle di fuso orario, è possibile chiamare la stored procedure `mysql.az_load_timezone` da uno strumento come la riga di comando di MySQL o MySQL Workbench. Fare riferimento agli articoli sul [portale di Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) o l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) per le modalità in cui è possibile chiamare la stored procedure e impostare i fusi orari a livello globale o di sessione.
 
 ## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
 
@@ -179,6 +43,7 @@ Database di Azure per MySQL supporta al massimo **1 TB** in un unico file di dat
 - Ruolo DBA: molti parametri e impostazioni server possono accidentalmente influire in modo negativo sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Per mantenere quindi l'integrità del servizio e un contratto di servizio a livello di prodotto, il ruolo DBA non è esposto. L'account utente predefinito, costruito quando viene creata una nuova istanza di database, consente agli utenti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestita. 
 - Privilegi SUPER: in modo analogo, anche i [privilegi SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) presentano limitazioni.
 - DEFINER: Richiede privilegi avanzati per la creazione e presenta restrizioni. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
+
 
 ## <a name="data-manipulation-statement-support"></a>Supporto delle istruzioni di gestione dei dati
 

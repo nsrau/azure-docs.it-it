@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392234"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -146,7 +146,7 @@ Per usare le chiavi personali, ovvero gestite dal cliente, per crittografare l'i
 
 Per abilitare il provisioning di un'istanza di Cosmos DB nella sottoscrizione con le chiavi gestite dal cliente, eseguire le operazioni seguenti:
 
-* Registrare i provider di risorsa di Azure Machine Learning e Azure Cosmos DB nella sottoscrizione, se non è già stato fatto.
+* Registrare i provider di risorse Microsoft. MachineLearning e Microsoft.DocumentDB nella sottoscrizione, se non è già stato fatto.
 
 * Autorizzare l'app Machine Learning nella gestione delle identità e degli accessi con le autorizzazioni di collaboratore per la sottoscrizione.
 
@@ -176,6 +176,11 @@ Per altre informazioni sulle chiavi gestite dal cliente con Cosmos DB, vedere [C
 Tutte le immagini del contenitore presenti nel registro, ovvero nel Registro Azure Container, vengono crittografate quando inattive. Azure crittografa automaticamente un'immagine prima di archiviarla e la decrittografa quando Azure Machine Learning esegue il pull dell'immagine.
 
 Per usare chiavi personali, ovvero gestite dal cliente, per crittografare il Registro Azure Container, è necessario creare un Registro Azure Container personalizzato e collegarlo durante il provisioning dell'area di lavoro oppure crittografare l'istanza predefinita che viene creata al momento del provisioning dell'area di lavoro.
+
+> [!IMPORTANT]
+> Azure Machine Learning richiede l'abilitazione dell'account amministratore nella Container Registry di Azure. Per impostazione predefinita, questa impostazione è disabilitata quando si crea un registro contenitori. Per informazioni sull'abilitazione dell'account amministratore, vedere [account amministratore](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> Dopo aver creato un'istanza di Registro Azure Container per un'area di lavoro, non eliminarla. In caso contrario, l'area di lavoro di Azure Machine Learning verrà terminata.
 
 Per un esempio sulla creazione di un'area di lavoro con un Registro Azure Container esistente, vedere gli articoli seguenti:
 

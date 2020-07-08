@@ -3,12 +3,12 @@ title: Backup di condivisioni file di Azure con l'interfaccia della riga di coma
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per eseguire il backup di condivisioni file di Azure nell'insieme di credenziali
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee83d4df5a857f0ae5b554514ecda0c257a829ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844042"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391095"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Eseguire il backup delle condivisioni file di Azure con CLI
 
@@ -22,7 +22,7 @@ Al termine di questa esercitazione si apprenderà come eseguire le operazioni se
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Per installare e usare l'interfaccia della riga di comando in locale, è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.18 o versioni successive Per trovare la versione dell'interfaccia `run az --version`della riga di comando,. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Per installare e usare l'interfaccia della riga di comando in locale, è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.18 o versioni successive Per trovare la versione dell'interfaccia della riga di comando, `run az --version` . Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di servizi di ripristino
 
@@ -42,7 +42,7 @@ Per creare un insieme di credenziali di servizi di ripristino, seguire questa pr
     eastus      AzureFiles
     ```
 
-2. Usare il cmdlet [AZ backup Vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) per creare l'insieme di credenziali. Specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
+1. Usare il cmdlet [AZ backup Vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) per creare l'insieme di credenziali. Specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
 
     Nell'esempio seguente viene creato un insieme di credenziali di servizi di ripristino denominato *azurefilesvault* nell'area Stati Uniti orientali.
 
@@ -54,28 +54,6 @@ Per creare un insieme di credenziali di servizi di ripristino, seguire questa pr
     Location    Name                ResourceGroup
     ----------  ----------------    ---------------
     eastus      azurefilesvault     azurefiles
-    ```
-
-3. Specificare il tipo di ridondanza da usare per l'archiviazione dell'insieme di credenziali. È possibile usare l'[archiviazione con ridondanza locale](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) o l'[archiviazione con ridondanza geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-    L'esempio seguente imposta l'opzione di ridondanza di archiviazione per *azurefilesvault* su **georidondante** usando il cmdlet [AZ backup Vault backup-Properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) .
-
-    ```azurecli-interactive
-    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-    ```
-
-    Per verificare se l'insieme di credenziali è stato creato correttamente, è possibile usare il cmdlet [AZ backup Vault Show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) per ottenere i dettagli dell'insieme di credenziali. Nell'esempio seguente vengono visualizzati i dettagli della *azurefilesvault* creata nei passaggi precedenti.
-
-    ```azurecli-interactive
-    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-    ```
-
-    L'output sarà simile alla risposta seguente:
-
-    ```output
-    Location     Name               ResourceGroup
-    ----------   ---------------    ---------------
-    eastus       azurefilesvault    azurefiles
     ```
 
 ## <a name="enable-backup-for-azure-file-shares"></a>Abilitare il backup per le condivisioni file di Azure
@@ -108,7 +86,7 @@ Per attivare un backup su richiesta, è necessario definire i parametri seguenti
 * **--Item-Name** è il nome della condivisione file per cui si vuole attivare un backup su richiesta. Per recuperare il **nome** o il **nome descrittivo** dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 * **--Mantieni-fino** a quando non viene specificata la data fino a quando non si desidera mantenere il punto di ripristino. Il valore deve essere impostato in formato ora UTC (gg-mm-aaaa).
 
-Nell'esempio seguente viene attivato un backup su richiesta per la condivisione file *azuresfiles* nell'account di archiviazione *afsaccount* con conservazione fino al *20-01-2020*.
+Nell'esempio seguente viene attivato un backup su richiesta per la condivisione file *risorsa* nell'account di archiviazione *afsaccount* con conservazione fino al *20-01-2020*.
 
 ```azurecli-interactive
 az backup protection backup-now --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --retain-until 20-01-2020 --output table
@@ -125,4 +103,4 @@ L'attributo **Name** nell'output corrisponde al nome del processo creato dal ser
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come [ripristinare condivisioni file di Azure con l'interfaccia](restore-afs-cli.md) della riga di comando
-* Informazioni su come [gestire ackups di condivisione file di Azure con l'interfaccia della riga di](manage-afs-backup-cli.md) comando
+* Informazioni su come [gestire i backup di condivisione file di Azure con l'interfaccia della riga di](manage-afs-backup-cli.md) comando

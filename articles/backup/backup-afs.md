@@ -3,14 +3,14 @@ title: Eseguire il backup di condivisioni file di Azure nel portale di Azure
 description: Informazioni su come usare la portale di Azure per eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978029"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391155"
 ---
-# <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Backup di condivisioni file di Azure in un insieme di credenziali di servizi di ripristino
+# <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
 
 Questo articolo illustra come usare la portale di Azure per eseguire il backup delle [condivisioni file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -26,27 +26,6 @@ In questo articolo si apprenderà come:
 * Verificare che la condivisione file sia presente in uno dei [tipi di account di archiviazione supportati](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
-
-Per impostazione predefinita, gli insiemi di credenziali usano l' [archiviazione con ridondanza geografica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-* Se l'insieme di credenziali è il meccanismo di backup principale, si consiglia di usare GRS.
-* È possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) come opzione a basso costo.
-
-Per modificare il tipo di replica di archiviazione:
-
-1. Nel nuovo insieme di credenziali selezionare **Proprietà** nella sezione **Impostazioni** .
-
-1. Nella pagina **Proprietà** , in **configurazione backup**, selezionare **Aggiorna**.
-
-1. Selezionare il tipo di replica di archiviazione e selezionare **Salva**.
-
-    ![Aggiorna configurazione backup](./media/backup-afs/backup-configuration.png)
-
-> [!NOTE]
-> Non è possibile modificare il tipo di replica di archiviazione dopo che l'insieme di credenziali è stato configurato e contiene elementi di backup. Se si vuole eseguire questa operazione, è necessario creare nuovamente l'insieme di credenziali.
->
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Individuare le condivisioni file e configurare il backup
 
@@ -148,7 +127,7 @@ Occasionalmente, potrebbe essere necessario generare uno snapshot di backup o un
 
 1. Selezionare **OK** per confermare il processo di backup su richiesta che esegue.
 
-1. Monitorare le notifiche del portale per tenere traccia del completamento dell'esecuzione del processo di backup. È possibile monitorare lo stato di avanzamento del processo nel dashboard dell'insieme di credenziali. Selezionare i **processi** > **di backup in corso**.
+1. Monitorare le notifiche del portale per tenere traccia del completamento dell'esecuzione del processo di backup. È possibile monitorare lo stato di avanzamento del processo nel dashboard dell'insieme di credenziali. Selezionare i **processi**  >  **di backup in corso**.
 
 >[!NOTE]
 >Backup di Azure consente di bloccare l'account di archiviazione quando si configura la protezione per qualsiasi condivisione file nell'account corrispondente. In questo modo si garantisce la protezione dall'eliminazione accidentale di un account di archiviazione con condivisioni file sottoposte a backup.

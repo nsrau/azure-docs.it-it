@@ -8,29 +8,30 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: e39cef33d8d402b6e04c6b9952cae21848e02424
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 679f3113cddbfe13370483f2678154f4dd1f8ab2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392064"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
 
 > [!div class="op_single_selector"]
 >
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed di modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [SDK di feed di modifiche .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * Rest (/rest/api
+> * [Provider di risorse REST] (/rest/api
 > * [SQL](sql-api-query-reference.md)
-> * [Esecuzione bulk - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
@@ -47,11 +48,11 @@ ms.locfileid: "83660419"
 
 ### <a name="v2-builds"></a>Build della seconda versione
 
-### <a name="230"></a><a name="2.3.0"/>2.3.0
+### <a name="230"></a><a name="2.3.0"></a>2.3.0
 * Aggiunta di un nuovo metodo `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` e dell'interfaccia pubblica corrispondente `ICheckpointPartitionProcessorFactory`. In questo modo un'implementazione dell'interfaccia `IPartitionProcessor` può usare il meccanismo di checkpoint incorporato. La nuova factory è simile all'elemento `IPartitionProcessorFactory` esistente, con la differenza che il metodo `Create` accetta anche il parametro `ILeaseCheckpointer`.
 * Per la stessa istanza di `ChangeFeedProcessorBuilder` è possibile usare solo uno dei due metodi `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` e `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`.
 
-### <a name="228"></a><a name="2.2.8"/>2.2.8
+### <a name="228"></a><a name="2.2.8"></a>2.2.8
 * Miglioramenti apportati alla stabilità e alla diagnostica:
   * Aggiunta del supporto per rilevare operazioni di lettura del feed di modifiche che richiedono molto tempo. Quando il tempo richiesto è superiore a quello specificato dalla proprietà `ChangeFeedProcessorOptions.ChangeFeedTimeout`, vengono eseguiti i passaggi seguenti:
     * L'operazione di lettura del feed di modifiche nella partizione problematica viene interrotta.
@@ -60,56 +61,56 @@ ms.locfileid: "83660419"
   * Aggiunta di una nuova proprietà pubblica: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. Il valore predefinito di questa proprietà è 10 minuti.
   * Aggiunta di un nuovo valore di enumerazione pubblica: `Monitoring.MonitoredOperation.ReadChangeFeed`. Quando il valore di `HealthMonitoringRecord.Operation` è impostato su `Monitoring.MonitoredOperation.ReadChangeFeed`, il problema di integrità è correlato alla lettura del feed di modifiche.
 
-### <a name="227"></a><a name="2.2.7"/>2.2.7
+### <a name="227"></a><a name="2.2.7"></a>2.2.7
 * Miglioramento della strategia di bilanciamento del carico per uno scenario in cui il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
   * In questo scenario l'algoritmo di bilanciamento del carico usato considera erroneamente i lease come scaduti causando il furto dei lease dai proprietari attivi. Questa situazione potrebbe attivare il ribilanciamento superfluo di un numero elevato di lease.
   * Questo problema è stato risolto in questa versione, evitando nuovi tentativi in caso di conflitto durante l'acquisizione del lease scaduto che il proprietario non ha modificato e posticipando l'acquisizione del lease scaduto alla successiva iterazione del bilanciamento del carico.
 
-### <a name="226"></a><a name="2.2.6"/>2.2.6
+### <a name="226"></a><a name="2.2.6"></a>2.2.6
 * Gestione delle eccezioni di Observer migliorata.
 * Informazioni più dettagliate sugli errori di Observer:
   * Quando un'istanza di Observer viene chiusa a causa di un'eccezione generata da ProcessChangesAsync di Observer, CloseAsync riceverà il parametro del motivo impostato su ChangeFeedObserverCloseReason.ObserverError.
   * Sono state aggiunte funzionalità di analisi per identificare errori nel codice utente in un'istanza di Observer.
 
-### <a name="225"></a><a name="2.2.5"/>2.2.5
+### <a name="225"></a><a name="2.2.5"></a>2.2.5
 * Aggiunta del supporto per la gestione della suddivisione nelle raccolte che usano la velocità effettiva per database condivisi.
   * Questa versione corregge un problema che poteva verificarsi durante la suddivisione in raccolte che usano la velocità effettiva per database condivisi quando la suddivisione ha come risultato un nuovo bilanciamento delle partizioni e la creazione di un solo intervallo di chiavi di partizione figlio, anziché di due. Quando ciò si verifica, il processore dei feed di modifiche può rimanere bloccato durante l'eliminazione del lease per l'intervallo di chiavi di partizione precedente e non creare nuovi lease. Il problema è stato corretto in questa versione.
 
-### <a name="224"></a><a name="2.2.4"/>2.2.4
+### <a name="224"></a><a name="2.2.4"></a>2.2.4
 * Nuova proprietà aggiunta ChangeFeedProcessorOptions.StartContinuation per supportare l'avvio del feed di modifica dal token di continuazione della richiesta. Viene utilizzato solo quando la raccolta di lease è vuota o un lease non ha impostato ContinuationToken. Per i lease nella raccolta di lease con ContinuationToken impostato, viene usato ContinuationToken e viene ignorato ChangeFeedProcessorOptions.StartContinuation.
 
-### <a name="223"></a><a name="2.2.3"/>2.2.3
+### <a name="223"></a><a name="2.2.3"></a>2.2.3
 * Aggiunto il supporto per l'uso dell’archivio personalizzato per rendere persistenti i token di continuazione per ogni partizione.
   * Ad esempio, un archivio personalizzato lease può essere raccolta di lease Azure Cosmos DB partizionata in modo personalizzato.
   * Gli archivi di lease personalizzati possono utilizzare il nuovo punto di estensibilità ChangeFeedProcessorBuilder.WithLeaseStoreManager (ILeaseStoreManager) e l’interfaccia pubblica ILeaseStoreManager.
   * L'interfaccia di ILeaseManager è stata trasformata in interfacce di ruolo multiple.
 * Modifica di rilievo secondaria: rimosso il punto di estensibilità ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), viene utilizzato ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) al suo posto.
 
-### <a name="222"></a><a name="2.2.2"/>2.2.2
+### <a name="222"></a><a name="2.2.2"></a>2.2.2
 * Questa versione corregge un problema che si verifica durante l'elaborazione di una divisione nella raccolta monitorata e l'utilizzo di una raccolta di lease partizionata. Durante l'elaborazione di un lease per partizione divisa, il lease corrispondente a quella partizione non può essere eliminato. Il problema è stato corretto in questa versione.
 
-### <a name="221"></a><a name="2.2.1"/>2.2.1
+### <a name="221"></a><a name="2.2.1"></a>2.2.1
 * Correzione del calcolo di stima per gli account Multimaster e nuovo formato del Token di sessione.
 
-### <a name="220"></a><a name="2.2.0"/>2.2.0
+### <a name="220"></a><a name="2.2.0"></a>2.2.0
 * Aggiunta del supporto per le raccolte partizionate di lease. La chiave di partizione deve essere definita come /id.
 * Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzata che consente di offrire un'implementazione personalizzata del client di documenti da usare con il processore dei feed di modifiche, ad esempio, decorare DocumentClient e intercettare tutte le chiamate a esso per eseguire operazioni di analisi, gestione degli errori, e così via, extra. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato per includere i nuovi parametri nell'implementazione.
 * Miglioramenti della diagnostica secondari.
 
-### <a name="210"></a><a name="2.1.0"/>2.1.0
+### <a name="210"></a><a name="2.1.0"></a>2.1.0
 * È stata aggiunta una nuova API, Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(), utilizzabile per ottenere il lavoro stimato per ogni partizione.
 * Supporta Microsoft.Azure.DocumentDB SDK 2.0. Richiede Microsoft.Azure.DocumentDB 2.0 o versione successiva.
 
-### <a name="206"></a><a name="2.0.6"/>2.0.6
+### <a name="206"></a><a name="2.0.6"></a>2.0.6
 * È stata aggiunta la proprietà pubblica ChangeFeedEventHost.HostName per la compatibilità con la versione 1.
 
-### <a name="205"></a><a name="2.0.5"/>2.0.5
+### <a name="205"></a><a name="2.0.5"></a>2.0.5
 * È stata corretta una race condition che si verifica durante la suddivisione della partizione. Per effetto della race condition è possibile che il lease venga acquisito e immediatamente perso durante la suddivisione della partizione, provocando una contesa. Con questa versione il problema della race condition è stato risolto.
 
-### <a name="204"></a><a name="2.0.4"/>2.0.4
+### <a name="204"></a><a name="2.0.4"></a>2.0.4
 * SDK con disponibilità generale
 
-### <a name="203-prerelease"></a><a name="2.0.3-prerelease"/>Versione provvisoria 2.0.3
+### <a name="203-prerelease"></a><a name="2.0.3-prerelease"></a>Versione provvisoria 2.0.3
 * Sono stati corretti i problemi seguenti:
   * Quando si verifica la suddivisione della partizione, può verificarsi l'elaborazione duplicati dei documenti modificati prima della divisione.
   * L'API GetEstimatedRemainingWork ha restituito 0 se non era presente alcun lease nella raccolta di lease.
@@ -120,11 +121,11 @@ ms.locfileid: "83660419"
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
-### <a name="202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
+### <a name="202-prerelease"></a><a name="2.0.2-prerelease"></a>2.0.2-prerelease
 * Modifiche API secondarie:
   * Rimozione di ChangeFeedProcessorOptions.IsAutoCheckpointEnabled, contrassegnato come obsoleto.
 
-### <a name="201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+### <a name="201-prerelease"></a><a name="2.0.1-prerelease"></a>2.0.1-prerelease
 * Miglioramenti della stabilità:
   * Gestione migliorata dell'inizializzazione dell'archivio dei lease. Quando l'archivio dei lease è vuoto, solo un'istanza del processore può inizializzarlo, mentre le altre rimarranno in attesa.
   * Rilascio/rinnovo di un lease più stabile/efficiente. Il rinnovo e il rilascio di un lease con una partizione è indipendente dal rinnovo degli altri. Nella versione v1 questa operazione veniva eseguita in sequenza per tutte le partizioni.
@@ -145,33 +146,33 @@ ms.locfileid: "83660419"
 
 ### <a name="v1-builds"></a>Build della prima versione
 
-### <a name="133"></a><a name="1.3.3"/>1.3.3
+### <a name="133"></a><a name="1.3.3"></a>1.3.3
 * Aggiunta di maggiore registrazione.
 * Correzione di un problema DocumentClient quando si chiama più volte la stima del lavoro in sospeso.
 
-### <a name="132"></a><a name="1.3.2"/>1.3.2
+### <a name="132"></a><a name="1.3.2"></a>1.3.2
 * Correzioni per la stima del lavoro in sospeso.
 
-### <a name="131"></a><a name="1.3.1"/>1.3.1
+### <a name="131"></a><a name="1.3.1"></a>1.3.1
 * Miglioramenti della stabilità.
   * Correzione per la gestione del problema delle attività annullate che potrebbe comportare l'arresto degli osservatori in alcune partizioni.
 * Supporto per la creazione di checkpoint manuale.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 e versioni successive.
 
-### <a name="120"></a><a name="1.2.0"/>1.2.0
+### <a name="120"></a><a name="1.2.0"></a>1.2.0
 * Aggiunge il supporto per .NET Standard 2.0. Il pacchetto ora supporta i moniker framework `netstandard2.0` e `net451`.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 e versioni successive.
 * Compatibile con [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 e versioni successive.
 
-### <a name="111"></a><a name="1.1.1"/>1.1.1
+### <a name="111"></a><a name="1.1.1"></a>1.1.1
 * Correzione di un problema relativo al calcolo della stima del lavoro rimanente quando il feed di modifiche è vuoto o non ci sono lavori in sospeso.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 e versioni successive.
 
-### <a name="110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"></a>1.1.0
 * Aggiungere un metodo per ottenere una stima di quanto resta da elaborare nel feed di modifiche.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 e versioni successive.
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * SDK con disponibilità generale
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 e versioni precedenti.
 

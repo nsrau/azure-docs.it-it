@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9014d446b29b9a81a807c002cd7f83a2c3bdaa51
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413162"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
 
@@ -43,7 +43,7 @@ Un'area è un set di centri dati distribuiti in un perimetro definito dalla late
 
 Una zona di disponibilità è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center. I servizi con ridondanza della zona replicano le applicazioni e i dati tra aree di disponibilità per garantire la protezione da singoli punti di errore. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) descrive la disponibilità garantita di Azure nel suo complesso.
 
-Una zona di disponibilità in un'area di Azure è una combinazione di un dominio di errore e un dominio di aggiornamento. Ad esempio, se si creano tre o più macchine virtuali in tre aree in un'area di Azure, le macchine virtuali vengono distribuite in modo efficace in tre domini di errore e tre domini di aggiornamento. La piattaforma di Azure riconosce questa distribuzione in domini di aggiornamento per assicurarsi che le macchine virtuali in diverse aree non vengano aggiornate contemporaneamente.
+Una zona di disponibilità in un'area di Azure è una combinazione di un dominio di errore e un dominio di aggiornamento. Ad esempio, se si creano tre o più macchine virtuali in tre aree in un'area di Azure, le macchine virtuali vengono distribuite in modo efficace in tre domini di errore e tre domini di aggiornamento. La piattaforma Azure riconosce questa distribuzione tra i domini di aggiornamento per assicurarsi che le macchine virtuali in zone diverse non siano pianificate per l'aggiornamento nello stesso momento.
 
 È possibile configurare la disponibilità elevata nell'architettura delle applicazioni includendo le risorse di calcolo, archiviazione, rete e dati all'interno di una zona e replicandole in altre zone. I servizi di Azure che supportano le zone di disponibilità rientrano in due categorie:
 
@@ -78,7 +78,7 @@ Se un'offerta di servizio non è disponibile in un'area specifica, è possibile 
 
 | Tipo di area | Non a livello di area | Fondamentale | Mainstream | Specializzata | Zone di disponibilità | Residenza dei dati |
 | --- | --- | --- | --- | --- | --- | --- |
-| Consigliato | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | :heavy_check_mark: | :heavy_check_mark: |
+| Implementazione consigliata | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativo | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | Basata su richiesta | N/D | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>Servizi per categoria
@@ -119,7 +119,7 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Macchine virtuali: serie DSv3 | Azure Red Hat OpenShift | Ancoraggi nello spazio |
 > | Macchine virtuali: serie dv2 | Azure Site Recovery | StorSimple |
 > | Macchine virtuali: serie dv3 | Servizio cloud Spring di Azure | Video Indexer |
-> | Macchine virtuali: serie ESv3 | Hub Azure Stack | Macchine virtuali: A8-a11 (a elevato utilizzo di calcolo) |
+> | Macchine virtuali: serie ESv3 | Hub di Azure Stack | Macchine virtuali: A8-a11 (a elevato utilizzo di calcolo) |
 > | Macchine virtuali: serie EV3 | Analisi di flusso di Azure | Macchine virtuali: serie DASv4 |
 > | Macchine virtuali: serie F | Azure Synapse Analytics | Macchine virtuali: serie DAv4 |
 > | Macchine virtuali: serie FS | Servizio Azure SignalR | Macchine virtuali: serie DCsv2 |
@@ -166,7 +166,7 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 - [Bilanciare il carico delle macchine virtuali tra zone usando un servizio Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Bilanciare il carico delle macchine virtuali all'interno di una zona usando un servizio Load Balancer Standard con un front-end di zona](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md)
-- [Database SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Database SQL](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Ripristino di emergenza geografico di Hub eventi](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Ripristino di emergenza geografico del bus di servizio](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Creare un gateway di rete virtuale con ridondanza della zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
@@ -178,4 +178,4 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Aree che supportano zone di disponibilità in Azure](az-region.md)
-- [Modelli di Guida introduttiva](https://aka.ms/azqs)
+- [Modelli di avvio rapido](https://aka.ms/azqs)

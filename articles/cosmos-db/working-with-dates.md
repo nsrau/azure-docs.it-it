@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 174279e4bd241ee9b336fc1ce7e0af389d2297a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f31ee7f7d60a3bf0ab56b9ed8aa7fd25774e06c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85412550"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Uso delle date in Azure Cosmos DB
 
@@ -21,9 +21,9 @@ Oltre ai tipi di base, molte applicazioni hanno bisogno del tipo DateTime per ra
 
 ## <a name="storing-datetimes"></a>Archiviazione di valori DateTime
 
-Azure Cosmos DB supporta i tipi JSON, ad esempio-String, Number, Boolean, null, array, Object. Non supporta direttamente un tipo DateTime. Attualmente, Azure Cosmos DB non supporta la localizzazione delle date. Quindi, è necessario archiviare i valori DateTime come stringhe. Il formato consigliato per le stringhe DateTime in Azure Cosmos DB `YYYY-MM-DDThh:mm:ss.fffffffZ` è che segue lo standard ISO 8601 UTC. È consigliabile archiviare tutte le date nel Azure Cosmos DB come ora UTC. La conversione delle stringhe di data in questo formato consentirà di ordinare le date lessicografico. Se vengono archiviate date non UTC, la logica deve essere gestita sul lato client. Per convertire un valore DateTime locale nell'ora UTC, l'offset deve essere noto/archiviato come proprietà in JSON e il client può usare l'offset per calcolare il valore DateTime UTC.
+Azure Cosmos DB supporta i tipi JSON, ad esempio-String, Number, Boolean, null, array, Object. Non supporta direttamente un tipo DateTime. Attualmente, Azure Cosmos DB non supporta la localizzazione delle date. Quindi, è necessario archiviare i valori DateTime come stringhe. Il formato consigliato per le stringhe DateTime in Azure Cosmos DB è `yyyy-MM-ddTHH:mm:ss.fffffffZ` che segue lo standard ISO 8601 UTC. È consigliabile archiviare tutte le date nel Azure Cosmos DB come ora UTC. La conversione delle stringhe di data in questo formato consentirà di ordinare le date lessicografico. Se vengono archiviate date non UTC, la logica deve essere gestita sul lato client. Per convertire un valore DateTime locale nell'ora UTC, l'offset deve essere noto/archiviato come proprietà in JSON e il client può usare l'offset per calcolare il valore DateTime UTC.
 
-Le query di intervallo con stringhe DateTime come filtri sono supportate solo se le stringhe DateTime sono tutte in formato UTC e la stessa lunghezza. In Azure Cosmos DB la funzione di sistema [GetCurrentDateTime](sql-query-getcurrentdatetime.md) restituirà il valore della stringa ISO 8601 per la data e l'ora UTC corrente `YYYY-MM-DDThh:mm:ss.fffffffZ`nel formato:.
+Le query di intervallo con stringhe DateTime come filtri sono supportate solo se le stringhe DateTime sono tutte in formato UTC e la stessa lunghezza. In Azure Cosmos DB la funzione di sistema [GetCurrentDateTime](sql-query-getcurrentdatetime.md) restituirà il valore della stringa ISO 8601 per la data e l'ora UTC corrente nel formato: `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 La maggior parte delle applicazioni può usare la rappresentazione predefinita della stringa per il valore DateTime, per i motivi seguenti:
 

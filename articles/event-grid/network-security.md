@@ -5,31 +5,31 @@ services: event-grid
 author: VidyaKukke
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/25/2020
 ms.author: vkukke
-ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414250"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sicurezza di rete per le risorse di griglia di eventi di Azure
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con griglia di eventi di Azure: 
 
-- Tag del servizio per l'uscita (anteprima)
+- Tag di servizio per l'uscita
 - Regole del firewall IP per il traffico in ingresso (anteprima)
-- Endpoint privati per il traffico in ingresso (anteprima)
+- Endpoint privati per il traffico in ingresso
 
 
 ## <a name="service-tags"></a>Tag di servizio
-Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi, riducendo al minimo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
+Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
 
-È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi](../virtual-network/security-overview.md#security-rules) di sicurezza di rete o nel [firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **AzureEventGrid**) nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
+È possibile usare i tag del servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o in [Firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **AzureEventGrid**) nel *source*   campo di origine o di *destinazione*appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
 
-| Tag servizio | Scopo | È possibile usare in ingresso o in uscita? | Può essere regionale? | È possibile usare con il firewall di Azure? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Griglia di eventi di Azure. <br/><br/>*Nota:* Questo tag riguarda gli endpoint di griglia di eventi di Azure negli Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali 2 e Stati Uniti centrali. | Entrambe | No | No |
+| Tag di servizio | Scopo | È possibile usarlo in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
+| --- | -------- |:---:|:---:|:---:|
+| AzureEventGrid | Griglia di eventi di Azure. | Entrambe | No | No |
 
 
 ## <a name="ip-firewall"></a>Firewall IP 
@@ -37,6 +37,7 @@ Griglia di eventi di Azure supporta i controlli di accesso basati su IP per la p
 
 Per impostazione predefinita, l'argomento e il dominio sono accessibili da Internet, purché la richiesta venga fornita con autenticazione e autorizzazione valide. Con il firewall IP, è possibile limitarlo ulteriormente a un set di indirizzi IP o intervalli di indirizzi IP nella notazione [CIDR (instradamento tra domini senza classi)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Gli autori che hanno origine da altri indirizzi IP verranno rifiutati e riceveranno una risposta 403 (accesso negato).
 
+Per istruzioni dettagliate su come configurare il firewall IP per argomenti e domini, vedere Configurare il [firewall IP](configure-firewall.md).
 
 ## <a name="private-endpoints"></a>Endpoint privati
 È possibile usare [endpoint privati](../private-link/private-endpoint-overview.md) per consentire l'ingresso di eventi direttamente dalla rete virtuale agli argomenti e ai domini in modo sicuro tramite un [collegamento privato](../private-link/private-link-overview.md) senza passare attraverso la rete Internet pubblica. Un endpoint privato è un'interfaccia di rete speciale per un servizio di Azure nella VNet. Quando si crea un endpoint privato per l'argomento o il dominio, fornisce connettività sicura tra i client nella VNet e la risorsa di griglia di eventi. All'endpoint privato viene assegnato un indirizzo IP dall'intervallo di indirizzi IP della VNet. La connessione tra l'endpoint privato e il servizio griglia di eventi usa un collegamento privato protetto.
@@ -54,14 +55,14 @@ Quando si crea un endpoint privato per un argomento o un dominio nel VNet, viene
 I Publisher in una VNet che usa l'endpoint privato devono usare la stessa stringa di connessione per l'argomento o il dominio come client che si connettono all'endpoint pubblico. La risoluzione DNS instrada automaticamente le connessioni da VNet all'argomento o al dominio tramite un collegamento privato. Griglia di eventi crea una [zona DNS privata](../dns/private-dns-overview.md) collegata a VNet con l'aggiornamento necessario per gli endpoint privati, per impostazione predefinita. Tuttavia, se si usa il proprio server DNS, potrebbe essere necessario apportare altre modifiche alla configurazione DNS.
 
 ### <a name="dns-changes-for-private-endpoints"></a>Modifiche DNS per gli endpoint privati
-Quando si crea un endpoint privato, il record CNAME DNS per la risorsa viene aggiornato a un alias in un sottodominio con il prefisso `privatelink`. Per impostazione predefinita, viene creata una zona DNS privata che corrisponde al sottodominio del collegamento privato. 
+Quando si crea un endpoint privato, il record CNAME DNS per la risorsa viene aggiornato a un alias in un sottodominio con il prefisso `privatelink` . Per impostazione predefinita, viene creata una zona DNS privata che corrisponde al sottodominio del collegamento privato. 
 
 Quando si risolve l'argomento o l'URL dell'endpoint del dominio dall'esterno del VNet con l'endpoint privato, viene risolto nell'endpoint pubblico del servizio. I record di risorse DNS per ' topica ', quando risolti dall' **esterno del VNet** che ospita l'endpoint privato, saranno:
 
 | Nome                                          | Type      | valore                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Profilo di gestione traffico di Azure\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
 
 È possibile negare o controllare l'accesso per un client esterno a VNet tramite l'endpoint pubblico usando il [firewall IP](#ip-firewall). 
 
@@ -70,13 +71,13 @@ Quando viene risolto da VNet che ospita l'endpoint privato, l'argomento o l'URL 
 | Nome                                          | Type      | valore                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | Una          | 10.0.0.5
+| `topicA.westus.privatelink.eventgrid.azure.net` | Una         | 10.0.0.5
 
 Questo approccio consente di accedere all'argomento o al dominio usando la stessa stringa di connessione per i client in VNet che ospitano gli endpoint privati e i client esterni al VNet.
 
-Se si usa un server DNS personalizzato nella rete, i client possono risolvere l'FQDN per l'argomento o l'endpoint di dominio nell'indirizzo IP dell'endpoint privato. Configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet o configurare i record A `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` per con l'indirizzo IP dell'endpoint privato.
+Se si usa un server DNS personalizzato nella rete, i client possono risolvere l'FQDN per l'argomento o l'endpoint di dominio nell'indirizzo IP dell'endpoint privato. Configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet o configurare i record A per `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` con l'indirizzo IP dell'endpoint privato.
 
-Il nome della zona DNS consigliata è `privatelink.eventgrid.azure.net`.
+Il nome della zona DNS consigliata è `privatelink.eventgrid.azure.net` .
 
 ### <a name="private-endpoints-and-publishing"></a>Endpoint privati e pubblicazione
 
@@ -86,7 +87,7 @@ Nella tabella seguente vengono descritti i vari Stati della connessione all'endp
 | ------------------ | -------------------------------|
 | Approved           | Sì                            |
 | Rifiutato           | No                             |
-| Pending            | No                             |
+| In sospeso            | No                             |
 | Disconnesso       | No                             |
 
 Per la corretta pubblicazione, lo stato di connessione dell'endpoint privato deve essere **approvato**. Se una connessione viene rifiutata, non può essere approvata utilizzando la portale di Azure. L'unica possibilità consiste nell'eliminare la connessione e crearne una nuova.
@@ -100,3 +101,5 @@ La funzionalità **firewall IP** è disponibile nei livelli Basic e Premium di g
 È possibile configurare il firewall IP per la risorsa di griglia di eventi per limitare l'accesso tramite la rete Internet pubblica solo da un set di indirizzi IP o intervalli di indirizzi IP selezionati. Per istruzioni dettagliate, vedere [configurare il firewall IP](configure-firewall.md).
 
 È possibile configurare endpoint privati per limitare l'accesso solo da reti virtuali selezionate. Per istruzioni dettagliate, vedere [configurare endpoint privati](configure-private-endpoints.md).
+
+Per risolvere i problemi di connettività di rete, vedere [risolvere i problemi di connettività di rete](troubleshoot-network-connectivity.md)
