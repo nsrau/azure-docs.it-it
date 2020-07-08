@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261070"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Modelli di espressione di binding di funzioni di Azure
 
@@ -20,7 +20,7 @@ Quasi tutte le espressioni sono identificate tramite la disposizione del testo t
 
 Tipi di espressioni di associazione
 
-* [Impostazioni delle app](#binding-expressions---app-settings)
+* [Impostazioni app](#binding-expressions---app-settings)
 * [Nome file del trigger](#trigger-file-name)
 * [Metadati dei trigger](#trigger-metadata)
 * [Payload JSON](#json-payloads)
@@ -37,7 +37,8 @@ Le espressioni di associazione gestite tramite le impostazioni dell'app vengono 
 
 Quando una funzione è in esecuzione a livello locale, i valori delle impostazioni dell'app vengono ricavati dal file *local.settings.json*.
 
-Si noti che la proprietà `connection` dei trigger e delle associazioni è un caso speciale e risolve automaticamente i valori come impostazioni dell'app senza segni di percentuale. 
+> [!NOTE]
+> La `connection` proprietà di trigger e associazioni è un caso speciale e risolve automaticamente i valori come impostazioni dell'app, senza segni di percentuale. 
 
 L'esempio seguente è un trigger di archiviazione code di Azure che usa un'impostazione dell'app `%input-queue-name%` per definire la coda di trigger.
 

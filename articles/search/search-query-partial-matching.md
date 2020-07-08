@@ -7,44 +7,47 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 06/23/2020
+ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260985"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Ricerca dei termini parziali e modelli con caratteri speciali (carattere jolly, Regex, Patterns)
 
-Una *ricerca con termini parziali* si riferisce a query costituite da frammenti di termini, in cui invece di un termine intero può essere presente solo l'inizio, il centro o la fine del termine (talvolta definito query di prefisso, infisso o suffisso). Un *modello* potrebbe essere una combinazione di frammenti, spesso con caratteri speciali, ad esempio trattini o barre, che fanno parte della stringa di query. Casi d'uso comuni includono l'esecuzione di query per parti di un numero di telefono, URL, persone o codici prodotto o parole composte.
+Una *ricerca con termini parziali* si riferisce a query costituite da frammenti di termini, in cui invece di un termine intero può essere presente solo l'inizio, il centro o la fine del termine (talvolta definito query di prefisso, infisso o suffisso). Una ricerca con termini parziali può includere una combinazione di frammenti, spesso con caratteri speciali, ad esempio trattini o barre che fanno parte della stringa di query. Casi d'uso comuni includono parti di un numero di telefono, un URL, codici o parole composte con trattino.
 
-La ricerca parziale e dei criteri può essere problematica se l'indice non presenta termini nel formato previsto. Durante la [fase di analisi lessicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) dell'indicizzazione (presupponendo l'analizzatore standard predefinito), i caratteri speciali vengono ignorati, le stringhe composite e compound sono suddivise e lo spazio vuoto viene eliminato. tutti i quali possono causare errori nelle query del modello quando non viene trovata alcuna corrispondenza. Ad esempio, un numero di telefono `+1 (425) 703-6214` come (in formato `"1"`token `"425"`, `"703"`, `"6214"`,) non verrà visualizzato in `"3-62"` una query perché tale contenuto non esiste effettivamente nell'indice. 
+La ricerca a termini parziali e le stringhe di query che includono caratteri speciali possono essere problematiche se l'indice non ha token nel formato previsto. Durante la [fase di analisi lessicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) dell'indicizzazione (presupponendo l'analizzatore standard predefinito), i caratteri speciali vengono ignorati, le parole composte vengono suddivise e lo spazio vuoto viene eliminato. che può causare l'esito negativo delle query quando non viene trovata alcuna corrispondenza. Ad esempio, un numero di telefono come `+1 (425) 703-6214` (in formato token `"1"` , `"425"` , `"703"` , `"6214"` ) non verrà visualizzato in una `"3-62"` query perché tale contenuto non esiste effettivamente nell'indice. 
 
-La soluzione consiste nel richiamare un analizzatore che conserva una stringa completa, inclusi spazi e caratteri speciali, se necessario, in modo che sia possibile trovare una corrispondenza con termini e modelli parziali. La creazione di un campo aggiuntivo per una stringa intatta, più l'uso di un analizzatore che conserva il contenuto, costituisce la base della soluzione.
+La soluzione consiste nel richiamare un analizzatore durante l'indicizzazione che conserva una stringa completa, inclusi spazi e caratteri speciali, se necessario, in modo che sia possibile includere gli spazi e i caratteri nella stringa di query. Analogamente, la presenza di una stringa completa non in formato token in parti più piccole consente la corrispondenza dei criteri per le query "inizia con" o "termina con", in cui il criterio fornito può essere valutato in base a un termine non trasformato dall'analisi lessicale. La creazione di un campo aggiuntivo per una stringa intatta, oltre a usare un analizzatore di mantenimento del contenuto che emette token a lungo termine, è la soluzione per la corrispondenza dei modelli e per la corrispondenza con stringhe di query che includono caratteri speciali.
 
 > [!TIP]
-> Familiarità con le API REST e REST? [Scaricare la raccolta degli esempi di query](https://github.com/Azure-Samples/azure-search-postman-samples/) per eseguire una query su termini parziali e caratteri speciali descritti in questo articolo.
+> Se si ha familiarità con le API postazione e REST, [scaricare la raccolta degli esempi di query](https://github.com/Azure-Samples/azure-search-postman-samples/) per eseguire una query su termini parziali e caratteri speciali descritti in questo articolo.
 
-## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Che cos'è la ricerca parziale in Azure ricerca cognitiva
+## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Che cos'è la ricerca a termini parziali in Azure ricerca cognitiva
 
-In ricerca cognitiva di Azure, la ricerca parziale e il modello sono disponibili nei seguenti formati:
+Azure ricerca cognitiva analizza tutti i termini in formato token nell'indice e non trova una corrispondenza in un termine parziale a meno che non si includano operatori di segnaposto con caratteri jolly ( `*` e `?` ) oppure si formatti la query come espressione regolare. I termini parziali vengono specificati utilizzando le tecniche seguenti:
 
-+ [Ricerca di prefisso](query-simple-syntax.md#prefix-search), ad `search=cap*`esempio, che corrisponde a "Cap ' s Waterfront Inn" o "GACC Capital". È possibile usare la sintassi di query semplice o la sintassi di query Lucene completa per la ricerca di prefisso.
++ Le [query di espressioni regolari](query-lucene-syntax.md#bkmk_regex) possono essere qualsiasi espressione regolare valida in Apache Lucene. 
 
-+ [Ricerca con caratteri jolly](query-lucene-syntax.md#bkmk_wildcard) o [espressioni regolari](query-lucene-syntax.md#bkmk_regex) per la ricerca di un modello o di parti di una stringa incorporata. Il carattere jolly e le espressioni regolari richiedono la sintassi Lucene completa. Le query sui suffissi e sugli indici vengono formulate come espressione regolare.
++ [Gli operatori con caratteri jolly con corrispondenza dei prefissi](query-simple-syntax.md#prefix-search) fanno riferimento a un modello generalmente riconosciuto che include l'inizio di un termine, seguito da `*` `?` operatori di suffisso o, come la `search=cap*` corrispondenza in "Cap ' s Waterfront Inn" o "GACC Capital". La corrispondenza con prefisso è supportata nella sintassi di query Lucene semplice e completa.
 
-  Di seguito sono riportati alcuni esempi di ricerca con termini parziali. Per una query di suffisso, dato il termine "alfanumerico", è necessario usare una`search=/.*numeric.*/`ricerca con caratteri jolly () per trovare una corrispondenza. Per un termine parziale che include caratteri interni, ad esempio un frammento di URL, potrebbe essere necessario aggiungere caratteri di escape. In JSON, una barra `/` è preceduta da un carattere di escape `\`con una barra rovesciata. Di conseguenza, `search=/.*microsoft.com\/azure\/.*/` è la sintassi per il frammento di URL "Microsoft.com/Azure/".
++ Il [carattere jolly con corrispondenza degli infissi e dei suffissi](query-lucene-syntax.md#bkmk_wildcard) posiziona gli `*` `?` operatori e all'interno o all'inizio di un termine e richiede la sintassi delle espressioni regolari (in cui l'espressione è racchiusa tra barre). Ad esempio, la stringa di query ( `search=/.*numeric*./` ) restituisce i risultati su "alfanumerico" e "alfanumerico" come suffissi e corrispondenze infissi.
 
-Come indicato, per tutti i precedenti è necessario che l'indice contenga stringhe in un formato propizio ai criteri di ricerca, che non sono disponibili nell'analizzatore standard. Seguendo i passaggi descritti in questo articolo, è possibile verificare che il contenuto necessario esista per supportare questi scenari.
+Per i termini parziali o i criteri di ricerca e alcuni altri moduli di query come la ricerca fuzzy, gli analizzatori non vengono usati in fase di query. Per questi moduli di query, che il parser rileva dalla presenza di operatori e delimitatori, la stringa di query viene passata al motore senza analisi lessicale. Per questi moduli di query, l'analizzatore specificato nel campo viene ignorato.
+
+> [!NOTE]
+> Quando una stringa di query parziale include caratteri, ad esempio le barre in un frammento di URL, potrebbe essere necessario aggiungere caratteri di escape. In JSON, una barra è preceduta da un carattere di `/` escape con una barra rovesciata `\` . Di conseguenza, `search=/.*microsoft.com\/azure\/.*/` è la sintassi per il frammento di URL "Microsoft.com/Azure/".
 
 ## <a name="solving-partialpattern-search-problems"></a>Risoluzione dei problemi di ricerca parziali/criteri
 
-Quando è necessario eseguire la ricerca su frammenti o modelli o caratteri speciali, è possibile eseguire l'override dell'analizzatore predefinito con un analizzatore personalizzato che opera con regole di token più semplici, mantenendo l'intera stringa. Eseguendo un nuovo passaggio, l'approccio è simile al seguente:
+Quando è necessario eseguire la ricerca su frammenti o modelli o caratteri speciali, è possibile eseguire l'override dell'analizzatore predefinito con un analizzatore personalizzato che opera con regole di token più semplici, mantenendo l'intera stringa nell'indice. Eseguendo un nuovo passaggio, l'approccio è simile al seguente:
 
-+ Definire un campo per archiviare una versione intatta della stringa (presupponendo che si desideri analizzare e testo non analizzato)
-+ Scegliere un analizzatore predefinito o definire un analizzatore personalizzato per restituire una stringa intatta non analizzata
-+ Assegnare l'analizzatore personalizzato al campo
++ Definire un campo per archiviare una versione intatta della stringa (presupponendo che il testo analizzato e non analizzato venga utilizzato in fase di query)
++ Valutare e scegliere tra i vari analizzatori che emettono token al livello di granularità corretto
++ Assegnare l'analizzatore al campo
 + Compilare e testare l'indice
 
 > [!TIP]
@@ -52,7 +55,7 @@ Quando è necessario eseguire la ricerca su frammenti o modelli o caratteri spec
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Campi duplicati per diversi scenari
 
-Gli analizzatori vengono assegnati in base ai singoli campi, il che significa che è possibile creare campi nell'indice per ottimizzare scenari diversi. In particolare, è possibile definire "featureCode" e "featureCodeRegex" per supportare la ricerca full-text regolare sul primo e il criterio avanzato corrispondente nel secondo.
+Gli analizzatori determinano il modo in cui i termini sono in formato token in un indice. Poiché gli analizzatori vengono assegnati in base ai singoli campi, è possibile creare campi nell'indice per ottimizzarli per diversi scenari. Ad esempio, è possibile definire "featureCode" e "featureCodeRegex" per supportare la ricerca full-text regolare sul primo e i criteri di ricerca avanzati nel secondo. Gli analizzatori assegnati a ogni campo determinano il modo in cui il contenuto di ogni campo viene suddiviso in token nell'indice.  
 
 ```json
 {
@@ -75,18 +78,18 @@ Gli analizzatori vengono assegnati in base ai singoli campi, il che significa ch
 
 Quando si sceglie un analizzatore che produce token a lungo termine, gli analizzatori seguenti sono opzioni comuni:
 
-| Analizzatore | Comportamenti |
+| Analizzatore | comportamenti |
 |----------|-----------|
 | [analizzatori del linguaggio](index-add-language-analyzers.md) | Conserva i trattini in parole o stringhe composte, mutazioni vocali e forme verbo. Se i modelli di query includono trattini, potrebbe essere sufficiente utilizzare un analizzatore di linguaggio. |
 | [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Il contenuto dell'intero campo viene suddiviso in token come un singolo termine. |
-| [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa solo gli spazi vuoti. I termini che includono trattini o altri caratteri vengono considerati come un singolo token. |
+| [Whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa solo gli spazi vuoti. I termini che includono trattini o altri caratteri vengono considerati come un singolo token. |
 | [analizzatore personalizzato](index-add-custom-analyzers.md) | consigliabile La creazione di un analizzatore personalizzato consente di specificare il filtro Tokenizer e token. Gli analizzatori precedenti devono essere usati così come sono. Un analizzatore personalizzato consente di selezionare i filtri Tokenizer e token da usare. <br><br>Una combinazione consigliata è la [parola chiave Tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) con un [filtro token in minuscolo](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). Di per sé, l' [analizzatore di parole chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinito non esegue la riduzione del testo maiuscolo e minuscolo, che può causare errori nelle query. Un analizzatore personalizzato fornisce un meccanismo per l'aggiunta del filtro del token in minuscolo. |
 
 Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiungere la [chiamata Rest dell'analizzatore test](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) per esaminare l'output in formato token.
 
-È necessario disporre di un indice esistente da usare. Dato un indice esistente e un campo contenente trattini o termini parziali, è possibile provare diversi analizzatori su termini specifici per visualizzare i token emessi.  
+È necessario disporre di un indice popolato da usare. Dato un indice esistente e un campo contenente trattini o termini parziali, è possibile provare diversi analizzatori su termini specifici per visualizzare i token emessi.  
 
-1. Controllare l'analizzatore standard per verificare il modo in cui i termini sono suddivisi in token per impostazione predefinita.
+1. Prima di tutto, controllare l'analizzatore standard per vedere come vengono suddivisi in token i termini per impostazione predefinita.
 
    ```json
    {
@@ -95,7 +98,7 @@ Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiu
    }
     ```
 
-1. Valutare la risposta per vedere come il testo viene suddiviso in token all'interno dell'indice. Si noti il modo in cui ogni termine viene suddiviso in lettere maiuscole e minuscole.
+1. Valutare la risposta per vedere come il testo viene suddiviso in token all'interno dell'indice. Si noti il modo in cui ogni termine viene suddiviso in lettere maiuscole e minuscole. Solo le query che corrispondono a questi token restituiranno questo documento nei risultati. Una query che include "10-NOR" avrà esito negativo.
 
     ```json
     {
@@ -121,7 +124,7 @@ Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiu
         ]
     }
     ```
-1. Modificare la richiesta di utilizzo dell' `whitespace` analizzatore o `keyword` :
+1. Modificare ora la richiesta di utilizzo dell' `whitespace` `keyword` analizzatore o:
 
     ```json
     {
@@ -130,7 +133,7 @@ Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiu
     }
     ```
 
-1. A questo punto la risposta è costituita da un singolo token, in maiuscolo, con trattini conservati come parte della stringa. Se è necessario eseguire una ricerca in base a un modello o a un termine parziale, il motore di query ha ora la base per trovare una corrispondenza.
+1. A questo punto la risposta è costituita da un singolo token, in maiuscolo, con trattini conservati come parte della stringa. Se è necessario eseguire una ricerca in base a un modello o a un termine parziale, ad esempio "10-NOR", il motore di query ha ora la base per trovare una corrispondenza.
 
 
     ```json
@@ -147,7 +150,7 @@ Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiu
     }
     ```
 > [!Important]
-> Tenere presente che i parser di query spesso sono minuscoli in un'espressione di ricerca durante la compilazione dell'albero della query. Questo potrebbe essere il motivo per cui si usa un analizzatore che non consente l'immissione di testo in lettere minuscole e non si ricevono risultati previsti. La soluzione consiste nell'aggiungere un filtro token in minuscolo, come descritto nella sezione "usare gli analizzatori personalizzati" di seguito.
+> Tenere presente che i parser di query spesso sono minuscoli in un'espressione di ricerca durante la compilazione dell'albero della query. Questo potrebbe essere il motivo per cui si usa un analizzatore che non inserisce input di testo in lettere minuscole durante l'indicizzazione e non si ricevono risultati previsti. La soluzione consiste nell'aggiungere un filtro token in minuscolo, come descritto nella sezione "usare gli analizzatori personalizzati" di seguito.
 
 ## <a name="configure-an-analyzer"></a>Configurare un analizzatore
  
@@ -211,7 +214,7 @@ Nell'esempio seguente viene illustrato un analizzatore personalizzato che fornis
 ```
 
 > [!NOTE]
-> Il `keyword_v2` Tokenizer e `lowercase` il filtro token sono noti al sistema e usano le configurazioni predefinite, motivo per cui è possibile fare riferimento a essi in base al nome senza doverli definire prima.
+> Il `keyword_v2` Tokenizer e il `lowercase` filtro token sono noti al sistema e usano le configurazioni predefinite, motivo per cui è possibile fare riferimento a essi in base al nome senza doverli definire prima.
 
 ## <a name="build-and-test"></a>Compilare e testare
 
@@ -229,17 +232,17 @@ Nella sezione precedente è stata illustrata la logica. Questa sezione illustra 
 
 + Nei [documenti di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) viene illustrato come creare una richiesta di query, utilizzando una sintassi [semplice](query-simple-syntax.md) o una [sintassi Lucene completa](query-lucene-syntax.md) per le espressioni regolari e con caratteri jolly.
 
-  Per le query a termini parziali, ad esempio l'esecuzione di query su "3-6214" per trovare una corrispondenza in "+ 1 (425) 703-6214", è `search=3-6214&queryType=simple`possibile usare la sintassi semplice:.
+  Per le query a termini parziali, ad esempio l'esecuzione di query su "3-6214" per trovare una corrispondenza in "+ 1 (425) 703-6214", è possibile usare la sintassi semplice: `search=3-6214&queryType=simple` .
 
   Per le query infissi e dei suffissi, ad esempio l'esecuzione di query su "num" o "NUMERIC" per trovare una corrispondenza in "alfanumerico", usare la sintassi Lucene completa e un'espressione regolare:`search=/.*num.*/&queryType=full`
 
-## <a name="tips-and-best-practices"></a>Suggerimenti e procedure consigliate
-
-### <a name="tune-query-performance"></a>Ottimizzare le prestazioni delle query
+## <a name="tune-query-performance"></a>Ottimizzare le prestazioni delle query
 
 Se si implementa la configurazione consigliata che include il keyword_v2 Tokenizer e il filtro dei token in minuscolo, è possibile notare una riduzione delle prestazioni delle query a causa dell'elaborazione di un filtro token aggiuntivo per i token esistenti nell'indice. 
 
-Nell'esempio seguente viene aggiunto un [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) per fare in modo che il prefisso corrisponda più velocemente. Vengono generati token aggiuntivi per le combinazioni di caratteri 2-25 che includono i caratteri: (non solo MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). Come si può immaginare, l'ulteriore tokening genera un indice più grande.
+Nell'esempio seguente viene aggiunto un [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) per fare in modo che il prefisso corrisponda più velocemente. Vengono generati token aggiuntivi per le combinazioni di caratteri 2-25 che includono i caratteri: (non solo MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). 
+
+Come si può immaginare, l'ulteriore tokening genera un indice più grande. Se si dispone di capacità sufficiente per contenere l'indice più ampio, questo approccio con il tempo di risposta più veloce potrebbe essere una soluzione migliore.
 
 ```json
 {
@@ -276,20 +279,6 @@ Nell'esempio seguente viene aggiunto un [EdgeNGramTokenFilter](https://lucene.ap
   "side": "front"
   }
 ]
-```
-
-### <a name="use-different-analyzers-for-indexing-and-query-processing"></a>Usare analizzatori diversi per l'indicizzazione e l'elaborazione delle query
-
-Gli analizzatori vengono chiamati durante l'indicizzazione e durante l'esecuzione delle query. È comune usare lo stesso analizzatore per entrambi, ma è possibile configurare analizzatori personalizzati per ogni carico di lavoro. Gli override dell'analizzatore sono specificati nella [definizione](https://docs.microsoft.com/rest/api/searchservice/create-index) dell' `analyzers` indice in una sezione e quindi fanno riferimento a campi specifici. 
-
-Quando l'analisi personalizzata è necessaria solo durante l'indicizzazione, è possibile applicare l'analizzatore personalizzato alla semplice indicizzazione e continuare a usare l'analizzatore Lucene standard (o un altro analizzatore) per le query.
-
-Per specificare l'analisi specifica del ruolo, è possibile impostare le proprietà del campo per ciascuna di esse `indexAnalyzer` , `searchAnalyzer` impostando e invece `analyzer` della proprietà predefinita.
-
-```json
-"name": "featureCode",
-"indexAnalyzer":"my_customanalyzer",
-"searchAnalyzer":"standard",
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

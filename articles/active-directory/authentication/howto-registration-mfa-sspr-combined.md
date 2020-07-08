@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40266f1b340ebe0ab665c576ff3be0e62ba7c705
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 7feb69b2ea53794b780a983ed8ab4ba5874ac022
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260849"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Abilitare la registrazione delle informazioni di sicurezza combinate in Azure Active Directory
 
@@ -49,6 +49,9 @@ Se è stato configurato l'elenco di assegnazione da sito a zona in Internet Expl
 
 È ora possibile proteggere i tempi e il modo in cui gli utenti eseguono la registrazione per Azure Multi-Factor Authentication e per la reimpostazione della password self-service con le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità è disponibile per le organizzazioni che hanno abilitato la [funzionalità di registrazione combinata](../authentication/concept-registration-mfa-sspr-combined.md). Questa funzionalità può essere abilitata nelle organizzazioni in cui si vuole che gli utenti si registrino per Azure Multi-Factor Authentication e per la reimpostazione della password self-service da una posizione centrale, ad esempio un percorso di rete attendibile durante l'onboarding delle risorse umane.
 
+> [!NOTE]
+> Questo criterio si applica solo quando un utente accede a una pagina di registrazione combinata. Questo criterio non impone la registrazione dell'autenticazione a più fattori quando un utente accede ad altre applicazioni. È possibile creare criteri di registrazione dell'autenticazione a più fattori usando [Azure Identity Protection: configurare i criteri](../identity-protection/howto-identity-protection-configure-mfa-policy.md)di autenticazione a più fattori.
+
 Per altre informazioni sulla creazione di percorsi attendibili nell'accesso condizionale, vedere l'articolo [Condizione relativa alla posizione nell'accesso condizionale di Azure Active Directory](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Creare criteri per richiedere la registrazione da un percorso attendibile
@@ -69,7 +72,7 @@ I criteri seguenti si applicano a tutti gli utenti selezionati che tentano di es
 
 1. In **Condizioni** > **Posizioni** configurare le opzioni seguenti:
    1. Configurare **Sì**.
-   1. Includere **qualsiasi posizione**.
+   1. Includere **Tutte le località**.
    1. Escludere**tutti i percorsi attendibili**.
 1. Selezionare **Fatto** nella finestra *Posizioni*, quindi selezionare **Fatto** nella finestra *Condizioni*.
 1. In **Controlli di accesso** > **Concedi** selezionare **Blocca accesso**, quindi **Seleziona**.

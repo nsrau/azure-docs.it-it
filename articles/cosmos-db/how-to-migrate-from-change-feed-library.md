@@ -3,15 +3,15 @@ title: Eseguire la migrazione dalla libreria del processore dei feed delle modif
 description: Informazioni su come eseguire la migrazione dell'applicazione usando la libreria del processore dei feed delle modifiche in Azure Cosmos DB SDK V3
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9570a8512e3437b12ecce2ef0c708a74a8806482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261410"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Eseguire la migrazione dalla libreria del processore dei feed delle modifiche al Azure Cosmos DB .NET V3 SDK
 
@@ -22,9 +22,9 @@ Questo articolo descrive i passaggi necessari per eseguire la migrazione del cod
 .NET V3 SDK presenta diverse modifiche di rilievo. di seguito sono riportati i passaggi principali per eseguire la migrazione dell'applicazione:
 
 1. Convertire le `DocumentCollectionInfo` istanze in `Container` riferimenti per i contenitori monitorati e lease.
-1. Le personalizzazioni che `WithProcessorOptions` usano devono essere aggiornate per `WithLeaseConfiguration` usare `WithPollInterval` e per gli `WithStartTime` intervalli, per l'ora `WithMaxItems` di [inizio](how-to-configure-change-feed-start-time.md)e per definire il numero massimo di elementi.
-1. Impostare `processorName` on `GetChangeFeedProcessorBuilder` in modo che corrisponda al valore `ChangeFeedProcessorOptions.LeasePrefix`configurato in oppure `string.Empty` utilizzare in caso contrario.
-1. Poiché le modifiche non vengono più recapitate come `IReadOnlyList<Document>`, invece, si `IReadOnlyCollection<T>` tratta `T` di un tipo in cui è necessario definire, non esiste più una classe di elementi di base.
+1. Le personalizzazioni che usano `WithProcessorOptions` devono essere aggiornate per usare `WithLeaseConfiguration` e `WithPollInterval` per gli intervalli, `WithStartTime` [per l'ora di inizio](how-to-configure-change-feed-start-time.md)e `WithMaxItems` per definire il numero massimo di elementi.
+1. Impostare `processorName` on `GetChangeFeedProcessorBuilder` in modo che corrisponda al valore configurato in `ChangeFeedProcessorOptions.LeasePrefix` oppure utilizzare `string.Empty` in caso contrario.
+1. Poiché le modifiche non vengono più recapitate come `IReadOnlyList<Document>` , invece, si tratta di un `IReadOnlyCollection<T>` `T` tipo in cui è necessario definire, non esiste più una classe di elementi di base.
 1. Per gestire le modifiche, non è più necessaria un'implementazione, bensì è necessario [definire un delegato](change-feed-processor.md#implementing-the-change-feed-processor). Il delegato può essere una funzione statica o, se è necessario mantenere lo stato tra le esecuzioni, è possibile creare una classe personalizzata e passare un metodo di istanza come delegato.
 
 Se, ad esempio, il codice originale per compilare il processore del feed delle modifiche è simile al seguente:
@@ -62,5 +62,5 @@ Il processore di feed di modifiche di SDK V3 rileverà qualsiasi stato della lib
 È ora possibile procedere ad acquisire altre informazioni sul processore di feed di modifiche negli articoli seguenti:
 
 * [Panoramica del processore di feed di modifiche](change-feed-processor.md)
-* [Uso dello strumento di stima dei feed di modifiche](how-to-use-change-feed-estimator.md)
-* [Ora di avvio del processore dei feed di modifiche](how-to-configure-change-feed-start-time.md)
+* [Uso dello strumento di stima di feed di modifiche](how-to-use-change-feed-estimator.md)
+* [Ora di avvio del processore di feed di modifiche](how-to-configure-change-feed-start-time.md)

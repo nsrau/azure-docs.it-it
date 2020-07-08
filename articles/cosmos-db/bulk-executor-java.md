@@ -5,22 +5,22 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/28/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260594"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
 In questa esercitazione vengono fornite istruzioni sull'utilizzo della libreria Java bulk Executor Azure Cosmos DB per importare e aggiornare Azure Cosmos DB documenti. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione viene compilata un'applicazione Java che genera documenti casuali e viene eseguita l'importazione bulk in un contenitore di Azure Cosmos. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
 
-Attualmente, la libreria dell'executor bulk è supportata solo dagli account Azure Cosmos DB API SQL e Gremlin. Questo articolo descrive come usare la libreria Java dell'executor bulk con gli account API SQL. Per informazioni sull'uso della libreria .NET dell'executor bulk con l'API Gremlin, vedere [Eseguire operazioni bulk nell'API Gremlin di Azure Cosmos DB](bulk-executor-graph-dotnet.md).
+Attualmente, la libreria dell'executor bulk è supportata solo dagli account Azure Cosmos DB API SQL e Gremlin. Questo articolo descrive come usare la libreria Java dell'executor bulk con gli account API SQL. Per informazioni sull'uso della libreria .NET dell'executor bulk con l'API Gremlin, vedere [Eseguire operazioni bulk nell'API Gremlin di Azure Cosmos DB](bulk-executor-graph-dotnet.md). La libreria di esecutori bulk descritta è disponibile solo per la [Azure Cosmos DB Java Sync SDK v2](sql-api-sdk-java.md) ed è la soluzione consigliata corrente per il supporto per operazioni bulk Java. Attualmente non è disponibile per le versioni 3. x, 4. x o altre versioni successive dell'SDK.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -118,8 +118,8 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    |int getNumberOfDocumentsImported()  |   Il numero totale di documenti importati correttamente rispetto ai documenti forniti alla chiamata API di importazione in blocco.      |
    |double getTotalRequestUnitsConsumed()   |  Le unità richiesta (UR) totali usate dalla chiamata API di importazione in blocco.       |
    |Duration getTotalTimeTaken()   |    Il tempo totale impiegato dalla chiamata API di importazione in blocco per completare l'esecuzione.     |
-   |Elenco\<eccezioni> GetErrors () |  L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di importazione in blocco non vengono inseriti.       |
-   |Oggetto\<list> getBadInputDocuments ()  |    L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.     |
+   |List\<Exception> getErrors() |  L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di importazione in blocco non vengono inseriti.       |
+   |List\<Object> getBadInputDocuments()  |    L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.     |
 
 5. Dopo avere preparato l'applicazione di importazione in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 
@@ -182,7 +182,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    |int getNumberOfDocumentsUpdated()  |   Il numero totale di documenti aggiornati correttamente rispetto ai documenti forniti alla chiamata API di aggiornamento in blocco.      |
    |double getTotalRequestUnitsConsumed() |  Le unità richiesta (UR) totali usate dalla chiamata API di aggiornamento in blocco.       |
    |Duration getTotalTimeTaken()  |   Il tempo totale impiegato dalla chiamata API di aggiornamento in blocco per completare l'esecuzione.      |
-   |Elenco\<eccezioni> GetErrors ()   |       L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di aggiornamento in blocco non vengono inseriti.      |
+   |List\<Exception> getErrors()   |       L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di aggiornamento in blocco non vengono inseriti.      |
 
 3. Dopo avere preparato l'applicazione di aggiornamento in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 

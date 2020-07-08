@@ -3,15 +3,15 @@ title: Eseguire query sui contenitori in Azure Cosmos DB
 description: Informazioni su come eseguire query sui contenitori in Azure Cosmos DB usando query in-Partition e tra partizioni
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 299980b67caaea85fbfb40cb1a30ee50fa32d0f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261257"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Eseguire una query su un contenitore in Azure Cosmos
 
@@ -21,13 +21,13 @@ Questo articolo illustra come eseguire una query su un contenitore (raccolta, gr
 
 Quando si esegue una query sui dati dei contenitori, se per la query è stato specificato un filtro della chiave di partizione, Azure Cosmos DB ottimizza automaticamente la query. Instrada la query alle [partizioni fisiche](partition-data.md#physical-partitions) corrispondenti ai valori della chiave di partizione specificati nel filtro.
 
-Si consideri, ad esempio, la query seguente con `DeviceId`un filtro di uguaglianza su. Se si esegue questa query su un contenitore partizionato in `DeviceId`, questa query verrà filtrata in un'unica partizione fisica.
+Si consideri, ad esempio, la query seguente con un filtro di uguaglianza su `DeviceId` . Se si esegue questa query su un contenitore partizionato in `DeviceId` , questa query verrà filtrata in un'unica partizione fisica.
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
-Come per l'esempio precedente, la query verrà filtrata anche in una singola partizione. L'aggiunta del filtro aggiuntivo `Location` in non cambia:
+Come per l'esempio precedente, la query verrà filtrata anche in una singola partizione. L'aggiunta del filtro aggiuntivo in `Location` non cambia:
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
@@ -41,7 +41,7 @@ Di seguito è illustrata una query con un filtro di intervallo sulla chiave di p
 
 ## <a name="cross-partition-query"></a>Query tra partizioni
 
-La query seguente non dispone di un filtro per la chiave di`DeviceId`partizione (). Pertanto, è necessario che la ventola venga eseguita su tutte le partizioni fisiche in cui viene eseguita sull'indice di ogni partizione:
+La query seguente non dispone di un filtro per la chiave di partizione ( `DeviceId` ). Pertanto, è necessario che la ventola venga eseguita su tutte le partizioni fisiche in cui viene eseguita sull'indice di ogni partizione:
 
 ```sql
     SELECT * FROM c WHERE c.Location = 'Seattle`
@@ -57,7 +57,7 @@ Le versioni degli SDK di Azure Cosmos DB 1.9.0 e successive supportano le opzion
 
 È possibile gestire l'esecuzione di query in parallelo, ottimizzando i parametri seguenti:
 
-- **MaxConcurrency**: imposta il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questa proprietà su `-1`, l'SDK gestisce il grado di parallelismo. Se `MaxConcurrency` impostato su `0`, esiste una singola connessione di rete alle partizioni del contenitore.
+- **MaxConcurrency**: imposta il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questa proprietà su `-1` , l'SDK gestisce il grado di parallelismo. Se  `MaxConcurrency` impostato su `0` , esiste una singola connessione di rete alle partizioni del contenitore.
 
 - **MaxBufferedItemCount**: bilancia la latenza delle query rispetto all'utilizzo della memoria sul lato client. Se questa opzione viene omessa o è impostata su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
@@ -103,5 +103,5 @@ Se il carico di lavoro soddisfa i criteri indicati di seguito, provare a evitare
 
 Vedere gli articoli seguenti per altre informazioni sul partizionamento in Azure Cosmos DB:
 
-- [Partizionamento in Azure Cosmos DB](partitioning-overview.md)
+- [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partizionamento in Azure Cosmos DB)
 - [Chiavi di partizione sintetiche in Azure Cosmos DB](synthetic-partition-keys.md)

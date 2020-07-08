@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/23/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: d594d5a9dd263817023d2b5987c03aa50828191c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261189"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Aree supportate per l'area di lavoro Log Analytics collegata
 
@@ -30,23 +30,25 @@ La tabella seguente mostra i mapping supportati:
 |**Stati Uniti**||
 |EastUS<sup>1</sup>|EastUS2|
 |Stati Uniti occidentali 2|Stati Uniti occidentali 2|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestCentralUS|WestCentralUS|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
 |**Asia Pacifico**||
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
+|ChinaEast2<sup>2</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europa**||
 |UKSouth|UKSouth|
 |Europa occidentale|Europa occidentale|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
+|USGovArizona<sup>2</sup>|USGovArizona|
 
 <sup>1</sup> Il mapping di EastUS per le aree di lavoro Log Analytics agli account di Automazione non è un mapping esatto da area a area, ma è il mapping corretto.
 
-<sup>2</sup> A causa dei vincoli di capacità, l'area non è disponibile quando si creano nuove risorse. Sono inclusi gli account di Automazione e le aree di lavoro Log Analytics. Tuttavia, le risorse collegate preesistenti nell'area dovrebbero continuare a funzionare.
+<sup>2</sup> in quest'area è supportata solo gestione aggiornamenti e altre funzionalità come rilevamento modifiche e inventario non sono disponibili in questo momento.
 
 ## <a name="unlink-a-workspace"></a>Scollegare un'area di lavoro
 

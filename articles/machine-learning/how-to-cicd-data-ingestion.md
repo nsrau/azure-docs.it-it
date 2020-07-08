@@ -1,54 +1,76 @@
 ---
 title: DevOps per una pipeline di inserimento dati
 titleSuffix: Azure Machine Learning
-description: Informazioni su come applicare le procedure DevOps a un'implementazione della pipeline di inserimento dati usata per preparare i dati per un training del modello.
+description: Informazioni su come applicare le procedure DevOps per creare una pipeline di inserimento dati usata per preparare i dati da usare con Azure Machine Learning. La pipeline di inserimento USA Azure Data Factory e Azure Databricks. Una pipeline di Azure viene usata per creare un processo di integrazione e recapito continuo per la pipeline di inserimento.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
-ms.date: 01/30/2020
-ms.openlocfilehash: d987171d41bd6d80bab4cce91ef9ecec1f0dc7a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.custom: tracking-python
+ms.openlocfilehash: db263150905e59993a875df2f30fcebb8ca8087a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247181"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261495"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps per una pipeline di inserimento dati
 
-Nella maggior parte degli scenari, una soluzione di inserimento dei dati è una composizione di script, chiamate di servizi e una pipeline che orchestra tutte le attività. Questo articolo illustra come applicare le procedure DevOps al ciclo di vita di sviluppo di una pipeline di inserimento dati comune. La pipeline prepara i dati per il training del modello di Machine Learning.
+Nella maggior parte degli scenari, una soluzione di inserimento dei dati è una composizione di script, chiamate di servizi e una pipeline che orchestra tutte le attività. Questo articolo illustra come applicare le procedure DevOps al ciclo di vita di sviluppo di una pipeline di inserimento dati comune che prepara i dati per il training del modello di machine learning. La pipeline viene creata usando i servizi di Azure seguenti:
 
-## <a name="the-solution"></a>Soluzione
+* __Azure Data Factory__: legge i dati non elaborati e orchestra la preparazione dei dati.
+* __Azure Databricks__: esegue un notebook di Python che trasforma i dati.
+* __Azure Pipelines__: automatizza un processo di integrazione e sviluppo continuo.
 
-Considerare il flusso di lavoro di inserimento dei dati seguente:
+## <a name="data-ingestion-pipeline-workflow"></a>Flusso di lavoro della pipeline di inserimento dati
 
-![acquisizione dati-pipeline](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
+La pipeline di inserimento dei dati implementa il flusso di lavoro seguente:
 
-Con questo approccio, i dati di training vengono archiviati in un archivio BLOB di Azure. Una pipeline Azure Data Factory recupera i dati da un contenitore BLOB di input, li trasforma e li salva nel contenitore BLOB di output. Questo contenitore funge da [archivio dati](concept-data.md) per il servizio Azure Machine Learning. Con la preparazione dei dati, la pipeline Data Factory richiama una pipeline di training Machine Learning per eseguire il training di un modello. In questo esempio specifico la trasformazione dei dati viene eseguita da un notebook di Python, in esecuzione in un cluster Azure Databricks. 
+1. I dati non elaborati vengono letti in una pipeline Azure Data Factory (ADF).
+1. La pipeline di ADF invia i dati a un cluster Azure Databricks, che esegue un notebook di Python per trasformare i dati.
+1. I dati vengono archiviati in un contenitore BLOB, dove possono essere usati da Azure Machine Learning per eseguire il training di un modello.
 
-## <a name="what-we-are-building"></a>Cosa si sta compilando
+![flusso di lavoro della pipeline di inserimento dati](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
 
-Come per qualsiasi soluzione software, c'è un team (ad esempio, gli ingegneri dei dati) a cui si sta lavorando. 
+## <a name="continuous-integration-and-delivery-overview"></a>Panoramica dell'integrazione e del recapito continuo
 
-![CICD-inserimento dati](media/how-to-cicd-data-ingestion/cicd-data-ingestion.png)
+Come per molte soluzioni software, c'è un team (ad esempio, gli ingegneri dei dati) a cui si sta lavorando. Collaborano e condividono le stesse risorse di Azure, ad esempio Azure Data Factory, Azure Databricks e gli account di archiviazione di Azure. La raccolta di queste risorse è un ambiente di sviluppo. Gli ingegneri dei dati contribuiscono alla stessa base di codice sorgente.
 
-Collaborano e condividono le stesse risorse di Azure, ad esempio Azure Data Factory, Azure Databricks, account di archiviazione di Azure e così. La raccolta di queste risorse è un ambiente di sviluppo. Gli ingegneri dei dati contribuiscono alla stessa base di codice sorgente. Il processo di integrazione continua assembla il codice, lo controlla con i test della qualità del codice, gli unit test e produce artefatti quali codice testato e modelli di Azure Resource Manager. Il processo di recapito continuo distribuisce gli elementi negli ambienti downstream. Questo articolo illustra come automatizzare i processi CI e CD con [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/).
+Un sistema di integrazione e recapito continuo automatizza il processo di compilazione, test e distribuzione della soluzione. Il processo di integrazione continua (CI) esegue le attività seguenti:
+
+* Assembla il codice
+* Verifica con i test di qualità del codice
+* Esegue unit test
+* Produce elementi quali codice testato e modelli di Azure Resource Manager
+
+Il processo di recapito continuo (CD) distribuisce gli artefatti negli ambienti downstream.
+
+![diagramma di inserimento dati CICD](media/how-to-cicd-data-ingestion/cicd-data-ingestion.png)
+
+Questo articolo illustra come automatizzare i processi CI e CD con [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/).
 
 ## <a name="source-control-management"></a>Gestione del controllo del codice sorgente
 
-I membri del team lavorano in modi leggermente diversi per collaborare sul codice sorgente del notebook Python e sul codice sorgente Azure Data Factory. In entrambi i casi, tuttavia, il codice viene archiviato in un repository del controllo del codice sorgente (ad esempio, Azure DevOps, GitHub, GitLab) e la collaborazione è in genere basata su un modello di branching, ad esempio [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html).
+La gestione del controllo del codice sorgente è necessaria per rilevare le modifiche e consentire la collaborazione tra i membri del team.
+Ad esempio, il codice verrebbe archiviato in un repository Azure DevOps, GitHub o GitLab. Il flusso di lavoro di collaborazione si basa su un modello di branching. Ad esempio, [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html).
 
 ### <a name="python-notebook-source-code"></a>Codice sorgente del notebook Python
 
-Gli ingegneri dei dati lavorano con il codice sorgente del notebook Python localmente in un IDE (ad esempio, [Visual Studio Code](https://code.visualstudio.com)) o direttamente nell'area di lavoro databricks. Quest'ultimo fornisce la possibilità di eseguire il debug del codice sull'ambiente di sviluppo. In ogni caso, il codice verrà unito al repository dopo un criterio di diramazione. È consigliabile archiviare il codice nei `.py` file anziché nel `.ipynb` formato Jupyter notebook. Migliora la leggibilità del codice e Abilita i controlli della qualità del codice automatici nel processo CI.
+Gli ingegneri dei dati lavorano con il codice sorgente del notebook Python localmente in un IDE (ad esempio, [Visual Studio Code](https://code.visualstudio.com)) o direttamente nell'area di lavoro databricks. Una volta completate le modifiche al codice, queste vengono unite al repository dopo un criterio di diramazione.
+
+> [!TIP] 
+> È consigliabile archiviare il codice nei `.py` file anziché nel `.ipynb` formato Jupyter notebook. Migliora la leggibilità del codice e Abilita i controlli della qualità del codice automatici nel processo CI.
 
 ### <a name="azure-data-factory-source-code"></a>Codice sorgente Azure Data Factory
 
-Il codice sorgente di Azure Data Factory pipeline è una raccolta di file JSON generati da un'area di lavoro. In genere, gli ingegneri dei dati lavorano con una finestra di progettazione visiva nell'area di lavoro Azure Data Factory invece che direttamente con i file del codice sorgente. Configurare l'area di lavoro con un repository del controllo del codice sorgente come descritto nella [documentazione di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control#author-with-azure-repos-git-integration). Con questa configurazione, gli ingegneri dei dati possono collaborare sul codice sorgente seguendo un flusso di lavoro di diramazione preferito.    
+Il codice sorgente di Azure Data Factory pipeline è una raccolta di file JSON generati da un'area di lavoro di Azure Data Factory. In genere, gli ingegneri dei dati lavorano con una finestra di progettazione visiva nell'area di lavoro Azure Data Factory invece che direttamente con i file del codice sorgente. 
+
+Per configurare l'area di lavoro per l'uso di un repository del controllo del codice sorgente, vedere [Author with Azure Repos git Integration](../data-factory/source-control.md#author-with-azure-repos-git-integration).   
 
 ## <a name="continuous-integration-ci"></a>Integrazione continua (CI)
 
@@ -84,21 +106,25 @@ steps:
 
 - publish: $(Build.SourcesDirectory)
     artifact: di-notebooks
-
 ```
 
-La pipeline USA ***flake8*** per eseguire il codice Python. Esegue gli unit test definiti nel codice sorgente e pubblica i risultati del test e della lanugine in modo che siano disponibili nella schermata di esecuzione della pipeline di Azure:
+La pipeline USA [flake8](https://pypi.org/project/flake8/) per eseguire il codice Python. Esegue gli unit test definiti nel codice sorgente e pubblica i risultati del test e della lanugine in modo che siano disponibili nella schermata di esecuzione della pipeline di Azure:
 
-![pelucchi-unit test](media/how-to-cicd-data-ingestion/linting-unit-tests.png)
+![unit test di pelucchi](media/how-to-cicd-data-ingestion/linting-unit-tests.png)
 
 Se le operazioni di inserimento e testing unità hanno esito positivo, la pipeline copierà il codice sorgente nel repository di elementi che verrà usato dai passaggi di distribuzione successivi.
 
 ### <a name="azure-data-factory-ci"></a>CI Azure Data Factory
 
-Il processo CI per una pipeline di Azure Data Factory è un collo di bottiglia nell'intera storia CI/CD per una pipeline di inserimento dati. Non esiste alcuna integrazione ***continua*** . Un artefatto distribuibile per Azure Data Factory è una raccolta di modelli Azure Resource Manager. L'unico modo per produrre tali modelli consiste nel fare clic sul pulsante ***pubblica*** nell'area di lavoro Azure Data Factory. Non è disponibile alcuna automazione.
-Gli ingegneri dei dati uniscono il codice sorgente dai rispettivi rami delle funzionalità nel ramo di collaborazione, ad esempio ***Master*** o ***develop***. Un utente con le autorizzazioni concesse fa quindi clic sul pulsante ***pubblica*** per generare Azure Resource Manager modelli dal codice sorgente nel ramo collaborazione. Quando si fa clic sul pulsante, l'area di lavoro convalida le pipeline (considerarlo come una raccolta di dati e unit test), genera Azure Resource Manager modelli (si può pensare alla compilazione) e salva i modelli generati in un ramo tecnico ***adf_publish*** nello stesso repository di codice, come si può pensare alla pubblicazione di elementi. Questo ramo viene creato automaticamente dall'area di lavoro Azure Data Factory. Questo processo è descritto in dettaglio nella [documentazione di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment).
+Il processo CI per una pipeline di Azure Data Factory è un collo di bottiglia per una pipeline di inserimento dati. Non esiste alcuna integrazione continua. Un artefatto distribuibile per Azure Data Factory è una raccolta di modelli Azure Resource Manager. L'unico modo per produrre tali modelli consiste nel fare clic sul pulsante ***pubblica*** nell'area di lavoro Azure Data Factory.
 
-È importante assicurarsi che i modelli di Azure Resource Manager generati siano indipendenti dall'ambiente. Ciò significa che tutti i valori che possono variare tra gli ambienti sono con parametri. Il Azure Data Factory è sufficientemente intelligente da esporre la maggior parte di tali valori come parametri. Nel modello seguente, ad esempio, le proprietà di connessione a un'area di lavoro Azure Machine Learning vengono esposte come parametri:
+1. Gli ingegneri dei dati uniscono il codice sorgente dai rispettivi rami delle funzionalità nel ramo di collaborazione, ad esempio ***Master*** o ***develop***. 
+1. Un utente con le autorizzazioni concesse fa clic sul pulsante ***pubblica*** per generare modelli di Azure Resource Manager dal codice sorgente nel ramo collaborazione. 
+1. L'area di lavoro convalida le pipeline (considerarlo come una raccolta di dati e un testing unità), genera modelli di Azure Resource Manager (considerarlo come di compilazione) e salva i modelli generati in un ramo tecnico ***adf_publish*** nello stesso repository di codice (considerarlo come una pubblicazione di elementi). Questo ramo viene creato automaticamente dall'area di lavoro Azure Data Factory. 
+
+Per ulteriori informazioni su questo processo, vedere [integrazione continua e recapito in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment).
+
+È importante assicurarsi che i modelli di Azure Resource Manager generati siano indipendenti dall'ambiente. Ciò significa che tutti i valori che possono variare tra gli ambienti sono con parametri. Azure Data Factory è sufficientemente intelligente da esporre la maggior parte di tali valori come parametri. Nel modello seguente, ad esempio, le proprietà di connessione a un'area di lavoro Azure Machine Learning vengono esposte come parametri:
 
 ```json
 {
@@ -148,7 +174,7 @@ Le attività della pipeline possono fare riferimento alle variabili della pipeli
 
 ![ADF-notebook-Parameters](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
-Per impostazione predefinita, l'area di lavoro Azure Data Factory ***non*** espone le variabili della pipeline come Azure Resource Manager parametri dei modelli L'area di lavoro utilizza il [modello di parametrizzazione predefinito](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) che determina quali proprietà della pipeline devono essere esposte come Azure Resource Manager parametri di modello. Per aggiungere le variabili della pipeline all'elenco, aggiornare la sezione "Microsoft. DataFactory/Factory/Pipelines" del modello di [parametrizzazione predefinito](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) con il frammento di codice seguente e inserire il file JSON risultante nella radice della cartella di origine:
+Per impostazione predefinita, l'area di lavoro Azure Data Factory ***non*** espone le variabili della pipeline come Azure Resource Manager parametri dei modelli L'area di lavoro utilizza il [modello di parametrizzazione predefinito](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) che determina quali proprietà della pipeline devono essere esposte come Azure Resource Manager parametri di modello. Per aggiungere variabili della pipeline all'elenco, aggiornare la `"Microsoft.DataFactory/factories/pipelines"` sezione del [modello di parametrizzazione predefinito](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) con il frammento di codice seguente e inserire il file JSON dei risultati nella radice della cartella di origine:
 
 ```json
 "Microsoft.DataFactory/factories/pipelines": {
@@ -184,7 +210,10 @@ I valori nel file JSON sono valori predefiniti configurati nella definizione del
 
 ## <a name="continuous-delivery-cd"></a>Recapito continuo (CD)
 
-Il processo di recapito continuo acquisisce gli artefatti e li distribuisce nel primo ambiente di destinazione. Consente di verificare il funzionamento della soluzione eseguendo i test. Se ha esito positivo, continua con l'ambiente successivo. La pipeline di Azure CD è costituita da più fasi che rappresentano gli ambienti. Ogni fase contiene le [distribuzioni](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) e i [processi](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) che eseguono i passaggi seguenti:
+Il processo di recapito continuo acquisisce gli artefatti e li distribuisce nel primo ambiente di destinazione. Consente di verificare il funzionamento della soluzione eseguendo i test. Se ha esito positivo, continua con l'ambiente successivo. 
+
+La pipeline di Azure CD è costituita da più fasi che rappresentano gli ambienti. Ogni fase contiene le [distribuzioni](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) e i [processi](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) che eseguono i passaggi seguenti:
+
 * Distribuire un notebook Python nell'area di lavoro Azure Databricks
 * Distribuire una pipeline Azure Data Factory 
 * Eseguire la pipeline
@@ -230,12 +259,13 @@ Il frammento di codice seguente definisce una [distribuzione](https://docs.micro
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-Gli artefatti prodotti da CI vengono copiati automaticamente nell'agente di distribuzione e sono disponibili nella cartella ***$ (pipeline. Workspace)*** . In questo caso, l'attività di distribuzione si riferisce all'artefatto dei notebook che contiene il notebook ***di*** Python. Questa [distribuzione](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) usa l' [estensione databricks di Azure DevOps](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) per copiare i file del notebook nell'area di lavoro di databricks.
-La fase ***Deploy_to_QA*** contiene un riferimento al gruppo di variabili ***DevOps-DS-QA-VG*** definito nel progetto DevOps di Azure. I passaggi in questa fase si riferiscono alle variabili di questo gruppo di variabili (ad esempio, $ (DATABRICKS_URL), $ (DATABRICKS_TOKEN)). Il concetto è che la fase successiva, ad esempio ***Deploy_to_UAT***, opererà con gli stessi nomi di variabile definiti nel proprio gruppo di variabili con ambito UAT.
+Gli artefatti prodotti da CI vengono copiati automaticamente nell'agente di distribuzione e sono disponibili nella `$(Pipeline.Workspace)` cartella. In questo caso, l'attività di distribuzione fa riferimento all' `di-notebooks` artefatto che contiene il notebook di Python. Questa [distribuzione](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) usa l' [estensione databricks di Azure DevOps](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) per copiare i file del notebook nell'area di lavoro di databricks.
+
+La `Deploy_to_QA` fase contiene un riferimento al `devops-ds-qa-vg` gruppo di variabili definito nel progetto DevOps di Azure. I passaggi in questa fase si riferiscono alle variabili di questo gruppo di variabili (ad esempio `$(DATABRICKS_URL)` e `$(DATABRICKS_TOKEN)` ). Il concetto è che la fase successiva, ad esempio, funzionerà `Deploy_to_UAT` con gli stessi nomi di variabile definiti nel proprio gruppo di variabili con ambito UAT.
 
 ### <a name="deploy-an-azure-data-factory-pipeline"></a>Distribuire una pipeline Azure Data Factory
 
-Un elemento distribuibile per Azure Data Factory è un modello di Azure Resource Manager. Quindi, verrà distribuito con l'attività di distribuzione del ***gruppo di risorse di Azure*** , come illustrato nel frammento di codice seguente:
+Un elemento distribuibile per Azure Data Factory è un modello di Azure Resource Manager. Verrà distribuito con l'attività di distribuzione del ***gruppo di risorse di Azure*** , come illustrato nel frammento di codice seguente:
 
 ```yaml
   - deployment: "Deploy_to_ADF"
@@ -256,11 +286,11 @@ Un elemento distribuibile per Azure Data Factory è un modello di Azure Resource
                 csmParametersFile: '$(Pipeline.Workspace)/adf-pipelines/ARMTemplateParametersForFactory.json'
                 overrideParameters: -data-ingestion-pipeline_properties_variables_data_file_name_defaultValue "$(DATA_FILE_NAME)"
 ```
-Il valore del parametro data filename deriva dalla variabile $ (DATA_FILE_NAME) definita in un gruppo di variabili della fase QA. Analogamente, è possibile eseguire l'override di tutti i parametri definiti in ***ARMTemplateForFactory. JSON*** . In caso contrario, vengono utilizzati i valori predefiniti.
+Il valore del parametro data filename deriva dalla `$(DATA_FILE_NAME)` variabile definita in un gruppo di variabili della fase QA. Analogamente, è possibile eseguire l'override di tutti i parametri definiti in ***ARMTemplateForFactory.json*** . In caso contrario, vengono utilizzati i valori predefiniti.
 
 ### <a name="run-the-pipeline-and-check-the-data-ingestion-result"></a>Eseguire la pipeline e verificare il risultato dell'inserimento dei dati
 
-Il passaggio successivo consiste nel verificare che la soluzione distribuita sia funzionante. La definizione di processo seguente esegue una pipeline di Azure Data Factory con uno [script di PowerShell](https://github.com/microsoft/DataOps/tree/master/adf/utils) ed esegue un notebook di Python in un cluster Azure Databricks. Il notebook controlla se i dati sono stati inseriti correttamente e convalida il file di dati dei risultati con il nome $ (bin_FILE_NAME).
+Il passaggio successivo consiste nel verificare che la soluzione distribuita sia funzionante. La definizione di processo seguente esegue una pipeline di Azure Data Factory con uno [script di PowerShell](https://github.com/microsoft/DataOps/tree/master/adf/utils) ed esegue un notebook di Python in un cluster Azure Databricks. Il notebook controlla se i dati sono stati inseriti correttamente e convalida il file di dati dei risultati con `$(bin_FILE_NAME)` nome.
 
 ```yaml
   - job: "Integration_test_job"
@@ -305,7 +335,7 @@ L'attività finale del processo controlla il risultato dell'esecuzione del noteb
 
 ## <a name="putting-pieces-together"></a>Unire le parti
 
-Il risultato di questo articolo è una pipeline di Azure CI/CD costituita dalle seguenti fasi:
+La pipeline completa di Azure CI/CD è costituita dalle seguenti fasi:
 * CI
 * Distribuisci in QA
     * Distribuisci in databricks + Distribuisci in ADF

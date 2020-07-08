@@ -3,15 +3,16 @@ title: Definire chiavi univoche per un contenitore di Azure Cosmos
 description: Informazioni su come definire chiavi univoche per un contenitore di Azure Cosmos usando portale di Azure, PowerShell, .NET, Java e diversi altri SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: af68d733dfb0e0d1c257c8db03656112eec7381b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: 056cd77104fe73f19588f3d13e11dc06fd93c3f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261546"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definire chiavi univoche per un contenitore di Azure Cosmos
 
@@ -33,7 +34,7 @@ Questo articolo presenta i diversi modi per definire [chiavi univoche](unique-ke
 
 1. Se necessario, aggiungere altre voci di chiave univoca facendo clic su **+ Aggiungi chiave univoca**
 
-    ![Screenshot di voce del vincolo della chiave univoca nel portale di Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Screenshot di voce del vincolo della chiave univoca nel portale di Azure":::
 
 ## <a name="use-powershell"></a>Usare PowerShell
 

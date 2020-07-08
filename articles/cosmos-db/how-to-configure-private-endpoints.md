@@ -3,15 +3,15 @@ title: Configurare il collegamento privato di Azure per un account Azure Cosmos
 description: Informazioni su come configurare il collegamento privato di Azure per accedere a un account Azure Cosmos usando un indirizzo IP privato in una rete virtuale.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/14/2020
+ms.topic: how-to
+ms.date: 06/11/2020
 ms.author: thweiss
-ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261631"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurare il collegamento privato di Azure per un account Azure Cosmos
 
@@ -31,7 +31,7 @@ Usare la procedura seguente per creare un endpoint privato per un account Azure 
 
 1. Selezionare **Connessioni a endpoint privato** dall'elenco delle impostazioni e quindi selezionare **Endpoint privato**:
 
-   ![Selezioni per la creazione di un endpoint privato nel portale di Azure](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+   :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Selezioni per la creazione di un endpoint privato nel portale di Azure":::
 
 1. Nel riquadro **Crea un endpoint privato - Generale** immettere o selezionare i dettagli seguenti:
 
@@ -94,7 +94,7 @@ Dopo aver eseguito il provisioning dell'endpoint privato, è possibile eseguire 
 1. Cercare l'endpoint privato creato in precedenza. In questo caso, si tratta di **cdbPrivateEndpoint3**.
 1. Selezionare la scheda **Panoramica** per visualizzare le impostazioni DNS e gli indirizzi IP.
 
-![Indirizzi IP privati nel portale di Azure](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Indirizzi IP privati nel portale di Azure":::
 
 Per ogni endpoint privato vengono creati più indirizzi IP:
 
@@ -407,7 +407,7 @@ Per questi account, è necessario creare un endpoint privato per ogni tipo di AP
 
 Al termine della distribuzione del modello, è possibile visualizzare un output simile a quello illustrato nell'immagine seguente. Il valore `provisioningState` è `Succeeded` se gli endpoint privati sono configurati correttamente.
 
-![Output della distribuzione per il modello di Resource Manager](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Output della distribuzione per il modello di Resource Manager":::
 
 Dopo aver distribuito il modello, gli indirizzi IP privati vengono riservati all'interno della subnet. La regola del firewall dell'account Azure Cosmos è configurata per accettare solo connessioni dall'endpoint privato.
 
@@ -618,13 +618,19 @@ Quando si usa il collegamento privato in combinazione con le regole del firewall
 
 * Se non si configura alcuna regola del firewall, per impostazione predefinita tutto il traffico può accedere a un account Azure Cosmos.
 
-* Se si configura il traffico pubblico o un endpoint di servizio e si creano endpoint privati, i diversi tipi di traffico in ingresso sono autorizzati in base al tipo corrispondente di regola del firewall.
+* Se si configura il traffico pubblico o un endpoint di servizio e si creano endpoint privati, i diversi tipi di traffico in ingresso sono autorizzati in base al tipo corrispondente di regola del firewall. Se un endpoint privato viene configurato in una subnet in cui è configurato anche l'endpoint servizio:
+  * il traffico verso l'account del database mappato dall'endpoint privato viene indirizzato tramite un endpoint privato,
+  * il traffico verso altri account di database dalla subnet viene instradato tramite endpoint di servizio.
 
-* Se non si configura alcun traffico pubblico o endpoint di servizio e si creano endpoint privati, l'account Azure Cosmos sarà accessibile solo tramite gli endpoint privati. Se non si configura il traffico pubblico o un endpoint di servizio, dopo che tutti gli endpoint privati approvati vengono rifiutati o eliminati, l'account è aperto per l'intera rete.
+* Se non si configura alcun traffico pubblico o endpoint di servizio e si creano endpoint privati, l'account Azure Cosmos sarà accessibile solo tramite gli endpoint privati. Se non si configura il traffico pubblico o un endpoint del servizio, dopo che tutti gli endpoint privati approvati sono stati rifiutati o eliminati, l'account è aperto per l'intera rete, a meno che PublicNetworkAccess non sia impostato su disabilitato (vedere la sezione seguente).
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Blocco dell'accesso alla rete pubblica durante la creazione dell'account
 
 Come descritto nella sezione precedente, se non sono state impostate regole del firewall specifiche, l'aggiunta di un endpoint privato rende l'account Azure Cosmos accessibile solo tramite endpoint privati. Ciò significa che è possibile raggiungere l'account Azure Cosmos dal traffico pubblico dopo che è stato creato e prima che venga aggiunto un endpoint privato. Per assicurarsi che l'accesso alla rete pubblica sia disabilitato anche prima della creazione di endpoint privati, è possibile impostare il flag `publicNetworkAccess` su `Disabled` durante la creazione dell'account. Per un esempio che illustra come usare questo flag, vedere [questo modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/).
+
+## <a name="port-range-when-using-direct-mode"></a>Intervallo di porte quando si usa la modalità diretta
+
+Quando si usa un collegamento privato con un account Azure Cosmos tramite una connessione in modalità diretta, è necessario assicurarsi che sia aperta l'intera gamma di porte TCP (0-65535).
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Aggiornare un endpoint privato quando si aggiunge o si rimuove un'area
 
@@ -640,7 +646,9 @@ Quando si rimuove un'area, è possibile usare la stessa procedura. Dopo aver rim
 
 Quando si usa il collegamento privato con un account Azure Cosmos, si applicano le limitazioni seguenti:
 
-* Quando si usa il collegamento privato con un account Azure Cosmos usando una connessione in modalità diretta, è possibile usare solo il protocollo TCP. Il protocollo HTTP non è attualmente supportato.
+* Non è possibile avere più di 200 endpoint privati in un singolo account Azure Cosmos.
+
+* Quando si usa un collegamento privato con un account Azure Cosmos tramite una connessione in modalità diretta, è possibile usare solo il protocollo TCP. Il protocollo HTTP non è attualmente supportato.
 
 * Quando si usa l'API di Azure Cosmos DB per gli account MongoDB, un endpoint privato è supportato solo per gli account nella versione del server 3.6, ovvero gli account che usano l'endpoint nel formato `*.mongo.cosmos.azure.com`. Il collegamento privato non è supportato per gli account nella versione del server 3.2, ovvero gli account che usano l'endpoint nel formato `*.documents.azure.com`. Per usare il collegamento privato, è necessario eseguire la migrazione degli account precedenti alla nuova versione.
 

@@ -3,15 +3,15 @@ title: Come convertire i formati di token di sessione in .NET SDK-Azure Cosmos D
 description: Informazioni su come convertire i formati di token di sessione per garantire la compatibilità tra diverse versioni di .NET SDK
 author: vinhms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
-ms.openlocfilehash: 377d8e3e923d6a8fa3b1722cee6451a696ce2490
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1f5609eae106e04928bc2c49bd84aa651b224611
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261580"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Convertire i formati di token di sessione in .NET SDK
 
@@ -26,8 +26,8 @@ Questo articolo illustra come eseguire la conversione tra formati di token di se
 ## <a name="session-token-formats"></a>Formati di token di sessione
 
 Sono disponibili due formati di token di sessione: **semplice** e **vettore**.  Questi due formati non sono interscambiabili, pertanto è necessario convertire il formato quando si passa all'applicazione client con versioni diverse.
-- Il formato del token di sessione **semplice** viene usato da .NET SDK V1 (Microsoft. Azure. DocumentDB-Version 1. x)
-- Il formato del token di sessione **vector** viene usato da .NET SDK v2 (Microsoft. Azure. DocumentDB-Version 2. x)
+- Il formato del token di sessione **semplice** viene usato da .NET SDK V1 (Microsoft.Azure.DocumentDB-Version 1. x)
+- Il formato del token di sessione **vector** viene usato da .NET SDK V2 (Microsoft.Azure.DocumentDB-Version 2. x)
 
 ### <a name="simple-session-token"></a>Token di sessione semplice
 

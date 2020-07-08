@@ -3,16 +3,16 @@ title: Migrare i dati da Cassandra a Azure Cosmos DB API Cassandra con blitzz
 description: Informazioni su come eseguire la migrazione dei dati dal database Apache Cassandra a Azure Cosmos DB API Cassandra con blitzz.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: b2e7f371e587c1c7f0debfa018ea8f25a30718a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3eda4694decb74912cc125ef0a33de04838be2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260628"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrare i dati da Cassandra a Azure Cosmos DB account di API Cassandra tramite blitzz
 
@@ -52,11 +52,11 @@ Questa sezione descrive i passaggi necessari per configurare blitzz ed esegue la
 
 1. È possibile ottenere l'installazione di blitzz e i file binari richiedendo una demo nel [sito Web blitzz](https://www.blitzz.io). In alternativa, è anche possibile inviare un [messaggio di posta elettronica](mailto:success@blitzz.io) al team.
 
-   ![Download dello strumento blitzz replicante](./media/cassandra-migrate-cosmos-db-blitzz/blitzz-replicant-download.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Download dello strumento blitzz replicante":::
 
-   ![File replicante di blitzz](./media/cassandra-migrate-cosmos-db-blitzz/replicant-files.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="File replicante di blitzz":::
 
-1. Dal terminale dell'interfaccia della riga di comando configurare la configurazione del database di origine. Aprire il file di configurazione **`vi conf/conn/cassandra.yml`** usando il comando e aggiungere un elenco delimitato da virgole di indirizzi IP dei nodi Cassandra, il numero di porta, il nome utente, la password e tutti gli altri dettagli necessari. Di seguito è riportato un esempio di contenuto nel file di configurazione:
+1. Dal terminale dell'interfaccia della riga di comando configurare la configurazione del database di origine. Aprire il file di configurazione usando il **`vi conf/conn/cassandra.yml`** comando e aggiungere un elenco delimitato da virgole di indirizzi IP dei nodi Cassandra, il numero di porta, il nome utente, la password e tutti gli altri dettagli necessari. Di seguito è riportato un esempio di contenuto nel file di configurazione:
 
    ```bash
    type: CASSANDRA
@@ -71,13 +71,13 @@ Questa sezione descrive i passaggi necessari per configurare blitzz ed esegue la
 
    ```
 
-   ![Apri editor di connessione Cassandra](./media/cassandra-migrate-cosmos-db-blitzz/open-connection-editor-cassandra.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/open-connection-editor-cassandra.png" alt-text="Apri editor di connessione Cassandra":::
 
-   ![Configurazione della connessione Cassandra](./media/cassandra-migrate-cosmos-db-blitzz/cassandra-connection-configuration.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-connection-configuration.png" alt-text="Configurazione della connessione Cassandra":::
 
    Dopo aver compilato i dettagli di configurazione, salvare e chiudere il file.
 
-1. Facoltativamente, è possibile configurare il file di filtro del database di origine. Il file di filtro specifica gli schemi o le tabelle di cui eseguire la migrazione. Aprire il file di configurazione **`vi filter/cassandra_filter.yml`** usando il comando e immettere i dettagli di configurazione seguenti:
+1. Facoltativamente, è possibile configurare il file di filtro del database di origine. Il file di filtro specifica gli schemi o le tabelle di cui eseguire la migrazione. Aprire il file di configurazione usando il **`vi filter/cassandra_filter.yml`** comando e immettere i dettagli di configurazione seguenti:
 
    ```bash
 
@@ -92,13 +92,13 @@ Questa sezione descrive i passaggi necessari per configurare blitzz ed esegue la
 
 1. Prima di eseguire la migrazione dei dati, aumentare la velocità effettiva del contenitore fino alla quantità necessaria per la migrazione rapida dell'applicazione. Ad esempio, è possibile aumentare la velocità effettiva a 100000 ur. Il ridimensionamento della velocità effettiva prima di avviare la migrazione consentirà di eseguire la migrazione dei dati in minor tempo.
 
-   ![Ridimensionare Azure Cosmos container in tutto](./media/cassandra-migrate-cosmos-db-blitzz/scale-throughput.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Ridimensionare Azure Cosmos container in tutto":::
 
    Ridurre la velocità effettiva al termine della migrazione. In base alla quantità di dati archiviati e ur necessari per ogni operazione, è possibile stimare la velocità effettiva necessaria dopo la migrazione dei dati. Per altre informazioni su come stimare le UR richieste, vedere [provisioning della velocità effettiva su contenitori e database](set-throughput.md) e [stimare ur/sec usando gli articoli Azure Cosmos DB Capacity Planner](estimate-ru-with-capacity-planner.md) .
 
 1. Ottenere il **punto di contatto, la porta, il nome utente**e la **password primaria** dell'account Azure Cosmos dal riquadro della **stringa di connessione** . Questi valori vengono utilizzati nel file di configurazione.
 
-1. Dal terminale dell'interfaccia della riga di comando configurare la configurazione del database di destinazione. Aprire il file di configurazione **`vi conf/conn/cosmosdb.yml`** usando il comando e aggiungere un elenco delimitato da virgole di Uri host, numero di porta, nome utente, password e altri parametri obbligatori. Nell'esempio seguente viene illustrato il contenuto del file di configurazione:
+1. Dal terminale dell'interfaccia della riga di comando configurare la configurazione del database di destinazione. Aprire il file di configurazione usando il **`vi conf/conn/cosmosdb.yml`** comando e aggiungere un elenco delimitato da virgole di Uri host, numero di porta, nome utente, password e altri parametri obbligatori. Nell'esempio seguente viene illustrato il contenuto del file di configurazione:
 
    ```bash
    type: COSMOSDB
@@ -128,7 +128,7 @@ Questa sezione descrive i passaggi necessari per configurare blitzz ed esegue la
 
    L'interfaccia utente di replicante Mostra lo stato della replica. Una volta eseguita la migrazione dello schema e l'operazione snapshot, lo stato di avanzamento indica il 100%. Al termine della migrazione, è possibile convalidare i dati nel database Azure Cosmos di destinazione.
 
-   ![Output della migrazione dei dati Cassandra](./media/cassandra-migrate-cosmos-db-blitzz/cassandra-data-migration-output.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-data-migration-output.png" alt-text="Output della migrazione dei dati Cassandra":::
 
 
 1. Poiché è stata usata la modalità completa per la migrazione, è possibile eseguire operazioni come l'inserimento, l'aggiornamento o l'eliminazione di dati nel database Apache Cassandra di origine. Verificare successivamente che vengano replicate in tempo reale nel database di Azure Cosmos di destinazione. Dopo la migrazione, assicurarsi di diminuire la velocità effettiva configurata per il contenitore di Azure Cosmos.

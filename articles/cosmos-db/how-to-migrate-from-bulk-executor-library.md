@@ -3,15 +3,15 @@ title: Eseguire la migrazione dalla libreria Executor bulk al supporto bulk in A
 description: Informazioni su come eseguire la migrazione dell'applicazione usando la libreria di Executor bulk per il supporto in blocco in Azure Cosmos DB SDK V3
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: d63b34c118cd719f73abbd6711dcb3ef02a6fb28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261427"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Eseguire la migrazione dalla libreria Executor bulk al supporto bulk in Azure Cosmos DB .NET V3 SDK
 
@@ -33,21 +33,21 @@ Ad esempio, se l'input iniziale è un elenco di elementi in cui ogni elemento ha
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Se si desidera eseguire l'importazione bulk (simile all'utilizzo di BulkExecutor. BulkImportAsync), è necessario disporre di chiamate simultanee a `CreateItemAsync`. Ad esempio:
+Se si desidera eseguire l'importazione bulk (simile all'utilizzo di BulkExecutor. BulkImportAsync), è necessario disporre di chiamate simultanee a `CreateItemAsync` . Ad esempio:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Se si desidera eseguire l' *aggiornamento* in blocco (simile all'utilizzo di [BulkExecutor. BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), è necessario disporre di chiamate `ReplaceItemAsync` simultanee al metodo dopo l'aggiornamento del valore dell'elemento. Ad esempio:
+Se si desidera eseguire l' *aggiornamento* in blocco (simile all'utilizzo di [BulkExecutor. BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), è necessario disporre di chiamate simultanee al `ReplaceItemAsync` metodo dopo l'aggiornamento del valore dell'elemento. Ad esempio:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-Se si desidera eseguire l' *eliminazione* in blocco (simile all'utilizzo di [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), è necessario disporre di chiamate simultanee a `DeleteItemAsync`, `id` con la chiave di partizione e di ogni elemento. Ad esempio:
+Se si desidera eseguire l' *eliminazione* in blocco (simile all'utilizzo di [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), è necessario disporre di chiamate simultanee a `DeleteItemAsync` , con la `id` chiave di partizione e di ogni elemento. Ad esempio:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
 ## <a name="capture-task-result-state"></a>Stato del risultato dell'attività di acquisizione
 
-Negli esempi di codice precedenti è stato creato un elenco simultaneo di attività e il `CaptureOperationResponse` metodo è stato chiamato su ognuna di queste attività. Questo metodo è un'estensione che consente di mantenere uno *schema di risposta simile* a BulkExecutor, mediante l'acquisizione di eventuali errori e la verifica dell' [utilizzo delle unità richiesta](request-units.md).
+Negli esempi di codice precedenti è stato creato un elenco simultaneo di attività e il metodo è stato chiamato `CaptureOperationResponse` su ognuna di queste attività. Questo metodo è un'estensione che consente di mantenere uno *schema di risposta simile* a BulkExecutor, mediante l'acquisizione di eventuali errori e la verifica dell' [utilizzo delle unità richiesta](request-units.md).
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="CaptureOperationResult":::
 
@@ -61,7 +61,7 @@ Per tenere traccia dell'intero elenco di attività, si usa questa classe helper:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkOperationsHelper":::
 
-Il `ExecuteAsync` metodo resterà in attesa fino al completamento di tutte le operazioni e sarà possibile utilizzarlo nel modo seguente:
+Il `ExecuteAsync` Metodo resterà in attesa fino al completamento di tutte le operazioni e sarà possibile utilizzarlo nel modo seguente:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="WhenAll":::
 
@@ -71,7 +71,7 @@ Il codice precedente attende il completamento di tutte le operazioni e calcola l
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="ResponseType":::
 
-`BulkOperationResponse` Contiene:
+`BulkOperationResponse`Contiene:
 
 1. Tempo totale impiegato per elaborare l'elenco di operazioni tramite il supporto bulk.
 1. Numero di operazioni completate correttamente.
@@ -80,18 +80,18 @@ Il codice precedente attende il completamento di tutte le operazioni e calcola l
 
 ## <a name="retry-configuration"></a>Riprova configurazione
 
-Per la libreria dell'esecutore bulk sono `MaxRetryWaitTimeInSeconds` state `MaxRetryAttemptsOnThrottledRequests` [fornite indicazioni](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) per impostare e `0` di [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) su per delegare il controllo alla libreria.
+Per la libreria dell'esecutore bulk sono state [fornite indicazioni](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) per impostare `MaxRetryWaitTimeInSeconds` e `MaxRetryAttemptsOnThrottledRequests` di [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) su `0` per delegare il controllo alla libreria.
 
 Per il supporto bulk in .NET SDK, non esiste alcun comportamento nascosto. È possibile configurare le opzioni di ripetizione dei tentativi direttamente tramite [CosmosClientOptions. MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) e [CosmosClientOptions. MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
 > [!NOTE]
 > Nei casi in cui le unità richiesta di cui è stato effettuato il provisioning sono molto inferiori a quelle previste in base alla quantità di dati, è consigliabile impostare tali unità su valori elevati. L'operazione bulk avrà più tempo, ma avrà una maggiore probabilità di essere completata a causa dei tentativi più elevati.
 
-## <a name="performance-improvements"></a>Miglioramenti delle prestazioni.
+## <a name="performance-improvements"></a>Miglioramenti alle prestazioni
 
 Come per le altre operazioni con .NET SDK, l'uso delle API di flusso comporta prestazioni migliori ed evita la serializzazione non necessaria. 
 
-L'uso delle API di flusso è possibile solo se la natura dei dati usati corrisponde a quella di un flusso di byte (ad esempio, i flussi di file). In questi casi, l'utilizzo `CreateItemStreamAsync`dei `ReplaceItemStreamAsync`metodi, `DeleteItemStreamAsync` o e l'utilizzo `ResponseMessage` di `ItemResponse`(anziché) aumentano la velocità effettiva che è possibile ottenere.
+L'uso delle API di flusso è possibile solo se la natura dei dati usati corrisponde a quella di un flusso di byte (ad esempio, i flussi di file). In questi casi, l'utilizzo `CreateItemStreamAsync` dei `ReplaceItemStreamAsync` metodi, o `DeleteItemStreamAsync` e l'utilizzo `ResponseMessage` di (anziché `ItemResponse` ) aumentano la velocità effettiva che è possibile ottenere.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,15 +4,15 @@ description: Informazioni su come modellare un database a grafo con l'API Gremli
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261818"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modellazione di dati del grafo per l'API Gremlin di Azure Cosmos DB
 
@@ -47,12 +47,12 @@ Di seguito sono riportate le procedure consigliate per le proprietà negli ogget
 
 | Oggetto | Proprietà | Type | Note |
 | --- | --- | --- |  --- |
-| Vertice | ID | Stringa | Imposto in modo univoco per partizione. Se non viene fornito alcun valore durante l'inserimento, verrà archiviato un GUID generato automaticamente. |
-| Vertice | label | Stringa | Questa proprietà viene usata per definire il tipo di entità rappresentata dal vertice. Se non viene specificato alcun valore, verrà usato il valore predefinito "vertex". |
+| Vertice | ID | string | Imposto in modo univoco per partizione. Se non viene fornito alcun valore durante l'inserimento, verrà archiviato un GUID generato automaticamente. |
+| Vertice | label | string | Questa proprietà viene usata per definire il tipo di entità rappresentata dal vertice. Se non viene specificato alcun valore, verrà usato il valore predefinito "vertex". |
 | Vertice | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni vertice. |
 | Vertice | chiave di partizione | Stringa, booleano, intero, binario | Questa proprietà consente di definire dove verranno archiviati il vertice e i relativi archi in uscita. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md). |
-| Microsoft Edge | ID | Stringa | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
-| Microsoft Edge | label | Stringa | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
+| Microsoft Edge | ID | string | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
+| Microsoft Edge | label | string | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
 | Microsoft Edge | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni arco. |
 
 > [!NOTE]
@@ -73,11 +73,11 @@ Un errore comune consiste nell'eseguire il mapping delle proprietà di una singo
 
 * **Proprietà basate su vertici**: in questo approccio, l'entità usa tre vertici distinti e due bordi per descrivere le relative proprietà. Pur riducendo la ridondanza, questo approccio implica un incremento della complessità del modello e di conseguenza una maggiore latenza, una maggiore complessità delle query e un aumento del costo di calcolo. Questo modello può anche presentare problemi relativi al partizionamento.
 
-![Modello di entità con vertici per le proprietà.](./media/graph-modeling/graph-modeling-1.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modello di entità con vertici per le proprietà." border="false":::
 
 * **Vertici incorporati proprietà**: questo approccio sfrutta l'elenco di coppie chiave-valore per rappresentare tutte le proprietà dell'entità all'interno di un vertice. Si tratta di un approccio che consente di ridurre la complessità del modello e implica query più semplici e attraversamenti più convenienti.
 
-![Modello di entità con vertici per le proprietà.](./media/graph-modeling/graph-modeling-2.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modello di entità con vertici per le proprietà." border="false":::
 
 > [!NOTE]
 > Gli esempi precedenti mostrano un modello di grafo semplificato che illustra solo il confronto tra i due diversi modi di dividere le proprietà delle entità.
@@ -105,7 +105,7 @@ L'uso di etichette di relazione descrittive consente di migliorare l'efficienza 
 * Usare termini non generici per etichettare una relazione.
 * Associare l'etichetta del vertice di origine per l'etichetta del vertice di destinazione con il nome della relazione.
 
-![Esempi di assegnazione di etichette alle relazioni.](./media/graph-modeling/graph-modeling-3.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Esempi di assegnazione di etichette alle relazioni." border="false":::
 
 Più specifica è l'etichetta che il traverser userà per filtrare gli archi, meglio è. Questa decisione può avere un impatto significativo anche sul costo della query. Per valutare il costo della query in qualsiasi momento, è possibile [usare il passaggio executionProfile](graph-execution-profile.md).
 

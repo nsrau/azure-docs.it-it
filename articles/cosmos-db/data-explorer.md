@@ -3,15 +3,15 @@ title: Usare Azure Cosmos DB Explorer per gestire i dati
 description: Azure Cosmos DB Explorer è un'interfaccia autonoma basata sul Web che consente di visualizzare e gestire i dati archiviati in Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 918f5a4a572f5518e5ae1b08db3d88d559571ed7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261886"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Utilizzare i dati con Azure Cosmos Explorer 
 
@@ -41,7 +41,7 @@ Azure Cosmos DB Explorer è un'interfaccia autonoma basata sul Web che consente 
 
    Scegliere il tipo di accesso da usare per aprire l'account e quindi fare clic su **Apri**. Dopo aver aperto l'interfaccia di esplorazione dei dati, l'esperienza è analoga a quella della scheda Esplora dati nel portale di Azure.   
 
-   ![Aprire Azure Cosmos DB Explorer](./media/data-explorer/open-data-explorer-with-access-url.png)
+   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Apri Esplora Azure Cosmos DB":::
 
 ## <a name="known-issues"></a>Problemi noti
 

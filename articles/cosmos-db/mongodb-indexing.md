@@ -4,16 +4,16 @@ description: Questo articolo presenta una panoramica delle funzionalità di indi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 04/03/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: fd602f88acf26e821e57e0a844f543aac08dad0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732713"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260696"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 
@@ -21,7 +21,7 @@ L'API di Azure Cosmos DB per MongoDB sfrutta le funzionalità di gestione degli 
 
 ## <a name="indexing-for-mongodb-server-version-36"></a>Indicizzazione per il server MongoDB versione 3,6
 
-Azure Cosmos DB API per MongoDB Server versione 3,6 indicizza automaticamente il `_id` campo, che non può essere eliminato. Viene automaticamente applicata l'univocità del `_id` campo per ogni chiave di partizione.
+Azure Cosmos DB API per MongoDB Server versione 3,6 indicizza automaticamente il `_id` campo, che non può essere eliminato. Viene automaticamente applicata l'univocità del `_id` campo per ogni chiave di partizione. Nell'API di Azure Cosmos DB per MongoDB, il partizionamento orizzontale e l'indicizzazione sono concetti distinti. Non è necessario indicizzare la chiave di partizione. Tuttavia, come per qualsiasi altra proprietà del documento, se questa proprietà è un filtro comune nelle query, si consiglia di indicizzare la chiave di partizione.
 
 Per indicizzare campi aggiuntivi, applicare i comandi di gestione degli indici MongoDB. Come in MongoDB, l'API di Azure Cosmos DB per MongoDB indicizza automaticamente `_id` solo il campo. Questo criterio di indicizzazione predefinito è diverso dall'API di Azure Cosmos DB SQL, che indicizza tutti i campi per impostazione predefinita.
 
@@ -31,7 +31,7 @@ Per applicare un ordinamento a una query, è necessario creare un indice sui cam
 
 ### <a name="single-field"></a>Campo singolo
 
-È possibile creare indici in qualsiasi singolo campo. L'ordinamento dell'indice del campo singolo non è rilevante. Il comando che segue crea un indice nel campo `name`:
+È possibile creare indici in qualsiasi singolo campo. L'ordinamento dell'indice del campo singolo non è rilevante. Il comando che segue crea un indice nel campo `name` :
 
 `db.coll.createIndex({name:1})`
 
@@ -41,7 +41,7 @@ Una query usa più indici dei campi singoli, se disponibili. È possibile creare
 
 L'API di Azure Cosmos DB per MongoDB supporta gli indici composti per gli account che usano il protocollo wire versione 3,6. È possibile includere fino a otto campi in un indice composto. Diversamente da MongoDB, è necessario creare un indice composto solo se la query deve essere ordinata in modo efficiente su più campi in una sola volta. Per le query con più filtri che non devono essere ordinati, creare più indici di campi singoli anziché un singolo indice composto.
 
-Il comando che segue crea un indice composto sui campi `name` e `age`:
+Il comando che segue crea un indice composto sui campi `name` e `age` :
 
 `db.coll.createIndex({name:1,age:1})`
 
@@ -63,15 +63,107 @@ Azure Cosmos DB crea indici join per indicizzare il contenuto archiviato nelle m
 
 ### <a name="geospatial-indexes"></a>Indici geospaziali
 
-Molti operatori geospaziali trarranno vantaggio dagli indici geospaziali. Attualmente, l'API di Azure Cosmos DB per MongoDB `2dsphere` supporta gli indici. L'API non supporta `2d` ancora gli indici.
+Molti operatori geospaziali trarranno vantaggio dagli indici geospaziali. Attualmente, l'API di Azure Cosmos DB per MongoDB supporta gli `2dsphere` indici. L'API non supporta ancora gli `2d` indici.
 
-Di seguito è riportato un esempio di creazione di un indice `location` geospaziale nel campo:
+Di seguito è riportato un esempio di creazione di un indice geospaziale nel `location` campo:
 
 `db.coll.createIndex({ location : "2dsphere" })`
 
 ### <a name="text-indexes"></a>Indici di testo
 
 L'API di Azure Cosmos DB per MongoDB attualmente non supporta gli indici di testo. Per le query di ricerca del testo sulle stringhe, è necessario usare l'integrazione di [Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) con Azure Cosmos DB.
+
+## <a name="wildcard-indexes"></a>Indici con caratteri jolly
+
+È possibile usare gli indici con caratteri jolly per supportare le query su campi sconosciuti. Si supponga di avere una raccolta che contiene dati sulle famiglie.
+
+Di seguito è riportato un esempio di documento nella raccolta:
+
+```json
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "grade": "5"
+     }
+  ]
+```
+
+Ecco un altro esempio, questa volta con un set di proprietà leggermente diverso in `children` :
+
+```json
+  "children": [
+      {
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+      },
+      {
+        "familyName": "Merriam",
+        "givenName": "John",
+      }
+  ]
+```
+
+In questa raccolta i documenti possono avere diverse proprietà possibili. Se si desidera indicizzare tutti i dati nella `children` matrice, sono disponibili due opzioni: creare indici distinti per ogni singola proprietà o creare un indice con caratteri jolly per l'intera `children` matrice.
+
+### <a name="create-a-wildcard-index"></a>Creazione di un indice con caratteri jolly
+
+Il comando che segue crea un indice con caratteri jolly in qualsiasi proprietà all'interno di `children` :
+
+`db.coll.createIndex({"children.$**" : 1})`
+
+**Diversamente da MongoDB, gli indici con caratteri jolly possono supportare più campi nei predicati di query**. Non vi sarà alcuna differenza nelle prestazioni delle query se si usa un singolo indice con caratteri jolly anziché creare un indice separato per ogni proprietà.
+
+È possibile creare i tipi di indice seguenti utilizzando la sintassi con caratteri jolly:
+
+- Campo singolo
+- GeoSpatial
+
+### <a name="indexing-all-properties"></a>Indicizzazione di tutte le proprietà
+
+Ecco come è possibile creare un indice con caratteri jolly in tutti i campi:
+
+`db.coll.createIndex( { "$**" : 1 } )`
+
+Quando si avvia lo sviluppo, può essere utile creare un indice con caratteri jolly in tutti i campi. Con l'indicizzazione di più proprietà in un documento, l'addebito delle unità richiesta (UR) per la scrittura e l'aggiornamento del documento aumenterà. Se pertanto si dispone di un carico di lavoro con un elevato numero di operazioni di scrittura, è consigliabile scegliere i percorsi di indicizzazione singolarmente anziché utilizzare gli indici con caratteri jolly
+
+### <a name="limitations"></a>Limitazioni
+
+Gli indici con caratteri jolly non supportano i tipi di indice o le proprietà seguenti:
+
+- Composto
+- TTL
+- Univoco
+
+**Diversamente da MongoDB**, nell'API Azure Cosmos DB per MongoDB **non** è possibile usare gli indici con caratteri jolly per:
+
+- Creazione di un indice con caratteri jolly che include più campi specifici
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection " :
+        {
+           "children.givenName" : 1,
+           "children.grade" : 1
+        }
+    }
+)`
+
+- Creazione di un indice con caratteri jolly che escluda più campi specifici
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection" :
+        {
+           "children.givenName" : 0,
+           "children.grade" : 0
+        }
+    }
+)`
+
+In alternativa, è possibile creare più indici jolly.
 
 ## <a name="index-properties"></a>Proprietà degli indici
 
@@ -84,7 +176,7 @@ Gli [indici univoci](unique-keys.md) sono utili per applicare che due o più doc
 > [!IMPORTANT]
 > Gli indici univoci possono essere creati solo quando la raccolta è vuota (non contiene documenti).
 
-Il comando che segue crea un indice univoco nel campo `student_id`:
+Il comando che segue crea un indice univoco nel campo `student_id` :
 
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
@@ -99,7 +191,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 
 Per le raccolte partizionate, è necessario specificare la chiave di partizione (partizione) per creare un indice univoco. In altre parole, tutti gli indici univoci in una raccolta partizionata sono indici composti in cui uno dei campi è la chiave di partizione.
 
-I comandi seguenti ```coll``` creano una raccolta partizionata (la chiave di partizione ```university```) con un indice univoco nei campi `student_id` e: `university`
+I comandi seguenti creano una raccolta partizionata ```coll``` (la chiave di partizione ```university``` ) con un indice univoco nei campi `student_id` e `university` :
 
 ```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
@@ -141,7 +233,7 @@ Il comando precedente elimina tutti i documenti nella ```db.coll``` raccolta che
 
 La versione 3,6 dell'API Azure Cosmos DB per MongoDB supporta il `currentOp()` comando per tenere traccia dello stato di avanzamento dell'indice in un'istanza del database. Questo comando restituisce un documento che contiene informazioni sulle operazioni in corso su un'istanza del database. Usare il `currentOp` comando per tenere traccia di tutte le operazioni in corso in MongoDB nativo. Nell'API di Azure Cosmos DB per MongoDB, questo comando supporta solo il rilevamento dell'operazione sull'indice.
 
-Di seguito sono riportati alcuni esempi che illustrano come `currentOp` usare il comando per tenere traccia dello stato di avanzamento dell'indice:
+Di seguito sono riportati alcuni esempi che illustrano come usare il `currentOp` comando per tenere traccia dello stato di avanzamento dell'indice:
 
 * Ottenere lo stato di avanzamento dell'indice per una raccolta:
 
@@ -240,7 +332,7 @@ Se si usa la versione 3,2, in questa sezione vengono descritte le differenze pri
 
 ### <a name="dropping-default-indexes-version-32"></a>Eliminazione di indici predefiniti (versione 3,2)
 
-A differenza della versione 3,6 dell'API Azure Cosmos DB per MongoDB, la versione 3,2 indicizza tutte le proprietà per impostazione predefinita. È possibile utilizzare il comando seguente per eliminare questi indici predefiniti per una raccolta```coll```():
+A differenza della versione 3,6 dell'API Azure Cosmos DB per MongoDB, la versione 3,2 indicizza tutte le proprietà per impostazione predefinita. È possibile utilizzare il comando seguente per eliminare questi indici predefiniti per una raccolta ( ```coll``` ):
 
 ```JavaScript
 > db.coll.dropIndexes()
@@ -253,7 +345,12 @@ Dopo aver eliminato gli indici predefiniti, è possibile aggiungere più indici 
 
 Gli indici composti contengono riferimenti a più campi di un documento. Se si vuole creare un indice composto, eseguire l'aggiornamento alla versione 3,6 inviando una [richiesta di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
+### <a name="wildcard-indexes-version-32"></a>Indici con caratteri jolly (versione 3,2)
+
+Se si desidera creare un indice con caratteri jolly, eseguire l'aggiornamento alla versione 3,6 inviando una [richiesta di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Indicizzazione in Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Impostare la scadenza automatica dei dati in Azure Cosmos DB con la durata (TTL)](../cosmos-db/time-to-live.md)
+* Per informazioni sulla relazione tra partizionamento e indicizzazione, vedere l'articolo su come [eseguire query in un contenitore di Azure Cosmos](how-to-query-container.md) .

@@ -2,20 +2,20 @@
 title: Leggere i dati della tabella API Apache Cassandra con Spark
 titleSufix: Azure Cosmos DB
 description: Questo articolo descrive come leggere i dati delle tabelle API Apache Cassandra in Azure Cosmos DB.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ecb7758ee5f58345fccc2c490cee4d23043a20c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60893401"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85257415"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Leggere i dati dalle tabelle di API Apache Cassandra di Azure Cosmos DB con Spark
 
@@ -83,7 +83,7 @@ readBooksDF.show
 
 ### <a name="apply-filters"></a>Applicare filtri
 
-La distribuzione dinamica del predicato non è attualmente supportata: gli esempi che seguono riflettano il filtro sul lato client. 
+È possibile eseguire il push dei predicati nel database per consentire query Spark ottimizzate in modo ottimale. Un predicato è una condizione per una query che restituisce true o false, in genere situato nella clausola WHERE. Un predicato push filtra i dati nella query del database, riducendo il numero di voci recuperate dal database e migliorando le prestazioni di esecuzione delle query. Per impostazione predefinita, l'API del set di dati Spark eseguirà automaticamente il push delle clausole WHERE valide nel database. 
 
 ```scala
 val readBooksDF = spark
@@ -102,6 +102,10 @@ readBooksDF.printSchema
 readBooksDF.explain
 readBooksDF.show
 ```
+
+La sezione PushedFilters del piano fisico include il filtro di push di GreaterThan. 
+
+:::image type="content" source="./media/cassandra-spark-read-ops/pushdown-predicates.png" alt-text="partizioni":::
 
 ## <a name="rdd-api"></a>API RDD
 

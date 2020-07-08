@@ -3,15 +3,16 @@ title: Gestire i criteri di indicizzazione in Azure Cosmos DB
 description: Informazioni su come gestire i criteri di indicizzazione, includere o escludere una proprietà dall'indicizzazione, come definire l'indicizzazione con diversi Azure Cosmos DB SDK
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: b913ba58252f4cb84d010aea39d371316582bd6d
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: 8b41a92f16fe7d71c17b6460289db76bf02c62ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261512"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 
@@ -42,7 +43,7 @@ Di seguito sono riportati alcuni esempi di criteri di indicizzazione mostrati ne
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito ```kind```, ```dataType```che imposta ```precision``` manualmente i valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i ```kind``` ```dataType``` ```precision``` valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -96,7 +97,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito `
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito ```kind```, ```dataType```che imposta ```precision``` manualmente i valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i ```kind``` ```dataType``` ```precision``` valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -175,7 +176,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito `
 Oltre a includere o escludere i percorsi per le singole proprietà, è anche possibile specificare un indice composto. Se si desidera eseguire una query con una clausola `ORDER BY` per più proprietà, è obbligatorio un [indice composto](index-policy.md#composite-indexes) su queste proprietà. Inoltre, gli indici compositi avranno un vantaggio in materia di prestazioni per le query che hanno un filtro e hanno una clausola ORDER BY su proprietà diverse.
 
 > [!NOTE]
-> I percorsi composti hanno un `/?` implicito perché solo il valore scalare in quel percorso è indicizzato. Il `/*` carattere jolly non è supportato nei percorsi compositi. Non specificare `/?` né `/*` in un percorso composito.
+> I percorsi composti hanno un implicito `/?` perché solo il valore scalare in quel percorso è indicizzato. Il `/*` carattere jolly non è supportato nei percorsi compositi. Non specificare `/?` né `/*` in un percorso composito.
 
 ### <a name="composite-index-defined-for-name-asc-age-desc"></a>Indice composto definito per (nome cres, età disc):
 
@@ -323,7 +324,7 @@ Questo criterio può essere usato in situazioni in cui la funzionalità [Time-to
 
 ### <a name="no-indexing"></a>Nessuna indicizzazione
 
-Questo criterio disattiva l'indicizzazione. Se `indexingMode` è impostato su `none`, non è possibile impostare una durata (TTL) sul contenitore.
+Questo criterio disattiva l'indicizzazione. Se `indexingMode` è impostato su `none` , non è possibile impostare una durata (TTL) sul contenitore.
 
 ```json
     {
@@ -361,7 +362,7 @@ I contenitori di Azure Cosmos archiviano i criteri di indicizzazione come un doc
 
 1. Al termine, fare clic su **Salva**.
 
-![Gestire l'indicizzazione usando il portale di Azure](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Gestire l'indicizzazione con portale di Azure":::
 
 ## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
@@ -375,7 +376,7 @@ Per creare un contenitore con criteri di indicizzazione personalizzati, vedere [
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
-L' `DocumentCollection` oggetto di [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) espone una `IndexingPolicy` proprietà che consente di `IndexingMode` modificare e aggiungere o rimuovere `IncludedPaths` e. `ExcludedPaths`
+L' `DocumentCollection` oggetto di [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) espone una `IndexingPolicy` proprietà che consente di modificare `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths` .
 
 ```csharp
 // Retrieve the container's details
@@ -405,7 +406,7 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 # <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
-L' `ContainerProperties` oggetto di [.NET SDK V3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (vedere [questa Guida introduttiva](create-sql-api-dotnet.md) relativa all'utilizzo) espone `IndexingPolicy` una proprietà che consente di modificare `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
+L' `ContainerProperties` oggetto di [.NET SDK V3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (vedere [questa Guida introduttiva](create-sql-api-dotnet.md) relativa all'utilizzo) espone una `IndexingPolicy` proprietà che consente di modificare `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths` .
 
 ```csharp
 // Retrieve the container's details
@@ -429,7 +430,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-Per tenere traccia dello stato di avanzamento della trasformazione `RequestOptions` dell'indice, passare `PopulateQuotaInfo` un oggetto `true`che imposta la proprietà su, quindi `x-ms-documentdb-collection-index-transformation-progress` recuperare il valore dall'intestazione della risposta.
+Per tenere traccia dello stato di avanzamento della trasformazione dell'indice, passare un `RequestOptions` oggetto che imposta la `PopulateQuotaInfo` proprietà su `true` , quindi recuperare il valore dall' `x-ms-documentdb-collection-index-transformation-progress` intestazione della risposta.
 
 ```csharp
 // retrieve the container's details

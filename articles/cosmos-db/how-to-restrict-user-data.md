@@ -3,15 +3,15 @@ title: Limitare l'accesso degli utenti alle operazioni sui dati solo con Azure C
 description: Informazioni su come limitare l'accesso alle operazioni sui dati solo con Azure Cosmos DB
 author: voellm
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 03cad9e4c3752b5f35be785a6280bf18aaa14860
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74980374"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261223"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>Limitare l'accesso utente solo alle operazioni sui dati
 
@@ -19,7 +19,9 @@ In Azure Cosmos DB, esistono due modi per autenticare le interazioni con il serv
 - uso dell'identità del Azure Active Directory durante l'interazione con l'portale di Azure,
 - uso di [chiavi](secure-access-to-data.md#master-keys) Azure Cosmos DB o [token di risorsa](secure-access-to-data.md#resource-tokens) quando si inviano chiamate da API e SDK.
 
-Ogni metodo di autenticazione consente di accedere a diversi set di operazioni, con alcune ![sovrapposizioni: suddivisione delle operazioni per tipo di autenticazione](./media/how-to-restrict-user-data/operations.png)
+Ogni metodo di autenticazione consente di accedere a diversi set di operazioni, con alcune sovrapposizioni:
+
+:::image type="content" source="./media/how-to-restrict-user-data/operations.png" alt-text="Suddivisione delle operazioni per tipo di autenticazione" border="false":::
 
 In alcuni scenari può essere opportuno limitare l'esecuzione di operazioni sui dati (ovvero solo richieste e query CRUD) ad alcuni utenti dell'organizzazione. Questo è in genere il caso per gli sviluppatori che non hanno bisogno di creare o eliminare risorse o di modificare la velocità effettiva con provisioning dei contenitori su cui stanno lavorando.
 
@@ -36,7 +38,7 @@ Negli script di PowerShell nelle sezioni successive sostituire i segnaposto segu
 - `$MySubscriptionId`: ID sottoscrizione che contiene l'account Azure Cosmos in cui si desidera limitare le autorizzazioni. Ad esempio: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
 - `$MyResourceGroupName`: Il gruppo di risorse contenente l'account Azure Cosmos. Ad esempio: `myresourcegroup`.
 - `$MyAzureCosmosDBAccountName`: Nome dell'account Azure Cosmos. Ad esempio: `mycosmosdbsaccount`.
-- `$MyUserName`: Account di accessousername@domain() dell'utente per il quale si desidera limitare l'accesso. Ad esempio: `cosmosdbuser@contoso.com`.
+- `$MyUserName`: Account di accesso ( username@domain ) dell'utente per il quale si desidera limitare l'accesso. Ad esempio: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>Selezionare la sottoscrizione ad Azure
 
@@ -49,9 +51,9 @@ Select-AzSubscription $MySubscriptionId
 
 ## <a name="create-the-custom-azure-active-directory-role"></a>Creare il ruolo di Azure Active Directory personalizzato
 
-Lo script seguente crea un'assegnazione di ruolo Azure Active Directory con accesso "solo chiave" per gli account Azure Cosmos. Il ruolo è basato sui [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md) e sulle [azioni granulari per Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Questi ruoli e azioni fanno parte dello spazio `Microsoft.DocumentDB` dei nomi Azure Active Directory.
+Lo script seguente crea un'assegnazione di ruolo Azure Active Directory con accesso "solo chiave" per gli account Azure Cosmos. Il ruolo è basato sui [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md) e sulle [azioni granulari per Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Questi ruoli e azioni fanno parte dello `Microsoft.DocumentDB` spazio dei nomi Azure Active Directory.
 
-1. Per prima cosa, creare un documento `AzureCosmosKeyOnlyAccess.json` JSON denominato con il contenuto seguente:
+1. Per prima cosa, creare un documento JSON denominato `AzureCosmosKeyOnlyAccess.json` con il contenuto seguente:
 
     ```
     {

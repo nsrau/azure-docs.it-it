@@ -1,18 +1,19 @@
 ---
 title: Eventi pianificati per macchine virtuali Linux in Azure
 description: Pianificare eventi usando il servizio metadati di Azure per le macchine virtuali Linux.
-author: mimckitt
-ms.service: virtual-machines-windows
-ms.topic: article
+author: EricRadzikowskiMSFT
+ms.service: virtual-machines-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/22/2018
-ms.author: mimckitt
-ms.openlocfilehash: 7c33f29ab00605f68d41358b79284bf49188fece
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.date: 06/01/2020
+ms.author: ericrad
+ms.reviewer: mimckitt
+ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715869"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262107"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
 
@@ -52,23 +53,30 @@ Gli eventi pianificati vengono recapitati a:
 
 - Macchine virtuali autonome.
 - Tutte le macchine virtuali in un servizio cloud.
-- Tutte le macchine virtuali in un set di disponibilità o in una zona di disponibilità. 
+- Tutte le macchine virtuali in un set di disponibilità.
+- Tutte le macchine virtuali in una zona di disponibilità. 
 - Tutte le macchine virtuali in un gruppo di posizionamento di un set di scalabilità. 
+
+> [!NOTE]
+> Specifiche per le macchine virtuali in una zona di disponibilità, gli eventi pianificati vengono inviati a singole VM in una zona.
+> Se, ad esempio, si dispone di 100 VM in un set di disponibilità ed è presente un aggiornamento a uno di essi, l'evento pianificato passerà a tutti i 100, mentre se sono presenti 100 singole VM in una zona, l'evento verrà indirizzato solo alla macchina virtuale a cui si è interessati.
 
 Di conseguenza, è opportuno controllare il campo `Resources` dell'evento per identificare quali macchine virtuali sono interessate.
 
 ### <a name="endpoint-discovery"></a>Individuazione degli endpoint
 Per le macchine virtuali abilitate per le reti virtuali, il servizio metadati è disponibile da un indirizzo IP statico non instradabile, `169.254.169.254`. L'endpoint completo per la versione più recente degli eventi pianificati è: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
 
 Se la macchina virtuale non viene creata all'interno di una rete virtuale, caso predefinito per i servizi cloud e le macchine virtuali classiche, è necessaria logica aggiuntiva per individuare l'indirizzo IP da usare. Per informazioni su come [individuare l'endpoint dell'host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), vedere l'esempio seguente.
 
 ### <a name="version-and-region-availability"></a>Versione e disponibilità in base all'area geografica
 Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie; la versione corrente è `2019-01-01`.
 
-| Versione | Tipo di versione | Aree | Note sulla versione | 
+| Versione | Tipo di versione | Regioni | Note sulla versione | 
 | - | - | - | - | 
+| 2019-08-01 | Disponibilità generale | Tutti | <li> Aggiunta del supporto per EventSource |
+| 2019-04-01 | Disponibilità generale | Tutti | <li> Aggiunta del supporto per la descrizione dell'evento |
 | 2019-01-01 | Disponibilità generale | Tutti | <li> Supporto aggiunto per i set di scalabilità di macchine virtuali EventType 'Terminate' |
 | 2017-11-01 | Disponibilità generale | Tutti | <li> Supporto aggiunto per l'eliminazione di VM spot EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilità generale | Tutti | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
@@ -98,7 +106,7 @@ Quando si eseguono query sul servizio metadati, è necessario specificare l'inte
 
 #### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
 Una risposta contiene una serie di eventi pianificati. Una matrice vuota indica che al momento non sono presenti eventi pianificati.
@@ -113,7 +121,9 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},       
+            "Description": {eventDescription},
+            "EventSource" : "Platform" | "User",
         }
     ]
 }
@@ -128,6 +138,8 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 | Risorse| Elenco di risorse interessate dall'evento. L'elenco contiene sicuramente i computer al massimo di un [dominio di aggiornamento](manage-availability.md), ma potrebbe non contenere tutti i computer del dominio. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato dopo la data e l'ora specificate nella proprietà `NotBefore`.<li>`Started`: l'evento è stato avviato.</ul> Lo stato `Completed` o simile non viene mai restituito. Al termine dell'evento, quest'ultimo non viene più restituito.
 | NotBefore| Tempo al termine del quale l'evento può essere avviato. <br><br> Esempio: <br><ul><li> Lun 19 set 2016 18:29:47 GMT  |
+| Descrizione | Descrizione dell'evento. <br><br> Esempio: <br><ul><li> Il server host è in fase di manutenzione. |
+| EventSource | Initiator dell'evento. <br><br> Esempio: <br><ul><li> `Platform`: Questo evento viene avviato da platfrom. <li>`User`: Questo evento viene avviato dall'utente. |
 
 ### <a name="event-scheduling"></a>Event Scheduling
 Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento. Questo tempo si riflette in una proprietà `NotBefore` dell'evento. 
@@ -197,9 +209,14 @@ def handle_scheduled_events(data):
         eventtype = evt['EventType']
         resourcetype = evt['ResourceType']
         notbefore = evt['NotBefore'].replace(" ", "_")
+    description = evt['Description']
+    eventSource = evt['EventSource']
         if this_host in resources:
             print("+ Scheduled Event. This host " + this_host +
-                " is scheduled for " + eventtype + " not before " + notbefore)
+                " is scheduled for " + eventtype + 
+        " by " + eventSource + 
+        " with description " + description +
+        " not before " + notbefore)
             # Add logic for handling events here
 
 

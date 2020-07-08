@@ -3,16 +3,16 @@ title: Come ripristinare i dati di Azure Cosmos DB da un backup
 description: Questo articolo descrive come ripristinare i dati di Azure Cosmos DB da un backup, come contattare il supporto tecnico di Azure per il ripristino dei dati e le procedure da seguire dopo il ripristino dei dati.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1a0075f9b4fc3ff919d4db4bd440a5435d711c83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70240775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261733"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Ripristinare i dati da un backup in Azure Cosmos DB 
 
@@ -43,7 +43,7 @@ Quando si verifica un danneggiamento dei dati e se i documenti all'interno di un
 
 Lo screenshot seguente illustra come creare una richiesta di supporto per un contenitore (raccolta/grafo/tabella) per ripristinare i dati tramite il portale di Azure. Specificare ulteriori dettagli, come tipo di dati, scopo del ripristino e ora di eliminazione dei dati per consentire a Microsoft di definire più facilmente la priorità della richiesta.
 
-![Creare una richiesta di supporto per il backup usando il portale di Azure](./media/how-to-backup-and-restore/backup-support-request-portal.png)
+:::image type="content" source="./media/how-to-backup-and-restore/backup-support-request-portal.png" alt-text="Creare una richiesta di supporto per il backup usando il portale di Azure":::
 
 ## <a name="post-restore-actions"></a>Azioni successive al ripristino
 

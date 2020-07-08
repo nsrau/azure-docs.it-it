@@ -5,16 +5,16 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478858"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260662"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizzare la libreria .NET Executor in blocco per eseguire operazioni bulk in Azure Cosmos DB
 
@@ -23,7 +23,7 @@ ms.locfileid: "80478858"
 
 > Se si sta utilizzando la libreria dell'executor bulk e si intende eseguire la migrazione al supporto bulk nell'SDK più recente, attenersi alla procedura descritta nella [Guida alla migrazione](how-to-migrate-from-bulk-executor-library.md) per eseguire la migrazione dell'applicazione.
 
-Questa esercitazione fornisce istruzioni sull'uso della libreria .NET Executor per l'importazione e l'aggiornamento dei documenti in un contenitore di Azure Cosmos. Per informazioni sulla libreria di esecutori bulk e sul modo in cui è possibile sfruttare la velocità effettiva e l'archiviazione di massa, vedere l'articolo [Panoramica della libreria dell'executor in blocco](bulk-executor-overview.md) . In questa esercitazione verrà visualizzata un'applicazione .NET di esempio che esegue l'importazione bulk di documenti generati in modo casuale in un contenitore di Azure Cosmos. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici.
+Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti nei contenitori di Azure Cosmos DB usando la libreria .NET dell'executor in blocco. Per informazioni sulla libreria di esecutori bulk e sul modo in cui è possibile sfruttare la velocità effettiva e l'archiviazione di massa, vedere l'articolo [Panoramica della libreria dell'executor in blocco](bulk-executor-overview.md) . In questa esercitazione verrà visualizzata un'applicazione .NET di esempio che esegue l'importazione bulk di documenti generati in modo casuale in un contenitore di Azure Cosmos. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici.
 
 Attualmente, la libreria di esecuzioni bulk è supportata solo dagli account Azure Cosmos DB API SQL e Gremlin. Questo articolo descrive come usare la libreria .NET Executor in blocco con gli account API SQL. Per informazioni sull'uso della libreria .NET Executor in blocco con account API Gremlin, vedere [eseguire operazioni bulk nell'api Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
 
@@ -31,7 +31,7 @@ Attualmente, la libreria di esecuzioni bulk è supportata solo dagli account Azu
 
 * Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Assicurarsi di abilitare "sviluppo Azure" durante l'installazione di Visual Studio.
 
-* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 * È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa, è possibile usare l' [emulatore Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l' `https://localhost:8081` endpoint. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).
 
@@ -45,7 +45,7 @@ A questo punto, è possibile passare all'uso del codice scaricando un'applicazio
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-Il repository clonato contiene due esempi "BulkImportSample" e "BulkUpdateSample". È possibile aprire una delle applicazioni di esempio, aggiornare le stringhe di connessione nel file app. config con le stringhe di connessione dell'account Azure Cosmos DB, compilare la soluzione ed eseguirla.
+Il repository clonato contiene due esempi "BulkImportSample" e "BulkUpdateSample". È possibile aprire una delle applicazioni di esempio, aggiornare le stringhe di connessione in App.config file con le stringhe di connessione dell'account Azure Cosmos DB, compilare la soluzione ed eseguirla.
 
 L'applicazione "BulkImportSample" genera documenti casuali ed esegue l'importazione bulk nell'account Azure Cosmos. L'applicazione "BulkUpdateSample" aggiorna in blocco i documenti importati, specificando le patch come operazioni da eseguire su campi di documenti specifici. Nelle sezioni successive verrà esaminato il codice in ognuna di queste app di esempio.
 
@@ -53,7 +53,7 @@ L'applicazione "BulkImportSample" genera documenti casuali ed esegue l'importazi
 
 1. Passare alla cartella "BulkImportSample" e aprire il file "BulkImportSample.sln".  
 
-2. Le stringhe di connessione del Azure Cosmos DB vengono recuperate dal file app. config, come illustrato nel codice seguente:  
+2. Le stringhe di connessione del Azure Cosmos DB vengono recuperate dal file di App.config, come illustrato nel codice seguente:  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -63,7 +63,7 @@ L'applicazione "BulkImportSample" genera documenti casuali ed esegue l'importazi
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   L'utilità di importazione bulk crea un nuovo database e un contenitore con il nome del database, il nome del contenitore e i valori di velocità effettiva specificati nel file app. config.
+   L'utilità di importazione bulk crea un nuovo database e un contenitore con il nome del database, il nome del contenitore e i valori di velocità effettiva specificati nel file di App.config.
 
 3. L'oggetto DocumentClient viene quindi inizializzato con la modalità di connessione TCP diretto:  
 
@@ -120,15 +120,15 @@ L'applicazione "BulkImportSample" genera documenti casuali ed esegue l'importazi
    |NumberOfDocumentsImported (long)   |  Il numero totale di documenti che sono stati importati correttamente dal totale dei documenti forniti alla chiamata all'API di importazione bulk.       |
    |TotalRequestUnitsConsumed (double)   |   Le unità richiesta (UR) totali usate dalla chiamata API di importazione in blocco.      |
    |TotalTimeTaken (TimeSpan)    |   Tempo totale impiegato dalla chiamata dell'API di importazione bulk per completare l'esecuzione.      |
-   |BadInputDocuments (elenca\<> oggetti)   |     L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. Correggere i documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.    |
+   |BadInputDocuments (List\<object>)   |     L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. Correggere i documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.    |
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Aggiornare in blocco i dati nell'account Azure Cosmos
 
-È possibile aggiornare i documenti esistenti tramite l'API BulkUpdateAsync. In questo esempio il `Name` campo viene impostato su un nuovo valore e il `Description` campo viene rimosso dai documenti esistenti. Per il set completo di operazioni di aggiornamento supportate, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+È possibile aggiornare i documenti esistenti tramite l'API BulkUpdateAsync. In questo esempio il campo viene impostato `Name` su un nuovo valore e il campo viene rimosso `Description` dai documenti esistenti. Per il set completo di operazioni di aggiornamento supportate, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
 1. Passare alla cartella "BulkImportSample" e aprire il file "BulkImportSample.sln".  
 
-2. Definire gli elementi di aggiornamento insieme alle operazioni di aggiornamento dei campi corrispondenti. `SetUpdateOperation` In questo esempio verrà usato per aggiornare il `Name` campo e `UnsetUpdateOperation` per rimuovere il `Description` campo da tutti i documenti. È possibile anche eseguire altre operazioni, ad esempio incrementare un campo del documento per un valore specifico, eseguire il push di valori specifici in un campo di matrice o rimuovere un valore specifico da un campo di matrice. Per informazioni sui diversi metodi forniti dall'API di aggiornamento in blocco, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Definire gli elementi di aggiornamento insieme alle operazioni di aggiornamento dei campi corrispondenti. In questo esempio verrà usato `SetUpdateOperation` per aggiornare il `Name` campo e `UnsetUpdateOperation` per rimuovere il `Description` campo da tutti i documenti. È possibile anche eseguire altre operazioni, ad esempio incrementare un campo del documento per un valore specifico, eseguire il push di valori specifici in un campo di matrice o rimuovere un valore specifico da un campo di matrice. Per informazioni sui diversi metodi forniti dall'API di aggiornamento in blocco, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -180,7 +180,7 @@ Quando si usa la libreria Executor bulk, considerare i punti seguenti per ottene
 
 * Poiché una singola esecuzione dell'API per operazioni bulk utilizza un gran numero di operazioni di i/o di rete e CPU del computer client (ciò avviene generando più attività internamente). Evitare la generazione di più attività simultanee nel processo dell'applicazione che eseguono chiamate API per operazioni bulk. Se una singola chiamata API per operazioni bulk in esecuzione in una singola macchina virtuale non è in grado di utilizzare la velocità effettiva dell'intero contenitore (se la velocità effettiva del contenitore > 1 milione ur/sec), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API per operazioni bulk.  
 
-* Verificare che `InitializeAsync()` il metodo venga richiamato dopo avere creato un'istanza di un oggetto BulkExecutor per recuperare la mappa di partizione del contenitore Cosmos di destinazione.  
+* Verificare `InitializeAsync()` che il metodo venga richiamato dopo avere creato un'istanza di un oggetto BulkExecutor per recuperare la mappa di partizione del contenitore Cosmos di destinazione.  
 
 * In App.Config dell'applicazione verificare che **gcServer** sia abilitato per assicurare prestazioni migliori.
   ```xml  
@@ -188,7 +188,7 @@ Quando si usa la libreria Executor bulk, considerare i punti seguenti per ottene
     <gcServer enabled="true" />
   </runtime>
   ```
-* La libreria genera tracce che possono essere raccolte in un file di log o nella console. Per abilitare entrambi, aggiungere il codice seguente al file app. config dell'applicazione.
+* La libreria genera tracce che possono essere raccolte in un file di log o nella console. Per abilitare entrambi, aggiungere il codice seguente al file di App.Config dell'applicazione.
 
   ```xml
   <system.diagnostics>

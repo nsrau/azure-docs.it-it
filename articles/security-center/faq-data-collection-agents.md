@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 79b6d7f84cd54979421357efa94c5c6de38fb4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261393"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Domande frequenti sulla raccolta dati, gli agenti e le aree di lavoro
 
@@ -39,6 +39,25 @@ Per altre informazioni sui prezzi, vedere [Prezzi di Centro sicurezza](https://a
 > Il piano tariffario di Log Analytics per le aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+## <a name="what-is-the-log-analytics-agent"></a>Che cos'è il Log Analytics Agent?
+
+Per monitorare vulnerabilità e minacce per la sicurezza, il Centro sicurezza di Azure dipende dall' [agente di log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) , ovvero lo stesso agente usato dal servizio monitoraggio di Azure. 
+
+L'agente viene talvolta definito Microsoft Monitoring Agent (o "MMA"). 
+
+L'agente raccoglie diversi dettagli di configurazione relativi alla sicurezza e registri eventi da computer connessi, quindi copia i dati nell'area di lavoro di Log Analytics per un'ulteriore analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso.
+
+Verificare che nei computer sia in esecuzione uno dei sistemi operativi supportati per l'agente, come descritto nelle pagine seguenti:
+
+* [Agente di Log Analytics per sistemi operativi supportati da Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+
+* [Agente di Log Analytics per sistemi operativi Linux supportati](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+
+Altre informazioni sui [dati raccolti dall'agente log Analytics](security-center-enable-data-collection.md).
+
+
 
 
 ## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>Che cosa determina il diritto di una macchina virtuale al provisioning automatico dell'installazione dell'agente di Log Analytics?
@@ -65,6 +84,14 @@ La località dell'area di lavoro predefinita dipende dall'area di Azure:
 - Per le macchine virtuali in Giappone, la località dell'area di lavoro è Giappone
 - Per le macchine virtuali in Cina, la località dell'area di lavoro è Cina
 - Per le macchine virtuali in Australia, la località dell'area di lavoro è Australia
+
+
+## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quali dati vengono raccolti dall'agente di Log Analytics?
+
+Per un elenco completo delle applicazioni e dei servizi monitorati dall'agente, vedere [elementi monitorati da monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+
+> [!IMPORTANT]
+> Si noti che per alcuni servizi, ad esempio Azure firewall, se è stata abilitata la registrazione e si è scelta una risorsa loquace da registrare, ad esempio impostando il log su *verbose*, è possibile che si verifichino effetti significativi sulle esigenze di archiviazione dell'area di lavoro log Analytics. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>È possibile eliminare le aree di lavoro predefinite create dal Centro sicurezza?
@@ -201,9 +228,17 @@ Per rimuovere manualmente l'agente:
 
 ## <a name="how-do-i-disable-data-collection"></a>Come si disabilita la raccolta dati?
 
-Il provisioning automatico è disattivato per impostazione predefinita. È possibile disabilitare il provisioning automatico nelle risorse in qualsiasi momento disattivando questa impostazione nei criteri di sicurezza. Il provisioning automatico è fortemente consigliato per ottenere gli avvisi di sicurezza e le raccomandazioni sugli aggiornamenti del sistema, le vulnerabilità del sistema operativo e la protezione degli endpoint.
+Il provisioning automatico è fortemente consigliato per ottenere gli avvisi di sicurezza e le raccomandazioni sugli aggiornamenti del sistema, le vulnerabilità del sistema operativo e la protezione degli endpoint. Per impostazione predefinita, il provisioning automatico è disabilitato.
 
-Per disabilitare la raccolta di dati, [accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, **Centro sicurezza**, quindi selezionare**Selezione criteri**. Selezionare la sottoscrizione per cui si desidera disabilitare il provisioning automatico. Quando si seleziona una sottoscrizione, si apre **Criteri di sicurezza - Raccolta dati**. In **Auto provisioning**, (Provisioning automatico) selezionare **Off**.
+Se è stata abilitata, ma ora si vuole disabilitarla:
+
+1. Dal [portale di Azure aprire il](https://portal.azure.com) **Centro sicurezza** e selezionare **criteri di sicurezza**.
+
+1. Selezionare la sottoscrizione in cui si vuole disabilitare il provisioning automatico.
+
+    **Criteri di sicurezza:** viene visualizzata la raccolta dati.
+
+1. In **Auto provisioning**, (Provisioning automatico) selezionare **Off**.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Come si abilita la raccolta dati?
@@ -233,9 +268,6 @@ Per raccogliere i dati, ogni macchina virtuale e server deve connettersi a Inter
 L'agente e usa una quantità nominale delle risorse di sistema e dovrebbe avere un impatto minimo sulle prestazioni. Per altre informazioni sull'agente, sull'estensione e sull'impatto sulle prestazioni, vedere la [guida alla pianificazione e alla gestione](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 
-## <a name="where-is-my-data-stored"></a>Dove vengono archiviati i dati?
-
-I dati raccolti dall'agente vengono archiviati in un'area di lavoro Log Analytics esistente associata alla sottoscrizione o in una nuova area di lavoro. Per altre informazioni, vedere [Sicurezza dei dati](security-center-data-security.md).
 
 
 <!--Image references-->

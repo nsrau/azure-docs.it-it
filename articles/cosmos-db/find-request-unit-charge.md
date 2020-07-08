@@ -3,15 +3,15 @@ title: Trovare l'addebito delle unità richieste (UR) in Azure Cosmos DB
 description: Informazioni su come trovare l'addebito delle unità richiesta (UR) per qualsiasi operazione eseguita con un contenitore di Azure Cosmos.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: e5420b9b765fffcf7b4ccd6775d05795b1b13871
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872238"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261835"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Trovare l'addebito delle unità richiesta in Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Se si usa l'API SQL, sono disponibili diverse opzioni per trovare il consumo di 
 
 1. Fare clic su **Statistiche query** per visualizzare l'addebito effettivo per la richiesta eseguita.
 
-![Screenshot dell'addebito per la richiesta relativa a una query SQL nel portale di Azure](./media/find-request-unit-charge/portal-sql-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-sql-query.png" alt-text="Screenshot dell'addebito per la richiesta relativa a una query SQL nel portale di Azure":::
 
 ### <a name="use-the-net-sdk"></a>Usare .NET SDK
 
@@ -149,7 +149,7 @@ while (query.hasMoreResults()) {
 }
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'app node. js usando un account API SQL Azure Cosmos DB](create-sql-api-nodejs.md). 
+Per altre informazioni, vedere [Guida introduttiva: creare un'app Node.js usando un account di Azure Cosmos DB API SQL](create-sql-api-nodejs.md). 
 
 ### <a name="use-the-python-sdk"></a>Usare Python SDK
 
@@ -187,7 +187,7 @@ L'addebito delle UR è esposto da un [comando di database](https://docs.mongodb.
 
 1. Fare clic su **Statistiche query** per visualizzare l'addebito effettivo per la richiesta eseguita.
 
-![Screenshot dell'addebito per la richiesta relativa a una query MongoDB nel portale di Azure](./media/find-request-unit-charge/portal-mongodb-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot dell'addebito per la richiesta relativa a una query MongoDB nel portale di Azure":::
 
 ### <a name="use-the-mongodb-net-driver"></a>Usare il driver .NET di MongoDB
 
@@ -231,7 +231,7 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 });
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: eseguire la migrazione di un'app Web Node. js di MongoDB esistente a Azure Cosmos DB](create-mongodb-nodejs.md).
+Per altre informazioni, vedere [Guida introduttiva: eseguire la migrazione di un'app Web MongoDB Node.js esistente a Azure Cosmos DB](create-mongodb-nodejs.md).
 
 ## <a name="cassandra-api"></a>API Cassandra
 
@@ -308,7 +308,7 @@ Per altre informazioni, vedere [Guida introduttiva: creare un'app API tabella us
 
 Per informazioni su come ottimizzare il consumo di UR, vedere questi articoli:
 
-* [Unità richiesta e velocità effettiva in Azure Cosmos DB](request-units.md)
+* [Velocità effettiva e unità richiesta in Azure Cosmos DB](request-units.md)
 * [Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB](optimize-cost-throughput.md)
 * [Ottimizzare il costo delle query in Azure Cosmos DB](optimize-cost-queries.md)
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
