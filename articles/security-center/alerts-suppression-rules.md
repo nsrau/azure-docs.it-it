@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 84b5cd8a59103f60249da861238acb45f8aa2fd5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 18b1b4cb959603f5898e7c725102f35d7abc90cf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849014"
 ---
-# <a name="suppressing-alerts-from-azure-security-centers-threat-protection"></a>Eliminazione avvisi della protezione contro le minacce del Centro sicurezza di Azure
+# <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Non visualizzare gli avvisi dalla protezione dalle minacce del Centro sicurezza di Azure
 
 Questo articolo illustra come usare le regole di eliminazione avvisi per eliminare i falsi positivi o altri avvisi di sicurezza indesiderati nel Centro sicurezza di Azure.
 
@@ -28,7 +28,7 @@ Questo articolo illustra come usare le regole di eliminazione avvisi per elimina
     - ✔ Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)
 
 
-## <a name="introduction-to-suppression-rules"></a>Introduzione alle regole di eliminazione
+## <a name="what-are-suppression-rules"></a>Che cosa sono le regole di eliminazione?
 
 I componenti di protezione dalle minacce del Centro sicurezza di Azure rilevano le minacce in qualsiasi area dell'ambiente e generano avvisi di sicurezza.
 
@@ -43,9 +43,9 @@ Le regole di eliminazione definiscono i criteri per cui gli avvisi devono essere
 > [!CAUTION]
 > L'eliminazione degli avvisi di sicurezza riduce la protezione dalle minacce del Centro sicurezza. È necessario valutare con attenzione l'impatto potenziale di qualsiasi regola di eliminazione e monitorarlo nel tempo.
 
-[![Pagina degli avvisi di sicurezza del Centro sicurezza di Azure con opzioni di eliminazione degli avvisi](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
+![Crea regola di eliminazione avvisi](media\alerts-suppression-rules\create-suppression-rule.gif)
 
-## <a name="creating-a-suppression-rule"></a>Creazione di una regola di eliminazione
+## <a name="create-a-suppression-rule"></a>Creare una regola di eliminazione
 
 Esistono diversi modi per creare regole per l'eliminazione degli avvisi di sicurezza indesiderati:
 
@@ -89,13 +89,13 @@ Per creare una regola direttamente nel portale di Azure:
 
 1. Salvare la regola. 
 
-## <a name="editing-suppression-rules"></a>Modifica di regole di eliminazione
+## <a name="edit-a-suppression-rules"></a>Modificare le regole di eliminazione
 
-Per modificare le regole create, usare la pagina delle regole di eliminazione.
+Per modificare le regole create, usare la pagina regole di eliminazione.
 
 1. Nella pagina degli avvisi di sicurezza del Centro sicurezza selezionare il collegamento **Regole di eliminazione** nella parte superiore della pagina.
 
-1. Si apre la pagina delle regole di eliminazione che elenca tutte le regole disponibili in base alle sottoscrizioni attualmente selezionate. 
+1. Verrà visualizzata la pagina regole di eliminazione con tutte le regole per le sottoscrizioni selezionate.
 
     [![Elenco delle regole di eliminazione](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
@@ -103,13 +103,13 @@ Per modificare le regole create, usare la pagina delle regole di eliminazione.
 
 1. Apportare le modifiche necessarie e selezionare **Applica**. 
 
-## <a name="deleting-suppression-rules"></a>Eliminazione di regole di eliminazione
+## <a name="delete-a-suppression-rule"></a>Eliminare una regola di eliminazione
 
 Per eliminare una o più regole create, usare la pagina delle regole di eliminazione.
 
 1. Nella pagina degli avvisi di sicurezza del Centro sicurezza selezionare il collegamento **Regole di eliminazione** nella parte superiore della pagina.
 
-1. Si apre la pagina delle regole di eliminazione che elenca tutte le regole disponibili in base alle sottoscrizioni attualmente selezionate. 
+1. Verrà visualizzata la pagina regole di eliminazione con tutte le regole per le sottoscrizioni selezionate.
 
 1. Per eliminare una singola regola, aprire il menu con i puntini di sospensione (...) per la regola e selezionare **Elimina**.
 
@@ -117,7 +117,7 @@ Per eliminare una o più regole create, usare la pagina delle regole di eliminaz
 
     ![Eliminazione di una o più regole di eliminazione](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
-## <a name="viewing-alerts-that-have-been-suppressed"></a>Visualizzazione degli avvisi eliminati
+## <a name="view-suppressed-alerts"></a>Visualizza avvisi eliminati
 
 Gli avvisi che corrispondono alle regole di eliminazione abilitate vengono comunque generati, ma il loro stato viene impostato su **Ignorato**. È possibile visualizzare lo stato nel portale di Azure o accedendo agli avvisi di sicurezza del Centro sicurezza. 
 
@@ -131,7 +131,7 @@ Usare il filtro del Centro sicurezza per visualizzare gli avvisi che sono stati 
    [![Visualizzazione degli avvisi ignorati](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
 
 
-## <a name="using-the-api-to-create-and-manage-suppression-rules"></a>Uso dell'API per creare e gestire le regole di eliminazione
+## <a name="create-and-manage-suppression-rules-with-the-api"></a>Creare e gestire le regole di eliminazione con l'API
 
 È possibile creare, visualizzare o eliminare regole di eliminazione degli avvisi con l'API REST del Centro sicurezza. 
 

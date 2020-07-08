@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848710"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -228,9 +228,9 @@ In questa sezione si configura il server VPN per l'uso dell'autenticazione RADIU
 
 2. In Gestione server selezionare **Strumenti** e quindi scegliere **Routing e Accesso remoto**.
 
-3. Nella finestra **Routing e Accesso remoto** fare clic con il pulsante destro del mouse sul **\<nome del server> (locale)** e quindi scegliere **Proprietà**.
+3. Nella finestra **routing e accesso remoto** , fare clic con il pulsante destro del mouse su ** \<server name> (locale)**, quindi scegliere **Proprietà**.
 
-4. Nella finestra **\<nome del server> (locale)** selezionare la scheda **Sicurezza**.
+4. Nella finestra delle ** \<server name> Proprietà (locale)** Selezionare la scheda **sicurezza** .
 
 5. Nella scheda **Sicurezza**, in **Provider di autenticazione** selezionare **Autenticazione RADIUS** e quindi **Configura**.
 
@@ -320,19 +320,15 @@ Creare un nuovo valore stringa denominato _REQUIRE_USER_MATCH in HKLM\SOFTWARE\M
 
 Se il valore è impostato su *True* o non è impostato, tutte le richieste di autenticazione sono soggette a verifica MFA. Se il valore è impostato su *False*, le verifiche MFA vengono eseguite solo per gli utenti registrati in Azure Multi-Factor Authentication. Usare l'impostazione *False* solo a scopo di test o negli ambienti di produzione durante un periodo di onboarding.
 
-### <a name="obtain-the-azure-active-directory-guid-id"></a>Ottenere l'ID GUID di Azure Active Directory
+### <a name="obtain-the-azure-active-directory-tenant-id"></a>Ottenere l'ID tenant Azure Active Directory
 
-Come parte della configurazione dell'estensione Server dei criteri di rete, è necessario inserire le credenziali di amministratore e l'ID per il tenant di Azure AD. Ottenere l'ID eseguendo questa procedura:
+Come parte della configurazione dell'estensione Server dei criteri di rete, è necessario inserire le credenziali di amministratore e l'ID per il tenant di Azure AD. Per ottenere l'ID tenant, completare i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale del tenant di Azure.
+1. Nel menu del portale di Azure selezionare **Azure Active Directory** oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
+1. Nella pagina **Panoramica** vengono visualizzate le *informazioni sul tenant* . Accanto all' *ID tenant*selezionare l'icona di **copia** , come illustrato nella schermata di esempio seguente:
 
-2. Nel menu del portale di Azure selezionare **Azure Active Directory** oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
-
-3. Selezionare **Proprietà**.
-
-4. Per copiare l'ID di Azure AD, selezionare il pulsante **Copia**.
-
-    ![ID directory di Azure AD nel portale di Azure](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
+   ![Recupero dell'ID tenant dal portale di Azure](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 
@@ -386,7 +382,7 @@ Per usare lo script, specificare l'estensione con le credenziali amministrative 
 
 5. Nel prompt dei comandi incollare l'ID tenant copiato in precedenza e quindi premere Invio.
 
-    ![Immettere l'ID directory di Azure AD copiato in precedenza](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Immettere l'ID tenant di Azure AD copiato prima](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     Lo script crea un certificato autofirmato e apporta altre modifiche alla configurazione. L'output è simile a quello mostrato nella figura seguente:
 
@@ -412,7 +408,9 @@ Dopo aver eseguito correttamente l'autenticazione con il metodo secondario, vien
 
 Per visualizzare gli eventi di accesso riusciti nei log del Visualizzatore eventi di Windows, usare il comando di PowerShell seguente per eseguire una query sul log di sicurezza di Windows nel server NPS:
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Visualizzatore eventi di sicurezza di PowerShell](./media/howto-mfa-nps-extension-vpn/image44.png)
 
@@ -422,7 +420,9 @@ Per visualizzare gli eventi di accesso riusciti nei log del Visualizzatore event
 
 Nel server in cui è installata l'estensione Server dei criteri di rete per Azure Multi-Factor Authentication è possibile trovare i log applicazioni del Visualizzatore eventi specifici per l'estensione in *Registri applicazioni e servizi\Microsoft\AzureMfa*.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Riquadro dei log di AuthZ di esempio nel Visualizzatore eventi](./media/howto-mfa-nps-extension-vpn/image46.png)
 

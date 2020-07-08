@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848755"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
 
@@ -115,24 +115,24 @@ Per comprendere al meglio e configurare correttamente i dispositivi per MFA con 
 
 Questa sezione fornisce istruzioni per configurare l'infrastruttura Servizi Desktop remoto per l'uso di Azure MFA per l'autenticazione client con Gateway Desktop remoto.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Acquisire l'ID GUID di Azure Active Directory
+### <a name="acquire-azure-active-directory-tenant-id"></a>Acquisisci Azure Active Directory ID tenant
 
-Come parte della configurazione dell'estensione NPS, è necessario fornire le credenziali di amministratore e l'ID di Azure AD per il tenant di Azure AD. La procedura seguente mostra come ottenere l'ID tenant.
+Come parte della configurazione dell'estensione NPS, è necessario fornire le credenziali di amministratore e l'ID di Azure AD per il tenant di Azure AD. Per ottenere l'ID tenant, completare i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale del tenant di Azure.
-1. Nel menu portale di Azure selezionare **Azure Active Directory**oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
-1. Selezionare **Proprietà**.
-1. Nel pannello Proprietà, accanto all'ID directory, fare clic sull'icona **Copia**, mostrata di seguito, per copiare l'ID negli Appunti.
+1. Nel menu del portale di Azure selezionare **Azure Active Directory** oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
+1. Nella pagina **Panoramica** vengono visualizzate le *informazioni sul tenant* . Accanto all' *ID tenant*selezionare l'icona di **copia** , come illustrato nella schermata di esempio seguente:
 
-   ![Recupero dell'ID directory dalla portale di Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
+   ![Recupero dell'ID tenant dal portale di Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 
 Installare l'estensione NPS in un server con il ruolo Servizi di accesso e criteri di rete installato. Questo funge da server RADIUS per la progettazione.
 
-> [!Important]
-> Assicurarsi di non installare l'estensione NPS nel server Gateway Desktop remoto.
+> [!IMPORTANT]
+> Non installare l'estensione NPS nel server del Gateway Desktop remoto (RDG). Il server RDG non usa il protocollo RADIUS con il client, quindi l'estensione non può interpretare ed eseguire l'autenticazione a più fattori.
 >
+> Quando il server RDG e il server NPS con estensione NPS sono server diversi, RDG usa il server dei criteri di server internamente per comunicare con altri server NPS e USA RADIUS come protocollo per comunicare correttamente.
 
 1. Scaricare l'[estensione NPS](https://aka.ms/npsmfa).
 1. Copiare il file eseguibile di installazione (NpsExtnForAzureMfaInstaller.exe) nel server NPS.
@@ -160,15 +160,15 @@ Per usare lo script, specificare l'estensione con le credenziali amministrative 
 1. Al prompt di PowerShell digitare `cd 'c:\Program Files\Microsoft\AzureMfa\Config'` e premere **INVIO**.
 1. Digitare `.\AzureMfaNpsExtnConfigSetup.ps1` e premere **INVIO**. Lo script verifica se il modulo di PowerShell per Azure Active Directory è installato. Se non è installato, lo installa.
 
-   ![Esecuzione di AzureMfaNpsExtnConfigSetup. ps1 in Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![Esecuzione di AzureMfaNpsExtnConfigSetup.ps1 in Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. Dopo che lo script ha verificato l'installazione del modulo di PowerShell, viene visualizzata la finestra di dialogo relativa al modulo di PowerShell per Azure Active Directory. Nella finestra di dialogo immettere le credenziali e la password di amministratore di Azure AD, quindi fare clic su **Accedi**.
 
    ![Autenticazione per Azure AD in PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-1. Quando richiesto, incollare l'ID directory copiato negli Appunti in precedenza e premere **invio**.
+1. Quando richiesto, incollare l' *ID tenant* copiato in precedenza negli Appunti e premere **invio**.
 
-   ![Inserimento dell'ID directory in PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Inserimento dell'ID tenant in PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. Lo script crea un certificato autofirmato e apporta altre modifiche alla configurazione. L'output è come quello nell'immagine seguente.
 
@@ -186,14 +186,14 @@ I criteri di autorizzazione connessioni Desktop remoto specificano i requisiti p
 
 1. Nel server Gateway Desktop remoto aprire **Server Manager**.
 1. Scegliere **Strumenti** dal menu, fare clic su **Servizi Desktop remoto** e quindi su **Gestione Gateway Desktop remoto**.
-1. In Gestione Gateway Desktop remoto fare clic con il pulsante destro del mouse su ** \[nome\] Server (locale)** e scegliere **Proprietà**.
+1. In Gestione Gateway Desktop remoto fare clic con il pulsante destro del mouse su ** \[ nome server \] (locale)** e scegliere **Proprietà**.
 1. Nella finestra di dialogo Proprietà selezionare la scheda Archivio criteri di autorizzazione **connessioni Desktop remoto** .
 1. Nella scheda Archivio criteri di autorizzazione connessioni Desktop remoto selezionare **Server dei criteri di rete centrale**. 
 1. Nel campo **Immettere il nome o l'indirizzo IP del Server dei criteri di rete** digitare l'indirizzo IP o il nome del server in cui è stata installata l'estensione NPS.
 
    ![Immettere il nome o l'indirizzo IP del server NPS](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 1. Nella finestra di dialogo **Segreto condiviso** immettere un segreto condiviso e quindi fare clic su **OK**. Assicurarsi di registrare il segreto condiviso e di archiviare il record in modo sicuro.
 
    >[!NOTE]
@@ -377,13 +377,13 @@ Per una descrizione di questi file di log, vedere [Interpret NPS Database Format
 
 L'immagine seguente mostra l'output di una di queste [applicazioni shareware](https://www.deepsoftware.com/iasviewer) che è possibile scaricare.
 
-![Analizzatore IAS app Shareware di esempio](./media/howto-mfa-nps-extension-rdg/image35.png)
+![Parser IAS dell'app shareware di esempio](./media/howto-mfa-nps-extension-rdg/image35.png)
 
 Infine, per altre opzioni di risoluzione dei problemi, è possibile usare uno strumento di analisi di protocolli, ad esempio [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx).
 
 L'immagine seguente di Microsoft Message Analyzer Mostra il traffico di rete filtrato in base al protocollo RADIUS che contiene il nome utente **CONTOSO\AliceC**.
 
-![Analizzatore messaggi di Microsoft che mostra il traffico filtrato](./media/howto-mfa-nps-extension-rdg/image36.png)
+![Visualizzazione del traffico filtrato in Microsoft Message Analyzer](./media/howto-mfa-nps-extension-rdg/image36.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250127"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847443"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
 
@@ -71,7 +71,7 @@ Questo scenario esegue una traccia dei [contatori delle prestazioni](https://msd
 
 Questo scenario esegue una speciale acquisizione dei contatori delle prestazioni insieme a una traccia di rete. L'acquisizione include tutti i contatori delle condivisioni client Server Message Block, ovvero SMB. I seguenti sono alcuni dei principali contatori delle prestazioni Condivisioni client SMB che fanno parte dell'acquisizione:
 
-| **Type**     | **Contatore Condivisioni client SMB** |
+| **Tipo**     | **Contatore Condivisioni client SMB** |
 |--------------|-------------------------------|
 | IOPS         | Richieste dati/sec             |
 |              | Richieste di lettura/sec             |

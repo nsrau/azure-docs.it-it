@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846947"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -48,8 +48,8 @@ Per le metriche di diagnostica, è possibile scegliere tra *Medio*, *Minimo*, *M
 
 *Non sono consigliate* impostazioni di scalabilità automatica come gli esempi seguenti con valori di soglia uguali o simili per le condizioni out e in:
 
-* Aumentare le istanze di 1 quando il conteggio dei thread >= 600
-* Ridurre le istanze di 1 quando il conteggio dei thread <= 600
+* Aumento delle istanze di 1 quando il conteggio dei thread è >= 600
+* Riduzione delle istanze di 1 quando il conteggio dei thread è <= 600
 
 Verrà ora esaminato un esempio di come si può arrivare a un comportamento che può sembrare poco chiaro. Considerare la sequenza indicata di seguito.
 

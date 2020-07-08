@@ -2,24 +2,24 @@
 title: Concedere il consenso dell'amministratore a livello di tenant a un'applicazione-Azure AD
 description: Informazioni su come concedere il consenso a livello di tenant a un'applicazione in modo che agli utenti finali non venga richiesto il consenso per l'accesso a un'applicazione.
 services: active-directory
-author: psignoret
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c515fef4997720435c64bd5f3ae7b18f8921fc5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c24023bdd3540785dec58ebeaa14d99ab659ab1
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75480918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848364"
 ---
-# <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concedere il consenso dell'amministratore a livello di tenant a un'applicazione
+# <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concedere a un'applicazione il consenso amministratore a livello di tenant
 
 Informazioni su come semplificare l'esperienza utente concedendo il consenso dell'amministratore a livello di tenant a un'applicazione. Questo articolo fornisce le diverse modalità per ottenere questo risultato. Questi metodi si applicano a tutti gli utenti finali nel tenant di Azure Active Directory (Azure AD).
 
@@ -69,7 +69,9 @@ Quando si concede il consenso dell'amministratore a livello di tenant usando uno
 
 L'URL di consenso dell'amministratore a livello di tenant segue il formato seguente:
 
-    https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```http
+https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```
 
 dove:
 
@@ -80,10 +82,10 @@ Come sempre, esaminare attentamente le autorizzazioni richieste da un'applicazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare la modalità con cui gli utenti finali accettano le applicazioni](configure-user-consent.md)
+[Configurare la modalità con cui gli utenti finali consentono le applicazioni](configure-user-consent.md)
 
 [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 
-[Autorizzazioni e consenso nella piattaforma di identità Microsoft](../develop/active-directory-v2-scopes.md)
+[Autorizzazioni e consenso in Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
 
 [Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

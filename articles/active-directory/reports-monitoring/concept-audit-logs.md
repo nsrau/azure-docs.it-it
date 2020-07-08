@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846979"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -93,7 +93,7 @@ Il filtro del **servizio** consente di effettuare una selezione da un elenco a d
 - UX di gestione AAD
 - Verifiche di accesso
 - Provisioning degli account
-- Application Proxy
+- Proxy dell'applicazione
 - Authentication Methods
 - B2C
 - Accesso condizionale
@@ -125,7 +125,7 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - KerberosDomain
 - KeyManagement
 - Label
-- Altri
+- Altro
 - PermissionGrantPolicy
 - Policy
 - ResourceManagement
@@ -140,7 +140,7 @@ Il filtro di **stato** consente di filtrare in base allo stato di un'operazione 
 
 - Tutti
 - Operazione completata
-- Errore
+- Operazioni non riuscite
 
 Il filtro di **destinazione** consente di cercare una determinata destinazione dall'inizio del nome o del nome dell'entità utente (UPN). Il nome di destinazione e l'UPN fanno distinzione tra maiuscole e minuscole. 
 

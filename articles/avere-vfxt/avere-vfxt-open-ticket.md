@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252558"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847352"
 ---
 # <a name="get-help-with-your-system"></a>Ottenere assistenza per il sistema
 
@@ -27,7 +27,7 @@ Se si verificano problemi durante la distribuzione o l'uso di Avere vFXT, richie
 
 Seguire questa procedura per assicurarsi che il ticket di supporto sia contrassegnato con una risorsa del cluster. L'assegnazione di un tag al ticket consente di inoltrarlo alla risorsa di supporto corretto.
 
-1. Da [https://portal.azure.com](https://portal.azure.com)selezionare **gruppi di risorse**. Passare al gruppo di risorse che contiene il cluster vFXT in cui si è verificato il problema e fare clic su una delle macchine virtuali del cluster.
+1. Da [https://portal.azure.com](https://portal.azure.com) selezionare **gruppi di risorse**. Passare al gruppo di risorse che contiene il cluster vFXT in cui si è verificato il problema e fare clic su una delle macchine virtuali del cluster.
 
     ![Screenshot del pannello "Panoramica" del gruppo di risorse del portale di Azure con una macchina virtuale specifica evidenziata](media/avere-vfxt-ticket-vm.png)
 

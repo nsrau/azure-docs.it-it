@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847167"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Creare una macchina virtuale in Azure usando i modelli di VM nell'infrastruttura VMware
 
@@ -45,7 +45,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     | Subscription | Sottoscrizione di Azure associata al cloud privato.  |
     | Gruppo di risorse | Gruppo di risorse a cui verrà assegnata la macchina virtuale. È possibile selezionare un gruppo esistente o crearne uno nuovo. |
     | Nome | Nome per identificare la macchina virtuale.  |
-    | Percorso | Area di Azure in cui è ospitata questa macchina virtuale.  |
+    | Location | Area di Azure in cui è ospitata questa macchina virtuale.  |
     | Cloud privato | CloudSimple cloud privato in cui si vuole creare la macchina virtuale. |
     | Pool di risorse | Pool di risorse mappato per la macchina virtuale. Selezionare un pool di risorse tra quelli disponibili. |
     | Modello vSphere | modello vSphere per la macchina virtuale.  |
@@ -62,7 +62,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
     Per le interfacce di rete, fare clic su **Aggiungi interfaccia di rete** e configurare le impostazioni seguenti.
 
-    | Controllo | Descrizione |
+    | Controllo | Description |
     | ------------ | ------------- |
     | Nome | Immettere un nome per identificare l'interfaccia.  |
     | Rete | Selezionare dall'elenco di gruppi di porte distribuite configurate nel cloud privato vSphere.  |
@@ -71,7 +71,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
     Per i dischi, fare clic su **Aggiungi disco** e configurare le impostazioni seguenti.
 
-    | Item | Descrizione |
+    | Elemento | Descrizione |
     | ------------ | ------------- |
     | Nome | Immettere un nome per identificare il disco.  |
     | Dimensione | Selezionare una delle dimensioni disponibili.  |

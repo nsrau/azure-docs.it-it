@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847645"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Panoramica dei binding dell'archiviazione BLOB di Azure per funzioni di Azure
 
 Funzioni di Azure si integra con [archiviazione di Azure](https://docs.microsoft.com/azure/storage/) tramite [trigger e associazioni](./functions-triggers-bindings.md). L'integrazione con archiviazione BLOB consente di compilare funzioni che reagiscono alle modifiche nei dati BLOB, nonché i valori di lettura e scrittura.
 
-| Action | Tipo |
+| Action | Type |
 |---------|---------|
 | Eseguire una funzione come modifiche ai dati di archiviazione BLOB | [Trigger](./functions-bindings-storage-blob-trigger.md) |
 | Leggere dati di archiviazione BLOB in una funzione | [Binding di input](./functions-bindings-storage-blob-input.md) |
@@ -24,7 +24,7 @@ Funzioni di Azure si integra con [archiviazione di Azure](https://docs.microsoft
 
 ## <a name="add-to-your-functions-app"></a>Aggiungi all'app funzioni
 
-### <a name="functions-2x-and-higher"></a>Funzioni 2. x e versioni successive
+### <a name="functions-2x-and-higher"></a>Funzioni 2.x e versioni successive
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 

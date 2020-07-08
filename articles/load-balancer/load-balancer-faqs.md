@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 205a4bd119a7324c4e6524a0e29d432aa57bf315
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848209"
 ---
-# <a name="frequently-asked-questions"></a>Domande frequenti
+# <a name="load-balancer-frequently-asked-questions"></a>Load Balancer domande frequenti
 
 ## <a name="what-types-of-load-balancer-exist"></a>Quali sono i tipi di Load Balancer esistenti?
 Bilanciamento del carico interno che bilanciano il traffico all'interno di una VNET e di bilanciamento del carico esterno che bilanciano il traffico da e verso un endpoint connesso a Internet. Per ulteriori informazioni, vedere [tipi di Load Balancer](components.md#frontend-ip-configurations). 
@@ -32,6 +32,22 @@ Vedere l' [elenco dei modelli di avvio rapido Azure Load Balancer](https://docs.
 
 ## <a name="how-are-inbound-nat-rules-different-from-load-balancing-rules"></a>In che modo le regole NAT in ingresso sono diverse dalle regole di bilanciamento del carico?
 Le regole NAT vengono usate per specificare una risorsa back-end a cui indirizzare il traffico. Ad esempio, configurazione di una porta di bilanciamento del carico specifica per inviare il traffico RDP a una macchina virtuale specifica. Le regole di bilanciamento del carico vengono usate per specificare un pool di risorse back-end per indirizzare il traffico a, bilanciare il carico in ogni istanza. Una regola di bilanciamento del carico, ad esempio, può instradare i pacchetti TCP sulla porta 80 del servizio di bilanciamento del carico in un pool di server Web.
+
+## <a name="what-is-ip-1686312916"></a>Che cos'è IP 168.63.129.16?
+Indirizzo IP virtuale per l'host contrassegnato come infrastruttura di Azure Load Balancer da cui hanno origine i probe di integrità di Azure. Quando si configurano le istanze back-end, è necessario consentire il traffico da questo indirizzo IP per rispondere correttamente ai Probe di integrità. Questa regola non interagisce con l'accesso al front-end Load Balancer. Se non si usa la Azure Load Balancer, è possibile eseguire l'override di questa regola. Altre informazioni sui tag di servizio sono disponibili [qui](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
+
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>È possibile usare il peering VNET globale con Load Balancer di base?
+No. Il Load Balancer di base non supporta il peering VNET globale. In alternativa, è possibile usare un Load Balancer Standard. Per un aggiornamento semplice, vedere l'articolo relativo all' [aggiornamento da Basic a standard](upgrade-basic-standard.md) .
+
+## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Come è possibile individuare l'indirizzo IP pubblico usato da una macchina virtuale di Azure?
+
+Esistono molti modi per determinare l'indirizzo IP di origine pubblica di una connessione in uscita. OpenDNS offre un servizio che consente di visualizzare l'indirizzo IP pubblico della macchina virtuale.
+Usando il comando nslookup è possibile inviare una query DNS per il nome myip.opendns.com al resolver OpenDNS. Il servizio restituisce l'indirizzo IP di origine usato per inviare la query. Quando si esegue la query seguente dalla macchina virtuale, la risposta è l'indirizzo IP pubblico usato per tale VM:
+
+ ```nslookup myip.opendns.com resolver1.opendns.com```
+
+## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Come funzionano le connessioni ad archiviazione di Azure nella stessa area?
+La connettività in uscita tramite gli scenari precedenti non è necessaria per connettersi ad Archiviazione nella stessa area della macchina virtuale. Se non lo si desidera, usare i gruppi di sicurezza di rete (NSG) come illustrato in precedenza. Per la connettività ad Archiviazione in altre aree, è necessaria la connettività in uscita. Si noti che quando ci si connette ad Archiviazione da una macchina virtuale nella stessa area, l'indirizzo IP di origine nei log di diagnostica di Archiviazione sarà un indirizzo di provider interno e non l'indirizzo IP pubblico della macchina virtuale. Se si vuole limitare l'accesso all'account di Archiviazione alle macchine virtuali in una o più subnet della rete virtuale nella stessa area, usare [endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) e non l'indirizzo IP pubblico quando si configura il firewall dell'account di archiviazione. Una volta configurati gli endpoint di servizio, verrà visualizzato l'indirizzo IP privato della rete virtuale nei log di diagnostica di Archiviazione e non l'indirizzo del provider interno.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se la domanda non è elencata in precedenza, inviare commenti e suggerimenti su questa pagina. Verrà creato un problema di GitHub per consentire al team del prodotto di garantire la risposta a tutte le domande importanti dei clienti.

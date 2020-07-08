@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848489"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -65,13 +65,21 @@ Queste librerie vengono installate automaticamente con l'estensione.
 
 Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene installato, se non è già presente, tramite uno script di configurazione eseguito come parte del processo di installazione. Non è necessario installare il modulo in anticipo, se non è già installato.
 
+È necessario installare manualmente la libreria seguente:
+
+- [Visual C++ Redistributable per Visual Studio 2015](https://www.microsoft.com/download/details.aspx?id=48145)
+
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
 Gli utenti che usano l'estensione di Server dei criteri di rete devono essere sincronizzati con Azure Active Directory tramite Azure AD Connect ed essere registrati a MFA.
 
-Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [Portale di Azure](https://portal.azure.com). Accedere come amministratore. Cercare e selezionare **Azure Active Directory**, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare. Questo GUID verrà usato come ID tenant quando si installerà l'estensione di Server dei criteri di rete.
+Quando si installa l'estensione, sono necessari l' *ID tenant* e le credenziali di amministratore per il tenant di Azure ad. Per ottenere l'ID tenant, completare i passaggi seguenti:
 
-![L'ID directory si trova nelle proprietà di Azure Active Directory](./media/howto-mfa-nps-extension/properties-directory-id.png)
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale del tenant di Azure.
+1. Cercare e selezionare il **Azure Active Directory**.
+1. Nella pagina **Panoramica** vengono visualizzate le *informazioni sul tenant* . Accanto all' *ID tenant*selezionare l'icona di **copia** , come illustrato nella schermata di esempio seguente:
+
+   ![Recupero dell'ID tenant dal portale di Azure](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="network-requirements"></a>Requisiti di rete
 
@@ -186,14 +194,23 @@ A meno che non si desideri utilizzare i propri certificati (invece dei certifica
 1. Eseguire Windows PowerShell come amministratore.
 2. Cambiare le directory.
 
-   `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
+   ```powershell
+   cd "C:\Program Files\Microsoft\AzureMfa\Config"
+   ```
 
 3. Eseguire lo script di PowerShell creato dal programma di installazione.
 
-   `.\AzureMfaNpsExtnConfigSetup.ps1`
+   > [!IMPORTANT]
+   > Per i clienti che usano i cloud 21Vianet di Azure per enti pubblici o Azure China, modificare prima i `Connect-MsolService` cmdlet nello script *AzureMfaNpsExtnConfigSetup.ps1* per includere i parametri *AzureEnvironment* per il cloud richiesto. Ad esempio, specificare *-AzureEnvironment USGovernment* o *-AzureEnvironment AzureChinaCloud*.
+   >
+   > Per altre informazioni, vedere [riferimento al parametro Connect-MsolService](/powershell/module/msonline/connect-msolservice#parameters).
+
+   ```powershell
+   .\AzureMfaNpsExtnConfigSetup.ps1
+   ```
 
 4. Accedere ad Azure AD come amministratore.
-5. Prompt di PowerShell per l'ID tenant. Usare il GUID dell'ID directory copiato dal portale di Azure nella sezione relativa ai prerequisiti.
+5. Prompt di PowerShell per l'ID tenant. Usare il GUID *ID tenant* copiato dal portale di Azure nella sezione prerequisiti.
 6. Al termine dello script, PowerShell mostra un messaggio di conferma.  
 
 Ripetere questi passaggi per tutti i server dei criteri di rete aggiuntivi che si intende configurare per il bilanciamento del carico.
@@ -201,22 +218,30 @@ Ripetere questi passaggi per tutti i server dei criteri di rete aggiuntivi che s
 Se il certificato del computer precedente è scaduto ed è stato generato un nuovo certificato, è consigliabile eliminare eventuali certificati scaduti. La presenza di certificati scaduti può causare problemi con l'avvio dell'estensione di Server dei criteri di rete.
 
 > [!NOTE]
-> Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome oggetto deve essere **CN=\<TenantID\>,OU=Estensione di Server dei criteri di rete Microsoft**. 
+> Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome del soggetto deve essere **CN = \<TenantID\> , OU = Microsoft NPS Extension**.
 
-### <a name="microsoft-azure-government-additional-steps"></a>Passaggi aggiuntivi per Microsoft Azure per enti pubblici
+### <a name="microsoft-azure-government-or-azure-china-21vianet-additional-steps"></a>Microsoft Azure per enti pubblici o Azure Cina 21Vianet passaggi aggiuntivi
 
-Per i clienti che usano il cloud di Azure per enti pubblici, è necessario eseguire i passaggi di configurazione aggiuntivi seguenti in ogni Server dei criteri di rete.
+Per i clienti che usano Azure per enti pubblici o Azure Cina 21Vianet cloud, sono necessari i passaggi di configurazione aggiuntivi seguenti in ogni server NPS.
 
 > [!IMPORTANT]
-> Configurare queste impostazioni del Registro di sistema solo se si è un cliente di Azure per enti pubblici.
+> Configurare queste impostazioni del registro di sistema solo se si è un cliente di Azure per enti pubblici o Azure Cina 21Vianet.
 
-1. Se si è un cliente di Azure per enti pubblici, aprire l'**editor del Registro di sistema** nel Server dei criteri di rete.
-1. Accedere a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Impostare i valori delle chiavi seguenti:
+1. Se si è un cliente di Azure per enti pubblici o Azure Cina 21Vianet, aprire l' **Editor del registro di sistema** nel server NPS.
+1. Accedere a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
+1. Per i clienti di Azure per enti pubblici, impostare i valori chiave seguenti:
 
     | Chiave del Registro di sistema       | valore |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Per i clienti di Azure China 21Vianet, impostare i valori chiave seguenti:
+
+    | Chiave del Registro di sistema       | valore |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.cn   |
+    | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. Ripetere i due passaggi precedenti per impostare i valori della chiave del Registro di sistema per ogni Server dei criteri di rete.
 1. Riavviare il servizio Server dei criteri di rete per ogni Server dei criteri di rete.
@@ -251,7 +276,7 @@ Dopo aver abilitato MFA per un client RADIUS utilizzando l'estensione di Server 
 
 Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire cosa succede quando questi tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema *REQUIRE_USER_MATCH* nel percorso del registro di sistema *HKLM\Software\Microsoft\AzureMFA* per controllare il comportamento della funzionalità. Questa impostazione non ha un'unica opzione di configurazione:
 
-| Chiave | valore | Predefinito |
+| Chiave | Valore | Predefinito |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERO/FALSO | Non impostato (equivalente a VERO) |
 
@@ -271,7 +296,7 @@ Lo script seguente è disponibile per eseguire i passaggi di base del controllo 
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Come verificare che il certificato client sia installato come previsto?
 
-Cercare il certificato autofirmato creato dal programma di installazione nell'archivio dei certificati e verificare che la chiave privata disponga delle autorizzazioni concesse all'utente **Servizio di rete**. Il certificato ha come nome oggetto **CN \<tenantid\>, OU = Estensione di Server dei criteri di rete Microsoft**
+Cercare il certificato autofirmato creato dal programma di installazione nell'archivio dei certificati e verificare che la chiave privata disponga delle autorizzazioni concesse all'utente **Servizio di rete**. Il certificato ha un nome soggetto di **CN \<tenantid\> , ou = estensione NPS Microsoft**
 
 Anche i certificati autofirmati generati dallo script *AzureMfaNpsExtnConfigSetup.ps1* hanno una durata di validità di due anni. Quando si verifica che il certificato sia installato, è necessario verificare anche che il certificato non sia scaduto.
 
@@ -281,7 +306,7 @@ Anche i certificati autofirmati generati dallo script *AzureMfaNpsExtnConfigSetu
 
 Aprire il prompt dei comandi di PowerShell ed eseguire i comandi seguenti:
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
@@ -291,7 +316,7 @@ Questi comandi consentono di stampare tutti i certificati associando il tenant c
 
 Il comando seguente crea un file denominato "npscertificate" nell'unità "C:" in formato con estensione cer.
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer

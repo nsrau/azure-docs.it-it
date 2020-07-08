@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847403"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connetti Operations Manager a monitoraggio di Azure
 
@@ -71,7 +71,7 @@ Nelle informazioni riportate di seguito sono elencate le informazioni di configu
 
 |Risorsa | Numero della porta| Ignorare l'analisi HTTPS|  
 |---------|------|-----------------------|  
-|**Agente**|||  
+|**Agent**|||  
 |\*.ods.opinsights.azure.com| 443 |Sì|  
 |\*.oms.opinsights.azure.com| 443|Sì|  
 |\*.blob.core.windows.net| 443|Sì|  
@@ -110,7 +110,7 @@ Durante la registrazione iniziale del gruppo di gestione di Operations Manager c
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Dopo aver completato i passaggi seguenti per l'integrazione con monitoraggio di Azure, è possibile rimuovere la `netsh winhttp reset proxy` configurazione eseguendo e quindi usare l'opzione **Configura server proxy** nella console operatore per specificare il proxy o il server gateway log Analytics.
+Dopo aver completato i passaggi seguenti per l'integrazione con monitoraggio di Azure, è possibile rimuovere la configurazione eseguendo `netsh winhttp reset proxy` e quindi usare l'opzione **Configura server proxy** nella console operatore per specificare il proxy o il server gateway log Analytics.
 
 1. Nella console di Operations Manager selezionare l'area di lavoro **Amministrazione** .
 1. Espandere il nodo Operations Management Suite e fare clic su **Connessione**.
@@ -163,14 +163,14 @@ Se il server proxy richiede l'autenticazione, seguire questa procedura per confi
 Una volta creata la connessione e configurato gli agenti che raccoglieranno e segnaleranno i dati di log in monitoraggio di Azure, la configurazione seguente viene applicata al gruppo di gestione, non necessariamente nell'ordine indicato:
 
 * Viene creato l'account RunAs **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate**, che viene associato al profilo RunAs **Microsoft System Center Advisor eseguito come profilo BLOB** e che specifica come destinazione due classi, **Server raccolta** e **Gruppo di gestione di Operations Manager**.
-* Vengono creati due connettori.  Il primo è denominato **Microsoft. SystemCenter. Advisor. DataConnector** e viene configurato automaticamente con una sottoscrizione che inoltri tutti gli avvisi generati dalle istanze di tutte le classi del gruppo di gestione a monitoraggio di Azure. Il secondo connettore è **Advisor Connector**, responsabile della comunicazione con monitoraggio di Azure e della condivisione dei dati.
+* Vengono creati due connettori.  Il primo è denominato **Microsoft.SystemCenter. Advisor. DataConnector** e viene configurato automaticamente con una sottoscrizione che inoltri tutti gli avvisi generati dalle istanze di tutte le classi del gruppo di gestione a monitoraggio di Azure. Il secondo connettore è **Advisor Connector**, responsabile della comunicazione con monitoraggio di Azure e della condivisione dei dati.
 * Gli agenti e i gruppi selezionati per raccogliere i dati nel gruppo di gestione vengono aggiunti al **Gruppo di server di monitoraggio di Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Aggiornamenti di Management Pack
 
 Al termine della configurazione, il gruppo di gestione Operations Manager stabilisce una connessione con monitoraggio di Azure. Il server di gestione si sincronizza con il servizio Web e riceve le informazioni di configurazione aggiornate sotto forma di Management Pack per le soluzioni abilitate che si integrano con Operations Manager. Operations Manager cerca gli aggiornamenti per questi Management Pack e, se disponibili, li scarica e li importa automaticamente. Esistono due regole in particolare che controllano questo comportamento:
 
-* **Microsoft. SystemCenter. Advisor. MPUpdate** : Aggiorna i Management Pack di monitoraggio di Azure di base. Per impostazione predefinita, viene eseguita ogni 12 ore.
+* **Microsoft.SystemCenter. Advisor. MPUpdate** : Aggiorna i Management Pack di monitoraggio di Azure di base. Per impostazione predefinita, viene eseguita ogni 12 ore.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** : aggiorna i Management Pack delle soluzioni abilitati nell'area di lavoro. Per impostazione predefinita, viene eseguita ogni cinque (5) minuti.
 
 È possibile eseguire l'override di queste due regole per impedire il download automatico disabilitando tali regole oppure modificare la frequenza di sincronizzazione del server di gestione con monitoraggio di Azure per determinare se una nuova Management Pack è disponibile e deve essere scaricata. Seguire i passaggi in [Come eseguire l'override di una regola o di un'attività di monitoraggio](https://technet.microsoft.com/library/hh212869.aspx) per modificare il parametro **Frequenza** con un valore espresso in secondi per cambiare la pianificazione della sincronizzazione oppure per modificare il parametro **Abilitata** per disabilitare le regole. Specificare come destinazione gli override di tutti gli oggetti della classe Gruppo di gestione di Operations Manager.
@@ -180,7 +180,7 @@ Per continuare a seguire il processo di controllo delle modifiche esistente per 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Passare un gruppo di Operations Manager a una nuova area di lavoro Log Analytics
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco di risorse digitare **log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics** e quindi creare un'area di lavoro.  
+1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics** e quindi creare un'area di lavoro.  
 1. Aprire la console di Operations Manager con un account membro del ruolo Amministratori di Operations Manager e selezionare l’area di lavoro **Amministrazione** .
 1. Espandere Log Analytics e selezionare **Connessioni**.
 1. Selezionare il collegamento **Riconfigura Operation Management Suite** nella parte centrale del riquadro.
@@ -197,7 +197,7 @@ Esistono diversi modi in cui è possibile verificare che monitoraggio di Azure p
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Per verificare l'integrazione dal portale di Azure
 
-1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco di risorse digitare **log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input.
+1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input.
 1. Nell'elenco di aree di lavoro di Log Analytics selezionare l'area di lavoro applicabile.  
 1. Selezionare **Impostazioni avanzate**, **Origini connesse**, quindi **System Center**.
 1. Nella tabella presente nella sezione System Center Operations Manager verrà visualizzato il nome del gruppo di gestione elencato con il numero di agenti e lo stato relativi all'ultima ricezione di dati.
@@ -350,7 +350,7 @@ Per eliminare i due connettori, Microsoft.SystemCenter.Advisor.DataConnector e A
 Se in futuro si prevede di riconnettere il gruppo di gestione a un'area di lavoro Log Analytics, è necessario importare nuovamente il file del Management Pack `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`. A seconda della versione di System Center Operations Manager distribuita nell'ambiente in uso, è possibile che questo file si trovi nel percorso seguente:
 
 * Nel supporto di origine nella cartella `\ManagementPacks` per System Center 2016 - Operations Manager e versioni successive.
-* Nel rollup dell'aggiornamento più recente applicato al gruppo di gestione. Per Operations Manager 2012, la cartella di origine `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` è e per 2012 R2 si trova in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* Nel rollup dell'aggiornamento più recente applicato al gruppo di gestione. Per Operations Manager 2012, la cartella di origine è `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e per 2012 R2 si trova in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

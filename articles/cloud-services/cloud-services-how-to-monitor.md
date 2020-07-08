@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847247"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Presentazione del monitoraggio del servizio cloud
 
@@ -40,7 +40,7 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 
 * Contatori delle prestazioni personalizzati
 * Log applicazioni
-* Log eventi di Windows
+* Registri eventi di Windows
 * Origine degli eventi .NET
 * Log di IIS
 * ETW basato su manifesto
@@ -54,7 +54,7 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 
 In primo luogo, se non si ha già un account di archiviazione **classico**, [crearne uno](../storage/common/storage-account-create.md). Verificare che l'account di archiviazione sia creato con il **modello di distribuzione classica** specificato.
 
-Quindi passare alla risorsa **Account di archiviazione (classico)**. Selezionare **Impostazioni** > **chiavi di accesso** e copiare il valore della **stringa di connessione primaria** . Questo valore è necessario per il servizio cloud. 
+Quindi passare alla risorsa **Account di archiviazione (classico)**. Selezionare **Impostazioni**  >  **chiavi di accesso** e copiare il valore della **stringa di connessione primaria** . Questo valore è necessario per il servizio cloud. 
 
 Per poter abilitare la diagnostica avanzata, è necessario modificare i due file di configurazione seguenti: **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**.
 
