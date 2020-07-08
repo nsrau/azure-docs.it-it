@@ -8,12 +8,11 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 420c9e5a1e86f54e52905e7d7d2459fa2f68e405
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 66a53840d6002731910baf63a331a79a6f654078
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76771280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84167962"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB Table API SDK per Python: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -27,7 +26,7 @@ ms.locfileid: "76771280"
 |   |   |
 |---|---|
 |**Download dell'SDK**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**Documentazione API**|[Documentazione di riferimento delle API di Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**Documentazione sull'API**|[Documentazione di riferimento delle API di Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
 |**Istruzioni per l'installazione dell'SDK**|[Istruzioni per l'installazione dell'SDK di Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribuire all'SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Piattaforma attualmente supportata**|[Python 2.7](https://www.python.org/downloads/) o [Python 3.3, 3.4, 3.5 o 3.6](https://www.python.org/downloads/)|
@@ -38,10 +37,10 @@ ms.locfileid: "76771280"
 
 ## <a name="release-notes"></a>Note sulla versione
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * Versione con disponibilità generale
 
-### <a name="0371"></a><a name="0.37.1"/>0.37.1
+### <a name="0371"></a><a name="0.37.1"></a>0.37.1
 * Versione preliminare SDK
 
 ## <a name="release-and-retirement-dates"></a>Date di rilascio e di ritiro

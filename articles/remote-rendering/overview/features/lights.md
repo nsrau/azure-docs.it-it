@@ -1,18 +1,17 @@
 ---
-title: Luci
+title: Illuminazione della scena
 description: Descrizione e proprietà della sorgente di luce
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 0a4a226af1347b5302b0c3964889fc072f89e7f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022147"
 ---
-# <a name="lights"></a>Luci
+# <a name="scene-lighting"></a>Illuminazione della scena
 
 Per impostazione predefinita, gli oggetti di cui è stato eseguito il rendering in remoto vengono illuminati con una [luce celeste](sky.md) Per la maggior parte delle applicazioni questo è già sufficiente, ma è possibile aggiungere altre fonti di luce alla scena.
 
@@ -24,7 +23,7 @@ Per impostazione predefinita, gli oggetti di cui è stato eseguito il rendering 
 
 ## <a name="common-light-component-properties"></a>Proprietà comuni del componente chiaro
 
-Tutti i tipi leggeri derivano dalla classe `LightComponent` di base astratta e condividono queste proprietà:
+Tutti i tipi leggeri derivano dalla classe di base astratta `LightComponent` e condividono queste proprietà:
 
 * **Colore:** Colore della luce nello [spazio gamma](https://en.wikipedia.org/wiki/SRGB). Alfa viene ignorato.
 
@@ -40,29 +39,29 @@ Nel rendering remoto di Azure `PointLightComponent` non solo può emettere luce 
 
 * **Lunghezza:** Se `Length` e `Radius` sono diversi da zero, la luce funge da luce di tubo. Questa operazione può essere usata per simulare i tubi neon.
 
-* **AttenuationCutoff:** Se lasciato a (0,0), l'attenuazione della luce dipende solo dalla relativa `Intensity`. Tuttavia, è possibile specificare Distanze minime/massime personalizzate per le quali l'intensità della luce viene ridimensionata in modo lineare fino a 0. Questa funzionalità può essere usata per applicare una minore gamma di influenza di una specifica luce.
+* **AttenuationCutoff:** Se lasciato a (0,0), l'attenuazione della luce dipende solo dalla relativa `Intensity` . Tuttavia, è possibile specificare Distanze minime/massime personalizzate per le quali l'intensità della luce viene ridimensionata in modo lineare fino a 0. Questa funzionalità può essere usata per applicare una minore gamma di influenza di una specifica luce.
 
 * **ProjectedCubemap:** Se impostato su un [mappa cubi](../../concepts/textures.md)valido, la trama viene proiettata sulla geometria circostante della luce. Il colore del mappa cubi viene modulato con il colore della luce.
 
 ## <a name="spot-light"></a>Luce spot
 
-`SpotLightComponent` È simile a, `PointLightComponent` ma la luce è vincolata alla forma di un cono. L'orientamento del cono viene definito dall' *asse z negativo dell'entità proprietario*.
+`SpotLightComponent`È simile a `PointLightComponent` , ma la luce è vincolata alla forma di un cono. L'orientamento del cono viene definito dall' *asse z negativo dell'entità proprietario*.
 
 ### <a name="spotlightcomponent-properties"></a>Proprietà di SpotLightComponent
 
-* **Raggio:** Come per `PointLightComponent`.
+* **Raggio:** Come per `PointLightComponent` .
 
 * **SpotAngleDeg:** Questo intervallo definisce l'angolo interno ed esterno del cono, misurato in gradi. Tutto ciò che si trova all'interno dell'angolo interno è illuminato con luminosità completa. Viene applicata un'interruzione verso l'angolo esterno che genera un effetto di tipo penombra.
 
 * **FalloffExponent:** Definisce il modo in cui il decadimento delle transizioni tra l'angolo interno e quello esterno. Un valore più elevato comporta una transizione più netta. Il valore predefinito di 1,0 comporta una transizione lineare.
 
-* **AttenuationCutoff:** Come per `PointLightComponent`.
+* **AttenuationCutoff:** Come per `PointLightComponent` .
 
 * **Projected2dTexture:** Se è impostato su una [trama 2D](../../concepts/textures.md)valida, l'immagine viene proiettata sulla geometria a cui brilla la luce. Il colore della trama viene modulato con il colore della luce.
 
 ## <a name="directional-light"></a>Luce direzionale
 
-`DirectionalLightComponent` Simula una sorgente di luce infinitamente distante. La luce si illumina nella direzione dell' *asse z negativo dell'entità Owner*. La posizione dell'entità verrà ignorata.
+`DirectionalLightComponent`Simula una sorgente di luce infinitamente distante. La luce si illumina nella direzione dell' *asse z negativo dell'entità Owner*. La posizione dell'entità verrà ignorata.
 
 Non sono presenti proprietà aggiuntive.
 
@@ -73,4 +72,4 @@ Le fonti di luce hanno un impatto significativo sulle prestazioni di rendering. 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Materiali](../../concepts/materials.md)
-* [Sky](sky.md)
+* [Cielo](sky.md)

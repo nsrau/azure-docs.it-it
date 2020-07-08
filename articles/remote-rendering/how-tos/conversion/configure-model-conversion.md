@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 83f80f893620a225c928be2ad7ad1679b3a9c465
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652225"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84147945"
 ---
 # <a name="configure-the-model-conversion"></a>Configurare la conversione di modelli
 
@@ -74,7 +73,7 @@ Il fattore di scala finale verrà applicato ai vertici della geometria e alle tr
 L'allineamento al centro è importante se il modello di origine viene spostato lontano dall'origine, perché in questo caso i problemi associati alla precisione a virgola mobile potrebbero causare artefatti di rendering.
 
 * `opaqueMaterialDefaultSidedness` - Il motore di rendering presuppone che i materiali opachi siano a doppio lato.
-Se questo non è il comportamento desiderato, il parametro dovrà essere impostato su "SingleSided". Per altre informazioni, vedere [Rendering a lato singolo](../../overview/features/single-sided-rendering.md).
+Se questo non è il comportamento desiderato, il parametro dovrà essere impostato su "SingleSided". Per ulteriori informazioni, vedere [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Sostituzioni dei materiali
 
@@ -90,7 +89,7 @@ Il motore di rendering prevede che i valori di colore siano nello spazio lineare
 Se un modello è definito con lo spazio gamma, queste opzioni dovranno essere impostate su true.
 
 * `gammaToLinearMaterial` - Converte i colori dei materiali dallo spazio gamma allo spazio lineare.
-* `gammaToLinearVertex` - Converte i colori dei vertici dallo spazio gamma allo spazio lineare.
+* `gammaToLinearVertex`-Converte :::no-loc text="vertex"::: i colori dallo spazio gamma allo spazio lineare
 
 > [!NOTE]
 > Per i file FBX, queste opzioni sono impostate su `true` per impostazione predefinita. Per tutti gli altri tipi di file, l'impostazione predefinita è `false`.
@@ -127,12 +126,12 @@ La modalità `none` comporta il sovraccarico minore in fase di esecuzione e temp
 
 * `axis` - Per sostituire i vettori unitari del sistema di coordinate. I valori predefiniti sono `["+x", "+y", "+z"]`. In teoria, il formato FBX ha un'intestazione in cui vengono definiti questi vettori e la conversione usa tali informazioni per trasformare la scena. Il formato glTF definisce anche un sistema di coordinate fisso. Nella pratica, alcune risorse contengono informazioni non corrette nell'intestazione oppure sono state salvate con una diversa convenzione del sistema di coordinate. Questa opzione consente di sostituire il sistema di coordinate per compensare. Ad esempio, `"axis" : ["+x", "+z", "-y"]` scambierà l'asse Z e l'asse Y e manterrà la regola della mano del sistema di coordinate invertendo la direzione dell'asse Y.
 
-### <a name="vertex-format"></a>Formato dei vertici
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::formato
 
-È possibile modificare il formato dei vertici per una mesh in modo da privilegiare il risparmio di memoria rispetto alla precisione. Un footprint della memoria inferiore consente di caricare modelli di maggiori dimensioni o di ottenere prestazioni superiori. A seconda dei dati, tuttavia, un formato errato può influire significativamente sulla qualità del rendering.
+È possibile modificare il :::no-loc text="vertex"::: formato per una mesh, per ottenere la precisione del risparmio di memoria. Un footprint della memoria inferiore consente di caricare modelli di maggiori dimensioni o di ottenere prestazioni superiori. A seconda dei dati, tuttavia, un formato errato può influire significativamente sulla qualità del rendering.
 
 > [!CAUTION]
-> La modifica del formato dei vertici dovrebbe essere usata solo come ultima opzione quando la memoria disponibile risulta insufficiente per i modelli o in caso di ottimizzazione per ottenere le migliori prestazioni possibili. Le modifiche possono facilmente determinare artefatti di rendering, sia evidenti che difficili da individuare. A meno che non si sappia a cosa prestare attenzione, è consigliabile non modificare l'impostazione predefinita.
+> La modifica del :::no-loc text="vertex"::: formato dovrebbe essere l'ultima risorsa quando i modelli non rientrano più nella memoria o quando si ottimizzano per ottenere le migliori prestazioni possibili. Le modifiche possono facilmente determinare artefatti di rendering, sia evidenti che difficili da individuare. A meno che non si sappia a cosa prestare attenzione, è consigliabile non modificare l'impostazione predefinita.
 
 Sono consentite le modifiche seguenti:
 
@@ -159,11 +158,11 @@ La sezione `vertex` seguente del file con estensione `.json` è facoltativa. Per
 
 Forzando l'impostazione di un componente su `NONE`, è certo che la mesh di output non includerà il rispettivo flusso.
 
-#### <a name="component-formats-per-vertex-stream"></a>Formati dei componenti per flusso di vertici
+#### <a name="component-formats-per-no-loc-textvertex-stream"></a>Formati di componente per :::no-loc text="vertex"::: flusso
 
 Per i rispettivi componenti sono consentiti i formati seguenti:
 
-| Componente del vertice | Formati supportati (grassetto = impostazione predefinita) |
+| Componente :::no-loc text="Vertex"::: | Formati supportati (grassetto = impostazione predefinita) |
 |:-----------------|:------------------|
 |position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT |
 |color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE |
@@ -178,7 +177,7 @@ Per i rispettivi componenti sono consentiti i formati seguenti:
 
 Di seguito sono riportati i footprint della memoria dei formati:
 
-| Format | Descrizione | Byte per vertice |
+| Format | Descrizione | Byte per:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|Precisione piena a virgola mobile, due componenti|8
 |16_16_FLOAT|Mezza precisione a virgola mobile, due componenti|4
@@ -197,11 +196,56 @@ Di seguito sono riportati i footprint della memoria dei formati:
 
 #### <a name="example"></a>Esempio
 
-Si supponga di avere un modello di fotogrammetria in cui l'illuminazione è integrata nelle trame. Per eseguire il rendering del modello sono sufficienti le posizioni dei vertici e le coordinate delle trame.
+Si supponga di avere un modello di fotogrammetria in cui l'illuminazione è integrata nelle trame. Tutto ciò che serve per eseguire il rendering del modello sono le :::no-loc text="vertex"::: posizioni e le coordinate di trama.
 
-Per impostazione predefinita, il convertitore deve presupporre che a un certo punto in un modello si vorranno usare materiali PBR, pertanto genererà automaticamente i dati `normal`, `tangent` e `binormal`. Di conseguenza, l'utilizzo della memoria per vertice sarà `position` (12 byte) + `texcoord0` (8 byte) + `normal` (4 byte) + `tangent` (4 byte) + `binormal` (4 byte) = 32 byte. I modelli di questo tipo di maggiori dimensioni possono facilmente contenere molti milioni di vertici, pertanto si otterranno modelli che possono occupare più gigabyte di memoria. Quantità di dati così elevate influiranno sulle prestazioni e potrebbero esaurire la memoria.
+Per impostazione predefinita, il convertitore deve presupporre che a un certo punto in un modello si vorranno usare materiali PBR, pertanto genererà automaticamente i dati `normal`, `tangent` e `binormal`. Di conseguenza, l'utilizzo della memoria per vertice sarà `position` (12 byte) + `texcoord0` (8 byte) + `normal` (4 byte) + `tangent` (4 byte) + `binormal` (4 byte) = 32 byte. I modelli più grandi di questo tipo possono avere con facilità molti milioni di :::no-loc text="vertices"::: modelli che possono richiedere più gigabyte di memoria. Quantità di dati così elevate influiranno sulle prestazioni e potrebbero esaurire la memoria.
 
-Se si sa che nel modello non sarà mai necessaria l'illuminazione dinamica e che tutte le coordinate delle trame rientrano nell'intervallo `[0; 1]`, è possibile impostare `normal`, `tangent` e `binormal` su `NONE` e `texcoord0` sulla mezza precisione (`16_16_FLOAT`), ottenendo così solo 16 byte per vertice. Il dimezzamento dei dati della mesh consente di caricare modelli di maggiori dimensioni e migliorare potenzialmente le prestazioni.
+Sapendo che non è mai necessaria un'illuminazione dinamica sul modello e che tutte le coordinate di trama sono `[0; 1]` comprese nell'intervallo, è possibile impostare `normal` , `tangent` e `binormal` su `NONE` e `texcoord0` su Half Precision ( `16_16_FLOAT` ), ottenendo solo 16 byte per :::no-loc text="vertex"::: . Il dimezzamento dei dati della mesh consente di caricare modelli di maggiori dimensioni e migliorare potenzialmente le prestazioni.
+
+## <a name="memory-optimizations"></a>Ottimizzazioni della memoria
+
+Il consumo di memoria del contenuto caricato può diventare un collo di bottiglia nel sistema di rendering. Se il payload di memoria diventa troppo grande, può compromettere le prestazioni di rendering o fare in modo che il modello non venga caricato completamente. Questo paragrafo illustra alcune importanti strategie per ridurre il footprint di memoria.
+
+### <a name="instancing"></a>Creazione di istanze
+
+La creazione di istanze è un concetto in cui le mesh vengono riutilizzate per le parti con trasformazioni spaziali distinte, anziché ogni parte che fa riferimento alla propria geometria univoca. La creazione di istanze ha un impatto significativo sul footprint di memoria.
+Casi d'uso di esempio per la creazione di istanze sono le viti in un modello di motore o poltrone in un modello di architettura.
+
+> [!NOTE]
+> Le istanze possono migliorare significativamente il consumo di memoria (e quindi i tempi di caricamento), tuttavia i miglioramenti apportati al lato prestazioni di rendering non sono significativi.
+
+Il servizio di conversione rispetta le istanze se le parti vengono contrassegnate di conseguenza nel file di origine. Tuttavia, la conversione non esegue un'analisi approfondita aggiuntiva dei dati mesh per identificare le parti riutilizzabili. Lo strumento di creazione del contenuto e la relativa pipeline di esportazione rappresentano quindi i criteri decisivi per la configurazione delle istanze appropriate.
+
+Un modo semplice per verificare se le informazioni sulle istanze vengono mantenute durante la conversione consiste nell'esaminare le [statistiche di output](get-information.md#example-info-file), in particolare il `numMeshPartsInstanced` membro. Se il valore di `numMeshPartsInstanced` è maggiore di zero, indica che le mesh sono condivise tra le istanze.
+
+#### <a name="example-instancing-setup-in-3ds-max"></a>Esempio: configurazione di istanze in 3ds Max
+
+[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) presenta diverse modalità di clonazione di oggetti denominata **`Copy`** , **`Instance`** , e si **`Reference`** comportano in modo diverso rispetto alle istanze nel file esportato `.fbx` .
+
+![Clonazione in 3ds Max](./media/3dsmax-clone-object.png)
+
+* **`Copy`**: In questa modalità la mesh viene clonata, quindi non viene utilizzata alcuna istanza ( `numMeshPartsInstanced` = 0).
+* **`Instance`**: I due oggetti condividono la stessa mesh, quindi viene usata l'istanza ( `numMeshPartsInstanced` = 1).
+* **`Reference`**: I modificatori Distinct possono essere applicati alle geometrie, pertanto l'utilità di esportazione sceglie un approccio conservativo e non usa le istanze ( `numMeshPartsInstanced` = 0).
+
+
+### <a name="depth-based-composition-mode"></a>Modalità di composizione basata sulla profondità
+
+Se la memoria costituisce un problema, configurare il renderer con la [modalità di composizione basata sulla profondità](../../concepts/rendering-modes.md#depthbasedcomposition-mode). In questa modalità il payload GPU viene distribuito tra più GPU.
+
+### <a name="decrease-vertex-size"></a>Riduci dimensioni vertice
+
+Come illustrato nella sezione [procedure consigliate per le modifiche al formato dei componenti](configure-model-conversion.md#best-practices-for-component-format-changes) , la modifica del formato del vertice può ridurre il footprint di memoria. Questa opzione, tuttavia, deve essere l'ultima risorsa.
+
+### <a name="texture-sizes"></a>Dimensioni trama
+
+A seconda del tipo di scenario, la quantità di dati di trama può superare la memoria usata per i dati di rete. I modelli fotogrammetria sono candidati.
+La configurazione della conversione non fornisce un modo per ridimensionare automaticamente le trame. Se necessario, il ridimensionamento della trama deve essere eseguito come passaggio di pre-elaborazione lato client. Il passaggio di conversione tuttavia sceglie un [formato di compressione della trama](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)appropriato:
+
+* `BC1`per le trame colore opaco
+* `BC7`per le trame colore di origine con canale alfa
+
+Poiché `BC7` il formato ha due volte il footprint di memoria rispetto a `BC1` , è importante assicurarsi che le trame di input non forniscano inutilmente un canale alfa.
 
 ## <a name="typical-use-cases"></a>Casi d'uso tipici
 
@@ -215,7 +259,7 @@ Esistono alcune classi di casi d'uso idonee per specifiche ottimizzazioni. Di se
 
 * Quando si devono spostare le parti, in genere è necessario anche supportare operazioni di ray casting o altre [query spaziali](../../overview/features/spatial-queries.md) per poter in primo luogo selezionare tali parti. Se invece non si intende spostare le parti, è molto probabile che non sia necessario includerle nelle query spaziali e che sia quindi possibile disattivare il flag `generateCollisionMesh`. Questa opzione ha un impatto significativo sui tempi di conversione e di caricamento, nonché sui costi di aggiornamento per fotogramma in fase di esecuzione.
 
-* Se l'applicazione non usa [piani di taglio](../../overview/features/cut-planes.md), il flag `opaqueMaterialDefaultSidedness` dovrebbe essere disattivato. Il miglioramento delle prestazioni è in genere del 20-30%. Sarà comunque possibile usare piani di taglio, ma, in modo controintuitivo, non saranno presenti facce posteriori quando si esaminano le parti interne degli oggetti. Per altre informazioni, vedere [Rendering a lato singolo](../../overview/features/single-sided-rendering.md).
+* Se l'applicazione non usa [piani di taglio](../../overview/features/cut-planes.md), il flag `opaqueMaterialDefaultSidedness` dovrebbe essere disattivato. Il miglioramento delle prestazioni è in genere del 20-30%. Sarà comunque possibile usare piani di taglio, ma, in modo controintuitivo, non saranno presenti facce posteriori quando si esaminano le parti interne degli oggetti. Per ulteriori informazioni, vedere [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
 ### <a name="use-case-photogrammetry-models"></a>Caso d'uso: modelli di fotogrammetria
 

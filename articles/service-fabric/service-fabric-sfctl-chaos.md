@@ -5,12 +5,11 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 6668446363361fbc6d24afc3d11a36a0b786667d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9bc7a5405309e35a36b15f44a1b136b899afbb55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76906173"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84119328"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Consente di avviare, arrestare e creare report nel servizio di test chaos.
@@ -19,7 +18,7 @@ Consente di avviare, arrestare e creare report nel servizio di test chaos.
 |Sottogruppo|Descrizione|
 | --- | --- |
 | [pianificazione](service-fabric-sfctl-chaos-schedule.md) | Ottiene e imposta la pianificazione di chaos. |
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |
@@ -33,9 +32,9 @@ Recupera il segmento successivo degli eventi di Chaos in base al token di contin
 
 Per ottenere il segmento successivo degli eventi di Chaos, è possibile specificare ContinuationToken. Per ottenere l'inizio di un nuovo segmento degli eventi di Chaos, è possibile specificare l'intervallo di tempo tramite StartTimeUtc ed EndTimeUtc. Non è possibile specificare sia ContinuationToken che l'intervallo di tempo nella stessa chiamata. Quando sono presenti più di 100 eventi di Chaos, tali eventi vengono restituiti in più segmenti. Un segmento non contiene più di 100 eventi di Chaos e, per ottenere il segmento successivo, si effettua una chiamata a questa API con il token di continuazione.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
 | --end-time-utc | Ora di file di Windows che rappresenta l'ora di fine dell'intervallo di tempo per cui verrà generato un report di Chaos. Per informazioni dettagliate, vedere [Metodo DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
@@ -45,7 +44,7 @@ Per ottenere il segmento successivo degli eventi di Chaos, è possibile specific
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -58,15 +57,15 @@ Ottiene lo stato di Chaos.
 
 Ottiene lo stato di Chaos che indica se Chaos è in esecuzione o meno, i parametri di Chaos usati per l'esecuzione di Chaos e lo stato della pianificazione di Chaos.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -79,11 +78,11 @@ Avvia Chaos nel cluster.
 
 Se Chaos non è già in esecuzione nel cluster, avvia Chaos con i parametri di Chaos passati. Se Chaos è già in esecuzione quando viene effettuata la chiamata, la chiamata ha esito negativo con codice di errore FABRIC_E_CHAOS_ALREADY_RUNNING. Per altri dettagli, vedere l'articolo [indurre Chaos controllato nei cluster Service Fabric](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) .
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
-| --app-type-health-policy-map | Elenco con codifica JSON con una percentuale massima di applicazioni non integre per tipi di applicazione specifici. Ogni voce specifica come chiave il nome del tipo di applicazione e come valore un valore intero che rappresenta la percentuale MaxPercentUnhealthyApplications usata per valutare le applicazioni del tipo di applicazione specificato. <br><br> Definisce una mappa con una percentuale massima di applicazioni non integre per tipi di applicazione specifici. Ogni voce specifica come chiave il nome del tipo di applicazione e come valore un valore intero che rappresenta la percentuale MaxPercentUnhealthyApplications usata per valutare le applicazioni del tipo di applicazione specificato. La mappa dei criteri di integrità dei tipi di applicazioni può essere usata durante la valutazione dell'integrità del cluster per descrivere i tipi di applicazioni speciali. I tipi di applicazioni inclusi nella mappa vengono valutati rispetto alla percentuale specificata nella mappa, non con il valore MaxPercentUnhealthyApplications globale definito nei criteri di integrità del cluster. Le applicazioni dei tipi specificati nella mappa non vengono conteggiate nel pool globale di applicazioni. Ad esempio, se alcune applicazioni di un tipo sono di importanza critica, l'amministratore del cluster può aggiungere una voce alla mappa per tale tipo di applicazioni e assegnarle un valore pari a 0% (ovvero, non tollerare alcun errore). Tutte le altre applicazioni possono essere valutate con MaxPercentUnhealthyApplications impostato sul 20%, in modo da tollerare alcuni errori dalle migliaia di istanze dell'applicazione. La mappa dei criteri di integrità dei tipi di applicazioni viene usata solo se il manifesto del cluster consente la valutazione dell'integrità dei tipi di applicazioni usando la voce di configurazione per HealthManager/EnableApplicationTypeHealthEvaluation. |
+| --app-type-health-policy-map | Matrice con codifica JSON di voci di dizionario (chiave/valore) con percentuale massima di applicazioni non integre per tipi di applicazione specifici. Ogni voce del dizionario specifica come chiave il nome del tipo di applicazione e un numero intero per valore che rappresenta la percentuale MaxPercentUnhealthyApplications usata per valutare le applicazioni del tipo di applicazione specificato. <br><br> Definisce una mappa con una percentuale massima di applicazioni non integre per tipi di applicazione specifici. La mappa dei criteri di integrità del tipo di applicazione può essere utilizzata durante la valutazione dell'integrità del cluster per descrivere i singoli tipi di applicazioni. I tipi di applicazioni inclusi nella mappa vengono valutati rispetto alla percentuale specificata nella mappa, non con il valore MaxPercentUnhealthyApplications globale definito nei criteri di integrità del cluster. Le applicazioni dei tipi specificati nella mappa non vengono conteggiate nel pool globale di applicazioni. Ad esempio, se alcune applicazioni di un tipo sono critiche, l'amministratore del cluster può aggiungere una voce alla mappa per quel tipo di applicazione e assegnarle un valore pari a 0% (non tollerare eventuali errori). Tutte le altre applicazioni possono essere valutate con MaxPercentUnhealthyApplications impostato sul 20%, in modo da tollerare alcuni errori dalle migliaia di istanze dell'applicazione. La mappa dei criteri di integrità dei tipi di applicazioni viene usata solo se il manifesto del cluster consente la valutazione dell'integrità dei tipi di applicazioni usando la voce di configurazione per HealthManager/EnableApplicationTypeHealthEvaluation. <br><br> Stringa con codifica JSON di esempio: [{ \" Key \" : \" Fabric:/vote \" , \" value \" : \" 0 \" }] |
 | --chaos-target-filter | Dizionario con codifica JSON con due chiavi di tipo stringa. Le due chiavi sono NodeTypeInclusionList e ApplicationInclusionList. I valori per entrambe queste chiavi sono un elenco di stringhe. chaos_target_filter definisce tutti i filtri per gli errori Chaos di destinazione, ad esempio generando errori solo per alcuni tipi di nodi o solo per determinate applicazioni. <br><br> Se non si usa chaos_target_filter, gli errori Chaos interessano tutte le entità del cluster. Se si usa chaos_target_filter, gli errori Chaos interessano solo le entità che soddisfano le specifiche di chaos_target_filter. NodeTypeInclusionList e ApplicationInclusionList consentono solo una semantica di unione. Non è possibile specificare un'intersezione tra NodeTypeInclusionList e ApplicationInclusionList. Non è ad esempio possibile specificare "genera un errore in questa applicazione solo quando si trova in quel tipo di nodo". Dopo che un'entità è stata inclusa in NodeTypeInclusionList o in ApplicationInclusionList, tale entità non può essere esclusa tramite ChaosTargetFilter. Anche se in ApplicationInclusionList non compare applicationX, in alcune iterazioni di Chaos applicationX può presentare un errore, perché si trova per caso in un nodo di tipo nodeTypeY incluso in NodeTypeInclusionList. Se NodeTypeInclusionList e ApplicationInclusionList sono entrambi vuoti, viene generata un'eccezione ArgumentException. Tutti i tipi di errore (riavvio di nodo, riavvio di pacchetto di codice, rimozione di replica, riavvio di replica, spostamento di replica primaria e spostamento di replica secondaria) sono abilitati per i nodi di questi tipi di nodo. Se un tipo di nodo (ad esempio NodeTypeX) non compare in NodeTypeInclusionList, gli errori a livello di nodo (ad esempio NodeRestart) non verranno mai abilitati per i nodi di tipo NodeTypeX. Gli errori di pacchetto di codice e di replica, tuttavia, possono comunque essere abilitati per NodeTypeX se un'applicazione in ApplicationInclusionList si trova in un nodo di tipo NodeTypeX. In questo elenco possono essere inclusi al massimo 100 tipi di nodo. Per aumentare questo numero, è necessario un aggiornamento della configurazione di MaxNumberOfNodeTypesInChaosEntityFilter. Tutte le repliche appartenenti ai servizi di queste applicazioni sono soggette a errori di replica (riavvio di replica, rimozione di replica, spostamento di replica primaria, spostamento di replica secondaria) generati da Chaos. Chaos può riavviare un pacchetto di codice solo se quest'ultimo ospita solo repliche di queste applicazioni. Se un'applicazione non compare in questo elenco, può comunque presentare errori in alcune iterazioni di Chaos se l'applicazione finisce per trovarsi in un nodo di un tipo incluso in NodeTypeInclusionList. Se tuttavia applicationX è associata a nodeTypeY tramite vincoli di posizionamento, applicationX non è presente in ApplicationInclusionList e nodeTypeY non è presente in NodeTypeInclusionList, applicationX non presenterà mai errori. In questo elenco possono essere inclusi al massimo 1000 nomi di applicazione. Per aumentare questo numero, è necessario un aggiornamento della configurazione di MaxNumberOfApplicationsInChaosEntityFilter. |
 | --context | Mappa con codifica JSON di coppie chiave-valore di tipo (string, string). La mappa può essere usata per registrare le informazioni sull'esecuzione di Chaos. Non possono esserci più di 100 coppie di questo tipo e ogni stringa (chiave o valore) può essere costituita da un massimo di 4095 caratteri. Questa mappa viene impostata dalla funzione di avvio dell'esecuzione di Chaos per l'archiviazione facoltativa del contesto dell'esecuzione specifica. |
 | --disable-move-replica-faults | Disabilita lo spostamento primario e sposta gli errori secondari. |
@@ -112,7 +111,7 @@ Arresta Chaos se è in esecuzione nel cluster e imposta lo stato della pianifica
 
 Impedisce a Chaos di eseguire nuovi errori. Gli errori in elaborazione continueranno a essere eseguiti fino al completamento. Lo stato della pianificazione di Chaos corrente viene impostato come arrestato. Dopo che una pianificazione è stata arrestata, rimarrà nello stato arrestato e non verrà usata per nuove esecuzioni di Chaos. È necessario impostare una nuova pianificazione di Chaos per riprendere la pianificazione.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |

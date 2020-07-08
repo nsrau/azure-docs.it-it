@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84119214"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
@@ -41,7 +40,7 @@ I livelli sono differenziati per:
 
 Il livello selezionato determina la velocità fatturabile. Lo screenshot seguente di portale di Azure Mostra i livelli disponibili, meno i prezzi (che è possibile trovare nel portale e nella pagina dei [prezzi](https://azure.microsoft.com/pricing/details/search/). I livelli **gratuito**, **Basic**e **standard** sono i più comuni.
 
-**Gratuito** consente di creare un servizio di ricerca limitato per progetti più piccoli, incluse guide introduttive ed esercitazioni. Internamente, repliche e partizioni condivise tra più Sottoscrittori. Non è possibile ridimensionare un servizio gratuito o eseguire carichi di lavoro significativi.
+**Gratuito** consente di creare un servizio di ricerca limitato per progetti più piccoli, incluse guide introduttive ed esercitazioni. Internamente, le repliche e le partizioni vengono condivise tra più Sottoscrittori. Non è possibile ridimensionare un servizio gratuito o eseguire carichi di lavoro significativi.
 
 **Basic** e **standard** sono i livelli fatturabili più comunemente usati, con l'impostazione predefinita **standard** . Con le risorse dedicate sotto il controllo, è possibile distribuire progetti di dimensioni maggiori, ottimizzare le prestazioni e impostare la capacità.
 
@@ -62,7 +61,7 @@ Una soluzione basata su ricerca cognitiva di Azure può comportare costi nei mod
 + Addebiti per la larghezza di banda (trasferimento dati in uscita) 
 + Ricerca cognitiva (associazione di servizi cognitivi per l'arricchimento di intelligenza artificiale o uso di archiviazione di Azure per l'archivio informazioni)
 
-### <a name="service-costs"></a>Costi dei servizi
+### <a name="service-costs"></a>Costi del servizio
 
 A differenza delle macchine virtuali o di altre risorse che possono essere "sospese" per evitare addebiti, un servizio Azure ricerca cognitiva è sempre disponibile su hardware dedicato per l'uso esclusivo. Di conseguenza, la creazione di un servizio è un evento fatturabile che inizia al momento della creazione del servizio e termina quando si elimina il servizio. 
 

@@ -11,12 +11,11 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9b331ccee183ec101cf3449f12b4f656a1325819
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84118103"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime
 
@@ -38,10 +37,10 @@ Ecco le possibili cause e le azioni consigliate:
 * L'origine dati o la destinazione è sottoposto a overload. Controllare il carico sull'origine dati o sulla destinazione e verificare se la capacità è sufficiente. Ad esempio, se è stato usato il database SQL di Azure, valutare la possibilità di aumentare le prestazioni in caso di timeout del database.
 * La rete tra il runtime di integrazione SSIS e l'origine dati o la destinazione è instabile, soprattutto quando la connessione è tra più aree o tra l'ambiente locale e Azure. Applicare il modello di ripetizione dei tentativi nel pacchetto SSIS attenendosi alla procedura seguente:
   * Assicurarsi che i pacchetti SSIS possano essere rieseguiti in caso di errore senza effetti collaterali, ad esempio perdita di dati o duplicazione dei dati.
-  * Configurare **l'intervallo tra tentativi e** **tentativi** per l'attività **Esegui pacchetto SSIS** nella scheda ![ **generale** . impostare le proprietà nella scheda generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+  * Configurare **l'intervallo tra tentativi e** **tentativi** per l'attività **Esegui pacchetto SSIS** nella scheda **generale** . ![ Impostare le proprietà nella scheda generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
   * Per un ADO.NET e OLE DB un componente di origine o destinazione, impostare **ConnectRetryCount** e **ConnectRetryInterval** nella gestione connessione nel pacchetto SSIS o nell'attività SSIS.
 
-### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>Messaggio di errore: "l'origine ADO NET non è stata in grado di acquisire la connessione '.. .'" con "si è verificato un errore specifico dell'istanza o relativo alla rete durante il tentativo di stabilire una connessione a SQL Server. Il server non è stato trovato o non era accessibile."
+### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>Messaggio di errore: "l'origine ADO NET non è stata in grado di acquisire la connessione '.. .'" con "si è verificato un errore specifico dell'istanza o relativo alla rete durante il tentativo di stabilire una connessione a SQL Server. Il server non è stato trovato o non è accessibile. "
 
 Generalmente questo errore significa che la destinazione o l'origine dati non è accessibile da SSIS Integration Runtime. I motivi possono essere di vario tipo. Provare a eseguire queste operazioni:
 * Assicurarsi di passare l'origine dati o il nome/IP di destinazione correttamente.
@@ -74,10 +73,10 @@ Questo errore indica che il disco locale viene utilizzato nel nodo del runtime d
 * Possibile causa e azione consigliata:
   * Se l'attività SSIS sta eseguendo il pacchetto da file system (file di pacchetto o di progetto), questo errore si verificherà se il progetto, il pacchetto o il file di configurazione non è accessibile con le credenziali di accesso del pacchetto fornite nell'attività SSIS
     * Se si usa file di Azure:
-      * Il percorso del file deve iniziare \\ \\ \<con il nome\>dell'account\\\<di archiviazione. percorso condivisione file file.Core.Windows.NET\>
+      * Il percorso del file deve iniziare con \\ \\ \<storage account name\> . file.Core.Windows.NET\\\<file share path\>
       * Il dominio deve essere "Azure"
-      * Il nome utente deve \<essere il nome dell'account di archiviazione\>
-      * La password deve essere \<una chiave di accesso alla risorsa di archiviazione\>
+      * Il nome utente deve essere\<storage account name\>
+      * La password deve essere\<storage access key\>
     * Se si usa un file locale, verificare se VNet, le credenziali di accesso al pacchetto e le autorizzazioni sono configurate correttamente in modo che il runtime di integrazione SSIS di Azure possa accedere alla condivisione file locale
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Messaggio di errore: "nome file"... " specificato nella connessione non valido "
@@ -95,20 +94,20 @@ Questo errore si verifica quando l'esecuzione del pacchetto non riesce a trovare
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Messaggio di errore: "il database ' SSISDB ' ha raggiunto la quota di dimensioni"
 
-Una delle possibili cause è che il database SSISDB creato nel database SQL di Azure SQL, o un'istanza gestita quando si crea un SSIS Integration Runtime, ha raggiunto la sua quota. Provare a eseguire queste operazioni:
-* Prendere in considerazione di aumentare la DTU del database. I dettagli sono disponibili in [Limiti delle risorse del database SQL per un server di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+Una possibile provocazione è che il database SSISDB creato nel database SQL di Azure o in SQL Istanza gestita ha raggiunto la quota. Provare a eseguire queste operazioni:
+* Prendere in considerazione di aumentare la DTU del database. Per informazioni dettagliate, vedere [limiti del database SQL per un server logico](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 * Controllare se il pacchetto genera molti log. In caso affermativo, è possibile configurare un processo elastico per pulire i log. Per conoscere i dettagli, vedere [Pulire i log SSISDB tramite processi di database elastico di Azure](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
 
 ### <a name="error-message-the-request-limit-for-the-database-is--and-has-been-reached"></a>Messaggio di errore: "il limite della richiesta per il database è... è stato raggiunto il termine ".
 
-Se molti pacchetti sono in esecuzione in parallelo nel runtime di integrazione SSIS, questo errore potrebbe verificarsi perché SSISDB ha raggiunto il limite di richieste. Prendere in considerazione l'aumento del DTC di SSISDB per risolvere questo problema. I dettagli sono disponibili in [Limiti delle risorse del database SQL per un server di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+Se molti pacchetti sono in esecuzione in parallelo nel runtime di integrazione SSIS, questo errore potrebbe verificarsi perché SSISDB ha raggiunto il limite di richieste. Prendere in considerazione l'aumento del DTC di SSISDB per risolvere questo problema. Per informazioni dettagliate, vedere [limiti del database SQL per un server logico](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 
 ### <a name="error-message-ssis-operation-failed-with-unexpected-operation-status-"></a>Messaggio di errore: "operazione SSIS non riuscita con stato operazione non prevista:..."
 
 L'errore è causato principalmente da un problema temporaneo, quindi provare a eseguire di nuovo l'esecuzione del pacchetto. Applicare il modello di ripetizione dei tentativi nel pacchetto SSIS attenendosi alla procedura seguente:
 
 * Assicurarsi che i pacchetti SSIS possano essere rieseguiti in caso di errore senza effetti collaterali, ad esempio perdita di dati o duplicazione dei dati.
-* Configurare **l'intervallo tra tentativi e** **tentativi** per l'attività **Esegui pacchetto SSIS** nella scheda ![ **generale** . impostare le proprietà nella scheda generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+* Configurare **l'intervallo tra tentativi e** **tentativi** per l'attività **Esegui pacchetto SSIS** nella scheda **generale** . ![ Impostare le proprietà nella scheda generale](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 * Per un ADO.NET e OLE DB un componente di origine o destinazione, impostare **ConnectRetryCount** e **ConnectRetryInterval** nella gestione connessione nel pacchetto SSIS o nell'attività SSIS.
 
 ### <a name="error-message-there-is-no-active-worker"></a>Messaggio di errore: "non è presente alcun thread di lavoro attivo".
@@ -157,7 +156,7 @@ Una delle possibili cause è che il runtime di integrazione self-hosted non è i
   * Il log di esecuzione è disponibile nel [report di SSMS](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) o nella cartella dei log specificata nell'attività di esecuzione del pacchetto SSIS.
   * vNet può essere usato anche per accedere ai dati locali come alternativa. Altre informazioni sono disponibili in [aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md)
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Messaggio di errore: "stato attività di gestione temporanea: non riuscito. Errore dell'attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita. output: {"OperationErrorMessages": "codice di uscita di SSIS Executor:-1. \ n", "LogLocation": "... \\SSISTelemetry\\ExecutionLog\\... "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Messaggio di errore: "stato attività di gestione temporanea: non riuscito. Errore dell'attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita. output: {"OperationErrorMessages": "codice di uscita di SSIS Executor:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ ExecutionLog \\ ... "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"
 
 Assicurarsi che Visual C++ Runtime sia installato nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
@@ -179,7 +178,7 @@ Ecco le possibili cause e le azioni consigliate:
   * Per informazioni su come impostare il numero di nodi e l'esecuzione parallela massima per nodo, vedere [creare un runtime di integrazione SSIS di Azure in Azure Data Factory](create-azure-ssis-integration-runtime.md).
 * Il runtime di integrazione SSIS è stato arrestato o presenta uno stato non integro. Per informazioni su come controllare lo stato e gli errori di runtime di integrazione SSIS, vedere [runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime).
 
-Si consiglia inoltre di impostare un timeout nella scheda **generale** : ![impostare le proprietà nella scheda](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)generale.
+Si consiglia inoltre di impostare un timeout nella scheda **generale** : impostare le ![ proprietà nella scheda generale ](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png) .
 
 ### <a name="poor-performance-in-package-execution"></a>Riduzione delle prestazioni nell'esecuzione del pacchetto
 

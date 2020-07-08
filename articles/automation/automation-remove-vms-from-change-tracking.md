@@ -5,16 +5,17 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 22cb49c414e21e5c47330f2c67fc2cf30e3364b2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 8e9b80c60c098e4daf247db07fa48baa322aa7f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84169455"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Rimuovere macchine virtuali da Rilevamento modifiche e inventario
 
 Al termine della distribuzione delle modifiche alle macchine virtuali nell'ambiente, è possibile rimuoverle dalla funzionalità [Rilevamento modifiche e inventario](change-tracking.md).
+
+## <a name="to-remove-your-vms"></a>Per rimuovere le macchine virtuali
 
 1. Nell'account di Automazione selezionare **Rilevamento modifiche** o **Inventario** in **Gestione della configurazione**.
 
@@ -24,7 +25,7 @@ Al termine della distribuzione delle modifiche alle macchine virtuali nell'ambie
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. Nell'area di lavoro Log Analytics accedere alle ricerche salvate in **Generale**.
+3. Nell'area di lavoro Log Analytics in **generale**accedere alle ricerche salvate per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-ChangeTracking` .
 
 4. Per la di ricerca salvata `MicrosoftDefaultComputerGroup`, fare clic sui puntini di sospensione a destra e selezionare **Modifica**. 
 

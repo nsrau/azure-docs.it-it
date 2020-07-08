@@ -7,12 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76261620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84141994"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -35,7 +34,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il c
 
 * Uno spazio dei nomi del bus di servizio e un'entità di messaggistica, ad esempio una coda. Questi elementi e l'app per la logica devono usare la stessa sottoscrizione di Azure. Se non si dispone di questi elementi, vedere l'articolo su come [creare uno spazio dei nomi del bus di servizio e una coda](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * App per la logica in cui si usano lo spazio dei nomi e l'entità di messaggistica del bus di servizio. L'app per la logica e il bus di servizio devono usare la stessa sottoscrizione di Azure. Per avviare il flusso di lavoro con un trigger del bus di servizio, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione del bus di servizio nel flusso di lavoro, avviare l'app per la logica con un altro trigger, ad esempio il [trigger di ricorrenza](../connectors/connectors-native-recurrence.md).
 
@@ -114,7 +113,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 1. Nel passaggio in cui si vuole aggiungere un'azione selezionare **nuovo passaggio**.
 
-   In alternativa, per aggiungere un'azione tra i passaggi, spostare il puntatore sulla freccia tra questi passaggi. Selezionare il segno più (**+**) visualizzato e selezionare **Aggiungi un'azione**.
+   In alternativa, per aggiungere un'azione tra i passaggi, spostare il puntatore sulla freccia tra questi passaggi. Selezionare il segno più ( **+** ) visualizzato e selezionare **Aggiungi un'azione**.
 
 1. In **scegliere un'azione**, nella casella di ricerca, immettere "bus di servizio di Azure" come filtro. Nell'elenco azioni selezionare l'azione desiderata. 
 
@@ -152,11 +151,21 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
 1. Salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
+<a name="sequential-convoy"></a>
+
+## <a name="send-correlated-messages-in-order"></a>Invia messaggi correlati in ordine
+
+Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile usare il modello di serie di istruzioni [ *sequenziali* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) usando il [connettore del bus di servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
+
+Quando si crea un'app per la logica, è possibile selezionare il modello **di recapito correlato nell'ordine usando le sessioni del bus di servizio** , che implementa il modello di serie di istruzioni sequenziali. Per ulteriori informazioni, vedere [inviare messaggi correlati in ordine](../logic-apps/send-related-messages-sequential-convoy.md).
+
+<a name="connector-reference"></a>
+
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
 Il connettore del bus di servizio può salvare fino a 1.500 sessioni univoche alla volta da un bus di servizio alla cache del connettore. Se il numero di sessioni supera questo limite, le sessioni precedenti vengono rimosse dalla cache. Per ulteriori informazioni, vedere [sessioni di messaggi](../service-bus-messaging/message-sessions.md).
 
-Per altri dettagli tecnici su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento](/connectors/servicebus/)del connettore. Per altre informazioni sulla messaggistica del bus di servizio di Azure, vedere [che cos'è il bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md)?
+Per altri dettagli tecnici su trigger, azioni e limiti, descritti dalla descrizione di spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/servicebus/). Per altre informazioni sulla messaggistica del bus di servizio di Azure, vedere [che cos'è il bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md)?
 
 ## <a name="next-steps"></a>Passaggi successivi
 

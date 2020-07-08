@@ -8,12 +8,11 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: f7c6829d858e36b55f079f8ee03e431f67995e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84168200"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard Tabella di Azure Cosmos DB: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -36,51 +35,51 @@ ms.locfileid: "81272577"
 ## <a name="release-notes-for-200-series"></a>Note sulla versione per la serie 2.0.0
 la serie 2.0.0 prende la dipendenza da [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), con miglioramenti delle prestazioni e consolidamento dello spazio dei nomi per Cosmos DB endpoint.
 
-### <a name="200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+### <a name="200-preview"></a><a name="2.0.0-preview"></a>2.0.0-preview
 * anteprima iniziale di 2.0.0 Table SDK che prende la dipendenza da [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), con miglioramenti delle prestazioni e consolidamento dello spazio dei nomi per Cosmos DB endpoint. L'API pubblica rimane invariata.
 
 ## <a name="release-notes-for-100-series"></a>Note sulla versione per la serie 1.0.0
-la serie 1.0.0 prende la dipendenza da [Microsoft. Azure. DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+la serie 1.0.0 prende la dipendenza da [Microsoft.Azure.DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
-### <a name="107"></a><a name="1.0.7"/>1.0.7
-* Miglioramento delle prestazioni impostando il livello di traccia predefinito di Table SDK su SourceLevels. off, che può essere scelto tramite app. config
+### <a name="107"></a><a name="1.0.7"></a>1.0.7
+* Miglioramento delle prestazioni impostando il livello di traccia predefinito di Table SDK su SourceLevels. off, che può essere scelto tramite app.config
 
-### <a name="105"></a><a name="1.0.5"/>1.0.5
+### <a name="105"></a><a name="1.0.5"></a>1.0.5
 * Introdurre la nuova configurazione in TableClientConfiguration per usare l'executor REST per comunicare con Cosmos DB API Tabella
 
-### <a name="105-preview"></a><a name="1.0.5-preview"/>1.0.5-Anteprima
+### <a name="105-preview"></a><a name="1.0.5-preview"></a>1.0.5-Anteprima
 * Correzioni di bug
 
-### <a name="104"></a><a name="1.0.4"/>1.0.4
-* Correzioni di bug
-* Specificare l'opzione HttpClientTimeout per RestExecutorConfiguration.
-
-### <a name="104-preview"></a><a name="1.0.4-preview"/>1.0.4-Anteprima
+### <a name="104"></a><a name="1.0.4"></a>1.0.4
 * Correzioni di bug
 * Specificare l'opzione HttpClientTimeout per RestExecutorConfiguration.
 
-### <a name="101"></a><a name="1.0.1"/>1.0.1
+### <a name="104-preview"></a><a name="1.0.4-preview"></a>1.0.4-Anteprima
+* Correzioni di bug
+* Specificare l'opzione HttpClientTimeout per RestExecutorConfiguration.
+
+### <a name="101"></a><a name="1.0.1"></a>1.0.1
 * Correzioni di bug
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * Versione con disponibilità generale
 
-### <a name="0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Anteprima
+### <a name="0110-preview"></a><a name="0.11.0-preview"></a>0.11.0-Anteprima
 * Sono state apportate modifiche al modo in cui è possibile configurare CloudTableClient. Ora accetta un oggetto TableClientConfiguration durante la costruzione. TableClientConfiguration fornisce proprietà diverse per configurare il comportamento del client a seconda che l'endpoint di destinazione sia Cosmos DB API Tabella o API Tabella di archiviazione di Azure.
 * Aggiunta del supporto per TableQuery per restituire i risultati ordinati in base a una colonna personalizzata. Questa funzionalità è supportata solo negli endpoint Cosmos DB tabella.
 * Aggiunta del supporto per esporre RequestCharges su vari tipi di risultati. Questa funzionalità è supportata solo negli endpoint Cosmos DB tabella.
 
-### <a name="0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
+### <a name="0101-preview"></a><a name="0.10.1-preview"></a>0.10.1-preview
 * È possibile aggiungere il supporto per token di firma di accesso condiviso e le operazioni di TablePermissions, ServiceProperties e ServiceStats sugli endpoint di Tabella di Archiviazione di Azure. 
    > [!NOTE]
    > Alcune funzionalità dei precedenti SDK per Tabella di Archiviazione di Azure non sono ancora supportate, ad esempio la crittografia sul lato client.
 
-### <a name="0100-preview"></a><a name="0.10.0-preview"/>0.10.0-preview
+### <a name="0100-preview"></a><a name="0.10.0-preview"></a>0.10.0-preview
 * È possibile aggiungere il supporto per le operazioni batch, query e CRUD di base sugli endpoint di Tabella di Archiviazione di Azure. 
    > [!NOTE]
    > Alcune funzionalità dei precedenti SDK per Tabella di Archiviazione di Azure non sono ancora supportate, ad esempio la crittografia sul lato client.
 
-### <a name="091-preview"></a><a name="0.9.1-preview"/>0.9.1-preview
+### <a name="091-preview"></a><a name="0.9.1-preview"></a>0.9.1-preview
 * L'SDK .NET Standard Tabella di Azure Cosmos DB è una libreria .NET multipiattaforma che offre un accesso efficiente al modello di dati Tabella in Cosmos DB. Questa versione iniziale supporta il set completo di Tabella e funzionalità CRUD di entità e query con API simili a quelle dell'[SDK Tabella di Cosmos DB per .NET Framework](table-sdk-dotnet.md). 
    > [!NOTE]
    >  Gli endpoint Tabella di Archiviazione di Azure non sono ancora supportati nella versione di anteprima 0.9.1.
@@ -102,7 +101,7 @@ Questa libreria di .NET Standard multipiattaforma [Microsoft. Azure. Cosmos. Tab
 | [1.0.5-Anteprima](#1.0.5-preview) |Auguest 20, 2019 |--- |
 | [1.0.4](#1.0.4) |Auguest 12, 2019 |--- |
 | [1.0.4-Anteprima](#1.0.4-preview) |26 luglio 2019 |--- |
-| 1.0.2-anteprima |2 maggio 2019 |--- |
+| 1.0.2-preview |2 maggio 2019 |--- |
 | [1.0.1](#1.0.1) |19 aprile 2019 |--- |
 | [1.0.0](#1.0.0) |13 marzo 2019 |--- |
 | [0.11.0-Anteprima](#0.11.0-preview) |5 marzo 2019 |--- |

@@ -10,12 +10,11 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 6f2983b375e3eeb73a0372e123d4d2763b3c65ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 5dd8e483751010a6090e0ec415c40d381e978fd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84118816"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Accedere ad archivi dati e condivisioni file con l'autenticazione di Windows da pacchetti SSIS in Azure
 
@@ -25,16 +24,16 @@ ms.locfileid: "82629389"
 
 | Metodo di connessione | Ambito effettivo | Passaggio di configurazione | Metodo di accesso nei pacchetti | Numero di set di credenziali e risorse connesse | Tipo di risorse connesse | 
 |---|---|---|---|---|---|
-| Configurazione di un contesto di esecuzione a livello di attività | Attività Esegui pacchetto SSIS | Configurare la proprietà **Autenticazione di Windows** per impostare un contesto di "Esecuzione/Esegui come" durante l'esecuzione di pacchetti SSIS come attività Esegui pacchetto SSIS nelle pipeline di Azure Data Factory.<br/><br/> Per altre informazioni, vedere [Eseguire un pacchetto SSIS tramite l'attività Esegui pacchetto SSIS in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity). | Accedere alle risorse direttamente nei pacchetti tramite un percorso UNC, ad esempio se si usano condivisioni file o `\\YourFileShareServerName\YourFolderName` file di Azure: o`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | È supportato un solo set di credenziali per tutte le risorse connesse | - Condivisioni file in macchine virtuali locali/di Azure<br/><br/> - File di Azure, vedere [Montare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> - SQL Server in macchine virtuali locali/di Azure con l'autenticazione di Windows<br/><br/> - Altre risorse con l'autenticazione di Windows |
-| Configurazione di un contesto di esecuzione a livello di catalogo | Per Azure-SSIS IR, ma viene sottoposto a override durante la configurazione di un contesto di esecuzione a livello di attività (vedere sopra) | Eseguire la stored procedure SSISDB `catalog.set_execution_credential` per configurare un contesto di "Esecuzione/Esegui come".<br/><br/> Per altre informazioni, vedere il resto di questo articolo. | Accedere alle risorse direttamente nei pacchetti tramite un percorso UNC, ad esempio se si usano condivisioni file o `\\YourFileShareServerName\YourFolderName` file di Azure: o`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | È supportato un solo set di credenziali per tutte le risorse connesse | - Condivisioni file in macchine virtuali locali/di Azure<br/><br/> - File di Azure, vedere [Montare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> - SQL Server in macchine virtuali locali/di Azure con l'autenticazione di Windows<br/><br/> - Altre risorse con l'autenticazione di Windows |
-| Rendere persistenti le credenziali tramite il comando `cmdkey` | Per Azure-SSIS IR, ma viene sottoposto a override durante la configurazione di un contesto di esecuzione a livello di attività/Catalogo (vedere sopra) | Eseguire `cmdkey` il comando in uno script di installazione`main.cmd`personalizzato () durante il provisioning del Azure-SSIS IR, ad esempio se si usano condivisioni file `cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword` o `cmdkey /add:YourAzureStorageAccountName.file.core.windows.net /user:azure\YourAzureStorageAccountName /pass:YourAccessKey`file di Azure: o.<br/><br/> Per altre informazioni, vedere [Customize setup for Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) (Personalizzare l'installazione per il runtime di integrazione Azure-SSIS). | Accedere alle risorse direttamente nei pacchetti tramite un percorso UNC, ad esempio se si usano condivisioni file o `\\YourFileShareServerName\YourFolderName` file di Azure: o`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Sono supportati più set di credenziali per risorse connesse diverse | - Condivisioni file in macchine virtuali locali/di Azure<br/><br/> - File di Azure, vedere [Montare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> - SQL Server in macchine virtuali locali/di Azure con l'autenticazione di Windows<br/><br/> - Altre risorse con l'autenticazione di Windows |
+| Configurazione di un contesto di esecuzione a livello di attività | Attività Esegui pacchetto SSIS | Configurare la proprietà **Autenticazione di Windows** per impostare un contesto di "Esecuzione/Esegui come" durante l'esecuzione di pacchetti SSIS come attività Esegui pacchetto SSIS nelle pipeline di Azure Data Factory.<br/><br/> Per altre informazioni, vedere [Eseguire un pacchetto SSIS tramite l'attività Esegui pacchetto SSIS in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity). | Accedere alle risorse direttamente nei pacchetti tramite un percorso UNC, ad esempio se si usano condivisioni file o File di Azure: `\\YourFileShareServerName\YourFolderName` o`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | È supportato un solo set di credenziali per tutte le risorse connesse | - Condivisioni file in macchine virtuali locali/di Azure<br/><br/> - File di Azure, vedere [Montare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> - SQL Server in macchine virtuali locali/di Azure con l'autenticazione di Windows<br/><br/> - Altre risorse con l'autenticazione di Windows |
+| Configurazione di un contesto di esecuzione a livello di catalogo | Per Azure-SSIS IR, ma viene sottoposto a override durante la configurazione di un contesto di esecuzione a livello di attività (vedere sopra) | Eseguire la stored procedure SSISDB `catalog.set_execution_credential` per configurare un contesto di "Esecuzione/Esegui come".<br/><br/> Per altre informazioni, vedere il resto di questo articolo. | Accedere alle risorse direttamente nei pacchetti tramite un percorso UNC, ad esempio se si usano condivisioni file o File di Azure: `\\YourFileShareServerName\YourFolderName` o`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | È supportato un solo set di credenziali per tutte le risorse connesse | - Condivisioni file in macchine virtuali locali/di Azure<br/><br/> - File di Azure, vedere [Montare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> - SQL Server in macchine virtuali locali/di Azure con l'autenticazione di Windows<br/><br/> - Altre risorse con l'autenticazione di Windows |
+| Rendere persistenti le credenziali tramite il comando `cmdkey` | Per Azure-SSIS IR, ma viene sottoposto a override durante la configurazione di un contesto di esecuzione a livello di attività/Catalogo (vedere sopra) | Eseguire `cmdkey` il comando in uno script di installazione personalizzato ( `main.cmd` ) durante il provisioning del Azure-SSIS IR, ad esempio se si usano condivisioni file o file di Azure: `cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword` o `cmdkey /add:YourAzureStorageAccountName.file.core.windows.net /user:azure\YourAzureStorageAccountName /pass:YourAccessKey` .<br/><br/> Per altre informazioni, vedere [Customize setup for Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) (Personalizzare l'installazione per il runtime di integrazione Azure-SSIS). | Accedere alle risorse direttamente nei pacchetti tramite un percorso UNC, ad esempio se si usano condivisioni file o File di Azure: `\\YourFileShareServerName\YourFolderName` o`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Sono supportati più set di credenziali per risorse connesse diverse | - Condivisioni file in macchine virtuali locali/di Azure<br/><br/> - File di Azure, vedere [Montare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> - SQL Server in macchine virtuali locali/di Azure con l'autenticazione di Windows<br/><br/> - Altre risorse con l'autenticazione di Windows |
 | Montaggio di unità in fase di esecuzione del pacchetto (non persistente) | Per pacchetto | Eseguire il comando `net use` nell'attività Esegui processo aggiunta all'inizio del flusso di controllo nei pacchetti, ad esempio, `net use D: \\YourFileShareServerName\YourFolderName` | Accedere alle condivisioni file tramite unità mappate | Sono supportate più unità per condivisioni file diverse | - Condivisioni file in macchine virtuali locali/di Azure<br/><br/> - File di Azure, vedere [Montare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) |
 |||||||
 
 > [!WARNING]
 > Se non si utilizza uno dei metodi descritti in precedenza per accedere agli archivi dati con l'autenticazione di Windows, i pacchetti che dipendono dall'autenticazione di Windows non sono in grado di accedervi e hanno esito negativo in fase di esecuzione. 
 
-Il resto di questo articolo descrive come configurare il catalogo SSIS (SSISDB) ospitato in un server/un'istanza gestita di database SQL di Azure per eseguire pacchetti in Azure-SSIS IR, che usano l'autenticazione di Windows per accedere ad archivi dati. 
+Il resto di questo articolo descrive come configurare il catalogo SSIS (SSISDB) ospitato nel database SQL/SQL Istanza gestita per eseguire i pacchetti in Azure-SSIS IR che usano l'autenticazione di Windows per accedere agli archivi dati. 
 
 ## <a name="you-can-only-use-one-set-of-credentials"></a>È possibile usare un solo set di credenziali
 
@@ -44,7 +43,7 @@ Quando si usa l'autenticazione di Windows in un pacchetto SSIS, è possibile usa
 
 Per specificare le credenziali del dominio che consentono ai pacchetti che usano l'autenticazione di Windows di accedere ad archivi dati locali, eseguire le operazioni seguenti:
 
-1. Con SQL Server Management Studio (SSMS) o un altro strumento, connettersi al server/all'istanza gestita di database SQL di Azure che ospita il database SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SQL Server Management Studio (SSMS) o un altro strumento, connettersi a SQL database/SQL Istanza gestita che ospita il database SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB come database corrente, aprire una finestra di query.
 
@@ -60,7 +59,7 @@ Per specificare le credenziali del dominio che consentono ai pacchetti che usano
 
 Per visualizzare le credenziali del dominio attive, eseguire queste operazioni:
 
-1. Con SSMS o un altro strumento, connettersi al server/all'istanza gestita di database SQL di Azure che ospita SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SSMS o un altro strumento, connettersi al database SQL/SQL Istanza gestita che ospita il database SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB come database corrente, aprire una finestra di query.
 
@@ -75,7 +74,7 @@ Per visualizzare le credenziali del dominio attive, eseguire queste operazioni:
 ### <a name="clear-domain-credentials"></a>Cancellare le credenziali del dominio
 Per cancellare e rimuovere le credenziali specificate come descritto in questo articolo, eseguire queste operazioni:
 
-1. Con SSMS o un altro strumento, connettersi al server/all'istanza gestita di database SQL di Azure che ospita SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SSMS o un altro strumento, connettersi al database SQL/SQL Istanza gestita che ospita il database SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB come database corrente, aprire una finestra di query.
 
@@ -140,7 +139,7 @@ Per accedere a una condivisione file in locale dai pacchetti in esecuzione in Az
 
 Per accedere a una condivisione file nella macchina virtuale di Azure dai pacchetti in esecuzione in Azure, eseguire le operazioni seguenti:
 
-1. Con SSMS o un altro strumento, connettersi al server/all'istanza gestita di database SQL di Azure che ospita SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SSMS o un altro strumento, connettersi al database SQL/SQL Istanza gestita che ospita il database SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB come database corrente, aprire una finestra di query.
 
@@ -156,7 +155,7 @@ Per altre informazioni sui file di Azure, vedere [File di Azure](https://azure.m
 
 Per accedere a una condivisione file in File di Azure dai pacchetti in esecuzione in Azure, eseguire le operazioni seguenti:
 
-1. Con SSMS o un altro strumento, connettersi al server/all'istanza gestita di database SQL di Azure che ospita SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SSMS o un altro strumento, connettersi al database SQL/SQL Istanza gestita che ospita il database SSISDB. Per altre informazioni, vedere [Connettersi a SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB come database corrente, aprire una finestra di query.
 

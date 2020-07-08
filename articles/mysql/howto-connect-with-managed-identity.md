@@ -6,12 +6,11 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: fd11fd32c4c6901302d1f7960ad38ad426e6a3a6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 156d960571f4d5f28f64823ecbe8f0465739bb23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84141722"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Connettersi con l'identità gestita a Database di Azure per MySQL
 
@@ -22,6 +21,9 @@ Questo articolo illustra come usare un'identità assegnata dall'utente per una m
 > * Creare un utente nel database che rappresenta l'identità assegnata dall'utente della macchina virtuale
 > * Ottenere un token di accesso tramite l'identità della macchina virtuale e usarlo per eseguire query su un server di Database di Azure per MySQL
 > * Implementare il recupero dei token in un'applicazione C# di esempio
+
+> [!IMPORTANT]
+> La connessione con identità gestita è disponibile solo per MySQL 5,7 e versioni successive.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

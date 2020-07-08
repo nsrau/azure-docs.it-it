@@ -11,12 +11,11 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 0324044d93f12f6ac6ec96ff1a31be8ee02ada41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84118823"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Risolvere i problemi di gestione di SSIS Integration Runtime in Azure Data Factory
 
@@ -30,27 +29,27 @@ Se si verificano problemi durante il provisioning o il deprovisioning del runtim
 
 Se il codice di errore è InternalServerError, il servizio presenta problemi temporanei ed è necessario ripetere l'operazione in un secondo momento. Se un nuovo tentativo non è utile, contattare il team di supporto di Azure Data Factory.
 
-In caso contrario, tre dipendenze esterne principali possono causare errori: un server di database SQL di Azure o un'istanza gestita, uno script di installazione personalizzato e una configurazione di rete virtuale.
+In caso contrario, tre dipendenze esterne principali possono causare errori: database SQL di Azure o Azure SQL Istanza gestita, uno script di installazione personalizzato e una configurazione di rete virtuale.
 
-## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Problemi del server o dell'istanza gestita di database SQL di Azure
+## <a name="sql-database-or-sql-managed-instance-issues"></a>Problemi relativi al database SQL o a SQL Istanza gestita
 
-Se si effettua il provisioning di SSIS IR con un database del catalogo SSIS, è necessario avere un server di database SQL di Azure o un'istanza gestita. SSIS IR deve essere in grado di accedere al server di database SQL di Azure o all'istanza gestita. Inoltre, l'account del server di database SQL di Azure o dell'istanza gestita deve disporre delle autorizzazioni per creare un database del catalogo SSIS (SSISDB). Se si verifica un errore, nel portale di Data Factory verrà visualizzato un codice errore con un messaggio di eccezione SQL dettagliato. Usare le informazioni nell'elenco seguente per risolvere i problemi relativi ai codici di errore.
+Il database SQL o il Istanza gestita SQL è necessario se si esegue il provisioning del runtime di integrazione SSIS con un database del catalogo SSIS. Il runtime di integrazione SSIS deve essere in grado di accedere al database SQL o a SQL Istanza gestita. Inoltre, l'account di accesso per il database SQL o il Istanza gestita SQL deve disporre dell'autorizzazione per la creazione di un database del catalogo SSIS (SSISDB). Se si verifica un errore, nel portale di Data Factory verrà visualizzato un codice errore con un messaggio di eccezione SQL dettagliato. Usare le informazioni nell'elenco seguente per risolvere i problemi relativi ai codici di errore.
 
 ### <a name="azuresqlconnectionfailure"></a>AzureSqlConnectionFailure
 
 Questo problema può essere visualizzato quando si effettua il provisioning di un nuovo SSIS IR o quando il runtime di integrazione è in esecuzione. Se l'errore si verifica durante il provisioning del runtime di integrazione, è possibile ricevere un messaggio SqlException dettagliato nel messaggio di errore, a indicare uno dei problemi seguenti:
 
-* Un problema di connessione di rete. Controllare se il nome host di SQL Server o dell'istanza gestita è accessibile. Verificare inoltre che nessun firewall o gruppo di sicurezza di rete (NSG) blocchi l'accesso di SSIS IR al server.
+* Un problema di connessione di rete. Controllare se il nome host per il database SQL o il Istanza gestita SQL è accessibile. Verificare inoltre che nessun firewall o gruppo di sicurezza di rete (NSG) blocchi l'accesso di SSIS IR al server.
 * Errore di accesso durante l'autenticazione a SQL. L'account specificato non può accedere al database di SQL Server. Assicurarsi di specificare l'account utente corretto.
 * Errore di accesso durante l'autenticazione a Microsoft Azure Active Directory (Azure AD) (identità gestita). Aggiungere l'identità gestita della factory a un gruppo AAD e verificare che tale identità gestita disponga delle autorizzazioni di accesso al server di database del catalogo.
 * Timeout della connessione. Questo errore è sempre causato da una configurazione relativa alla sicurezza. È consigliabile:
   1. Creare una nuova macchina virtuale.
   1. Aggiungere la macchina virtuale alla stessa Rete virtuale di Microsoft Azure di IR se il runtime di integrazione è in una rete virtuale.
-  1. Installare SSMS e verificare lo stato del server di database SQL di Azure o dell'istanza gestita.
+  1. Installare SSMS e verificare lo stato del database SQL o di SQL Istanza gestita.
 
-Per altri problemi, risolvere l'errore visualizzato nel messaggio di errore di eccezione SQL dettagliato. Se i problemi persistono, contattare il team di supporto del server di database SQL di Azure o dell'istanza gestita.
+Per altri problemi, risolvere l'errore visualizzato nel messaggio di errore di eccezione SQL dettagliato. Se i problemi persistono, contattare il team di supporto di SQL Istanza gestita o del database SQL.
 
-Se l'errore viene visualizzato durante l'esecuzione del runtime di integrazione, è probabile che le modifiche al gruppo di sicurezza di rete o al firewall impediscano al nodo di lavoro di SSIS IR di accedere al server di database SQL di Azure o all'istanza gestita. Sbloccare il nodo di lavoro di SSIS IR in modo che possa accedere al server di database SQL di Azure o all'istanza gestita.
+Se viene visualizzato l'errore durante l'esecuzione del runtime di integrazione, è probabile che il gruppo di sicurezza di rete o le modifiche del firewall impediscano l'accesso al database SQL o al Istanza gestita SQL da parte del nodo di lavoro IR SSIS Sbloccare il nodo del ruolo di lavoro IR SSIS in modo che possa accedere al database SQL o a SQL Istanza gestita.
 
 ### <a name="catalogcapacitylimiterror"></a>CatalogCapacityLimitError
 
@@ -65,20 +64,20 @@ Le possibili soluzioni sono:
 
 ### <a name="catalogdbbelongstoanotherir"></a>CatalogDbBelongsToAnotherIR
 
-Questo errore indica che il server di database SQL di Azure o l'istanza gestita dispone già di un SSISDB, che è usato da un altro runtime di integrazione. È necessario fornire un server di database SQL di Azure o un'istanza gestita diversa oppure eliminare il database il SSISDB esistente e riavviare il nuovo runtime di integrazione.
+Questo errore indica che il database SQL o SQL Istanza gestita dispone già di un SSISDB e che è usato da un altro runtime di integrazione. È necessario specificare un database SQL diverso o un Istanza gestita SQL oppure eliminare il database SSISDB esistente e riavviare il nuovo runtime di integrazione.
 
 ### <a name="catalogdbcreationfailure"></a>CatalogDbCreationFailure
 
 Questo errore può verificarsi per uno dei motivi seguenti:
 
 * L'account utente configurato per SSIS IR non dispone dell'autorizzazione per creare il database. È possibile concedere all'utente l'autorizzazione per creare il database.
-* Si verifica un timeout durante la creazione del database, ad esempio un timeout nell'esecuzione o nel funzionamento del database. Ripetere l'operazione in un secondo momento. Se il problema non viene risolto nemmeno con il nuovo tentativo, contattare il team di supporto del server di database SQL di Azure o dell'istanza gestita.
+* Si verifica un timeout durante la creazione del database, ad esempio un timeout nell'esecuzione o nel funzionamento del database. Ripetere l'operazione in un secondo momento. Se il nuovo tentativo non funziona, contattare il database SQL o il team di supporto di SQL Istanza gestita.
 
-Per altri problemi, controllare il messaggio di errore di eccezione SQL e risolvere il problema indicato nei dettagli dell'errore. Se i problemi persistono, contattare il team di supporto del server di database SQL di Azure o dell'istanza gestita.
+Per altri problemi, controllare il messaggio di errore di eccezione SQL e risolvere il problema indicato nei dettagli dell'errore. Se i problemi persistono, contattare il team di supporto di SQL Istanza gestita o del database SQL.
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Questo tipo di messaggio di errore è simile al seguente: "nome oggetto non valido ' Catalog. catalog_properties '". In questa situazione, si dispone già di un database denominato SSISDB ma non è stato creato dal runtime di integrazione SSIS oppure il database è in uno stato non valido causato da errori nell'ultimo provisioning del runtime di integrazione SSIS. È possibile eliminare il database esistente con il nome SSISDB oppure configurare un nuovo server di database SQL di Azure o una nuova istanza gestita per il runtime di integrazione.
+Questo tipo di messaggio di errore è simile al seguente: "nome oggetto non valido ' Catalog. catalog_properties '". In questa situazione, si dispone già di un database denominato SSISDB ma non è stato creato dal runtime di integrazione SSIS oppure il database è in uno stato non valido causato da errori nell'ultimo provisioning del runtime di integrazione SSIS. È possibile eliminare il database esistente con il nome SSISDB oppure è possibile configurare un nuovo database SQL o SQL Istanza gestita per il runtime di integrazione.
 
 ## <a name="custom-setup-issues"></a>Problemi di installazione personalizzati
 
@@ -124,7 +123,7 @@ Questo errore può verificarsi per vari motivi. Per risolverlo, vedere le sezion
 
 ### <a name="forbidden"></a>Accesso negato
 
-Questo tipo di errore potrebbe essere simile al seguente: "SubnetId non è abilitato per l'account corrente. Il provider di risorse Microsoft. batch non è registrato nella stessa sottoscrizione di VNet. "
+Questo tipo di errore potrebbe essere simile al seguente: "SubnetId non è abilitato per l'account corrente. Il provider di risorse Microsoft.Batch non è registrato nella stessa sottoscrizione di VNet. "
 
 Questi dettagli indicano che Azure Batch non può accedere alla rete virtuale. Registrare il provider di risorse Microsoft.Batch nella stessa sottoscrizione della rete virtuale.
 

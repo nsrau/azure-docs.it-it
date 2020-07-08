@@ -1,7 +1,7 @@
 ---
 title: 'Ruoli personalizzati: migrazioni in linea da SQL Server a istanza gestita di SQL'
 titleSuffix: Azure Database Migration Service
-description: Informazioni su come usare i ruoli personalizzati per SQL Server alle migrazioni online dell'istanza gestita di database SQL di Azure.
+description: Informazioni su come usare i ruoli personalizzati per SQL Server per le migrazioni di Azure SQL Istanza gestita online.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: e9a1024ca3ab68841474ab051c029042df4915b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d9f222818726fa81dd28fe70042cbfc51162e27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78254933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84187459"
 ---
-# <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Ruoli personalizzati per SQL Server alle migrazioni online dell'istanza gestita di database SQL
+# <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Ruoli personalizzati per SQL Server ad Azure SQL Istanza gestita migrazioni online
 
 Il servizio migrazione del database di Azure usa un ID APP per interagire con i servizi di Azure. L'ID APP richiede il ruolo Collaboratore a livello di sottoscrizione (che molti reparti di sicurezza aziendali non consentiranno) o la creazione di ruoli personalizzati che concedono le autorizzazioni specifiche richieste dal servizio migrazione del database di Azure. Poiché è presente un limite di 2.000 ruoli personalizzati in Azure Active Directory, è possibile combinare tutte le autorizzazioni richieste in modo specifico dall'ID APP in uno o due ruoli personalizzati, quindi concedere all'ID APP il ruolo personalizzato per oggetti specifici o gruppi di risorse (rispetto al livello di sottoscrizione). Se il numero di ruoli personalizzati non è un problema, è possibile suddividere i ruoli personalizzati per tipo di risorsa per creare tre ruoli personalizzati in totale, come descritto di seguito.
 
@@ -30,7 +29,7 @@ La sezione AssignableScopes della stringa JSON di definizione del ruolo consente
 È attualmente consigliabile creare almeno due ruoli personalizzati per l'ID APP, uno a livello di risorsa e l'altro a livello di sottoscrizione.
 
 > [!NOTE]
-> L'ultimo requisito del ruolo personalizzato potrebbe essere rimosso, perché il nuovo codice dell'istanza gestita di database SQL viene distribuito in Azure.
+> L'ultimo requisito del ruolo personalizzato potrebbe essere rimosso, in quanto il nuovo codice SQL Istanza gestita viene distribuito in Azure.
 
 **Ruolo personalizzato per l'ID app**. Questo ruolo è necessario per la migrazione del servizio migrazione del database di Azure a livello di *risorsa* o di *gruppo di risorse* . per ulteriori informazioni sull'ID app, vedere l'articolo [usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -87,14 +86,14 @@ Per altre informazioni, vedere l'articolo [ruoli personalizzati per le risorse d
 
 Dopo aver creato questi ruoli personalizzati, è necessario aggiungere assegnazioni di ruolo a utenti e ID APP alle risorse o ai gruppi di risorse appropriati:
 
-* È necessario concedere il ruolo "ID app-ruolo DMS" all'ID APP che verrà usato per le migrazioni e anche all'account di archiviazione, all'istanza del servizio migrazione del database di Azure e ai livelli di risorse dell'istanza gestita di database SQL.
+* È necessario concedere il ruolo "ID app-ruolo DMS" all'ID APP che verrà usato per le migrazioni e anche all'account di archiviazione, all'istanza del servizio migrazione del database di Azure e ai livelli di risorse di SQL Istanza gestita.
 * Il ruolo "DMS Role-App ID-sub" deve essere concesso all'ID APP a livello di sottoscrizione (la concessione della risorsa o del gruppo di risorse avrà esito negativo). Questo requisito è temporaneo finché non viene distribuito un aggiornamento del codice.
 
 ## <a name="expanded-number-of-roles"></a>Numero espanso di ruoli
 
 Se il numero di ruoli personalizzati nell'Azure Active Directory non costituisce un problema, è consigliabile creare un totale di tre ruoli. Sarà comunque necessario il ruolo "DMS Role-App ID-sub", ma il ruolo "DMS Role-App ID" precedente viene suddiviso per tipo di risorsa in due ruoli diversi.
 
-**Ruolo personalizzato per l'ID APP per istanza gestita di database SQL**
+**Ruolo personalizzato per l'ID APP per SQL Istanza gestita**
 
 ```json
 {

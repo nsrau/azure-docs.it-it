@@ -5,29 +5,28 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 1a9f80166e47b17644b37d4bc9b93e1abefe3432
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022761"
 ---
-# <a name="single-sided-rendering"></a>Rendering a lato singolo
+# <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided":::rendering
 
 Per migliorare le prestazioni, la maggior parte dei renderer usa il [back-face culling](https://en.wikipedia.org/wiki/Back-face_culling), ossia l'eliminazione delle facce posteriori. Tuttavia, quando le mesh vengono aperte con [piani di taglio](cut-planes.md), gli utenti spesso osservano il lato posteriore dei triangoli. Se questi triangoli non vengono raffigurati, il risultato non è convincente.
 
 Per evitare in modo affidabile questo problema, è necessario eseguire il rendering di *entrambi i lati* dei triangoli. Poiché non usare il back-face culling ha implicazioni sulle prestazioni, per impostazione predefinita Rendering remoto di Azure passa al rendering di entrambi i lati solo per le mesh che intersecano un piano di taglio.
 
-L'impostazione di *rendering a lato singolo* consente di personalizzare questo comportamento.
+L'impostazione di * :::no-loc text="single-sided"::: rendering* consente di personalizzare questo comportamento.
 
 > [!CAUTION]
-> L'impostazione di rendering a lato singolo è una funzionalità sperimentale. Potrebbe essere rimossa in futuro. Non modificare l'impostazione predefinita, a meno che non risolva un problema critico nell'applicazione.
+> L' :::no-loc text="single-sided"::: impostazione di rendering è una funzionalità sperimentale. Potrebbe essere rimossa in futuro. Non modificare l'impostazione predefinita, a meno che non risolva un problema critico nell'applicazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'impostazione di rendering a lato singolo ha un effetto solo per le mesh che sono state [convertite](../../how-tos/conversion/configure-model-conversion.md) con l'opzione `opaqueMaterialDefaultSidedness` impostata su `SingleSided`. Per impostazione predefinita, questa opzione è impostata su `DoubleSided`.
+L' :::no-loc text="single-sided"::: impostazione di rendering ha un effetto solo per le mesh [convertite](../../how-tos/conversion/configure-model-conversion.md) con l' `opaqueMaterialDefaultSidedness` opzione impostata su `SingleSided` . Per impostazione predefinita, questa opzione è impostata su `DoubleSided`.
 
-## <a name="single-sided-rendering-setting"></a>Impostazione di rendering a lato singolo
+## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided":::impostazione rendering
 
 Esistono tre modalità diverse:
 
@@ -35,9 +34,9 @@ Esistono tre modalità diverse:
 
 **DynamicDoubleSiding:** in questa modalità, quando un piano di taglio interseca una mesh viene automaticamente impostato il rendering di entrambi i lati. Questa è la modalità predefinita.
 
-**AlwaysDoubleSided:** forza il rendering di entrambi i lati di tutte le geometrie a lato singolo in qualsiasi momento. Questa modalità è per lo più esposta in modo che sia possibile confrontare facilmente l'effetto sulle prestazioni tra il rendering a lato singolo e quello a due lati.
+**AlwaysDoubleSided:** forza il rendering di entrambi i lati di tutte le geometrie a lato singolo in qualsiasi momento. Questa modalità viene esposta per lo più in modo da poter confrontare facilmente l'effetto sulle prestazioni tra :::no-loc text="single-sided"::: e il :::no-loc text="double-sided"::: rendering.
 
-La modifica delle impostazioni di rendering a lato singolo può essere eseguita come indicato di seguito:
+La modifica delle :::no-loc text="single-sided"::: impostazioni di rendering può essere eseguita come indicato di seguito:
 
 ```cs
 void ChangeSingleSidedRendering(AzureSession session)

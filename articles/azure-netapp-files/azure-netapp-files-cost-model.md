@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/27/2020
 ms.author: b-juche
-ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70995107"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84142147"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modello di costi per Azure NetApp Files 
 
@@ -50,6 +49,8 @@ Il diagramma seguente illustra questi concetti.
 ## <a name="overage-in-capacity-consumption"></a>Eccedenza nell'utilizzo della capacità  
 
 Quando la capacità totale utilizzata di un pool supera la capacità di provisioning, le scritture dei dati sono ancora consentite.  Dopo il periodo di tolleranza (un'ora), se la capacità utilizzata del pool supera ancora la capacità di cui è stato effettuato il provisioning, le dimensioni del pool verranno automaticamente aumentate con incrementi di 1 TiB fino a quando la capacità di cui è stato effettuato il provisioning è maggiore della capacità totale utilizzata.  Nell'illustrazione precedente, ad esempio, se il volume 3 continua ad aumentare e il consumo effettivo raggiunge 1,2 TiB, dopo il periodo di tolleranza il pool verrà automaticamente ridimensionato a 5 TiB.  Il risultato è che la capacità del pool di cui è stato effettuato il provisioning (5 TiB) supera la capacità utilizzata (4,2 TiB).  
+
+Sebbene le dimensioni del pool di capacità aumentino automaticamente per soddisfare la richiesta del volume, non vengono ridotte automaticamente quando diminuisce la dimensione del volume. Se si desidera ridurre le dimensioni del pool di capacità dopo una riduzione delle dimensioni del volume, ad esempio dopo la pulizia dei dati di un volume, è necessario ridurre _manualmente_ le dimensioni del pool di capacità.
 
 ## <a name="manual-changes-of-the-pool-size"></a>Modifiche manuali delle dimensioni del pool  
 

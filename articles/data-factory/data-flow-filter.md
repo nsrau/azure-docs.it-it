@@ -7,19 +7,20 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: 32a40f3d4da93318c6d2ec25295c89a7b53141e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/26/2020
+ms.openlocfilehash: 8189228d6707812fb943e9925dc2bbf1b6da4972
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84112802"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Trasformazione filtro nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Le trasformazioni di filtro consentono di filtrare le righe in base a una condizione. Il flusso di output include tutte le righe che corrispondono alla condizione di filtro. La trasformazione filtro è simile a una clausola WHERE in SQL.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
 
 ## <a name="configuration"></a>Configurazione
 
@@ -40,7 +41,7 @@ Utilizzare il generatore di espressioni del flusso di dati per immettere un'espr
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente è una trasformazione filtro denominata `FilterBefore1960` che accetta il flusso `CleanData`in ingresso. La condizione di filtro è l' `year <= 1960`espressione.
+L'esempio seguente è una trasformazione filtro denominata `FilterBefore1960` che accetta il flusso in ingresso `CleanData` . La condizione di filtro è l'espressione `year <= 1960` .
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

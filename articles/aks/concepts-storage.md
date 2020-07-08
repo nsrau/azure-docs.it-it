@@ -4,12 +4,11 @@ description: Informazioni sull'archiviazione nel servizio Azure Kubernetes, incl
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4bb19d7da971a82aef9c0e1fc092cc648ac49c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 643d25e99bef191bfce77f092a9f2218c891a442
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77595995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84171379"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes
 
@@ -55,10 +54,12 @@ Un volume permanente può essere creato *staticamente* da un amministratore del 
 
 Per definire livelli di archiviazione diversi, ad esempio Premium e Standard, è possibile creare una *StorageClass*. La StorageClass definisce anche i *reclaimPolicy*. I criteri reclaimPolicy controllano il comportamento della risorsa di archiviazione di Azure sottostante quando il pod viene eliminato e il volume permanente potrebbe non essere più necessario. La risorsa di archiviazione sottostante può essere eliminata o conservata per l'uso con un pod futuro.
 
-Nel servizio Azure Kubernetes vengono create due StorageClass iniziali:
+In AKS verranno creati 4 StorageClasses iniziali:
 
-- *default* - Usa l'archiviazione Standard di Azure per creare un disco gestito. Il criterio di rimborso indica che il disco di Azure sottostante viene eliminato quando viene eliminato il volume permanente che lo ha usato.
+- *impostazione predefinita* : usa l'archiviazione StandardSSD di Azure per creare un disco gestito. Il criterio di rimborso indica che il disco di Azure sottostante viene eliminato quando viene eliminato il volume permanente che lo ha usato.
 - *managed-premium* - Usa l'archiviazione Premium di Azure per creare un disco gestito. Il criterio di rimborso indica di nuovo che il disco di Azure sottostante viene eliminato quando viene eliminato il volume permanente che lo utilizza.
+- *azurefile* : usa l'archiviazione standard di Azure per creare una condivisione file di Azure. Il criterio di rimborso indica che la condivisione file di Azure sottostante viene eliminata quando viene eliminato il volume permanente che lo ha usato.
+- *azurefile-Premium* : Usa archiviazione Premium di Azure per creare una condivisione file di Azure. Il criterio di rimborso indica che la condivisione file di Azure sottostante viene eliminata quando viene eliminato il volume permanente che lo ha usato.
 
 Se non si specifica una StorageClass per un volume permanente, viene usata la StorageClass predefinita. Prestare attenzione per la richiesta di volumi permanenti, in modo che usino le risorse di archiviazione appropriate necessarie. È possibile creare una StorageClass per esigenze aggiuntive con `kubectl`. L'esempio seguente usa Managed Disks Premium e specifica che il disco di Azure sottostante deve essere *conservato* quando viene eliminato il pod:
 
@@ -120,7 +121,7 @@ spec:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per le procedure consigliate associate, vedere procedure consigliate [per l'archiviazione e i backup in AKS][operator-best-practices-storage].
+Per le procedure consigliate associate, vedere [Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes][operator-best-practices-storage].
 
 Per informazioni su come creare i volumi dinamici e statici che usano Dischi di Azure o File di Azure, vedere gli articoli di procedure seguenti:
 
@@ -131,11 +132,11 @@ Per informazioni su come creare i volumi dinamici e statici che usano Dischi di 
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Cluster e carichi di lavoro di Kubernetes/servizio Azure Kubernetes][aks-concepts-clusters-workloads]
-- [Kubernetes / Identità di servizio Azure Kubernetes][aks-concepts-identity]
+- [Kubernetes/Cluster e carichi di lavoro del servizio Azure Kubernetes][aks-concepts-clusters-workloads]
+- [Kubernetes/Identità del servizio Azure Kubernetes][aks-concepts-identity]
 - [Sicurezza di Kubernetes/servizio Azure Kubernetes][aks-concepts-security]
-- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
-- [Ridimensionamento in Kubernetes/servizio Azure Kubernetes][aks-concepts-scale]
+- [Kubernetes/Reti virtuali nel servizio Azure Kubernetes][aks-concepts-network]
+- [Kubernetes/Ridimensionamento nel servizio Azure Kubernetes][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

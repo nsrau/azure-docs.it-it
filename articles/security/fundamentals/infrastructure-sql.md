@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021858"
 ---
 # <a name="azure-sql-database-security-features"></a>Funzionalità di sicurezza del database SQL di Azure    
 Il database SQL di Azure fornisce un servizio di database relazionale in Azure. Per proteggere i dati dei clienti e fornire le funzionalità avanzate di sicurezza che i clienti richiedono da un servizio di database relazionale, il database SQL include set specifici di funzionalità di sicurezza. Queste funzionalità si basano sui controlli ereditati da Azure.
@@ -31,13 +30,13 @@ Il database SQL di Azure fornisce un servizio di database relazionale in Azure. 
 Il database SQL di Azure supporta solo il protocollo TDS, in base al quale il database deve essere accessibile solo tramite la porta TCP/1433 predefinita.
 
 ### <a name="azure-sql-database-firewall"></a>Firewall del database SQL di Azure
-Per proteggere i dati dei clienti, il database SQL di Azure include una funzionalità firewall che, per impostazione predefinita, impedisce qualsiasi accesso al server di database SQL, come illustrato di seguito.
+Per proteggere i dati dei clienti, il database SQL di Azure include una funzionalità firewall che, per impostazione predefinita, impedisce l'accesso al database SQL, come illustrato di seguito.
 
 ![Firewall del database SQL di Azure](./media/infrastructure-sql/sql-database-firewall.png)
 
 Il firewall del gateway consente di limitare gli indirizzi consentendo ai clienti un controllo granulare per specificare intervalli di indirizzi IP accettabili. Il firewall concede l'accesso in base all'indirizzo IP di origine di ogni richiesta.
 
-I clienti possono eseguire la configurazione del firewall tramite un portale di gestione o a livello di codice usando l'API REST di gestione del database SQL di Azure. Il firewall del gateway del database SQL di Azure impedisce per impostazione predefinita qualsiasi accesso TDS del cliente alle istanze del database SQL di Azure. Il clienti devono configurare l'accesso mediante l'elenco di controllo di accesso (ACL) per consentire connessioni al database SQL di Azure per numeri di porta, protocolli e indirizzi Internet di origine e destinazione.
+I clienti possono eseguire la configurazione del firewall tramite un portale di gestione o a livello di codice usando l'API REST di gestione del database SQL di Azure. Per impostazione predefinita, il firewall del gateway del database SQL di Azure impedisce l'accesso TDS del cliente al database SQL di Azure. Il clienti devono configurare l'accesso mediante l'elenco di controllo di accesso (ACL) per consentire connessioni al database SQL di Azure per numeri di porta, protocolli e indirizzi Internet di origine e destinazione.
 
 ### <a name="dosguard"></a>DoSGuard
 Gli attacchi Denial of Service (DoS) vengono ridotti da un servizio gateway del database SQL denominato DoSGuard. DoSGuard tiene traccia in modo attivo degli accessi non riusciti dagli indirizzi IP. Se sono presenti più accessi non riusciti da uno specifico indirizzo IP in un intervallo di tempo, all'indirizzo viene impedito di accedere a qualsiasi risorsa nel servizio per un periodo predefinito.
@@ -97,10 +96,10 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 
 - [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
-- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
+- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
+- [Azure production operations and management](infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)

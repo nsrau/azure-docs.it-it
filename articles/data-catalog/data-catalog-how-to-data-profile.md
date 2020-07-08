@@ -6,12 +6,11 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 698da509be2f375925459bbdd4a35d21c6ff4407
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68950228"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84171226"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Come profilare origini dati in Azure Data Catalog
 
@@ -45,7 +44,7 @@ Includendo i profili dati durante la registrazione degli asset di dati gli utent
 > È anche possibile aggiungere della documentazione a un asset per descrivere come integrare i dati in un'applicazione. Vedere l'articolo relativo alla [documentazione delle origini dati](data-catalog-how-to-documentation.md).
 >
 
-<a name="howto"/>
+<a name="howto"></a>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>Come includere un profilo dati durante la registrazione di un'origine dati
 

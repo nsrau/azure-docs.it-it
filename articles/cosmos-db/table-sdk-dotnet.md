@@ -8,12 +8,11 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 9356ab0aec375a046a8f200838df296b2cf74bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84168149"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET di tabella di CosmosDB di Azure: download e note sulla versione
 
@@ -39,40 +38,40 @@ ms.locfileid: "80984981"
 
 ## <a name="release-notes"></a>Note sulla versione
 
-### <a name="212"></a><a name="2.1.2"/>2.1.2
+### <a name="212"></a><a name="2.1.2"></a>2.1.2
 
 * Correzioni di bug
 
-### <a name="210"></a><a name="2.1.0"/>2.1.0
+### <a name="210"></a><a name="2.1.0"></a>2.1.0
 
 * Correzioni di bug
 
-### <a name="200"></a><a name="2.0.0"/>2.0.0
+### <a name="200"></a><a name="2.0.0"></a>2.0.0
 
 * È stato aggiunto il supporto per la scrittura in più aree
 * Sono state corrette le dipendenze dei pacchetti NuGet da Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
 
-### <a name="113"></a><a name="1.1.3"/>1.1.3
+### <a name="113"></a><a name="1.1.3"></a>1.1.3
 
 * Dipendenze risolte dei pacchetti NuGet in Microsoft.Azure.Storage.Common e Microsoft.Azure.DocumentDB.
 * Correzioni di bug nella serializzazione di tabella quando JsonConvert.DefaultSettings sono configurati.
 
-### <a name="111"></a><a name="1.1.1"/>1.1.1
+### <a name="111"></a><a name="1.1.1"></a>1.1.1
 
 * È stata aggiunta la convalida per ETag in formato non valido in modalità diretta.
 * È stato corretto il bug relativo alle query LINQ in modalità gateway.
 * Le API sincrone vengono ora eseguite sul pool di thread con SynchronizationContext.
 
-### <a name="110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"></a>1.1.0
 
 * Aggiunta di TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism e TableQueryContinuationTokenLimitInKb a TableRequestOptions
 * Correzioni di bug
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 
 * Versione con disponibilità generale
 
-### <a name="090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
+### <a name="090-preview"></a><a name="0.1.0-preview"></a>0.9.0-preview
 
 * Versione di anteprima iniziale
 
@@ -90,7 +89,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
 | [2.1.2](#2.1.2) |16 settembre 2019| |
-| [2.1.0](#2.1.0) |22 gennaio 2019|01 aprile 2020 |
+| [2.1.0](#2.1.0) |22 gennaio 2019|1° aprile 2020 |
 | [2.0.0](#2.0.0) |26 settembre 2018|01 marzo 2020 |
 | [1.1.3](#1.1.3) |17 luglio 2018|01 dicembre 2019 |
 | [1.1.1](#1.1.1) |26 marzo 2018|01 dicembre 2019 |

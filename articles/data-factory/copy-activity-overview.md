@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 2557ce7be44f0505b96df06cd2b44a2fa3ce3fdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84187678"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -55,7 +54,7 @@ Per copiare dati da un'origine a un sink, il servizio che esegue l'attività di 
 
 È possibile usare l'attività di copia per copiare i file così come sono tra due archivi dati basati su file, nel qual caso i dati vengono copiati in modo efficiente senza serializzazione o deserializzazione. Inoltre, è possibile analizzare o generare file con un formato specifico, ad esempio, è possibile eseguire le operazioni seguenti:
 
-* Copiare i dati da un database di SQL Server locale e scrivere in Azure Data Lake Storage Gen2 in formato parquet.
+* Copiare i dati da un database di SQL Server e scrivere in Azure Data Lake Storage Gen2 in formato parquet.
 * Copiare i file in formato testo (CSV) da un file system locale e scrivere nell'archiviazione BLOB di Azure nel formato avro.
 * Copiare i file compressi da un file system locale, decomprimerli in tempo reale e scrivere i file estratti in Azure Data Lake Storage Gen2.
 * Copiare i dati nel formato di testo compresso gzip dall'archiviazione BLOB di Azure e scriverli nel database SQL di Azure.
@@ -129,8 +128,8 @@ Il modello seguente di un'attività di copia contiene un elenco completo delle p
 
 | Proprietà | Descrizione | Necessaria? |
 |:--- |:--- |:--- |
-| type | Per un'attività di copia, impostare su`Copy` | Sì |
-| inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | Sì |
+| tipo | Per un'attività di copia, impostare su`Copy` | Sì |
+| input | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | Sì |
 | outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | Sì |
 | typeProperties | Specificare le proprietà per configurare l'attività di copia. | Sì |
 | source | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
@@ -196,11 +195,11 @@ Oltre a copiare i dati dall'archivio dati di origine al sink, è anche possibile
 >[!TIP]
 >Questa funzionalità funziona con il modello di set di dati più recente. Se questa opzione non viene visualizzata nell'interfaccia utente, provare a creare un nuovo set di dati.
 
-Per configurarlo a livello di codice `additionalColumns` , aggiungere la proprietà nell'origine dell'attività di copia:
+Per configurarlo a livello di codice, aggiungere la `additionalColumns` proprietà nell'origine dell'attività di copia:
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name` Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`**-una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **Espressione**<br>- **Valore statico** | No |
+| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name`Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`**-una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **Espressione**<br>- **Valore statico** | No |
 
 **Esempio:**
 
@@ -250,4 +249,4 @@ Vedere le guide rapide, le esercitazioni e gli esempi seguenti:
 
 - [Copiare i dati da una posizione a un'altra nello stesso account di archiviazione BLOB di Azure](quickstart-create-data-factory-dot-net.md)
 - [Copiare dati da un archivio BLOB di Azure al database SQL di Azure](tutorial-copy-data-dot-net.md)
-- [Copiare dati da un database di SQL Server locale in Azure](tutorial-hybrid-copy-powershell.md)
+- [Copiare dati da un database di SQL Server in Azure](tutorial-hybrid-copy-powershell.md)

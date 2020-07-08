@@ -10,12 +10,11 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6534e7d3a05434855503a9cbf1e675aa11799984
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84169220"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Ripristino di emergenza e failover dell'account di archiviazione
 
@@ -26,8 +25,6 @@ Archiviazione di Azure supporta il failover degli account per gli account di arc
 Il failover degli account è disponibile per i tipi di account di archiviazione per utilizzo generico V1, per utilizzo generico V2 e BLOB con distribuzioni Azure Resource Manager. Il failover degli account è supportato per tutte le aree pubbliche, ma in questo momento non è disponibile nei cloud sovrani o nazionali.
 
 Questo articolo illustra i concetti e il processo relativi a un failover dell'account e spiega come preparare l'account di archiviazione per il ripristino con il minimo impatto per i clienti. Per informazioni su come avviare un failover di account nel portale di Azure o in PowerShell, vedere [avviare un failover dell'account](storage-initiate-account-failover.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -104,6 +101,8 @@ La proprietà **Ora ultima sincronizzazione** indica l'ora in cui è stata esegu
 
 Come procedura consigliata, progettare l'applicazione per poter usare l'ora dell'ultima sincronizzazione per valutare la perdita di dati prevista. Se ad esempio si registrano tutte le operazioni di scrittura, è possibile confrontare l'ora delle ultime operazioni di scrittura con quella dell'ultima sincronizzazione per determinare quali operazioni di scrittura non sono state sincronizzate con l'area secondaria.
 
+Per altre informazioni sul controllo della proprietà dell' **ora dell'ultima sincronizzazione** , vedere [controllare la proprietà dell'ora dell'ultima sincronizzazione per un account di archiviazione](last-sync-time-get.md).
+
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Prestare attenzione quando si effettua il failback all'area primaria originale
 
 Dopo aver effettuato il failover dall'area primaria a quella secondaria, l'account di archiviazione viene configurato come account con ridondanza locale nella nuova area primaria. È quindi possibile configurare di nuovo l'account per la ridondanza geografica. Quando l'account viene configurato di nuovo per la ridondanza geografica dopo un failover, la nuova area primaria inizia immediatamente a copiare i dati nella nuova area secondaria, che era la primaria prima del failover originale. Tuttavia, potrebbe essere necessario un po' di tempo prima che i dati esistenti nel database primario vengano completamente copiati nel nuovo database secondario.
@@ -175,4 +174,5 @@ In casi estremi, in cui un'area va persa a causa di una grave emergenza, Microso
 
 - [Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata](geo-redundant-design.md)
 - [Avviare il failover di un account](storage-initiate-account-failover.md)
-- [Esercitazione: creare un'applicazione a disponibilità elevata con archiviazione BLOB](../blobs/storage-create-geo-redundant-storage.md)
+- [Controllare la proprietà Last Sync Time per un account di archiviazione](last-sync-time-get.md)
+- [Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB](../blobs/storage-create-geo-redundant-storage.md)

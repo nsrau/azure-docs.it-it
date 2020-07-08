@@ -2,13 +2,12 @@
 title: Esportazione continua dei dati di telemetria da Application Insights | Microsoft Docs
 description: Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: 7284e6305b1028cbcb62041ff8196d06250f4414
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.date: 05/26/2020
+ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84147971"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
@@ -24,7 +23,7 @@ Prima di configurare l'esportazione continua, è necessario prendere in consider
 * [Dati di analisi](../../azure-monitor/app/analytics.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
 * Se si vogliono [esplorare i dati in Power BI](../../azure-monitor/app/export-power-bi.md ), non è necessario usare l'esportazione continua.
 * L'[API REST di accesso ai dati](https://dev.applicationinsights.io/) consente di accedere ai dati di telemetria a livello di codice.
-* È inoltre possibile accedere all'installazione dell'[esportazione continua tramite PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
+* È anche possibile accedere [all'esportazione continua](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)del programma di installazione tramite PowerShell.
 
 Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](../../azure-monitor/app/data-retention-privacy.md) usuale.
 
@@ -33,8 +32,6 @@ Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazion
 L'esportazione continua **non supporta** le funzionalità/configurazioni di archiviazione di Azure seguenti:
 
 * Uso di [firewall di Archiviazione di Azure o di rete virtuale](https://docs.microsoft.com/azure/storage/common/storage-network-security) in combinazione con l'archiviazione BLOB di Azure.
-
-* [Archiviazione non modificabile](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) per l'archiviazione BLOB di Azure.
 
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
@@ -53,7 +50,8 @@ L'esportazione continua **non supporta** le funzionalità/configurazioni di arch
 
 4. Creare o selezionare un contenitore nella risorsa di archiviazione.
 
-Dopo averla creata, l'esportazione viene avviata. Si ottengono solo i dati ricevuti dopo avere creato l'esportazione.
+> [!NOTE]
+> Dopo aver creato l'esportazione, i dati appena inseriti inizieranno a fluire nell'archivio BLOB di Azure. L'esportazione continua trasmette solo i nuovi dati di telemetria creati/inseriti dopo l'abilitazione dell'esportazione continua. Tutti i dati esistenti prima dell'abilitazione dell'esportazione continua non verranno esportati e non esiste alcun modo supportato per esportare in modo retroattivo i dati creati in precedenza usando l'esportazione continua.
 
 Può verificarsi un ritardo di circa un'ora prima che i dati vengano visualizzati nella risorsa di archiviazione.
 

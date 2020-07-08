@@ -5,12 +5,11 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 28c61e637a37c158dcd80c0f02b748b4813945fb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 13f17ed9d165e368d2e9d9cde694408b600006cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84171124"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Abilitare Rilevamento modifiche e inventario da un account di Automazione
 
@@ -37,17 +36,13 @@ Accedere ad Azure all'indirizzo https://portal.azure.com.
 
     ![Abilitare il rilevamento delle modifiche e l'inventario](media/automation-enable-changes-from-auto-acct/onboardsolutions.png)
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Controllare la configurazione dell'ambito
-
-Rilevamento modifiche e inventario usa una configurazione dell'ambito all'interno dell'area di lavoro per individuare i computer che ricevono le modifiche. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della funzionalità a computer specifici. Per altre informazioni, vedere [Usare configurazioni dell'ambito per Rilevamento modifiche e inventario](automation-scope-configurations-change-tracking.md).
-
 ## <a name="enable-azure-vms"></a>Abilitare le macchine virtuali di Azure
 
 1. Nell'account di Automazione selezionare **Rilevamento modifiche** o **Inventario** in **Gestione della configurazione**.
 
 2. Fare clic su **+ Aggiungi macchine virtuali di Azure** e selezionare una o più macchine virtuali dall'elenco. Le macchine virtuali che non possono essere abilitate sono visualizzate in grigio e non sono selezionabili. Le macchine virtuali di Azure possono trovarsi in qualsiasi area, indipendentemente dalla posizione dell'account di Automazione. 
 
-3. Fare clic su **Abilita** per aggiungere le macchine virtuali selezionate alla ricerca salvata del gruppo di computer per la funzionalità. Per altre informazioni, vedere [Usare configurazioni dell'ambito per Rilevamento modifiche e inventario](automation-scope-configurations-change-tracking.md).
+3. Fare clic su **Abilita** per aggiungere le macchine virtuali selezionate alla ricerca salvata del gruppo di computer per la funzionalità. Per altre informazioni, vedere [Limit rilevamento modifiche and Inventory Deployment scope](automation-scope-configurations-change-tracking.md).
 
     ![Abilitare le macchine virtuali di Azure](media/automation-enable-changes-from-auto-acct/enable-azure-vms.png)
 
@@ -73,15 +68,11 @@ I computer installati manualmente o i computer che inviano già report all'area 
 
 4. Per abilitare la funzionalità per tutti i computer disponibili e per tutti i computer futuri, selezionare **Abilita in tutti i computer disponibili e futuri**. Questa opzione elimina le ricerche salvate e le configurazioni dell'ambito dall'area di lavoro e avvia la funzionalità per tutti i computer Azure e non Azure che inviano report all'area di lavoro. Se selezionata, questa azione disabilita il pulsante **Gestisci computer** in modo permanente perché non è più presente alcuna configurazione dell'ambito.
 
-5. Se necessario è possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo nuovamente le ricerche salvate iniziali. Per altre informazioni, vedere [Usare configurazioni dell'ambito per Rilevamento modifiche e inventario](automation-scope-configurations-change-tracking.md).
+5. Se necessario è possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo nuovamente le ricerche salvate iniziali. Per altre informazioni, vedere [Limit rilevamento modifiche and Inventory Deployment scope](automation-scope-configurations-change-tracking.md).
 
 6. Per abilitare la funzionalità per uno o più computer, selezionare **Abilita nei computer selezionati** e fare clic su **Aggiungi** accanto a ogni computer da abilitare per la funzionalità. Questa attività aggiunge i nomi dei computer selezionati alla query di ricerca salvata nel gruppo di computer per la funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni dettagliate sulla funzionalità, vedere [Gestire Rilevamento modifiche e inventario](change-tracking-file-contents.md).
-* Per informazioni sulle configurazioni dell'ambito, vedere [Usare configurazioni dell'ambito per Rilevamento modifiche e inventario](automation-scope-configurations-change-tracking.md).
-* Per informazioni su come usare la funzionalità per identificare il software installato nell'ambiente, vedere [Individuare il software installato nelle VM](automation-tutorial-installed-software.md).
-* Se non si vuole integrare l'account di Automazione con un'area di lavoro Log Analytics quando si abilita la funzionalità, vedere [Scollegare l'area di lavoro dall'account di Automazione](automation-unlink-workspace-change-tracking.md).
-* Al termine della distribuzione delle modifiche nelle macchine virtuali, è possibile rimuoverle come descritto in [Rimuovere macchine virtuali da Rilevamento modifiche e inventario](automation-remove-vms-from-change-tracking.md).
+* Per usare la funzionalità, vedere [gestire rilevamento modifiche e inventario](change-tracking-file-contents.md).
 * Per risolvere i problemi generali relativi alla funzionalità, vedere [Risolvere i problemi relativi a Rilevamento modifiche e inventario](troubleshoot/change-tracking.md).

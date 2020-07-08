@@ -5,13 +5,12 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 7f91d8eab2e7a29163dae5ae2a4d34792ddd0cb0
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.date: 05/28/2020
+ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005503"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84170274"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTPS in app per la logica di Azure
 
@@ -148,7 +147,7 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
 * [Accettare i valori tramite i parametri Get](#get-parameters) o URL.
 
-  Questi valori vengono passati come coppie nome/valore nell'URL dell'endpoint. Per questa opzione, è necessario usare il metodo GET nel trigger di richiesta. In un'azione successiva, è possibile ottenere i valori dei parametri come output del trigger tramite `triggerOutputs()` la funzione in un'espressione.
+  Questi valori vengono passati come coppie nome/valore nell'URL dell'endpoint. Per questa opzione, è necessario usare il metodo GET nel trigger di richiesta. In un'azione successiva, è possibile ottenere i valori dei parametri come output del trigger tramite la `triggerOutputs()` funzione in un'espressione.
 
 * [Accettare i valori tramite un percorso relativo](#relative-path) per i parametri nel trigger di richiesta.
 
@@ -164,7 +163,7 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
 1. Nel trigger request aggiungere l'azione in cui si desidera utilizzare il valore del parametro. Per questo esempio, aggiungere l'azione di **risposta** .
 
-   1. Nel trigger richiesta selezionare **nuovo passaggio** > **Aggiungi un'azione**.
+   1. Nel trigger richiesta selezionare **nuovo passaggio**  >  **Aggiungi un'azione**.
    
    1. Nella casella di ricerca di **Scegliere un'azione** immettere `response` come filtro. Nell'elenco azioni selezionare l'azione **risposta** .
 
@@ -190,11 +189,11 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
       `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
 
-      Si supponga, ad esempio, di voler passare un valore per un parametro denominato `postalCode`. La proprietà **Body** specifica la stringa, `Postal Code: ` con uno spazio finale, seguita dall'espressione corrispondente:
+      Si supponga, ad esempio, di voler passare un valore per un parametro denominato `postalCode` . La proprietà **Body** specifica la stringa, `Postal Code: ` con uno spazio finale, seguita dall'espressione corrispondente:
 
       ![Aggiungere l'espressione "triggerOutputs ()" di esempio da attivare](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
 
-1. Per testare l'endpoint chiamabile, copiare l'URL di callback dal trigger di richiesta e incollare l'URL in un'altra finestra del browser. Nell'URL aggiungere il nome e il valore del parametro dopo il punto interrogativo`?`() all'URL nel formato seguente e premere INVIO.
+1. Per testare l'endpoint chiamabile, copiare l'URL di callback dal trigger di richiesta e incollare l'URL in un'altra finestra del browser. Nell'URL aggiungere il nome e il valore del parametro dopo il punto interrogativo ( `?` ) all'URL nel formato seguente e premere INVIO.
 
    `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
 
@@ -204,15 +203,18 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
    ![Risposta dall'invio della richiesta all'URL callback](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
-1. Per inserire il nome e il valore del parametro in una posizione diversa all'interno dell'URL, assicurarsi di utilizzare la`&`e commerciale () come prefisso, ad esempio:
+1. Per inserire il nome e il valore del parametro in una posizione diversa all'interno dell'URL, assicurarsi di utilizzare la e commerciale ( `&` ) come prefisso, ad esempio:
 
    `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
 
-   Questo esempio mostra l'URL di callback con il nome e il valore `postalCode=123456` del parametro di esempio in posizioni diverse all'interno dell'URL:
+   Questo esempio mostra l'URL di callback con il nome e il valore del parametro `postalCode=123456` di esempio in posizioni diverse all'interno dell'URL:
 
    * 1 ° posizione:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
    * seconda posizione:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+> [!NOTE]
+> Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI, utilizzare invece questa versione codificata:`%25%23`
 
 <a name="relative-path"></a>
 
@@ -222,19 +224,19 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
    ![Aggiungere la proprietà "percorso relativo" al trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. Nella proprietà **percorso relativo** specificare il percorso relativo del parametro nello schema JSON che si desidera venga accettato dall'URL, ad esempio `/address/{postalCode}`.
+1. Nella proprietà **percorso relativo** specificare il percorso relativo del parametro nello schema JSON che si desidera venga accettato dall'URL, ad esempio `/address/{postalCode}` .
 
    ![Specificare il percorso relativo per il parametro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 1. Nel trigger request aggiungere l'azione in cui si desidera utilizzare il valore del parametro. Per questo esempio, aggiungere l'azione di **risposta** .
 
-   1. Nel trigger richiesta selezionare **nuovo passaggio** > **Aggiungi un'azione**.
+   1. Nel trigger richiesta selezionare **nuovo passaggio**  >  **Aggiungi un'azione**.
 
    1. Nella casella di ricerca di **Scegliere un'azione** immettere `response` come filtro. Nell'elenco azioni selezionare l'azione **risposta** .
 
 1. Nella proprietà **Body** dell'azione di risposta includere il token che rappresenta il parametro specificato nel percorso relativo del trigger.
 
-   Si supponga, ad esempio, di voler restituire `Postal Code: {postalCode}`l'azione di risposta.
+   Si supponga, ad esempio, di voler restituire l'azione di risposta `Postal Code: {postalCode}` .
 
    1. Nella proprietà **Body** immettere `Postal Code: ` con uno spazio finale. Mantenere il cursore all'interno della casella di modifica in modo che l'elenco di contenuto dinamico rimanga aperto.
 
@@ -252,15 +254,18 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
    `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. Per testare l'endpoint richiamabile, copiare l'URL di callback aggiornato dal trigger di richiesta, incollare l'URL in un'altra `{postalCode}` finestra del browser, `123456`sostituire l'URL con e premere INVIO.
+1. Per testare l'endpoint richiamabile, copiare l'URL di callback aggiornato dal trigger di richiesta, incollare l'URL in un'altra finestra del browser, sostituire l'URL `{postalCode}` con `123456` e premere INVIO.
 
    Il browser restituisce una risposta con il testo seguente:`Postal Code: 123456`
 
    ![Risposta dall'invio della richiesta all'URL callback](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
+> [!NOTE]
+> Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI, utilizzare invece questa versione codificata:`%25%23`
+
 ## <a name="call-logic-app-through-endpoint-url"></a>Chiamare l'app per la logica tramite l'URL dell'endpoint
 
-Dopo aver creato l'endpoint, è possibile attivare l'app per la logica inviando `POST` una richiesta HTTPS all'URL completo dell'endpoint. Le app per la logica dispongono di supporto incorporato per gli endpoint di accesso diretto.
+Dopo aver creato l'endpoint, è possibile attivare l'app per la logica inviando una `POST` richiesta HTTPS all'URL completo dell'endpoint. Le app per la logica dispongono di supporto incorporato per gli endpoint di accesso diretto.
 
 <a name="generated-tokens"></a>
 
@@ -268,7 +273,7 @@ Dopo aver creato l'endpoint, è possibile attivare l'app per la logica inviando 
 
 Quando si specifica uno schema JSON nel trigger di richiesta, la finestra di progettazione dell'app per la logica genera i token per le proprietà nello schema. È quindi possibile usare tali token per passare dati tramite il flusso di lavoro di app per la logica.
 
-Ad esempio, se si aggiungono altre proprietà, ad `"suite"`esempio, allo schema JSON, i token per tali proprietà sono disponibili per l'uso nei passaggi successivi per l'app per la logica. Di seguito è riportato lo schema JSON completo:
+Ad esempio, se si aggiungono altre proprietà, ad esempio `"suite"` , allo schema JSON, i token per tali proprietà sono disponibili per l'uso nei passaggi successivi per l'app per la logica. Di seguito è riportato lo schema JSON completo:
 
 ```json
    {
@@ -302,7 +307,7 @@ Ad esempio, se si aggiungono altre proprietà, ad `"suite"`esempio, allo schema 
 
 È possibile nidificare i flussi di lavoro nell'app per la logica aggiungendo altre app per la logica che possono ricevere richieste. Per includere queste app per la logica, seguire questa procedura:
 
-1. Nel passaggio in cui si vuole chiamare un'altra app per la logica, selezionare **nuovo passaggio** > **Aggiungi un'azione**.
+1. Nel passaggio in cui si vuole chiamare un'altra app per la logica, selezionare **nuovo passaggio**  >  **Aggiungi un'azione**.
 
 1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `logic apps` come filtro. Nell'elenco azioni selezionare **Scegli un flusso di lavoro di app per la logica**.
 
@@ -316,7 +321,7 @@ Ad esempio, se si aggiungono altre proprietà, ad `"suite"`esempio, allo schema 
 
 ## <a name="reference-content-from-an-incoming-request"></a>Riferimento al contenuto dalla richiesta in ingresso
 
-Se il tipo di contenuto della richiesta in ingresso `application/json`è, è possibile fare riferimento alle proprietà nella richiesta in ingresso. In caso contrario, questo contenuto viene considerato come una singola unità binaria che è possibile passare ad altre API. Per fare riferimento a questo contenuto all'interno del flusso di lavoro dell'app per la logica, è necessario innanzitutto convertire il contenuto.
+Se il tipo di contenuto della richiesta in ingresso è `application/json` , è possibile fare riferimento alle proprietà nella richiesta in ingresso. In caso contrario, questo contenuto viene considerato come una singola unità binaria che è possibile passare ad altre API. Per fare riferimento a questo contenuto all'interno del flusso di lavoro dell'app per la logica, è necessario innanzitutto convertire il contenuto.
 
 Se ad esempio si passa contenuto con `application/xml` tipo, è possibile usare l' [ `@xpath()` espressione](../logic-apps/workflow-definition-language-functions-reference.md#xpath) per eseguire un'estrazione XPath oppure usare l' [ `@json()` espressione](../logic-apps/workflow-definition-language-functions-reference.md#json) per la conversione di XML in JSON. Altre informazioni sull'uso dei [tipi di contenuto](../logic-apps/logic-apps-content-type.md)supportati.
 
@@ -333,7 +338,7 @@ Per ottenere l'output da una richiesta in ingresso, è possibile usare l' [ `@tr
 }
 ```
 
-Per accedere in modo `body` specifico alla proprietà, è possibile usare l' [ `@triggerBody()` espressione](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) come collegamento.
+Per accedere in modo specifico alla `body` proprietà, è possibile usare l' [ `@triggerBody()` espressione](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) come collegamento.
 
 ## <a name="respond-to-requests"></a>Rispondere alle richieste
 
@@ -345,13 +350,13 @@ Per le app per la logica annidate, l'app per la logica padre continua ad attende
 
 ### <a name="construct-the-response"></a>Costruire la risposta
 
-Nel corpo della risposta è possibile includere più intestazioni e qualsiasi tipo di contenuto. Ad esempio, l'intestazione della risposta specifica che il tipo di contenuto della risposta `application/json` è e che il corpo contiene valori per `town` le `postalCode` proprietà e, in base allo schema JSON descritto in precedenza in questo argomento per il trigger request.
+Nel corpo della risposta è possibile includere più intestazioni e qualsiasi tipo di contenuto. Ad esempio, l'intestazione della risposta specifica che il tipo di contenuto della risposta è `application/json` e che il corpo contiene valori per `town` le `postalCode` proprietà e, in base allo schema JSON descritto in precedenza in questo argomento per il trigger request.
 
 ![Fornire il contenuto della risposta per l'azione di risposta HTTPS](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 Le risposte hanno le seguenti proprietà:
 
-| Proprietà (visualizzazione) | Property (JSON) | Descrizione |
+| Proprietà (visualizzazione) | Proprietà (JSON) | Descrizione |
 |--------------------|-----------------|-------------|
 | **Codice di stato** | `statusCode` | Codice di stato HTTPS da usare nella risposta per la richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
 | **Intestazioni** | `headers` | Una o più intestazioni da includere nella risposta |

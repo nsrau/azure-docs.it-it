@@ -1,14 +1,13 @@
 ---
 title: Come gestire DHCP
-description: Questo articolo illustra come gestire DHCP in una soluzione VMWare di Azure (AVS)
+description: Questo articolo illustra come gestire DHCP in una soluzione VMware di Azure (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ccf28c94e1991681c238f51847fe228313abe29e
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 80791dd2041fb9d6fbc7c67f2d7d7b2d0b6c977e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740447"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84148362"
 ---
 # <a name="how-to-manage-dhcp-in-azure-vmware-solution-avs-preview"></a>Come gestire DHCP in Azure (AVS) Preview della soluzione VMWare
 

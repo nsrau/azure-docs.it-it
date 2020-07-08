@@ -9,12 +9,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81412951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84187287"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 
@@ -83,11 +82,11 @@ Dalla versione di anteprima pubblica iniziale in 2017, Data Factory ha aggiunto 
 
 -    Supporto per altre tre configurazioni/varianti del database SQL di Azure per ospitare il database SSIS (SSISDB) di progetti/pacchetti:
 -    Database SQL con endpoint servizio rete virtuale
--    Istanza gestita
+-    Istanza gestita di SQL
 -    Pool elastico
 -    Il supporto per un Azure Resource Manager rete virtuale in una rete virtuale classica verrà deprecato in futuro, che consente di inserire/aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale configurata per il database SQL con endpoint servizio rete virtuale/MI/i dati locali. Per altre informazioni, vedere anche [aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Supporto per l'autenticazione Azure Active Directory (Azure AD) e l'autenticazione SQL per la connessione al database SSISDB, consentendo l'autenticazione Azure AD con l'identità gestita Data Factory per le risorse di Azure
--    Supporto per l'uso della licenza SQL Server locale per ottenere risparmi sostanziali sui costi dall'opzione Vantaggio Azure Hybrid
+-    Supporto per l'introduzione della licenza di SQL Server esistente per ottenere risparmi sostanziali sui costi dall'opzione Vantaggio Azure Hybrid
 -    Supporto per Enterprise Edition del runtime di integrazione SSIS di Azure che consente di usare le funzionalità avanzate/Premium, un'interfaccia di installazione personalizzata per installare componenti/estensioni aggiuntivi e un ecosistema di partner. Per ulteriori informazioni, vedere anche [Enterprise Edition, installazione personalizzata e estendibilità di terze parti per SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
 -    Integrazione più approfondita di SSIS in Data Factory che consente di richiamare/attivare le attività di esecuzione dei pacchetti SSIS di prima classe in Data Factory pipeline e di pianificarle tramite SSMS. Per altre informazioni, vedere anche [modernizzare ed estendere i flussi di lavoro ETL/ELT con le attività SSIS nelle pipeline di ADF](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
 
@@ -126,7 +125,7 @@ I servizi collegati sono molto simili a stringhe di connessione e definiscono le
 
 In Data Factory i servizi collegati hanno due scopi:
 
-- Rappresentare un *archivio dati* che include, a titolo esemplificativo, un'istanza di SQL Server locale, un'istanza di database Oracle, una condivisione file o un account di archiviazione BLOB di Azure. Per un elenco di archivi dati supportati, vedere [Attività di copia in Azure Data Factory](copy-activity-overview.md).
+- Per rappresentare un *archivio dati* che include, a titolo esemplificativo, un'istanza SQL Server, un'istanza del database Oracle, una condivisione file o un account di archiviazione BLOB di Azure. Per un elenco di archivi dati supportati, vedere [Attività di copia in Azure Data Factory](copy-activity-overview.md).
 - Per rappresentare una *risorsa di calcolo* che può ospitare l'esecuzione di un'attività. Ad esempio, l'attività HDInsight Hive viene eseguita in un cluster HDInsight Hadoop. Per un elenco delle attività di trasformazione e degli ambienti di calcolo supportati, vedere [Trasformare i dati in Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Trigger
