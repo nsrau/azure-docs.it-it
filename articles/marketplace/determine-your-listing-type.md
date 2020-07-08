@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 457ff90c21fee2b569fa24d90fffc6ce80cdf969
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658069"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027104"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 
@@ -56,7 +56,7 @@ Le applicazioni **Microsoft AppSource** sono soluzioni line-of-business che poss
 Le applicazioni **Azure Marketplace** sono blocchi predefiniti tecnici integrati o realizzati per Azure e destinati a responsabili IT o sviluppatori. I servizi di consulenza di Azure Marketplace sono offerte di servizi professionali che consentono ai clienti di iniziare a usare Azure o di accelerarne l'uso.
 
 >[!Note]
->Offerta in più elenchi (solo per app SaaS): quando un'offerta basata su elenco o su una versione di valutazione soddisfa i criteri sia per un pubblico di utenti tecnici che aziendali, l'offerta verrà elencata in entrambe le vetrine. Altre informazioni sulle opzioni di pubblicazione sono disponibili di seguito.
+>"Cross-listing" (solo per app SaaS): se l'offerta SaaS è destinata a un pubblico tecnico (Azure Marketplace) e a un gruppo di destinatari di business (AppSource), è possibile selezionare una categoria e/o una sottocategoria applicabile a entrambe le vetrine. Tenere presente che lo scopo dell'offerta "cross-listing" deve essere basato su una proposta di valore che si estende a entrambi i destinatari. Fare clic [qui](./gtm-offer-listing-best-practices.md#categories) per visualizzare le categorie applicabili a ogni storefront.
 
 ## <a name="choose-a-publishing-option"></a>Scegliere un'opzione di pubblicazione
 

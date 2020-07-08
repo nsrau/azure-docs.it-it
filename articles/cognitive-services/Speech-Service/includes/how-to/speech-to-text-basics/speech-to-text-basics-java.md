@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: d59f2ef564da710d084dc027950bc983a88143de
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f827ea87598a88d399f836f5f412f181a32951ec
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204549"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035869"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -185,7 +185,7 @@ recognizer.sessionStopped.addEventListener((s, e) -> {
 });
 ```
 
-Con tutti gli elementi configurati, è possibile chiamare [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
+Con tutti gli elementi configurati, è possibile chiamare [`startContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.startcontinuousrecognitionasync).
 
 ```java
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.

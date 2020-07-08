@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: d9bb6ef7629d236120660912daaad82ad18b8480
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b177063d4e50a310534ffa4c04557543c3354249
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563102"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028098"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando l'API REST e Python
 
@@ -30,7 +30,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 - Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure.
 
 > [!NOTE]
-> Questo argomento di avvio rapido usa documenti remoti accessibili tramite URL. Per usare invece file locali, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync).
+> Questo argomento di avvio rapido usa documenti remoti accessibili tramite URL. Per usare invece file locali, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -65,8 +65,8 @@ Tutti questi file devono trovarsi nella stessa sottocartella e avere il formato 
 
 I file dei risultati dell'OCR sono necessari perché il servizio consideri i file di input corrispondenti per il training con etichette. Per ottenere i risultati dell'OCR per un modulo di origine specificato, seguire questa procedura:
 
-1. Chiamare l'API **[Analyze Layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** nel contenitore di layout di lettura con il file di input come parte del corpo della richiesta. Salvare l'ID trovato nell'intestazione **Operation-location** della risposta.
-1. Chiamare l'API **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** usando l'ID operazione del passaggio precedente.
+1. Chiamare l'API **[Analyze Layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)** nel contenitore di layout di lettura con il file di input come parte del corpo della richiesta. Salvare l'ID trovato nell'intestazione **Operation-location** della risposta.
+1. Chiamare l'API **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeLayoutResult)** usando l'ID operazione del passaggio precedente.
 1. Ottenere la risposta e scrivere il contenuto in un file. Per ogni modulo di origine, il file OCR corrispondente deve avere il nome file originale con l'aggiunta di `.ocr.json`. L'output JSON dell'OCR dovrà avere il formato seguente. Per un esempio completo, vedere il [file OCR di esempio](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json). 
 
     ```json
@@ -197,7 +197,7 @@ Per ogni modulo di origine, il file di etichette corrispondente deve avere il no
 
 ## <a name="train-a-model-using-labeled-data"></a>Eseguire il training di un modello usando dati etichettati
 
-Per eseguire il training di un modello con dati etichettati, chiamare l'API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** eseguendo il codice Python seguente. Prima di eseguire il codice, apportare queste modifiche:
+Per eseguire il training di un modello con dati etichettati, chiamare l'API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** eseguendo il codice Python seguente. Prima di eseguire il codice, apportare queste modifiche:
 
 1. Sostituire `<Endpoint>` con l'URL dell'endpoint relativo alla risorsa di Riconoscimento modulo.
 1. Sostituire `<SAS URL>` con l'URL della firma di accesso condiviso (SAS) del contenitore di archiviazione BLOB di Azure. Per recuperare l'URL SAS, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
@@ -561,4 +561,4 @@ Questo scenario è essenziale per i nostri clienti e stiamo lavorando per miglio
 In questo argomento di avvio rapido si è appreso come usare l'API REST Riconoscimento modulo con Python per eseguire il training di un modello personalizzato con dati etichettati manualmente. Successivamente, vedere la documentazione di riferimento delle API per esplorare l'API Riconoscimento modulo in maggior dettaglio.
 
 > [!div class="nextstepaction"]
-> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

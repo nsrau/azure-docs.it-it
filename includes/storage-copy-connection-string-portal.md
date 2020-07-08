@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 364da4bb5f3f76f0a8a189db5aa59cca305470ea
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 4170671b1dbcb8d2932b54f101cf5691b2461e31
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70197147"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035752"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>Copiare le credenziali dal portale di Azure
 
@@ -21,7 +21,7 @@ L'applicazione di esempio deve autenticare l'accesso all'account di archiviazion
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Individuare l'account di archiviazione.
-3. Nella sezione **Impostazioni** della panoramica dell'account di archiviazione selezionare **Chiavi di accesso**. A questo punto è possibile visualizzare le chiavi di accesso dell'account e la stringa di connessione completa per ogni chiave.   
+3. Nella sezione **Impostazioni** della panoramica dell'account di archiviazione selezionare **Chiavi di accesso**. A questo punto è possibile visualizzare le chiavi di accesso dell'account e la stringa di connessione completa per ogni chiave.
 4. Trovare il valore **Stringa di connessione** in **key1** e selezionare il pulsante **Copia** per copiare la stringa di connessione. Il valore della stringa di connessione verrà aggiunto a una variabile di ambiente nel passaggio successivo.
 
     ![Screenshot che mostra come copiare una stringa di connessione dal portale di Azure](media/storage-copy-connection-string-portal/portal-connection-string.png)

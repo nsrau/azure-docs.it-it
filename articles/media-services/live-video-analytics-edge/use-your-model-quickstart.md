@@ -3,12 +3,12 @@ title: Analizzare un video live con un modello personalizzato - Azure
 description: Questo argomento di avvio rapido illustra come applicare la visione artificiale all'analisi del feed di video live proveniente da una videocamera IP simulata.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b8f83b9e3c450612c742a831ac800343b3bbbc
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: e19c5bd6b44f9a4dd225f6a849ee9aaf62fa6273
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816692"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027665"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Avvio rapido: Analizzare un video live con un modello personalizzato
 
@@ -190,7 +190,7 @@ Nei messaggi seguenti il modulo Analisi video live definisce le proprietà dell'
 
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Quando viene creata un'istanza del grafo multimediale, il nodo di origine RTSP prova a connettersi al server RTSP in esecuzione nel contenitore rtspsim-live55. Se la connessione riesce, viene stampato l'evento seguente. Il tipo di evento è `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+Quando viene creata un'istanza del grafo multimediale, il nodo di origine RTSP prova a connettersi al server RTSP in esecuzione nel contenitore rtspsim-live555. Se la connessione riesce, viene stampato l'evento seguente. Il tipo di evento è `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:

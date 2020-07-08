@@ -3,17 +3,17 @@ title: Progettare tabelle di Azure Cosmos DB per la scalabilità e le prestazion
 description: "Guida alla progettazione dell'archiviazione tabelle di Azure: tabelle scalabili e con prestazioni avanzate in Azure Cosmos DB e in archiviazione tabelle di Azure"
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: conceptual
-ms.date: 05/21/2019
+ms.topic: how-to
+ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 78a38938ad31bb349b7215f0a26dda69f4fec966
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b5e2dc56ad84504f0bf5ced09d865d7cb4e467fa
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651931"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027807"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guida alla progettazione delle tabelle per archiviazione tabelle di Azure: tabelle scalabili con prestazioni avanzate
 
@@ -312,7 +312,7 @@ Le relazioni uno a molti tra gli oggetti del dominio aziendale sono frequenti: a
 
 Si consideri l'esempio di una grande azienda multinazionale con decine di migliaia di reparti ed entità dipendenti. Ogni reparto ha tanti dipendenti e ogni dipendente è associato a un reparto specifico. Un approccio prevede l'archiviazione di entità reparto e dipendente separate, come segue:  
 
-![Immagine che mostra un'entità reparto e un'entità dipendente][1]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE01.png" alt-text="Immagine che mostra un'entità reparto e un'entità dipendente":::
 
 Questo esempio illustra una relazione uno a molti implicita tra i tipi, basata sul valore `PartitionKey`. Ogni reparto può avere più dipendenti.  
 
@@ -320,7 +320,7 @@ Questo esempio mostra anche un'entità reparto e le relative entità dipendente 
 
 Un approccio alternativo prevede la denormalizzazione dei dati e l'archiviazione delle sole entità dipendente con i dati di reparto denormalizzati, come illustrato nell'esempio seguente. In questo particolare scenario, l'approccio denormalizzato potrebbe non essere quello più adatto se si deve essere in grado di cambiare i dettagli di un responsabile di reparto. A tale scopo, sarà necessario aggiornare ogni dipendente del reparto.  
 
-![Immagine dell'entità dipendente][2]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Immagine dell'entità dipendente":::
 
 Per ulteriori informazioni, vedere il [Modello di denormalizzazione](#denormalization-pattern) più avanti in questa guida.  
 
@@ -397,18 +397,18 @@ Ad esempio, se si dispone di tabelle di piccole dimensioni che contengono dati c
 ### <a name="inheritance-relationships"></a>Relazioni di ereditarietà
 Se l'applicazione client usa un set di classi che fanno parte di una relazione di ereditarietà per rappresentare le entità aziendali, è facile rendere permanenti le entità nel servizio tabelle. Ad esempio, nell'applicazione client potrebbe essere definito il set di classi seguente, dove `Person` è una classe astratta.
 
-![Diagramma delle relazioni di ereditarietà][3]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE03.png" alt-text="Diagramma delle relazioni di ereditarietà":::
 
 È possibile salvare in modo permanente le istanze delle due classi concrete in archiviazione tabelle usando una sola tabella `Person`. Usare le entità che sono simili alle seguenti:  
 
-![Immagine che mostra le entità cliente e dipendente][4]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE04.png" alt-text="Immagine che mostra le entità cliente e dipendente":::
 
 Per altre informazioni sull'uso di più tipi di entità nella stessa tabella del codice client, vedere [Usare tipi di entità eterogenei](#work-with-heterogeneous-entity-types) più avanti in questa guida. In questa sezione sono disponibili esempi su come riconoscere il tipo di entità nel codice del client.  
 
 ## <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Nelle sezioni precedenti è stato illustrato come ottimizzare la progettazione della tabella sia per il recupero dei dati di entità mediante query che per l'inserimento, l'aggiornamento e l'eliminazione dei dati di entità. Questa sezione descrive alcuni criteri adatti all'uso con archiviazione tabelle. Descrive anche come risolvere praticamente alcuni problemi e i compromessi evidenziati in precedenza in questa guida. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi criteri:  
 
-![Diagramma degli schemi progettuali per la tabella][5]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Diagramma degli schemi progettuali per la tabella":::
 
 La mappa dei criteri evidenzia alcune relazioni tra i criteri (blu) e gli anti-criteri (arancione) documentati in questa guida. Ovviamente esistono molti altri modelli utili. Ad esempio, uno degli scenari chiave per archiviazione tabelle è l'uso del [criterio di vista materializzata](https://msdn.microsoft.com/library/azure/dn589782.aspx) del criterio [separazione di responsabilità per query e comandi](https://msdn.microsoft.com/library/azure/jj554200.aspx).  
 
@@ -418,14 +418,14 @@ Archivia più copie di ogni entità usando valori di `RowKey` diversi nella stes
 #### <a name="context-and-problem"></a>Contesto e problema
 Archiviazione tabelle indicizza automaticamente le entità usando i valori `PartitionKey` e `RowKey`. Questo consente a un'applicazione client di recuperare un'entità in modo efficiente usando questi valori. Ad esempio, usando la struttura della tabella seguente, un'applicazione client può usare una query di puntamento per recuperare una singola entità dipendente attraverso il nome del reparto e l'ID dipendente, ovvero i valori `PartitionKey`e `RowKey`. Un client può anche recuperare entità ordinate per ID dipendente in ogni reparto.
 
-![Immagine dell'entità dipendente][6]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Immagine dell'entità dipendente":::
 
 Se si desidera trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che archiviazione tabelle non rende disponibili gli indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine `RowKey`.  
 
 #### <a name="solution"></a>Soluzione
 Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore `RowKey` diverso. Se si archivia un'entità con le strutture seguenti, è possibile recuperare in modo efficiente entità dipendente in base all'ID dipendente o all'indirizzo di posta elettronica. I valori di prefisso per `RowKey`, `empid_` e `email_` consentono di eseguire query per un singolo dipendente o un intervallo di dipendenti usando un intervallo di indirizzi di posta elettronica o di ID dipendente.  
 
-![Immagine che mostra l'entità dipendente con valori RowKey diversi][7]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE07.png" alt-text="Immagine che mostra l'entità dipendente con valori RowKey diversi":::
 
 I due criteri di filtro seguenti, uno che ricerca per ID dipendente e uno che ricerca per indirizzo di posta elettronica, specificano entrambi le query di puntamento:  
 
@@ -449,7 +449,7 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 * Il riempimento dei valori numerici in `RowKey` (ad esempio per l'ID dipendente 000223) rende possibile applicare l'ordinamento e il filtro corretto in base ai limiti superiori e inferiori.  
 * Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in `RowKey` non richiedono mai l'età del dipendente, queste entità potrebbero avere la struttura seguente:
 
-  ![Immagine dell'entità dipendente][8]
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE08.png" alt-text="Immagine dell'entità dipendente":::
 
 * È in genere preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usare una query per individuare un'entità e un'altra query per cercare i dati richiesti.  
 
@@ -476,7 +476,7 @@ Archivia più copie di ogni entità usando valori di `RowKey` diversi in partizi
 #### <a name="context-and-problem"></a>Contesto e problema
 Archiviazione tabelle indicizza automaticamente le entità usando i valori `PartitionKey` e `RowKey`. Questo consente a un'applicazione client di recuperare un'entità in modo efficiente usando questi valori. Ad esempio, usando la struttura della tabella seguente, un'applicazione client può usare una query di puntamento per recuperare una singola entità dipendente attraverso il nome del reparto e l'ID dipendente, ovvero i valori `PartitionKey`e `RowKey`. Un client può anche recuperare entità ordinate per ID dipendente in ogni reparto.  
 
-![Immagine dell'entità dipendente][9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Rappresentazione grafica dell'entità Employee":::[9]
 
 Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che archiviazione tabelle non rende disponibili gli indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine `RowKey`.  
 
@@ -485,7 +485,7 @@ Si prevede un volume elevato di transazioni per queste entità e si vuole ridurr
 #### <a name="solution"></a>Soluzione
 Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore di `PartitionKey` e `RowKey` diverso. Se si archivia un'entità con le strutture seguenti, è possibile recuperare in modo efficiente entità dipendente in base all'ID dipendente o all'indirizzo di posta elettronica. I valori di prefisso per `PartitionKey`, `empid_` e `email_` consentono di identificare l'indice da usare per una query.  
 
-![Immagine che mostra l'entità dipendente con indice primario e l'entità dipendente con indice secondario][10]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE10.png" alt-text="Immagine che mostra l'entità dipendente con indice primario e l'entità dipendente con indice secondario":::
 
 I due criteri di filtro seguenti, uno che ricerca per ID dipendente e uno che ricerca per indirizzo di posta elettronica, specificano entrambi le query di puntamento:  
 
@@ -508,7 +508,8 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 * Il riempimento dei valori numerici in `RowKey` (ad esempio per l'ID dipendente 000223) rende possibile applicare l'ordinamento e il filtro corretto in base ai limiti superiori e inferiori.  
 * Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in `RowKey` non richiedono mai l'età del dipendente, queste entità potrebbero avere la struttura seguente:
   
-  ![Immagine che mostra l'entità dipendente con indice secondario][11]
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE11.png" alt-text="Immagine che mostra l'entità dipendente con indice secondario":::
+
 * In genere è preferibile archiviare i dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usare una query per individuare un'entità mediante l'indice secondario e un'altra per cercare i dati richiesti nell'indice primario.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando usare questo modello
@@ -547,7 +548,7 @@ Per illustrare questo approccio, si supponga di dover archiviare le entità rela
 
 Tuttavia, non è possibile usare una transazione dei gruppi di entità per eseguire queste due operazioni. Per evitare il rischio che, a causa di un errore, un'entità venga visualizzata in entrambe le tabelle o in nessuna di esse, l'operazione di archiviazione deve garantire la coerenza finale. Il diagramma seguente illustra in sequenza i passaggi di questa operazione.  
 
-![Diagramma della soluzione ai fini della coerenza finale][12]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Diagramma della soluzione ai fini della coerenza finale":::
 
 Un client avvia l'operazione di archiviazione inserendo un messaggio in una coda di Azure, in questo esempio per l'archiviazione del dipendente 456. Un ruolo di lavoro esegue il polling della coda per individuare i nuovi messaggi. Quando ne trova uno, legge il messaggio e lascia una copia nascosta nella coda. Successivamente, il ruolo di lavoro recupera una copia dell'entità dalla tabella dei dipendenti **Correnti**, inserisce una copia nella tabella dei dipendenti **Archiviati** e quindi elimina l'originale dalla tabella dei dipendenti **Correnti**. Infine, se nei passaggi precedenti non si sono verificati errori, il ruolo di lavoro elimina il messaggio nascosto dalla coda.  
 
@@ -587,7 +588,7 @@ mantiene le entità di indice per consentire ricerche efficienti che restituisca
 #### <a name="context-and-problem"></a>Contesto e problema
 Archiviazione tabelle indicizza automaticamente le entità usando i valori `PartitionKey` e `RowKey`. Consente a un'applicazione client di recuperare un'entità in modo efficiente mediante una query di puntamento. Ad esempio, usando la struttura della tabella seguente, un'applicazione client può recuperare in modo efficiente una singola entità dipendente con il nome del reparto e l'ID dipendente, ovvero i valori `PartitionKey` e `RowKey`.  
 
-![Immagine dell'entità dipendente][13]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Immagine dell'entità dipendente":::
 
 Se si desidera poter recuperare un elenco di entità dipendente anche in base al valore di un'altra proprietà non univoca, ad esempio il cognome, è necessario usare un'analisi della partizione meno efficiente. Questa analisi rileva le corrispondenze piuttosto che usare un indice per la ricerca diretta. Il motivo è che archiviazione tabelle non rende disponibili gli indici secondari.  
 
@@ -606,7 +607,7 @@ Opzione 2: creare entità di indice nella stessa partizione
 
 Usare le entità indice che archiviano i dati seguenti:  
 
-![Immagine che mostra un'entità dipendente con una stringa contenente un elenco di ID dipendente con lo stesso cognome][14]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE14.png" alt-text="Immagine che mostra un'entità dipendente con una stringa contenente un elenco di ID dipendente con lo stesso cognome":::
 
 La proprietà `EmployeeIDs` contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in `RowKey`.  
 
@@ -628,9 +629,9 @@ Opzione 3: creare entità di indice in una tabella o in una partizione separata
 
 Per questa opzione, usare le entità di indice che archiviano i dati seguenti:  
 
-![Immagine che mostra un'entità dipendente con una stringa contenente un elenco di ID dipendente con lo stesso cognome][15]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Immagine che mostra un'entità dipendente con una stringa contenente un elenco di ID dipendente con lo stesso cognome":::
 
-La proprietà `EmployeeIDs` contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in `RowKey`.  
+La `EmployeeIDs` proprietà contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in `RowKey` e `PartitionKey` .  
 
 Non è possibile usare transazioni di gruppi di entità per mantenere la coerenza, in quanto le entità indice si trovano in una partizione separata rispetto alle entità dipendente. Verificare la coerenza finale tra le entità indice e le entità dipendente.  
 
@@ -660,12 +661,12 @@ combina i dati correlati in una singola entità per consentire di recuperare tut
 #### <a name="context-and-problem"></a>Contesto e problema
 In un database relazionale, in genere i dati vengono normalizzati per rimuovere i duplicati che si generano quando le query recuperano dati da più tabelle. Se si normalizzano i dati nelle tabelle di Azure, è necessario eseguire più round trip dal client al server per recuperare i dati correlati. Con la struttura di tabella seguente, ad esempio, sono necessari due round trip per recuperare i dettagli di un reparto. Uno recupera l'entità reparto che include l'ID del responsabile e l'altra recupera i dettagli del responsabile in un'entità dipendente.  
 
-![Immagine dell'entità reparto e dell'entità dipendente][16]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE16.png" alt-text="Immagine dell'entità reparto e dell'entità dipendente":::
 
 #### <a name="solution"></a>Soluzione
 Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:  
 
-![Immagine di un'entità reparto denormalizzata e combinata][17]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Immagine di un'entità reparto denormalizzata e combinata":::
 
 Archiviando le entità reparto con queste proprietà, è possibile recuperare tutti i dettagli necessari relativi a un reparto mediante una query di puntamento.  
 
@@ -693,18 +694,18 @@ In un database relazionale è normale usare join nelle query per restituire dati
 
 Si supponga di archiviare le entità dipendente in archiviazione tabelle usando la struttura seguente:  
 
-![Immagine dell'entità dipendente][18]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Immagine dell'entità dipendente":::
 
 È anche necessario archiviare i dati cronologici relativi alle valutazioni e alle prestazioni per ogni anno in cui il dipendente ha lavorato presso l'organizzazione, nonché poter accedere a queste informazioni in base all'anno. Una possibilità consiste nel creare un'altra tabella di archiviazione delle entità con la struttura seguente:  
 
-![Immagine dell'entità revisione dipendente][19]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE19.png" alt-text="Immagine dell'entità revisione dipendente":::
 
 Con questo approccio è possibile decidere di duplicare alcune informazioni, ad esempio nome e cognome, nella nuova entità, in modo da poter recuperare i dati con una singola richiesta. Non è tuttavia possibile mantenere la coerenza assoluta, in quanto non si può usare una transazione di gruppi di entità per aggiornare le entità in modo atomico.  
 
 #### <a name="solution"></a>Soluzione
 Archiviare un nuovo tipo di entità nella tabella originale usando entità con la struttura seguente:  
 
-![Immagine dell'entità dipendente con chiave composta][20]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE20.png" alt-text="Immagine dell'entità dipendente con chiave composta":::
 
 Si noti che `RowKey` è ora una chiave composta, costituita dall'ID dipendente e dall'anno dei dati di revisione. Questo consente di recuperare le prestazioni del dipendente e di esaminare i dati con una singola richiesta per una singola entità.  
 
@@ -776,7 +777,7 @@ Molte applicazioni eliminano vecchi dati non più necessari a un'applicazione cl
 
 Una possibile progettazione prevede l'uso della data e dell'ora della richiesta di accesso in `RowKey`:  
 
-![Immagine dell'entità tentativo di accesso][21]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE21.png" alt-text="Immagine dell'entità tentativo di accesso":::
 
 Questo approccio evita aree sensibili della partizione perché l'applicazione può inserire ed eliminare entità accesso per ogni utente in una partizione separata. Tuttavia, può essere dispendioso in termini di denaro e tempo se si dispone di un numero elevato di entità. Prima di tutto, è necessario eseguire una scansione di tabella per identificare tutte le entità da eliminare; a questo punto è necessario eliminare ogni entità precedente. Si noti che è possibile ridurre il numero di round trip al server necessari per eliminare le entità precedenti raggruppando più richieste di eliminazione in EGT.  
 
@@ -806,14 +807,14 @@ Archiviare serie di dati complete in un'unica entità per ridurre al minimo il n
 #### <a name="context-and-problem"></a>Contesto e problema
 Spesso un'applicazione archivia una serie di dati richiesti di frequente per recuperarli tutti simultaneamente. L'applicazione potrebbe, ad esempio, registrare il numero di messaggi immediati che ogni dipendente invia ogni ora e quindi usare queste informazioni per tracciare il numero di messaggi inviati da ogni utente nelle 24 ore precedenti. Una progettazione potrebbe essere l'archiviazione di 24 entità per ogni dipendente:  
 
-![Immagine dell'entità statistica messaggio][22]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE22.png" alt-text="Immagine dell'entità statistica messaggio":::
 
 Con questa progettazione è possibile individuare e aggiornare l'entità da aggiornare per ogni dipendente ogni volta che l'applicazione deve aggiornare il valore del numero di messaggi. Tuttavia, per recuperare le informazioni allo scopo di tracciare un grafico dell'attività per le 24 ore precedenti, è necessario recuperare 24 entità.  
 
 #### <a name="solution"></a>Soluzione
 Usare la progettazione seguente con una proprietà separata per archiviare il numero di messaggi per ogni ora:  
 
-![Immagine che mostra le entità statistiche messaggio con proprietà separate][23]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE23.png" alt-text="Immagine che mostra le entità statistiche messaggio con proprietà separate":::
 
 Con questa progettazione è possibile usare un'operazione di unione per aggiornare il numero di messaggi per un dipendente per un'ora specifica. A questo punto, è possibile recuperare tutte le informazioni necessarie per tracciare il grafico usando una richiesta per una singola entità.  
 
@@ -842,7 +843,7 @@ Una singola entità può avere più di 252 proprietà (escludendo le proprietà 
 #### <a name="solution"></a>Soluzione
 Usando archiviazione tabelle, è possibile archiviare più entità per rappresentare un singolo oggetto aziendale di grandi dimensioni con più di 252 proprietà. Ad esempio, se si vuole archiviare un conteggio del numero di messaggi istantanei inviati da ogni dipendente negli ultimi 365 giorni, è possibile usare la progettazione seguente che si avvale di due entità con schemi diversi:  
 
-![Immagine che mostra entità statistiche messaggio con Rowkey 01 ed entità statistiche messaggio con Rowkey 02][24]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE24.png" alt-text="Immagine che mostra entità statistiche messaggio con Rowkey 01 ed entità statistiche messaggio con Rowkey 02":::
 
 Per apportare una modifica che richiede l'aggiornamento di entrambe le entità per mantenerle sincronizzate tra loro, è possibile usare una transazione EGT. Diversamente, è possibile usare una singola operazione di unione per aggiornare il numero di messaggi per un giorno specifico. Per recuperare tutti i dati per un singolo dipendente, è necessario recuperare entrambe le entità. È possibile farlo con due richieste efficienti che usano sia un valore `PartitionKey` che un valore `RowKey`.  
 
@@ -869,7 +870,7 @@ Una singola entità non può archiviare più di 1 MB di dati in totale. Se una o
 #### <a name="solution"></a>Soluzione
 Se l'entità supera le dimensioni di 1 MB perché una o più proprietà contengono una grande quantità di dati, è possibile archiviare i dati in archiviazione BLOB e quindi archiviare l'indirizzo del BLOB in una proprietà dell'entità. Ad esempio, è possibile archiviare la foto di un dipendente nell'archiviazione BLOB e archiviare un collegamento alla foto nella proprietà `Photo` dell'entità dipendente:  
 
-![Immagine che mostra l'entità dipendente con stringa per una foto che punta all'archiviazione BLOB][25]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE25.png" alt-text="Immagine che mostra l'entità dipendente con stringa per una foto che punta all'archiviazione BLOB":::
 
 #### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
@@ -894,12 +895,12 @@ Quando si dispone di un volume elevato di inserimenti, aumentare la scalabilità
 #### <a name="context-and-problem"></a>Contesto e problema
 L'anteposizione o l'aggiunta di entità alle entità archiviate determina in genere l'aggiunta da parte dell'applicazione di nuove entità alla prima o ultima partizione di una sequenza di partizioni. In questo caso, tutti gli inserimenti in un determinato momento avvengono nella stessa partizione, creando un'area sensibile. Questo impedisce all'archiviazione tabelle di eseguire il bilanciamento del carico degli inserimenti tra più nodi e, probabilmente, consente all'applicazione di raggiungere gli obiettivi di scalabilità per la partizione. Si consideri ad esempio il caso di un'applicazione che registra l'accesso alla rete e alle risorse dei dipendenti. Una struttura dell'entità come la seguente può fare in modo che la partizione delle ore corrente diventi un'area sensibile, se il volume delle transazioni raggiunge l'obiettivo di scalabilità per una singola partizione:  
 
-![Immagine dell'entità dipendente][26]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Immagine dell'entità dipendente":::
 
 #### <a name="solution"></a>Soluzione
 La struttura di un'entità alternativa seguente evita le aree sensibili in qualsiasi partizione specifica quando l'applicazione effettua la registrazione di eventi:  
 
-![Immagine che mostra l'entità dipendente con RowKey composto da anno, mese, giorno, ora e ID evento][27]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE27.png" alt-text="Immagine che mostra l'entità dipendente con RowKey composto da anno, mese, giorno, ora e ID evento":::
 
 Si noti come in questo esempio entrambi i valori di `PartitionKey` e `RowKey` siano chiavi composte. Il valore di `PartitionKey` usa sia l'ID reparto che l'ID dipendente per distribuire la registrazione in più partizioni.  
 
@@ -925,13 +926,13 @@ In genere è necessario usare l'archiviazione BLOB invece di archiviazione tabel
 #### <a name="context-and-problem"></a>Contesto e problema
 Un caso d'uso comune per i dati di log consiste nel recuperare una selezione di voci di log per un intervallo di data/ora specifico. Si desidera, ad esempio, trovare tutti i messaggi di errore e critici registrati dall'applicazione tra le 15:04 e le 15:06 in una data specifica. Non si vuole usare la data e l'ora del messaggio di log per determinare la partizione in cui si salvano le entità log. Ciò comporta una partizione ad accesso frequente perché in un determinato momento tutte le entità log condividono lo stesso valore di `PartitionKey`. Vedere l'anti-criterio di [anteposizione/aggiunta](#prepend-append-anti-pattern). Ad esempio, lo schema di entità seguente per un messaggio di log determina una partizione ad accesso frequente perché l'applicazione scrive tutti i messaggi di log nella partizione per la data e l'ora correnti:  
 
-![Immagine dell'entità messaggio di log][28]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Immagine dell'entità messaggio di log":::
 
 In questo esempio, `RowKey` include la data e l'ora del messaggio di log per assicurarsi che i messaggi di log siano ordinati in base a data/ora. `RowKey` include anche un ID messaggio, nel caso in cui più messaggi di log condividano la stessa data e ora.  
 
 Un altro approccio prevede l'uso di un valore di `PartitionKey` che garantisca che l'applicazione scriva i messaggi in un intervallo di partizioni. Ad esempio, se l'origine del messaggio di log consente di distribuire i messaggi in più partizioni, è possibile usare lo schema di entità seguente:  
 
-![Immagine dell'entità messaggio di log][29]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE29.png" alt-text="Immagine dell'entità messaggio di log":::
 
 Tuttavia, il problema di questo schema è che per recuperare tutti i messaggi di log per un intervallo di tempo specifico è necessario cercare ogni partizione nella tabella.
 
@@ -1528,35 +1529,4 @@ In questo esempio asincrono è possibile visualizzare le modifiche seguenti dall
 * Anziché chiamare il metodo `Execute` per aggiornare l'entità, il metodo chiama ora il metodo `ExecuteAsync`. Il metodo usa il modificatore `await` per recuperare i risultati in modo asincrono.  
 
 L'applicazione client può chiamare più metodi asincroni come questo e ogni chiamata al metodo viene eseguita su un thread separato.  
-
-
-[1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
-[2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png
-[3]: ./media/storage-table-design-guide/storage-table-design-IMAGE03.png
-[4]: ./media/storage-table-design-guide/storage-table-design-IMAGE04.png
-[5]: ./media/storage-table-design-guide/storage-table-design-IMAGE05.png
-[6]: ./media/storage-table-design-guide/storage-table-design-IMAGE06.png
-[7]: ./media/storage-table-design-guide/storage-table-design-IMAGE07.png
-[8]: ./media/storage-table-design-guide/storage-table-design-IMAGE08.png
-[9]: ./media/storage-table-design-guide/storage-table-design-IMAGE09.png
-[10]: ./media/storage-table-design-guide/storage-table-design-IMAGE10.png
-[11]: ./media/storage-table-design-guide/storage-table-design-IMAGE11.png
-[12]: ./media/storage-table-design-guide/storage-table-design-IMAGE12.png
-[13]: ./media/storage-table-design-guide/storage-table-design-IMAGE13.png
-[14]: ./media/storage-table-design-guide/storage-table-design-IMAGE14.png
-[15]: ./media/storage-table-design-guide/storage-table-design-IMAGE15.png
-[16]: ./media/storage-table-design-guide/storage-table-design-IMAGE16.png
-[17]: ./media/storage-table-design-guide/storage-table-design-IMAGE17.png
-[18]: ./media/storage-table-design-guide/storage-table-design-IMAGE18.png
-[19]: ./media/storage-table-design-guide/storage-table-design-IMAGE19.png
-[20]: ./media/storage-table-design-guide/storage-table-design-IMAGE20.png
-[21]: ./media/storage-table-design-guide/storage-table-design-IMAGE21.png
-[22]: ./media/storage-table-design-guide/storage-table-design-IMAGE22.png
-[23]: ./media/storage-table-design-guide/storage-table-design-IMAGE23.png
-[24]: ./media/storage-table-design-guide/storage-table-design-IMAGE24.png
-[25]: ./media/storage-table-design-guide/storage-table-design-IMAGE25.png
-[26]: ./media/storage-table-design-guide/storage-table-design-IMAGE26.png
-[27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
-[28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
-[29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
 

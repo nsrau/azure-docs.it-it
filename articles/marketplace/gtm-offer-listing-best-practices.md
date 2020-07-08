@@ -1,18 +1,18 @@
 ---
 title: Procedure consigliate per la presentazione di offerte - Marketplace commerciale Microsoft
 description: Informazioni sulle procedure consigliate per la presentazione go-to market delle offerte di Microsoft AppSource e Azure Marketplace.
-author: qianw211
+author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 07/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 33effe0bbc566880b147c377b3bb130cd81999c8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 60f9630b58250bdae4c382e61697f7abd53e036d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740774"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027070"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -22,47 +22,173 @@ Questo articolo offre suggerimenti per la creazione e l'engagement di offerte ne
 
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
-| Nome offerta | Specificare un titolo efficace:<br> <ul> <li> Il nome dell'app deve comunicare ai clienti il valore essenziale. </li> <li> Includere nel titolo dell'app parole chiave di ricerca per ottenere priorità più elevate nei risultati dei motori di ricerca. </li> </ul> Seguire un formato di titolo impostato per le inserzioni di servizi di consulenza:<br>[Nome offerta: [Durata] [Tipo di offerta] (ad esempio, *Contoso: implementazione di 2 settimane*) <br><br> Attenersi alle linee guida del marchio:<br>Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le [linee guida per i marchi Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e quelle relative ad altri prodotti specifici. |
-| Descrizione dell'offerta | Fornire una descrizione chiara dell'offerta:<br> <ul> <li> Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione. </li> <li> Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca. </li> <li> Per vendere un prodotto, non basarsi sulle funzionalità, ma concentrarsi sul valore che può offrire. </li> <li> Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti.</li> <li> Inoltre, le inserzioni di servizi di consulenza devono indicare chiaramente il servizio professionale fornito. </li></ul> I componenti fondamentali di una proposta di valore devono includere le informazioni seguenti:<ul><li>Descrizione del prodotto.</li><li>Tipo di utente che ottiene vantaggi dal prodotto.</li><li>Necessità o problema del cliente a cui risponde il prodotto.</li></ul> |
+| Nome offerta | Per le app, fornire un titolo chiaro che includa parole chiave di ricerca per aiutare i clienti a individuare l'offerta. <br> <br> Per i servizi di consulenza, seguire questo formato: [nome offerta: [durata] [tipo di offerta] (ad esempio, contoso: implementazione di 2 settimane) <br> <br> Rispettare le linee guida per il marchio: seguire i marchi [Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e le linee guida per il marchio e le linee guida specifiche del prodotto, quando si fa riferimento a marchi Microsoft e ai nomi di software, prodotti e servizi Microsoft. |
+| Descrizione dell'offerta | Fornire una descrizione chiara che descriva la proposta di valore dell'offerta nelle prime frasi.  Tenere presente che queste frasi possono essere usate nei risultati dei motori di ricerca. I componenti principali della proposta di valore devono includere: <ul> <li>Descrizione del prodotto o della soluzione. </li> <li> Utente persona che trae vantaggio dal prodotto o dalla soluzione. </li> <li> I clienti hanno bisogno o sono in sofferenza degli indirizzi del prodotto o della soluzione. </li> </ul> <br> Usare il vocabolario standard del settore o la formulazione basata sui vantaggi, quando possibile.  Per vendere un prodotto, non basarsi sulle funzionalità,  ma concentrarsi sul valore che può offrire. <br> <br> Per gli elenchi di servizi di consulenza, indicare chiaramente il servizio Professional fornito. |
 
 Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegno di offerte nel marketplace. Per scrivere e configurare i materiali di marketing, passare al [Centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/). 
 
 ## <a name="storefront-listing-details"></a>Dettagli dell'inserzione della vetrina
 
-| Impostazione della vetrina | Procedura consigliata |
-|:--- |:--- |  
-| Settori: solo app di Microsoft AppSource e servizi di consulenza | Selezionare i settori se l'offerta risponde a esigenze specifiche di settore: <ul><li> Nella descrizione dell'offerta mettere in risalto le funzionalità specifiche per i settori selezionati.</li> </ul> **Nota**: il numero massimo di opzioni varia in base al tipo di offerta e viene indicato nel [Centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/). |
-| Categorie | Selezionare le categorie che risultano più in linea con l'offerta:<br> <ul> <li> Scegliere le categorie con attenzione perché vengono usate dai clienti per cercare le app adatte alle loro esigenze. </li> <li> Nella descrizione sottolineare come l'offerta riesca a soddisfare i requisiti specifici delle categorie selezionate. </li> </ul> **Nota**: il numero massimo di opzioni varia in base al tipo di offerta e viene indicato nel [Centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/). |
-| Prodotti con cui l'app è compatibile (massimo 3): solo app AppSource | Elencare altri prodotti e tecnologie usati o estesi dalla soluzione offerta. Ad esempio, l'hub IoT di Azure o Azure Machine Learning. |
-| Parole chiave di ricerca (massimo 3) | Le parole chiave di ricerca consentono agli utenti aziendali di trovare l'offerta durante la ricerca <ul>  <li>in Microsoft AppSource</li> <li>in Azure Marketplace</li><li>con i motori di ricerca</li> </ul> Per fare in modo che l'inserzione venga visualizzata in queste ricerche, è necessario: <ul> <li> Identificare le tre principali parole chiave di ricerca per l'offerta. </li> <li> Incorporare le parole chiave di ricerca nel riepilogo e nella descrizione dell'offerta. </li> <li> Elencare le parole chiave di ricerca qui. </li> </ul> |
+Le categorie e i settori per un'altra storefront saranno applicabili ai diversi tipi di offerta.
 
-### <a name="category"></a>Category
+|  | **Categorie <br> per Storefront** |  | **Settori <br> per AppSource** |
+| :------------------- |:----------------:|:------:|:-------------:|
+| **Tipo di offerta**   |  **Azure Marketplace**  | **AppSource**  |
+| App Azure | X | |
+| Contenitore | X | |
+| Servizi di consulenza | | | X |
+| Dynamics 365 Customer Engagement & Power Platform | | X | X |
+| Gestione della supply chain & di Dynamics 365 Finance | | X | X | 
+| Dynamics 365 Business Central | | X | X |
+| Moduli IoT Edge | X | |
+| Power BI | | X | X |
+| SaaS | X | X | X |
+| Macchina virtuale di Azure |  X |    |
 
-Microsoft AppSource e Azure Marketplace sono vetrine che vengono incontro a esigenze diverse e specifiche dei clienti. Scegliere la vetrina e le categorie appropriate per ogni offerta da destinare ai clienti in base al ruolo. 
+### <a name="categories"></a>Categorie
 
-Per un'offerta è possibile selezionare al massimo due categorie e due sottocategorie. Le categorie e le sottocategorie elencate di seguito sono disponibili in entrambe le vetrine.  Assicurarsi che la selezione delle categorie sia in linea con i destinatari previsti, la descrizione dell'offerta e alla proposta di valore dell'offerta.
+Microsoft AppSource e Azure Marketplace sono due vetrine diverse che soddisfano i requisiti specifici dei clienti. Azure Marketplace è destinato a professionisti IT e sviluppatori che sviluppano soluzioni in Azure.  Microsoft AppSource è destinata agli utenti aziendali che cercano applicazioni SaaS aziendali e/o del settore, componenti aggiuntivi di Dynamics 365, componenti aggiuntivi Microsoft 365 e app Power Platform.
 
-| **Settore**    | **Sottosettore**  | 
-| :------------------- | :-------------------|
-| *Automobili     | *Automobili |
-| Agricoltura     | *Altro - Non segmentato |
-| Distribuzione    | *All'ingrosso <br> *Spedizione pacchi e pacchetti |
-| Formazione     | *Istruzione superiore <br> *Istruzione primaria e secondaria/K-12 <br> *Biblioteche e musei |
-| Servizi finanziari     | *Servizi bancari e mercati finanziari <br> *Assicurazioni |
-| Government    | *Difesa e intelligence (precedentemente Sicurezza nazionale e pubblica) <br> Sicurezza pubblica e giustizia <br> *Governo civile |
-| Servizi sanitari (precedentemente Sanità)   | *Ente assistenziale sanitario <br> *Operatore sanitario <br> *Prodotti farmaceutici |
-| Produzione e risorse (precedentemente Produzione)   | Chimica e agrochimica <br> *Produzione discreta <br> *Energia |
-| Vendita al dettaglio e beni di consumo (precedentemente Retail)  | *Beni di consumo <br> *Rivenditori |
-| *Media e comunicazioni (precedentemente Media e intrattenimento)  | *Media e intrattenimento <br> *Telecomunicazioni |
-| Servizi professionali  | *Legale <br> *Servizi professionali per i partner |
-| *Architettura e costruzione (precedentemente Ingegneria dell'architettura)  | *Altro - Non segmentato |
-| *Accoglienza e viaggi  | *Hotel e tempo libero <br> *Viaggi e trasporti <br> *Ristoranti e servizi alimentari |
-| *Altre aree del settore pubblico  | *Silvicoltura e pesca <br> *Organizzazioni no profit |
-| *Immobiliare  | *Altro - Non segmentato |
+Le categorie e le sottocategorie sono mappate a ogni storefront in base ai destinatari. L'offerta verrà pubblicata in Microsoft AppSource o in Azure Marketplace a seconda del tipo di offerta, delle funzionalità di transazione dell'offerta e della selezione di categoria/sottocategoria. 
+
+Selezionare le categorie e le sottocategorie che meglio si allineano con l'offerta e con i destinatari desiderati. È possibile selezionare:
+
+* Fino a due categorie (2), tra cui una categoria primaria e una secondaria (facoltativo).
+* Fino a due (2) sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile solo per la categoria selezionata.
+
+| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps) (professionisti IT e sviluppatori)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) (utenti aziendali)|
+| :------------------- |:----------------|
+|**Analisi** | **Analisi** |
+| &nbsp;&nbsp;Informazioni dettagliate sui dati | &nbsp;&nbsp;Analisi avanzata  |
+| &nbsp;&nbsp;Analisi dei dati |  &nbsp;&nbsp;Visualizzazione & Reporting |
+| &nbsp;&nbsp;Big Data | **Intelligenza artificiale e Machine Learning**  |
+| &nbsp;&nbsp;Analisi predittiva | &nbsp;&nbsp;Intelligenza artificiale per le aziende |
+| &nbsp;&nbsp;Analisi di flusso e in tempo reale | &nbsp;&nbsp;App bot |
+| **Intelligenza artificiale e Machine Learning** | **Collaborazione** |
+| &nbsp;&nbsp;Servizio bot | &nbsp;&nbsp;Contattare & persone |
+| &nbsp;&nbsp;Servizi cognitivi | &nbsp;&nbsp;Gestione delle riunioni |
+| &nbsp;&nbsp;Servizio ML | &nbsp;&nbsp;Progettazione di siti & gestione |
+| &nbsp;&nbsp;ML automatizzato | &nbsp;&nbsp;Gestione dei progetti & attività |
+| &nbsp;&nbsp;Automazione di processi aziendali/robotici | &nbsp;&nbsp;Videoconferenza di Voice & video |
+| &nbsp;&nbsp;Assegnazione di etichette ai dati | **Conformità & legali** |
+| &nbsp;&nbsp;Preparazione dei dati | &nbsp;&nbsp;Controllo imposta & |
+| &nbsp;&nbsp;Knowledge mining | &nbsp;&nbsp;Legali |
+| &nbsp;&nbsp;Operazioni ML | &nbsp;&nbsp;Dati, governance & privacy |
+| **Blockchain**  | &nbsp;&nbsp;Sicurezza & integrità |
+| &nbsp;&nbsp;Acceleratori di app | **Customer Service**  |
+| &nbsp;&nbsp;Ledger a nodo singolo | &nbsp;&nbsp;Centro contatti |
+| &nbsp;&nbsp;Ledger a più nodi | &nbsp;&nbsp;Servizio facet |
+| &nbsp;&nbsp;Strumenti | &nbsp;&nbsp;Back Office & Employee Service |
+| **Calcolo**  | &nbsp;&nbsp;Gestione case & Knowledge base |
+| &nbsp;&nbsp;Infrastruttura applicativa | &nbsp;&nbsp;Social media & Engagement omnicanale |
+| &nbsp;&nbsp;Sistemi operativi | **Finanza** |
+| &nbsp;&nbsp;Cache | &nbsp;&nbsp;Contabilità |
+| **Contenitori**  | &nbsp;&nbsp;Gestione delle risorse |
+| &nbsp;&nbsp;Introduzione ai contenitori | &nbsp;&nbsp;Analisi, consolidamento & Reporting |
+| &nbsp;&nbsp;App contenitore | &nbsp;&nbsp;Raccolte di & di credito |
+| &nbsp;&nbsp;Immagini del contenitore | &nbsp;&nbsp;Gestione dei rischi di conformità & |
+| **Database**  | **Georilevazione** |
+| &nbsp;&nbsp;Database NoSQL | &nbsp;&nbsp;Mappe |
+| &nbsp;&nbsp;Database relazionali | &nbsp;&nbsp;Notizie & Meteo |
+| &nbsp;&nbsp;Database Ledger/blockchain | **Human Resources** |
+| &nbsp;&nbsp;Data Lake | &nbsp;&nbsp;Acquisizione del talento |
+| &nbsp;&nbsp;data warehouse | &nbsp;&nbsp;Gestione dei talent |
+| **Strumenti di sviluppo**  | &nbsp;&nbsp;Operazioni HR |
+| &nbsp;&nbsp;Strumenti | &nbsp;&nbsp;Pianificazione della forza lavoro & analisi |
+| &nbsp;&nbsp;Script | **Strumenti di gestione & IT** |
+| &nbsp;&nbsp;Servizio per sviluppatori | &nbsp;&nbsp;Soluzioni di gestione |
+| **DevOps**  | &nbsp;&nbsp;Business Applications |
+| **Integrazione**  | **Internet delle cose** |
+| &nbsp;&nbsp;Messaggistica | &nbsp;&nbsp;Operazioni di & di gestione delle risorse |
+| **Strumenti di gestione & IT**  | &nbsp;&nbsp;Prodotti connessi |
+| &nbsp;&nbsp;Soluzioni di gestione | &nbsp;&nbsp;Supply Chain intelligente |
+| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Manutenzione predittiva |
+| **Identità**  | &nbsp;&nbsp;Monitoraggio remoto |
+| &nbsp;&nbsp;Gestione degli accessi | &nbsp;&nbsp;Sicurezza & sicurezza |
+| **Internet delle cose**  | &nbsp;&nbsp;Risorse & di infrastruttura intelligenti |
+| &nbsp;&nbsp;Connettività Internet | &nbsp;&nbsp;Veicoli & mobilità |
+| &nbsp;&nbsp;Servizi di base di Internet delle cose | **Marketing** |
+| &nbsp;&nbsp;Moduli IoT Edge | &nbsp;&nbsp;Annuncio |
+| &nbsp;&nbsp;Soluzioni Internet delle cose | &nbsp;&nbsp;Analisi |
+| &nbsp;&nbsp;Visualizzazione & analisi dei dati | &nbsp;&nbsp;Gestione delle campagne & automazione |
+| **Supporti**  | &nbsp;&nbsp;Marketing tramite posta elettronica |
+| &nbsp;&nbsp;Servizi multimediali | &nbsp;&nbsp;Eventi & gestione delle risorse |
+| &nbsp;&nbsp;protezione del contenuto | &nbsp;&nbsp;Analisi del & di ricerca |
+| &nbsp;&nbsp;Streaming Live & on demand | &nbsp;&nbsp;Social media |
+| **Monitoraggio & diagnostica**  | **Operatore & Supply Chain** |
+| **Migrazione**  | &nbsp;&nbsp;Gestione della produzione di asset & |
+| &nbsp;&nbsp;Migrazione dei dati | &nbsp;&nbsp;Previsione della domanda |
+| **Realtà mista**  | &nbsp;&nbsp;Connettività & Information Management |
+| **Rete**  | &nbsp;&nbsp;Pianificazione, acquisto & Reporting |
+| &nbsp;&nbsp;Gestione Appliance | &nbsp;&nbsp;Gestione dei servizi di & qualità |
+| &nbsp;&nbsp;Connettività | &nbsp;&nbsp;Gestione ordini di vendita & |
+| &nbsp;&nbsp;Firewall | &nbsp;&nbsp;Gestione del trasporto & warehouse |
+| &nbsp;&nbsp;Bilanciamento del carico | **Produttività** |
+| **Sicurezza**  | &nbsp;&nbsp;Gestione & di creazione di contenuti |
+| &nbsp;&nbsp;Gestione delle identità e degli accessi | &nbsp;&nbsp;Gestione dei documenti |
+| &nbsp;&nbsp;Protezione dalle minacce | &nbsp;&nbsp;Gestione della posta elettronica |
+| &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Traduzione & lingua |
+| **Storage**  | &nbsp;&nbsp;Cerca & di riferimento |
+| &nbsp;&nbsp;Backup & ripristino | &nbsp;&nbsp;Gamification |
+| &nbsp;&nbsp;Archiviazione ibrida aziendale | **Sales** |
+| &nbsp;&nbsp;Condivisione di file | &nbsp;&nbsp;TELESALES |
+| &nbsp;&nbsp;Gestione del ciclo di vita dei dati | &nbsp;&nbsp;Configure, price, quote (CPQ) |
+| **Web**  | &nbsp;&nbsp;Gestione dei contratti |
+| &nbsp;&nbsp;Blog & CMSs | &nbsp;&nbsp;CRM |
+| &nbsp;&nbsp;App Web di avvio | &nbsp;&nbsp;E-Commerce |
+| &nbsp;&nbsp;E-Commerce | &nbsp;&nbsp;Arricchimento dei dati aziendali  |
+| &nbsp;&nbsp;Framework per app Web | &nbsp;&nbsp;Abilitazione vendite  |
+| &nbsp;&nbsp;App Web |  |
+
+**IMPORTANTE: offerte SaaS e componenti aggiuntivi Microsoft 365**
+
+Per informazioni dettagliate sul modo in cui le funzionalità di transazione possono influire sulla modalità di visualizzazione e acquisto da parte dei clienti del Marketplace, vedere la [Guida in base al tipo di offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . Per le offerte SaaS, la funzionalità di transazione dell'offerta e la selezione della categoria determineranno la vetrina in cui verrà pubblicata l'offerta:
+
+| Offerta SaaS    |     |          |           |    |    |     | Vetrina applicabile |              |
+|:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
+| Fatturazione a consumo | Microsoft 365 componenti aggiuntivi | Contact me (Contattami) | Transact (almeno 1 piano) | Piano solo privato | Piano solo pubblico | Piani privati & pubblici | AppSource | Azure Marketplace |
+|  | X |  |  |  |  |  | X |  |
+| X |  |  | X | X |  |  |  | X |
+| X |  |  | X |  | X |  |  | X |
+| X |  |  | X |  |  | X |  | X<sup>2</sup> |
+|  |  |  | X | X |  |  |  | X |
+|  |  |  | X |  | X |  | X<sup>1</sup> | X<sup>1</sup> |
+|  |  |  | X |  |  | X | X<sup>1</sup> | X<sup>1, 2</sup> |
+|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
+
+1. A seconda della categoria/sottocategoria e della selezione del settore
+2. Le offerte con piani privati verranno pubblicate nel portale di Azure
+
 
 ### <a name="industries"></a>Settori
 
-La selezione del settore si applica solo alle offerte pubblicate in AppSource e ai servizi di consulenza pubblicati in Azure Marketplace. Selezionare i settori e/o i verticali se l'offerta soddisfa le esigenze specifiche del settore, evidenziando le competenze specifiche di settore nella descrizione dell'offerta. È possibile selezionare fino a due (2) settori e due (2) verticali per ogni settore selezionato.
+La selezione del settore si applica solo alle offerte pubblicate in AppSource e ai servizi di consulenza pubblicati in Azure Marketplace.  Selezionare i settori e/o i verticali se l'offerta soddisfa le esigenze specifiche del settore, evidenziando le competenze specifiche di settore nella descrizione dell'offerta. È possibile selezionare fino a due (2) settori e due (2) verticali per ogni settore selezionato.
+
+>[!Note]
+>Per le offerte di servizi di consulenza in Azure Marketplace, non sono disponibili verticali di settore.
+
+| **Settori** |  **Verticali** |
+| :------------------- | :----------------|
+| **Agricoltura** | |
+| **Architettura & costruzione** | |
+| **Automobilistico** | |
+| **Distribuzione** | Vendita all'ingrosso <br> Spedizione pacchetti & pacco |  
+| **Education** | Istruzione superiore <br> Primario & secondario edu/K-12 <br> Librerie & musei |
+| **Servizi finanziari** | Settore bancario & mercati finanziari <br> Assicurazioni | 
+| **Government** |  Difesa & Intelligence <br> Governo civile <br> Sicurezza pubblica & giustizia |
+| **Servizi sanitari** | Pagante di integrità <br> Provider di integrità <br> Prodotti farmaceutici | 
+| **Ospitalità & viaggio** | Travel & Transportation <br> Alberghi & Leisure <br> Ristoranti & servizi alimentari | 
+| **Produzione di risorse &** | & chimico agrochimica <br> Produzione discreta <br> Energia | 
+| **Media & comunicazioni** | Media & Entertainment <br> Telecomunicazioni | 
+| **Altri settori pubblici** | Selvicoltura & pesca <br> No profit | 
+| **Servizi professionali** | Servizi professionali per i partner <br> Note legali | 
+| **Immobile** | |
+
+Settore solo per Microsoft AppSource:
+
+| **Settore** |  **Verticali** |
+| :------------------- | :----------------|
+| **Vendita al dettaglio & beni di consumo** | Rivenditori <br> Beni di consumo |
 
 ### <a name="applicable-products"></a>Prodotti applicabili
 

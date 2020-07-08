@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414284"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027682"
 ---
 # <a name="set-up-web-endpoints"></a>Configurare endpoint Web
 
@@ -46,14 +46,15 @@ In questo articolo si apprenderà come configurare gli endpoint Web in un'applic
    | Nome | UpdateDeviceState | Nome dell'endpoint Web. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | URL dell'endpoint con cui si vuole comunicare l'app del comando personalizzata. |
    | Metodo | POST | Interazioni consentite, ad esempio GET, POST, con l'endpoint.|
-   | Intestazioni | Chiave: app, valore: un nome univoco per l'app | Parametri dell'intestazione da includere nell'intestazione della richiesta.|
+   | Headers | Chiave: app, valore: accetta le prime 8 cifre della applicationId | Parametri dell'intestazione da includere nell'intestazione della richiesta.|
 
     > [!NOTE]
     > - L'endpoint Web di esempio creato con la [funzione di Azure](https://docs.microsoft.com/azure/azure-functions/), che si collega al database che salva lo stato del dispositivo del televisore e della ventola
     > - L'intestazione suggerita è necessaria solo per l'endpoint di esempio
+    > - Per assicurarsi che il valore dell'intestazione sia univoco nell'endpoint di esempio, prendere le prime 8 cifre della applicationId
     > - Nel mondo reale, l'endpoint Web può essere l'endpoint per l' [Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) delle cose che gestisce i dispositivi
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ## <a name="call-web-endpoints"></a>Chiama endpoint Web
 
@@ -74,6 +75,8 @@ In questo articolo si apprenderà come configurare gli endpoint Web in un'applic
     > - I parametri di query suggeriti sono necessari solo per l'endpoint di esempio
 
 1. In **in esito positivo-azione da eseguire**selezionare **Invia risposta vocale**.
+    
+    Nell' **Editor semplice**immettere `{SubjectDevice} is {OnOff}` .
    
    > [!div class="mx-imgBorder"]
    > ![Chiama l'azione endpoint Web per l'esito positivo](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -86,6 +89,9 @@ In questo articolo si apprenderà come configurare gli endpoint Web in un'applic
    > - È anche possibile accedere direttamente ai campi nella risposta http usando `{YourWebEndpointName.FieldName}` . Ad esempio: `{UpdateDeviceState.TV}`
 
 1. In **in caso di errore-azione da eseguire**selezionare **Invia risposta vocale**
+
+    Nell' **Editor semplice**immettere `Sorry, {WebEndpointErrorMessage}` .
+
    > [!div class="mx-imgBorder"]
    > ![Chiama l'azione endpoint Web in errore](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: c84e36f668a9b5cd7fdb61103300d971fdf6c0fa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 62cbaec3e4eaffb9ff3b29e97516ed7e039b38ff
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563082"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028108"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Avvio rapido: Estrarre le informazioni sul layout e sul testo usando l'API REST Riconoscimento modulo con Python
 
@@ -30,7 +30,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 - Un documento modulo. È possibile scaricare un'immagine dal [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) per questo argomento di avvio rapido.
 
 > [!NOTE]
-> Questo argomento di avvio rapido usa un documento archiviato localmente. Per informazioni sull'uso di file remoti accessibili tramite URL, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync).
+> Questo argomento di avvio rapido usa un documento archiviato localmente. Per informazioni sull'uso di file remoti accessibili tramite URL, vedere la [documentazione di riferimento](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
 
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
@@ -39,7 +39,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 
 ## <a name="analyze-the-form-layout"></a>Analizzare il layout del modulo
 
-Per iniziare ad analizzare il layout, chiamare l'API **[Analyze Layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** usando lo script Python seguente. Prima di eseguire lo script, apportare queste modifiche:
+Per iniziare ad analizzare il layout, chiamare l'API **[Analyze Layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)** usando lo script Python seguente. Prima di eseguire lo script, apportare queste modifiche:
 
 1. Sostituire `<Endpoint>` con l'endpoint ottenuto con la sottoscrizione di riconoscimento modulo.
 1. Sostituire `<path to your form>` con il percorso del documento modulo locale.
@@ -90,7 +90,7 @@ https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e
 
 ## <a name="get-the-layout-results"></a>Ottenere i risultati del layout
 
-Dopo aver chiamato l'API **Analyze Layout**, chiamare l'API **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** per ottenere lo stato dell'operazione e i dati estratti. Aggiungere il codice seguente in fondo allo script Python. In questo codice deve essere usato il valore dell'ID operazione in una nuova chiamata API. Questo script chiama l'API a intervalli regolari finché non vengono ottenuti i risultati. Si consiglia un intervallo di almeno un secondo.
+Dopo aver chiamato l'API **Analyze Layout**, chiamare l'API **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeLayoutResult)** per ottenere lo stato dell'operazione e i dati estratti. Aggiungere il codice seguente in fondo allo script Python. In questo codice deve essere usato il valore dell'ID operazione in una nuova chiamata API. Questo script chiama l'API a intervalli regolari finché non vengono ottenuti i risultati. Si consiglia un intervallo di almeno un secondo.
 
 ```python
 n_tries = 10
@@ -283,4 +283,4 @@ Vedere l'immagine di fattura seguente e il corrispondente output JSON. L'output 
 In questo argomento di avvio rapido è stata usata l'API REST Riconoscimento modulo con Python per estrarre il layout del testo di una fattura. A questo punto, vedere la documentazione di riferimento per esplorare l'API di Riconoscimento modulo in maggior dettaglio.
 
 > [!div class="nextstepaction"]
-> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)
+> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)

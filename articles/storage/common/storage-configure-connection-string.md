@@ -5,17 +5,17 @@ description: Configurare una stringa di connessione per un account di archiviazi
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 04/24/2020
+ms.topic: how-to
+ms.date: 07/06/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 681723ee9370f889ef86e6eae0878b148c17606b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26faad0bb8aeb8dff693eea4cb9d47e0df1814b4
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176363"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027334"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurare le stringhe di connessione di Archiviazione di Azure
 
@@ -60,7 +60,7 @@ Ad esempio, la stringa di connessione può essere simile alla seguente:
 Anche se Archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di connessione, *è consigliabile usare HTTPS*.
 
 > [!TIP]
-> Le stringhe di connessione dell'account di archiviazione sono disponibili nel [portale di Azure](https://portal.azure.com). Passare a **Impostazioni** > **chiavi di accesso** nel pannello del menu dell'account di archiviazione per visualizzare le stringhe di connessione per le chiavi di accesso primarie e secondarie.
+> Le stringhe di connessione dell'account di archiviazione sono disponibili nel [portale di Azure](https://portal.azure.com). Passare a **Impostazioni**  >  **chiavi di accesso** nel pannello del menu dell'account di archiviazione per visualizzare le stringhe di connessione per le chiavi di accesso primarie e secondarie.
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>Creare una stringa di connessione usando una firma di accesso condiviso

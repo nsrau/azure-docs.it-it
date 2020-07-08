@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: f18672b9e3a368a833fc8cba279d748dfe3c2a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366769"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026985"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Uso di endpoint privati per la configurazione di app Azure
 
@@ -24,7 +24,7 @@ L'uso di endpoint privati per l'archivio di configurazione delle app consente di
 - Connettersi in modo sicuro all'archivio di configurazione delle app dalle reti locali che si connettono al VNet tramite [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [delle expressroute](../expressroute/expressroute-locations.md) con peering privato.
 
 > [!NOTE]
-> App Azure configurazione offre l'uso di endpoint privati come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.
+> La funzionalità degli endpoint privati è ora disponibile a livello generale in tutte le aree, *ad eccezione* dell'India centrale. Nell'area **India centrale** , app Azure configurazione offre l'uso di endpoint privati come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.
 
 ## <a name="conceptual-overview"></a>Informazioni generali
 
@@ -36,7 +36,7 @@ Sebbene la configurazione dell'app non supporti gli endpoint di servizio, è pos
 
 Quando si crea un endpoint privato per un servizio nella VNet, viene inviata una richiesta di consenso per l'approvazione al proprietario dell'account del servizio. Se l'utente che richiede la creazione dell'endpoint privato è anche un proprietario dell'account, questa richiesta di consenso viene approvata automaticamente.
 
-I proprietari degli account del servizio possono gestire le richieste di consenso e `Private Endpoints` gli endpoint privati tramite la scheda dell'archivio di configurazione nel [portale di Azure](https://portal.azure.com).
+I proprietari degli account del servizio possono gestire le richieste di consenso e gli endpoint privati tramite la `Private Endpoints` scheda dell'archivio di configurazione nel [portale di Azure](https://portal.azure.com).
 
 ### <a name="private-endpoints-for-app-configuration"></a>Endpoint privati per la configurazione dell'app 
 
@@ -44,22 +44,18 @@ Quando si crea un endpoint privato, è necessario specificare l'archivio di conf
 
 ### <a name="connecting-to-private-endpoints"></a>Connessione agli endpoint privati
 
-Azure si basa sulla risoluzione DNS per instradare le connessioni da VNet all'archivio di configurazione tramite un collegamento privato. È possibile trovare rapidamente le stringhe di connessione nel portale di Azure selezionando l'archivio di configurazione dell'app e quindi selezionando **Impostazioni** > **chiavi di accesso**.  
+Azure si basa sulla risoluzione DNS per instradare le connessioni da VNet all'archivio di configurazione tramite un collegamento privato. È possibile trovare rapidamente le stringhe di connessione nel portale di Azure selezionando l'archivio di configurazione dell'app e quindi selezionando **Impostazioni**  >  **chiavi di accesso**.  
 
 > [!IMPORTANT]
-> Usare la stessa stringa di connessione per connettersi all'archivio di configurazione dell'app usando endpoint privati come si farebbe per un endpoint pubblico. Non connettersi all'account di archiviazione usando il `privatelink` relativo URL di sottodominio.
+> Usare la stessa stringa di connessione per connettersi all'archivio di configurazione dell'app usando endpoint privati come si farebbe per un endpoint pubblico. Non connettersi all'archivio usando il relativo `privatelink` URL di sottodominio.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Modifiche DNS per gli endpoint privati
 
-Quando si crea un endpoint privato, il record di risorse DNS CNAME per l'archivio di configurazione viene aggiornato a un alias in un sottodominio con `privatelink`il prefisso. Azure crea anche una [zona DNS privata](../dns/private-dns-overview.md) corrispondente al `privatelink` sottodominio, con i record di risorse DNS a per gli endpoint privati.
+Quando si crea un endpoint privato, il record di risorse DNS CNAME per l'archivio di configurazione viene aggiornato a un alias in un sottodominio con il prefisso `privatelink` . Azure crea anche una [zona DNS privata](../dns/private-dns-overview.md) corrispondente al `privatelink` sottodominio, con i record di risorse DNS a per gli endpoint privati.
 
-Quando si risolve l'URL dell'endpoint dall'esterno del VNet, questo viene risolto nell'endpoint pubblico dell'archivio. Quando viene risolto dall'interno di VNet che ospita l'endpoint privato, l'URL dell'endpoint viene risolto nell'endpoint privato.
+Quando si risolve l'URL dell'endpoint dall'interno di VNet che ospita l'endpoint privato, viene risolto nell'endpoint privato dell'archivio. Quando viene risolto dall'esterno del VNet, l'URL dell'endpoint viene risolto nell'endpoint pubblico. Quando si crea un endpoint privato, l'endpoint pubblico è disabilitato.
 
-È possibile controllare l'accesso per i client esterni a VNet tramite l'endpoint pubblico usando il servizio firewall di Azure.
-
-Questo approccio consente di accedere all'archivio **usando la stessa stringa di connessione** per i client in VNet che ospitano gli endpoint privati e i client esterni al VNet.
-
-Se si usa un server DNS personalizzato nella rete, i client devono essere in grado di risolvere il nome di dominio completo (FQDN) per l'endpoint del servizio nell'indirizzo IP dell'endpoint privato. Configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet o configurare i record A `AppConfigInstanceA.privatelink.azconfig.io` per con l'indirizzo IP dell'endpoint privato.
+Se si usa un server DNS personalizzato nella rete, i client devono essere in grado di risolvere il nome di dominio completo (FQDN) per l'endpoint del servizio nell'indirizzo IP dell'endpoint privato. Configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet o configurare i record A per `AppConfigInstanceA.privatelink.azconfig.io` con l'indirizzo IP dell'endpoint privato.
 
 > [!TIP]
 > Quando si usa un server DNS personalizzato o locale, è necessario configurare il server DNS per risolvere il nome dell'archivio nel `privatelink` sottodominio per l'indirizzo IP dell'endpoint privato. A tale scopo, è possibile delegare il `privatelink` sottodominio alla zona DNS privata del VNet o configurare la zona DNS nel server DNS e aggiungere i record A DNS.

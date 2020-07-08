@@ -3,12 +3,12 @@ title: Come creare criteri di Configurazione guest per Linux
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a636b63c80799f8bfe3dfd3a0eb37d1367cdcf0d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654873"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026713"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -81,7 +81,7 @@ Anche negli ambienti Linux, Configurazione guest usa Desired State Configuration
 
 #### <a name="configuration-requirements"></a>Requisiti di configurazione
 
-Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file ZIP per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione guest nel modello di Resource Manager devono essere uguali.
+Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file con estensione zip per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione Guest nel modello di Azure Resource Manager (modello ARM) devono essere uguali.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configurazione personalizzata di Configurazione guest in Linux
 
@@ -347,7 +347,7 @@ describe file(attr_path) do
 end
 ```
 
-I cmdlet `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` includono un parametro denominato **Parameters**. Questo parametro prende una tabella hash che include tutti i dettagli su ogni parametro e crea automaticamente tutte le sezioni necessarie dei file usati per creare ogni definizione di Criteri di Azure.
+I cmdlet `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` includono un parametro denominato **Parameter**. Questo parametro prende una tabella hash che include tutti i dettagli su ogni parametro e crea automaticamente tutte le sezioni necessarie dei file usati per creare ogni definizione di Criteri di Azure.
 
 Nell'esempio seguente viene creata una definizione di criteri per controllare un percorso di file, in cui l'utente fornisce il percorso al momento dell'assegnazione dei criteri.
 
@@ -371,7 +371,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 

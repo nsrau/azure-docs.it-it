@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e43c343b27dfe2dc0c364e58ed7305bdcec37215
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76717651"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026067"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Dati di esempio in SQL Server in Azure
 
@@ -40,19 +40,26 @@ In questa sezione vengono descritti alcuni metodi di utilizzo di SQL per eseguir
 I due elementi seguenti mostrano come usare `newid` in SQL Server per effettuare il campionamento. Il metodo scelto dipende dal modo in cui si desidera che il campione sia (pk_id nel codice di esempio seguente si presuppone una chiave primaria generata automaticamente).
 
 1. Campionamento casuale meno rigoroso
-   
-        select  * from <table_name> where <primary_key> in 
-        (select top 10 percent <primary_key> from <table_name> order by newid())
+
+    ```sql
+    select  * from <table_name> where <primary_key> in 
+    (select top 10 percent <primary_key> from <table_name> order by newid())
+    ```
+
 2. Campionamento più casuale 
-   
-        SELECT * FROM <table_name>
-        WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
+
+    ```sql
+    SELECT * FROM <table_name>
+    WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
+    ```
 
 È possibile usare la clausola Tablesample anche per il campionamento dei dati. Questa opzione può essere un approccio migliore se le dimensioni dei dati sono elevate (presupponendo che i dati in pagine diverse non siano correlati) e che la query venga completata in un tempo ragionevole.
 
-    SELECT *
-    FROM <table_name> 
-    TABLESAMPLE (10 PERCENT)
+```sql
+SELECT *
+FROM <table_name> 
+TABLESAMPLE (10 PERCENT)
+```
 
 > [!NOTE]
 > È possibile esplorare e generare le funzionalità da questi dati campionati archiviandoli in una nuova tabella
@@ -67,16 +74,20 @@ I due elementi seguenti mostrano come usare `newid` in SQL Server per effettuare
 ## <a name="using-the-python-programming-language"></a><a name="python"></a>Utilizzo del linguaggio di programmazione Python
 In questa sezione viene mostrato l'uso della [libreria pyodbc](https://code.google.com/p/pyodbc/) per stabilire un collegamento ODBC al database di un server SQL in Python. La stringa di connessione del database è la seguente: (sostituire ServerName, dbname, username e password con la configurazione):
 
-    #Set up the SQL Azure connection
-    import pyodbc    
-    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
+```python
+#Set up the SQL Azure connection
+import pyodbc    
+conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
+```
 
 La libreria [Pandas](https://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente legge un campione 0,1% dei dati di una tabella nel database SQL di Azure in un dato Pandas:
 
-    import pandas as pd
+```python
+import pandas as pd
 
-    # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
+# Query database and load the returned results in pandas data frame
+data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
+```
 
 È ora possibile lavorare con i dati campionati nel frame di dati Pandas. 
 
@@ -84,29 +95,35 @@ La libreria [Pandas](https://pandas.pydata.org/) in Python fornisce una vasta ga
 È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati del BLOB possono essere letti direttamente in un esperimento di Azure Machine Learning con il modulo [Import Data][import-data] (Importazione dati). Attenersi alla procedura seguente: 
 
 1. Scrivere il frame di dati Pandas in un file locale
-   
-        dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
+
+    ```python
+    dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
+    ```
+
 2. Caricare il file locale nel BLOB di Azure
-   
-        from azure.storage import BlobService
-        import tables
-   
-        STORAGEACCOUNTNAME= <storage_account_name>
-        LOCALFILENAME= <local_file_name>
-        STORAGEACCOUNTKEY= <storage_account_key>
-        CONTAINERNAME= <container_name>
-        BLOBNAME= <blob_name>
-   
-        output_blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)    
-        localfileprocessed = os.path.join(os.getcwd(),LOCALFILENAME) #assuming file is in current working directory
-   
-        try:
-   
-        #perform upload
-        output_blob_service.put_block_blob_from_path(CONTAINERNAME,BLOBNAME,localfileprocessed)
-   
-        except:            
-            print ("Something went wrong with uploading blob:"+BLOBNAME)
+
+    ```python
+    from azure.storage import BlobService
+    import tables
+
+    STORAGEACCOUNTNAME= <storage_account_name>
+    LOCALFILENAME= <local_file_name>
+    STORAGEACCOUNTKEY= <storage_account_key>
+    CONTAINERNAME= <container_name>
+    BLOBNAME= <blob_name>
+
+    output_blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)    
+    localfileprocessed = os.path.join(os.getcwd(),LOCALFILENAME) #assuming file is in current working directory
+
+    try:
+
+    #perform upload
+    output_blob_service.put_block_blob_from_path(CONTAINERNAME,BLOBNAME,localfileprocessed)
+
+    except:            
+        print ("Something went wrong with uploading blob:"+BLOBNAME)
+    ```
+
 3. Leggere i dati nel BLOB di Azure usando il modulo [Import Data][import-data] (Importazione dati) di Azure Machine Learning come illustrato nella schermata seguente:
 
 ![lettore BLOB][2]

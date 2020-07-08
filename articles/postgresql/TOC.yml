@@ -112,6 +112,8 @@
               href: concepts-data-access-and-security-private-link.md
             - name: Crittografia dei dati
               href: concepts-data-encryption-postgresql.md
+            - name: Crittografia doppia dell'infrastruttura
+              href: concepts-infrastructure-double-encryption.md
             - name: Baseline di sicurezza
               href: security-baseline.md
         - name: Continuità aziendale
@@ -307,6 +309,10 @@
               href: howto-data-encryption-cli.md
             - name: Convalida della crittografia dei dati
               href: howto-data-encryption-validation.md
+        - name: Crittografia doppia dell'infrastruttura
+          items:
+            - name: Configurare la crittografia doppia dell'infrastruttura
+              href: howto-double-encryption.md
         - name: Riavviare il server
           items:
             - name: Portale di Azure

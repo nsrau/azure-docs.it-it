@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cac17d15d792622d9a26ff7c228ce1f0ba76bbc4
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79223248"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027580"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Linux in Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "79223248"
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Gestire gli aggiornamenti di Windows
+> * Gestire gli aggiornamenti Linux
 > * Monitorare le modifiche e l'inventario
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d1e0587ae583585b6247aed9997243ec70fcbf03
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b24449f68365e7a784469c8b097ef74d5bfb293c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563217"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027376"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Avvio rapido: Estrarre i dati delle ricevute usando l'API REST di Riconoscimento modulo con cURL
 
@@ -34,7 +34,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 
 ## <a name="analyze-a-receipt"></a>Analizzare una ricevuta
 
-Per iniziare ad analizzare una ricevuta, chiamare l'API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** usando il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
+Per iniziare ad analizzare una ricevuta, chiamare l'API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** usando il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
 
 1. Sostituire `<Endpoint>` con l'endpoint ottenuto con la sottoscrizione di riconoscimento modulo.
 1. Sostituire `<your receipt URL>` con l'indirizzo URL dell'immagine di una ricevuta.
@@ -52,7 +52,7 @@ https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b07
 
 ## <a name="get-the-receipt-results"></a>Ottenere i risultati della ricevuta
 
-Dopo aver chiamato l'API **Analyze Receipt**, chiamare l'API **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** per ottenere lo stato dell'operazione e i dati estratti. Prima di eseguire il comando, apportare queste modifiche:
+Dopo aver chiamato l'API **Analyze Receipt**, chiamare l'API **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeReceiptResult)** per ottenere lo stato dell'operazione e i dati estratti. Prima di eseguire il comando, apportare queste modifiche:
 
 1. Sostituire `<Endpoint>` con l'endpoint ottenuto con la chiave di sottoscrizione di riconoscimento modulo, disponibile nella scheda **Overview** (Panoramica) della risorsa di riconoscimento modulo.
 1. Sostituire `<operationId>` con l'ID operazione del passaggio precedente.
@@ -402,4 +402,4 @@ Il nodo `"recognitionResults"` contiene tutto il testo riconosciuto. Il testo è
 In questo argomento di avvio rapido è stata usata l'API REST Riconoscimento modulo con cURL per estrarre il contenuto di una ricevuta di vendita. A questo punto, vedere la documentazione di riferimento per esplorare l'API di Riconoscimento modulo in maggior dettaglio.
 
 > [!div class="nextstepaction"]
-> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [Documentazione di riferimento delle API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)

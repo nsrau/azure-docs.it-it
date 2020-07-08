@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 537dabe09c41012b9e15998ce3af8198dcfb62d3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2dc2143619594c8fd46fa4e838b97a3ecde95653
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80245775"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027716"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app ASP.NET Core con Configurazione app di Azure
 
@@ -187,7 +187,7 @@ Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo
         }
         h1 {
             color: @Configuration["TestApp:Settings:FontColor"];
-            font-size: @Configuration["TestApp:Settings:FontSize"];
+            font-size: @Configuration["TestApp:Settings:FontSize"]px;
         }
     </style>
 
