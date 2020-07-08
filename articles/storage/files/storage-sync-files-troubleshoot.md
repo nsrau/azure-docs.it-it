@@ -3,16 +3,15 @@ title: Risolvere i problemi di Sincronizzazione file di Azure | Microsoft Docs
 description: Informazioni sulla risoluzione di problemi comuni di Sincronizzazione file di Azure.
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
-ms.date: 1/22/2019
+ms.topic: troubleshooting
+ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 39106f863352061cdaa583bde96f50d3f91a07e9
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ec7469210bcfae53407a157a325c749aee2c2b08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836516"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512063"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -315,6 +314,7 @@ Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** 
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | Il file a livelli sul server non è accessibile. Questo problema si verifica se il file a livelli non è stato richiamato prima di eliminare un endpoint server. | Per risolvere questo problema, vedere [I file a livelli non sono accessibili sul server dopo l'eliminazione di un endpoint server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Non è ancora possibile sincronizzare la modifica del file o della directory perché una cartella dipendente non è ancora stata sincronizzata. Questo elemento verrà sincronizzato dopo la sincronizzazione delle modifiche dipendenti. | Non è necessaria alcuna azione. Se l'errore persiste per diversi giorni, usare lo script di PowerShell FileSyncErrorsReport.ps1 per determinare il motivo per cui la cartella dipendente non è ancora sincronizzata. |
+| 0x80C8028A | -2134375798 | ECS_E_SYNC_CONSTRAINT_CONFLICT_ON_FAILED_DEPENDEE | Non è ancora possibile sincronizzare la modifica del file o della directory perché una cartella dipendente non è ancora stata sincronizzata. Questo elemento verrà sincronizzato dopo la sincronizzazione delle modifiche dipendenti. | Non è necessaria alcuna azione. Se l'errore persiste per diversi giorni, usare lo script di PowerShell FileSyncErrorsReport.ps1 per determinare il motivo per cui la cartella dipendente non è ancora sincronizzata. |
 | 0x80c80284 | -2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | Non è ancora possibile sincronizzare la modifica del file o della directory perché una cartella dipendente non è ancora stata sincronizzata e la sessione di sincronizzazione ha avuto esito negativo. Questo elemento verrà sincronizzato dopo la sincronizzazione delle modifiche dipendenti. | Non è necessaria alcuna azione. Se l'errore persiste, esaminare l'errore della sessione di sincronizzazione. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Vedere [Gestione dei caratteri non supportati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) per altre informazioni. |
 | 0x80c80255 | -2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Vedere [Gestione dei caratteri non supportati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) per altre informazioni. |
@@ -552,13 +552,13 @@ Se la condivisione file di Azure è stata eliminata, creare una nuova condivisio
 
 Questo errore si verifica quando viene sospesa la sottoscrizione di Azure. La sincronizzazione verrà riabilitata quando verrà ripristinata la sottoscrizione di Azure. Per altre informazioni, vedere [Perché la sottoscrizione di Azure è disabilitata e cosa occorre fare per riattivarla?](../../cost-management-billing/manage/subscription-disabled.md)
 
-<a id="-2134364052"></a>**Per l'account di archiviazione sono configurati un firewall o reti virtuali.**  
+<a id="-2134375618"></a>**Per l'account di archiviazione sono configurati un firewall o reti virtuali.**  
 
 | | |
 |-|-|
-| **HRESULT** | 0x80c8306c |
-| **HRESULT (decimale)** | -2134364052 |
-| **Stringa di errore** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
+| **HRESULT** | 0x80c8033e |
+| **HRESULT (decimale)** | -2134375618 |
+| **Stringa di errore** | ECS_E_SERVER_BLOCKED_BY_NETWORK_ACL |
 | **Rimedio necessario** | Sì |
 
 Questo errore si verifica quando la condivisione file di Azure è inaccessibile a causa di un firewall di account di archiviazione o perché l'account di archiviazione appartiene a una rete virtuale. Verificare che le impostazioni del firewall e della rete virtuale nell'account di archiviazione siano configurate correttamente. Per altre informazioni, vedere [Configurare le impostazioni del firewall e della rete virtuale](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
@@ -1087,6 +1087,7 @@ Se non è possibile archiviare a livelli i file in File di Azure:
 
 | HRESULT | HRESULT (decimale) | Stringa di errore | Problema | Correzione |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Il file non è stato in grado di eseguire il livello perché è in corso il caricamento iniziale. | Non è necessaria alcuna azione. Al termine del caricamento iniziale, il file verrà suddiviso in livelli. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | La suddivisione in livelli del file non è riuscita perché il file è in uso. | Non è necessaria alcuna azione. Il file verrà archiviato a livelli quando non sarà più in uso. |
 | 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | La suddivisione in livelli del file non è riuscita perché il file è escluso dalla sincronizzazione. | Non è necessaria alcuna azione. I file nell'elenco di esclusione della sincronizzazione non possono essere archiviati a livelli. |
 | 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | La suddivisione in livelli del file non è riuscita perché il file non è stato trovato sul server. | Non è necessaria alcuna azione. Se l'errore persiste, controllare se il file esiste nel server. |
@@ -1108,6 +1109,8 @@ Se non è possibile archiviare a livelli i file in File di Azure:
 | 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | La suddivisione in livelli del file non è riuscita a causa di un problema di rete. | Non è necessaria alcuna azione. Se l'errore persiste, controllare la connettività di rete alla condivisione file di Azure. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | La suddivisione in livelli del file non è riuscita perché il file è stato modificato. | Non è necessaria alcuna azione. Il file verrà archiviato a livelli dopo che il file modificato è stato sincronizzato con la condivisione file di Azure. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | La suddivisione in livelli del file non è riuscita a causa di risorse del sistema insufficienti. | Se l'errore persiste, individuare l'applicazione o il driver in modalità kernel che esaurisce le risorse di sistema. |
+| 0x8e5e03fe | -1906441218 | JET_errDiskIO | Impossibile eseguire il livello del file a causa di un errore di I/O durante la scrittura nel database di suddivisione in livelli cloud. | Se l'errore è permanente, eseguire chkdsk sul volume e controllare l'hardware di archiviazione. |
+| 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | Impossibile eseguire il livello del file perché il database di suddivisione in livelli cloud non è in esecuzione. | Per risolvere questo problema, riavviare il servizio o il server di FileSyncSvc. Se l'errore è permanente, eseguire chkdsk sul volume e controllare l'hardware di archiviazione. |
 
 
 

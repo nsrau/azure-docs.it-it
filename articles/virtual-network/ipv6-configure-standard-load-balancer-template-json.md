@@ -5,19 +5,18 @@ description: Questo articolo illustra come distribuire un'applicazione IPv6 dual
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 1f9531b5d1decfd462a82b9d389c5af519591c83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5b1a91dd8779b8e79e221c620881d4848bae9e1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420652"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711528"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure-modello
 
@@ -183,4 +182,4 @@ Per distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure usando
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile trovare informazioni dettagliate sui prezzi per [gli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/), la [larghezza di banda di rete](https://azure.microsoft.com/pricing/details/bandwidth/)o [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+Sono disponibili informazioni dettagliate sui prezzi per gli [indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/), la [larghezza di banda di rete](https://azure.microsoft.com/pricing/details/bandwidth/) o [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

@@ -4,21 +4,20 @@ description: Informazioni per imparare rapidamente a creare un gateway VPN trami
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 121790fce220874babedf67cd72471caa7e92ae6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0cb03f827c8174932f235ec8ea327225da76ef4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987694"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Creare un gateway VPN basato su route usando l'interfaccia della riga di comando
 
 Questo articolo illustra come creare rapidamente un gateway VPN di Azure basato su route usando l'interfaccia della riga di comando di Azure. Il gateway VPN viene usato quando si crea una connessione VPN alla rete locale. È anche possibile usare il gateway VPN per connettere reti virtuali.
 
-Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subnet, una subnet del gateway e un gateway VPN (gateway di rete virtuale) basato su route. La creazione di un gateway di rete virtuale può richiedere almeno 45 minuti. Dopo aver creato il gateway, è possibile configurare le connessioni. Questi passaggi richiedono una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subnet, una subnet del gateway e un gateway VPN (gateway di rete virtuale) basato su route. La creazione di un gateway di rete virtuale può richiedere almeno 45 minuti. Dopo aver creato il gateway, è possibile configurare le connessioni. Questi passaggi richiedono una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,7 +32,7 @@ Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). 
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Crea rete virtuale
 
 Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata **VNet1** nella posizione **EastUS**:
 
@@ -171,7 +170,7 @@ Esempio di risposta:
     "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando le risorse create non sono più necessarie, usare il comando [az group delete](/cli/azure/group) per eliminare il gruppo di risorse. Questa operazione eliminerà il gruppo di risorse e tutte le risorse in esso contenute.
 

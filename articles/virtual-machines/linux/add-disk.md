@@ -4,16 +4,15 @@ description: Informazioni su come aggiungere un disco dati permanente alla macch
 author: roygara
 manager: twooley
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a80a1fe21ba0b40aebf9e426e3d49f499c2d2a21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eb18207c15007820bf93254886ab38a43bc5b48f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658327"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Aggiungere un disco a una VM Linux
 Questo articolo illustra come collegare un disco persistente alla macchina virtuale per poter mantenere i dati, anche se si effettua di nuovo il provisioning della macchina virtuale per manutenzione o ridimensionamento.
@@ -44,13 +43,13 @@ az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Connettersi alla VM Linux per montare il nuovo disco
 
-È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [come usare SSH con Linux in Azure](mac-create-ssh-keys.md). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*:
+È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [How to use SSH with Linux on Azure](mac-create-ssh-keys.md) (Come usare SSH con Linux in Azure). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Una volta connessi alla macchina virtuale, si è pronti per collegare un disco. Trovare prima il disco usando `dmesg`. Il metodo usato per trovare il nuovo disco può variare. Nell'esempio seguente viene usato dmesg per filtrare i dischi *SCSI* :
+Una volta connessi alla macchina virtuale, si è pronti per collegare un disco. Trovare prima il disco usando `dmesg`. Il metodo usato per trovare il nuovo disco può variare. L'esempio seguente usa dmesg per applicare un filtro ai dischi *SCSI*:
 
 ```bash
 dmesg | grep SCSI
@@ -67,7 +66,7 @@ L'output è simile all'esempio seguente:
 ```
 
 > [!NOTE]
-> Si consiglia di usare le versioni più recenti di Fdisk o di parte disponibili per la distribuzione.
+> È consigliabile usare le versioni più recenti di fdisk o parted disponibili per la distribuzione.
 
 In questo caso, *sdc* è il disco interessato. Eseguire la partizione del disco con `parted`, se le dimensioni del disco sono di 2 tebibyte (TiB) o maggiori è necessario usare il partizionamento GPT, se invece sono minori di 2 TiB è possibile usare sia il partizionamento MBR che il partizionamento GPT. Se si usa il partizionamento MBR, è possibile usare `fdisk`. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
 
@@ -181,7 +180,7 @@ L'output è simile al seguente esempio:
 ```
 
 > [!NOTE]
-> La modifica errata del file **/etc/fstab** potrebbe causare un sistema non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
+> Se il file **/etc/fstab** non viene modificato in modo corretto, il sistema potrebbe diventare non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
 
 Successivamente, aprire il file */etc/fstab* in un editor di testo, come segue:
 
@@ -198,7 +197,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > [!NOTE]
 > Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della VM. La maggior parte delle distribuzioni specifica le opzioni fstab *nofail* e/o *nobootwait*. Queste opzioni consentono l'avvio di un sistema anche se il montaggio del disco non riesce in fase di avvio. Per altre informazioni su questi parametri, consultare la documentazione della distribuzione.
 >
-> L'opzione *nofail* garantisce che l'avvio della VM anche se il file system è danneggiato o se non è presente il disco in fase di avvio. Senza questa opzione, è possibile che si verifichi un comportamento come descritto in [non è possibile connettersi da SSH a una VM Linux a causa di errori FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> L'opzione *nofail* garantisce che l'avvio della VM anche se il file system è danneggiato o se non è presente il disco in fase di avvio. Senza questa opzione potrebbero verificarsi comportamenti come quelli descritti in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (Impossibile eseguire una connessione SSH a VM Linux a causa di errori FSTAB).
 >
 > La console seriale di VM di Azure può essere usata per l'accesso alla console alla VM se la modifica di fstab ha causato un errore di avvio. Ulteriori informazioni sono disponibili nella [documentazione della console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 

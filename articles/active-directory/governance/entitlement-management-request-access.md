@@ -10,18 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/26/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1ccde2f1f92237978ab4e68acaa26393bbb9d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e744adeae55252ec70c8f766db1e29a3898886c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078120"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -35,7 +34,7 @@ Il primo passaggio consiste nell'accedere al portale di accesso personale, in cu
 
 **Ruolo prerequisiti:** Richiedente
 
-1. Cercare un messaggio di posta elettronica o un messaggio dal progetto o dal gestore di business che si sta utilizzando. Il messaggio di posta elettronica deve includere un collegamento al pacchetto di accesso a cui sarà necessario accedere. Il collegamento inizia con `myaccess`, include un hint di directory e termina con un ID pacchetto di accesso.  Per il governo degli Stati Uniti, il dominio `https://myaccess.microsoft.us` può invece essere.
+1. Cercare un messaggio di posta elettronica o un messaggio dal progetto o dal gestore di business che si sta utilizzando. Il messaggio di posta elettronica deve includere un collegamento al pacchetto di accesso a cui sarà necessario accedere. Il collegamento inizia con `myaccess` , include un hint di directory e termina con un ID pacchetto di accesso.  Per il governo degli Stati Uniti, il dominio può `https://myaccess.microsoft.us` invece essere.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

@@ -8,13 +8,12 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/17/2020
+ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983416"
 ---
 # <a name="tune-model-hyperparameters"></a>Tune Model Hyperparameters
 
@@ -43,33 +42,35 @@ Questa sezione descrive come eseguire uno sweep di parametri di base, che esegue
 
 2.  Connettere un modello non sottoposto a training all'input più a sinistra. 
 
+    > [!NOTE] 
+    > L' **ottimizzazione degli iperparametri del modello** può essere connessa solo ai moduli di algoritmi di Machine Learning predefiniti e non può supportare il modello personalizzato creato in creare un **modello Python**.
 
 
-4.  Aggiungere il set di dati che si vuole usare per il training e connetterlo all'input centrale degli iperparametri del modello di ottimizzazione.  
+3.  Aggiungere il set di dati che si vuole usare per il training e connetterlo all'input centrale degli iperparametri del modello di ottimizzazione.  
 
     Facoltativamente, se si dispone di un set di dati con tag, è possibile connetterlo alla porta di input più a destra (**set di dati di convalida facoltativo**). In questo modo è possibile misurare l'accuratezza durante il training e l'ottimizzazione.
 
-5.  Nel riquadro di destra di ottimizzare gli iperparametri del modello, scegliere un valore per la **modalità di sweep dei parametri**. Questa opzione consente di controllare la modalità di selezione dei parametri.
+4.  Nel riquadro di destra di ottimizzare gli iperparametri del modello, scegliere un valore per la **modalità di sweep dei parametri**. Questa opzione consente di controllare la modalità di selezione dei parametri.
 
     - **Griglia intera**: quando si seleziona questa opzione, il modulo esegue il ciclo su una griglia predefinita dal sistema, per provare combinazioni diverse e identificare il migliore discente. Questa opzione è utile quando non si conoscono le impostazioni dei parametri migliori e si desidera provare tutte le possibili combinazioni di valori.
 
     - **Sweep casuale**: quando si seleziona questa opzione, il modulo selezionerà i valori dei parametri in modo casuale su un intervallo definito dal sistema. È necessario specificare il numero massimo di esecuzioni che si desidera venga eseguito dal modulo. Questa opzione è utile quando si desidera migliorare le prestazioni del modello usando le metriche desiderate, conservando comunque le risorse di calcolo.    
 
-6.  Per **colonna etichetta**, aprire il selettore di colonna per scegliere una singola colonna etichetta.
+5.  Per **colonna etichetta**, aprire il selettore di colonna per scegliere una singola colonna etichetta.
 
-7.  Scegliere il numero di esecuzioni:
+6.  Scegliere il numero di esecuzioni:
 
-    1. **Numero massimo di esecuzioni nello Sweep casuale**: se si sceglie una sweep casuale, è possibile specificare il numero di volte in cui il modello deve essere sottoposto a training, usando una combinazione casuale di valori di parametro.
+    - **Numero massimo di esecuzioni nello Sweep casuale**: se si sceglie una sweep casuale, è possibile specificare il numero di volte in cui il modello deve essere sottoposto a training, usando una combinazione casuale di valori di parametro.
 
-8.  Per la **classificazione**, scegliere una singola metrica da usare per classificare i modelli.
+7.  Per la **classificazione**, scegliere una singola metrica da usare per classificare i modelli.
 
     Quando si esegue uno sweep di parametri, il modulo calcola tutte le metriche applicabili per il tipo di modello e le restituisce nel rapporto **risultati Sweep** . Il modulo usa metriche separate per i modelli di regressione e classificazione.
 
     Tuttavia, la metrica scelta determina il modo in cui vengono classificati i modelli. Solo il modello superiore, classificato in base alla metrica scelta, viene restituito come modello sottoposto a training da usare per l'assegnazione dei punteggi.
 
-9.  Per il valore di **inizializzazione casuale**, immettere un numero da usare per avviare lo sweep dei parametri. 
+8.  Per il valore di **inizializzazione casuale**, immettere un numero da usare per avviare lo sweep dei parametri. 
 
-10. Inviare la pipeline.
+9. Inviare la pipeline.
 
 ## <a name="results-of-hyperparameter-tuning"></a>Risultati dell'ottimizzazione degli iperparametri
 

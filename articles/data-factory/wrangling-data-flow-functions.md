@@ -7,18 +7,20 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626684"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921551"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funzioni di trasformazione nell'attività del flusso di dati
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 La verifica del flusso di dati in Azure Data Factory ti permette di eseguire operazioni di preparazione dei dati agile senza codice e di litigare a livello di cloud. La verifica del flusso di dati si integra con [Power query online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) e rende disponibili le funzioni Power query M per data wrangling tramite l'esecuzione di Spark. 
+
+> [!NOTE]
+> Il flusso di dati in corso è attualmente avilable in anteprima pubblica
 
 Attualmente non tutte le funzioni Power Query M sono supportate per data wrangling nonostante siano disponibili durante la creazione. Quando si compilano i flussi di dati in corso, verrà visualizzato il messaggio di errore seguente se una funzione non è supportata:
 
@@ -39,7 +41,7 @@ Usare la funzione M [Table. SelectRows](https://docs.microsoft.com/powerquery-m/
 
 * Uguaglianza e disuguaglianza
 * Confronti numerici, di testo e di data (ma non DateTime)
-* Informazioni numeriche, ad esempio [Number. equamente](https://docs.microsoft.com/powerquery-m/number-iseven)/[Odd](https://docs.microsoft.com/powerquery-m/number-iseven)
+* Informazioni numeriche, ad esempio [Number. equamente](https://docs.microsoft.com/powerquery-m/number-iseven) / [Odd](https://docs.microsoft.com/powerquery-m/number-iseven)
 * Contenimento di testo tramite [Text. Contains](https://docs.microsoft.com/powerquery-m/text-contains), [Text. StartsWith](https://docs.microsoft.com/powerquery-m/text-startswith)o [Text. EndsWith](https://docs.microsoft.com/powerquery-m/text-endswith)
 * Intervalli di date che includono tutte le [funzioni di data](https://docs.microsoft.com/powerquery-m/date-functions)IsIn' 
 * Combinazioni di queste con le condizioni and, or o not
@@ -55,7 +57,7 @@ Le funzioni M seguenti aggiungono o trasformano colonne: [Table. AddColumn](http
 * La maggior parte delle funzioni numeriche standard, scientifiche e trigonometriche (tutte le funzioni in [operazioni](https://docs.microsoft.com/powerquery-m/number-functions#operations), [arrotondamento](https://docs.microsoft.com/powerquery-m/number-functions#rounding)e [trigonometria](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) *tranne* numero. fattoriale, numero. permutazioni e numero. combinazioni)
 * Sostituzione ([Replacer. ReplaceText](https://docs.microsoft.com/powerquery-m/replacer-replacetext), [Replacer. ReplaceValue](https://docs.microsoft.com/powerquery-m/replacer-replacevalue), [Text. Replace](https://docs.microsoft.com/powerquery-m/text-replace), [Text. Remove](https://docs.microsoft.com/powerquery-m/text-remove))
 * Estrazione del testo posizionale ([Text. PositionOf](https://docs.microsoft.com/powerquery-m/text-positionof), [Text. length](https://docs.microsoft.com/powerquery-m/text-length), [Text. Start](https://docs.microsoft.com/powerquery-m/text-start), [Text. end](https://docs.microsoft.com/powerquery-m/text-end), [Text. Middle](https://docs.microsoft.com/powerquery-m/text-middle), [Text. ReplaceRange](https://docs.microsoft.com/powerquery-m/text-replacerange), [Text. RemoveRange](https://docs.microsoft.com/powerquery-m/text-removerange))
-* Formattazione del testo di base ([Text. Lower](https://docs.microsoft.com/powerquery-m/text-lower), [Text. Upper](https://docs.microsoft.com/powerquery-m/text-upper), [Text. Trim](https://docs.microsoft.com/powerquery-m/text-trim)/[Start](https://docs.microsoft.com/powerquery-m/text-trimstart)/[end](https://docs.microsoft.com/powerquery-m/text-trimend), [Text. PadStart](https://docs.microsoft.com/powerquery-m/text-padstart)/[end](https://docs.microsoft.com/powerquery-m/text-padend), [Text. Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))
+* Formattazione del testo di base ([Text. Lower](https://docs.microsoft.com/powerquery-m/text-lower), [Text. Upper](https://docs.microsoft.com/powerquery-m/text-upper), [Text. Trim](https://docs.microsoft.com/powerquery-m/text-trim) / [Start](https://docs.microsoft.com/powerquery-m/text-trimstart) / [end](https://docs.microsoft.com/powerquery-m/text-trimend), [Text. PadStart](https://docs.microsoft.com/powerquery-m/text-padstart) / [end](https://docs.microsoft.com/powerquery-m/text-padend), [Text. Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))
 * Funzioni di data/ora ([date. Day](https://docs.microsoft.com/powerquery-m/date-day), [date. month](https://docs.microsoft.com/powerquery-m/date-month), [date. Year](https://docs.microsoft.com/powerquery-m/date-year) [time. hour](https://docs.microsoft.com/powerquery-m/time-hour), [time. minute](https://docs.microsoft.com/powerquery-m/time-minute), [time. Second](https://docs.microsoft.com/powerquery-m/time-second), [date. DayOfWeek](https://docs.microsoft.com/powerquery-m/date-dayofweek), [date. DayOfYear](https://docs.microsoft.com/powerquery-m/date-dayofyear), [date. DaysInMonth](https://docs.microsoft.com/powerquery-m/date-daysinmonth))
 * Espressioni if (ma i rami devono avere tipi corrispondenti)
 * Filtri di riga come colonna logica
@@ -85,9 +87,9 @@ Mantieni e Rimuovi top, Mantieni intervallo (funzioni M corrispondenti, solo con
 
 ## <a name="known-unsupported-functions"></a>Funzioni non supportate note
 
-| Function | Stato |
+| Funzione | Stato |
 | -- | -- |
-| Table.PromoteHeaders | Non supportata. Lo stesso risultato può essere ottenuto impostando la "prima riga come intestazione" nel set di dati. |
+| Table.PromoteHeaders | Non supportato. Lo stesso risultato può essere ottenuto impostando la "prima riga come intestazione" nel set di dati. |
 | Table.CombineColumns | Si tratta di uno scenario comune che non è supportato direttamente, ma è possibile ottenerlo aggiungendo una nuova colonna che concatena due colonne specificate.  Ad esempio, Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |
 | Table.TransformColumnTypes | Questa operazione è supportata nella maggior parte dei casi. Gli scenari seguenti non sono supportati: trasformazione di una stringa in un tipo di valuta, trasformazione di una stringa in un tipo time, trasformazione di una stringa in un tipo di percentuale. |
 | Table.NestedJoin | La semplice operazione di join comporterà un errore di convalida. Per il corretto funzionamento, le colonne devono essere espanse. |

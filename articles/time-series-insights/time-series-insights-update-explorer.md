@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06f235b7f1c20681beee1f5be4c18de60d53a690
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75861762"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037308"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Esplora Azure Time Series Insights Preview
 
@@ -75,11 +74,11 @@ Il Azure Time Series Insights anteprima supporta operazioni CRUD (creazione, let
 * **Gerarchia del modello Time Series**: le gerarchie sono organizzazioni sistematiche dei dati. Le gerarchie rappresentano le relazioni tra entità diverse nei dati di Time Series Insights.
 * **Istanza del modello Time Series**: le istanze sono le serie temporali. Nella maggior parte dei casi sono **DeviceID** o **AssetID**, che è l'identificatore univoco dell'asset nell'ambiente.
 
-Per ulteriori informazioni sul modello Time Series, vedere [modelli di serie](./time-series-insights-update-tsm.md)temporali.
+Per ulteriori informazioni sul modello Time Series, vedere [modelli di serie](./concepts-model-overview.md)temporali.
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. albero gerarchico e pannello di ricerca
 
-L'albero gerarchico e il pannello di ricerca consentono di eseguire facilmente ricerche e spostamenti nella gerarchia dei [modelli Time Series](./time-series-insights-update-tsm.md) per individuare le istanze di serie temporali specifiche che si desidera visualizzare nel grafico. Quando si selezionano le istanze, queste non vengono aggiunte solo al grafico corrente, ma vengono aggiunte anche all'area dati. 
+L'albero gerarchico e il pannello di ricerca consentono di eseguire facilmente ricerche e spostamenti nella gerarchia dei [modelli Time Series](./concepts-model-overview.md) per individuare le istanze di serie temporali specifiche che si desidera visualizzare nel grafico. Quando si selezionano le istanze, queste non vengono aggiunte solo al grafico corrente, ma vengono aggiunte anche all'area dati. 
 
 [![Albero gerarchia e pannello di ricerca](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
@@ -240,8 +239,10 @@ Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supporta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sull' [archiviazione e](./time-series-insights-update-storage-ingress.md) il traffico in ingresso nella Azure Time Series Insights Preview.
+- Informazioni sull'inserimento di [dati](./concepts-ingestion-overview.md) nell'ambiente.
 
-- Leggere il documento Time Series Insights anteprima sulla [modellazione dei dati](./time-series-insights-update-tsm.md).
+- Vedere l'articolo sull' [archiviazione](concepts-storage.md)
+
+- Leggere il documento Time Series Insights anteprima sulla [modellazione dei dati](./concepts-model-overview.md).
 
 - Informazioni [su come diagnosticare e risolvere i problemi relativi all'istanza di](./time-series-insights-update-how-to-troubleshoot.md) Time Series Insights.

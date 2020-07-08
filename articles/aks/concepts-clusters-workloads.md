@@ -4,12 +4,11 @@ description: Informazioni sui componenti di base del cluster e del carico di lav
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336631"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -47,7 +46,7 @@ Il piano di controllo include i componenti Kubernetes principali seguenti:
 - *kube-scheduler*: quando si creano o si ridimensionano applicazioni, l'Utilità di pianificazione determina quali nodi possono eseguire il carico di lavoro e li avvia.
 - *kube-controller-manager*: lo strumento di gestione del controller supervisiona molti controller più piccoli che eseguono azioni, ad esempio la replica di pod e la gestione delle operazioni dei nodi.
 
-AKS fornisce un piano di controllo a tenant singolo con un server API dedicato, un'utilità di pianificazione e così via. Si definiscono il numero e le dimensioni dei nodi e la piattaforma Azure configura la comunicazione protetta tra il piano di controllo e i nodi. L'interazione con il piano di controllo si verifica tramite le API `kubectl` Kubernetes, ad esempio o il dashboard di Kubernetes.
+AKS fornisce un piano di controllo a tenant singolo con un server API dedicato, un'utilità di pianificazione e così via. Si definiscono il numero e le dimensioni dei nodi e la piattaforma Azure configura la comunicazione protetta tra il piano di controllo e i nodi. L'interazione con il piano di controllo si verifica tramite le API Kubernetes, ad esempio `kubectl` o il dashboard di Kubernetes.
 
 Questo piano di controllo gestito significa che non è necessario configurare componenti come un archivio *ETCD* a disponibilità elevata, ma significa anche che non è possibile accedere direttamente al piano di controllo. Gli aggiornamenti a Kubernetes vengono orchestrati tramite l'interfaccia della riga di comando di Azure o portale di Azure, che aggiorna il piano di controllo e quindi i nodi. Per risolvere i problemi possibili, è possibile esaminare i log del piano di controllo tramite i log di monitoraggio di Azure.
 
@@ -59,7 +58,7 @@ Per le procedure consigliate associate, vedere procedure consigliate [per la sic
 
 Per eseguire le applicazioni e i servizi di supporto, è necessario un *nodo* Kubernetes. Un cluster servizio Azure Kubernetes ha uno o più nodi, ovvero una macchina virtuale (VM) di Azure che esegue i componenti nodo e il runtime del contenitore di Kubernetes:
 
-- `kubelet` È l'agente Kubernetes che elabora le richieste di orchestrazione dal piano di controllo e la pianificazione dell'esecuzione dei contenitori richiesti.
+- `kubelet`È l'agente Kubernetes che elabora le richieste di orchestrazione dal piano di controllo e la pianificazione dell'esecuzione dei contenitori richiesti.
 - La rete virtuale è gestita dal *kube-proxy* in ogni nodo. Il proxy instrada il traffico di rete e gestisce gli indirizzi IP per i servizi e i pod.
 - Il *runtime del contenitore* è il componente che consente alle applicazioni in contenitori di eseguire e interagire con risorse aggiuntive, ad esempio la rete virtuale e la risorsa di archiviazione. In AKS, Moby viene usato come runtime del contenitore.
 
@@ -105,9 +104,9 @@ Per mantenere le prestazioni e le funzionalità del nodo, le risorse vengono ris
 
 Le regole precedenti per l'allocazione di memoria e CPU vengono usate per rendere integri i nodi dell'agente, inclusi alcuni pod di sistema di hosting cruciali per l'integrità del cluster. Queste regole di allocazione fanno anche in modo che il nodo segnali una quantità di memoria e CPU meno allocabile rispetto a quella che sarebbe se non facesse parte di un cluster Kubernetes. Non è possibile modificare le prenotazioni di risorse sopra indicate.
 
-Se, ad esempio, un nodo dispone di 7 GB, verrà segnalato il 34% della memoria non allocabile al di sopra della soglia di rimozione hardware di 750Mi.
+Se, ad esempio, un nodo dispone di 7 GB, verrà segnalato il 34% della memoria non allocabile, inclusa la soglia di rimozione hardware 750Mi.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 Oltre alle prenotazioni per Kubernetes, il sistema operativo node sottostante riserva anche una quantità di risorse di CPU e memoria per mantenere le funzioni del sistema operativo.
 
@@ -118,7 +117,7 @@ Per le procedure consigliate associate, vedere procedure consigliate [per le fun
 I nodi della stessa configurazione sono raggruppati in *pool di nodi*. Un cluster Kubernetes contiene uno o più pool di nodi. Il numero e la dimensione iniziale dei nodi sono definiti quando si crea un cluster servizio Azure Kubernetes, infatti viene creato un *pool di nodi predefinito*. Questo pool di nodi predefinito in servizio Azure Kubernetes contiene le macchine virtuali sottostanti che eseguono i nodi dell'agente.
 
 > [!NOTE]
-> Per garantire un funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi nel pool di nodi predefinito.
+> Per garantire il funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi nel pool di nodi predefinito.
 
 Quando si ridimensiona o si aggiorna un cluster servizio Azure Kubernetes, l'azione viene eseguita sul pool di nodi predefinito. È anche possibile scegliere di ridimensionare o aggiornare un pool di nodi specifico. Per le operazioni di aggiornamento, i contenitori in esecuzione vengono pianificati in altri nodi del pool fino a quando non vengono aggiornati tutti i nodi.
 
@@ -204,11 +203,7 @@ Per altre informazioni, vedere le [distribuzioni Kubernetes][kubernetes-deployme
 
 Un approccio comune alla gestione di applicazioni in Kubernetes è l'uso di [Helm][helm]. È possibile creare e usare *grafici* Helm pubblici esistente che contengono una versione pacchetto del codice applicativo e manifesti YAML di Kubernetes per distribuire le risorse. Questi grafici Helm possono essere archiviati in locale e spesso in un repository remoto, ad esempio un [repository per grafici Helm di Registro Azure Container][acr-helm].
 
-Per poter usare Helm, viene installato un componente server denominato *Tiller* nel cluster Kubernetes. Tiller gestisce l'installazione dei grafici all'interno del cluster. Il client Helm è installato localmente nel computer o può essere usato in [Azure Cloud Shell][azure-cloud-shell]. È possibile cercare o creare grafici Helm con il client e quindi installarli nel cluster Kubernetes.
-
-![Helm include un componente client e un componente Tiller lato-server che crea risorse all'interno del cluster Kubernetes](media/concepts-clusters-workloads/use-helm.png)
-
-Per altre informazioni, vedere [Installare le applicazioni con Helm nel servizio Azure Kubernetes][aks-helm].
+Per usare Helm, installare il client Helm nel computer oppure usare il client Helm nella [Azure cloud Shell][azure-cloud-shell]. È possibile cercare o creare grafici Helm con il client e quindi installarli nel cluster Kubernetes. Per altre informazioni, vedere [Install existing Applications with Helm in AKS][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>Oggetti StatefulSet e DaemonSet
 
@@ -262,9 +257,9 @@ Questo articolo tratta alcuni dei componenti principali di Kubernetes descrivend
 
 - [Accesso e identità per Kubernetes/servizio Azure Kubernetes][aks-concepts-identity]
 - [Sicurezza di Kubernetes/servizio Azure Kubernetes][aks-concepts-security]
-- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
-- [Archiviazione in Kubernetes/servizio Azure Kubernetes][aks-concepts-storage]
-- [Ridimensionamento in Kubernetes/servizio Azure Kubernetes][aks-concepts-scale]
+- [Kubernetes/Reti virtuali nel servizio Azure Kubernetes][aks-concepts-network]
+- [Kubernetes/Archiviazione nel servizio Azure Kubernetes][aks-concepts-storage]
+- [Kubernetes/Ridimensionamento nel servizio Azure Kubernetes][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [aks-engine]: https://github.com/Azure/aks-engine

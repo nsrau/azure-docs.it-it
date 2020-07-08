@@ -9,18 +9,17 @@ editor: ''
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60581300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513677"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Eseguire il backup di condivisioni o volumi nell'array virtuale StorSimple
 
@@ -58,7 +57,7 @@ L'array virtuale StorSimple dispone di un criterio di backup predefinito che si 
    
     ![passare a Criteri di backup](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 ### <a name="take-a-manual-backup"></a>Creazione di un backup manuale
 
@@ -108,7 +107,7 @@ Per visualizzare i backup esistenti, eseguire la procedura seguente nel portale 
    
      ![Filtro backup](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Fare clic su **Applica**. Viene visualizzato l'elenco filtrato dei backup nel pannello **Catalogo di backup**. Si noti che è possibile visualizzare solo 100 elementi di backup alla volta.
+3. Fare clic su **Apply**. Viene visualizzato l'elenco filtrato dei backup nel pannello **Catalogo di backup**. Si noti che è possibile visualizzare solo 100 elementi di backup alla volta.
    
     ![Catalogo di backup aggiornato](./media/storsimple-virtual-array-backup/viewbackups3.png)
 

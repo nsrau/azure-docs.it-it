@@ -4,15 +4,14 @@ description: Procedura per connettere le reti virtuali classiche alle reti virtu
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152024"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987671"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -84,7 +83,7 @@ La tabella seguente illustra un esempio di come sono definiti le reti virtuali e
 
 In questa sezione vengono creati il gateway di rete virtuale classica, il gateway di rete locale (sito locale) e il gateway di rete virtuale. Gli screenshot sono forniti come esempio. Sostituire i valori con i valori personalizzati o usare i valori dell'[Esempio](#values).
 
-### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"> </a>creare una VNet classica
+### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> creare una VNet classica
 
 Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale classica, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
 
@@ -96,7 +95,7 @@ Se si dispone già di una rete virtuale con un gateway VPN, verificare che il ga
 4. Cercare "Rete virtuale" nell'elenco restituito e fare clic per aprire la pagina Rete virtuale. 
 5. Nella pagina della rete virtuale, selezionare "Classica" per creare una rete virtuale classica. Se si accettano le impostazioni predefinite, si otterrà invece una rete virtuale di Resource Manager.
 
-### <a name="2-configure-the-local-site"></a>2. <a name="local"> </a>configurare il sito locale
+### <a name="2-configure-the-local-site"></a>2. <a name="local"></a> configurare il sito locale
 
 1. Passare a **Tutte le risorse** e individuare la voce **ClassicVNet** nell'elenco.
 2. Fare clic su **gateway** nella sezione **Impostazioni** del menu, quindi fare clic sul banner per creare un gateway.
@@ -134,7 +133,7 @@ In questa sezione vengono creati il gateway di rete virtuale e il gateway di ret
 
 ### <a name="1-create-a-virtual-network"></a>1. creare una rete virtuale
 
-**Valori di esempio**
+**Valori di esempio:**
 
 * Nome della rete virtuale = RMVNet <br>
 * Spazio indirizzi = 192.168.0.0/16 <br>
@@ -151,7 +150,7 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-**Valori di esempio**
+**Valori di esempio:**
 
 * Nome gateway di rete virtuale = RMGateway <br>
 * Tipo di gateway = VPN <br>

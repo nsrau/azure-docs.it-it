@@ -1,5 +1,5 @@
 ---
-title: Creare un servizio di bilanciamento del carico di base interno - Interfaccia della riga di comando di Azure
+title: Creare un Load Balancer interno-interfaccia della riga di comando di Azure
 titleSuffix: Azure Load Balancer
 description: In questo articolo viene illustrato come creare un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure
 services: load-balancer
@@ -7,18 +7,17 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2557ac6f3fb8e9091faad5c9c219db529838495d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79457012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921728"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante l'interfaccia della riga di comando di Azure
 
@@ -42,7 +41,7 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupILB* nel
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Creare una rete virtuale denominata *myVnet* con una subnet denominata *subnet in* *myResourceGroup* con [AZ Network VNET create](https://docs.microsoft.com/cli/azure/network/vnet).
+Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet* nel gruppo *myResourceGroup* con il comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -52,7 +51,7 @@ Creare una rete virtuale denominata *myVnet* con una subnet denominata *subnet i
     --subnet-name mySubnet
 ```
 
-## <a name="create-basic-load-balancer"></a>Creare un servizio di bilanciamento del carico di base
+## <a name="create-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
 
 Questa sezione descrive dettagliatamente come creare e configurare i componenti seguenti del servizio di bilanciamento del carico:
   - una configurazione IP front-end che riceve il traffico di rete in ingresso sul servizio di bilanciamento del carico
@@ -62,12 +61,15 @@ Questa sezione descrive dettagliatamente come creare e configurare i componenti 
 
 ### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
 
-Creare un Load Balancer interno con [AZ Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominato **myLoadBalancer** che include una configurazione IP front-end denominata **frontend**, un pool back-end denominato **myBackEndPool** associato a un indirizzo IP privato * * 10.0.0.7.
+Creare un Load Balancer interno con [AZ Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominato **myLoadBalancer** che include una configurazione IP front-end denominata **frontend**, un pool back-end denominato **myBackEndPool** associato a un indirizzo IP privato **10.0.0.7**. 
+
+Usare `--sku basic` per creare una risorsa Load Balancer Basic. Microsoft consiglia di scegliere SKU Standard per i carichi di lavoro di produzione.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupILB \
     --name myLoadBalancer \
+    --sku standard \
     --frontend-ip-name myFrontEnd \
     --private-ip-address 10.0.0.7 \
     --backend-pool-name myBackEndPool \
@@ -77,7 +79,7 @@ Creare un Load Balancer interno con [AZ Network lb create](https://docs.microsof
 
 ### <a name="create-the-health-probe"></a>Creare il probe di integrità
 
-Un probe di integrità controlla tutte le istanze di una macchina virtuale per assicurarsi che possano ricevere il traffico di rete. L'istanza della macchina virtuale con controlli di probe falliti non viene rimossa dal servizio di bilanciamento del carico fino a quando non è nuovamente online e il controllo dei probe ne certifica l'integrità. Creare un probe di integrità con [AZ Network lb Probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) per monitorare l'integrità delle macchine virtuali. 
+Un probe di integrità controlla tutte le istanze di una macchina virtuale per assicurarsi che possano ricevere il traffico di rete. L'istanza della macchina virtuale con controlli di probe falliti non viene rimossa dal servizio di bilanciamento del carico fino a quando non è nuovamente online e il controllo dei probe ne certifica l'integrità. Creare un probe di integrità con il comando [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) per monitorare l'integrità delle macchine virtuali. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -85,7 +87,7 @@ Un probe di integrità controlla tutte le istanze di una macchina virtuale per a
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### <a name="create-the-load-balancer-rule"></a>Creare la regola di bilanciamento del carico
@@ -103,6 +105,12 @@ Una regola di bilanciamento del carico definisce la configurazione IP front-end 
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+È anche possibile creare una regola di bilanciamento del carico per le [porte a disponibilità elevata](load-balancer-ha-ports-overview.md) usando la configurazione seguente con Load Balancer standard.
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## <a name="create-servers-for-the-backend-address-pool"></a>Creare server per il pool di indirizzi back-end
@@ -229,7 +237,7 @@ Per ottenere l'indirizzo IP privato del servizio di bilanciamento del carico, us
 
 ![Testare il bilanciamento del carico](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group#az-group-delete).
 

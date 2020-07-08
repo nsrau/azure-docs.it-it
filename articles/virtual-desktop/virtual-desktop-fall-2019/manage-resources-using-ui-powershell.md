@@ -4,27 +4,26 @@ description: Come distribuire lo strumento di gestione per desktop virtuale Wind
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d9aea1f56b742d87df769a3206f15024afdf87b3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513395"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Distribuire uno strumento di gestione con PowerShell
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 In questo articolo viene illustrato come distribuire lo strumento di gestione tramite PowerShell.
 
 ## <a name="important-considerations"></a>Considerazioni importanti
 
-Ogni sottoscrizione del tenant di Azure Active Directory (Azure AD) necessita di una propria distribuzione separata dello strumento di gestione. Questo strumento non supporta Azure AD scenari business to business (B2B). 
+Ogni sottoscrizione del tenant di Azure Active Directory (Azure AD) necessita di una propria distribuzione separata dello strumento di gestione. Questo strumento non supporta Azure AD scenari business to business (B2B).
 
 Questo strumento di gestione è un esempio. Microsoft fornirà importanti aggiornamenti di qualità e sicurezza. [Il codice sorgente è disponibile in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Che tu sia un cliente o un partner, ti invitiamo a personalizzare lo strumento per soddisfare le tue esigenze aziendali.
 
@@ -40,7 +39,7 @@ I browser seguenti sono compatibili con lo strumento di gestione di:
 Prima di distribuire lo strumento di gestione, è necessario che un utente di Azure Active Directory (Azure AD) crei una registrazione dell'app e distribuisca l'interfaccia utente di gestione. Questo utente dovrà avere:
 
 - L'autorizzazione per creare risorse nella sottoscrizione di Azure
-- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questa procedura per verificare se l'utente ha le autorizzazioni necessarie in base alle istruzioni indicate in [Autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questa procedura per verificare se l'utente ha le autorizzazioni necessarie in base alle istruzioni indicate in [Autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Dopo aver distribuito e configurato lo strumento di gestione, è consigliabile chiedere a un utente di avviare l'interfaccia utente di gestione per verificarne il corretto funzionamento. L'utente che avvia l'interfaccia utente di gestione deve avere un'assegnazione di ruolo che gli consenta di visualizzare o modificare il tenant di Desktop virtuale Windows.
 
@@ -93,7 +92,7 @@ Ora che è stata completata la registrazione dell'app Azure AD, è possibile dis
 ## <a name="deploy-the-management-tool"></a>Distribuire lo strumento di gestione
 
 Eseguire i comandi di PowerShell seguenti per distribuire lo strumento di gestione e associarlo all'entità servizio appena creata:
-     
+
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -120,7 +119,7 @@ Eseguire i comandi di PowerShell seguenti per recuperare l'URL dell'app Web e im
 ```powershell
 $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 $redirectUri = "https://" + $webApp.DefaultHostName + "/"
-Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri
 ```
 
 A questo punto, dopo aver aggiunto un URI di reindirizzamento, è necessario aggiornare l'URL dell'API in modo che lo strumento di gestione possa interagire con il servizio back-end dell'API.
@@ -143,12 +142,12 @@ Per verificare la configurazione dell'applicazione Azure AD e fornire il consens
 2. Nella barra di ricerca nella parte superiore della portale di Azure cercare **registrazioni app** e selezionare l'elemento in **Servizi**.
 3. Selezionare **tutte le applicazioni** e cercare il nome univoco dell'app fornito per lo script di PowerShell in [creare una Azure Active Directory registrazione dell'app](#create-an-azure-active-directory-app-registration).
 4. Nel pannello sul lato sinistro del browser selezionare **autenticazione** e assicurarsi che l'URI di reindirizzamento corrisponda all'URL dell'app Web per lo strumento di gestione, come illustrato nella figura seguente.
-   
-   [![Pagina di autenticazione con l'URI](../media/management-ui-redirect-uri-inline.png) di reindirizzamento immesso](../media/management-ui-redirect-uri-expanded.png#lightbox)
+
+   [![Pagina di autenticazione con l'URI ](../media/management-ui-redirect-uri-inline.png) di reindirizzamento immesso](../media/management-ui-redirect-uri-expanded.png#lightbox)
 
 5. Nel pannello sinistro selezionare **autorizzazioni API** per verificare che siano state aggiunte le autorizzazioni. Se si è un amministratore globale, selezionare il pulsante **Concedi consenso amministratore `tenantname` per** e seguire le istruzioni della finestra di dialogo per fornire il consenso dell'amministratore per l'organizzazione.
-    
-    [![Pagina](../media/management-ui-permissions-inline.png) autorizzazioni API](../media/management-ui-permissions-expanded.png#lightbox)
+
+    [![Pagina ](../media/management-ui-permissions-inline.png) autorizzazioni API](../media/management-ui-permissions-expanded.png#lightbox)
 
 È ora possibile iniziare a usare lo strumento di gestione di.
 
@@ -158,13 +157,13 @@ Ora che lo strumento di gestione è stato configurato in qualsiasi momento, è p
 
 1. Aprire l'URL dell'app Web in un Web browser. Se non si ricorda l'URL, è possibile accedere ad Azure, trovare il servizio app distribuito per lo strumento di gestione, quindi selezionare l'URL.
 2. Accedere con le credenziali di Desktop virtuale Windows.
-   
+
    > [!NOTE]
    > Se non è stato concesso il consenso dell'amministratore durante la configurazione dello strumento di gestione, ogni utente che esegue l'accesso dovrà fornire il proprio consenso dell'utente per poter usare lo strumento.
 
 3. Quando viene richiesto di scegliere un gruppo di tenant, selezionare **gruppo tenant predefinito** dall'elenco a discesa.
 4. Quando si seleziona **Default Tenant Group** (Gruppo di tenant predefinito), sul lato destro della finestra viene visualizzato un menu. In questo menu trovare il nome del gruppo di tenant e selezionarlo.
-   
+
    > [!NOTE]
    > Se è disponibile un gruppo di tenant personalizzato, immettere il nome manualmente invece di scegliere una voce dell'elenco a discesa.
 

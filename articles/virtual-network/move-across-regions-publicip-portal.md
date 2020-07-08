@@ -1,24 +1,23 @@
 ---
-title: Spostare l'IP pubblico di Azure in un'altra area di Azure usando il portale di Azure
-description: Usare il modello di Azure Resource Manager per spostare l'IP pubblico di Azure da un'area di Azure a un'altra usando il portale di Azure.
+title: Spostare la configurazione IP pubblico di Azure in un'altra area di Azure portale di Azure
+description: Usare un modello per spostare la configurazione IP pubblico di Azure da un'area di Azure a un'altra usando il portale di Azure.
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 6dd4b3279fc0110fff2ee0397a785c87b63644d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 23fe515ddfdecb9ef168dd662e3fa2d91ece688f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711477"
 ---
-# <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Spostare l'IP pubblico di Azure in un'altra area usando il portale di Azure
+# <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Spostare la configurazione IP pubblico di Azure in un'altra area usando il portale di Azure
 
-Esistono diversi scenari in cui si vuole spostare gli indirizzi IP pubblici di Azure esistenti da un'area a un'altra. Ad esempio, è possibile creare un indirizzo IP pubblico con la stessa configurazione e lo stesso SKU per i test. Potrebbe anche essere necessario spostare un indirizzo IP pubblico in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
+In vari scenari in cui può essere opportuno spostare le configurazioni IP pubbliche di Azure esistenti da un'area a un'altra. Ad esempio, si potrebbe voler creare un IP pubblico con la stessa configurazione e SKU per i test. Inoltre, si potrebbe spostare una configurazione IP pubblica in un'altra area come parte della pianificazione del ripristino di emergenza.
 
-Gli indirizzi IP pubblici di Azure sono specifici dell'area e non possono essere spostati da un'area all'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente di un indirizzo IP pubblico.  È quindi possibile organizzare la risorsa in un'altra area esportando l'indirizzo IP pubblico in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area.  Per altre informazioni su Gestione risorse e sui modelli, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+**Gli indirizzi IP pubblici di Azure sono specifici dell'area e non possono essere spostati da un'area all'altra.** Tuttavia, è possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente di un IP pubblico.  È quindi possibile spostare la risorsa in un'altra area di staging esportando l'IP pubblico in un modello, modificando i parametri in base all'area di destinazione e quindi distribuendo il modello nella nuova area.  Per altre informazioni su Resource Manager e sui modelli, vedere [Avvio rapido: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -27,26 +26,26 @@ Gli indirizzi IP pubblici di Azure sono specifici dell'area e non possono essere
 
 - Gli indirizzi IP pubblici di Azure non possono essere spostati tra le aree.  È necessario associare il nuovo indirizzo IP pubblico alle risorse nell'area di destinazione.
 
-- Per esportare una configurazione IP pubblica e distribuire un modello per creare un indirizzo IP pubblico in un'altra area, è necessario il ruolo Collaboratore rete o versione successiva.
+- Per esportare una configurazione IP pubblica e distribuire un modello per creare un IP pubblico in un'altra area, è necessario un ruolo di collaboratore di rete o superiore.
 
-- Identificare il layout di rete di origine e tutte le risorse attualmente in uso, Questo layout include, tuttavia, non è limitato a bilanciamento del carico, gruppi di sicurezza di rete (gruppi) e reti virtuali.
+- Identificare il layout di rete di origine e tutte le risorse attualmente in uso, tra cui i servizi di bilanciamenti del carico, i gruppi di sicurezza di rete e le reti virtuali.
 
-- Verificare che la sottoscrizione di Azure consenta di creare indirizzi IP pubblici nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
+- Verificare che la sottoscrizione di Azure consenta di creare IP pubblici nell'area di destinazione in uso. Contattare il supporto tecnico per abilitare la quota necessaria.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di indirizzi IP pubblici per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di indirizzi IP pubblici per il processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
-## <a name="prepare-and-move"></a>Preparare e spostare
+## <a name="prepare-and-move"></a>Preparazione e spostamento
 I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento della configurazione usando un modello di Gestione risorse e spostare la configurazione IP pubblico nell'area di destinazione usando il portale di Azure.
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>Esportare il modello e distribuirlo da uno script
 
-1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
+1. Accedere ai [Azure portal](https://portal.azure.com)  >  **gruppi di risorse**portale di Azure.
 2. Individuare il gruppo di risorse che contiene l'indirizzo IP pubblico di origine e fare clic su di esso.
-3. Selezionare > **Impostazioni** > **Esporta modello**.
+3. Selezionare > **Impostazioni**  >  **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
-5. Fare clic su **modello** > **modifica parametri** per aprire il file **Parameters. JSON** nell'editor online.
-8. Per modificare il parametro del nome dell'indirizzo IP pubblico, modificare la proprietà in **parametro** > **valore** dal nome IP pubblico di origine al nome dell'indirizzo IP pubblico di destinazione, verificare che il nome sia racchiuso tra virgolette:
+5. Fare clic su **modello**  >  **modifica parametri** per aprire il **parameters.js** nel file nell'editor online.
+8. Per modificare il parametro del nome dell'indirizzo IP pubblico, modificare la proprietà in **parametro**  >  **valore** dal nome IP pubblico di origine al nome dell'indirizzo IP pubblico di destinazione, verificare che il nome sia racchiuso tra virgolette:
 
     ```json
             {
@@ -62,7 +61,7 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
     ```
 8.  Fare clic su **Salva** nell'editor.
 
-9.   > Fare **clic su modello****modifica modello** per aprire il file **template. JSON** nell'editor online.
+9.  Fare **clic su modello**  >  **modifica modello** per aprire il **template.js** nel file nell'editor online.
 
 10. Per modificare l'area di destinazione in cui verrà spostato l'IP pubblico, modificare la proprietà **location** in **Resources**:
 
@@ -90,11 +89,11 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
              ]
     ```
 
-11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
+11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti**centrali  =  **centralus**.
 
-12. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
+12. Se lo si desidera, è anche possibile modificare altri parametri nel modello, che sono facoltativi in base ai requisiti:
 
-    * **SKU** : è possibile modificare lo SKU dell'indirizzo IP pubblico nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel file **template. JSON** :
+    * **SKU** : è possibile modificare lo SKU dell'indirizzo IP pubblico nella configurazione da standard a Basic o Basic a standard modificando la proprietà nome **SKU**  >  **name** nella **template.jssu** file:
 
         ```json
           "resources": [
@@ -111,7 +110,7 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
 
         Per altre informazioni sulle differenze tra gli indirizzi IP pubblici con SKU Basic e standard, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address):
 
-    * **Metodo di allocazione IP pubblico** e **timeout di inattività** : è possibile modificare entrambe le opzioni nel modello modificando la proprietà **publicIPAllocationMethod** da **dinamico** a **statico** o **statico** a **dinamico**. Il timeout di inattività può essere modificato modificando la proprietà **idleTimeoutInMinutes** in base al valore desiderato.  Il valore predefinito è **4**:
+    * **Metodo di allocazione dell'IP pubblico** e **timeout di inattività**: è possibile modificare entrambe queste opzioni nel modello modificando la proprietà **publicIPAllocationMethod** da **dinamica** a **statica** o da **statica** a **dinamica**. Il timeout di inattività può essere modificato impostando la proprietà **idleTimeoutInMinutes** sul valore desiderato.  Il valore predefinito è **4**:
 
         ```json
           "resources": [
@@ -135,16 +134,16 @@ I passaggi seguenti illustrano come preparare l'IP pubblico per lo spostamento d
 
         ```
 
-        Per ulteriori informazioni sui metodi di allocazione e i valori di timeout di inattività, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Per ulteriori informazioni sui metodi di allocazione e i valori di timeout di inattività, vedere [Creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
 13. Fare clic su **Salva** nell'editor online.
 
-14. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuito l'IP pubblico di destinazione.
+14. Fare **BASICS**clic su  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuito l'IP pubblico di destinazione.
 
-15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito l'IP pubblico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per l'indirizzo IP pubblico di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine dell'IP pubblico di origine esistente.
+15. Fare **BASICS**clic su  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito l'IP pubblico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per l'indirizzo IP pubblico di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine dell'IP pubblico di origine esistente.
 
-16. Il **BASICS** > **percorso** di base della verifica è impostato sul percorso di destinazione in cui si desidera distribuire l'indirizzo IP pubblico.
+16. Il percorso di **base**della verifica  >  **Location** è impostato sul percorso di destinazione in cui si desidera distribuire l'indirizzo IP pubblico.
 
 17. Verificare in **Impostazioni** che il nome corrisponda al nome immesso nell'editor di parametri precedente.
 
@@ -162,7 +161,7 @@ Per eseguire il commit delle modifiche e completare lo spostamento dell'indirizz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato spostato un indirizzo IP pubblico di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo trasferimento di risorse tra aree e ripristino di emergenza in Azure, vedere:
+In questa esercitazione è stato spostato un indirizzo IP pubblico di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo spostamento di risorse tra aree e sul ripristino di emergenza in Azure, vedere:
 
 
 - [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

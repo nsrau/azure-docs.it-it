@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759585"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
@@ -33,10 +32,10 @@ Nei log di diagnostica viene visualizzato un modello di dispositivi che si disco
 Le richieste all'hub Internet non riescono con uno dei messaggi di errore seguenti:
 
 * Intestazione dell'autorizzazione mancante
-* IotHub '\*' non contiene il dispositivo specificato '\*'
-* La regola di\*autorizzazione '' non consente l'accesso\*per ''
+* IotHub ' \* ' non contiene il dispositivo specificato ' \* '
+* La regola di autorizzazione ' \* ' non consente l'accesso per ' \* '
 * Autenticazione non riuscita per il dispositivo, rinnovo del token o del certificato e riconnessione
-* L'identificazione personale non corrisponde alla configurazione: identificazione personale\*: SHA1Hash =\*, SHA2Hash =; Configurazione: PrimaryThumbprint =\*, SecondaryThumbprint =\*
+* L'identificazione personale non corrisponde alla configurazione: identificazione personale: SHA1Hash = \* , SHA2Hash = \* ; Configurazione: PrimaryThumbprint = \* , SecondaryThumbprint =\*
 
 ## <a name="cause"></a>Causa
 

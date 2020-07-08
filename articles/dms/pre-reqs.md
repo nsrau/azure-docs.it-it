@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 89cb63630e3dbe953ed3f4fd8796d01ba0d36067
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d87052ecfe85fa35c41c8b306bb48551fd06be9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77651492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322839"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Panoramica dei prerequisiti per usare il Servizio Migrazione del database di Azure
 
@@ -113,21 +112,21 @@ Oltre ai prerequisiti del Servizio Migrazione del database di Azure comuni a tut
 
 Quando si usa il Servizio Migrazione del database di Azure per eseguire le migrazioni di un database SQL Server a un database SQL di Azure, oltre ai prerequisiti comuni a tutti gli scenari di migrazione, è necessario risolvere i seguenti prerequisiti aggiuntivi:
 
-* Creare un'istanza dell'istanza del database SQL di Azure, seguendo le istruzioni riportate nell'articolo [creare un database SQL di Azure nel portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Creare un'istanza dell'istanza del database SQL di Azure, seguendo le istruzioni riportate nell'articolo [creare un database nel database SQL di Azure nel portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * Scaricare e installare [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) 3.3 o versione successiva.
 * Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere a SQL Server di origine, che per impostazione predefinita è la porta TCP 1433.
 * Se si eseguono più istanze di SQL Server denominate usando le porte dinamiche, è consigliabile abilitare il Servizio browser SQL e consentire l'accesso alla porta UDP 1434 attraverso i firewall, in modo che il Servizio Migrazione del database di Azure possa connettersi a un'istanza denominata nel server di origine.
-* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per il server di database SQL di Azure per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
+* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per il database SQL per consentire al servizio migrazione del database di Azure di accedere ai database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
 * Assicurarsi che le credenziali usate per connettersi all'istanza di origine di SQL Server abbiano le autorizzazioni [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-* Assicurarsi che le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione abbiano l'autorizzazione CONTROL DATABASE nei database SQL di Azure di destinazione.
+* Verificare che le credenziali utilizzate per connettersi al database di destinazione dispongano dell'autorizzazione CONTROL DATABASE per il database di destinazione.
 
    > [!NOTE]
    > Per l'elenco completo dei prerequisiti richiesti per usare il Servizio Migrazione del database di Azure per eseguire le migrazioni da SQL Server al database SQL di Azure, vedere l'esercitazione [Eseguire la migrazione di SQL Server nel database SQL di Azure](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
    >
 
-## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Prerequisiti per la migrazione di SQL Server a un'istanza gestita di database SQL di Azure
+## <a name="prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance"></a>Prerequisiti per la migrazione di SQL Server ad Azure SQL Istanza gestita
 
-* Creare un'istanza gestita di database SQL di Azure seguendo le istruzioni riportate nell'articolo [creare un istanza gestita di database SQL di Azure nel portale di Azure](https://aka.ms/sqldbmi).
+* Per creare un Istanza gestita SQL, seguire le istruzioni riportate nell'articolo [creare un istanza gestita SQL di Azure nella portale di Azure](https://aka.ms/sqldbmi).
 * Aprire i firewall per consentire il traffico SMB sulla porta 445 per l'intervallo di indirizzi IP o di subnet del Servizio Migrazione del database di Azure.
 * Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere a SQL Server di origine, che per impostazione predefinita è la porta TCP 1433.
 * Se si eseguono più istanze di SQL Server denominate usando le porte dinamiche, è consigliabile abilitare il Servizio browser SQL e consentire l'accesso alla porta UDP 1434 attraverso i firewall, in modo che il Servizio Migrazione del database di Azure possa connettersi a un'istanza denominata nel server di origine.
@@ -138,7 +137,7 @@ Quando si usa il Servizio Migrazione del database di Azure per eseguire le migra
 * Creare un contenitore BLOB e recuperare l'URI della firma di accesso condiviso associato usando la procedura descritta nell'articolo [Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Selezionare tutte le autorizzazioni (lettura, scrittura, eliminazione, elenco) nella finestra dei criteri durante la creazione dell'URI SAS.
 
    > [!NOTE]
-   > Per l'elenco completo dei prerequisiti richiesti per usare il Servizio Migrazione del database di Azure per eseguire le migrazioni da SQL Server a lstanza gestita di database SQL di Azure, vedere l'esercitazione [Eseguire la migrazione di SQL Server in Istanza gestita di database SQL di Azure](https://aka.ms/migratetomiusingdms).
+   > Per un elenco completo dei prerequisiti necessari per usare il servizio migrazione del database di Azure per eseguire le migrazioni da SQL Server a SQL Istanza gestita, vedere l'esercitazione [eseguire la migrazione di SQL Server a sql istanza gestita](https://aka.ms/migratetomiusingdms).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

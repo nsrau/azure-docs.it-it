@@ -4,11 +4,10 @@ description: Informazioni su come usare l'API REST per eseguire il backup di con
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710610"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Eseguire il backup di una condivisione file di Azure con backup di Azure tramite l'API REST
 
@@ -38,7 +37,7 @@ L'insieme di credenziali deve individuare tutti gli account di archiviazione di 
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-L'URI Post dispone `{subscriptionId}`di `{vaultName}`parametri `{vaultresourceGroupName}`,, `{fabricName}` e. In questo esempio, il valore per i diversi parametri sarà il seguente:
+L'URI Post dispone `{subscriptionId}` di `{vaultName}` parametri,, `{vaultresourceGroupName}` e `{fabricName}` . In questo esempio, il valore per i diversi parametri sarà il seguente:
 
 - `{fabricName}`*Azure*
 

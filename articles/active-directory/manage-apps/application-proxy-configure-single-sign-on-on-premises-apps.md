@@ -3,25 +3,24 @@ title: Single Sign-On SAML per app locali con App Azure AD proxy
 description: Informazioni su come fornire Single Sign-On per le applicazioni locali protette con l'autenticazione SAML. Fornire l'accesso remoto alle app locali con il proxy di applicazione.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803298"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764826"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Single Sign-On SAML per le applicazioni locali con il proxy di applicazione
 
@@ -74,7 +73,7 @@ Prima di poter fornire l'accesso SSO per le applicazioni locali, è necessario a
 
 2. Nella pagina **Configura accesso Single Sign-on con SAML** passare all'intestazione di **configurazione SAML di base** e selezionare l'icona di **modifica** (matita). Verificare che l' **URL esterno** configurato nel proxy di applicazione sia popolato nei campi **identificatore**, **URL di risposta**e URL di **disconnessione** . Questi URL sono necessari per il corretto funzionamento del proxy di applicazione. 
 
-3. Modificare l' **URL di risposta** configurato in precedenza in modo che il dominio sia raggiungibile su Internet tramite il proxy di applicazione. Ad esempio, se l' **URL esterno** è `https://contosotravel-f128.msappproxy.net` e l' **URL di risposta** originale `https://contosotravel.com/acs`è, sarà necessario aggiornare l'URL di **risposta** originale a `https://contosotravel-f128.msappproxy.net/acs`.
+3. Modificare l' **URL di risposta** configurato in precedenza in modo che il dominio sia raggiungibile su Internet tramite il proxy di applicazione. Ad esempio, se l' **URL esterno** è `https://contosotravel-f128.msappproxy.net` e l' **URL di risposta** originale è `https://contosotravel.com/acs` , sarà necessario aggiornare l'URL di **risposta** originale a `https://contosotravel-f128.msappproxy.net/acs` .
 
     ![Immettere i dati di configurazione SAML di base](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

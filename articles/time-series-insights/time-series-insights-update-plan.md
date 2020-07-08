@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4b61df52df45cb2ee01407390ce3e34d86350ef7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b57a7c04db0e601b90bc19059df70e63795784bf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189250"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86036951"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Pianificare un ambiente di anteprima di Azure Time Series Insights
 
@@ -41,7 +40,7 @@ Azure Time Series Insights usa un modello di business con pagamento in base al c
 Quando si esegue il provisioning di un ambiente di anteprima di Time Series Insights, vengono create due risorse di Azure:
 
 * Un ambiente Anteprima di Azure Time Series Insights
-* Un account di archiviazione di Azure per utilizzo generico V1
+* Un account di archiviazione Azure
 
 Come parte del processo di provisioning, specificare se si vuole abilitare un archivio a caldo. Warm Store offre un'esperienza di query a più livelli. Se abilitata, è necessario specificare un periodo di conservazione compreso tra 7 e 30 giorni. Le query eseguite entro il periodo di conservazione dell'archivio caldo forniscono in genere tempi di risposta più rapidi. Quando una query si estende sul periodo di conservazione del negozio a caldo, viene servita dall'archivio a freddo.
 
@@ -52,7 +51,7 @@ Le query sull'archivio a caldo sono gratuite, mentre le query sull'archivio a fr
 
 Per iniziare, sono necessari altri tre elementi:
 
-* Un [Modello Time Series](./time-series-insights-update-tsm.md)
+* Un [Modello Time Series](./concepts-model-overview.md)
 * Un [origine evento connessa a Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
 * [Eventi che passino nell'origine evento](./time-series-insights-send-events.md) e che siano entrambi mappati al modello e abbiano un formato JSON valido
 
@@ -67,7 +66,7 @@ Per creare un nuovo ambiente Time Series Insights, selezionare un ID Time Series
 > [!IMPORTANT]
 > Gli ID delle serie temporali *non possono essere modificati in seguito*. Verificare ognuno di essi prima della selezione finale e del primo uso.
 
-È possibile selezionare fino a tre chiavi per distinguere in modo univoco le risorse. Per altre informazioni, leggere [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedure consigliate per la scelta di un ID Time Series) e [Storage and ingress](./time-series-insights-update-storage-ingress.md) (Archiviazione e ingresso).
+È possibile selezionare fino a tre chiavi per distinguere in modo univoco le risorse. Per ulteriori informazioni, leggere le [procedure consigliate per la scelta di un ID di serie temporali](./time-series-insights-update-how-to-id.md) e di [regole](concepts-json-flattening-escaping-rules.md)di inserimento.
 
 Anche la proprietà **timestamp** è importante. È possibile definire questa proprietà quando si aggiungono origini evento. Ogni origine evento include una proprietà Timestamp facoltativa, usata per tenere traccia delle origini evento nel tempo. I valori di Timestamp fanno distinzione tra maiuscole/minuscole e devono essere formattati in base alle singole specifiche di ogni origine evento.
 
@@ -78,7 +77,7 @@ Se lasciato vuoto, come timestamp dell'evento viene usato il tempo di accodament
 
 ## <a name="understand-the-time-series-model"></a>Comprendere il modello Time Series
 
-È ora possibile configurare il modello Time Series dell'ambiente Time Series Insights. Il nuovo modello semplifica l'individuazione e l'analisi dei dati IoT, consentendo la cura, la manutenzione e l'arricchimento dei dati Time Series e la preparazione di set di dati di livello consumer. Il modello usa ID Time Series, che esegue il mapping a un'istanza che associa la risorsa univoca a variabili, note come tipi, e gerarchie. Informazioni sul nuovo [modello Time Series](./time-series-insights-update-tsm.md).
+È ora possibile configurare il modello Time Series dell'ambiente Time Series Insights. Il nuovo modello semplifica l'individuazione e l'analisi dei dati IoT, consentendo la cura, la manutenzione e l'arricchimento dei dati Time Series e la preparazione di set di dati di livello consumer. Il modello usa ID Time Series, che esegue il mapping a un'istanza che associa la risorsa univoca a variabili, note come tipi, e gerarchie. Informazioni sul nuovo [modello Time Series](./concepts-model-overview.md).
 
 Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilarlo e caricarlo prima di eseguire il push dei dati in Time Series Insights. Per compilare il modello, vedere [usare il modello Time Series](./time-series-insights-update-how-to-tsm.md).
 
@@ -100,5 +99,6 @@ Per ulteriori informazioni, leggere [eventi forma](./time-series-insights-send-e
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare [Azure Advisor](../advisor/advisor-overview.md) per pianificare le opzioni di configurazione per il ripristino di business.
-- Per altre informazioni sull'archiviazione e sul traffico in [ingresso,](./time-series-insights-update-storage-ingress.md) vedere la Time Series Insights Preview.
-- Informazioni sulla [modellazione dei dati](./time-series-insights-update-tsm.md) in Time Series Insights Preview.
+- Altre informazioni sull'inserimento di [dati](./concepts-ingestion-overview.md).
+- Esaminare l'articolo sull' [archiviazione dei dati](./concepts-storage.md)
+- Informazioni sulla [modellazione dei dati](./concepts-model-overview.md) in Time Series Insights Preview.

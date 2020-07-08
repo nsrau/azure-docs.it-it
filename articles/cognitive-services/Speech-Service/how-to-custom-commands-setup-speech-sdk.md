@@ -1,7 +1,7 @@
 ---
 title: Eseguire l'integrazione con un'app client tramite Speech SDK
 titleSuffix: Azure Cognitive Services
-description: In questo articolo si apprenderà come eseguire richieste a un'applicazione di comandi personalizzati pubblicati dall'SDK di riconoscimento vocale in esecuzione in un'applicazione UWP.
+description: come eseguire richieste a un'applicazione di comandi personalizzati pubblicati dall'SDK vocale in esecuzione in un'applicazione UWP.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,16 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414361"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027631"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Eseguire l'integrazione con un'applicazione client tramite Speech SDK
 
-In questo articolo si apprenderà come eseguire richieste a un'applicazione di comandi personalizzati pubblicati dall'SDK di riconoscimento vocale in esecuzione in un'applicazione UWP. Per stabilire una connessione all'applicazione Custom Commands, effettuare le operazioni seguenti:
+In questo articolo si apprenderà come eseguire richieste a un'applicazione di comandi personalizzati pubblicati dall'SDK di riconoscimento vocale in esecuzione in un'applicazione UWP. Per stabilire una connessione all'applicazione Custom Commands, è necessario:
 
 - Pubblicare un'applicazione di comandi personalizzati e ottenere un identificatore dell'applicazione (ID app)
 - Creare un'app client di piattaforma UWP (Universal Windows Platform) (UWP) usando l'SDK per la sintesi vocale per consentire la comunicazione con l'applicazione dei comandi personalizzati
@@ -32,13 +31,19 @@ Per completare questo articolo, è necessaria un'applicazione comandi personaliz
 
 Sono necessari anche:
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) o versione successiva. Questa guida è basata su Visual Studio 2019.
 > * Una chiave di sottoscrizione di Azure per i servizi Voce. [Ottenerne uno](get-started.md) gratuitamente o crearlo nel [portale di Azure](https://portal.azure.com)
 > * [Abilitare il dispositivo per lo sviluppo](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Passaggio 1: pubblicare l'applicazione comandi personalizzati
 
-1. Aprire l'applicazione comandi personalizzati creati in precedenza e selezionare **pubblica**
+1. Aprire l'applicazione comandi personalizzati creati in precedenza
+1. Passare a **Impostazioni**, selezionare **risorsa Luis**
+1. Se la **risorsa di stima** non è assegnata, selezionare una chiave di stima della query o crearne una nuova.
+
+    La chiave di stima della query è sempre obbligatoria prima di pubblicare un'applicazione. Per altre informazioni sulle risorse LUIS, fare riferimento a [creare una risorsa Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+
+1. Tornare ai comandi di modifica, selezionare **pubblica** .
 
    > [!div class="mx-imgBorder"]
    > ![Pubblicare l'applicazione](media/custom-commands/setup-speech-sdk-publish-application.png)
@@ -131,11 +136,8 @@ Aggiungere l'origine code-behind come indicato di seguito:
    using Microsoft.CognitiveServices.Speech.Audio;
    using Microsoft.CognitiveServices.Speech.Dialog;
    using System;
-   using System.Diagnostics;
    using System.IO;
    using System.Text;
-   using Windows.Foundation;
-   using Windows.Storage.Streams;
    using Windows.UI.Xaml;
    using Windows.UI.Xaml.Controls;
    using Windows.UI.Xaml.Media;
@@ -324,7 +326,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
-   connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+   connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
    {
        NotifyUser(
            $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");

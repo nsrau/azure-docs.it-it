@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c418ed87bd74471ce8c2e8186bd6244eaf6f21de
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921589"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
 
@@ -97,9 +96,11 @@ La richiesta di firma del certificato è semplicemente un file di testo. Non è 
 
 È possibile usare i comandi seguenti di PowerShell per il rinnovo dei certificati di gestione:
 
-    Add-AzureAccount
-    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
-    Get-AzurePublishSettingsFile
+```powershell
+Add-AzureAccount
+Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+Get-AzurePublishSettingsFile
+```
 
 **Get-AzurePublishSettingsFile** creerà un nuovo certificato di gestione in **Sottoscrizione** > **Certificati di gestione** nel portale di Azure. Il nome del nuovo certificato è simile a "[NomeSottoscrizione]-[DataCorrente] - credenziali".
 
@@ -137,7 +138,7 @@ Possibilità di monitorare le metriche a livello di istanza. In [Come monitorare
 * Aumentare il limite di quota per le risorse locali.
 
 Per altre informazioni, vedere i documenti seguenti:
-* [Archiviare e visualizzare i dati di diagnostica in archiviazione di Azure](/azure/storage/common/storage-introduction)
+* [Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure](/azure/storage/common/storage-introduction)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/) (I log di IIS non vengono più scritti nel servizio cloud)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Come si abilita la registrazione di Diagnostica di Microsoft Azure per Servizi cloud?
@@ -196,13 +197,13 @@ Windows 10 e Windows Server 2016 includono il supporto per HTTP/2 sia sul lato c
 5. Riavviare il server.
 6. Passare al **sito Web predefinito** e in **Associazioni** creare una nuova associazione TLS con il certificato autofirmato appena creato. 
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 in IIS)
 - [Video: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88) (Video: HTTP/2 in Windows 10: Browser, app e server Web)
          
 
-È possibile automatizzare i passaggi precedenti tramite un'attività di avvio in modo che ogni volta che viene creata una nuova istanza PaaS, l'attività possa eseguire le modifiche indicate in precedenza nel Registro di sistema. Per altre informazioni, vedere [Come configurare ed eseguire attività di avvio per un servizio cloud](cloud-services-startup-tasks.md).
+È possibile automatizzare i passaggi precedenti tramite un'attività di avvio in modo che ogni volta che viene creata una nuova istanza PaaS, l'attività possa eseguire le modifiche indicate in precedenza nel Registro di sistema. Per ulteriori informazioni, vedere [come configurare ed eseguire attività di avvio per un servizio cloud](cloud-services-startup-tasks.md).
 
  
 Dopo questa operazione è possibile verificare l'abilitazione del protocollo HTTP/2 usando uno dei metodi seguenti:
@@ -282,7 +283,7 @@ Vedere [Limiti specifici del servizio](../azure-resource-manager/management/azur
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Perché l'unità della macchina virtuale del servizio cloud ha pochissimo spazio libero su disco?
 Questo comportamento è previsto e non dovrebbe causare alcun problema all'applicazione. L'inserimento nel giornale di registrazione è attivato per l'unità %approot% nelle macchine virtuali PaaS di Azure e ciò comporta essenzialmente l'utilizzo del doppio della quantità di spazio normalmente occupata dai file. Ci sono tuttavia alcuni aspetti da considerare che permettono di capire come questo non sia un vero problema.
 
-Le dimensioni dell'unità% AppRoot% vengono calcolate con \<dimensioni pari a. cspkg + max journal size + un margine di spazio libero> o 1,5 GB, a seconda del valore maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
+Le dimensioni dell'unità% AppRoot% vengono calcolate come \<size of .cspkg + max journal size + a margin of free space> o 1,5 GB, a seconda del numero maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
 
 La scrittura nell'unità %approot% non è supportata. Se si scrive nella VM di Azure, è necessario farlo in una risorsa LocalStorage temporanea (o in un'altra posizione, ad esempio archiviazione BLOB, File di Azure e così via). La quantità di spazio disponibile nella cartella %approot% non è quindi significativa. Se non si è certi del fatto che l'applicazione scriva nell'unità %approot%, è possibile lasciare il servizio in esecuzione per alcuni giorni e quindi confrontare le dimensioni prima e dopo. 
 
@@ -306,9 +307,11 @@ Per altre informazioni sugli scenari di distribuzione dell'estensione Antimalwar
 **Metodo 1: utilizzo di PowerShell**
 
 L'associazione SNI può essere configurata usando il cmdlet di PowerShell **New-WebBinding** in un'attività di avvio per un'istanza del ruolo del servizio cloud come riportato di seguito:
-    
-    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
-    
+
+```powershell
+New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
+```
+
 Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslFlags potrebbe assumere uno dei valori seguenti:
 
 |valore|Significato|
@@ -322,14 +325,15 @@ Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslF
 
 È possibile configurare l'associazione SNI anche tramite il codice nell'attività di avvio del ruolo, come descritto in questo [post di blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 
-    
-    //<code snip> 
-                    var serverManager = new ServerManager(); 
-                    var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
-                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
-                    serverManager.CommitChanges(); 
-    //</code snip> 
+```csharp
+//<code snip> 
+                var serverManager = new ServerManager(); 
+                var site = serverManager.Sites[0]; 
+                var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
+                serverManager.CommitChanges(); 
+    //</code snip>
+```
     
 Usando uno qualsiasi degli approcci descritti in precedenza, è necessario che i rispettivi certificati (\*.PFX) per nomi host specifici vengano installati prima nelle istanze dei ruoli usando un'attività di avvio o tramite il codice perché l'associazione SNI diventi efficace.
 
@@ -341,7 +345,9 @@ Il servizio cloud è una risorsa classica. Solo le risorse create tramite Azure 
 
 L'aggiunta di questa funzionalità nel portale di Azure è in corso di sviluppo. Nel frattempo, è possibile usare i comandi seguenti di PowerShell per ottenere la versione dell'SDK:
 
-    Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```powershell
+Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```
 
 ### <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Se è necessario arrestare il servizio cloud per vari mesi, come è possibile ridurre i costi di fatturazione del servizio cloud senza perdere l'indirizzo IP?
 

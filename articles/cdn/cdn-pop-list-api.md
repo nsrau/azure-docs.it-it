@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: a58fd7c6f50cd46ac3c34cd7e5bd329c0007e5f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7b98bb446fc400007e4061d09db8084960702943
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668288"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco di indirizzi IP POP correnti per la rete CDN di Azure
 
@@ -39,7 +38,7 @@ Configurare ACLing IP per i back-end in modo da accettare il traffico dalla rete
 * Rete CDN di Azure dello spazio IP back-end IPv4 di Microsoft: 147.243.0.0/16
 * Rete CDN di Azure dello spazio IP back-end IPv6 di Microsoft: 2a01:111:2050::/44
 
-Gli intervalli IP e i tag di servizio per i servizi Microsoft sono disponibili [qui](https://www.microsoft.com/download/details.aspx?id=56519)
+Per usare i tag di servizio con la rete CDN di Azure di Microsoft, usare il tag front door di Azure. Gli intervalli IP e i tag di servizio per i servizi Microsoft sono disponibili [qui](https://www.microsoft.com/download/details.aspx?id=56519)
 
 
 ## <a name="typical-use-case"></a>Caso d'uso tipico

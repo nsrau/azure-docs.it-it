@@ -7,17 +7,16 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 643f326952f72f952aa946079e56f1fb56373c9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710032"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -37,7 +36,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-1. Selezionare **+ Crea una risorsa** > **Networking** > **rete rete virtuale**.
+1. Selezionare **+ Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
 2. Immettere o selezionare i valori per le impostazioni seguenti e quindi selezionare **Crea**:
    - **Nome**: il nome deve essere univoco nell'ambito del [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) selezionato per la creazione della rete virtuale al suo interno. Dopo la creazione della rete virtuale non è possibile modificarne il nome. È possibile creare più reti virtuali in momenti diversi. Per alcuni suggerimenti sull'assegnazione del nome, vedere [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) (Convenzioni di denominazione). Il rispetto di una convenzione di denominazione consente una gestione più semplice di più reti virtuali.
    - **Spazio indirizzi**: lo spazio indirizzi per una rete virtuale è costituito da uno o più intervalli di indirizzi non sovrapposti, specificati con la notazione CIDR. L'intervallo di indirizzi definito può essere pubblico o privato (RFC 1918). Indipendentemente dalla sua definizione come pubblico o privato, l'intervallo di indirizzi è raggiungibile solo all'interno della rete virtuale, da reti virtuali interconnesse e da eventuali reti locali connesse alla rete virtuale. Non è possibile aggiungere gli intervalli di indirizzi seguenti:
@@ -65,7 +64,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
      - **Gruppo di risorse**: selezionare un [gruppo di risorse](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) esistente o crearne uno nuovo. Una risorsa di Azure da connettere alla rete virtuale può trovarsi nello stesso gruppo di risorse della rete virtuale o in un gruppo di risorse diverso.
      - **Località**: selezionare una [località](https://azure.microsoft.com/regions/) di Azure. Le località sono dette anche aree. Una rete virtuale può trovarsi in una sola località di Azure. È tuttavia possibile connettere una rete virtuale in una località con una rete virtuale in un'altra località tramite un gateway VPN. Qualsiasi risorsa di Azure da connettere alla rete virtuale deve trovarsi nella località della rete virtuale stessa.
 
-**Comandi:**
+**Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network vnet create](/cli/azure/network/vnet)
 - PowerShell: [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
@@ -94,7 +93,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
      - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Script di automazione](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
-**Comandi:**
+**Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network vnet show](/cli/azure/network/vnet)
 - PowerShell: [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)
@@ -125,7 +124,7 @@ Per aggiungere o rimuovere un intervallo di indirizzi:
     - **Remove an address range** (Rimuovere un intervallo di indirizzi): a destra dell'intervallo di indirizzi da rimuovere, selezionare **... ** e quindi selezionare **Rimuovi**. Se è presente una subnet nell'intervallo di indirizzi, non è possibile rimuoverlo. Prima di rimuovere un intervallo di indirizzi è necessario eliminare tutte le subnet presenti nell'intervallo e le eventuali risorse nelle subnet.
 5. Selezionare **Salva**.
 
-**Comandi:**
+**Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
@@ -139,7 +138,7 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 3. Selezionare **server DNS**in **Impostazioni**.
 4. Selezionare una delle opzioni seguenti:
    - **Predefinito (fornito da Azure)**: tutti i nomi delle risorse e gli indirizzi IP privati vengono registrati automaticamente presso i server DNS di Azure. È possibile risolvere i nomi tra tutte le risorse connesse alla stessa rete virtuale. Non è possibile usare questa opzione per la risoluzione dei nomi tra reti virtuali diverse. Per risolvere i nomi tra reti virtuali diverse è necessario usare un server DNS personalizzato.
-   - **Personalizzato**: è possibile aggiungere uno o più server, fino al limite di Azure per le reti virtuali. Per altre informazioni sui limiti dei server DNS, vedere i [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). L'utente ha a disposizione le seguenti opzioni:
+   - **Personalizzato**: è possibile aggiungere uno o più server, fino al limite di Azure per le reti virtuali. Per altre informazioni sui limiti dei server DNS, vedere i [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Sono disponibili le opzioni seguenti:
    - **Aggiungere un indirizzo**: consente di aggiungere un server all'elenco dei server DNS della rete virtuale. Questa opzione consente anche di registrare il server DNS in Azure. Se un server DNS è già stato registrato in Azure, è possibile selezionarlo nell'elenco.
    - **Rimuovere un indirizzo**: accanto al server che si vuole rimuovere selezionare **...** e quindi **Rimuovi**. Questa operazione rimuove il server solo dall'elenco della rete virtuale attiva. Il server DNS resta registrato in Azure in modo che venga usato dalle altre reti virtuali.
    - **Riordinare gli indirizzi dei server DNS**: è importante verificare che siano elencati nell'ordine corretto per l'ambiente. Gli elenchi di server DNS vengono usati nell'ordine in cui sono specificati e non rappresentano una configurazione di tipo round robin. Se il primo server DNS nell'elenco è raggiungibile, il client lo usa, indipendentemente dal fatto che funzioni correttamente o meno. Rimuovere tutti i server DNS elencati e quindi aggiungerli di nuovo nell'ordine desiderato.
@@ -147,7 +146,7 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 5. Selezionare **Salva**.
 6. Riavviare le macchine virtuali connesse alla rete virtuale in modo che vengano loro assegnate le nuove impostazioni del server DNS. Le VM continuano a usare le impostazioni DNS correnti finché non vengono riavviate.
 
-**Comandi:**
+**Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
@@ -162,7 +161,7 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 4. Selezionare **Elimina**.
 5. Per confermare l'eliminazione della rete virtuale, selezionare **Sì**.
 
-**Comandi:**
+**Comandi**
 
 - Interfaccia della riga di comando di Azure: [azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork)
@@ -171,7 +170,7 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 
 Per eseguire attività nelle reti virtuali, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Azione                                  |   Nome                                |
+| Action                                  |   Nome                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   Leggere una rete virtuale              |
 |Microsoft.Network/virtualNetworks/write  |   Creare o aggiornare una rete virtuale  |

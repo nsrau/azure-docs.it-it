@@ -4,12 +4,11 @@ description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure nec
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: b6af3d7ab1fdd35391c9a189162c57dfb259f2d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921742"
 ---
 # <a name="azure-functions-developer-guide"></a>Guida per sviluppatori di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -42,9 +41,9 @@ La proprietà `bindings` è quella che consente di configurare trigger e associa
 
 | Proprietà | Valori/tipi | Commenti |
 | --- | --- | --- |
-| `type` |stringa |Tipo di associazione. Ad esempio: `queueTrigger`. |
+| `type` |string |Tipo di associazione. Ad esempio: `queueTrigger`. |
 | `direction` |'in', 'out' |Indica se l'associazione consente la ricezione di dati nella funzione o l'invio di dati dalla funzione. |
-| `name` |stringa |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
+| `name` |string |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
 
 ## <a name="function-app"></a>App per le funzioni
 L'app per le funzioni offre un contesto di esecuzione per le funzioni. Di conseguenza, è l'unità di distribuzione e gestione per le funzioni. Un'app per le funzioni è costituita da una o più singole funzioni che vengono gestite, distribuite e ridimensionate insieme. Tutte le funzioni in un'app per le funzioni condividono lo stesso piano tariffario, il metodo di distribuzione e la versione del runtime. Un'app per le funzioni può essere considerata un modo per organizzare e gestire collettivamente le funzioni. Per altre informazioni, vedere [come gestire un'app](functions-how-to-use-azure-function-app-settings.md)per le funzioni. 
@@ -73,7 +72,7 @@ Quando si verificano rapidamente più eventi di trigger di quanti il runtime del
 
 ## <a name="functions-runtime-versioning"></a>Controllo delle versioni del runtime di Funzioni
 
-È possibile configurare la versione del runtime di Funzioni usando le impostazioni dell'app `FUNCTIONS_EXTENSION_VERSION`. Ad esempio, il valore "~ 3" indica che la versione principale del app per le funzioni utilizzerà 3. x. Le app per le funzioni vengono aggiornate a ogni nuova versione secondaria appena rilasciata. Per altre informazioni, incluso come visualizzare la versione esatta dell'app per le funzioni, vedere [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md).
+È possibile configurare la versione del runtime di Funzioni usando le impostazioni dell'app `FUNCTIONS_EXTENSION_VERSION`. Ad esempio, il valore "~ 3" indica che l'app per le funzioni userà 3. x come versione principale. Le app per le funzioni vengono aggiornate a ogni nuova versione secondaria appena rilasciate. Per altre informazioni, incluso come visualizzare la versione esatta dell'app per le funzioni, vedere [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repository
 Il codice di Funzioni di Azure è open source e archiviato in repository GitHub:
@@ -102,4 +101,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Scrivere codici per Funzioni di Azure e testarle in locale](./functions-develop-local.md)
 * [Procedure consigliate per funzioni di Azure](functions-best-practices.md)
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md)
-* [Informazioni di riferimento per sviluppatori su node. js di funzioni](functions-reference-node.md)
+* [Riferimenti per sviluppatori di funzioni di Azure Node.js](functions-reference-node.md)

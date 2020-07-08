@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81866263"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
@@ -42,10 +41,10 @@ Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero i
 Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero in verde nel diagramma precedente.
 
 1. Nel diagramma precedente l'applicazione crea un certificato, operazione che internamente inizia con la creazione di una chiave nell'insieme di credenziali delle chiavi.
-2. L'insieme di credenziali delle chiavi invia una richiesta di certificato TLS/SSL alla CA.
+2. Key Vault invia alla CA una richiesta di certificato TLS/SSL.
 3. L'applicazione esegue il polling, in un processo di ciclo e attesa, per Key Vault per il completamento del certificato. La creazione del certificato è completa quando Key Vault riceve la risposta della CA con il certificato X.509.
-4. La CA risponde alla richiesta di certificato TLS/SSL di Key Vault con un certificato X.509 TLS/SSL.
-5. La creazione del nuovo certificato completa con la fusione del certificato X.509 TLS/SSL per la CA.
+4. La CA risponde alla richiesta di certificato TLS/SSL di Key Vault con un certificato X. 509 TLS/SSL.
+5. La creazione del nuovo certificato viene completata con la fusione del certificato X. 509 TLS/SSL per l'autorità di certificazione.
 
 ## <a name="asynchronous-process"></a>Processo asincrono
 La creazione dei certificati di Key Vault è un processo asincrono. Questa operazione crea una richiesta di certificato KV e restituisce il codice di stato http 202 (accettato). Lo stato della richiesta può essere monitorato eseguendo il polling dell'oggetto in sospeso creato dall'operazione. Nell'intestazione LOCATION viene restituito l'URI completo dell'oggetto in sospeso.  
@@ -80,7 +79,7 @@ La chiave e il segreto indirizzabili ottengono i propri attributi dagli attribut
 ## <a name="partnered-ca-providers"></a>Provider CA partner
 La creazione del certificato può essere completata manualmente oppure usando un'autorità di certificazione "Self". Key Vault collabora con alcuni provider di autorità di certificazione per semplificare la creazione dei certificati. Presso questi provider autorità di certificazione partner è possibile ordinare i tipi seguenti di certificati per l'insieme di credenziali delle chiavi.  
 
-|Provider|Tipo di certificato|Impostazione della configurazione  
+|Provider|Tipo di certificato|Configurazione configurazione  
 |--------------|----------------------|------------------|  
 |DigiCert|Key Vault offre certificati SSL OV o EV con DigiCert| [Guida all'integrazione](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
 |GlobalSign|Key Vault offre certificati SSL OV o EV con GlobalSign| [Guida all'integrazione](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
@@ -93,4 +92,4 @@ Si noti che quando viene passato un ordine al provider di autorità di certifica
 
 ## <a name="see-also"></a>Vedere anche
 
- - [Monitorare e gestire la creazione di certificati](create-certificate-scenarios.md)
+ - [Monitorare e gestire la creazione dei certificati](create-certificate-scenarios.md)

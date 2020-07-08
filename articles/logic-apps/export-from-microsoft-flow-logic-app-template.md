@@ -3,24 +3,25 @@ title: Esportare i flussi da Power automatici ad app per la logica di Azure
 description: Migrare i flussi da Power automatizzate a app per la logica di Azure esportando come modelli Azure Resource Manager
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75428873"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324861"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Esportare flussi da Power Automate e distribuirli in App per la logica di Azure
 
 Per estendere ed espandere le funzionalità del flusso, è possibile eseguire la migrazione di tale flusso da [Power automatici](https://flow.microsoft.com) ad app per la [logica di Azure](../logic-apps/logic-apps-overview.md). È possibile esportare il flusso come modello di Azure Resource Manager per un'app per la logica, distribuire il modello di app per la logica in un gruppo di risorse di Azure e quindi aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
 > [!NOTE]
-> Non tutti i connettori di Power automatizzate sono disponibili nelle app per la logica di Azure. È possibile importare flussi con [connettori equivalenti](../connectors/apis-list.md) in app per la logica di Azure. Ad esempio, il trigger del pulsante, il connettore di approvazione e il connettore di notifica sono specifici per l'automazione dell'energia elettrica.
+> Non tutti i connettori di Power automatizzate sono disponibili nelle app per la logica di Azure. È possibile eseguire la migrazione solo dei flussi di Power automatizzati che dispongono di connettori equivalenti nelle app per la logica di Azure. Ad esempio, il trigger del pulsante, il connettore di approvazione e il connettore di notifica sono specifici per l'automazione dell'energia elettrica. Attualmente i flussi basati su OpenAPI in Power automatizzate non sono supportati per l'esportazione e la distribuzione come modelli di app per la logica.
 >
-> I flussi basati su OpenAPI esportati da Power automatici non sono attualmente supportati per la distribuzione come modelli di app per la logica. 
+> * Per individuare i connettori di Power automatizzate che non dispongono di equivalenti di app per la logica, vedere [connettori di Power automatizzate](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+>
+> * Per individuare i connettori delle app per la logica che non dispongono di energia automatica equivalenti, vedere [connettori per app](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors)per la logica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,13 +29,13 @@ Per estendere ed espandere le funzionalità del flusso, è possibile eseguire la
 
 * Il flusso che si vuole esportare dall'energia automatica
 
-## <a name="export-a-flow"></a>Esportare un flusso
+## <a name="export-your-flow"></a>Esportare il flusso
 
-1. Accedere a [Power automatizzate](https://flow.microsoft.com)e selezionare **flussi personali**. Trovare e selezionare il flusso. Sulla barra degli strumenti, selezionare il pulsante con i puntini di sospensione (**...**). Selezionare **Esporta** > **modello app per la logica (. Json)**.
+1. Accedere a [Power automatizzate](https://flow.microsoft.com)e selezionare **flussi personali**. Trovare e selezionare il flusso. Sulla barra degli strumenti, selezionare il pulsante con i puntini di sospensione (**...**) > **esportare**il modello di app per la  >  **logica (. Json)**.
 
-   ![Esportare il flusso](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
+   ![Esporta flusso da Power automatizza](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
-1. Salvare il modello nel percorso desiderato.
+1. Salvare il file con estensione JSON del modello nel percorso desiderato.
 
 Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](https://flow.microsoft.com/blog/grow-up-to-logic-apps/).
 
@@ -42,42 +43,51 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con l'account Azure.
 
-1. Nel menu principale di Azure scegliere **Crea una risorsa**. Nella casella di ricerca immettere "distribuzione modello". Selezionare **distribuzione modelli (Distribuisci usando i modelli personalizzati)**, quindi selezionare **Crea**.
+1. Nella casella di ricerca del home page di Azure immettere `custom template` . Nei risultati selezionare **Distribuisci un modello personalizzato**  >  **Crea**.
 
-   ![Selezionare "Distribuzione modelli"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
+   ![Trovare e selezionare "Distribuzione modelli"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
 
 1. In **distribuzione personalizzata**selezionare **Compila un modello personalizzato nell'editor**.
 
    ![Selezionare "Compila un modello personalizzato nell'editor"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. Dalla barra degli strumenti **modifica modello** selezionare **Carica file**. Trovare e selezionare il modello JSON esportato da Power automatizzate e selezionare **Apri**.
+1. Nella barra degli strumenti **modifica modello** selezionare **Carica file**.
 
    ![Selezionare "carica file"](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
+1. Passare al percorso in cui è stato salvato il file modello JSON esportato da Power automatizzate. Selezionare il file di modello > **Apri**.
+
 1. Quando l'editor Mostra il codice JSON, i parametri e le risorse nel modello, selezionare **Salva**.
-  
+
    ![Salvare il modello](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
 
-1. Specificare ora i parametri di input per il modello:
+1. A questo punto, fornire altre informazioni sull'app per la logica.
 
-   * Sottoscrizione di Azure da usare per la fatturazione
-   * Gruppo di risorse di Azure
-   * Percorso del gruppo di risorse di Azure
-   * Nome della risorsa dell'app per la logica
-   * Percorso della risorsa dell'app per la logica, se diverso dal gruppo di risorse di Azure
-   * Nome di tutte le connessioni create in precedenza che possono essere riutilizzate dall'app per la logica
+   1. Selezionare o specificare i valori dei parametri di input per il modello.
 
-      Se si sta creando la prima app per la logica, tutte le connessioni vengono create come nuove, quindi è possibile accettare i nomi predefiniti. In caso contrario, è possibile specificare i nomi per le connessioni create in precedenza, che possono essere usate in più app per la logica.
+      | Proprietà | Descrizione |
+      |----------|-------------|
+      | **Sottoscrizione** | Sottoscrizione di Azure da usare per la fatturazione |
+      | **Gruppo di risorse** | Gruppo di risorse di Azure da usare per l'app per la logica. È possibile utilizzare un gruppo esistente o creare un nuovo gruppo. |
+      | **Posizione** | Area di Azure da usare se si crea un nuovo gruppo di risorse |
+      | **Nome dell'app per la logica** | Nome da usare per la risorsa dell'app per la logica |
+      | **Percorso dell'app per la logica** | Area di Azure in cui si vuole creare la risorsa dell'app per la logica, se diversa da quella del gruppo di risorse di Azure |
+      | <*Nome connessione*> | Uno o più nomi per tutte le connessioni create in precedenza che possono essere riutilizzate dall'app per la logica <p><p>**Nota**: se questa app per la logica è la prima, tutte le connessioni vengono create come nuove, quindi è possibile accettare i nomi predefiniti. In caso contrario, è possibile specificare i nomi per le connessioni create in precedenza, che possono essere usate in più app per la logica. |
+      |||
 
-   Dopo aver fornito queste informazioni per il modello, rivedere e accettare i termini e le condizioni di Azure Marketplace per la creazione delle risorse di Azure necessarie e la fatturazione della sottoscrizione di Azure di conseguenza, quindi selezionare **Acquista**.
-  
-   ![Specificare i parametri di input per il modello](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
+      Ad esempio:
 
-   Azure distribuisce il modello come app per la logica nel gruppo di risorse specificato. Tutte le app per la logica di cui si esegue la migrazione da Power automatizzate vengono distribuite in uno stato disabilitato.
+      ![Specificare i parametri di input per il modello](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-1. Prima di attivare l'app per la logica, autorizzare le nuove connessioni attenendosi alla procedura seguente:
+   1. Al termine, esaminare i **termini e le condizioni** per la creazione delle risorse di Azure necessarie e la fatturazione della sottoscrizione di Azure di conseguenza.
 
-   1. Aprire l'app per la logica creata. Nel menu dell'app per la logica selezionare **progettazione app**per la logica.
+   1. Quando si è pronti, selezionare Accetto **i termini e le condizioni indicati in precedenza**  >  **purchase**.
+
+      Azure distribuisce il modello come app per la logica nel gruppo di risorse specificato.
+
+1. Tutte le app per la logica di cui si esegue la migrazione da Power automatizzate vengono distribuite in uno stato disabilitato. Prima di abilitare l'app per la logica, autorizzare le nuove connessioni attenendosi alla procedura seguente:
+
+   1. Nella portale di Azure aprire l'app per la logica creata. Nel menu dell'app per la logica selezionare **progettazione app**per la logica.
 
       Ogni connessione che richiede l'autorizzazione Visualizza un'icona di avviso:
 
@@ -89,7 +99,9 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
 
    1. Accedere a ogni servizio o fornire le credenziali necessarie per autorizzare la connessione.
 
-1. Salvare l'app per la logica. Quando si è pronti per attivare l'app per la logica, scegliere **Panoramica**dal menu dell'app per la logica e quindi fare clic su **Abilita**.
+   1. Dopo aver aggiornato le connessioni, sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
+
+1. Quando si è pronti per attivare l'app per la logica, scegliere **Panoramica**dal menu dell'app per la logica e quindi fare clic su **Abilita**.
 
    ![Abilitare l'app per la logica](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
@@ -97,21 +109,23 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
 
 ## <a name="deploy-template-by-using-visual-studio"></a>Distribuire un modello con Visual Studio
 
-Se Visual Studio è stato configurato con i [prerequisiti](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) per la creazione di app per la logica, è possibile distribuire il modello esportato da Visual Studio in app per la logica di Azure.
+Se Visual Studio è stato configurato con i [prerequisiti](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) per la creazione di app per la logica, è possibile distribuire il modello esportato in app per la logica di Azure usando Visual Studio.
 
-1. In Visual Studio aprire il file modello esportato da Power Automate.
+1. In Visual Studio passare a e aprire il file con estensione JSON per il modello di app per la logica esportato da Power automatizzate.
 
-1. In Visual Studio creare un progetto gruppo di risorse di Azure e selezionare il modello app per la **logica** seguendo i passaggi descritti in [Guida introduttiva: creare attività, processi e flussi di lavoro automatizzati con app per la logica di Azure-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md), ad esempio:
+1. In Visual Studio creare un progetto di **gruppo di risorse di Azure** che usa il modello di app per la **logica** seguendo la procedura descritta in [Guida introduttiva: creare attività, processi e flussi di lavoro automatizzati con app per la logica di Azure-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+   Questo esempio Mostra come creare una soluzione di Visual Studio denominata "ImportedLogicApp".
 
    ![Creare un progetto Gruppo di risorse di Azure](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
-1. Da Esplora soluzioni aprire il file **LogicApp. JSON** , se il file non è già aperto.
+1. Dopo aver creato la soluzione, in Esplora soluzioni aprire il **LogicApp.jsnel** file, se il file non è già aperto.
 
-1. Copiare il contenuto del modello esportato e sovrascrivere il contenuto nel file **LogicApp. JSON** .
+1. Copiare il contenuto del modello esportato e sovrascrivere il contenuto nella **LogicApp.jssu** file.
 
 1. Prima di distribuire l'app per la logica, autorizzare le nuove connessioni attenendosi alla procedura seguente:
 
-   1. Aprire il menu di scelta rapida **LogicApp. JSON** e quindi selezionare **Apri con progettazione app per la logica**.
+   1. Aprire il **LogicApp.js** dal menu di scelta rapida e quindi selezionare **Apri con progettazione app per la logica**.
 
       ![Aprire un modello con progettazione app per la logica](./media/export-from-microsoft-flow-logic-app-template/open-logic-app-designer.png)
 
@@ -131,7 +145,7 @@ Se Visual Studio è stato configurato con i [prerequisiti](../logic-apps/quickst
 
    1. Salvare la soluzione prima di distribuire l'app per la logica.
 
-1. In Esplora soluzioni aprire il menu di scelta rapida del progetto e scegliere **Distribuisci** > **nuovo**. Se richiesto, accedere con il proprio account di Azure.
+1. In Esplora soluzioni aprire il menu di scelta rapida del progetto e scegliere **Distribuisci**  >  **nuovo**. Se richiesto, accedere con il proprio account di Azure.
 
 1. Quando richiesto, confermare la sottoscrizione di Azure, il gruppo di risorse di Azure e tutte le altre impostazioni che si vuole usare per la distribuzione, ad esempio un [file di parametri](../azure-resource-manager/templates/parameter-files.md) da usare per passare i valori dei parametri di modello, quindi selezionare **Distribuisci**.
 

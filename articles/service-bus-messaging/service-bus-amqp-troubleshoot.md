@@ -1,25 +1,13 @@
 ---
 title: Risolvere gli errori di AMQP nel bus di servizio di Azure | Microsoft Docs
 description: Fornisce un elenco di errori di AMQP che possono essere visualizzati quando si usa il bus di servizio di Azure e si verificano tali errori.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/03/2019
-ms.author: aschhab
-ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 9680e930dd8c1cb8cbd062f029af9d674d62c0e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60402786"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337826"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Errori di AMQP nel bus di servizio di Azure
 Questo articolo fornisce alcuni degli errori ricevuti quando si usa AMQP con il bus di servizio di Azure. Sono tutti comportamenti standard del servizio. È possibile evitarli effettuando chiamate di invio/ricezione sulla connessione o sul collegamento, che ricrea automaticamente la connessione o il collegamento.

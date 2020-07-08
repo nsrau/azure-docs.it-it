@@ -4,15 +4,14 @@ description: Questo articolo offre una panoramica delle configurazioni di dispos
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: b914afaa6725920078da309981bcda5bb765e155
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00291373ae1e30eca2fdf5f9435fc2201a492e40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84988070"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Panoramica delle configurazioni di dispositivi VPN di partner
 L'articolo offre una panoramica della configurazione di dispositivi VPN locali per la connessione ai gateway VPN di Azure. Viene usata una configurazione di rete virtuale e di gateway VPN di Azure di esempio per mostrare come connettersi a diverse configurazioni di dispositivi VPN locali usando gli stessi parametri.

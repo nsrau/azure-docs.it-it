@@ -6,31 +6,30 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 76442368fe4b3e498f622a8a3cd5b5b973f16bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 26eb3a495fd1c896416265687d92da66dfc3599b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212293"
 ---
 # <a name="views-in-synapse-sql-pool"></a>Visualizzazioni nel pool SQL sinapsi
 
 Le viste risultano utili in molti modi diversi per migliorare la qualità della soluzione.
 
-Il pool SQL supporta le viste standard e materializzate. Entrambe sono tabelle virtuali create con espressioni SELECT e presentate alle query come tabelle logiche.
+Il pool SQL supporta le viste standard e le viste materializzate. Entrambe sono tabelle virtuali create con espressioni SELECT e presentate alle query come tabelle logiche.
 
-Le visualizzazioni incapsulano la complessità del calcolo comune dei dati e aggiungono un livello di astrazione alle modifiche di calcolo, pertanto non è necessario riscrivere le query.
+Le viste incapsulano la complessità del calcolo dei dati comuni e aggiungono un livello di astrazione alle modifiche dei calcoli, in modo che non sia necessario riscrivere le query.
 
 ## <a name="standard-view"></a>Vista standard
 
-Una vista standard calcola i dati ogni volta che viene utilizzata la vista. Non sono presenti dati archiviati su disco. Le persone utilizzano in genere viste standard come uno strumento che consente di organizzare gli oggetti logici e le query in un database.
+Una vista standard calcola i dati ogni volta che viene usata. Non sono presenti dati archiviati su disco. Le viste standard vengono in genere usate come strumento per organizzare gli oggetti logici e le query in un database.
 
-Per utilizzare una vista standard, è necessario eseguire un riferimento diretto a una query. Per altre informazioni, vedere la documentazione per [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Per usare una vista standard, una query deve farvi riferimento diretto. Per altre informazioni, vedere la documentazione per [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Le visualizzazioni nel pool SQL vengono archiviate solo come metadati. Di conseguenza, le opzioni seguenti non sono disponibili:
 
@@ -46,13 +45,13 @@ Un altro vantaggio delle viste potrebbe essere l'applicazione di una query speci
 
 ## <a name="materialized-view"></a>Vista materializzata
 
-Una vista materializzata consente di pre-calcolare, archiviare e gestire i dati nel pool SQL esattamente come una tabella. Non è necessario ricalcolare ogni volta quando viene usata una vista materializzata.
+Una vista materializzata pre-calcola, archivia e gestisce i dati nel pool SQL esattamente come una tabella. Non è necessario ricalcolare una vista materializzata a ogni utilizzo.
 
 Quando i dati vengono caricati in tabelle di base, il pool SQL Aggiorna in modo sincrono le viste materializzate.  Il Query Optimizer utilizza automaticamente viste materializzate distribuite per migliorare le prestazioni di esecuzione delle query anche se nella query non viene fatto riferimento alle viste.  
 
 Le query che sfruttano la maggior parte delle viste materializzate sono query complesse, in genere query con join e aggregazioni, in tabelle di grandi dimensioni che producono un set di risultati di piccole dimensioni.  
 
-Per informazioni dettagliate sulla sintassi di visualizzazione materializzata e su altri requisiti, vedere [creare una vista materializzata come SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+Per informazioni dettagliate sulla sintassi e sugli altri requisiti delle viste materializzate, vedere [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
 Per informazioni aggiuntive sull'ottimizzazione delle query, vedere [ottimizzazione delle prestazioni con viste materializzate](performance-tuning-materialized-views.md).
 
