@@ -3,12 +3,12 @@ title: Creare criteri a livello di programmazione
 description: Questo articolo illustra la creazione e la gestione a livello di codice dei criteri per Criteri di Azure con l’interfaccia della riga di comando di Azure, Azure PowerShell e l’API REST.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 3f785556dd86aa8b02f5aa0af09190266b8c509f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682128"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969890"
 ---
 # <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
@@ -95,7 +95,7 @@ Il primo passo per una migliore visibilità delle risorse consiste nel creare e 
    - Sottoscrizione - `/subscriptions/{subId}/`
    - Gruppo di gestione - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Per altre informazioni sulla gestione dei criteri di risorse con il modulo PowerShell di Azure Resource Manager, vedere [Az.Resources](/powershell/module/az.resources/#policies).
+Per altre informazioni sulla gestione dei criteri delle risorse usando il modulo Gestione risorse PowerShell, vedere [AZ. resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Creare e assegnare una definizione dei criteri usando ARMClient
 

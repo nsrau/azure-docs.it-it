@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: fc779d6caba2b896b869440ad523291bc3c9a9b2
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726435"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965281"
 ---
 # <a name="rendering-using-azure"></a>Rendering tramite Azure
 
@@ -48,7 +48,7 @@ Azure offre un'ampia gamma di funzionalità che possono essere usate per carichi
 
 Il caso più comune prevede la presenza di una farm di rendering locale esistente gestita da un'applicazione di gestione del rendering come PipelineFX Qube, Royal Render o Thinkbox Deadline.  Il requisito consiste nell'estendere la capacità della farm di rendering locale tramite macchine virtuali di Azure.
 
-Il software di gestione del rendering include il supporto di Azure integrato oppure Microsoft rende disponibili alcuni plug-in che aggiungono tale supporto di Azure. Per altre informazioni sugli strumenti di gestione del rendering supportati e sulle funzionalità abilitate, vedere l'articolo sull'[uso di applicazioni di gestione del rendering](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers).
+Il software di gestione del rendering include il supporto di Azure integrato oppure Microsoft rende disponibili alcuni plug-in che aggiungono tale supporto di Azure. Per altre informazioni sugli strumenti di gestione del rendering supportati e sulle funzionalità abilitate, vedere l'articolo sull'[uso di applicazioni di gestione del rendering](./batch-rendering-render-managers.md).
 
 ### <a name="custom-rendering-workflow"></a>Flusso di lavoro di rendering personalizzato
 
@@ -77,9 +77,9 @@ Azure Batch viene usato per molti carichi di lavoro, ma sono disponibili le funz
 È possibile usare Azure Batch in diversi modi, tutti validi anche per il rendering di Azure Batch.
 
 * API:
-  * Scrivere codice tramite API [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch) o altre API supportate.  Gli sviluppatori possono integrare le funzionalità di Azure Batch nelle applicazioni esistenti o nel flusso di lavoro, su un'istanza locale o nel cloud.  Ad esempio, il [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utilizza l'API Phyton per Batch per richiamare Batch, creare e gestire pool, inviare processi e attività e monitorare lo stato.
+  * Scrivere codice tramite API [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) o altre API supportate.  Gli sviluppatori possono integrare le funzionalità di Azure Batch nelle applicazioni esistenti o nel flusso di lavoro, su un'istanza locale o nel cloud.  Ad esempio, il [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utilizza l'API Phyton per Batch per richiamare Batch, creare e gestire pool, inviare processi e attività e monitorare lo stato.
 * Strumenti da riga di comando:
-  * Per scrivere script per l'uso di Batch, è possibile usare la [riga di comando di Azure](https://docs.microsoft.com/cli/azure/) o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+  * Per scrivere script per l'uso di Batch, è possibile usare la [riga di comando di Azure](/cli/azure/) o [Azure PowerShell](/powershell/azure/overview).
   * In particolare, il supporto dei modelli dell'interfaccia della riga di comando di Batch semplifica notevolmente la creazione di pool e l'invio di processi.
 * Interfacce utente:
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client multipiattaforma che permette anche la gestione e il monitoraggio degli account di Batch, ma offre alcune funzionalità avanzate rispetto all'interfaccia utente del portale di Azure.  Viene fornito un set di modelli di pool e di processo ottimizzati per ogni applicazione supportata, che possono essere usati per creare pool e inviare processi in tutta semplicità.
@@ -95,9 +95,9 @@ Azure Batch viene usato per molti carichi di lavoro, ma sono disponibili le funz
 
 Per provare il rendering di Azure Batch, vedere le esercitazioni introduttive seguenti:
 
-* [Eseguire il rendering di una scena di Blender con Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
-* [Usare l'interfaccia della riga di comando di Batch per eseguire il rendering di una scena di Autodesk 3ds Max](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Eseguire il rendering di una scena di Blender con Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* [Usare l'interfaccia della riga di comando di Batch per eseguire il rendering di una scena di Autodesk 3ds Max](./tutorial-rendering-cli.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Determinare l'elenco di applicazioni di rendering e le versioni incluse nelle immagini di macchina virtuale di Azure Marketplace in [questo articolo](https://docs.microsoft.com/azure/batch/batch-rendering-applications).
+Determinare l'elenco di applicazioni di rendering e le versioni incluse nelle immagini di macchina virtuale di Azure Marketplace in [questo articolo](./batch-rendering-applications.md).

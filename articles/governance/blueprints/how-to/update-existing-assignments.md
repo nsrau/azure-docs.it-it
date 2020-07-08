@@ -3,12 +3,12 @@ title: Aggiornare un'assegnazione esistente dal portale
 description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione di progetto esistente dal portale nei progetti di Azure.
 ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381801"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969465"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -50,18 +50,18 @@ La distribuzione delle assegnazioni aggiornate segue alcune regole importanti. Q
   - Se viene modificata la definizione dell'assegnazione dei criteri, viene creata una nuova assegnazione di criteri.
     Le assegnazioni di criteri distribuite in precedenza vengono mantenute.
   - Se l'artefatto dell'assegnazione dei criteri viene rimosso dal progetto, l'assegnazione di criteri distribuita viene mantenuta.
-- Modelli di Gestione risorse di Azure
+- Modelli di Azure Resource Manager (modelli ARM)
   - Il modello viene elaborato tramite Resource Manager come **PUT**. Dato che ogni tipo di risorsa gestisce questo tipo di azione in modo diverso, vedere la documentazione per ogni risorsa inclusa per determinare l'impatto di questa azione quando viene eseguita dai progetti.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Possibili errori per l'aggiornamento delle assegnazioni
 
-Quando si aggiornano le assegnazioni, è possibile apportare modifiche che causano errori durante l'esecuzione. Un esempio è la modifica della posizione di un gruppo di risorse dopo che è già stato distribuito. È possibile apportare qualsiasi modifica supportata da [Azure Resource Manager](../../../azure-resource-manager/management/overview.md), ma qualsiasi modifica che causerebbe un errore in Azure Resource Manager comporterà anche l'esito negativo dell'assegnazione.
+Quando si aggiornano le assegnazioni, è possibile apportare modifiche che causano errori durante l'esecuzione. Un esempio è la modifica della posizione di un gruppo di risorse dopo che è già stato distribuito. È possibile apportare qualsiasi modifica supportata da [Gestione risorse](../../../azure-resource-manager/management/overview.md) , ma qualsiasi modifica che comporterebbe un errore tramite Gestione risorse comporterà anche l'errore dell'assegnazione.
 
 Non è previsto alcun limite al numero di volte che è possibile aggiornare un'assegnazione. Se si verifica un errore, determinare l'errore ed eseguire un altro aggiornamento per l'assegnazione.  Esempi di scenari di errore:
 
 - Un parametro non valido
 - Un oggetto già esistente
-- Una modifica non supportata da Azure Resource Manager
+- Una modifica non è supportata da Gestione risorse
 
 ## <a name="next-steps"></a>Passaggi successivi
 
