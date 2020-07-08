@@ -9,7 +9,6 @@ ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 00935762a5e19ec47074021aff59992fd3b801bf
 ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/22/2020
 ms.locfileid: "83797453"
