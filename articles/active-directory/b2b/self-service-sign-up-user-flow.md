@@ -4,26 +4,23 @@ description: Aggiungere la federazione con Facebook per consentire a utenti este
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551242"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)
-|     |
-| --- |
-| L'iscrizione self-service è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> L'iscrizione self-service è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile creare flussi utente per le app create dall'organizzazione. L'associazione del flusso utente a un'applicazione consente di abilitare l'iscrizione in tale app. È possibile scegliere più di un'applicazione da associare al flusso utente. Dopo aver associato il flusso utente a una o più applicazioni, gli utenti che visitano l'app potranno iscriversi e ottenere un account guest usando le opzioni configurate nel flusso utente.
 
@@ -109,3 +106,5 @@ A questo punto è possibile associare le applicazioni al flusso utente.
 
 - [Aggiungere Google all'elenco di provider di identità basati su social network](google-federation.md)
 - [Aggiungere Facebook all'elenco di provider di identità basati su social network](facebook-federation.md)
+- [Usare i connettori API per personalizzare ed estendere i flussi utente tramite API Web](api-connectors-overview.md)
+- [Aggiungere un flusso di lavoro di approvazione personalizzato al flusso utente](self-service-sign-up-add-approvals.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 93b3e90deb5e3764cb5402938c5d0e14cadb7883
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 055fd5182920ebe15cb2f3ed4b7a8ff69bb94c16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549567"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Funzioni di data e ora (Azure Cosmos DB)
 
@@ -22,14 +22,12 @@ Le funzioni di data e ora consentono di eseguire operazioni DateTime e timestamp
 
 Le funzioni scalari seguenti consentono di ottenere la data e l'ora UTC correnti in due formati; timestamp numerico il cui valore è l'EPOCH UNIX in millisecondi o come stringa conforme al formato ISO 8601:
 
-|||
-|-|-|
-|[GetCurrentDateTime](sql-query-getcurrentdatetime.md)|[GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)||
-
+* [GetCurrentDateTime](sql-query-getcurrentdatetime.md)
+* [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)
 - [Funzioni definite dall'utente](sql-query-udfs.md)
 - [Aggregazioni](sql-query-aggregates.md)

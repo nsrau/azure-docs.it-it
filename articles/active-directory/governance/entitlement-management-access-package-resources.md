@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 800c3dbeb96dfb87c7b495909e21eca929bec726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550315"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare i ruoli delle risorse per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -90,7 +90,7 @@ Per altre informazioni, vedere [confrontare gruppi](https://docs.microsoft.com/o
 
     Dopo aver selezionato il gruppo o il team, nella colonna **sottotipo** sarà presente uno dei sottotipi seguenti:
 
-    |  |  |
+    | Sottotipo | Descrizione |
     | --- | --- |
     | Sicurezza | Utilizzato per concedere l'accesso alle risorse. |
     | Distribuzione | Utilizzato per l'invio di notifiche a un gruppo di utenti. |
@@ -103,7 +103,7 @@ Per altre informazioni, vedere [confrontare gruppi](https://docs.microsoft.com/o
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un gruppo o un team](./media/entitlement-management-access-package-resources/group-role.png)
 
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 
     Tutti gli utenti con assegnazioni esistenti al pacchetto di accesso diventeranno automaticamente membri di questo gruppo o team quando verranno aggiunti.
 
@@ -134,7 +134,7 @@ Di seguito sono riportate alcune considerazioni per la selezione di un'applicazi
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un'applicazione](./media/entitlement-management-access-package-resources/application-role.png)
 
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 
     A tutti gli utenti con assegnazioni esistenti al pacchetto di accesso verrà automaticamente concesso l'accesso a questa applicazione al momento dell'aggiunta.
 
@@ -154,7 +154,7 @@ Azure AD possibile assegnare automaticamente agli utenti l'accesso a un sito di 
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un sito di SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
 
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 
     A tutti gli utenti con assegnazioni esistenti al pacchetto di accesso verrà automaticamente concesso l'accesso al sito di SharePoint Online quando viene aggiunto.
 

@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: be1f74dcccc654dbdd0a743d1da2da89071045f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cad76677464ba4895141e53ea45b98f55cc2f655
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515741"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Trasferimento dei dati per set di dati di grandi dimensioni con larghezza di banda di rete bassa o assente
  
@@ -23,7 +23,7 @@ Per una panoramica di tutte le opzioni di trasferimento dei dati disponibili, ve
 
 ## <a name="offline-transfer-or-network-transfer"></a>Trasferimento offline o trasferimento di rete
 
-I set di dati di grandi dimensioni implicano la presenza di alcuni TB o PB di dati. La larghezza di banda di rete è ridotta o assente, la rete è lenta o non affidabile. Tenere presente anche quanto segue:
+I set di dati di grandi dimensioni implicano la presenza di alcuni TB o PB di dati. La larghezza di banda di rete è ridotta o assente, la rete è lenta o non affidabile. Inoltre:
 
 - Esistono limiti di costo del trasferimento di rete previsti dai provider di servizi Internet (ISP).
 - I criteri di sicurezza o dell'organizzazione non consentono connessioni in uscita quando si gestiscono dati sensibili.
@@ -50,7 +50,7 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 |    Dimensioni dei dati                        |    Fino a 35 TB                 |    Fino a 80 TB per dispositivo                       |    Fino a 800 TB per dispositivo               |    Variabile                            |
 |    Tipo di dati                        |    BLOB di Azure                  |    BLOB di Azure<br>File di Azure                    |    BLOB di Azure<br>File di Azure            |    BLOB di Azure<br>File di Azure          |
 |    Fattore di forma                      |    5 unità SSD per ordine             |    1 dispositivo desktop da 23 kg per ordine    |    1 dispositivo di grandi dimensioni da circa 230 kg per ordine    |    Fino a 10 HDD/unità SSD per ordine        |
-|    Tempo di configurazione iniziale               |    Basso <br>(15 min)            |    Da basso a moderato <br> (<30 min)               |    Moderata<br>(1-2 ore)               |    Da moderato a elevato<br>(variabile) |
+|    Tempo di configurazione iniziale               |    Basso <br>(15 min)            |    Da basso a moderato <br> (<30 min)               |    Moderato<br>(1-2 ore)               |    Da moderato a elevato<br>(variabile) |
 |    Inviare dati ad Azure               |    Sì                          |    Sì                                           |    Sì                                   |    Sì                                 |
 |    Esportare dati da Azure           |    No                           |    No                                            |    No                                    |    Sì                                 |
 |    Crittografia                       |    AES a 128 bit                  |    AES a 256 bit                                   |    AES a 256 bit                           |    AES a 128 bit                         |

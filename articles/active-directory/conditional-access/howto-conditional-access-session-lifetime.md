@@ -1,24 +1,24 @@
 ---
 title: Configurare la gestione della sessione di autenticazione-Azure Active Directory
-description: Personalizzare Azure AD configurazione della sessione di autenticazione, inclusa la frequenza di accesso utente e la persistenza della sessione del browser.
+description: Personalizzare Azure AD configurazione della sessione di autenticazione, ad esempio la frequenza di accesso utente e la persistenza della sessione del browser.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263283"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552124"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurare la gestione delle sessioni di autenticazione con l'accesso condizionale
+# <a name="configure-authentication-session-management-with-conditional-access"></a>È possibile configurare la gestione della sessione di autenticazione con l'Accesso condizionale
 
 Nelle distribuzioni complesse, le organizzazioni potrebbero avere la necessità di limitare le sessioni di autenticazione. Alcuni scenari possono includere:
 
@@ -51,9 +51,17 @@ L'impostazione della frequenza di accesso funziona con le app che hanno implemen
 - Dynamics CRM Online
 - Portale di Azure
 
+L'impostazione della frequenza di accesso funziona anche con le applicazioni SAML, purché non eliminino i propri cookie e vengano reindirizzati di nuovo a Azure AD per l'autenticazione a intervalli regolari.
+
+### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Frequenza di accesso utente e autenticazione a più fattori
+
+Frequenza di accesso applicata in precedenza solo al primo fattore di autenticazione nei dispositivi che sono stati Azure AD Uniti, Azure AD ibrido Uniti e Azure AD registrati. Non esisteva un modo semplice per i clienti di reapplicare l'autenticazione a più fattori (multi-factor authentication) a tali dispositivi. In base ai suggerimenti dei clienti, viene applicata la frequenza di accesso anche per l'autenticazione a più fattori.
+
+[![Frequenza di accesso e autenticazione a più fattori](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
+
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Frequenza di accesso utente e identità del dispositivo
 
-Se si dispone Azure AD aggiunto, ibrido Azure AD aggiunto o Azure AD dispositivi registrati, quando un utente sblocca il dispositivo o esegue l'accesso in modo interattivo, questo evento soddisferà anche i criteri di frequenza di accesso. Nei 2 esempi seguenti, la frequenza di accesso utente è impostata su 1 ora:
+Se si dispone di Azure AD aggiunti, ibridi Azure AD aggiunti o Azure AD dispositivi registrati, quando un utente sblocca il dispositivo o accede in modo interattivo, questo evento soddisferà anche i criteri di frequenza di accesso. Nei due esempi seguenti, la frequenza di accesso utente è impostata su 1 ora:
 
 Esempio 1:
 
@@ -90,7 +98,7 @@ L'accesso condizionale è una funzionalità di Azure AD Premium e richiede una l
    > [!NOTE]
    > È consigliabile impostare la frequenza di richiesta di autenticazione uguale per le app chiave Microsoft Office come Exchange Online e SharePoint Online per ottimizzare l'esperienza utente.
 
-1. Passare alla **Access Controls** > **sessione** controlli di accesso e fare clic su **frequenza di** accesso
+1. Passare alla **sessione controlli di accesso**  >  **Session** e fare clic su **frequenza di** accesso
 1. Immettere il valore richiesto di giorni e ore nella prima casella di testo
 1. Selezionare un valore di **ore** o **giorni** dall'elenco a discesa
 1. Salvare i criteri
@@ -109,7 +117,7 @@ Se è stata configurata una frequenza di accesso diversa per diverse app Web in 
    > [!NOTE]
    > Si noti che questo controllo richiede di scegliere "tutte le app Cloud" come condizione. La persistenza della sessione del browser è controllata dal token della sessione di autenticazione. Tutte le schede in una sessione del browser condividono un solo token di sessione e pertanto devono condividere lo stato di persistenza.
 
-1. Passare alla **Access Controls** > **sessione** controlli di accesso e fare clic su **sessione del browser permanente**
+1. Passare alla **sessione controlli di accesso**  >  **Session** e fare clic su **sessione del browser permanente**
 1. Selezionare un valore dall'elenco a discesa
 1. Salva i criteri
 

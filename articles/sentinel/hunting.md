@@ -1,6 +1,6 @@
 ---
 title: Funzionalità di ricerca in Sentinel di Azure | Microsoft Docs
-description: Questo articolo descrive come usare le funzionalità di ricerca di Azure Sentinel.
+description: Usare le query di ricerca predefinite di Azure Sentinel per visualizzare le domande appropriate per individuare i problemi nei dati.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686640"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552292"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Cercare le minacce con Azure Sentinel
 
@@ -84,7 +84,7 @@ Nell'esempio precedente, iniziare con il nome della tabella SecurityEvent e aggi
 
 2. Aggiungere un filtro nella query per visualizzare solo l'ID evento 4688.
 
-3. Aggiungere un filtro nella query nella riga di comando per contenere solo le istanze di cscript. exe.
+3. Aggiungere un filtro nella query nella riga di comando per contenere solo le istanze di cscript.exe.
 
 4. Proiettare solo le colonne a cui si è interessati a esplorare e limitare i risultati a 1000 e fare clic su **Esegui query**.
 5. Fare clic sul triangolo verde ed eseguire la query. È possibile testare la query ed eseguirla per cercare un comportamento anomalo.
@@ -143,4 +143,4 @@ In questo articolo si è appreso come eseguire un'indagine di caccia con Azure S
 
 
 - [Usare i notebook per eseguire campagne di caccia automatiche](notebooks.md)
-- [Usare i segnalibri per salvare informazioni interessanti durante la ricerca](bookmarks.md)
+- [Usare i segnalibri per salvare informazioni utili durante la ricerca](bookmarks.md)

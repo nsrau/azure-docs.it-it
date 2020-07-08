@@ -11,21 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 181e8192170cd7394d6817edd655f4e8257b48a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550643"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso alle risorse locali con Azure Active Directory (anteprima)
 
 Questo documento è incentrato sull'abilitazione dell'autenticazione senza password per le risorse locali per ambienti con **Azure ad aggiunti** e **ibridi Azure ad** dispositivi Windows 10. Questa funzionalità offre un Single Sign-On semplice (SSO) alle risorse locali usando chiavi di sicurezza compatibili con Microsoft.
 
-|     |
-| --- |
-| Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>Da SSO a risorse locali con chiavi di FIDO2
 
@@ -148,7 +146,7 @@ Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -Domain
 
 L'oggetto server Azure AD Kerberos è rappresentato in Azure AD come oggetto *KerberosDomain* . Ogni dominio di Active Directory locale è rappresentato come un singolo oggetto *KerberosDomain* in Azure ad.
 
-Ad esempio, l'organizzazione dispone di una foresta Active Directory con due domini `contoso.com` , `fabrikam.com`e. Se si sceglie di consentire Azure AD di emettere TGT Kerberos per l'intera foresta, in Azure AD sono presenti due oggetti *KerberosDomain* . Un oggetto *KerberosDomain* per `contoso.com`e uno per `fabrikam.com`. Se si dispone di più foreste Active Directory, esiste un oggetto *KerberosDomain* per ogni dominio in ogni foresta.
+Ad esempio, l'organizzazione dispone di una foresta Active Directory con due domini, `contoso.com` e `fabrikam.com` . Se si sceglie di consentire Azure AD di emettere TGT Kerberos per l'intera foresta, in Azure AD sono presenti due oggetti *KerberosDomain* . Un oggetto *KerberosDomain* per `contoso.com` e uno per `fabrikam.com` . Se si dispone di più foreste Active Directory, esiste un oggetto *KerberosDomain* per ogni dominio in ogni foresta.
 
 È necessario eseguire i passaggi per [creare un oggetto server Kerberos](#create-kerberos-server-object) in ogni dominio e foresta dell'organizzazione che contiene Azure ad utenti.
 
@@ -156,7 +154,7 @@ Ad esempio, l'organizzazione dispone di una foresta Active Directory con due dom
 
 L'accesso con FIDO viene bloccato se la password è scaduta. Si prevede che l'utente possa reimpostare la password prima di poter accedere usando FIDO.
 
-## <a name="troubleshooting-and-feedback"></a>Risoluzione dei problemi e commenti e suggerimenti
+## <a name="troubleshooting-and-feedback"></a>Risoluzione dei problemi e feedback
 
 Per condividere commenti e suggerimenti o riscontrare problemi durante l'anteprima di questa funzionalità, condividere tramite l'app Windows Feedback hub usando la procedura seguente:
 
@@ -192,12 +190,12 @@ Questa funzionalità è stata utilizzata per la disponibilità generale (GA).
 
 Se si installa un computer ibrido Azure AD aggiunto, dopo il processo di aggiunta e riavvio del dominio è necessario accedere con una password e attendere la sincronizzazione dei criteri prima di poter usare FIDO per l'accesso.
 
-- Controllare lo `dsregcmd /status` stato corrente digitando in una finestra di comando e verificare che sia *AzureAdJoined* che *DomainJoined* mostrino *Sì*.
+- Controllare lo stato corrente digitando `dsregcmd /status` in una finestra di comando e verificare che sia *AzureAdJoined* che *DomainJoined* mostrino *Sì*.
 - Questo ritardo è un limite noto per i dispositivi aggiunti a un dominio e non è specifico di FIDO.
 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Non è possibile ottenere l'accesso SSO alla risorsa di rete NTLM dopo aver eseguito l'accesso con FIDO e aver ricevuto una richiesta di credenziali
 
-Assicurarsi che venga applicata una patch a un numero sufficiente di controller di dominio per rispondere al tempo per soddisfare la richiesta di risorse. Per verificare se è possibile visualizzare un controller di dominio che esegue la funzionalità, esaminare l'output di `nltest /dsgetdc:contoso /keylist /kdc`.
+Assicurarsi che venga applicata una patch a un numero sufficiente di controller di dominio per rispondere al tempo per soddisfare la richiesta di risorse. Per verificare se è possibile visualizzare un controller di dominio che esegue la funzionalità, esaminare l'output di `nltest /dsgetdc:contoso /keylist /kdc` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

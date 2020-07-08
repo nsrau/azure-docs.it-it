@@ -1,21 +1,21 @@
 ---
-title: Creare una valutazione con Azure Migrate server Assessment | Microsoft Docs
-description: Viene descritto come creare una valutazione con lo strumento di valutazione di Azure Migrate server
+title: Creare una valutazione delle VM di Azure con Azure Migrate server Assessment | Microsoft Docs
+description: Viene descritto come creare una valutazione delle VM di Azure con lo strumento di valutazione di Azure Migrate server
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68229102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549840"
 ---
-# <a name="create-an-assessment"></a>Creare una valutazione
+# <a name="create-an-azure-vm-assessment"></a>Creare una valutazione per le macchine virtuali di Azure
 
-Questo articolo descrive come creare una valutazione per macchine virtuali VMware locali o macchine virtuali Hyper-V con Azure Migrate: server assessment.
+Questo articolo descrive come creare una valutazione delle VM di Azure per macchine virtuali VMware locali o macchine virtuali Hyper-V con Azure Migrate: server assessment.
 
 [Azure migrate](migrate-services-overview.md) consente di eseguire la migrazione ad Azure. Azure Migrate offre un hub centralizzato per tenere traccia dell'individuazione, della valutazione e della migrazione ad Azure dell'infrastruttura, delle applicazioni e dei dati locali. L'hub fornisce gli strumenti di Azure per la valutazione e la migrazione, oltre a offerte di fornitori di software indipendenti (ISV) di terze parti. 
 
@@ -26,15 +26,15 @@ Questo articolo descrive come creare una valutazione per macchine virtuali VMwar
 - Per creare una valutazione, è necessario configurare un'appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. [Altre informazioni](migrate-appliance.md)
 
 
-## <a name="assessment-overview"></a>Panoramica della valutazione
-È possibile creare due tipi di valutazioni con Azure Migrate: Valutazione server.
+## <a name="azure-vm-assessment-overview"></a>Panoramica della valutazione delle VM di Azure
+Esistono due tipi di criteri di ridimensionamento che è possibile usare per creare una valutazione delle VM di Azure usando Azure Migrate: server assessment.
 
 **Valutazione** | **Dettagli** | **Dati**
 --- | --- | ---
 **Basata sulle prestazioni** | Valutazioni basate sui dati sulle prestazioni raccolti | **Dimensioni VM consigliate**: in base ai dati sull'utilizzo di CPU e memoria.<br/><br/> **Tipo di disco consigliato (disco gestito Standard o Premium)** : in base alle operazioni di I/O al secondo e alla velocità effettiva dei dischi locali.
 **Come in locale** | Valutazioni basate sul dimensionamento locale. | **Dimensioni VM consigliate**: in base alle dimensioni delle VM locali<br/><br> **Tipo di disco consigliato**: in base all'impostazione del tipo di archiviazione selezionata per la valutazione.
 
-[Altre](concepts-assessment-calculation.md) informazioni sulle valutazioni.
+[Altre informazioni](concepts-assessment-calculation.md) sulle valutazioni.
 
 ## <a name="run-an-assessment"></a>Eseguire una valutazione
 
@@ -45,31 +45,35 @@ Eseguire una valutazione nel modo seguente:
 
     ![Valutare](./media/how-to-create-assessment/assess.png)
 
-2. In **Valuta server** specificare un nome per la valutazione.
-3. Fare clic su **Visualizza tutto** per rivedere le proprietà di valutazione.
+3. In **valuta Server**selezionare il tipo di valutazione come "VM di Azure", selezionare l'origine di individuazione e specificare il nome della valutazione.
+
+    ![Nozioni fondamentali sulla valutazione](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
+4. Fare clic su **Visualizza tutto** per rivedere le proprietà di valutazione.
 
     ![Proprietà valutazione](./media/how-to-create-assessment//view-all.png)
 
-3. In **Selezionare o creare un gruppo** selezionare **Crea nuovo** e specificare un nome per il gruppo. Un gruppo raccoglie una o più VM per la valutazione.
-4. In **Aggiungere le macchine virtuali al gruppo** selezionare le VM da aggiungere al gruppo.
-5. Fare clic su **Crea valutazione** per creare il gruppo ed eseguire la valutazione.
+5. Fare clic su **Avanti** per **selezionare le macchine virtuali da valutare**. In **Selezionare o creare un gruppo** selezionare **Crea nuovo** e specificare un nome per il gruppo. Un gruppo raccoglie una o più VM per la valutazione.
+6. In **Aggiungere le macchine virtuali al gruppo** selezionare le VM da aggiungere al gruppo.
+7. Fare clic su **Avanti** per **rivedere + crea valutazione** per esaminare i dettagli della valutazione.
+8. Fare clic su **Crea valutazione** per creare il gruppo ed eseguire la valutazione.
 
     ![Creare una valutazione](./media/how-to-create-assessment//assessment-create.png)
 
-6. Dopo aver creato la valutazione, visualizzarla in **Server** > **Azure Migrate: Valutazione server** > **Valutazioni**.
-7. Fare clic su **Esporta valutazione** per scaricarla come file di Excel.
+9. Dopo aver creato la valutazione, visualizzarla in **Server** > **Azure Migrate: Valutazione server** > **Valutazioni**.
+10. Fare clic su **Esporta valutazione** per scaricarla come file di Excel.
 
 
 
-## <a name="review-an-assessment"></a>Esaminare una valutazione
+## <a name="review-an-azure-vm-assessment"></a>Esaminare una valutazione delle VM di Azure
 
-Una valutazione descrive:
+Una valutazione di VM di Azure descrive:
 
 - **Idoneità per Azure**: se le VM sono idonee per la migrazione ad Azure.
 - **Stima dei costi mensili**: i costi mensili di calcolo e archiviazione stimati per l'esecuzione delle VM in Azure.
 - **Stima costo di archiviazione mensile**: i costi stimati per l'archiviazione su disco dopo la migrazione.
 
-### <a name="view-an-assessment"></a>Visualizzare una valutazione
+### <a name="view-an-azure-vm-assessment"></a>Visualizzare una valutazione della VM di Azure
 
 1. In **Obiettivi della migrazione** >  **Server** fare clic su **Valutazioni** in **Azure Migrate: Valutazione server**.
 2. In **Valutazioni** fare clic su una valutazione per aprirla.
@@ -85,7 +89,7 @@ Una valutazione descrive:
     - **Non idonea per Azure**: mostra i problemi e le correzioni consigliate.
     - **Idoneità sconosciuta**: stato usato quando Azure Migrate non è in grado di valutare l'idoneità a causa di problemi di disponibilità dei dati.
 
-2. Fare clic su uno stato di **Idoneità per Azure**. È possibile visualizzare i dettagli sull'idoneità delle VM ed eseguire il drill-down per visualizzare i dettagli delle VM, incluse le impostazioni di calcolo, archiviazione e rete.
+3. Fare clic su uno stato di **Idoneità per Azure**. È possibile visualizzare i dettagli sull'idoneità delle VM ed eseguire il drill-down per visualizzare i dettagli delle VM, incluse le impostazioni di calcolo, archiviazione e rete.
 
 
 

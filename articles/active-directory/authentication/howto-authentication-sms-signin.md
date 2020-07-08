@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 450e6aa1b22806fbd4d142e47caee720d7f63648
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 55e64fad910aba25354d8d7829fc1189b744ca16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550482"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configurare e abilitare gli utenti per l'autenticazione basata su SMS usando Azure Active Directory (anteprima)
 
@@ -24,10 +24,8 @@ Per ridurre i rischi di complessità e sicurezza per gli utenti che accedono ad 
 
 Questo articolo descrive come abilitare l'autenticazione basata su SMS per utenti o gruppi selezionati in Azure AD.
 
-|     |
-| --- |
-| L'autenticazione basata su SMS per gli utenti è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> L'autenticazione basata su SMS per gli utenti è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -150,12 +148,16 @@ Se viene visualizzato un errore quando si tenta di impostare un numero di telefo
 
 Per informazioni su altri metodi per accedere ad Azure AD senza una password, ad esempio l'app Microsoft Authenticator o le chiavi di sicurezza FIDO2, vedere [Opzioni di autenticazione senza password per Azure AD][concepts-passwordless].
 
+È anche possibile usare l'API REST di Microsoft Graph beta per [abilitare][rest-enable] o [disabilitare][rest-disable] l'accesso basato su SMS.
+
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-beta&tabs=http
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?view=graph-rest-beta&tabs=http
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com

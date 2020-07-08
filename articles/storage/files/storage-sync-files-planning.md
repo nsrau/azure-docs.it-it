@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552190"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -130,13 +130,14 @@ Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
  
 Per testare solo i requisiti di sistema:
 ```powershell
-Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamespaceChecks
 ```
  
 Per visualizzare i risultati in CSV:
 ```powershell
 $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
+    C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>Compatibilità del file system
@@ -254,9 +255,7 @@ In base ai criteri dell'organizzazione o a requisiti normativi specifici, potreb
 - Configurare Sincronizzazione file di Azure per supportare il proxy in uso nell'ambiente.
 - Limitare l'attività di rete da Sincronizzazione file di Azure.
 
-Per altre informazioni sulla configurazione della funzionalità di rete di Sincronizzazione file di Azure, vedere:
-- [Impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md)
-- [Corretta integrazione di Sincronizzazione file di Azure nel data center](storage-sync-files-server-registration.md)
+Per ulteriori informazioni su Sincronizzazione file di Azure e sulla rete, vedere [considerazioni sulla rete sincronizzazione file di Azure](storage-sync-files-networking-overview.md).
 
 ## <a name="encryption"></a>Crittografia
 Quando si usa Sincronizzazione file di Azure, esistono tre diversi livelli di crittografia da considerare: la crittografia dei dati inattivi di Windows Server, la crittografia dei dati in transito tra l'agente di Sincronizzazione file di Azure e Azure e la crittografia dei dati inattivi nella condivisione file di Azure. 
@@ -327,14 +326,14 @@ Sincronizzazione file di Azure è disponibile nelle aree seguenti:
 | Pubblico | Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | `uaenorth` |
 | Pubblico | Regno Unito | Regno Unito meridionale | `uksouth` |
 | Pubblico | Regno Unito | Regno Unito occidentale | `ukwest` |
-| Pubblico | Stati Uniti | Stati Uniti centrali | `centralus` |
-| Pubblico | Stati Uniti | Stati Uniti orientali | `eastus` |
-| Pubblico | Stati Uniti | Stati Uniti orientali 2 | `eastus2` |
-| Pubblico | Stati Uniti | Stati Uniti centro-settentrionali | `northcentralus` |
-| Pubblico | Stati Uniti | Stati Uniti centro-meridionali | `southcentralus` |
-| Pubblico | Stati Uniti | Stati Uniti centro-occidentali | `westcentralus` |
-| Pubblico | Stati Uniti | Stati Uniti occidentali | `westus` |
-| Pubblico | Stati Uniti | Stati Uniti occidentali 2 | `westus2` |
+| Pubblico | US | Stati Uniti centrali | `centralus` |
+| Pubblico | US | Stati Uniti orientali | `eastus` |
+| Pubblico | US | Stati Uniti orientali 2 | `eastus2` |
+| Pubblico | US | Stati Uniti centro-settentrionali | `northcentralus` |
+| Pubblico | US | Stati Uniti centro-meridionali | `southcentralus` |
+| Pubblico | US | Stati Uniti centro-occidentali | `westcentralus` |
+| Pubblico | US | Stati Uniti occidentali | `westus` |
+| Pubblico | US | Stati Uniti occidentali 2 | `westus2` |
 | US Gov | Stati Uniti | US Gov Arizona | `usgovarizona` |
 | US Gov | Stati Uniti | US Gov Texas | `usgovtexas` |
 | US Gov | Stati Uniti | US Gov Virginia | `usgovvirginia` |
@@ -358,7 +357,7 @@ Se si ha un file server Windows esistente, è possibile installare Sincronizzazi
 
 È anche possibile usare Data Box per eseguire la migrazione dei dati in una distribuzione di Sincronizzazione file di Azure. Nella maggior parte dei casi, quando i clienti vogliono usare Data Box per inserire i dati, lo fanno perché ritengono che aumenterà la velocità della distribuzione o che sia utile per gli scenari di larghezza di banda limitata. Anche se è vero che l'uso di un Data Box per inserire dati nella distribuzione di Sincronizzazione file di Azure ridurrà l'utilizzo della larghezza di banda, per la maggior parte degli scenari sarà probabilmente più veloce caricare i dati online tramite uno dei metodi descritti in precedenza. Per altre informazioni su come usare Data Box per inserire dati nella distribuzione di Sincronizzazione file di Azure, vedere [Eseguire la migrazione di dati in blocco a Sincronizzazione file di Azure con Azure DataBox](storage-sync-offline-data-transfer.md).
 
-Un errore comune dei clienti quando eseguono la migrazione dei dati nella nuova distribuzione di Sincronizzazione file di Azure è copiare i dati direttamente nella condivisione file di Azure, anziché nei file server Windows. Anche se Sincronizzazione file di Azure identificherà tutti i nuovi file nella condivisione file di Azure e li sincronizzerà con le condivisioni file di Windows, questa operazione è in genere molto più lenta rispetto al caricamento dei dati tramite il file server Windows. Molti strumenti di copia di Azure, ad esempio AzCopy, hanno lo svantaggio aggiuntivo di non copiare tutti i metadati importanti di un file, ad esempio timestamp e ACL.
+Un errore comune dei clienti quando eseguono la migrazione dei dati nella nuova distribuzione di Sincronizzazione file di Azure è copiare i dati direttamente nella condivisione file di Azure, anziché nei file server Windows. Anche se Sincronizzazione file di Azure identificherà tutti i nuovi file nella condivisione file di Azure e li sincronizzerà con le condivisioni file di Windows, questa operazione è in genere molto più lenta rispetto al caricamento dei dati tramite il file server Windows. Quando si usano gli strumenti di copia di Azure, ad esempio AzCopy, è importante usare la versione più recente. Controllare la [tabella strumenti copia file](storage-files-migration-overview.md#file-copy-tools) per ottenere una panoramica degli strumenti di copia di Azure per assicurarsi che sia possibile copiare tutti i metadati importanti di un file, ad esempio timestamp e ACL.
 
 ## <a name="antivirus"></a>Antivirus
 Un antivirus esegue l'analisi dei file alla ricerca di codice dannoso noto e può quindi causare il richiamo di file archiviati a livelli. Nella versione 4.0 e successive dell'agente di Sincronizzazione file di Azure, per i file archiviati a livelli è impostato l'attributo sicuro di Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. È consigliabile consultare il fornitore del software per ottenere informazioni su come configurare la soluzione in modo che non legga i file per cui è impostato questo attributo (molte lo fanno automaticamente). 

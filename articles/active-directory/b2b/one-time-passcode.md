@@ -4,7 +4,7 @@ description: Come usare il passcode monouso tramite indirizzo di posta elettroni
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
@@ -12,19 +12,17 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 520f42956a1e096893935b6b7844d67060958829
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 714e4484c71b995bee186a2d94dc45c7ff82c50d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551311"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticazione con passcode monouso tramite indirizzo di posta elettronica (anteprima)
 
-|     |
-| --- |
-| Passcode monouso tramite indirizzo di posta elettronica è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> Passcode monouso tramite indirizzo di posta elettronica è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo articolo descrive come abilitare l'autenticazione con passcode monouso tramite posta elettronica per gli utenti guest B2B. La funzionalità passcode monouso tramite indirizzo di posta elettronica permette di autenticare gli utenti guest B2B quando non possono essere autenticati tramite altri mezzi, quali Azure AD, un account Microsoft (MSA) o federazione Google. Grazie all'autenticazione con passcode monouso, non è necessario creare un account Microsoft. Quando l'utente guest riscatta un invito o accede a una risorsa condivisa, può richiedere un codice temporaneo, che viene inviato all'indirizzo di posta elettronica. Quindi immette tale codice per continuare ad accedere.
 

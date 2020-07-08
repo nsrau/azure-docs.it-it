@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3e1d000ed316a1a92e6dcdab0f9b7d577fd33d8b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552021"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -230,11 +230,13 @@ La logica di business dell'applicazione richiede questo passaggio e di seguito s
 
 ## <a name="user-and-application-tokens"></a>Token utente e dell'applicazione
 
-L'applicazione può ricevere token per conto di un utente (flusso normale) o direttamente da un'applicazione (tramite il flusso di credenziali client [v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)). Questi token solo app indicano che la chiamata proviene da un'applicazione e non da un utente. Questi token vengono gestiti in modo per lo più analogo, ma con alcune differenze:
+L'applicazione può ricevere i token per l'utente (il flusso in genere descritto) o direttamente da un'applicazione (tramite il [flusso di credenziali client](v1-oauth2-client-creds-grant-flow.md)). Questi token solo app indicano che la chiamata proviene da un'applicazione e non da un utente. Questi token vengono gestiti in gran parte:
 
-* I token solo app non hanno un'attestazione `scp`, ma possono avere invece un'attestazione `roles`. In questa posizione verranno registrate le autorizzazioni dell'applicazione (in contrapposizione alle autorizzazioni delegate). Per altre informazioni sulle autorizzazioni dell'applicazione e delegate, vedere le informazioni relative ad autorizzazioni e consenso ([v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).
-* Molte attestazioni di carattere umano non sono presenti, ad esempio `name` o `upn`.
-* Le attestazioni `sub` e `oid` saranno uguali.
+* Usare `roles` per visualizzare le autorizzazioni concesse all'oggetto del token (l'entità servizio, anziché un utente in questo caso).
+* Usare `oid` o `sub` per verificare che l'entità servizio chiamante sia quella prevista.
+
+Se l'app deve distinguere tra i token di accesso solo app e i token di accesso per gli utenti, usare l' `idtyp` [attestazione facoltativa](active-directory-optional-claims.md).  Aggiungendo l' `idtyp` attestazione al `accessToken` campo e controllando il valore `app` , è possibile rilevare i token di accesso solo app.  I token ID e i token di accesso per gli utenti non avranno l' `idtyp` attestazione inclusa.
+
 
 ## <a name="token-revocation"></a>Revoca dei token
 
@@ -254,7 +256,7 @@ Usando la [configurazione della durata dei token](active-directory-configurable-
 
 I token di aggiornamento possono essere revocati dal server a causa di una modifica delle credenziali oppure in conseguenza dell'azione di un amministratore o di un utente.  I token di aggiornamento rientrano in due classi, ovvero quelle rilasciate ai client riservati (la colonna più a destra) e quelle rilasciate ai client pubblici (tutte le altre colonne).   
 
-|   | Cookie basato su password | Token basato su password | Cookie non basato su password | Token non basato su password | Token client riservato |
+| Modifica | Cookie basato su password | Token basato su password | Cookie non basato su password | Token non basato su password | Token client riservato |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | Scadenza password | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo |
 | Password cambiata dall'utente | Revocato | Revocato | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo |

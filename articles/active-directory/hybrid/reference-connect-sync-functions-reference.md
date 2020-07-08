@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69900034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550180"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
@@ -52,42 +52,100 @@ Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con
 
 ## <a name="functions-reference"></a>Riferimento alle funzioni
 
-| Elenco di funzioni |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| **Certificato** | | | | |
-| [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
-| [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
-| [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
-| [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
-| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[CertVersion](#certversion) |[IsCert](#iscert) | | | |
-| **Conversione** | | | | |
-| [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
-| [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
-| **Data/Ora** | | | | |
-| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Adesso](#now) | |
-| [NumFromDate](#numfromdate) | | | | |
-| **Directory** | | | | |
-| [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
-| **Valutazione** | | | | |
-| [IsBitSet](#isbitset) |[IsDate](#isdate) |[IsEmpty](#isempty) |[IsGuid](#isguid) | |
-| [IsNull](#isnull) |[IsNullOrEmpty](#isnullorempty) |[IsNumeric](#isnumeric) |[IsPresent](#ispresent) | |
-| [IsString](#isstring) | | | | |
-| **Matematiche** | | | | |
-| [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
-| **A più valori** | | | | |
-| [Contiene](#contains) |[Numero](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
-| [Aggiungi](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
-| **Flusso del programma** | | | | |
-| [Erroree](#error) |[IIF](#iif) |[Seleziona](#select) |[Commutatore](#switch) | |
-| [In cui](#where) |[Con](#with) | | | |
-| **Text** | | | | |
-| [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
-| [Sinistra](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Sostituire](#replace) | |
-| [ReplaceChars](#replacechars) |[Ok](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
-| [UCase](#ucase) |[Word](#word) | | | |
+* **Certificate**
+  * [CertExtensionOids](#certextensionoids)
+  * [CertFormat](#certformat)
+  * [CertFriendlyName](#certfriendlyname)
+  * [CertHashString](#certhashstring)
+  * [CertIssuer](#certissuer)
+  * [CertIssuerDN](#certissuerdn)
+  * [CertIssuerOid](#certissueroid)
+  * [CertKeyAlgorithm](#certkeyalgorithm)
+  * [CertKeyAlgorithmParams](#certkeyalgorithmparams)
+  * [CertNameInfo](#certnameinfo)
+  * [CertNotAfter](#certnotafter)
+  * [CertNotBefore](#certnotbefore)
+  * [CertPublicKeyOid](#certpublickeyoid)
+  * [CertPublicKeyParametersOid](#certpublickeyparametersoid)
+  * [CertSerialNumber](#certserialnumber)
+  * [CertSignatureAlgorithmOid](#certsignaturealgorithmoid)
+  * [CertSubject](#certsubject)
+  * [CertSubjectNameDN](#certsubjectnamedn)
+  * [CertSubjectNameOid](#certsubjectnameoid)
+  * [CertThumbprint](#certthumbprint)
+  * [CertVersion](#certversion)
+  * [IsCert](#iscert)
+* **Conversione**
+  * [CBool](#cbool)
+  * [CDate](#cdate)
+  * [CGuid](#cguid)
+  * [ConvertFromBase64](#convertfrombase64)
+  * [ConvertToBase64](#converttobase64)
+  * [ConvertFromUTF8Hex](#convertfromutf8hex)
+  * [ConvertToUTF8Hex](#converttoutf8hex)
+  * [CNum](#cnum)
+  * [CRef](#cref)
+  * [CStr](#cstr)
+  * [StringFromGuid](#stringfromguid)
+  * [StringFromSid](#stringfromsid)
+* **Data/Ora**
+  * [DateAdd](#dateadd)
+  * [DateFromNum](#datefromnum)
+  * [FormatDateTime](#formatdatetime)
+  * [Adesso](#now)
+  * [NumFromDate](#numfromdate)
+* **Directory**
+  * [DNComponent](#dncomponent)
+  * [DNComponentRev](#dncomponentrev)
+  * [EscapeDNComponent](#escapedncomponent)
+* **Valutazione**
+  * [IsBitSet](#isbitset)
+  * [IsDate](#isdate)
+  * [IsEmpty](#isempty)
+  * [IsGuid](#isguid)
+  * [IsNull](#isnull)
+  * [IsNullOrEmpty](#isnullorempty)
+  * [IsNumeric](#isnumeric)
+  * [IsPresent](#ispresent)
+  * [IsString](#isstring)
+* **Matematiche**
+  * [BitAnd](#bitand)
+  * [BitOr](#bitor)
+  * [RandomNum](#randomnum)
+* **Con valori più ***
+  * [Contiene](#contains)
+  * [Numero](#count)
+  * [Elemento](#item)
+  * [ItemOrNull](#itemornull)
+  * [Join](#join)
+  * [RemoveDuplicates](#removeduplicates)
+  * [Split](#split)
+* **Flusso del programma**
+  * [Errore](#error)
+  * [IIF](#iif)
+  * [Select](#select)
+  * [Opzione](#switch)
+  * [In cui](#where)
+  * [Con](#with)
+* **Testo**
+  * [GUID](#guid)
+  * [InStr](#instr)
+  * [InStrRev](#instrrev)
+  * [LCase](#lcase)
+  * [Sinistra](#left)
+  * [Len](#len)
+  * [LTrim](#ltrim)
+  * [Mid](#mid)
+  * [PadLeft](#padleft)
+  * [PadRight](#padright)
+  * [PCase](#pcase)
+  * [Sostituire](#replace)
+  * [ReplaceChars](#replacechars)
+  * [Ok](#right)
+  * [RTrim](#rtrim)
+  * [Trim](#trim)
+  * [UCase](#ucase)
+  * [Word](#word)
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -857,7 +915,7 @@ Se l'indice non è compreso nell'intervallo, restituisce un valore Null.
 * attribute: attributo multivalore contenente stringhe da unire.
 * delimiter: qualsiasi stringa usata per separare le sottostringhe nella stringa restituita. Se omessa, viene usato uno spazio (" "). Se Delimiter è una stringa di lunghezza zero ("") o Nothing, tutti gli elementi nell'elenco vengono concatenati senza delimitatori.
 
-**Note**  
+**Osservazioni:**  
  Esiste un'analogia tra le funzioni Join e Split. La funzione Join accetta una matrice di stringhe e le unisce usando una stringa delimitatore per restituire una singola stringa. La funzione Split accetta una stringa e la separa in corrispondenza del delimitatore per restituire una matrice di stringhe. Tuttavia, la differenza principale consiste nel fatto che Join può concatenare stringhe con qualsiasi stringa delimitatore, mentre Split può separare stringhe usando unicamente un delimitatore di un solo carattere.
 
 **Esempio:**  
@@ -877,7 +935,7 @@ Può restituire: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
  Restituisce "test".
 
 ---
-### <a name="left"></a>Left
+### <a name="left"></a>Sinistra
 **Descrizione:**  
  La funzione Left restituisce un numero di caratteri specificato a partire da sinistra di una stringa.
 
@@ -1128,7 +1186,7 @@ Il formato è {source1}:{target1},{source2}:{target2},{sourceN},{targetN} dove s
 Restituisce "ONeil". Viene definita la rimozione della virgoletta singola.
 
 ---
-### <a name="right"></a>Right
+### <a name="right"></a>Destra
 **Descrizione:**  
  La funzione Right restituisce un numero di caratteri specificato a partire dalla destra (fine) di una stringa.
 

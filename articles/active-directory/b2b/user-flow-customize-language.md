@@ -6,23 +6,22 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed56acc9276177951919a3bc63c8a1dc3876e1c4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: abd6423ebbdba11cd1b0e0c2d00cfd36aa745e72
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551149"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personalizzazione della lingua in Azure Active Directory (anteprima)
-|     |
-| --- |
-| L'iscrizione self-service è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+> L'iscrizione self-service è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La personalizzazione della lingua in Azure Active Directory (Azure AD) consente al flusso utente di supportare lingue diverse in base alle esigenze dell'utente. Microsoft offre le traduzioni in [36 lingue](#supported-languages). Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare i nomi degli attributi nella pagina di raccolta degli attributi.
 

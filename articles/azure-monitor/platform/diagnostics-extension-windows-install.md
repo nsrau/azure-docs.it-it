@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: a964a28b728a2b1741fb555f47fe6e329bc9902a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 10d4c2d6650502510bd160cc452ac2289130263b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655653"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549498"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installare e configurare l'estensione Diagnostica di Azure per Windows
 L'[estensione Diagnostica di Azure](diagnostics-extension-overview.md) è un agente di Monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Questo articolo include informazioni dettagliate sull'installazione e la configurazione dell'estensione Diagnostica Windows e una descrizione della modalità di archiviazione dei dati in un account di Archiviazione di Azure.
@@ -20,7 +20,7 @@ L'[estensione Diagnostica di Azure](diagnostics-extension-overview.md) è un age
 L'estensione Diagnostica viene implementata come [estensione macchina virtuale](../../virtual-machines/extensions/overview.md) in Azure, pertanto supporta le stesse opzioni di installazione usando modelli di Gestione risorse, PowerShell e l'interfaccia della riga di comando. Per informazioni dettagliate sull'installazione e la gestione delle estensioni macchina virtuale, vedere [Estensioni e funzionalità della macchina virtuale per Windows](../../virtual-machines/extensions/features-windows.md).
 
 ## <a name="overview"></a>Panoramica
-Quando si configura l'estensione Diagnostica di Azure è necessario specificare un account di archiviazione in cui verranno inviati tutti i dati specificati. Facoltativamente è possibile aggiungerne uno, in modo che più *sink di dati* inviino i dati a percorsi diversi.
+Quando si configura l'estensione Diagnostica di Azure è necessario specificare un account di archiviazione in cui verranno inviati tutti i dati specificati. Facoltativamente, è possibile aggiungere uno o più *sink di dati* per inviare i dati a percorsi diversi.
 
 - Sink Monitoraggio di Azure: inviare i dati delle prestazioni guest alle metriche di Monitoraggio di Azure.
 - Sink di Hub eventi: inviare i dati di log e prestazioni guest agli hub eventi di Azure per l'inoltro all'esterno di Azure. Non è possibile configurare questo sink nel portale di Azure.

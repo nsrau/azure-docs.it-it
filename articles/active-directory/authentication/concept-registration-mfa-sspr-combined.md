@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87cec45ac3d7bf491278a4ba8520e8257fd0f6c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550671"
 ---
 # <a name="combined-security-information-registration-overview"></a>Panoramica della registrazione delle informazioni di sicurezza combinata
 
-Prima della registrazione combinata, gli utenti registravano i metodi di autenticazione per Azure Multi-Factor Authentication e la reimpostazione della password self-service (SSPR) separatamente. Gli utenti erano confusi che venivano usati metodi simili per Multi-Factor Authentication e SSPR, ma dovevano registrarsi per entrambe le funzionalità. Ora, con la registrazione combinata, gli utenti possono registrarsi una sola volta e sfruttare i vantaggi di Multi-Factor Authentication e SSPR.
+Prima della registrazione combinata, gli utenti dovevano registrare i metodi di autenticazione per Azure Multi-Factor Authentication e la reimpostazione della password self-service separatamente. Gli utenti erano confusi che venivano usati metodi simili per Multi-Factor Authentication e SSPR, ma dovevano registrarsi per entrambe le funzionalità. Ora, con la registrazione combinata, gli utenti possono registrarsi una sola volta e sfruttare i vantaggi di Multi-Factor Authentication e SSPR.
 
 Questo articolo illustra la registrazione di sicurezza combinata. Per iniziare a usare la registrazione di sicurezza combinata, vedere l'articolo seguente:
 
@@ -34,7 +34,7 @@ Prima di abilitare la nuova esperienza, esaminare questa documentazione incentra
 Azure AD registrazione di informazioni di sicurezza combinata non è attualmente disponibile per i cloud nazionali come Azure US Government, Azure Germania o Azure Cina 21Vianet.
 
 > [!IMPORTANT]
-> Gli utenti abilitati per l'anteprima originale e per l'esperienza di registrazione combinata migliorata vedranno il nuovo comportamento. Gli utenti abilitati per entrambe le esperienze vedranno solo la nuova esperienza profilo personale. Il nuovo profilo è allineato all'aspetto della registrazione combinata e offre un'esperienza uniforme per gli utenti. Per visualizzare il profilo, gli utenti possono [https://myprofile.microsoft.com](https://myprofile.microsoft.com)passare a.
+> Gli utenti abilitati per l'anteprima originale e per l'esperienza di registrazione combinata migliorata vedranno il nuovo comportamento. Gli utenti abilitati per entrambe le esperienze vedranno solo la nuova esperienza profilo personale. Il nuovo profilo è allineato all'aspetto della registrazione combinata e offre un'esperienza uniforme per gli utenti. Per visualizzare il profilo, gli utenti possono passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
 >
 > È possibile che venga visualizzato un messaggio di errore durante il tentativo di accedere all'opzione Info di sicurezza. Ad esempio, "spiacenti, non è possibile accedere". In questo caso, verificare che non sia presente alcun oggetto Criteri di gruppo o di configurazione che blocca i cookie di terze parti nel Web browser.
 
@@ -46,7 +46,7 @@ Le pagine del profilo sono localizzate in base alle impostazioni della lingua de
 
 La registrazione combinata supporta le azioni e i metodi di autenticazione seguenti:
 
-|   | Register | Modifica | Elimina |
+| Metodo | Registrazione | Modifica | Elimina |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sì (massimo 5) | No | Sì |
 | Altra app di autenticazione | Sì (massimo 5) | No | Sì |
@@ -111,7 +111,7 @@ Se il criterio SSPR richiede agli utenti di esaminare le info di sicurezza a int
 
 ### <a name="manage-mode"></a>Modalità di gestione
 
-Gli utenti possono accedere alla [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) modalità di gestione selezionando o selezionando Info di **sicurezza** da profilo personale. Da qui, gli utenti possono aggiungere metodi, eliminare o modificare metodi esistenti, modificare il metodo predefinito e altro ancora.
+Gli utenti possono accedere alla modalità di gestione selezionando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) o selezionando **info di sicurezza** da profilo personale. Da qui, gli utenti possono aggiungere metodi, eliminare o modificare metodi esistenti, modificare il metodo predefinito e altro ancora.
 
 ## <a name="key-usage-scenarios"></a>Scenari di utilizzo chiave
 
@@ -125,15 +125,15 @@ Un utente non ha configurato tutte le informazioni di sicurezza necessarie e pas
 
 Un amministratore non ha applicato la registrazione.
 
-Un utente che non ha ancora configurato tutte le informazioni di sicurezza necessarie [https://myprofile.microsoft.com](https://myprofile.microsoft.com)passa a. L'utente seleziona **info di sicurezza** nel riquadro sinistro. Da qui, l'utente sceglie di aggiungere un metodo, seleziona uno dei metodi disponibili e segue i passaggi per la configurazione di tale metodo. Al termine, l'utente vedrà il metodo appena configurato nella pagina info di sicurezza.
+Un utente che non ha ancora configurato tutte le informazioni di sicurezza necessarie passa a [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . L'utente seleziona **info di sicurezza** nel riquadro sinistro. Da qui, l'utente sceglie di aggiungere un metodo, seleziona uno dei metodi disponibili e segue i passaggi per la configurazione di tale metodo. Al termine, l'utente vedrà il metodo appena configurato nella pagina info di sicurezza.
 
 ### <a name="delete-security-info-from-my-profile"></a>Elimina le informazioni di sicurezza dal profilo personale
 
-Un utente che ha precedentemente configurato almeno un metodo passa a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). L'utente sceglie di eliminare uno dei metodi precedentemente registrati. Al termine, l'utente non vedrà più questo metodo nella pagina delle informazioni di sicurezza.
+Un utente che ha precedentemente configurato almeno un metodo passa a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . L'utente sceglie di eliminare uno dei metodi precedentemente registrati. Al termine, l'utente non vedrà più questo metodo nella pagina delle informazioni di sicurezza.
 
 ### <a name="change-the-default-method-from-my-profile"></a>Modificare il metodo predefinito dal profilo personale
 
-Un utente che ha precedentemente configurato almeno un metodo che può essere usato per Multi-Factor Authentication passa a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). L'utente modifica il metodo predefinito corrente impostando un metodo predefinito diverso. Al termine, l'utente Visualizza il nuovo metodo predefinito nella pagina delle informazioni di sicurezza.
+Un utente che ha precedentemente configurato almeno un metodo che può essere usato per Multi-Factor Authentication passa a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . L'utente modifica il metodo predefinito corrente impostando un metodo predefinito diverso. Al termine, l'utente Visualizza il nuovo metodo predefinito nella pagina delle informazioni di sicurezza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -141,4 +141,4 @@ Per iniziare, vedere le esercitazioni per [abilitare la reimpostazione della pas
 
 Informazioni su come [abilitare la registrazione combinata nel tenant](howto-registration-mfa-sspr-combined.md) o [forzare gli utenti a registrare nuovamente i metodi di autenticazione](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-È anche possibile esaminare i [metodi disponibili per multi-factor authentication di Azure e SSPR](concept-authentication-methods.md).
+È anche possibile esaminare i [metodi disponibili per Azure Multi-Factor Authentication e la reimpostazione della password self-service](concept-authentication-methods.md).

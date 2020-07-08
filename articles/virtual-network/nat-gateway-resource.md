@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: db50a8938459fe063553f08c495149867ee36f43
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: HT
+ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549633"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Progettazione di reti virtuali con risorse gateway NAT
 
@@ -325,8 +325,7 @@ Una porta SNAT è disponibile per il riutilizzo nello stesso indirizzo IP di des
 - La registrazione del flusso del gruppo di sicurezza di rete non è supportato con l'uso di NAT.
 - NAT non può estendersi in più reti virtuali.
 
-
-## <a name="feedback"></a>Commenti e suggerimenti
+## <a name="suggestions"></a>Suggerimenti
 
 Ci interessa sapere come possiamo migliorare il servizio. Manca una funzionalità? Proporre suggerimenti per sviluppi futuri in [UserVoice per NAT](https://aka.ms/natuservoice).
 

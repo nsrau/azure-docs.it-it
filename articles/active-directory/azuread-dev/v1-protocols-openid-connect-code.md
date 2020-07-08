@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: eef8174056be7e6be35cea56788c0a519d02944e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b719e866852d2e865c16c62fddd8c549ae505b7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551550"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizzare l'accesso ad applicazioni Web con OpenID Connect e Azure Active Directory
 
@@ -65,7 +65,7 @@ OpenID Connect descrive un documento di metadati che contiene la maggior parte d
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-I metadati sono un semplice documento JavaScript Object Notation (JSON). Per un esempio, vedere il frammento di codice seguente. Il contenuto del frammento di codice è descritto dettagliatamente nelle [specifiche di OpenID Connect](https://openid.net). Si noti che se si specifica un ID `common` tenant anziché {tenant} precedente, vengono restituiti URI specifici del tenant nell'oggetto JSON.
+I metadati sono un semplice documento JavaScript Object Notation (JSON). Per un esempio, vedere il frammento di codice seguente. Il contenuto del frammento di codice è descritto dettagliatamente nelle [specifiche di OpenID Connect](https://openid.net). Si noti che se si specifica un ID tenant anziché `common` {tenant} precedente, vengono restituiti URI specifici del tenant nell'oggetto JSON.
 
 ```
 {
@@ -83,7 +83,7 @@ I metadati sono un semplice documento JavaScript Object Notation (JSON). Per un 
 }
 ```
 
-Se l'app ha chiavi di firma personalizzate come risultato dell'uso della funzionalità di [mapping delle attestazioni](../develop/active-directory-claims-mapping.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) , è necessario `appid` aggiungere un parametro di query contenente l'ID app per ottenere `jwks_uri` un oggetto che punta alle informazioni sulla chiave di firma dell'app. Ad esempio: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene un `jwks_uri` valore `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`di.
+Se l'app include chiavi di firma personalizzate perché è stata usata la funzionalità di [mapping delle attestazioni](../develop/active-directory-claims-mapping.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json), è necessario accodare un parametro di query `appid` contenente l'ID app per ottenere un indirizzo `jwks_uri` che punta alle informazioni della chiave di firma dell'app. Ad esempio, `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene una l'indirizzo `jwks_uri` `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## <a name="send-the-sign-in-request"></a>Inviare la richiesta di accesso
 
@@ -108,16 +108,16 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| Parametro |  | Descrizione |
+| Parametro | Type | Descrizione |
 | --- | --- | --- |
 | tenant |obbligatorio |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono gli identificatori dei tenant, ad esempio `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` per i token indipendenti dai tenant |
 | client_id |obbligatorio |ID applicazione assegnato all'app quando è stata registrata in Azure AD. Questo è reperibile nel portale di Azure. Fare clic su **Azure Active Directory**, fare clic su registrazioni per l' **app**, scegliere l'applicazione e individuare l'ID dell'applicazione nella pagina dell'applicazione. |
-| response_type |obbligatorio |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri parametri response_type, ad esempio `code` o `token`. |
-| ambito | Consigliato | La specifica di OpenID Connect richiede l' `openid`ambito, che viene convertito nell'autorizzazione "Sign Your in" nell'interfaccia utente del consenso. Questo e altri ambiti OIDC vengono ignorati nell'endpoint v 1.0, ma è comunque una procedura consigliata per i client conformi agli standard. |
+| response_type |necessario |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri parametri response_type, ad esempio `code` o `token`. |
+| scope | Consigliato | La specifica di OpenID Connect richiede l'ambito `openid` , che viene convertito nell'autorizzazione "Sign Your in" nell'interfaccia utente del consenso. Questo e altri ambiti OIDC vengono ignorati nell'endpoint v 1.0, ma è comunque una procedura consigliata per i client conformi agli standard. |
 | nonce |necessarie |Valore incluso nella richiesta, generata dall'app, che verrà incluso nel `id_token` risultante come attestazione. L'app può quindi verificare questo valore per l'attenuazione degli attacchi di riproduzione del token. Il valore è in genere un GUID o una stringa univoca casuale che consente di identificare l'origine della richiesta. |
-| redirect_uri | Consigliato |Valore redirect_uri dell'app, dove possono essere inviate e ricevute dall'app le risposte di autenticazione. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Se mancante, l'agente utente viene inviato di nuovo a uno degli URI di reindirizzamento registrati per l'app, in modo casuale. La lunghezza massima è 255 byte |
-| response_mode |facoltativo |Specifica il metodo che deve essere usato per inviare un codice di autorizzazione all'app. I valori supportati sono `form_post` per *POST modulo HTTP* e `fragment` per *frammento URL*. Per le applicazioni Web è consigliabile usare `response_mode=form_post` per assicurare il trasferimento più sicuro dei token nell'applicazione. Il valore predefinito per qualsiasi flusso che include un id_token è `fragment`.|
-| state |Consigliato |Valore incluso nella richiesta che viene restituito nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto desiderato. Per [evitare attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato in modo casuale. Il parametro state viene anche usato per codificare le informazioni sullo stato dell'utente nell'app attivo prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista attiva. |
+| redirect_uri | Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Se mancante, l'agente utente viene inviato di nuovo a uno degli URI di reindirizzamento registrati per l'app, in modo casuale. La lunghezza massima è 255 byte |
+| response_mode |facoltative |Specifica il metodo che deve essere usato per inviare un codice di autorizzazione all'app. I valori supportati sono `form_post` per *POST modulo HTTP* e `fragment` per *frammento URL*. Per le applicazioni Web è consigliabile usare `response_mode=form_post` per assicurare il trasferimento più sicuro dei token nell'applicazione. Il valore predefinito per qualsiasi flusso che include un id_token è `fragment`.|
+| state |Consigliato |Valore incluso nella richiesta che viene restituito nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Il parametro state viene anche usato per codificare le informazioni sullo stato dell'utente nell'app attivo prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista attiva. |
 | prompt |facoltative |Indica il tipo di interazione utente richiesto. Attualmente gli unici valori validi sono "login", "none" e "consent". `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On. `prompt=none` è l'opposto: garantisce che all'utente non venga presentata alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite Single-Sign-On, l'endpoint restituisce un errore. `prompt=consent` attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app. |
 | login_hint |facoltative |Può essere usato per precompilare il campo nome utente/indirizzo di posta elettronica della pagina di accesso per l'utente, se ne conosci già il nome. Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`. |
 
@@ -135,10 +135,10 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Parametro | Descrizione |
+| Parametro | Description |
 | --- | --- |
 | id_token |`id_token` richiesto dall'app. È possibile usare `id_token` per verificare l'identità dell'utente e avviare una sessione con l'utente. |
-| state |Valore incluso nella richiesta che viene restituito nella risposta del token. Per [evitare attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato in modo casuale. Il parametro state viene anche usato per codificare le informazioni sullo stato dell'utente nell'app attivo prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista attiva. |
+| state |Valore incluso nella richiesta che viene restituito nella risposta del token. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Il parametro state viene anche usato per codificare le informazioni sullo stato dell'utente nell'app attivo prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista attiva. |
 
 ### <a name="error-response"></a>Risposta di errore
 
@@ -152,7 +152,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parametro | Descrizione |
+| Parametro | Description |
 | --- | --- |
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
@@ -180,14 +180,14 @@ La semplice ricezione di un `id_token` non è sufficiente per autenticare l'uten
 È inoltre consigliabile convalidare attestazioni aggiuntive in base allo scenario. Alcune convalide comuni includono:
 
 * Garantire che l'utente o l'organizzazione dispongano dell'iscrizione all'app.
-* Verificare che l'utente disponga di autorizzazioni/privilegi appropriati `wids` utilizzando `roles` le attestazioni o. 
+* Verificare che l'utente disponga di autorizzazioni/privilegi appropriati utilizzando le `wids` `roles` attestazioni o. 
 * Garantire che sia stato applicato un determinato livello di autenticazione, ad esempio l'autenticazione a più fattori.
 
 Dopo aver completato la convalida di `id_token`, è possibile avviare una sessione con l'utente e usare le attestazioni in `id_token` per ottenere informazioni sull'utente nell'app. Queste informazioni possono essere usate per la visualizzazione, i record, la personalizzazione e così via. Per altre informazioni sulle `id_tokens` attestazioni e, vedere [AAD id_tokens](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ## <a name="send-a-sign-out-request"></a>Inviare una richiesta di disconnessione
 
-Durante la disconnessione di un utente dall’applicazione, non basta cancellare i cookie dell’applicazione o terminare la sessione con l’utente. È anche necessario reindirizzare l'utente `end_session_endpoint` a per la disconnessione. In caso contrario, l'utente sarà in grado di eseguire di nuovo l'autenticazione all'app senza immettere di nuovo le credenziali, perché avranno una sessione di Single Sign-On valida con l'endpoint di Azure AD.
+Durante la disconnessione di un utente dall’applicazione, non basta cancellare i cookie dell’applicazione o terminare la sessione con l’utente. È anche necessario reindirizzare l'utente a `end_session_endpoint` per la disconnessione. In caso contrario, l'utente sarà in grado di eseguire di nuovo l'autenticazione all'app senza immettere di nuovo le credenziali, perché avranno una sessione di Single Sign-On valida con l'endpoint di Azure AD.
 
 È sufficiente reindirizzare l'utente all' `end_session_endpoint` riportato nel documento dei metadati di OpenID:
 
@@ -197,7 +197,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| Parametro |  | Descrizione |
+| Parametro | Type | Descrizione |
 | --- | --- | --- |
 | post_logout_redirect_uri |Consigliato |URL a cui l'utente deve essere reindirizzato dopo la disconnessione.  Questo URL deve corrispondere a uno degli URI di reindirizzamento registrati per l'applicazione nel portale di registrazione delle app.  Se *post_logout_redirect_uri* non è incluso, all'utente viene visualizzato un messaggio generico. |
 
@@ -211,7 +211,7 @@ Quando si reindirizza l'utente all'`end_session_endpoint`, Azure AD cancella la 
 4. Fare clic su **Impostazioni** e **Proprietà** e individuare la casella di testo **URL disconnessione**. 
 
 ## <a name="token-acquisition"></a>Acquisizione dei token
-Molte app Web non solo eseguono l'accesso dell'utente, ma accedono anche a un servizio Web per conto dell'utente tramite OAuth. Questo scenario combina OpenID Connect per l'autenticazione utente, acquisendo contemporaneamente `authorization_code` un oggetto che può essere usato `access_tokens` per ottenere usando il [flusso del codice di autorizzazione OAuth](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+Molte app Web non solo eseguono l'accesso dell'utente, ma accedono anche a un servizio Web per conto dell'utente tramite OAuth. Questo scenario combina OpenID Connect per l'autenticazione utente, acquisendo contemporaneamente un oggetto `authorization_code` che può essere usato per ottenere `access_tokens` usando il [flusso del codice di autorizzazione OAuth](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
 ## <a name="get-access-tokens"></a>Ottenere i token di accesso
 Per acquisire i token di accesso, è necessario modificare la richiesta di accesso precedente:
@@ -234,7 +234,7 @@ Includendo gli ambiti di autorizzazione nella richiesta e usando `response_type=
 
 ### <a name="successful-response"></a>Risposta di esito positivo
 
-Una risposta `redirect_uri` con esito positivo, inviata `response_mode=form_post`a utilizzando, avrà un aspetto simile al seguente:
+Una risposta con esito positivo, inviata a `redirect_uri` utilizzando, avrà un `response_mode=form_post` aspetto simile al seguente:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -244,11 +244,11 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parametro | Descrizione |
+| Parametro | Description |
 | --- | --- |
 | id_token |`id_token` richiesto dall'app. È possibile usare `id_token` per verificare l'identità dell'utente e avviare una sessione con l'utente. |
-| code |Codice di autorizzazione richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. I codici di autorizzazione hanno una durata breve e in genere scadono dopo circa 10 minuti. |
-| state |Se nella richiesta è incluso un parametro state, lo stesso valore deve essere visualizzato nella risposta. L'app deve verificare che i valori del parametro state siano identici nella richiesta e nella risposta. |
+| codice |Codice di autorizzazione richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. I codici di autorizzazione hanno una durata breve e in genere scadono dopo circa 10 minuti. |
+| state |Se nella richiesta è incluso un parametro state, lo stesso valore deve essere visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici. |
 
 ### <a name="error-response"></a>Risposta di errore
 
@@ -269,7 +269,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Per una descrizione dei possibili codici di errore e l'azione consigliata per il client, vedere [Codici per gli errori dell'endpoint di autorizzazione](#error-codes-for-authorization-endpoint-errors).
 
-Una volta ottenuta un'autorizzazione `code` e un `id_token`, è possibile accedere e ottenere i token di [accesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) per conto dell'utente. Per far accedere l'utente è necessario convalidare l' `id_token` esattamente come descritto sopra. Per ottenere i token di accesso, è possibile seguire la procedura descritta nella sezione "Usare un codice di autorizzazione per richiedere un token di accesso" della [documentazione del flusso del codice OAuth](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+Una volta ottenuta un'autorizzazione `code` e un `id_token` , è possibile accedere e ottenere i token di [accesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) per conto dell'utente. Per far accedere l'utente è necessario convalidare l' `id_token` esattamente come descritto sopra. Per ottenere i token di accesso, è possibile seguire la procedura descritta nella sezione "Usare un codice di autorizzazione per richiedere un token di accesso" della [documentazione del flusso del codice OAuth](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

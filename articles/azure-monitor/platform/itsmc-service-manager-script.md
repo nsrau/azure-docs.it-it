@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: decb674c2b55b93a81169c540ee04713bdf2799e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb21bcefa0f9fb6f691ebfb578177c64543c1403
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80054849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549651"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creare un'app Web di Service Manager con lo script automatizzato
 
@@ -21,12 +21,12 @@ Eseguire lo script, fornendo i dettagli richiesti seguenti:
 
 - Dettagli della sottoscrizione di Azure
 - Nome del gruppo di risorse
-- Percorso
+- Location
 - Dettagli del server di Service Manager (nome del server, dominio, nome utente e password)
 - Prefisso del nome del sito per l'app Web
 - Spazio dei nomi ServiceBus.
 
-Lo script creerà l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera **URL dell'app Web**, **ID del client** e **segreto client**.
+Lo script creerà l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera l' **URL dell'app Web**, l' **ID client**e il **segreto client**.
 
 Salvare questi valori in quanto serviranno per la creazione di una connessione con Connettore di Gestione dei servizi IT.
 
@@ -314,6 +314,8 @@ Write-Host "URI:"  $azureSite
 if(!$err)
 {
     Write-Host "ServiceBus Namespace:"  $serviceName  
-}```
-## Next steps
-[Configure the Hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).
+}
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+[Configurare la connessione ibrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

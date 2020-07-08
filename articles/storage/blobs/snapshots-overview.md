@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 26646ad5ae42d2fa301a7f894084a78a64c73bd4
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550963"
 ---
 # <a name="blob-snapshots"></a>Snapshot BLOB
 
@@ -25,7 +25,7 @@ Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determina
 
 ## <a name="about-blob-snapshots"></a>Informazioni sugli snapshot BLOB
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 Uno snapshot di un BLOB è identico al relativo BLOB di base, ad eccezione del fatto che all'URI del BLOB viene aggiunto un valore **DateTime** per indicare data e ora di acquisizione dello snapshot. Ad esempio, se un URI del BLOB di pagine è `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l'URI dello snapshot è simile a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
@@ -91,5 +91,5 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare e gestire uno snapshot BLOB in .NET](snapshots-manage-dotnet.md)
+- [Creare e gestire snapshot BLOB in .NET](snapshots-manage-dotnet.md)
 - [Eseguire il backup dei dischi di VM non gestiti con snapshot incrementali](../../virtual-machines/windows/incremental-snapshots.md)

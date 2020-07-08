@@ -3,15 +3,15 @@ title: Copiare dati da e verso WASB in Azure Data Lake Storage Gen1 usando DistC
 description: Usare lo strumento DistCp per copiare i dati da e verso i BLOB di archiviazione di Azure in Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: 455e73ece2d46a508b3077c13c8106fe53beb4de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c608f357eb1eff9fd36e583b98d26250a71cb923
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515675"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Usare DistCp per copiare dati tra i BLOB di archiviazione di Azure e Azure Data Lake Storage Gen1
 
@@ -83,7 +83,7 @@ Ecco alcune linee guida che è possibile usare.
 
 * **Passaggio 1: determinare la memoria totale di YARN** - il primo passaggio consiste nel determinare la memoria di YARN disponibile per il cluster in cui viene eseguito il processo DistCp. Queste informazioni sono disponibili nel portale di Ambari associato al cluster. Passare a YARN e visualizzare la scheda **configs (configurazioni** ) per visualizzare la memoria Yarn. Per ottenere la memoria totale di YARN, moltiplicare la memoria di YARN per ogni nodo per il numero di nodi nel cluster.
 
-* **Passaggio 2: calcolare il numero di mapper** - il valore di **m** è uguale al quoziente della memoria totale di YARN divisa per le dimensioni del contenitore YARN. Le informazioni sulle dimensioni del contenitore YARN sono disponibili anche nel portale di Ambari. Passare a YARN e visualizzare la scheda **configs (configurazioni** ). Le dimensioni del contenitore YARN vengono visualizzate in questa finestra. L'equazione da raggiungere al numero di Mapper (**m**) è:
+* **Passaggio 2: Calcolare il numero di mapper**. Il valore di **m** è uguale al quoziente della memoria totale di YARN divisa per le dimensioni del contenitore YARN. Le informazioni sulle dimensioni del contenitore YARN sono disponibili anche nel portale di Ambari. Passare a YARN e visualizzare la scheda **configs (configurazioni** ). Le dimensioni del contenitore YARN vengono visualizzate in questa finestra. L'equazione da raggiungere al numero di Mapper (**m**) è:
 
    `m = (number of nodes * YARN memory for each node) / YARN container size`
 

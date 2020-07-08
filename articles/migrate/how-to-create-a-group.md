@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 13c640d25265b2663520ef7ab203b0b0a33829e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68301686"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549914"
 ---
 # <a name="create-a-group-for-assessment"></a>Creare un gruppo per la valutazione
 
@@ -36,18 +36,18 @@ Si raccolgono i computer in gruppi per valutare se sono adatti per la migrazione
 Se si desidera creare un gruppo manualmente al di fuori della creazione di una valutazione, procedere come segue:
 
 1. Nella **panoramica**> progetto Azure migrate fare clic su **valuta ed Esegui la migrazione dei server**. In **Azure migrate: server Assessment**, fare clic su **gruppi**
-    - Se non è ancora stato aggiunto lo strumento Azure Migrate: server Assessment, fare clic per aggiungerlo. [Altre informazioni](how-to-assess.md).
+    - Se non è ancora stato aggiunto lo strumento Azure Migrate: server Assessment, fare clic per aggiungerlo. [Altre informazioni](how-to-assess.md)
     - Se non è ancora stato creato un progetto di Azure Migrate, vedere [altre informazioni](how-to-add-tool-first-time.md).
 
     ![Selezionare i gruppi](./media/how-to-create-a-group/select-groups.png)
 
 2. Fare clic sull'icona di **gruppo** .
 3. In **Crea gruppo**specificare un nome per il gruppo e in **nome Appliance**Selezionare il dispositivo Azure migrate in uso per l'individuazione del computer.
-1. Dall'elenco computer, selezionare i computer che si desidera aggiungere al gruppo > **Crea**.
+4. Dall'elenco computer, selezionare i computer che si desidera aggiungere al gruppo > **Crea**.
 
     ![Creare un gruppo](./media/how-to-create-a-group/create-group.png)
 
-È ora possibile usare questo gruppo quando si [Crea una valutazione](how-to-create-assessment.md).
+È ora possibile usare questo gruppo quando si [Crea una valutazione della macchina virtuale di Azure](how-to-create-assessment.md) o [una soluzione VMware di Azure (AVS)](how-to-create-azure-vmware-solution-assessment.md). Si noti che è possibile creare una valutazione AVS sui gruppi con solo macchine virtuali VMware. 
 
 ## <a name="refine-a-group-with-dependency-mapping"></a>Affinare un gruppo con mapping delle dipendenze
 
@@ -60,7 +60,7 @@ Se è già stato [configurato il mapping delle dipendenze](how-to-create-group-m
 
 1. Nella scheda **Server** , nel riquadro **Azure migrate: server Assessment** , fare clic su **gruppi**.
 2. Fare clic sul gruppo che si desidera ridefinire.
-    - Se non è ancora stato configurato il mapping delle dipendenze, nella colonna **dipendenze** viene visualizzato lo stato **richiesta installazione** . Per ogni macchina virtuale per cui si desidera visualizzare le dipendenze, fare clic su **richiede l'installazione**. Installare un paio di agenti in ogni macchina virtuale prima di poter eseguire il mapping delle dipendenze del computer. [Altre informazioni](how-to-create-group-machine-dependencies.md).
+    - Se non è ancora stato configurato il mapping delle dipendenze, nella colonna **dipendenze** viene visualizzato lo stato **richiesta installazione** . Per ogni macchina virtuale per cui si desidera visualizzare le dipendenze, fare clic su **richiede l'installazione**. Installare un paio di agenti in ogni macchina virtuale prima di poter eseguire il mapping delle dipendenze del computer. [Altre informazioni](how-to-create-group-machine-dependencies.md)
 
         ![Aggiungi mapping delle dipendenze](./media/how-to-create-a-group/add-dependency-mapping.png)
 

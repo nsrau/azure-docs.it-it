@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 03/13/2020
-ms.custom: seodec18
-ms.openlocfilehash: 69d4b1d6c67dc63347ec4fb8043427ddf0a42ae1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 06/11/2020
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515807"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare destinazioni di calcolo per il training del modello 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Azure Machine Learning offre un supporto variabile per le diverse destinazioni d
 
 
 > [!NOTE]
-> L'ambiente di calcolo di Azure Machine Learning può essere creato come risorsa permanente o in modo dinamico quando si richiede un'esecuzione. Al termine del training, la creazione basata sull'esecuzione rimuove la destinazione di calcolo. Non è quindi possibile riutilizzare le destinazioni di calcolo create in questo modo.
+> Azure Machine Learning cluster di calcolo possono essere creati come risorsa persistente o creati dinamicamente quando si richiede un'esecuzione. Al termine del training, la creazione basata sull'esecuzione rimuove la destinazione di calcolo. Non è quindi possibile riutilizzare le destinazioni di calcolo create in questo modo.
 
 ## <a name="whats-a-run-configuration"></a>Che cos'è una configurazione di esecuzione?
 
@@ -76,7 +76,8 @@ Le pipeline di Machine Learning possono eseguire il training dei modelli, ma pos
 Usare le sezioni seguenti per configurare queste destinazioni di calcolo:
 
 * [Computer locale](#local)
-* [Ambiente di calcolo di Machine Learning](#amlcompute)
+* [Cluster di calcolo di Azure Machine Learning](#amlcompute)
+* [Istanza di calcolo di Azure Machine Learning](#instance)
 * [Macchine virtuali remote](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -91,9 +92,9 @@ Usare le sezioni seguenti per configurare queste destinazioni di calcolo:
 
 Dopo aver collegato l'ambiente di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
 
-### <a name="azure-machine-learning-compute"></a><a id="amlcompute"></a>Ambiente di calcolo di Machine Learning
+### <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning cluster di calcolo
 
-L'ambiente di calcolo di Azure Machine Learning è un'infrastruttura di calcolo gestito che consente all'utente di creare facilmente un ambiente di calcolo a uno o più nodi. Il calcolo viene creato all'interno dell'area di lavoro ed è una risorsa che può essere condivisa con altri utenti dell'area. Il calcolo si ridimensiona verticalmente in modo automatico quando viene inviato un processo e può essere inserito in una Rete virtuale di Azure. Il calcolo viene eseguito in un ambiente basato su contenitori, con la creazione di un pacchetto delle dipendenze del modello in un [contenitore Docker](https://www.docker.com/why-docker).
+Azure Machine Learning cluster di calcolo è un'infrastruttura di calcolo gestito che consente di creare facilmente un calcolo a nodo singolo o a più nodi. Il calcolo viene creato all'interno dell'area di lavoro ed è una risorsa che può essere condivisa con altri utenti dell'area. Il calcolo si ridimensiona verticalmente in modo automatico quando viene inviato un processo e può essere inserito in una Rete virtuale di Azure. Il calcolo viene eseguito in un ambiente basato su contenitori, con la creazione di un pacchetto delle dipendenze del modello in un [contenitore Docker](https://www.docker.com/why-docker).
 
 È possibile usare un ambiente di calcolo di Azure Machine Learning per distribuire il processo di training in un cluster di nodi di calcolo CPU o GPU nel cloud. Per altre informazioni sulle dimensioni delle macchine virtuali che includono GPU, consultare il documento [Dimensioni delle macchine virtuali ottimizzate per GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
@@ -127,18 +128,55 @@ Un ambiente di calcolo di Azure Machine Learning può essere usato su più esecu
 Dopo aver collegato l'ambiente di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
 
 
+### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Istanza di calcolo di Azure Machine Learning
+
+[Azure Machine Learning istanza di calcolo](concept-compute-instance.md) è un'infrastruttura di calcolo gestito che consente di creare facilmente una singola macchina virtuale. Il calcolo viene creato all'interno dell'area dell'area di lavoro, ma a differenza di un cluster di calcolo, un'istanza non può essere condivisa con altri utenti nell'area di lavoro. Inoltre, l'istanza non viene ridimensionata automaticamente.  Per evitare addebiti continui, è necessario arrestare la risorsa.
+
+Un'istanza di calcolo può eseguire più processi in parallelo e dispone di una coda di processi. 
+
+Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente di rete virtuale](how-to-enable-virtual-network.md#compute-instance), senza richiedere alle aziende di aprire porte SSH. Il processo viene eseguito in un ambiente in contenitori e inserisce le dipendenze del modello in un contenitore docker. 
+
+1. **Creare e collegare**: 
+    
+    [! notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb? Name = create_instance)]
+
+1. **Configure**: creare una configurazione di esecuzione.
+    
+    ```python
+    
+    from azureml.core import ScriptRunConfig
+    from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+    
+    src = ScriptRunConfig(source_directory='', script='train.py')
+    
+    # Set compute target to the one created in previous step
+    src.run_config.target = instance
+    
+    # Set environment
+    src.run_config.environment = myenv
+     
+    run = experiment.submit(config=src)
+    ```
+
+Per altri comandi utili per l'istanza di calcolo, vedere il notebook [Train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Questo notebook è disponibile anche nella cartella **esempi** di studio in *Training/Train-on-computeinstance*.
+
+Ora che è stato collegato il calcolo e configurato l'esecuzione, il passaggio successivo consiste nell' [inviare l'esecuzione del training](#submit)
+
+
 ### <a name="remote-virtual-machines"></a><a id="vm"></a>Macchine virtuali remote
 
 Azure Machine Learning consente di usare la risorsa di calcolo personale e di associarla all'area di lavoro. Una risorsa di questo tipo è una macchina virtuale remota arbitraria, purché sia accessibile da Azure Machine Learning. La risorsa può essere una macchina virtuale di Azure, un server remoto nell'organizzazione o in locale. In particolare, se si dispone dell'indirizzo IP e delle credenziali (nome utente e password o chiave SSH), è possibile usare qualsiasi macchina virtuale accessibile per le esecuzioni remote.
 
 È possibile usare un ambiente conda integrato nel sistema, un ambiente Python già esistente o un contenitore Docker. Per l'esecuzione in un contenitore Docker, è necessario che il motore Docker sia in esecuzione nella macchina virtuale. Questa funzionalità è particolarmente utile quando si preferisce un ambiente di sviluppo o sperimentazione basato sul cloud più flessibile rispetto al computer locale.
 
-Per questo scenario usare Data Science Virtual Machine (DSVM) come macchina virtuale di Azure. Questa macchina virtuale è un ambiente preconfigurato di data science e di sviluppo per l'intelligenza artificiale in Azure. La macchina virtuale offre una scelta dettagliata di strumenti e framework per l'intero ciclo di vita dello sviluppo dell'apprendimento automatico. Per altre informazioni su come usare una Data Science Virtual Machine, consultare [Configurare un ambiente di sviluppo per Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#dsvm).
+Usare la Data Science Virtual Machine di Azure (DSVM) come macchina virtuale di Azure preferita per questo scenario. Questa macchina virtuale è un ambiente preconfigurato di data science e di sviluppo per l'intelligenza artificiale in Azure. La macchina virtuale offre una scelta dettagliata di strumenti e framework per l'intero ciclo di vita dello sviluppo dell'apprendimento automatico. Per altre informazioni su come usare una Data Science Virtual Machine, consultare [Configurare un ambiente di sviluppo per Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#dsvm).
 
 1. **Creazione**: Creare una Data Science Virtual Machine prima di usarla per eseguire il training del modello. Per creare questa risorsa consultare [Effettuare il provisioning della Data Science Virtual Machine per Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
-    > Azure Machine Learning supporta solo macchine virtuali che eseguono Ubuntu. Quando si crea una macchina virtuale o se ne sceglie una esistente, è necessario selezionare una macchina virtuale che usa Ubuntu.
+    > Azure Machine Learning supporta solo le macchine virtuali che eseguono **Ubuntu**. Quando si crea una macchina virtuale o se ne sceglie una esistente, è necessario selezionare una macchina virtuale che usa Ubuntu.
+    > 
+    > Azure Machine Learning richiede anche che la macchina virtuale disponga di un __indirizzo IP pubblico__.
 
 1. **Collegare**: Per associare una macchina virtuale esistente come destinazione di calcolo, è necessario specificare l'ID risorsa, il nome utente e la password per la macchina virtuale. L'ID risorsa della macchina virtuale può essere creato usando l'ID sottoscrizione, il nome del gruppo di risorse e il nome della macchina virtuale nel formato stringa seguente: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
@@ -153,13 +191,6 @@ Per questo scenario usare Data Science Virtual Machine (DSVM) come macchina virt
                                                    ssh_port=22,
                                                    username='<username>',
                                                    password="<password>")
-
-   # If you authenticate with SSH keys instead, use this code:
-   #                                                  ssh_port=22,
-   #                                                  username='<username>',
-   #                                                  password=None,
-   #                                                  private_key_file="<path-to-file>",
-   #                                                  private_key_passphrase="<passphrase>")
 
    # Attach the compute
    compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
@@ -182,13 +213,16 @@ Azure HDInsight è una piattaforma comune per l'analisi dei Big Data. La piattaf
 
 1. **Creazione**:  Creare il cluster HDInsight prima di usarlo per eseguire il training del modello. Per creare un cluster Spark in HDInsight, consultare [Creare un cluster Spark in HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
+    > [!WARNING]
+    > Azure Machine Learning richiede che il cluster HDInsight disponga di un __indirizzo IP pubblico__.
+
     Quando si crea il cluster, è necessario specificare un nome utente e una password SSH. Prendere nota di questi valori, perché saranno necessari quando si usa HDInsight come destinazione di calcolo.
     
-    Dopo aver creato il cluster, collegarlo al nome host \<clustername>-ssh.azurehdinsight.net, dove \<clustername> è il nome fornito per il cluster. 
+    Dopo la creazione del cluster, connettersi con il \<clustername> nome host-SSH.azurehdinsight.NET, dove \<clustername> è il nome fornito per il cluster. 
 
 1. **Collegare**: Per collegare un cluster HDInsight come destinazione di calcolo, è necessario specificare l'ID risorsa, il nome utente e la password per il cluster HDInsight. L'ID risorsa del cluster HDInsight può essere creato usando l'ID sottoscrizione, il nome del gruppo di risorse e il nome del cluster HDInsight nel formato stringa seguente: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
-   ```python
+    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
 

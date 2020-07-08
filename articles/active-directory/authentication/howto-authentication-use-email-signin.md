@@ -5,48 +5,57 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/22/2020
+ms.date: 06/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: ed317039e683ef36054d5ace612e09ca75dfa11e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550323"
 ---
-# <a name="sign-in-to-azure-using-email-as-an-alternate-login-id-preview"></a>Accedere ad Azure usando l'indirizzo e-mail come ID di accesso alternativo (anteprima)
+# <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Accedere a Azure Active Directory usando la posta elettronica come ID di accesso alternativo (anteprima)
 
-Molte organizzazioni vogliono consentire agli utenti di accedere ad Azure usando le stesse credenziali dell'ambiente della directory locale. Tramite questo approccio, noto come autenticazione ibrida, gli utenti dovranno ricordare solo una coppia di credenziali.
+Molte organizzazioni vogliono consentire agli utenti di accedere a Azure Active Directory (Azure AD) usando le stesse credenziali dell'ambiente di directory locale. Tramite questo approccio, noto come autenticazione ibrida, gli utenti dovranno ricordare solo una coppia di credenziali.
 
 Alcune organizzazioni non sono passate all'autenticazione ibrida per i motivi seguenti:
 
-* Per impostazione predefinita, il nome di accesso UPN di Azure Active Directory (Azure AD) è impostato sullo stesso UPN della directory locale.
-* Modificando l'UPN di Azure AD si crea una corrispondenza errata tra gli ambienti locali e di Azure che potrebbe causare problemi con determinate applicazioni e servizi.
-* A causa di motivi aziendali o di conformità, l'organizzazione non vuole usare l'UPN locale per accedere ad Azure.
+* Per impostazione predefinita, il Azure AD nome dell'entità utente (UPN) viene impostato sullo stesso UPN della directory locale.
+* La modifica dell'UPN Azure AD crea una corrispondenza errata tra ambienti locali e Azure AD che possono causare problemi con determinati servizi e applicazioni.
+* A causa di motivi aziendali o di conformità, l'organizzazione non vuole usare l'UPN locale per accedere a Azure AD.
 
-Per favorire il passaggio all'autenticazione ibrida, ora è possibile configurare Azure AD per consentire agli utenti di accedere ad Azure con un indirizzo e-mail nel dominio verificato come ID di accesso alternativo. Ad esempio, se *Contoso* è stato rinominato in *Fabrikam*, anziché continuare ad accedere con l'UPN `balas@contoso.com` precedente ora è possibile usare l'indirizzo e-mail come ID di accesso alternativo. Per accedere a un'applicazione o ai servizi, gli utenti accedono ad Azure usando l'indirizzo e-mail loro assegnato, come `balas@fabrikam.com`.
+Per semplificare il passaggio all'autenticazione ibrida, è ora possibile configurare Azure AD per consentire agli utenti di accedere con un messaggio di posta elettronica nel dominio verificato come ID di accesso alternativo. Ad esempio, se *Contoso* è stato rinominato in *Fabrikam*, anziché continuare ad accedere con l'UPN `balas@contoso.com` precedente ora è possibile usare l'indirizzo e-mail come ID di accesso alternativo. Per accedere a un'applicazione o a un servizio, gli utenti accedono a Azure AD usando il proprio indirizzo di posta elettronica assegnato, ad esempio `balas@fabrikam.com` .
 
-|     |
-| --- |
-| Accedere ad Azure AD con l'indirizzo e-mail come ID di accesso alternativo è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> Accedere ad Azure AD con l'indirizzo e-mail come ID di accesso alternativo è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Panoramica degli approcci di accesso di Azure AD
 
-I nomi di accesso UPN sono identificatori univoci per un account utente nella directory locale e in Azure AD. Ogni account utente in una directory è rappresentato da un UPN, come `balas@contoso.com`. Per impostazione predefinita, quando si sincronizza un ambiente locale di Active Directory Domain Services con Azure AD, l'UPN di Azure AD deve corrispondere all'UPN locale.
+Per accedere a Azure AD, gli utenti immettono un nome che identifica in modo univoco il proprio account. In passato, era possibile usare solo il Azure AD UPN come nome di accesso.
 
-In molte organizzazioni è possibile impostare l'UPN locale e l'UPN di Azure per far sì che corrispondano. Quando gli utenti accedono ad applicazioni e servizi di Azure, usano il proprio UPN di Azure AD. Tuttavia, alcune organizzazioni non possono usare UPN corrispondenti per l'accesso a causa di politiche aziendali o problemi di esperienza utente.
+Per le organizzazioni in cui l'UPN locale è il messaggio di posta elettronica di accesso preferito dell'utente, questo approccio è stato straordinario. Tali organizzazioni impostano il Azure AD UPN sullo stesso valore dell'UPN locale e gli utenti avranno un'esperienza di accesso coerente.
 
-Le organizzazioni che non possono usare UPN corrispondenti in Azure AD hanno diverse opzioni:
+Tuttavia, in alcune organizzazioni l'UPN locale non viene usato come nome di accesso. Negli ambienti locali è necessario configurare Active Directory Domain Services locale per consentire l'accesso con un ID di accesso alternativo. L'impostazione del Azure AD UPN sullo stesso valore dell'UPN locale non è un'opzione, perché Azure AD richiederebbe l'accesso degli utenti con tale valore.
 
-* Un approccio consiste nell'impostare l'UPN di Azure AD su un valore diverso in base alle esigenze aziendali, come `balas@fabrikam.com`.
-    * Tuttavia, non tutte le applicazioni e i servizi sono compatibili con l'uso di valori diversi per l'UPN locale e l'UPN di Azure AD.
-* Un approccio migliore consiste nel verificare che gli UPN locale e di Azure AD siano impostati sullo stesso valore e quindi configurare Azure AD per consentire agli utenti di accedere ad Azure con il proprio indirizzo e-mail come ID di accesso alternativo.
+La soluzione alternativa tipica di questo problema consiste nell'impostare il Azure AD UPN per l'indirizzo di posta elettronica previsto dall'utente per l'accesso. Questo approccio funziona, sebbene i risultati in UPN diversi tra AD locale e in Azure AD e questa configurazione non è compatibile con tutti i carichi di lavoro di Microsoft 365.
 
-Grazie all'indirizzo e-mail come ID di accesso alternativo, gli utenti possono continuare ad accedere ad Azure immettendo il proprio UPN, ma possono accedere anche usando il proprio indirizzo e-mail. Per supportare la funzione, si specifica un indirizzo e-mail nell'attributo *ProxyAddresses* dell'utente nella directory locale. L'attributo *ProxyAddresses* supporta uno o più indirizzi di posta elettronica.
+Un approccio diverso consiste nel sincronizzare il Azure AD e il UPN locale con lo stesso valore e quindi configurare Azure AD per consentire agli utenti di accedere Azure AD con un messaggio di posta elettronica verificato. Per fornire questa capacità, è necessario definire uno o più indirizzi di posta elettronica nell'attributo *proxyAddresses* dell'utente nella directory locale. *ProxyAddresses* vengono quindi sincronizzati per Azure ad automaticamente utilizzando Azure ad Connect.
+
+## <a name="preview-limitations"></a>Limiti di anteprima
+
+Nello stato di anteprima corrente, quando un utente accede con un indirizzo di posta elettronica non UPN come ID di accesso alternativo, si applicano le limitazioni seguenti:
+
+* Gli utenti possono visualizzare il proprio UPN, anche quando l'utente ha eseguito l'accesso con la posta elettronica non UPN. Si può notare il comportamento di esempio seguente:
+    * All'utente viene richiesto di eseguire l'accesso con UPN quando viene indirizzato a Azure AD l'accesso con `login_hint=<non-UPN email>` .
+    * Quando un utente accede con un messaggio di posta elettronica non UPN e immette una password non corretta, la pagina *"immettere la password"* cambia per visualizzare l'UPN.
+    * In alcuni siti e app Microsoft, ad esempio [https://portal.azure.com](https://portal.azure.com) e Microsoft Office, il controllo **account manager** in genere visualizzato in alto a destra può visualizzare l'UPN dell'utente anziché l'indirizzo di posta elettronica non UPN usato per l'accesso.
+
+* Alcuni flussi non sono attualmente compatibili con il messaggio di posta elettronica non UPN, come nel seguente esempio:
+    * Identity Protection attualmente non corrisponde agli ID di accesso alternativi di posta elettronica con rilevamento dei rischi di *credenziali perse* . Questo rilevamento dei rischi usa il nome UPN per trovare la corrispondenza con le credenziali che sono state perse. Per ulteriori informazioni, vedere [Azure ad Identity Protection rilevamento dei rischi e correzione][identity-protection].
+    * Gli inviti B2B inviati a un ID di accesso alternativo non sono completamente supportati. Dopo aver accettato un invito inviato a un messaggio di posta elettronica come ID di accesso alternativo, l'accesso con il messaggio di posta elettronica alternativo potrebbe non funzionare per l'utente nell'endpoint con tenant.
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Sincronizzare gli indirizzi di posta elettronica per accedere ad Azure AD
 
@@ -179,6 +188,7 @@ Per altre informazioni sulle operazioni con l'identità ibrida, vedere [Funziona
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
+[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 11/12/2019
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 7a756a09e135f664074e64a611755845d8dfb8b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 184db0280629e07314f9589338a33cdf442e63cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85517373"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Che cos'è la finestra di progettazione di Azure Machine Learning (anteprima)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,19 +38,19 @@ La finestra di progettazione usa l'[area di lavoro](concept-workspace.md) di Azu
 La finestra di progettazione offre un pannello Canvas visivo per compilare, testare e distribuire modelli di Machine Learning. Con la finestra di progettazione è possibile:
 
 + Trascinare i [set di dati](#datasets) e i [moduli](#module) selezionati nel pannello Canvas.
-+ Collegare i moduli per creare una [bozza della pipeline](#pipeline-draft).
++ Connettere i moduli per creare una [bozza della pipeline](#pipeline-draft).
 + Inviare un'[esecuzione della pipeline](#pipeline-run) usando le risorse di calcolo nell'area di lavoro Azure Machine Learning.
 + Convertire le **pipeline di training** in **pipeline di inferenza**.
-+ [Pubblicare](#publish) le pipeline in un **endpoint di pipeline** REST per inviare le nuove esecuzioni delle pipeline con diversi parametri e set di dati.
++ [Pubblicare](#publish) le pipeline in un endpoint della **pipeline** REST per inviare una nuova pipeline che viene eseguita con parametri e set di impostazioni diversi.
     + Pubblicare una **pipeline di training** per riusare una singola pipeline per il training di più modelli durante la modifica di parametri e set di dati.
     + Pubblicare una **pipeline di inferenza batch** per eseguire stime sui nuovi dati usando un modello precedentemente sottoposto a training.
-+ [Distribuire](#deploy) una **pipeline di inferenza in tempo reale** in un endpoint in tempo reale per eseguire stime sui nuovi dati in tempo reale.
++ [Distribuire](#deploy) una **pipeline di inferenza in tempo reale** a un endpoint in tempo reale per eseguire stime sui nuovi dati in tempo reale.
 
 ![Diagramma di flusso di lavoro per training, inferenza batch e inferenza in tempo reale nella finestra di progettazione](./media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
-Una [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) è costituita da set di dati e moduli analitici, che è possibile collegare tra loro. Le pipeline hanno molti usi: è possibile creare una pipeline che esegue il training di un singolo modello o una pipeline che esegue il training di più modelli. È possibile creare una pipeline che esegue stime in tempo reale o in batch oppure creare una pipeline che pulisca solo i dati. Le pipeline consentono di riusare il lavoro e organizzare i progetti.
+Una [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) è costituita da set di impostazioni e moduli analitici che è possibile connettere. Le pipeline hanno molti usi: è possibile creare una pipeline che esegue il training di un singolo modello o una pipeline che esegue il training di più modelli. È possibile creare una pipeline che esegue stime in tempo reale o in batch oppure creare una pipeline che pulisca solo i dati. Le pipeline consentono di riusare il lavoro e organizzare i progetti.
 
 ### <a name="pipeline-draft"></a>Bozza di pipeline
 
@@ -73,15 +73,16 @@ Le esecuzioni delle pipeline vengono raggruppate in [esperimenti](concept-azure-
 
 ## <a name="datasets"></a>Set di dati
 
-Un set di dati di Machine Learning semplifica l'accesso e l'uso dei dati. La finestra di progettazione include diversi set di dati di esempio con cui sperimentare. È possibile [registrare](how-to-create-register-datasets.md) più set di dati in base alle necessità.
+Un set di dati di Machine Learning semplifica l'accesso e l'uso dei dati. Nella finestra di progettazione sono inclusi diversi set di impostazioni di esempio che consentono di sperimentare. È possibile [registrare](how-to-create-register-datasets.md) più set di dati in base alle necessità.
 
 ## <a name="module"></a>Modulo
 
-Un modulo è un algoritmo che è possibile applicare ai dati. La finestra di progettazione include diversi moduli, dalle funzioni di ingresso dei dati ai processi di training, valutazione e convalida.
+Un modulo è un algoritmo che è possibile applicare ai dati. La finestra di progettazione include diversi moduli che variano dalle funzioni di ingresso dei dati ai processi di training, valutazione e convalida.
 
 Un modulo può avere un set di parametri che è possibile usare per configurare gli algoritmi interni del modulo. Quando si seleziona un modulo nel pannello Canvas, i parametri del modulo sono visualizzati nel riquadro Proprietà a destra del pannello Canvas. È possibile modificare i parametri in questo riquadro per ottimizzare il modello. È possibile impostare le risorse di calcolo per i singoli moduli nella finestra di progettazione. 
 
-![Proprietà del modulo](./media/concept-designer/properties.png)
+:::image type="content" source="./media/concept-designer/properties.png"alt-text="Proprietà del modulo":::
+
 
 Per informazioni su come spostarsi nella libreria di algoritmi di Machine Learning disponibili, vedere la [panoramica di riferimento agli algoritmi e ai moduli](algorithm-module-reference/module-reference.md). Per informazioni sulla scelta di un algoritmo, vedere la [scheda di riferimento rapido sugli algoritmi di Azure Machine Learning](algorithm-cheat-sheet.md).
 
@@ -138,4 +139,3 @@ In seguito a questi aggiornamenti, alcuni concetti e termini relativi all'interf
 
 * Informazioni sulle nozioni di base sull'analisi predittiva e Machine Learning con l'[Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
 * Informazioni su come modificare gli [esempi della finestra di progettazione](samples-designer.md) esistenti per adattarli alle proprie esigenze.
-

@@ -3,15 +3,15 @@ title: Acquisire i dati da Hub eventi a Azure Data Lake Storage Gen1
 description: Usare Azure Data Lake Storage Gen1 per acquisire i dati ricevuti da Hub eventi di Azure.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 5cbcdc5cb9713432be5b52898d956506d80d6ea0
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9d663c2e95ee94811d70a0602b35842a789dd9b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690677"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515768"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Usare Azure Data Lake Storage Gen1 per acquisire dati da Hub eventi
 
@@ -23,7 +23,7 @@ Informazioni su come usare Azure Data Lake Storage Gen1 per acquisire i dati ric
 
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 
-*  **Uno spazio dei nomi di Hub eventi**. Per istruzioni, vedere [Creare uno spazio dei nomi di Hub eventi](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Assicurarsi che l'account Data Lake Storage Gen1 e lo spazio dei nomi di Hub eventi si trovino nella stessa sottoscrizione di Azure.
+*  **Uno spazio dei nomi di hub eventi**. Per istruzioni, vedere [Creare uno spazio dei nomi di Hub eventi](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Assicurarsi che l'account Data Lake Storage Gen1 e lo spazio dei nomi di Hub eventi si trovino nella stessa sottoscrizione di Azure.
 
 
 ## <a name="assign-permissions-to-event-hubs"></a>Assegnare autorizzazioni a Hub eventi
@@ -83,11 +83,11 @@ In questa sezione si crea un hub eventi in uno spazio dei nomi di Hub eventi. È
 
 1. Dal riquadro **Panoramica** dello spazio dei nomi di Hub eventi fare clic su **+ Hub eventi**.
 
-    ![Creare un hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Creare un hub eventi")
+    ![Crea Hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Creare un hub eventi")
 
 1. Fornire i valori seguenti per configurare Hub eventi per acquisire i dati in Data Lake Storage Gen1.
 
-    ![Creare un hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Creare un hub eventi")
+    ![Crea Hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Creare un hub eventi")
 
     a. Specificare un nome per l'hub eventi.
     
@@ -99,7 +99,7 @@ In questa sezione si crea un hub eventi in uno spazio dei nomi di Hub eventi. È
 
     e. Lasciare il valore predefinito per **Formati dei nomi file di acquisizione di esempio**. Questa opzione controlla la struttura di cartelle che viene creata nella cartella di acquisizione.
 
-    f. Scegliere **Crea**.
+    f. Fare clic su **Crea**.
 
 ## <a name="test-the-setup"></a>Testare la configurazione
 

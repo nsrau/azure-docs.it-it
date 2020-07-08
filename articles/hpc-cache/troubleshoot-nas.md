@@ -3,15 +3,15 @@ title: Risolvere i problemi relativi alle destinazioni di archiviazione NFS di c
 description: Suggerimenti per evitare e correggere errori di configurazione e altri problemi che possono causare un errore durante la creazione di una destinazione di archiviazione NFS
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: 72b6b0b78da23fd0891c0571c9137fefbfb0b077
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515462"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Risolvere i problemi di configurazione NAS e di destinazione archiviazione NFS
 
@@ -40,7 +40,7 @@ In generale, la cache deve accedere a queste porte:
 | TCP/UDP  | 4046  | mountd   |
 | TCP/UDP  | 4047  | status   |
 
-Per informazioni sulle porte specifiche necessarie per il sistema, usare il comando ``rpcinfo`` seguente. Questo comando seguente elenca le porte e formatta i risultati rilevanti in una tabella. (Usare l'indirizzo IP del sistema al posto del *<storage_IP termine>* .)
+Per informazioni sulle porte specifiche necessarie per il sistema, usare il ``rpcinfo`` comando seguente. Questo comando seguente elenca le porte e formatta i risultati rilevanti in una tabella. (Usare l'indirizzo IP del sistema al posto del *<storage_IP termine>* .)
 
 È possibile eseguire questo comando da qualsiasi client Linux in cui è installata l'infrastruttura NFS. Se si usa un client all'interno della subnet del cluster, può essere utile anche per verificare la connettività tra la subnet e il sistema di archiviazione.
 
@@ -58,7 +58,7 @@ La cache HPC di Azure deve accedere alle esportazioni del sistema di archiviazio
 
 Sistemi di archiviazione diversi usano metodi diversi per abilitare l'accesso:
 
-* I server Linux in ``no_root_squash`` genere aggiungono al percorso ``/etc/exports``esportato in.
+* I server Linux in genere aggiungono ``no_root_squash`` al percorso esportato in ``/etc/exports`` .
 * I sistemi NetApp e EMC in genere controllano l'accesso con le regole di esportazione associate a reti o indirizzi IP specifici.
 
 Se si usano le regole di esportazione, tenere presente che la cache può usare più indirizzi IP diversi dalla subnet della cache. Consente l'accesso dalla gamma completa di possibili indirizzi IP della subnet.
@@ -79,17 +79,17 @@ Ad esempio, un sistema potrebbe visualizzare tre esportazioni come le seguenti:
 * ``/ifs/accounting``
 * ``/ifs/accounting/payroll``
 
-L'esportazione ``/ifs/accounting/payroll`` è un elemento figlio ``/ifs/accounting``di ed ``/ifs/accounting`` è un elemento figlio di ``/ifs``.
+L'esportazione ``/ifs/accounting/payroll`` è un elemento figlio di ``/ifs/accounting`` ed ``/ifs/accounting`` è un elemento figlio di ``/ifs`` .
 
-Se si aggiunge l' ``payroll`` esportazione come destinazione di archiviazione della cache HPC, la cache esegue effettivamente ``/ifs/`` il montaggio e l'accesso alla directory Payroll da questa posizione. Per accedere all'esportazione, quindi, la ``/ifs`` ``/ifs/accounting/payroll`` cache HPC di Azure richiede l'accesso alla radice.
+Se si aggiunge l' ``payroll`` esportazione come destinazione di archiviazione della cache HPC, la cache esegue effettivamente il montaggio ``/ifs/`` e l'accesso alla directory Payroll da questa posizione. Per ``/ifs`` accedere all'esportazione, quindi, la cache HPC di Azure richiede l'accesso alla radice ``/ifs/accounting/payroll`` .
 
 Questo requisito è correlato al modo in cui la cache indicizza i file ed evita i conflitti di file, usando gli handle di file forniti dal sistema di archiviazione.
 
-Un sistema NAS con esportazioni gerarchiche può fornire handle di file diversi per lo stesso file se il file viene recuperato da esportazioni diverse. Ad esempio, un client può montare ``/ifs/accounting`` e accedere al file ``payroll/2011.txt``. Un altro client monta ``/ifs/accounting/payroll`` e accede al file ``2011.txt``. A seconda del modo in cui il sistema di archiviazione assegna gli handle di file, questi due client potrebbero ricevere lo stesso file con handle di ``<mount2>/payroll/2011.txt`` file diversi ( ``<mount3>/2011.txt``uno per e uno per).
+Un sistema NAS con esportazioni gerarchiche può fornire handle di file diversi per lo stesso file se il file viene recuperato da esportazioni diverse. Ad esempio, un client può montare ``/ifs/accounting`` e accedere al file ``payroll/2011.txt`` . Un altro client monta ``/ifs/accounting/payroll`` e accede al file ``2011.txt`` . A seconda del modo in cui il sistema di archiviazione assegna gli handle di file, questi due client potrebbero ricevere lo stesso file con handle di file diversi (uno per ``<mount2>/payroll/2011.txt`` e uno per ``<mount3>/2011.txt`` ).
 
 Il sistema di archiviazione back-end mantiene gli alias interni per gli handle di file, ma la cache HPC di Azure non è in grado di stabilire quali handle di file nel relativo indice fanno riferimento allo stesso elemento. È quindi possibile che nella cache siano presenti scritture diverse memorizzate nella cache per lo stesso file e che le modifiche vengano applicate in modo errato perché non sono in grado di stabilire che si tratta dello stesso file.
 
-Per evitare questo possibile conflitto di file per i file in più esportazioni, la cache HPC di Azure monta automaticamente l'esportazione più superficiale disponibile``/ifs`` nel percorso (nell'esempio) e usa l'handle di file fornito da tale esportazione. Se più esportazioni usano lo stesso percorso di base, la cache HPC di Azure richiede l'accesso alla radice di tale percorso.
+Per evitare questo possibile conflitto di file per i file in più esportazioni, la cache HPC di Azure monta automaticamente l'esportazione più superficiale disponibile nel percorso ( ``/ifs`` nell'esempio) e usa l'handle di file fornito da tale esportazione. Se più esportazioni usano lo stesso percorso di base, la cache HPC di Azure richiede l'accesso alla radice di tale percorso.
 
 ## <a name="enable-export-listing"></a>Abilita elenco di esportazione
 <!-- link in prereqs article -->

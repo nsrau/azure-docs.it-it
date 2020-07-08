@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550422"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Abilitare l'accesso senza password per la chiave di sicurezza (anteprima)
 
@@ -24,10 +24,8 @@ Per le aziende che usano oggi le password e hanno un ambiente PC condiviso, le c
 
 Questo documento è incentrato sull'abilitazione dell'autenticazione senza password basata sulla chiave di sicurezza. Alla fine di questo articolo, sarà possibile accedere alle applicazioni basate sul Web con l'account Azure AD usando una chiave di sicurezza FIDO2.
 
-|     |
-| --- |
-| Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisiti
 
@@ -53,7 +51,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 ### <a name="enable-fido2-security-key-method"></a>Abilitare il metodo della chiave di sicurezza FIDO2
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory** > **Security** > **Authentication methods**metodi > di autenticazione di sicurezza**criteri metodo di autenticazione (anteprima)**.
+1. Passare a **Azure Active Directory**  >  metodi di autenticazione di**sicurezza**  >  **Authentication methods**  >  **criteri metodo di autenticazione (anteprima)**.
 1. Sotto il metodo **FIDO2 Security Key**scegliere le opzioni seguenti:
    1. **Abilita** -Sì o no
    1. **Destinazione** -tutti gli utenti o utenti selezionati
@@ -61,7 +59,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registrazione e gestione degli utenti delle chiavi di sicurezza FIDO2
 
-1. Passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+1. Passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Accedere se non è già stato fatto.
 1. Fare clic su **info di sicurezza**.
    1. Se l'utente ha già registrato almeno un metodo di Multi-Factor Authentication di Azure, può registrare immediatamente una chiave di sicurezza FIDO2.
@@ -79,7 +77,7 @@ Nell'esempio seguente un utente ha già eseguito il provisioning della chiave di
 
 ![Accesso alla chiave di sicurezza Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 
-## <a name="troubleshooting-and-feedback"></a>Risoluzione dei problemi e commenti e suggerimenti
+## <a name="troubleshooting-and-feedback"></a>Risoluzione dei problemi e feedback
 
 Per condividere commenti e suggerimenti o riscontrare problemi durante l'anteprima di questa funzionalità, condividere tramite l'app Windows Feedback hub usando la procedura seguente:
 

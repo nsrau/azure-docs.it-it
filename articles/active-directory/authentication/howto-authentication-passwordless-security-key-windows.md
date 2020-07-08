@@ -11,21 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b8f5d6aaa96c24eb37eb78d237a489f1d25293c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550628"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory (anteprima)
 
 Questo documento è incentrato sull'abilitazione dell'autenticazione senza password basata sulla chiave di sicurezza FIDO2 con i dispositivi Windows 10. Alla fine di questo articolo, sarà possibile accedere ai dispositivi Azure AD e ibridi Azure AD aggiunti a Windows 10 con l'account Azure AD usando una chiave di sicurezza FIDO2.
 
-|     |
-| --- |
-| Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisiti
 
@@ -36,7 +34,7 @@ Questo documento è incentrato sull'abilitazione dell'autenticazione senza passw
 | [Chiavi di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibili | X | X |
 | Webauthn richiede Windows 10 versione 1809 o successiva | X | X |
 | [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) richiedono Windows 10 versione 1903 o successiva | X |   |
-| [Azure ad ibrido dispositivi aggiunti](../devices/concept-azure-ad-join-hybrid.md) richiedono Windows 10 Insider Build 18945 o versione successiva |   | X |
+| [Azure ad ibrido dispositivi aggiunti](../devices/concept-azure-ad-join-hybrid.md) richiedono Windows 10 versione 2004 o successiva |   | X |
 | Controller di dominio Windows Server 2016/2019 con patch complete. |   | X |
 | [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versione 1.4.32.0 o successiva |   | X |
 | [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (facoltativo) | X | X |
@@ -60,7 +58,7 @@ Gli scenari seguenti non sono supportati:
 
 Azure AD i dispositivi aggiunti in fase di pilota durante l'anteprima delle funzionalità con devono eseguire Windows 10 versione 1809 o successiva. L'esperienza migliore è in Windows 10 versione 1903 o successiva.
 
-Azure AD ibrido dispositivi aggiunti devono eseguire Windows 10 Insider Build 18945 o versione successiva.
+Azure AD ibrido dispositivi aggiunti devono eseguire Windows 10 versione 2004 o successiva.
 
 ## <a name="enable-security-keys-for-windows-sign-in"></a>Abilitare le chiavi di sicurezza per l'accesso a Windows
 
@@ -81,7 +79,7 @@ Le organizzazioni possono scegliere di usare uno o più dei metodi seguenti per 
 Per abilitare l'uso delle chiavi di sicurezza con Intune, completare i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Microsoft Intune** > **registrazione del dispositivo registrazione** > **Windows** > **Proprietà****Windows Hello for business** > .
+1. Passare a **Microsoft Intune**  >  **registrazione del dispositivo registrazione**  >  **Windows**  >  **Proprietà Windows Hello for business**  >  **Properties**.
 1. In **Impostazioni**impostare **Usa chiavi di sicurezza per l'accesso** su **abilitato**.
 
 La configurazione delle chiavi di sicurezza per l'accesso non dipende dalla configurazione di Windows Hello for business.
@@ -91,7 +89,7 @@ La configurazione delle chiavi di sicurezza per l'accesso non dipende dalla conf
 Per specificare come destinazione gruppi di dispositivi specifici per abilitare il provider di credenziali, usare le seguenti impostazioni personalizzate tramite Intune:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Microsoft Intune** > **configurazione** > del dispositivo**profili** > **Crea profilo**.
+1. Passare a **Microsoft Intune**  >  **configurazione del dispositivo**  >  **profili**  >  **Crea profilo**.
 1. Configurare il nuovo profilo con le impostazioni seguenti:
    - Nome: chiavi di sicurezza per l'accesso a Windows
    - Descrizione: Abilita le chiavi di sicurezza di FIDO da usare durante l'accesso a Windows
@@ -111,14 +109,14 @@ Per specificare come destinazione gruppi di dispositivi specifici per abilitare 
 Per i dispositivi non gestiti da Intune, è possibile installare un pacchetto di provisioning per abilitare la funzionalità. L'app progettazione configurazione di Windows può essere installata dal [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Completare i passaggi seguenti per creare un pacchetto di provisioning:
 
 1. Avviare Progettazione configurazione Windows.
-1. Selezionare **file** > **nuovo progetto**.
+1. Selezionare **file**  >  **nuovo progetto**.
 1. Assegnare un nome al progetto e prendere nota del percorso in cui è stato creato il progetto, quindi selezionare **Avanti**.
 1. Lasciare il *pacchetto di provisioning* selezionato come **flusso di lavoro del progetto selezionato** e selezionare **Avanti**.
 1. Selezionare *tutte le edizioni desktop di Windows* in **scegliere le impostazioni da visualizzare e configurare**, quindi fare clic su **Avanti**.
 1. Selezionare **Fine**.
-1. Nel progetto appena creato passare a **Impostazioni** > di runtime**WindowsHelloForBusiness** > **SecurityKeys** > **UseSecurityKeyForSignIn**.
+1. Nel progetto appena creato passare a impostazioni di **Runtime**  >  **WindowsHelloForBusiness**  >  **SecurityKeys**  >  **UseSecurityKeyForSignIn**.
 1. Impostare **UseSecurityKeyForSignIn** su *Enabled*.
-1. Selezionare **Esporta** > **pacchetto di provisioning**
+1. Selezionare **Esporta**  >  **pacchetto di provisioning**
 1. Lasciare le impostazioni predefinite nella finestra **Compila** in **descrivere il pacchetto di provisioning**, quindi fare clic su **Avanti**.
 1. Lasciare le impostazioni predefinite nella finestra **Compila** in **selezionare i dettagli di sicurezza per il pacchetto di provisioning e fare** clic su **Avanti**.
 1. Prendere nota di o modificare il percorso nelle finestre di **compilazione** in **selezionare dove salvare il pacchetto di provisioning** e selezionare **Avanti**.
@@ -131,7 +129,7 @@ Per i dispositivi non gestiti da Intune, è possibile installare un pacchetto di
 
 ### <a name="enable-with-group-policy"></a>Abilita con Criteri di gruppo
 
-Per i **dispositivi ibridi Azure ad aggiunti**, le organizzazioni possono configurare la seguente impostazione di criteri di gruppo per abilitare l'accesso alla chiave di sicurezza di fido. L'impostazione si trova in **configurazione** > **modelli amministrativi** > accesso al**sistema** > attiva l'**accesso** > **alla chiave di sicurezza**:
+Per i **dispositivi ibridi Azure ad aggiunti**, le organizzazioni possono configurare la seguente impostazione di criteri di gruppo per abilitare l'accesso alla chiave di sicurezza di fido. L'impostazione si trova in **Configurazione computer**  >  **modelli amministrativi**  >  accesso al**sistema**  >  attiva l'**accesso**  >  **alla chiave di sicurezza**:
 
 - L'impostazione di questo criterio su **abilitato** consente agli utenti di accedere con chiavi di sicurezza.
 - L'impostazione di questo criterio su **disabilitato** o **non configurato** impedisce agli utenti di accedere con le chiavi di sicurezza.
@@ -147,10 +145,10 @@ Nell'esempio seguente, un utente denominato Bala Sandhu ha già eseguito il prov
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Gestire la chiave di sicurezza biometria, PIN o reimpostare la chiave di sicurezza
 
 * Windows 10 versione 1903 o successiva
-   * Gli utenti possono aprire **le impostazioni di Windows** nella**chiave di sicurezza** degli **account** > del dispositivo >
+   * Gli utenti possono aprire **le impostazioni di Windows** nella **Accounts**  >  **chiave di sicurezza** degli account del dispositivo >
    * Gli utenti possono modificare il PIN, aggiornare i dati biometrici o reimpostare la chiave di sicurezza
 
-## <a name="troubleshooting-and-feedback"></a>Risoluzione dei problemi e commenti e suggerimenti
+## <a name="troubleshooting-and-feedback"></a>Risoluzione dei problemi e feedback
 
 Per condividere commenti e suggerimenti o riscontrare problemi durante l'anteprima di questa funzionalità, condividere tramite l'app Windows Feedback hub usando la procedura seguente:
 

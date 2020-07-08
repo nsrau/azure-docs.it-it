@@ -4,26 +4,25 @@ description: Configurare la federazione diretta con un provider di identità SAM
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/24/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 299b0a677e7ca7bea9481d94ecf98c993af0a6ed
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551539"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con Active Directory Federation Services (AD FS) e provider di terze parti per utenti guest (anteprima)
-|     |
-| --- |
-| La federazione diretta è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+>  La federazione diretta è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo articolo descrive come configurare la federazione diretta con un'altra organizzazione per la collaborazione B2B. È possibile configurare la federazione diretta con qualsiasi organizzazione il cui provider di identità (IdP) supporti il protocollo SAML 2.0 o WS-Fed.
 Quando si configura la federazione diretta con il provider di identità di un partner, i nuovi utenti guest di tale dominio possono usare il proprio account aziendale gestito dal provider di identità per accedere al tenant di Azure AD e iniziare a collaborare con l'utente. Non è necessario che l'utente guest crei un account Azure AD separato.
@@ -221,3 +220,7 @@ Per rimuovere la federazione diretta con un provider di identità usando PowerSh
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Scopri di più sull' [esperienza di riscatto degli inviti](redemption-experience.md) quando gli utenti esterni possono accedere con diversi provider di identità.
