@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
 ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75897962"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicare i computer con i dischi abilitati per le chiavi gestite dal cliente (CMK)
@@ -33,7 +32,7 @@ Per questo esempio, l'area di Azure primaria è Asia orientale e l'area secondar
     - **Sottoscrizione di origine**: sottoscrizione a cui appartengono le macchine virtuali di origine. Può trattarsi di qualsiasi sottoscrizione che si trovi nello stesso tenant di Azure Active Directory dell'insieme di credenziali di servizi di ripristino.
     - **Gruppo di risorse:** gruppo di risorse a cui appartengono le macchine virtuali di origine. Tutte le macchine virtuali nel gruppo di risorse selezionato sono elencate per la protezione nel passaggio successivo.
 
-3. In **macchine** > virtuali**selezionare macchine virtuali**, selezionare tutte le VM che si desidera replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Quindi selezionare **OK**.
+3. In **macchine virtuali**  >  **selezionare macchine virtuali**, selezionare tutte le VM che si desidera replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Quindi selezionare **OK**.
 
 4. In **Impostazioni**è possibile configurare le seguenti impostazioni del sito di destinazione.
 
@@ -64,7 +63,7 @@ Per modificare le impostazioni di destinazione predefinite Site Recovery, attene
 
 3. Selezionare **Personalizza** accanto a "impostazioni di crittografia di archiviazione" per selezionare le des di destinazione per ogni disco gestito di origine abilitato per la chiave gestita dal cliente (CMK). Al momento della selezione, sarà possibile vedere anche l'insieme di credenziali delle chiavi di destinazione a cui è associata la DES.
 
-4. Selezionare **Crea risorsa** > di destinazione**Abilita replica**.
+4. Selezionare **Crea risorsa di destinazione**  >  **Abilita replica**.
 5. Quando le macchine virtuali sono abilitate per la replica, è possibile controllare lo stato di integrità delle macchine virtuali in **elementi replicati**.
 
 ![Abilitare la replica per il computer con dischi abilitati per CMK](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)

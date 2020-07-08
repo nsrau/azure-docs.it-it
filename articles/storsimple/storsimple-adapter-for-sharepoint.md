@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: twooley
 ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75930216"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installare e configurare l’adattatore StorSimple per SharePoint
@@ -226,7 +225,7 @@ Prima di disinstallare l'adattatore StorSimple per il software di SharePoint, è
 4. Nella pagina **Configura l'adattatore StorSimple** fare clic sul pulsante **Disabilita** sotto ogni database di contenuto che si desidera rimuovere dalla risorsa di archiviazione BLOB esterna. 
 5. Eliminare gli oggetti da SharePoint e caricarli nuovamente.
 
-In alternativa, è possibile usare il cmdlet `RBS Migrate()` di Microsoft PowerShell incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx).
+In alternativa, è possibile usare il `RBS Migrate()` cmdlet di Microsoft PowerShell incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 Dopo aver spostato nuovamente i BLOB nel database di contenuto, andare al passaggio successivo: [Disinstallare l'adattatore](#uninstall-the-adapter).
 

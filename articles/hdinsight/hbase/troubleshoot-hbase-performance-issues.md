@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887156"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Risolvere i problemi di prestazioni di Apache HBase in Azure HDInsight
@@ -65,17 +64,17 @@ Se si sta eseguendo la migrazione ad Azure HDInsight, assicurarsi che la migrazi
 
 ## <a name="server-side-configuration-tunings"></a>Ottimizzazioni della configurazione lato server
 
-In HDInsight HBase, HFiles vengono archiviati nella risorsa di archiviazione remota. Quando si verifica un mancato riscontro nella cache, il costo delle letture è superiore rispetto ai sistemi locali perché i dati nei sistemi locali sono supportati da HDFS locali. Per la maggior parte degli scenari, l'uso intelligente delle cache HBase (cache a blocchi e cache di bucket) è progettato per aggirare questo problema. Nei casi in cui il problema non viene aggirato, l'uso di un account BLOB in blocchi Premium può aiutare a risolvere questo problema. Il driver di Windows BLOB del servizio di archiviazione di Azure si basa su determinate proprietà, `fs.azure.read.request.size` ad esempio per recuperare i dati nei blocchi in base a ciò che determina la modalità di lettura (sequenziale e casuale), in modo che sia possibile continuare a essere istanze di latenze più elevate con letture. Attraverso esperimenti empirici è stato rilevato che l'impostazione delle dimensioni del blocco della richiesta`fs.azure.read.request.size`di lettura () su 512 KB e la corrispondenza delle dimensioni del blocco delle tabelle HBase con le stesse dimensioni produce il risultato migliore in pratica.
+In HDInsight HBase, HFiles vengono archiviati nella risorsa di archiviazione remota. Quando si verifica un mancato riscontro nella cache, il costo delle letture è superiore rispetto ai sistemi locali perché i dati nei sistemi locali sono supportati da HDFS locali. Per la maggior parte degli scenari, l'uso intelligente delle cache HBase (cache a blocchi e cache di bucket) è progettato per aggirare questo problema. Nei casi in cui il problema non viene aggirato, l'uso di un account BLOB in blocchi Premium può aiutare a risolvere questo problema. Il driver di Windows BLOB del servizio di archiviazione di Azure si basa su determinate proprietà, ad esempio `fs.azure.read.request.size` per recuperare i dati nei blocchi in base a ciò che determina la modalità di lettura (sequenziale e casuale), in modo che sia possibile continuare a essere istanze di latenze più elevate con letture. Attraverso esperimenti empirici è stato rilevato che l'impostazione delle dimensioni del blocco della richiesta `fs.azure.read.request.size` di lettura () su 512 KB e la corrispondenza delle dimensioni del blocco delle tabelle HBase con le stesse dimensioni produce il risultato migliore in pratica.
 
-Per la maggior parte dei cluster di nodi di grandi dimensioni, `bucketcache` HDInsight HBase fornisce come file in una SSD Premium locale collegata alla macchina virtuale, che esegue `regionservers`. In alternativa, l'utilizzo della cache fuori heap potrebbe offrire un miglioramento. Questa soluzione alternativa prevede la limitazione dell'utilizzo della memoria disponibile e potenzialmente inferiore rispetto alla cache basata su file, quindi potrebbe non essere sempre la scelta migliore.
+Per la maggior parte dei cluster di nodi di grandi dimensioni, HDInsight HBase fornisce `bucketcache` come file in una SSD Premium locale collegata alla macchina virtuale, che esegue `regionservers` . In alternativa, l'utilizzo della cache fuori heap potrebbe offrire un miglioramento. Questa soluzione alternativa prevede la limitazione dell'utilizzo della memoria disponibile e potenzialmente inferiore rispetto alla cache basata su file, quindi potrebbe non essere sempre la scelta migliore.
 
 Di seguito sono riportati alcuni degli altri parametri specifici che sono stati ottimizzati e che sembrano essere utili per variare i gradi:
 
-- Aumentare `memstore` le dimensioni dal valore predefinito 128 mb a 256 MB. Questa impostazione è in genere consigliata per scenari di scrittura intensivi.
+- Aumentare le `memstore` dimensioni dal valore predefinito 128 MB a 256 MB. Questa impostazione è in genere consigliata per scenari di scrittura intensivi.
 
 - Aumentare il numero di thread dedicati per la compattazione, dall'impostazione predefinita da **1** a **4**. Questa impostazione è pertinente se si osservano compattazioni secondarie frequenti.
 
-- Evitare il `memstore` blocco dello scaricamento a causa del limite del negozio. Per fornire questo buffer, aumentare l' `Hbase.hstore.blockingStoreFiles` impostazione su **100**.
+- Evitare il blocco `memstore` dello scaricamento a causa del limite del negozio. Per fornire questo buffer, aumentare l' `Hbase.hstore.blockingStoreFiles` impostazione su **100**.
 
 - Per controllare gli scaricamenti, usare le impostazioni seguenti:
 
@@ -104,7 +103,7 @@ Di seguito sono riportati alcuni degli altri parametri specifici che sono stati 
 - Timeout RPC: **3 minuti**
 
    - I timeout RPC includono il timeout RPC HBase, il timeout dello scanner client HBase e il timeout delle query Phoenix. 
-   - Verificare che il `hbase.client.scanner.caching` parametro sia impostato sullo stesso valore sia sul lato server sia sul lato client. Se non sono uguali, questa impostazione genera errori di fine client correlati a `OutOfOrderScannerException`. Questa impostazione deve essere impostata su un valore basso per le analisi di grandi dimensioni. Questo valore viene impostato su **100**.
+   - Verificare che il `hbase.client.scanner.caching` parametro sia impostato sullo stesso valore sia sul lato server sia sul lato client. Se non sono uguali, questa impostazione genera errori di fine client correlati a `OutOfOrderScannerException` . Questa impostazione deve essere impostata su un valore basso per le analisi di grandi dimensioni. Questo valore viene impostato su **100**.
 
 ## <a name="other-considerations"></a>Altre considerazioni
 
@@ -120,8 +119,8 @@ Di seguito sono riportati i parametri aggiuntivi da considerare per l'ottimizzaz
 
 Se il problema persiste, visitare uno dei canali seguenti per ottenere ulteriore supporto:
 
-- Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
+- Ricevere risposte dagli esperti di Azure tramite la pagina [Supporto della community per Azure](https://azure.microsoft.com/support/community/).
 
-- Connettersi con [@AzureSupport](https://twitter.com/azuresupport). Si tratta dell'account Microsoft Azure ufficiale per migliorare l'esperienza dei clienti. Connette la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+- Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), Si tratta dell'account Microsoft Azure ufficiale per migliorare l'esperienza dei clienti. Connette la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-- Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La sottoscrizione Microsoft Azure include l'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+- Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La sottoscrizione Microsoft Azure include l'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

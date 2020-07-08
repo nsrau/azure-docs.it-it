@@ -9,10 +9,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75977307"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitoraggio sportello: con funzioni di Azure e SendGrid, inviare un messaggio di posta elettronica quando viene aperta una porta           
@@ -39,7 +38,7 @@ Completare la [Guida introduttiva](iot-hub-arduino-iot-devkit-az3166-get-started
 
 Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registrarsi tramite uno di questi metodi:
 
-* Attivare una [versione di valutazione gratuita di 30 giorni dell'account Microsoft Azure](https://azure.microsoft.com/free/).
+* Attivare una [versione di valutazione gratuita di 30 giorni Microsoft Azure account](https://azure.microsoft.com/free/).
 * Richiedere il [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio.
 
 ## <a name="deploy-the-sendgrid-service-in-azure"></a>Distribuire il servizio SendGrid in Azure
@@ -81,7 +80,7 @@ Al termine della distribuzione, fare clic su di essa e quindi fare clic sul puls
 
 ![Gestione di SendGrid](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-Nella pagina SendGrid fare clic su **Impostazioni** > **chiavi** > API**Crea chiave API**.
+Nella pagina SendGrid fare clic su **Impostazioni**  >  **chiavi API**  >  **Crea chiave API**.
 
 ![Creazione dell'API in SendGrid - Primo](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
@@ -200,4 +199,4 @@ In caso di problemi, vedere le [domande frequenti di IoT DevKit](https://microso
 È stato illustrato come connettere un dispositivo DevKit all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT ed è stato usato il servizio SendGrid per inviare un messaggio di posta elettronica. Ecco i passaggi successivi suggeriti:
 
 * [Panoramica dell'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)

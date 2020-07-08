@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979415"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trasformare i dati XML con le mappe in App per la logica di Azure con Enterprise Integration Pack
 
-Per trasferire i dati XML tra i formati per gli scenari di integrazione aziendale nelle app per la logica di Azure, l'app per la logica può usare le mappe o, più specificamente, le mappe XSLT (Extensible Style Sheet Language Transformations). Una mappa è un documento XML che descrive come convertire i dati da un documento XML in un altro formato. 
+Per trasferire i dati XML da un formato all'altro per gli scenari di integrazione aziendali in App per la logica di Azure, l'app per la logica può usare le mappe o, più precisamente, le mappe XSLT (Extensible Stylesheet Language Transformations). Una mappa è un documento XML che descrive come convertire i dati da un documento XML in un altro formato. 
 
 Si supponga, ad esempio, di ricevere regolarmente fatture o ordini B2B da un cliente che usa il formato AAAMMGG per le date. L'organizzazione usa tuttavia il formato MMGGAAA per le date. È possibile definire e usare una mappa che trasforma il formato di data AAAMMGG nel formato MMGGAAA prima di archiviare i dettagli dell'ordine o della fattura nel database relativo.
 
@@ -36,7 +35,7 @@ Per i limiti relativi agli account di integrazione e agli elementi come le mappe
   * Per gli assembly, sono necessari un contenitore BLOB di Azure, in cui poter caricare l'assembly, e la posizione di tale contenitore. In questo modo, sarà possibile fornire tale posizione in seguito quando si aggiungerà l'assembly all'account di integrazione. 
   For questa attività, sono necessari gli elementi seguenti:
 
-    | Item | Descrizione |
+    | Elemento | Descrizione |
     |------|-------------|
     | [Account di archiviazione di Azure](../storage/common/storage-account-overview.md) | In questo account creare un contenitore BLOB di Azure per l'assembly. Informazioni [su come creare un account di archiviazione](../storage/common/storage-account-create.md). |
     | Contenitore BLOB | In questo contenitore è possibile caricare l'assembly. È necessaria anche la posizione di questo contenitore quando si aggiunge l'assembly all'account di integrazione. Informazioni su come [creare un contenitore BLOB](../storage/blobs/storage-quickstart-blobs-portal.md). |

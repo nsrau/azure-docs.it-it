@@ -7,13 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979383"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni del flusso di lavoro delle app per la logica in app per la logica
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni del flusso di lavoro di app per la logica in App per la logica di Azure
 
 Quando si creano soluzioni di integrazione a livello aziendale con flussi di lavoro automatizzati in [App per la logica di Azure](../logic-apps/logic-apps-overview.md), le definizioni di app per la logica sottostanti usano il semplice linguaggio dichiarativo JSON (JavaScript Object Notation) insieme allo [schema del linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) per la descrizione e la convalida. Questi formati rendono le definizioni di app per la logica più semplici da leggere e da comprendere, senza dover necessariamente avere familiarità con il codice.
 Quando si vuole automatizzare la creazione e la distribuzione di app per la logica, è possibile includere le definizioni di app per la logica come [risorse di Azure](../azure-resource-manager/management/overview.md) all'interno di [modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md).
@@ -127,14 +126,14 @@ I passaggi seguenti descrivono come questa stringa viene elaborata nell'esempio,
 "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
-1. Ottenere l' [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) oggetto per il nome della società, in modo da ottenere il numero totale di caratteri.
+1. Ottenere l'oggetto [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) per il nome della società, in modo da ottenere il numero totale di caratteri.
 
 2. Per ottenere una stringa più breve, sottrarre `5`.
 
-3. Ottenere ora un [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md).
+3. Ottenere ora un [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md) .
 Iniziare dall'indice `5` e procedere alla parte rimanente della stringa.
 
-4. Converte questa sottostringa in [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) una stringa.
+4. Converte questa sottostringa in una [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) stringa.
 
 5. Ora [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) tutti i `+` caratteri con `-` caratteri.
 
@@ -240,7 +239,7 @@ Questa espressione, ad esempio, trova quanto tempo richiedono i passaggi di ques
 
    Se il primo valore è minore del secondo valore, è trascorso più di un secondo dal momento in cui è stato inserito l'ordine.
 
-Per formattare le date, è possibile usare formattatori di stringa. Ad esempio, per ottenere RFC1123, usare [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
+Per formattare le date, è possibile usare formattatori di stringa. Ad esempio, per ottenere RFC1123, usare [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md) .
 Altre informazioni sulla [formattazione delle date](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json

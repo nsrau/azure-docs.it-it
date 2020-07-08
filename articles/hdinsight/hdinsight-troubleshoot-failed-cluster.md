@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895309"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Risolvere i problemi di un processo lento o in errore in un cluster HDInsight
@@ -111,7 +110,7 @@ Le sezioni seguenti descrivono come controllare l'integrità di ogni nodo e del 
 
 ### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Ottenere uno snapshot dell'integrità del cluster usando il dashboard dell'interfaccia utente di Ambari
 
-Il [Dashboard dell'interfaccia utente di Ambari](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.net`) offre una panoramica dell'integrità del cluster, ad esempio tempo di indisponibilità, memoria, utilizzo della rete e della CPU, utilizzo del disco HDFS e così via. Usare le sezioni degli host di Ambari per visualizzare le risorse a livello di host. È anche possibile arrestare e riavviare i servizi.
+Il [Dashboard dell'interfaccia utente di Ambari](#view-cluster-configuration-settings-with-the-ambari-ui) ( `https://<clustername>.azurehdinsight.net` ) offre una panoramica dell'integrità del cluster, ad esempio tempo di indisponibilità, memoria, utilizzo della rete e della CPU, utilizzo del disco HDFS e così via. Usare le sezioni degli host di Ambari per visualizzare le risorse a livello di host. È anche possibile arrestare e riavviare i servizi.
 
 ### <a name="check-your-webhcat-service"></a>Controllare il servizio WebHCat
 

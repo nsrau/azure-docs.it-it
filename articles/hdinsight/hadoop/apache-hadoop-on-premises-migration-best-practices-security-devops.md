@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75974414"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate per DevOps e sicurezza
@@ -48,7 +47,7 @@ Usare la procedura seguente per distribuire il cluster HDInsight aggiunto al dom
     |Nome utente di dominio|account del servizio nel dominio gestito dal controller di dominio di Azure Active Directory Domain Services creato nella sezione precedente, ad esempio: `hdiadmin@contoso.onmicrosoft.com`. Questo utente del dominio diventerà l'amministratore del cluster HDInsight.|
     |Password di dominio|password dell'account del servizio.|
     |Unità organizzativa|nome distinto dell'unità organizzativa (OU) che si desidera usare con il cluster HDInsight, ad esempio: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se questa OU non esiste, il cluster HDInsight tenta di creare l'unità organizzativa usando i privilegi dell'account del servizio.|
-    |URL LDAPS|ad esempio, `ldaps://contoso.onmicrosoft.com:636`.|
+    |URL LDAPS|ad esempio, `ldaps://contoso.onmicrosoft.com:636` .|
     |Accedi al gruppo utenti|gruppi di sicurezza i cui utenti si vogliono sincronizzare con il cluster, ad esempio: `HiveUsers`. Per specificare più gruppi utenti, separarli con punti e virgola (;). Prima di creare il cluster ESP, è necessario che i gruppi siano presenti nella directory.|
 
 Per altre informazioni, vedere gli articoli seguenti:
@@ -93,7 +92,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 Per altre informazioni, vedere l'articolo:
 
-[Panoramica di Monitoraggio di Azure](../../azure-monitor/overview.md)
+[Panoramica di monitoraggio di Azure](../../azure-monitor/overview.md)
 
 ## <a name="upgrade-clusters"></a>Aggiornare i cluster
 

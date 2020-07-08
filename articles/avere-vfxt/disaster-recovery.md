@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75966658"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Linee guida per il ripristino di emergenza per vFXT per Azure
@@ -83,7 +82,7 @@ Per stabilire un backup dei dati in un altro account, seguire questa procedura.
 
    Annotare le informazioni sul nome e sulla giunzione di core, elencate nella pagina **spazio dei nomi** nel pannello di controllo, in modo che sia possibile replicarle quando si aggiunge di nuovo il contenitore dopo il backup.
 
-   Usare il pannello di controllo del cluster per rimuovere il file di base. [Aprire il pannello di controllo del cluster](avere-vfxt-cluster-gui.md) e scegliere **Core filer** > **Gestisci file di base**. Trovare il sistema di archiviazione di cui si vuole eseguire il backup e usare il pulsante **Rimuovi** per eliminarlo dal cluster.
+   Usare il pannello di controllo del cluster per rimuovere il file di base. [Aprire il pannello di controllo del cluster](avere-vfxt-cluster-gui.md) e scegliere **Core filer**  >  **Gestisci file di base**. Trovare il sistema di archiviazione di cui si vuole eseguire il backup e usare il pulsante **Rimuovi** per eliminarlo dal cluster.
 
 1. Creare un nuovo contenitore di archiviazione BLOB vuoto in un altro account di archiviazione in un'altra area.
 

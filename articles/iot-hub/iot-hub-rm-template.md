@@ -10,10 +10,9 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: 02e814a9da320d688fe57edf3a3fe0640b8f5a47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75976745"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creare un hub IoT usando un modello di Azure Resource Manager (.NET)
@@ -30,7 +29,7 @@ ms.locfileid: "75976745"
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Visual Studio.
-* Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
+* Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 * Un [account di archiviazione di Azure][lnk-storage-account] in cui è possibile archiviare i file del modello di Azure Resource Manager.
 * [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
 
@@ -184,7 +183,7 @@ Usare un modello JSON e un file di parametri per creare un hub IoT nel gruppo di
 
 È ora possibile completare l'applicazione chiamando il metodo **CreateIoTHub** prima di compilarla ed eseguirla.
 
-1. Alla fine del metodo **Main** aggiungere il codice seguente:
+1. Aggiungere il codice seguente alla fine del metodo **Main** :
 
     ```csharp
     CreateIoTHub(client);

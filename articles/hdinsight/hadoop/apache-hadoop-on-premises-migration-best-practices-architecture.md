@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 2d0d5bb871612bc5e16a26eb49808c39661ffb50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75934681"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'architettura
@@ -107,7 +106,7 @@ Di seguito sono indicate alcune procedure consigliate per il metastore Hive di H
 
 ## <a name="best-practices-for-different-workloads"></a>Procedure consigliate per diversi carichi di lavoro
 
-- Provare a usare il cluster LLAP per le query hive interattive con tempi di risposta migliorati [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) è una nuova funzionalità di hive 2,0 che consente la memorizzazione nella cache delle query in memoria. LLAP rende molto più veloci le query Hive, in alcuni casi fino a  [26 volte più veloci rispetto a Hive 1.x](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Provare a usare il cluster LLAP per le query hive interattive con tempi di risposta migliorati [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP)   è una nuova funzionalità di hive 2,0 che consente la memorizzazione nella cache delle query in memoria. LLAP rende molto più veloci le query Hive, in alcuni casi fino a  [26 volte più veloci rispetto a Hive 1.x](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Prendere in considerazione l'uso di processi Spark al posto dei processi Hive.
 - È consigliabile sostituire le query basate su impala con query LLAP.
 - È consigliabile sostituire processi MapReduce con processi Spark.

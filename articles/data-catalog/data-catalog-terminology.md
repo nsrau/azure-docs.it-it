@@ -7,10 +7,9 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68736286"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia del Catalogo dati di Azure
@@ -69,7 +68,7 @@ Nel Catalogo dati di Azure, qualsiasi utente può fornire metadati descrittivi p
 
 Ognuna di queste prospettive è intrinsecamente preziosa e con Azure Data Catalog ogni utente può fornire le informazioni significative, mentre tutti gli utenti possono utilizzare tali informazioni per comprendere i dati e il relativo scopo.
 
-## <a name="expert"></a>Esperto
+## <a name="expert"></a>Expert
 
 Un esperto è un utente che è stato identificato come avente una prospettiva informata "esperta" per un asset di dati. Qualsiasi utente può aggiungere se stesso o un altro utente come esperto di un asset. Essere elencato come esperto non apporta ulteriori privilegi nel Catalogo dati di Azure. Consente agli utenti di individuare facilmente le prospettive che con maggiore probabilità sono utili durante la revisione dei metadati descrittivi di un asset.
 
@@ -86,4 +85,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida introduttiva: creare un Azure Data Catalog](data-catalog-get-started.md) 
+[Guida introduttiva: Creare un'istanza di Azure Data Catalog](data-catalog-get-started.md) 

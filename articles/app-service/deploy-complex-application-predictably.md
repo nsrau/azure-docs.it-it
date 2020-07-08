@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75967386"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
@@ -39,7 +38,7 @@ Per altre informazioni, vedere [Azure SDK 2.6 per Visual Studio](https://azure.m
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 o versione successiva
 A partire dalla versione 0.8.0, l'installazione di Azure PowerShell include il modulo Gestione risorse di Azure, oltre al modulo Azure. Il nuovo modulo permette di creare script per la distribuzione di gruppi di risorse.
 
-Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
+Per ulteriori informazioni, vedere [utilizzo di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md)
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 Questo [strumento in anteprima](https://resources.azure.com) consente di esplorare le definizioni JSON di tutti i gruppi di risorse nella sottoscrizione e delle singole risorse. Con lo strumento è possibile modificare le definizioni JSON di una risorsa, eliminare l'intera gerarchia di risorse e crearne di nuove.  Le informazioni immediatamente disponibili in questo strumento sono molto utili per la creazione di modelli perché mostrano le proprietà che è necessario impostare per un determinato tipo di risorsa, i valori corretti e così via. È anche possibile creare il gruppo di risorse nel [portale di Azure](https://portal.azure.com/), quindi controllare le relative definizioni JSON nello strumento di esplorazione per impostare il gruppo di risorse.
@@ -130,7 +129,7 @@ L'app dipende da due diverse risorse. Ciò significa che Azure Resource Manager 
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### <a name="app-settings"></a>Impostazioni delle app
+##### <a name="app-settings"></a>Impostazioni app
 Le impostazioni dell'app vengono definite anche come risorsa annidata.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
@@ -182,8 +181,8 @@ Anche in questo caso, le risorse annidate avranno una gerarchia molto simile a q
 ## <a name="deploy-the-resource-group-template-yourself"></a>Distribuire manualmente il modello di gruppo di risorse
 Il pulsante **Deploy to Azure** è molto utile, ma consente di distribuire il modello di gruppo di risorse in azuredeploy.json solo se è già stato effettuato il push di azuredeploy.json a GitHub. Azure .NET SDK fornisce anche gli strumenti per la distribuzione di qualsiasi file modello JSON direttamente dal computer locale. A questo scopo, eseguire la procedura seguente.
 
-1. In Visual Studio fare clic su **file** > **nuovo** > **progetto**.
-2. Fare clic su **Visual C#** > **cloud** > **gruppo di risorse di Azure**, quindi fare clic su **OK**.
+1. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
+2. Fare clic su **Visual C#**  >  **cloud**  >  **gruppo di risorse di Azure**, quindi fare clic su **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. In **Seleziona modello di Azure** selezionare **Modello vuoto** e fare clic su **OK**.
@@ -209,7 +208,7 @@ Il pulsante **Deploy to Azure** è molto utile, ma consente di distribuire il mo
 11. Individuare le proprietà `location` e `isEnabled` e impostarle come illustrato di seguito. Eseguire la stessa operazione per gli altri tre avvisi (lampadine viola).
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. A questo punto si è pronti per la distribuzione. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Distribuisci** > **nuova distribuzione**.
+12. A questo punto si è pronti per la distribuzione. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Distribuisci**  >  **nuova distribuzione**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. Accedere al proprio account Azure, se non si è già connessi.
@@ -262,9 +261,9 @@ In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita
 Per informazioni sulla sintassi e le proprietà JSON per i tipi di risorsa distribuiti in questo articolo, vedere:
 
 * [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
-* [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
+* [Microsoft. SQL/Servers/databases](/azure/templates/microsoft.sql/servers/databases)
 * [Microsoft. SQL/Servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
 * [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
-* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
-* [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
+* [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)
+* [Microsoft. Web/sites/Slots](/azure/templates/microsoft.web/sites/slots)
 * [Microsoft. Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)
