@@ -1,15 +1,15 @@
 ---
-title: Monitoraggio di Azure Application Insights schema di risorse basato sull'area di lavoro
+title: Schema delle risorse di Application Insights basate sull'area di lavoro in Monitoraggio di Azure
 description: Informazioni sul nuovo schema e struttura della tabella per monitoraggio di Azure Application Insights risorse basate sull'area di lavoro.
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
 ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83210541"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Modifiche alle risorse basate sull'area di lavoro (anteprima)
@@ -22,16 +22,16 @@ Con i dati delle risorse Application Insights basati sull'area di lavoro vengono
 
 | Nome tabella legacy | Nome nuova tabella | Descrizione |
 |:---|:---|:---|
-| availabilityResults | AppAvailabilityResults |  Riepilogare i dati dei test di disponibilità.|
+| availabilityResults | AppAvailabilityResults |  Dati di riepilogo da test di disponibilità.|
 | browserTimings | AppBrowserTimings | Dati sulle prestazioni del client, ad esempio il tempo impiegato per elaborare i dati in ingresso.|
-| dependencies | AppDependencies | Chiamate dall'applicazione ad altri componenti (inclusi i componenti esterni) registrati tramite TrackDependency (), ad esempio chiamate a API REST, database o un file system.  |
+| dipendenze | AppDependencies | Chiamate dall'applicazione ad altri componenti (inclusi componenti esterni) registrati tramite TrackDependency(), ad esempio chiamate ad API REST, database o un file system.  |
 | customEvents | AppEvents | Eventi personalizzati creati dall'applicazione. |
 | customMetrics | AppMetrics | Metriche personalizzate create dall'applicazione. |
 | pageViews | AppPageViews| Dati relativi a ogni visualizzazione del sito Web con le informazioni del browser. |
-| performanceCounters | AppPerformanceCounters | Misurazioni delle prestazioni dalle risorse di calcolo che supportano l'applicazione, ad esempio i contatori delle prestazioni di Windows. |
+| performanceCounters | AppPerformanceCounters | Misurazioni delle prestazioni dalle risorse di calcolo che supportano l'applicazione, ad esempio, i contatori delle prestazioni di Windows. |
 | requests | AppRequests | Richieste ricevute dall'applicazione. Ad esempio, viene registrato un record di richiesta separato per ogni richiesta HTTP ricevuta dall'app Web.  |
-| eccezioni | AppSystemEvents | Eccezioni generate dal runtime dell'applicazione, acquisisce le eccezioni lato server e lato client (browser). |
-| traces | AppTraces | Log dettagliati (tracce) emessi tramite il codice dell'applicazione/Framework di registrazione registrati tramite TrackTrace (). |
+| eccezioni | AppSystemEvents | Eccezioni generate dal runtime dell'applicazione, acquisisce sia le eccezioni lato server sia quelle lato client (browser). |
+| traces | AppTraces | Log dettagliati (traces) emessi tramite il codice dell'applicazione/framework di registrazione registrati tramite TrackTrace(). |
 
 ## <a name="table-schemas"></a>Schemi di tabella
 
@@ -64,11 +64,11 @@ Tabella legacy: disponibilità
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
 |posizione|string|Location|string|
 |message|string|Messaggio|string|
-|name|string|Nome|string|
+|name|string|Nome|stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
@@ -106,7 +106,7 @@ Tabella legacy: browserTimings
 |customMeasurements|dinamico|Misurazioni|Dinamico|
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
 |name|string|Nome|Datetime|
 |networkDuration|real|NetworkDurationMs|real|
@@ -153,9 +153,9 @@ Tabella legacy: dipendenze
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
-|name|string|Nome|string|
+|name|string|Nome|stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
@@ -167,7 +167,7 @@ Tabella legacy: dipendenze
 |esito positivo|string|Operazione completata|Bool|
 |target|string|Destinazione|string|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|type|stringa|TipoDipendenza|string|
+|tipo|string|TipoDipendenza|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -195,9 +195,9 @@ Tabella legacy: customEvents
 |customMeasurements|dinamico|Misurazioni|Dinamico|
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
-|name|string|Nome|string|
+|name|string|Nome|stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
@@ -230,9 +230,9 @@ Tabella legacy: customMetrics
 |cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinamico|Proprietà|Dinamico|
 |iKey|string|IKey|string|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
-|name|string|Nome|string|
+|name|string|Nome|stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
@@ -243,7 +243,7 @@ Tabella legacy: customMetrics
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
-|value|real|rimosso||
+|Valore|real|rimosso||
 |valueCount|INT|ValueCount|INT|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
@@ -275,9 +275,9 @@ Tabella legacy: visualizzazioni
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
-|name|string|Nome|string|
+|name|string|Nome|stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
@@ -300,7 +300,7 @@ Tabella legacy: performanceCounters
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
-|category|string|Categoria|string|
+|category|string|Category|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -315,9 +315,9 @@ Tabella legacy: performanceCounters
 |customDimensions|dinamico|Proprietà|Dinamico|
 |iKey|string|IKey|string|
 |instance|string|Istanza|string|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
-|name|string|Nome|string|
+|name|string|Nome|stringa|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
@@ -328,7 +328,7 @@ Tabella legacy: performanceCounters
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
-|value|real|valore|real|
+|Valore|real|Value|real|
 
 ### <a name="apprequests"></a>AppRequests
 
@@ -355,7 +355,7 @@ Tabella legacy: richieste
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
 |name|string|Nome|string|
 |operation_Id|string|OperationId|string|
@@ -366,7 +366,7 @@ Tabella legacy: richieste
 |resultCode|string|ResultCode|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|origine|string|Source (Sorgente)|string|
+|source|string|Source (Sorgente)|string|
 |esito positivo|string|Operazione completata|Bool|
 |timestamp|Datetime|TimeGenerated|Datetime|
 |url|string|URL|string|
@@ -404,7 +404,7 @@ Tabella legacy: eccezioni
 |innermostMethod|string|InnermostMethod|string|
 |innermostType|string|InnermostType|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
 |message|string|Messaggio|string|
 |method|string|Metodo|string|
@@ -421,7 +421,7 @@ Tabella legacy: eccezioni
 |session_Id|string|SessionId|string|
 |severityLevel|INT|SeverityLevel|INT|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|type|string|ExceptionType|string|
+|tipo|stringa|ExceptionType|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -449,7 +449,7 @@ Tabella legacy: tracce
 |customMeasurements|dinamico|Misurazioni|dinamico|
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|string|\_ID elemento|string|
+|itemId|string|\_ItemId|string|
 |itemType|string|Type|string|
 |message|string|Messaggio|string|
 |operation_Id|string|OperationId|string|
@@ -466,5 +466,5 @@ Tabella legacy: tracce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esplora le metriche](../../azure-monitor/platform/metrics-charts.md)
+* [Esplorare le metriche](../../azure-monitor/platform/metrics-charts.md)
 * [Scrivere query di Analisi](../../azure-monitor/app/analytics.md)

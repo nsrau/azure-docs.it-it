@@ -14,16 +14,16 @@ ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9cb2647cc5ac2dc60f5ae7327ee39ed2ff625193
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82901383"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 
 >[!IMPORTANT]
->Questo articolo non sostituisce la documentazione di amministrazione SAP HANA o le note SAP. Ci si aspetta che l'utente abbia una conoscenza approfondita di e le competenze in SAP HANA amministrazione e operazioni, specialmente per il backup, il ripristino, la disponibilità elevata e il ripristino di emergenza. In questo articolo vengono visualizzate le schermate di SAP HANA Studio. Contenuto, struttura e natura delle schermate degli strumenti di amministrazione SAP e gli strumenti stessi possono variare nelle diverse versioni di SAP HANA.
+>Questo articolo non sostituisce la documentazione relativa all'amministrazione di SAP HANA o le note su SAP. Ci si aspetta che l'utente abbia una conoscenza approfondita di e le competenze in SAP HANA amministrazione e operazioni, specialmente per il backup, il ripristino, la disponibilità elevata e il ripristino di emergenza. Gli screenshot di questo articolo fanno riferimento a SAP HANA Studio. Contenuto, struttura e natura delle schermate degli strumenti di amministrazione SAP e gli strumenti stessi possono variare nelle diverse versioni di SAP HANA.
 
 È importante esercitarsi con i passaggi e i processi adottati nell'ambiente e con le versioni di HANA. Alcuni processi descritti in questo articolo sono semplificati per una migliore comprensione generale. Non sono destinate a essere usate come passaggi dettagliati per i manuali di operazioni finali. Se si desidera creare manuali operativi per le configurazioni, testare e verificare i processi e documentare i processi correlati alle configurazioni specifiche. 
 
@@ -117,7 +117,7 @@ Per configurare gli snapshot di archiviazione con le istanze large di HANA, segu
 1. Installare il client HDB di SAP HANA in tutti i server SAP HANA (istanze Large).
 1. Nel primo server SAP HANA (istanze Large) di ogni area, creare una chiave pubblica per accedere all'infrastruttura di archiviazione sottostante che controlla la creazione di snapshot.
 1. Copiare gli script e il file di configurazione da [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md) nel percorso di **hdbsql** dell'installazione di SAP HANA.
-1. Modificare il file *HANABackupDetails. txt* come necessario per le specifiche del cliente appropriate.
+1. Modificare il file di *HANABackupDetails.txt* come necessario per le specifiche del cliente appropriate.
 
 Ottenere gli script e la documentazione più recenti sugli snapshot da [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). Per i passaggi elencati in precedenza, vedere [Microsoft snapshot Tools per SAP Hana in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
@@ -154,7 +154,7 @@ Per configurare e usare un account utente, vedere "abilitare la comunicazione co
 
 ### <a name="step-5-authorize-the-sap-hana-user-account"></a>Passaggio 5: Autorizzare l'account utente SAP HANA
 
-In questo passaggio si autorizza l'account utente SAP HANA creato in modo che gli script non debbano inviare password in fase di esecuzione. Il comando `hdbuserstore` SAP HANA consente di creare una chiave utente SAP Hana. La chiave viene archiviata in uno o più nodi SAP HANA. La chiave utente consente all'utente di accedere a SAP HANA senza dover gestire le password dall'interno del processo di scripting, descritto più avanti in questo articolo.
+In questo passaggio si autorizza l'account utente SAP HANA creato in modo che gli script non debbano inviare password in fase di esecuzione. Il comando SAP HANA `hdbuserstore` consente di creare una chiave utente SAP Hana. La chiave viene archiviata in uno o più nodi SAP HANA. La chiave utente consente all'utente di accedere a SAP HANA senza dover gestire le password dall'interno del processo di scripting, descritto più avanti in questo articolo.
 
 >[!IMPORTANT]
 >Eseguire questi comandi di configurazione con lo stesso contesto utente in cui vengono eseguiti i comandi snapshot. In caso contrario, i comandi snapshot non funzioneranno correttamente.
@@ -174,7 +174,7 @@ Lo scopo dei diversi script e file come sono stati installati è descritto in "q
 
 Prima di configurare gli strumenti di snapshot, verificare che le impostazioni e i percorsi di backup di HANA siano stati configurati correttamente. Per ulteriori informazioni, vedere "configurazione di SAP HANA" in [Microsoft snapshot Tools for SAP Hana in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-La configurazione del set di strumenti snapshot è descritta in "config file-HANABackupCustomerDetails. txt" in [Microsoft snapshot Tools for SAP Hana in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+La configurazione del set di strumenti snapshot è descritta in "config file-HANABackupCustomerDetails.txt" in [Microsoft snapshot Tools for SAP Hana in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 #### <a name="test-connectivity-with-sap-hana"></a>Testare la connettività con SAP HANA
 
@@ -184,7 +184,7 @@ Per ulteriori informazioni, vedere "verifica della connettività con SAP HANA-te
 
 #### <a name="test-storage-connectivity"></a>Testare la connettività di archiviazione
 
-Il passaggio successivo del test consiste nel verificare la connettività all'archiviazione in base ai dati inseriti nel file di configurazione *HANABackupCustomerDetails. txt* . Quindi, eseguire uno snapshot di test. Prima di eseguire il `azure_hana_backup` comando, è necessario eseguire questo test. Per la sequenza di comandi per questo test, vedere "verifica della connettività con storage-testStorageSnapshotConnection" "in [Microsoft snapshot Tools for SAP Hana in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+Il passaggio successivo del test consiste nel verificare la connettività all'archiviazione in base ai dati inseriti nel file di configurazione *HANABackupCustomerDetails.txt* . Quindi, eseguire uno snapshot di test. Prima di eseguire il `azure_hana_backup` comando, è necessario eseguire questo test. Per la sequenza di comandi per questo test, vedere "verifica della connettività con storage-testStorageSnapshotConnection" "in [Microsoft snapshot Tools for SAP Hana in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 Dopo aver eseguito l'accesso alle interfacce della macchina virtuale di archiviazione, lo script continua con la fase 2 e crea uno snapshot di test. L'output è riportato di seguito per una configurazione con scalabilità orizzontale a tre nodi di SAP HANA.
 
@@ -197,7 +197,7 @@ Al termine della procedura di preparazione, è possibile iniziare a configurare 
 
 Per la sintassi e la funzionalità del comando esatte, vedere "eseguire il backup di snapshot-azure_hana_backup" in [Microsoft snapshot Tools for SAP Hana in Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
 
-Quando viene eseguito `azure_hana_backup` , lo script crea lo snapshot di archiviazione nelle tre fasi seguenti:
+Quando `azure_hana_backup` viene eseguito, lo script crea lo snapshot di archiviazione nelle tre fasi seguenti:
 
 1. Esegue uno snapshot SAP HANA.
 1. Esegue uno snapshot di archiviazione.
@@ -286,7 +286,7 @@ Al termine dell'esecuzione dei primi snapshot di archiviazione riusciti, elimina
 
 ### <a name="monitor-the-number-and-size-of-snapshots-on-the-disk-volume"></a>Monitorare il numero e le dimensioni degli snapshot nel volume del disco
 
-In un volume di archiviazione specifico è possibile monitorare il numero di snapshot e l'utilizzo dell'archiviazione degli snapshot. Il comando `ls` non mostra i file e la directory degli snapshot, Il comando `du` del sistema operativo Linux Mostra i dettagli relativi agli snapshot di archiviazione perché sono archiviati negli stessi volumi. Usare il comando con le opzioni seguenti:
+In un volume di archiviazione specifico è possibile monitorare il numero di snapshot e l'utilizzo dell'archiviazione degli snapshot. Il comando `ls` non mostra i file e la directory degli snapshot, Il comando del sistema operativo Linux `du` Mostra i dettagli relativi agli snapshot di archiviazione perché sono archiviati negli stessi volumi. Usare il comando con le opzioni seguenti:
 
 - `du –sh .snapshot`: fornisce il totale di tutti gli snapshot all'interno della directory degli snapshot.
 - `du –sh --max-depth=1`: elenca tutti gli snapshot salvati nella cartella **.snapshot** e le dimensioni di ciascuno.
@@ -298,7 +298,7 @@ Usare questi comandi per assicurarsi che gli snapshot che vengono eseguiti e arc
 >Gli snapshot del LUN di avvio non sono visibili con i comandi precedenti.
 
 ### <a name="get-details-of-snapshots"></a>Ottenere i dettagli degli snapshot
-Per ottenere altre informazioni sugli snapshot, usare lo script `azure_hana_snapshot_details`. È possibile eseguire questo script in uno dei due percorsi se è presente un server attivo nella posizione di ripristino di emergenza. Lo script fornisce l'output seguente per ogni volume contenente gli snapshot: 
+Per ottenere altre informazioni sugli snapshot, usare lo script `azure_hana_snapshot_details` . È possibile eseguire questo script in uno dei due percorsi se è presente un server attivo nella posizione di ripristino di emergenza. Lo script fornisce l'output seguente per ogni volume contenente gli snapshot: 
    * Dimensioni degli snapshot totali in un volume
    * Per ogni snapshot nel volume, vengono fornite le informazioni seguenti: 
       - Nome dello snapshot 

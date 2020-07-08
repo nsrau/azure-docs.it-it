@@ -16,19 +16,19 @@ ms.locfileid: "82997694"
 
 ### <a name="account-limits"></a>Limiti dell'account
 
-| Risorsa | Limite predefinito | 
+| Resource | Limite predefinito | 
 | --- | --- | 
 | Account di Servizi multimediali in una singola sottoscrizione | 25 (fisso) |
 
 ### <a name="asset-limits"></a>Limiti degli asset
 
-| Risorsa | Limite predefinito | 
+| Resource | Limite predefinito | 
 | --- | --- | 
 | Asset per account di servizi multimediali | 1\.000.000|
 
 ### <a name="storage-media-limits"></a>Limiti di archiviazione (supporti)
 
-| Risorsa | Limite predefinito | 
+| Resource | Limite predefinito | 
 | --- | --- | 
 | Dimensione del file| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>1</sup> |
 | Account di archiviazione | 100<sup>(2)</sup> (fisso) |
@@ -47,7 +47,7 @@ La tabella seguente illustra i limiti di media reserved Unit S1, S2 e S3. Se il 
 
 ### <a name="jobs-encoding--analyzing-limits"></a>Limiti di processi (codifica & analisi)
 
-| Risorsa | Limite predefinito | 
+| Resource | Limite predefinito | 
 | --- | --- | 
 | Job per ogni account di Servizi multimediali | 500.000 <sup>(3)</sup> (fisso)|
 | Input per processo | 50 (fisso)|
@@ -62,7 +62,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 ### <a name="live-streaming-limits"></a>Limiti di streaming live
 
-| Risorsa | Limite predefinito | 
+| Resource | Limite predefinito | 
 | --- | --- | 
 | Eventi Live <sup>(4)</sup> per account di servizi multimediali |5|
 | Output Live per evento Live |3 <sup>(5)</sup> |
@@ -74,7 +74,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 ### <a name="packaging--delivery-limits"></a>Creazione di pacchetti di limiti di recapito &
 
-| Risorsa | Limite predefinito | 
+| Resource | Limite predefinito | 
 | --- | --- | 
 | Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali|2 (fisso)|
 | Filtri manifesto dinamico|100|
@@ -87,7 +87,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 ### <a name="protection-limits"></a>Limiti di protezione
 
-| Risorsa | Limite predefinito | 
+| Resource | Limite predefinito | 
 | --- | --- | 
 | Opzioni per criterio chiave simmetrica |30 | 
 | Licenze al mese per ogni tipo di DRM nel servizio di distribuzione delle chiavi di servizi multimediali per account|1\.000.000|

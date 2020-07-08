@@ -13,7 +13,7 @@ ms.locfileid: "78941028"
 ---
 Nella tabella seguente vengono descritti gli obiettivi di capacità, scalabilità e prestazioni per l'archiviazione tabelle.
 
-| Risorsa | Destinazione |
+| Resource | Destinazione |
 |----------|---------------|
 | Numero di tabelle in un account di archiviazione di Azure | Limitato solo dalla capacità dell'account di archiviazione |
 | Numero di partizioni in una tabella | Limitato solo dalla capacità dell'account di archiviazione |

@@ -11,19 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ed7b01fb83ebd0c494f3f0f06a28dbf4e98c0b2d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83996687"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creare un trigger per l'esecuzione di una pipeline in una finestra a cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo descrive la procedura per creare, avviare e monitorare un trigger di finestra a cascata. Per informazioni generali sui trigger e i tipi supportati, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
 
-I trigger di finestra a cascata vengono attivati in base a un intervallo di tempo periodico a partire da un'ora di inizio specificata, mantenendo al tempo stesso lo stato. Le finestre a cascata sono costituite da una serie di intervalli temporali di dimensioni fisse, contigui e non sovrapposti. Un trigger di finestra a cascata ha una relazione uno a uno con una pipeline e può fare riferimento solo a una singola pipeline.
+I trigger di finestra a cascata vengono attivati in base a un intervallo di tempo periodico a partire da un'ora di inizio specificata, mantenendo al tempo stesso lo stato. Le finestre a cascata sono costituite da una serie di intervalli temporali di dimensioni fisse, contigui e non sovrapposti. Un trigger di finestra a cascata ha una relazione uno a uno con una pipeline e può fare riferimento solo a una singola pipeline. Il trigger di finestra a cascata è un'alternativa più pesante per il trigger di pianificazione che offre una suite di funzionalità per scenari complessi ([dipendenza da altri trigger di finestra a cascata](#tumbling-window-trigger-dependency), [riesecuzione di un processo non riuscito](tumbling-window-trigger-dependency.md#monitor-dependencies) e [impostazione del tentativo utente per le pipeline](#user-assigned-retries-of-pipelines)). Per comprendere ulteriormente la differenza tra il trigger di pianificazione e il trigger di finestra a cascata, visitare [qui](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
 ## <a name="data-factory-ui"></a>Interfaccia utente di Data Factory
 
@@ -94,12 +94,12 @@ Una finestra a cascata ha le proprietà del tipo di trigger seguenti:
 
 La tabella seguente fornisce una panoramica generale degli elementi JSON principali correlati alla ricorrenza e alla pianificazione di un trigger di finestra a cascata:
 
-| Elemento JSON | Descrizione | Type | Valori consentiti | Necessario |
+| Elemento JSON | Descrizione | Type | Valori consentiti | Obbligatoria |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | Tipo di trigger. Il tipo è il valore fisso "TumblingWindowTrigger". | string | "TumblingWindowTrigger" | Sì |
-| **runtimeState** | Stato attuale del runtime del trigger.<br/>**Nota**: questo elemento è \<readOnly>. | string | "Started", "Stopped", "Disabled" | Sì |
+| **runtimeState** | Stato attuale del runtime del trigger.<br/>**Nota**: questo elemento è \<readOnly> . | string | "Started", "Stopped", "Disabled" | Sì |
 | **frequenza** | Stringa che rappresenta l'unità di frequenza (minuti o ore) con cui si ripete il trigger. Se i valori di data di **startTime** sono più granulari del valore di **frequency**, le date di **startTime** sono considerate quando vengono calcolati i limiti della finestra. Ad esempio, se il valore di **frequency** è ogni ora e il valore di **startTime** è 2017-09-01T10:10:10Z, la prima finestra è (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | string | "minute", "hour"  | Sì |
-| **interval** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "hour", il trigger si ripete ogni 3 ore. <br/>**Nota**: l'intervallo minimo della finestra è 5 minuti. | Integer | Numero intero positivo. | Sì |
+| **intervallo** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "hour", il trigger si ripete ogni 3 ore. <br/>**Nota**: l'intervallo minimo della finestra è 5 minuti. | Integer | Numero intero positivo. | Sì |
 | **startTime**| Prima occorrenza, che può essere nel passato. Il primo intervallo di trigger è (**startTime**, **startTime** + **interval**). | Datetime | Valore DateTime. | Sì |
 | **endTime**| Ultima occorrenza, che può essere nel passato. | Datetime | Valore DateTime. | Sì |
 | **ritardo** | Periodo di tempo in base a cui ritardare l'avvio dell'elaborazione dei dati per la finestra. L'esecuzione della pipeline viene avviata dopo il tempo di esecuzione previsto più il periodo di **ritardo**. Il valore **delay** definisce per quanto tempo il trigger rimane in attesa dopo la scadenza prima di attivare una nuova esecuzione. Il valore **delay** non modifica il valore **startTime** della finestra. Ad esempio, un valore di **delay** pari a 00:10:00 implica un ritardo di 10 minuti. | TimeSpan<br/>(hh:mm:ss)  | Valore di un intervallo di tempo il cui il valore predefinito è 00:00:00. | No |
@@ -146,13 +146,19 @@ La tabella seguente fornisce una panoramica generale degli elementi JSON princip
 Per usare i valori delle variabili di sistema **WindowStart** e **WindowEnd** nella definizione della pipeline, usare i parametri "MyWindowStart" e "MyWindowEnd" di conseguenza.
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Ordine di esecuzione delle finestre in uno scenario di recupero delle informazioni
-Quando sono presenti più finestre pronte per l'esecuzione (soprattutto in uno scenario di recupero delle informazioni), l'ordine di esecuzione per le finestre è deterministico, dagli intervalli meno recenti ai più recenti. Attualmente non è possibile modificare questo comportamento.
+
+Se il startTime del trigger è nel passato, in base a questa formula, M = (CurrentTime-TriggerStartTime)/TriggerSliceSize, il trigger genererà {M} il recupero (paste) viene eseguito in parallelo, rispettando la concorrenza dei trigger, prima di eseguire le esecuzioni future. L'ordine di esecuzione per Windows è deterministico, dall'intervallo più vecchio a quello più recente. Attualmente non è possibile modificare questo comportamento.
 
 ### <a name="existing-triggerresource-elements"></a>Elementi TriggerResource esistenti
-I punti elencati di seguito si applicano agli elementi **TriggerResource** esistenti:
 
-* Se il valore per l'elemento **frequency** (o le dimensioni della finestra) del trigger viene modificato, lo stato delle finestre che sono già elaborate *non* viene reimpostato. Il trigger continua ad attivarsi per le finestre dall'ultima finestra eseguita usando le nuove dimensioni della finestra.
+I punti seguenti si applicano all'aggiornamento degli elementi **TriggerResource** esistenti:
+
+* Il valore per l'elemento **Frequency** (o le dimensioni della finestra) del trigger insieme all'elemento **Interval** non può essere modificato dopo la creazione del trigger. Questa operazione è necessaria per il corretto funzionamento dei riesecuzioni di triggerRun e delle valutazioni delle dipendenze
 * Se il valore per l'elemento **endTime** del trigger viene modificato (aggiunto o aggiornato), lo stato delle finestre che sono già elaborate *non* viene reimpostato. Il trigger rispetta il nuovo valore **endTime**. Se il nuovo valore **endTime** è precedente alle finestre già eseguite, il trigger si interrompe. In caso contrario, il trigger si interrompe quando viene rilevato il nuovo valore **endTime**.
+
+### <a name="user-assigned-retries-of-pipelines"></a>Tentativi assegnati dall'utente di pipeline
+
+In caso di errori della pipeline, il trigger di finestra a cascata può ritentare l'esecuzione automatica della pipeline a cui viene fatto riferimento, usando gli stessi parametri di input, senza l'intervento dell'utente. Questa operazione può essere specificata utilizzando la proprietà "retryPolicy" nella definizione del trigger.
 
 ### <a name="tumbling-window-trigger-dependency"></a>Dipendenza trigger finestra a cascata
 

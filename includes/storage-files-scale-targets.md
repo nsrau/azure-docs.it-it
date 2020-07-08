@@ -11,7 +11,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536438"
 ---
-| Risorsa | Condivisioni file Standard | Condivisioni file Premium |
+| Resource | Condivisioni file Standard | Condivisioni file Premium |
 |----------|---------------|------------------------------------------|
 | Dimensione massima di una condivisione file | Nessun valore minimo; con pagamento in base al consumo | 100 GiB; provisioning |
 | Dimensioni massime di una condivisione file | 100 TiB *, 5 TiB | 100 TiB |
