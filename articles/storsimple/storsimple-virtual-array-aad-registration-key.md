@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76273799"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usare la nuova autenticazione per StorSimple
@@ -41,7 +40,7 @@ Se si usa l'array virtuale StorSimple, verificare che l'URL seguente sia incluso
 | Modello URL                         | Cloud | Componente/funzionalità         |
 |------------------------------------|-------|---------------------------------|
 | `https://login.windows.net`        | Azure Public |Servizio di autenticazione di Azure Active Directory      |
-| `https://login.microsoftonline.us` | Enti pubblici Stati Uniti |Servizio di autenticazione di Azure Active Directory      |
+| `https://login.microsoftonline.us` | US Gov |Servizio di autenticazione di Azure Active Directory      |
 
 Per un elenco completo dei modelli URL per gli array virtuali StorSimple, passare a [Modelli URL per le regole del firewall](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
 

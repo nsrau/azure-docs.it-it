@@ -6,20 +6,19 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 75c62b54ff3aa7f3af344aa3e1ca81d431ae0ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905616"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Esegue operazioni base a livello di file nell'archivio immagini del cluster.
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |
-| Elimina | Elimina il contenuto dell’archivio immagini esistente. |
+| eliminare | Elimina il contenuto dell’archivio immagini esistente. |
 | root-info | Mostra le informazioni sul contenuto alla radice dell'archivio immagini. |
 | stat | Mostra le informazioni sul contenuto dell’archivio immagini. |
 
@@ -28,16 +27,16 @@ Elimina il contenuto dell’archivio immagini esistente.
 
 Elimina il contenuto dell’archivio immagini esistente trovato all'interno del percorso relativo dell’archivio immagini specificato. Questo comando può essere utilizzato per eliminare i pacchetti dell’applicazione caricati dopo l'esecuzione del provisioning.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --content-path [Obbligatorio] | Percorso relativo dalla radice al file o cartella nell'archivio immagini. |
 | --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -50,15 +49,15 @@ Mostra le informazioni sul contenuto alla radice dell'archivio immagini.
 
 Restituisce le informazioni sul contenuto dell'archivio immagini nella radice dell'archivio immagini.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -71,16 +70,16 @@ Mostra le informazioni sul contenuto dell’archivio immagini.
 
 Restituisce le informazioni sul contenuto dell'archivio immagini nell'elemento contentPath specificato. contentPath è relativo alla radice dell'archivio immagini.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --content-path [Obbligatorio] | Percorso relativo dalla radice al file o cartella nell'archivio immagini. |
 | --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

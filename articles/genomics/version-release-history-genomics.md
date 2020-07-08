@@ -10,10 +10,9 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.openlocfilehash: 20475e2cde1b42790740889cf341b3a0a0afccc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76991083"
 ---
 # <a name="version-release-history"></a>Cronologia delle versioni
@@ -27,7 +26,7 @@ Il client Python corrente è la versione 0.9.0. È stato rilasciato il 6 2019 fe
 Le nuove versioni del client Python di genomica di Microsoft vengono rilasciate una volta all'anno. Quando viene rilasciata una nuova versione del client Python di Genomica di Microsoft, viene qui aggiornato un elenco di funzionalità e correzioni. Quando vengono rilasciate delle nuove versioni, le versioni precedenti continueranno a essere supportate per almeno 90 giorni. Quando le versioni precedenti non sono più supportate, verrà indicato in questa pagina. 
 
 ### <a name="version-090"></a>Versione 0.9.0
-La versione 0.9.0 include il supporto per la compressione di output. Equivale a eseguire `-bgzip` seguito da nell'output `-tabix` di VCF o gvcf. Per ulteriori informazioni, vedere [domande frequenti](frequently-asked-questions-genomics.md). 
+La versione 0.9.0 include il supporto per la compressione di output. Equivale a eseguire `-bgzip` seguito da nell' `-tabix` output di VCF o gvcf. Per altre informazioni, vedere le [Domande frequenti](frequently-asked-questions-genomics.md). 
 
 ### <a name="version-081"></a>Versione 0.8.1
 La versione 0.8.1 include piccole correzioni di bug.  

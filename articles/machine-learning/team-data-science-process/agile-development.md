@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722102"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Sviluppo Agile di progetti di data science
@@ -39,10 +38,10 @@ Nel Framework di pianificazione sprint TDSP sono disponibili quattro tipi di *el
 
 Di seguito sono riportate le definizioni per i tipi di elemento di lavoro:
 
-- **Funzionalità**: una funzionalità corrisponde al coinvolgimento di un progetto. Diverse interazioni con un client sono funzionalità diverse ed è consigliabile considerare diverse fasi di un progetto come diverse funzionalità. Se si sceglie uno schema, ad esempio * \<clientname>\<-engagementname>* per assegnare un nome alle funzionalità, è possibile riconoscere facilmente il contesto del progetto e il coinvolgimento dei nomi stessi.
+- **Funzionalità**: una funzionalità corrisponde al coinvolgimento di un progetto. Diverse interazioni con un client sono funzionalità diverse ed è consigliabile considerare diverse fasi di un progetto come diverse funzionalità. Se si sceglie uno schema come *\<ClientName>-\<EngagementName>* per assegnare un nome alle funzionalità, è possibile riconoscere facilmente il contesto del progetto e il coinvolgimento dei nomi stessi.
   
 - **Storia utente**: le storie utente sono elementi di lavoro necessari per completare una funzionalità end-to-end. Esempi di storie utente includono:
-  - Recuperare i dati 
+  - Recupera dati 
   - Esplorare i dati 
   - Genera funzionalità
   - Creare modelli
@@ -72,7 +71,7 @@ Per altre informazioni sulla pianificazione dello sprint in Azure Boards, vedere
 
 Dopo aver creato il repository del codice del progetto e del progetto, è possibile aggiungere una funzionalità al backlog per rappresentare il lavoro per il progetto.
 
-1. Dalla pagina del progetto, selezionare **lavagne** > dei**backlog** nel pannello di navigazione sinistro. 
+1. Dalla pagina del progetto, selezionare **lavagne**  >  dei**backlog** nel pannello di navigazione sinistro. 
    
 1. Nella scheda **backlog** , se il tipo di elemento di lavoro nella barra superiore è **storie**, elenco a discesa e selezionare **funzionalità**. Quindi selezionare **nuovo elemento di lavoro.**
    
@@ -183,7 +182,7 @@ Dopo aver completato i passaggi, i livelli di backlog dovrebbero avere un aspett
    
    ![Creare un progetto di TDSP](./media/agile-development/15-newproject.png)
    
-1. Nel progetto appena creato selezionare **lavagne** > di**backlog** nel pannello di spostamento a sinistra.
+1. Nel progetto appena creato selezionare **lavagne**  >  di**backlog** nel pannello di spostamento a sinistra.
    
 1. Per rendere visibili i progetti TDSP, selezionare l'icona **Configura impostazioni team** . Nella schermata **Impostazioni** selezionare la casella di controllo **progetti TDSP** , quindi selezionare **Salva e Chiudi**.
    

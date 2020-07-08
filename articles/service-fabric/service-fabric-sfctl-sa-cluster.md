@@ -6,16 +6,15 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 233148c04fb1a9c6cf1d6c7042c12c54eebd0205
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76904932"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Gestisce i cluster di Service Fabric autonomi.
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |
@@ -28,16 +27,16 @@ Ottiene la configurazione del cluster autonomo di Service Fabric.
 
 La configurazione del cluster contiene le proprietà del cluster che includono i diversi tipi di nodi nel cluster, le configurazioni di sicurezza, gli errori e le topologie del dominio di aggiornamento e così via.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --configuration-api-version [Obbligatorio] | Versione API della configurazione json del cluster autonomo. |
 | --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -50,9 +49,9 @@ Avvia l'aggiornamento della configurazione di un cluster autonomo di Service Fab
 
 Convalida i parametri di aggiornamento della configurazione forniti e avvia l'aggiornamento della configurazione di un cluster se i parametri sono validi.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --cluster-config [Obbligatorio] | Configurazione del cluster. |
 | --application-health-policies | Dizionario con codifica JSON delle coppie di nomi del tipo di applicazione e percentuale massima di stato non integro prima che venga generato l'errore. |
@@ -69,7 +68,7 @@ Convalida i parametri di aggiornamento della configurazione forniti e avvia l'ag
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -90,7 +89,7 @@ Ottiene lo stato dell'aggiornamento della configurazione del cluster di un clust
 
 Ottiene i dettagli dello stato dell'aggiornamento della configurazione del cluster di un cluster autonomo di Service Fabric.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |

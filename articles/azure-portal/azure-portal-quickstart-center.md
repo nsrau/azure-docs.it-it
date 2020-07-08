@@ -1,5 +1,5 @@
 ---
-title: Inizia a usare il centro di avvio rapido di Azure
+title: Introduzione al Centro di avvio rapido di Azure
 description: Per iniziare a usare Azure, usare l'esperienza guidata del centro di avvio rapido di Azure. Scopri come configurare, migrare e innovare.
 services: azure-portal
 keywords: ''
@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 21dd43b5179d0752699bb56b51a2c08976aa037b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76900697"
 ---
-# <a name="get-started-with-the-azure-quickstart-center"></a>Inizia a usare il centro di avvio rapido di Azure
+# <a name="get-started-with-the-azure-quickstart-center"></a>Introduzione al Centro di avvio rapido di Azure
 
 Il centro avvio rapido di Azure è un'esperienza guidata nel portale di Azure disponibile per chiunque voglia migliorare la propria conoscenza di Azure. Per le organizzazioni che non hanno familiarità con Azure, è il modo più rapido per caricare e configurare l'ambiente cloud.
 
@@ -36,7 +35,7 @@ Il centro di avvio rapido di Azure offre tre opzioni per iniziare:
 
 1. Selezionare **tutti i servizi** dal menu portale di Azure.
 
-1. Selezionare **generale** > **QuickStart Center**.
+1. Selezionare **generale**  >  **QuickStart Center**.
 
 Per una descrizione approfondita del funzionamento del centro di avvio rapido di Azure, vedere questo video:
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]

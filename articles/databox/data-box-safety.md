@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68985937"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installazione sicura e funzionamento di Azure Data Box
@@ -27,7 +26,7 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 | Icona | Descrizione |
 |:--- |:--- |
 | ![Icona di pericolo](./media/data-box-safety/warning_icon.png) **PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
-| ![Avviso icona](./media/data-box-safety/warning_icon.png) di avviso **.** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
+| ![Avviso icona di avviso ](./media/data-box-safety/warning_icon.png) **.** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
 | ![Icona di avviso](./media/data-box-safety/warning_icon.png) **ATTENZIONE:** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
 | ![Icona di notifica](./media/data-box-safety/notice_icon.png) **NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
 | ![Icona di scossa elettrica](./media/data-box-safety/electrical_shock_hazard_icon.png) **pericolo di scosse elettriche** |Alta tensione. |
@@ -54,7 +53,7 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 * Collocare il dispositivo su una superficie piana, rigida e stabile per evitare potenziali rischi di cadute.
 * Le apparecchiature montate su rack non devono essere utilizzate come scaffali o aree di lavoro. Non posizionare Data Box sopra apparecchiature montate su rack. L'aggiunta di qualsiasi tipo di carico a un'unità montata su rack protesa può causare potenziali rischi di cadute con conseguente pericolo di lesioni, morte o danni al prodotto.
 
-![Avviso icona](./media/data-box-safety/warning_icon.png) di avviso **.**
+![Avviso icona di avviso ](./media/data-box-safety/warning_icon.png) **.**
 
 * Sistemare il dispositivo in un'area di lavoro con adeguata circolazione dell'aria intorno al dispositivo.
 * Installare il dispositivo in un locale a temperatura controllata, priva di contaminanti conduttivi e con un'adeguata circolazione dell'aria intorno al dispositivo.
@@ -81,7 +80,7 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
     - Corrente: 6 A al massimo
     - Frequenza: da 50 Hz a 60 Hz
 
-![Icona](./media/data-box-safety/warning_icon.png) di avviso **Attenzione:**
+![Icona di avviso ](./media/data-box-safety/warning_icon.png) **Attenzione:**
 
 * Questo dispositivo contiene batterie a bottone. Non tentare di riparare il dispositivo. Le batterie di questo dispositivo non sono riparabili dall'utente. 
 * **Solo per il personale di assistenza**: rischio di esplosione in caso di sostituzione della batteria con un tipo errato. Smaltire le batterie esauste in base alle istruzioni.
@@ -142,7 +141,7 @@ Si tratta di un prodotto di Classe A. In un ambiente domestico, questo prodotto 
 
 ![Icona di smaltimento della batteria](./media/data-box-safety/battery_disposal_icon.png)
 
-Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica che il prodotto ed eventuali batterie incluse non devono essere smaltiti con i rifiuti domestici. È responsabilità dell'utente smaltire il prodotto in un punto di raccolta appositamente adibito al riciclaggio di batterie e apparecchiature elettriche ed elettroniche. La raccolta differenziata e il riciclaggio consentono di tutelare le risorse naturali ed evitare potenziali conseguenze negative per la salute e l'ambiente dovute alla possibile presenza di sostanze pericolose nelle batterie e nelle apparecchiature elettriche ed elettroniche che potrebbero essere rilasciate dallo smaltimento inappropriato. Per ulteriori informazioni su come smaltire le batterie e le apparecchiature elettriche ed elettroniche, contattare l'ufficio preposto del proprio comune, il servizio responsabile della raccolta dei rifiuti domestici o il negozio presso cui è stato acquistato il prodotto. Per ulteriori informazioni su RAEE, contattare *erecycle\@Microsoft.com* .
+Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica che il prodotto ed eventuali batterie incluse non devono essere smaltiti con i rifiuti domestici. È responsabilità dell'utente smaltire il prodotto in un punto di raccolta appositamente adibito al riciclaggio di batterie e apparecchiature elettriche ed elettroniche. La raccolta differenziata e il riciclaggio consentono di tutelare le risorse naturali ed evitare potenziali conseguenze negative per la salute e l'ambiente dovute alla possibile presenza di sostanze pericolose nelle batterie e nelle apparecchiature elettriche ed elettroniche che potrebbero essere rilasciate dallo smaltimento inappropriato. Per ulteriori informazioni su come smaltire le batterie e le apparecchiature elettriche ed elettroniche, contattare l'ufficio preposto del proprio comune, il servizio responsabile della raccolta dei rifiuti domestici o il negozio presso cui è stato acquistato il prodotto. Per ulteriori informazioni su RAEE, contattare *erecycle \@ Microsoft.com* .
 
 Questo prodotto contiene batterie a bottone.
 

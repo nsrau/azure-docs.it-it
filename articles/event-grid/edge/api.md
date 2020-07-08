@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841830"
 ---
 # <a name="rest-api"></a>API REST
@@ -164,7 +163,7 @@ Tutte le API restituiscono un errore con il payload seguente:
 **Risposta**: http 200, payload vuoto
 
 ## <a name="manage-event-subscriptions"></a>Gestisci sottoscrizioni di eventi
-Gli esempi in questa sezione `EndpointType=Webhook;`usano. Gli esempi JSON per `EndpointType=EdgeHub / EndpointType=EventGrid` sono disponibili nella sezione successiva. 
+Gli esempi in questa sezione usano `EndpointType=Webhook;` . Gli esempi JSON per `EndpointType=EdgeHub / EndpointType=EventGrid` sono disponibili nella sezione successiva. 
 
 ### <a name="put-event-subscription-create--update"></a>Inserisci sottoscrizione evento (creazione/aggiornamento)
 
@@ -572,7 +571,7 @@ Imposta un argomento per richiedere la pubblicazione di eventi in **eventgridsch
 ```
 
 ### <a name="set-up-topic-with-custom-schema"></a>Configurare un argomento con schema personalizzato
-Imposta un argomento per richiedere la pubblicazione di eventi in `customschema`.
+Imposta un argomento per richiedere la pubblicazione di eventi in `customschema` .
 
 ```json
     {
@@ -585,7 +584,7 @@ Imposta un argomento per richiedere la pubblicazione di eventi in `customschema`
 ```
 
 ### <a name="set-up-topic-with-cloud-event-schema"></a>Configurare un argomento con lo schema di eventi Cloud
-Imposta un argomento per richiedere la pubblicazione di eventi in `cloudeventschema`.
+Imposta un argomento per richiedere la pubblicazione di eventi in `cloudeventschema` .
 
 ```json
     {
@@ -712,7 +711,7 @@ Per pubblicare in un hub eventi, impostare `endpointType` su `eventHub` e specif
 
 ## <a name="set-up-service-bus-queues-as-a-destination"></a>Configurare le code del bus di servizio come destinazione
 
-Per pubblicare in una coda del `endpointType` bus di servizio, impostare `serviceBusQueue` su e specificare:
+Per pubblicare in una coda del bus di servizio, impostare `endpointType` su `serviceBusQueue` e specificare:
 
 * connectionString: stringa di connessione per la coda del bus di servizio specifica di destinazione generata tramite criteri di accesso condiviso.
 
@@ -734,7 +733,7 @@ Per pubblicare in una coda del `endpointType` bus di servizio, impostare `servic
 
 ## <a name="set-up-service-bus-topics-as-a-destination"></a>Configurare gli argomenti del bus di servizio come destinazione
 
-Per pubblicare in un argomento del `endpointType` bus di servizio, impostare `serviceBusTopic` su e specificare:
+Per pubblicare in un argomento del bus di servizio, impostare `endpointType` su `serviceBusTopic` e specificare:
 
 * connectionString: stringa di connessione per l'argomento del bus di servizio specifico di destinazione generato tramite criteri di accesso condiviso.
 

@@ -7,10 +7,9 @@ ms.date: 03/29/2018
 ms.author: dekapur
 ms.custom: sfrev
 ms.openlocfilehash: 19343d370547cb5457f6bed70a8465187ff27102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988397"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Eseguire un servizio come account del servizio gestito del gruppo
@@ -27,7 +26,7 @@ Prerequisiti:
 - Il dominio richiede una chiave radice del Servizio distribuzione chiavi.
 - È necessario che nel dominio sia presente almeno un controller di dominio Windows Server 2012 (o R2).
 
-1. Chiedere a un amministratore di dominio Active Directory creare un account del servizio gestito dal `New-ADServiceAccount` gruppo usando il cmdlet e `PrincipalsAllowedToRetrieveManagedPassword` verificare che includa tutti i nodi del cluster di Service Fabric. `AccountName`, `DnsHostName` e `ServicePrincipalName` devono essere univoci.
+1. Chiedere a un amministratore di dominio Active Directory creare un account del servizio gestito dal gruppo usando il `New-ADServiceAccount` cmdlet e verificare che `PrincipalsAllowedToRetrieveManagedPassword` includa tutti i nodi del cluster di Service Fabric. `AccountName`, `DnsHostName` e `ServicePrincipalName` devono essere univoci.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$

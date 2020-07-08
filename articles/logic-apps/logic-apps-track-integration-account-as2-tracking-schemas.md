@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906966"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Creare schemi per tenere traccia dei messaggi AS2 in app per la logica di Azure
@@ -54,25 +53,25 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 
 | Proprietà | Obbligatoria | Type | Descrizione |
 |----------|----------|------|-------------|
-| senderPartnerName | No | Stringa | Nome partner del mittente del messaggio AS2 |
-| receiverPartnerName | No | Stringa | Nome partner del destinatario del messaggio AS2 |
+| senderPartnerName | No | string | Nome partner del mittente del messaggio AS2 |
+| receiverPartnerName | No | string | Nome partner del destinatario del messaggio AS2 |
 | as2To | Sì | string | Nome del destinatario del messaggio AS2 dalle intestazioni del messaggio AS2 |
 | as2From | Sì | string | Nome del mittente del messaggio AS2 dalle intestazioni del messaggio AS2 |
-| agreementName | No | Stringa | Nome del contratto AS2 in base al quale vengono risolti i messaggi. |
+| agreementName | No | string | Nome del contratto AS2 in base al quale vengono risolti i messaggi. |
 | direction | Sì | string | Direzione del flusso dei messaggi, che può essere `receive` o`send` |
-| messageId | No | Stringa | ID messaggio AS2 dalle intestazioni del messaggio AS2 |
-| dispositionType | No | Stringa | Valore del tipo di disposizione Message Disposition Notification (MDN) |
-| fileName | No | Stringa | Nome file dall'intestazione del messaggio AS2 |
+| messageId | No | string | ID messaggio AS2 dalle intestazioni del messaggio AS2 |
+| dispositionType | No | string | Valore del tipo di disposizione Message Disposition Notification (MDN) |
+| fileName | No | string | Nome file dall'intestazione del messaggio AS2 |
 | isMessageFailed | Sì | Boolean | Indica se il messaggio AS2 ha avuto esito negativo |
 | isMessageSigned | Sì | Boolean | Indica se il messaggio AS2 è stato firmato |
 | isMessageEncrypted | Sì | Boolean | Indica se il messaggio AS2 è stato crittografato |
 | isMessageCompressed | Sì | Boolean | Indica se il messaggio AS2 è stato compresso |
-| correlationMessageId | No | Stringa | ID messaggio AS2, per correlare i messaggi con MDN |
+| correlationMessageId | No | string | ID messaggio AS2, per correlare i messaggi con MDN |
 | incomingHeaders | No | Dizionario di JToken | Dettagli intestazione messaggio AS2 in arrivo |
 | outgoingHeaders | No | Dizionario di JToken | Dettagli intestazione messaggio AS2 in uscita |
 | isNrrEnabled | Sì | Boolean | Indica se utilizzare il valore predefinito se il valore non è noto. |
 | isMdnExpected | Sì | Boolean | Indica se utilizzare il valore predefinito se il valore non è noto. |
-| mdnType | Sì | Enum | Valori `NotConfigured`consentiti `Sync`:, e`Async` |
+| mdnType | Sì | Enumerazione | Valori consentiti: `NotConfigured` , `Sync` e`Async` |
 |||||
 
 ## <a name="as2-mdn-tracking-schema"></a>Schema di rilevamento MDN AS2
@@ -107,21 +106,21 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 
 | Proprietà | Obbligatoria | Type | Descrizione |
 |----------|----------|------|-------------|
-| senderPartnerName | No | Stringa | Nome partner del mittente del messaggio AS2 |
-| receiverPartnerName | No | Stringa | Nome partner del destinatario del messaggio AS2 |
+| senderPartnerName | No | string | Nome partner del mittente del messaggio AS2 |
+| receiverPartnerName | No | string | Nome partner del destinatario del messaggio AS2 |
 | as2To | Sì | string | Nome del partner che riceve il messaggio AS2 |
 | as2From | Sì | string | Nome del partner che invia il messaggio AS2 |
-| agreementName | No | Stringa | Nome del contratto AS2 in base al quale vengono risolti i messaggi. |
+| agreementName | No | string | Nome del contratto AS2 in base al quale vengono risolti i messaggi. |
 | direction | Sì | string | Direzione del flusso dei messaggi, che può essere `receive` o`send` |
-| messageId | No | Stringa | ID messaggio AS2 |
-| originalMessageId | No | Stringa | ID messaggio originale AS2 |
-| dispositionType | No | Stringa | Valore tipo di disposizione MDN |
+| messageId | No | string | ID messaggio AS2 |
+| originalMessageId | No | string | ID messaggio originale AS2 |
+| dispositionType | No | string | Valore tipo di disposizione MDN |
 | isMessageFailed | Sì | Boolean | Indica se il messaggio AS2 ha avuto esito negativo |
 | isMessageSigned | Sì | Boolean | Indica se il messaggio AS2 è stato firmato |
 | isNrrEnabled | Sì | Boolean | Indica se utilizzare il valore predefinito se il valore non è noto. |
-| statusCode | Sì | Enum | Valori `Accepted`consentiti `Rejected`:, e`AcceptedWithErrors` |
-| micVerificationStatus | Sì | Enum | Valori`NotApplicable`consentiti `Succeeded`:, e`Failed` |
-| correlationMessageId | No | Stringa | ID di correlazione, ovvero l'ID del messaggio originale configurato per l'MDN |
+| statusCode | Sì | Enumerazione | Valori consentiti: `Accepted` , `Rejected` e`AcceptedWithErrors` |
+| micVerificationStatus | Sì | Enumerazione | Valori consentiti: `NotApplicable` , `Succeeded` e`Failed` |
+| correlationMessageId | No | string | ID di correlazione, ovvero l'ID del messaggio originale configurato per l'MDN |
 | incomingHeaders | No | Dizionario di JToken | Dettagli intestazione messaggio in ingresso |
 | outgoingHeaders | No | Dizionario di JToken | Dettagli dell'intestazione del messaggio in uscita |
 |||||

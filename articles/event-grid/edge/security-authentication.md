@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844514"
 ---
 # <a name="security-and-authentication"></a>Sicurezza e autenticazione
@@ -42,8 +41,8 @@ Per impostazione predefinita, sono consentite solo le comunicazioni HTTPS. È po
 | Valori possibili | Descrizione |
 | ---------------- | ------------ |
 | Strict | Valore predefinito. Abilita solo HTTPS
-| Attivato | Abilita sia HTTP che HTTPS
-| Disabled | Abilita solo HTTP
+| Abilitato | Abilita sia HTTP che HTTPS
+| Disabilitata | Abilita solo HTTP
 
 ## <a name="inbound-client-authentication"></a>Autenticazione client in ingresso
 
@@ -54,7 +53,7 @@ Il modulo di griglia di eventi supporta due tipi di autenticazione client:
 * Firma di accesso condiviso (SAS) basata su chiavi
 * Basato su certificati
 
-Per impostazione predefinita, il modulo di griglia di eventi è configurato per accettare solo l'autenticazione basata sui certificati. All'avvio, il modulo di griglia di eventi recupera "TrustBundle" da IoT Edge daemon di sicurezza e lo usa per convalidare qualsiasi certificato client. I certificati client che non vengono risolti in questa catena verranno rifiutati con `UnAuthorized`.
+Per impostazione predefinita, il modulo di griglia di eventi è configurato per accettare solo l'autenticazione basata sui certificati. All'avvio, il modulo di griglia di eventi recupera "TrustBundle" da IoT Edge daemon di sicurezza e lo usa per convalidare qualsiasi certificato client. I certificati client che non vengono risolti in questa catena verranno rifiutati con `UnAuthorized` .
 
 ### <a name="certificate-based-client-authentication"></a>Autenticazione client basata su certificati
 
@@ -83,7 +82,7 @@ Se un client presenta un autofirmato, per impostazione predefinita il modulo di 
 
 ### <a name="sas-key-based-client-authentication"></a>Autenticazione client basata su chiave SAS
 
-Oltre all'autenticazione basata su certificati, il modulo di griglia di eventi può anche eseguire l'autenticazione basata su chiave SAS. La chiave SAS è come un segreto configurato nel modulo di griglia di eventi che deve usare per convalidare tutte le chiamate in ingresso. I client devono specificare il segreto nell'intestazione HTTP "AEG-SAS-Key". La richiesta verrà rifiutata `UnAuthorized` con se non corrisponde.
+Oltre all'autenticazione basata su certificati, il modulo di griglia di eventi può anche eseguire l'autenticazione basata su chiave SAS. La chiave SAS è come un segreto configurato nel modulo di griglia di eventi che deve usare per convalidare tutte le chiamate in ingresso. I client devono specificare il segreto nell'intestazione HTTP "AEG-SAS-Key". La richiesta verrà rifiutata con `UnAuthorized` se non corrisponde.
 
 La configurazione per controllare l'autenticazione basata su chiave SAS è **inbound__clientAuth__sasKeys__enabled**.
 
@@ -147,7 +146,7 @@ Se il certificato del Sottoscrittore è autofirmato, per impostazione predefinit
 > [!NOTE]
 >IoT Edge ambiente genera certificati autofirmati. Si consiglia di generare i certificati emessi dalle autorità di certificazione autorizzate per i carichi di lavoro di produzione e impostare la proprietà **allowUnknownCA** sia in ingresso che in uscita su **false**.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Un modulo di griglia di eventi è **sicuro per impostazione predefinita**. È consigliabile mantenere queste impostazioni predefinite per le distribuzioni di produzione.
 

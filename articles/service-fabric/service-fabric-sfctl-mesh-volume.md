@@ -6,20 +6,19 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 0e5ba1a311bd0480c56ee40edf01fc13ec01664a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905919"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Consente di ottenere ed eliminare le risorse di volume.
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |
-| Elimina | Elimina la risorsa di volume. |
+| eliminare | Elimina la risorsa di volume. |
 | list | Elenca tutte le risorse di volume. |
 | show | Ottiene la risorsa di volume con il nome specificato. |
 
@@ -28,15 +27,15 @@ Elimina la risorsa di volume.
 
 Elimina la risorsa di volume identificata dal nome.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --name -n [Obbligatorio] | Il nome del volume. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -51,7 +50,7 @@ Ottiene le informazioni su tutte le risorse di volume in un determinato gruppo d
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -64,15 +63,15 @@ Ottiene la risorsa di volume con il nome specificato.
 
 Ottiene le informazioni sulla risorsa di volume con il nome specificato. Le informazioni includono la descrizione e altre proprietà del volume.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --name -n [Obbligatorio] | Il nome del volume. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

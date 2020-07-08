@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
 ms.openlocfilehash: 5f7b3a4d43d35f0d2965dd33c8f69143f4b3a8f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938918"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transazioni e modalità di blocco delle raccolte Reliable Collections in Azure Service Fabric
@@ -28,7 +27,7 @@ Il livello di isolamento definisce il grado in cui la transazione deve essere is
 Le raccolte Reliable Collections supportano due livelli di isolamento:
 
 * **Repeatable Read**: specifica che le istruzioni non possono leggere dati modificati da altre transazioni di cui non è ancora stato eseguito il commit e che nessun'altra transazione può modificare i dati letti dalla transazione corrente, finché quest'ultima non viene completata.
-* **Snapshot**: specifica che i dati letti da qualsiasi istruzione in una transazione rappresentano la versione coerente dal punto di vista transazionale dei dati esistenti al momento dell'avvio della transazione.
+* **Snapshot**: specifica che i dati letti da qualsiasi istruzione in una transazione sono la versione coerente a livello di transazione dei dati esistenti all'inizio della transazione.
   La transazione può quindi riconoscere solo le modifiche dei dati di cui è stato eseguito il commit prima dell'avvio della transazione.
   Le modifiche ai dati apportate da altre transazioni dopo l'avvio della transazione corrente non sono visibili per le istruzioni eseguite nella transazione corrente.
   È come se le istruzioni di una transazione ottenessero uno snapshot dei dati di cui è stato eseguito il commit così come si presentavano al momento dell'avvio della transazione.
@@ -37,7 +36,7 @@ Le raccolte Reliable Collections supportano due livelli di isolamento:
 Le raccolte Reliable Collections scelgono automaticamente il livello di isolamento da usare per una determinata operazione di lettura a seconda dell'operazione stessa e del ruolo della replica al momento della creazione della transazione.
 La tabella seguente descrive i valori predefiniti del livello di isolamento per le operazioni Reliable Dictionary e Reliable Queue.
 
-| Operazione\Ruolo | Primaria | Secondari |
+| Operazione\Ruolo | Principale | Secondari |
 | --- |:--- |:--- |
 | Lettura di entità singola |Repeatable Read |Snapshot |
 | Enumerazione, conteggio |Snapshot |Snapshot |
@@ -55,7 +54,7 @@ Nelle raccolte Reliable Collections tutte le transazioni implementano un rigoros
 
 Reliable Dictionary utilizza il blocco a livello di riga per tutte le singole operazioni di entità.
 L'operazione Reliable Queue bilancia la concorrenza in cambio di una proprietà FIFO transazionale rigorosa.
-La coda affidabile utilizza blocchi a livello di operazione che consentono `TryPeekAsync` una transazione con `TryDequeueAsync` e/o e `EnqueueAsync` una transazione con alla volta.
+La coda affidabile utilizza blocchi a livello di operazione che consentono una transazione con `TryPeekAsync` e/o `TryDequeueAsync` e una transazione con `EnqueueAsync` alla volta.
 Si noti che per mantenere il modello FIFO, se `TryPeekAsync` o `TryDequeueAsync` rileva che la coda affidabile è vuota, bloccherà anche `EnqueueAsync`.
 
 Le operazioni di scrittura acquisiscono sempre blocchi esclusivi.
@@ -68,9 +67,9 @@ Il blocco di aggiornamento è asimmetrico e viene usato per impedire una forma c
 
 La matrice di compatibilità dei blocchi è disponibile nella tabella seguente:
 
-| Richiesto\Concesso | Nessuno | Shared | Aggiornamento | Esclusivo |
+| Richiesto\Concesso | nessuno | Condiviso | Aggiornamento | Esclusivo |
 | --- |:--- |:--- |:--- |:--- |
-| Shared |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
+| Condiviso |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
 | Aggiornamento |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
 | Esclusivo |Nessun conflitto |Conflitto |Conflitto |Conflitto |
 

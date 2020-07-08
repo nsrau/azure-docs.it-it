@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844701"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Esercitazione: inviare eventi a IoTHub
@@ -40,7 +39,7 @@ Per completare questa esercitazione è necessario disporre degli elementi seguen
 
 Come server di pubblicazione di un evento, è necessario creare un argomento di griglia di eventi. L'argomento si riferisce a un endpoint in cui i publisher possono inviare eventi a.
 
-1. Creare topic4. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
+1. Creare topic4.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
    ```json
     {
@@ -84,7 +83,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Creare subscription4. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
+1. Creare subscription4.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
    ```json
     {
@@ -100,7 +99,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
    ```
 
    >[!NOTE]
-   > `endpointType` Specifica che il Sottoscrittore `edgeHub`è. `outputName` Specifica l'output in base al quale il modulo di griglia di eventi instraderà gli eventi che corrispondono a questa sottoscrizione a edgeHub. Ad esempio, gli eventi che corrispondono alla sottoscrizione precedente verranno scritti in `/messages/modules/eventgridmodule/outputs/sampleSub4`.
+   > `endpointType`Specifica che il Sottoscrittore è `edgeHub` . `outputName`Specifica l'output in base al quale il modulo di griglia di eventi instraderà gli eventi che corrispondono a questa sottoscrizione a edgeHub. Ad esempio, gli eventi che corrispondono alla sottoscrizione precedente verranno scritti in `/messages/modules/eventgridmodule/outputs/sampleSub4` .
 2. Eseguire il comando seguente per creare la sottoscrizione. Viene restituito il codice di stato HTTP 200 OK.
 
     ```sh
@@ -139,7 +138,7 @@ Aggiornare la route dell'hub perimetrale per inoltrare gli eventi della sottoscr
 1. Passare all' **Hub**Internet delle cose.
 1. Selezionare **IOT Edge** dal menu
 1. Selezionare l'ID del dispositivo di destinazione dall'elenco di dispositivi.
-1. Selezionare **Set Modules** (Configura i moduli).
+1. Selezionare **imposta moduli**.
 1. Selezionare **Avanti** e nella sezione route.
 1. In Route aggiungere una nuova route
 
@@ -168,7 +167,7 @@ Vedere l' [esercitazione](../../iot-hub/tutorial-routing.md) relativa al routing
 
 ## <a name="publish-an-event"></a>Pubblicare un evento
 
-1. Creare event4. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
+1. Creare event4.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
     ```json
         [
@@ -196,7 +195,7 @@ Vedere l' [esercitazione](../../iot-hub/tutorial-routing.md) relativa al routing
 
 Per la procedura per visualizzare gli eventi, vedere l' [esercitazione sul routing](../../iot-hub/tutorial-routing.md) dell'hub Internet.
 
-## <a name="cleanup-resources"></a>Pulire le risorse
+## <a name="cleanup-resources"></a>Risorse di pulizia
 
 * Eseguire il comando seguente per eliminare l'argomento e tutte le relative sottoscrizioni al perimetro:
 

@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 841b5092775353bbe3340dbbd55610026f998a15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76846463"
 ---
 # <a name="event-grid-configuration"></a>Configurazione griglia di eventi
@@ -77,8 +76,8 @@ Per informazioni generali su questa funzionalità, vedere [invio in batch e outp
 | ---------------- | ------------ |
 | `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Valore massimo consentito per la `ApproxBatchSizeInBytes` manopola. Il valore predefinito è `1_058_576`.
 | `api__deliveryPolicyLimits__maxEventsPerBatch` | Valore massimo consentito per la `MaxEventsPerBatch` manopola. Il valore predefinito è `50`.
-| `broker__defaultMaxBatchSizeInBytes` | Dimensioni massime della richiesta di `MaxEventsPerBatch` recapito quando si specifica solo. Il valore predefinito è `1_058_576`.
-| `broker__defaultMaxEventsPerBatch` | Numero massimo di eventi da aggiungere a un batch quando si `MaxBatchSizeInBytes` specifica solo. Il valore predefinito è `10`.
+| `broker__defaultMaxBatchSizeInBytes` | Dimensioni massime della richiesta di recapito quando `MaxEventsPerBatch` si specifica solo. Il valore predefinito è `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Numero massimo di eventi da aggiungere a un batch quando `MaxBatchSizeInBytes` si specifica solo. Il valore predefinito è `10`.
 
 ## <a name="metrics"></a>Metriche
 
@@ -86,4 +85,4 @@ Per informazioni sull'uso delle metriche con griglia di eventi in IoT Edge, vede
 
 | Nome proprietà | Descrizione |
 | ---------------- | ------------ |
-| `metrics__reporterType` | Tipo di report per le metriche. Il valore `none` predefinito è e Disabilita la metrica. L'impostazione `prometheus` di su Abilita le metriche nel formato di esposizione Prometeo.
+| `metrics__reporterType` | Tipo di report per le metriche. Il valore predefinito è `none` e Disabilita la metrica. L'impostazione di su `prometheus` Abilita le metriche nel formato di esposizione Prometeo.

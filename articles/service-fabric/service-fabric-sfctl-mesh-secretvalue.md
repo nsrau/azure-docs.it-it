@@ -6,20 +6,19 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905955"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Consente di ottenere ed eliminare le risorse secretvalue mesh.
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |
-| Elimina | Elimina il valore specificato della risorsa di segreto denominata. |
+| eliminare | Elimina il valore specificato della risorsa di segreto denominata. |
 | list | Elenca i nomi di tutti i valori della risorsa di segreto specificata. |
 | show | Elenca il valore specificato della risorsa segreta. |
 
@@ -28,16 +27,16 @@ Elimina il valore specificato della risorsa di segreto denominata.
 
 Elimina la risorsa di valore di segreto identificata dal nome. Il nome della risorsa è in genere la versione associata a tale valore. L'eliminazione non riuscirà se il valore specificato è in uso.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --secret-name -n [Obbligatorio] | Nome della risorsa di segreto. |
 | --version -v     [Obbligatorio] | Il nome della versione del segreto. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -50,15 +49,15 @@ Elenca i nomi di tutti i valori della risorsa di segreto specificata.
 
 Ottiene informazioni su tutte le risorse di valore del segreto della risorsa di segreto specificata. Le informazioni includono i nomi delle risorse di valore del segreto, ma non i valori effettivi.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --secret-name -n [Obbligatorio] | Nome della risorsa di segreto. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -69,9 +68,9 @@ Ottiene informazioni su tutte le risorse di valore del segreto della risorsa di 
 ## <a name="sfctl-mesh-secretvalue-show"></a>sfctl mesh secretvalue show
 Elenca il valore specificato della risorsa segreta.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --secret-name -n [Obbligatorio] | Nome della risorsa di segreto. |
 | --version -v     [Obbligatorio] | Il nome della versione del segreto. |
@@ -79,7 +78,7 @@ Elenca il valore specificato della risorsa segreta.
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76903061"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Creare schemi di rilevamento personalizzati che monitorano i flussi di lavoro end-to-end nella logica di Azure A
@@ -53,16 +52,16 @@ App per la logica di Azure include il rilevamento incorporato che è possibile a
 
 | Proprietà | Obbligatoria | Type | Descrizione |
 |----------|----------|------|-------------|
-| sourceType | Sì | string | Tipo di origine dell'esecuzione con questi valori consentiti: `Microsoft.Logic/workflows`,`custom` |
-| source | Sì | String o JToken | Se il tipo di origine `Microsoft.Logic/workflows`è, le informazioni sull'origine devono seguire questo schema. Se il tipo di origine `custom`è, lo schema è JToken. |
+| sourceType | Sì | string | Tipo di origine dell'esecuzione con questi valori consentiti: `Microsoft.Logic/workflows` ,`custom` |
+| source | Sì | String o JToken | Se il tipo di origine è `Microsoft.Logic/workflows` , le informazioni sull'origine devono seguire questo schema. Se il tipo di origine è `custom` , lo schema è JToken. |
 | systemId | Sì | string | ID di sistema dell'app per la logica |
 | runId | Sì | string | ID esecuzione App per la logica |
 | operationName | Sì | string | Nome dell'operazione, ad esempio azione o trigger |
-| repeatItemScopeName | Sì | string | Ripete il nome dell'elemento se l'azione si `foreach`trova `until` all'interno di un ciclo o |
-| repeatItemIndex | Sì | Integer | Indica che l'azione è all'interno `foreach` di `until` un ciclo o e è il numero di indice dell'elemento ripetuto. |
-| trackingId | No | Stringa | ID di traccia per la correlazione dei messaggi |
-| correlationId | No | Stringa | ID di correlazione per correlare i messaggi |
-| clientRequestId | No | Stringa | Il client può popolare questa proprietà per correlare i messaggi |
+| repeatItemScopeName | Sì | string | Ripete il nome dell'elemento se l'azione si trova all'interno di un `foreach` `until` ciclo o |
+| repeatItemIndex | Sì | Integer | Indica che l'azione è all'interno di un `foreach` `until` ciclo o e è il numero di indice dell'elemento ripetuto. |
+| trackingId | No | string | ID di traccia per la correlazione dei messaggi |
+| correlationId | No | string | ID di correlazione per correlare i messaggi |
+| clientRequestId | No | string | Il client può popolare questa proprietà per correlare i messaggi |
 | eventLevel | Sì | string | Livello dell'evento |
 | eventTime | Sì | Datetime | Ora dell'evento in formato UTC: *aaaa-mm-ggThh: mm: SS. 00000Z* |
 | recordType | Sì | string | Tipo di record di rilevamento con questo valore consentito:`custom` |

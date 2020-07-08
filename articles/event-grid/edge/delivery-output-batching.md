@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841748"
 ---
 # <a name="output-batching"></a>Suddivisione in batch per l'output
@@ -79,8 +78,8 @@ Le seguenti impostazioni dell'ora di distribuzione controllano il valore massimo
 
 | Nome proprietà | Descrizione |
 | ------------- | ----------- | 
-| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valore massimo consentito per la `PreferredBatchSizeInKilobytes` manopola. Impostazione `1033`predefinita.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valore massimo consentito per la `MaxEventsPerBatch` manopola. Impostazione `50`predefinita.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valore massimo consentito per la `PreferredBatchSizeInKilobytes` manopola. Impostazione predefinita `1033` .
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valore massimo consentito per la `MaxEventsPerBatch` manopola. Impostazione predefinita `50` .
 
 ## <a name="configuring-runtime-default-values"></a>Configurazione dei valori predefiniti di runtime
 
@@ -88,5 +87,5 @@ Le impostazioni dell'ora di distribuzione seguenti controllano il valore predefi
 
 | Nome proprietà | Descrizione |
 | ------------- | ----------- |
-| `broker__defaultMaxBatchSizeInBytes` | Dimensioni massime della richiesta di `MaxEventsPerBatch` recapito quando si specifica solo. Impostazione `1_058_576`predefinita.
-| `broker__defaultMaxEventsPerBatch` | Numero massimo di eventi da aggiungere a un batch quando si `MaxBatchSizeInBytes` specifica solo. Impostazione `10`predefinita.
+| `broker__defaultMaxBatchSizeInBytes` | Dimensioni massime della richiesta di recapito quando `MaxEventsPerBatch` si specifica solo. Impostazione predefinita `1_058_576` .
+| `broker__defaultMaxEventsPerBatch` | Numero massimo di eventi da aggiungere a un batch quando `MaxBatchSizeInBytes` si specifica solo. Impostazione predefinita `10` .

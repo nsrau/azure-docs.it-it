@@ -5,10 +5,9 @@ ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76989570"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Avviso di monitoraggio di backup di Azure-Domande frequenti
@@ -23,14 +22,14 @@ Passare all'area di lavoro LA configurata, passare alla voce di menu **logs** ed
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual è la frequenza di push di dati in un'area di lavoro di LA?
 
-I dati di diagnostica dell'insieme di credenziali vengono pompati nell'area di lavoro Log Analytics con un certo ritardo. Ogni evento arriva nell'area di lavoro Log Analytics da 20 a 30 minuti dopo il push dall'insieme di credenziali dei servizi di ripristino. Ecco altri dettagli sul ritardo:
+Il pump dei dati di diagnostica dall'insieme di credenziali nell'area di lavoro Log Analytics viene eseguito con un certo ritardo. Ogni evento arriva nell'area di lavoro Log Analytics da 20 a 30 minuti dopo il push dall'insieme di credenziali di Servizi di ripristino. Ecco altri dettagli sul ritardo:
 
-* Per tutte le soluzioni, viene eseguito il push degli avvisi predefiniti del servizio di backup non appena vengono creati. Quindi, vengono in genere visualizzati nell'area di lavoro Log Analytics dopo 20 o 30 minuti.
-* Per tutte le soluzioni, i processi di backup su richiesta e i processi di ripristino vengono spostati non appena vengono completati.
-* Per tutte le soluzioni ad eccezione di backup SQL, i processi di backup pianificati vengono inseriti non appena vengono completati.
-* Per il backup SQL, poiché i backup del log possono essere eseguiti ogni 15 minuti, le informazioni per tutti i processi di backup pianificati completati, inclusi i log, vengono inserite in batch e inserite ogni 6 ore.
-* Per tutte le soluzioni, altre informazioni, ad esempio l'elemento di backup, i criteri, i punti di ripristino, l'archiviazione e così via, vengono inserite almeno una volta al giorno.
-* Una modifica alla configurazione del backup, ad esempio la modifica dei criteri o la modifica dei criteri, attiva un push di tutte le informazioni di backup correlate.
+* Per tutte le soluzioni, il push degli avvisi predefiniti del servizio di backup viene eseguito non appena gli avvisi vengono creati. Questi pertanto vengono in genere visualizzati nell'area di lavoro Log Analytics dopo 20-30 minuti.
+* Per tutte le soluzioni, il push dei processi di backup e ripristino su richiesta viene eseguito non appena questi processi vengono completati.
+* Per tutte le soluzioni ad eccezione del backup SQL, il push dei processi di backup pianificati viene eseguito non appena questi processi vengono completati.
+* Per il backup SQL, poiché i backup dei log possono essere eseguiti ogni 15 minuti, le informazioni per tutti i processi di backup pianificati completati, inclusi i log, vengono riunite in batch e il push dei batch viene eseguito ogni 6 ore.
+* Per tutte le soluzioni, il push di altre informazioni, ad esempio l'elemento di backup, i criteri, i punti di ripristino, la risorsa di archiviazione e così via, viene eseguito almeno una volta al giorno.
+* Una modifica alla configurazione di backup, ad esempio la sostituzione o la modifica dei criteri, attiva il push di tutte le informazioni di backup correlate.
 
 ### <a name="how-long-can-i-retain-reporting-data"></a>Per quanto tempo è possibile mantenere i dati dei report?
 

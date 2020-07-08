@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77014267"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Compattare un cloud privato CloudSimple
@@ -62,5 +61,5 @@ Viene avviata la compattazione del cloud privato.  È possibile monitorare lo st
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Utilizzare VM di VMware in Azure](quickstart-create-vmware-virtual-machine.md)
-* Altre informazioni sui [cloud privati](cloudsimple-private-cloud.md)
+* [Usare VM di VMware in Azure](quickstart-create-vmware-virtual-machine.md)
+* Vedere le informazioni sui [cloud privati](cloudsimple-private-cloud.md)

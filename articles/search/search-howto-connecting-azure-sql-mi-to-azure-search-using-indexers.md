@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76964890"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurare una connessione da un indicizzatore di Azure ricerca cognitiva a SQL Istanza gestita
@@ -25,7 +24,7 @@ Creare un Istanza gestita SQL con l'opzione **Abilita endpoint pubblico** selezi
    ![Abilita endpoint pubblico](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Abilita endpoint pubblico")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Abilitare l'endpoint pubblico di Istanza gestita SQL di Azure
-È anche possibile abilitare l'endpoint pubblico in un istanza gestita SQL esistente in**rete** > virtuale di **sicurezza** > **abilitare**l'**endpoint** > pubblico.
+È anche possibile abilitare l'endpoint pubblico in un istanza gestita SQL esistente **Security**in  >  **rete virtuale**di sicurezza abilitare l'  >  **endpoint pubblico**  >  **Enable**.
 
    ![Abilita endpoint pubblico](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Abilita endpoint pubblico")
 
@@ -36,13 +35,13 @@ Verificare che nel gruppo di sicurezza di rete siano presenti le **regole di sic
 
 > [!NOTE]
 > Gli indicizzatori richiedono comunque che SQL Istanza gestita sia configurato con un endpoint pubblico per leggere i dati.
-> Tuttavia, è possibile scegliere di limitare l'accesso in ingresso a tale endpoint pubblico sostituendo la regola corrente (`public_endpoint_inbound`) con le 2 regole seguenti:
+> Tuttavia, è possibile scegliere di limitare l'accesso in ingresso a tale endpoint pubblico sostituendo la regola corrente ( `public_endpoint_inbound` ) con le 2 regole seguenti:
 >
-> * Consentire l'accesso in ingresso dal `AzureCognitiveSearch` [tag del servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("Source" `AzureCognitiveSearch`=, "Name" `cognitive_search_inbound`=)
+> * Consentire l'accesso in ingresso dal `AzureCognitiveSearch` [tag del servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("Source" = `AzureCognitiveSearch` , "Name" = `cognitive_search_inbound` )
 >
-> * Consentire l'accesso in ingresso dall'indirizzo IP del servizio di ricerca, che può essere ottenuto effettuando il ping del nome di dominio completo (ad esempio `<your-search-service-name>.search.windows.net`,). ("SOURCE" = `IP address`, "Name" = `search_service_inbound`)
+> * Consentire l'accesso in ingresso dall'indirizzo IP del servizio di ricerca, che può essere ottenuto effettuando il ping del nome di dominio completo (ad esempio, `<your-search-service-name>.search.windows.net` ). ("SOURCE" = `IP address` , "Name" = `search_service_inbound` )
 >
-> Per ognuna di queste due regole, impostare "PORT" = `3342`, "Protocol" = `TCP`, "Destination" `Any`=, "Action" =`Allow`
+> Per ognuna di queste due regole, impostare "PORT" = `3342` , "Protocol" = `TCP` , "Destination" = `Any` , "Action" =`Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Ottenere la stringa di connessione dell'endpoint pubblico
 Assicurarsi di usare la stringa di connessione per l' **endpoint pubblico** (porta 3342, non porta 1433).

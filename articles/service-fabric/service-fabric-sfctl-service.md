@@ -6,23 +6,22 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906229"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Creare, eliminare e gestire servizi, tipi di servizio e pacchetti di servizi.
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |
 | app-name | Mostra il nome dell'applicazione Service Fabric per un servizio. |
 | code-package-list | Mostra l'elenco di pacchetti di codice distribuiti in un nodo di Service Fabric. |
 | create | Crea il servizio di Service Fabric specificato. |
-| Elimina | Elimina un servizio Service Fabric esistente. |
+| eliminare | Elimina un servizio Service Fabric esistente. |
 | deployed-type | Ottiene le informazioni inerenti a un tipo di servizio specifico dell'applicazione distribuito in un nodo di un cluster di Service Fabric. |
 | deployed-type-list | Ottiene l'elenco contenente le informazioni sui tipi di servizio delle applicazioni distribuiti in un nodo di un cluster di Service Fabric. |
 | description | Mostra la descrizione di un servizio di Service Fabric esistente. |
@@ -46,16 +45,16 @@ Mostra il nome dell'applicazione Service Fabric per un servizio.
 
 Ottiene il nome dell'applicazione per il servizio specificato. Se un servizio con l'ID servizio specificato non esiste, viene restituito un errore A 404 FABRIC_E_SERVICE_DOES_NOT_EXIST.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
 | --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -68,9 +67,9 @@ Mostra l'elenco di pacchetti di codice distribuiti in un nodo di Service Fabric.
 
 Ottiene l'elenco di pacchetti di codice distribuiti in un nodo di Service Fabric per l'applicazione specificata.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --node-name [obbligatorio] | Il nome del nodo. |
@@ -91,7 +90,7 @@ Ottiene l'elenco di pacchetti di codice distribuiti in un nodo di Service Fabric
 ## <a name="sfctl-service-create"></a>sfctl service create
 Crea il servizio di Service Fabric specificato.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -110,11 +109,11 @@ Crea il servizio di Service Fabric specificato.
 | --int-scheme-low | Inizio dell'intervallo di interi chiave, se si usa uno schema di partizione interi uniforme. |
 | --load-metrics | Elenco con codifica JSON di metriche usate quando si esegue il bilanciamento del carico di servizi tra nodi. |
 | --min-replica-set-size | Dimensioni minime di un set di repliche sotto forma di numero. Si applica solo a servizi con stato. |
-| --move-cost | Specifica il costo di spostamento per il servizio. I valori possibili\: sono ' zerò,' low ',' medium ',' High ',' VeryHigh '. |
+| --move-cost | Specifica il costo di spostamento per il servizio. I valori possibili sono \: ' zerò,' low ',' medium ',' High ',' VeryHigh '. |
 | --named-scheme | Indica che il servizio deve disporre di più partizioni denominate. |
 | --named-scheme-list | Elenco con codifica JSON di nomi per eseguire la partizione del servizio, se si usa lo schema di partizione denominato. |
 | --no-persisted-state | Se True, indica che il servizio non ha alcuno stato persistente archiviato sul disco locale o che archivia lo stato solo in memoria. |
-| --placement-policy-list | Elenco con codifica JSON dei criteri di selezione per il servizio e di eventuali nomi di dominio associati. I\: `NonPartiallyPlaceService`criteri possono essere uno o più, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
+| --placement-policy-list | Elenco con codifica JSON dei criteri di selezione per il servizio e di eventuali nomi di dominio associati. I criteri possono essere uno o più \: `NonPartiallyPlaceService` , `PreferPrimaryDomain` , `RequireDomain` , `RequireDomainDistribution` . |
 | --quorum-loss-wait | Durata massima in secondi per cui una partizione può trovarsi in uno stato di perdita del quorum. Si applica solo a servizi con stato. |
 | --replica-restart-wait | Durata in secondi tra il momento in cui si arresta una replica e la creazione di una nuova replica. Si applica solo a servizi con stato. |
 | --scaling-policies | Elenco con codifica JSON dei criteri di ridimensionamento per questo servizio. |
@@ -141,7 +140,7 @@ Elimina un servizio Service Fabric esistente.
 
 Prima di poter essere eliminato, un servizio deve essere creato. Per impostazione predefinita, Service Fabric tenterà di chiudere le repliche del servizio normalmente, per poi eliminare il servizio. Tuttavia, se nel servizio si verificano dei problemi chiudendo normalmente la replica, l'operazione di eliminazione potrebbe richiedere molto tempo o bloccarsi. Usare il flag facoltativo ForceRemove per ignorare la normale sequenza di chiusura ed eliminare il servizio in modo forzato.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -164,7 +163,7 @@ Ottiene le informazioni inerenti a un tipo di servizio specifico dell'applicazio
 
 Ottiene l'elenco contenente le informazioni su un tipo di servizio specifico dalle applicazioni distribuite in un nodo di un cluster di Service Fabric. La risposta include il nome del tipo di servizio e il relativo stato di registrazione, il pacchetto di codice che lo ha registrato e l'ID di attivazione del pacchetto del servizio. Ogni voce rappresenta un'attivazione di un tipo di servizio, che si differenzia per ID di attivazione.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -189,7 +188,7 @@ Ottiene l'elenco contenente le informazioni sui tipi di servizio delle applicazi
 
 Ottiene l'elenco contenente le informazioni sui tipi di servizio delle applicazioni distribuiti in un nodo di un cluster di Service Fabric. La risposta include il nome del tipo di servizio e il relativo stato di registrazione, il pacchetto di codice che lo ha registrato e l'ID di attivazione del pacchetto del servizio.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -213,7 +212,7 @@ Mostra la descrizione di un servizio di Service Fabric esistente.
 
 Mostra la descrizione di un servizio di Service Fabric esistente. Prima di poter ottenere la descrizione, è necessario creare un servizio.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -235,7 +234,7 @@ Ottiene i log dei contenitori per il contenitore distribuito in un nodo di Servi
 
 Ottiene i log dei contenitori per il contenitore distribuito in un nodo di Service Fabric per il pacchetto di codice specificato.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -262,7 +261,7 @@ Mostra l'integrità del servizio di Service Fabric specificato.
 
 Mostra le informazioni di integrità del servizio specificato. Usare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riportati nel servizio in base allo stato di integrità. Usare PartitionsHealthStateFilter per filtrare la raccolta di partizioni restituita. Se si specifica un servizio che non esiste nell'archivio integrità, questa richiesta restituisce un errore.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -287,7 +286,7 @@ Ottiene le informazioni sul servizio specifico appartenente all'applicazione di 
 
 Restituisce le informazioni sul servizio specifico appartenente all'applicazione di Service Fabric specificata.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -310,7 +309,7 @@ Mostra le informazioni su tutti i servizi appartenenti all'applicazione specific
 
 Restituisce le informazioni su tutti i servizi appartenenti all'applicazione specificata dall'ID dell'applicazione.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -334,7 +333,7 @@ Mostra il manifesto che descrive un tipo di servizio.
 
 Mostra il manifesto che descrive un tipo di servizio. La risposta contiene il manifesto del servizio XML sotto forma di stringa.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -356,7 +355,7 @@ Mostra il manifesto che descrive un tipo di servizio. La risposta contiene il ma
 ## <a name="sfctl-service-package-deploy"></a>sfctl service package-deploy
 Scarica i pacchetti associati al manifesto del servizio specificato per la cache delle immagini nel nodo specifico.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -382,7 +381,7 @@ Ottiene le informazioni sull'integrità di un pacchetto di servizi per un'applic
 
 Ottiene le informazioni sull'integrità di un pacchetto di servizi per una specifica applicazione distribuita in un nodo di Service Fabric. Usare EventsHealthStateFilter per eventualmente filtrare la raccolta di oggetti HealthEvent segnalati nel pacchetto del servizio distribuito in base allo stato di integrità.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -407,7 +406,7 @@ Ottiene l'elenco di pacchetti di servizi distribuiti su un nodo di Service Fabri
 
 Restituisce le informazioni sui pacchetti del servizio distribuiti in un nodo di Service Fabric per l'applicazione specificata. Questi risultati si riferiscono ai pacchetti del servizio il cui nome corrisponde esattamente al nome del pacchetto del servizio specificato come parametro.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -431,7 +430,7 @@ Mostra l'elenco di pacchetti di servizi distribuiti in un nodo di Service Fabric
 
 Restituisce le informazioni sui pacchetti del servizio distribuiti in un nodo di Service Fabric per l'applicazione specificata.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -454,7 +453,7 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare il servizio
 
 Indica al cluster di Service Fabric che deve tentare di ripristinare il servizio specificato, attualmente bloccato in una perdita di quorum. Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -476,7 +475,7 @@ Invia un report di integrità sul servizio di Service Fabric.
 
 Segnala lo stato di integrità del servizio di Service Fabric specificato. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a un servizio del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per determinare se il report è stato applicato nell'archivio integrità, controllare che il report venga visualizzato negli eventi di integrità del servizio.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -506,12 +505,12 @@ Consente di risolvere una partizione di Service Fabric.
 
 Consente di risolvere una partizione del servizio di Service Fabric per ottenere gli endpoint delle repliche del servizio.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
 | --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --partition-key-type | Tipo di chiave per la partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. I valori possibili sono i seguenti. -None (1): indica che il parametro PartitionKeyValue non è specificato. È valido per le partizioni con schema di partizionamento Singleton. Questo è il valore predefinito. Il valore è uguale a 1. -Int64Range (2): indica che il parametro PartitionKeyValue è una chiave di partizione int64. È valido per le partizioni con schema di partizionamento Int64Range. Il valore è 2. - Named (3): indica che il parametro PartitionKeyValue è un nome della partizione. È valido per le partizioni con schema di partizionamento Named. Il valore è 3. |
+| --partition-key-type | Tipo di chiave per la partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. I valori possibili sono i seguenti. -None (1): indica che il parametro PartitionKeyValue non è specificato. È valido per le partizioni con schema di partizionamento Singleton. Si tratta del valore predefinito. Il valore è uguale a 1. -Int64Range (2): indica che il parametro PartitionKeyValue è una chiave di partizione int64. È valido per le partizioni con schema di partizionamento Int64Range. Il valore è 2. - Named (3): indica che il parametro PartitionKeyValue è un nome della partizione. È valido per le partizioni con schema di partizionamento Named. Il valore è 3. |
 | --partition-key-value | Chiave di partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. Non si tratta dell'ID di partizione, ma piuttosto del valore chiave intero o del nome dell'ID di partizione. Se, ad esempio, il servizio usa partizioni a intervalli da 0 a 10, il valore di PartitionKeyValue sarà un numero intero compreso in tale intervallo. Eseguire una query sulla descrizione del servizio per visualizzare l'intervallo o il nome. |
 | --previous-rsp-version | Valore nel campo Version della risposta ricevuta in precedenza. È obbligatorio se l'utente riconosce che il risultato ottenuto in precedenza non è aggiornato. |
 | --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
@@ -531,7 +530,7 @@ Ottiene l'elenco contenente le informazioni sui tipi di servizio supportati da u
 
 Ottiene l'elenco contenente le informazioni sui tipi di servizio supportati da un tipo di applicazione distribuito in un cluster di Service Fabric. Il tipo di applicazione specificato deve esistere. In caso contrario, viene restituito uno stato 404.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -552,7 +551,7 @@ Ottiene l'elenco contenente le informazioni sui tipi di servizio supportati da u
 ## <a name="sfctl-service-update"></a>sfctl service update
 Aggiorna il servizio specificato usando la descrizione di aggiornamento specificata.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -563,8 +562,8 @@ Aggiorna il servizio specificato usando la descrizione di aggiornamento specific
 | --instance-count | Numero di istanze. Si applica solo a servizi senza stato. |
 | --load-metrics | Elenco con codifica JSON di metriche da usare quando si esegue il bilanciamento del carico tra nodi. |
 | --min-replica-set-size | Dimensioni minime di un set di repliche sotto forma di numero. Si applica solo a servizi con stato. |
-| --move-cost | Specifica il costo di spostamento per il servizio. I valori possibili\: sono ' zerò,' low ',' medium ',' High ',' VeryHigh '. |
-| --placement-policy-list | Elenco con codifica JSON dei criteri di selezione per il servizio e di eventuali nomi di dominio associati. I\: `NonPartiallyPlaceService`criteri possono essere uno o più, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
+| --move-cost | Specifica il costo di spostamento per il servizio. I valori possibili sono \: ' zerò,' low ',' medium ',' High ',' VeryHigh '. |
+| --placement-policy-list | Elenco con codifica JSON dei criteri di selezione per il servizio e di eventuali nomi di dominio associati. I criteri possono essere uno o più \: `NonPartiallyPlaceService` , `PreferPrimaryDomain` , `RequireDomain` , `RequireDomainDistribution` . |
 | --quorum-loss-wait | Durata massima in secondi per cui una partizione può trovarsi in uno stato di perdita del quorum. Si applica solo a servizi con stato. |
 | --replica-restart-wait | Durata in secondi tra il momento in cui si arresta una replica e la creazione di una nuova replica. Si applica solo a servizi con stato. |
 | --scaling-policies | Elenco con codifica JSON dei criteri di ridimensionamento per questo servizio. |

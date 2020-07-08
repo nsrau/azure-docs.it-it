@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76838259"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Come elaborare ed estrarre informazioni dalle immagini negli scenari di arricchimento di intelligenza artificiale
@@ -216,7 +215,7 @@ Se si preferisce trasformare le coordinate normalizzate nello spazio delle coord
 ## <a name="see-also"></a>Vedere anche
 + [Crea indicizzatore (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md)
-+ [OCR skill](cognitive-search-skill-ocr.md) (Competenza OCR)
++ [Competenza OCR](cognitive-search-skill-ocr.md)
 + [Text merge skill](cognitive-search-skill-textmerger.md) (Competenza di unione del testo)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

@@ -5,15 +5,14 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934988"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configurare le credenziali del repository per l'applicazione per scaricare le immagini del contenitore
 
-Configurare l'autenticazione del registro contenitori `RepositoryCredentials` aggiungendo alla `ContainerHostPolicies` sezione del manifesto dell'applicazione. Aggiungere l'account e la password per il registro contenitori (*MyRegistry.azurecr.io* nell'esempio seguente), che consente al servizio di scaricare l'immagine del contenitore dal repository.
+Configurare l'autenticazione del registro contenitori aggiungendo `RepositoryCredentials` alla `ContainerHostPolicies` sezione del manifesto dell'applicazione. Aggiungere l'account e la password per il registro contenitori (*MyRegistry.azurecr.io* nell'esempio seguente), che consente al servizio di scaricare l'immagine del contenitore dal repository.
 
 ```xml
 <ServiceManifestImport>
@@ -35,7 +34,7 @@ Per ulteriori informazioni sui certificati e sulla semantica di crittografia, ve
 
 Service Fabric consente di configurare le credenziali a livello di cluster che possono essere usate come credenziali predefinite del repository da applicazioni.
 
-Questa funzionalità può essere abilitata o disabilitata aggiungendo `UseDefaultRepositoryCredentials` l'attributo `ContainerHostPolicies` a in ApplicationManifest. XML con `true` un `false` valore o.
+Questa funzionalità può essere abilitata o disabilitata aggiungendo l' `UseDefaultRepositoryCredentials` attributo a `ContainerHostPolicies` in ApplicationManifest.xml con `true` un `false` valore o.
 
 ```xml
 <ServiceManifestImport>
@@ -56,7 +55,7 @@ Service Fabric usa quindi le credenziali predefinite del repository che è possi
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (stringa)
 
-Di seguito è riportato un esempio di ciò che è possibile `Hosting` aggiungere all'interno della sezione del file ClusterManifestTemplate. JSON. La `Hosting` sezione può essere aggiunta in fase di creazione del cluster o successiva in un aggiornamento della configurazione. Per altre informazioni, vedere [Personalizzare le impostazioni di un cluster di Service Fabric](service-fabric-cluster-fabric-settings.md) e [Gestire i segreti nelle applicazioni di Service Fabric](service-fabric-application-secret-management.md).
+Di seguito è riportato un esempio di ciò che è possibile aggiungere all'interno della `Hosting` sezione nella ClusterManifestTemplate.jssu file. La `Hosting` sezione può essere aggiunta in fase di creazione del cluster o successiva in un aggiornamento della configurazione. Per altre informazioni, vedere [Personalizzare le impostazioni di un cluster di Service Fabric](service-fabric-cluster-fabric-settings.md) e [Gestire i segreti nelle applicazioni di Service Fabric](service-fabric-application-secret-management.md).
 
 ```json
 "fabricSettings": [
@@ -101,7 +100,7 @@ Service Fabric supporta l'uso di token come credenziali per scaricare immagini p
 
     ![Aggiungi entità macchina virtuale a ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
-3. Modificare quindi il manifesto dell'applicazione. Nella `ContainerHostPolicies` sezione aggiungere l'attributo `‘UseTokenAuthenticationCredentials=”true”`.
+3. Modificare quindi il manifesto dell'applicazione. Nella `ContainerHostPolicies` sezione aggiungere l'attributo `‘UseTokenAuthenticationCredentials=”true”` .
 
     ```xml
       <ServiceManifestImport>

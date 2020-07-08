@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844591"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Esercitazione: pubblicare, sottoscrivere eventi nel cloud
@@ -67,7 +66,7 @@ Nella nuova funzione selezionare **Ottieni URL funzione** in alto a destra, sele
 
 Come server di pubblicazione di un evento, è necessario creare un argomento di griglia di eventi. L'argomento si riferisce a un endpoint in cui i publisher possono inviare eventi a.
 
-1. Creare topic2. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
+1. Creare topic2.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
     ```json
          {
@@ -110,7 +109,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Creare subscription2. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
+1. Creare subscription2.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
     ```json
         {
@@ -159,7 +158,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
 
 ## <a name="publish-an-event"></a>Pubblicare un evento
 
-1. Creare EVENT2. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
+1. Creare event2.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
     ```json
         [
@@ -186,7 +185,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
 
 È possibile visualizzare l'evento recapitato nell'portale di Azure sotto l'opzione **monitoraggio** della funzione.
 
-## <a name="cleanup-resources"></a>Pulire le risorse
+## <a name="cleanup-resources"></a>Risorse di pulizia
 
 * Eseguire il comando seguente per eliminare l'argomento e tutte le relative sottoscrizioni
 

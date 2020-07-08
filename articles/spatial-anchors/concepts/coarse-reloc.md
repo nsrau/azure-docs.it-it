@@ -9,10 +9,9 @@ ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844395"
 ---
 # <a name="coarse-relocalization"></a>Rilocalizzazione grossolana
@@ -91,7 +90,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++/NDK](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -105,7 +104,7 @@ cloudSpatialAnchorSession = std::make_shared<CloudSpatialAnchorSession>();
 cloudSpatialAnchorSession->LocationProvider(sensorProvider);
 ```
 
-# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 ```cpp
 // Create the sensor fingerprint provider
 PlatformLocationProvider sensorProvider = PlatformLocationProvider();
@@ -123,9 +122,9 @@ Successivamente, è necessario decidere quali sensori si vuole usare per la rilo
 
 |             | Interni | Autunno |
 |-------------|---------|----------|
-| GPS         | Disattivato | Attivato |
-| WiFi        | Attivato | On (facoltativo) |
-| Beacon BLE | On (facoltativo con avvertenze, vedere più avanti) | Disattivato |
+| GPS         | Off | On |
+| WiFi        | On | On (facoltativo) |
+| Beacon BLE | On (facoltativo con avvertenze, vedere più avanti) | Off |
 
 
 ### <a name="enabling-gps"></a>Abilitazione di GPS
@@ -159,14 +158,14 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++/NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->GeoLocationEnabled(true);
 ```
 
-# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -272,7 +271,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++/NDK](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -292,7 +291,7 @@ while (m_isRunning)
 sensorProvider->Stop();
 ```
 
-# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -345,14 +344,14 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++/NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->WifiEnabled(true);
 ```
 
-# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -403,14 +402,14 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++/NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->BluetoothEnabled(true);
 ```
 
-# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors();
@@ -467,7 +466,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++/NDK](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -478,7 +477,7 @@ const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->KnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 std::vector<winrt::hstring> uuids;
@@ -559,7 +558,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++/NDK](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -574,7 +573,7 @@ auto anchorLocateCriteria = std::make_shared<AnchorLocateCriteria>();
 anchorLocateCriteria->NearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
@@ -592,9 +591,9 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 ---
 
-Il `DistanceInMeters` parametro controlla il punto in cui si esplorerà il grafico di ancoraggio per recuperare il contenuto. Si supponga, ad esempio, di avere popolato uno spazio con ancoraggi a densità costante pari a 2 ogni contatore. Inoltre, la fotocamera del dispositivo sta osservando un singolo ancoraggio e il servizio lo ha individuato correttamente. È molto probabile che si sia interessati a recuperare tutti gli ancoraggi posizionati nelle vicinanze, anziché il singolo ancoraggio attualmente in osservazione. Supponendo che gli ancoraggi posizionati siano connessi in un grafico, il servizio può recuperare tutti gli ancoraggi adiacenti per l'utente seguendo i bordi nel grafico. La quantità di attraversamento del grafico eseguita è controllata `DistanceInMeters`da; verranno assegnati tutti gli ancoraggi connessi a quello individuato, più vicino a `DistanceInMeters`.
+Il `DistanceInMeters` parametro controlla il punto in cui si esplorerà il grafico di ancoraggio per recuperare il contenuto. Si supponga, ad esempio, di avere popolato uno spazio con ancoraggi a densità costante pari a 2 ogni contatore. Inoltre, la fotocamera del dispositivo sta osservando un singolo ancoraggio e il servizio lo ha individuato correttamente. È molto probabile che si sia interessati a recuperare tutti gli ancoraggi posizionati nelle vicinanze, anziché il singolo ancoraggio attualmente in osservazione. Supponendo che gli ancoraggi posizionati siano connessi in un grafico, il servizio può recuperare tutti gli ancoraggi adiacenti per l'utente seguendo i bordi nel grafico. La quantità di attraversamento del grafo eseguita viene controllata da `DistanceInMeters` . verranno forniti tutti gli ancoraggi connessi a quello individuato, più vicino a `DistanceInMeters` .
 
-Tenere presente che i valori di grandi `MaxResultCount` dimensioni per potrebbero influire negativamente sulle prestazioni. Impostarla su un valore ragionevole per l'applicazione.
+Tenere presente che i valori di grandi dimensioni per `MaxResultCount` potrebbero influire negativamente sulle prestazioni. Impostarla su un valore ragionevole per l'applicazione.
 
 Infine, sarà necessario indicare alla sessione di utilizzare la ricerca basata su sensori:
 
@@ -622,13 +621,13 @@ cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndk"></a>[NDK C++](#tab/cpp)
+# <a name="c-ndk"></a>[C++/NDK](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-winrt"></a>[WinRT C++](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
@@ -662,7 +661,7 @@ La tabella seguente riepiloga i dati dei sensori raccolti in ognuna delle piatta
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
 | GPS         | N/D | Supportato tramite le API [LocationManager][3] (GPS e rete) | Supportato tramite le API di [CLLocationManager][4] |
-| WiFi        | Supportato con una frequenza di circa un'analisi ogni 3 secondi | Supportato. A partire dal livello API 28, le analisi Wi-Fi sono limitate a 4 chiamate ogni 2 minuti. Da Android 10, la limitazione può essere disabilitata dal menu impostazioni sviluppatore. Per ulteriori informazioni, vedere la [documentazione di Android][5]. | N/A-nessuna API pubblica |
+| WiFi        | Supportato con una frequenza di circa un'analisi ogni 3 secondi | Supportata. A partire dal livello API 28, le analisi Wi-Fi sono limitate a 4 chiamate ogni 2 minuti. Da Android 10, la limitazione può essere disabilitata dal menu impostazioni sviluppatore. Per ulteriori informazioni, vedere la [documentazione di Android][5]. | N/A-nessuna API pubblica |
 | Beacon BLE | Limitato a [Eddystone][1] e [Impedisci iBeacon][2] | Limitato a [Eddystone][1] e [Impedisci iBeacon][2] | Limitato a [Eddystone][1] e [Impedisci iBeacon][2] |
 
 ## <a name="next-steps"></a>Passaggi successivi

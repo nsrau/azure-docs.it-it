@@ -7,10 +7,9 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76908072"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Visualizzare e creare query per il monitoraggio e il rilevamento nei log di monitoraggio di Azure per app per la logica di Azure
@@ -53,7 +52,7 @@ Per trovare o filtrare i risultati in base a proprietà o valori specifici, è p
 
 1. Iniziare da una query vuota o da eventuali query esistenti disponibili.
 
-   * Per verificare se sono disponibili query esistenti, sulla barra degli strumenti query, selezionare **esempi** > di**cronologia**delle query, che mostra le query delle esecuzioni precedenti della query, oppure selezionare **Esplora query**, che mostra le query predefinite.
+   * Per verificare se sono disponibili query esistenti, sulla barra degli strumenti query, selezionare **esempi**  >  di**cronologia**delle query, che mostra le query delle esecuzioni precedenti della query, oppure selezionare **Esplora query**, che mostra le query predefinite.
 
      Ad esempio, la soluzione App per la logica B2B fornisce le query predefinite seguenti:
 

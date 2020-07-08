@@ -6,16 +6,15 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 5881e6485003abd4fd23a7f6d06a428e768c00fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905872"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Consente di gestire i nodi che formano un cluster.
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |
@@ -39,9 +38,9 @@ Aggiunge l'elenco di override di configurazione nel nodo specificato.
 
 Questa API consente di aggiungere tutti gli override di configurazione esistenti sul nodo specificato.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --config-Parameter-override-list [obbligatorio] | Descrizione per l'aggiunta di un elenco di override della configurazione. |
 | --Node-Name [obbligatorio] | Il nome del nodo. |
@@ -50,7 +49,7 @@ Questa API consente di aggiungere tutti gli override di configurazione esistenti
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -63,9 +62,9 @@ Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione s
 
 Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione specificato. Quando la disattivazione è in corso, lo scopo di disattivazione può essere aumentato, ma non ridotto. Ad esempio, un nodo che viene disattivato con lo scopo di sospensione può essere disattivato ulteriormente con Riavvio, ma non viceversa. I nodi possono essere riattivati usando l'operazione Attiva un nodi in qualsiasi momento dopo la disattivazione. Se la disattivazione non è completa, verrà annullata. Un nodo che si arresta e torna disponibile mentre è disattivato dovrà essere riattivato prima che vengano inseriti servizi in tale nodo.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --node-name [Required] | Il nome del nodo. |
 | --deactivation-intent | Viene descritto lo scopo o il motivo per la disattivazione del nodo. I valori possibili sono i seguenti. |
@@ -73,7 +72,7 @@ Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione s
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -86,7 +85,7 @@ Attiva un nodo del cluster di Service Fabric che è attualmente disattivato.
 
 Attiva un nodo del cluster di Service Fabric che è attualmente disattivato. Dopo essere stato attivato, il nodo diventerà nuovamente una destinazione valida in cui inserire le nuove repliche e tutte le repliche disattivate rimanenti nel nodo verranno riattivate.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -108,7 +107,7 @@ Ottiene l'elenco di override della configurazione nel nodo specificato.
 
 Questa API consente di ottenere tutti gli override di configurazione esistenti nel nodo specificato.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -130,7 +129,7 @@ Mostra l'integrità di un nodo di Service Fabric.
 
 Mostra l'integrità di un nodo di Service Fabric. Utilizzare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riportati nel nodo in base allo stato di integrità. Se il nodo di cui si specifica il nome non esiste nell'archivio integrità, questo restituisce un errore.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -153,7 +152,7 @@ Mostra le informazioni su un nodo specifico del cluster di Service Fabric.
 
 La risposta include il nome, lo stato, l’ID, l’integrità, il tempo di attività e altri dettagli relativi al nodo.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -175,7 +174,7 @@ Mostra l'elenco dei nodi del cluster di Service Fabric.
 
 La risposta include il nome, lo stato, l'ID, l'integrità, il tempo di attività e altri dettagli relativi ai nodi.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -199,7 +198,7 @@ Mostra le informazioni sul caricamento di un nodo di Service Fabric.
 
 Recupera le informazioni sul caricamento di un nodo di Service Fabric per tutte le metriche per cui sono definiti il caricamento o la capacità.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -221,7 +220,7 @@ Rimuove gli override di configurazione nel nodo specificato.
 
 Questa API consente di rimuovere tutti gli override di configurazione esistenti nel nodo specificato.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -241,9 +240,9 @@ Questa API consente di rimuovere tutti gli override di configurazione esistenti 
 ## <a name="sfctl-node-remove-state"></a>sfctl node remove-state
 Notifica a Service Fabric che lo stato persistente in un nodo è stato rimosso o perso definitivamente.
 
-Ciò implica che non è possibile ripristinare lo stato persistente di tale nodo, come in genere si verifica se il contenuto di un disco rigido è stato cancellato o se un disco rigido si arresta in modo anomalo. Il nodo deve essere inattivo perché l'operazione abbia esito positivo. Questa operazione consente a Service Fabric di sapere che le repliche in tale nodo non esistono più e che deve smettere di attendere che tali repliche tornino disponibili. Non eseguire questo cmdlet se lo stato del nodo non è stato rimosso e il nodo può tornare disponibile con lo stato intatto. A partire da Service Fabric 6,5, per usare questa API per i nodi di inizializzazione, impostare i nodi di inizializzazione su nodi regolari (non di inizializzazione), quindi richiamare questa API per rimuovere lo stato del nodo. Se il cluster è in esecuzione in Azure, dopo che il nodo di inizializzazione diventa inattivo, Service Fabric tenterà di modificarlo automaticamente in un nodo non di inizializzazione. Per eseguire questa operazione, assicurarsi che il numero di nodi non di inizializzazione nel tipo di nodo primario non sia inferiore al numero di nodi di inizializzazione inattivo. Se necessario, aggiungere altri nodi al tipo di nodo primario per ottenere questo risultato. Per il cluster autonomo, se non è previsto che il nodo di inizializzazione inattivo venga riattivato con lo stato intatto, rimuovere il nodo dal\:cluster, vedere https//docs.Microsoft.com/en-US/Azure/Service-Fabric/Service-Fabric-cluster-Windows-Server-Add-Remove-nodes.
+Ciò implica che non è possibile ripristinare lo stato persistente di tale nodo, come in genere si verifica se il contenuto di un disco rigido è stato cancellato o se un disco rigido si arresta in modo anomalo. Il nodo deve essere inattivo perché l'operazione abbia esito positivo. Questa operazione consente a Service Fabric di sapere che le repliche in tale nodo non esistono più e che deve smettere di attendere che tali repliche tornino disponibili. Non eseguire questo cmdlet se lo stato del nodo non è stato rimosso e il nodo può tornare disponibile con lo stato intatto. A partire da Service Fabric 6,5, per usare questa API per i nodi di inizializzazione, impostare i nodi di inizializzazione su nodi regolari (non di inizializzazione), quindi richiamare questa API per rimuovere lo stato del nodo. Se il cluster è in esecuzione in Azure, dopo che il nodo di inizializzazione diventa inattivo, Service Fabric tenterà di modificarlo automaticamente in un nodo non di inizializzazione. Per eseguire questa operazione, assicurarsi che il numero di nodi non di inizializzazione nel tipo di nodo primario non sia inferiore al numero di nodi di inizializzazione inattivo. Se necessario, aggiungere altri nodi al tipo di nodo primario per ottenere questo risultato. Per il cluster autonomo, se non è previsto che il nodo di inizializzazione inattivo venga riattivato con lo stato intatto, rimuovere il nodo dal cluster, vedere https \: //docs.Microsoft.com/en-US/Azure/Service-Fabric/Service-Fabric-cluster-Windows-Server-Add-Remove-nodes.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -265,7 +264,7 @@ Invia un report di integrità nel nodo di Service Fabric.
 
 Segnala lo stato di integrità del nodo di Service Fabric specificato. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a un nodo del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per determinare se il report è stato applicato nell'archivio integrità, controllare che il report venga visualizzato nella sezione HealthEvents.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -295,7 +294,7 @@ Riavvia un nodo del cluster di Service Fabric.
 
 Riavvia un nodo del cluster di Service Fabric che è già stato avviato.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -319,7 +318,7 @@ Avvia o arresta un nodo del cluster.
 
 Avvia o arresta un nodo del cluster.  Un nodo del cluster è un processo, non l’istanza del sistema operativo.  Per avviare un nodo, passare a "Start" per il parametro NodeTransitionType. Per arrestare un nodo, passare a "Stop" per il parametro NodeTransitionType. Questa API avvia l'operazione; quando l'API ritorna, il nodo può essere ancora in fase di transizione. Richiamare GetNodeTransitionProgress con lo stesso OperationId per ottenere lo stato di avanzamento dell'operazione.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -345,7 +344,7 @@ Mostra lo stato di avanzamento di un'operazione avviata utilizzando StartNodeTra
 
 Ottiene lo stato di avanzamento di un'operazione avviata con StartNodeTransition usando l'ID operazione specificato.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |

@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906751"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali della serie HC
@@ -44,7 +43,7 @@ Il diagramma seguente illustra la separazione dei core riservati per l'hyperviso
 | Core                            | 44 (HT disabilitato)                 |
 | CPU                              | Intel Xeon Platinum 8168 *        |
 | Frequenza CPU (non-AVX)          | 3,7 GHz (core singolo), 2.7-3,4 GHz (tutti i core) |
-| Memoria                           | 8 GB/Core (Totale 352)            |
+| Memory                           | 8 GB/Core (Totale 352)            |
 | Disco locale                       | 700 GB NVMe                      |
 | Infiniband                       | 100 GB EDR Mellanox ConnectX-5 * * |
 | Rete                          | 50 GB Ethernet (40 GB utilizzabili) Azure Second gen SmartNIC * * * |

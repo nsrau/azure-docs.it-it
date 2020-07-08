@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
 ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774453"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteggere un cluster autonomo in Windows usando la protezione di Windows
@@ -21,7 +20,7 @@ Per impedire l'accesso non autorizzato a un cluster di Service Fabric, è necess
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Configurare la funzionalità di sicurezza di Windows usando l'approccio account del servizio gestito del gruppo  
-Il file di configurazione *ClusterConfig. gMSA. Windows. MultiMachine. JSON* di esempio scaricato con [Microsoft. Azure. ServiceFabric. WindowsServer\< . ](https://go.microsoft.com/fwlink/?LinkId=730690)il pacchetto del cluster autonomo versione>. zip contiene un modello per la configurazione della sicurezza di Windows tramite l' [account del servizio gestito del gruppo (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+Il file di configurazione di esempio *ClusterConfig.gMSA.Windows.MultiMachine.JSON* scaricato con il pacchetto del cluster autonomo [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contiene un modello per la configurazione della sicurezza di Windows usando l'approccio [account del servizio gestito del gruppo](https://technet.microsoft.com/library/hh831782.aspx).  
 
 ```
 "security": {
@@ -45,14 +44,14 @@ Il file di configurazione *ClusterConfig. gMSA. Windows. MultiMachine. JSON* di 
 | ClusterCredentialType |Impostare su *Windows* per abilitare la sicurezza di Windows per la comunicazione tra nodi.  | 
 | ServerCredentialType |Impostare su *Windows* per abilitare la sicurezza di Windows per la comunicazione da client a nodo. |
 | WindowsIdentities |Contiene le identità del client e del cluster. |
-| ClustergMSAIdentity |Configura la sicurezza da nodo a nodo. Account del servizio gestito del gruppo. |
+| ClustergMSAIdentity |Configura la sicurezza da nodo a nodo. Un account del servizio gestito del gruppo. |
 | ClusterSPN |SPN registrato per l'account gMSA|
 | ClientIdentities |Configura la sicurezza da client a nodo. Matrice di account utente del client. |
 | Identità |Aggiungere l'utente del dominio, dominio\nome utente, per l'identità del client. |
 | IsAdmin |Impostare su true per indicare che l'utente del dominio ha un accesso client come amministratore oppure su false per indicare un accesso client come utente. |
 
 > [!NOTE]
-> Il valore di ClustergMSAIdentity deve essere nelmysfgmsa@mydomainformato "".
+> Il valore di ClustergMSAIdentity deve essere nel formato " mysfgmsa@mydomain ".
 
 La [protezione da nodo a nodo](service-fabric-cluster-security.md#node-to-node-security) viene configurata impostando **ClustergMSAIdentity** quando l'infrastruttura di servizi deve essere eseguita nell'account del servizio gestito del gruppo. Per creare relazioni di trust tra i nodi, è necessario che si riconoscano. Questa operazione può essere eseguita in due modi diversi: specificare l'account del servizio gestito del gruppo che include tutti i nodi del cluster oppure specificare il gruppo del computer di dominio che include tutti i nodi del cluster. È consigliabile usare l'approccio degli [account del servizio gestiti del gruppo](https://technet.microsoft.com/library/hh831782.aspx) , in particolare per i cluster più grandi (più di 10 nodi) o per i cluster soggetti a probabile crescita o riduzione.  
 Non richiede inoltre la creazione di un gruppo di dominio per cui agli amministratori del cluster siano stati concessi i diritti di accesso per aggiungere e rimuovere membri. Questi account si rivelano utili anche nella gestione automatica delle password. Per altre informazioni, vedere [Introduzione gli account del servizio gestiti del gruppo](https://technet.microsoft.com/library/jj128431.aspx).  
@@ -77,7 +76,7 @@ La sezione **security** dell'esempio seguente configura la sicurezza di Windows 
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Configurare la funzionalità di sicurezza di Windows usando un gruppo di computer  
-Questo modello è in fase di deprecazione. È consigliabile usare gMSA come descritto sopra. Il file di configurazione *ClusterConfig. Windows. MultiMachine. JSON* di esempio scaricato con [Microsoft. Azure. ServiceFabric. WindowsServer\< . ](https://go.microsoft.com/fwlink/?LinkId=730690)il pacchetto del cluster autonomo versione>. zip contiene un modello per la configurazione della sicurezza di Windows.  La sicurezza di Windows viene configurata nella sezione **Proprietà** : 
+Questo modello è in fase di deprecazione. È consigliabile usare gMSA come descritto sopra. Il file di configurazione di esempio *ClusterConfig.Windows.MultiMachine.JSON* scaricato con il pacchetto del cluster autonomo [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contiene un modello per la configurazione della sicurezza di Windows.  La sicurezza di Windows viene configurata nella sezione **Proprietà** : 
 
 ```
 "security": {

@@ -7,13 +7,12 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76907981"
 ---
-# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per i messaggi B2B nelle app per la logica di Azure
+# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurare i log di Monitoraggio di Azure e raccogliere i dati di diagnostica per i messaggi B2B in App per la logica di Azure
 
 Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account di integrazione, tali partner possono scambiare messaggi utilizzando protocolli quali AS2, X12 ed EDIFACT. Per verificare che questa comunicazione funzioni come previsto, è possibile configurare i log di [monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md) per l'account di integrazione. [Monitoraggio di Azure](../azure-monitor/overview.md) consente di monitorare gli ambienti cloud e locali in modo da mantenere la disponibilità e le prestazioni più semplici. Usando i log di monitoraggio di Azure, è possibile registrare e archiviare i dati relativi a eventi e dati di runtime, ad esempio eventi trigger, eventi di esecuzione ed eventi di azione in un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Per i messaggi, la registrazione raccoglie anche informazioni come:
 
@@ -44,7 +43,7 @@ Questo articolo illustra come abilitare la registrazione di monitoraggio di Azur
 
 Prima che i log di monitoraggio di Azure possano tenere traccia dei messaggi B2B per l'app per la logica, aggiungere la soluzione **app per la logica B2B** all'area di lavoro di log Analytics.
 
-1. Nella casella di ricerca del [portale di Azure](https://portal.azure.com)immettere `log analytics workspaces`e quindi selezionare **log Analytics aree di lavoro**.
+1. Nella casella di ricerca del [portale di Azure](https://portal.azure.com)immettere `log analytics workspaces` e quindi selezionare **log Analytics aree di lavoro**.
 
    ![Selezionare "aree di lavoro Log Analytics"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
 
@@ -52,7 +51,7 @@ Prima che i log di monitoraggio di Azure possano tenere traccia dei messaggi B2B
 
    ![Selezionare l'area di lavoro Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. Nel riquadro Panoramica, in Introduzione **a log Analytics** > **configurare le soluzioni di monitoraggio**, selezionare **Visualizza soluzioni**.
+1. Nel riquadro Panoramica, in Introduzione **a log Analytics**  >  **configurare le soluzioni di monitoraggio**, selezionare **Visualizza soluzioni**.
 
    ![Nel riquadro Panoramica selezionare "Visualizza soluzioni".](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
@@ -60,7 +59,7 @@ Prima che i log di monitoraggio di Azure possano tenere traccia dei messaggi B2B
 
    ![Nel riquadro Panoramica aggiungere una nuova soluzione](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
 
-1. Dopo l'apertura del **Marketplace** , nella casella di ricerca immettere `logic apps b2b`e selezionare **app per la logica B2B**.
+1. Dopo l'apertura del **Marketplace** , nella casella di ricerca immettere `logic apps b2b` e selezionare **app per la logica B2B**.
 
    ![Da Marketplace selezionare "gestione app per la logica"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
 
@@ -116,7 +115,7 @@ Dopo l'esecuzione dell'app per la logica, è possibile visualizzare lo stato e i
 
 1. Nella casella di ricerca [portale di Azure](https://portal.azure.com) individuare e aprire l'area di lavoro log Analytics.
 
-1. Nel menu dell'area di lavoro selezionare **Workspace summary** > **app per la logica B2B**di riepilogo dell'area di lavoro.
+1. Nel menu dell'area di lavoro selezionare app per la logica B2B di **Riepilogo dell'area di lavoro**  >  **Logic Apps B2B**.
 
    ![Riquadro di riepilogo area di lavoro](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
@@ -185,9 +184,9 @@ Ecco le descrizioni delle proprietà per ogni messaggio AS2.
 | **Mittente** | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo AS2 |
 | **Ricevitore** | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo AS2 |
 | **App per la logica** | App per la logica in cui sono configurate le azioni AS2 |
-| **Stato** | Stato dei messaggi AS2 <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata e ricevuta o è stata inviata. <br>Operazione non riuscita = ricevuto un messaggio AS2 non valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>In sospeso = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata ed è prevista. |
+| **Status** | Stato dei messaggi AS2 <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata e ricevuta o è stata inviata. <br>Operazione non riuscita = ricevuto un messaggio AS2 non valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>In sospeso = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata ed è prevista. |
 | **ACK** | Stato dei messaggi di notifica sulla ricezione del messaggio <br>Accettato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio positivo. <br>In sospeso = in attesa di ricevere o inviare un messaggio di notifica sulla ricezione del messaggio. <br>Rifiutato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio negativo. <br>Non richiesto = notifica sulla ricezione del messaggio non configurata nell'accordo. |
-| **Direction** | Direzione dei messaggi AS2 |
+| **Direzione** | Direzione dei messaggi AS2 |
 | **ID di traccia** | ID che correla tutti i trigger e le azioni in un'app per la logica |
 | **ID messaggio** | ID del messaggio AS2 dalle intestazioni del messaggio AS2 |
 | **Timestamp** | Ora in cui l'azione AS2 ha elaborato il messaggio |
@@ -218,9 +217,9 @@ Ecco le descrizioni delle proprietà per ogni messaggio X12.
 | **Mittente** | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | **Ricevitore** | Partner host specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | **App per la logica** | App per la logica in cui sono configurate le azioni X12 |
-| **Stato** | Stato dei messaggi X12 <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 non valido. <br>In sospeso = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato ed è previsto. |
+| **Status** | Stato dei messaggi X12 <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 non valido. <br>In sospeso = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato ed è previsto. |
 | **ACK** | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
-| **Direction** | Direzione dei messaggi X12 |
+| **Direzione** | Direzione dei messaggi X12 |
 | **ID di traccia** | ID che correla tutti i trigger e le azioni in un'app per la logica |
 | **Tipo di messaggio** | Tipo di messaggio EDI X12 |
 | **ICN** | Numero di controllo interscambio del messaggio X12 |
@@ -253,9 +252,9 @@ Ecco le descrizioni delle proprietà per ogni messaggio EDIFACT.
 | **Mittente** | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | **Ricevitore** | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | **App per la logica** | App per la logica in cui sono configurate le azioni EDIFACT |
-| **Stato** | Stato dei messaggi EDIFACT <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio EDIFACT non valido <br>In sospeso = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato ed è previsto. |
+| **Status** | Stato dei messaggi EDIFACT <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio EDIFACT non valido <br>In sospeso = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato ed è previsto. |
 | **ACK** | Stato ACK funzionali (CONTRL) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
-| **Direction** | Direzione dei messaggi EDIFACT |
+| **Direzione** | Direzione dei messaggi EDIFACT |
 | **ID di traccia** | ID che correla tutti i trigger e le azioni in un'app per la logica |
 | **Tipo di messaggio** | Tipo di messaggio EDIFACT |
 | **ICN** | Numero di controllo interscambio del messaggio EDIFACT |

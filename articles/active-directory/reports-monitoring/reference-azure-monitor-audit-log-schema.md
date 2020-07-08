@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68987948"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretare lo schema dei log di controllo di Azure AD in Monitoraggio di Azure (anteprima)
@@ -161,7 +160,7 @@ Questo articolo illustra lo schema del log di controllo di Azure Active Director
 | callerIpAddress | Indirizzo IP del client che ha eseguito la richiesta. | 
 | correlationId | GUID facoltativo passato dal client. Questo valore consente di correlare le operazioni lato client con le operazioni lato server ed è utile durante l'analisi dei log relativi a più servizi. |
 | identity | Identità del token presentato al momento dell'esecuzione della richiesta. L'identità può essere un account utente, un account di sistema o un'entità servizio. |
-| level | Tipo di messaggio. Per i log di controllo, il livello è sempre *informativo*. |
+| livello | Tipo di messaggio. Per i log di controllo, il livello è sempre *informativo*. |
 | posizione | Posizione del datacenter. |
 | properties | Elenco delle proprietà supportate relative a un log di controllo. Per altre informazioni, vedere la tabella seguente. | 
 

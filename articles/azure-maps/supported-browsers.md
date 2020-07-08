@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988788"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browser supportati dall'SDK Web
@@ -40,7 +39,7 @@ Azure Maps Web SDK supporta i seguenti browser desktop:
 
 Vedere anche [browser legacy di destinazione](#Target-Legacy-Browsers) più avanti in questo articolo.
 
-## <a name="mobile"></a>Cellulare
+## <a name="mobile"></a>Dispositivi mobili
 
 Azure Maps Web SDK supporta i seguenti browser per dispositivi mobili:
 
@@ -57,9 +56,9 @@ Azure Maps Web SDK supporta i seguenti browser per dispositivi mobili:
 
 ## <a name="nodejs"></a>Node.js
 
-In node. js sono supportati anche i moduli Web SDK seguenti:
+In Node.js sono supportati anche i moduli Web SDK seguenti:
 
-- Modulo dei servizi ([modulo NPM](https://www.npmjs.com/package/azure-maps-rest)della[documentazione](how-to-use-services-module.md) | )
+- Modulo dei servizi[documentation](how-to-use-services-module.md)(  |  [modulo NPM](https://www.npmjs.com/package/azure-maps-rest)della documentazione)
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Browser legacy di destinazione
 
@@ -68,7 +67,7 @@ In node. js sono supportati anche i moduli Web SDK seguenti:
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mappe di Azure + volantino" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere il <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>volantino sulle mappe di Azure e il volantino</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+Vedere il <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>volantino sulle mappe di Azure e il volantino</a> di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 

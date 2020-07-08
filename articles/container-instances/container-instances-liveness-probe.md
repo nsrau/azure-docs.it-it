@@ -4,10 +4,9 @@ description: Informazioni su come configurare probe di attività per riavviare i
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934171"
 ---
 # <a name="configure-liveness-probes"></a>Configurare probe di attività
@@ -65,7 +64,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 La distribuzione include una `command` proprietà che definisce un comando di avvio che viene eseguito all'avvio dell'esecuzione del contenitore. Questa proprietà accetta una matrice di stringhe. Questo comando simula il contenitore che entra in uno stato non integro.
 
-Viene innanzitutto avviata una sessione bash e viene creato un file `healthy` denominato nella `/tmp` directory. Quindi dorme per 30 secondi prima di eliminare il file, quindi entra in uno stato di sospensione di 10 minuti:
+Viene innanzitutto avviata una sessione bash e viene creato un file denominato `healthy` nella `/tmp` Directory. Quindi dorme per 30 secondi prima di eliminare il file, quindi entra in uno stato di sospensione di 10 minuti:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
@@ -73,7 +72,7 @@ Viene innanzitutto avviata una sessione bash e viene creato un file `healthy` de
 
 ### <a name="liveness-command"></a>Comando di verifica dell'attività (liveness)
 
-Questa distribuzione definisce un `livenessProbe` che supporta un `exec` comando di liveity che funge da controllo della durata. Se questo comando viene terminato con un valore diverso da zero, il contenitore viene terminato e riavviato, segnalando che `healthy` il file non è stato trovato. Se il comando termina correttamente con il codice di uscita 0, non viene eseguita alcuna azione.
+Questa distribuzione definisce un `livenessProbe` che supporta un `exec` comando di liveity che funge da controllo della durata. Se questo comando viene terminato con un valore diverso da zero, il contenitore viene terminato e riavviato, segnalando che il `healthy` file non è stato trovato. Se il comando termina correttamente con il codice di uscita 0, non viene eseguita alcuna azione.
 
 La proprietà `periodSeconds` stabilisce che il comando di verifica dell'attività deve essere eseguito ogni 5 secondi.
 
@@ -87,7 +86,7 @@ Questi eventi possono essere visualizzati dal portale di Azure o dall'interfacci
 
 ![Evento di non integrità nel portale][portal-unhealthy]
 
-Visualizzando gli eventi nel portale di Azure, gli eventi di tipo `Unhealthy` vengono attivati in caso di errore del comando di Livezza. L'evento successivo è di tipo `Killing`, che indica l'eliminazione di un contenitore, quindi è possibile iniziare un riavvio. Il numero di riavvio per il contenitore viene incrementato ogni volta che si verifica questo evento.
+Visualizzando gli eventi nel portale di Azure, gli eventi di tipo `Unhealthy` vengono attivati in caso di errore del comando di Livezza. L'evento successivo è di tipo, che indica l' `Killing` eliminazione di un contenitore, quindi è possibile iniziare un riavvio. Il numero di riavvio per il contenitore viene incrementato ogni volta che si verifica questo evento.
 
 I riavvii vengono completati sul posto, quindi le risorse come gli indirizzi IP pubblici e il contenuto specifico del nodo vengono mantenute.
 
@@ -97,7 +96,7 @@ Se il probe di vita continua a non riuscire e attiva un numero eccessivo di riav
 
 ## <a name="liveness-probes-and-restart-policies"></a>Probe di attività e criteri di riavvio
 
-I criteri di riavvio sostituiscono il comportamento di riavvio attivato dai probe di attività. Se, ad esempio, si impostano un oggetto `restartPolicy = Never` *e* un probe di Livezza, il gruppo di contenitori non viene riavviato a causa di un controllo di stato non riuscito. Il gruppo di contenitori rispetta invece i criteri di riavvio del gruppo di contenitori `Never`di.
+I criteri di riavvio sostituiscono il comportamento di riavvio attivato dai probe di attività. Se, ad esempio, si impostano un oggetto `restartPolicy = Never` *e* un probe di Livezza, il gruppo di contenitori non viene riavviato a causa di un controllo di stato non riuscito. Il gruppo di contenitori rispetta invece i criteri di riavvio del gruppo di contenitori di `Never` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

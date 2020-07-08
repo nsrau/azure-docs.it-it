@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844718"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Esercitazione: eseguire la trasmissione di eventi al cloud di griglia di eventi
@@ -34,9 +33,9 @@ Per completare questa esercitazione è necessario disporre degli elementi seguen
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
 ## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Creare un argomento e una sottoscrizione di griglia di eventi nel cloud
 
-Creare un argomento e una sottoscrizione di griglia di eventi nel cloud seguendo [questa esercitazione](../custom-event-quickstart-portal.md). Prendere nota `topicURL`di `sasKey`, e `topicName` dell'argomento appena creato che verrà usato più avanti nell'esercitazione.
+Creare un argomento e una sottoscrizione di griglia di eventi nel cloud seguendo [questa esercitazione](../custom-event-quickstart-portal.md). Prendere nota `topicURL` `sasKey` di, e `topicName` dell'argomento appena creato che verrà usato più avanti nell'esercitazione.
 
-Ad esempio, se è stato creato un argomento `testegcloudtopic` denominato negli Stati Uniti occidentali, i valori avranno un aspetto simile al seguente:
+Ad esempio, se è stato creato un argomento denominato `testegcloudtopic` negli Stati Uniti occidentali, i valori avranno un aspetto simile al seguente:
 
 * **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
 * **TopicName**:`testegcloudtopic`
@@ -44,7 +43,7 @@ Ad esempio, se è stato creato un argomento `testegcloudtopic` denominato negli 
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Creare un argomento di griglia di eventi al perimetro
 
-1. Creare topic3. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
+1. Creare topic3.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
     ```json
         {
@@ -85,7 +84,7 @@ Ad esempio, se è stato creato un argomento `testegcloudtopic` denominato negli 
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Creare subscription3. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
+1. Creare subscription3.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
    ```json
         {
@@ -157,7 +156,7 @@ Ad esempio, se è stato creato un argomento `testegcloudtopic` denominato negli 
 
 ## <a name="publish-an-event-at-the-edge"></a>Pubblicare un evento alla periferia
 
-1. Creare event3. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
+1. Creare event3.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
     ```json
         [
@@ -185,7 +184,7 @@ Ad esempio, se è stato creato un argomento `testegcloudtopic` denominato negli 
 
 Per informazioni sulla visualizzazione degli eventi forniti dall'argomento cloud, vedere l' [esercitazione](../custom-event-quickstart-portal.md).
 
-## <a name="cleanup-resources"></a>Pulire le risorse
+## <a name="cleanup-resources"></a>Risorse di pulizia
 
 * Eseguire il comando seguente per eliminare l'argomento e tutte le relative sottoscrizioni
 

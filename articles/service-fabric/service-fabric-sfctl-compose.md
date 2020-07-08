@@ -6,16 +6,15 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 1e40ca4e3c5ec8b7566646aa7ef723bd4c9e45a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906139"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Creare, eliminare e gestire applicazioni Docker Compose.
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |
@@ -30,9 +29,9 @@ Creare, eliminare e gestire applicazioni Docker Compose.
 ## <a name="sfctl-compose-create"></a>sfctl compose create
 Crea una distribuzione di composizione di Service Fabric.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --deployment-name [Obbligatorio] | Nome della distribuzione. |
 | --file-path [Obbligatorio] | Percorso al file di destinazione Docker Compose. |
@@ -43,7 +42,7 @@ Crea una distribuzione di composizione di Service Fabric.
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -56,9 +55,9 @@ Mostra l'elenco di distribuzioni di composizione create nel cluster di Service F
 
 Mostra lo stato delle distribuzioni di composizione che sono state create oppure sono in corso di creazione nel cluster di Service Fabric. La risposta include il nome, lo stato e altri dettagli relativi alle distribuzioni di composizione. Se l'elenco di distribuzioni non rientra in una pagina, vengono restituiti una pagina di risultati e un token di continuazione, che può essere usato per accedere alla pagina successiva.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
 | --max-results | Il numero massimo di risultati che devono essere restituiti come parte delle query di paging. Questo parametro definisce il limite massimo di risultati restituiti. Se non rientrano nel messaggio in base ai limiti di dimensione massima per i messaggi definiti nella configurazione, il numero dei risultati restituiti può essere inferiore al numero massimo di risultati specificato. Se questo parametro è uguale a zero o non specificato, le query di paging includono il numero massimo di risultati possibili che rientrano nel messaggio restituito. |
@@ -66,7 +65,7 @@ Mostra lo stato delle distribuzioni di composizione che sono state create oppure
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -79,7 +78,7 @@ Elimina una distribuzione di composizione Service Fabric esistente dal cluster.
 
 Elimina una distribuzione di composizione Service Fabric esistente dal cluster.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -101,7 +100,7 @@ Mostra informazioni su una distribuzione di composizione Service Fabric.
 
 Restituisce lo stato della distribuzione di composizione che è stata creata o è in corso di creazione nel cluster di Service Fabric e il cui nome corrisponde a quello specificato come parametro. La risposta include il nome, lo stato e altri dettagli relativi alla distribuzione.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -123,7 +122,7 @@ Avvia l'aggiornamento di una distribuzione di composizione nel cluster di Servic
 
 Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della distribuzione se i parametri sono validi.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -163,7 +162,7 @@ Avvia il rollback di un aggiornamento di una distribuzione Compose nel cluster d
 
 Consente di eseguire il rollback di un aggiornamento di una distribuzione Compose di Service Fabric.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -185,7 +184,7 @@ Mostra i dettagli dell'aggiornamento più recente eseguito sulla distribuzione C
 
 Restituisce le informazioni sullo stato dell'aggiornamento della distribuzione di composizione, con dettagli che agevolano il debug dei problemi di integrità dell'applicazione.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |

@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76757969"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gestire le risorse del database IBM Informix usando app per la logica di Azure
@@ -39,7 +38,7 @@ Questo argomento illustra come usare il connettore in un'app per la logica per e
 
 1. Nel passaggio in cui si vuole aggiungere l'azione Informix selezionare **nuovo passaggio**.
 
-   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Selezionare il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere `informix` come filtro. Nell'elenco azioni selezionare l'azione desiderata, ad esempio:
 
@@ -47,7 +46,7 @@ Questo argomento illustra come usare il connettore in un'app per la logica per e
 
    Il connettore fornisce queste azioni, che eseguono le operazioni di database corrispondenti:
 
-   * Get tables-list Database Tables by `CALL` using an Statement
+   * Get tables-list Database Tables by using an `CALL` Statement
    * Ottenere righe: leggere tutte le righe usando un' `SELECT *` istruzione
    * Get Row: legge una riga usando un' `SELECT WHERE` istruzione
    * Aggiungere una riga tramite un' `INSERT` istruzione
@@ -60,12 +59,12 @@ Questo argomento illustra come usare il connettore in un'app per la logica per e
 
    | Azione | Descrizione | Proprietà e descrizioni |
    |--------|-------------|-----------------------------|
-   | **Ottieni tabelle** | Elencare le tabelle di database eseguendo un'istruzione di chiamata Informix. | Nessuno |
-   | **Ottieni righe** | Recuperare tutte le righe nella tabella specificata eseguendo un'istruzione Informix `SELECT *` . | **Nome tabella**: il nome della tabella Informix desiderata <p><p>Per aggiungere altre proprietà a questa azione, selezionarle nell'elenco **Aggiungi nuovo parametro** . Per altre informazioni, vedere l' [argomento di riferimento del connettore](/connectors/informix/). |
-   | **Ottenere la riga** | Eseguire un'istruzione Informix `SELECT WHERE` per recuperare una riga dalla tabella specificata. | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **ID riga**: ID univoco per la riga, ad esempio`9999` |
-   | **Inserisci riga** | Aggiungere una riga alla tabella Informix specificata eseguendo un'istruzione Informix `INSERT` . | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **Item**: la riga con i valori da aggiungere |
-   | **Aggiorna riga** | Modificare una riga nella tabella Informix specificata eseguendo un'istruzione Informix `UPDATE` . | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **ID riga**: ID univoco della riga da aggiornare, ad esempio`9999` <br>- **Row**: la riga con i valori aggiornati, ad esempio`102` |
-   | **Elimina riga** | Rimuovere una riga dalla tabella Informix specificata eseguendo un'istruzione Informix `DELETE` . | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **ID riga**: ID univoco della riga da eliminare, ad esempio`9999` |
+   | **Ottieni tabelle** | Elencare le tabelle di database eseguendo un'istruzione di chiamata Informix. | nessuno |
+   | **Ottieni righe** | Recuperare tutte le righe nella tabella specificata eseguendo un' `SELECT *` istruzione Informix. | **Nome tabella**: il nome della tabella Informix desiderata <p><p>Per aggiungere altre proprietà a questa azione, selezionarle nell'elenco **Aggiungi nuovo parametro** . Per altre informazioni, vedere l' [argomento di riferimento del connettore](/connectors/informix/). |
+   | **Ottenere la riga** | Eseguire un'istruzione Informix per recuperare una riga dalla tabella specificata `SELECT WHERE` . | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **ID riga**: ID univoco per la riga, ad esempio`9999` |
+   | **Inserisci riga** | Aggiungere una riga alla tabella Informix specificata eseguendo un' `INSERT` istruzione Informix. | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **Item**: la riga con i valori da aggiungere |
+   | **Aggiorna riga** | Modificare una riga nella tabella Informix specificata eseguendo un' `UPDATE` istruzione Informix. | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **ID riga**: ID univoco della riga da aggiornare, ad esempio`9999` <br>- **Row**: la riga con i valori aggiornati, ad esempio`102` |
+   | **Elimina riga** | Rimuovere una riga dalla tabella Informix specificata eseguendo un' `DELETE` istruzione Informix. | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **ID riga**: ID univoco della riga da eliminare, ad esempio`9999` |
    ||||
 
 1. Salvare l'app per la logica. A questo punto, è possibile [testare l'app per la logica](#test-logic-app) o continuare a compilare l'app per la logica.
@@ -83,7 +82,7 @@ Questo argomento illustra come usare il connettore in un'app per la logica per e
    | Nome connessione | `name` | Sì | `informix-demo-connection` | Nome da utilizzare per la connessione al database di Informix |
    | Server | `server` | Sì | Cloud`informixdemo.cloudapp.net:9089` <br>-Locale:`informixdemo:9089` | Indirizzo TCP/IP o alias in formato IPv4 o IPv6, seguito da due punti e da un numero di porta TCP/IP |
    | Database | `database` | Sì | `nwind` | Il nome del database relazionale DRDA (RDBNAM) o il nome del database Informix (DBName). Informix accetta una stringa a 128 byte. |
-   | Autenticazione | `authentication` | Solo in locale | **Basic** o **Windows** (Kerberos) | Tipo di autenticazione richiesto dal database Informix. Questa proprietà viene visualizzata solo quando si seleziona **Connetti tramite gateway dati locale**. |
+   | Authentication | `authentication` | Solo in locale | **Basic** o **Windows** (Kerberos) | Tipo di autenticazione richiesto dal database Informix. Questa proprietà viene visualizzata solo quando si seleziona **Connetti tramite gateway dati locale**. |
    | Username | `username` | No | <*nome utente-database*> | Nome utente del database |
    | Password | `password` | No | <*password database*> | Una password per il database |
    | Gateway | `gateway` | Solo in locale | -<*Azure-Subscription*> <br>-<*Azure-on-premises-Data-Gateway-Resource*> | La sottoscrizione di Azure e il nome della risorsa di Azure per il gateway dati locale creato nel portale di Azure. La proprietà e le sottoproprietà del **gateway** vengono visualizzate solo quando si seleziona **Connetti tramite il gateway dati locale**. |
@@ -107,7 +106,7 @@ Questo argomento illustra come usare il connettore in un'app per la logica per e
 
 1. Nella barra degli strumenti di progettazione app per la logica selezionare **Esegui**. Dopo l'esecuzione dell'app per la logica, è possibile visualizzare gli output di tale esecuzione.
 
-1. Scegliere **Panoramica**dal menu dell'app per la logica. Nel riquadro Panoramica, in **Riepilogo** > **esecuzioni cronologia**, selezionare l'esecuzione più recente.
+1. Scegliere **Panoramica**dal menu dell'app per la logica. Nel riquadro Panoramica, in **Riepilogo**  >  **esecuzioni cronologia**, selezionare l'esecuzione più recente.
 
 1. In **esecuzione App**per la logica selezionare **Dettagli esecuzione**.
 

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77014998"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gestire le macchine virtuali del cloud privato CloudSimple in Azure
@@ -26,11 +25,11 @@ I controlli seguenti sono disponibili nella pagina **Panoramica** relativa alla 
 | Controllo | Description |
 | ------------ | ------------- |
 | Connessione | Connettersi alla macchina virtuale specificata.  |
-| Inizia | Avviare la macchina virtuale specificata.  |
+| Avvia | Avviare la macchina virtuale specificata.  |
 | Riavvia | Arrestare e quindi accendere la macchina virtuale specificata.  |
 | Arresto | Arrestare la macchina virtuale specifica.  |
 | Acquisizione | Acquisire un'immagine della macchina virtuale specificata in modo che possa essere usata come immagine per creare altre macchine virtuali. Vedere [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/classic/capture-image.md).   |
-| Spostamento | Passare alla macchina virtuale specificata.  |
+| Sposta | Passare alla macchina virtuale specificata.  |
 | Elimina | Rimuovere la macchina virtuale specificata.  |
 | Aggiorna | Aggiornare i dati nella visualizzazione.  |
 
@@ -40,7 +39,7 @@ I grafici nell'area inferiore della pagina **Panoramica** presentano i dati sull
 
 Vengono visualizzati i grafici seguenti.
 
-| Item | Descrizione |
+| Elemento | Descrizione |
 | ------------ | ------------- |
 | CPU (media) | Utilizzo medio della CPU in percentuale rispetto all'intervallo selezionato.   |
 | Rete | Traffico all'interno e all'esterno della rete (MB) nell'intervallo selezionato.  |
@@ -51,7 +50,7 @@ Vengono visualizzati i grafici seguenti.
 
 Per aggiungere un disco della macchina virtuale, aprire la pagina **dischi** per la macchina virtuale selezionata. Per aggiungere un disco, fare clic su **Aggiungi disco**. Per configurare ognuna delle impostazioni seguenti, immettere o selezionare un'opzione inline. Fare clic su **Salva**.
 
-   | Item | Descrizione |
+   | Elemento | Descrizione |
    | ------------ | ------------- |
    | Nome | Immettere un nome per identificare il disco.  |
    | Dimensione | Selezionare una delle dimensioni disponibili.  |
@@ -64,7 +63,7 @@ Per eliminare un disco, selezionarlo e fare clic su **Elimina**.
 
 Per modificare la capacità della macchina virtuale, aprire la pagina **dimensioni** per la macchina virtuale selezionata. Specificare una delle opzioni seguenti e fare clic su **Salva**.
 
-| Item | Descrizione |
+| Elemento | Descrizione |
 | ------------ | ------------- |
 | Numero di core | Numero di core assegnati alla macchina virtuale.  |
 | Virtualizzazione hardware | Selezionare la casella di controllo per esporre la virtualizzazione hardware al sistema operativo guest. Vedere l'articolo VMware [esporre la virtualizzazione assistita con hardware VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html). |
@@ -74,7 +73,7 @@ Per modificare la capacità della macchina virtuale, aprire la pagina **dimensio
 
 Per aggiungere un'interfaccia, fare clic su **Aggiungi interfaccia di rete**. Configurare ognuna delle impostazioni seguenti immettendo o selezionando un'opzione inline. Fare clic su **Salva**.
 
-   | Controllo | Descrizione |
+   | Controllo | Description |
    | ------------ | ------------- |
    | Nome | Immettere un nome per identificare l'interfaccia.  |
    | Rete | Selezionare dall'elenco di reti configurate nel cloud privato vSphere.  |

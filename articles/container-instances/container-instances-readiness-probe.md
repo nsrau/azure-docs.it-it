@@ -4,10 +4,9 @@ description: Informazioni su come configurare un probe per garantire che i conte
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76935688"
 ---
 # <a name="configure-readiness-probes"></a>Configurare probe di idoneità
@@ -23,7 +22,7 @@ Istanze di contenitore di Azure supporta anche i [Probe di liveity](container-in
 
 ## <a name="yaml-configuration"></a>Configurazione YAML
 
-Ad esempio, creare un `readiness-probe.yaml` file con il frammento di codice seguente che include un probe di conformità. Questo file definisce un gruppo di contenitori costituito da un contenitore che esegue un'app Web di piccole dimensioni. L'app viene distribuita dall'immagine `mcr.microsoft.com/azuredocs/aci-helloworld` pubblica. Questa app in contenitori è illustrata anche in [distribuire un'istanza di contenitore in Azure usando l'interfaccia della riga di](container-instances-quickstart.md) comando di Azure e altre guide introduttive.
+Ad esempio, creare un `readiness-probe.yaml` file con il frammento di codice seguente che include un probe di conformità. Questo file definisce un gruppo di contenitori costituito da un contenitore che esegue un'app Web di piccole dimensioni. L'app viene distribuita dall' `mcr.microsoft.com/azuredocs/aci-helloworld` immagine pubblica. Questa app in contenitori è illustrata anche in [distribuire un'istanza di contenitore in Azure usando l'interfaccia della riga di](container-instances-quickstart.md) comando di Azure e altre guide introduttive.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -65,7 +64,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 La distribuzione include una `command` proprietà che definisce un comando di avvio che viene eseguito all'avvio dell'esecuzione del contenitore. Questa proprietà accetta una matrice di stringhe. Questo comando Simula un'ora in cui viene eseguita l'app Web, ma il contenitore non è pronto. 
 
-Innanzitutto, avvia una sessione della shell ed esegue un `node` comando per avviare l'app Web. Avvia anche un comando per la sospensione di 240 secondi, dopo il `ready` `/tmp` quale viene creato un file denominato nella directory:
+Innanzitutto, avvia una sessione della shell ed esegue un `node` comando per avviare l'app Web. Avvia anche un comando per la sospensione di 240 secondi, dopo il quale viene creato un file denominato `ready` nella `/tmp` Directory:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
@@ -73,9 +72,9 @@ node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
 
 ### <a name="readiness-command"></a>Comando di conformità
 
-Questo file YAML definisce un `readinessProbe` che supporta un `exec` comando di conformità che funge da controllo di conformità. Questo comando di conformità di esempio verifica l'esistenza del `ready` file nella `/tmp` directory.
+Questo file YAML definisce un `readinessProbe` che supporta un `exec` comando di conformità che funge da controllo di conformità. Questo comando di conformità di esempio verifica l'esistenza del `ready` file nella `/tmp` Directory.
 
-Quando il `ready` file non esiste, il comando di conformità viene chiuso con un valore diverso da zero. il contenitore rimane in esecuzione, ma non è possibile accedervi. Quando il comando termina correttamente con il codice di uscita 0, il contenitore è pronto per l'accesso. 
+Quando il `ready` file non esiste, il comando di conformità viene chiuso con un valore diverso da zero. il contenitore continua l'esecuzione ma non è possibile accedervi. Quando il comando termina correttamente con il codice di uscita 0, il contenitore è pronto per l'accesso. 
 
 La `periodSeconds` proprietà indica che il comando di conformità deve essere eseguito ogni 5 secondi. Il probe di conformità viene eseguito per la durata del gruppo di contenitori.
 
@@ -89,9 +88,9 @@ az container create --resource-group myResourceGroup --file readiness-probe.yaml
 
 ## <a name="view-readiness-checks"></a>Visualizza controlli di conformità
 
-In questo esempio, durante i primi 240 secondi, il comando di conformità ha esito negativo quando controlla `ready` l'esistenza del file. Il codice di stato ha restituito segnali che il contenitore non è pronto.
+In questo esempio, durante i primi 240 secondi, il comando di conformità ha esito negativo quando controlla l' `ready` esistenza del file. Il codice di stato ha restituito segnali che il contenitore non è pronto.
 
-Questi eventi possono essere visualizzati dal portale di Azure o dall'interfaccia della riga di comando di Azure. Ad esempio, il portale Mostra gli eventi di `Unhealthy` tipo che vengono attivati in caso di errore del comando di conformità. 
+Questi eventi possono essere visualizzati dal portale di Azure o dall'interfaccia della riga di comando di Azure. Ad esempio, il portale Mostra gli eventi di tipo che `Unhealthy` vengono attivati in caso di errore del comando di conformità. 
 
 ![Evento di non integrità nel portale][portal-unhealthy]
 
@@ -117,7 +116,7 @@ Connecting to 192.0.2.1... connected.
 HTTP request sent, awaiting response... 
 ```
 
-Dopo 240 secondi, il comando di conformità ha esito positivo, segnalando che il contenitore è pronto. A questo punto, quando si `wget` esegue il comando, l'operazione ha esito positivo:
+Dopo 240 secondi, il comando di conformità ha esito positivo, segnalando che il contenitore è pronto. A questo punto, quando si esegue il `wget` comando, l'operazione ha esito positivo:
 
 ```
 $ wget 192.0.2.1

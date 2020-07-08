@@ -6,20 +6,19 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905819"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Service Fabric.
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |
-| Elimina | Elimina la proprietà di Service Fabric specificata. |
+| eliminare | Elimina la proprietà di Service Fabric specificata. |
 | get | Ottiene la proprietà di Service Fabric specificata. |
 | list | Ottiene informazioni su tutte le proprietà di Service Fabric con un determinato nome. |
 | put | Crea o aggiorna una proprietà di Service Fabric. |
@@ -29,9 +28,9 @@ Elimina la proprietà di Service Fabric specificata.
 
 Elimina la proprietà di Service Fabric specificata con un determinato nome. Prima di poter essere eliminata, una proprietà deve essere creata.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --name-id [Obbligatorio] | Nome di Service Fabric, senza lo schema URI "fabric\:". |
 | --property-name [Obbligatorio] | Specifica il nome della proprietà da ottenere. |
@@ -39,7 +38,7 @@ Elimina la proprietà di Service Fabric specificata con un determinato nome. Pri
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -52,9 +51,9 @@ Ottiene la proprietà di Service Fabric specificata.
 
 Ottiene la proprietà di Service Fabric specificata con un determinato nome. Questa proprietà restituirà sempre sia il valore che i metadati.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --name-id [Obbligatorio] | Nome di Service Fabric, senza lo schema URI "fabric\:". |
 | --property-name [Obbligatorio] | Specifica il nome della proprietà da ottenere. |
@@ -62,7 +61,7 @@ Ottiene la proprietà di Service Fabric specificata con un determinato nome. Que
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -75,9 +74,9 @@ Ottiene informazioni su tutte le proprietà di Service Fabric con un determinato
 
 Un nome di Service Fabric può avere una o più proprietà denominate che archiviano informazioni personalizzate. Questa operazione ottiene le informazioni su queste proprietà in un elenco di paging. Le informazioni includono nome, valore e metadati di ogni proprietà.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
-|Argomento|Descrizione|
+|Argomento|Description|
 | --- | --- |
 | --name-id [Obbligatorio] | Nome di Service Fabric, senza lo schema URI "fabric\:". |
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
@@ -99,7 +98,7 @@ Crea o aggiorna una proprietà di Service Fabric.
 
 Crea o aggiorna la proprietà di Service Fabric specificata con un determinato nome.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Arguments
 
 |Argomento|Descrizione|
 | --- | --- |
