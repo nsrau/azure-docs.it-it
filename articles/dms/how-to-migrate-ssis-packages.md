@@ -12,12 +12,11 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 90a39b8fe3604a05f1d35a875ae4e34491b47d72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 483f60138dcaa6252999b9d15e846fbd1c68e9a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77648530"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021518"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Ridistribuire pacchetti SSIS nel database SQL di Azure con il servizio migrazione del database di Azure
 
@@ -26,7 +25,7 @@ Se si usa SQL Server Integration Services (SSIS) e si vuole eseguire la migrazio
 Se la versione di SSIS usata è precedente al 2012, prima di ridistribuire progetti/pacchetti SSIS nel modello di distribuzione del progetto, è necessario convertirli con la procedura guidata di conversione del progetto Integration Services, che può essere avviata anche da SSMS. Per altre informazioni, vedere l'articolo [Converting projects to the project deployment model](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert) (Conversione di progetti nel modello di distribuzione del progetto).
 
 > [!NOTE]
-> Il servizio migrazione del database di Azure (DMS) attualmente non supporta la migrazione di un database SSISDB di origine a un server di database SQL di Azure, ma è possibile ridistribuire i pacchetti e i progetti SSIS usando il processo seguente.
+> Il servizio migrazione del database di Azure (DMS) attualmente non supporta la migrazione di un'origine SSISDB al database SQL di Azure, ma è possibile ridistribuire i progetti/pacchetti SSIS usando il processo seguente.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 > [!div class="checklist"]
@@ -39,20 +38,20 @@ In questo articolo vengono illustrate le operazioni seguenti:
 Per completare questi passaggi è necessario disporre di:
 
 * Versione SSMS 17.2 o successiva.
-* Un'istanza del server di database di destinazione per ospitare SSISDB. Se non è già stato fatto, creare un server di database SQL di Azure (senza un database) usando il portale di Azure passando al [modulo](https://ms.portal.azure.com/#create/Microsoft.SQLServer)SQL Server (solo server logici).
-* È necessario eseguire il provisioning di SSIS in Azure Data Factory (ADF) contenente Azure-SSIS Integration Runtime (IR) con il database SSISDB di destinazione ospitato dall'istanza del server di database SQL di Azure, come descritto nell'articolo effettuare il provisioning [della Azure-SSIS Integration Runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure).
+* Un'istanza del server di database di destinazione per ospitare SSISDB. Se non ne è già presente uno, creare un [server SQL logico](../azure-sql/database/logical-servers.md) (senza un database) usando il portale di Azure passando al [modulo](https://ms.portal.azure.com/#create/Microsoft.SQLServer)SQL Server (solo server logico).
+* È necessario eseguire il provisioning di SSIS in Azure Data Factory (ADF) contenente Azure-SSIS Integration Runtime (IR) con il database SSISDB di destinazione ospitato dal database SQL, come descritto nell'articolo effettuare il provisioning [della Azure-SSIS Integration Runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure).
 
 ## <a name="assess-source-ssis-projectspackages"></a>Consente di valutare i progetti/pacchetti SSIS di origine
 
-Mentre la valutazione del database di origine SSISDB non è ancora integrata nel database Migration Assistant (DMA) o nel servizio migrazione del database di Azure (DMS), i progetti e i pacchetti SSIS verranno valutati/convalidati durante la ridistribuzione nel database SSISDB di destinazione ospitato in un server di database SQL di Azure.
+Mentre la valutazione del database di origine SSISDB non è ancora integrata nel database Migration Assistant (DMA) o nel servizio migrazione del database di Azure (DMS), i progetti e i pacchetti SSIS verranno valutati/convalidati quando vengono ridistribuiti nel database SSISDB di destinazione ospitato dal database SQL di Azure.
 
 ## <a name="migrate-ssis-projectspackages"></a>Eseguire la migrazione di pacchetti/progetti SSIS
 
-Per eseguire la migrazione di progetti/pacchetti SSIS nel server di database SQL di Azure, seguire questa procedura.
+Per eseguire la migrazione di progetti/pacchetti SSIS nel database SQL di Azure, seguire questa procedura.
 
 1. Aprire SSMS e selezionare **Opzioni** per visualizzare la finestra di dialogo **Connetti a server**.
 
-2. Nella scheda **account di accesso** specificare le informazioni necessarie per connettersi al server di database SQL di Azure che ospiterà il database SSISDB di destinazione.
+2. Nella scheda **account di accesso** specificare le informazioni necessarie per connettersi al server che ospiterà il database SSISDB di destinazione.
 
     ![Scheda Accesso SSIS](media/how-to-migrate-ssis-packages/dms-ssis-login-tab.png)
 
@@ -81,7 +80,7 @@ Per eseguire la migrazione di progetti/pacchetti SSIS nel server di database SQL
 8. Selezionare **Avanti**.
 9. Nella pagina **Seleziona destinazione**, specificare la destinazione per il progetto.
 
-    a. Nella casella di testo nome server immettere il nome completo del server di database SQL di Azure (<server_name>. database.windows.net).
+    a. Nella casella di testo nome server immettere il nome completo del server (<server_name>. database.windows.net).
 
     b. Specificare le informazioni di autenticazione e selezionare **Connetti**.
 

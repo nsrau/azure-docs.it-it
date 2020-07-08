@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1140b65cf56125b23ef3c616e597aafba989b197
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83993856"
 ---
 # <a name="conditional-access-session"></a>Accesso condizionale: sessione
 
@@ -48,7 +47,7 @@ Tramite il controllo delle app con l'accesso condizionale, è possibile monitora
 
 Per altre informazioni, vedere l'articolo [distribuire controllo app per l'accesso condizionale per le app in primo piano](/cloud-app-security/proxy-deployment-aad).
 
-## <a name="sign-in-frequency-preview"></a>Frequenza di accesso (anteprima)
+## <a name="sign-in-frequency"></a>Frequenza di accesso
 
 Frequenza di accesso consente di definire il periodo di tempo prima che un utente debba accedere di nuovo quando tenta di accedere a una risorsa.
 
@@ -66,7 +65,7 @@ L'impostazione della frequenza di accesso funziona con le app che hanno implemen
 
 Per altre informazioni, vedere l'articolo [configurare la gestione delle sessioni di autenticazione con l'accesso condizionale](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## <a name="persistent-browser-session-preview"></a>Sessione del browser persistente (anteprima)
+## <a name="persistent-browser-session"></a>Sessione del browser persistente
 
 Una sessione del browser persistente consente agli utenti di rimanere connessi dopo la chiusura e la riapertura della finestra del browser.
 
@@ -74,6 +73,6 @@ Per altre informazioni, vedere l'articolo [configurare la gestione delle session
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+- [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
 - [Modalità solo report](concept-conditional-access-report-only.md)

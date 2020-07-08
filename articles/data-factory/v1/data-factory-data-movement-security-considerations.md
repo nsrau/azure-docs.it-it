@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1f19d258531e5368238cba72c986aede3f4a64ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c22168aade11bbba66682efea0e2f5a1fcc2ac1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80130833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021501"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
 
@@ -134,7 +133,7 @@ La tabella seguente riassume i consigli di configurazione di rete e del gateway 
 
 Le immagini seguenti mostrano come usare il gateway di gestione dati per spostare i dati tra un database locale e i servizi di Azure ricorrendo a Express Route e a VPN IPSec (con la rete virtuale):
 
-**ExpressRoute:**
+**Route Express:**
  
 ![usare Express Route con il gateway](media/data-factory-data-movement-security-considerations/express-route-for-gateway.png) 
 
@@ -173,9 +172,9 @@ Alcuni archivi dati nel cloud richiedono anche l'inserimento nell'elenco element
 
 Gli archivi dati cloud seguenti richiedono l'inserimento nell'elenco elementi consentiti dell'indirizzo IP del computer del gateway, ma, per impostazione predefinita, alcuni di questi archivi dati potrebbero non richiederlo. 
 
-- [Database SQL di Azure](../../sql-database/sql-database-firewall-configure.md) 
+- [Database SQL di Azure](../../azure-sql/database/firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Archivio Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 

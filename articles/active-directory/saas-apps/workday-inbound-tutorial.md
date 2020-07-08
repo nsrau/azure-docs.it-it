@@ -12,41 +12,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c953c43ff119d42cdadcd2aba6e15f69765afc2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745431"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84013578"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
-L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire per importare profili di ruoli di lavoro da Workday in Active Directory e Azure Active Directory, con il writeback facoltativo dell'indirizzo di posta elettronica e del nome utente in Workday.
+Questa esercitazione descrive la procedura da eseguire per effettuare il provisioning dei profili di lavoro da giorni lavorativi in Active Directory locali (AD).
+
+>[!NOTE]
+>Usare questa esercitazione se gli utenti di cui si vuole eseguire il provisioning dalla giornata lavorativa necessitano di un account AD locale e di un account Azure AD. 
+>* Se gli utenti della giornata lavorativa necessitano solo di Azure AD account (utenti solo cloud), fare riferimento all'esercitazione relativa alla [configurazione del giorno lavorativo per Azure ad](workday-inbound-cloud-only-tutorial.md) il provisioning degli utenti. 
+>* Per configurare il writeback degli attributi, ad esempio l'indirizzo di posta elettronica, il nome utente e il numero di telefono da Azure AD a giornata lavorativa, vedere l'esercitazione sulla [configurazione del writeback dei giorni lavorativi](workday-writeback-tutorial.md)
+
 
 ## <a name="overview"></a>Panoramica
 
-Il [servizio di provisioning utenti di Azure Active Directory](../app-provisioning/user-provisioning.md) si integra con l'[API Human Resources di Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) per il provisioning degli account utente. Azure AD usa questa connessione per consentire i flussi di lavoro di provisioning utenti seguenti:
+Il [servizio di provisioning utenti di Azure Active Directory](../app-provisioning/user-provisioning.md) si integra con l'[API Human Resources di Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) per il provisioning degli account utente. I flussi di lavoro di provisioning utenti di Workday supportati dal servizio di provisioning utenti di Azure AD consentono l'automazione dei seguenti scenari di gestione delle risorse umane e del ciclo di vita delle identità:
 
-* **Provisioning degli utenti in Active Directory** - effettuare il provisioning di set selezionati di utenti da Workday in uno o più domini di Active Directory.
-
-* **Provisioning degli utenti solo cloud su Azure Active Directory** - Negli scenari in cui non viene utilizzato Active Directory locale, il provisioning degli utenti può essere effettuato direttamente da Workday ad Azure Active Directory utilizzando il servizio di provisioning degli utenti Azure AD.
-
-* **Writeback di indirizzi di posta elettronica e nomi utente in Workday** - il servizio di provisioning utenti di Azure AD può eseguire la scrittura in Workday degli indirizzi di posta elettronica e dei nomi utente di Azure AD.
-
-### <a name="what-human-resources-scenarios-does-it-cover"></a>Quali scenari di risorse umane è in grado di gestire?
-
-I flussi di lavoro di provisioning utenti di Workday supportati dal servizio di provisioning utenti di Azure AD consentono l'automazione dei seguenti scenari di gestione delle risorse umane e del ciclo di vita delle identità:
-
-* **Assunzione di nuovi dipendenti**: quando viene aggiunto un nuovo dipendente a Workday, viene creato automaticamente un account utente in Active Directory, Azure Active Directory e, facoltativamente, in Office 365 e [altre applicazioni SaaS supportate da Azure AD](../app-provisioning/user-provisioning.md), con il writeback dell'indirizzo di posta elettronica in Workday.
+* **Assunzione di nuovi dipendenti** : quando viene aggiunto un nuovo dipendente alla giornata lavorativa, viene creato automaticamente un account utente in Active Directory, Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md), con il writeback delle informazioni di contatto gestite dal servizio it per la giornata lavorativa.
 
 * **Aggiornamenti di attributi e profili dei dipendenti**: se il record di un dipendente viene aggiornato in Workday (ad esempio, il nome, il titolo o il manager), il relativo account utente verrà aggiornato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, in Office 365 e [altre applicazioni SaaS supportate da Azure AD](../app-provisioning/user-provisioning.md).
 
 * **Eliminazione di dipendenti**: quando un dipendente viene eliminato in Workday, il relativo account utente viene disabilitato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, in Office 365 e [altre applicazioni SaaS supportate da Azure AD](../app-provisioning/user-provisioning.md).
 
 * **Riassunzioni di dipendenti** - quando un dipendente viene nuovamente aggiunto in Workday, il relativo account utente precedente può essere automaticamente riattivato o sottoposto di nuovo a provisioning (a seconda delle proprie preferenze) in Active Directory, Azure Active Directory e, facoltativamente, in Office 365 e [altre applicazioni SaaS supportate da Azure AD](../app-provisioning/user-provisioning.md).
+
+### <a name="whats-new"></a>Novità
+Questa sezione acquisisce i miglioramenti dell'integrazione con i giorni lavorativi recenti. Per un elenco di aggiornamenti completi, modifiche pianificate e archivi, visitare la pagina Novità [di Azure Active Directory?](../fundamentals/whats-new.md) 
+
+* **Maggio 2020-possibilità di eseguire il writeback di numeri di telefono per la giornata lavorativa:** Oltre alla posta elettronica e al nome utente, è ora possibile eseguire il writeback del numero di telefono e del numero di telefono cellulare da Azure AD alla giornata lavorativa. Per altri dettagli, vedere l' [esercitazione sull'app writeback](workday-writeback-tutorial.md).
+
+* **Aprile 2020-supporto per la versione più recente dell'API dei servizi Web per la giornata lavorativa (WWS):** Due volte all'anno a marzo e settembre, la giornata lavorativa offre aggiornamenti ricchi di funzionalità che consentono di soddisfare gli obiettivi aziendali e di modificare le esigenze della forza lavoro. Per rimanere sempre aggiornato sulle nuove funzionalità offerte da giorni lavorativi, è ora possibile specificare direttamente la versione dell'API WWS che si vuole usare nell'URL della connessione. Per informazioni dettagliate su come specificare la versione dell'API per la giornata lavorativa, vedere la sezione relativa alla [configurazione della connettività dei giorni lavorativi](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory). 
+
+* **Jan 2020-possibilità di impostare l'attributo accountExpires di Active Directory:** Utilizzando la funzione [NumFromDate](../app-provisioning/functions-for-customizing-application-data.md#numfromdate) è ora possibile eseguire il mapping dei campi della data lavorativa, ad esempio *EndContractDate* o *StatusTerminationDate*. 
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Per chi è più adatta questa soluzione di provisioning utenti?
 
@@ -66,8 +70,8 @@ Questa soluzione di provisioning utenti Workday è idealmente la più appropriat
 
 Questa sezione descrive l'architettura della soluzione end-to-end di provisioning degli utenti per ambienti ibridi comuni. Esistono due flussi correlati:
 
-* **Flusso di dati rilevante delle risorse umane, da Workday ad Active Directory locale:** in questo flusso gli eventi del ruolo di lavoro (ad esempio, nuove assunzioni, trasferimenti e risoluzioni) si verificano prima nel tenant di risorse umane Workday nel cloud e quindi i dati degli eventi vengono trasmessi nell'istanza locale di Active Directory tramite Azure AD e l'agente di provisioning. A seconda dell'evento, può determinare operazioni di creazione/aggiornamento/abilitazione o disabilitazione in Active Directory.
-* **Flusso di writeback di posta elettronica e nome utente, da un'istanza locale di Active Directory a Workday:** al termine della creazione in Active Directory, l'account viene sincronizzato con Azure AD tramite Azure AD Connect e l'attributo di posta elettronica e nome utente può essere sottoposto a writeback in Workday.
+* **Flusso di dati HR autorevole: da giorni lavorativi a Active Directory locali:** In questo flusso, i flussi di lavoro, ad esempio i nuovi assunti, i trasferimenti, le terminazioni, si verificano per la prima volta nel tenant HR della giornata lavorativa cloud, quindi i dati degli eventi passano in locale Active Directory tramite Azure AD e l'agente di provisioning. A seconda dell'evento, può determinare operazioni di creazione/aggiornamento/abilitazione o disabilitazione in Active Directory.
+* **Flusso di writeback: dalla Active Directory locale alla giornata lavorativa:** Quando la creazione dell'account viene completata in Active Directory, viene sincronizzata con Azure AD tramite Azure AD Connect e le informazioni, ad esempio la posta elettronica, il nome utente e il numero di telefono possono essere riscritte nella giornata lavorativa.
 
 ![Panoramica](./media/workday-inbound-tutorial/wd_overview.png)
 
@@ -79,145 +83,16 @@ Questa sezione descrive l'architettura della soluzione end-to-end di provisionin
 4. L'agente di provisioning di Azure AD Connect usa un account del servizio per aggiungere/aggiornare i dati dell'account AD.
 5. Il motore Azure AD Connect/AD Sync esegue una sincronizzazione delta per eseguire il pull degli aggiornamenti in AD.
 6. Gli aggiornamenti di Active Directory sono sincronizzati con Azure Active Directory.
-7. Se il connettore di Workday Writebackb è configurato, esegue il writeback dell'attributo di posta elettronica e nome utente in Workday in base all'attributo corrispondente usato.
+7. Se l'app [writeback dei giorni lavorativi](workday-writeback-tutorial.md) è configurata, scrive gli attributi come posta elettronica, nome utente e numero di telefono per la giornata lavorativa.
 
 ## <a name="planning-your-deployment"></a>Pianificazione della distribuzione
 
-Prima di avviare l'integrazione di Workday, verificare i prerequisiti riportati di seguito e leggere le seguenti linee guida su come associare gli attuali requisiti per l'architettura Active Directory e il provisioning utenti con le soluzioni fornite da Azure Active Directory. Un [piano di distribuzione](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) completo con fogli di lavoro di pianificazione è disponibile anche per agevolare la collaborazione con i partner di integrazione Workday e le parti interessate delle risorse umane.
+La configurazione della giornata lavorativa per il provisioning degli utenti Active Directory richiede una pianificazione considerevole che copre aspetti diversi, come:
+* Impostazione dell'agente di provisioning Azure AD Connect 
+* Numero di giorni lavorativi ad app di provisioning utenti Active Directory da distribuire
+* Selezione dell'identificatore di corrispondenza a destra, mapping degli attributi, trasformazione e filtri di ambito
 
-Questa sezione contiene gli aspetti di pianificazione seguenti:
-
-* [Prerequisiti](#prerequisites)
-* [Selezione di app di connettori di provisioning da distribuire](#selecting-provisioning-connector-apps-to-deploy)
-* [Pianificazione della distribuzione dell'agente di provisioning Azure AD Connect](#planning-deployment-of-azure-ad-connect-provisioning-agent)
-* [Integrazione con più domini di Active Directory](#integrating-with-multiple-active-directory-domains)
-* [Pianificazione di mapping e trasformazioni degli attributi utente da Workday ad Active Directory](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
-
-### <a name="prerequisites"></a>Prerequisiti
-
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
-
-* una licenza di sottoscrizione valida di Azure AD Premium P1 o versione successiva per ogni utente che verrà originata da Workday e sottoposta a provisioning in Active Directory o Azure Active Directory locale.
-* L'accesso amministratore globale per la configurazione dell'agente di provisioning
-* Un tenant per l'implementazione di Workday a scopo di test e integrazione
-* Autorizzazioni di amministratore in Workday per creare un utente di integrazione dei sistemi e apportare modifiche ai dati dei dipendenti di prova a scopo di test
-* Per il provisioning utenti in Active Directory, è necessario un server con Windows Server 2012 o versione successiva con il runtime .NET 4.7.1 o versione successiva per ospitare l'[agente di provisioning locale](https://go.microsoft.com/fwlink/?linkid=847801)
-* [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) per la sincronizzazione utenti tra Active Directory e Azure AD
-
-### <a name="selecting-provisioning-connector-apps-to-deploy"></a>Selezione di app di connettori di provisioning da distribuire
-
-Per semplificare i flussi di lavoro di provisioning tra Workday e Active Directory, Azure AD fornisce diverse app di connettori di provisioning che è possibile aggiungere dalla raccolta di app di Azure AD:
-
-![Raccolta di app di Azure AD](./media/workday-inbound-tutorial/wd_gallery.png)
-
-* **Workday to Active Directory Provisioning** - questa app semplifica il provisioning degli account utente da Workday in un singolo dominio di Active Directory. Se sono presenti più domini, è possibile aggiungere un'istanza di questa app dalla raccolta di app di Azure AD per ogni dominio di Active Directory in cui è necessario effettuare il provisioning.
-
-* **Workday to Azure AD User Provisioning** - mentre Azure AD Connect è lo strumento da usare per sincronizzare gli utenti di Active Directory in Azure Active Directory, questa app può essere usata per semplificare il provisioning utenti solo cloud da Workday a un singolo tenant di Azure Active Directory.
-
-* **Workday Writeback** (Writeback Workday): questa app semplifica il writeback degli indirizzi di posta elettronica degli utenti da Azure Active Directory in Workday.
-
-> [!TIP]
-> La normale app "Workday" viene usata per la configurazione del Single Sign-On tra Azure Active Directory e Workday.
-
-Usare il diagramma di flusso decisionale seguente per identificare le app di provisioning di Workday attinenti allo scenario.
-    ![Diagramma di flusso decisionale](./media/workday-inbound-tutorial/wday_app_flowchart.png "Diagramma di flusso decisionale")
-
-Usare il sommario per passare alla sezione rilevante di questa esercitazione.
-
-### <a name="planning-deployment-of-azure-ad-connect-provisioning-agent"></a>Pianificazione della distribuzione dell'agente di provisioning Azure AD Connect
-
-> [!NOTE]
-> Questa sezione è rilevante solo se si prevede di distribuire Workday all'app Workday to Active Directory User Provisioning. È possibile ignorare questo passaggio se si distribuisce l'app Workday Writeback o Workday to Azure AD User Provisioning.
-
-La soluzione di provisioning utenti da Workday ad AD richiede la distribuzione di uno o più agenti di provisioning in server che eseguono Windows 2012 R2 o versioni successive con almeno 4 GB di RAM e runtime .NET 4.7.1 e versioni successive. Valutare le considerazioni seguenti prima di installare l'agente di provisioning:
-
-* Assicurarsi che il server host che esegue l'agente di provisioning abbia accesso in rete al dominio di Active Directory di destinazione
-* La configurazione guidata dell'agente di provisioning registra l'agente con il tenant di Azure AD e il processo di registrazione richiede l'accesso a *.msappproxy.net tramite la porta TLS 443. Assicurarsi che le regole del firewall in uscita siano in grado di consentire questa comunicazione. L'agente supporta la [configurazione proxy HTTPS in uscita](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
-* L'agente di provisioning usa un account del servizio per comunicare con i domini locali di Active Directory. Prima dell'installazione dell'agente, è consigliabile creare un account del servizio con autorizzazioni di amministratore di dominio sulle proprietà utente e una password senza scadenza.  
-* Durante la configurazione dell'agente di provisioning è possibile selezionare i controller di dominio che devono gestire le richieste di provisioning. In presenza di vari controller di dominio distribuiti geograficamente, installare l'agente di provisioning nello stesso sito del controller di dominio preferito per migliorare l'affidabilità e le prestazioni della soluzione end-to-end
-* Per la disponibilità elevata è possibile distribuire più di un agente di provisioning e registrarlo in modo che gestisca lo stesso set di domini locali di Active Directory.
-
-> [!IMPORTANT]
-> Negli ambienti di produzione Microsoft consiglia di avere almeno 3 agenti di provisioning configurati con il tenant di Azure AD per la disponibilità elevata.
-
-### <a name="integrating-with-multiple-active-directory-domains"></a>Integrazione con più domini di Active Directory
-
-> [!NOTE]
-> Questa sezione è rilevante solo se si prevede di distribuire Workday all'app Workday to Active Directory User Provisioning. È possibile ignorare questo passaggio se si distribuisce l'app Workday Writeback o Workday to Azure AD User Provisioning.
-
-A seconda della topologia di Active Directory, sarà necessario decidere il numero di app connettori di provisioning utenti e il numero di agenti di provisioning da configurare. Di seguito sono riportati alcuni dei modelli di distribuzione più comuni a cui è possibile fare riferimento al momento di pianificare la distribuzione.
-
-#### <a name="deployment-scenario-1--single-workday-tenant---single-ad-domain"></a>Scenario di distribuzione 1: Singolo tenant di Workday -> Singolo dominio di AD
-
-In questo scenario, si ha un tenant di Workday e si vuole effettuare il provisioning utenti in un singolo dominio AD di destinazione. Ecco la configurazione di produzione consigliata per questa distribuzione.
-
-|   |   |
-| - | - |
-| No. di provisioning di agenti da distribuire in locale | 3 (per disponibilità elevata e failover) |
-| No. di app Workday to Azure AD User Provisioning da configurare nel portale di Azure | 1 |
-
-  ![Scenario 1](./media/workday-inbound-tutorial/dep_scenario1.png)
-
-#### <a name="deployment-scenario-2--single-workday-tenant---multiple-child-ad-domains"></a>Scenario di distribuzione 2: Singolo tenant Workday -> Domini AD figli multipli
-
-Questo scenario implica il provisioning utenti da Workday a più domini figlio AD di destinazione in una foresta. Ecco la configurazione di produzione consigliata per questa distribuzione.
-
-|   |   |
-| - | - |
-| No. di provisioning di agenti da distribuire in locale | 3 (per disponibilità elevata e failover) |
-| No. di app Workday to Azure AD User Provisioning da configurare nel portale di Azure | un'app per ogni dominio figlio |
-
-  ![Scenario 2](./media/workday-inbound-tutorial/dep_scenario2.png)
-
-#### <a name="deployment-scenario-3--single-workday-tenant---disjoint-ad-forests"></a>Scenario di distribuzione 3: Singolo tenant di Workday-> Foreste AD non contigue
-
-Questo scenario implica il provisioning utenti da Workday a domini in foreste AD non contigue. Ecco la configurazione di produzione consigliata per questa distribuzione.
-
-|   |   |
-| - | - |
-| No. di provisioning di agenti da distribuire in locale | 3 per ogni foresta AD non contigua |
-| No. di app Workday to Azure AD User Provisioning da configurare nel portale di Azure | un'app per ogni dominio figlio |
-
-  ![Scenario 3](./media/workday-inbound-tutorial/dep_scenario3.png)
-
-### <a name="planning-workday-to-active-directory-user-attribute-mapping-and-transformations"></a>Pianificare mapping e trasformazioni degli attributi utente da Workday ad Active Directory
-
-> [!NOTE]
-> Questa sezione è rilevante solo se si prevede di distribuire Workday all'app Workday to Active Directory User Provisioning. È possibile ignorare questo passaggio se si distribuisce l'app Workday Writeback o Workday to Azure AD User Provisioning.
-
-Prima di configurare il provisioning degli utenti in un dominio di Active Directory, cercare di rispondere alle domande seguenti. Le risposte a queste domande permettono di determinare come devono essere impostati i filtri di ambito e i mapping degli attributi.
-
-* **Di quali utenti in Workday è necessario effettuare il provisioning in questa foresta di Active Directory?**
-
-  * *Esempio: utenti il cui attributo "Company" di Workday contiene il valore "Contoso", e l'attributo "Worker_Type" contiene "Regular"*
-
-* **Come vengono instradati gli utenti alle diverse unità organizzative?**
-
-  * *Esempio: gli utenti vengono instradati alle unità organizzative che corrispondono alla posizione di un ufficio, in base a quanto definito negli attributi "Municipality" e "Country_Region_Reference" di Workday*
-
-* **Come devono essere immessi gli attributi seguenti in Active Directory?**
-
-  * Nome comune (cn)
-    * *Esempio: usare il valore di User_ID di Workday, impostato dalle risorse umane*
-
-  * ID dipendente (employeeId)
-    * *Esempio: usare il valore di Worker_ID di Workday*
-
-  * Nome dell'account SAM (sAMAccountName)
-    * *Esempio: usare il valore di User_ID di Workday, filtrato tramite un'espressione di provisioning di Azure AD per rimuovere i caratteri non validi*
-
-  * Nome dell'entità utente (userPrincipalName)
-    * *Esempio: usare il valore di User_ID di Workday, con un'espressione di provisioning di Azure AD per aggiungere un nome di dominio*
-
-* **Come devono essere impostate le corrispondenze degli utenti tra Workday e Active Directory?**
-
-  * *Esempio: gli utenti con un valore di "Worker_ID" di Workday specifico vengono associati agli utenti di Active Directory il cui attributo "employeeID" ha lo stesso valore. Se il valore di Worker_ID non viene trovato in Active Directory, creare un nuovo utente.*
-  
-* **La foresta di Active Directory contiene già gli ID utente necessari per il funzionamento della logica di corrispondenza?**
-
-  * *Esempio: Se questa configurazione è una nuova distribuzione di Workday, è consigliabile fare in modo che Active Directory sia già popolato con i valori di Worker_ID di Workday corretti (o con il valore dell'ID univoco desiderato) per mantenere la logica di corrispondenza il più semplice possibile.*
-
-Nelle sezioni rimanenti di questa esercitazione verrà descritto come installare e configurare queste speciali app di connettori di provisioning. La scelta delle app da configurare dipende dai sistemi in cui è necessario effettuare il provisioning e dal numero di domini di Active Directory e di tenant Azure AD nell'ambiente in uso.
+Per indicazioni complete e procedure consigliate, vedere il [piano di distribuzione HR cloud](../app-provisioning/plan-cloud-hr-provision.md) . 
 
 ## <a name="configure-integration-system-user-in-workday"></a>Configurare un utente del sistema di integrazione in Workday
 
@@ -238,14 +113,16 @@ Un requisito comune di tutti i connettori di provisioning Workday è la richiest
 
 1. Accedere al tenant di Workday usando un account amministratore. Nell'**applicazione Workday** immettere "create user" nella casella di ricerca e quindi fare clic su **Create Integration System User** (Crea utente del sistema di integrazione).
 
-   ![Creare un utente](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
+   >[!div class="mx-imgBorder"] 
+   >![Creare un utente](./media/workday-inbound-tutorial/wd_isu_01.png "Create user")
 2. Completare l'attività **Create Integration System User** specificando un nome utente e una password per un nuovo utente del sistema di integrazione.  
   
    * Lasciare l'opzione **Require New Password at Next Sign In (Richiedi nuova password al prossimo accesso)** non selezionata, perché l'accesso dell'utente verrà eseguito a livello di codice.
    * Lasciare l'opzione **Minuti di timeout della sessione** impostata sul valore predefinito 0, in modo da evitare un timeout prematuro delle sessioni dell'utente.
    * Selezionare l'opzione **Do Not Allow UI Sessions** (Non consentire sessioni di interfaccia utente) in quanto aggiunge un livello di sicurezza che impedisce a un utente con la password del sistema di integrazione di accedere a Workday.
 
-   ![Creare un utente del sistema di integrazione](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
+   > [!div class="mx-imgBorder"]
+   > ![Creare un utente del sistema di integrazione](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
 
 ### <a name="creating-an-integration-security-group"></a>Creazione di un gruppo di sicurezza del sistema di integrazione
 
@@ -255,7 +132,8 @@ In questo passaggio si creerà un gruppo di sicurezza del sistema di integrazion
 
 1. Immettere "create security group" nella casella di ricerca e quindi fare clic su **Create Security Group**(Crea gruppo di sicurezza).
 
-    ![Creare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_03.png "Create Security Group")
+   > [!div class="mx-imgBorder"]
+   > ![Creare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_03.png "Create Security Group")
 2. Completare l'attività **Creare un gruppo di sicurezza**. 
 
    * Esistono due tipi di gruppi di sicurezza in Workday:
@@ -264,11 +142,13 @@ In questo passaggio si creerà un gruppo di sicurezza del sistema di integrazion
    * Verificare il partner di integrazione di Workday per selezionare il tipo di gruppo di sicurezza appropriato per l'integrazione.
    * Una volta appurato il tipo di gruppo, selezionare **Integration System Security Group (Unconstrained)** (Gruppo di sicurezza del sistema di integrazione - Non vincolato) o **Integration System Security Group (Constrained)** (Gruppo di sicurezza del sistema di integrazione - Vincolato) dall'elenco a discesa **Type of Tenanted Security Group** (Tipo di gruppo di sicurezza con tenant).
 
-     ![Creare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_04.png "Create Security Group")
+     > [!div class="mx-imgBorder"]
+     >![Creare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_04.png "Create Security Group")
 
 3. Dopo aver creato il gruppo di sicurezza, verrà visualizzata una pagina in cui sarà possibile assegnare membri al gruppo. Aggiungere il nuovo utente di sistema di integrazione creato nel passaggio precedente per questo gruppo di sicurezza. Se si usa il gruppo di sicurezza *vincolato*, è necessario anche selezionare l'ambito dell'organizzazione appropriato.
 
-    ![Modificare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_05.png "Edit Security Group")
+   >[!div class="mx-imgBorder"]
+   >![Modificare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_05.png "Edit Security Group")
 
 ### <a name="configuring-domain-security-policy-permissions"></a>Configurazione delle autorizzazioni dei criteri di sicurezza del dominio
 
@@ -277,8 +157,8 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 **Per configurare le autorizzazioni dei criteri di sicurezza del dominio:**
 
 1. Immettere **Domain Security Configuration** (Configurazione della sicurezza del dominio) nella casella di ricerca e quindi fare clic sul collegamento **Domain Security Configuration Policies** (Criteri di configurazione della sicurezza del dominio).  
-
-    ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
+   >[!div class="mx-imgBorder"]
+   >![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
 2. Nella casella di testo **Domain** (Dominio) cercare i domini seguenti e aggiungerli al filtro uno alla volta.  
    * *External Account Provisioning* (Provisioning account esterno)
    * *Worker Data: Ruoli di lavoro*
@@ -289,23 +169,26 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
    * *Worker Data: Business Title on Worker Profile* (Dati ruolo di lavoro: qualifica riportata sul profilo)
    * *Account Workday*
    
-     ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
+     >[!div class="mx-imgBorder"]
+     >![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
 
-     ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
+     >[!div class="mx-imgBorder"]
+     >![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
 
      Fare clic su **OK**.
 
 3. Nel report che viene visualizzato selezionare i puntini di sospensione (...) visualizzati accanto a **External Account Provisioning** (Provisioning account esterno) e fare clic sulla voce di menu **Domain -> Edit Security Policy Permissions** (Dominio -> Modifica autorizzazioni criteri di sicurezza)
-
-    ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_09.png "Domain Security Policies")  
+   >[!div class="mx-imgBorder"]
+   >![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_09.png "Domain Security Policies")  
 
 4. Nella pagina **Edit Domain Security Policy Permissions (Modifica autorizzazioni criteri di sicurezza di dominio)** scorrere fino alla sezione **Integration Permissions** (Autorizzazioni di integrazione). Fare clic sul segno "+" per aggiungere il gruppo del sistema di integrazione all'elenco dei gruppi di sicurezza con autorizzazioni di integrazione **Get** e **Put**.
-
-    ![Modificare l'autorizzazione](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permissions")  
+   >[!div class="mx-imgBorder"]
+   >![Modificare l'autorizzazione](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permissions")  
 
 5. Fare clic sul segno "+" per aggiungere il gruppo del sistema di integrazione all'elenco dei gruppi di sicurezza con autorizzazioni di integrazione **Get** e **Put**.
 
-    ![Modificare l'autorizzazione](./media/workday-inbound-tutorial/wd_isu_11.png "Edit Permissions")  
+   >[!div class="mx-imgBorder"]
+   >![Modificare l'autorizzazione](./media/workday-inbound-tutorial/wd_isu_11.png "Edit Permissions")  
 
 6. Ripetere i passaggi precedenti da 3 a 5 per ognuno di questi criteri di sicurezza rimanenti:
 
@@ -321,24 +204,30 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Configurazione delle autorizzazioni dei criteri di sicurezza dei processi aziendali
 
-In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei criteri di sicurezza dei processi aziendali per i dati del ruolo di lavoro. Questo passaggio è obbligatorio per la configurazione del connettore dell'app Workday Writeback.
+In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei criteri di sicurezza dei processi aziendali per i dati del ruolo di lavoro. 
+
+> [!NOTE]
+> Questo passaggio è necessario solo per la configurazione del connettore app writeback dei giorni lavorativi.
 
 **Per configurare le autorizzazioni dei criteri di sicurezza dei processi aziendali:**
 
 1. Immettere **Business Process Policy** (Criteri di processi aziendali) nella casella di ricerca e quindi fare clic sul collegamento **Edit Business Process Security Policy** (Modifica criteri di sicurezza dei processi aziendali).  
 
-    ![Criteri di sicurezza del processo aziendale](./media/workday-inbound-tutorial/wd_isu_12.png "Criteri di sicurezza del processo aziendale")  
+   >[!div class="mx-imgBorder"]
+   >![Criteri di sicurezza del processo aziendale](./media/workday-inbound-tutorial/wd_isu_12.png "Criteri di sicurezza del processo aziendale")  
 
 2. Nella casella di testo **Tipo di processo aziendale**, cercare *Contatto* e selezionare il processo aziendale **Modifica contatto di lavoro**, quindi fare clic su **OK**.
 
-    ![Criteri di sicurezza del processo aziendale](./media/workday-inbound-tutorial/wd_isu_13.png "Criteri di sicurezza del processo aziendale")  
+   >[!div class="mx-imgBorder"]
+   >![Criteri di sicurezza del processo aziendale](./media/workday-inbound-tutorial/wd_isu_13.png "Criteri di sicurezza del processo aziendale")  
 
 3. Nella pagina **Modifica criteri di sicurezza dei processi aziendali** scorrere fino alla sezione **Cambia informazioni di contatto di lavoro (servizio Web)** .
     
 
 4. Selezionare e aggiungere il nuovo gruppo di sicurezza del sistema di integrazione all'elenco dei gruppi di sicurezza che possono avviare la richiesta di servizi Web. 
 
-    ![Criteri di sicurezza del processo aziendale](./media/workday-inbound-tutorial/wd_isu_15.png "Criteri di sicurezza del processo aziendale")  
+   >[!div class="mx-imgBorder"]
+   >![Criteri di sicurezza del processo aziendale](./media/workday-inbound-tutorial/wd_isu_15.png "Criteri di sicurezza del processo aziendale")  
 
 5. Fare clic su **Done** (Fine). 
 
@@ -347,13 +236,45 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 **Per attivare le modifiche apportate ai criteri di sicurezza, seguire questa procedura:**
 
 1. Immettere "activate" (attiva) nella casella di ricerca e quindi fare clic sul collegamento **Activate Pending Security Policy Changes (Attiva le modifiche in sospeso ai criteri di sicurezza)** .
-
-    ![Attiva](./media/workday-inbound-tutorial/wd_isu_16.png "Activate")
+   >[!div class="mx-imgBorder"]
+   >![Attiva](./media/workday-inbound-tutorial/wd_isu_16.png "Activate")
 
 1. Avviare l'attività Activate Pending Security Policy Changes (Attiva le modifiche in sospeso ai criteri di sicurezza) immettendo un commento a scopo di controllo e quindi fare clic su **OK**.
 1. Completare l'attività nella schermata successiva selezionando la casella di controllo **Confirm (Conferma)** e quindi facendo clic su **OK**.
 
-    ![Attivare criteri di sicurezza in sospeso](./media/workday-inbound-tutorial/wd_isu_18.png "Activate Pending Security")  
+   >[!div class="mx-imgBorder"]
+   >![Attivare criteri di sicurezza in sospeso](./media/workday-inbound-tutorial/wd_isu_18.png "Activate Pending Security")  
+
+## <a name="configure-active-directory-service-account"></a>Configurare l'account del servizio Active Directory
+
+Questa sezione descrive le autorizzazioni dell'account del servizio Active Directory necessarie per installare e configurare l'agente di provisioning di Azure AD Connect.
+
+### <a name="permissions-required-to-run-the-provisioning-agent-installer"></a>Autorizzazioni necessarie per eseguire il programma di installazione dell'agente di provisioning
+Dopo aver identificato Windows Server che ospiterà l'agente di provisioning, accedere all'host server usando le credenziali di amministratore locale o di amministratore di dominio. Il processo di installazione dell'agente crea file di credenziali dell'archivio chiavi protette e aggiorna la configurazione del profilo del servizio nel server host. Questa operazione richiede l'accesso amministratore sul server che ospita l'agente. 
+
+### <a name="permissions-required-to-configure-the-provisioning-agent-service"></a>Autorizzazioni necessarie per configurare il servizio agente di provisioning
+Usare la procedura seguente per configurare un account del servizio che può essere usato per il provisioning delle operazioni dell'agente. 
+1.  Nel controller di dominio AD aprire Active Directory snap-in *utenti e computer* . 
+2.  Creare un nuovo utente di dominio (ad esempio: *provAgentAdmin*)  
+3.  Fare clic con il pulsante destro del mouse sull'unità organizzativa o sul nome di dominio e selezionare *Delega controllo* che consente di aprire la *Delega guidata del controllo*. 
+
+> [!NOTE] 
+> Se si vuole limitare l'agente di provisioning per creare e leggere solo gli utenti di una determinata OU a scopo di test, è consigliabile delegare il controllo al livello OU appropriato durante le esecuzioni dei test.
+
+4. Nella schermata iniziale fare clic su **Avanti** . 
+5. Nella schermata **Seleziona utenti o gruppi** aggiungere l'utente di dominio creato nel passaggio 2. Fare clic su **Avanti**.
+   >[!div class="mx-imgBorder"]
+   >![Aggiungi schermata](./media/workday-inbound-tutorial/delegation-wizard-01.png "Aggiungi schermata")
+
+6. Nella schermata **attività da delegare** selezionare le attività seguenti: 
+   * Creare, eliminare e gestire gli account utente
+   * Lettura di tutte le informazioni utente
+
+   >[!div class="mx-imgBorder"]
+   >![Schermata attività](./media/workday-inbound-tutorial/delegation-wizard-02.png "Schermata attività")
+
+7. Fare clic su **Avanti** e **salvare** la configurazione
+
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configurazione del provisioning utenti da Workday in Active Directory
 
@@ -377,7 +298,7 @@ Questa sezione fornisce i passaggi per configurare il provisioning degli account
 
 4. Selezionare **Aggiungere un'applicazione** e quindi selezionare la categoria **Tutto**.
 
-5. Cercare **Workday Provisioning to Active Directory** (Provisioning Workday in Active Directory) e aggiungere tale app dalla raccolta.
+5. Cercare la **giornata lavorativa per Active Directory il provisioning degli utenti**e aggiungere tale app dalla raccolta.
 
 6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**.
 
@@ -385,7 +306,8 @@ Questa sezione fornisce i passaggi per configurare il provisioning degli account
 
 8. Fare clic sul banner di informazioni visualizzato per scaricare l'agente di provisioning. 
 
-   ![Scaricare l'agente](./media/workday-inbound-tutorial/pa-download-agent.png "Schermata Scarica agente")
+   >[!div class="mx-imgBorder"]
+   >![Scaricare l'agente](./media/workday-inbound-tutorial/pa-download-agent.png "Schermata Scarica agente")
 
 
 ### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Parte 2: installare e configurare gli agenti di provisioning locali
@@ -402,30 +324,36 @@ Trasferire il programma di installazione dell'agente scaricato nell'host del ser
 
 1. Avviare il programma di installazione dell'agente di provisioning, accettare le condizioni e fare clic sul pulsante **Installa**.
 
-   ![Schermata di installazione](./media/workday-inbound-tutorial/pa_install_screen_1.png "Schermata di installazione")
+   >[!div class="mx-imgBorder"]
+   >![Schermata di installazione](./media/workday-inbound-tutorial/pa_install_screen_1.png "Schermata di installazione")
    
 1. Al termine dell'installazione verrà avviata la procedura guidata e verrà visualizzata la schermata **Connect Azure AD** (Connetti Azure AD). Fare clic sul pulsante **Authenticate** (Autentica) per connettersi all'istanza di Azure AD.
 
-   ![Connettere Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Connettere Azure AD")
+   >[!div class="mx-imgBorder"]
+   >![Connettere Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Connettere Azure AD")
    
-1. Eseguire l'autenticazione all'istanza di Azure AD con credenziali di amministratore globale.
+1. Eseguire l'autenticazione all'istanza di Azure AD usando le credenziali di amministratore di identità ibride.
 
-   ![Autenticazione amministratore](./media/workday-inbound-tutorial/pa_install_screen_3.png "Autenticazione amministratore")
+   >[!div class="mx-imgBorder"]
+   >![Autenticazione amministratore](./media/workday-inbound-tutorial/pa_install_screen_3.png "Autenticazione amministratore")
 
    > [!NOTE]
    > Le credenziali di amministratore di Azure AD vengono usate solo per la connessione al tenant di Azure AD. L'agente non archivia le credenziali in locale nel server.
 
 1. Al termine dell'autenticazione con Azure AD verrà visualizzata la schermata **Connect Active Directory** (Connetti Active Directory). In questo passaggio, inserire il nome di dominio AD e fare clic sul pulsante **Add Directory** (Aggiungi directory).
 
-   ![Aggiungi directory](./media/workday-inbound-tutorial/pa_install_screen_4.png "Aggiungi directory")
+   >[!div class="mx-imgBorder"]
+   >![Aggiungi directory](./media/workday-inbound-tutorial/pa_install_screen_4.png "Aggiungi directory")
   
 1. Verrà ora richiesto di immettere le credenziali necessarie per connettersi al dominio AD. Nella stessa schermata è possibile usare **Select domain controller priority** (Seleziona priorità controller di dominio) per specificare i controller di dominio che l'agente deve usare per l'invio di richieste di provisioning.
 
-   ![Credenziali del dominio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   >[!div class="mx-imgBorder"]
+   >![Credenziali del dominio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
    
 1. Dopo aver configurato il dominio, il programma di installazione mostrerà un elenco di domini configurati. In questa schermata è possibile ripetere i passaggi 5 e 6 per aggiungere più domini o fare clic su **Next** (Avanti) per procedere alla registrazione dell'agente.
 
-   ![Domini configurati](./media/workday-inbound-tutorial/pa_install_screen_6.png "Domini configurati")
+   >[!div class="mx-imgBorder"]
+   >![Domini configurati](./media/workday-inbound-tutorial/pa_install_screen_6.png "Domini configurati")
 
    > [!NOTE]
    > In presenza di più domini di Active Directory (ad esempio na.contoso.com, emea.contoso.com), aggiungere singolarmente ogni dominio all'elenco.
@@ -433,19 +361,23 @@ Trasferire il programma di installazione dell'agente scaricato nell'host del ser
    
 1. Esaminare i dettagli di configurazione e fare clic su **Confirm** (Conferma) per registrare l'agente.
   
-   ![Schermata di conferma](./media/workday-inbound-tutorial/pa_install_screen_7.png "Schermata di conferma")
+   >[!div class="mx-imgBorder"]
+   >![Schermata di conferma](./media/workday-inbound-tutorial/pa_install_screen_7.png "Schermata di conferma")
    
 1. La Configurazione guidata mostra lo stato di avanzamento della registrazione dell'agente.
   
-   ![Registrazione dell'agente](./media/workday-inbound-tutorial/pa_install_screen_8.png "Registrazione dell'agente")
+   >[!div class="mx-imgBorder"]
+   >![Registrazione dell'agente](./media/workday-inbound-tutorial/pa_install_screen_8.png "Registrazione dell'agente")
    
 1. Al termine della registrazione dell'agente sarà possibile fare clic su **Exit** (Esci) per uscire dalla procedura guidata.
-  
-   ![Schermata Exit](./media/workday-inbound-tutorial/pa_install_screen_9.png "Schermata Exit")
+
+   >[!div class="mx-imgBorder"]
+   >![Schermata Exit](./media/workday-inbound-tutorial/pa_install_screen_9.png "Schermata Exit")
    
 1. Verificare l'installazione dell'agente e accertarsi che sia in esecuzione aprendo lo snap-in "Servizi" e cercare il servizio denominato "Agente di provisioning Microsoft Azure Active Directory Connect"
-  
-   ![Servizi](./media/workday-inbound-tutorial/services.png)
+
+   >[!div class="mx-imgBorder"]
+   >![Services](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: Nell'app di provisioning, configurare la connettività in Workday e Active Directory
 In questo passaggio viene stabilita la connettività con Workday e Active Directory nel portale di Azure. 
@@ -458,14 +390,18 @@ In questo passaggio viene stabilita la connettività con Workday e Active Direct
 
    * **Password Workday:** immettere la password dell'account del sistema di integrazione Workday
 
-   * **URL dell'API dei servizi Web Workday:** immettere l'URL dell'endpoint dei servizi Web Workday per il tenant. Il valore dovrebbe essere simile a: `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, dove  *contoso4* è sostituito dal nome del tenant corretto e *wd3-impl* è sostituito dalla stringa di ambiente corretta.
+   * **URL dell'API servizi Web giorni lavorativi-** Immettere l'URL dell'endpoint dei servizi Web della giornata lavorativa per il tenant. L'URL determina la versione dell'API dei servizi Web della giornata lavorativa usata dal connettore. 
+   
+     | Formato di URL | Versione dell'API WWS usata | Modifiche XPATH richieste |
+     |------------|----------------------|------------------------|
+     | https://####.workday.com/ccx/service/tenantName | v 21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v 21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Sì |
 
-     > [!NOTE]
-     > Per impostazione predefinita, l'app usa i servizi Web di Workday (WWS) v 21.1 se nell'URL non è specificata alcuna informazione sulla versione. Per usare una versione specifica dell'API WWS, usare il formato URL: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Esempio: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
-     
-     > [!NOTE]
-     > Se si usa un'API WWS v30.0 e versioni successive, prima di attivare il processo di provisioning, aggiornare le **espressioni API XPATH** in **Mapping di attributi -> Opzioni avanzate -> Modifica elenco attributi per Workday** facendo riferimento alla sezione [Gestione della configurazione](#managing-your-configuration) e [Riferimento all'attributo di Workday](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
+      > [!NOTE]
+     > Se nell'URL non è specificata alcuna informazione sulla versione, l'app usa i servizi Web della giornata lavorativa (WWS) v 21.1 e non sono necessarie modifiche alle espressioni API XPATH predefinite fornite con l'app. Per usare una versione specifica dell'API WWS, specificare il numero di versione nell'URL <br>
+     > Esempio: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v34.0` <br>
+     > <br> Se si usa un'API WWS v 30 +, prima di attivare il processo di provisioning, aggiornare le **espressioni API XPath** in **Mapping attributi-> opzioni avanzate-> elenco di attributi per la giornata lavorativa** che fa riferimento alla sezione [gestione della configurazione](#managing-your-configuration) e informazioni di [riferimento sugli attributi](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
 
    * **Foresta di Active Directory:** il "nome" del dominio di Active Directory, così come registrato con l'agente. Usare l'elenco a discesa per selezionare il dominio di destinazione per il provisioning. In genere, il valore corrisponde a una stringa simile a: *contoso.com*
 
@@ -482,7 +418,8 @@ In questo passaggio viene stabilita la connettività con Workday e Active Direct
 
    * Fare clic sul pulsante **Test connessione**. Se il test della connessione ha esito positivo, fare clic sul pulsante **Salva** nella parte superiore. In caso contrario, verificare che le credenziali di Workday e Active Directory configurate nel programma di installazione dell'agente siano valide.
 
-     ![Portale di Azure](./media/workday-inbound-tutorial/wd_1.png)
+     >[!div class="mx-imgBorder"]
+     >![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
 
    * Dopo che le credenziali vengono salvate correttamente, la sezione **Mapping** mostrerà il mapping predefinito **Synchronize Workday Workers to On Premises** (Sincronizza ruoli di lavoro Workday in Active Directory locale)
 
@@ -546,8 +483,8 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
          * **Only during creation** (Solo durante la creazione): applica il mapping solo alle azioni di creazione dell'utente
 
 1. Per salvare i mapping, fare clic su **Save**, Salva, nella parte superiore della sezione Attribute-Mapping, Mapping attributi.
-
-   ![Portale di Azure](./media/workday-inbound-tutorial/wd_2.png)
+   >[!div class="mx-imgBorder"]
+   >![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>Di seguito sono riportati alcuni esempi di mapping degli attributi tra Workday e Active Directory, con alcune espressioni comuni
 
@@ -582,164 +519,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 | **Fax**      | facsimileTelephoneNumber     |     |    Creazione e aggiornamento |
 | **Mobile**  |    mobile       |     |       Creazione e aggiornamento |
 | **LocalReference** |  preferredLanguage  |     |  Creazione e aggiornamento |                                               
-| **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", "London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Creazione e aggiornamento |
-
-Dopo aver completato la configurazione di mapping di attributo, è ora possibile [abilitare e avviare il servizio di provisioning utenti](#enable-and-launch-user-provisioning).
-
-## <a name="configuring-user-provisioning-to-azure-ad"></a>Configurazione del provisioning utenti in Azure AD
-
-Le sezioni seguenti descrivono i passaggi per la configurazione del provisioning utenti da Workday ad Azure AD per le distribuzioni solo cloud.
-
-* [Aggiungere l'app del connettore di provisioning in Azure AD e creare la connessione a Workday](#part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday)
-* [Configurare i mapping degli attributi di Workday e Azure AD](#part-2-configure-workday-and-azure-ad-attribute-mappings)
-* [Abilitare e avviare il provisioning utenti](#enable-and-launch-user-provisioning)
-
-> [!IMPORTANT]
-> Eseguire la procedura seguente solo se sono presenti utenti solo cloud, di cui è necessario eseguire il provisioning in Azure AD e non in Active Directory locale.
-
-### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 1: aggiungere l'app del connettore di provisioning in Azure AD e creare la connessione a Workday
-
-**Per configurare il provisioning da Workday ad Azure Active Directory per gli utenti solo cloud:**
-
-1. Passare a <https://portal.azure.com>.
-
-2. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
-
-3. Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-
-4. Selezionare **Aggiungere un'applicazione** e quindi selezionare la categoria **Tutto**.
-
-5. Cercare **Workday to Azure AD provisioning** (Provisioning Workday in Azure AD) e aggiungere tale app dalla raccolta.
-
-6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**.
-
-7. Modificare **Modalità** di **provisioning** su **Automatico**.
-
-8. Completare la sezione **Credenziali amministratore** come segue:
-
-   * **Nome utente Workday**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Dovrebbe essere simile a: username@contoso4
-
-   * **Password Workday:** immettere la password dell'account del sistema di integrazione Workday
-
-   * **URL dell'API dei servizi Web Workday:** immettere l'URL dell'endpoint dei servizi Web Workday per il tenant. Questo valore dovrebbe essere simile a: `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, dove  *contoso4* è sostituito dal nome del tenant corretto e *wd3-impl* è sostituito dalla stringa di ambiente corretta. Se l'URL non è noto, determinare l'URL corretto da usare insieme al proprio partner di integrazione Workday o al supporto tecnico.
-
-     > [!NOTE]
-     > Per impostazione predefinita, l'app usa i servizi Web di Workday v 21.1 se nell'URL non è specificata alcuna informazione sulla versione. Per usare una versione specifica dell'API dei servizi Web Workday, usare il formato URL: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Esempio: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
-
-
-   * **Messaggio di posta elettronica di notifica:** immettere l'indirizzo di posta elettronica e selezionare la casella di controllo per inviare una notifica di posta elettronica in caso di errore.
-
-   * Fare clic sul pulsante **Test connessione**.
-
-   * Se il test della connessione ha esito positivo, fare clic sul pulsante **Salva** nella parte superiore. In caso contrario, verificare che l'URL e le credenziali per Workday siano validi in Workday.
-
-### <a name="part-2-configure-workday-and-azure-ad-attribute-mappings"></a>Parte 2: Configurare i mapping degli attributi di Workday e Azure AD
-
-In questa sezione verrà configurato il flusso dei dati utente da Workday in Azure Active Directory per gli utenti solo cloud.
-
-1. Nella scheda Provisioning, in **Mapping**, fare clic su **Synchronize Workers to Azure AD** (Sincronizza lavoratori in Azure AD).
-
-2. Nel campo **Source Object Scope** (Ambito dell'oggetto di origine) è possibile selezionare i set di utenti in Workday da includere nell'ambito per il provisioning in Azure AD, definendo un set di filtri basati su attributi. L'ambito predefinito è "tutti gli utenti in Workday". Filtri di esempio:
-
-   * Esempio: ambito per gli utenti con ID lavoratore compreso tra 1000000 e    2000000
-
-      * Attributo: WorkerID
-
-      * Operator: REGEX Match (Corrispondenza REGEX)
-
-      * Valore: (1[0-9][0-9][0-9][0-9][0-9][0-9])
-
-   * Esempio: solo i lavoratori occasionali, senza i dipendenti
-
-      * Attributo: ContingentID
-
-      * Operator: IS NOT NULL (NON È NULL)
-
-3. Nel campo **Target Object Actions** (Azioni oggetto di destinazione) è possibile applicare un filtro a livello globale per le azioni che vengono eseguite in Azure AD. **Create** (Crea) e **Update** (Aggiorna) sono le più comuni.
-
-4. Nella sezione **Mapping attributi** è possibile definire il mapping dei singoli attributi di Workday agli attributi di Active Directory.
-
-5. Fare clic su un mapping di attributi esistente per aggiornarlo oppure fare clic su **Aggiungi nuovo mapping** nella parte inferiore della schermata per aggiungere nuovi mapping. Il mapping di un singolo attributo supporta queste proprietà:
-
-   * **Tipo di mapping**
-
-      * **Direct** (Diretto): scrive il valore dell'attributo di Workday nell'attributo di AD, senza modifiche
-
-      * **Costant** (Costante): scrive un valore stringa costante statico nell'attributo di AD
-
-      * **Espressione**: consente di scrivere un valore personalizzato per l'attributo di Active Directory, in base a uno o più attributi di Workday. [Per altre informazioni, vedere questo articolo sulle espressioni](../app-provisioning/functions-for-customizing-application-data.md).
-
-   * **Attributo di origine**: l'attributo utente in Workday. Se l'attributo che si sta cercando non è presente, vedere [Personalizzazione dell'elenco di attributi utente di Workday](#customizing-the-list-of-workday-user-attributes).
-
-   * **Valore predefinito**: facoltativo. Se l'attributo di origine ha un valore vuoto, il mapping eseguirà la scrittura di questo valore.
-            Nella maggior parte delle configurazioni questo campo viene lasciato vuoto.
-
-   * **Attributo di destinazione**: l'attributo utente in Azure AD.
-
-   * **Match objects using this attribute** (Abbina gli oggetti in base a questo attributo): specifica se questo mapping deve essere usato per l'identificazione univoca degli utenti tra Workday e Azure AD. Questo valore è impostato in genere sul campo ID ruolo di lavoro per Workday, che solitamente è associato all'attributo ID dipendente (nuovo) o a un attributo di estensione in Azure AD.
-
-   * **Precedenza abbinamento**: è possibile impostare più attributi corrispondenti. Se sono presenti più attributi, vengono valutati nell'ordine definito da questo campo. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina.
-
-   * **Applica questo mapping**
-
-     * **Sempre**: applica il mapping sia all'azione di creazione che all'azione di aggiornamento dell'utente
-
-     * **Only during creation** (Solo durante la creazione): applica il mapping solo alle azioni di creazione dell'utente
-
-6. Per salvare i mapping, fare clic su **Salva** nella parte superiore della sezione Mapping attributi.
-
-Dopo aver completato la configurazione di mapping di attributo, è ora possibile [abilitare e avviare il servizio di provisioning utenti](#enable-and-launch-user-provisioning).
-
-## <a name="configuring-azure-ad-attribute-writeback-to-workday"></a>Configurazione del writeback degli attributi di Azure AD in Workday
-
-Seguire queste istruzioni per configurare il writeback degli indirizzi di posta elettronica e dei nomi utente degli utenti da Azure Active Directory in Workday.
-
-* [Aggiungere l'app del connettore Writeback e creare la connessione a Workday](#part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday)
-* [Configurare i mapping degli attributi di writeback](#part-2-configure-writeback-attribute-mappings)
-* [Abilitare e avviare il provisioning utenti](#enable-and-launch-user-provisioning)
-
-### <a name="part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday"></a>Parte 1: Aggiungere l'app del connettore Writeback e creare la connessione a Workday
-
-**Per configurare il connettore di Workday Writeback:**
-
-1. Passare a <https://portal.azure.com>.
-
-2. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
-
-3. Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-
-4. Selezionare **Aggiungere un'applicazione** e quindi selezionare la categoria **Tutto**.
-
-5. Cercare **Workday Writeback** (Writeback Workday) e aggiungere tale applicazione dalla raccolta.
-
-6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**.
-
-7. Modificare **Modalità** di **provisioning** su **Automatico**.
-
-8. Completare la sezione **Credenziali amministratore** come segue:
-
-   * **Nome utente amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Il risultato sarà simile al seguente: *username\@contoso4*
-
-   * **Password dell'amministratore:** immettere la password dell'account del sistema di integrazione Workday
-
-   * **URL tenant:** immettere l'URL dell'endpoint dei servizi Web Workday per il tenant. Dovrebbe essere simile a: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`, dove *contoso4* è sostituito dal nome del tenant corretto e *wd3-impl* è sostituito dalla stringa di ambiente corretta (se necessario).
-
-   * **Messaggio di posta elettronica di notifica:** immettere l'indirizzo di posta elettronica e selezionare la casella di controllo per inviare una notifica di posta elettronica in caso di errore.
-
-   * Fare clic sul pulsante **Test connessione**. Se il test della connessione ha esito positivo, fare clic sul pulsante **Salva** nella parte superiore. In caso contrario, verificare che l'URL e le credenziali per Workday siano validi in Workday.
-
-### <a name="part-2-configure-writeback-attribute-mappings"></a>Parte 2: Configurare i mapping degli attributi di writeback
-
-In questa sezione si configurerà il flusso degli attributi writeback da Azure AD a Workday. Attualmente, il connettore supporta solo il writeback dell'indirizzo di posta elettronica e il nome utente in Workday.
-
-1. Nella scheda Provisioning, in **Mapping**, fare clic su **Synchronize Azure AD Users to Workday** (Sincronizza utenti Azure AD in Workday).
-
-2. Nel campo **Source Object Scope** (Ambito dell'oggetto di origine) è possibile scegliere di filtrare i set di utenti di Azure Active Directory di cui eseguire il writeback degli indirizzi di posta elettronica in Workday. L'ambito predefinito è "tutti gli utenti in Azure AD".
-
-3. Nella sezione **Mapping degli attributi**, aggiornare l'ID corrispondente per indicare l'attributo in Azure Active Directory in cui è memorizzato l'ID del ruolo di lavoro Workday o l'ID del dipendente. Un metodo comune per garantire la corrispondenza è sincronizzare l'ID lavoratore o l'ID dipendente di Workday in extensionAttribute1-15 in Azure AD e quindi usare questo attributo in Azure AD per associare gli utenti in Workday.
-
-4. In genere si esegue il mapping dell'attributo di Azure AD *userPrincipalName* nell'attributo *UserID* di Workday e il mapping dell'attributo *mail* di Azure AD nell'attributo *EmailAddress* di Workday. Per salvare i mapping, fare clic su **Salva** nella parte superiore della sezione Mapping attributi.
+| **Switch ( \[ municipale \] , "ou = Default Users, DC = contoso, DC = com", "Dallas", "ou = Dallas, ou = Users, DC = contoso, DC = com", "Austin", "ou = Austin, ou = Users, DC = contoso, DC = com", "Seattle", "ou = Seattle, ou = Users, DC = contoso, DC = com", "London", "ou = London, ou = Users, DC = contoso, DC = com")**  | parentDistinguishedName     |     |  Creazione e aggiornamento |
 
 Dopo aver completato la configurazione di mapping di attributo, è ora possibile [abilitare e avviare il servizio di provisioning utenti](#enable-and-launch-user-provisioning).
 
@@ -759,8 +539,10 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 4. In qualsiasi momento è possibile controllare la scheda **Log di controllo** nel portale di Azure per vedere le azioni che sono state eseguite dal servizio di provisioning. I log di controllo elencano tutti i singoli eventi di sincronizzazione eseguiti dal servizio di provisioning, ad esempio quali utenti vengono letti da Workday e successivamente aggiunti o aggiornati in Active Directory. Vedere la sezione Troubleshooting (Risoluzione dei problemi) per istruzioni su come esaminare i log di controllo e correggere gli errori di provisioning.
 
 5. Al termine della sincronizzazione iniziale, verrà scritto un report di riepilogo di controllo nella scheda **Provisioning**, come illustrato di seguito.
+   > [!div class="mx-imgBorder"]
+   > ![Indicatore di stato del provisioning](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-   ![Portale di Azure](./media/workday-inbound-tutorial/wd_3.png)
+
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -847,9 +629,11 @@ Quando Azure AD viene usato in una modalità ibrida (che contiene una combinazio
 
 I commenti sono molto apprezzati, perché aiutano a stabilire la direzione per miglioramenti e versioni future. Tutti i commenti e suggerimenti sono i benvenuti. Microsoft invita a sottoporre idee o suggerimenti di miglioramento nel [forum dei commenti e suggerimenti di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory). Per feedback specifici relativi all'integrazione di Workday, selezionare la categoria *SaaS Applications* (Applicazioni SaaS) ed effettuare la ricerca usando le parole chiave *Workday* per commenti e suggerimenti relativi a Workday.
 
-![App SaaS di UserVoice](media/workday-inbound-tutorial/uservoice_saas_apps.png)
+> [!div class="mx-imgBorder"]
+> ![App SaaS di UserVoice](media/workday-inbound-tutorial/uservoice_saas_apps.png)
 
-![Workday UserVoice](media/workday-inbound-tutorial/uservoice_workday_feedback.png)
+> [!div class="mx-imgBorder"]
+> ![Workday UserVoice](media/workday-inbound-tutorial/uservoice_workday_feedback.png)
 
 Quando si suggerisce una nuova idea, verificare se altri utenti hanno già suggerito una funzionalità simile. In tal caso, è possibile votare a favore della richiesta di funzionalità o miglioramento. È anche possibile lasciare un commento riguardante il caso d'uso specifico per mostrare il supporto all'idea e dimostrare in che modo la funzionalità potrebbe essere utile per il proprio contesto.
 
@@ -857,9 +641,7 @@ Quando si suggerisce una nuova idea, verificare se altri utenti hanno già sugge
 
 #### <a name="what-is-the-ga-version-of-the-provisioning-agent"></a>Qual è la versione disponibile a livello generale dell'agente di provisioning?
 
-* Le versioni disponibili a livello generale dell'agente di provisioning sono la 1.1.30 e successive.
-* Se la versione dell'agente è precedente alla 1.1.30, si esegue la versione di anteprima pubblica che verrà automaticamente aggiornata alla versione disponibile a livello generale se il server che ospita l'agente dispone di runtime .NET 4.7.1.
-  * È possibile [controllare la versione di .NET](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) installata sul server. Se .NET 4.7.1 non è in esecuzione sul server, [scaricarla e installarla](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows). L'agente di provisioning sarà aggiornato automaticamente alla versione disponibile a livello generale dopo l'installazione di .NET 4.7.1.
+Per la versione GA più recente dell'agente di provisioning, vedere [Azure ad Connect provisioning Agent: cronologia delle versioni](../app-provisioning/provisioning-agent-release-version-history.md) .  
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Come capire la versione dell'agente di provisioning?
 
@@ -867,11 +649,12 @@ Quando si suggerisce una nuova idea, verificare se altri utenti hanno già sugge
 * Passare al menu **Pannello di controllo** -> **Disinstalla o modifica programma**
 * Cercare la versione corrispondente alla voce **Microsoft Azure AD Connect Provisioning Agent** (Agente di provisioning Microsoft Azure AD Connect)
 
-  ![Portale di Azure](./media/workday-inbound-tutorial/pa_version.png)
+  >[!div class="mx-imgBorder"]
+  >![Azure portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Microsoft esegue automaticamente il push degli aggiornamenti dell'agente di provisioning?
 
-Sì, Microsoft esegue automaticamente gli aggiornamenti dell'agente di provisioning. È possibile disabilitare gli aggiornamenti automatici arrestando il servizio di Windows **Microsoft Azure AD Connect Agent Updater** (Updater agente Microsoft Azure AD Connect)
+Sì, Microsoft aggiorna automaticamente l'agente di provisioning se il servizio Windows **Microsoft Azure ad Connect Agent Updater** è attivo e in esecuzione.
 
 #### <a name="can-i-install-the-provisioning-agent-on-the-same-server-running-azure-ad-connect"></a>È possibile installare l'agente di provisioning nello stesso server in cui è in esecuzione Azure AD Connect?
 
@@ -1273,8 +1056,7 @@ A tale scopo, è necessario usare [Workday Studio](https://community.workday.com
 7. Impostare **Operation** (Operazione) su **Get_Workers**
 
 8.    Fare clic sul piccolo collegamento **configure** (configura) sotto i riquadri relativi a richiesta e risposta per impostare le credenziali di Workday. Selezionare **Authentication** (Autenticazione) e quindi immettere nome utente e password per l'account di sistema di integrazione di Workday. Assicurarsi di formattare il nome utente come name\@tenant, lasciando l'opzione **Oggetto UsernameToken WS-Security** selezionata.
-
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Selezionare **OK**.
 

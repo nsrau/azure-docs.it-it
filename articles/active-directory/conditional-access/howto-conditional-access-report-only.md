@@ -4,19 +4,18 @@ description: Uso della modalità solo report nell'accesso condizionale per facil
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 05/01/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83994970"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurare un criterio di accesso condizionale in modalità solo report
 
@@ -26,7 +25,7 @@ Per configurare un criterio di accesso condizionale in modalità solo report:
 > Se l'organizzazione non è già stata [configurata, configurare l'integrazione di monitoraggio di Azure con Azure ad](#set-up-azure-monitor-integration-with-azure-ad). Questo processo deve essere eseguita prima che i dati saranno disponibili per la revisione.
 
 1. Accedere al **portale di Azure** come amministratore di accesso condizionale, amministratore della sicurezza o amministratore globale.
-1. Passare a **Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza.
+1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Configurare le condizioni dei criteri e i controlli di concessione richiesti in base alle esigenze.
 1. In **Attiva criterio** impostare l'interruttore sulla modalità di **sola segnalazione** .
@@ -40,7 +39,7 @@ Visualizza i risultati di sola segnalazione nei log di accesso Azure AD.
 Per visualizzare il risultato di un criterio di solo report per un particolare accesso:
 
 1. Accedere al **portale di Azure** come un lettore di report, un lettore di sicurezza, un amministratore della sicurezza o un amministratore globale.
-1. Passare a **Azure Active Directory** > **accessi**.
+1. Passare a **Azure Active Directory**  >  **accessi**.
 1. Selezionare un accesso o aggiungere i filtri per restringere i risultati.
 1. Nel cassetto dei **Dettagli** selezionare la scheda **solo report** per visualizzare i criteri valutati durante l'accesso.
 
@@ -61,7 +60,7 @@ Altre informazioni sui prezzi di monitoraggio di Azure sono disponibili nella [p
 Dopo aver integrato i log di Azure AD con monitoraggio di Azure, è possibile monitorare l'effetto dei criteri di accesso condizionale usando le nuove cartelle di lavoro di Insights per l'accesso condizionale.
 
 1. Accedere al **portale di Azure** come amministratore della sicurezza o amministratore globale.
-1. Passare a **Azure Active Directory** > **cartelle di lavoro**.
+1. Passare a **Azure Active Directory**  >  **cartelle di lavoro**.
 1. Selezionare **informazioni dettagliate sull'accesso condizionale**.
 1. Selezionare uno o più criteri dall'elenco a discesa **criteri di accesso condizionale** . Tutti i criteri abilitati sono selezionati per impostazione predefinita.
 1. Selezionare un intervallo di tempo (se l'intervallo di tempo supera il set di dati disponibile, il report visualizzerà tutti i dati disponibili). Dopo aver impostato i parametri di **criteri di accesso condizionale** e **intervallo di tempo** , il report viene caricato.
@@ -87,6 +86,6 @@ L'elenco a discesa Criteri di accesso condizionale viene popolato eseguendo una 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+[Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
 Per altre informazioni sulle cartelle di lavoro di Azure AD, vedere l'articolo [come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md).

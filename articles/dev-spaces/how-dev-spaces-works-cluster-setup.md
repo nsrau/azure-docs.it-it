@@ -5,12 +5,11 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Viene descritto come funziona la configurazione di un cluster del servizio Azure Kubernetes per Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 6b158ca7f425e8b7c492c27521dba588a508b534
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 60f6c466e7c016ccd07e37b2f0d1ce9989fb8f9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83995888"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Come funziona la configurazione di un cluster per Azure Dev Spaces
 
@@ -18,7 +17,7 @@ Azure Dev Spaces offre diversi modi per eseguire rapidamente l'iterazione e il d
 
 ## <a name="prepare-your-aks-cluster"></a>Preparare il cluster del servizio Azure Kubernetes
 
-Per preparare il cluster del servizio Azure Kubernetes per Dev Spaces, verificare che il cluster si trovi in un'area [supportata da Azure Dev Spaces][supported-regions] e che si usi Kubernetes 1.10.3 o versione successiva. Per abilitare Azure Dev Spaces nel cluster dal portale di Azure, passare al cluster, fare clic su *Dev Spaces*, impostare *Usa Dev Spaces* su *Sì* e fare clic su *Salva*. È possibile abilitare Azure Dev Spaces anche dall'interfaccia della riga di comando di Azure eseguendo `az aks use-dev-spaces`.
+Per preparare il cluster del servizio Azure Kubernetes per Dev Spaces, verificare che il cluster si trovi in un'area [supportata da Azure Dev Spaces][supported-regions] e che si usi Kubernetes 1.10.3 o versione successiva. È possibile abilitare Azure Dev Spaces dall'interfaccia della riga di comando di Azure eseguendo `az aks use-dev-spaces` .
 
 Per un esempio di configurazione di un cluster del servizio Azure Kubernetes per Dev Spaces, vedere la [guida di avvio rapido sullo sviluppo in team][quickstart-team].
 

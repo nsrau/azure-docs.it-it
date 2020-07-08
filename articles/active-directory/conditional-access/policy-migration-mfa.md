@@ -4,19 +4,18 @@ description: Questo articolo illustra come eseguire la migrazione di criteri cla
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 12/04/2019
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d637ac464b689a25ce5d5a79cf47da0c85d38d0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74846029"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83993729"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Eseguire la migrazione di un criterio classico nel portale di Azure
 
@@ -32,7 +31,7 @@ Il processo di migrazione è costituito dai passaggi seguenti:
 
 ## <a name="open-a-classic-policy"></a>Aprire un criterio classico
 
-1. Nella [portale di Azure](https://portal.azure.com)passare a **Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza.
+1. Nella [portale di Azure](https://portal.azure.com)passare a **Azure Active Directory**  >  **Security**  >  **accesso condizionale**di sicurezza.
 1. Select, **criteri classici**.
 
    ![Visualizzazione criteri classici](./media/policy-migration-mfa/12.png)
@@ -41,7 +40,7 @@ Il processo di migrazione è costituito dai passaggi seguenti:
 
 ## <a name="create-a-new-conditional-access-policy"></a>Creare un nuovo criterio di accesso condizionale
 
-1. Nella [portale di Azure](https://portal.azure.com)passare a **Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza.
+1. Nella [portale di Azure](https://portal.azure.com)passare a **Azure Active Directory**  >  **Security**  >  **accesso condizionale**di sicurezza.
 1. Per creare nuovi criteri di accesso condizionale, selezionare **nuovo criterio**.
 1. Nella pagina **Nuovo** digitare un nome per il criterio nella casella di testo **Nome**.
 1. Nella sezione **Assegnazioni** fare clic su **Utenti e gruppi**.

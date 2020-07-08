@@ -8,12 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a384db9c3c0b4beee6063fd503abadcb4c6b5158
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74424015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84016951"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Informazioni sul codice Apache Spark per sviluppatori U-SQL
 
@@ -44,7 +43,7 @@ Gli script U-SQL seguono il modello di elaborazione seguente:
 
 1. I dati vengono letti da file non strutturati, utilizzando l' `EXTRACT` istruzione, una specifica del percorso o del set di file e l'estrazione incorporata o l'estrazione definita dall'utente, lo schema desiderato o dalle tabelle U-SQL (tabelle gestite o esterne). Viene rappresentato come set di righe.
 2. I set di righe vengono trasformati in più istruzioni U-SQL che applicano espressioni U-SQL ai set di righe e producono nuovi set di righe.
-3. Infine, i set di righe risultanti vengono restituiti in entrambi i `OUTPUT` file usando l'istruzione che specifica le posizioni e un outputter incorporato o definito dall'utente o in una tabella U-SQL.
+3. Infine, i set di righe risultanti vengono restituiti in entrambi i file usando l' `OUTPUT` istruzione che specifica le posizioni e un outputter incorporato o definito dall'utente o in una tabella U-SQL.
 
 Lo script viene valutato in modo differito, vale a dire che ogni passaggio di estrazione e trasformazione viene composto in un albero delle espressioni e valutato a livello globale (il flusso di elementi).
 
@@ -128,7 +127,7 @@ La tabella seguente fornisce i tipi equivalenti in Spark, scala e PySpark per i 
 |`SQL.MAP<K,V>`   |`MapType(keyType, valueType, valueContainsNull)` |`scala.collection.Map` | `MapType(keyType, valueType, valueContainsNull=True)`|
 |`SQL.ARRAY<T>`   |`ArrayType(elementType, containsNull)` |`scala.collection.Seq` | `ArrayType(elementType, containsNull=True)`|
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 - [org. Apache. Spark. SQL. Types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
 - [Tipi Spark SQL e dataframes](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
@@ -141,9 +140,9 @@ In Spark, i tipi per impostazione predefinita consentono i valori NULL in U-SQL,
 
 In Spark, NULL indica che il valore è sconosciuto. Un valore NULL di Spark è diverso da qualsiasi valore, incluso se stesso. I confronti tra due valori NULL Spark o tra un valore NULL e qualsiasi altro valore restituiscono unknown perché il valore di ogni NULL è sconosciuto.  
 
-Questo comportamento è diverso da U-SQL, che segue la semantica di `null` C# in cui è diverso da qualsiasi valore ma uguale a se stesso.  
+Questo comportamento è diverso da U-SQL, che segue la semantica di C# in cui `null` è diverso da qualsiasi valore ma uguale a se stesso.  
 
-Pertanto, un' `SELECT` istruzione SparkSQL che `WHERE column_name = NULL` utilizza restituisce zero righe anche se sono presenti valori null `column_name`in, mentre in U-SQL restituisce le righe in cui `column_name` è impostato su. `null` Analogamente, un' `SELECT` istruzione Spark che `WHERE column_name != NULL` USA restituisce zero righe anche se sono presenti valori non null in `column_name`, mentre in U-SQL restituiscono le righe con valori non null. Pertanto, se si desidera la semantica di controllo null U-SQL, è necessario utilizzare rispettivamente [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) e [IsNotNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) (o l'equivalente DSL).
+Pertanto, un' `SELECT` istruzione SparkSQL che utilizza `WHERE column_name = NULL` restituisce zero righe anche se sono presenti valori null in `column_name` , mentre in U-SQL restituisce le righe in cui `column_name` è impostato su `null` . Analogamente, un' `SELECT` istruzione Spark che usa `WHERE column_name != NULL` restituisce zero righe anche se sono presenti valori non null in `column_name` , mentre in U-SQL restituiscono le righe con valori non null. Pertanto, se si desidera la semantica di controllo null U-SQL, è necessario utilizzare rispettivamente [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) e [IsNotNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) (o l'equivalente DSL).
 
 ## <a name="transform-u-sql-catalog-objects"></a>Trasformazione di oggetti del Catalogo U-SQL
 
@@ -160,8 +159,8 @@ Se il Catalogo U-SQL è stato usato per condividere dati e oggetti di codice tra
 Il linguaggio di base di U-SQL sta trasformando set di righe ed è basato su SQL. Di seguito è riportato un elenco non esaustivo delle espressioni di set di righe più comuni offerte in U-SQL:
 
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ Aggregazioni +`HAVING`/`ORDER BY`+`FETCH`
-- `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN` espressioni di
-- `CROSS`/`OUTER``APPLY` espressioni di
+- `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN`espressioni di
+- `CROSS`/`OUTER``APPLY`espressioni di
 - `PIVOT`/`UNPIVOT`espressioni
 - `VALUES`Costruttore di set di righe
 
@@ -170,8 +169,8 @@ Il linguaggio di base di U-SQL sta trasformando set di righe ed è basato su SQL
 Inoltre, U-SQL offre un'ampia gamma di espressioni scalari basate su SQL, ad esempio
 
 - `OVER`espressioni finestra
-- una varietà di aggregatori predefiniti e funzioni di rango (`SUM`e `FIRST` così via)
-- Alcune delle espressioni scalari SQL più note: `CASE`, `LIKE`, (`NOT`) `IN`, `AND`e `OR` così via.
+- una varietà di aggregatori predefiniti e funzioni di rango ( `SUM` e `FIRST` così via)
+- Alcune delle espressioni scalari SQL più note: `CASE` , `LIKE` , ( `NOT` ) `IN` , `AND` e `OR` così via.
 
 Spark offre espressioni equivalenti nel formato DSL e SparkSQL per la maggior parte di queste espressioni. Alcune espressioni non supportate in modo nativo in Spark dovranno essere riscritte usando una combinazione delle espressioni Spark native e dei modelli semanticamente equivalenti. Ad esempio, `OUTER UNION` dovrà essere convertito nella combinazione equivalente di proiezioni e unioni.
 
@@ -179,11 +178,11 @@ A causa della diversa gestione dei valori NULL, un join U-SQL corrisponderà sem
 
 ## <a name="transform-other-u-sql-concepts"></a>Trasformare altri concetti di U-SQL
 
-U-SQL offre inoltre un'ampia gamma di altri concetti e funzionalità, ad esempio query federate su database SQL Server, parametri, variabili di espressioni scalari e lambda, variabili `OPTION` di sistema e hint.
+U-SQL offre inoltre un'ampia gamma di altri concetti e funzionalità, ad esempio query federate su database SQL Server, parametri, variabili di espressioni scalari e lambda, variabili di sistema e `OPTION` hint.
 
 ### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>Query federate su database SQL Server/tabelle esterne
 
-U-SQL fornisce origini dati e tabelle esterne, oltre a query dirette sul database SQL di Azure. Mentre Spark non offre le stesse astrazioni di oggetti, fornisce il [connettore Spark per il database SQL di Azure](../sql-database/sql-database-spark-connector.md) che può essere usato per eseguire query sui database SQL.
+U-SQL fornisce origini dati e tabelle esterne, oltre a query dirette sul database SQL di Azure. Mentre Spark non offre le stesse astrazioni di oggetti, fornisce il [connettore Spark per il database SQL di Azure](../azure-sql/database/spark-connector.md) che può essere usato per eseguire query sui database SQL.
 
 ### <a name="u-sql-parameters-and-variables"></a>Variabili e parametri U-SQL
 
@@ -196,7 +195,7 @@ var x = 2 * 3;
 println(x)
 ```
 
-Le variabili di sistema di U-SQL (variabili `@@`che iniziano con) possono essere suddivise in due categorie:
+Le variabili di sistema di U-SQL (variabili che iniziano con `@@` ) possono essere suddivise in due categorie:
 
 - Variabili di sistema impostabili che possono essere impostate su valori specifici per influenzare il comportamento degli script
 - Variabili di sistema informative che chiedono informazioni a livello di sistema e di processo
@@ -208,8 +207,8 @@ La maggior parte delle variabili di sistema configurabili non ha equivalenti dir
 U-SQL offre diversi modi sintattici per fornire suggerimenti all'Query Optimizer e al motore di esecuzione:  
 
 - Impostazione di una variabile di sistema U-SQL
-- `OPTION` clausola associata all'espressione del set di righe per fornire un hint per i dati o il piano
-- hint di join nella sintassi dell'espressione di join (ad esempio, `BROADCASTLEFT`)
+- `OPTION`clausola associata all'espressione del set di righe per fornire un hint per i dati o il piano
+- hint di join nella sintassi dell'espressione di join (ad esempio, `BROADCASTLEFT` )
 
 Query Optimizer basati sui costi di Spark offre funzionalità proprie per fornire suggerimenti e ottimizzare le prestazioni delle query. Consultare la documentazione corrispondente.
 

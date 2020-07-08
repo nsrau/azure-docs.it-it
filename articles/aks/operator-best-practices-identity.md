@@ -5,12 +5,11 @@ description: Procedure consigliate per l'operatore del cluster per la gestione d
 services: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0e3569be769fcf70a65cbfee62a3b80a5abdc3b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e02b542f74a2dd7b7e88f1fa075ad6a736895e76
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84020048"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'autenticazione e l'autorizzazione nel servizio Azure Kubernetes (AKS)
 
@@ -19,6 +18,7 @@ Durante la distribuzione e la gestione dei cluster nel servizio Azure Kubernetes
 Questo articolo sulle procedure consigliate è incentrato su come un operatore del cluster può gestire l'accesso e l'identità per i cluster servizio Azure Kubernetes. In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
+>
 > * Autenticare gli utenti del cluster servizio Azure Kubernetes con Azure Active Directory
 > * Controllare l'accesso alle risorse con i controlli degli accessi in base al ruolo
 > * Usare un'identità gestita per autenticarsi con altri servizi
@@ -62,7 +62,7 @@ rules:
   verbs: ["*"]
 ```
 
-Viene quindi creato un oggetto RoleGroup che associa il Azure AD utente *developer1\@contoso.com* al Metodo Role, come illustrato nel manifesto YAML seguente:
+Viene quindi creato un oggetto RoleGroup che associa il Azure AD utente *developer1 \@ contoso.com* al Metodo Role, come illustrato nel manifesto YAML seguente:
 
 ```yaml
 kind: RoleBinding
@@ -80,7 +80,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Quando *developer1\@contoso.com* viene autenticato nel cluster AKS, dispone delle autorizzazioni complete per le risorse nello spazio dei nomi *Finance-app* . In questo modo, l'accesso alle risorse viene separato e controllato logicamente. Il controllo degli accessi in base al ruolo di Kubernetes deve essere usato in combinazione con l'integrazione di Azure AD, come descritto nella sezione precedente.
+Quando *developer1 \@ contoso.com* viene autenticato nel cluster AKS, dispone delle autorizzazioni complete per le risorse nello spazio dei nomi *Finance-app* . In questo modo, l'accesso alle risorse viene separato e controllato logicamente. Il controllo degli accessi in base al ruolo di Kubernetes deve essere usato in combinazione con l'integrazione di Azure AD, come descritto nella sezione precedente.
 
 Per informazioni su come usare i gruppi di Azure AD per controllare l'accesso alle risorse di Kubernetes usando il controllo degli accessi in base al ruolo, vedere [controllare l'accesso alle risorse del cluster usando i controlli di accesso in base al ruolo e Azure Active Directory identità][azure-ad-rbac]
 
@@ -97,14 +97,14 @@ Le identità gestite per le risorse di Azure, attualmente implementate come prog
 
 Quando i pod richiedono l'accesso a un servizio di Azure, le regole di rete reindirizzano il traffico verso il server NMI (Node Management Identity). Il server NMI identifica i pod che richiedono l'accesso ai servizi di Azure in base al relativo indirizzo remoto ed esegue una query nel controller MIC (Managed Identity Controller). Il MIC verifica la presenza dei mapping delle identità di Azure nel cluster servizio Azure Kubernetes e il server NMI richiede quindi un token di accesso da Azure Active Directory (AD) in base al mapping delle identità del pod. Azure AD fornisce l'accesso al server NMI, che viene restituito al pod. Questo token di accesso può essere quindi usato dal pod per richiedere l'accesso ai servizi di Azure.
 
-Nell'esempio seguente uno sviluppatore crea un pod che usa un'identità gestita per richiedere l'accesso a un'istanza del server SQL Azure:
+Nell'esempio seguente uno sviluppatore crea un pod che usa un'identità gestita per richiedere l'accesso al database SQL di Azure:
 
 ![Le identità del pod consentono a un pod di richiedere automaticamente l'accesso ad altri servizi](media/operator-best-practices-identity/pod-identities.png)
 
 1. L'operatore del cluster crea innanzitutto un account del servizio che può essere usato per eseguire il mapping delle identità quando i pod richiedono l'accesso ai servizi.
 1. Il server NMI e il MIC vengono distribuiti per inoltrare le richieste dei pod per i token di accesso ad Azure AD.
 1. Uno sviluppatore distribuisce un pod con un'identità gestita che richiede un token di accesso tramite il server NMI.
-1. Il token viene restituito al pod e usato per accedere a un'istanza del server SQL Azure.
+1. Il token viene restituito al Pod e usato per accedere al database SQL di Azure
 
 > [!NOTE]
 > Le identità dei Pod gestiti sono un progetto open source e non sono supportate dal supporto tecnico di Azure.

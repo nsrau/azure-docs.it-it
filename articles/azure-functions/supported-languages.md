@@ -1,26 +1,24 @@
 ---
 title: Linguaggi supportati in Funzioni di Azure
-description: Informazioni sui linguaggi supportati a livello generale, su quelli sperimentali e su quelli in anteprima.
+description: Informazioni sulle lingue supportate (GA) e sulle quali sono disponibili in anteprima e sui modi per estendere lo sviluppo di funzioni ad altre lingue.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74942257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "83994902"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguaggi supportati in Funzioni di Azure
 
-Questo articolo illustra i livelli di supporto offerti per i linguaggi disponibili in Funzioni di Azure.
+Questo articolo illustra i livelli di supporto offerti per i linguaggi disponibili in Funzioni di Azure. Vengono inoltre descritte le strategie per la creazione di funzioni utilizzando linguaggi non supportati in modo nativo.
 
 ## <a name="levels-of-support"></a>Livelli di supporto
 
-Sono disponibili tre livelli di supporto:
+Sono disponibili due livelli di supporto:
 
 * **Disponibile a livello generale** - Il linguaggio è completamente supportato e approvato per l'uso in produzione.
 * **Anteprima** - Il linguaggio non è ancora supportato ma si prevede che in futuro diventi disponibile a livello generale.
-* **Sperimentale** - Il linguaggio non è supportato e potrebbe venire abbandonato in futuro. Non viene data garanzia che diventi disponibile in anteprima o a livello generale.
 
 ## <a name="languages-by-runtime-version"></a>Linguaggi per versione runtime 
 
@@ -28,15 +26,11 @@ Sono disponibili [tre versioni del runtime di funzioni di Azure](functions-versi
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-### <a name="experimental-languages"></a>Linguaggi sperimentali
+## <a name="custom-handlers-preview"></a>Gestori personalizzati (anteprima) 
 
-I linguaggi sperimentali supportati nella versione 1.x non garantiscono una corretta scalabilità e non supportano tutte le associazioni.
+I gestori personalizzati sono server Web leggeri che ricevono eventi dall'host di funzioni di Azure. Qualsiasi linguaggio che supporta le primitive HTTP può implementare un gestore personalizzato. Ciò significa che i gestori personalizzati possono essere usati per creare funzioni in linguaggi che non sono ufficialmente supportati. Per altre informazioni, vedere [gestori personalizzati di funzioni di Azure (anteprima)](functions-custom-handlers.md).
 
-Non usare le funzionalità sperimentali perché non è disponibile alcun supporto ufficiale. Non si possono aprire richieste di supporto per problemi con i linguaggi sperimentali. 
-
-Le versioni successive del runtime non supportano le lingue sperimentali. Il supporto per nuovi linguaggi viene aggiunto solo quando il linguaggio può essere supportato nell'ambiente di produzione. 
-
-### <a name="language-extensibility"></a>Estendibilità di un linguaggio
+## <a name="language-extensibility"></a>Estendibilità di un linguaggio
 
 A partire dalla versione 2. x, il runtime è progettato per offrire l' [estendibilità del linguaggio](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). I linguaggi JavaScript e Java nel runtime 2.x sono costruiti con questa estendibilità.
 

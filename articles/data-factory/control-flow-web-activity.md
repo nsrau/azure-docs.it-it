@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84017665"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Attività Web in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -83,7 +82,7 @@ linkedServices | Elenco dei servizi collegati passato all'endpoint. | Matrice di
 
 La tabella seguente indica i requisiti per il contenuto JSON:
 
-| Tipo valore | Testo della richiesta | Corpo della risposta |
+| Tipo di valore | Corpo della richiesta | Corpo della risposta |
 |---|---|---|
 |Oggetto JSON | Supportato | Supportato |
 |Matrice JSON | Supportato <br/>Al momento, le matrici JSON non funzionano per via di un bug. È in corso una correzione. | Non supportato |
@@ -91,11 +90,11 @@ La tabella seguente indica i requisiti per il contenuto JSON:
 | Tipo non JSON | Non supportato | Non supportato |
 ||||
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Di seguito sono riportati i tipi di autenticazione supportati nell'attività Web.
 
-### <a name="none"></a>Nessuno
+### <a name="none"></a>nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà "authentication".
 
@@ -161,7 +160,7 @@ Quando si usa il metodo POST o PUT, la proprietà body rappresenta il payload ch
 ```
 
 ## <a name="example"></a>Esempio
-In questo esempio, l'attività Web della pipeline chiama un endpoint REST. Passa all'endpoint un servizio collegato SQL di Azure e un set di dati SQL di Azure. L'endpoint REST usa la stringa di connessione SQL di Azure per connettersi al server SQL di Azure e restituisce il nome dell'istanza del server SQL.
+In questo esempio, l'attività Web della pipeline chiama un endpoint REST. Passa all'endpoint un servizio collegato SQL di Azure e un set di dati SQL di Azure. L'endpoint REST usa la stringa di connessione SQL di Azure per connettersi al server SQL logico e restituisce il nome dell'istanza di SQL Server.
 
 ### <a name="pipeline-definition"></a>Definizione della pipeline
 
@@ -257,7 +256,7 @@ public HttpResponseMessage Execute(JObject payload)
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory:
 
-- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
 - [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)

@@ -5,12 +5,11 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 64553506f75451c50a87932904f00a7275ea9286
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021314"
 ---
 # <a name="pbr-materials"></a>Materiali PBR
 
@@ -26,7 +25,7 @@ I materiali PBR non sono tuttavia una soluzione universale. Sono disponibili mat
 
 Queste proprietà sono comuni a tutti i materiali:
 
-* **albedoColor:** Questo colore viene moltiplicato con altri colori, ad esempio i colori di *albedoMap* o *vertici*. Se la *trasparenza* è abilitata su un materiale, il canale alfa viene usato per modificare l'opacità, con `1` un `0` significato completamente opaco e un significato completamente trasparente. Il valore predefinito è bianco.
+* **albedoColor:** Questo colore viene moltiplicato con altri colori, ad esempio *albedoMap* o * :::no-loc text="vertex "::: colori*. Se la *trasparenza* è abilitata su un materiale, il canale alfa viene usato per modificare l'opacità, con un `1` significato completamente opaco e un `0` significato completamente trasparente. Il valore predefinito è bianco.
 
   > [!NOTE]
   > Quando un materiale PBR è completamente trasparente, come un pezzo di vetro perfettamente pulito, riflette ancora l'ambiente. I punti luminosi come il sole sono ancora visibili nella reflection. Questa operazione è diversa per i [materiali dei colori](color-materials.md).
@@ -37,9 +36,9 @@ Queste proprietà sono comuni a tutti i materiali:
 
 * **textureCoordinateScale** e **textureCoordinateOffset:** la scala viene moltiplicata per le coordinate di trama UV, a cui viene aggiunto l'offset. Può essere usato per estendere e spostare le trame. La scala predefinita è (1,1) e offset è (0, 0).
 
-* **useVertexColor:** Se la mesh contiene colori dei vertici e questa opzione è abilitata, i colori dei vertici delle maglie vengono moltiplicati in *albedoColor* e *albedoMap*. Per impostazione predefinita i colori dei vertici sono disabilitati.
+* **useVertexColor:** Se la mesh contiene :::no-loc text="vertex"::: colori e questa opzione è abilitata, il colore dei mesh :::no-loc text="vertex"::: viene moltiplicato in *albedoColor* e *albedoMap*. Per impostazione predefinita, *useVertexColor* è disabilitato.
 
-* **isDoubleSided:** Se la doppia facciata è impostata su true, il rendering dei triangoli con questo materiale viene eseguito anche se la fotocamera esamina i visi posteriori. Per l'illuminazione dei materiali PBR viene anche calcolato correttamente per i back-face. Per impostazione predefinita, questa opzione è disabilitata. Vedere anche [rendering a lato singolo](single-sided-rendering.md).
+* **isDoubleSided:** Se la doppia facciata è impostata su true, il rendering dei triangoli con questo materiale viene eseguito anche se la fotocamera esamina i visi posteriori. Per l'illuminazione dei materiali PBR viene anche calcolato correttamente per i back-face. Per impostazione predefinita, questa opzione è disabilitata. Vedere anche [ :::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
 
 ## <a name="pbr-material-properties"></a>Proprietà del materiale PBR
 
@@ -47,11 +46,11 @@ Il concetto di base del rendering fisico consiste nell'usare le proprietà *Base
 
 * **BaseColor:** Nei materiali di PBR, il *colore dell'albedo* viene definito colore di *base*. Nel rendering remoto di Azure la proprietà del *colore albedo* è già presente tramite le proprietà del materiale comune, quindi non esiste alcuna proprietà del colore di base aggiuntiva.
 
-* **rugosità** e **roughnessMap:** la rugosità definisce il modo in cui la superficie è approssimativa o smussata. Le superfici ruvide disperdono la luce in più direzioni rispetto alle superfici smussate, che rendono sfocate le riflessioni piuttosto che nitide. L'intervallo di valori è `0.0` compreso `1.0`tra e. Quando `roughness` è uguale `0.0`a, i riflessi saranno nitidi. Quando `roughness` è uguale `0.5`a, le riflessioni diventeranno sfocate.
+* **rugosità** e **roughnessMap:** la rugosità definisce il modo in cui la superficie è approssimativa o smussata. Le superfici ruvide disperdono la luce in più direzioni rispetto alle superfici smussate, che rendono sfocate le riflessioni piuttosto che nitide. L'intervallo di valori è compreso tra `0.0` e `1.0` . Quando `roughness` è uguale a `0.0` , i riflessi saranno nitidi. Quando `roughness` è uguale a `0.5` , le riflessioni diventeranno sfocate.
 
   Se vengono specificati sia un valore di rugosità che una mappa di rugosità, il valore finale sarà il prodotto dei due.
 
-* **metality** e **metalnessMap:** in Physics questa proprietà corrisponde a se una superficie è conduttiva o dielettrica. I materiali conduttivi hanno proprietà riflessivi differenti e tendono a essere riflessivi senza alcun colore albedo. Nei materiali di PBR questa proprietà influiscono sulla quantità di superficie che riflette l'ambiente circostante. I valori sono `0.0` compresi `1.0`tra e. Quando la metallurgia `0.0`è, il colore dell'albedo è completamente visibile e il materiale è simile a Plastic o Ceramic. Quando la metallurgia `0.5`è, ha un aspetto simile a quello del metallo verniciato. Quando la metallurgia `1.0`è, la superficie perde quasi completamente il colore dell'albedo e riflette solo le aree circostanti. Ad esempio, se `metalness` è `1.0` e `roughness` è `0.0` , una superficie appare come mirror reale.
+* **metality** e **metalnessMap:** in Physics questa proprietà corrisponde a se una superficie è conduttiva o dielettrica. I materiali conduttivi hanno proprietà riflessivi differenti e tendono a essere riflessivi senza alcun colore albedo. Nei materiali di PBR questa proprietà influiscono sulla quantità di superficie che riflette l'ambiente circostante. I valori sono compresi tra `0.0` e `1.0` . Quando la metallurgia è `0.0` , il colore dell'albedo è completamente visibile e il materiale è simile a Plastic o Ceramic. Quando la metallurgia è `0.5` , ha un aspetto simile a quello del metallo verniciato. Quando la metallurgia è `1.0` , la superficie perde quasi completamente il colore dell'albedo e riflette solo le aree circostanti. Ad esempio, se `metalness` è `1.0` e `roughness` è, `0.0` una superficie appare come mirror reale.
 
   Se vengono specificati sia un valore di metallurgia che una mappa di metalica, il valore finale sarà il prodotto dei due.
 
@@ -61,7 +60,7 @@ Il concetto di base del rendering fisico consiste nell'usare le proprietà *Base
 
 * **normalMap:** Per simulare i dettagli con granularità fine, è possibile fornire una [mappa normale](https://en.wikipedia.org/wiki/Normal_mapping) .
 
-* **occlusionMap** e **aoScale:** l' [occlusione di ambiente](https://en.wikipedia.org/wiki/Ambient_occlusion) rende gli oggetti con fessure più realistici aggiungendo ombre alle aree di cui è stato bloccato l'aspetto. Il `0.0` valore di `1.0`occlusione è compreso `0.0` tra e, dove significa Darkness `1.0` (nascosto) e significa nessuna occlusione. Se una trama 2D viene fornita come mappa di occlusione, l'effetto viene abilitato e *aoScale* funge da moltiplicatore.
+* **occlusionMap** e **aoScale:** l' [occlusione di ambiente](https://en.wikipedia.org/wiki/Ambient_occlusion) rende gli oggetti con fessure più realistici aggiungendo ombre alle aree di cui è stato bloccato l'aspetto. Il valore di occlusione è compreso tra `0.0` `1.0` e, dove `0.0` significa Darkness (nascosto) e `1.0` significa nessuna occlusione. Se una trama 2D viene fornita come mappa di occlusione, l'effetto viene abilitato e *aoScale* funge da moltiplicatore.
 
   ![Mappa di occlusione](./media/boom-box-ao2.gif)
 
@@ -69,7 +68,7 @@ Il concetto di base del rendering fisico consiste nell'usare le proprietà *Base
 
   Il rendering della geometria trasparente è dispendioso. Se sono necessari solo buchi in una superficie, ad esempio per le foglie di un albero, è preferibile usare invece il ritaglio alfa.
 
-  ![Avviso](./media/transparency.png) di trasparenza nell'immagine precedente, come la sfera più a destra è completamente trasparente, ma la reflection è ancora visibile.
+  ![](./media/transparency.png)Avviso di trasparenza nell'immagine precedente, come la sfera più a destra è completamente trasparente, ma la reflection è ancora visibile.
 
   > [!IMPORTANT]
   > Se si suppone che il materiale venga passato da opaco a trasparente in fase di esecuzione, il renderer deve usare la [modalità di rendering](../../concepts/rendering-modes.md) *TileBasedComposition* . Questa limitazione non si applica ai materiali convertiti come materiali trasparenti per iniziare con.

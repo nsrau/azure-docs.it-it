@@ -12,7 +12,6 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.openlocfilehash: 8d15ab5f08b7f9f5bc4824aec8980ed4b711ae1d
 ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "84020286"

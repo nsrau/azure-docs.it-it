@@ -8,12 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426398"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84020609"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Concetti di checkpoint e riproduzione nei processi di Analisi di flusso di Azure
 Questo articolo illustra i concetti di checkpoint interno e riproduzione in Analisi di flusso di Azure e il relativo impatto sul ripristino dei processi. Ogni volta che viene eseguito un processo di Analisi di flusso, le informazioni sullo stato vengono mantenute all'interno del servizio e salvate periodicamente in un checkpoint. In alcuni scenari le informazioni dei checkpoint vengono usate per il ripristino dei processi in caso di errore o di aggiornamento. In altre circostanze il checkpoint non può essere usato per il ripristino ed è necessario procedere alla riproduzione.
@@ -58,7 +57,7 @@ Per stimare la durata del ritardo a causa di un aggiornamento del servizio, è p
 
 3. Misurare il tempo tra l'ora di inizio e il momento in cui viene generato il primo output. Questo tempo corrisponde approssimativamente al ritardo che subirebbe il processo durante un aggiornamento del servizio.
 
-4. Se il ritardo è troppo lungo, provare a suddividere il processo e ad aumentare il numero di unità di streaming, in modo da distribuire il carico a più nodi. In alternativa, valutare l'opportunità di ridurre la dimensione della finestra temporale nella query ed eseguire un'altra aggregazione o un altro processo di elaborazione con stato sull'output generato dal processo di Analisi di flusso nel sink downstream, ad esempio usando il database SQL di Azure.
+4. Se il ritardo è troppo lungo, provare a suddividere il processo e ad aumentare il numero di unità di streaming, in modo da distribuire il carico a più nodi. In alternativa, provare a ridurre le dimensioni della finestra nella query ed eseguire un'ulteriore aggregazione o un'altra elaborazione con stato sull'output prodotto dal processo di analisi di flusso nel sink downstream (ad esempio, usando il database SQL di Azure).
 
 In caso di problemi di stabilità generale del servizio durante l'aggiornamento di processi di importanza cruciale, valutare l'opportunità di eseguire processi duplicati in aree di Azure abbinate. Per altre informazioni, vedere [Garantire l'affidabilità dei processi di Analisi di flusso durante gli aggiornamenti del servizio](stream-analytics-job-reliability.md).
 

@@ -11,11 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84019963"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 
@@ -36,8 +35,8 @@ Per spostare dati da o verso un archivio dati non supportato da Data Factory opp
 Vedere gli articoli seguenti se non si ha familiarità con il servizio Azure Batch:
 
 * [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
-* Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) per creare un account di Azure batch (o) [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account Azure batch usando portale di Azure. Per istruzioni dettagliate sull'uso del cmdlet, vedere l'articolo [Uso di Azure PowerShell per gestire l'account di Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-* Cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) per creare un pool di Azure batch.
+* Cmdlet [New-AzureBatchAccount](/powershell/module/az.batch/New-azBatchAccount) per creare un account di Azure Batch oppure [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account di Azure Batch usando il portale di Azure. Per istruzioni dettagliate sull'uso del cmdlet, vedere l'articolo [Uso di Azure PowerShell per gestire l'account di Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* Cmdlet [New AzureBatchPool](/powershell/module/az.batch/New-AzBatchPool) per creare un pool di Azure Batch.
 
 ## <a name="azure-batch-linked-service"></a>Servizio collegato Azure Batch
 
@@ -106,7 +105,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 | description           | Testo che descrive l'attività.  | No       |
 | type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Sì      |
 | linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Sì      |
-| command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
+| .               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
 | resourceLinkedService | Servizio di Archiviazione di Azure collegato all'account di archiviazione in cui è archiviata l'applicazione personalizzata | No &#42;       |
 | folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze<br/><br/>Se sono presenti dipendenze archiviate nelle sottocartelle, vale a dire, in una struttura di cartelle gerarchiche in *folderPath*, la struttura di cartelle è attualmente di tipo flat quando i file vengono copiati in Azure Batch. Vale a dire, tutti i file vengono copiati in un'unica cartella senza sottocartelle. Per risolvere questo comportamento, è possibile comprimere i file, copiare il file compresso e quindi decomprimerlo con codice personalizzato nel percorso desiderato. | No &#42;       |
 | referenceObjects      | Matrice di servizi collegati e set di dati esistenti. I servizi collegati e i set di dati a cui si fa riferimento vengono passati all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a risorse di Data Factory | No       |
@@ -301,12 +300,12 @@ Activity Error section:
 Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è possibile ottenere il percorso del file stdout.txt nell'espressione "\@activity('MyCustomActivity').output.outputs[0]".
 
 > [!IMPORTANT]
-> - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, i file Activity. JSON, linkedServices. JSON e DataSets. JSON vengono archiviati nel `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` percorso. Se necessario, la pulizia di questi file deve essere eseguita separatamente.
+> - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, i activity.json, linkedServices.json e datasets.json vengono archiviati in `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` Path. Se necessario, la pulizia di questi file deve essere eseguita separatamente.
 > - Per i servizi collegati che usano il runtime di integrazione self-hosted, le informazioni riservate, come chiavi o password, vengono crittografate dal runtime di integrazione self-hosted per verificare che le credenziali rimangano nell'ambiente di rete privata definito dal cliente. Alcuni campi riservati potrebbero risultare mancanti se il codice dell'applicazione personalizzata fa riferimento a tali campi in questo modo. Se necessario, usare SecureString in extendedProperties anziché un riferimento a servizi collegati.
 
 ## <a name="pass-outputs-to-another-activity"></a>Passare gli output a un'altra attività
 
-È possibile inviare valori personalizzati dal codice di un'attività personalizzata ad Azure Data Factory. È possibile farlo scrivendoli in `outputs.json` dall'applicazione. Data Factory copia il contenuto di `outputs.json` e lo accoda all'output dell'attività come valore della proprietà `customOutput`. Il limite delle dimensioni è 2MB. Se si desidera utilizzare il contenuto di `outputs.json` nelle attività downstream, è possibile ottenere il valore utilizzando l'espressione. `@activity('<MyCustomActivity>').output.customOutput`
+È possibile inviare valori personalizzati dal codice di un'attività personalizzata ad Azure Data Factory. È possibile farlo scrivendoli in `outputs.json` dall'applicazione. Data Factory copia il contenuto di `outputs.json` e lo accoda all'output dell'attività come valore della proprietà `customOutput`. Il limite delle dimensioni è 2MB. Se si desidera utilizzare il contenuto di `outputs.json` nelle attività downstream, è possibile ottenere il valore utilizzando l'espressione `@activity('<MyCustomActivity>').output.customOutput` .
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperare gli output SecureString
 
@@ -387,5 +386,5 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
-* [Machine Learning attività di esecuzione batch](transform-data-using-machine-learning.md)
+* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)
