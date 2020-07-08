@@ -1,25 +1,14 @@
 ---
 title: Ricevere eventi tramite l'host del processore di eventi - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo descrive l'host del processore di eventi in Hub eventi di Azure, che semplifica la gestione di checkpoint e lease e la lettura in parallelo degli eventi.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/10/2020
-ms.author: shvija
-ms.openlocfilehash: 485f51e45e342ca28d54d609fd975bef5b204f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372235"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320639"
 ---
 # <a name="event-processor-host"></a>Host processore di eventi
 > [!NOTE]
@@ -118,7 +107,7 @@ L'elenco seguente riepiloga l'esempio:
 
 La proprietà di una partizione di un'istanza EPH (o un consumer) viene rilevata tramite l'account di Archiviazione di Azure che viene fornito a scopo di rilevamento. È possibile visualizzare il rilevamento come semplice tabella, come indicato di seguito. È possibile visualizzarne l'implementazione effettiva esaminando i BLOB nell'account di archiviazione specificato:
 
-| **Nome gruppo di consumer** | **Partition ID** | **Nome host (proprietario)** | **Orario del lease (o della proprietà) acquisito** | **Offset nella partizione (checkpoint)** |
+| **Nome gruppo di consumer** | **ID partizione** | **Nome host (proprietario)** | **Orario del lease (o della proprietà) acquisito** | **Offset nella partizione (checkpoint)** |
 | --- | --- | --- | --- | --- |
 | $Default | 0 | Consumer\_VM3 | 2018-04-15T01:23:45 | 156 |
 | $Default | 1 | Consumer\_VM4 | 2018-04-15T01:22:13 | 734 |
@@ -206,7 +195,7 @@ Ora che si ha familiarità con l'host processore di eventi, vedere gli articoli 
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-node-send-v2.md)
 * [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)

@@ -1,22 +1,14 @@
 ---
 title: Uso di Akka Streams per Apache Kafka - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come connettere Akka Streams a un hub eventi di Azure.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 0b96f1448fd223aae2dde77c5c05a8c9bd74ee9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ae3cc44d854aa0996a6a567e56ff4e70afe0492d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632851"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320208"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Uso di Akka Streams con Hub eventi per Apache Kafka
 Questa esercitazione illustra come connettere Akka Streams a un hub eventi senza modificare i client del protocollo o eseguire i propri cluster. Hub eventi di Azure per Kafka supporta [Apache Kafka versione 1,0.](https://kafka.apache.org/10/documentation.html)
@@ -51,7 +43,7 @@ Per l'invio o la ricezione da qualsiasi servizio Hub eventi è richiesto uno spa
 
 ## <a name="clone-the-example-project"></a>Clonare il progetto di esempio
 
-Ora che si dispone di una stringa di connessione di hub eventi, clonare gli hub eventi di Azure per il `akka` repository Kafka e passare alla sottocartella:
+Ora che si dispone di una stringa di connessione di hub eventi, clonare gli hub eventi di Azure per il repository Kafka e passare alla `akka` sottocartella:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -93,7 +85,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
 
-Il producer inizia a inviare gli eventi all'hub eventi `test`in questo argomento e stampa gli eventi in stdout.
+Il producer inizia a inviare gli eventi all'hub eventi in questo argomento `test` e stampa gli eventi in stdout.
 
 ## <a name="run-akka-streams-consumer"></a>Eseguire il consumer di Akka Streams
 
@@ -133,7 +125,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
 
-Se per l'hub eventi sono presenti eventi (ad esempio, se il Producer è anche in esecuzione), il consumer inizia `test`a ricevere gli eventi dall'argomento. 
+Se per l'hub eventi sono presenti eventi (ad esempio, se il Producer è anche in esecuzione), il consumer inizia a ricevere gli eventi dall'argomento `test` . 
 
 Consultare il manuale [Akka Streams Kafka Guide](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) per altre informazioni su Akka Streams.
 

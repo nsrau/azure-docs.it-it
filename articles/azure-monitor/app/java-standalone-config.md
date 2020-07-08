@@ -3,12 +3,12 @@ title: Monitora le applicazioni Java ovunque-monitoraggio di Azure Application I
 description: Application Performance Monitoring senza codice per applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Trovare la causa radice dei problemi d usando la traccia distribuita e la mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319687"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opzioni di configurazione-Application Insights agente autonomo Java per monitoraggio di Azure
 
@@ -33,14 +33,14 @@ Per altri dettagli, vedere più dettagli e altre opzioni di configurazione.
 
 ## <a name="configuration-file-path"></a>Percorso del file di configurazione
 
-Per impostazione predefinita, Application Insights Java 3,0 Preview prevede che il file di configurazione sia `ApplicationInsights.json`denominato e che si trovi nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.4.jar`.
+Per impostazione predefinita, Application Insights Java 3,0 Preview prevede che il file di configurazione sia denominato `ApplicationInsights.json` e che si trovi nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
 
 È possibile specificare un percorso del file di configurazione personalizzato utilizzando
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE`variabile di ambiente o
 * `applicationinsights.configurationFile`Proprietà di sistema Java
 
-Se si specifica un percorso relativo, questo verrà risolto in relazione alla directory in cui `applicationinsights-agent-3.0.0-PREVIEW.4.jar` si trova.
+Se si specifica un percorso relativo, questo verrà risolto in relazione alla directory in cui `applicationinsights-agent-3.0.0-PREVIEW.5.jar` si trova.
 
 ## <a name="connection-string"></a>Stringa di connessione
 
@@ -48,7 +48,7 @@ Se si specifica un percorso relativo, questo verrà risolto in relazione alla di
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Stringa di connessione Application Insights":::
 
-È anche possibile impostare la stringa di connessione usando la variabile `APPLICATIONINSIGHTS_CONNECTION_STRING`di ambiente.
+È anche possibile impostare la stringa di connessione usando la variabile di ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` .
 
 ## <a name="cloud-role-name"></a>Nome del ruolo Cloud
 
@@ -68,7 +68,7 @@ Se si desidera impostare il nome del ruolo Cloud:
 
 Se il nome del ruolo Cloud non è impostato, il nome della risorsa Application Insights verrà usato per etichettare il componente nella mappa dell'applicazione.
 
-È anche possibile impostare il nome del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_NAME`di ambiente.
+È anche possibile impostare il nome del ruolo cloud usando la variabile di ambiente `APPLICATIONINSIGHTS_ROLE_NAME` .
 
 ## <a name="cloud-role-instance"></a>Istanza del ruolo del cloud
 
@@ -86,13 +86,13 @@ Se si desidera impostare l'istanza del ruolo Cloud su un valore diverso anziché
 }
 ```
 
-È anche possibile impostare l'istanza del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_INSTANCE`di ambiente.
+È anche possibile impostare l'istanza del ruolo cloud usando la variabile di ambiente `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
 
 ## <a name="application-log-capture"></a>Acquisizione registro applicazioni
 
 Application Insights Java 3,0 Preview acquisisce automaticamente la registrazione delle applicazioni tramite log4j, Logback e Java. util. Logging.
 
-Per impostazione predefinita, acquisisce tutte le registrazioni `WARN` eseguite a livello o superiore.
+Per impostazione predefinita, acquisisce tutte le registrazioni eseguite a `WARN` livello o superiore.
 
 Se si vuole modificare questa soglia:
 
@@ -110,7 +110,7 @@ Se si vuole modificare questa soglia:
 }
 ```
 
-Questi sono i valori `threshold` validi che è possibile specificare nel `ApplicationInsights.json` file e il modo in cui corrispondono ai livelli di registrazione tra diversi framework di registrazione:
+Questi sono i `threshold` valori validi che è possibile specificare nel `ApplicationInsights.json` file e il modo in cui corrispondono ai livelli di registrazione tra diversi framework di registrazione:
 
 | `threshold`  | Log4j  | Logback | LUG     |
 |--------------|--------|---------|---------|
@@ -237,7 +237,7 @@ Se l'applicazione è protetti da un firewall e non è in grado di connettersi di
 
 Questo può essere utile per individuare e diagnosticare i problemi con Application Insights stesso.
 
-Per impostazione predefinita, viene registrato nella console di `warn`con il livello corrispondente a questa configurazione:
+Per impostazione predefinita, viene registrato nella console di con `warn` il livello corrispondente a questa configurazione:
 
 ```json
 {
@@ -252,7 +252,7 @@ Per impostazione predefinita, viene registrato nella console di `warn`con il liv
 }
 ```
 
-I livelli validi `OFF`sono `ERROR`, `WARN`, `INFO`, `DEBUG`, e `TRACE`.
+I livelli validi sono `OFF` ,, `ERROR` `WARN` , `INFO` , `DEBUG` e `TRACE` .
 
 Se si desidera accedere a un file anziché registrarsi nella console:
 
@@ -271,4 +271,4 @@ Se si desidera accedere a un file anziché registrarsi nella console:
 }
 ```
 
-Quando si usa la funzionalità di registrazione file, `maxSizeMB`una volta raggiunto il file, verrà eseguito il rollover, mantenendo solo il file di log completato più di recente oltre al file di log corrente.
+Quando si usa la funzionalità di registrazione file, una volta raggiunto il file `maxSizeMB` , verrà eseguito il rollover, mantenendo solo il file di log completato più di recente oltre al file di log corrente.

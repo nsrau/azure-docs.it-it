@@ -1,20 +1,14 @@
 ---
 title: Utilizzo di Apache Kafka MirrorMaker - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come usare Kafka MirrorMaker per eseguire il mirroring di cluster Kafka in Hub eventi di Azure.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: fb041ec0d3cd474cca12d5ad55b733337566b9cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: aea8ebcfa65d5f4c90aa1908d03f0fcde8906bba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320191"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Usare Kafka MirrorMaker con Hub eventi per Apache Kafka
 
@@ -59,7 +53,7 @@ Per l'invio e la ricezione da qualsiasi servizio Hub eventi è richiesto uno spa
 
 ## <a name="clone-the-example-project"></a>Clonare il progetto di esempio
 
-Ora che si dispone di una stringa di connessione di hub eventi, clonare gli hub eventi di Azure per il `mirror-maker` repository Kafka e passare alla sottocartella:
+Ora che si dispone di una stringa di connessione di hub eventi, clonare gli hub eventi di Azure per il repository Kafka e passare alla `mirror-maker` sottocartella:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git

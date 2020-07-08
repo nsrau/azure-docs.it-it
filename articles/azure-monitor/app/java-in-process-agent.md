@@ -3,16 +3,16 @@ title: 'Monitorare le applicazioni Java in qualsiasi ambiente: monitoraggio di A
 description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508072"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319704"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights-anteprima pubblica
 
-Il monitoraggio delle applicazioni senza codice Java è molto semplice. non sono state apportate modifiche al codice. l'agente Java può essere abilitato solo con un paio di modifiche di configurazione.
+Il monitoraggio di applicazioni codeless Java è tutta una questione di semplicità: senza cambiare il codice, l'agente Java può essere abilitato solo con un paio di modifiche di configurazione.
 
  L'agente Java funziona in qualsiasi ambiente e consente di monitorare tutte le applicazioni Java. In altre parole, sia che si eseguano app Java in macchine virtuali, in locale, in AKS, in Windows, Linux, l'agente Java 3,0 monitorerà l'app.
 
@@ -20,17 +20,17 @@ L'aggiunta di Application Insights Java SDK all'applicazione non è più necessa
 
 È comunque possibile inviare dati di telemetria personalizzati dall'applicazione. L'agente 3,0 lo registrerà e lo correla insieme a tutti i dati di telemetria di raccolta automatica.
 
-## <a name="quickstart"></a>Avvio rapido
+## <a name="quickstart"></a>Guida introduttiva
 
 **1. scaricare l'agente**
 
-Scaricare [applicationinsights-Agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+Scaricare [applicationinsights-Agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
 **2. puntare la JVM all'agente**
 
-Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` agli argomenti JVM dell'applicazione
+Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` agli argomenti JVM dell'applicazione
 
-Gli argomenti JVM tipici `-Xmx512m` includono `-XX:+UseG1GC`e. Quindi, se si conosce la posizione in cui aggiungere questi, si sa già dove aggiungere questa.
+Gli argomenti JVM tipici includono `-Xmx512m` e `-XX:+UseG1GC` . Quindi, se si conosce la posizione in cui aggiungere questi, si sa già dove aggiungere questa.
 
 Per ulteriori informazioni sulla configurazione degli argomenti JVM dell'applicazione, vedere la pagina relativa all' [anteprima 3,0: suggerimenti per l'aggiornamento degli argomenti JVM](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
 
@@ -44,7 +44,7 @@ Puntare l'agente alla risorsa Application Insights impostando una variabile di a
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Oppure creando un file di configurazione denominato `ApplicationInsights.json`e inserendolo nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.4.jar`, con il contenuto seguente:
+Oppure creando un file di configurazione denominato `ApplicationInsights.json` e inserendolo nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.5.jar` , con il contenuto seguente:
 
 ```json
 {

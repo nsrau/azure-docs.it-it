@@ -1,20 +1,14 @@
 ---
 title: Uso di Apache Flink per Apache Kafka - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come connettere Apache flink a un hub eventi di Azure
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 2e5a2924cdc00c1cc057d71c40645085df4bae6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 43cbf99a6ba2c0384ceffc10b01916f6ad22b26a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632821"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320139"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Uso di Apache Flink con Hub eventi di Azure per Apache Kafka
 Questa esercitazione illustra come connettere Apache flink a un hub eventi senza modificare i client del protocollo o eseguire i propri cluster. Hub eventi di Azure supporta la [versione di Apache Kafka 1,0.](https://kafka.apache.org/10/documentation.html)
@@ -51,7 +45,7 @@ Per l'invio o la ricezione da qualsiasi servizio Hub eventi è richiesto uno spa
 
 ## <a name="clone-the-example-project"></a>Clonare il progetto di esempio
 
-Ora che si dispone della stringa di connessione di hub eventi, clonare gli hub eventi di Azure per il repository `flink` Kafka e passare alla sottocartella:
+Ora che si dispone della stringa di connessione di hub eventi, clonare gli hub eventi di Azure per il repository Kafka e passare alla `flink` sottocartella:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -87,7 +81,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestProducer"
 ```
 
-Il producer inizierà a inviare gli eventi all'hub eventi in `test` questo argomento e a stampare gli eventi in stdout.
+Il producer inizierà a inviare gli eventi all'hub eventi in questo argomento `test` e a stampare gli eventi in stdout.
 
 ## <a name="run-flink-consumer"></a>Eseguire il consumer Flink
 
@@ -118,7 +112,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 ```
 
-Se per l'hub eventi sono presenti eventi, ad esempio se il Producer è anche in esecuzione, il consumer inizia a ricevere gli eventi `test`dall'argomento.
+Se per l'hub eventi sono presenti eventi, ad esempio se il Producer è anche in esecuzione, il consumer inizia a ricevere gli eventi dall'argomento `test` .
 
 Consultare la [Guida del connettore Kafka di Flink](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) per altre informazioni sulla connessione di Flink a Kafka.
 

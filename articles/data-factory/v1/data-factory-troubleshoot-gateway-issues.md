@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319068"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
 Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del gateway di gestione dati.
@@ -24,7 +24,7 @@ Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del g
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Azure Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere il [runtime di integrazione self-hosted in Data Factory](../create-self-hosted-integration-runtime.md).
 
-Vedere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per informazioni dettagliate sul gateway. Vedere l'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) per una procedura dettagliata sull'uso del gateway per spostare i dati da un database di SQL Server locale all'Archiviazione BLOB di Azure.
+Vedere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per informazioni dettagliate sul gateway. Vedere l'articolo [spostare dati tra le sedi locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) per una procedura dettagliata sullo spostamento dei dati da un database di SQL Server al Microsoft Azure archiviazione BLOB tramite il gateway.
 
 ## <a name="failed-to-install-or-register-gateway"></a>Impossibile installare o registrare il gateway
 ### <a name="1-problem"></a>1. problema
@@ -35,7 +35,7 @@ Questo messaggio di errore viene visualizzato durante l'installazione e la regis
 #### <a name="cause"></a>Causa
 Il computer in cui si prova a installare il gateway non è riuscito a scaricare il file di installazione del gateway più recente dall'area download a causa di un problema di rete.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Verificare se nel firewall del server proxy sono presenti impostazioni che bloccano la connessione di rete dal computer all'[Area download](https://download.microsoft.com/) e aggiornare le impostazioni di conseguenza.
 
 In alternativa, è possibile scaricare il file di installazione del gateway più recente dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) su altri computer che possono accedere all'area download. Dopo averlo scaricato, copiare il file di installazione nel computer host del gateway ed eseguirlo manualmente per installare e aggiornare il gateway.
@@ -48,7 +48,7 @@ Questo errore viene visualizzato quando si prova a installare un gateway facendo
 #### <a name="cause"></a>Causa
 È già installato un gateway nel computer.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Disinstallare il gateway esistente nel computer e fare di nuovo clic sul collegamento **installa direttamente nel computer** .
 
 ### <a name="3-problem"></a>3. problema
@@ -63,7 +63,7 @@ Il messaggio può essere visualizzato per uno dei motivi seguenti:
 * La chiave del gateway è stata invalidata.
 * La chiave del gateway è stata rigenerata dal portale.  
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Accertarsi che venga usata la chiave del gateway corretta del portale. Se necessario, rigenerare una chiave e usarla per registrare il gateway.
 
 ### <a name="4-problem"></a>4. problema
@@ -78,7 +78,7 @@ Durante la registrazione di un gateway può essere visualizzato il messaggio di 
 #### <a name="cause"></a>Causa
 Il contenuto o il formato della chiave del gateway di input non è corretto. È possibile che sia stata copiata solo una parte della chiave dal portale oppure che la chiave usata non sia valida.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Generare una chiave del gateway nel portale e usare il pulsante Copia per copiare la chiave intera. Quindi incollarla in questa finestra per registrare il gateway.
 
 ### <a name="5-problem"></a>5. problema
@@ -91,7 +91,7 @@ Durante la registrazione di un gateway può essere visualizzato il messaggio di 
 #### <a name="cause"></a>Causa
 La chiave del gateway è stata rigenerata oppure il gateway è stato eliminato nel portale di Azure. Il problema può verificarsi anche quando la versione del programma di installazione del Gateway di gestione dati non è la più recente.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Controllare che la versione del programma di installazione del Gateway di gestione dati sia la più recente (fare riferimento al [Download Center](https://go.microsoft.com/fwlink/p/?LinkId=271260) di Microsoft).
 
 Se la versione del programma di installazione è quella attuale o la più recente e il gateway è ancora presente sul Portale, rigenerare la chiave del gateway nel Portale di Azure e usare il pulsante Copia per copiare l'intera chiave, quindi incollarla in questa finestra per registrare il gateway. In caso contrario ricreare il gateway e ricominciare.
@@ -106,7 +106,7 @@ Durante la registrazione di un gateway può essere visualizzato il messaggio di 
 #### <a name="cause"></a>Causa
 Questo errore può verificarsi perché il gateway è stato eliminato oppure la chiave associata è stata rigenerata.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Se il gateway è stato eliminato, ricrearlo dal portale, fare clic su **Registra**, copiare la chiave dal portale, incollarla e provare a registrare il gateway.
 
 Se il gateway è ancora esistente, ma la chiave è stata rigenerata, usare la nuova chiave per registrare il gateway. Se la chiave non è disponibile, rigenerarla nuovamente dal portale.
@@ -123,7 +123,7 @@ Il gateway è stato registrato in precedenza in altri computer. Durante la regis
 
 Quando si ripristina il gateway in un computer host diverso, la registrazione guidata richiede questo certificato per decrittografare le credenziali crittografate in precedenza con questo certificato.  Senza questo certificato, le credenziali non possono essere decrittografate dal nuovo gateway e le successive attività di copia associate al nuovo gateway avranno esito negativo.  
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Se il certificato delle credenziali è stato esportato dal computer gateway originale con il pulsante **Esporta** disponibile nella scheda**Impostazioni** di Gestione configurazione di Gateway di gestione dati, usare il certificato in quel computer.
 
 Non è possibile ignorare questo passaggio quando si recupera un gateway. Se il certificato è mancante, è necessario eliminare il gateway dal portale e crearne uno nuovo.  Inoltre, tutti i servizi collegati relativi al gateway devono essere aggiornati immettendo di nuovo le credenziali.
@@ -136,7 +136,7 @@ Non è possibile ignorare questo passaggio quando si recupera un gateway. Se il 
 #### <a name="cause"></a>Causa
 Questo errore si verifica quando il gateway si trova in un ambiente che richiede un proxy HTTP per accedere alle risorse Internet oppure quando la password di autenticazione del proxy viene modificata, ma non aggiornata di conseguenza nel gateway.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Seguire le istruzioni indicate nella sezione Considerazioni sui server proxy di questo articolo e configurare le impostazioni del proxy con Gestione configurazione di Gateway di gestione dati.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>Il gateway è online con funzionalità limitate
@@ -151,7 +151,7 @@ Lo stato visualizzato per il gateway è online con funzionalità limitata per un
 
 Quando il gateway è online con funzionalità limitate, potrebbe non essere possibile usare la copia guidata di Data Factory per creare pipeline di dati per copiare i dati da e verso archivi dati locali. Come soluzione alternativa, è possibile usare l'editor di Data Factory nel portale, oppure Visual Studio o Azure PowerShell.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 La risoluzione di questo problema (online con funzionalità limitata) dipende dall'eventualità che il gateway non possa connettersi al servizio cloud o viceversa. Le sezioni seguenti illustrano queste risoluzioni.
 
 ### <a name="2-problem"></a>2. problema
@@ -164,7 +164,7 @@ Viene visualizzato l'errore seguente:
 #### <a name="cause"></a>Causa
 Il gateway non può connettersi al servizio cloud tramite il bus di servizio.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Seguire questi passaggi per fare in modo che il gateway torni online:
 
 1. Consentire le regole in uscita degli indirizzi IP nel computer gateway e nel firewall aziendale. È possibile trovare gli indirizzi IP nel registro eventi di Windows (ID == 401): si è verificato un tentativo di accesso a un socket in modalità non consentite dalle relative autorizzazioni di accesso XX.XX.XX.XX:9350.
@@ -179,7 +179,7 @@ Viene visualizzato l'errore seguente:
 #### <a name="cause"></a>Causa
 Errore temporaneo nella connettività di rete.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Seguire questi passaggi per fare in modo che il gateway torni online:
 
 1. Attendere un paio di minuti; la connettività verrà ripristinata automaticamente quando l'errore non sarà più visualizzato.
@@ -200,7 +200,7 @@ Il certificato TLS/SSL potrebbe essere andato perso nel computer gateway. Il com
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 Seguire questa procedura per risolvere il problema:
 
 1. Avviare Gestione configurazione di Gateway di gestione dati.
@@ -221,10 +221,10 @@ Dopo aver impostato una pipeline nel portale di Azure viene visualizzato l'error
 #### <a name="cause"></a>Causa
 Questo problema può verificarsi per diversi motivi e la mitigazione varia di conseguenza.
 
-#### <a name="resolution"></a>Risoluzione
-Consentire le connessioni TCP in uscita sulla porta TCP/1433 o sul lato client del gateway di gestione dati prima di connettersi a un database SQL.
+#### <a name="resolution"></a>Soluzione
+Consentire le connessioni TCP in uscita sulla porta TCP/1433 sul lato client del gateway Gestione dati prima di connettersi a un database SQL.
 
-Se il database di destinazione è un database SQL di Azure, verificare anche le impostazioni del firewall del server SQL di Azure.
+Se il database di destinazione si trova nel database SQL di Azure, controllare SQL Server le impostazioni del firewall per Azure.
 
 Vedere la sezione seguente per testare la connessione all'archivio dati locale.
 
@@ -279,7 +279,7 @@ Fare clic sul collegamento **Archivia log del gateway** per archiviare e salvare
 Per informazioni dettagliate sui log del gateway, vedere il registro eventi di Windows.
 
 1. Avviare il **Visualizzatore eventi** di Windows.
-2. Individuare i log > nei **registri applicazioni e servizi****Gestione dati cartella gateway** .
+2. Individuare i log nei **registri applicazioni e servizi**  >  **Gestione dati cartella gateway** .
 
    Per risolvere i problemi correlati al gateway, cercare gli eventi a livello di errore nel Visualizzatore eventi.
 

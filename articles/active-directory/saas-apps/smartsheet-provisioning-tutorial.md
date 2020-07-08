@@ -15,51 +15,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9fbdf8a1c4b1881fc6dfd9d7b95a4103761e9ce7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 699eb37176d6737744fb0ba01f9f3f4a2d4e55b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318748"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Esercitazione: configurare Smartsheet per il provisioning utenti automatico
 
-Questa esercitazione illustra i passaggi da eseguire in Smartsheet e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in Smartsheet.
+Questa esercitazione illustra i passaggi da eseguire in Smartsheet e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in [Smartsheet](https://www.smartsheet.com/pricing). Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+
+
+## <a name="capabilities-supported"></a>Funzionalità supportate
+> [!div class="checklist"]
+> * Creare utenti in Smartsheet
+> * Rimuovere gli utenti in Smartsheet quando non richiedono più l'accesso
+> * Mantieni gli attributi utente sincronizzati tra Azure AD e Smartsheet
+> * Single Sign-on per Smartsheet (scelta consigliata)
 
 > [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
->
 > Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Microsoft Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* Un tenant di Azure AD
-* [Tenant Smartsheet](https://www.smartsheet.com/pricing)
+* [Tenant Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
+* [Tenant Smartsheet](https://www.smartsheet.com/pricing).
 * Un account utente in un piano Smartsheet Enterprise o Enterprise Premier con autorizzazioni di amministratore di sistema.
 
-## <a name="assign-users-to-smartsheet"></a>Assegnazione di utenti a Smartsheet
+## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
+1. Vedere le informazioni su [come funziona il servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determinare quali dati eseguire il [mapping tra Azure ad e Smartsheet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
-
-Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a Smartsheet. Dopo aver stabilito questo, è possibile assegnare questi utenti e/o gruppi a Smartsheet seguendo le istruzioni riportate qui:
-
-* [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
-
-### <a name="important-tips-for-assigning-users-to-smartsheet"></a>Suggerimenti importanti per l'assegnazione di utenti a Smartsheet
-
-* È consigliabile assegnare un singolo Azure AD utente a Smartsheet per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
-
-* Quando si assegna un utente a Smartsheet, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di **accesso predefinito** vengono esclusi dal provisioning.
-
-* Per garantire la parità nelle assegnazioni di ruolo utente tra Smartsheet e Azure AD, è consigliabile usare le stesse assegnazioni di ruolo compilate nell'elenco completo degli utenti Smartsheet. Per recuperare l'elenco di utenti da Smartsheet, passare a **amministratore Account > gestione utenti > altre azioni > Scarica elenco utenti (CSV)**.
-
-* Per accedere a determinate funzionalità nell'app, Smartsheet richiede che un utente disponga di più ruoli. Per altre informazioni sui tipi di utente e le autorizzazioni in Smartsheet, vedere [tipi di utente e autorizzazioni](https://help.smartsheet.com/learning-track/shared-users/user-types-and-permissions).
-
-*  Se un utente dispone di più ruoli assegnati in Smartsheet, è **necessario** assicurarsi che queste assegnazioni di ruolo vengano replicate in Azure ad per evitare uno scenario in cui gli utenti potrebbero perdere l'accesso agli oggetti Smartsheet in modo permanente. Ogni ruolo univoco in Smartsheet **deve** essere assegnato a un altro gruppo in Azure ad. L'utente **deve** quindi essere aggiunto a ognuno dei gruppi corrispondenti ai ruoli desiderati. 
-
-## <a name="set-up-smartsheet-for-provisioning"></a>Configurare Smartsheet per il provisioning
+## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Smartsheet per supportare il provisioning con Azure AD
 
 Prima di configurare Smartsheet per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM su Smartsheet.
 
@@ -95,45 +87,31 @@ Prima di configurare Smartsheet per il provisioning utenti automatico con Azure 
 
     ![Token Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet08.png)
 
-## <a name="add-smartsheet-from-the-gallery"></a>Aggiungere Smartsheet dalla raccolta
+## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Smartsheet dalla raccolta di applicazioni Azure AD
 
-Per configurare Smartsheet per il provisioning utenti automatico con Azure AD, è necessario aggiungere Smartsheet dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
+Aggiungere Smartsheet dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in Smartsheet. Se in precedenza è stato configurato Smartsheet per SSO, è possibile utilizzare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+* Quando si assegnano utenti e gruppi a Smartsheet, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+* Per garantire la parità nelle assegnazioni di ruolo utente tra Smartsheet e Azure AD, è consigliabile usare le stesse assegnazioni di ruolo compilate nell'elenco completo degli utenti Smartsheet. Per recuperare l'elenco di utenti da Smartsheet, passare a **amministratore Account > gestione utenti > altre azioni > Scarica elenco utenti (CSV)**.
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+* Per accedere a determinate funzionalità nell'app, Smartsheet richiede che un utente disponga di più ruoli. Per altre informazioni sui tipi di utente e le autorizzazioni in Smartsheet, vedere [tipi di utente e autorizzazioni](https://help.smartsheet.com/learning-track/shared-users/user-types-and-permissions).
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+*  Se un utente dispone di più ruoli assegnati in Smartsheet, è **necessario** assicurarsi che queste assegnazioni di ruolo vengano replicate in Azure ad per evitare uno scenario in cui gli utenti potrebbero perdere l'accesso agli oggetti Smartsheet in modo permanente. Ogni ruolo univoco in Smartsheet **deve** essere assegnato a un altro gruppo in Azure ad. L'utente **deve** quindi essere aggiunto a ognuno dei gruppi corrispondenti ai ruoli desiderati. 
 
-4. Nella casella di ricerca immettere **Smartsheet**e selezionare **Smartsheet** nel pannello dei risultati. 
+* Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![Smartsheet nell'elenco dei risultati](common/search-new-app.png)
-
-5. Selezionare il pulsante **Iscriviti per Smartsheet per** reindirizzare l'utente alla pagina di accesso di Smartsheet. 
-
-    ![Aggiunta OIDC Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-OIDC-add.png)
-
-6. Poiché Smartsheet è un'app OpenIDConnect, scegliere di accedere a Smartsheet usando il proprio account Microsoft.
-
-    ![Accesso OIDC Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-OIDC-login.png)
-
-7. Una volta completata l'autenticazione, accettare la richiesta di consenso per la pagina di consenso. L'applicazione verrà quindi aggiunta automaticamente al tenant e si verrà reindirizzati al proprio account Smartsheet.
-
-    ![Consenso OIDc Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-OIDC-consent.png)
-
-## <a name="configure-automatic-user-provisioning-to-smartsheet"></a>Configurare il provisioning utenti automatico in Smartsheet 
+## <a name="step-5-configure-automatic-user-provisioning-to-smartsheet"></a>Passaggio 5. Configurare il provisioning utenti automatico in Smartsheet 
 
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Smartsheet in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-smartsheet-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Smartsheet in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -141,31 +119,48 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Collegamento di Smartsheet nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **provisioning** .
+3. Selezionare la scheda **Provisioning**.
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare la **modalità di provisioning** su **automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://scim.smartsheet.com/v2/` in **URL tenant**. Immettere il valore recuperato e salvato in precedenza da Smartsheet in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Smartsheet. Se la connessione non riesce, verificare che l'account Smartsheet disponga delle autorizzazioni SysAdmin e riprovare.
+5. Nella sezione **credenziali amministratore** immettere l'URL di **base scim 2,0 e** i valori dei token di accesso recuperati in precedenza da Smartsheet rispettivamente in **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Smartsheet. Se la connessione non riesce, verificare che l'account Smartsheet disponga delle autorizzazioni SysAdmin e riprovare.
 
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Smartsheet**.
 
-    ![Mapping utente Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-user-mappings.png)
-
 9. Esaminare gli attributi utente sincronizzati da Azure AD a Smartsheet nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Smartsheet per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-user-attributes.png)
+   |Attributo|Type|
+   |---|---|
+   |active|Boolean|
+   |title|string|
+   |userName|string|
+   |name.givenName|string|
+   |name.familyName|string|
+   |phoneNumbers[type eq "work"].value|string|
+   |phoneNumbers[type eq "mobile"].value|string|
+   |phoneNumbers[type eq "fax"].value|string|
+   |externalId|string|
+   |ruoli [Primary EQ "true"]. display|string|
+   |ruoli [Primary EQ "true"]. Type|string|
+   |ruoli [Primary EQ "true"]. Value|string|
+   |roles|string|
+   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|string|
+
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -181,17 +176,26 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning Azure ad su Smartsheet.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. 
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
+## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
+Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
+
+1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
 * Smartsheet non supporta le eliminazioni automatiche. Quando l'attributo **attivo** di un utente è impostato su false, Smartsheet Elimina l'utente in modo permanente.
 
+## <a name="change-log"></a>Registro delle modifiche
+
+* 06/16/2020-è stato aggiunto il supporto per gli attributi di estensione Enterprise "centro di costo", "divisione", "responsabile" e "reparto" per gli utenti.
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

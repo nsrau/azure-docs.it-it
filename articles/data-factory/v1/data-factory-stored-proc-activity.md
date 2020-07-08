@@ -12,25 +12,25 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 45aa49de51f42b26c653b15e79c865e3f5647c39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b348f3f3684d580ca84eed9b9a094717c12cf849
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319085"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Attività di stored procedure di SQL Server
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
 > * [Attività hive](data-factory-hive-activity.md)
-> * [Attività di Pig](data-factory-pig-activity.md)
+> * [Attività Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
-> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
 > * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
-> * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
+> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Azure Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Trasformare dati tramite l'attività stored procedure in Data Factory](../transform-data-using-stored-procedure.md).
@@ -49,7 +49,7 @@ Le attività di trasformazione dei dati in una [pipeline](data-factory-create-pi
 >
 > Quando si copiano dati in SQL Server, nel Database SQL di Azure o in Azure SQL Data Warehouse, è possibile configurare **SqlSink** nell'attività di copia per richiamare una stored procedure che consenta di leggere i dati dal database di origine tramite la proprietà **sqlReaderStoredProcedureName**. Per altre informazioni, vedere gli articoli connettore seguenti: [Database SQL di Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
-La procedura dettagliata seguente usa l'attività stored procedure in una pipeline per richiamare una stored procedure in un database SQL di Azure.
+La procedura dettagliata seguente usa l'attività stored procedure in una pipeline per richiamare un stored procedure nel database SQL di Azure.
 
 ## <a name="walkthrough"></a>Procedura dettagliata
 ### <a name="sample-table-and-stored-procedure"></a>Tabella di esempio e stored procedure
@@ -87,7 +87,7 @@ La procedura dettagliata seguente usa l'attività stored procedure in una pipeli
    > Il **nome** e la **combinazione di maiuscole e minuscole** per il parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nel codice JSON per la pipeline/attività. Nella definizione stored procedure assicurarsi che **\@** venga usato come prefisso per il parametro.
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
-1. Accedere a [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **NUOVO** nel menu a sinistra e quindi su **Intelligence e analisi** e **Data factory**.
 
     ![Nuova data factory](media/data-factory-stored-proc-activity/new-data-factory.png)
@@ -95,10 +95,10 @@ La procedura dettagliata seguente usa l'attività stored procedure in una pipeli
 
    ![Nuova data factory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
 4. Selezionare la **sottoscrizione di Azure**.
-5. In **Gruppo di risorse** eseguire una di queste operazioni:
+5. Per **gruppo di risorse**, eseguire una delle operazioni seguenti:
    1. Fare clic su **Crea nuovo** e immettere un nome per il gruppo di risorse.
    2. Fare clic su **Usa esistente** e scegliere un gruppo di risorse esistente.
-6. Selezionare il **percorso** per il data factory.
+6. Selezionare la **località** per la data factory.
 7. Selezionare **Aggiungi al dashboard** per visualizzare la data factory nel dashboard al successivo tentativo di accesso.
 8. Fare clic su **Crea** nel pannello **Nuova data factory**.
 9. Nel **dashboard** del portale di Azure verrà visualizzata la data factory in fase di creazione. Dopo la creazione della data factory, viene visualizzata la pagina corrispondente con elencato il contenuto della data factory.
@@ -106,7 +106,7 @@ La procedura dettagliata seguente usa l'attività stored procedure in una pipeli
    ![Home page di Data factory](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Creare un servizio collegato SQL di Azure
-Dopo aver creato la data factory, si crea un servizio collegato SQL di Azure che collega alla data factory il database SQL di Azure, contenente la tabella sampletable e la stored procedure usp_sample.
+Dopo aver creato la data factory, si crea un servizio collegato SQL di Azure che collega il database nel database SQL di Azure, che contiene la tabella SampleTable e usp_sample stored procedure, al data factory.
 
 1. Fare clic su **Creare e distribuire** nel pannello **Data Factory** per **SProcDF** per avviare l'editor di Data Factory.
 2. Fare clic su **Nuovo archivio dati** sul barra dei comandi e scegliere **Database SQL di Azure**. Nell'editor verrà visualizzato lo script JSON per la creazione di un servizio collegato SQL di Azure.
@@ -114,7 +114,7 @@ Dopo aver creato la data factory, si crea un servizio collegato SQL di Azure che
    ![Nuovo archivio dati](media/data-factory-stored-proc-activity/new-data-store.png)
 3. Nello script JSON apportare le modifiche seguenti:
 
-   1. Sostituire `<servername>` con il nome del server di database SQL di Azure.
+   1. Sostituire `<servername>` con il nome del server.
    2. Sostituire `<databasename>` con il database in cui sono state create la tabella e la stored procedure.
    3. Sostituire `<username@servername>` con l'account utente che ha accesso al database.
    4. Sostituire `<password>` con la password dell'account utente.
@@ -207,7 +207,7 @@ Tenere presenti le proprietà seguenti:
 3. Nella vista Diagramma fare doppio clic sul set di dati `sprocsampleout`. Verranno visualizzate le sezioni con stato pronto. Dovrebbero essere presenti cinque sezioni perché dal JSON viene generata una sezione ogni ora tra l'ora di inizio e l'ora di fine.
 
     ![Riquadro Diagramma](media/data-factory-stored-proc-activity/data-factory-slices.png)
-4. Quando lo stato di una sezione è **Pronto**, eseguire una query `select * from sampletable` sul database SQL di Azure per verificare che la stored procedure abbia inserito i dati nella tabella.
+4. Quando una sezione è nello stato **pronto** , eseguire una `select * from sampletable` query sul database per verificare che i dati siano stati inseriti nella tabella dal stored procedure.
 
    ![Dati di output](./media/data-factory-stored-proc-activity/output.png)
 
@@ -308,9 +308,9 @@ La tabella seguente illustra queste proprietà JSON:
 | name | Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No |
 | type | Deve essere impostato su: **SqlServerStoredProcedure** | Sì |
-| inputs | Facoltativa. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
+| input | Facoltativa. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
 | outputs | È necessario specificare un set di dati di output per un'attività della stored procedure. Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). <br/><br/>Il set di dati di output deve usare un **servizio collegato** che faccia riferimento a un database SQL di Azure, a un Azure SQL Data Warehouse o a un database SQL Server in cui si vuole che venga eseguita la stored procedure. <br/><br/>Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività, [concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline), nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. <br/><br/>In alcuni casi, il set di dati di output può essere un **set di dati fittizio**che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure. |Sì |
-| storedProcedureName |Specificare il nome della stored procedure nel database SQL di Azure, nel database SQL Server o in Azure SQL Data Warehouse rappresentato dal servizio collegato usato dalla tabella di output. |Sì |
+| storedProcedureName |Specificare il nome del stored procedure nel database SQL di Azure, Azure SQL Data Warehouse o SQL Server rappresentato dal servizio collegato usato dalla tabella di output. |Sì |
 | storedProcedureParameters |Specificare i valori dei parametri della stored procedure. Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole). Vedere l'esempio seguente per informazioni sull'uso di questa proprietà. |No |
 
 ## <a name="passing-a-static-value"></a>Passaggio di un valore statico

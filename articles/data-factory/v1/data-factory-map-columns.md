@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74923877"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318876"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione
 > [!NOTE]
@@ -39,7 +39,7 @@ Le seguenti sono condizioni di errore che generano un'eccezione:
 > Gli esempi che seguono sono per SQL Azure e Azure Blob, ma sono applicabili per qualsiasi archivio dati che supporti set di dati rettangolari. Modificare i set di dati e le definizioni dei servizi collegati negli esempi per puntare a dati nell'origine dati pertinente.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Esempio 1: mapping di colonne da Azure SQL al BLOB di Azure
-In questo esempio, la tabella di input ha una struttura che punta a una tabella SQL in un database SQL di Azure.
+In questo esempio, la tabella di input ha una struttura che punta a una tabella SQL nel database SQL di Azure.
 
 ```json
 {

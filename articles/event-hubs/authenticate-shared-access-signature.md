@@ -1,19 +1,14 @@
 ---
 title: Autenticare l'accesso a hub eventi di Azure con firme di accesso condiviso
 description: Questo articolo illustra come autenticare l'accesso alle risorse di hub eventi usando le firme di accesso condiviso.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.author: spelluru
-ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ed389460cf3461df060df79fb756e73711f693f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318046"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticare l'accesso alle risorse di hub eventi usando firme di accesso condiviso (SAS)
 Firma di accesso condiviso (SAS) offre un controllo granulare sul tipo di accesso concesso ai client che dispongono della firma di accesso condiviso. Ecco alcuni dei controlli che è possibile impostare in una firma di accesso condiviso: 
@@ -63,13 +58,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Il token contiene i valori non hash in modo che il destinatario possa ricalcolare il codice hash con gli stessi parametri, verificando che l'autorità di certificazione sia in possesso di una chiave di firma valida.
 
-L'URI di risorsa è l'URI completo della risorsa del bus di servizio a cui si richiede l'accesso. Ad esempio, http://<namespace>. ServiceBus.Windows.NET/<entityPath> o `sb://<namespace>.servicebus.windows.net/<entityPath>;` ovvero, `http://contoso.servicebus.windows.net/eventhubs/eh1`.
+L'URI di risorsa è l'URI completo della risorsa del bus di servizio a cui si richiede l'accesso. Ad esempio, http:// <namespace> . ServiceBus.Windows.NET/ <entityPath> o ovvero `sb://<namespace>.servicebus.windows.net/<entityPath>;` , `http://contoso.servicebus.windows.net/eventhubs/eh1` .
 
 L'URI deve essere codificato in percentuale.
 
 La regola di autorizzazione di accesso condiviso usata per la firma deve essere configurata nell'entità specificata da questo URI o in un elemento padre nella gerarchia. Ad esempio `http://contoso.servicebus.windows.net/eventhubs/eh1` o `http://contoso.servicebus.windows.net` nell'esempio precedente.
 
-Un token di firma di accesso condiviso è valido per tutte le <resourceURI> risorse con il prefisso usato nella stringa di firma.
+Un token di firma di accesso condiviso è valido per tutte le risorse con il prefisso <resourceURI> usato nella stringa di firma.
 
 > [!NOTE]
 > Per generare un token di accesso per hub eventi, usare i criteri di accesso condiviso. Per altre informazioni, vedere [criteri di autorizzazione dell'accesso condiviso](authorize-access-shared-access-signature.md#shared-access-authorization-policies).

@@ -6,14 +6,14 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 1fdee9a5d90fc065e198d880f9d0dea10804b881
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972640"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317777"
 ---
-# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creare modelli di Azure Resource Manager per automatizzare la distribuzione per le app per la logica di Azure
+# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creare modelli di Azure Resource Manager per automatizzare la distribuzione di App per la logica di Azure
 
 Per semplificare l'automazione della creazione e della distribuzione dell'app per la logica, in questo articolo vengono descritte le modalità di creazione di un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md) per l'app per la logica. Per una panoramica della struttura e della sintassi di un modello che include la definizione del flusso di lavoro e altre risorse necessarie per la distribuzione, vedere [Panoramica: automatizzare la distribuzione per le app per la logica con Azure Resource Manager modelli](logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -45,7 +45,7 @@ Scaricando l'app per la logica, si ottiene un modello che include le definizioni
 
 È possibile creare modelli di Gestione risorse usando Azure PowerShell con il [modulo LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Questo modulo Open Source valuta prima di tutto l'app per la logica e tutte le connessioni usate dall'app per la logica. Il modulo genera quindi le risorse del modello con i parametri necessari per la distribuzione.
 
-Si supponga, ad esempio, di avere un'app per la logica che riceve un messaggio da una coda del bus di servizio di Azure e carica i dati in un database SQL di Azure. Il modulo conserva tutta la logica di orchestrazione e parametrizza le stringhe di connessione SQL e Service Bus, in modo da poter fornire e modificare i valori in base alle esigenze di distribuzione.
+Si supponga, ad esempio, di avere un'app per la logica che riceve un messaggio da una coda del bus di servizio di Azure e carica i dati nel database SQL di Azure. Il modulo conserva tutta la logica di orchestrazione e parametrizza le stringhe di connessione SQL e Service Bus, in modo da poter fornire e modificare i valori in base alle esigenze di distribuzione.
 
 Questi esempi illustrano come creare e distribuire app per la logica usando modelli di Azure Resource Manager, Azure Pipelines in Azure DevOps e Azure PowerShell:
 
@@ -86,7 +86,7 @@ Per generare il modello dopo aver installato il modulo LogicAppTemplate e l'inte
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
-Per seguire la raccomandazione per il piping in un token dallo [strumento client di Azure Resource Manager](https://github.com/projectkudu/ARMClient), eseguire questo comando, `$SubscriptionId` dove è l'ID sottoscrizione di Azure:
+Per seguire la raccomandazione per il piping in un token dallo [strumento client di Azure Resource Manager](https://github.com/projectkudu/ARMClient), eseguire questo comando, dove `$SubscriptionId` è l'ID sottoscrizione di Azure:
 
 ```text
 PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json

@@ -1,24 +1,14 @@
 ---
 title: Panoramica delle funzionalità - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni dettagliate sulle funzionalità e la terminologia di Hub eventi di Azure.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: c16dd4345e62fa9e826e657cce9a752186ec1b82
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 06/23/2020
+ms.openlocfilehash: 5b646c1a0730b046dd3e66a5d5324b659999f83a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320707"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
@@ -49,14 +39,14 @@ La scelta di utilizzare AMQP o HTTPS dipende dallo scenario di utilizzo. AMQP ri
 
 ![Hub eventi](./media/event-hubs-features/partition_keys.png)
 
-Hub eventi garantisce che tutti gli eventi che condividono un valore di chiave di partizione vengano recapitati in ordine e alla stessa partizione. Se si usano chiavi di partizione con i criteri di autore, l'identità dell’autore e il valore della chiave di partizione devono corrispondere. In caso contrario si verifica un errore.
+Hub eventi garantisce che tutti gli eventi che condividono un valore di chiave di partizione vengano recapitati in ordine e alla stessa partizione. Se si usano chiavi di partizione con i criteri di autore, l'identità dell’autore e il valore della chiave di partizione devono corrispondere. In caso contrario si verificherà un errore.
 
 ### <a name="publisher-policy"></a>Criteri di autore
 
 Hub eventi consente un controllo granulare degli autori di eventi tramite *criteri di autore*. I criteri di autore sono funzionalità di runtime progettate per consentire un numero elevato di autori di eventi indipendenti. Con i criteri di autore, ogni autore usa il proprio identificatore univoco durante la pubblicazione di eventi in un hub eventi, con il meccanismo seguente:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 ```
 
 Non è necessario creare nomi di autore prima di procedere, ma devono corrispondere al token SAS utilizzato quando si pubblica un evento, al fine di garantire le identità di autore indipendenti. Quando si usano i criteri dei publisher, il valore di **PartitionKey** è impostato sul nome del publisher. Per il corretto funzionamento, questi valori devono corrispondere.
@@ -85,12 +75,13 @@ In un’architettura di elaborazione flusso, ogni applicazione a valle equivale 
 
 In una partizione per un gruppo di consumer ci possono essere al massimo cinque lettori simultanei; è tuttavia **consigliabile che in una partizione per un gruppo di consumer ci sia solo un ricevitore attivo**. All'interno di una singola partizione, ogni lettore riceve tutti i messaggi. Se si hanno più lettori nella stessa partizione, si elaborano i messaggi duplicati. È necessario gestire questa situazione nel codice. Benché tale operazione possa non rivelarsi semplice, si tratta di un approccio valido in alcuni scenari.
 
+Alcuni client offerti dagli Azure SDK sono agenti consumer intelligenti che gestiscono automaticamente i dettagli per verificare che ogni partizione disponga di un singolo lettore e che tutte le partizioni per un hub eventi vengano lette da. Ciò consente al codice di concentrarsi sull'elaborazione degli eventi letti dall'hub eventi, in modo che possa ignorare molti dei dettagli delle partizioni. Per altre informazioni, vedere [connettersi a una partizione](#connect-to-a-partition).
 
-Di seguito sono riportati esempi della convenzione dell'URI del gruppo di consumer:
+Gli esempi seguenti illustrano la convenzione dell'URI del gruppo di consumer:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
 ```
 
 La figura seguente illustra l'architettura di elaborazione del flusso di Hub eventi:
@@ -122,7 +113,12 @@ Tutti i consumer di Hub eventi si connettono tramite una sessione AMQP 1.0 e un 
 
 #### <a name="connect-to-a-partition"></a>Connettersi a una partizione
 
-Quando ci si connette direttamente a partizioni, viene in genere usato un meccanismo di leasing per coordinare le connessioni di lettura per partizioni specifiche. In questo modo è possibile per ogni partizione in un gruppo di consumer avere un solo lettore attivo. Il checkpoint, il leasing e la gestione dei lettori vengono semplificati tramite la classe [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) per i client .NET. L'host processore di eventi è un agente consumer intelligente.
+Quando ci si connette alle partizioni, è pratica comune usare un meccanismo di leasing per coordinare le connessioni di lettura a partizioni specifiche. In questo modo, è possibile che ogni partizione in un gruppo di consumer disponga di un solo lettore attivo. Il checkpoint, il leasing e la gestione dei lettori sono semplificati tramite i client all'interno degli SDK di hub eventi, che fungono da agenti di consumer intelligenti. Si tratta di:
+
+- [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) per .NET
+- [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) per Java
+- [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) per Python
+- [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) per JavaScript/typescript
 
 #### <a name="read-events"></a>Leggere gli eventi
 
@@ -142,13 +138,11 @@ L'utente è responsabile della gestione dell'offset.
 Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 
 - Introduzione all'Hub eventi
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [.NET](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
 * [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
-* [Esempi di Hub eventi][]
-
-[Esempi di Hub eventi]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+* [Esempi di Hub eventi](event-hubs-samples.md)

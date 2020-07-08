@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63db1810cbdd2133bc0577530325351997b31f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70139252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318910"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: esempi
 > [!NOTE]
@@ -48,7 +48,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 
 | Modello | Descrizione |
 | --- | --- |
-| [Copiare i dati dall'archiviazione BLOB di Azure al Database SQL di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |La distribuzione di questo modello consente di creare una data factory di Azure con una pipeline che copia dati dall'archiviazione BLOB di Azure specificata al database SQL di Azure |
+| [Copiare i dati dall'archiviazione BLOB di Azure al Database SQL di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |La distribuzione di questo modello consente di creare un data factory di Azure con una pipeline che copia i dati dall'archivio BLOB di Azure specificato al database SQL di Azure |
 | [Copiare da Salesforce all'archiviazione BLOB di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |La distribuzione di questo modello consente di creare una data factory di Azure con una pipeline che copia dati dall'account Salesforce specificato all'archiviazione BLOB di Azure. |
 | [Trasformare i dati eseguendo lo script Hive in un cluster HDInsight di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |La distribuzione di questo modello consente di creare una data factory di Azure con una pipeline che trasforma i dati eseguendo uno script Hive di esempio in un cluster Azure HDInsight Hadoop. |
 
@@ -62,7 +62,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 3. Nel pannello **Pipeline di esempio**, fare clic sull'**esempio** da distribuire.
 
     ![Pannello Pipeline di esempio](./media/data-factory-samples/SampleTile.png)
-4. Specificare le impostazioni di configurazione per l'esempio, ad esempio il nome dell'account di archiviazione di Azure e la chiave dell'account, il nome del server di Azure SQL, il database, l'ID utente, la password e così via.
+4. Specificare le impostazioni di configurazione per l'esempio, Ad esempio, il nome dell'account di archiviazione di Azure e la chiave dell'account, il nome logico del server SQL, il database, l'ID utente e la password e così via.
 
     ![Pannello Esempio](./media/data-factory-samples/SampleBlade.png)
 5. Dopo avere specificato le impostazioni di configurazione, fare clic su **Crea** per creare/distribuire le pipeline di esempio e i servizi collegati o le tabelle usati dalle pipeline.
@@ -80,7 +80,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 
 * Visual Studio 2013 o Visual Studio 2015
 * Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
-* Scaricare il plug-in Azure Data Factory più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se si usa Visual Studio 2013, è anche possibile aggiornare il plug-in attenendosi alla procedura seguente: nel menu fare clic **su strumenti** -> **estensioni e aggiornamenti** -> **online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**.
+* Scaricare il plug-in Azure Data Factory più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se si usa Visual Studio 2013, è anche possibile aggiornare il plug-in attenendosi alla procedura seguente: nel menu fare clic su **strumenti**  ->  **estensioni e aggiornamenti**  ->  **online**  ->  **Visual Studio Gallery**  ->  **Microsoft Azure Data Factory Tools for Visual Studio**  ->  **Update**.
 
 ### <a name="use-data-factory-templates"></a>Usare Modelli di Data Factory
 1. Fare clic su **File** nel menu, scegliere **Nuovo** e quindi fare clic su **Progetto**.
@@ -104,7 +104,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
    4. Selezionare il **gruppo di risorse** per la data factory.
    5. Selezionare **Stati Uniti Occidentali**, **Stati Uniti Orientali** o **Europa settentrionale** per l'**area**.
    6. Fare clic su **Avanti**.
-6. Nella pagina **Configure data stores** (Configura archivi dati) specificare un **database SQL di Azure** e un **account di archiviazione di Azure** esistenti oppure crearne di nuovi, quindi scegliere Avanti.
+6. Nella pagina **Configura archivi dati** specificare un **database esistente nel database SQL di Azure e nell'account di archiviazione di** **Azure** (o) creare database/archiviazione e fare clic su Avanti.
 7. Nella pagina **Configura calcolo** selezionare le impostazioni predefinite e fare clic su **Avanti**.
 8. Nella pagina **Riepilogo** esaminare tutte le impostazioni e fare clic su **Avanti**.
 9. Nella pagina **Stato distribuzione** attendere finché non viene completata la distribuzione e fare clic su **Fine**.
