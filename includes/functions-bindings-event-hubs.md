@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 47e9e37676a4afa9ec29393bf970c368f3f9e5be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77586130"
 ---
 ## <a name="add-to-your-functions-app"></a>Aggiungi all'app funzioni
 
-### <a name="functions-2x-and-higher"></a>Funzioni 2. x e versioni successive
+### <a name="functions-2x-and-higher"></a>Funzioni 2.x e versioni successive
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 

@@ -5,15 +5,15 @@ description: Questo articolo fornisce informazioni su come risolvere il problema
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 961ed17bcef19b445c2546a557725bb6bd8653cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80293532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806486"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Risolvere i problemi del servizio app nel gateway applicazione
 
@@ -77,7 +77,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-Nell'esempio precedente, si noti che l'intestazione della risposta ha un codice di stato 301 per il reindirizzamento. L'intestazione Location ha il nome host del servizio app anziché il nome `www.contoso.com`host originale.
+Nell'esempio precedente, si noti che l'intestazione della risposta ha un codice di stato 301 per il reindirizzamento. L'intestazione Location ha il nome host del servizio app anziché il nome host originale `www.contoso.com` .
 
 ## <a name="solution-rewrite-the-location-header"></a>Soluzione: riscrivere l'intestazione Location
 
@@ -98,9 +98,9 @@ Il servizio app ora esegue il reindirizzamento, se presente, sulla stessa intest
 
     ![Elenco di domini personalizzati del servizio app](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- Il servizio app è pronto per accettare il nome `www.contoso.com`host. Modificare la voce CNAME in DNS per puntare di nuovo al nome di dominio completo del gateway applicazione, ad `appgw.eastus.cloudapp.azure.com`esempio.
+- Il servizio app è pronto per accettare il nome host `www.contoso.com` . Modificare la voce CNAME in DNS per puntare di nuovo al nome di dominio completo del gateway applicazione, ad esempio `appgw.eastus.cloudapp.azure.com` .
 
-- Quando si esegue una query `www.contoso.com` DNS, verificare che il dominio venga risolto nel nome di dominio completo del gateway applicazione.
+- `www.contoso.com`Quando si esegue una query DNS, verificare che il dominio venga risolto nel nome di dominio completo del gateway applicazione.
 
 - Impostare il probe personalizzato per disabilitare **pick hostname dalle impostazioni http back-end**. Nella portale di Azure deselezionare la casella di controllo nelle impostazioni del probe. In PowerShell non usare l'opzione **-PickHostNameFromBackendHttpSettings** nel comando **set-AzApplicationGatewayProbeConfig** . Nel campo nome host del probe immettere il nome di dominio completo del servizio app, example.azurewebsites.net. Le richieste di probe inviate dal gateway applicazione contengono questo FQDN nell'intestazione host.
 
@@ -111,7 +111,7 @@ Il servizio app ora esegue il reindirizzamento, se presente, sulla stessa intest
 
 - Associare nuovamente il probe personalizzato alle impostazioni HTTP back-end e verificare che il back-end sia integro.
 
-- Il gateway applicazione deve ora trasmettere lo stesso nome host, `www.contoso.com`, al servizio app. Il reindirizzamento si verifica sullo stesso nome host. Controllare le intestazioni di richiesta e risposta di esempio seguenti.
+- Il gateway applicazione deve ora trasmettere lo stesso nome host, `www.contoso.com` , al servizio app. Il reindirizzamento si verifica sullo stesso nome host. Controllare le intestazioni di richiesta e risposta di esempio seguenti.
 
 Per implementare i passaggi precedenti usando PowerShell per un'installazione esistente, usare lo script di PowerShell di esempio seguente. Si noti che non sono state usate le opzioni **-PickHostname** nella configurazione delle impostazioni di probe e http.
 
