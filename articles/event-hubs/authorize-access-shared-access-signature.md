@@ -1,19 +1,13 @@
 ---
 title: Autorizzare l'accesso con una firma di accesso condiviso in hub eventi di Azure
 description: Questo articolo fornisce informazioni su come autorizzare l'accesso alle risorse di hub eventi di Azure usando le firme di accesso condiviso (SAS).
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: bdb1896f8a40c6de21ae76b536bfccec316341cd
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 6a2d7385f82864e8d378055333377fb9c3f73c19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69992796"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85323119"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Autorizzazione dell'accesso alle risorse di hub eventi tramite firme di accesso condiviso
 Una firma di accesso condiviso fornisce un modo per concedere l'accesso limitato alle risorse nello spazio dei nomi di hub eventi. SAS protegge l'accesso alle risorse di hub eventi in base alle regole di autorizzazione. Queste regole vengono configurate in uno spazio dei nomi o in un'entità (hub eventi o argomento). Questo articolo fornisce una panoramica del modello SAS ed esamina le procedure consigliate per la firma di accesso condiviso.
@@ -33,7 +27,7 @@ SAS è un meccanismo di autorizzazione basato sulle attestazioni che usa token s
 
 ## <a name="shared-access-authorization-policies"></a>Criteri di autorizzazione dell'accesso condiviso
 Ogni spazio dei nomi di hub eventi e ogni entità di hub eventi (un'istanza dell'hub eventi o un argomento Kafka) dispone di un criterio di autorizzazione di accesso condiviso costituito da regole. I criteri a livello di spazio dei nomi si applicano a tutte le entità in esso incluse, indipendentemente dalle specifiche configurazioni dei criteri.
-Per ogni regola del criterio di autorizzazione si stabiliscono tre informazioni: nome, ambito e diritti. Il nome è un nome univoco in tale ambito. L'ambito è l'URI della risorsa in questione. Per uno spazio dei nomi di hub eventi, l'ambito è il nome di dominio completo (FQDN) `https://<yournamespace>.servicebus.windows.net/`, ad esempio.
+Per ogni regola del criterio di autorizzazione si stabiliscono tre informazioni: nome, ambito e diritti. Il nome è un nome univoco in tale ambito. L'ambito è l'URI della risorsa in questione. Per uno spazio dei nomi di hub eventi, l'ambito è il nome di dominio completo (FQDN), ad esempio `https://<yournamespace>.servicebus.windows.net/` .
 
 I diritti forniti dalla regola dei criteri possono essere una combinazione di:
 - **Send** : fornisce il diritto di inviare messaggi all'entità

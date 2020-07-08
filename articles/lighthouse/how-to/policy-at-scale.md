@@ -2,13 +2,12 @@
 title: Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 description: Informazioni sul modo in cui la gestione risorse delegate di Azure consente di distribuire una definizione e un'assegnazione dei criteri tra più tenant.
 ms.date: 11/8/2019
-ms.topic: conceptual
-ms.openlocfilehash: 3fe7e48c56e9a5af93e9642ee16c50cfbce34f9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 0e3af1728b4927874fa599bad256798f39721e22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81481814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636530"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 
@@ -61,7 +60,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
                      -Verbose                  
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Al termine, rimuovere la definizione dei criteri e l'assegnazione creata dalla distribuzione.
 

@@ -3,25 +3,24 @@ title: Problemi di installazione del connettore dell'agente proxy dell'applicazi
 description: Come risolvere i problemi che potrebbero verificarsi durante l'installazione del connettore dell'agente proxy dell'applicazione
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f73d46b612c1dcf94554e10b4820c3f2442248f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82172407"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764690"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemi di installazione del connettore dell'agente proxy dell'applicazione
 
@@ -93,8 +92,8 @@ Seguire i passaggi per verificare il certificato:
 
 Seguire i passaggi per verificare il certificato:
 
-1. Scaricare [PsTools. zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Estrarre [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) dal pacchetto ed eseguire **psexec-i-u "NT Authority\Network Service" cmd. exe** da un prompt dei comandi con privilegi elevati.
+1. Scarica [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Estrarre [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) dal pacchetto ed eseguire **psexec-i-u "NT authority\network Service" cmd.exe** da un prompt dei comandi con privilegi elevati.
 3. Eseguire **certmgr. msc** nel prompt dei comandi appena visualizzato
 2. Nella console di gestione espandere il contenitore personale e fare clic su certificati.
 3. Individuare il certificato emesso da **connectorregistrationca.msappproxy.NET**
@@ -125,4 +124,4 @@ Connettersi a `https://login.microsoftonline.com` e usare le stesse credenziali.
 Selezionare il proprio account utente, quindi "directory Role" nel menu risultante. Verificare che il ruolo selezionato sia "amministratore applicazione". Se non si riesce ad accedere a nessuna delle pagine con questa procedura, non si ha il ruolo necessario.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni sui connettori del proxy di applicazione Azure AD](application-proxy-connectors.md)
+[Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)

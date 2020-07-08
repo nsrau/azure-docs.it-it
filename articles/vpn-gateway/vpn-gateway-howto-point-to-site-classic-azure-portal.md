@@ -4,15 +4,14 @@ description: Creare una connessione classica al gateway VPN da punto a sito tram
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5d80cb2f2ed844126d1e9311151e6c53fcb11840
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984794"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurare una connessione da punto a sito usando l'autenticazione del certificato (versione classica)
 
@@ -93,7 +92,7 @@ Se non si ha una rete virtuale, crearne una. Gli screenshot sono forniti come es
 
 5. Selezionare la **Sottoscrizione** da usare nell'elenco a discesa.
 
-6. Selezionare un **Gruppo di risorse** esistente. In alternativa, creare un nuovo gruppo di risorse selezionando **Crea nuovo** e specificando un nome. Se si crea un nuovo gruppo di risorse, denominare il gruppo in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
+6. Selezionare un **Gruppo di risorse** esistente. In alternativa, creare un nuovo gruppo di risorse selezionando **Crea nuovo** e specificando un nome. Se si crea un nuovo gruppo di risorse, denominare il gruppo in base ai valori di configurazione pianificati. Per ulteriori informazioni sui gruppi di risorse, vedere [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Selezionare una **Posizione** per la rete virtuale. Questa impostazione determina la posizione geografica delle risorse distribuite in questa rete virtuale.
 

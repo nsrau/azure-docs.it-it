@@ -4,11 +4,10 @@ description: Questo articolo riepiloga il supporto di backup di Azure quando si 
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247865"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709879"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -43,10 +42,10 @@ Quando si usa l'agente MARS per eseguire il backup dei dati, l'agente acquisisce
 
 **Cache** | **Dettagli**
 --- | ---
-Dimensioni |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
-Percorso | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
+Dimensione |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
+Location | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
 Cartella | La cartella della cache non deve essere crittografata in un volume deduplicato o in una cartella compressa, di tipo sparse o con un punto di analisi.
-Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di`net stop bengine`backup () e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) al nuovo percorso e riavviare il motore.
+Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di backup ( `net stop bengine` ) e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) al nuovo percorso e riavviare il motore.
 
 ## <a name="networking-and-access-support"></a>Supporto delle funzionalità di rete e dell'accesso
 
@@ -94,7 +93,7 @@ Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](http
 
 **Funzionalità** | **Dettagli**
 --- | ---
-Controllo della larghezza di banda | Supportato. Nell'agente MARS usare **modifica proprietà** per regolare la larghezza di banda.
+Controllo della larghezza di banda | Supportata. Nell'agente MARS usare **modifica proprietà** per regolare la larghezza di banda.
 Limitazione della larghezza di banda della rete | Non disponibile per computer sottoposti a backup che eseguono Windows Server 2008 R2, Windows Server 2008 SP2 o Windows 7.
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
@@ -116,7 +115,7 @@ Windows 8.1 (Enterprise, Pro)| Sì |No | Controllare la versione del server corr
 Windows 8 (Enterprise, Pro) | Sì | No | Controllare la versione del server corrispondente per i requisiti software/modulo
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
-Windows Server 2012 (Standard, Datacenter, Foundation) | Sì | Sì |-.NET 4,5 <br> - Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
+Windows Server 2012 (Standard, Datacenter, Foundation) | Sì | Sì |-.NET 4,5 <br> - Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM.exe)
 Windows Storage Server 2016/2012 R2/2012 (standard, Workgroup) | Sì | No | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 
@@ -133,8 +132,8 @@ Per gli ambienti locali o ospitati, in cui non è possibile aggiornare il sistem
 | **Sistema operativo**                                       | **File/cartelle** | **Stato del sistema** | **Requisiti del software/modulo**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
 | Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Sì               | No                 | Controllare la versione del server corrispondente per i requisiti software/modulo |
-| Windows Server 2008 R2 (standard, Enterprise, Datacenter, Foundation) | Sì               | Sì                | -.NET 3,5, .NET 4,5 <br>  -Windows PowerShell <br>  -Compatibile con Microsoft VC + + Redistributable <br>  -Microsoft Management Console (MMC) 3,0 <br>  -Gestione e manutenzione immagini distribuzione (DISM. exe) |
-| Windows Server 2008 SP2 (standard, Datacenter, Foundation)  | Sì               | No                 | -.NET 3,5, .NET 4,5 <br>  -Windows PowerShell <br>  -Compatibile con Microsoft VC + + Redistributable <br>  -Microsoft Management Console (MMC) 3,0 <br>  -Gestione e manutenzione immagini distribuzione (DISM. exe) <br>  -Server virtuale 2005 base + KB KB948515 |
+| Windows Server 2008 R2 (standard, Enterprise, Datacenter, Foundation) | Sì               | Sì                | -.NET 3,5, .NET 4,5 <br>  -Windows PowerShell <br>  -Compatibile con Microsoft VC + + Redistributable <br>  -Microsoft Management Console (MMC) 3,0 <br>  -Gestione e manutenzione immagini distribuzione (DISM.exe) |
+| Windows Server 2008 SP2 (standard, Datacenter, Foundation)  | Sì               | No                 | -.NET 3,5, .NET 4,5 <br>  -Windows PowerShell <br>  -Compatibile con Microsoft VC + + Redistributable <br>  -Microsoft Management Console (MMC) 3,0 <br>  -Gestione e manutenzione immagini distribuzione (DISM.exe) <br>  -Server virtuale 2005 base + KB KB948515 |
 
 ## <a name="backup-limits"></a>Limiti relativi a Backup
 
@@ -145,10 +144,10 @@ Backup di Azure limita le dimensioni di un'origine dati file o cartella di cui �
 **Sistema operativo** | **Limite dimensioni**
 --- | ---
 Windows Server 2012 o versioni successive |54400 GB
-Windows Server 2008 R2 SP1 |1.700 GB
-Windows Server 2008 SP2| 1.700 GB
+Windows Server 2008 R2 SP1 |1\.700 GB
+Windows Server 2008 SP2| 1\.700 GB
 Windows 8 o versione successiva| 54400 GB
-Windows 7| 1.700 GB
+Windows 7| 1\.700 GB
 
 ### <a name="other-limitations"></a>Altre limitazioni
 
@@ -156,25 +155,25 @@ Windows 7| 1.700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Tipi di file supportati per il backup
 
-**Type** | **Supporto tecnico**
+**Tipo** | **Supporto**
 --- | ---
-Crittografati<sup>*</sup>| Supportato.
-Compresso | Supportato.
-Sparse | Supportato.
-Compresso e sparse |Supportato.
-Collegamenti reali| Non supportata. Operazione ignorata.
-Reparse point| Non supportata. Operazione ignorata.
-Crittografato e sparse |Non supportata. Operazione ignorata.
-Flusso compresso| Non supportata. Operazione ignorata.
-Flusso di tipo sparse| Non supportata. Operazione ignorata.
-OneDrive (i file sincronizzati sono flussi sparse)| Non supportata.
-Cartelle con Replica DFS abilitata | Non supportata.
+Crittografati<sup>*</sup>| Supportata.
+Compresso | Supportata.
+Sparse | Supportata.
+Compresso e sparse |Supportata.
+Collegamenti reali| Non supportato. Ignorato.
+Reparse point| Non supportato. Ignorato.
+Crittografato e sparse |Non supportato. Ignorato.
+Flusso compresso| Non supportato. Ignorato.
+Flusso di tipo sparse| Non supportato. Ignorato.
+OneDrive (i file sincronizzati sono flussi sparse)| Non supportato.
+Cartelle con Replica DFS abilitata | Non supportato.
 
 \*Verificare che l'agente MARS abbia accesso ai certificati richiesti per accedere ai file crittografati. I file inaccessibili verranno ignorati.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unità o volumi supportati per il backup
 
-**Unità/volume** | **Supporto tecnico** | **Dettagli**
+**Unità/volume** | **Supporto** | **Dettagli**
 --- | --- | ---
 Volumi di sola lettura| Non supportato | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
 Volumi offline| Non supportato |VSS funziona solo se il volume è online.

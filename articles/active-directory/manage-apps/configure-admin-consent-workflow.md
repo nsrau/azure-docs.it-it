@@ -2,22 +2,21 @@
 title: Configurare il flusso di lavoro di consenso dell'amministratore-Azure Active Directory | Microsoft Docs
 description: Informazioni su come configurare un modo per consentire agli utenti finali di richiedere l'accesso alle applicazioni che richiedono il consenso dell'amministratore.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430212"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763619"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
 
@@ -153,10 +152,10 @@ Se si è preoccupati di concedere il consenso dell'amministratore e consentire a
 
 Per altre informazioni sul consenso alle applicazioni, vedere [framework di consenso di Azure Active Directory](../develop/consent-framework.md).
 
-[Configurare la modalità con cui gli utenti finali accettano le applicazioni](configure-user-consent.md)
+[Configurare la modalità con cui gli utenti finali consentono le applicazioni](configure-user-consent.md)
 
-[Concedere il consenso dell'amministratore a livello di tenant a un'applicazione](grant-admin-consent.md)
+[Concedere a un'applicazione il consenso amministratore a livello di tenant](grant-admin-consent.md)
 
-[Autorizzazioni e consenso nella piattaforma di identità Microsoft](../develop/active-directory-v2-scopes.md)
+[Autorizzazioni e consenso in Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
 
 [Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

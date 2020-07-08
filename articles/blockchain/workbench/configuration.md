@@ -5,11 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252194"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710185"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
 
@@ -49,7 +48,7 @@ La logica di business di un'applicazione può essere modellata come macchina a s
 
 | Campo | Descrizione | Obbligatoria | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| Name | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Sì | 50 |
+| Nome | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Sì | 50 |
 | DisplayName | Nome visualizzato descrittivo del flusso di lavoro. | Sì | 255 |
 | Descrizione | Descrizione del flusso di lavoro. | No | 255 |
 | Initiators | Raccolta di [ruoli applicazione](#application-roles). Ruoli assegnati agli utenti autorizzati a creare contratti nel flusso di lavoro. | Sì | |
@@ -61,7 +60,7 @@ La logica di business di un'applicazione può essere modellata come macchina a s
 
 Per un esempio, vedere il [file di configurazione di esempio](#configuration-file-example).
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Tipi di dati supportati.
 
@@ -75,7 +74,7 @@ Tipi di dati supportati.
 | INT      | Tipo di dati Integer. |
 | money    | Tipo di dati Money. |
 | state    | Stato del flusso di lavoro. |
-| stringa  | Tipo di dati stringa. 4000 caratteri al massimo. Vedere una [configurazione di esempio](#example-configuration-of-type-string). |
+| string  | Tipo di dati stringa. 4000 caratteri al massimo. Vedere una [configurazione di esempio](#example-configuration-of-type-string). |
 | utente     | Indirizzo di tipo utente. |
 | time     | Dati di tipo Time. |
 |`[ Application Role Name ]`| Qualsiasi nome specificato nel ruolo applicazione. Limita gli utenti a questo tipo di ruolo. |
@@ -203,7 +202,7 @@ Definisce le funzioni che possono essere eseguite nel flusso di lavoro.
 
 | Campo | Descrizione | Obbligatoria | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| Name | Nome univoco della funzione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la funzione applicabile. | Sì | 50 |
+| Nome | Nome univoco della funzione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la funzione applicabile. | Sì | 50 |
 | DisplayName | Nome visualizzato descrittivo della funzione. | Sì | 255 |
 | Descrizione | Descrizione della funzione | No | 255 |
 | Parametri | Raccolta di [identificatori](#identifiers) corrispondenti ai parametri della funzione. | Sì | |
@@ -251,11 +250,11 @@ Raccolta di stati univoci all'interno di un flusso di lavoro. Ogni stato acquisi
 
 | Campo | Descrizione | Obbligatoria | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| Name | Nome univoco dello stato. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per lo stato applicabile. | Sì | 50 |
+| Nome | Nome univoco dello stato. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per lo stato applicabile. | Sì | 50 |
 | DisplayName | Nome visualizzato descrittivo dello stato. | Sì | 255 |
 | Descrizione | Descrizione dello stato. | No | 255 |
 | PercentComplete | Valore intero visualizzato nell'interfaccia utente di Blockchain Workbench per mostrare lo stato di avanzamento all'interno del flusso di controllo della logica di business. | Sì | |
-| Style | Indicatore visivo che specifica se lo stato è di esito positivo o negativo. I due valori validi sono `Success` e `Failure`. | Sì | |
+| Stile | Indicatore visivo che specifica se lo stato è di esito positivo o negativo. I due valori validi sono `Success` e `Failure`. | Sì | |
 | Transizioni | Raccolta di [transizioni](#transitions) disponibili dallo stato corrente al set successivo di stati. | No | |
 
 ### <a name="states-example"></a>Esempio di stati
@@ -365,7 +364,7 @@ I ruoli applicazione definiscono un set di ruoli che possono essere assegnati ag
 
 | Campo | Descrizione | Obbligatoria | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| Name | Identificatore univoco del ruolo applicazione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per il ruolo applicabile. I nomi del tipo di base sono riservati. Non è possibile assegnare a un ruolo applicazione lo stesso nome come [tipo](#type)| Sì | 50 |
+| Nome | Identificatore univoco del ruolo applicazione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per il ruolo applicabile. I nomi del tipo di base sono riservati. Non è possibile assegnare a un ruolo applicazione lo stesso nome come [tipo](#type)| Sì | 50 |
 | Descrizione | Descrizione del ruolo applicazione. | No | 255 |
 
 ### <a name="application-roles-example"></a>Esempio di ruoli applicazione
@@ -388,10 +387,10 @@ Gli identificatori rappresentano una raccolta di informazioni usate per descrive
 
 | Campo | Descrizione | Obbligatoria | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| Name | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Sì | 50 |
+| Nome | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Sì | 50 |
 | DisplayName | Nome visualizzato descrittivo per la proprietà o il parametro. | Sì | 255 |
 | Descrizione | Descrizione della proprietà o del parametro. | No | 255 |
-| Tipo | [Tipo di dati](#type)della proprietà. | Sì |
+| Type | [Tipo di dati](#type)della proprietà. | Sì |
 
 ### <a name="identifiers-example"></a>Esempio di identificatori
 

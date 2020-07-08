@@ -3,12 +3,12 @@ title: Ripristinare file e cartelle da un backup di macchine virtuali di Azure
 description: Questo articolo illustra come ripristinare file e cartelle da un punto di ripristino di macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757977"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027166"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -228,7 +228,7 @@ Se si esegue lo script in un computer con accesso limitato, verificare che sia d
 
 - `download.microsoft.com`
 - URL di servizi di ripristino (il nome geografico si riferisce all'area in cui si trova l'insieme di credenziali di servizi di ripristino)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Per aree geografiche pubbliche di Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Per le aree pubbliche di Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (per Azure China (21Vianet))
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Per Azure US Gov)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Per Azure Germania)
@@ -236,7 +236,7 @@ Se si esegue lo script in un computer con accesso limitato, verificare che sia d
 
 > [!NOTE]
 >
-> - Il nome del file di script scaricato avrà il **nome geografico** che dovrà essere compilato nell'URL. Ad esempio: Il nome dello script scaricato inizia con \'VMname\'\_\'geoname\'_\'GUID\', ad esempio *ContosoVM_wcus_12345678*
+> - Il nome del file di script scaricato avrà il **nome geografico** che dovrà essere compilato nell'URL. Ad esempio: il nome dello script scaricato inizia con \' VMName \' \_ \' geoname \' _ \' GUID \' , come *ContosoVM_wcus_12345678*
 > - L'URL sarà <https://pod01-rec2.wcus.backup.windowsazure.com>"
 >
 
@@ -246,9 +246,9 @@ Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessi
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Ripristino di file dai backup di macchine virtuali con dischi di grandi dimensioni
 
-Questa sezione illustra come eseguire il ripristino di file da backup di macchine virtuali di Azure con più di 16 dischi e ogni disco con dimensioni superiori a 32 TB.
+Questa sezione illustra come eseguire il ripristino di file da backup di macchine virtuali di Azure con più di 16 dischi o ogni dimensione di disco superiore a 4 TB.
 
-Poiché il processo di recupero file associa tutti i dischi del backup, quando vengono usati un numero elevato di dischi (>16) o dischi di grandi dimensioni (>32 TB ciascuno), sono consigliati i punti di azione seguenti:
+Poiché il processo di recupero file connette tutti i dischi dal backup, quando vengono usati un numero elevato di dischi (>16) o dischi di grandi dimensioni (> 4 TB ciascuno), sono consigliati i punti di azione seguenti:
 
 - Mantenere un server di ripristino distinto (VM D2v3 di Azure) per il ripristino dei file. È possibile usarlo solo per il ripristino dei file e quindi arrestarlo quando non è necessario. Il ripristino nel computer originale non è consigliato, poiché avrà un impatto significativo sulla macchina virtuale stessa.
 - Eseguire quindi lo script una volta per verificare se l'operazione di ripristino dei file riesce.

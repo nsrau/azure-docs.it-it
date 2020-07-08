@@ -3,24 +3,23 @@ title: Problemi di configurazione dell'accesso Single Sign-on basato su password
 description: Problemi comuni che si verificano quando si configura la Single Sign-On delle password (SSO) per le app personalizzate che non si trovano nella raccolta di applicazioni Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 9620a6ad584f20a0956e6a29c89609d79832f4d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763449"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problemi di configurazione Single Sign-On delle password per un'applicazione non della raccolta
 
@@ -96,17 +95,17 @@ Per configurare l'accesso SSO basato su password per un'app usando l'acquisizion
 
 9. Immettere l' **URL di accesso**, ovvero la pagina in cui gli utenti immettono il nome utente e la password per l'accesso. *Assicurarsi che i campi di accesso siano visibili nella pagina per l'URL fornito*.
 
-10. Selezionare **Configure * &lt;AppName&gt; * password Single Sign-on Settings**.
+10. Selezionare **Configure * &lt; appname &gt; * password Single Sign-on Settings**.
 
 11. Selezionare **rileva manualmente i campi di accesso**.
 
-14. Fare clic su **OK**.
+14. Selezionare **OK**.
 
 15. Selezionare **Salva**.
 
 16. Seguire le istruzioni per usare il pannello di accesso.
 
-## <a name="troubleshoot-problems"></a>Risoluzione dei problemi
+## <a name="troubleshoot-problems"></a>Risolvere i problemi
 
 ### <a name="i-get-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Viene ricevuto un errore "non sono stati trovati campi di accesso in questo URL"
 
@@ -140,15 +139,15 @@ Se si verifica uno di questi problemi, effettuare le operazioni seguenti:
 
 - Provare a eseguire di nuovo il processo di acquisizione manuale. Assicurarsi che i marcatori rossi si trovino sui campi corretti.
 
-- Se il processo di acquisizione manuale sembra smettere di rispondere o la pagina di accesso non risponde, provare a eseguire di nuovo il processo di acquisizione manuale. Questa volta, tuttavia, dopo aver completato il processo, premere il tasto F12 per aprire la console per sviluppatori del browser. Selezionare la scheda **console** . digitare **Window. location = "*&lt;URL di accesso specificato durante la configurazione dell'app&gt;*"** e quindi premere INVIO. In questo modo viene forzato un reindirizzamento della pagina che termina il processo di acquisizione e archivia i campi acquisiti.
+- Se il processo di acquisizione manuale sembra smettere di rispondere o la pagina di accesso non risponde, provare a eseguire di nuovo il processo di acquisizione manuale. Questa volta, tuttavia, dopo aver completato il processo, premere il tasto F12 per aprire la console per sviluppatori del browser. Selezionare la scheda **console** . digitare **Window. location = "* &lt; URL di accesso specificato durante la configurazione dell' &gt; app*"** e quindi premere INVIO. In questo modo viene forzato un reindirizzamento della pagina che termina il processo di acquisizione e archivia i campi acquisiti.
 
-### <a name="contact-support"></a>Contattare il supporto tecnico
+### <a name="contact-support"></a>Rivolgersi al Supporto Tecnico
 
 Se si verificano ancora problemi, aprire un caso con supporto tecnico Microsoft. Descrivere gli elementi che sono stati tentati. Includere i dettagli descritti in visualizzare i dettagli della [notifica del portale](#view-portal-notification-details) e inviare i dettagli della notifica [a un tecnico del supporto per ottenere](#send-notification-details-to-a-support-engineer-to-get-help) le sezioni della Guida di questo articolo (se applicabile).
 
 ## <a name="install-the-access-panel-browser-extension"></a>Installare l'estensione del browser per il pannello di accesso
 
-A tale scopo, seguire questa procedura:
+Attenersi ai passaggi descritti di seguito.
 
 1. Aprire il [Pannello di accesso](https://myapps.microsoft.com) in un browser supportato. Accedere per Azure AD come *utente*.
 
@@ -219,7 +218,7 @@ Nelle informazioni seguenti viene illustrato il significato di ogni elemento di 
 
 - **UPN**: l'utente che ha eseguito l'operazione.
 
-    Esempio: *tperkins\@F128.info*
+    Esempio: *tperkins \@ F128.info*
 
 - **ID tenant**: ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione.
 
@@ -245,7 +244,7 @@ Nelle informazioni seguenti viene illustrato il significato di ogni elemento di 
 
 - **Dettagli**: Descrizione dettagliata di ciò che si è verificato come risultato dell'operazione.
 
-    Esempio: l' *URL interno<https://bing.com/>'' non è valido perché è già in uso.*
+    Esempio: l' *URL interno ' <https://bing.com/> ' non è valido perché è già in uso.*
 
 - **Copia errore**: consente di selezionare l' **icona di copia** a destra della casella di testo **copia errore** per copiare i dettagli della notifica in modo da agevolare il supporto.
 

@@ -5,16 +5,14 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 80414ccd6d5797614dd15bd61af8f37b3d2be05c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cf78a2f7d909fb260c5ff99f80c9d1482f2cd08b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870372"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027308"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Aggiungere e gestire le librerie per Apache Spark in Azure sinapsi Analytics
 
@@ -26,7 +24,7 @@ I pacchetti Python possono essere aggiunti al livello del pool Spark (anteprima)
 
 Apache Spark in Azure sinapsi Analytics ha un'installazione completa di Anaconda, oltre a librerie aggiuntive. L'elenco completo delle librerie è disponibile nel [Apache Spark supporto della versione](apache-spark-version-support.md).
 
-Quando viene avviata un'istanza di Spark, viene creato un nuovo ambiente virtuale utilizzando questa installazione come base. Inoltre, è possibile utilizzare un file *requirements. txt* (output del `pip freeze` comando) per aggiornare l'ambiente virtuale. I pacchetti elencati in questo file per l'installazione o l'aggiornamento vengono scaricati da PyPi al momento dell'avvio del cluster. Questo file dei requisiti viene usato ogni volta che viene creata un'istanza Spark dal pool Spark.
+Quando viene avviata un'istanza di Spark, viene creato un nuovo ambiente virtuale utilizzando questa installazione come base. Inoltre, è possibile utilizzare un file di *requirements.txt* (output del `pip freeze` comando) per aggiornare l'ambiente virtuale. I pacchetti elencati in questo file per l'installazione o l'aggiornamento vengono scaricati da PyPi al momento dell'avvio del cluster. Questo file dei requisiti viene usato ogni volta che viene creata un'istanza Spark dal pool Spark.
 
 > [!IMPORTANT]
 >
@@ -40,9 +38,7 @@ Il frammento di codice seguente mostra il formato per il file dei requisiti. Il 
 
 ```
 absl-py==0.7.0
-
 adal==1.2.1
-
 alabaster==0.7.10
 ```
 

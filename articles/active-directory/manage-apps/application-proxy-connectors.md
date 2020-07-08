@@ -2,22 +2,21 @@
 title: Comprendere i connettori del proxy applicazione Azure AD | Microsoft Docs
 description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764673"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -45,7 +44,7 @@ Per distribuire correttamente il proxy di applicazione, è necessario almeno un 
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-1. Riavviare il server
+1. Riavviare il server.
 
 Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](application-proxy-add-on-premises-application.md).
 
@@ -76,7 +75,7 @@ Potrebbero verificarsi tempi di inattività quando viene aggiornato il connettor
 - Si ha un solo connettore. È consigliabile installare un secondo connettore e [creare un gruppo di connettori](application-proxy-connector-groups.md): in questo modo è possibile evitare periodi di inattività e assicurare una disponibilità più elevata.  
 - Un connettore si trovava nel mezzo di una transazione quando è iniziato l'aggiornamento. Anche se la transazione iniziale viene persa, il browser dovrebbe ripetere automaticamente l'operazione. In caso contrario, è possibile aggiornare la pagina. Quando la richiesta viene inviata di nuovo, il traffico viene indirizzato a un connettore di backup.
 
-Per informazioni sulle versioni rilasciate in precedenza e le modifiche incluse, vedere [Cronologia delle versioni del proxy di applicazione](application-proxy-release-version-history.md).
+Per visualizzare informazioni sulle versioni rilasciate in precedenza e sulle modifiche che includono, vedere la pagina relativa alla cronologia delle versioni del [proxy di applicazione](application-proxy-release-version-history.md).
 
 ## <a name="creating-connector-groups"></a>Creazione di gruppi di connettori
 
@@ -175,9 +174,9 @@ e con i contatori delle prestazioni di Windows.
 
 ![Aggiungere contatori al connettore con Performance Monitor](./media/application-proxy-connectors/performance-monitor.png)
 
-I connettori hanno sia log di amministrazione che log di sessione. I log di amministrazione includono gli eventi principali e i relativi errori. I log di sessione includono tutte le transazioni e i relativi dettagli di elaborazione.
+I connettori hanno sia log di **amministratore** che di **sessione** . Il log di **Amministrazione** include gli eventi principali e i relativi errori. Il log della **sessione** include tutte le transazioni e i relativi dettagli di elaborazione.
 
-Per visualizzare i log, passare al Visualizzatore eventi, aprire il menu **Visualizza** e abilitare **Visualizza registri analitici e di debug**. È necessario abilitarli per avviare la raccolta degli eventi. Questi log non appaiono nel proxy applicazione Web in Windows Server 2012 R2, in quanto i connettori sono basati su una versione più recente.
+Per visualizzare i log, aprire **Visualizzatore eventi** e passare a **registri applicazioni e servizi**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**. Per rendere visibile il log della **sessione** , scegliere **Mostra log analitici e di debug**dal menu **Visualizza** . Il log della **sessione** viene in genere utilizzato per la risoluzione dei problemi ed è disabilitato per impostazione predefinita. Abilitarlo per iniziare a raccogliere gli eventi e disabilitarlo quando non è più necessario.
 
 È possibile esaminare lo stato del servizio nella finestra Servizi. Il connettore è costituito da due servizi di Windows, ovvero il connettore stesso e il programma di aggiornamento. Entrambi devono essere eseguiti costantemente.
 

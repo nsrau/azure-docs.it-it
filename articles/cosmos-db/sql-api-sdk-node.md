@@ -8,27 +8,27 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 645565b0033324d6edc36a73fb59fa5a5d8689ee
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 67b85c34c72d8c4b4dc7cecaeb74a9b164133702
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391962"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [SDK di feed di modifiche .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [Provider di risorse REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Esecuzione bulk - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
 |Risorsa  |Collegamento  |
@@ -44,23 +44,23 @@ ms.locfileid: "83650732"
 
 ## <a name="release-notes"></a>Note sulla versione
 
-### <a name=""></a><a name="3.1.0"/>3.1.0</a>
+### <a name="310"></a><a name="3.1.0"></a>3.1.0
 * ResponseContinuationTokenLimitInKB impostato sul valore predefinito 1 KB. Per impostazione predefinita, questo valore viene limitato a 1 KB per evitare intestazioni troppo lunghe (Node.js ha un limite globale di dimensioni dell'intestazione). Un utente può impostare questo campo in modo da consentire intestazioni più lunghe, che possono aiutare il back-end a ottimizzare l'esecuzione delle query.
 * Parametro disableSSLVerification rimosso. Questa opzione include nuove alternative descritte in [#388](https://github.com/Azure/azure-cosmos-js/pull/388)
 
-### <a name=""></a><a name="3.0.4"/>3.0.4</a>
+### <a name="304"></a><a name="3.0.4"></a>3.0.4
 * Consentire a initialHeaders di impostare in modo esplicito l'intestazione della chiave di partizione
 * Usare package.json#files per impedire la pubblicazione di file estranei
 * Correggere l'errore di ordinamento della mappa di routing nella versione precedente di node+v8
 * È stato corretto il bug che si verificava quando l'utente specificava opzioni di ripetizione dei tentativi parziali
 
-### <a name=""></a><a name="3.0.3"/>3.0.3</a>
+### <a name="303"></a><a name="3.0.3"></a>3.0.3
 * È stato impedito a Webpack di risolvere i moduli chiamati con require
 
-### <a name=""></a><a name="3.0.2"/>3.0.2</a>
+### <a name="302"></a><a name="3.0.2"></a>3.0.2
 * È stato risolto un bug sospeso da tempo in cui le unità riservate risultavano sempre 0 per le query di aggregazione
 
-### <a name=""></a><a name="3.0.0"/>3.0.0</a>
+### <a name="300"></a><a name="3.0.0"></a>3.0.0
 
 🎉 Versione 3! 🎉 Molte nuove funzionalità, correzioni di bug e alcune modifiche di rilievo. Obiettivi principali di questa versione:
 
@@ -211,30 +211,30 @@ Non sempre riguardano le modifiche più visibili, ma consentono al personale di 
 * Sono stati abilitati noUnusedLocals e noUnusedParameters (n. 275)
 * File YAML di Azure Pipelines per build CI (n. 298)
 
-### <a name=""></a><a name="2.1.5"/>2.1.5</a>
+### <a name="215"></a><a name="2.1.5"></a>2.1.5
 * Nessuna modifica del codice. È stato corretto un problema per cui nel pacchetto 2.1.4 erano stati inclusi alcuni file in eccesso.
 
-### <a name=""></a><a name="2.1.4"/>2.1.4</a>
+### <a name="214"></a><a name="2.1.4"></a>2.1.4
 * È stato corretto il processo di failover a livello di area nell'ambito dei criteri di ripetizione
 * È stata corretta la proprietà ChangeFeed hasMoreResults
 * Sono state aggiornate le dipendenze di sviluppo
 * È stato aggiunto PolicheckExclusions.txt
 
-### <a name=""></a><a name="2.1.3"/>2.1.3</a>
+### <a name="213"></a><a name="2.1.3"></a>2.1.3
 * Il tipo_ts è stato convertito da stringa a numero
 * Sono stati corretti i test di indicizzazione predefiniti
 * È stato eseguito il backport di uniqueKeyPolicy alla versione 2
 * Sono state apportate correzioni a livello di demo e debug delle demo
 
-### <a name=""></a><a name="2.1.2"/>2.1.2</a>
+### <a name="212"></a><a name="2.1.2"></a>2.1.2
 * È stato eseguito il backport delle correzioni delle offerte dal ramo V3
 * È stato corretto un bug nella firma di tipo executeNext()
 * Sono stati corretti errori di battitura
 
-### <a name=""></a><a name="2.1.1"/>2.1.1</a>
+### <a name="211"></a><a name="2.1.1"></a>2.1.1
 * È stata eseguita la ristrutturazione della build. È stato consentito il pull della versione dell'SDK in fase di compilazione.
 
-### <a name=""></a><a name="2.1.0"/>2.1.0</a>
+### <a name="210"></a><a name="2.1.0"></a>2.1.0
 #### <a name="new-features"></a>Nuove funzionalità
 * È stato aggiunto il supporto per ChangeFeed (#196)
 * È stato aggiunto il datatype MultiPolygon per l'indicizzazione (n. 191)
@@ -247,76 +247,76 @@ Non sempre riguardano le modifiche più visibili, ma consentono al personale di 
 * È stato aggiunto un test di integrazione per l'utilizzo di typescript (n. 199)
 * È stata abilitata l'installazione diretta da GitHub (n. 194)
 
-### <a name=""></a><a name="2.0.5"/>2.0.5</a>
+### <a name="205"></a><a name="2.0.5"></a>2.0.5
 * Aggiunge l'interfaccia per il tipo di agente del nodo. Gli utenti di Typescript non devono più installare @types/node come dipendenza
 * Le posizioni preferite vengono ora rispettate correttamente
 * Miglioramenti apportati alla documentazione degli sviluppatori
 * Varie correzioni di errori di battitura
 
-### <a name=""></a><a name="2.0.4"/>2.0.4</a>
+### <a name="204"></a><a name="2.0.4"></a>2.0.4
 * Risolve il problema di definizione dei tipi introdotto nella versione 2.0.3
 
-### <a name=""></a><a name="2.0.3"/>2.0.3</a>
+### <a name="203"></a><a name="2.0.3"></a>2.0.3
 * Rimuove la dipendenza `big-integer`
 * Passa alle direttive di riferimento per il tipo AsyncIterable. Gli utenti di Typescript non devono più personalizzare la loro impostazione "lib".
 * Correzione di errori di battitura
 
-### <a name=""></a><a name="2.0.2"/>2.0.2</a>
+### <a name="202"></a><a name="2.0.2"></a>2.0.2
 * Correzione dei collegamenti Leggimi
 
-### <a name=""></a><a name="2.0.1"/>2.0.1</a>
+### <a name="201"></a><a name="2.0.1"></a>2.0.1
 * Correzione dell'implementazione dell'interfaccia di ripetizione dei tentativi
 
-### <a name=""></a><a name="2.0.0"/>2.0.0</a>
+### <a name="200"></a><a name="2.0.0"></a>2.0.0
 * Disponibilità generale della versione 2.0.0 di JavaScript SDK
 * Aggiunta di supporto per le scritture in più aree.
 
-### <a name=""></a><a name="2.0.0-3"/>2.0.0-3</a>
+### <a name="200-3"></a><a name="2.0.0-3"></a>2.0.0-3
 * RC1 della versione 2.0.0 di JavaScript SDK per l'anteprima pubblica.
 * Nuovo modello a oggetti con il modulo CosmosClient di livello superiore e metodi suddivisi tra le relative classi del database, del contenitore e dell'elemento. 
 * Supporto per [promesse](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
 * SDK convertito in TypeScript.
 
-### <a name=""></a><a name="1.14.4"/>1.14.4</a>
+### <a name="1144"></a><a name="1.14.4"></a>1.14.4
 * Correzione della documentazione di npm.
 
-### <a name=""></a><a name="1.14.3"/>1.14.3</a>
+### <a name="1143"></a><a name="1.14.3"></a>1.14.3
 * Aggiunta del supporto per nuovi tentativi predefiniti in caso di problemi di connessione.
 * Aggiunta del supporto per la lettura del feed delle modifiche della raccolta.
 * Risoluzione di un bug di coerenza della sessione che causava in modo intermittente un errore di sessione di lettura non disponibile.
 * Aggiunta del supporto per le metriche di query.
 * Modifica del numero massimo di connessioni dell'agente HTTP.
 
-### <a name=""></a><a name="1.14.2"/>1.14.2</a>
+### <a name="1142"></a><a name="1.14.2"></a>1.14.2
 * Documentazione aggiornata con riferimento a Azure Cosmos DB anziché Azure DocumentDB.
 * Aggiunta del supporto per l'impostazione proxyUrl in ConnectionPolicy.
 
-### <a name=""></a><a name="1.14.1"/>1.14.1</a>
+### <a name="1141"></a><a name="1.14.1"></a>1.14.1
 * Correzione secondaria per i sistemi di file con distinzione tra maiuscole e minuscole.
 
-### <a name=""></a><a name="1.14.0"/>1.14.0</a>
+### <a name="1140"></a><a name="1.14.0"></a>1.14.0
 * Aggiunge il supporto per la coerenza di sessione.
 * Questa versione dell'SDK richiede la versione più recente dell'[emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 
-### <a name=""></a><a name="1.13.0"/>1.13.0</a>
+### <a name="1130"></a><a name="1.13.0"></a>1.13.0
 * Query indivisibili su più partizioni.
 * Aggiunge il supporto per il collegamento a una risorsa con barra iniziale e finale (e relativi test).
 
-### <a name=""></a><a name="1.12.2"/>1.12.2</a>
+### <a name="1122"></a><a name="1.12.2"></a>1.12.2
 *    Correzione della documentazione di npm.
 
-### <a name=""></a><a name="1.12.1"/>1.12.1</a>
+### <a name="1121"></a><a name="1.12.1"></a>1.12.1
 * Correzione di un bug in executeStoredProcedure per cui i documenti coinvolti contenevano caratteri Unicode speciali (LS, PS).
 * Correzione di un bug nella gestione di documenti con caratteri Unicode nella chiave di partizione.
 * Correzione del supporto per la creazione di raccolte con i supporti di memorizzazione dei nomi. Problema GitHub n. 114.
 * Correzione del supporto per il token di autorizzazione. Problema GitHub n. 178.
 
-### <a name=""></a><a name="1.12.0"/>1.12.0</a>
+### <a name="1120"></a><a name="1.12.0"></a>1.12.0
 * Aggiunta del supporto per nuovi [livelli di coerenza](consistency-levels.md) denominati ConsistentPrefix.
 * Aggiunta del supporto per UriFactory.
 * Correzione di un bug del supporto Unicode. Problema GitHub n. 171.
 
-### <a name=""></a><a name="1.11.0"/>1.11.0</a>
+### <a name="1110"></a><a name="1.11.0"></a>1.11.0
 * Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
 * Aggiunta dell'opzione per il controllo del grado di parallelismo per query nella partizione.
 * Aggiunta dell'opzione per disabilitare la verifica TLS durante l'esecuzione sull'emulatore Azure Cosmos DB.
@@ -324,87 +324,87 @@ Non sempre riguardano le modifiche più visibili, ma consentono al personale di 
 * Correzione del bug del token di continuazione per la raccolta a partizione singola. Problema GitHub n. 107.
 * Correzione del bug executeStoredProcedure nella gestione di 0 come parametro singolo. Problema GitHub n. 155.
 
-### <a name=""></a><a name="1.10.2"/>1.10.2</a>
+### <a name="1102"></a><a name="1.10.2"></a>1.10.2
 * Corretta l'intestazione agente-utente per includere la versione di SDK.
 * Pulizia del codice di minore entità.
 
-### <a name=""></a><a name="1.10.1"/>1.10.1</a>
+### <a name="1101"></a><a name="1.10.1"></a>1.10.1
 * Disabilitazione della verifica TLS durante l'uso dell'SDK per l'emulatore(nomehost=host).
 * Aggiunta del supporto per l'abilitazione della registrazione degli script durante l'esecuzione di stored procedure.
 
-### <a name=""></a><a name="1.10.0"/>1.10.0</a>
+### <a name="1100"></a><a name="1.10.0"></a>1.10.0
 * Aggiunta del supporto per le query in parallelo nelle raccolte partizionate.
 * Aggiunta del supporto per le query TOP/ORDER BY nelle raccolte partizionate.
 
-### <a name=""></a><a name="1.9.0"/>1.9.0</a>
+### <a name="190"></a><a name="1.9.0"></a>1.9.0
 * Aggiunta del supporto per il criterio di ripetizione dei tentativi delle richieste limitate (le richieste limitate ricevano un'eccezione troppo grande per la frequenza delle richieste, con codice di errore 429). Per impostazione predefinita, Cosmos DB esegue nove tentativi per ogni richiesta con codice di errore 429, rispettando l'intervallo di tempo di retryAfter specificato nell'intestazione della risposta. Adesso è possibile impostare un intervallo di tempo fisso per i tentativi come parte della proprietà RetryOptions nell'oggetto ConnectionPolicy se si desidera ignorare il tempo di retryAfter restituito dal server tra i tentativi. Azure Cosmos DB attende al massimo 30 secondi per ogni richiesta che viene limitata (indipendentemente dal numero di tentativi) e restituisce la risposta con il codice di errore 429. Questo tempo può essere sottoposto a override nella proprietà RetryOptions dell'oggetto ConnectionPolicy.
 * Cosmos DB restituisce ora i parametri x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms come intestazioni di risposta in ogni richiesta per indicare il numero di nuovi tentativi di limitazione e il tempo cumulativo di attesa della richiesta tra i tentativi.
 * La classe RetryOptions è stata aggiunta, esponendo la proprietà RetryOptions nella classe ConnectionPolicy che può essere utilizzata per eseguire l'override di alcune opzioni di ripetizione dei tentativi predefinite.
 
-### <a name=""></a><a name="1.8.0"/>1.8.0</a>
+### <a name="180"></a><a name="1.8.0"></a>1.8.0
 * Aggiunta del supporto per gli account di database con più aree.
 
-### <a name=""></a><a name="1.7.0"/>1.7.0</a>
+### <a name="170"></a><a name="1.7.0"></a>1.7.0
 * Aggiunta del supporto per la funzionalità di durata (TTL) relativa ai documenti.
 
-### <a name=""></a><a name="1.6.0"/>1.6.0</a>
+### <a name="160"></a><a name="1.6.0"></a>1.6.0
 * Implementazione delle [raccolte partizionate](partition-data.md) e dei [livelli di prestazioni definiti dall'utente](performance-levels.md).
 
-### <a name=""></a><a name="1.5.6"/>1.5.6</a>
+### <a name="156"></a><a name="1.5.6"></a>1.5.6
 * Correzione del bug RangePartitionResolver.resolveForRead, relativo alla mancata restituzione di collegamenti a causa di un concatenamento non valido dei risultati.
 
-### <a name=""></a><a name="1.5.5"/>1.5.5</a>
+### <a name="155"></a><a name="1.5.5"></a>1.5.5
 * Corretto hashPartitionResolver resolveForRead(): quando la mancata indicazione di una chiave di partizione generava un'eccezione, invece di restituire un elenco di tutti i collegamenti registrati.
 
-### <a name=""></a><a name="1.5.4"/>1.5.4</a>
+### <a name="154"></a><a name="1.5.4"></a>1.5.4
 * Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di Azure Cosmos DB. Uso di un agente dedicato per tutte le richieste della libreria.
 
-### <a name=""></a><a name="1.5.3"/>1.5.3</a>
+### <a name="153"></a><a name="1.5.3"></a>1.5.3
 * Correzione del problema [n. 81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestione corretta dei trattini negli ID dei file multimediali.
 
-### <a name=""></a><a name="1.5.2"/>1.5.2</a>
+### <a name="152"></a><a name="1.5.2"></a>1.5.2
 * Correzione del problema [n. 95](https://github.com/Azure/azure-documentdb-node/issues/95) : avviso di perdita del listener EventEmitter.
 
-### <a name=""></a><a name="1.5.1"/>1.5.1</a>
+### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * Correzione del problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90): ridenominazione della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
 
-### <a name=""></a><a name="1.5.0"/>1.5.0</a>
+### <a name="150"></a><a name="1.5.0"></a>1.5.0
 * Implementazione del supporto per il partizionamento orizzontale mediante l'aggiunta di resolver della partizione a intervalli e hash.
 
-### <a name=""></a><a name="1.4.0"/>1.4.0</a>
+### <a name="140"></a><a name="1.4.0"></a>1.4.0
 * Implementazione di Upsert. Nuovi metodi upsertXXX in documentClient.
 
-### <a name=""></a><a name="1.3.0"/>1.3.0</a>
+### <a name="130"></a><a name="1.3.0"></a>1.3.0
 * Saltata per riallineare il numero di versione con altri SDK.
 
-### <a name=""></a><a name="1.2.2"/>1.2.2</a>
+### <a name="122"></a><a name="1.2.2"></a>1.2.2
 * Divisione del wrapper Q promise per il nuovo repository
 * Aggiornamento del file del pacchetto del Registro di sistema npm
 
-### <a name=""></a><a name="1.2.1"/>1.2.1</a>
+### <a name="121"></a><a name="1.2.1"></a>1.2.1
 * Implementazione del routing basato su ID
 * Correzione del problema [n. 49](https://github.com/Azure/azure-documentdb-node/issues/49) : conflitto tra la proprietà current e il metodo current().
 
-### <a name=""></a><a name="1.2.0"/>1.2.0</a>
+### <a name="120"></a><a name="1.2.0"></a>1.2.0
 * Aggiunta del supporto per l'indice GeoSpatial
 * Convalida della proprietà ID per tutte le risorse. Gli ID per le risorse non possono contenere i caratteri ?, /, #, &#47;&#47; o terminare con uno spazio.
 * Aggiunge la nuova intestazione "stato di trasformazione dell'indice" a ResourceResponse.
 
-### <a name=""></a><a name="1.1.0"/>1.1.0</a>
+### <a name="110"></a><a name="1.1.0"></a>1.1.0
 * Implementazione del criterio di indicizzazione V2.
 
-### <a name=""></a><a name="1.0.3"/>1.0.3</a>
+### <a name="103"></a><a name="1.0.3"></a>1.0.3
 * Problema [n. 40](https://github.com/Azure/azure-documentdb-node/issues/40) : implementazione delle configurazioni eslint e grunt nell'SDK core e promise.
 
-### <a name=""></a><a name="1.0.2"/>1.0.2</a>
+### <a name="102"></a><a name="1.0.2"></a>1.0.2
 * Problema [#45](https://github.com/Azure/azure-documentdb-node/issues/45) : il wrapper promise non include l'intestazione con errore
 
-### <a name=""></a><a name="1.0.1"/>1.0.1</a>
+### <a name="101"></a><a name="1.0.1"></a>1.0.1
 * Implementazione della possibilità di eseguire query per i conflitti aggiungendo readConflicts, readConflictAsync e queryConflicts
 * Aggiornamento della documentazione relativa alle API
 * Problema [n. 41](https://github.com/Azure/azure-documentdb-node/issues/41) : errore client.createDocumentAsync.
 
-### <a name=""></a><a name="1.0.0"/>1.0.0</a>
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * SDK con disponibilità generale.
 
 ## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro

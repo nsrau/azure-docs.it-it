@@ -4,10 +4,9 @@ description: Documentazione di riferimento per il file host.json di Funzioni di 
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81757527"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x
@@ -19,7 +18,7 @@ ms.locfileid: "81757527"
 Il file di metadati *host.json* contiene le opzioni di configurazione globali che interessano tutte le funzioni dell’app per le funzioni. Questo articolo elenca le impostazioni disponibili per il runtime v1. Lo schema JSON è disponibile all'indirizzo http://json.schemastore.org/host.
 
 > [!NOTE]
-> Questo articolo riguarda Funzioni di Azure 1.x.  Per informazioni di riferimento su host. JSON in functions 2. x e versioni successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure 2. x](functions-host-json.md).
+> Questo articolo riguarda Funzioni di Azure 1.x.  Per informazioni di riferimento su host.jsin functions 2. x e versioni successive, vedere [host.jsdi riferimento per funzioni di Azure 2. x](functions-host-json.md).
 
 Altre opzioni di configurazione di app per le funzioni sono gestite nelle [impostazioni dell'app](functions-app-settings.md).
 
@@ -212,8 +211,8 @@ Impostazione di configurazione per i [trigger e le associazioni http](functions-
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|Quando è abilitata, questa impostazione determina la pipeline di elaborazione della richiesta per il controllo periodico delle prestazioni dei contatori del sistema, ad esempio connessioni/thread/processi/memoria/CPU e così via. Se uno di questi contatori supera una soglia massima predefinita (80%), le richieste verranno rifiutate con una risposta 429 "Occupato" fino a quando i contatori non tornano a livelli normali.|
-|maxConcurrentRequests|non vincolato (`-1`)|Numero massimo di funzioni HTTP che verranno eseguite in parallelo. Ciò consente di controllare la concorrenza e pertanto di semplificare la gestione dell'uso delle risorse. Ad esempio, si potrebbe avere una funzione HTTP che usa numerose risorse di sistema (memoria/CPU/socket) in modo che causi problemi quando la concorrenza è troppo elevata. Oppure potrebbe essere presente una funzione che invia richieste a un servizio di terze parti e tali chiamate devono essere a frequenza limitata. In questi casi potrebbe risultare utile l'applicazione di una limitazione.|
-|maxOutstandingRequests|non vincolato (`-1`)|Il numero massimo di richieste in sospeso che verrà mantenuto in un determinato intervallo. Questo limite include le richieste che vengono messe in coda ma non hanno avviato l'esecuzione, nonché le esecuzioni in corso. Le richieste in arrivo che superano questo limite vengono rifiutate con la risposta 429 "Occupato". Ciò consente ai chiamanti di usare strategie di ripetizione dei tentativi basate sul tempo e di controllare la latenza massima delle richieste. Questa impostazione controlla solo l'accodamento che si verifica all'interno del percorso di esecuzione dell'host dello script. Altre code, ad esempio la coda di richieste ASP.NET, saranno valide e non interessate da questa impostazione.|
+|maxConcurrentRequests|non vincolato ( `-1` )|Numero massimo di funzioni HTTP che verranno eseguite in parallelo. Ciò consente di controllare la concorrenza e pertanto di semplificare la gestione dell'uso delle risorse. Ad esempio, si potrebbe avere una funzione HTTP che usa numerose risorse di sistema (memoria/CPU/socket) in modo che causi problemi quando la concorrenza è troppo elevata. Oppure potrebbe essere presente una funzione che invia richieste a un servizio di terze parti e tali chiamate devono essere a frequenza limitata. In questi casi potrebbe risultare utile l'applicazione di una limitazione.|
+|maxOutstandingRequests|non vincolato ( `-1` )|Il numero massimo di richieste in sospeso che verrà mantenuto in un determinato intervallo. Questo limite include le richieste che vengono messe in coda ma non hanno avviato l'esecuzione, nonché le esecuzioni in corso. Le richieste in arrivo che superano questo limite vengono rifiutate con la risposta 429 "Occupato". Ciò consente ai chiamanti di usare strategie di ripetizione dei tentativi basate sul tempo e di controllare la latenza massima delle richieste. Questa impostazione controlla solo l'accodamento che si verifica all'interno del percorso di esecuzione dell'host dello script. Altre code, ad esempio la coda di richieste ASP.NET, saranno valide e non interessate da questa impostazione.|
 |routePrefix|api|Il prefisso della route che si applica a tutte le route. Utilizzare una stringa vuota per rimuovere il prefisso predefinito. |
 
 ## <a name="id"></a>id

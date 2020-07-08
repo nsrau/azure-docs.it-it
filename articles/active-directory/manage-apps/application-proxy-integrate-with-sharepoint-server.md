@@ -3,25 +3,24 @@ title: Abilitare l'accesso remoto a SharePoint-Azure AD proxy di applicazione
 description: Offre le informazioni di base necessarie per integrare un server SharePoint locale con il proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/02/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 983470994c103cb25d0d2aff96ae8544080e6288
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764537"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD
 
@@ -56,7 +55,7 @@ Questo articolo usa i valori seguenti:
 In questo passaggio viene creata un'applicazione nel tenant di Azure Active Directory che usa il proxy di applicazione. Si imposta l'URL esterno e si specifica l'URL interno, entrambi usati in un secondo momento in SharePoint.
 
 1. Creare l'app come descritto con le impostazioni seguenti. Per istruzioni dettagliate, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   * **URL interno**: URL interno di SharePoint che verrà impostato successivamente in SharePoint, ad esempio `https://sharepoint`.
+   * **URL interno**: URL interno di SharePoint che verrà impostato successivamente in SharePoint, ad esempio `https://sharepoint` .
    * **Pre-autenticazione**: Azure Active Directory
    * **Converti URL nelle intestazioni**: No
    * **Convertire gli URL nel corpo dell'applicazione**: No
@@ -66,8 +65,8 @@ In questo passaggio viene creata un'applicazione nel tenant di Azure Active Dire
 1. Dopo la pubblicazione dell'app, seguire questa procedura per configurare le impostazioni di Single Sign-On:
 
    1. Nella pagina dell'applicazione nel portale selezionare **Single Sign-On**.
-   1. Per **modalità Single Sign-on**, selezionare **autenticazione integrata di Windows**.
-   1. Impostare **SPN applicazione interna** sul valore impostato in precedenza. Per questo esempio, il valore è `HTTP/sharepoint`.
+   1. Per **Modalità Single Sign-On**, selezionare **Autenticazione integrata di Windows**.
+   1. Impostare **SPN applicazione interna** sul valore impostato in precedenza. Per questo esempio, il valore è `HTTP/sharepoint` .
    1. In **identità account di accesso delegato**selezionare l'opzione più adatta per la configurazione della foresta Active Directory. Se, ad esempio, si dispone di un singolo dominio Active Directory nella foresta, selezionare il **nome dell'account SAM locale** (come illustrato nello screenshot seguente). Tuttavia, se gli utenti non si trovano nello stesso dominio di SharePoint e nei server del connettore del proxy di applicazione, selezionare il **nome dell'entità utente locale** (non mostrato nello screenshot).
 
    ![Configurare l'autenticazione integrata di Windows per SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
@@ -145,7 +144,7 @@ Per identificare l'account che esegue il pool di applicazioni dell'applicazione 
 
 ### <a name="make-sure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>Verificare che sia configurato un certificato HTTPS per il sito IIS dell'area Extranet
 
-Poiché l'URL interno utilizza il protocollo HTTPS`https://SharePoint/`(), è necessario impostare un certificato nel sito Internet Information Services (IIS).
+Poiché l'URL interno utilizza il protocollo HTTPS ( `https://SharePoint/` ), è necessario impostare un certificato nel sito Internet Information Services (IIS).
 
 1. Aprire la console di Windows PowerShell.
 1. Eseguire lo script seguente per generare un certificato autofirmato e aggiungerlo all'archivio personale del computer:
@@ -171,12 +170,12 @@ Gli utenti eseguiranno l'autenticazione iniziale in Azure AD e quindi a SharePoi
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>Impostare il nome SPN per l'account del servizio SharePoint
 
-In questo articolo l'URL interno è `https://sharepoint`, quindi il nome dell'entità servizio (SPN) è. `HTTP/sharepoint` È necessario sostituire i valori con quelli corrispondenti all'ambiente in uso.
-Per registrare il `HTTP/sharepoint` nome SPN per l'account `Contoso\spapppool`del pool di applicazioni di SharePoint, eseguire il comando seguente da un prompt dei comandi come amministratore del dominio:
+In questo articolo l'URL interno è `https://sharepoint` , quindi il nome dell'entità servizio (SPN) è `HTTP/sharepoint` . È necessario sostituire i valori con quelli corrispondenti all'ambiente in uso.
+Per registrare il nome SPN `HTTP/sharepoint` per l'account del pool di applicazioni di SharePoint `Contoso\spapppool` , eseguire il comando seguente da un prompt dei comandi come amministratore del dominio:
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-Il `Setspn` comando Cerca il nome SPN prima di aggiungerlo. Se il nome SPN esiste già, viene visualizzato un errore di **valore SPN duplicato** . In tal caso, provare a rimuovere il nome SPN esistente se non è impostato nell'account del pool di applicazioni corretto. È possibile verificare che il nome SPN sia stato aggiunto correttamente eseguendo `Setspn` il comando con l'opzione-L. Per altre informazioni su questo comando, vedere [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
+Il `Setspn` comando Cerca il nome SPN prima di aggiungerlo. Se il nome SPN esiste già, viene visualizzato un errore di **valore SPN duplicato** . In tal caso, provare a rimuovere il nome SPN esistente se non è impostato nell'account del pool di applicazioni corretto. È possibile verificare che il nome SPN sia stato aggiunto correttamente eseguendo il `Setspn` comando con l'opzione-L. Per altre informazioni su questo comando, vedere [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
 ### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>Verificare che il connettore sia attendibile per la delega al nome SPN aggiunto all'account del pool di applicazioni di SharePoint
 
@@ -186,7 +185,7 @@ Per configurare il delega vincolata Kerberos, seguire questa procedura per ogni 
 
 1. Accedere a un controller di dominio come amministratore di dominio e quindi aprire Active Directory utenti e computer.
 1. Trovare il computer che esegue il connettore proxy Azure AD. In questo esempio si tratta del server SharePoint.
-1. Fare doppio clic sul computer e quindi selezionare la scheda **delega** .
+1. Fare doppio clic sul computer, quindi selezionare la scheda **Delega**.
 1. Verificare che le opzioni di delega siano impostate su **Considera attendibile il computer per la delega solo ai servizi specificati**. Selezionare quindi **Usa un qualsiasi protocollo di autenticazione**.
 1. Selezionare il pulsante **Aggiungi** , selezionare **utenti o computer**e individuare l'account del pool di applicazioni di SharePoint. Ad esempio: `Contoso\spapppool`.
 1. Nell'elenco di nomi SPN selezionare quello creato in precedenza per l'account del servizio.
@@ -198,9 +197,9 @@ A questo punto si è pronti per accedere a SharePoint usando l'URL esterno e per
 
 ## <a name="troubleshoot-sign-in-errors"></a>Risolvere gli errori di accesso
 
-Se l'accesso al sito non funziona, è possibile ottenere altre informazioni sul problema nei log del connettore: dal computer che esegue il connettore, aprire il Visualizzatore eventi, passare > a **registri** > applicazioni e servizi**Microsoft** > **AadApplicationProxy****Connector**ed esaminare il registro **amministratore** .
+Se l'accesso al sito non funziona, è possibile ottenere altre informazioni sul problema nei log del connettore: dal computer che esegue il connettore, aprire il Visualizzatore eventi, passare a **registri applicazioni e servizi**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**ed esaminare il registro **amministratore** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure](application-proxy-configure-custom-domain.md)
-* [Informazioni sui connettori del proxy di applicazione Azure AD](application-proxy-connectors.md)
+* [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)

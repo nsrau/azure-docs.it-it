@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561572"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921017"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -71,7 +70,7 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 **D: Le richieste vengono registrate?**
 
-**R**: È possibile scegliere di disattivare la traccia quando si crea la distribuzione. Così facendo audio e trascrizioni non verranno registrati. In caso contrario, le richieste vengono in genere registrate nel servizio di archiviazione sicura in Azure.
+**R**: per impostazione predefinita, le richieste non vengono registrate, né audio né trascrizioni. Se necessario, è possibile selezionare *il contenuto del log da questa* opzione di endpoint quando si [Crea un endpoint personalizzato](how-to-custom-speech-deploy-model.md) per abilitare la traccia. Quindi le richieste verranno registrate in Azure in un archivio protetto.
 
 **D: Le richieste sono limitate?**
 
@@ -110,7 +109,7 @@ e uno
 
 - un token di accesso per la sottoscrizione (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
-oppure
+o
 
 - ID risorsa per la sottoscrizione:
   - Passare alla [portale di Azure](https://portal.azure.com),
@@ -118,6 +117,10 @@ oppure
   - dai servizi visualizzati selezionare il servizio di riconoscimento vocale per il quale si desidera aumentare la concorrenza,
   - visualizzare `Properties` per questo servizio.
   - copiare l'oggetto completo `Resource ID` .
+  
+**D: aumentando il limite di concorrenza si aumenta il costo?**
+
+**R**: No, il costo è basato sull'utilizzo. L'aumento della concorrenza non comporta costi più elevati. Per informazioni dettagliate sui costi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) . 
   
 >[!NOTE]
 >I [contenitori](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) non richiedono aumenti ai limiti di concorrenza, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati.

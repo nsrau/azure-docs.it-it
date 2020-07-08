@@ -3,12 +3,11 @@ title: Eseguire un backup dei database SQL Server in Azure
 description: Questo articolo illustra come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0a555125e50a974ae51a08d7870cdc3ec12fd39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021093"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -39,7 +38,7 @@ Questa soluzione sfrutta le API native SQL per eseguire i backup dei database SQ
 
 Prima di iniziare, verificare quanto segue:
 
-1. Assicurarsi che sia in esecuzione un'istanza di SQL Server in Azure. È possibile [creare rapidamente un'istanza di SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) nel Marketplace.
+1. Assicurarsi che sia in esecuzione un'istanza di SQL Server in Azure. È possibile [creare rapidamente un'istanza di SQL Server](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) nel Marketplace.
 2. Vedere le [considerazioni sulla funzionalità](sql-support-matrix.md#feature-consideration-and-limitations) e il [supporto degli scenari](sql-support-matrix.md#scenario-support).
 3. [Esaminare le domande comuni](faq-backup-sql-server.md) su questo scenario.
 
@@ -109,7 +108,7 @@ Aggiungere gli account di accesso **NT AUTHORITY\SYSTEM** e **NT Service\AzureWL
 
 7. Fare clic su OK.
 8. Ripetere la stessa procedura (passaggi da 1 a 7 precedenti) per aggiungere l'account di accesso NT Service\AzureWLBackupPluginSvc all'istanza di SQL Server. Se l'account di accesso esiste già, assicurarsi che abbia il ruolo del server sysadmin e che in Stato siano selezionate l'opzione Concedi per Autorizzazione per la connessione al motore di database e l'opzione Abilitato per Account di accesso.
-9. Dopo aver concesso l'autorizzazione, **riindividuare** i database nel portale: **->** carico di **->** lavoro infrastruttura di backup dell'insieme di credenziali nella macchina virtuale di Azure:
+9. Dopo aver concesso l'autorizzazione, **riindividuare** i database nel portale: **->** **->** carico di lavoro infrastruttura di backup dell'insieme di credenziali nella macchina virtuale di Azure:
 
     ![Opzione Individua di nuovo i database nel portale di Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

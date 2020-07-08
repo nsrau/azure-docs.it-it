@@ -1,26 +1,13 @@
 ---
 title: Panoramica di Hub eventi dedicato - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica dell'hub eventi di Azure dedicato, che offre distribuzioni a tenant singolo di hub eventi.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72516756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322434"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
@@ -48,19 +35,19 @@ In volumi in ingresso elevati (>100 TUs), un cluster costi significativamente in
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Quote e limiti Hub eventi Dedicato
 
-L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un minimo di 4 ore di utilizzo. Il livello dedicato offre tutte le funzionalità del piano standard, ma con capacità e limiti di scalabilità aziendale per i clienti con carichi di lavoro complessi. 
+L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un minimo di 4 ore di utilizzo. Il livello Dedicato offre tutte le funzionalità del piano Standard, ma con capacità e limiti su scala aziendale per i clienti con carichi di lavoro intensi. 
 
-| Funzionalità | Standard | Dedicated |
+| Funzionalità | Standard | Dedicato |
 | --- |:---:|:---:|
-| Larghezza di banda | 20 TUs (fino a 40 TUs) | 20 CUs |
-| Spazi dei nomi |  1 | 50 per CU |
-| Hub eventi |  10 per spazio dei nomi | 1000 per spazio dei nomi |
+| Larghezza di banda | 20 TUs (fino a 40 TUs) | 20 unità di capacità |
+| Spazi dei nomi |  1 | 50 per unità di capacità |
+| Hub eventi |  10 per spazio dei nomi | 1\.000 per spazio dei nomi |
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
 | Dimensioni del messaggio | 1 milione byte | 1 milione byte |
 | Partizioni | 32 per hub eventi | 1024 per hub eventi |
-| Gruppi di consumer | 20 per hub eventi | Nessun limite per CU, 1000 per hub eventi |
+| Gruppi di consumer | 20 per hub eventi | Nessun limite per unità di capacità, 1.000 per hub eventi |
 | Connessioni negoziate | 1.000 incluso, 5.000 max | 100 K inclusi e Max |
-| Conservazione dei messaggi | 7 giorni, 84 GB inclusi per TU | 90 giorni, 10 TB inclusi per CU |
+| Conservazione dei messaggi | 7 giorni, 84 GB inclusi per TU | 90 giorni, 10 TB inclusi per unità di capacità |
 | Acquisizione | Pagamento per ogni ora | Incluso |
 
 ## <a name="how-to-onboard"></a>Modalità di esecuzione dell'onboarding
@@ -77,9 +64,9 @@ La tabella seguente mostra i risultati dei benchmark ottenuti durante i test:
 
 | Forma del payload | Destinatari | Larghezza di banda in ingresso| Messaggi in ingresso | Larghezza di banda in uscita | Messaggi in uscita | Unità elaborate totali | Unità elaborate per unità di capacità |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batch di 100 x 1 KB | 2 | 400 MB/sec | messaggi 400.000/sec | 800 MB/sec | messaggi 800K/sec | 400 unità elaborate | 100 unità elaborate | 
-| Batch di 10 x 10 KB | 2 | 666 MB/sec | messaggi 66.6/sec | 1,33 GB/sec | messaggi 133K/sec | 666 unità elaborate | 166 unità elaborate |
-| Batch di 6 x 32 KB | 1 | 1,05 GB/sec | messaggi 34K/sec | 1,05 GB/sec | messaggi 34K/sec | 1000 unità elaborate | 250 unità elaborate |
+| Batch di 100 x 1 KB | 2 | 400 MB/sec | 400.000 messaggi/sec | 800 MB/sec | 800.000 messaggi/sec | 400 unità elaborate | 100 unità elaborate | 
+| Batch di 10 x 10 KB | 2 | 666 MB/sec | 66.600 messaggi/sec | 1,33 GB/sec | 133.000 messaggi/sec | 666 unità elaborate | 166 unità elaborate |
+| Batch di 6 x 32 KB | 1 | 1,05 GB/sec | 34.000 messaggi/sec | 1,05 GB/sec | 34.000 messaggi/sec | 1000 unità elaborate | 250 unità elaborate |
 
 Nei test sono stati usati i criteri seguenti:
 

@@ -3,25 +3,24 @@ title: Pubblicare Desktop remoto con il proxy applicazione di Azure AD | Microso
 description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 34f3dcd607a7417932912528167a1120dbfd9b4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67108471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764520"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -75,7 +74,7 @@ Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure A
 3. Lasciare il metodo Single Sign-On per l'applicazione come **Single Sign-On di Azure AD disabilitato**. Agli utenti viene richiesto di eseguire l'autenticazione una volta in Azure AD e una volta in Web Desktop remoto, ma dispongono dell'accesso Single Sign-On a Gateway Desktop remoto.
 4. Selezionare **Azure Active Directory**, quindi registrazioni per l' **app**. Scegli l'app dall'elenco.
 5. In **Gestisci**selezionare **personalizzazione**.
-6. Aggiornare il campo **URL della Home page** in modo che punti all'endpoint Web Desktop `https://\<rdhost\>.com/RDWeb`remoto (ad esempio).
+6. Aggiornare il campo **URL della Home page** in modo che punti all'endpoint Web Desktop remoto (ad esempio `https://\<rdhost\>.com/RDWeb` ).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigere il traffico di Servizi Desktop remoto verso il proxy applicazione
 
@@ -91,7 +90,7 @@ Connettersi alla distribuzione di Servizi Desktop remoto come amministratore e m
 
    ![Schermata Proprietà di distribuzione in Servizi Desktop remoto](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
-8. Per ogni raccolta, eseguire questo comando. Sostituire * \<yourcollectionname\> * *e \<proxyfrontendurl\> * con le informazioni personali. Questo comando abilita l'accesso Single Sign-On tra Web Desktop remoto e Gateway Desktop remoto e ottimizza le prestazioni:
+8. Per ogni raccolta, eseguire questo comando. Sostituire *\<yourcollectionname\>* e *\<proxyfrontendurl\>* con le proprie informazioni. Questo comando abilita l'accesso Single Sign-On tra Web Desktop remoto e Gateway Desktop remoto e ottimizza le prestazioni:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"

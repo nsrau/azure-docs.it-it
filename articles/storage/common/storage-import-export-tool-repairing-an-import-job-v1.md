@@ -4,16 +4,15 @@ description: Informazioni su come ripristinare un processo di importazione che �
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: f5db321d8c4a6e42591a82b0ed8eb6bc6e93bad4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5c0e9bf94a9953e107de148792af2e39f8bac24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74973884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512303"
 ---
 # <a name="repairing-an-import-job"></a>Riparazione di un processo di importazione
 Il servizio Importazione/Esportazione di Microsoft Azure potrebbe non riuscire a copiare alcuni file o parti di file nel servizio BLOB di Windows Azure. I motivi includono:  
@@ -32,15 +31,15 @@ Il servizio Importazione/Esportazione di Microsoft Azure potrebbe non riuscire a
   
 |||  
 |-|-|  
-|**/r:**<fileripristino\>|**Obbligatorio.** Percorso del file di ripristino che tiene traccia dell'avanzamento del ripristino e consente di riprendere un ripristino interrotto. Ogni unità deve contenere un solo file di ripristino. Quando si avvia un ripristino per una determinata unità, si viene spostati nel percorso di un file di ripristino che non esiste ancora. Per riprendere un ripristino interrotto, è consigliabile inserire il nome di un file di ripristino esistente. Il file di ripristino corrispondente all'unità di destinazione deve essere sempre specificato.|  
-|**/LogDir:**<LogDirectory\>|**Facoltativa.** Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificata alcuna directory dei log, viene usata la directory corrente.|  
-|**/d:**<TargetDirectories\>|**Obbligatorio.** Una o più directory separate da punto e virgola contenenti i file originali che sono stati importati. È possibile usare anche l'unità di importazione, ma non è obbligatorio se sono disponibili posizioni alternative per i file originali.|  
-|**/BK:**<chiave BitLocker\>|**Facoltativa.** È necessario specificare la chiave BitLocker se si desidera che lo strumento sblocchi un'unità crittografata in cui sono disponibili i file originali.|  
-|**/sn:**<NomeAccountArchiviazione\>|**Obbligatorio.** Nome dell'account di archiviazione per il processo di importazione.|  
+|**/r:**<fileripristino\>|**Obbligatoria.** Percorso del file di ripristino che tiene traccia dell'avanzamento del ripristino e consente di riprendere un ripristino interrotto. Ogni unità deve contenere un solo file di ripristino. Quando si avvia un ripristino per una determinata unità, si viene spostati nel percorso di un file di ripristino che non esiste ancora. Per riprendere un ripristino interrotto, è consigliabile inserire il nome di un file di ripristino esistente. Il file di ripristino corrispondente all'unità di destinazione deve essere sempre specificato.|  
+|**/LogDir:**<LogDirectory\>|**Opzionale.** Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificata alcuna directory dei log, viene usata la directory corrente.|  
+|**/d:**<TargetDirectories\>|**Obbligatoria.** Una o più directory separate da punto e virgola contenenti i file originali che sono stati importati. È possibile usare anche l'unità di importazione, ma non è obbligatorio se sono disponibili posizioni alternative per i file originali.|  
+|**/BK:**<chiave BitLocker\>|**Opzionale.** È necessario specificare la chiave BitLocker se si desidera che lo strumento sblocchi un'unità crittografata in cui sono disponibili i file originali.|  
+|**/sn:**<NomeAccountArchiviazione\>|**Obbligatoria.** Nome dell'account di archiviazione per il processo di importazione.|  
 |**/sk:**&lt;ChiaveAccountArchiviazione\>|**Obbligatorio** solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di importazione.|  
 |**/csas:**&lt;ContainerSas\>|**Obbligatorio** se e solo se non viene specificata la chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'accesso ai BLOB associati al processo di importazione.|  
-|**/CopyLogFile:**<DriveCopyLogFile\>|**Obbligatorio.** Percorso del file dei log di copia dell'unità (log dettagliato o log di errore). Il file viene generato dal servizio di Importazione/Esportazione di Azure e può essere scaricato dall'archiviazione BLOB associata al processo. Il file dei log di copia contiene informazioni sui BLOB non riusciti o sui file da ripristinare.|  
-|**/PathMapFile:**<DrivePathMapFile\>|**Facoltativa.** Percorso di un file di testo che può essere usato per risolvere le ambiguità, se si dispone di più file con lo stesso nome importati nello stesso processo. La prima volta che viene eseguito lo strumento, è possibile popolare questo file con tutti i nomi ambigui. Le esecuzioni successive dello strumento useranno questo file per risolvere le ambiguità.|  
+|**/CopyLogFile:**<DriveCopyLogFile\>|**Obbligatoria.** Percorso del file dei log di copia dell'unità (log dettagliato o log di errore). Il file viene generato dal servizio di Importazione/Esportazione di Azure e può essere scaricato dall'archiviazione BLOB associata al processo. Il file dei log di copia contiene informazioni sui BLOB non riusciti o sui file da ripristinare.|  
+|**/PathMapFile:**<DrivePathMapFile\>|**Opzionale.** Percorso di un file di testo che può essere usato per risolvere le ambiguità, se si dispone di più file con lo stesso nome importati nello stesso processo. La prima volta che viene eseguito lo strumento, è possibile popolare questo file con tutti i nomi ambigui. Le esecuzioni successive dello strumento useranno questo file per risolvere le ambiguità.|  
   
 ## <a name="using-the-repairimport-command"></a>Uso del comando RepairImport  
 Per ripristinare i dati di importazione tramite flusso di dati in rete, è necessario specificare le directory contenenti i file originali importati usando il parametro `/d`. È anche necessario specificare il file di log di copia scaricato dall'account di archiviazione. Una tipica riga di comando per ripristinare un processo di importazione con errori parziali è:  
@@ -103,4 +102,4 @@ Dopo aver reso disponibili i file necessari allo strumento o aver aggiornato il 
 * [Preparazione dei dischi rigidi per un processo di importazione](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Revisione dello stato dei processi con i file di log di copia](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)   
-* [Risoluzione dei problemi relativi allo strumento di importazione/esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
+* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)

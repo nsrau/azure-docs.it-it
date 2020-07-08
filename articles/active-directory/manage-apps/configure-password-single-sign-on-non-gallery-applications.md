@@ -2,21 +2,20 @@
 title: Come configurare la Single Sign-On delle password per le app Azure AD | Microsoft Docs
 description: Come configurare la Single Sign-On delle password (SSO) per le applicazioni aziendali Azure AD nella piattaforma di identità Microsoft (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063527"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763500"
 ---
 # <a name="configure-password-single-sign-on"></a>Configurare l'accesso Single Sign-On tramite password
 
@@ -44,7 +43,7 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Aggiunger
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore dell’applicazione cloud o amministratore dell’applicazione per il proprio tenant di Azure AD.
 
-2. Passare a **Azure Active Directory** > **applicazioni aziendali**. Viene visualizzato un esempio casuale delle applicazioni del tenant di Azure AD. 
+2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**. Viene visualizzato un esempio casuale delle applicazioni del tenant di Azure AD. 
 
 3. Nel menu **Tipo di applicazione** selezionare **Tutte le applicazioni** e quindi **Applica**.
 
@@ -68,7 +67,7 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Aggiunger
 
 Se il tentativo di analisi del Azure AD ha esito negativo, è possibile configurare l'accesso manualmente.
 
-1. In ** \<nome applicazione> configurazione**Selezionare ** \<Configura nome applicazione> impostazioni di Single Sign-on password** per visualizzare la pagina **Configura accesso** . 
+1. In ** \<application name> configurazione**selezionare **Configura \<application name> le impostazioni di Single Sign-on basato su password** per visualizzare la pagina **Configura accesso** . 
 
 2. Selezionare **rileva manualmente i campi di accesso**. Verranno visualizzate altre istruzioni che descrivono il rilevamento manuale dei campi di accesso.
 

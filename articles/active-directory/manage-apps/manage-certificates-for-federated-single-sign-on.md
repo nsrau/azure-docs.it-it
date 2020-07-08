@@ -3,8 +3,8 @@ title: Gestione di certificati di federazione in Azure AD | Documentazione Micro
 description: Informazioni su come personalizzare la data di scadenza per i certificati di federazione e su come rinnovare i certificati con scadenza imminente.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de60dc5095ce4ab4d0219a388c445b08f544e1f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77159030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763211"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gestione di certificati per accesso Single Sign-On federato in Azure Active Directory
 
@@ -30,7 +29,7 @@ Questo articolo è pertinente solo per le app configurate per l'uso di Azure AD 
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Certificato generato automaticamente per le applicazioni incluse e non incluse nella raccolta
 
-Quando si aggiunge una nuova applicazione dalla raccolta e si configura un accesso basato su SAML (selezionando**SAML** **Single Sign-on** > nella pagina Panoramica applicazione), Azure ad genera un certificato per l'applicazione valida per tre anni. Per scaricare il certificato attivo come file del certificato di sicurezza (con**estensione cer**), tornare alla pagina (**accesso basato su SAML**) e selezionare un collegamento per il download nell'intestazione del **certificato di firma SAML** . È possibile scegliere tra il certificato non elaborato (binario) o il certificato Base64 (testo codificato in base 64). Per le applicazioni della raccolta, in questa sezione può essere anche visualizzato un collegamento per scaricare il certificato come XML dei metadati di federazione (un file con **estensione XML** ), a seconda del requisito dell'applicazione.
+Quando si aggiunge una nuova applicazione dalla raccolta e si configura un accesso basato su SAML (selezionando SAML **Single Sign-on**nella  >  **SAML** pagina Panoramica applicazione), Azure ad genera un certificato per l'applicazione valida per tre anni. Per scaricare il certificato attivo come file del certificato di sicurezza (con**estensione cer**), tornare alla pagina (**accesso basato su SAML**) e selezionare un collegamento per il download nell'intestazione del **certificato di firma SAML** . È possibile scegliere tra il certificato non elaborato (binario) o il certificato Base64 (testo codificato in base 64). Per le applicazioni della raccolta, in questa sezione può essere anche visualizzato un collegamento per scaricare il certificato come XML dei metadati di federazione (un file con **estensione XML** ), a seconda del requisito dell'applicazione.
 
 ![Opzioni di download del certificato di firma attiva SAML](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
@@ -50,11 +49,11 @@ Per impostazione predefinita, Azure configura un certificato in modo che scada d
 
 Le due sezioni seguenti consentono di eseguire questi passaggi.
 
-### <a name="create-a-new-certificate"></a>Creazione di un nuovo certificato
+### <a name="create-a-new-certificate"></a>Creare un nuovo certificato
 
 Prima di tutto, creare e salvare un nuovo certificato con una data di scadenza diversa:
 
-1. Accedere al portale di [Azure Active Directory](https://aad.portal.azure.com/). Viene visualizzata la pagina **centro di amministrazione Azure Active Directory** .
+1. Accedere al [portale di Azure Active Directory](https://aad.portal.azure.com/). Viene visualizzata la pagina **centro di amministrazione Azure Active Directory** .
 1. Nel riquadro sinistro selezionare **Applicazioni aziendali**. Viene visualizzato un elenco delle applicazioni aziendali nell'account.
 1. Selezionare l'applicazione interessata. Viene visualizzata una pagina di panoramica per l'applicazione.
 1. Nel riquadro sinistro della pagina Panoramica applicazione selezionare **Single Sign-on**.
@@ -109,6 +108,6 @@ Se un certificato sta per scadere, è possibile rinnovarlo utilizzando una proce
 ## <a name="related-articles"></a>Articoli correlati
 
 - [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Gestione di applicazioni con Azure Active Directory](what-is-application-management.md)
+- [Gestione delle applicazioni con Azure Active Directory](what-is-application-management.md)
 - [Accesso Single Sign-On alle applicazioni in Azure Active Directory](what-is-single-sign-on.md)
-- [Eseguire il debug di Single Sign-On basate su SAML per applicazioni in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Eseguire il debug dell'accesso Single Sign-On basato su SAML su applicazioni in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

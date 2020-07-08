@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257901"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710270"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
 Questo articolo descrive i fogli contenuti nel report Excel generato da Azure Site Recovery Deployment Planner per uno scenario di distribuzione da Hyper-V ad Azure.
@@ -41,7 +40,7 @@ Data di **inizio** e data di **fine**: date di inizio e di fine dei dati di prof
 
 **Observed typical data churn per day (GB)** (Varianza dei dati giornaliera tipica osservata - GB): varianza media dei dati osservata in tutti i giorni di profilatura.
 
-## <a name="recommendations"></a>Indicazioni 
+## <a name="recommendations"></a>Consigli 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da Hyper-V ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato selezionato:
 
 ![Raccomandazioni del report per lo scenario da Hyper-V ad Azure](media/hyper-v-deployment-planner-analyze-report/Recommendations-h2a.png)
@@ -187,7 +186,7 @@ Il report di Excel generato da Site Recovery Deployment Planner fornisce tutti i
 * Da 1.025 GB a 2.048 GB rientrano nella categoria P40.
 * Da 2.049 GB a 4.095 GB rientrano nella categoria P50.
 
-Ad esempio, se le caratteristiche del carico di lavoro di un disco lo inseriscono nella categoria P20 o P30, ma la dimensione ne esegue il mapping a un tipo di disco di archiviazione Premium inferiore, lo strumento contrassegna tale macchina virtuale come **Sì**\*. Lo strumento consiglia anche di modificare le dimensioni del disco di origine per renderlo idoneo al tipo di disco di archiviazione Premium raccomandato oppure di modificare il tipo di disco di destinazione dopo il failover.
+Ad esempio, se le caratteristiche del carico di lavoro di un disco lo inseriscono nella categoria P20 o P30, ma la dimensione ne esegue il mapping a un tipo di disco di archiviazione Premium inferiore, lo strumento contrassegna tale macchina virtuale come **Sì** \* . Lo strumento consiglia anche di modificare le dimensioni del disco di origine per renderlo idoneo al tipo di disco di archiviazione Premium raccomandato oppure di modificare il tipo di disco di destinazione dopo il failover.
 
 **Storage Type** (Tipo di archiviazione): Standard o Premium.
 

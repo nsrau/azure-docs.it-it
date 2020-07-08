@@ -5,13 +5,12 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: c7d55a7b10f0c874fd84f32db1dcf21fb60c231f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76768953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636639"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Creare e gestire le repliche di lettura nel database di Azure per PostgreSQL: server singolo dal portale di Azure
 
@@ -21,39 +20,43 @@ Questo articolo illustra come creare e gestire le repliche in lettura nel Databa
 ## <a name="prerequisites"></a>Prerequisiti
 Un [server di Database di Azure per PostgreSQL](quickstart-create-server-database-portal.md) che verrà usato come server master.
 
+## <a name="azure-replication-support"></a>Supporto della replica di Azure
+
+Le [repliche](concepts-read-replicas.md) e la [decodifica logica](concepts-logical.md) dipendono entrambi dal log write-ahead di Postgres (WAL) per informazioni. Queste due funzionalità richiedono diversi livelli di registrazione da postgres. Per la decodifica logica è necessario un livello di registrazione più elevato rispetto alla lettura delle repliche.
+
+Per configurare il livello di registrazione corretto, usare il parametro di supporto della replica di Azure. Il supporto per la replica di Azure offre tre opzioni di impostazione:
+
+* **Off** : inserisce le informazioni minime nell'oggetto Wal. Questa impostazione non è disponibile nella maggior parte dei server di database di Azure per PostgreSQL.  
+* **Replica** : più dettagliata di **off**. Questo è il livello minimo di registrazione necessario per il funzionamento delle [repliche di lettura](concepts-read-replicas.md) . Questa impostazione è quella predefinita nella maggior parte dei server.
+* **Logica** : più dettagliata rispetto alla **replica**. Questo è il livello minimo di registrazione per il funzionamento della decodifica logica. Le repliche di lettura funzionano anche con questa impostazione.
+
+Il server deve essere riavviato dopo una modifica di questo parametro. Internamente, questo parametro imposta i parametri Postgres `wal_level` , `max_replication_slots` e `max_wal_senders` .
+
 ## <a name="prepare-the-master-server"></a>Preparare il server master
-È necessario seguire questi passaggi per preparare un server master nei livelli Utilizzo generico o Con ottimizzazione per la memoria. Il server master è pronto per la replica impostando il parametro Azure. replication_support. Quando il parametro Replication viene modificato, è necessario riavviare il server per rendere effettive le modifiche. Nel portale di Azure, questi due passaggi sono incapsulati da un singolo pulsante, **Abilitazione del supporto**per la replica.
 
-1. Nel portale di Azure selezionare il server Database di Azure per PostgreSQL esistente da usare come master.
+1. Nella portale di Azure selezionare un database di Azure per il server PostgreSQL esistente da usare come master.
 
-2. Nella barra laterale del server, in **Impostazioni**, selezionare **replica**.
+2. Scegliere **replica**dal menu del server. Se il supporto della replica di Azure è impostato su almeno **replica**, è possibile creare repliche di lettura. 
 
-> [!NOTE] 
-> Se viene visualizzato **Disabilita supporto della replica** disattivato, le impostazioni di replica sono già impostate nel server per impostazione predefinita. È possibile ignorare i passaggi seguenti e passare a creare una replica di lettura. 
+3. Se il supporto per la replica di Azure non è impostato su almeno **replica**, impostarlo. Selezionare **Salva**.
 
-3. Selezionare **Abilita supporto**per la replica. 
+   ![Database di Azure per PostgreSQL-replica-set di replica e salvataggio](./media/howto-read-replicas-portal/set-replica-save.png)
 
-   ![Abilita supporto per la replica](./media/howto-read-replicas-portal/enable-replication-support.png)
+4. Riavviare il server per applicare la modifica selezionando **Sì**.
 
-4. Confermare che si desidera abilitare il supporto per la replica. Questa operazione riavvierà il server master. 
+   ![Database di Azure per PostgreSQL-replica-conferma riavvio](./media/howto-read-replicas-portal/confirm-restart.png)
 
-   ![Confermare l'abilitazione del supporto per la replica](./media/howto-read-replicas-portal/confirm-enable-replication.png)
-   
 5. Al termine dell'operazione, si riceveranno due notifiche portale di Azure. È disponibile una notifica per l'aggiornamento del parametro Server. È presente un'altra notifica per il riavvio del server che segue immediatamente.
 
-   ![Notifiche di esito positivo-Abilita](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   ![Notifiche di esito positivo](./media/howto-read-replicas-portal/success-notifications.png)
 
 6. Aggiornare la pagina portale di Azure per aggiornare la barra degli strumenti di replica. È ora possibile creare repliche di lettura per questo server.
-
-   ![Barra degli strumenti aggiornata](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-L'abilitazione del supporto della replica è un'operazione eseguita una sola volta per ogni server master. Un pulsante **Disabilita supporto replica** viene fornito per praticità. Non è consigliabile disabilitare il supporto per la replica, a meno che non si sia certi che non si crei mai una replica in questo server master. Non è possibile disabilitare il supporto della replica mentre nel server master sono presenti repliche esistenti.
-
 
 ## <a name="create-a-read-replica"></a>Creare una replica in lettura
 Per creare una replica in lettura, seguire questi passaggi:
 
-1. Selezionare il server Database di Azure per PostgreSQL esistente da usare come server master. 
+1. Selezionare un database di Azure per il server PostgreSQL da usare come server master. 
 
 2. Nella barra laterale del server, in **Impostazioni**, selezionare **replica**.
 
@@ -65,12 +68,12 @@ Per creare una replica in lettura, seguire questi passaggi:
 
     ![Assegnare un nome alla replica](./media/howto-read-replicas-portal/name-replica.png)
 
-5. Selezionare un percorso per la replica. Il percorso predefinito è identico a quello del server master.
+5. Selezionare un percorso per la replica. La posizione predefinita è la stessa di quella del server master.
 
     ![Selezionare una località](./media/howto-read-replicas-portal/location-replica.png)
 
    > [!NOTE]
-   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
+   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md). 
 
 6. Fare clic su **OK** per confermare la creazione della replica.
 

@@ -9,12 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612946"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920709"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -50,7 +49,7 @@ Per impostazione predefinita, l'utente che ha distribuito la soluzione viene ass
 
 ## <a name="add-or-remove-users"></a>Aggiungere o rimuovere utenti
 
-Gli utenti proprietari di un'applicazione di Azure Active Directory possono usare il portale di Azure per aggiungere (o rimuovere) un utente a un ruolo dalla soluzione di monitoraggio remoto. La procedura seguente usa l'[applicazione aziendale di Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) creata al momento della distribuzione della soluzione di monitoraggio remoto.
+Gli utenti proprietari di un'applicazione di Azure Active Directory possono usare il portale di Azure per aggiungere (o rimuovere) un utente a un ruolo dalla soluzione di monitoraggio remoto. La procedura seguente usa l'[applicazione aziendale di Azure Active Directory](../active-directory/manage-apps/view-applications-portal.md) creata al momento della distribuzione della soluzione di monitoraggio remoto.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 

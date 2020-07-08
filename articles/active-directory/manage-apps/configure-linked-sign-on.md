@@ -2,22 +2,21 @@
 title: Accesso collegato per app Azure AD-piattaforma di identità Microsoft
 description: Configurare l'Single Sign-On collegato (SSO) per le applicazioni aziendali Azure AD nella piattaforma di identità Microsoft (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfe4aeb17f482cc9d4126efc6d65d3f7d173536b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5cfcece43ae1b7d7bcf0c38feba14f1e82b29f18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063544"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763483"
 ---
 # <a name="configure-linked-sign-on"></a>Configurare l'accesso collegato
 
@@ -31,7 +30,7 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Aggiunger
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore dell’applicazione cloud o amministratore dell’applicazione per il proprio tenant di Azure AD.
 
-1. Passare a **Azure Active Directory** > **applicazioni aziendali**. Viene visualizzato un esempio casuale delle applicazioni del tenant di Azure AD. 
+1. Passare a **Azure Active Directory**  >  **applicazioni aziendali**. Viene visualizzato un esempio casuale delle applicazioni del tenant di Azure AD. 
 
 1. Nel menu **Tipo di applicazione** selezionare **Tutte le applicazioni** e quindi **Applica**.
 

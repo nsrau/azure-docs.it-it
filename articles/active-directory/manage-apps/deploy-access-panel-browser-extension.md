@@ -3,8 +3,8 @@ title: Distribuire l'estensione Pannello di accesso di Azure per Internet Explor
 description: Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/08/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67807676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763432"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Procedura: distribuire l'estensione pannello di accesso per Internet Explorer con criteri di gruppo
 
@@ -44,7 +43,7 @@ Per prima cosa, salvare il pacchetto del programma di installazione in un percor
 
     ![Apertura di Servizi file e archiviazione](./media/deploy-access-panel-browser-extension/files-services.png)
 
-1. Passare alla scheda **condivisioni** . Quindi fare clic su **attività** > **nuova condivisione...**
+1. Passare alla scheda **condivisioni** . Quindi fare clic su **attività**  >  **nuova condivisione...**
 
     ![Screenshot che mostra dove trovare la nuova condivisione dalla schermata attività](./media/deploy-access-panel-browser-extension/shares.png)
 
@@ -59,14 +58,14 @@ Per prima cosa, salvare il pacchetto del programma di installazione in un percor
 ## <a name="step-2-create-the-group-policy-object"></a>Passaggio 2: creare l'oggetto Criteri di gruppo
 
 1. Accedere al server che ospita l'installazione di Active Directory Domain Services (AD DS).
-1. Nella server Manager passare a **strumenti** > **Gestione criteri di gruppo**.
+1. Nella server Manager passare a **strumenti**  >  **Gestione criteri di gruppo**.
 
     ![Passare a Strumenti > Gestione Criteri di gruppo](./media/deploy-access-panel-browser-extension/tools-gpm.png)
 
 1. Nel riquadro sinistro della finestra **Gestione Criteri di gruppo** visualizzare la gerarchia della propria unità organizzativa e determinare il livello in base al quale verranno applicati i criteri di gruppo. Ad esempio, è possibile decidere di selezionare un'unità organizzativa di piccole dimensioni per eseguire la distribuzione per un numero limitato di utenti ai fini del test oppure scegliere un'unità organizzativa di primo livello per eseguire la distribuzione a livello dell'intera organizzazione.
 
    > [!NOTE]
-   > Se si desidera creare o modificare le unità organizzative (OU), tornare alla Server Manager e passare a **strumenti** > **Active Directory utenti e computer**.
+   > Se si desidera creare o modificare le unità organizzative (OU), tornare alla Server Manager e passare a **strumenti**  >  **Active Directory utenti e computer**.
 
 1. Dopo aver selezionato un'unità organizzativa, fare clic con il pulsante destro del mouse su di essa e scegliere **Crea un oggetto Criteri di gruppo in questo dominio e crea qui un collegamento...**
 

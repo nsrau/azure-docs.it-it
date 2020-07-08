@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 02762c4b3af735eb0b4c19aaf450b2b3a416a2be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733674"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Informazioni di riferimento sull'API dell'agente Application Insights di monitoraggio di Azure
@@ -47,7 +46,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="parameters"></a>Parametri
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**Facoltativo.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
+**Opzionale.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
 
 #### <a name="-verbose"></a>-Verbose
 **Parametro comune.** Usare questa opzione per restituire i log dettagliati.
@@ -66,8 +65,8 @@ Configuring registry for instrumentation engine...
 
 Consente il monitoraggio di associazione non codificato delle app IIS in un computer di destinazione.
 
-Questo cmdlet consente di modificare il file applicationHost. config di IIS e di impostare alcune chiavi del registro di sistema.
-Creerà anche un file applicationinsights. Ikey. config, che definisce la chiave di strumentazione usata da ogni app.
+Questo cmdlet modificherà il applicationHost.config IIS e imposterà alcune chiavi del registro di sistema.
+Creerà anche un file di applicationinsights.ikey.config, che definisce la chiave di strumentazione usata da ogni app.
 IIS caricherà il RedfieldModule all'avvio, in modo da inserire il Application Insights SDK nelle applicazioni quando le applicazioni vengono avviate.
 Riavviare IIS per rendere effettive le modifiche.
 
@@ -104,11 +103,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ### <a name="parameters"></a>Parametri
 
 #### <a name="-instrumentationkey"></a>-InstrumentationKey
-**Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
+**Obbligatoria.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Obbligatorio.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
-È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter`.
+**Obbligatoria.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
+È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter` .
 
 > [!IMPORTANT]
 > Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
@@ -127,12 +126,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 
 #### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Facoltativo.** Usare questa opzione per consentire al motore di strumentazione di raccogliere gli eventi e i messaggi relativi a ciò che accade durante l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici di risultato di dipendenza, verbi HTTP e testo del comando SQL.
+**Opzionale.** Usare questa opzione per consentire al motore di strumentazione di raccogliere gli eventi e i messaggi relativi a ciò che accade durante l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici di risultato di dipendenza, verbi HTTP e testo del comando SQL.
 
 Il motore di strumentazione aggiunge un sovraccarico ed è disattivato per impostazione predefinita.
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**Facoltativo.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
+**Opzionale.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
 Quando si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
@@ -213,7 +212,7 @@ Configuring registry for instrumentation engine...
 ## <a name="disable-applicationinsightsmonitoring"></a>Disable-ApplicationInsightsMonitoring
 
 Disabilita il monitoraggio nel computer di destinazione.
-Questo cmdlet consente di rimuovere le modifiche al file applicationHost. config di IIS e di rimuovere le chiavi del registro di sistema.
+Questo cmdlet consente di rimuovere le modifiche apportate al applicationHost.config IIS e di rimuovere le chiavi del registro di sistema.
 
 ### <a name="examples"></a>Esempi
 
@@ -392,7 +391,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 È possibile esaminare il processo nel computer instrumentato per verificare se tutte le dll sono state caricate. Se il monitoraggio è funzionante, è necessario caricare almeno 12 dll.
 
-Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
+Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess` :
 
 
 ```
@@ -446,9 +445,9 @@ Verranno inoltre scaricati gli strumenti esterni per determinare se le DLL neces
 
 
 Se il processo ha esito negativo per qualsiasi motivo, è possibile eseguire questi comandi manualmente:
-- iisreset. exe/status
-- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
-- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
+- iisreset.exe/status
+- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
+- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
@@ -494,11 +493,11 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 ### <a name="parameters"></a>Parametri
 
 #### <a name="-instrumentationkey"></a>-InstrumentationKey
-**Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
+**Obbligatoria.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Obbligatorio.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
-È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter`.
+**Obbligatoria.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
+È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter` .
 
 > [!IMPORTANT]
 > Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
@@ -556,7 +555,7 @@ Raccoglie [gli eventi ETW](https://docs.microsoft.com/windows/desktop/etw/event-
 
 Gli eventi raccolti verranno stampati nella console in tempo reale e salvati in un file ETL. Il file ETL di output può essere aperto da [PerfView](https://github.com/microsoft/perfview) per un'analisi più approfondita.
 
-Questo cmdlet verrà eseguito fino a quando non raggiungerà la durata del timeout (valore predefinito di 5 minuti`Ctrl + C`) o verrà interrotto manualmente ().
+Questo cmdlet verrà eseguito fino a quando non raggiungerà la durata del timeout (valore predefinito di 5 minuti) o verrà interrotto manualmente ( `Ctrl + C` ).
 
 ### <a name="examples"></a>Esempi
 
@@ -571,7 +570,7 @@ Per raccogliere questi eventi:
 2. Esegui questo cmdlet
 3. In una console CMD con privilegi di amministratore eseguire `iisreset /start` per avviare IIS.
 4. Provare a passare all'app.
-5. Al termine del caricamento dell'app, è possibile arrestarla manualmente`Ctrl + C`() o attendere il timeout.
+5. Al termine del caricamento dell'app, è possibile arrestarla manualmente ( `Ctrl + C` ) o attendere il timeout.
 
 #### <a name="what-events-to-collect"></a>Eventi da raccogliere
 
@@ -585,17 +584,17 @@ Sono disponibili tre opzioni per la raccolta di eventi:
 ### <a name="parameters"></a>Parametri
 
 #### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**Facoltativo.** Utilizzare questo parametro per impostare per quanto tempo lo script deve raccogliere gli eventi. Il valore predefinito è 5 minuti.
+**Opzionale.** Utilizzare questo parametro per impostare per quanto tempo lo script deve raccogliere gli eventi. Il valore predefinito è 5 minuti.
 
 #### <a name="-logdirectory"></a>-LogDirectory
-**Facoltativo.** Usare questa opzione per impostare la directory di output del file ETL. Per impostazione predefinita, questo file verrà creato nella directory dei moduli di PowerShell. Il percorso completo verrà visualizzato durante l'esecuzione dello script.
+**Opzionale.** Usare questa opzione per impostare la directory di output del file ETL. Per impostazione predefinita, questo file verrà creato nella directory dei moduli di PowerShell. Il percorso completo verrà visualizzato durante l'esecuzione dello script.
 
 
 #### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Facoltativo.** Usare questa opzione per raccogliere gli eventi di Application Insights SDK.
+**Opzionale.** Usare questa opzione per raccogliere gli eventi di Application Insights SDK.
 
 #### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Facoltativo.** Usare questa opzione per raccogliere gli eventi da Status Monitor e dal runtime di Redfield.
+**Opzionale.** Usare questa opzione per raccogliere gli eventi da Status Monitor e dal runtime di Redfield.
 
 #### <a name="-verbose"></a>-Verbose
 **Parametro comune.** Usare questa opzione per restituire i log dettagliati.

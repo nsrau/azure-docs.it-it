@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
 ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709250"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -91,7 +90,7 @@ Le [azioni script](hdinsight-hadoop-customize-cluster-linux.md) di HDInsight ese
 
 ### <a name="view-ambari-alerts-status-logs"></a>Visualizzare i log di stato degli avvisi di Ambari
 
-Apache Ambari scrive le modifiche dello stato `ambari-alerts.log`dell'avviso in. Il percorso completo è `/var/log/ambari-server/ambari-alerts.log`. Per abilitare il debug per il log, modificare una proprietà `/etc/ambari-server/conf/log4j.properties.` in modifica quindi voce `# Log alert state changes` in da:
+Apache Ambari scrive le modifiche dello stato dell'avviso in `ambari-alerts.log` . Il percorso completo è `/var/log/ambari-server/ambari-alerts.log` . Per abilitare il debug per il log, modificare una proprietà in `/etc/ambari-server/conf/log4j.properties.` modifica quindi voce in `# Log alert state changes` da:
 
 ```
 log4j.logger.alerts=INFO,alerts

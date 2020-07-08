@@ -3,12 +3,11 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f4b36f57362607a13c09896cd7109596aba0a852
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79415974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322910"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -49,7 +48,7 @@ Ecco come backup di Azure completa un backup per le macchine virtuali di Azure:
 
 Quando si esegue il backup di macchine virtuali di Azure con Backup di Azure, viene eseguita la crittografia dei dati inattivi delle macchine virtuali con la crittografia del servizio di archiviazione. Backup di Azure può anche eseguire il backup di macchine virtuali di Azure crittografate tramite crittografia dischi di Azure.
 
-**Crittografia** | **Dettagli** | **Supporto tecnico**
+**Crittografia** | **Dettagli** | **Supporto**
 --- | --- | ---
 **Azure Disk Encryption** | Crittografia dischi di Azure crittografa i dischi dati e del sistema operativo per le macchine virtuali di Azure.<br/><br/> Crittografia dischi di Azure si integra con le chiavi di crittografia di BitLocker (BEKs), che vengono protette in un insieme di credenziali delle chiavi come segreti. Crittografia dischi di Azure si integra inoltre con Azure Key Vault chiavi di crittografia della chiave (KEKs). | Backup di Azure supporta il backup di macchine virtuali di Azure gestite e non gestite crittografate solo con BEKs o con BEKs insieme a KEKs.<br/><br/> Viene eseguito il backup e la crittografia sia di BEKs che di KEKs.<br/><br/> Poiché viene eseguito il backup di KEKs e BEKs, gli utenti con le autorizzazioni necessarie possono ripristinare chiavi e segreti nell'insieme di credenziali delle chiavi, se necessario. Questi utenti possono anche ripristinare la macchina virtuale crittografata.<br/><br/> Le chiavi e i segreti crittografati non possono essere letti da utenti non autorizzati o da Azure.
 **Crittografia del servizio di archiviazione** | Con SSE, archiviazione di Azure offre la crittografia dei dati inattivi crittografando automaticamente i dati prima di archiviarli. Archiviazione di Azure decrittografa anche i dati prima di recuperarli. | Backup di Azure usa SSE per la crittografia inattiva delle VM di Azure.
@@ -64,7 +63,7 @@ Viene anche eseguito il backup di BEKs. Quindi, se i BEKs vengono persi, gli ute
 
 Backup di Azure acquisisce gli snapshot in base alla pianificazione del backup.
 
-- **Macchine virtuali Windows:** Per le macchine virtuali Windows, il servizio di backup coordina con VSS per eseguire uno snapshot coerente con l'app dei dischi delle macchine virtuali.  Per impostazione predefinita, backup di Azure esegue un backup VSS completo, troncando i log dell'applicazione, ad esempio SQL Server al momento del backup per ottenere un backup coerente a livello di applicazione.  Se si usa un database di SQL Server nel backup delle macchine virtuali di Azure, è possibile modificare l'impostazione per eseguire un backup di copia VSS (per mantenere i log). Per altre informazioni, vedere [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
+- **Macchine virtuali Windows:** Per le macchine virtuali Windows, il servizio di backup coordina con VSS per eseguire uno snapshot coerente con l'app dei dischi delle macchine virtuali.  Per impostazione predefinita, backup di Azure esegue un backup VSS completo, troncando i log dell'applicazione, ad esempio SQL Server al momento del backup per ottenere un backup coerente a livello di applicazione.  Se si usa un database di SQL Server nel backup delle macchine virtuali di Azure, è possibile modificare l'impostazione per eseguire un backup di copia VSS (per mantenere i log). Per altre informazioni, vedi [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
 
 - **Macchine virtuali Linux:** Per eseguire snapshot coerenti con l'app di macchine virtuali Linux, usare il Framework di pre-script e post-script di Linux per scrivere script personalizzati per garantire la coerenza.
 
@@ -88,9 +87,9 @@ La tabella seguente illustra i diversi tipi di coerenza degli snapshot:
 --- | ---
 **Disco** | Il backup dei dischi delle macchine virtuali è parallelo. Se, ad esempio, una macchina virtuale dispone di quattro dischi, il servizio di backup tenterà di eseguire il backup di tutti e quattro i dischi in parallelo. Il backup è incrementale (solo i dati modificati).
 **Pianificazione** |  Per ridurre il traffico di backup, eseguire il backup di macchine virtuali diverse in momenti diversi del giorno e verificare che i tempi non si sovrappongano. Il backup di macchine virtuali nello stesso momento crea problemi di traffico.
-**Preparazione dei backup** | Tenere presente il tempo necessario per preparare il backup. Il tempo di preparazione include l'installazione o l'aggiornamento dell'estensione di backup e l'attivazione di uno snapshot in base alla pianificazione del backup.
-**Trasferimento dati** | Prendere in considerazione il tempo necessario per il backup di Azure per identificare le modifiche incrementali dal backup precedente.<br/><br/> In un backup incrementale, backup di Azure determina le modifiche calcolando il checksum del blocco. Se viene modificato un blocco, questo viene contrassegnato per il trasferimento all'insieme di credenziali. Il servizio analizza i blocchi identificati per tentare di ridurre ulteriormente la quantità di dati da trasferire. Dopo aver valutato tutti i blocchi modificati, backup di Azure trasferisce le modifiche nell'insieme di credenziali.<br/><br/> Può verificarsi un ritardo tra la creazione dello snapshot e la copia nell'insieme di credenziali.<br/><br/> In momenti di picco, possono essere necessarie fino a otto ore per l'elaborazione dei backup. Il tempo di backup per una macchina virtuale sarà inferiore a 24 ore per il backup giornaliero.
-**Backup iniziale** | Sebbene il tempo totale di backup per i backup incrementali sia inferiore a 24 ore, questo potrebbe non essere il caso del primo backup. Il tempo necessario per il backup iniziale dipenderà dalla dimensione dei dati e dal momento in cui viene elaborato il backup.
+**Preparazione dei backup** | Tenere presente il tempo necessario per preparare il backup. che include l'installazione o l'aggiornamento dell'estensione di backup, nonché la generazione di uno snapshot in base alla pianificazione del backup.
+**Trasferimento dati** | Prendere in considerazione il tempo necessario per il backup di Azure per identificare le modifiche incrementali dal backup precedente.<br/><br/> In caso di backup incrementale, Backup di Azure determina le modifiche calcolando il checksum del blocco. Gli eventuali blocchi modificati vengono contrassegnati per il trasferimento nell'insieme di credenziali. Il servizio analizza i blocchi identificati per tentare di ridurre ulteriormente la quantità di dati da trasferire. Dopo aver valutato tutti i blocchi modificati, Backup di Azure trasferisce le modifiche nell'insieme di credenziali.<br/><br/> Può verificarsi un ritardo tra la creazione dello snapshot e la copia nell'insieme di credenziali. In momenti di picco, possono essere necessarie fino a otto ore prima che gli snapshot vengano trasferiti nell'insieme di credenziali. Il tempo di backup per una macchina virtuale sarà inferiore a 24 ore per il backup giornaliero.
+**Backup iniziale** | anche se il tempo totale di backup per i backup incrementali è inferiore a 24 ore, potrebbe non essere così per il primo backup. Il tempo necessario per il backup iniziale dipenderà dalla dimensione dei dati e dal momento in cui viene elaborato il backup.
 **Coda di ripristino** | Backup di Azure elabora i processi di ripristino da più account di archiviazione contemporaneamente e inserisce le richieste di ripristino in una coda.
 **Copia di ripristino** | Durante il processo di ripristino i dati vengono copiati dall'insieme di credenziali all'account di archiviazione.<br/><br/> Il tempo totale di ripristino dipende dal numero di operazioni di I/O al secondo (IOPS) e dalla velocità effettiva dell'account di archiviazione.<br/><br/> Per ridurre il tempo di copia, selezionare un account di archiviazione non impegnato con altre operazioni di lettura e scrittura di applicazioni.
 
@@ -105,12 +104,12 @@ Questi scenari comuni possono influire sul tempo di backup totale:
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Quando si configurano i backup delle VM, è consigliabile seguire queste procedure:
+Quando si configurano backup per macchine virtuali, è consigliabile seguire queste procedure:
 
-- Modificare i tempi di pianificazione predefiniti impostati in un criterio. Se, ad esempio, l'ora predefinita nel criterio è 12:00 AM, incrementare l'intervallo di alcuni minuti in modo che le risorse vengano utilizzate in modo ottimale.
+- Modificare l'ora di pianificazione predefinita impostata in un criterio. Se, ad esempio, l'ora predefinita per il criterio è impostata su 00:00, applicare un incremento di alcuni minuti affinché le risorse vengano usate in modo ottimale.
 - Se si ripristinano le macchine virtuali da un unico insieme di credenziali, è consigliabile usare [account di archiviazione di uso generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diversi per assicurarsi che l'account di archiviazione di destinazione non venga limitato. Ogni macchina virtuale, ad esempio, deve avere un account di archiviazione diverso. Se, ad esempio, vengono ripristinate 10 macchine virtuali, usare 10 account di archiviazione diversi.
-- Per il backup delle macchine virtuali che usano archiviazione Premium, con il ripristino immediato è consigliabile allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, che è necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup
-- Il limite per il numero di dischi per account di archiviazione è relativo alla frequenza di accesso ai dischi da parte delle applicazioni in esecuzione in una macchina virtuale IaaS (Infrastructure as a Service). Come procedura generale, se in un singolo account di archiviazione sono presenti 5-10 o più dischi, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
+- Per il backup delle macchine virtuali che usano archiviazione Premium, con il ripristino immediato è consigliabile allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, che è necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito necessario per i backup successivi al primo
+- Il limite relativo al numero di dischi per account di archiviazione dipende dalla modalità con cui le applicazioni in esecuzione in una macchina virtuale IaaS accedono ai dischi. Come regola generale, se sono presenti da 5 a 10 o più dischi in un solo account di archiviazione, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
 
 ## <a name="backup-costs"></a>Costi di backup
 

@@ -6,24 +6,23 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 247691326e3aa2c8027dd0318b23a2cbfcba1efe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0c6fc0cdba4607bba55383f2662257322ef23aa2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212242"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introduzione a Transparent Data Encryption (TDE)
 
 > [!div class="op_single_selector"]
 >
 > * [Panoramica della sicurezza](sql-data-warehouse-overview-manage-security.md)
-> * [autenticazione](sql-data-warehouse-authentication.md)
+> * [Autenticazione](sql-data-warehouse-authentication.md)
 > * [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
 > * [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
 
@@ -37,10 +36,10 @@ Per abilitare Transparent Data Encryption, attenersi alla procedura seguente:
 
 1. Aprire il database nel [portale di Azure](https://portal.azure.com)
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
-3. Selezionare le impostazioni del portale per ![l'opzione **Transparent Data Encryption**](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. Selezionare l' **On** impostazione ![Impostazioni portale on](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
-5. Selezionare **Salva**
-   ![Impostazioni portale Salva](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
+3. Selezionare le impostazioni del portale per l'opzione **Transparent Data Encryption** ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
+4. Selezionare l' **On** impostazione ![ Impostazioni portale on](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
+5. Selezionare **Salva** 
+    ![ Impostazioni portale Salva](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
 
 ## <a name="disabling-encryption"></a>Disabilitazione della crittografia
 
@@ -48,10 +47,10 @@ Per disabilitare Transparent Data Encryption, attenersi alla procedura seguente:
 
 1. Aprire il database nel [portale di Azure](https://portal.azure.com)
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
-3. Selezionare le impostazioni del portale per ![l'opzione **Transparent Data Encryption**](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. Selezionare ![off **impostazione Impostazioni portale disattivato**](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
-5. Selezionare **Salva**
-   ![impostazione del portale Salva 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
+3. Selezionare le impostazioni del portale per l'opzione **Transparent Data Encryption** ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
+4. Selezionare Off **impostazione** ![ Impostazioni portale disattivato](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
+5. Selezionare **Salva** 
+    ![ impostazione del portale Salva 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
 
 ## <a name="encryption-dmvs"></a>Viste a gestione dinamica della crittografia
 

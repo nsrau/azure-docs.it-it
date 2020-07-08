@@ -7,11 +7,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710236"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali Hyper-V tramite PowerShell e Azure Resource Manager
 
@@ -44,7 +43,7 @@ Inoltre, l'esempio specifico descritto in questo articolo presenta i seguenti pr
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Passaggio 1: Accedere al proprio account Azure
 
-1. Aprire una console di PowerShell ed eseguire questo comando per accedere all'account di Azure. Il cmdlet visualizza una pagina Web in cui vengono richieste le credenziali dell'account: `Connect-AzAccount`.
+1. Aprire una console di PowerShell ed eseguire questo comando per accedere all'account di Azure. Il cmdlet visualizza una pagina Web in cui vengono richieste le credenziali dell'account: `Connect-AzAccount` .
    - In alternativa, è possibile includere le credenziali dell'account come parametro nel `Connect-AzAccount` cmdlet, usando il parametro **Credential** .
    - Se si è un partner CSP che lavora per conto di un tenant, specificare il cliente come tenant, usando il nome di dominio primario tenantID o tenant. Ad esempio: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
@@ -86,7 +85,7 @@ Inoltre, l'esempio specifico descritto in questo articolo presenta i seguenti pr
    $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
    ```
 
-È possibile recuperare un elenco di insiemi di credenziali esistenti con `Get-AzRecoveryServicesVault` il cmdlet.
+È possibile recuperare un elenco di insiemi di credenziali esistenti con il `Get-AzRecoveryServicesVault` cmdlet.
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Passaggio 3: Impostare il contesto dell’insieme di credenziali di Servizi di ripristino
 
@@ -130,7 +129,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 
 Se è in esecuzione un server Hyper-V Core, scaricare il file di installazione e completare questi passaggi:
 
-1. Estrarre i file da _AzureSiteRecoveryProvider. exe_ in una directory locale eseguendo questo comando:
+1. Estrarre i file da _AzureSiteRecoveryProvider.exe_ a una directory locale eseguendo questo comando:
 
    ```console
    AzureSiteRecoveryProvider.exe /x:. /q
@@ -216,7 +215,7 @@ Prima di iniziare, l'account di archiviazione specificato deve trovarsi nella st
    Completed
    ```
 
-1. Aggiornare le proprietà di ripristino, ad esempio le dimensioni del ruolo VM, e la rete di Azure a cui alleghi la scheda di interfaccia di rete della macchina virtuale dopo il failover.
+1. Aggiornare le proprietà di ripristino, ad esempio le dimensioni del ruolo macchina virtuale, e la rete di Azure a cui associare la scheda di interfaccia di rete della macchina virtuale dopo il failover.
 
    ```console
    PS C:\> $nw1 = Get-AzVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
@@ -242,7 +241,7 @@ Prima di iniziare, l'account di archiviazione specificato deve trovarsi nella st
 > 1. Abilitare il failover a Managed disks aggiornando le proprietà della macchina virtuale
 > 1. Usare il `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet per recuperare l'ID del disco per ogni disco dell'elemento protetto
 > 1. Creare un oggetto Dictionary usando `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` il cmdlet per contenere il mapping dell'ID disco al set di crittografia del disco. Questi set di crittografia del disco devono essere creati in precedenza dall'utente nell'area di destinazione.
-> 1. Aggiornare le proprietà della macchina `Set-AzRecoveryServicesAsrReplicationProtectedItem` virtuale usando il cmdlet passando l'oggetto Dictionary nel parametro **DiskIdToDiskEncryptionSetMap** .
+> 1. Aggiornare le proprietà della macchina virtuale usando `Set-AzRecoveryServicesAsrReplicationProtectedItem` il cmdlet passando l'oggetto Dictionary nel parametro **DiskIdToDiskEncryptionSetMap** .
 
 ## <a name="step-8-run-a-test-failover"></a>Passaggio 8: Eseguire un failover di test
 

@@ -9,18 +9,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 09ac31f31f42f5aed9e7dd464e1fce1436cfe581
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982663"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Mantenere la privacy dei dati tramite la privacy differenziale e il pacchetto WhiteNoise
 
 Informazioni sulla privacy differenziale e sul modo in cui il pacchetto WhiteNoise può essere utile per implementare sistemi di privacy differenziale.
 
 Con l'aumentare della quantità di dati raccolti e usati dalle organizzazioni per le attività di analisi, crescono anche le preoccupazioni relative alla privacy e alla sicurezza. Le attività di analisi richiedono dati. In genere, quanto maggiore è il numero di dati usati per il training dei modelli, tanto più accurate sono le analisi. Se per le attività di analisi vengono usate informazioni personali, è particolarmente importante che i dati rimangano privati per tutto il periodo di utilizzo.
+
+> [!NOTE]
+> Si noti che il Toolkit viene rinominato e verrà introdotto il nuovo nome nelle prossime settimane. 
 
 ## <a name="how-differential-privacy-works"></a>Come funziona la privacy differenziale
 
@@ -54,7 +56,7 @@ Anche se la tutela della privacy deve essere l'obiettivo prioritario, esiste un 
 L'implementazione di sistemi di privacy differenziale presenta alcune difficoltà. WhiteNoise è un progetto open source che contiene componenti diversi per la creazione di sistemi globali di privacy differenziale. WhiteNoise è costituito dai componenti di primo livello seguenti:
 
 - Core
-- Sistema
+- System
 
 ### <a name="core"></a>Core
 
@@ -79,4 +81,6 @@ Nella libreria System sono disponibili gli strumenti e i servizi seguenti per l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come usare i componenti di WhiteNoise, vedere i repository GitHub per il [pacchetto WhiteNoise Core](https://github.com/opendifferentialprivacy/whitenoise-core), il [pacchetto WhiteNoise System](https://github.com/opendifferentialprivacy/whitenoise-system) e gli [esempi di WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-samples).
+[Mantenere la privacy dei dati](how-to-differential-privacy.md) in Azure Machine Learning.
+
+Per altre informazioni sui componenti di WhiteNoise, vedere i repository GitHub per il [pacchetto WhiteNoise Core](https://github.com/opendifferentialprivacy/whitenoise-core), il [pacchetto di sistema WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-system) e gli [esempi di WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-samples).

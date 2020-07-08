@@ -6,11 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709063"
 ---
 # <a name="generate-maps"></a>Generare mappe
 
@@ -51,7 +50,7 @@ Questa sezione illustra in dettaglio le procedure per la creazione di mappe di s
 > [!NOTE]
 > È possibile avviare una mappa di posizionamento dei sensori dalla pagina **mappe** o dal menu a discesa **genera mappe di precisione** nella pagina dei **Dettagli della farm** .
 
-Segui questa procedura.
+Attenersi a questa procedura.
 
 1. Nella home page passare a **Maps** dal menu di spostamento a sinistra.
 2. Selezionare **Crea mappe**e selezionare **posizionamento dei sensori** dal menu a discesa.
@@ -75,7 +74,7 @@ Segui questa procedura.
 
 ### <a name="view-and-download-a-sensor-placement-map"></a>Visualizzare e scaricare una mappa di posizionamento del sensore
 
-Segui questa procedura.
+Attenersi a questa procedura.
 
 1. Nella home page passare a **Maps** dal menu di spostamento a sinistra.
 
@@ -110,7 +109,7 @@ FarmBeats offre la possibilità di generare NDVI, Enhanced vegetazione index (EV
 
 ## <a name="create-a-satellite-indices-map"></a>Creare una mappa degli indici satellite
 
-Segui questa procedura.
+Attenersi a questa procedura.
 
 1. Nella home page passare a **Maps** dal menu di spostamento a sinistra.
 2. Selezionare **Crea mappe**e selezionare **indici satellite** dal menu a discesa.
@@ -136,7 +135,7 @@ Segui questa procedura.
 
 ### <a name="view-and-download-a-map"></a>Visualizzare e scaricare una mappa
 
-Segui questa procedura.
+Attenersi a questa procedura.
 
 1. Nella home page passare a **Maps** dal menu di spostamento a sinistra.
 
@@ -175,7 +174,7 @@ Prima di provare a generare un mappa termica di umidità del suolo, rispettare i
 
 ## <a name="create-a-soil-moisture-heatmap"></a>Creare una mappa termica di umidità del suolo
 
-Segui questa procedura.
+Attenersi a questa procedura.
 
 1. Nella home page passare a **Maps** dal menu di spostamento a sinistra per visualizzare la pagina **Maps** .
 2. Selezionare **create maps**e selezionare **Soil umidità** dal menu a discesa.
@@ -203,7 +202,7 @@ Per trovare la misura del sensore, passare a **sensori**e selezionare qualsiasi 
 
 ### <a name="view-and-download-a-map"></a>Visualizzare e scaricare una mappa
 
-Segui questa procedura.
+Attenersi a questa procedura.
 
 1. Nella home page passare a **Maps** dal menu di spostamento a sinistra.
 

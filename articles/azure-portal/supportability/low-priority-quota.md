@@ -4,15 +4,14 @@ description: Aumentare i limiti di quota per le VM spot, che offrono un modello 
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 3e6dddfc458f390f5648e23a8a2af8d714de4bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 513bde930f9c7c8892164c50c3866ff6e948ed4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842785"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763874"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Quota spot: aumenta i limiti per tutte le serie di macchine virtuali
 
@@ -40,17 +39,17 @@ Per richiedere un aumento del limite di quota spot per tutte le serie di macchin
 > [!NOTE]
 > È anche possibile richiedere un aumento del limite di quota per più aree tramite un unico caso di supporto. Per informazioni dettagliate, vedere il passaggio 8.
 
-1. Scegliere **Guida e supporto**dal menu [portale di Azure](https://portal.azure.com) .
+1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Guida e supporto**.
 
-   ![Il collegamento alla guida e al supporto tecnico](./media/resource-manager-core-quotas-request/help-plus-support.png)
+   ![Collegamento Guida e supporto](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. In **Guida e supporto**selezionare **nuova richiesta di supporto**.
+1. In **Guida e supporto** selezionare **Nuova richiesta di supporto**.
 
-    ![Crea una nuova richiesta di supporto](./media/resource-manager-core-quotas-request/new-support-request.png)
+    ![Creare una nuova richiesta di supporto](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Per **Tipo di problema** selezionare **Limiti del servizio e della sottoscrizione (quote)**.
+1. Per **tipo di problema**selezionare **limiti per servizio e sottoscrizione (quote)**.
 
-   ![Seleziona un tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
+   ![Selezionare un tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
 1. Per **Subscription (sottoscrizione**) selezionare la sottoscrizione di cui si vuole aumentare la quota.
 
@@ -62,7 +61,7 @@ Per richiedere un aumento del limite di quota spot per tutte le serie di macchin
 
 1. Selezionare **Avanti: soluzioni** per aprire **i dettagli del problema**. Selezionare **specificare i dettagli** per immettere informazioni aggiuntive.
 
-   ![Collegamento "fornire i dettagli"](./media/resource-manager-core-quotas-request/provide-details-link.png)
+   ![Collegamento "Specifica dettagli"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
 1. In **Dettagli quota**seguire questa procedura:
 

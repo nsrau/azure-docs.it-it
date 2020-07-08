@@ -3,20 +3,19 @@ title: Aggiungere un disco dati gestito a una macchina virtuale Windows-Azure
 description: Come collegare un disco dati gestito a una macchina virtuale Windows usando il portale di Azure.
 author: roygara
 ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e8fd330fdb6e0c7d857ea99f6d51b05436c17d1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84657174"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Collegare un disco dati gestito a una macchina virtuale Windows usando il portale di Azure
 
-Questo articolo illustra come collegare un nuovo disco dati gestito a una macchina virtuale Windows usando il portale di Azure. Il numero di dischi dati che è possibile collegare dipende dalle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](sizes.md).
+Questo articolo illustra come collegare un nuovo disco dati gestito a una macchina virtuale Windows usando il portale di Azure. Il numero di dischi dati che è possibile collegare dipende dalle dimensioni della macchina virtuale. Per ulteriori informazioni, vedere [dimensioni per le macchine virtuali](sizes.md).
 
 
 ## <a name="add-a-data-disk"></a>Aggiungere un disco dati
@@ -28,7 +27,7 @@ Questo articolo illustra come collegare un nuovo disco dati gestito a una macchi
 5. Nell'elenco a discesa per il nuovo disco selezionare **Crea disco**.
 6. Nella pagina **Crea disco gestito** digitare un nome del disco e regolare le altre impostazioni in base alle esigenze. Al termine, selezionare **Crea**.
 7. Nella pagina **Dischi** selezionare **Salva** per salvare la configurazione del nuovo disco della macchina virtuale.
-8. Dopo che Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dati**.
+8. Quando Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nelle impostazioni del disco della macchina virtuale in **dischi dati**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Inizializzare un nuovo disco dati

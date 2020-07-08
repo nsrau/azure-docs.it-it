@@ -2,22 +2,21 @@
 title: Gestione del consenso alle applicazioni e valutazione delle richieste di consenso-Azure AD
 description: Informazioni su come gestire le richieste di consenso quando il consenso dell'utente è disabilitato o limitato e come valutare una richiesta di consenso dell'amministratore a livello di tenant per un'applicazione.
 services: active-directory
-author: psignoret
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77367842"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763194"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestione del consenso alle applicazioni e valutazione delle richieste di consenso
 
@@ -114,8 +113,8 @@ Per una panoramica più ampia, tra cui come gestire scenari complessi aggiuntivi
 
 [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 
-[Configurare la modalità con cui gli utenti finali accettano le applicazioni](configure-user-consent.md)
+[Configurare la modalità con cui gli utenti finali consentono le applicazioni](configure-user-consent.md)
 
-[Autorizzazioni e consenso nella piattaforma di identità Microsoft](../develop/active-directory-v2-scopes.md)
+[Autorizzazioni e consenso in Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
 
 [Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

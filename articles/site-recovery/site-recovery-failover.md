@@ -4,12 +4,11 @@ description: Come eseguire il failover di VM/server fisici in Azure con Azure Si
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: 99a197e8f5ebac8a3b0be1b567ee41b43a2c4476
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79471269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309969"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Eseguire un failover dal sito locale in Azure
 
@@ -30,9 +29,9 @@ Per assicurarsi che sia possibile connettersi alle macchine virtuali di Azure cr
 
 Per connettersi alle macchine virtuali di Azure tramite RDP/SSH dopo il failover, è necessario eseguire una serie di operazioni in locale prima del failover.
 
-**Dopo il failover** | **Posizione** | **Azioni**
+**Dopo il failover** | **Posizione** | **Actions**
 --- | --- | ---
-**VM di Azure che esegue Windows** | Computer locale prima del failover | Per accedere alla VM di Azure tramite Internet, abilitare RDP e assicurarsi che vengano aggiunte regole TCP e UDP per **Pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/><br/> Per accedere alla VM di Azure tramite una connessione da sito a sito, abilitare RDP nel computer e assicurarsi che il protocollo RDP sia consentito nella **Windows Firewall** -> **app e funzionalità consentite**per le reti di **dominio e private** .<br/><br/> <br/><br/> Rimuovere le route persistenti statiche e il proxy WinHTTP. Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135)<br/><br/> Quando si attiva un failover, verificare che nella macchina virtuale non siano in sospeso aggiornamenti di Windows. L'aggiornamento di Windows potrebbe essere avviato durante il failover e non si potrà accedere alla macchina virtuale finché non sarà completato.
+**VM di Azure che esegue Windows** | Computer locale prima del failover | Per accedere alla VM di Azure tramite Internet, abilitare RDP e assicurarsi che vengano aggiunte regole TCP e UDP per **Pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/><br/> Per accedere alla VM di Azure tramite una connessione da sito a sito, abilitare RDP nel computer e assicurarsi che il protocollo RDP sia consentito nella **Windows Firewall**  ->  **app e funzionalità consentite**per le reti di **dominio e private** .<br/><br/> <br/><br/> Rimuovere le route persistenti statiche e il proxy WinHTTP. Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135)<br/><br/> Quando si attiva un failover, verificare che nella macchina virtuale non siano in sospeso aggiornamenti di Windows. L'aggiornamento di Windows potrebbe essere avviato durante il failover e non si potrà accedere alla macchina virtuale finché non sarà completato.
 **VM di Azure che esegue Linux** | Computer locale prima del failover | Assicurarsi che il servizio Secure Shell nella macchina virtuale sia impostato per l'avvio automatico all'avvio del sistema.<br/><br/> Verificare che le regole firewall accettino la connessione SSH.
 
 
@@ -43,15 +42,16 @@ Questa procedura descrive come eseguire un failover per un [piano di ripristino]
 
 Eseguire il failover del piano di ripristino come segue:
 
-1. Nell'insieme di credenziali Site Recovery selezionare **piani** > di ripristino*recoveryplan_name*.
+1. Nell'insieme di credenziali Site Recovery selezionare **piani di ripristino**  >  *recoveryplan_name*.
 2. Fare clic su **Failover**.
 
     ![Failover](./media/site-recovery-failover/Failover.png)
 
-3. Nella **Failover** > **direzione del failover**di failover lasciare l'impostazione predefinita se si esegue la replica in Azure.
+3. Nella **Failover**  >  **direzione del failover**di failover lasciare l'impostazione predefinita se si esegue la replica in Azure.
 4. In **failover**selezionare un **punto di ripristino** in cui eseguire il failover.
 
     - **Più recente**: usare il punto più recente. Vengono elaborati tutti i dati inviati al servizio Site Recovery e viene creato un punto di ripristino per ogni computer. Questa opzione fornisce il RPO più basso (obiettivo del punto di ripristino) perché la macchina virtuale creata dopo il failover include tutti i dati che sono stati replicati per Site Recovery quando è stato attivato il failover.
+    Si noti che quando l'area di origine diventa inattiva, non è possibile eseguire altre operazioni di elaborazione dei log. Sarà quindi necessario eseguire il failover al punto di ripristino elaborato più recente. Vedere il punto successivo per altre informazioni.
    - **Elaborato più recente**: usare questa opzione per eseguire il failover delle macchine virtuali nel punto di ripristino più recente già elaborato da Site Recovery. È possibile visualizzare il punto di ripristino elaborato più recente nei **punti di ripristino più recenti**della macchina virtuale. Questa opzione offre un RTO basso in quanto non viene impiegato alcun tempo per l'elaborazione dei dati non elaborati
    - **Coerente con l'app più recente**: usare questa opzione per eseguire il failover delle VM nell'ultimo punto di ripristino coerente con l'applicazione elaborato da Site Recovery.
    - **Elaborato più recente di più macchine virtuali**: con questa opzione le VM che fanno parte di un gruppo di replica eseguono il failover al punto di ripristino coerente tra più macchine virtuali più recente. Il failover di altre macchine virtuali viene eseguito sul punto di ripristino elaborato più recente. Questa opzione è disponibile solo per i piani di ripristino con almeno una VM con la coerenza tra più macchine virtuali abilitata.
@@ -124,7 +124,7 @@ Site Recovery gestisce la conservazione delle lettere di unità. Se si escludono
 
 Per connettersi alle macchine virtuali di Azure create dopo il failover tramite RDP o SSH, attenersi ai requisiti riepilogati nella tabella.
 
-**Failover** | **Posizione** | **Azioni**
+**Failover** | **Posizione** | **Actions**
 --- | --- | ---
 **VM di Azure che esegue Windows** | VM di Azure dopo il failover |  [Aggiungere un indirizzo IP pubblico](https://aka.ms/addpublicip) per la macchina virtuale.<br/><br/> Le regole del gruppo di sicurezza di rete nella VM sottoposta a failover e nella subnet di Azure a cui è connessa devono consentire le connessioni in ingresso alla porta RDP.<br/><br/> Selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale.<br/><br/> Se non è possibile connettersi, verificare che la macchina virtuale sia in esecuzione e rivedere i suggerimenti per la [risoluzione dei problemi](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **VM di Azure che esegue Linux** | VM di Azure dopo il failover | Le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e nella subnet di Azure a cui è connessa devono consentire le connessioni in ingresso alla porta SSH.<br/><br/> [Aggiungere un indirizzo IP pubblico](https://aka.ms/addpublicip) per la macchina virtuale.<br/><br/> Selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale.<br/><br/>

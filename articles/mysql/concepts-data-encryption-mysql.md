@@ -6,17 +6,13 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 24b52042e037e998069550599ca006eded70d1c4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849731"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027410"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente
-
-> [!NOTE]
-> Al momento, per usare questa funzionalità è necessario richiedere l'accesso. A tale scopo, contattare AskAzureDBforMySQL@service.microsoft.com.
 
 La crittografia dei dati con chiavi gestite dal cliente per Database di Azure per MySQL consente di usare Bring Your Own Key (BYOK) per la protezione dei dati inattivi. Consente anche alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in pieno controllo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
 
@@ -129,6 +125,19 @@ Per evitare problemi con la configurazione della crittografia dei dati gestita d
 * Avviare il processo di ripristino o di creazione della replica in lettura dall'istanza master di Database di Azure per MySQL.
 * Mantenere il server appena creato (ripristinato/di replica) in uno stato inaccessibile, perché la relativa identità univoca non ha ancora ricevuto le autorizzazioni per Key Vault.
 * Nel server ripristinato o di replica ripetere la convalida della chiave gestita dal cliente nelle impostazioni di crittografia dei dati per assicurarsi che il server appena creato disponga di autorizzazioni di wrapping e annullamento del wrapping per la chiave archiviata in Key Vault.
+
+## <a name="limitations"></a>Limitazioni
+
+Per database di Azure per MySQL, il supporto per la crittografia dei dati inattivi con la chiave gestita dei clienti (CMK) presenta alcune limitazioni:
+
+* Il supporto per questa funzionalità è limitato ai piani tariffari **per utilizzo generico** e con ottimizzazione per la **memoria** .
+* Questa funzionalità è supportata solo nelle aree e sui server che supportano l'archiviazione fino a 16 TB. Per l'elenco delle aree di Azure che supportano l'archiviazione fino a 16TB, vedere la sezione archiviazione nella documentazione [qui](concepts-pricing-tiers.md#storage)
+
+    > [!NOTE]
+    > - Tutti i nuovi server MySQL creati nelle aree elencate in precedenza, è **disponibile**il supporto per la crittografia con chiavi di gestione clienti. Il server ripristino temporizzato (punto nel tempo ripristinato) o la replica di lettura non verrà qualificata, sebbene in teoria siano ' New '.
+    > - Per verificare se il server di cui è stato effettuato il provisioning supporta fino a 16TB, è possibile passare al pannello piano tariffario nel portale e visualizzare le dimensioni massime di archiviazione supportate dal server di cui è stato effettuato il provisioning. Se è possibile spostare il dispositivo di scorrimento fino a 4 TB, il server potrebbe non supportare la crittografia con chiavi gestite dal cliente. Tuttavia, i dati vengono crittografati in qualsiasi momento utilizzando le chiavi gestite dal servizio. Per AskAzureDBforMySQL@service.microsoft.com eventuali domande, contattare il.
+
+* La crittografia è supportata solo con la chiave crittografica RSA 2048.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

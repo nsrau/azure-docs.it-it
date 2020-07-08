@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 1a6106a45f5062850ceb12205528a05ed1d494be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81756677"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure
@@ -25,7 +24,7 @@ Usare l'estensione dell'interfaccia della riga di comando di Azure per visualizz
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ L'interfaccia della riga di comando di Azure è installata ed è 2.0.7 o versione successiva. Controllare la versione dell'interfaccia della riga `az --version`di comando di Azure eseguendo. Informazioni su come installare e aggiornare dalla [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli) della riga di comando di Azure
++ L'interfaccia della riga di comando di Azure è installata ed è 2.0.7 o versione successiva. Controllare la versione dell'interfaccia della riga di comando di Azure eseguendo `az --version` . Informazioni su come installare e aggiornare dalla [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli) della riga di comando di Azure
 + Un account aziendale o dell'Istituto di istruzione in Azure, aggiunto come utente in un'applicazione IoT Central.
 
 ## <a name="install-the-iot-central-extension"></a>Installare l'estensione IoT Central
@@ -50,9 +49,9 @@ az extension update --name azure-iot
 
 ## <a name="using-the-extension"></a>Uso dell'estensione
 
-Nelle sezioni seguenti vengono descritti i comandi e le opzioni comuni che è possibile utilizzare `az iot central`quando si esegue. Per visualizzare il set completo di comandi e opzioni, passare `--help` a `az iot central` o a uno dei relativi sottocomandi.
+Nelle sezioni seguenti vengono descritti i comandi e le opzioni comuni che è possibile utilizzare quando si esegue `az iot central` . Per visualizzare il set completo di comandi e opzioni, passare `--help` a `az iot central` o a uno dei relativi sottocomandi.
 
-### <a name="login"></a>Login
+### <a name="login"></a>Accedi
 
 Per iniziare, accedere all'interfaccia della riga di comando di Azure. 
 
