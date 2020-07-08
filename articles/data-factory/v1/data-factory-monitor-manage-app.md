@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846906"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Se non è disponibile un'applicazione Data Factory con cui testare questa proced
 ## <a name="understand-the-monitoring-and-management-app"></a>Informazioni sull'app di monitoraggio e gestione
 Sulla sinistra sono presenti tre schede: **Esplora risorse**, **Monitoring Views** (Visualizzazioni monitoraggio) e **Avvisi**. La prima scheda (**Esplora risorse**) è selezionata per impostazione predefinita.
 
-### <a name="resource-explorer"></a>Scheda Resource Explorer
+### <a name="resource-explorer"></a>Esplora inventario risorse
 Saranno visualizzate le informazioni illustrate nell'immagine seguente:
 
 * **Visualizzazione albero** di Esplora risorse nel pannello a sinistra.
@@ -75,7 +75,7 @@ In Esplora inventario risorse è possibile visualizzare tutte le risorse della d
 * Le proprietà dell'oggetto selezionato vengono visualizzate nella finestra Proprietà nel riquadro a destra.
 * Viene mostrata la definizione JSON dell’oggetto selezionato, se applicabile. Ad esempio: un servizio collegato, un set di dati o una pipeline.
 
-![Scheda Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+![Esplora inventario risorse](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
 Per informazioni dettagliate sulle finestre attività, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md).
 
@@ -159,7 +159,7 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 
 <table>
 <tr>
-    <th align="left">Stato</th><th align="left">Stato secondario</th><th align="left">Descrizione</th>
+    <th align="left">Stato</th><th align="left">Substatus</th><th align="left">Descrizione</th>
 </tr>
 <tr>
     <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
@@ -286,7 +286,7 @@ Per cancellare i filtri è possibile usare la stessa finestra popup. Per cancell
 
 ## <a name="perform-batch-actions"></a>Esecuzione di azioni batch
 ### <a name="rerun-selected-activity-windows"></a>Rieseguire finestre attività selezionate
-Selezionare una finestra attività, fare clic sulla freccia rivolta verso il basso per il primo pulsante della barra dei comandi e selezionare **Riesegui** / **con upstream nella pipeline**. L'opzione **Rerun with upstream in pipeline** (Riesegui con upstream nella pipeline) consente di rieseguire anche tutte le finestre attività upstream.
+Selezionare una finestra attività, fare clic sulla freccia rivolta verso il basso per il primo pulsante della barra dei comandi e selezionare **Riesegui**  /  **con upstream nella pipeline**. L'opzione **Rerun with upstream in pipeline** (Riesegui con upstream nella pipeline) consente di rieseguire anche tutte le finestre attività upstream.
     ![Rieseguire una finestra attività](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 È anche possibile selezionare più finestre attività nell'elenco e rieseguirle contemporaneamente. È possibile filtrare le finestre attività in base allo stato (ad esempio **Non riuscito**), quindi rieseguire le finestre attività non riuscite dopo aver corretto il problema che ne causa l'errore. Vedere la sezione seguente per informazioni dettagliate sull'applicazione di filtri alle finestre attività nell'elenco.  

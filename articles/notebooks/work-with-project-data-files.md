@@ -3,18 +3,18 @@ title: Importare ed esportare dati con progetti con Azure Notebooks anteprima
 description: Informazioni su come importare dati in un progetto di Azure Notebooks Preview da origini esterne e su come esportare i dati da un progetto.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834115"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Usare i file di dati nei progetti di Azure Notebooks anteprima
 
-I dati sono la linfa vitale di molti notebook di Jupyter, specialmente dei notebook usati per il data science. Con Azure Notebooks è possibile importare facilmente i dati di varie origini in un progetto e quindi usarli dai notebook. È anche possibile impostare i notebook in modo che generino dati che vengono archiviati nel progetto e che successivamente possono essere scaricati per essere usati altrove.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+I dati sono la linfa vitale di molti notebook di Jupyter, specialmente dei notebook usati per il data science. Con Azure Notebooks è possibile importare facilmente i dati di varie origini in un progetto e quindi usarli dai notebook. È anche possibile impostare i notebook in modo che generino dati che vengono archiviati nel progetto e che successivamente possono essere scaricati per essere usati altrove.
 
 Il menu **Data** (Dati) di un notebook in esecuzione include i comandi **Upload** (Carica) e **Download** (Scarica), che sono applicabili ai file nel progetto nonché ai file temporanei della sessione corrente del notebook.
 
@@ -46,7 +46,7 @@ Il resto di questo articolo descrive in dettaglio le operazioni su file a livell
 
 ### <a name="import-files-from-the-file-menu-in-a-notebook"></a>Importare i file dal menu File di un notebook
 
-1. All'interno di un notebook in esecuzione, selezionare il comando di**caricamento** **file** > :
+1. All'interno di un notebook in esecuzione **File**, selezionare il comando di  >  **caricamento** file:
 
     ![Comando Upload (Carica) del menu File in un notebook](media/file-menu-upload.png)
 
@@ -54,7 +54,7 @@ Il resto di questo articolo descrive in dettaglio le operazioni su file a livell
 
 1. Nella finestra popup **Upload status** (Stato caricamento) che viene visualizzata selezionare una **cartella di destinazione** nell'elenco a discesa:
 
-    - Session Folder (*~/* ): carica i file nella sessione del notebook corrente, ma non crea file nel progetto. La cartella di sessione è un peer della cartella di progetto, ma non viene conservata al termine della sessione. Per accedere ai file della sessione nel codice, anteporre ai nomi file il percorso relativo *.../*.
+    - Session Folder ( *~/* ): carica i file nella sessione del notebook corrente, ma non crea file nel progetto. La cartella di sessione è un peer della cartella di progetto, ma non viene conservata al termine della sessione. Per accedere ai file della sessione nel codice, anteporre ai nomi file il percorso relativo *.../*.
 
         La cartella di sessione è utile per fare delle prove ed evita di riempire il progetto di file che potrebbero non servire a lungo termine. Nella cartella di sessione è possibile caricare anche file con nomi identici ai file nel progetto senza che si generino conflitti e che li si debba rinominare. Si supponga ad esempio che nel progetto esista già una versione del file *data.csv*, ma che si voglia sperimentare una versione diversa.** Se si carica il file nella cartella di sessione, è possibile eseguire il notebook usando i dati presenti nel file caricato (facendovi riferimento nel codice come *../data.csv*) invece di quelli presenti nel file del progetto.
 
@@ -100,7 +100,7 @@ Nel dashboard del progetto fare clic con il pulsante destro del mouse su un file
 
 ## <a name="export-files-from-the-data-menu-in-a-notebook"></a>Esportare i file dal menu Data (Dati) di un notebook
 
-1. Selezionare il comando di menu**Scarica** **file** > :
+1. Selezionare il **File**  >  comando di menu**Scarica** file:
 
     ![Comando Download (Scarica) del menu File in un notebook](media/file-menu-download.png)
 

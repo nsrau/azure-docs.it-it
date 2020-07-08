@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 8247b1cedc2c5ebc8577af6be485aed0fcd5d6af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768765"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839059"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transazioni chiave (numero massimo di transazioni consentite in 10 secondi per ogni insieme di credenziali per area<sup>1</sup>):
 
@@ -28,7 +28,7 @@ ms.locfileid: "81768765"
 >
 > Le soglie di limitazione sono ponderate e l'imposizione è relativa alla somma. Ad esempio, come illustrato nella tabella precedente, quando si eseguono operazioni GET su chiavi HSM HSM, è più costoso usare chiavi a 4.096 bit per otto volte rispetto alle chiavi a 2.048 bit. Questo perché 1000/125 = 8.
 >
-> In un intervallo di 10 secondi specificato, un client Azure Key Vault può eseguire *solo una* delle operazioni seguenti prima di riscontrare un `429` codice di stato http di limitazione delle richieste:
+> In un intervallo di 10 secondi specificato, un client Azure Key Vault può eseguire *solo una* delle operazioni seguenti prima di riscontrare un codice di `429` stato http di limitazione delle richieste:
 > - 2.000 RSA 2.048-bit software-chiave GET Transactions
 > - 1.000 RSA 2.048-bit HSM-chiave GET Transactions
 > - 125 RSA 4.096-bit HSM-chiave GET Transactions
@@ -46,7 +46,10 @@ Per informazioni su come gestire la limitazione delle richieste quando questi li
 
 ### <a name="azure-private-link-integration"></a>Integrazione di collegamento privato di Azure
 
+> [!NOTE]
+> Il numero di insiemi di credenziali delle chiavi con endpoint privati abilitati per ogni sottoscrizione è un limite regolabile. Il limite indicato di seguito è il limite predefinito. Se si vuole richiedere un aumento del limite per il servizio, inviare un messaggio di posta elettronica a akv-privatelink@microsoft.com. Queste richieste vengono approvate caso per caso.
+
 | Risorsa | Limite |
 | -------- | ----- |
 | Endpoint privati per Key Vault | 64 |
-| Insiemi di credenziali delle chiavi con endpoint privati per sottoscrizione | 64 |
+| Insiemi di credenziali delle chiavi con endpoint privati per sottoscrizione | 400 |

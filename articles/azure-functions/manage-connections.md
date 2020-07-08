@@ -4,11 +4,11 @@ description: Informazioni su come evitare i problemi di prestazioni in Funzioni 
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276452"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846765"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gestire le connessioni in funzioni di Azure
 
@@ -16,7 +16,7 @@ Le funzioni in un'app per le funzioni condividono le risorse. Tra queste risorse
 
 ## <a name="connection-limit"></a>Limite di connessione
 
-Il numero di connessioni disponibili è limitato in parte perché un'app per le funzioni viene eseguita in un [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una delle restrizioni imposte dal sandbox sul codice è un limite al numero di connessioni in uscita, che è attualmente 600 connessioni attive (1.200 totali) per ogni istanza. Quando si raggiunge questo limite, il runtime di funzioni scrive il messaggio seguente nei log: `Host thresholds exceeded: Connections`. Per ulteriori informazioni, vedere la pagina relativa ai [limiti del servizio Functions](functions-scale.md#service-limits).
+Il numero di connessioni disponibili è limitato in parte perché un'app per le funzioni viene eseguita in un [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una delle restrizioni imposte dal sandbox sul codice è un limite al numero di connessioni in uscita, che è attualmente 600 connessioni attive (1.200 totali) per ogni istanza. Quando si raggiunge questo limite, il runtime di funzioni scrive il messaggio seguente nei log: `Host thresholds exceeded: Connections` . Per ulteriori informazioni, vedere la pagina relativa ai [limiti del servizio Functions](functions-scale.md#service-limits).
 
 Questo limite è per ogni istanza. Quando il [controller di scalabilità aggiunge le istanze dell'app](functions-scale.md#how-the-consumption-and-premium-plans-work) per le funzioni per gestire più richieste, ogni istanza ha un limite di connessione indipendente. Ciò significa che non esiste alcun limite di connessione globale ed è possibile avere più di 600 connessioni attive tra tutte le istanze attive.
 
@@ -52,13 +52,13 @@ public static async Task Run(string input)
 }
 ```
 
-Una domanda comune su [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) in .NET è "è necessario eliminare il client?" In generale, si eliminano gli oggetti che `IDisposable` implementano al termine dell'utilizzo. Ma non si elimina un client statico perché l'operazione non viene eseguita al termine della funzione. La durata del client statico deve coincidere con quella dell'applicazione.
+Una domanda comune su [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) in .NET è "è necessario eliminare il client?" In generale, si eliminano gli oggetti che implementano `IDisposable` al termine dell'utilizzo. Ma non si elimina un client statico perché l'operazione non viene eseguita al termine della funzione. La durata del client statico deve coincidere con quella dell'applicazione.
 
 ### <a name="http-agent-examples-javascript"></a>Esempi di agenti HTTP (JavaScript)
 
-Poiché fornisce opzioni di gestione della connessione migliori, è consigliabile usare la [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) classe nativa anziché i metodi non nativi, ad esempio il `node-fetch` modulo. I parametri di connessione vengono configurati `http.agent` tramite le opzioni della classe. Per le opzioni dettagliate disponibili con l'agente HTTP, vedere [nuovo agente\[(\]opzioni)](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
+Poiché fornisce opzioni di gestione della connessione migliori, è consigliabile usare la [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) classe nativa anziché i metodi non nativi, ad esempio il `node-fetch` modulo. I parametri di connessione vengono configurati tramite le opzioni della `http.agent` classe. Per le opzioni dettagliate disponibili con l'agente HTTP, vedere [nuovo agente ( \[ Opzioni \] )](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
-La classe `http.globalAgent` globale utilizzata da `http.request()` dispone di tutti questi valori impostati sulle rispettive impostazioni predefinite. Il modo consigliato per configurare i limiti di connessione in Funzioni è impostare un numero massimo globale. L'esempio seguente imposta il numero massimo di socket per l'app per la funzione:
+La `http.globalAgent` classe globale utilizzata da `http.request()` dispone di tutti questi valori impostati sulle rispettive impostazioni predefinite. Il modo consigliato per configurare i limiti di connessione in Funzioni è impostare un numero massimo globale. L'esempio seguente imposta il numero massimo di socket per l'app per la funzione:
 
 ```js
 http.globalAgent.maxSockets = 200;

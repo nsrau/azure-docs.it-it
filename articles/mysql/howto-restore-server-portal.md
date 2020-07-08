@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: 619dc05d709f41941d16764bf32b49a0d2a11958
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/30/2020
+ms.openlocfilehash: dab0633e0ac5f434f423053118882783cdb43a5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80373000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833897"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL tramite il portale di Azure
 
@@ -37,7 +37,7 @@ Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** 
 Per altre informazioni sull'impostazione di questi valori durante la creazione, vedere la [guida introduttiva del server Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 È possibile modificare il periodo di conservazione dei backup per un server seguendo questa procedura:
-1. Accedi al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Selezionare il server del Database di Azure per MySQL. Questa azione apre la pagina **Panoramica**.
 3. Selezionare **Piano tariffario** nel menu in **IMPOSTAZIONI**. Con il dispositivo di scorrimento è possibile modificare il **periodo di conservazione dei backup** impostandolo su un numero di giorni compreso tra 7 e 35.
 Nello screenshot seguente, il periodo è stato aumentato a 34 giorni.
@@ -73,27 +73,50 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 Il nuovo server creato con il ripristino temporizzato ha il nome e la password di accesso dell'amministratore validi per il server esistente nel momento scelto per il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non dispone degli endpoint di servizio di VNet che erano presenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server. Vengono ripristinate le regole del firewall dal server originale.
+Il nuovo server creato durante un ripristino non include gli endpoint servizio di rete virtuale presenti nel server originale. Per il nuovo server, queste regole devono essere impostate separatamente. Vengono ripristinate le regole del firewall del server originale.
 
 ## <a name="geo-restore"></a>Ripristino geografico
 Se il server è stato configurato per backup con ridondanza geografica, è possibile creare un nuovo server dal backup di quel server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per MySQL.  
 
 1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale. Selezionare **Database** > **Database di Azure per MySQL**.
 
-   ![Opzione "Database di Azure per MySQL"](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
+   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Passare a database di Azure per MySQL.":::
+ 
+2. Fornire la sottoscrizione, il gruppo di risorse e il nome del nuovo server. 
 
-2. Nell'elenco a discesa **Seleziona origine** scegliere **Backup**. Questa azione consente di caricare un elenco di server per i quali è stato abilitato il backup con ridondanza geografica. Selezionare uno di questi backup come origine del nuovo server.
-   ![Opzione Seleziona origine: Backup ed elenco di backup con ridondanza geografica](./media/howto-restore-server-portal/2-georestore.png)
-
+3. Selezionare **backup** come **origine dati**. Questa azione carica un elenco a discesa che fornisce un elenco di server in cui sono abilitati i backup con ridondanza geografica.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selezionare origine dati.":::
+    
    > [!NOTE]
    > Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.
    >
 
-3. Compilare il resto del modulo con le proprie preferenze. È possibile selezionare qualsiasi **posizione**. Dopo aver selezionato la posizione è possibile selezionare **Piano tariffario**. Per impostazione predefinita vengono visualizzati i parametri del server esistente dal quale si esegue il ripristino. È possibile fare clic su **OK** senza apportare alcuna modifica per ereditare tali impostazioni. In alternativa è possibile modificare la **generazione di calcolo** (se disponibile nell'area selezionata), il numero di **vCore**, il **periodo di conservazione dei backup** e l'**opzione di ridondanza dei backup**. La modifica del **piano tariffario** (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della **risorsa di archiviazione** non è supportata durante il ripristino.
+4. Selezionare l'elenco a discesa **backup** .
+   
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Selezionare elenco a discesa backup.":::
+
+5. Selezionare il server di origine da cui eseguire il ripristino.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selezionare backup.":::
+
+6. Il server utilizzerà i valori per il numero di **Vcore**, il **periodo di conservazione dei backup**, l'opzione di **ridondanza del backup**, la versione del **motore**e le **credenziali di amministratore**. Selezionare **Continua**. 
+   
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continuare con il backup.":::
+
+7. Compilare il resto del modulo con le proprie preferenze. È possibile selezionare qualsiasi **posizione**.
+
+    Dopo aver selezionato il percorso, è possibile selezionare **Configura server** per aggiornare **la generazione di calcolo** (se disponibile nell'area scelta), il numero di **Vcore**, il **periodo di conservazione dei backup**e l'opzione di **ridondanza del backup**. La modifica del **piano tariffario** (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della **risorsa di archiviazione** non è supportata durante il ripristino.
+
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Compila modulo."::: 
+
+8. Selezionare **Revisione e creazione** per rivedere le selezioni effettuate. 
+
+9. Selezionare **Crea** per effettuare il provisioning del server. Questa operazione può richiedere qualche minuto.
 
 Il nuovo server creato con il ripristino geografico ha il nome e la password di accesso dell'amministratore validi per il server esistente al momento dell'avvio del ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non dispone degli endpoint di servizio di VNet che erano presenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server. Vengono ripristinate le regole del firewall dal server originale.
+Il nuovo server creato durante un ripristino non include gli endpoint servizio di rete virtuale presenti nel server originale. Per il nuovo server, queste regole devono essere impostate separatamente. Vengono ripristinate le regole del firewall del server originale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sui [backup](concepts-backup.md) del servizio

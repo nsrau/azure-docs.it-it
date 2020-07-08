@@ -3,18 +3,19 @@ title: Configurare e gestire Azure Notebooks anteprima
 description: Informazioni su come gestire i metadati del progetto, i file di progetto, l'ambiente del progetto e i passaggi di configurazione tramite l'interfaccia utente di Azure Notebooks e l'accesso diretto al terminale.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834081"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gestione e configurazione di progetti in Azure Notebooks anteprima
 
-Un progetto in Azure Notebooks Preview è essenzialmente una configurazione della macchina virtuale Linux sottostante in cui sono in esecuzione i notebook di Jupyter, insieme a una cartella di file e a metadati descrittivi. 
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Un progetto in Azure Notebooks Preview è essenzialmente una configurazione della macchina virtuale Linux sottostante in cui sono in esecuzione i notebook di Jupyter, insieme a una cartella di file e a metadati descrittivi. 
 
 Il dashboard del progetto in Azure Notebooks consente di gestire i file ed eventualmente configurare le caratteristiche del progetto:
 
@@ -80,8 +81,8 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 | Run in Jupyter Lab (Esegui in JupyterLab) | j | Esegue un notebook in JupyterLab, un'interfaccia più orientata agli sviluppatori rispetto a quella normalmente associata a Jupyter. |
 | Anteprima | p | Apre un'anteprima HTML del file; per i notebook, l'anteprima è un rendering di sola lettura del notebook. Per altre informazioni, vedere la sezione [Anteprima](#preview). |
 | Edit file (Modifica file) | i | Apre il file per la modifica. |
-| Download | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
-| Rinominare | a | Richiede un nuovo nome per il file o la cartella. |
+| Scarica | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
+| Rinomina | a | Richiede un nuovo nome per il file o la cartella. |
 | Elimina | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
 | Sposta | m | Sposta un file in una cartella diversa dello stesso progetto. |
 
@@ -93,10 +94,10 @@ La pagina di anteprima supporta vari comandi della barra degli strumenti con tas
 
 | Comando | Tasti di scelta rapida | Action |
 | --- | --- | --- |
-| Condividi | s | Consente di visualizzare la finestra popup di condivisione da cui è possibile ottenere un collegamento, condividere sui social media, ottenere HTML per l'incorporamento e inviare un messaggio di posta elettronica. |
+| Condivisione | s | Consente di visualizzare la finestra popup di condivisione da cui è possibile ottenere un collegamento, condividere sui social media, ottenere HTML per l'incorporamento e inviare un messaggio di posta elettronica. |
 | Clone | c  | Consente di clonare il notebook nel proprio account. |
 | Esegui | r | Consente di eseguire il notebook, se si è autorizzati a eseguire questa operazione. |
-| Download | d | Scarica una copia del notebook. |
+| Scarica | d | Scarica una copia del notebook. |
 
 ## <a name="configure-the-project-environment"></a>Configurare l'ambiente del progetto
 
@@ -126,14 +127,14 @@ Per aggiungere un passaggio, selezionare prima **+ Add** (+ Aggiungi) e quindi s
 
 Le informazioni che verranno visualizzate dipendono dal tipo di operazione scelto:
 
-- **Requirements. txt**: nel secondo elenco a discesa selezionare un file *requirements. txt* già presente nel progetto. Selezionare quindi una versione di Python dal terzo elenco a discesa visualizzato. Usando un file *requirements.txt*, Azure Notebooks esegue `pip install -r` con il file *requirements.txt* quando viene avviato un server notebook. Non è necessario installare esplicitamente i pacchetti dal notebook.
+- **Requirements.txt**: nel secondo elenco a discesa selezionare un file di *requirements.txt* già presente nel progetto. Selezionare quindi una versione di Python dal terzo elenco a discesa visualizzato. Usando un file *requirements.txt*, Azure Notebooks esegue `pip install -r` con il file *requirements.txt* quando viene avviato un server notebook. Non è necessario installare esplicitamente i pacchetti dal notebook.
 
 - **Script della shell**: nel secondo elenco a discesa selezionare uno script della shell bash nel progetto (in genere un file con estensione *sh* ) che contiene i comandi che si desidera eseguire per inizializzare l'ambiente.
 
 - **Environment. yml**: nel secondo elenco a discesa selezionare un file *environments. yml* per i progetti python usando un ambiente conda.
 
    > [!WARNING]
-   > Poiché si tratta di un servizio in anteprima in fase di sviluppo, esiste attualmente un problema `Environment.yml` noto in cui l'impostazione non viene applicata al progetto come previsto. Il progetto e i notebook di Jupyter all'interno di non caricano attualmente il file dell'ambiente specificato.
+   > Poiché si tratta di un servizio in anteprima in fase di sviluppo, esiste attualmente un problema noto in cui l' `Environment.yml` impostazione non viene applicata al progetto come previsto. Il progetto e i notebook di Jupyter all'interno di non caricano attualmente il file dell'ambiente specificato.
 
 Dopo aver aggiunto tutti i passaggi necessari, selezionare **Save** (Salva).
 

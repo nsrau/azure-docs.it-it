@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: ce40a46d4c1da627930ef8de8813936b71dcc281
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833792"
 ---
 # <a name="azure-functions-http-trigger"></a>Trigger HTTP di Funzioni di Azure
 
@@ -497,7 +498,9 @@ Il tipo di input del trigger viene dichiarato come `HttpRequest` o come tipo per
 
 Per impostazione predefinita, quando si crea una funzione per un trigger HTTP la funzione può essere indirizzata con una route nel formato seguente:
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 È possibile personalizzare questa route tramite la proprietà `route` facoltativa nell'associazione di input del trigger HTTP. Ad esempio, il file *function.json* seguente definisce una proprietà `route` per un trigger HTTP:
 
@@ -634,12 +637,14 @@ public class HttpTriggerJava {
 
 ---
 
-Per impostazione predefinita, tutte le route di funzione sono precedute da *api*. È inoltre possibile personalizzare o rimuovere il prefisso con la proprietà `http.routePrefix` nel file [host.json](functions-host-json.md). Nell'esempio seguente viene rimosso il prefisso della route *api* usando una stringa vuota per il prefisso nel file *host.json*.
+Per impostazione predefinita, tutte le route di funzione sono precedute da *api*. È inoltre possibile personalizzare o rimuovere il prefisso con la proprietà `extensions.http.routePrefix` nel file [host.json](functions-host-json.md). Nell'esempio seguente viene rimosso il prefisso della route *api* usando una stringa vuota per il prefisso nel file *host.json*.
 
 ```json
 {
-    "http": {
-    "routePrefix": ""
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
     }
 }
 ```
@@ -749,9 +754,6 @@ L'utente autenticato è disponibile tramite [Intestazioni HTTP](../app-service/a
 
 ## <a name="function-access-keys"></a><a name="authorization-keys"></a>Chiavi di accesso alle funzioni
 
-> [!IMPORTANT]
-> Mentre le chiavi possono risultare per offuscare gli endpoint HTTP durante lo sviluppo, non sono progettate come un modo per proteggere un trigger HTTP nell'ambiente di produzione. Per altre informazioni, vedere [Proteggere un endpoint HTTP nell'ambiente di produzione](#secure-an-http-endpoint-in-production).
-
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## <a name="obtaining-keys"></a>Ottenere le chiavi
@@ -766,7 +768,9 @@ Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crit
 
 La maggior parte dei modelli di trigger HTTP richiedono una chiave API nella richiesta. La richiesta HTTP è quindi in genere simile al seguente URL:
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 La chiave può essere inclusa in una variabile della stringa di query denominata `code`, come sopra. Può anche essere inclusa in un'intestazione HTTP `x-functions-key`. Il valore della chiave può essere una chiave di funzione definita per la funzione o una chiave host.
 
@@ -809,6 +813,14 @@ L'autorizzazione webhook viene gestita dal componente ricevitore dei webhook, ch
 
 * **Stringa di query**: il provider passa il nome della chiave nel parametro della stringa di query `clientid`, ad esempio `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Intestazione della richiesta**: il provider passa il nome della chiave nell'intestazione `x-functions-clientid`.
+
+## <a name="content-types"></a>Tipi di contenuto
+
+Per passare dati binari e del modulo a una funzione non C # è necessario usare l'intestazione Content-Type appropriata. I tipi di contenuto supportati includono `octet-stream` per i dati binari e i [tipi multipart](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
+
+### <a name="known-issues"></a>Problemi noti
+
+Nelle funzioni non C #, le richieste inviate con Content-Type `image/jpeg` generano un `string` valore passato alla funzione. In casi come questi, è possibile convertire manualmente il `string` valore in una matrice di byte per accedere ai dati binari non elaborati.
 
 ## <a name="limits"></a>Limiti
 

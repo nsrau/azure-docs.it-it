@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846643"
 ---
 # <a name="list-of-service-fabric-events"></a>Elenco degli eventi di Service Fabric 
 
@@ -31,7 +31,7 @@ Di seguito è riportato un elenco di eventi di Service Fabric organizzati in bas
 
 Altre informazioni sugli aggiornamenti dei cluster sono disponibili [qui](service-fabric-cluster-upgrade-windows-server.md).
 
-| EventId | Name | Category | Descrizione |Origine (attività) | Level | 
+| EventId | Nome | Category | Descrizione |Origine (attività) | Level | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Aggiornamento | È stato avviato un aggiornamento del cluster | CM | Informativo |
 | 29628 | ClusterUpgradeCompleted | Aggiornamento | È stato completato un aggiornamento del cluster | CM | Informativo | 
@@ -43,7 +43,7 @@ Altre informazioni sugli aggiornamenti dei cluster sono disponibili [qui](servic
 
 **Eventi relativi al ciclo di vita dei nodi** 
 
-| EventId | Name | Category | Descrizione |Origine (attività) | Level |
+| EventId | Nome | Category | Descrizione |Origine (attività) | Level |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | La disattivazione di un nodo è stata completata | FM | Informativo | 
 | 18603 | NodeUp | StateTransition | Il cluster ha rilevato che un nodo è stato avviato | FM | Informativo | 
@@ -60,7 +60,7 @@ Altre informazioni sugli aggiornamenti dei cluster sono disponibili [qui](servic
 
 **Eventi relativi al ciclo di vita delle applicazioni**
 
-| EventId | Name | Category | Descrizione |Origine (attività) | Level | 
+| EventId | Nome | Category | Descrizione |Origine (attività) | Level | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | LifeCycle | È stata creata una nuova applicazione | CM | Informativo | 
 | 29625 | ApplicationDeleted | LifeCycle | Un'applicazione esistente è stata eliminata | CM | Informativo | 
@@ -70,7 +70,7 @@ Altre informazioni sugli aggiornamenti dei cluster sono disponibili [qui](servic
 
 Altre informazioni sugli aggiornamenti delle applicazioni sono disponibili [qui](service-fabric-application-upgrade.md).
 
-| EventId | Name | Category | Descrizione |Origine (attività) | Level | 
+| EventId | Nome | Category | Descrizione |Origine (attività) | Level | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Aggiornamento | È stato avviato un aggiornamento dell'applicazione | CM | Informativo | 
 | 29622 | ApplicationUpgradeCompleted | Aggiornamento | È stato completato un aggiornamento dell'applicazione | CM | Informativo | 
@@ -82,7 +82,7 @@ Altre informazioni sugli aggiornamenti delle applicazioni sono disponibili [qui]
 
 **Eventi relativi al ciclo di vita dei servizi**
 
-| EventId | Name | Category | Descrizione |Origine (attività) | Level | 
+| EventId | Nome | Category | Descrizione |Origine (attività) | Level | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | LifeCycle | È stato creato un nuovo servizio | FM | Informativo | 
 | 18658 | ServiceDeleted | LifeCycle | È stato eliminato un servizio esistente | FM | Informativo | 
@@ -91,7 +91,7 @@ Altre informazioni sugli aggiornamenti delle applicazioni sono disponibili [qui]
 
 **Eventi di spostamento delle partizioni**
 
-| EventId | Name | Category | Descrizione |Origine (attività) | Level | 
+| EventId | Nome | Category | Descrizione |Origine (attività) | Level | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | È stata completata la riconfigurazione di una partizione | RA | Informativo | 
 
@@ -99,7 +99,7 @@ Altre informazioni sugli aggiornamenti delle applicazioni sono disponibili [qui]
 
 **Eventi del ciclo di vita della replica**
 
-| EventId | Name | Category | Descrizione |Origine (attività) | Level |
+| EventId | Nome | Category | Descrizione |Origine (attività) | Level |
 | --- | --- | ---| --- | --- | --- |
 | 61701 | ReliableDictionaryOpened | LifeCycle | Reliable Dictionary aperto | DistributedDictionary | Informativo |
 | 61702 | ReliableDictionaryClosed | LifeCycle | Reliable Dictionary chiuso | DistributedDictionary | Informativo |
@@ -114,26 +114,26 @@ Altre informazioni sugli aggiornamenti delle applicazioni sono disponibili [qui]
 | 63648 | ReliableConcurrentQueueOpened | LifeCycle | Coda simultanea affidabile aperta | Coda reliableconcurrentqueue | Informativo |
 | 63649 | ReliableConcurrentQueueClosed | LifeCycle | Coda simultanea affidabile chiusa | Coda reliableconcurrentqueue | Informativo |
 | 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | Il checkpoint della coda simultanea affidabile è stato recuperato | Coda reliableconcurrentqueue | Informativo |
-| 61687 | TStoreError | Errore | La raccolta Reliable Collection ha ricevuto un errore imprevisto | TStore | Errore |
+| 61687 | TStoreError | Operazioni non riuscite | La raccolta Reliable Collection ha ricevuto un errore imprevisto | TStore | Errore |
 | 63831 | PrimaryFullCopyInitiated | LifeCycle | La replica primaria ha avviato una copia completa | TReplicator | Informativo |
 | 63832 | PrimaryPartialCopyInitiated | LifeCycle | La replica primaria ha avviato una copia parziale | TReplicator | Informativo |
 | 16831 | BuildIdleReplicaStarted | LifeCycle | La replica primaria ha iniziato a compilare la replica inattiva | Replica | Informativo |
 | 16832 | BuildIdleReplicaCompleted | LifeCycle | La replica primaria ha completato la compilazione della replica inattiva | Replica | Informativo |
 | 16833 | BuildIdleReplicaFailed | LifeCycle | La replica primaria non è riuscita a compilare la replica inattiva | Replica | Avviso |
-| 16834 | PrimaryReplicationQueueFull | Integrità | Coda di replica della replica primaria piena | Replica | Avviso |
-| 16835 | PrimaryReplicationQueueWarning | Integrità | Coda di replica della replica primaria quasi completa | Replica | Avviso |
-| 16836 | PrimaryReplicationQueueWarningMitigated | Integrità | La coda di replica della replica primaria è accettabile | Replica | Informativo |
-| 16837 | SecondaryReplicationQueueFull | Integrità | Coda di replica della replica secondaria piena | Replica | Avviso |
-| 16838 | SecondaryReplicationQueueWarning | Integrità | Coda di replica della replica secondaria quasi completa | Replica | Avviso |
-| 16839 | SecondaryReplicationQueueWarningMitigated | Integrità | La coda di replica della replica secondaria è accettabile | Replica | Informativo |
-| 16840 | PrimaryFaultedSlowSecondary | Integrità | La replica primaria ha generato un errore di una replica secondaria lenta | Replica | Avviso |
-| 16841 | ReplicatorFaulted | Integrità | Replica con errori | Replica | Avviso |
+| 16834 | PrimaryReplicationQueueFull | Salute | Coda di replica della replica primaria piena | Replica | Avviso |
+| 16835 | PrimaryReplicationQueueWarning | Salute | Coda di replica della replica primaria quasi completa | Replica | Avviso |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Salute | La coda di replica della replica primaria è accettabile | Replica | Informativo |
+| 16837 | SecondaryReplicationQueueFull | Salute | Coda di replica della replica secondaria piena | Replica | Avviso |
+| 16838 | SecondaryReplicationQueueWarning | Salute | Coda di replica della replica secondaria quasi completa | Replica | Avviso |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Salute | La coda di replica della replica secondaria è accettabile | Replica | Informativo |
+| 16840 | PrimaryFaultedSlowSecondary | Salute | La replica primaria ha generato un errore di una replica secondaria lenta | Replica | Avviso |
+| 16841 | ReplicatorFaulted | Salute | Replica con errori | Replica | Avviso |
 
 ## <a name="container-events"></a>Eventi dei contenitori
 
 **Eventi relativi al ciclo di vita dei contenitori** 
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | Un contenitore è stato avviato | Hosting | Informativo | 1 |
 | 23075 | ContainerDeactivated | Un contenitore è stato arrestato | Hosting | Informativo | 1 |
@@ -149,21 +149,21 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi dei report sull'integrità del cluster**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | È disponibile un nuovo report sull'integrità del cluster | HM | Informativo | 1 |
 | 54437 | ClusterHealthReportExpired | Un report esistente sull'integrità del cluster è scaduto | HM | Informativo | 1 |
 
 **Eventi dei report sull'integrità dei nodi**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | È disponibile un nuovo report sull'integrità dei nodi | HM | Informativo | 1 |
 | 54432 | NodeHealthReportExpired | Un report esistente sull'integrità dei nodi è scaduto | HM | Informativo | 1 |
 
 **Eventi dei report sull'integrità delle applicazioni**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | È stato creato un nuovo report sull'integrità delle applicazioni. È valido per le applicazioni non distribuite | HM | Informativo | 1 |
 | 54426 | DeployedApplicationNewHealthReport | È stato creato un nuovo report sull'integrità delle applicazioni distribuite | HM | Informativo | 1 |
@@ -174,21 +174,21 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi dei report sull'integrità dei servizi**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | È stato creato un nuovo report sull'integrità dei servizi | HM | Informativo | 1 |
 | 54433 | ServiceHealthReportExpired | Un report esistente sull'integrità dei servizi è scaduto | HM | Informativo | 1 |
 
 **Eventi dei report sull'integrità delle partizioni**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | È stato creato un nuovo report sull'integrità delle partizioni | HM | Informativo | 1 |
 | 54431 | PartitionHealthReportExpired | Un report esistente sull'integrità delle partizioni è scaduto | HM | Informativo | 1 |
 
 **Eventi dei report sull'integrità delle repliche**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | È stato creato un report sull'integrità delle repliche con stato | HM | Informativo | 1 |
 | 54430 | StatelessInstanceNewHealthReport | È stato creato un nuovo report sull'integrità delle istanze senza stato | HM | Informativo | 1 |
@@ -199,28 +199,28 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi di sessioni di chaos testing**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | È stata avviata una sessione di chaos testing | Testabilità | Informativo | 1 |
 | 50023 | ChaosStopped | È stata arrestata una sessione di chaos testing | Testabilità | Informativo | 1 |
 
 **Eventi dei nodi relativi a Chaos**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | È stato pianificato il riavvio di un nodo nell'ambito di una sessione di chaos testing | Testabilità | Informativo | 1 |
 | 50087 | ChaosNodeRestartCompleted | Il riavvio di un nodo è stato completato nell'ambito di una sessione di chaos testing | Testabilità | Informativo | 1 |
 
 **Eventi delle applicazioni relativi a Chaos**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | È stato pianificato il riavvio di un pacchetto di codice durante una sessione di chaos testing | Testabilità | Informativo | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | Il riavvio di un pacchetto di codice è stato completato durante una sessione di chaos testing | Testabilità | Informativo | 1 |
 
 **Eventi delle partizioni relativi a Chaos**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | È stato pianificato lo spostamento di una partizione primaria nell'ambito di una sessione di chaos testing | Testabilità | Informativo | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | È stato pianificato lo spostamento di una partizione secondaria nell'ambito di una sessione di chaos testing | Testabilità | Informativo | 1 |
@@ -228,7 +228,7 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi delle repliche relativi a Chaos**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | È stato pianificato il riavvio di una replica nell'ambito di una sessione di chaos testing | Testabilità | Informativo | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | È stata pianificata la rimozione di una replica nell'ambito di una sessione di chaos testing | Testabilità | Informativo | 1 |
@@ -238,7 +238,7 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 **Eventi di correlazione**
 
-| EventId | Name | Descrizione |Origine (attività) | Level | Versione |
+| EventId | Nome | Descrizione |Origine (attività) | Level | Versione |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | È stata rilevata una correlazione | Testabilità | Informativo | 1 |
 
@@ -246,7 +246,7 @@ Il [modello di integrità di Service Fabric](service-fabric-health-introduction.
 
 Di seguito è riportato un elenco completo degli eventi disponibili in Service Fabric prima della versione 6.2.
 
-| EventId | Name | Origine (attività) | Level |
+| EventId | Nome | Origine (attività) | Level |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Informativo |
 | 25621 | NodeOpenedSuccess | FabricNode | Informativo |

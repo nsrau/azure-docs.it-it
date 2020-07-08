@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: 09f0e0f47ecd94c6db67b3973218cc1323bccde3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736127"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833690"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Se si preferisce un'esperienza senza codice, è anche possibile [Creare gli espe
 
 ## <a name="select-your-experiment-type"></a>Selezionare il tipo di esperimento
 
-Prima di iniziare l'esperimento, è necessario determinare il tipo di problema di machine learning da risolvere. Il Machine Learning automatizzato supporta attività di tipo classificazione, regressione e previsione. Altre informazioni sui [tipi di attività](how-to-define-task-type.md).
+Prima di iniziare l'esperimento, è necessario determinare il tipo di problema di machine learning da risolvere. Il Machine Learning automatizzato supporta attività di tipo classificazione, regressione e previsione. Altre informazioni sui [tipi di attività](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
 Durante il processo di automazione e ottimizzazione, il processo di Machine Learning automatizzato supporta gli algoritmi seguenti. Come utente, non è necessario specificare l'algoritmo.
 
@@ -58,12 +58,10 @@ Classificazione | Regressione | Previsione serie temporale
 [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Foresta casuale](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Alberi estremamente casuali](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier) |[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
-[DNN Linear Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor) |[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast Linear Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* |[Online Gradient Descent Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-|[Averaged Perceptron Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
-|[Linear SVM Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)* ||
+[Averaged Perceptron Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)|[Online Gradient Descent Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast Linear Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
+|[Linear SVM Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)*||
 
 Usare il parametro `task` nel costruttore `AutoMLConfig` per specificare il tipo di esperimento.
 
@@ -117,13 +115,14 @@ Per un esempio dell'uso della classe `Dataset` per montare i dati nella destinaz
 
 ## <a name="train-and-validation-data"></a>Dati di training e convalida
 
-È possibile specificare set di training e convalida separati direttamente nel costruttore `AutoMLConfig`.
+È possibile specificare set di training e di convalida distinti direttamente nel `AutoMLConfig` costruttore con le opzioni seguenti. Altre informazioni su [come configurare le suddivisioni dei dati e la convalida incrociata](how-to-configure-cross-validation-data-splits.md) per gli esperimenti AutoML. 
 
 ### <a name="k-folds-cross-validation"></a>Convalida incrociata K-Folds
 
 Usare l'impostazione `n_cross_validations` per specificare il numero di convalide incrociate. Il set di dati di training verrà suddiviso in modo casuale in riduzioni `n_cross_validations` di dimensioni uguali. Durante ogni ciclo di convalida incrociata, una delle riduzioni verrà utilizzata per la convalida del modello con training eseguito sulle riduzioni restanti. Questo processo viene ripetuto per `n_cross_validations` cicli fino a quando ciascuna riduzione non viene utilizzata una sola volta come set di convalida. Il punteggio medio di tutti i cicli `n_cross_validations` verrà segnalato e il modello corrispondente verrà sottoposto nuovamente a training sull'intero set di dati di training.
 
 Altre informazioni sul modo in cui il Machine Learning automatizzato applica la convalida incrociata per [impedire l'overfitting dei modelli](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Convalida incrociata Monte Carlo (sottocampionamento casuale ripetuto)
 
 Usare `validation_size` per specificare la percentuale dei dati di training da usare per la convalida e usare `n_cross_validations` per specificare il numero convalide incrociate. Durante ogni ciclo di convalida incrociata, un subset di dimensioni `validation_size` verrà selezionato in modo casuale per la convalida del modello con training eseguito sui dati restanti. Infine, il punteggio medio di tutti i cicli `n_cross_validations` verrà segnalato e il modello corrispondente verrà sottoposto nuovamente a training sull'intero training set. La convalida incrociata Monte Carlo non è supportata per la previsione di serie temporale.
@@ -184,7 +183,7 @@ Per evitare errori di timeout degli esperimenti, il servizio di convalida del Ma
 ### <a name="primary-metric"></a>Metrica primaria
 La metrica primaria determina la metrica da usare durante il training del modello per l'ottimizzazione. Le metriche disponibili che è possibile selezionare sono determinate dal tipo di attività selezionato. La tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
 
-|Classificazione | Regressione | Previsione serie temporale
+|Classificazione | Regressione | Previsione di serie temporali
 |-- |-- |--
 |precisione| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
@@ -196,15 +195,15 @@ Per informazioni sulle definizioni specifiche di queste metriche, vedere [Risult
 
 ### <a name="data-featurization"></a>Definizione delle funzionalità dei dati
 
-In ogni esperimento di Machine Learning automatizzato i dati vengono [dimensionati e normalizzati automaticamente](concept-automated-ml.md#preprocess) per *determinati* algoritmi sensibili a funzionalità su scale diverse.  Tuttavia, è anche possibile abilitare definizioni delle funzionalità aggiuntive, ad esempio l'imputazione di valori, la codifica e le trasformazioni dei valori mancanti. [Altre informazioni su ciò che è incluso nella definizione delle funzionalità](how-to-use-automated-ml-for-ml-models.md#featurization).
+In ogni esperimento di Machine Learning automatizzato i dati vengono [dimensionati e normalizzati automaticamente](how-to-configure-auto-features.md#) per *determinati* algoritmi sensibili a funzionalità su scale diverse.  Tuttavia, è anche possibile abilitare definizioni delle funzionalità aggiuntive, ad esempio l'imputazione di valori, la codifica e le trasformazioni dei valori mancanti.
 
-Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `featurization`. La tabella seguente illustra le impostazioni accettate per la definizione delle funzionalità nella [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+Quando si configurano gli esperimenti nell' `AutoMLConfig` oggetto, è possibile abilitare o disabilitare l'impostazione `featurization` . La tabella seguente illustra le impostazioni accettate per la definizione delle funzionalità nella [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 |Configurazione della definizione delle funzionalità | Descrizione |
 | ------------- | ------------- |
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica che deve essere usata la definizione delle funzionalità personalizzata. [Informazioni su come personalizzare la definizione delle funzionalità](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"featurization": 'auto'`| Indica che i passaggi di [protezione dati e definizione delle funzionalità](how-to-configure-auto-features.md#featurization) vengono eseguiti automaticamente come parte della pre-elaborazione. **Impostazione predefinita**|
 |`"featurization": 'off'`| Indica che la definizione delle funzionalità non deve essere eseguita automaticamente.|
-|`"featurization": 'auto'`| Indica che i passaggi di [protezione dati e definizione delle funzionalità](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) vengono eseguiti automaticamente come parte della pre-elaborazione.|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica che deve essere usata la definizione delle funzionalità personalizzata. [Informazioni su come personalizzare la definizione delle funzionalità](how-to-configure-auto-features.md#customize-featurization).|
 
 > [!NOTE]
 > I passaggi di definizione delle funzionalità di Machine Learning automatizzato (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione dei valori di testo in formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di definizione delle funzionalità applicati durante il training vengono automaticamente applicati ai dati di input.
@@ -345,6 +344,8 @@ run = experiment.submit(automl_config, show_output=True)
 
 È possibile visualizzare i risultati del training in un widget o inline in un notebook. Per altri dettagli, vedere [Tenere traccia dei modelli e valutarli](how-to-track-experiments.md#view-run-details).
 
+Per informazioni dettagliate su come scaricare o registrare un modello per la distribuzione in un servizio Web, vedere [come e dove distribuire un modello](how-to-deploy-and-where.md).
+
 ## <a name="understand-automated-ml-models"></a>Modelli di Machine Learning automatizzato
 
 Tutti i modelli prodotti con l'utilizzo del Machine Learning automatizzato includono i passaggi seguenti:
@@ -361,7 +362,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Definizione delle funzionalità automatizzata
 
-Vedere l'elenco della pre-elaborazione e della [definizione delle funzionalità automatizzata](concept-automated-ml.md#preprocess) che si verifica quando `"featurization": 'auto'`.
+Vedere l'elenco della pre-elaborazione e della [definizione delle funzionalità automatizzata]() che si verifica quando `"featurization": 'auto'`.
 
 Considerare questo esempio:
 + Sono disponibili quattro funzionalità di input: A (numerica), B (numerica), C (numerica), D (datetime)
@@ -430,36 +431,9 @@ Usare le due API seguenti nel primo passaggio del modello adattato per ottenere 
    |Dropped|Indica se la funzionalità di input è stata eliminata o usata.|
    |EngineeringFeatureCount|Numero di funzionalità generate tramite trasformazioni della definizione delle funzionalità automatizzata.|
    |Trasformazioni|Elenco delle trasformazioni applicate alle funzionalità di input per generare le funzionalità definite.|
-   
-### <a name="customize-feature-engineering"></a>Personalizzare la definizione delle funzionalità
-Per personalizzare la definizione delle funzionalità, specificare  `"featurization": FeaturizationConfig`.
-
-La personalizzazione supportata include:
-
-|Personalizzazione|Definizione|
-|--|--|
-|Aggiornamento dello scopo della colonna|Eseguire l'override del tipo di funzionalità per la colonna specificata.|
-|Aggiornamento dei parametri del trasformatore |Aggiornare i parametri per il trasformatore specificato. Attualmente sono supportati Imputer (media, valore mediano e più frequente) e HashOneHotEncoder.|
-|Eliminazione delle colonne |Colonne da eliminare dalla definizione delle funzionalità.|
-|Blocco dei trasformatori| Bloccare i trasformatori da usare nel processo di definizione delle funzionalità.|
-
-Creare l'oggetto FeaturizationConfig usando le chiamate API:
-```python
-featurization_config = FeaturizationConfig()
-featurization_config.blocked_transformers = ['LabelEncoder']
-featurization_config.drop_columns = ['aspiration', 'stroke']
-featurization_config.add_column_purpose('engine-size', 'Numeric')
-featurization_config.add_column_purpose('body-style', 'CategoricalHash')
-#default strategy mean, add transformer param for for 3 columns
-featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
-featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
-featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
-featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
-```
-
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Ridimensionamento o normalizzazione e algoritmo con valori di iperparametri:
 
-Per comprendere il ridimensionamento o la normalizzazione e l'algoritmo o i valori di iperparametri di una pipeline, usare fitted_model.steps. [Altre informazioni sul ridimensionamento o la normalizzazione](concept-automated-ml.md#preprocess). Di seguito è riportato un output di esempio:
+Per comprendere il ridimensionamento o la normalizzazione e l'algoritmo o i valori di iperparametri di una pipeline, usare fitted_model.steps. [Altre informazioni sul ridimensionamento o la normalizzazione](). Di seguito è riportato un output di esempio:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
@@ -536,6 +510,9 @@ L'interpretabilità dei modelli consente di comprendere il motivo per cui i mode
 Per esempi di codice su come abilitare le funzionalità di interpretabilità in modo specifico negli esperimenti di Machine Learning automatizzato, vedere la [procedura](how-to-machine-learning-interpretability-automl.md).
 
 Per informazioni generali su come abilitare le spiegazioni dei modelli e l'importanza delle funzionalità in altre aree dell'SDK al di fuori del Machine Learning automatizzato, vedere l'articolo relativo al [concetto](how-to-machine-learning-interpretability.md) di interpretabilità.
+
+> [!NOTE]
+> Il modello ForecastTCN non è attualmente supportato dal client di spiegazione. Questo modello non restituirà un dashboard di spiegazione se viene restituito come modello migliore e non supporta l'esecuzione di spiegazioni su richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

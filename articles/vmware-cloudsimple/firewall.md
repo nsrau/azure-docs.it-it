@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244667"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846866"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurare le regole e le tabelle del firewall per i cloud privati
 
@@ -72,7 +72,7 @@ Le regole del firewall determinano il modo in cui il firewall tratta tipi specif
 
 Dopo aver definito una tabella del firewall, è possibile specificare le subnet soggette alle regole della tabella.
 
-1. Nella pagina **Network** > **tabelle del firewall** di rete selezionare una tabella del firewall.
+1. Nella pagina **Network**  >  **tabelle del firewall** di rete selezionare una tabella del firewall.
 2. Aprire la scheda **VLAN/subnet collegata** .
 3. Fare clic su **Connetti a una VLAN/subnet**.
 4. Selezionare il cloud privato e la VLAN. Vengono visualizzati il nome della subnet e il blocco CIDR associati.

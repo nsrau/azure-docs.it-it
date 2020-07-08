@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846562"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 
@@ -48,7 +48,7 @@ Bilanciare il carico spostando le macchine virtuali tra due server di elaborazio
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Fare clic su **Seleziona computer**e scegliere i computer che si desidera spostare dall'attuale al server di elaborazione di destinazione. Per ogni macchina virtuale vengono visualizzate informazioni dettagliate sulla modifica dei dati media. Fare quindi clic su **OK**. 
-3. Nell'insieme di credenziali monitorare lo stato di avanzamento del processo in **monitoraggio** > **Site Recovery processi**.
+3. Nell'insieme di credenziali monitorare lo stato di avanzamento del processo in **monitoraggio**  >  **Site Recovery processi**.
 
 Saranno necessari circa 15 minuti affinché le modifiche vengano riflesse nel portale. Per un effetto più rapido, [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
@@ -63,7 +63,7 @@ Spostare l'intero carico di lavoro gestito da un server di elaborazione in un se
 
     ![Opzione](media/vmware-azure-manage-process-server/Switch.PNG)
 
-5. Nell'insieme di credenziali monitorare lo stato di avanzamento del processo in **monitoraggio** > **Site Recovery processi**.
+5. Nell'insieme di credenziali monitorare lo stato di avanzamento del processo in **monitoraggio**  >  **Site Recovery processi**.
 
 Saranno necessari circa 15 minuti affinché le modifiche vengano riflesse nel portale. Per un effetto più rapido, [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 

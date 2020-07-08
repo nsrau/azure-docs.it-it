@@ -3,18 +3,18 @@ title: Presentare un notebook di Jupyter come slideshow in Azure Notebooks antep
 description: Informazioni su come configurare le celle per la modalità slideshow in un notebook di Jupyter e quindi presentare la presentazione usando l'estensione per la crescita.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe337361436ecfc8eabf2855ad633b891db69d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834047"
 ---
 # <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Eseguire una presentazione del notebook in Azure Notebooks anteprima
 
-Azure Notebooks è preconfigurato con Jupyter/IPython Slideshow Extension (RISE), che consente di presentare un notebook direttamente come una presentazione. In una presentazione, le celle vengono visualizzate in genere una per volta usando una dimensione del carattere appropriata per la presentazione su schermi di grandi dimensioni ed è comunque possibile eseguire il codice anziché usare un computer separato per le demo.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks è preconfigurato con Jupyter/IPython Slideshow Extension (RISE), che consente di presentare un notebook direttamente come una presentazione. In una presentazione, le celle vengono visualizzate in genere una per volta usando una dimensione del carattere appropriata per la presentazione su schermi di grandi dimensioni ed è comunque possibile eseguire il codice anziché usare un computer separato per le demo.
 
 L'immagine seguente mostra la visualizzazione notebook standard, in cui è possibile visualizzare insieme il testo Markdown e le celle di codice:
 
@@ -52,7 +52,7 @@ Se si prende un notebook casuale e lo si usa per una presentazione, si vedrà ch
     | Diapositiva | La cella è una diapositiva primaria, a cui è possibile accedere usando le frecce DESTRA e SINISTRA del controllo di navigazione. |
     | Diapositiva secondaria | La cella si trova "sotto" una diapositiva primaria a cui è possibile accedere usando la freccia GIÙ del controllo di navigazione. La freccia SU consente di tornare alla diapositiva primaria. Le diapositive secondarie vengono usate per il materiale secondario che è possibile ignorare nel percorso principale di una presentazione ma che, se necessario, è immediatamente disponibile. |
     | Frammento | Il contenuto della cella viene visualizzato nel contesto della diapositiva o della diapositiva secondaria precedente quando si usa la freccia di navigazione GIÙ (viene rimosso un frammento quando si usa la freccia SU). È possibile usare un frammento con una cella di codice per far apparire il codice all'interno di una diapositiva oppure è possibile usare più frammenti per far apparire i punti di elenco uno per volta (vedere l'esempio nella sezione successiva). Poiché i frammenti vengono disposti nella diapositiva corrente, quelli in eccesso non saranno visibili oltre la fine della finestra del browser. |
-    | Skip | La cella non viene visualizzata nella presentazione. |
+    | Ignora | La cella non viene visualizzata nella presentazione. |
     | Note | La cella contiene le note del relatore, che non vengono visualizzate nella presentazione. |
 
 1. Inizialmente, è consigliabile scegliere l'opzione **Presentazione** per ogni cella. È quindi possibile eseguire la presentazione e apportare le modifiche necessarie.
@@ -88,7 +88,7 @@ Poiché i frammenti vengono visualizzati con una spaziatura verticale maggiore r
     ![Output della cella di codice visualizzato nella presentazione](media/slideshow/slideshow-run-code-cell-output.png)
 
     > [!Tip]
-    > L'output della cella è considerato parte della cella in una presentazione. Se si esegue una cella nella visualizzazione notebook o presentazione, l'output viene visualizzato anche nell'altra visualizzazione. Per cancellare l'output, **utilizzare il** > comando di**cancellazione** della cella**Current Outputs** > (per la cella corrente) o la **cella** > **All Outputs** > **Clear** (per tutte le celle).
+    > L'output della cella è considerato parte della cella in una presentazione. Se si esegue una cella nella visualizzazione notebook o presentazione, l'output viene visualizzato anche nell'altra visualizzazione. Per cancellare l'output, **utilizzare il**  >  comando di cancellazione della cella**Current Outputs**  >  **Clear** (per la cella corrente) o la **cella**  >  **All Outputs**  >  **Clear** (per tutte le celle).
 
 1. Dopo aver eseguito tutte le operazioni necessarie nella presentazione, usare il pulsante **X** per tornare alla visualizzazione notebook.
 

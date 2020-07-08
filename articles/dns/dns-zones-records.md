@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265155"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846833"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
 
@@ -24,7 +24,7 @@ Questa pagina presenta i concetti principali relativi a domini, zone DNS e recor
 
 Domain Name System è una gerarchia di domini. La gerarchia inizia dal dominio "radice", il cui nome è semplicemente "**.**".  seguito dai domini di primo livello, come "com", "net", "org", "uk" o "jp",  e quindi dai domini di secondo livello, come "org.uk" o "co.jp" I domini nella gerarchia DNS vengono distribuiti a livello globale, ospitati dai server dei nomi DNS in tutto il mondo.
 
-Un registrar di nomi di dominio è un'organizzazione che consente di acquistare un nome di dominio `contoso.com`, ad esempio.  L'acquisto di un nome di dominio offre il diritto di controllare la gerarchia DNS con tale nome, ad esempio consentendo di indirizzare il nome `www.contoso.com` al sito Web aziendale. Il registrar può ospitare il dominio nei propri server dei nomi per conto dell'utente o consentire all'utente di specificare server dei nomi alternativi.
+Un registrar di nomi di dominio è un'organizzazione che consente di acquistare un nome di dominio, ad esempio `contoso.com` .  L'acquisto di un nome di dominio offre il diritto di controllare la gerarchia DNS con tale nome, ad esempio consentendo di indirizzare il nome `www.contoso.com` al sito Web aziendale. Il registrar può ospitare il dominio nei propri server dei nomi per conto dell'utente o consentire all'utente di specificare server dei nomi alternativi.
 
 DNS di Azure offre un'infrastruttura di server dei nomi a disponibilità elevata e distribuita a livello globale, che può essere usata per ospitare il dominio. Ospitando i domini in DNS di Azure, è possibile gestire i record DNS usando gli stessi strumenti, credenziali, API, fatturazione e supporto degli altri servizi di Azure.
 
@@ -127,10 +127,10 @@ Per impostazione predefinita, PowerShell in DNS di Azure usa gli Etag per blocca
 
 A livello dell'API REST di DNS di Azure, gli ETag vengono specificati usando le intestazioni HTTP.  Il relativo comportamento è illustrato nella tabella seguente:
 
-| Intestazione | Comportamento |
+| Header | Comportamento |
 | --- | --- |
-| Nessuno |PUT riesce sempre (nessun controllo di Etag) |
-| > if- \<match ETag |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
+| nessuno |PUT riesce sempre (nessun controllo di Etag) |
+| If-Match \<etag> |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
 | If-match * |PUT riesce solo se la risorsa esiste |
 | If-none-match * |PUT riesce solo se la risorsa non esiste |
 

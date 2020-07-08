@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264726"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846724"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifiche di Azure FXT Edge Filer
 
@@ -36,7 +36,7 @@ I numeri delle unità sono stampati nello spazio tra le unità. In Azure FXT Edg
 
 | Numeri di unità    |  Uso   |  Specifiche |
 |------------------|--------|-----------------|
-| 0, 1             | Sistema operativo     | Unità SSD SATA da 480 GB |
+| 0, 1             | OS     | Unità SSD SATA da 480 GB |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600: unità SSD NVMe 3,2 TB <br> FXT 6400: unità SSD NVMe 1,6 TB |
 
 
@@ -68,7 +68,7 @@ Azure FXT Edge Filer è progettato per l'inserimento in un rack standard per app
 |-------------------|-------------|--------|
 | Altezza:            | 311,2       | 12,25" |
 | Larghezza             | 642,8       | 25,31" |
-| Length            | 1.051,1     | 41,38" |
+| Length            | 1\.051,1     | 41,38" |
 
 ## <a name="power-and-thermal-specifications"></a>Specifiche termiche e di alimentazione
 
@@ -114,7 +114,7 @@ Di seguito sono riportate le misurazioni del consumo energetico e dell'emissione
 |---------|---|---|---|---|---|
 | Tensione (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequenza (Hz) |60 | 60 | 60 | 50 | 50 |
-| Corrente (A) | 4,63 | 3,86 | 2,24 | 2,04 | 1,94 |
+| Corrente (A) | 4,63 | 3,86 | 2.24 | 2,04 | 1,94 |
 | Potenza apparente (VA) | 463 | 463 | 466 | 469 | 466 |
 | Fattore di potenza | 0,99 | 0,99 | 0.98 | 0.98 | 0.98 | 
 | Potenza effettiva (W) | 458 | 459 | 457 | 460 | 456 |
@@ -154,7 +154,7 @@ Questa sezione contiene le specifiche per l'ambiente dell'hardware.
 | Scossa, operativo         | 6 G per 11 millisecondi (testato in 6 orientamenti) |
 | Scossa, non operativo     | 71 G per 2 millisecondi (testato in 6 orientamenti) |
 | Vibrazione, operativa     | 0,26 G<sub>RMS</sub> da 5 Hz a 350 Hz casuali         |
-| Vibrazione, non operativa | 1,88 G<sub>RMS</sub> da 10 Hz a 500 Hz per 15 minuti (test di tutti e sei i lati)  |
+| Vibrazione, non operativa | 1,88 G<sub>RMS</sub> da 10 hz a 500 Hz per 15 minuti (tutti e sei i lati testati)  |
 
 ## <a name="safety-regulation-compliance"></a>Conformità alle normative di sicurezza 
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249581"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846851"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelli di pagina dei problemi in Gestione API di Azure
 In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, ad esempio [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings) localizzate, [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
@@ -104,7 +104,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |`Paging`|Entità [Paging](api-management-template-data-model-reference.md#Paging).|Le informazioni di paging per la raccolta di applicazioni.|  
 |`IsAuthenticated`|boolean|Se l'utente corrente ha effettuato l'accesso nel portale per sviluppatori.|  
 |`CanReportIssues`|boolean|Se l'utente corrente dispone delle autorizzazioni per presentare un problema.|  
-|`Search`|stringa|Questa proprietà è deprecata e non deve essere usata.|  
+|`Search`|string|Questa proprietà è deprecata e non deve essere usata.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   

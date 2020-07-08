@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: media-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 2fe091a4ff0295ecadfd69ba3f2d4ca59e9612e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e24c345bfee216dd240f0c283402ad43c8f45c29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838873"
 ---
 >[!NOTE]
 >Per le risorse che non sono fisse, aprire un ticket di supporto per richiedere un aumento delle quote. Non creare altri account di servizi multimediali di Azure in un tentativo di ottenere limiti più elevati.
@@ -20,7 +20,7 @@ ms.locfileid: "80334863"
 | Media reserved Unit per account di servizi multimediali |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
 | Job per ogni account di Servizi multimediali | 50.000<sup>2</sup> |
 | Attività concatenate per processo | 30 (fisso) |
-| Asset per account di servizi multimediali | 1.000.000|
+| Asset per account di servizi multimediali | 1\.000.000|
 | Asset per attività | 50 |
 | Asset per processo | 100 |
 | Localizzatori univoci associati a un asset contemporaneamente | 5<sup>4</sup> |
