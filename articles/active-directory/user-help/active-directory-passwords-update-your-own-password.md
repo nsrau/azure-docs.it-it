@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828407"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266118"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Reimpostare la password aziendale o dell'istituto di istruzione tramite l'informazione di sicurezza
 
 Se si dimentica la password per un account aziendale o dell'istituto di istruzione, la password non è mai stata inviata dall'organizzazione oppure l'account è stato bloccato, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare la password per un account aziendale o dell'istituto di istruzione. Per poter configurare le informazioni e [reimpostare la password](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register), è necessario che l'amministratore attivi questa funzionalità.
 
-Se si conosce la password, ma si vuole solo modificarla, vedere le sezioni relative alle procedure per [cambiare la password](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) in questo articolo.
+Se si conosce la password e si vuole modificarla, vedere le sezioni [modificare le procedure](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) per la password di questo articolo.
 
 >[!Important]
 >Questo articolo è destinato agli utenti che provano a reimpostare una password dell'account aziendale o dell'istituto di istruzione dimenticata o sconosciuta. Se si è un amministratore alla ricerca di informazioni su come attivare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere [Distribuire la reimpostazione della password self-service in Azure AD e altri articoli](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
@@ -103,7 +102,7 @@ Se risulta impossibile accedere all'account Azure Active Directory (Azure AD), l
 
      Se non è comunque possibile accedere all'account, contattare l'amministratore dell'organizzazione per ricevere assistenza.
 
-Dopo aver reimpostato la password, è possibile che si riceva un messaggio di posta elettronica di conferma proveniente da un account come "Microsoft per conto di \<*organizzazione*>." Se si riceve un messaggio di questo tipo ma non è stata reimpostata la password di recente, è necessario contattare immediatamente l'amministratore dell'organizzazione.
+Dopo aver reimpostato la password, è possibile che venga visualizzato un messaggio di posta elettronica di conferma proveniente da un account come "Microsoft per conto di \<*your_organization*> ". Se si riceve un messaggio di questo tipo ma non è stata reimpostata la password di recente, è necessario contattare immediatamente l'amministratore dell'organizzazione.
 
 ## <a name="how-to-change-your-password"></a>Come cambiare la password
 

@@ -12,12 +12,11 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ec1e7e9aa84c01cd62836f3c09f22cdb143817a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266594"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore Autenticazione di Azure AD e autorizzazione
 
@@ -30,7 +29,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 
 ## <a name="handling-error-codes-in-your-application"></a>Gestione dei codici di errore nell'applicazione
 
-La [specifica OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-5.2) fornisce indicazioni su come gestire gli errori durante l'autenticazione usando `error` la parte della risposta di errore. 
+La [specifica OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-5.2) fornisce indicazioni su come gestire gli errori durante l'autenticazione usando la `error` parte della risposta di errore. 
 
 Ecco una risposta di errore di esempio:
 
@@ -48,7 +47,7 @@ Ecco una risposta di errore di esempio:
 }
 ```
 
-| Parametro         | Descrizione    |
+| Parametro         | Description    |
 |-------------------|----------------|
 | `error`       | Stringa di codice di errore che può essere utilizzata per classificare i tipi di errori che si verificano e che devono essere utilizzati per rispondere agli errori. |
 | `error_description` | Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. Non usare mai questo campo per rispondere a un errore nel codice. |
@@ -58,23 +57,23 @@ Ecco una risposta di errore di esempio:
 | `correlation_id` | Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 | `error_uri` |  Collegamento alla pagina di ricerca degli errori con ulteriori informazioni sull'errore.  Questo è solo per l'utilizzo da parte degli sviluppatori e non per gli utenti.  Presente solo quando il sistema di ricerca degli errori contiene informazioni aggiuntive sull'errore, per cui non sono disponibili informazioni aggiuntive.|
 
-Il `error` campo presenta diversi valori possibili: esaminare i collegamenti alla documentazione del protocollo e le specifiche OAuth 2,0 per altre informazioni su errori specifici, ad `authorization_pending` esempio nel [flusso del codice del dispositivo](v2-oauth2-device-code.md), e su come reagire a essi.  Di seguito sono elencate alcune di quelle comuni:
+Il `error` campo presenta diversi valori possibili: esaminare i collegamenti alla documentazione del protocollo e le specifiche OAuth 2,0 per altre informazioni su errori specifici, ad esempio `authorization_pending` nel [flusso del codice del dispositivo](v2-oauth2-device-code.md), e su come reagire a essi.  Di seguito sono elencate alcune di quelle comuni:
 
 | Codice di errore         | Descrizione        | Azione client    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Errore del protocollo, ad esempio un parametro obbligatorio mancante. | Correggere e inviare di nuovo la richiesta.|
-| `invalid_grant`    | Il materiale di autenticazione (codice di autorizzazione, token di aggiornamento, token di accesso, richiesta di PKCE) non è valido, non è analizzabile, mancante o altrimenti non utilizzabile | Provare una nuova richiesta all' `/authorize` endpoint per ottenere un nuovo codice di autorizzazione.  Prendere in considerazione la revisione e la convalida dell'uso dei protocolli da parte dell'app. |
-| `unauthorized_client` | Il client autenticato non è autorizzato a utilizzare questo tipo di concessione di autorizzazione. | Questo problema si verifica in genere quando l'applicazione client non è registrata in Azure AD o non viene aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
-| `invalid_client` | Autenticazione client non riuscita.  | Le credenziali client non sono valide. Per risolvere il problema, l'amministratore applicazione aggiorna le credenziali.   |
+| `invalid_grant`    | Il materiale di autenticazione (codice di autorizzazione, token di aggiornamento, token di accesso, PKCE Challenge) non è valido, non è analizzabile, mancante o altrimenti inutilizzabile | Provare una nuova richiesta all' `/authorize` endpoint per ottenere un nuovo codice di autorizzazione.  Prendere in considerazione la revisione e la convalida dell'uso dei protocolli da parte dell'app. |
+| `unauthorized_client` | Il client autenticato non è autorizzato a usare questo tipo di concessione dell'autorizzazione. | Questo errore si verifica in genere quando l'applicazione client non è registrata in Azure AD o non è stata aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
+| `invalid_client` | Autenticazione client non riuscita.  | Credenziali del client non valide. Per risolvere il problema, l'amministratore applicazione aggiorna le credenziali.   |
 | `unsupported_grant_type` | Il server di autorizzazione non supporta il tipo di concessione dell'autorizzazione. | Modificare il tipo di concessione nella richiesta. Questo tipo di errore dovrebbe verificarsi solo durante lo sviluppo ed essere rilevato durante il test iniziale. |
-| `invalid_resource` | La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è configurata correttamente. | Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD.  Durante lo sviluppo, questo indica in genere un tenant di test configurato in modo errato o un errore di digitazione nel nome dell'ambito richiesto. |
-| `interaction_required` | La richiesta richiede l'interazione dell'utente. Ad esempio, è necessario un passaggio di autenticazione aggiuntivo. | Ripetere la richiesta con la stessa risorsa, interactievly, in modo che l'utente possa completare le richieste necessarie.  |
-| `temporarily_unavailable` | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client può spiegare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
+| `invalid_resource` | La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è attualmente configurata. | Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD.  Durante lo sviluppo, questo indica in genere un tenant di test configurato in modo errato o un errore di digitazione nel nome dell'ambito richiesto. |
+| `interaction_required` | La richiesta richiede l'interazione dell'utente. Ad esempio, è necessario un passaggio di autenticazione aggiuntivo. | Ripetere la richiesta con la stessa risorsa, in modo interattivo, in modo che l'utente possa completare le richieste necessarie.  |
+| `temporarily_unavailable` | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 
 ## <a name="lookup-current-error-code-information"></a>Ricerca informazioni sul codice di errore corrente
-I codici di errore e i messaggi sono soggetti a modifiche.  Per informazioni aggiornate, vedere la pagina per trovare le descrizioni [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) degli errori AADSTS, le correzioni e alcune soluzioni alternative suggerite.  
+I codici di errore e i messaggi sono soggetti a modifiche.  Per informazioni aggiornate, vedere la [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) pagina per trovare le descrizioni degli errori AADSTS, le correzioni e alcune soluzioni alternative suggerite.  
 
-Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, ad esempio, è stato ricevuto il codice di errore "AADSTS16000", eseguire [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) una ricerca per "16000".  È anche possibile collegarsi direttamente a un errore specifico aggiungendo il numero di codice di errore all'URL [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000):.
+Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, ad esempio, è stato ricevuto il codice di errore "AADSTS16000", eseguire una ricerca [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) per "16000".  È anche possibile collegarsi direttamente a un errore specifico aggiungendo il numero di codice di errore all'URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) .
 
 ## <a name="aadsts-error-codes"></a>Codici di errore AADSTS
 
@@ -95,7 +94,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS50000 | TokenIssuanceError: si è verificato un problema relativo al servizio di accesso. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) per risolvere il problema. |
 | AADSTS50001 | InvalidResource: la risorsa è disabilitata o non esiste. Controllare il codice dell'app per verificare di avere specificato l'URL della risorsa esatta cui si sta tentando di accedere.  |
 | AADSTS50002 | NotAllowedTenant: accesso non riuscito a causa di limitazioni di accesso al proxy nel tenant. Se questo errore è dovuto ai propri criteri per il tenant, è possibile modificare le impostazioni di limitazione per il tenant per correggerlo. |
-| AADSTS50003 | MissingSigningKey: accesso non riuscito a causa di una chiave o un certificato di firma mancante. Questo errore può essere dovuto al fatto che non è stata configurata alcuna chiave di firma nell'app. Vedere le soluzioni descritte in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Se il problema persiste, contattare il proprietario o l'amministratore dell'app. |
+| AADSTS50003 | MissingSigningKey: accesso non riuscito a causa di una chiave o un certificato di firma mancante. Questo errore può essere dovuto al fatto che non è stata configurata alcuna chiave di firma nell'app. Vedere le soluzioni descritte in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . Se il problema persiste, contattare il proprietario o l'amministratore dell'app. |
 | AADSTS50005 | DevicePolicyError-l'utente ha tentato di accedere a un dispositivo da una piattaforma che attualmente non è supportata tramite i criteri di accesso condizionale. |
 | AADSTS50006 | InvalidSignature: la verifica della firma non è riuscita a causa di una firma non valida. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing: non è stato trovato il certificato di crittografia del partner per l'app. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) presso Microsoft per richiedere la risoluzione del problema. |
@@ -126,8 +125,8 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided: non sono state trovate informazioni di identificazione del tenant nella richiesta né sono state incluse in modo implicito nelle credenziali fornite. L'utente può contattare l'amministratore del tenant per ottenere informazioni per la risoluzione del problema. |
 | AADSTS50061 | SignoutInvalidRequest: la richiesta di disconnessione non è valida. |
 | AADSTS50064 | CredentialAuthenticationError: la convalida delle credenziali per nome utente e password non è riuscita. |
-| AADSTS50068 | SignoutInitiatorNotParticipant: la disconnessione non è riuscita. L'app che ha avviato la disconnessione non partecipa alla sessione corrente. |
-| AADSTS50070 | SignoutUnknownSessionIdentifier: la disconnessione non è riuscita. La richiesta di disconnessione ha specificato un identificatore del nome che non soddisfa le sessioni esistenti. |
+| AADSTS50068 | SignoutInitiatorNotParticipant-disconnessione non riuscita. L'app che ha avviato la disconnessione non è un partecipante della sessione corrente. |
+| AADSTS50070 | SignoutUnknownSessionIdentifier-disconnessione non riuscita. La richiesta di disconnessione ha specificato un identificatore di nome che non corrisponde alle sessioni esistenti. |
 | AADSTS50071 | SignoutMessageExpired: la richiesta di disconnessione è scaduta. |
 | AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt: l'utente deve registrarsi per l'autenticazione a due fattori (interattiva). |
 | AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt: è necessaria l'autenticazione avanzata e l'utente non ha superato la verifica MFA. |
@@ -139,7 +138,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS50089 | Il token di flusso è scaduto. L'autenticazione non è riuscita. Chiedere all'utente di provare a eseguire di nuovo l'accesso con nome utente e password. |
 | AADSTS50097 | DeviceAuthenticationRequired: l'autenticazione del dispositivo è obbligatoria. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized: la firma del token JWT non è valida. |
-| AADSTS50105 | EntitlementGrantsNotFound: all'utente che ha eseguito l'accesso non è assegnato alcun ruolo per l'app connessa. Assegnare l'utente all'app. Per ulteriori informazioni:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role). |
+| AADSTS50105 | EntitlementGrantsNotFound: all'utente che ha eseguito l'accesso non è assegnato alcun ruolo per l'app connessa. Assegnare l'utente all'app. Per ulteriori informazioni: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role) . |
 | AADSTS50107 | InvalidRealmUri: l'oggetto dell'area di autenticazione della federazione richiesto non esiste. Contattare l'amministratore del tenant. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat: problema relativo all'intestazione JWT. Contattare l'amministratore del tenant. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter: la trasformazione delle attestazioni contiene un parametro di input non valido. Contattare l'amministratore del tenant per aggiornare i criteri. |
@@ -173,7 +172,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS50187 | DeviceInformationNotProvided: il servizio non è stato in grado di eseguire l'autenticazione del dispositivo. |
 | AADSTS50196 | LoopDetected-è stato rilevato un ciclo client. Controllare la logica dell'app per assicurarsi che la memorizzazione nella cache dei token venga implementata e che le condizioni di errore siano gestite correttamente.  L'app ha effettuato troppe richieste in un periodo troppo breve, a indicare che si trova in uno stato di errore o che richiede i token in maniera abusiva. |
 | AADSTS50197 | ConflictingIdentities-l'utente non è stato trovato. Riprovare ad accedere. |
-| AADSTS50199 | CmsiInterrupt: per motivi di sicurezza, è richiesta la conferma dell'utente per questa richiesta.  Poiché si tratta di un errore di "interaction_required", il client deve eseguire l'autenticazione interattiva.  Questo problema si verifica perché è stata usata una visualizzazione di sistema per richiedere un token per un'applicazione nativa. è necessario che all'utente venga chiesto se si tratta effettivamente dell'app a cui si intende accedere.|
+| AADSTS50199 | CmsiInterrupt: per motivi di sicurezza, è richiesta la conferma dell'utente per questa richiesta.  Poiché si tratta di un errore di "interaction_required", il client deve eseguire l'autenticazione interattiva.  Questo problema si verifica perché è stata usata una visualizzazione di sistema per richiedere un token per un'applicazione nativa. è necessario che all'utente venga chiesto se si tratta effettivamente dell'app a cui si intende accedere. Per evitare questa richiesta, l'URI di reindirizzamento deve essere parte dell'elenco di sicurezza seguente: <br />http://<br />https://<br />msauth://(solo iOS)<br />msauthv2://(solo iOS)<br />Chrome-Extension://(solo browser desktop Chrome) |
 | AADSTS51000 | RequiredFeatureNotEnabled: la funzionalità è disabilitata. |
 | AADSTS51001 | DomainHintMustbePresent: deve essere presente il suggerimento di dominio con l'ID di sicurezza locale o l'UPN locale. |
 | AADSTS51004 | UserAccountNotInDirectory: l'account utente non è presente nella directory. |
@@ -250,7 +249,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS90043 | NationalCloudAuthCodeRedirection: la funzionalità è disabilitata. |
 | AADSTS90051 | InvalidNationalCloudId: l'identificatore del cloud nazionale contiene un identificatore del cloud non valido. |
 | AADSTS90055 | TenantThrottlingError: sono presenti troppe richieste in ingresso. Questa eccezione viene generata per i tenant bloccati. |
-| AADSTS90056 | BadResourceRequest: per riscattare il codice per un token di accesso, l'app deve inviare una richiesta POST all'endpoint `/token`. Prima di questa operazione, inoltre, è necessario fornire un codice di autorizzazione e inviarlo nella richiesta POST all'endpoint `/token`. Per una panoramica del flusso del codice di autorizzazione OAuth 2,0, [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)fare riferimento a questo articolo. Reindirizzare l'utente all'endpoint `/authorize`, che restituirà un elemento authorization_code. Inviando una richiesta all'endpoint `/token`, l'utente ottiene il token di accesso. Accedere al portale di Azure e controllare **Registrazioni per l'app > Endpoint** per verificare che i due endpoint siano stati configurati correttamente. |
+| AADSTS90056 | BadResourceRequest: per riscattare il codice per un token di accesso, l'app deve inviare una richiesta POST all'endpoint `/token`. Prima di questa operazione, inoltre, è necessario fornire un codice di autorizzazione e inviarlo nella richiesta POST all'endpoint `/token`. Per una panoramica del flusso del codice di autorizzazione OAuth 2,0, fare riferimento a questo articolo [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) . Reindirizzare l'utente all'endpoint `/authorize`, che restituirà un elemento authorization_code. Inviando una richiesta all'endpoint `/token`, l'utente ottiene il token di accesso. Accedere al portale di Azure e controllare **Registrazioni per l'app > Endpoint** per verificare che i due endpoint siano stati configurati correttamente. |
 | AADSTS90072 | PassThroughUserMfaError: l'account esterno usato dall'utente per accedere non esiste nel tenant in cui l'utente ha effettuato l'accesso. Di conseguenza, l'utente non può soddisfare i requisiti di MFA per il tenant. L'account deve essere prima di tutto aggiunto come utente esterno nel tenant. Disconnettersi e accedere con un account utente di Azure AD diverso. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid: si è verificato un errore quando il servizio ha tentato di elaborare un messaggio WS-Federation. Il messaggio non è valido. |
 | AADSTS90082 | OrgIdWsFederationNotSupported: il criterio di autenticazione selezionato per la richiesta non è attualmente supportato. |
@@ -314,7 +313,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS700022 | InvalidMultipleResourcesScope: il valore specificato per l'ambito del parametro di input non è valido perché contiene più di una risorsa. |
 | AADSTS700023 | InvalidResourcelessScope: il valore specificato per l'ambito del parametro di input non è valido quando è necessario un token di accesso. |
 | AADSTS7000215 | Viene fornito un segreto client non valido. Errore dello sviluppatore: l'app sta provando a eseguire l'accesso senza i parametri di autenticazione necessari o corretti.|
-| AADSTS7000222| InvalidClientSecretExpiredKeysProvided: le chiavi segrete del client specificate sono scadute. Visitare il portale di Azure per creare nuove chiavi per l'app o prendere in considerazione l'uso delle credenziali del certificato per una maggiore sicurezza:https://aka.ms/certCreds |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided: le chiavi segrete del client specificate sono scadute. Visitare la portale di Azure per creare nuove chiavi per l'app o prendere in considerazione l'uso delle credenziali del certificato per una maggiore sicurezza:[https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | Il codice di autorizzazione fornito da InvalidGrantRedeemAgainstWrongTenant è progettato per essere usato con altri tenant, quindi rifiutato. Il codice di autorizzazione di OAuth2 deve essere riscattato rispetto allo stesso tenant per cui è stato acquisito (/Common o/{tenant-ID} in base alle esigenze) |
 | AADSTS1000000 | UserNotBoundError: l'API di associazione richiede che l'utente di Azure AD esegua l'autenticazione anche con un provider di identità esterno e questa autenticazione non è stata ancora eseguita. |
 | AADSTS1000002 | BindCompleteInterruptError: l'associazione è stata completata correttamente, ma l'utente deve essere informato. |

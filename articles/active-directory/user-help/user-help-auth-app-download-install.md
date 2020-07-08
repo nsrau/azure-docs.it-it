@@ -9,38 +9,33 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 05/31/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 18c34e270f1849ef8d8d692b68567eab7d103b13
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: d4053d4979861146705489dc02e628f03f3c4d85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266220"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Scaricare e installare l'app Microsoft Authenticator
 
 >[!Important]
->Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Questo contenuto è destinato agli utenti. Se si è un amministratore, è possibile trovare altre informazioni su come configurare e gestire l'ambiente di Azure Active Directory (Azure AD) nella [documentazione amministrativa per Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>
+> Se si verificano problemi di accesso al proprio account, vedere [Se non si riesce ad accedere all'account Microsoft](https://support.microsoft.com/help/12429) per ricevere assistenza.  Inoltre, è possibile ottenere altre informazioni sulle operazioni da eseguire quando si riceve il messaggio ["il account Microsoft non esiste"](https://support.microsoft.com/help/13811) quando si tenta di accedere al account Microsoft.
 
-L'app Microsoft Authenticator consente di accedere ai propri account se si usa la verifica a due fattori. La verifica a due fattori consente di accedere agli account in modo più sicuro, in particolare durante la visualizzazione di informazioni riservate. Poiché le password possono essere dimenticate, rubate o compromesse, la verifica a due fattori è un'ulteriore misura di sicurezza che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti.
+L'app Microsoft Authenticator consente di accedere ai propri account se si usa la verifica a due fattori. La verifica a due fattori consente di usare gli account in modo più sicuro perché le password possono essere dimenticate, rubate o compromesse. La verifica a due fattori usa un secondo fattore come il telefono per rendere più difficile per altri utenti entrare nell'account. È possibile usare l'app Microsoft Authenticator in diversi modi, tra cui:
 
-È possibile usare l'app Microsoft Authenticator in diversi modi, tra cui:
+- **Verifica a due fattori.** Metodo di verifica standard, in cui uno dei fattori è la password. Dopo aver eseguito l'accesso con il nome utente e la password, è possibile approvare una notifica o immettere un codice di verifica specificato.
 
-- **Verifica a due fattori.** Metodo di verifica standard, in cui uno dei fattori è la password. Dopo avere effettuato l'accesso usando il nome utente e la password, è possibile approvare una notifica o immettere un codice di verifica fornito.
-
-- **Accesso tramite telefono.** Versione della verifica a due fattori che consente di accedere senza richiedere una password, usando il nome utente e il dispositivo mobile con l'impronta digitale, il viso o il PIN.
+- **Accesso tramite telefono.** Versione di verifica a due fattori che consente di accedere senza richiedere una password, usando il nome utente e il dispositivo mobile con impronta digitale, viso o PIN.
 
 - **Generazione del codice.** Come generatore di codice per qualsiasi altro account che supporti le app di autenticazione.
 
-> [!Important]
-> L'app Microsoft Authenticator funziona con qualsiasi account che usa la verifica a due fattori e supporta gli standard di password monouso basate sul tempo (Time-Based One-Time Passwords, TOTP).
->
-> L'organizzazione potrebbe richiedere l'uso di un'app di autenticazione per accedere e visualizzare dati e documenti aziendali. Anche se il nome utente potrebbe essere visualizzato nell'app, l'account non è effettivamente configurato per fungere da metodo di verifica finché non si completa il processo di registrazione. Per altre informazioni, vedere [Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md).
-> 
-> [!NOTE]
-> Se si verificano problemi di accesso al proprio account, vedere [Se non si riesce ad accedere all'account Microsoft](https://support.microsoft.com/help/12429) per ricevere assistenza.  Ottenere altre informazioni su cosa fare quando si riceve il messaggio [L'account Microsoft specificato non esiste](https://support.microsoft.com/help/13811) quando si prova ad accedere al proprio account Microsoft.
+L'autenticatore funziona con qualsiasi account che usa la verifica a due fattori e supporta gli standard di password monouso basati sul tempo (TOTP).
+
+L'organizzazione potrebbe richiedere l'uso dell'app Authenticator per accedere ai dati e ai documenti dell'organizzazione. Anche se il nome utente viene visualizzato nell'app, l'account non è configurato come metodo di verifica finché non viene completata la registrazione. Per altre informazioni, vedere [Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md).
 
 ## <a name="download-and-install-the-app"></a>Scaricare e installare l'app
 
@@ -55,7 +50,7 @@ Installare la versione più recente dell'app Microsoft Authenticator, in base al
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver scaricato e installato l'app, è necessario aggiungere i diversi account. Per altre informazioni, vedere:
+Dopo aver scaricato e installato l'app, vedere Panoramica dell' [app Authenticator](user-help-auth-app-overview.md) per altre informazioni. Per altre opzioni di installazione, vedere:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 

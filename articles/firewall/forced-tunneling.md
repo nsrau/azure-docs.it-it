@@ -5,14 +5,13 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 06/01/2020
 ms.author: victorh
-ms.openlocfilehash: cf0af93d95c5af56be6168bc8e4f79d3005e2ec2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: a467aa60b131e47e9251366369b3fae8dd95c004
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267699"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Tunneling forzato di Firewall di Azure
 
@@ -26,11 +25,15 @@ Per supportare il tunneling forzato, il traffico di gestione dei servizi è sepa
 
 Nel caso di una route predefinita annunciata tramite BGP per forzare il traffico in un sistema locale, è necessario creare *AzureFirewallSubnet* e *AzureFirewallManagementSubnet* prima di distribuire il firewall e avere una route definita dall'utente con una route predefinita per Internet. Inoltre, è necessario che l'opzione **Propagazione route del gateway di rete virtuale** sia disabilitata.
 
-All'interno di questa configurazione, *AzureFirewallSubnet* può includere route a qualsiasi appliance virtuale di rete o firewall locale per elaborare il traffico prima che venga passato a Internet. È anche possibile pubblicare queste route tramite BGP per *AzureFirewallSubnet* se in questa subnet è abilitata l'opzione **Propagazione route del gateway di rete virtuale**.
+All'interno di questa configurazione, *AzureFirewallSubnet* può ora includere route a qualsiasi firewall locale o appliance virtuale di rete per elaborare il traffico prima che venga passato a Internet. È anche possibile pubblicare queste route tramite BGP per *AzureFirewallSubnet* se in questa subnet è abilitata l'opzione **Propagazione route del gateway di rete virtuale**.
 
-Ad esempio, è possibile creare una route predefinita in *AzureFirewallSubnet* con il gateway VPN come hop successivo per raggiungere il dispositivo locale. In alternativa, è possibile abilitare l'opzione **Propagazione route del gateway di rete virtuale** per ottenere le route appropriate per la rete locale.
+Ad esempio, è possibile creare una route predefinita in *AzureFirewallSubnet* con il gateway VPN come hop successivo per ottenere il dispositivo locale. In alternativa, è possibile abilitare la **propagazione delle route del gateway di rete virtuale** per ottenere le route appropriate per la rete locale.
 
 ![Propagazione della route del gateway di rete virtuale](media/forced-tunneling/route-propagation.png)
+
+Se si Abilita il tunneling forzato, il traffico associato a Internet viene inviato tramite SNAT a uno degli indirizzi IP privati del firewall in AzureFirewallSubnet, nascondendo l'origine dal firewall locale.
+
+Se l'organizzazione usa un intervallo di indirizzi IP pubblici per le reti private, Firewall di Azure invierà il traffico tramite SNAT a uno degli indirizzi IP privati firewall in AzureFirewallSubnet. Tuttavia, è possibile configurare il firewall di Azure in modo che **non** SNAT l'intervallo di indirizzi IP pubblici. Per altre informazioni, vedere [Intervalli di indirizzi IP privati SNAT di Firewall di Azure](snat-private-range.md).
 
 Dopo aver configurato Firewall di Azure per supportare il tunneling forzato, non è possibile annullare la configurazione. Se si rimuovono tutte le altre configurazioni IP nel firewall, viene rimossa anche la configurazione IP di gestione e il firewall viene deallocato. Non è possibile rimuovere l'indirizzo IP pubblico assegnato alla configurazione IP di gestione, ma è possibile assegnare un indirizzo IP pubblico diverso.
 

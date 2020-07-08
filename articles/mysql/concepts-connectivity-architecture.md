@@ -6,12 +6,11 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 6014e98d01755f29da74160fb1ef38ba29a74ba6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 661cfb4798ef553918ddc238a5388b11a54e23f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84298687"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQL
 Questo articolo illustra l'architettura di connettività del database di Azure per MySQL e il modo in cui il traffico viene indirizzato all'istanza di database di Azure per MySQL da client sia all'interno che all'esterno di Azure.
@@ -44,6 +43,7 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | Stati Uniti orientali | 40.121.158.30, 191.238.6.43  |
 | Stati Uniti orientali 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | Francia centrale | 40.79.137.0, 40.79.129.1  |
+| Francia meridionale | 40.79.177.0     |
 | Germania centrale | 51.4.144.100     |
 | Germania nord-orientale | 51.5.144.179  |
 | India centrale | 104.211.96.159     |
@@ -78,7 +78,7 @@ Questa funzionalità è supportata nei server di database di Azure per MySQL con
 Il supporto per il reindirizzamento è disponibile nell'estensione PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) , sviluppato da Microsoft ed è disponibile in [PECL](https://pecl.php.net/package/mysqlnd_azure). Per altre informazioni su come usare il reindirizzamento nelle applicazioni, vedere l'articolo sulla [configurazione del reindirizzamento](./howto-redirection.md) .
 
 > [!IMPORTANT]
-> Il supporto per il reindirizzamento nell'estensione PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) è attualmente in versione di anteprima.
+> Il supporto per il reindirizzamento nell'estensione [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) PHP è attualmente in anteprima.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

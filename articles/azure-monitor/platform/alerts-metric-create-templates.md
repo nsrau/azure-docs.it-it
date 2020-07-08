@@ -5,14 +5,13 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 2/24/2020
+ms.date: 6/2/2020
 ms.subservice: alerts
-ms.openlocfilehash: 02424d7df24305d6642c364f12e3ed6e8674a01d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e9a1980eccb42342ebc5cb739b2c1f5a539e9f18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80676999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299308"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
@@ -21,7 +20,7 @@ ms.locfileid: "80676999"
 Questo articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per configurare gli [avvisi delle metriche più recenti](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi delle metriche più recenti sono attualmente disponibili in [questo set di tipi di risorse](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Modello di risorsa per la creazione di avvisi delle metriche per il tipo di risorsa: l' `Microsoft.OperationalInsights/workspaces`area di lavoro di Azure log Analytics (ad esempio) richiede passaggi aggiuntivi. Per informazioni dettagliate, vedere l'articolo [Avviso delle metriche per i log - modello di risorsa](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Modello di risorse per la creazione di avvisi delle metriche per tipo di risorsa: area di lavoro Log Analytics (vale a dire) `Microsoft.OperationalInsights/workspaces`, sono necessari passaggi aggiuntivi. Per informazioni dettagliate, vedere l'articolo [Avviso delle metriche per i log - modello di risorsa](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 I passaggi di base sono i seguenti:
 
@@ -567,9 +566,9 @@ Gli avvisi delle metriche più recenti supportano gli avvisi sulle metriche mult
 
 Si notino i vincoli seguenti quando si usano le dimensioni in una regola di avviso che contiene più criteri:
 - È possibile selezionare un solo valore per dimensione all'interno di ogni criterio.
-- Non è possibile utilizzare\*"" come valore della dimensione.
+- Non è possibile usare "\*" come valore di dimensione.
 - Quando le metriche configurate in criteri diversi supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nei criteri pertinenti).
-    - Nell'esempio seguente, poiché le metriche **Transactions** e **SuccessE2ELatency** hanno una dimensione **ApiName** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **ApiName** , *Criterion2* deve impostare anche un valore *"GetBlob"* per la dimensione **ApiName** .
+    - Nelle esempio seguente, poiché sia le metriche **Transactions** che **SuccessE2ELatency** hanno una dimensione **ApiName** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **ApiName**, anche *criterion2* deve impostare un valore *"GetBlob"* per la dimensione **ApiName**.
 
 
 Salvare il codice JSON seguente come advancedstaticmetricalert.json ai fini di questa procedura dettagliata.
@@ -804,19 +803,19 @@ az group deployment create \
 
 È possibile usare il modello seguente per creare una regola di avviso metrica statica sulle metriche dimensionali.
 
-Una singola regola di avviso può monitorare più serie temporali metriche alla volta, il che comporta un minor numero di regole di avviso da gestire.
+Una singola regola di avviso può monitorare più serie temporali di metriche alla volta, riducendo così il numero di regole di avviso da gestire.
 
 Nell'esempio seguente, la regola di avviso monitora le combinazioni di valori di dimensioni delle dimensioni **responseType** e **ApiName** per la metrica delle **transazioni** :
-1. **ResponsType** -l'uso del carattere jolly\*"" significa che per ogni valore della dimensione **responseType** , inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
-2. **ApiName** : una serie temporale diversa viene monitorata solo per i valori della dimensione **GetBlob** e **PutBlob** .
+1. **ResponsType**: l'uso del carattere jolly "\*" significa che per ogni valore della dimensione **ResponseType**, inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
+2. **ApiName**: viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
 
-Ad esempio, alcune delle possibili serie temporali monitorate da questa regola di avviso sono:
-- Metrica = *Transactions*, responseType = *Success*, ApiName = *GetBlob*
-- Metrica = *Transactions*, responseType = *Success*, ApiName = *PutBlob*
-- Metrica = *Transactions*, responseType = *timeout server*, ApiName = *GetBlob*
-- Metrica = *Transactions*, responseType = *timeout server*, ApiName = *PutBlob*
+Ad esempio, alcune possibili serie temporali monitorate da questa regola di avviso sono:
+- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
-Salvare il file JSON seguente come multidimensionalstaticmetricalert. JSON ai fini di questa procedura dettagliata.
+Al fine di questa procedura dettagliata, salvare il file JSON seguente come multidimensionalstaticmetricalert.js.
 
 ```json
 {
@@ -943,7 +942,7 @@ Salvare il file JSON seguente come multidimensionalstaticmetricalert. JSON ai fi
 
 È possibile usare il modello riportato in precedenza con il file dei parametri fornito di seguito. 
 
-Salvare e modificare il codice JSON seguente come multidimensionalstaticmetricalert. Parameters. JSON ai fini di questa procedura dettagliata.
+Al fine di questa procedura dettagliata, salvare e modificare il codice JSON seguente come multidimensionalstaticmetricalert.parameters.js.
 
 ```json
 {
@@ -1027,14 +1026,14 @@ az group deployment create \
 Una singola regola di avviso per le soglie dinamiche può creare soglie personalizzate per centinaia di serie temporali metrica (anche tipi diversi) per volta, il che comporta un minor numero di regole di avviso da gestire.
 
 Nell'esempio seguente, la regola di avviso monitora le combinazioni di valori di dimensioni delle dimensioni **responseType** e **ApiName** per la metrica delle **transazioni** :
-1. **ResponsType** : per ogni valore della dimensione **responseType** , inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
-2. **ApiName** : una serie temporale diversa viene monitorata solo per i valori della dimensione **GetBlob** e **PutBlob** .
+1. **ResponsType**: per ogni valore della dimensione **ResponseType**, inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
+2. **ApiName**: viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
 
-Ad esempio, alcune delle possibili serie temporali monitorate da questa regola di avviso sono:
-- Metrica = *Transactions*, responseType = *Success*, ApiName = *GetBlob*
-- Metrica = *Transactions*, responseType = *Success*, ApiName = *PutBlob*
-- Metrica = *Transactions*, responseType = *timeout server*, ApiName = *GetBlob*
-- Metrica = *Transactions*, responseType = *timeout server*, ApiName = *PutBlob*
+Ad esempio, alcune possibili serie temporali monitorate da questa regola di avviso sono:
+- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 Salvare il codice JSON seguente come advanceddynamicmetricalert.json ai fini di questa procedura dettagliata.
 
@@ -1246,13 +1245,13 @@ az group deployment create \
 
 ## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>Modello per un avviso di metrica della soglia statica che monitora una metrica personalizzata
 
-È possibile usare il modello seguente per creare una regola di avviso per la metrica di soglia statica più avanzata in una metrica personalizzata.
+È possibile usare il modello seguente per creare una regola di avviso con soglia statica per una metrica personalizzata.
 
-Per altre informazioni sulle metriche personalizzate in monitoraggio di Azure, vedere [metriche personalizzate in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Per altre informazioni sulle metriche personalizzate in Monitoraggio di Azure, vedere [Metriche personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
 
-Quando si crea una regola di avviso su una metrica personalizzata, è necessario specificare sia il nome della metrica che lo spazio dei nomi della metrica. È anche necessario assicurarsi che la metrica personalizzata sia già stata segnalata, perché non è possibile creare una regola di avviso su una metrica personalizzata che non esiste ancora.
+Quando si crea una regola di avviso per una metrica personalizzata, è necessario specificare sia il nome che lo spazio dei nomi della metrica. È anche necessario assicurarsi che la metrica sia già stata segnalata, perché non è possibile definire una regola di avviso per una metrica personalizzata che non esiste ancora.
 
-Salvare il file JSON seguente come customstaticmetricalert. JSON ai fini di questa procedura dettagliata.
+Salvare il codice JSON seguente con il nome simplestaticmetricalert.json ai fini di questa procedura dettagliata.
 
 ```json
 {
@@ -1432,7 +1431,7 @@ Salvare il file JSON seguente come customstaticmetricalert. JSON ai fini di ques
 
 È possibile usare il modello riportato in precedenza con il file dei parametri fornito di seguito. 
 
-Salvare e modificare il codice JSON seguente come customstaticmetricalert. Parameters. JSON ai fini di questa procedura dettagliata.
+Al fine di questa procedura dettagliata, salvare e modificare il codice JSON seguente come customstaticmetricalert.parameters.js.
 
 ```json
 {
@@ -1504,7 +1503,7 @@ az group deployment create \
 
 >[!NOTE]
 >
-> È possibile trovare lo spazio dei nomi della metrica di una metrica personalizzata specifica [visualizzando le metriche personalizzate tramite il portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Per trovare lo spazio dei nomi di una specifica metrica personalizzata, [esplorare le metriche personalizzate tramite il portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Modello per un avviso di metrica che monitora più risorse
@@ -1521,7 +1520,7 @@ Questa sezione descrive i modelli di Azure Resource Manager per tre scenari per 
 
 > [!NOTE]
 >
-> In una regola di avviso metrica che monitora più risorse è consentita una sola condizione.
+> In una regola di avviso delle metriche che monitora più risorse è supportata una sola condizione.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Avviso con soglia statica su tutte le macchine virtuali in uno o più gruppi di risorse
 
@@ -3462,10 +3461,10 @@ az group deployment create \
 
 ## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>Modello per un test di disponibilità insieme a un avviso di metrica
 
-[Application Insights test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) consentono di monitorare la disponibilità del sito Web o dell'applicazione da diverse località in tutto il mondo. Gli avvisi di test di disponibilità segnalano quando i test di disponibilità non riescono da un determinato numero di posizioni.
-Avvisi di test di disponibilità dello stesso tipo di risorsa degli avvisi delle metriche (Microsoft. Insights/metricAlerts). Il modello di Azure Resource Manager di esempio seguente può essere usato per configurare un test di disponibilità semplice e un avviso associato.
+I [test di disponibilità di Application Insights](../../azure-monitor/app/monitor-web-app-availability.md) consentono di monitorare la disponibilità del sito Web o dell'applicazione da diverse località in tutto il mondo. Gli avvisi dei test di disponibilità segnalano quando i test di disponibilità non riescono da un determinato numero di località.
+Gli avvisi dei test di disponibilità sono dello stesso tipo di risorsa degli avvisi delle metriche (Microsoft.Insights/metricAlerts). Il modello di Azure Resource Manager di esempio seguente può essere usato per configurare un test di disponibilità semplice e un avviso associato.
 
-Salvare il file JSON seguente come availabilityalert. JSON ai fini di questa procedura dettagliata.
+Al fine di questa procedura dettagliata, salvare il file JSON seguente come availabilityalert.js.
 
 ```json
 {
@@ -3549,7 +3548,6 @@ Salvare il file JSON seguente come availabilityalert. JSON ai fini di questa pro
         ],
         "evaluationFrequency": "PT1M",
         "windowSize": "PT5M",
-        "templateType": 0,
         "criteria": {
           "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
           "webTestId": "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]",
@@ -3572,9 +3570,9 @@ Salvare il file JSON seguente come availabilityalert. JSON ai fini di questa pro
 
 > [!NOTE]
 >
-> `&amp`; è il riferimento all'entità HTML per &. I parametri URL sono ancora separati da un singolo &, ma se si cita l'URL in HTML, è necessario codificarlo. Quindi, se si dispone di "&" nel valore del parametro pingURL, è necessario eseguire l'escape con "`&amp`;"
+> `&amp`; è il riferimento all'entità HTML per &. I parametri URL sono ancora separati da un singolo carattere &, ma se si cita l'URL in HTML, è necessario codificarlo. Quindi, se nel valore del parametro pingURL è presente un carattere "&", è necessario eseguirne l'escape con "`&amp`;"
 
-Salvare il file JSON seguente come availabilityalert. Parameters. JSON e modificarlo come richiesto.
+Salvare il file JSON seguente come availabilityalert.parameters.jse modificarlo come richiesto.
 
 ```json
 {

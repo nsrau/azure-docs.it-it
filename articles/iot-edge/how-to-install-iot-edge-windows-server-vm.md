@@ -9,12 +9,11 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: philmea
-ms.openlocfilehash: 5f88a21efd04c9dd24fe31e925a3b911b5ec9df2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 380e354beb2f58b958e3c88d9f93ad0bda655971
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77045914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266475"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Eseguire Azure IoT Edge in macchine virtuali Windows Server
 
@@ -22,11 +21,11 @@ Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un disposit
 
 Per altre informazioni sul funzionamento del runtime di IoT Edge e sui componenti inclusi, vedere [Informazioni sul runtime Azure IoT Edge e la relativa architettura](iot-edge-runtime.md).
 
-Questo articolo elenca i passaggi per eseguire il runtime di Azure IoT Edge in una macchina virtuale Windows Server 2019 usando l'offerta di [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace. Seguire le istruzioni in [installare il runtime di Azure IOT Edge](how-to-install-iot-edge-windows.md) in Windows per l'uso con altre versioni.
+Questo articolo elenca i passaggi per eseguire il runtime di Azure IoT Edge in una macchina virtuale Windows Server 2019 usando l'offerta di [Windows Server](https://www.microsoft.com/cloud-platform/windows-server-pricing) Azure Marketplace. Seguire le istruzioni in [installare il runtime di Azure IOT Edge](how-to-install-iot-edge-windows.md) in Windows per l'uso con altre versioni.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Eseguire la distribuzione da Azure Marketplace
 
-1. Passare all'offerta di [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace o cercare "Windows Server" in [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+1. Passare all'offerta di [Windows Server](https://www.microsoft.com/cloud-platform/windows-server-pricing) Azure Marketplace o cercare "Windows Server" in [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 2. Selezionare **Get it now**
 3. Nel **piano software**individuare "Windows Server 2019 Datacenter Server Core with containers", quindi selezionare **continua** nella finestra di dialogo successiva.
     * È anche possibile usare queste istruzioni per altre versioni di Windows Server con i contenitori
@@ -88,7 +87,7 @@ Questo articolo elenca i passaggi per eseguire il runtime di Azure IoT Edge in u
    ```
 
    * Questo comando richiederà una password, ma è possibile aggiungere l'opzione `--admin-password` per impostarla più facilmente in uno script
-   * L'immagine di Windows Server Core dispone del supporto della riga di comando solo con desktop remoto, quindi, se si desidera l'esperienza `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` desktop completa, specificare come immagine
+   * L'immagine di Windows Server Core dispone del supporto della riga di comando solo con desktop remoto, quindi, se si desidera l'esperienza desktop completa, specificare `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` come immagine
 
 1. Impostare la stringa di connessione del dispositivo. se non si ha familiarità con questo processo, è possibile seguire la procedura [per recuperare la stringa di connessione con l'interfaccia della riga di comando di Azure](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) :
 

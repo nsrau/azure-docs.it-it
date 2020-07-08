@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per le mappe di Azure servizio di pianificazione percorso | Mappe Microsoft Azure
-description: Informazioni su come eseguire il routing in modo efficiente usando servizio di pianificazione percorso da Microsoft Azure maps.
+description: Informazioni su come instradare i veicoli usando servizio di pianificazione percorso da Microsoft Azure maps.
 author: philmea
 ms.author: philmea
 ms.date: 03/11/2020
@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85ce29d088b8fbd110988db67776d89346215e5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266696"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedure consigliate per il servizio Route di Azure Maps
 
@@ -31,9 +30,9 @@ ms.locfileid: "80335409"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per effettuare chiamate alle API Maps di Azure, sono necessari un account Azure Maps e una chiave. Per ulteriori informazioni, vedere [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) e [ottenere una chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). La chiave primaria è nota anche come chiave di sottoscrizione primaria o chiave di sottoscrizione.
+Per effettuare chiamate alle API Maps di Azure, sono necessari un account Azure Maps e una chiave. Per altre informazioni, vedere [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) e [Ottenere una chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). La chiave primaria è nota anche come chiave di sottoscrizione primaria o chiave di sottoscrizione.
 
-Per informazioni sull'autenticazione in mappe di Azure, vedere [Manage Authentication in Azure Maps](./how-to-manage-authentication.md). Per ulteriori informazioni sulla copertura del servizio di pianificazione percorso, vedere la pagina relativa al [code coverage di routing](routing-coverage.md).
+Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md). Per ulteriori informazioni sulla copertura del servizio di pianificazione percorso, vedere la pagina relativa al [code coverage di routing](routing-coverage.md).
 
 Questo articolo usa l' [app post](https://www.postman.com/downloads/) per compilare chiamate REST, ma è possibile scegliere qualsiasi ambiente di sviluppo API.
 
@@ -56,7 +55,7 @@ Si consiglia di chiamare l'API di routing Matrix se lo scenario è:
 
 Di seguito è riportato un confronto per illustrare alcune funzionalità delle direzioni delle route e delle API della matrice:
 
-| API Maps di Azure | Numero massimo di query nella richiesta | Evitare le aree | Routing di camion e veicoli elettrici | waypoint e ottimizzazione del commesso viaggiatore | Punti di supporto |
+| API Maps di Azure | Numero massimo di query nella richiesta | Evitare le aree | Routing di camion e veicoli elettrici | Waypoint e ottimizzazione del commesso viaggiatore | Punti di supporto |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
 | Get Route Directions | 1 | | X | X | |
 | Direzioni post Route | 1 | X | X | X | X |
@@ -129,9 +128,9 @@ La risposta contiene un riepilogo, come illustrato di seguito. A causa delle con
 
 ## <a name="request-route-and-leg-details"></a>Dettagli della route e delle tappe della richiesta
 
-Per impostazione predefinita, il servizio Route restituirà una matrice di coordinate. La risposta conterrà le coordinate che compongono il percorso in un elenco denominato `points`. La risposta di route include anche la distanza dall'inizio della route e il tempo trascorso stimato. Questi valori possono essere usati per calcolare la velocità media per l'intera route.
+Per impostazione predefinita, il servizio Route restituirà una matrice di coordinate. La risposta conterrà le coordinate che compongono il percorso in un elenco denominato `points` . La risposta di route include anche la distanza dall'inizio della route e il tempo trascorso stimato. Questi valori possono essere usati per calcolare la velocità media per l'intera route.
 
-Nell'immagine seguente viene illustrato `points` l'elemento.
+Nell'immagine seguente viene illustrato l' `points` elemento.
 
 <center>
 
@@ -149,7 +148,7 @@ Espandere l' `point` elemento per visualizzare l'elenco di coordinate per il per
 
 Le API Route directions supportano formati diversi di istruzioni che possono essere usate specificando il parametro **instructionsType** . Per formattare le istruzioni per l'elaborazione di Easy computer, usare **instructionsType = coded**. Usare **instructionsType = Tagged** per visualizzare le istruzioni come testo per l'utente. Inoltre, le istruzioni possono essere formattate come testo in cui alcuni elementi delle istruzioni sono contrassegnati e l'istruzione viene visualizzata con una formattazione speciale. Per ulteriori informazioni, vedere l' [elenco dei tipi di istruzioni supportati](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
-Quando vengono richieste istruzioni, la risposta restituisce un nuovo elemento denominato `guidance`. L' `guidance` elemento contiene due tipi di informazioni: direzioni per turni e istruzioni riepilogate.
+Quando vengono richieste istruzioni, la risposta restituisce un nuovo elemento denominato `guidance` . L' `guidance` elemento contiene due tipi di informazioni: direzioni per turni e istruzioni riepilogate.
 
 <center>
 
@@ -183,7 +182,7 @@ La richiesta di esempio seguente esegue una query su una route per un camion com
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-L'API route restituisce le direzioni che soddisfano le dimensioni del camion e gli sprechi pericolosi. È possibile leggere le istruzioni della route espandendo `guidance` l'elemento.
+L'API route restituisce le direzioni che soddisfano le dimensioni del camion e gli sprechi pericolosi. È possibile leggere le istruzioni della route espandendo l' `guidance` elemento.
 
 <center>
 
@@ -209,11 +208,11 @@ La risposta riportata di seguito è destinata a un camion che trasporta un mater
 
 ## <a name="request-traffic-information-along-a-route"></a>Richiedere informazioni sul traffico lungo una route
 
-Con le API Direction route di Azure Maps, gli sviluppatori possono richiedere dettagli per ogni tipo di sezione `sectionType` includendo il parametro nella richiesta. Ad esempio, è possibile richiedere le informazioni sulla velocità per ogni segmento di ingorgo del traffico. Per informazioni sui vari dettagli che è possibile richiedere, vedere l' [elenco di valori per la chiave sectionType](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) .
+Con le API Direction route di Azure Maps, gli sviluppatori possono richiedere dettagli per ogni tipo di sezione includendo il `sectionType` parametro nella richiesta. Ad esempio, è possibile richiedere le informazioni sulla velocità per ogni segmento di ingorgo del traffico. Per informazioni sui vari dettagli che è possibile richiedere, vedere l' [elenco di valori per la chiave sectionType](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) .
 
 ### <a name="sample-query"></a>Query di esempio
 
-La query seguente imposta `sectionType` su. `traffic` Richiede le sezioni che contengono informazioni sul traffico da Seattle a San Diego.
+La query seguente imposta `sectionType` su `traffic` . Richiede le sezioni che contengono informazioni sul traffico da Seattle a San Diego.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
@@ -249,7 +248,7 @@ Se si vuole ottimizzare l'ordine migliore per visitare i waypoint specificati, �
 
 ### <a name="sample-query"></a>Query di esempio
 
-La query seguente richiede il percorso per sei waypoint, con il `computeBestOrder` parametro impostato su. `false` È anche il valore predefinito per il `computeBestOrder` parametro.
+La query seguente richiede il percorso per sei waypoint, con il `computeBestOrder` parametro impostato su `false` . È anche il valore predefinito per il `computeBestOrder` parametro.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
@@ -323,7 +322,7 @@ L'immagine seguente è un esempio di rendering di route alternative con limiti d
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Usare il servizio di routing in un'app Web
 
-Azure Maps Web SDK fornisce un [modulo del servizio](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Questo modulo è una libreria helper che semplifica l'uso delle API REST di Maps di Azure nelle applicazioni Web o node. js, usando JavaScript o TypeScript. Il modulo del servizio può essere usato per eseguire il rendering delle route restituite sulla mappa. Il modulo determina automaticamente l'API da usare con le richieste GET e POST.
+Azure Maps Web SDK fornisce un [modulo del servizio](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Questo modulo è una libreria helper che semplifica l'uso delle API REST di Maps di Azure nelle applicazioni Web o Node.js, usando JavaScript o TypeScript. Il modulo del servizio può essere usato per eseguire il rendering delle route restituite sulla mappa. Il modulo determina automaticamente l'API da usare con le richieste GET e POST.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,14 +3,13 @@ title: Configurare Avvio/Arresto di macchine virtuali durante gli orari di minor
 description: Questo articolo descrive come configurare la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività per il supporto di diversi casi d'uso o scenari.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127c924da44c7e596d93b21d89ff4591a90ba7cf
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266716"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurare Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -44,11 +43,15 @@ Per gestire le macchine virtuali nell'ambito, configurare le variabili: `Externa
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>Specificare la destinazione dell'azione di avvio e arresto in base a un elenco di macchine virtuali
 
-1. Eseguire il runbook **ScheduledStartStop_Parent** con **ACTION** impostato su **start**, aggiungere un elenco delimitato da virgole delle macchine virtuali nel campo del parametro **VMList** e quindi impostare il campo del parametro **WHATIF** su True. Visualizzare in anteprima le modifiche.
+1. Eseguire il **ScheduledStartStop_Parent** runbook con **azione** impostata su **Avvia**.
 
-2. Configurare la variabile di `External_ExcludeVMNames` con un elenco di macchine virtuali delimitato da virgole (VM1, VM2, VM3).
+2. Aggiungere un elenco delimitato da virgole di macchine virtuali (senza spazi) nel campo del parametro **VMList** . Un elenco di esempio è `vm1,vm2,vm3` .
 
-3. Questo scenario non rispetta le variabili `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Per questo scenario, è necessario creare la propria pianificazione di Automazione. Per informazioni dettagliate, vedere [Pianificare un runbook in Automazione di Azure](shared-resources/schedules.md).
+3. Impostare il campo del parametro **WHATIF** su true.
+
+4. Configurare la `External_ExcludeVMNames` variabile con un elenco delimitato da virgole di macchine virtuali (VM1, VM2, VM3), senza spazi tra valori delimitati da virgole.
+
+5. Questo scenario non rispetta le variabili `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Per questo scenario, è necessario creare la propria pianificazione di Automazione. Per informazioni dettagliate, vedere [Pianificare un runbook in Automazione di Azure](shared-resources/schedules.md).
 
     > [!NOTE]
     > Il valore per **Target ResourceGroup Names** viene archiviato come valori per `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. Per un'ulteriore granularità, è possibile modificare ognuna di queste variabili per diversi gruppi di risorse. Per l'azione di avvio usare `External_Start_ResourceGroupNames` e usare `External_Stop_ResourceGroupNames` per l'azione di arresto. Le macchine virtuali vengono aggiunte automaticamente alle pianificazioni di avvio e di arresto.
@@ -71,13 +74,17 @@ In un ambiente che include due o più componenti su più macchine virtuali che s
 
 1. Aggiungere un tag `sequencestart` e `sequencestop` con valori interi positivi alle macchine virtuali che si prevede di aggiungere al parametro `VMList`.
 
-2. Eseguire il runbook **SequencedStartStop_Parent** con **ACTION** impostato su **start**, aggiungere un elenco delimitato da virgole delle macchine virtuali nel campo del parametro **VMList** e quindi impostare **WHATIF** su True. Visualizzare in anteprima le modifiche.
+2. Eseguire il **SequencedStartStop_Parent** runbook con **azione** impostata su **Avvia**.
 
-3. Configurare la variabile di `External_ExcludeVMNames` con un elenco di macchine virtuali delimitato da virgole (VM1, VM2, VM3).
+3. Aggiungere un elenco delimitato da virgole di macchine virtuali (senza spazi) nel campo del parametro **VMList** . Un elenco di esempio è `vm1,vm2,vm3` .
 
-4. Questo scenario non rispetta le variabili `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Per questo scenario, è necessario creare la propria pianificazione di Automazione. Per informazioni dettagliate, vedere [Pianificare un runbook in Automazione di Azure](shared-resources/schedules.md).
+4. Impostare **WHATIF** su true. 
 
-5. Visualizzare in anteprima l'azione e apportare le modifiche necessarie prima dell'implementazione nelle VM di produzione. Quando si è pronti, eseguire manualmente **monitoring-and-diagnostics/monitoring-action-groupsrunbook** con il parametro impostato su **False**. In alternativa, consentire l'esecuzione automatica delle pianificazioni **Sequenced-StartVM** e **Sequenced-StopVM** di Automazione in base alla pianificazione prestabilita.
+5. Configurare la `External_ExcludeVMNames` variabile con un elenco delimitato da virgole di macchine virtuali, senza spazi tra valori delimitati da virgole.
+
+6. Questo scenario non rispetta le variabili `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Per questo scenario, è necessario creare la propria pianificazione di Automazione. Per informazioni dettagliate, vedere [Pianificare un runbook in Automazione di Azure](shared-resources/schedules.md).
+
+7. Visualizzare in anteprima l'azione e apportare le modifiche necessarie prima dell'implementazione nelle VM di produzione. Quando si è pronti, eseguire manualmente **monitoring-and-diagnostics/monitoring-action-groupsrunbook** con il parametro impostato su **False**. In alternativa, consentire l'esecuzione automatica delle pianificazioni **Sequenced-StartVM** e **Sequenced-StopVM** di Automazione in base alla pianificazione prestabilita.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>Scenario 3: automatizzare l'avvio o l'arresto in base all'utilizzo della CPU
 
@@ -120,7 +127,7 @@ Quando si esegue **AutoStop_CreateAlert_Parent**, questo runbook verifica che es
 
 1. Creare una nuova [pianificazione](shared-resources/schedules.md#create-a-schedule) e collegarla al runbook **AutoStop_CreateAlert_Parent** aggiungendo un elenco delimitato da virgole di nomi di VM al parametro `VMList`.
 
-2. Facoltativamente, se si vogliono escludere alcune macchine virtuali dall'azione autostop, è possibile aggiungere un elenco delimitato da virgole di nomi di VM alla variabile `External_ExcludeVMNames`.
+2. Facoltativamente, se si vuole escludere alcune macchine virtuali dall'azione di arresto, è possibile aggiungere alla variabile un elenco delimitato da virgole di nomi di VM (senza spazi) `External_ExcludeVMNames` .
 
 ## <a name="configure-email-notifications"></a>Configurare le notifiche di posta elettronica
 
@@ -151,13 +158,13 @@ La funzionalità consente di aggiungere macchine virtuali da includere o esclude
 
 Esistono due modi per assicurarsi che una macchina virtuale sia inclusa quando viene eseguita la funzionalità:
 
-* Ogni [runbook](automation-solution-vm-management.md#runbooks) padre della funzionalità ha un parametro `VMList`. È possibile passare un elenco delimitato da virgole dei nomi di macchine virtuali a questo parametro quando si pianifica il runbook padre adatto alla situazione. In questo modo, le macchine virtuali specificate vengono incluse al momento dell'esecuzione della funzionalità.
+* Ogni [runbook](automation-solution-vm-management.md#runbooks) padre della funzionalità ha un parametro `VMList`. È possibile passare un elenco delimitato da virgole di nomi di VM (senza spazi) a questo parametro quando si pianificano i Runbook padre appropriati per la situazione specifica e queste macchine virtuali verranno incluse durante l'esecuzione della funzionalità.
 
 * Per selezionare più macchine virtuali, impostare `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames` con i nomi dei gruppi di risorse che contengono le macchine virtuali che si vogliono avviare o arrestare. È anche possibile impostare le variabili su un valore di `*` per eseguire la funzionalità su tutti i gruppi di risorse nella sottoscrizione.
 
 ### <a name="exclude-a-vm"></a>Escludere una macchina virtuale
 
-Per escludere una VM da Avvio/Arresto di macchine virtuali durante gli orari di minore attività, è possibile aggiungerne il nome alla variabile `External_ExcludeVMNames`. Questa variabile è un elenco delimitato da virgole delle specifiche macchine virtuali da escludere dalla funzionalità. Il limite dell'elenco è 140 macchine virtuali. Se si aggiungono più di 140 macchine virtuali a questo elenco, le macchine virtuali configurate per l'esclusione potrebbero essere inavvertitamente avviate o arrestate.
+Per escludere una VM da Avvio/Arresto di macchine virtuali durante gli orari di minore attività, è possibile aggiungerne il nome alla variabile `External_ExcludeVMNames`. Questa variabile è un elenco delimitato da virgole di VM specifiche (senza spazi) da escludere dalla funzionalità. Il limite dell'elenco è 140 macchine virtuali. Se si aggiungono più di 140 macchine virtuali a questo elenco, le macchine virtuali configurate per l'esclusione potrebbero essere inavvertitamente avviate o arrestate.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificare le pianificazioni di avvio e arresto
 

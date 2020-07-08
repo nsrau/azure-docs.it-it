@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 8573a88d5371bbde07a541c789f52e6c44f1e279
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300607"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
@@ -69,6 +68,9 @@ Per la risoluzione dei problemi di rete, vedere la [Guida alla risoluzione dei](
 È necessario installare il software seguente:
 
 * La versione più recente di **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [Visual Studio Tools per Realtà mista](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). In particolare, le installazioni del *carico di lavoro* seguente sono obbligatorie:
+  * **Sviluppo per desktop con C++**
+  * **Sviluppo di app UWP (Universal Windows Platform)**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **Git** [(download)](https://git-scm.com/downloads)
 * Facoltativo: per visualizzare il flusso video dal server su un PC desktop, è necessario **HEVC video Extensions** [(collegamento Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).

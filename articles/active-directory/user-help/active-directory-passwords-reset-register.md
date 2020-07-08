@@ -10,14 +10,13 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 3deb59b04f3c0ba90e270bc064e3ece3c21229b3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 999b458985d8ab486e8dbd6bcaa48ddd9e02fc28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739607"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266101"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrare le informazioni sul metodo di verifica per reimpostare la password
 
@@ -26,7 +25,7 @@ Se si dimentica la password per un account aziendale o dell'istituto di istruzio
 Per poter registrare le informazioni e reimpostare la password, è necessario che l'amministratore attivi questa funzionalità. Se l'opzione **Password dimenticata** non è visualizzata, significa che l'amministratore non ha attivato la funzionalità per l'organizzazione. Se si ritiene che si tratti di un errore, contattare l'help desk per assistenza.
 
 >[!Important]
->Questo articolo è destinato agli utenti che desiderano registrarsi per la reimpostazione della password self-service, che permetterà loro di reimpostare la password aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com, senza richiedere il supporto dell'amministratore. Se si è un amministratore che sta cercando altre informazioni su come testare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere [Implementare la reimpostazione della password self-service in Azure AD e altri articoli](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Questo articolo è destinato agli utenti che desiderano registrarsi per la reimpostazione della password self-service, Ciò significa che sarà possibile reimpostare la password aziendale o dell'Istituto di istruzione, ad esempio alain@contoso.com , senza richiedere la guida dell'amministratore. Se si è un amministratore che sta cercando altre informazioni su come testare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere [Implementare la reimpostazione della password self-service in Azure AD e altri articoli](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="set-up-your-password-reset-verification-method"></a>Configurare il metodo di verifica della reimpostazione della password
 

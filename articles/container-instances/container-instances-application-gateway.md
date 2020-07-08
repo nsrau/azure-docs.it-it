@@ -3,12 +3,11 @@ title: Indirizzo IP statico per il gruppo di contenitori
 description: Creare un gruppo di contenitori in una rete virtuale e usare un gateway applicazione di Azure per esporre un indirizzo IP front-end statico a un'app Web in contenitori
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 5c3a14f93af3ecc614dc296f0a4d2815d7a64a66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299163"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Esporre un indirizzo IP statico per un gruppo di contenitori
 
@@ -17,7 +16,7 @@ Questo articolo illustra un modo per esporre un indirizzo IP pubblico statico pe
 In questo articolo si usa l'interfaccia della riga di comando di Azure per creare le risorse per questo scenario:
 
 * Una rete virtuale di Azure
-* Un gruppo di contenitori distribuito [nella rete virtuale (anteprima)](container-instances-vnet.md) che ospita una piccola app Web
+* Un gruppo di contenitori distribuito [nella rete virtuale](container-instances-vnet.md) che ospita una piccola app Web
 * Un gateway applicazione con un indirizzo IP front-end pubblico, un listener per ospitare un sito Web sul gateway e una route per il gruppo di contenitori back-end
 
 Finché viene eseguito il gateway applicazione e il gruppo di contenitori espone un indirizzo IP privato stabile nella subnet delegata della rete, il gruppo di contenitori è accessibile da questo indirizzo IP pubblico.
@@ -71,7 +70,7 @@ az network public-ip create \
 
 Eseguire il comando [AZ container create][az-container-create] seguente per creare un gruppo di contenitori nella rete virtuale configurata nel passaggio precedente. 
 
-Il gruppo viene distribuito nella subnet *myACISubnet* e contiene una singola istanza denominata *appcontainer* che esegue il pull dell' `aci-helloworld` immagine. Come illustrato negli altri articoli della documentazione, questa immagine include una piccola app Web scritta in node. js che funge da pagina HTML statica. 
+Il gruppo viene distribuito nella subnet *myACISubnet* e contiene una singola istanza denominata *appcontainer* che esegue il pull dell' `aci-helloworld` immagine. Come illustrato negli altri articoli della documentazione, questa immagine crea un pacchetto di un'app Web di piccole dimensioni scritta in Node.js che funge da pagina HTML statica. 
 
 ```azurecli
 az container create \
@@ -136,7 +135,7 @@ az network public-ip show \
 --output tsv
 ```
 
-L'output è un indirizzo IP pubblico, simile a `52.142.18.133`:.
+L'output è un indirizzo IP pubblico, simile a: `52.142.18.133` .
 
 Per visualizzare l'app Web in esecuzione quando la configurazione è stata completata, passare all'indirizzo IP pubblico del gateway nel browser. L'accesso riuscito è simile al seguente:
 

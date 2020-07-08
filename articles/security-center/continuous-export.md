@@ -8,12 +8,11 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fdcc7b590c6ad6873c7808ae26d218bbda7f5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299945"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Esportare avvisi e raccomandazioni di sicurezza
 
@@ -28,6 +27,21 @@ Con questi strumenti è possibile:
 * Esporta in CSV (una volta)
 
 
+
+
+## <a name="availability"></a>Disponibilità
+
+- Stato della versione: **Disponibile a livello generale**
+- Ruoli e autorizzazioni necessari:
+    - **Reader** nella sottoscrizione che contiene la configurazione di esportazione
+    - **Ruolo di amministratore della sicurezza** nel gruppo di risorse (o **proprietario**)
+    - Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione
+- Cloud: 
+    - ✔ Cloud commerciali
+    - ✔ US Gov
+    - ✘ Cina, altro gov
+
+
 ## <a name="setting-up-a-continuous-export"></a>Impostazione di un'esportazione continua
 
 I passaggi seguenti sono necessari se si sta configurando un'esportazione continua in Log Analytics area di lavoro o hub eventi di Azure.
@@ -38,7 +52,7 @@ I passaggi seguenti sono necessari se si sta configurando un'esportazione contin
     
 1. Dall'intestazione laterale della pagina impostazioni per la sottoscrizione selezionare **esportazione continua**.
 
-    [Opzioni di esportazione nel centro sicurezza di Azure ![](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) Qui vengono visualizzate le opzioni di esportazione. È disponibile una scheda per ogni destinazione di esportazione disponibile. 
+    [ ![ Opzioni di esportazione nel centro sicurezza di Azure](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) qui è possibile visualizzare le opzioni di esportazione. È disponibile una scheda per ogni destinazione di esportazione disponibile. 
 
 1. Selezionare il tipo di dati che si desidera esportare e scegliere tra i filtri in ogni tipo (ad esempio, esportare solo gli avvisi con livello di gravità elevato).
 

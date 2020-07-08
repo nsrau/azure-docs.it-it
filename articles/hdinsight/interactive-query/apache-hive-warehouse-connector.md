@@ -6,13 +6,12 @@ ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fdc90ffaf3cef3c594e7d84e32af9ef78fe08b0d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 05/28/2020
+ms.openlocfilehash: e9438e2e82a6d903b74973fe489b0a67d66c9a72
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849451"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84296953"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrare Apache Spark e Apache Hive con Hive Warehouse Connector in Azure HDInsight
 
@@ -93,9 +92,17 @@ Oltre alle configurazioni indicate nella sezione precedente, aggiungere la confi
 
     | Configurazione | valore |
     |----|----|
-    | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<llap-headnode>@<AAD-Domain>` |
     
-    Sostituire `<headnode-FQDN>` con il nome di dominio completo del nodo head del cluster Interactive Query. Sostituire `<AAD-DOMAIN>` con il nome dell'istanza di Azure Active Directory (AAD) a cui viene aggiunto il cluster. Usare una stringa in maiuscolo per il valore `<AAD-DOMAIN>` per trovare le credenziali. Se necessario, controllare nel file /etc/krb5.conf i nomi dell'area di autenticazione.
+    * Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` dove clustername è il nome del cluster Interactive query. Fare clic su **HiveServer2 Interactive**. Verrà visualizzato il nome di dominio completo (FQDN) del nodo head in cui è in esecuzione LLAP, come illustrato nella schermata. Sostituire `<llap-headnode>` con questo valore.
+
+        ![Nodo head del connettore warehouse di hive](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+
+    * Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster Interactive query. Cercare `default_realm` il parametro nel `/etc/krb5.conf` file. Sostituire `<AAD-DOMAIN>` con questo valore come stringa maiuscola; in caso contrario, le credenziali non verranno trovate.
+
+        ![Dominio AAD del connettore warehouse di hive](./media/apache-hive-warehouse-connector/aad-domain.png)
+
+    * Ad esempio, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` .
     
 1. Salvare le modifiche e riavviare i componenti interessati.
 

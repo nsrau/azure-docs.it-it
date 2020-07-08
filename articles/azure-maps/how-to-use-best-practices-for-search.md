@@ -8,23 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea44355795f0685f42de1306e979707f34d8f142
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84264367"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedure consigliate per il servizio di ricerca di Mappe di Azure
 
-Il [servizio di ricerca](https://docs.microsoft.com/rest/api/maps/search) di Mappe di Azure include API che offrono varie funzionalità. Ad esempio, l'API di ricerca di indirizzi può trovare punti di interesse o dati nei dintorni di una posizione specifica. 
+Azure Maps [servizio di ricerca](https://docs.microsoft.com/rest/api/maps/search) include API che offrono varie funzionalità per aiutare gli sviluppatori a ricercare indirizzi, luoghi, elenchi aziendali per nome o categoria e altre informazioni geografiche. Ad esempio, l'[API di ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) consente agli utenti di cercare un indirizzo o un punto di interesse (poi).
 
 Questo articolo descrive come applicare procedure efficaci quando si chiamano dati dal servizio di ricerca di Mappe di Azure. Si apprenderà come:
 
-* Creare query per restituire corrispondenze rilevanti.
-* Limitare i risultati della ricerca.
-* Identificare le differenze tra i tipi di risultati.
-* Interpretare la struttura di ricerca e risposta degli indirizzi.
+* Query di compilazione per restituire corrispondenze rilevanti
+* Limitare i risultati della ricerca
+* Informazioni sulle differenze tra i tipi di risultati
+* Leggere la struttura di ricerca indirizzo-risposta
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +32,7 @@ Per effettuare chiamate alle API del servizio Mappe di Azure, sono necessari un 
 Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 > [!TIP]
-> Per eseguire query sul servizio di ricerca, è possibile usare l'[app Postman](https://www.getpostman.com/apps) per creare chiamate REST. In alternativa, è possibile usare qualsiasi ambiente di sviluppo API preferito.
+> Per eseguire query servizio di ricerca, è possibile usare l' [app post](https://www.getpostman.com/apps) per compilare chiamate API REST. In alternativa, è possibile usare qualsiasi ambiente di sviluppo API preferito.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Procedure consigliate per la codifica geografica degli indirizzi
 
@@ -61,7 +60,7 @@ Per limitare geograficamente i risultati in base all'area pertinente per l'utent
 
 #### <a name="fuzzy-search-parameters"></a>Parametri di ricerca fuzzy
 
-È consigliabile usare l'[API di ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) di Mappe di Azure quando non si conoscono gli input utente per una query di ricerca. L'API combina la ricerca di punti di interesse e la geocodifica in una normale *ricerca a riga singola*: 
+È consigliabile usare l'[API di ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) di Mappe di Azure quando non si conoscono gli input utente per una query di ricerca. Ad esempio, l'input dell'utente può essere un indirizzo o il tipo di punto di interesse (PDI), ad esempio *Shopping Mall*. L'API combina la ricerca di punti di interesse e la geocodifica in una normale *ricerca a riga singola*: 
 
 * I parametri `minFuzzyLevel` e `maxFuzzyLevel` consentono di restituire corrispondenze pertinenti anche quando i parametri di query non corrispondono esattamente alle informazioni cercate dall'utente. Per ottimizzare le prestazioni e ridurre i risultati insoliti, impostare le query di ricerca sui valori predefiniti `minFuzzyLevel=1` e `maxFuzzyLevel=2`. 
 
@@ -85,7 +84,7 @@ Per limitare geograficamente i risultati in base all'area pertinente per l'utent
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Geocodifica inversa e filtro per un tipo di entità geografia
 
-Quando si esegue una ricerca di geocodifica inversa nell'[API di ricerca inversa di indirizzi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), il servizio può restituire poligoni per le aree amministrative. Per limitare la ricerca a specifici tipi di entità geografia, includere il parametro `entityType` nelle richieste. 
+Quando si esegue una ricerca di geocodifica inversa nell'[API di ricerca inversa di indirizzi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), il servizio può restituire poligoni per le aree amministrative. Ad esempio, Yoi potrebbe voler recuperare il poligono area per una città. Per limitare la ricerca a specifici tipi di entità geografia, includere il parametro `entityType` nelle richieste. 
 
 La risposta risultante contiene l'ID area geografica e il tipo di entità di cui è stata trovata una corrispondenza. Se si specifica più di un'entità, l'endpoint restituisce l'*entità più piccola disponibile*. È possibile usare l'ID geometria restituito per ottenere la geometria dell'area geografica tramite il [servizio di ricerca di poligoni](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 

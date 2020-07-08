@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70881278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300733"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Reti con HSM dedicato di Azure
 
@@ -78,7 +77,7 @@ I dispositivi HSM hanno la capacità, tramite le librerie di software, di reindi
 
 ### <a name="cross-region-ha-using-vpn-gateway"></a>Disponibilità elevata tra aree mediante il gateway VPN
 
-Per le applicazioni distribuite a livello globale o per gli scenari di failover a livello di area con disponibilità elevata è necessario connettere reti virtuali di aree diverse. Con HSM dedicato di Azure è possibile ottenere la disponibilità elevata usando un Gateway VPN che fornisce un tunnel sicuro tra le due reti virtuali. Per altre informazioni sulle connessioni da rete virtuale a rete virtuale mediante un Gateway VPN, vedere l'articolo intitolato [Che cos'è un Gateway VPN?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
+Per le applicazioni distribuite a livello globale o per gli scenari di failover a livello di area con disponibilità elevata è necessario connettere reti virtuali di aree diverse. Con HSM dedicato di Azure è possibile ottenere la disponibilità elevata usando un Gateway VPN che fornisce un tunnel sicuro tra le due reti virtuali. Per altre informazioni sulle connessioni da rete virtuale a rete virtuale mediante un Gateway VPN, vedere l'articolo intitolato [Che cos'è un Gateway VPN?](../vpn-gateway/design.md#V2V)
 
 > [!NOTE]
 > Al momento il peering di rete virtuale globale in scenari di connettività fra aree non è disponibile con HSM dedicato e al suo posto si deve usare un gateway VPN. 
@@ -88,7 +87,7 @@ Per le applicazioni distribuite a livello globale o per gli scenari di failover 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Domande frequenti](faq.md)
-- [Supportabilità](supportability.md)
+- [Facilità di supporto](supportability.md)
 - [Disponibilità elevata](high-availability.md)
 - [Sicurezza fisica](physical-security.md)
 - [Monitoring](monitoring.md)

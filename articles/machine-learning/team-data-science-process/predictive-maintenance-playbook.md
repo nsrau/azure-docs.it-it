@@ -11,16 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267977"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Manutenzione predittiva (**PdM**) è un'applicazione comune di analisi predittiva che può consentire alle aziende di diversi settori di usare in modo ottimale gli asset e ridurre i costi operativi. Questa guida sintetizza le linee guida e le procedure consigliate aziendali e analitiche per sviluppare e distribuire nel modo corretto soluzioni PdM tramite la tecnologia della [piattaforma Microsoft Azure per l'intelligenza artificiale](https://azure.microsoft.com/overview/ai-platform).
 
@@ -231,7 +230,7 @@ Le specifiche tecniche delle apparecchiature come la data di fabbricazione, il n
 
 Come risultato delle operazioni di preparazione dei dati descritte finora, i dati saranno organizzati come illustrato di seguito. I dati di training, test e convalida devono avere questo schema logico (in questo esempio il tempo è espresso in unità di giorni).
 
-| ID asset | Tempo | \<Colonne della funzionalità> | Label |
+| ID asset | Tempo | \<Feature Columns> | Label |
 | ---- | ---- | --- | --- |
 | A123 |Giorno 1 | . . . | . |
 | A123 |Giorno 2 | . . . | . |
@@ -427,12 +426,11 @@ La sezione finale di questa guida fornisce un elenco di modelli di soluzioni PdM
 |--:|:------|-------------|
 | 2 | [Modello di soluzione per la manutenzione predittiva di Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Modello di soluzione open source che illustra la modellazione di Azure ML e un'infrastruttura di Azure completa in grado di supportare scenari di manutenzione predittiva nel contesto del monitoraggio remoto. |
 | 3 | [Apprendimento avanzato per la manutenzione predittiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notebook di Azure con una soluzione demo sull'uso di reti LSTM (Long Short-Term Memory), una classe delle reti neurali ricorrenti, per la manutenzione predittiva, con un [post di blog su questo esempio](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
-| 4 | [Guida alla modellazione per la manutenzione predittiva in R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guida alla modellazione PdM con script in R.|
-| 5 | [Manutenzione predittiva di Azure per il settore aerospaziale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Uno dei primi modelli di soluzione PdM basati su Azure Machine Learning 1.0 per la manutenzione di aerei. La guida ha avuto origine da questo progetto. |
-| 6 | [Azure AI Toolkit per IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI nel IoT Edge usando TensorFlow; Toolkit pacchetti di modelli di apprendimento avanzato in contenitori Docker compatibili con Azure IoT Edge ed esporre tali modelli come API REST.
-| 7 | [Manutenzione predittiva di Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Soluzione preconfigurata. Modello PdM con IoT Suite per la manutenzione di aerei. [Un altro documento](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) e una [procedura dettagliata](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) correlati allo stesso progetto. |
-| 8 | [Modello di manutenzione predittiva con SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demo dello scenario relativo alla vita utile rimanente basata su R Services. |
-| 9 | [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) (Guida alla modellazione per la manutenzione predittiva) | Funzione del set di dati per la manutenzione di aerei progettata tramite R con [esperimenti](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) e [set di dati](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1), oltre a [notebook di Azure](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) ed [esperimenti](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) in Azure ML 1.0|
+| 4 | [Manutenzione predittiva di Azure per il settore aerospaziale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Uno dei primi modelli di soluzione PdM basati su Azure Machine Learning 1.0 per la manutenzione di aerei. La guida ha avuto origine da questo progetto. |
+| 5 | [Azure AI Toolkit per IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI nel IoT Edge usando TensorFlow; Toolkit pacchetti di modelli di apprendimento avanzato in contenitori Docker compatibili con Azure IoT Edge ed esporre tali modelli come API REST.
+| 6 | [Manutenzione predittiva di Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Soluzione preconfigurata. Modello PdM con IoT Suite per la manutenzione di aerei. [Un altro documento](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) e una [procedura dettagliata](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) correlati allo stesso progetto. |
+| 7 | [Modello di manutenzione predittiva con SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demo dello scenario relativo alla vita utile rimanente basata su R Services. |
+| 8 | [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) (Guida alla modellazione per la manutenzione predittiva) | Funzione del set di dati per la manutenzione di aerei progettata tramite R con [esperimenti](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) e [set di dati](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1), oltre a notebook di Azure ed [esperimenti](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) in Azure ML 1.0|
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Risorse di formazione per la manutenzione predittiva
 

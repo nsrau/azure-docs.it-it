@@ -10,12 +10,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9870b239ca0501e63df3d800b8e4847cb0f390ac
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 81a83c629a1cdcde77ec43751f32ebfe1dfb3425
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266849"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 
@@ -532,26 +531,26 @@ E restituisce il risultato usando il formato "D" facoltativo: `"Tuesday, January
 
 ### <a name="and"></a>e
 
-Verifica se tutte le espressioni sono true.
-Restituisce true se tutte le espressioni sono true o false se almeno un'espressione è false.
+Controllare se entrambe le espressioni sono true.
+Restituisce true se entrambe le espressioni sono true oppure restituisce false se almeno un'espressione è false.
 
 ```
-and(<expression1>, <expression2>, ...)
+and(<expression1>, <expression2>)
 ```
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Sì | Boolean | Espressioni da verificare |
+| <*expression1*>, <*expression2*> | Sì | Boolean | Espressioni da verificare |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | -----| ----------- |
-| true o false | Boolean | Restituisce true se tutte le espressioni sono true. Restituisce false se almeno un'espressione è false. |
+| true o false | Boolean | Restituisce true se entrambe le espressioni sono true. Restituisce false se almeno un'espressione è false. |
 ||||
 
 *Esempio 1*
 
-Questi esempi verificano se i valori booleani specificati sono tutti true:
+Questi esempi controllano se i valori booleani specificati sono entrambi true:
 
 ```
 and(true, true)
@@ -567,7 +566,7 @@ E vengono restituiti questi risultati:
 
 *Esempio 2*
 
-Questi esempi verificano se le espressioni specificate sono tutte true:
+Questi esempi controllano se le espressioni specificate sono entrambe vere:
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -2389,20 +2388,20 @@ E vengono restituiti questi risultati:
 ### <a name="or"></a>o
 
 Verifica se almeno un'espressione è true.
-Restituisce true se almeno un'espressione è true o false se tutte le espressioni sono false.
+Restituisce true se almeno un'espressione è true oppure restituisce false quando entrambi sono false.
 
 ```
-or(<expression1>, <expression2>, ...)
+or(<expression1>, <expression2>)
 ```
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Sì | Boolean | Espressioni da verificare |
+| <*expression1*>, <*expression2*> | Sì | Boolean | Espressioni da verificare |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | Boolean | Restituisce true se almeno un'espressione è true. Restituisce false se tutte le espressioni sono false. |
+| true o false | Boolean | Restituisce true se almeno un'espressione è true. Restituisce false quando entrambe le espressioni sono false. |
 ||||
 
 *Esempio 1*

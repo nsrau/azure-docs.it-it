@@ -3,12 +3,11 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300927"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -74,12 +73,14 @@ Quando si lavora con il gruppo di risorse nodo, tenere presente che non è possi
 * Specificare un gruppo di risorse esistente come gruppo di risorse nodo.
 * Specificare una sottoscrizione diversa per il gruppo di risorse nodo.
 * Cambiare il nome del gruppo di risorse nodo dopo la creazione del cluster.
-* Specificare i nomi delle risorse gestite nel gruppo di risorse nodo.
-* Modificare o eliminare i tag di risorse gestite all'interno del gruppo di risorse nodo. Per altre informazioni, vedere la sezione successiva.
+* Specificare i nomi delle risorse gestite nel gruppo di risorse del nodo.
+* Modificare o eliminare i tag creati da Azure delle risorse gestite all'interno del gruppo di risorse del nodo. Per altre informazioni, vedere la sezione successiva.
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>È possibile modificare i tag e altre proprietà delle risorse del servizio Azure Kubernetes nel gruppo di risorse nodo?
 
-La modifica o l'eliminazione di tag creati da Azure e di altre proprietà delle risorse nel gruppo di risorse nodo può generare risultati imprevisti, ad esempio errori di dimensionamento e di aggiornamento. Il servizio Azure Kubernetes consente di creare e modificare tag personalizzati. Potrebbe essere necessario creare o modificare tag personalizzati da assegnare ad esempio a una business unit o a un centro di costo. La modifica delle risorse nel gruppo di risorse nodo nel cluster del servizio Azure Kubernetes è una violazione dell'obiettivo del livello di servizio. Per altre informazioni, vedere [Il servizio Azure Kubernetes offre un contratto di servizio?](#does-aks-offer-a-service-level-agreement)
+La modifica o l'eliminazione di tag creati da Azure e di altre proprietà delle risorse nel gruppo di risorse nodo può generare risultati imprevisti, ad esempio errori di dimensionamento e di aggiornamento. AKS consente di creare e modificare tag personalizzati creati dagli utenti finali. Potrebbe essere necessario creare o modificare tag personalizzati da assegnare ad esempio a una business unit o a un centro di costo. Per ottenere questo risultato, è possibile creare criteri di Azure con un ambito nel gruppo di risorse gestite.
+
+Tuttavia, la modifica di eventuali **tag creati da Azure** sulle risorse nel gruppo di risorse nodo nel cluster AKS è un'azione non supportata che interrompe l'obiettivo del livello di servizio (SLO). Per altre informazioni, vedere [Il servizio Azure Kubernetes offre un contratto di servizio?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quali controller di ammissione Kubernetes supporta servizio Azure Kubernetes? È possibile aggiungere o rimuovere i controller di ammissione?
 

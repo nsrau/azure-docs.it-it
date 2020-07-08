@@ -3,12 +3,11 @@ title: Informazioni sul backup di condivisioni file di Azure
 description: Informazioni su come eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0a03871b61ab00f2dae18ba11a5a9127680a646b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299231"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup di condivisioni file di Azure
 
@@ -16,11 +15,12 @@ Il backup di condivisioni file di Azure è una soluzione di backup nativa basata
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Vantaggi principali del backup di condivisioni file di Azure
 
-* Infrastruttura zero: non è necessaria alcuna distribuzione per configurare la protezione per le condivisioni file.
-* Conservazione personalizzata: è possibile configurare i backup con conservazione giornaliera/settimanale/mensile/annuale in base ai requisiti.
-* Funzionalità di gestione predefinite: è possibile pianificare i backup e specificare il periodo di memorizzazione desiderato senza l'overhead aggiuntivo di eliminazione dei dati.
-* Ripristino istantaneo: il backup di condivisioni file di Azure usa snapshot di condivisione file, pertanto è possibile selezionare solo i file che si desidera ripristinare immediatamente.
-* Avvisi e report: è possibile configurare avvisi per gli errori di backup e ripristino e usare la soluzione di creazione di report fornita da backup di Azure per ottenere informazioni dettagliate sui backup nelle condivisioni file.
+* **Infrastruttura zero**: non è necessaria alcuna distribuzione per configurare la protezione per le condivisioni file.
+* **Conservazione personalizzata**: è possibile configurare i backup con conservazione giornaliera/settimanale/mensile/annuale in base ai requisiti.
+* **Funzionalità di gestione predefinite**: è possibile pianificare i backup e specificare il periodo di memorizzazione desiderato senza l'overhead aggiuntivo di eliminazione dei dati.
+* **Ripristino istantaneo**: il backup di condivisioni file di Azure usa snapshot di condivisione file, pertanto è possibile selezionare solo i file che si desidera ripristinare immediatamente.
+* Avvisi **e report**: è possibile configurare avvisi per gli errori di backup e ripristino e usare la soluzione di creazione di report fornita da backup di Azure per ottenere informazioni dettagliate sui backup nelle condivisioni file.
+* **Protezione da eliminazioni accidentali delle condivisioni file**: backup di Azure consente la [funzionalità di eliminazione](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) temporanea a livello di account di archiviazione con un periodo di memorizzazione di 14 giorni. Anche se un attore malintenzionato Elimina la condivisione file, il contenuto e i punti di ripristino della condivisione file (snapshot) vengono conservati per un periodo di conservazione configurabile, consentendo il ripristino corretto e completo del contenuto di origine e degli snapshot senza perdita di dati.
 
 ## <a name="architecture"></a>Architecture
 
@@ -51,5 +51,5 @@ Attualmente verranno addebitati solo gli snapshot, poiché il backup della condi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [eseguire il backup delle condivisioni file di Azure](backup-afs.md)
+* Informazioni su come [Eseguire il backup di condivisioni file di Azure](backup-afs.md)
 * Trovare le risposte alle [domande sul backup file di Azure](backup-azure-files-faq.md)

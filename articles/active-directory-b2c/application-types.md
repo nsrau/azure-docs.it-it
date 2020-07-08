@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84295423"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipi di applicazioni che possono essere usati in Active Directory B2C
 
@@ -119,9 +118,11 @@ In questo flusso l'applicazione esegue i [criteri](user-flow-overview.md) e rice
 
 Anche le applicazioni che contengono processi a esecuzione prolungata o che funzionano senza la presenza di un utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Tali applicazioni possono autenticarsi e ottenere i token usando la propria identità, invece di un'identità delegata dell'utente, e mediante il flusso di credenziali client OAuth 2.0. Il flusso di credenziali client non è lo stesso del flusso per conto dell’utente e quest’ultimo non deve essere utilizzato per l'autenticazione da server a server.
 
-Anche se il flusso di credenziali client non è attualmente supportato da Azure AD B2C, è possibile impostare il flusso di credenziali client tramite Azure AD. Un tenant di Azure AD B2C condivide alcune funzionalità con i tenant enterprise di Azure AD.  Il flusso delle credenziali client è supportato tramite la funzionalità di Azure AD del tenant di Azure AD B2C.
+Sebbene il flusso di concessione delle credenziali client OAuth 2,0 non sia attualmente supportato direttamente dal servizio di autenticazione Azure AD B2C, è possibile configurare il flusso di credenziali client usando Azure AD e l'endpoint/token della piattaforma di identità Microsoft per un'applicazione nel tenant di Azure AD B2C. Un tenant di Azure AD B2C condivide alcune funzionalità con i tenant enterprise di Azure AD.
 
 Per impostare il flusso di credenziali client, vedere [Azure Active Directory v2.0 e il flusso di credenziali client OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Un'autenticazione riuscita comporta la ricezione di un token formattato in modo che possa essere utilizzato da Azure AD come descritto in [Riferimento al token di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+
+Per istruzioni sulla registrazione di un'applicazione di gestione, vedere [manage Azure ad B2C with Microsoft Graph](microsoft-graph-get-started.md).
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Catene di API Web (flusso On-Behalf-Of)
 

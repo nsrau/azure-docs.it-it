@@ -8,12 +8,11 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 91e7b1c0be9a38c3d79440f07d944d182980dc10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 038d9ff39f388d1ef7b09b951c09dbe3420858b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159235"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84298228"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Usare Visual Studio e Visual Studio Code per compilare dispositivi Plug and Play
 
@@ -25,7 +24,7 @@ Questo articolo illustra come:
 - Usare il codice generato nel progetto del dispositivo.
 - Eseguire l'iterazione rigenerando il codice di scheletro.
 
-Per ulteriori informazioni sull'utilizzo del VS Code per sviluppare dispositivi Internet, vedere [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
+Per ulteriori informazioni sull'utilizzo del VS Code per sviluppare dispositivi Internet, vedere [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -57,7 +56,7 @@ In VS Code usare **CTRL + MAIUSC + P** per aprire il riquadro comandi, immettere
     - **Progetto CMake in Linux**: per un progetto di dispositivo che usa [CMake](https://cmake.org/) come sistema di compilazione in Linux. Questa opzione genera `CMakeLists.txt` con le configurazioni dell'SDK per dispositivi nella stessa cartella del codice C.
     - **Progetto MXChip DevKit**: per un progetto di dispositivo che viene eseguito in un dispositivo [MXChip DevKit](https://aka.ms/iot-devkit) . Questa opzione genera un progetto Arduino che è possibile [usare in vs code](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) o nell'IDE di Arduino per compilare ed eseguire su un dispositivo devkit.
 
-- **Tipo di SDK del dispositivo**. Se si seleziona CMake come tipo di progetto, questo è il passaggio per configurare il modo in cui il `CMakeLists.txt`codice generato includerà l'SDK per dispositivi C di Azure in:
+- **Tipo di SDK del dispositivo**. Se si seleziona CMake come tipo di progetto, questo è il passaggio per configurare il modo in cui il codice generato includerà l'SDK per dispositivi C di Azure in `CMakeLists.txt` :
 
     - **Tramite**il codice sorgente: il codice generato si basa sul [codice sorgente dell'SDK del dispositivo](https://github.com/Azure/azure-iot-sdk-c) da includere in e compilare insieme a esso. Questa operazione è consigliata quando è stato personalizzato il codice sorgente dell'SDK per dispositivi.
     - **Tramite vcpkg**: il codice generato si basa sull' [SDK del dispositivo vcpkg](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c) da includere in e compilarlo insieme. Questo è il metodo consigliato per i dispositivi che eseguono Windows, Linux o macOS.
@@ -69,7 +68,7 @@ Il generatore di codice tenta di usare i file DCM e di interfaccia presenti nell
 
 Al termine della generazione del codice, l'estensione apre una nuova finestra di VS Code con il codice. Se si apre un file generato, ad esempio **Main. c**, è possibile che IntelliSense segnali che non è in grado di aprire i file di origine di c SDK. Per abilitare IntelliSense e l'esplorazione del codice corretti, attenersi alla procedura seguente per includere l'origine C SDK:
 
-1. In VS Code usare **CTRL + MAIUSC + P** per aprire il riquadro comandi, digitare e selezionare **C/C++: Edit Configurations (JSON)** per aprire il file **c_cpp_properties. JSON** .
+1. In VS Code usare **CTRL + MAIUSC + P** per aprire il riquadro comandi, digitare e selezionare **C/C++: Edit Configurations (JSON)** per aprire il **c_cpp_properties.jssu** file.
 
 1. Aggiungere il percorso di Device SDK nella `includePath` sezione:
 
@@ -92,7 +91,7 @@ Per compilare il codice del dispositivo insieme al Device C SDK vcpkg usando CMa
 
 1. Aprire un'applicazione Terminal.
 
-1. Installare **GCC**, **git**, `cmake`e tutte le dipendenze usando `apt-get` il comando:
+1. Installare **GCC**, **git**, `cmake` e tutte le dipendenze usando il `apt-get` comando:
 
     ```bash
     sudo apt-get update
@@ -176,7 +175,7 @@ Per compilare il codice del dispositivo insieme al Device C SDK in Windows con C
 
     ![Output CMake](media/howto-develop-with-vs-vscode/vs-cmake-output.png)
 
-1. Nella **Esplora soluzioni**fare clic con il pulsante destro del `CMakeLists.txt` mouse sul nella cartella radice e scegliere **Compila** dal menu di scelta rapida per compilare lo stub del codice generato con SDK per dispositivi.
+1. Nella **Esplora soluzioni**fare clic con il pulsante destro del mouse sul `CMakeLists.txt` nella cartella radice e scegliere **Compila** dal menu di scelta rapida per compilare lo stub del codice generato con SDK per dispositivi.
 
 1. Al termine della compilazione, al prompt dei comandi eseguire l'applicazione specificando come parametro la stringa di connessione del dispositivo dell'hub Internet.
 
@@ -193,7 +192,7 @@ I passaggi seguenti illustrano come compilare il codice del dispositivo insieme 
 
 1. Aprire l'applicazione Terminal.
 
-1. Usare [Homebrew](https://homebrew.sh) per installare tutte le dipendenze:
+1. Usare [Homebrew](https://brew.sh) per installare tutte le dipendenze:
 
     ```bash
     brew update
@@ -247,7 +246,7 @@ Il generatore di codice può rigenerare il codice se si aggiornano i file di int
 
 1. Selezionare **rigenera di nuovo il codice per {nome progetto}**.
 
-1. Il generatore di codice usa l'impostazione precedente configurata e rigenera il codice. Tuttavia, non sovrascrive i file che possono contenere codice utente, ad esempio `main.c` e `{project_name}_impl.c`.
+1. Il generatore di codice usa l'impostazione precedente configurata e rigenera il codice. Tuttavia, non sovrascrive i file che possono contenere codice utente, ad esempio `main.c` e `{project_name}_impl.c` .
 
 > [!NOTE]
 > Se si aggiorna l'ID URN nel file di interfaccia, questo viene considerato come una nuova interfaccia. Quando si rigenera il codice, il generatore di codice genera il codice per l'interfaccia ma non sovrascrive quello originale nel `{project_name}_impl.c` file.

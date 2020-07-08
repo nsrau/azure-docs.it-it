@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300791"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
@@ -42,7 +41,7 @@ Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più c
 
 ## <a name="configure-site-recovery-to-send-logs"></a>Configurare Site Recovery per inviare i log
 
-1. Nell'insieme di credenziali fare clic su **Impostazioni** > di diagnostica Aggiungi impostazioni di**diagnostica**.
+1. Nell'insieme di credenziali fare clic su **impostazioni di diagnostica**Aggiungi impostazioni di  >  **diagnostica**.
 
     ![Selezionare la registrazione delle risorse](./media/monitoring-log-analytics/add-diagnostic.png)
 
@@ -252,7 +251,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Configurare gli avvisi-esempi
 
-È possibile configurare Site Recovery avvisi in base ai dati di monitoraggio di Azure. [Altre](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) informazioni sulla configurazione degli avvisi del log. 
+È possibile configurare Site Recovery avvisi in base ai dati di monitoraggio di Azure. [Altre](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) informazioni sulla configurazione degli avvisi del log. 
 
 > [!NOTE]
 > Alcuni esempi utilizzano **replicationProviderName_s** impostato su **A2A**. Questo consente di impostare gli avvisi per le macchine virtuali di Azure replicate in un'area di Azure secondaria. In questi esempi, è possibile sostituire **A2A** con **InMageAzureV2** se si vuole impostare avvisi per macchine virtuali VMware locali o server fisici replicati in Azure.

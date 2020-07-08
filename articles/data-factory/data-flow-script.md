@@ -6,13 +6,12 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890879"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84298602"
 ---
 # <a name="data-flow-script-dfs"></a>Script del flusso di dati (DFS)
 
@@ -52,7 +51,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-Se si decide di aggiungere una trasformazione derivazione, è necessario innanzitutto creare il testo della trasformazione principale, che include un'espressione semplice per aggiungere una nuova colonna maiuscola `upperCaseTitle`denominata:
+Se si decide di aggiungere una trasformazione derivazione, è necessario innanzitutto creare il testo della trasformazione principale, che include un'espressione semplice per aggiungere una nuova colonna maiuscola denominata `upperCaseTitle` :
 ```
 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 ```
@@ -71,7 +70,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-A questo punto, il flusso in ingresso viene reindirizzato identificando la trasformazione che si desidera venga successiva alla nuova trasformazione, in `source1`questo caso, e copiando il nome del flusso nella nuova trasformazione:
+A questo punto, il flusso in ingresso viene reindirizzato identificando la trasformazione che si desidera venga successiva alla nuova trasformazione, in questo caso, `source1` e copiando il nome del flusso nella nuova trasformazione:
 ```
 source(output(
         movieId as string,
@@ -85,7 +84,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-Infine, identifichiamo la trasformazione che desideriamo dopo la nuova trasformazione e sostituisco il relativo flusso di input (in questo `sink1`caso) con il nome del flusso di output della nuova trasformazione:
+Infine, identifichiamo la trasformazione che desideriamo dopo la nuova trasformazione e sostituisco il relativo flusso di input (in questo caso `sink1` ) con il nome del flusso di output della nuova trasformazione:
 ```
 source(output(
         movieId as string,
@@ -173,7 +172,7 @@ aggregate(groupBy(movie),
 ```
 
 ### <a name="create-row-hash-fingerprint"></a>Crea impronta digitale hash riga 
-Utilizzare questo codice nello script del flusso di dati per creare una nuova colonna derivata ```DWhash``` denominata che produce ```sha1``` un hash di tre colonne.
+Utilizzare questo codice nello script del flusso di dati per creare una nuova colonna derivata denominata ```DWhash``` che produce un ```sha1``` hash di tre colonne.
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
@@ -192,6 +191,16 @@ Questo codice agirà come la funzione T-SQL ```string_agg()``` e aggrega i valor
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
 Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+```
+
+### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Conteggio numero di aggiornamenti, Upsert, inserimenti, eliminazioni
+Quando si utilizza una trasformazione alter Row, è possibile che si desideri contare il numero di aggiornamenti, Upsert, inserimenti ed eliminazioni risultanti dai criteri alter Row. Aggiungere una trasformazione aggregazione dopo l'istruzione ALTER Row e incollare lo script del flusso di dati nella definizione di aggregazione per i conteggi seguenti:
+
+```
+aggregate(updates = countIf(isUpdate(), 1),
+        inserts = countIf(isInsert(), 1),
+        upserts = countIf(isUpsert(), 1),
+        deletes = countIf(isDelete(),1)) ~> RowCount
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,12 +10,11 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40285c811cd6f407c20c40bf3a90ec5b779a9c18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 08a1d655d19b5e7deb81e42ca5bebdfe4f18aeef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264401"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84297905"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
@@ -134,21 +133,20 @@ No, per il momento. Questa funzionalità verrà implementata in futuro. Questo n
 
 Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 
-È possibile usare l'esperienza di **applicazioni** correnti o la nuova esperienza Unified **registrazioni app (Preview)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
+È possibile usare la nuova esperienza Unified **registrazioni app** o **le applicazioni legacy (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Applicazioni](#tab/applications/)
+#### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come *amministratore della sottoscrizione*. Usare lo stesso account aziendale o dell'Istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Eliminare tutti i **flussi utente (criteri)** nel tenant del Azure ad B2C.
-1. Eliminare tutte le **applicazioni** registrate nel tenant del Azure ad B2C.
-1. Selezionare **Azure Active Directory** dal menu a sinistra.
+1. Selezionare **registrazioni app**, quindi selezionare la scheda **tutte le applicazioni** .
+1. Eliminare tutte le applicazioni registrate.
+1. Eliminare **B2C-Extensions-app**.
 1. In **Gestisci** selezionare **Utenti**.
 1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
-1. In **Gestisci**selezionare **Registrazioni app** (o **registrazioni app (legacy)**).
-1. Selezionare **Visualizza tutte le applicazioni**
-1. Selezionare l'applicazione denominata **B2C-Extensions-app**, selezionare **Elimina**e quindi fare clic su **Sì** quando richiesto.
+1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. In **Gestisci**selezionare **impostazioni utente**.
 1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
 1. In **Gestisci**selezionare **Proprietà**
@@ -157,18 +155,19 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. Nella pagina **Overview (panoramica** ) selezionare **Delete directory (Elimina directory**). Seguire le istruzioni visualizzate per completare il processo.
 
-#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="applications-legacy"></a>[Applicazioni (legacy)](#tab/applications-legacy/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come *amministratore della sottoscrizione*. Usare lo stesso account aziendale o dell'Istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Eliminare tutti i **flussi utente (criteri)** nel tenant del Azure ad B2C.
-1. Selezionare **registrazioni app (anteprima)**, quindi selezionare la scheda **tutte le applicazioni** .
-1. Eliminare tutte le applicazioni registrate.
-1. Eliminare **B2C-Extensions-app**.
+1. Eliminare tutte le **applicazioni (legacy)** registrate nel tenant del Azure ad B2C.
+1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. In **Gestisci** selezionare **Utenti**.
 1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
-1. Selezionare **Azure Active Directory** dal menu a sinistra.
+1. In **Gestisci** selezionare **Registrazioni app**.
+1. Selezionare **Visualizza tutte le applicazioni**
+1. Selezionare l'applicazione denominata **B2C-Extensions-app**, selezionare **Elimina**e quindi fare clic su **Sì** quando richiesto.
 1. In **Gestisci**selezionare **impostazioni utente**.
 1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
 1. In **Gestisci**selezionare **Proprietà**

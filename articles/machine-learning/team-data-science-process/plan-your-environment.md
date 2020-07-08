@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76710315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267932"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 
@@ -75,7 +74,7 @@ Per le procedure e le risorse disponibili per inserire o caricare i dati in vari
 * Uno scenario ibrido che include sia risorse locali che cloud
 * Uno scenario in cui i dati vengono sottoposti a transazioni, modificati o cambiati dalla logica di business durante la migrazione
 
-Per altre informazioni, vedere [spostare dati da un'istanza di SQL Server locale a SQL Azure con Azure Data Factory](move-sql-azure-adf.md).
+Per ulteriori informazioni, vedere [spostare dati da un database di SQL Server a SQL Azure con Azure Data Factory](move-sql-azure-adf.md).
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Che quantità di dati è necessario spostare in Azure?
 
@@ -149,10 +148,10 @@ Sono disponibili numerose opzioni relative a linguaggi, ambienti di sviluppo e s
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
-* [Python Tools per Visual Studio](https://aka.ms/ptvsdocs)
-* [Anaconda](https://www.continuum.io/why-anaconda)
+* [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
+* [Anaconda](https://www.anaconda.com/)
 * [Notebook di Jupyter](https://jupyter.org/)
-* [Power BI Microsoft](https://powerbi.microsoft.com)
+* [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identificare lo scenario di analisi avanzata
 
