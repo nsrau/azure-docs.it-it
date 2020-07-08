@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: fd10468e823201bfa67aaf7c570071bd075ec4ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da2cc3dade843b1ea207eb4ec5bf33a41a289d7e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851483"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -30,11 +30,15 @@ Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di e
 
 ## <a name="on-premises-servers"></a>Server locali
 
-**Server** | **Requirements** | **Dettagli**
+**Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
-Hyper-V (in esecuzione senza Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (inclusa l'installazione dei componenti di base del server), Windows Server 2012 R2 con gli aggiornamenti più recenti | Se si è già configurato Windows Server 2012 R2 con/o SCVMM 2012 R2 con Azure Site Recovery e si prevede di aggiornare il sistema operativo, seguire le indicazioni nella [documentazione](upgrade-2012R2-to-2016.md) correlata. 
-Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se si usa Virtual Machine Manager, gli host Windows Server 2019 devono essere gestiti in Virtual Machine Manager 2019. Analogamente, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.<br/><br/> Nota: il failback in un percorso alternativo non è supportato per gli host Windows Server 2019.
+Hyper-V (in esecuzione senza Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 con gli aggiornamenti più recenti (inclusa l'installazione dei componenti di base del server di questi sistemi operativi, ad eccezione di Windows Server 2019) | Se si è già configurato Windows Server 2012 R2 con/o SCVMM 2012 R2 con Azure Site Recovery e si prevede di aggiornare il sistema operativo, seguire le indicazioni nella [documentazione](upgrade-2012R2-to-2016.md) correlata.
+Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (inclusa l'installazione dei componenti di base del server di questi sistemi operativi, eccetto Virtual Machine Manager 2019) | Se si usa Virtual Machine Manager, gli host Windows Server 2019 devono essere gestiti in Virtual Machine Manager 2019. Analogamente, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.
 
+> [!NOTE]
+>
+> - Verificare che nel server locale sia presente .NET Framework 4.6.2 o versione successiva.
+> - Il failover e il failback in un percorso alternativo o in un percorso originale, in esecuzione con o senza Virtual Machine Manager, non sono supportati per la versione principale di Windows Server 2019 server.
 
 ## <a name="replicated-vms"></a>VM replicate
 
@@ -51,8 +55,8 @@ Sistema operativo guest | Qualsiasi sistema operativo guest [supportato per Azur
 
 **Azione** | **Dettagli**
 --- | ---
-Ridimensionare li disco nella macchina virtuale Hyper-V replicata | Non supportata. Disabilitare la replica, apportare la modifica e quindi riabilitare la replica per la macchina virtuale.
-Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportata. Disabilitare la replica, apportare la modifica e quindi riabilitare la replica per la macchina virtuale.
+Ridimensionare li disco nella macchina virtuale Hyper-V replicata | Non supportato. Disabilitare la replica, apportare la modifica e quindi riabilitare la replica per la macchina virtuale.
+Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportato. Disabilitare la replica, apportare la modifica e quindi riabilitare la replica per la macchina virtuale.
 
 ## <a name="hyper-v-network-configuration"></a>Configurazione di rete Hyper-V
 
@@ -90,26 +94,26 @@ Rete accelerata | No | No
 
 ## <a name="hyper-v-host-storage"></a>Archiviazione host Hyper-V
 
-**Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
+**Storage** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | --- 
-NFS | N/D | N/D
+NFS | ND | ND
 SMB 3.0 | Sì | Sì
 SAN (iSCSI) | Sì | Sì
 Percorsi multipli (MPIO). Testato con:<br></br> DSM Microsoft, EMC PowerPath 5,7 SP4, DSM EMC PowerPath per CLARiiON | Sì | Sì
 
 ## <a name="hyper-v-vm-guest-storage"></a>Archiviazione VM guest Hyper-V
 
-**Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
+**Storage** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-VMDK | N/D | N/D
+VMDK | ND | ND
 VHD/VHDX | Sì | Sì
 VM Gen 2 | Sì | Sì
 EFI/UEFI<br></br>La macchina virtuale di cui è stata eseguita la migrazione in Azure verrà automaticamente convertita in una macchina virtuale di avvio BIOS. Nella macchina virtuale deve essere in esecuzione solo Windows Server 2012 e versioni successive. Il disco del sistema operativo deve avere fino a cinque partizioni o meno e la dimensione del disco del sistema operativo deve essere inferiore a 300 GB.| Sì | Sì
 Disco cluster condiviso | No | No
 Disco crittografato | No | No
-NFS | N/D | N/D
+NFS | ND | ND
 SMB 3.0 | No | No
-RDM | N/D | N/D
+RDM | ND | ND
 Disco superiore a 1 TB | Sì, fino a 4.095 GB | Sì, fino a 4.095 GB
 Disco: dimensioni logiche di settore e dimensioni fisiche a 4 KB | Non supportato: Gen 1/Gen 2 | Non supportato: Gen 1/Gen 2
 Disco: settore fisico 4K logico e 512 byte | Sì |  Sì
@@ -131,8 +135,9 @@ Archiviazione ad accesso sporadico | No | No
 Archiviazione ad accesso frequente| No | No
 BLOB in blocchi | No | No
 Crittografia per dati inattivi (SSE)| Sì | Sì
-Crittografia inattiva (CMK) <br></br> (Solo per failover a Managed Disks)| Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive)
+Crittografia dei dati inattivi (CMK) <br></br> (Solo per failover a Managed Disks)| Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive)
 Archiviazione Premium | Sì | Sì
+Archiviazione standard | Sì | Sì
 Servizio di importazione/esportazione | No | No
 Account di archiviazione di Azure con firewall abilitato | Sì. Per l'archiviazione e la cache di destinazione. | Sì. Per l'archiviazione e la cache di destinazione.
 Modifica dell'account di archiviazione | No. L'account di archiviazione di Azure di destinazione non può essere modificato dopo l'abilitazione della replica. Per modificare, disabilitare e quindi riabilitare il ripristino di emergenza. | No
@@ -150,7 +155,7 @@ Dischi gestiti | Sì, per il failover.<br/><br/> Non è supportato il failback d
 
 Le macchine virtuali locali replicate in Azure devono soddisfare i requisiti per le VM di Azure riepilogati in questa tabella.
 
-**Componente** | **Requirements** | **Dettagli**
+**Componente** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Sistema operativo guest | Site Recovery supporta tutti i sistemi operativi [supportati da Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Il controllo dei prerequisiti ha esito negativo se non supportato.
 Architettura del sistema operativo guest | 32 bit (Windows Server 2008)/64-bit | Il controllo dei prerequisiti ha esito negativo se non supportato.

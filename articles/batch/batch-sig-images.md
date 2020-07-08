@@ -1,18 +1,19 @@
 ---
-title: Usare Raccolta immagini condivise per creare un pool personalizzato
-description: Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch.
+title: Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
+description: I pool di immagini personalizzati sono un modo efficiente per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di batch.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 6731086bfcbe6a671c579593791fb7467b280bca
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 07/01/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844489"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851710"
 ---
-# <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Usare Raccolta immagini condivise per creare un pool personalizzato
+# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
 
-Quando si crea un pool in Azure Batch usando la configurazione della macchina virtuale, specificare l'immagine di macchina virtuale (VM) che fornisce la configurazione del sistema operativo per ogni nodo di calcolo nel pool. È possibile creare un pool di macchine virtuali con un'immagine di Azure Marketplace supportata o creare un'immagine personalizzata con la [Raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md).
+Quando si crea un pool in Azure Batch usando la configurazione della macchina virtuale, specificare l'immagine di macchina virtuale (VM) che fornisce la configurazione del sistema operativo per ogni nodo di calcolo nel pool. È possibile creare un pool di macchine virtuali con un'immagine di Azure Marketplace supportata o creare un'immagine personalizzata con un' [immagine della raccolta immagini condivisa](../virtual-machines/windows/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Vantaggi della Raccolta immagini condivise
 
@@ -29,7 +30,7 @@ L'uso di un'Immagine condivisa configurata per uno scenario specifico può esser
 - **Pre-installare applicazioni**. La pre-installazione delle applicazioni sul disco del sistema operativo risulta essere più efficiente e meno soggetta a errori rispetto all'installazione di applicazioni dopo il provisioning dei nodi di calcolo con un'attività di avvio.
 - **Copiare grandi quantità di dati una volta sola.** Incorporare i dati statici nell'Immagine condivisa gestita copiandoli nei dischi dati di un'immagine gestita. Questa operazione deve essere eseguita solo una volta e consente di rendere i dati disponibili per ogni nodo del pool.
 - **Aumentare le dimensioni dei pool.** Con la Raccolta immagini condivise è possibile creare pool di dimensioni maggiori con le immagini personalizzate, insieme a un maggior numero di repliche di Immagini condivise.
-- **Migliori prestazioni rispetto all'immagine personalizzata.** Con Immagini condivise, il tempo necessario affinché il pool raggiunga lo stato stabile diminuisce del 25% e la latenza di inattività della macchina virtuale si riduce fino al 30%.
+- **Prestazioni migliori rispetto all'utilizzo di una sola immagine gestita come immagine personalizzata.** Per un pool di immagini personalizzate per immagini condivise, il tempo per raggiungere lo stato stabile è fino al 25% più veloce e la latenza di inattività della macchina virtuale è fino al 30% più breve.
 - **Controllo delle versioni delle immagini e raggruppamento per la semplificazione della gestione.** La definizione di raggruppamento delle immagini contiene informazioni sui motivi per cui è stata creata l'immagine, sul sistema operativo per cui è stata creata e le informazioni sull'uso. Il raggruppamento delle immagini consente una gestione più semplice delle stesse. Per altre informazioni, vedere [Definizioni delle immagini](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -44,9 +45,11 @@ L'uso di un'Immagine condivisa configurata per uno scenario specifico può esser
 > [!NOTE]
 > L'Immagine condivisa deve trovarsi nella stessa sottoscrizione dell'account Batch. L'immagine può trovarsi in aree diverse, purché includa repliche nella stessa area dell'account Batch.
 
-## <a name="prepare-a-custom-image"></a>Preparare un'immagine personalizzata
+Se si usa un'applicazione Azure AD per creare un pool di immagini personalizzato con un'immagine della raccolta immagini condivisa, a tale applicazione deve essere stato concesso un [ruolo predefinito di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) che consente di accedere all'immagine condivisa. È possibile concedere questo accesso nel portale di Azure passando all'immagine condivisa, selezionando **controllo di accesso (IAM)** e aggiungendo un'assegnazione di ruolo per l'applicazione.
 
-All'interno di Azure è possibile preparare un'immagine personalizzata da:
+## <a name="prepare-a-shared-image"></a>Preparare un'immagine condivisa
+
+In Azure è possibile preparare un'immagine condivisa da un'immagine gestita, che può essere creata da:
 
 - Snapshot dei dischi dati e sistema operativo di una macchina virtuale di Azure
 - Una macchina virtuale generalizzata di Azure con dischi gestiti

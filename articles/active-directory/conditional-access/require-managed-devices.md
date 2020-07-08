@@ -4,19 +4,19 @@ description: Informazioni su come configurare i criteri di accesso condizionale 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 11/22/2019
+ms.topic: how-to
+ms.date: 06/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a3c71534febc3cdb6429d3092225ebc73f6cbe7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849924"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedura: richiedere i dispositivi gestiti per l'accesso alle app cloud con accesso condizionale
 
@@ -96,7 +96,31 @@ Per un dispositivo contrassegnato come conforme, è possibile presupporre che:
 - Le informazioni della società sono protette grazie alla possibilità di controllare il modo in cui la forza lavoro vi accede e le condivide
 - Il dispositivo e le relative app sono conformi ai requisiti di sicurezza aziendali
 
+### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Scenario: richiedere la registrazione del dispositivo per dispositivi iOS e Android
+
+In questo scenario, Contoso ha deciso che tutti gli accessi mobili alle risorse di Office 365 devono usare un dispositivo registrato. Tutti gli utenti accedono già con credenziali di Azure AD e hanno licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
+
+Per richiedere l'uso di un dispositivo mobile registrato, le organizzazioni devono completare i passaggi seguenti.
+
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
+1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
+1. Selezionare **Nuovi criteri**.
+1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
+1. In **Assegnazioni** selezionare **Utenti e gruppi**.
+   1. In **Includi** selezionare **Tutti gli utenti** o gli **Utenti e gruppi** ai quale si vuole applicare questi criteri. 
+   1. Selezionare **Operazione completata**.
+1. In **Applicazioni cloud o azioni** > **Includi** selezionare **Office 365 (anteprima)** .
+1. In **Condizioni** selezionare **Piattaforme del dispositivo**.
+   1. Impostare **Configura** su **Sì**.
+   1. Includere **Android** e **iOS**.
+1. In **Controlli di accesso** > **Concedi** selezionare le opzioni seguenti:
+   - **Richiedere che i dispositivi siano contrassegnati come conformi**
+1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
+1. Selezionare **Crea** per creare e abilitare i criteri.
+
 ### <a name="known-behavior"></a>Comportamento noto
+
+Quando si usa il [flusso OAuth del codice del dispositivo](../develop/v2-oauth2-device-code.md), non sono supportate le condizioni Richiedi controllo concessione dispositivo gestito o stato dispositivo. Questo perché il dispositivo che esegue l'autenticazione non può fornire lo stato del dispositivo al dispositivo che fornisce un codice e lo stato del dispositivo nel token è bloccato al dispositivo che esegue l'autenticazione. Usare invece il comando Richiedi concessione di autenticazione a più fattori.
 
 In Windows 7, iOS, Android, macOS e alcuni Web browser di terze parti Azure AD identifica il dispositivo usando un certificato client di cui viene effettuato il provisioning quando il dispositivo viene registrato con Azure AD. Quando un utente accede per la prima volta tramite il browser, all'utente viene richiesto di selezionare il certificato. L'utente finale deve selezionare questo certificato prima di poter continuare a utilizzare il browser.
 

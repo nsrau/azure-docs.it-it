@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
-ms.topic: article
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 791f2e9bf825bb0a1d1ce555c9fbd879106213df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850908"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gestisci gli utenti con il personale (anteprima)
 
@@ -26,7 +26,7 @@ Il personale IT consente di delegare a una figura di autorità, ad esempio un re
 
 Prima di configurare il personale per la propria organizzazione, è consigliabile consultare questa documentazione e la [documentazione dell'utente](../user-help/my-staff-team-manager.md) per assicurarsi di comprendere la funzionalità e l'effetto di questa funzionalità per gli utenti. È possibile sfruttare la documentazione dell'utente per eseguire il training e preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione.
 
-L'autenticazione basata su SMS per gli utenti è una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+L'autenticazione basata su SMS per gli utenti è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## <a name="how-my-staff-works"></a>Funzionamento del personale
 
@@ -34,16 +34,16 @@ Il personale si basa su unità amministrative (AUs), ovvero un contenitore di ri
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare questo articolo, sono necessari i privilegi e le risorse seguenti:
+Per completare le procedure descritte in questo articolo, sono necessari i privilegi e le risorse seguenti:
 
 * Una sottoscrizione di Azure attiva.
 
   * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un tenant Azure Active Directory associato alla sottoscrizione.
+* Un tenant di Azure Active Directory associato alla sottoscrizione.
 
   * Se necessario, [creare un tenant di Azure Active Directory](../fundamentals/sign-up-organization.md) o [associare una sottoscrizione di Azure al proprio account](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 * Per abilitare l'autenticazione basata su SMS, è necessario disporre dei privilegi di *amministratore globale* nel tenant di Azure ad.
-* Ogni utente abilitato nei criteri del metodo di autenticazione tramite SMS deve essere concesso in licenza, anche se non lo usa. Ogni utente abilitato deve avere una delle seguenti Azure AD o licenze Microsoft 365:
+* A ogni utente abilitato nei criteri del metodo di autenticazione tramite SMS deve essere concessa una licenza, anche a chi non usa questo metodo. Ogni utente abilitato deve avere una delle seguenti Azure AD o licenze Microsoft 365:
 
   * [Azure AD Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory/)
   * [Microsoft 365 (M365) F1 o F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
@@ -54,7 +54,7 @@ Per completare questo articolo, sono necessari i privilegi e le risorse seguenti
 Una volta configurata la funzionalità AUs, è possibile applicare questo ambito agli utenti che accedono al personale. Solo gli utenti a cui è assegnato un ruolo amministrativo possono accedere al personale. Per abilitare il personale, attenersi alla procedura seguente:
 
 1. Accedere al portale di Azure come amministratore utente.
-2. Passare a **Azure Active Directory** > **impostazioni utente le** > **anteprime** > delle funzionalità utente**Gestisci le impostazioni di anteprima delle funzionalità utente**.
+2. Passare a **Azure Active Directory**  >  **impostazioni utente le**  >  **anteprime**delle funzionalità utente  >  **Gestisci le impostazioni di anteprima delle funzionalità utente**.
 3. In gli **amministratori possono accedere al personale**, è possibile scegliere di abilitare per tutti gli utenti, gli utenti selezionati o nessun accesso utente.
 
 > [!Note]
@@ -71,23 +71,24 @@ Si consiglia vivamente di proteggere il personale utilizzando [Azure ad criteri 
 1. Installare i [cmdlet di PowerShell per Microsoft Graph beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
 1. Eseguire i comandi seguenti:
 
-        Connect-Graph -Scopes "Directory.AccessAsUser.All"
-        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
-
+   ```powershell
+   Connect-Graph -Scopes "Directory.AccessAsUser.All"
+   New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+   ```
 1. Creare criteri di accesso condizionale che si applicano all'applicazione cloud personale.
 
     ![Creare un criterio di accesso condizionale per l'app personale](media/my-staff-configure/conditional-access.png)
 
 ## <a name="using-my-staff"></a>Uso del personale
 
-Quando un utente passa al personale, vengono visualizzati i nomi delle [unità amministrative](directory-administrative-units.md) su cui dispongono di autorizzazioni amministrative. Nella [documentazione dell'utente personale](../user-help/my-staff-team-manager.md)viene usato il termine "location" per fare riferimento a unità amministrative. Se le autorizzazioni di un amministratore non hanno un ambito AU, le autorizzazioni si applicano all'intera organizzazione. Una volta abilitato il personale, gli utenti che sono abilitati e a cui è stato assegnato un ruolo amministrativo possono accedervi tramite [https://mystaff.microsoft.com](https://mystaff.microsoft.com). Possono selezionare un AU per visualizzare gli utenti in tale AU e selezionare un utente per aprire il proprio profilo.
+Quando un utente passa al personale, vengono visualizzati i nomi delle [unità amministrative](directory-administrative-units.md) su cui dispongono di autorizzazioni amministrative. Nella [documentazione dell'utente personale](../user-help/my-staff-team-manager.md)viene usato il termine "location" per fare riferimento a unità amministrative. Se le autorizzazioni di un amministratore non hanno un ambito AU, le autorizzazioni si applicano all'intera organizzazione. Una volta abilitato il personale, gli utenti che sono abilitati e a cui è stato assegnato un ruolo amministrativo possono accedervi tramite [https://mystaff.microsoft.com](https://mystaff.microsoft.com) . Possono selezionare un AU per visualizzare gli utenti in tale AU e selezionare un utente per aprire il proprio profilo.
 
 ## <a name="reset-a-users-password"></a>Reimpostare la password di un utente
 
 I ruoli seguenti sono autorizzati a reimpostare la password di un utente:
 
 - [Amministratore autenticazione](directory-assign-admin-roles.md#authentication-administrator)
-- [Amministratore di autenticazione con privilegi](directory-assign-admin-roles.md#privileged-authentication-administrator)
+- [Amministratore autenticazione con privilegi](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Amministratore globale](directory-assign-admin-roles.md#global-administrator--company-administrator)
 - [Amministratore dell'help desk](directory-assign-admin-roles.md#helpdesk-administrator)
 - [Amministratore utenti](directory-assign-admin-roles.md#user-administrator)
@@ -114,8 +115,8 @@ A seconda delle impostazioni, l'utente può quindi usare il numero di telefono c
 
 Per gestire il numero di telefono di un utente, è necessario disporre di uno dei ruoli seguenti:
 
-- [Amministratore autenticazione](directory-assign-admin-roles.md#authentication-administrator)
-- [Amministratore di autenticazione con privilegi](directory-assign-admin-roles.md#privileged-authentication-administrator)
+- [Amministratore dell'autenticazione](directory-assign-admin-roles.md#authentication-administrator)
+- [Amministratore autenticazione con privilegi](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Amministratore globale](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
 ## <a name="search"></a>Ricerca
@@ -130,5 +131,5 @@ Per gestire il numero di telefono di un utente, è necessario disporre di uno de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[My Staff user documentation](../user-help/my-staff-team-manager.md)
-Documentazione sulle[unità amministrative](directory-administrative-units.md) della documentazione dell'utente personale
+Documentazione per gli [utenti del personale](../user-help/my-staff-team-manager.md) 
+ [Documentazione sulle unità amministrative](directory-administrative-units.md)

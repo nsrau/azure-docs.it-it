@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 04/16/2020
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c2c5c083115440e1e4da203f39f2b32734458c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b76ac103b873026dce3d3f8f92e54dc3afc14c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850928"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Aggiungere e gestire gli utenti in un'unità amministrativa in Azure Active Directory
 
@@ -41,7 +41,7 @@ Per i passaggi necessari per preparare l'uso di PowerShell e Microsoft Graph per
 
     1. È possibile passare a Azure AD nel portale e selezionare unità amministrative nel riquadro sinistro, quindi selezionare l'unità amministrativa a cui assegnare gli utenti. Selezionare tutti gli utenti nel riquadro sinistro e quindi selezionare Aggiungi membro. È quindi possibile procedere e selezionare uno o più utenti da assegnare all'unità amministrativa dal riquadro di destra.
 
-        ![Selezionare un'unità amministrativa e quindi selezionare Aggiungi membro](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
+        ![selezionare un'unità amministrativa e quindi Aggiungi membro](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
 1. Assegnazione in blocco
 
@@ -51,26 +51,32 @@ Per i passaggi necessari per preparare l'uso di PowerShell e Microsoft Graph per
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-    $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
-    Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+```powershell
+$administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
+Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+```
 
 Nell'esempio precedente, il cmdlet Add-AzureADAdministrativeUnitMember viene usato per aggiungere l'utente all'unità amministrativa. ID oggetto dell'unità amministrativa in cui è necessario aggiungere l'utente e l'ID oggetto dell'utente da aggiungere viene considerato argomento. La sezione evidenziata può essere modificata in base alle esigenze dell'ambiente specifico.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    Http request
-    POST /administrativeUnits/{Admin Unit id}/members/$ref
-    Request body
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
-    }
+```http
+Http request
+POST /administrativeUnits/{Admin Unit id}/members/$ref
+Request body
+{
+  "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
+}
+```
 
 Esempio:
 
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
-    }
+```http
+{
+  "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
+}
+```
 
 ## <a name="list-administrative-units-for-a-user"></a>Elencare le unità amministrative per un utente
 
@@ -86,27 +92,33 @@ Selezionare **unità amministrative** nel pannello a sinistra per visualizzare l
 
 ### <a name="powershell"></a>PowerShell
 
-    Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+```powershell
+Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+```http
+https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+```
 
 ## <a name="remove-a-single-user-from-an-au"></a>Rimuovere un utente singolo da un'AU
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-È possibile rimuovere un utente da un'unità amministrativa in due modi. Nella portale di Azure è possibile aprire il profilo di un utente accedendo a **Azure ad** > **utenti**. Selezionare l'utente per aprire il profilo dell'utente. Selezionare l'unità amministrativa da cui si vuole rimuovere l'utente e selezionare **Rimuovi da unità amministrativa**.
+È possibile rimuovere un utente da un'unità amministrativa in due modi. Nella portale di Azure è possibile aprire il profilo di un utente accedendo a **Azure ad**  >  **utenti**. Selezionare l'utente per aprire il profilo dell'utente. Selezionare l'unità amministrativa da cui si vuole rimuovere l'utente e selezionare **Rimuovi da unità amministrativa**.
 
 ![Rimuovere un utente da un'unità amministrativa dal profilo utente](./media/roles-admin-units-add-manage-users/user-remove-admin-units.png)
 
-È anche possibile rimuovere un utente in **Azure ad** > **unità amministrative** selezionando l'unità amministrativa da cui si vogliono rimuovere gli utenti. Selezionare l'utente e selezionare **Rimuovi membro**.
+È anche possibile rimuovere un utente in **Azure ad**  >  **unità amministrative** selezionando l'unità amministrativa da cui si vogliono rimuovere gli utenti. Selezionare l'utente e selezionare **Rimuovi membro**.
   
 ![Rimuovere un utente a livello di unità amministrativa](./media/roles-admin-units-add-manage-users/admin-units-remove-user.png)
 
 ### <a name="powershell"></a>PowerShell
 
-    Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+```powershell
+Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75973699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851178"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicare le VM di Azure in un'altra area di Azure
 
@@ -113,12 +113,13 @@ Dopo l'esecuzione del processo di abilitazione della replica e il completamento 
     - Se si vuole che le macchine virtuali Linux facciano parte di un gruppo di replica, assicurarsi che il traffico in uscita sulla porta 20004 venga aperto manualmente in base alle linee guida per la versione specifica di Linux.
 ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
-5. Fare clic su **Crea risorsa** > di destinazione**Abilita replica**.
+5. Fare clic su **Crea risorsa di destinazione**  >  **Abilita replica**.
 6. Una volta abilitate le macchine virtuali per la replica è possibile controllare lo stato di integrità della macchina virtuale in **Elementi replicati**
 
 >[!NOTE]
->Durante la replica iniziale, l'aggiornamento dello stato può richiedere tempo, senza mostrare alcun progresso. Per ottenere l'ultimo stato del processo, fare clic sul pulsante **Aggiorna**.
 >
+> - Durante la replica iniziale, l'aggiornamento dello stato può richiedere tempo, senza mostrare alcun progresso. Per ottenere l'ultimo stato del processo, fare clic sul pulsante **Aggiorna**.
+> - Se un punto di ripristino non è stato generato negli ultimi 60 minuti, l'integrità della replica della macchina virtuale diventerà critica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

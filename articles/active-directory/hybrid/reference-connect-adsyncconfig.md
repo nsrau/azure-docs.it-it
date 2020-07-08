@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850961"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento sul modulo di PowerShell ADSyncConfig
 La documentazione seguente fornisce informazioni di riferimento sul modulo di PowerShell ADSyncConfig.psm1 incluso in Azure AD Connect.
@@ -1080,28 +1080,19 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 ### <a name="description"></a>DESCRIZIONE
 La funzione Set-ADSyncRestrictedPermissions limita le autorizzazioni sull'account fornito.
 La limitazione delle autorizzazioni prevede i passaggi seguenti:
-1.
-Disabilitare l'ereditarietà nell'oggetto specificato
-2.
-Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF.
+1. Disabilitare l'ereditarietà nell'oggetto specificato
+2. Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF.
 Le autorizzazioni predefinite devono rimanere inalterate per SELF.
-3.
-Assegnare le autorizzazioni specifiche seguenti:
+3. Assegnare le autorizzazioni specifiche seguenti:
 
-        Type    Name                                        Access              Applies To
-        =============================================================================================
-        Allow   SYSTEM                                      Full Control        This object
-        Allow   Enterprise Admins                           Full Control        This object
-        Allow   Domain Admins                               Full Control        This object
-        Allow   Administrators                              Full Control        This object
-
-        Allow   Enterprise Domain Controllers               List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
-
-        Allow   Authenticated Users                         List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
+   | Type | Nome | Accesso | Si applica a |
+   |------|------|--------|------------|
+   | Consenti | SYSTEM | Controllo completo | Questo oggetto |
+   | Allow | Enterprise Admins | Controllo completo | Questo oggetto |
+   | Allow | Domain Admins | Controllo completo | Questo oggetto | 
+   | Allow | Administrators | Controllo completo | Questo oggetto |
+   | Allow | Controller di dominio organizzazione | Contenuto elenco <br> Leggi tutte le proprietà <br> Autorizzazioni di lettura | Questo oggetto |
+   | Allow | Utenti autenticati | Contenuto elenco <br> Leggi tutte le proprietà <br> Autorizzazioni di lettura | Questo oggetto |
 
 ### <a name="examples"></a>ESEMPI
 

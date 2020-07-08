@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni su come esporre un servizio A
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: c664141a8c89ccbdf37bd3f9a19cfa659982a47d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 3b816ddc0eccf8c406cfed37d6bfc594e27d3629
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850356"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Esporre un servizio AKS tramite HTTP o HTTPS usando il gateway applicazione 
 
@@ -20,25 +20,25 @@ Queste esercitazioni illustrano l'uso delle [risorse di ingresso Kubernetes](htt
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Grafico `ingress-azure` Helm installato.
+- `ingress-azure`Grafico Helm installato.
   - [**Distribuzione di Greenfield**](ingress-controller-install-new.md): se si inizia da zero, fare riferimento a queste istruzioni di installazione, che illustra i passaggi per distribuire un cluster AKS con il gateway applicazione e installare il controller di ingresso del gateway applicazione nel cluster AKS.
   - [**Distribuzione di Brownfield**](ingress-controller-install-existing.md): se si dispone di un cluster AKS e di un gateway applicazione esistenti, fare riferimento a queste istruzioni per installare il controller di ingresso del gateway applicazione nel cluster AKS.
 - Se si vuole usare HTTPS in questa applicazione, sarà necessario un certificato X509 e la relativa chiave privata.
 
 ## <a name="deploy-guestbook-application"></a>Distribuisci `guestbook` applicazione
 
-L'applicazione guestbook è un'applicazione Kubernetes canonica che compone un front-end dell'interfaccia utente Web, un back-end e un database Redis. Per impostazione predefinita `guestbook` , espone l'applicazione tramite un servizio con `frontend` nome sulla `80`porta. Senza una risorsa di ingresso Kubernetes, il servizio non è accessibile dall'esterno del cluster AKS. Si userà l'applicazione e si installeranno le risorse in ingresso per accedere all'applicazione tramite HTTP e HTTPS.
+L'applicazione guestbook è un'applicazione Kubernetes canonica che compone un front-end dell'interfaccia utente Web, un back-end e un database Redis. Per impostazione predefinita, `guestbook` espone l'applicazione tramite un servizio con nome `frontend` sulla porta `80` . Senza una risorsa di ingresso Kubernetes, il servizio non è accessibile dall'esterno del cluster AKS. Si userà l'applicazione e si installeranno le risorse in ingresso per accedere all'applicazione tramite HTTP e HTTPS.
 
 Per distribuire l'applicazione guestbook, seguire le istruzioni riportate di seguito.
 
 1. Scarica `guestbook-all-in-one.yaml` da [qui](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml)
-1. Eseguire `guestbook-all-in-one.yaml` la distribuzione nel cluster AKS eseguendo
+1. `guestbook-all-in-one.yaml`Eseguire la distribuzione nel cluster AKS eseguendo
 
   ```bash
   kubectl apply -f guestbook-all-in-one.yaml
   ```
 
-A questo punto `guestbook` , l'applicazione è stata distribuita.
+A questo punto, l' `guestbook` applicazione è stata distribuita.
 
 ## <a name="expose-services-over-http"></a>Esporre i servizi su HTTP
 
@@ -62,9 +62,9 @@ spec:
 
 Questo ingresso esporrà il `frontend` servizio della `guestbook-all-in-one` distribuzione come back-end predefinito del gateway applicazione.
 
-Salvare la risorsa in ingresso precedente come `ing-guestbook.yaml`.
+Salvare la risorsa in ingresso precedente come `ing-guestbook.yaml` .
 
-1. Eseguire `ing-guestbook.yaml` la distribuzione eseguendo:
+1. Eseguire la distribuzione `ing-guestbook.yaml` eseguendo:
 
     ```bash
     kubectl apply -f ing-guestbook.yaml
@@ -72,7 +72,7 @@ Salvare la risorsa in ingresso precedente come `ing-guestbook.yaml`.
 
 1. Controllare il log del controller di ingresso per lo stato di distribuzione.
 
-A questo `guestbook` punto l'applicazione dovrebbe essere disponibile. Per verificarlo, visitare l'indirizzo pubblico del gateway applicazione.
+A questo punto l' `guestbook` applicazione dovrebbe essere disponibile. Per verificarlo, visitare l'indirizzo pubblico del gateway applicazione.
 
 ## <a name="expose-services-over-https"></a>Esporre i servizi tramite HTTPS
 
@@ -107,7 +107,7 @@ Senza specificare il nome host, il servizio Guestbook sarà disponibile in tutti
     ```
 
     > [!NOTE] 
-    > Sostituire `<guestbook-secret-name>` nella risorsa in ingresso precedente con il nome del segreto. Archiviare la risorsa in ingresso sopra in un nome `ing-guestbook-tls.yaml`file.
+    > Sostituire `<guestbook-secret-name>` nella risorsa in ingresso precedente con il nome del segreto. Archiviare la risorsa in ingresso sopra in un nome file `ing-guestbook-tls.yaml` .
 
 1. Distribuire ing-Guestbook-TLS. YAML eseguendo
 
@@ -117,7 +117,7 @@ Senza specificare il nome host, il servizio Guestbook sarà disponibile in tutti
 
 1. Controllare il log del controller di ingresso per lo stato di distribuzione.
 
-A questo `guestbook` punto l'applicazione sarà disponibile sia su http che su HTTPS.
+A questo punto l' `guestbook` applicazione sarà disponibile sia su http che su HTTPS.
 
 ### <a name="with-specified-hostname"></a>Con il nome host specificato
 
@@ -148,7 +148,7 @@ Specificando hostname, il servizio Guestbook sarà disponibile solo nell'host sp
               servicePort: 80
     ```
 
-1. Eseguire `ing-guestbook-tls-sni.yaml` la distribuzione eseguendo
+1. Eseguire la distribuzione `ing-guestbook-tls-sni.yaml` eseguendo
 
     ```bash
     kubectl apply -f ing-guestbook-tls-sni.yaml
@@ -156,28 +156,28 @@ Specificando hostname, il servizio Guestbook sarà disponibile solo nell'host sp
 
 1. Controllare il log del controller di ingresso per lo stato di distribuzione.
 
-A questo `guestbook` punto l'applicazione sarà disponibile sia su http che su HTTPS solo nell'host specificato`<guestbook.contoso.com>` (in questo esempio).
+`guestbook`A questo punto l'applicazione sarà disponibile sia su http che su HTTPS solo nell'host specificato ( `<guestbook.contoso.com>` in questo esempio).
 
 ## <a name="integrate-with-other-services"></a>Integrazione con altri servizi
 
 L'ingresso seguente consente di aggiungere percorsi aggiuntivi in ingresso e di reindirizzare tali percorsi ad altri servizi:
 
-    ```yaml
-    apiVersion: extensions/v1beta1
-    kind: Ingress
-    metadata:
-      name: guestbook
-      annotations:
-        kubernetes.io/ingress.class: azure/application-gateway
-    spec:
-      rules:
-      - http:
-          paths:
-          - path: </other/*>
-            backend:
-              serviceName: <other-service>
-              servicePort: 80
-          - backend:
-              serviceName: frontend
-              servicePort: 80
-    ```
+```yaml
+apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    name: guestbook
+    annotations:
+      kubernetes.io/ingress.class: azure/application-gateway
+  spec:
+    rules:
+    - http:
+        paths:
+        - path: </other/*>
+          backend:
+            serviceName: <other-service>
+            servicePort: 80
+        - backend:
+            serviceName: frontend
+            servicePort: 80
+```

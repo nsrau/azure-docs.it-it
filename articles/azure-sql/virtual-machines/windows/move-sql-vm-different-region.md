@@ -4,7 +4,6 @@ description: Informazioni su come eseguire la migrazione di una macchina virtual
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -15,24 +14,24 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bca7237b38c1164d14ccf796e18980ba326090ac
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 37f098bc28ee89bdad9e5bde213e3c2a6847b0bf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027832"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851800"
 ---
-# <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Spostare una VM di SQL Server in un'altra area all'interno di Azure con i servizi Azure Site Recovery
+# <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Spostare una macchina virtuale SQL Server in un'altra area all'interno di Azure con Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Questo articolo illustra come usare Azure Site Recovery per eseguire la migrazione di una macchina virtuale (VM) di SQL Server da un'area a un'altra in Azure. 
 
 Lo spostamento di una VM di SQL Server in un'altra area richiede le operazioni seguenti:
-1. [**Preparazione**](#prepare-to-move): verificare che sia la VM di SQL Server di origine sia l'area di destinazione siano adeguatamente preparate per lo spostamento. 
-1. [**Configurazione**](#configure-azure-site-recovery-vault): Lo spostamento della VM di SQL Server richiede che sia un oggetto replicato all'interno dell'insieme di credenziali di Azure Site Recovery. È necessario aggiungere la VM di SQL Server all'insieme di credenziali di Azure Site Recovery. 
-1. [**Test**](#test-move-process): per eseguire la migrazione della VM di SQL Server è necessario eseguirne il failover dall'area di origine nell'area di destinazione replicata. Per assicurarsi che il processo di spostamento abbia esito positivo, è prima di tutto necessario verificare che la VM di SQL Server possa eseguire correttamente il failover nell'area di destinazione. Questo consente di esporre eventuali problemi e di evitarli quando si esegue lo spostamento effettivo. 
-1. [**Spostamento**](#move-the-sql-server-vm): superato il failover di test, se si è certi di poter eseguire la migrazione della VM di SQL Server, è possibile eseguire lo spostamento della VM nell'area di destinazione. 
-1. [**Pulizia**](#clean-up-source-resources): per evitare addebiti nella fatturazione, rimuovere dall'insieme di credenziali la VM di SQL Server e tutte le risorse non necessarie rimaste nel gruppo di risorse. 
+1. [Preparazione](#prepare-to-move): verificare che sia la VM di SQL Server di origine sia l'area di destinazione siano adeguatamente preparate per lo spostamento. 
+1. [Configurazione](#configure-azure-site-recovery-vault): Lo spostamento della VM di SQL Server richiede che sia un oggetto replicato all'interno dell'insieme di credenziali di Azure Site Recovery. È necessario aggiungere la VM di SQL Server all'insieme di credenziali di Azure Site Recovery. 
+1. [Test](#test-move-process): per eseguire la migrazione della VM di SQL Server è necessario eseguirne il failover dall'area di origine nell'area di destinazione replicata. Per assicurarsi che il processo di spostamento abbia esito positivo, è prima di tutto necessario verificare che la macchina virtuale SQL Server riesca a eseguire correttamente il failover nell'area di destinazione. Questo consente di esporre eventuali problemi e di evitarli quando si esegue lo spostamento effettivo. 
+1. [Spostamento](#move-the-sql-server-vm): superato il failover di test, se si è certi di poter eseguire la migrazione della VM di SQL Server, è possibile eseguire lo spostamento della VM nell'area di destinazione. 
+1. [Pulizia](#clean-up-source-resources): per evitare addebiti nella fatturazione, rimuovere dall'insieme di credenziali la VM di SQL Server e tutte le risorse non necessarie rimaste nel gruppo di risorse. 
 
 ## <a name="verify-prerequisites"></a>Verificare i prerequisiti 
 
@@ -51,7 +50,7 @@ Preparare sia la VM di SQL Server di origine, sia l'area di destinazione per lo 
 ### <a name="prepare-the-source-sql-server-vm"></a>Preparare la VM di SQL Server di origine
 
 - Verificare che nella VM di SQL Server da spostare siano presenti tutti i certificati radice più recenti. In caso contrario, i vincoli di sicurezza impediranno la copia dei dati nell'area di destinazione. 
-- Per le macchine virtuali di Windows, installare tutti gli aggiornamenti di Windows più recenti nella VM in modo che tutti i certificati radice trusted siano presenti nel computer. In un ambiente non connesso, seguire il processo di aggiornamento standard dei certificati di Windows Update per l'organizzazione. 
+- Per le macchine virtuali di Windows, installare tutti gli aggiornamenti di Windows più recenti nella VM in modo che tutti i certificati radice trusted siano presenti nel computer. In un ambiente disconnesso, seguire le Windows Update standard e il processo di aggiornamento del certificato per l'organizzazione. 
 - Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella macchina virtuale. 
 - Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le VM da spostare. 
 - Se la VM che si intende spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, verificare i requisiti. 
@@ -65,7 +64,7 @@ Preparare sia la VM di SQL Server di origine, sia l'area di destinazione per lo 
     - Azure Site Recovery individua e crea automaticamente una rete virtuale quando si abilita la replica per la VM di origine. È anche possibile creare preventivamente una rete e assegnarla alla VM nel flusso utente per abilitare la replica. Tutte le altre risorse devono essere create manualmente nell'area di destinazione.
 - Per creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della VM di origine, vedere la documentazione seguente: 
     - [Gruppi di sicurezza di rete](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Bilanciamento del carico](../../../load-balancer/tutorial-load-balancer-basic-internal-portal.md)
+    - [Bilanciamento del carico](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
     - [Indirizzo IP pubblico](../../../virtual-network/virtual-network-public-ip-address.md)
     - Per gli eventuali componenti di rete aggiuntivi, vedere la [documentazione relativa alle reti](../../../virtual-network/virtual-networks-overview.md).
 - Se si vuole testare la configurazione prima dello spostamento finale nell'area di destinazione, creare manualmente una rete non di produzione nell'area di destinazione. Questo passaggio è consigliato perché garantisce un'interferenza minima con la rete di produzione. 
@@ -127,12 +126,12 @@ I passaggi seguenti illustrano come spostare la VM di SQL Server dall'area di or
    ![Avviare il failover](./media/move-sql-vm-different-region/initiate-failover.png)
 
 1. Selezionare il punto di ripristino **coerente con l'app più recente** in **Punto di ripristino**. 
-1. Selezionare la casella di controllo accanto all'opzione che consente di **arrestare il computer prima di avviare il failover**. Site Recovery tenta di arrestare la VM di origine prima di attivare il failover. Il failover continuerà anche se l'arresto ha esito negativo. 
+1. Selezionare la casella di controllo accanto a **Arresta il computer prima di avviare il failover**. Site Recovery tenta di arrestare la VM di origine prima di attivare il failover. Il failover continuerà anche se l'arresto ha esito negativo. 
 1. Selezionare **OK** per avviare il failover.
 1. È possibile monitorare il processo di failover dalla stessa pagina **Processi di Site Recovery** visualizzata durante il monitoraggio del test di failover nella sezione precedente. 
 1. Al termine del processo, verificare che la VM di SQL Server si trovi nell'area di destinazione come previsto. 
 1. Tornare all'insieme di credenziali, selezionare **Elementi replicati**, selezionare la VM di SQL Server e selezionare **Commit** per terminare il processo di spostamento nell'area di destinazione. Attendere il completamento del processo di commit. 
-1. Registrare la VM di SQL Server con il provider di risorse per VM SQL per abilitare la gestibilità delle **macchine virtuali SQL** nel portale di Azure e le funzionalità associate al provider di risorse. Per altre informazioni, vedere l'articolo relativo alla [registrazione di una VM di SQL Server con il provider di risorse per VM SQL](sql-vm-resource-provider-register.md). 
+1. Registrare la VM di SQL Server con il provider di risorse per VM SQL per abilitare la gestibilità delle **macchine virtuali SQL** nel portale di Azure e le funzionalità associate al provider di risorse. Per altre informazioni, vedere [registrare SQL Server VM con il provider di risorse della macchina virtuale SQL](sql-vm-resource-provider-register.md). 
 
   > [!WARNING]
   > La coerenza dei dati di SQL Server è garantita solo con snapshot coerenti con l'app. Non è possibile usare lo snapshot **elaborato più recente** per il failover di SQL Server perché uno snapshot per il ripristino a seguito dell'arresto anomalo del sistema non può garantire la coerenza dei dati di SQL Server. 

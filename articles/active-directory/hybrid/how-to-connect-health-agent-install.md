@@ -12,16 +12,16 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9b3857a5ae845f5cc48464152bb6ca600444c1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86e7f1fc18738eef39f8ec29da8763b862cdcc2b
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849962"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione dell'agente di Azure AD Connect Health
 
@@ -40,7 +40,7 @@ La tabella seguente è un elenco di requisiti per l'uso di Azure AD Connect Heal
 |Connettività in uscita in base agli indirizzi IP | Per informazioni sui filtri basati su indirizzo IP nei firewall, vedere [Intervalli di indirizzi IP di Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
 | L'ispezione TLS per il traffico in uscita è filtrata o disabilitata | Il passaggio di registrazione dell'agente o le operazioni di caricamento dei dati potrebbero non riuscire se è presente l'ispezione o la terminazione di TLS per il traffico in uscita a livello di rete. Altre informazioni su [come configurare l'ispezione TLS](https://technet.microsoft.com/library/ee796230.aspx) |
 | Porte del firewall nel server che esegue l'agente |Per consentire la comunicazione dell'agente con gli endpoint di servizio Azure AD Connect Health è necessario che le porte del firewall seguenti siano aperte.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Si noti che la porta 5671 non è più necessaria per la versione più recente dell'agente. Eseguire l'aggiornamento alla versione più recente, in modo che sia necessaria solo la porta 443. Vedere altre informazioni sull'[abilitazione delle porte del firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
-| Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE |Se la funzionalità Sicurezza avanzata di Internet Explorer è abilitata, nel server in cui verrà installato l'agente devono essere consentiti i siti Web seguenti.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.NET</li><li>Server federativo dell'organizzazione considerato attendibile da Azure Active Directory. Ad esempio: https:\//sts.contoso.com</li> Scopri di più su [come configurare IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Se si dispone di un proxy all'interno della rete, vedere la nota riportata di seguito.|
+| Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE |Se la funzionalità Sicurezza avanzata di Internet Explorer è abilitata, nel server in cui verrà installato l'agente devono essere consentiti i siti Web seguenti.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.NET</li><li>Server federativo dell'organizzazione considerato attendibile da Azure Active Directory. Ad esempio: https:\//sts.contoso.com</li> Scopri di più su [come configurare IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Se si dispone di un proxy all'interno della rete, vedere la nota riportata di seguito.|
 | Assicurarsi che sia installato PowerShell v4.0 o versione successiva | <li>Windows Server 2008 R2 include PowerShell v2.0, che non è sufficiente per l'agente. Aggiornare PowerShell come illustrato di seguito in [Installazione dell'agente in server Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 include PowerShell v3.0, che non è sufficiente per l'agente.  [Aggiornare](https://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 e versioni successive includono una versione sufficientemente recente di PowerShell.</li>|
 |Disabilitare FIPS|La funzionalità FIPS non è supportata dagli agenti di Azure AD Connect Health.|
 
@@ -174,7 +174,7 @@ Si noti che il livello di controllo "di base" è abilitato per impostazione pred
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Per individuare i log di controllo di ADFS
 
-1. Aprire il **Visualizzatore eventi**.
+1. Aprire **Visualizzatore eventi**.
 2. Passare a Registri di Windows e selezionare **Sicurezza**.
 3. A destra fare clic su **Filtra log correnti**.
 4. In Origine evento selezionare **Controllo di ADFS**.
@@ -329,19 +329,25 @@ Sono disponibili le opzioni seguenti per configurare l'agente di Azure AD Connec
 
 È possibile importare le impostazioni del proxy HTTP di Internet Explorer, in modo che possano essere usate dagli agenti di Azure AD Connect Health. Eseguire il comando di PowerShell seguente in ogni server che esegue l'agente per l'integrità:
 
-    Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+```powershell
+Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+```
 
 ##### <a name="import-from-winhttp"></a>Importare da WinHTTP
 
 È possibile importare le impostazioni del proxy WinHTTP, in modo che possano essere usate dagli agenti di Azure AD Connect Health. Eseguire il comando di PowerShell seguente in ogni server che esegue l'agente per l'integrità:
 
-    Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+```powershell
+Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+```
 
 #### <a name="specify-proxy-addresses-manually"></a>Specificare gli indirizzi proxy manualmente
 
 È possibile specificare manualmente un server proxy in ogni server che esegue l'agente per l'integrità, eseguendo il comando di PowerShell seguente:
 
-    Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+```powershell
+Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+```
 
 Esempio: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
 
@@ -352,15 +358,17 @@ Esempio: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver
 
 È possibile eseguire il comando seguente per cancellare la configurazione del proxy esistente:
 
-    Set-AzureAdConnectHealthProxySettings -NoProxy
-
+```powershell
+Set-AzureAdConnectHealthProxySettings -NoProxy
+```
 
 ### <a name="read-current-proxy-settings"></a>Leggere le impostazioni del proxy correnti
 
 È possibile leggere le impostazioni del proxy attualmente configurate eseguendo il comando seguente:
 
-    Get-AzureAdConnectHealthProxySettings
-
+```powershell
+Get-AzureAdConnectHealthProxySettings
+```
 
 ## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Testare la connettività per il servizio Azure AD Connect Health
 
@@ -368,12 +376,14 @@ Esempio: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver
 
 Se l'agente non riesce a inviare dati al servizio Azure AD Connect Health per più di due ore, il problema viene segnalato con l'avviso seguente nel portale: "I dati del Servizio integrità non sono aggiornati". È possibile verificare se l'agente di Azure AD Connect Health interessato è in grado di caricare dati nel servizio Azure AD Connect Health eseguendo il comando di PowerShell seguente:
 
-    Test-AzureADConnectHealthConnectivity -Role ADFS
+```powershell
+Test-AzureADConnectHealthConnectivity -Role ADFS
+```
 
 Il parametro role accetta attualmente i valori seguenti:
 
 * AD FS
-* Sincronizza
+* Sincronizzazione
 * ADDS
 
 > [!NOTE]
@@ -381,7 +391,7 @@ Il parametro role accetta attualmente i valori seguenti:
 >
 >
 
-## <a name="related-links"></a>Link correlati
+## <a name="related-links"></a>Collegamenti correlati
 
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Operazioni di Azure AD Connect Health](how-to-connect-health-operations.md)

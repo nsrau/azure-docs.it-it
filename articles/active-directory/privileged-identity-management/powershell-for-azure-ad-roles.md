@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c42c0dd3848ec913f991e4b07612669c5a25c9f1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.openlocfilehash: 8e3791da8f8a990f62de0052e1662fd6037e936b
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849280"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell per i ruoli di Azure AD in Privileged Identity Management
 
@@ -36,14 +36,18 @@ Questo articolo contiene le istruzioni per l'uso di cmdlet PowerShell in Azure A
 
 1. Installare il modulo Anteprima di Azure AD
 
-        Install-module AzureADPreview
+    ```powershell
+    Install-module AzureADPreview
+    ```
 
 1. Prima di procedere, verificare di disporre delle autorizzazioni del ruolo necessarie. Se si sta tentando di svolgere attività di gestione come ad esempio l'assegnazione di un ruolo o l'aggiornamento dell'impostazione del ruolo, assicurarsi di disporre del ruolo di amministratore globale o di amministratore ruolo con privilegi. Se si sta semplicemente tentando di attivare un'assegnazione personale, non sono necessarie autorizzazioni oltre quelle predefinite dell'utente.
 
 1. Collegarsi ad Azure AD.
 
-        $AzureAdCred = Get-Credential  
-        Connect-AzureAD -Credential $AzureAdCred
+    ```powershell
+    $AzureAdCred = Get-Credential  
+    Connect-AzureAD -Credential $AzureAdCred
+    ```
 
 1. Trovare l'ID tenant per l'organizzazione di Azure AD accedendo a **Azure Active Directory** > **Proprietà** > **ID directory**. Nella sezione cmdlet usare questo ID ogni volta che è necessario specificare il resourceId.
 
@@ -58,7 +62,9 @@ Usare il cmdlet seguente per ottenere tutti i ruoli di Azure AD predefiniti e pe
 
 Il parametro roleDefinitionId è specifico dell'organizzazione di Azure AD ed è diverso dal roleDefinitionId restituito dall'API di gestione dei ruoli.
 
-    Get-AzureADMSPrivilegedRoleDefinition -ProviderId aadRoles -ResourceId 926d99e7-117c-4a6a-8031-0cc481e9da26
+```powershell
+Get-AzureADMSPrivilegedRoleDefinition -ProviderId aadRoles -ResourceId 926d99e7-117c-4a6a-8031-0cc481e9da26
+```
 
 Risultato:
 
@@ -68,15 +74,21 @@ Risultato:
 
 Usare il cmdlet seguente per recuperare tutte le assegnazioni di ruolo nell'organizzazione di Azure AD.
 
-    Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26"
+```powershell
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26"
+```
 
 Usare il cmdlet seguente per recuperare tutte le assegnazioni di ruolo per uno specifico utente. Questo elenco è noto anche come "Ruoli personali" nel portale di Azure AD. L'unica differenza è che qui è stato aggiunto un filtro per l'ID oggetto. In questo contesto, l'ID oggetto corrisponde all'ID utente o all'ID gruppo.
 
-    Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "subjectId eq 'f7d1887c-7777-4ba3-ba3d-974488524a9d'" 
+```powershell
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "subjectId eq 'f7d1887c-7777-4ba3-ba3d-974488524a9d'" 
+```
 
 Usare il cmdlet seguente per recuperare tutte le assegnazioni di ruolo per uno specifico ruolo. Qui roleDefinitionId corrisponde all'ID restituito dal cmdlet precedente.
 
-    Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "roleDefinitionId eq '0bb54a22-a3df-4592-9dc7-9e1418f0f61c'"
+```powershell
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId "aadRoles" -ResourceId "926d99e7-117c-4a6a-8031-0cc481e9da26" -Filter "roleDefinitionId eq '0bb54a22-a3df-4592-9dc7-9e1418f0f61c'"
+```
 
 I cmdlet generano l'elenco di oggetti di assegnazione di ruolo mostrati di seguito. L'ID oggetto corrisponde all'ID utente dell'utente a cui è assegnato il ruolo. Lo stato dell'assegnazione può essere attivo o idoneo. Se l'utente è attivo ed è presente un ID nel campo LinkedEligibleRoleAssignmentId, significa che il ruolo è attualmente attivato.
 
@@ -88,14 +100,18 @@ Risultato:
 
 Usare il cmdlet seguente per creare un'assegnazione idonea.
 
-    Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'ff690580-d1c6-42b1-8272-c029ded94dec' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Eligible' -schedule $schedule -reason "dsasdsas" 
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'ff690580-d1c6-42b1-8272-c029ded94dec' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Eligible' -schedule $schedule -reason "dsasdsas" 
+```
 
 La pianificazione, che definisce l'ora di inizio e di fine dell'assegnazione, è un oggetto che può essere creato come nell'esempio seguente:
 
-    $schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
-    $schedule.Type = "Once"
-    $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
-    $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+```powershell
+$schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
+$schedule.Type = "Once"
+$schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+$schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+```
 > [!Note]
 > Se il valore di endDateTime è impostato su null, indica un'assegnazione permanente.
 
@@ -103,7 +119,9 @@ La pianificazione, che definisce l'ora di inizio e di fine dell'assegnazione, è
 
 Usare il cmdlet seguente per attivare un'assegnazione idonea.
 
-    Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas" 
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas"
+``` 
 
 Questo cmdlet è quasi identico al cmdlet per la creazione di un'assegnazione di ruolo. La differenza principale tra i due cmdlet consiste nel fatto che, per il parametro di tipo, l'attivazione è "userAdd" anziché "adminAdd". Un'altra differenza è il fatto che il parametro AssignmentState è "Attivo" anziché "Idoneo".
 
@@ -116,7 +134,9 @@ Questo cmdlet è quasi identico al cmdlet per la creazione di un'assegnazione di
 
 Usare il cmdlet seguente per accedere a tutte le impostazioni del ruolo nell'organizzazione Azure AD.
 
-    Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+```powershell
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+```
 
 Nell'impostazione sono presenti quattro oggetti principali. Attualmente, solo tre di questi oggetti vengono usati da PIM. UserMemberSettings sono impostazioni di attivazione, AdminEligibleSettings sono impostazioni di assegnazione per le assegnazioni idonee e AdminmemberSettings sono impostazioni di assegnazione per le assegnazioni attive.
 
@@ -124,12 +144,16 @@ Nell'impostazione sono presenti quattro oggetti principali. Attualmente, solo tr
 
 Per aggiornare l'impostazione del ruolo è necessario ottenere l'oggetto impostazione esistente per un ruolo specifico e apportare le modifiche seguenti:
 
-    $setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
-    $setting.UserMemberSetting.justificationRule = '{"required":false}'
+```powershell
+$setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
+$setting.UserMemberSetting.justificationRule = '{"required":false}'
+```
 
 A questo punto è possibile procedere e applicare l'impostazione a uno degli oggetti per uno specifico ruolo, come illustrato di seguito. Qui l'ID corrisponde all'ID dell'impostazione del ruolo, che può essere recuperato dal risultato dell'elenco cmdlet delle impostazioni del ruolo.
 
-    Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
+```powershell
+Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

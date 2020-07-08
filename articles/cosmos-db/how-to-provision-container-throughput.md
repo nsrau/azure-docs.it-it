@@ -3,15 +3,15 @@ title: Effettuare il provisioning della velocità effettiva per un contenitore i
 description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di contenitore in Azure Cosmos DB usando il portale di Azure, l'interfaccia della riga di comando, PowerShell e altri SDK.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0e7a2e9e5feb848971c4858415510f98a7bdaf78
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 9167df9c763f4004324a3435ba1a2b0fd0171ac4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851688"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Effettuare il provisioning della velocità effettiva standard (manuale) per un contenitore in Azure Cosmos
 
@@ -31,7 +31,7 @@ Questo articolo illustra come effettuare il provisioning della velocità effetti
    * Immettere una velocità effettiva di cui si desidera eseguire il provisioning (ad esempio, 1000 UR).
    * Selezionare **OK**.
 
-    ![Screenshot del riquadro Esplora dati con l'opzione Nuova raccolta evidenziata](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="Screenshot del riquadro Esplora dati con l'opzione Nuova raccolta evidenziata":::
 
 ## <a name="azure-cli-or-powershell"></a>Interfaccia della riga di comando di Azure o PowerShell
 
@@ -46,9 +46,9 @@ Per creare un contenitore con una velocità effettiva dedicata, vedere:
 ## <a name="net-sdk"></a>.NET SDK
 
 > [!Note]
-> Usare l'API SQL di Cosmos SDK per effettuare il provisioning della velocità effettiva per tutte le API Cosmos DB ad eccezione dell'API Cassandra.
+> Usare Cosmos SDK per l'API SQL per eseguire il provisioning della velocità effettiva per tutte le API di Cosmos DB, ad eccezione di Cassandra e API MongoDB.
 
-### <a name="sql-mongodb-gremlin-and-table-apis"></a><a id="dotnet-most"></a>API SQL, MongoDB, Gremlin e Tabella
+### <a name="sql-gremlin-and-table-apis"></a><a id="dotnet-most"></a>API SQL, Gremlin e Table
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -97,6 +97,27 @@ offer.content.offerThroughput = 2000;
 
 // Replace the offer.
 await client.offer(offer.id).replace(offer);
+```
+
+### <a name="mongodb-api"></a><a id="dotnet-mongodb"></a>API di MongoDB
+
+```csharp
+// refer to MongoDB .NET Driver
+// https://docs.mongodb.com/drivers/csharp
+
+// Create a new Client
+String mongoConnectionString = "mongodb://DBAccountName:Password@DBAccountName.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
+mongoUrl = new MongoUrl(mongoConnectionString);
+mongoClientSettings = MongoClientSettings.FromUrl(mongoUrl);
+mongoClient = new MongoClient(mongoClientSettings);
+
+// Change the database name
+mongoDatabase = mongoClient.GetDatabase("testdb");
+
+// Change the collection name, throughput value then update via MongoDB extension commands
+// https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-custom-commands#update-collection
+
+var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```
 
 ### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra

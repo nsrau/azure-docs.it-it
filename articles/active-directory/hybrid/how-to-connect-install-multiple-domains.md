@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0775e717c0610e122bb31f752beecd2c97599053
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849946"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Supporto di più domini per la federazione con Azure AD
 La documentazione seguente fornisce indicazioni su come usare più domini di primo livello e sottodomini durante la federazione con domini di Office 365 o Azure AD.
@@ -73,7 +73,9 @@ Se ad esempio l'UPN di un utente è bsimon@bmcontoso.com, l'elemento IssuerUri n
 
 Di seguito è riportata la regola attestazioni personalizzata che implementa questa logica:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
 
 
 > [!IMPORTANT]
@@ -137,14 +139,16 @@ E IssuerUri nel nuovo dominio è stato impostato su `https://bmfabrikam.com/adfs
 ## <a name="support-for-subdomains"></a>Supporto per i sottodomini
 A causa della modalità di gestione dei domini in Azure AD, eventuali sottodomini aggiunti erediteranno le impostazioni del dominio padre.  La proprietà IssuerUri deve quindi corrispondere a quella degli elementi padre.
 
-Si supponga ad esempio che sia presente il dominio bmcontoso.com e che quindi si aggiunga corp.bmcontoso.com.  Il valore di IssuerUri per un utente di corp.bmcontoso.com deve essere **`http://bmcontoso.com/adfs/services/trust`**.  Tuttavia, la regola standard implementata in precedenza per Azure AD, genererà un token con un' **`http://corp.bmcontoso.com/adfs/services/trust`** autorità emittente come. che non corrisponderà al valore di dominio obbligatorio e l'autenticazione avrà esito negativo.
+Si supponga ad esempio che sia presente il dominio bmcontoso.com e che quindi si aggiunga corp.bmcontoso.com.  Il valore di IssuerUri per un utente di corp.bmcontoso.com deve essere **`http://bmcontoso.com/adfs/services/trust`** .  Tuttavia, la regola standard implementata in precedenza per Azure AD, genererà un token con un'autorità emittente come **`http://corp.bmcontoso.com/adfs/services/trust`** . che non corrisponderà al valore di dominio obbligatorio e l'autenticazione avrà esito negativo.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Come abilitare il supporto per sottodomini
 Per risolvere questo problema, è necessario che il trust della relying party di AD FS per Microsoft Online venga aggiornato.  Per eseguire questa operazione, è necessario configurare una regola attestazioni personalizzata, in modo che vengano rimossi tutti i sottodomini dal suffisso UPN di un utente durante la creazione del valore Issuer personalizzato.
 
 L'attestazione seguente consente di eseguire questa operazione:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```    
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
 
 [!NOTE]
 L'ultimo numero dell'espressione regolare imposta il numero di domini padre presente nel dominio radice. In bmcontoso.com sono necessari due domini padre. Se fossero necessari tre domini padre (ad esempio: corp.bmcontoso.com), il numero sarebbe tre. È possibile indicare un intervallo, la corrispondenza sarà sempre in base al massimo dei domini. "{2,3}" corrisponde a due o tre domini (ad esempio: bmfabrikam.com e corp.bmcontoso.com).
@@ -156,11 +160,14 @@ Usare la procedura seguente per aggiungere un'attestazione personalizzata per il
 3. Selezionare la terza regola attestazioni e sostituire ![Modifica dell'attestazione](./media/how-to-connect-install-multiple-domains/sub1.png)
 4. Sostituire l'attestazione corrente:
 
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+    con
 
-       with
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
 
     ![Sostituzione dell'attestazione](./media/how-to-connect-install-multiple-domains/sub2.png)
 

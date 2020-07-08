@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849664"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight
 
@@ -243,10 +243,12 @@ Ogni nodo head può avere voci di log univoche, perciò è consigliabile control
 
 In modo analogo all'uso di un client SSH, quando si stabilisce la connessione al cluster è necessario specificare il nome dell'account utente SSH e l'indirizzo SSH del cluster. Ad esempio: `sftp username@mycluster-ssh.azurehdinsight.net`. Specificare la password per l'account quando richiesto oppure specificare una chiave pubblica tramite il parametro `-i`.
 
-Una volta stabilita la connessione, viene `sftp>` visualizzato un messaggio di richiesta. Da questo prompt è possibile modificare le directory nonché caricare e scaricare i file. Ad esempio, i comandi seguenti consentono di passare alla directory **/var/log/hadoop/hdfs** directory e quindi scaricare tutti i file nella directory.
+Una volta stabilita la connessione, viene visualizzato un `sftp>` messaggio di richiesta. Da questo prompt è possibile modificare le directory nonché caricare e scaricare i file. Ad esempio, i comandi seguenti consentono di passare alla directory **/var/log/hadoop/hdfs** directory e quindi scaricare tutti i file nella directory.
 
-    cd /var/log/hadoop/hdfs
-    get *
+```bash
+cd /var/log/hadoop/hdfs
+get *
+```
 
 Per un elenco di comandi disponibili, immettere `help` al prompt `sftp>`.
 
@@ -272,9 +274,9 @@ Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Le i
 
     ![Immagine della creazione guidata di cluster con la selezione delle dimensioni del nodo](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-* **Interfaccia**della riga di comando di [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) Azure: quando si usa il comando, è possibile impostare le dimensioni dei nodi head, Worker `--headnode-size`e `--workernode-size`ZooKeeper usando `--zookeepernode-size` i parametri, e.
+* **Interfaccia**della riga di comando di Azure: quando si usa il [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) comando, è possibile impostare le dimensioni dei nodi head, Worker e ZooKeeper usando i `--headnode-size` `--workernode-size` parametri, e `--zookeepernode-size` .
 
-* **Azure PowerShell**: quando si usa il cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , è possibile impostare le dimensioni dei nodi head, Worker e ZooKeeper usando i `-HeadNodeSize`parametri, `-WorkerNodeSize`e. `-ZookeeperNodeSize`
+* **Azure PowerShell**: quando si usa il cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , è possibile impostare le dimensioni dei nodi head, Worker e ZooKeeper usando i `-HeadNodeSize` parametri, `-WorkerNodeSize` e `-ZookeeperNodeSize` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

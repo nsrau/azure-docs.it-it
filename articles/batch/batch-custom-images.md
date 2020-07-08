@@ -1,21 +1,23 @@
 ---
-title: Effettuare il provisioning di un pool personalizzato da un'immagine gestita
-description: Creare un pool di Batch da una risorsa immagine gestita per effettuare il provisioning dei nodi di calcolo con il software e i dati per l'applicazione.
+title: Usare un'immagine gestita per creare un pool di immagini personalizzato
+description: Creare un pool di immagini personalizzate di batch da un'immagine gestita per eseguire il provisioning dei nodi di calcolo con il software e i dati dell'applicazione.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fbb336ff9d3d53cc53004c577e291afdba7702f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 07/01/2020
+ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851299"
 ---
-# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine gestita per creare un pool di macchine virtuali
+# <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Usare un'immagine gestita per creare un pool di immagini personalizzato
 
-Per creare un'immagine personalizzata per le macchine virtuali (VM) del pool di batch, è possibile usare un'immagine gestita per creare una [Raccolta immagini condivise](batch-sig-images.md). È supportato anche l'uso di una sola immagine gestita, ma solo per le versioni API fino alla versione 2019-08-01 inclusa.
+Per creare un pool di immagini personalizzato per le macchine virtuali (VM) del pool di batch, è possibile usare un'immagine gestita per creare un' [immagine della raccolta di immagini condivise](batch-sig-images.md). È supportato anche l'uso di una sola immagine gestita, ma solo per le versioni API fino alla versione 2019-08-01 inclusa. 
 
 > [!IMPORTANT]
 > Nella maggior parte dei casi, è consigliabile creare immagini personalizzate usando la Raccolta immagini condivise. Con la Raccolta immagini condivise è possibile effettuare il provisioning dei pool più velocemente, dimensionare quantità maggiori di macchine virtuali e migliorare l'affidabilità durante il provisioning delle macchine virtuali. Per altre informazioni, vedere [Usare Raccolta immagini condivise per creare un pool personalizzato](batch-sig-images.md).
+
+In questo argomento viene illustrato come creare un pool di immagini personalizzato utilizzando solo un'immagine gestita.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,7 +28,7 @@ Per creare un'immagine personalizzata per le macchine virtuali (VM) del pool di 
 
 - **Autenticazione con Azure Active Directory (Azure AD)** . L'API client di Batch deve usare l'autenticazione di Azure AD. Il supporto di Azure Batch per Azure AD è documentato in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).
 
-## <a name="prepare-a-custom-image"></a>Preparare un'immagine personalizzata
+## <a name="prepare-a-managed-image"></a>Preparare un'immagine gestita
 
 All'interno di Azure è possibile preparare un'immagine gestita da:
 
@@ -57,7 +59,7 @@ Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. 
 
 Per creare un'immagine gestita da uno snapshot, usare gli strumenti da riga di comando di Azure, ad esempio il comando [az image create](/cli/azure/image). È possibile creare un'immagine specificando uno snapshot del disco del sistema operativo e, facoltativamente, uno o più snapshot dei dischi dati.
 
-## <a name="create-a-pool-from-a-custom-image"></a>Creare un pool da un'immagine personalizzata
+## <a name="create-a-pool-from-a-managed-image"></a>Creare un pool da un'immagine gestita
 
 Dopo aver trovato l'ID risorsa dell'immagine gestita, creare un pool di immagini personalizzato da tale immagine. Nei passaggi seguenti viene illustrato come creare un pool di immagini personalizzato usando il servizio Batch o la gestione Batch.
 

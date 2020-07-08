@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8428e417f5f86edca77edae6ca4b7ef84e5ff425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73827305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850705"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Come e dove archiviare i dati?
 
 Si potrebbe avere esperienza di database SQL o conoscere i concetti della [modellazione relazionale dei dati](https://en.wikipedia.org/wiki/Relational_model). Per iniziare, si potrebbe disegnare un diagramma simile al seguente:
 
-![Diagramma che illustra un modello relazionale relativo](./media/social-media-apps/social-media-apps-sql.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-sql.png" alt-text="Diagramma che illustra un modello relazionale relativo" border="false":::
 
 Una struttura di dati perfettamente normalizzata... che non supporta la scalabilità.
 
@@ -39,22 +39,24 @@ Si potrebbe usare un'enorme istanza di SQL con capacità sufficienti per risolve
 
 Questo articolo descrive la modellazione dei dati della piattaforma di social networking con il database NoSQL di Azure [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), in modo economicamente conveniente. Sono anche disponibili indicazioni su come usare altre funzionalità di Azure Cosmos DB, come l'[API Gremlin](../cosmos-db/graph-introduction.md). Con un approccio [NoSQL](https://en.wikipedia.org/wiki/NoSQL), che prevede l'archiviazione dei dati in formato JSON e l'applicazione della [denormalizzazione](https://en.wikipedia.org/wiki/Denormalization), il post che prima risultava complesso può essere trasformato in un singolo [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
-    {
-        "id":"ew12-res2-234e-544f",
-        "title":"post title",
-        "date":"2016-01-01",
-        "body":"this is an awesome post stored on NoSQL",
-        "createdBy":User,
-        "images":["https://myfirstimage.png","https://mysecondimage.png"],
-        "videos":[
-            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
-        ],
-        "audios":[
-            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
-        ]
-    }
+```json
+{
+    "id":"ew12-res2-234e-544f",
+    "title":"post title",
+    "date":"2016-01-01",
+    "body":"this is an awesome post stored on NoSQL",
+    "createdBy":User,
+    "images":["https://myfirstimage.png","https://mysecondimage.png"],
+    "videos":[
+        {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+        {"url":"https://mysecondvideo.mp4", "title":"The second video"}
+    ],
+    "audios":[
+        {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+        {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
+    ]
+}
+```
 
 E può essere ottenuto con una singola query, senza join. Questa query è molto più semplice e lineare e, a livello di budget, permette di ottenere risultati migliori con meno risorse.
 
@@ -62,39 +64,45 @@ Azure Cosmos DB garantisce che tutte le proprietà vengano indicizzate tramite l
 
 I commenti per un post possono essere considerati come altri post con una proprietà padre. (Questo approccio semplifica il mapping degli oggetti.)
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":User2,
-        "parent":"ew12-res2-234e-544f"
-    }
+```json
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":User2,
+    "parent":"ew12-res2-234e-544f"
+}
 
-    {
-        "id":"asd2-fee4-23gc-jh67",
-        "title":"Ditto!",
-        "date":"2016-01-03",
-        "createdBy":User3,
-        "parent":"ew12-res2-234e-544f"
-    }
+{
+    "id":"asd2-fee4-23gc-jh67",
+    "title":"Ditto!",
+    "date":"2016-01-03",
+    "createdBy":User3,
+    "parent":"ew12-res2-234e-544f"
+}
+```
 
 Tutte le interazioni social possono essere archiviate in un oggetto separato come contatori:
 
-    {
-        "id":"dfe3-thf5-232s-dse4",
-        "post":"ew12-res2-234e-544f",
-        "comments":2,
-        "likes":10,
-        "points":200
-    }
+```json
+{
+    "id":"dfe3-thf5-232s-dse4",
+    "post":"ew12-res2-234e-544f",
+    "comments":2,
+    "likes":10,
+    "points":200
+}
+```
 
 Per la creazione di feed è sufficiente creare documenti che possano contenere un elenco di ID di post con un ordine di pertinenza specifico:
 
-    [
-        {"relevance":9, "post":"ew12-res2-234e-544f"},
-        {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
-        {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
-    ]
+```json
+[
+    {"relevance":9, "post":"ew12-res2-234e-544f"},
+    {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
+    {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
+]
+```
 
 È possibile usare un flusso "più recenti" con i post ordinati per data di creazione. Oppure è possibile creare un flusso "più interessanti" con i post con il maggior numero di Mi piace nelle ultime 24 ore. Si potrebbe anche implementare un flusso personalizzato per ogni utente basato su logica, ad esempio follower e interessi. Rimarrebbe comunque un elenco di post. Il fulcro è come compilare questi elenchi, ma le prestazioni di lettura rimangono invariate. Una volta acquisito uno di questi elenchi, viene eseguita una singola query per Cosmos DB usando la [parola chiave in](sql-query-keywords.md#in) per recuperare le pagine di post alla volta.
 
@@ -104,28 +112,32 @@ Con questa stessa tecnica è possibile elaborare punteggi e Mi piace relativi ai
 
 I follower sono più complessi. Cosmos DB prevede un limite di dimensioni dei documenti e la lettura/scrittura di documenti di grandi dimensioni può influire sulla scalabilità dell'applicazione. È quindi consigliabile archiviare i follower come documento con questa struttura:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "followersOf": "dse4-qwe2-ert4-aad2",
-        "followers":[
-            "ewr5-232d-tyrg-iuo2",
-            "qejh-2345-sdf1-ytg5",
-            //...
-            "uie0-4tyg-3456-rwjh"
-        ]
-    }
+```json
+{
+    "id":"234d-sd23-rrf2-552d",
+    "followersOf": "dse4-qwe2-ert4-aad2",
+    "followers":[
+        "ewr5-232d-tyrg-iuo2",
+        "qejh-2345-sdf1-ytg5",
+        //...
+        "uie0-4tyg-3456-rwjh"
+    ]
+}
+```
 
 Questa struttura potrebbe funzionare per un utente con poche migliaia di follower. Nel caso di una celebrità, tuttavia, questo approccio porterebbe a un documento di dimensioni molto grandi con la possibilità di raggiungere il limite massimo.
 
 Per risolvere il problema, è possibile adottare un approccio misto. Nel documento delle statistiche utenti è possibile archiviare il numero di follower:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "user": "dse4-qwe2-ert4-aad2",
-        "followers":55230,
-        "totalPosts":452,
-        "totalPoints":11342
-    }
+```json
+{
+    "id":"234d-sd23-rrf2-552d",
+    "user": "dse4-qwe2-ert4-aad2",
+    "followers":55230,
+    "totalPosts":452,
+    "totalPoints":11342
+}
+```
 
 È possibile archiviare il grafo effettivo dei follower tramite l'[API Gremlin](../cosmos-db/graph-introduction.md) di Azure Cosmos DB, per creare [vertici](http://mathworld.wolfram.com/GraphVertex.html) per ogni utente e [archi](http://mathworld.wolfram.com/GraphEdge.html) che rappresentano le relazioni "A-segue-B". Con l'API Gremlin, è possibile ottenere i follower di un determinato utente e creare query più complesse per suggerire le persone in comune. Se al grafo si aggiungono le categorie di contenuto che piacciono o a cui sono interessati gli utenti, è possibile avviare esperienze composte che includono l'individuazione intelligente dei contenuti, il suggerimento dei contenuti che interessano ai follower o la ricerca di persone con cui l'utente potrebbe avere molto in comune.
 
@@ -141,23 +153,25 @@ Il problema viene risolto identificando gli attributi chiave di un utente che so
 
 Si prendano ad esempio le informazioni relative a un utente:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "address":"742 Evergreen Terrace",
-        "birthday":"1983-05-07",
-        "email":"john@doe.com",
-        "twitterHandle":"\@john",
-        "username":"johndoe",
-        "password":"some_encrypted_phrase",
-        "totalPoints":100,
-        "totalPosts":24
-    }
+```json
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "address":"742 Evergreen Terrace",
+    "birthday":"1983-05-07",
+    "email":"john@doe.com",
+    "twitterHandle":"\@john",
+    "username":"johndoe",
+    "password":"some_encrypted_phrase",
+    "totalPoints":100,
+    "totalPosts":24
+}
+```
 
 Esaminando queste informazioni è possibile distinguere rapidamente quelle più o meno critiche, creando così dei "gradini":
 
-![Diagramma di un modello a gradini](./media/social-media-apps/social-media-apps-ladder.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagramma di un modello a gradini" border="false":::
 
 Il gradino più piccolo è detto UserChunk, l'informazione minima che identifica un utente, e viene usato per la duplicazione dei dati. Riducendo le dimensioni dei dati duplicati alle sole informazioni "visualizzate", si riduce il rischio di aggiornamenti troppo estesi.
 
@@ -167,26 +181,30 @@ Il gradino più grande è quello dell'utente esteso. Include le informazioni cru
 
 Suddividere i dati dell'utente e archiviare le informazioni in posizioni diverse risulta utile perché, in termini di prestazioni, le query su documenti di grandi dimensioni hanno un costo maggiore. Mantenere snelli i documenti, con le informazioni essenziali per eseguire tutte le query dipendenti dalle prestazioni per il social network. Archiviare le altre informazioni aggiuntive per possibili scenari come modifiche del profilo completo, accessi, data mining per l'analisi di utilizzo e iniziative legate ai Big Data. Non è in effetti importante se la raccolta dati per il data mining risulta più lenta, perché è in esecuzione in un database SQL di Azure. Quello che conta è che gli utenti abbiano un'esperienza agile e veloce. Il codice per un utente archiviato in Cosmos DB si presenta come segue:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "username":"johndoe"
-        "email":"john@doe.com",
-        "twitterHandle":"\@john"
-    }
+```json
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "username":"johndoe"
+    "email":"john@doe.com",
+    "twitterHandle":"\@john"
+}
+```
 
 Un post invece si presenta come segue:
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":{
-            "id":"dse4-qwe2-ert4-aad2",
-            "username":"johndoe"
-        }
+```json
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":{
+        "id":"dse4-qwe2-ert4-aad2",
+        "username":"johndoe"
     }
+}
+```
 
 Quando subentra una modifica che interessa un attributo di un blocco, è possibile trovare facilmente i documenti interessati. È sufficiente usare query che fanno riferimento agli attributi indicizzati, ad esempio `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`, quindi aggiornare i blocchi.
 
@@ -212,7 +230,7 @@ Ad esempio, è possibile usare l'[analisi del sentimento](https://en.wikipedia.o
 
 Contrariamente a quanto si potrebbe pensare, non è necessario essere dei matematici per estrapolare questi modelli e informazioni da semplici file e database.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), incluso in[ Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), è un servizio cloud completamente gestito che consente di creare flussi di lavoro tramite algoritmi in una semplice interfaccia basata sul trascinamento. È possibile codificare algoritmi personalizzati in [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) o usare alcune delle API già compilate e pronte per l'uso, come [Analisi del testo](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), Content Moderator o [Consigli](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), parte del [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), è un servizio cloud completamente gestito che consente di creare flussi di lavoro usando algoritmi in una semplice interfaccia di trascinamento della selezione, codificare gli algoritmi in [R](https://en.wikipedia.org/wiki/R_\(programming_language\))o usare alcune delle API già compilate e pronte per l'uso, ad esempio [analisi del testo](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), content moderator o [raccomandazioni](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Per realizzare uno di questi scenari di Machine Learning, è possibile usare [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) per inserire le informazioni provenienti da origini diverse. È anche possibile usare [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) per elaborare le informazioni e generare un output che può essere elaborato da Azure Machine Learning.
 
@@ -228,9 +246,9 @@ Per un'esperienza social, è necessario allineare la strategia di partizionament
 
 Cosmos DB eseguirà le query (incluse le [aggregazioni](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) in tutte le partizioni in modo trasparente, senza dover quindi aggiungere logica con l'aumento dei dati.
 
-Con il tempo, aumenterà il traffico e di conseguenza aumenterà il consumo di risorse (misurato in [UR](request-units.md) o unità richiesta). Le letture e le scritture saranno più frequenti man mano che cresce la base utenti. La base utenti inizierà a creare e a leggere più contenuto. Pertanto, la possibilità di **aumentare le unità richieste** è fondamentale. Aumentare le unità richieste è facile. È possibile farlo con pochi clic nel portale di Azure o [inviando i comandi tramite l'API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
+Con il tempo, aumenterà il traffico e di conseguenza aumenterà il consumo di risorse (misurato in [UR](request-units.md) o unità richiesta). Le letture e le scritture saranno più frequenti man mano che cresce la base utenti. La base utenti inizierà a creare e a leggere più contenuto. Pertanto, la possibilità di **aumentare le unità richieste** è fondamentale. Aumentare le unità richieste è facile. È possibile farlo con pochi clic nel portale di Azure o [inviando i comandi tramite l'API](/rest/api/cosmos-db/replace-an-offer).
 
-![Aumento delle prestazioni e definizione di una chiave di partizione](./media/social-media-apps/social-media-apps-scaling.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Aumento delle prestazioni e definizione di una chiave di partizione":::
 
 Cosa accade se la piattaforma ha sempre più successo? Si supponga che gli utenti di un'area geografica, un paese o un continente diverso notino la piattaforma e inizino a usarla. È senz'altro una buona notizia,
 
@@ -240,13 +258,13 @@ Cosmos DB consente di [replicare i dati a livello globale](../cosmos-db/tutorial
 
 Quando si replicano i dati a livello globale, è necessario assicurarsi che i client possano sfruttarli. Se si usa un front-end Web o si accede alle API da client mobili, è possibile distribuire [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/) e clonare il Servizio app di Azure in tutte le aree desiderate, usando una configurazione delle prestazioni per supportare la copertura globale estesa. Quando i client accedono al front-end o alle API, verranno indirizzati al servizio app più vicino, che a sua volta si connetterà alla replica di Cosmos DB locale.
 
-![Aggiunta della copertura globale alla piattaforma social](./media/social-media-apps/social-media-apps-global-replicate.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Aggiunta della copertura globale alla piattaforma social" border="false":::
 
 ## <a name="conclusion"></a>Conclusioni
 
 Questo articolo mette in luce alcune alternative per la creazione di social network interamente in Azure con servizi a costo contenuto. Viene promosso l'uso di una soluzione di archiviazione e distribuzione dei dati su più livelli detta "a gradini".
 
-![Diagramma di interazione tra servizi di Azure per il social networking](./media/social-media-apps/social-media-apps-azure-solution.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagramma di interazione tra servizi di Azure per il social networking" border="false":::
 
 La verità è che non esiste un'unica soluzione infallibile per questo tipo di scenari. Si tratta della sinergia creata dalla combinazione di servizi eccezionali che ci permettono di creare esperienze eccezionali: la velocità e la libertà di Azure Cosmos DB per offrire un'ottima applicazione Social, l'intelligence dietro una soluzione di ricerca di prima classe come Azure ricerca cognitiva, la flessibilità dei servizi di app Azure per ospitare applicazioni indipendenti dal linguaggio, ma potenti processi in background e l'archiviazione di Azure espandibile e il database SQL di Azure per l'archiviazione di grandi quantità di dati e la potenza analitica del computer di Azure Impara a creare informazioni e intelligence in grado di fornire commenti e suggerimenti ai tuoi processi e contribuire a fornire i contenuti appropriati agli utenti appropriati.
 

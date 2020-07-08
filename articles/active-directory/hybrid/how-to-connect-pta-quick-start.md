@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca425c7c5739785f3463086d89b4796f09bf45b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3aad90a3894d3abc1a850ae21946e8895619a188
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849874"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory dell'autenticazione pass-through: avvio rapido
 
@@ -72,7 +72,7 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti.
      | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. La porta 8080 _non_ viene usata per l'accesso degli utenti. |
      
      Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
-   - Se il firewall o il proxy consente l'elenco elementi consentiti DNS, aggiungere connessioni a ** \*. msappproxy.NET** e ** \*. ServiceBus.Windows.NET**. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
+   - Se il firewall o il proxy consente l'elenco elementi consentiti DNS, aggiungere connessioni a ** \* . msappproxy.NET** e ** \* . ServiceBus.Windows.NET**. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
    - Gli agenti di autenticazione devono poter accedere a **login.windows.net** e **login.microsoftonline.net** per la registrazione iniziale. Aprire il firewall anche per questi URL.
    - Per la convalida del certificato, sbloccare questi URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www\.microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 
@@ -151,15 +151,19 @@ In primo luogo è possibile distribuirlo in modo interattivo eseguendo il file e
 In secondo luogo è possibile creare ed eseguire uno script di distribuzione automatica. Questa opzione è utile per distribuire contemporaneamente più agenti di autenticazione o per installare gli agenti di autenticazione in istanze di Windows Server che non hanno un'interfaccia utente abilitata o che non sono accessibili con Desktop remoto. Di seguito sono riportate le istruzioni per usare questo approccio:
 
 1. Eseguire il comando seguente per installare l'agente di autenticazione: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. È possibile registrare l'agente di autenticazione nel servizio tramite Windows PowerShell. Creare un oggetto credenziali di PowerShell `$cred` contenente un nome utente e una password di amministratore globale per il tenant. Eseguire il comando seguente, sostituendo * \<nome utente\> * e * \<password\>*:
+2. È possibile registrare l'agente di autenticazione nel servizio tramite Windows PowerShell. Creare un oggetto credenziali di PowerShell `$cred` contenente un nome utente e una password di amministratore globale per il tenant. Eseguire il comando seguente, sostituendo *\<username\>* e *\<password\>* :
 
-        $User = "<username>"
-        $PlainPassword = '<password>'
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```powershell
+  $User = "<username>"
+  $PlainPassword = '<password>'
+  $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+  $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```
 3. Passare a **C:\Programmi\Microsoft Azure AD Connect Authentication Agent** ed eseguire lo script seguente usando l'oggetto `$cred` creato:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```powershell
+  RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```
 
 >[!IMPORTANT]
 >Se un agente di autenticazione è installato in una macchina virtuale, non è possibile clonare la macchina virtuale per configurare un altro agente di autenticazione. Questo metodo non è **supportato**.
