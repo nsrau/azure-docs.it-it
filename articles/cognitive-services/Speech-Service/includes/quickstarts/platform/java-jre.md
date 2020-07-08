@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 94946b4b6d0f0fc9c94cac7aca1e971b3f6262f9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 95bf939feaad39d261e03938a3c7dd12a76cdd99
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673221"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805768"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per Java 8 JRE a 64 bit. Se si vuole solo il nome del pacchetto per iniziare autonomamente, Java SDK non è disponibile nel repository centrale di Maven. Se si usa Gradle o un file di dipendenza `pom.xml`, è necessario aggiungere un repository personalizzato che punta a `https://csspeechstorage.blob.core.windows.net/maven/` (vedere di seguito per il nome del pacchetto).
 
@@ -40,24 +40,24 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 
   - In Ubuntu eseguire i comandi seguenti per installare i pacchetti necessari:
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.0 libasound2
-        ```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
 
   - In Debian 9 eseguire i comandi seguenti per installare i pacchetti necessari:
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.2 libasound2
-        ```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.2 libasound2
+    ```
 
   - In RHEL/CentOS eseguire i comandi seguenti per installare i pacchetti necessari:
 
-        ```sh
-        sudo yum update
-        sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
-        ```
+    ```sh
+    sudo yum update
+    sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
+    ```
 
 > [!NOTE]
 > - In RHEL/CentOS 7 seguire le istruzioni riportate in [Come configurare RHEL/CentOS 7 per Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).

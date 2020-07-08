@@ -1,26 +1,14 @@
 ---
 title: 'Guida introduttiva: Inviare eventi tramite C - Hub di eventi di Azure'
 description: "Guida introduttiva: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione C in grado di inviare eventi ad Hub eventi di Azure."
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: c
-ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: seodec18
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 6bb4e6d754c091b57399a6154d491e93becad57e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bfe1ca1a45f7b33d7431aed13446d8d72f79fb90
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299314"
+ms.locfileid: "85315659"
 ---
 # <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Guida introduttiva: Inviare eventi a Hub di eventi di Azure usando C
 

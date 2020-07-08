@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3f020abd4d207a49068ccffb9bb7f57b88bc87df
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206394"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480440"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL su richiesta (anteprima) in Azure Synapse Analytics 
 
@@ -89,21 +89,21 @@ SQL su richiesta non include archiviazione locale: nei database sono archiviati 
 
 Per garantire un'esperienza uniforme per l'esecuzione di query sul posto su dati che risiedono nei file in data lake, SQL su richiesta estende la funzione [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) con l'aggiunta delle funzionalità seguenti:
 
-[Esecuzione di query su più file o cartelle](develop-storage-files-overview.md#query-multiple-files-or-folders)
+[Esecuzione di query su più file o cartelle](query-data-storage.md#query-multiple-files-or-folders)
 
-[Formato di file Parquet](develop-storage-files-overview.md#parquet-file-format)
+[Formato di file Parquet](query-data-storage.md#query-parquet-files)
 
-[Opzioni aggiuntive per l'uso di testo delimitato (carattere di terminazione del campo, carattere di terminatore della riga, carattere di escape)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Opzioni aggiuntive per l'uso di testo delimitato (carattere di terminazione del campo, carattere di terminatore della riga, carattere di escape)](query-data-storage.md#query-csv-files)
 
-[Lettura di un sottoinsieme selezionato di colonne](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[Lettura di un sottoinsieme selezionato di colonne](query-data-storage.md#read-a-chosen-subset-of-columns)
 
-[Inferenza dello schema](develop-storage-files-overview.md#schema-inference)
+[Inferenza dello schema](query-data-storage.md#schema-inference)
 
-[Funzione filename](develop-storage-files-overview.md#filename-function)
+[Funzione filename](query-data-storage.md#filename-function)
 
-[Funzione filepath](develop-storage-files-overview.md#filepath-function)
+[Funzione filepath](query-data-storage.md#filepath-function)
 
-[Uso di tipi complessi e strutture di dati annidate o ripetute](develop-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
+[Uso di tipi complessi e strutture di dati annidate o ripetute](query-data-storage.md#work-with-complex-types-and-nested-or-repeated-data-structures)
 
 ## <a name="security"></a>Sicurezza
 

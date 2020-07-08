@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 14e7f4d09185f76786fd88576eef0b6df02877c4
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253614"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368074"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Usare SSMS per connettersi a un database SQL di Azure o a un'istanza gestita di database SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -155,7 +155,7 @@ Eseguire questo codice Transact-SQL [INSERT](/sql/t-sql/statements/insert-transa
 
 ### <a name="update-data"></a>Aggiornare i dati
 
-Eseguire questo codice Transact-SQL [UPDATE](/sql/t-sql/statements/update-transact-sql) per modificare il nuovo prodotto.
+Eseguire questo codice Transact-SQL [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) per modificare il nuovo prodotto.
 
 1. Sostituire la query precedente con quella seguente, che restituisce il nuovo record creato in precedenza:
 

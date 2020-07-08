@@ -1,26 +1,16 @@
 ---
 title: Usare gli argomenti e le sottoscrizioni del bus di servizio di Azure con Java
 description: In questa guida di avvio rapido viene scritto codice Java per inviare messaggi a un argomento del bus di servizio di Azure e quindi ricevere messaggi dalle sottoscrizioni all'argomento.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e025adfd3d8a29bc07cf14803f572dcba1097fd6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fb8e5196077e60c20d9354459cafe85302ad0e45
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791069"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341423"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Guida introduttiva: Usare gli argomenti e le sottoscrizioni del bus di servizio con Java
 

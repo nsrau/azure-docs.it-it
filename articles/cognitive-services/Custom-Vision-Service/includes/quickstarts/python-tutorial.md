@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: d20258e90c819c5d1f6b90be3303878c405e1f2d
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 14ea15734a1db71c03d4ebd0cc3b10dabfb9b2dc
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83806459"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805930"
 ---
 Questo articolo mostra come iniziare a usare Custom Vision SDK con Python per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Python personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
 
@@ -42,7 +42,7 @@ Per specificare altre opzioni quando si crea il progetto, come illustrato in [Cr
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry
+from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateBatch, ImageFileCreateEntry
 from msrest.authentication import ApiKeyCredentials
 
 ENDPOINT = "<your API endpoint>"
@@ -96,7 +96,7 @@ for image_num in range(1, 11):
     with open(base_image_url + "images/Japanese Cherry/" + file_name, "rb") as image_contents:
         image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[cherry_tag.id]))
 
-upload_result = trainer.create_images_from_files(project.id, images=image_list)
+upload_result = trainer.create_images_from_files(project.id, ImageFileCreateBatch(images=image_list))
 if not upload_result.is_batch_successful:
     print("Image batch upload failed.")
     for image in upload_result.images:

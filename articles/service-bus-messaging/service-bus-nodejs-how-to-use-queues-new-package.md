@@ -1,24 +1,17 @@
 ---
 title: Come usare le code di azure/service-bus in Node.js
 description: Informazioni su come scrivere un programma NodeJS per inviare e ricevere messaggi da una coda del bus di servizio usando il nuovo pacchetto @azure/service-bus.
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-editor: spelluru
-ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: c2e24e9dea2c8463294c85f04c9e4d7d2da17261
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 59137cd50c2bb6fcd71b43028f68d63225b4094c
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330652"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340670"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Guida introduttiva: Come usare le code del bus di servizio con Node.js e il pacchetto azure/service-bus
 Questa esercitazione illustra come scrivere un programma NodeJS per inviare e ricevere messaggi da una coda del bus di servizio usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Questo pacchetto usa il [protocollo AMQP 1.0 ](service-bus-amqp-overview.md) più veloce, mentre il precedente pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usava le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). Gli esempi sono scritti in JavaScript.

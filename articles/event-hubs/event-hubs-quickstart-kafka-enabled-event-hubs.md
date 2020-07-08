@@ -1,19 +1,14 @@
 ---
 title: 'Avvio rapido: Streaming di dati con Hub eventi tramite il protocollo Kafka'
 description: 'Avvio rapido: Questo articolo fornisce informazioni su come eseguire lo streaming in Hub eventi di Azure tramite il protocollo e le API Kafka.'
-services: event-hubs
-author: ShubhaVijayasarathy
-ms.author: shvija
-ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 02/12/2020
-ms.openlocfilehash: 67ee882acab22d977f08124591289e9cfc7cded1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 06/23/2020
+ms.openlocfilehash: 4a63aeec7b282ba9b707a1521c51fd944ca24411
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261823"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314427"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Avvio rapido: Streaming di dati con Hub eventi tramite il protocollo Kafka
 Questo argomento di avvio rapido illustra come eseguire lo streaming in Hub eventi senza modificare i client di protocollo o eseguire cluster personalizzati. Si apprenderà come usare i producer e i consumer per comunicare con Hub eventi con solo una modifica della configurazione nelle applicazioni. Hub eventi di Azure supporta [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html)

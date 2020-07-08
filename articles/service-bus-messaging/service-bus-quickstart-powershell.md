@@ -1,21 +1,17 @@
 ---
 title: Usare Azure PowerShell per creare una coda del bus di servizio
 description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per creare una coda del bus di servizio. Quindi si userà un'applicazione di esempio per inviare e ricevere messaggi dalla coda.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 12/20/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f1fecfd7ba9f35d06b680d43248bf82aeb54a27b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75426947"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337243"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare Azure PowerShell per creare una coda del bus di servizio
 Questa guida introduttiva illustra come inviare e ricevere messaggi verso e da una coda del bus di servizio, usando PowerShell per creare uno spazio dei nomi di messaggistica e una coda in tale spazio dei nomi e come ottenere le credenziali di autorizzazione per tale spazio dei nomi. La procedura illustra quindi come inviare e ricevere messaggi da questa coda usando la [libreria .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).

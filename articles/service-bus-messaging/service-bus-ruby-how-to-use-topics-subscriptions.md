@@ -3,23 +3,15 @@ title: 'Guida introduttiva: Come usare gli argomenti del bus di servizio (Ruby)'
 description: 'Guida introduttiva: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Ruby.'
 services: service-bus-messaging
 documentationcenter: ruby
-author: axisc
-manager: timlt
-editor: ''
-ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: aschhab
-ms.openlocfilehash: b5401eae844ed2113a9fbc07c8b3ad8601709d43
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.openlocfilehash: ef4bb8ba724a8ae1f708ab80a770a521f7879685
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73718939"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336742"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Ruby
  

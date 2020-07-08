@@ -1,21 +1,14 @@
 ---
 title: 'Guida introduttiva: Inviare e ricevere eventi tramite Go - Hub eventi di Azure'
 description: "Guida introduttiva: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Go in grado di inviare eventi ad Hub eventi di Azure."
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: kamalb
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73720579"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320353"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Guida introduttiva: Inviare e ricevere eventi da Hub eventi tramite Go
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).

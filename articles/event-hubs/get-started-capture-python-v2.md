@@ -1,24 +1,14 @@
 ---
 title: Leggere i dati acquisiti da Hub eventi di Azure in un'app Python (ultima versione)
 description: Questo articolo illustra come scrivere codice Python per acquisire i dati inviati a un hub eventi e leggere i dati degli eventi acquisiti da un account di archiviazione di Azure.
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/30/2020
-ms.author: spelluru
-ms.custom: tracking-python
-ms.openlocfilehash: 67bf19c08d9a9309d8d4b731bf30a6db1091ebf1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/23/2020
+ms.openlocfilehash: 752a582e59b438f7449d6722b222969dc641880c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558938"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315289"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Acquisire i dati di Hub eventi in archiviazione di Azure e leggerli con Python (azure-eventhub versione 5)
 
