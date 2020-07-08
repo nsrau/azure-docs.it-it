@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 23a7c54a84ec083b8fa470f26582913fcc3d2ee6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652203"
 ---
 # <a name="microsoftcommontagsbyresource-ui-element"></a>Elemento Microsoft. Common. TagsByResource dell'interfaccia utente
@@ -49,7 +48,7 @@ Controllo per l'associazione dei [tag](../management/tag-resources.md) alle riso
 
 ## <a name="remarks"></a>Osservazioni
 
-- È necessario specificare almeno un elemento `resources` nella matrice.
+- È necessario specificare almeno un elemento nella `resources` matrice.
 - Ogni elemento in `resources` deve essere un tipo di risorsa completo. Questi elementi vengono visualizzati nell'elenco a discesa **delle risorse** e sono taggable dall'utente.
 - L'output del controllo è formattato per facilitare l'assegnazione di valori di tag in un modello di Azure Resource Manager. Per ricevere l'output del controllo in un modello, includere un parametro nel modello, come illustrato nell'esempio seguente:
 

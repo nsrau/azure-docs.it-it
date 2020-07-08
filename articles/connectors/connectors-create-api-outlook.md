@@ -8,15 +8,14 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 8d3b180b6f1e9dc4ec4b09dd81786cc81e8588da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75707187"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Gestire la posta elettronica, i calendari e i contatti in Outlook.com usando app per la logica di Azure
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Outlook.com](/connectors/outlook/)è possibile creare attività e flussi di lavoro @outlook.com automatizzati che gestiscono l'account o @hotmail.com compilando app per la logica. Ad esempio, è possibile automatizzare queste attività:
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Outlook.com](/connectors/outlook/)è possibile creare attività e flussi di lavoro automatizzati che gestiscono l'account o compilando @outlook.com @hotmail.com app per la logica. Ad esempio, è possibile automatizzare queste attività:
 
 * Ottenere, inviare e rispondere alla posta elettronica.
 * Pianifica riunioni nel calendario.
@@ -25,7 +24,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [
 È possibile usare qualsiasi trigger per avviare il flusso di lavoro, ad esempio quando arriva un nuovo messaggio di posta elettronica, quando viene aggiornato un elemento del calendario o quando si verifica un evento in un servizio di differenza. È possibile usare azioni che rispondono all'evento trigger, ad esempio, inviare un messaggio di posta elettronica o creare un nuovo evento del calendario.
 
 > [!NOTE]
-> Per automatizzare le attività per un account di lavoro Microsoft @fabrikam.onmicrosoft.com, ad esempio, usare il [connettore Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md).
+> Per automatizzare le attività per un account di lavoro Microsoft @fabrikam.onmicrosoft.com , ad esempio, usare il [connettore Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -57,11 +56,11 @@ Per rispondere al trigger, aggiungere un'altra azione. Ad esempio, è possibile 
 
 Un' [azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un'operazione eseguita dal flusso di lavoro nell'app per la logica. Questo esempio di app per la logica Invia un messaggio di posta elettronica dall'account Outlook.com. È possibile utilizzare l'output di un altro trigger per popolare l'azione. Si supponga, ad esempio, che l'app per la logica usi SalesForce **quando viene creato un oggetto** trigger. È possibile aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook.com e usare gli output del trigger Salesforce nel messaggio di posta elettronica.
 
-1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
 1. Per aggiungere un'azione come ultimo passaggio del flusso di lavoro, selezionare **nuovo passaggio**. 
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore sulla freccia tra questi passaggi. Selezionare il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere "outlook.com" come filtro. Per questo esempio, selezionare **Invia un messaggio di posta elettronica**. 
 

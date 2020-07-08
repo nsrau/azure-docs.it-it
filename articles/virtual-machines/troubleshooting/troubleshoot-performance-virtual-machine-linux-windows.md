@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75772619"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Risolvere i problemi relativi alle prestazioni delle macchine virtuali di Azure in Linux o Windows
@@ -139,7 +138,7 @@ Picco e costante/costante consumo costante: un utilizzo elevato della memoria po
 
 Aumento del consumo costante: un'applicazione possibile "riscaldamento", questo consumo è comune tra l'avvio dei motori di database. Tuttavia, potrebbe anche essere un'indicazione di una perdita di memoria in un'applicazione. Identificare l'applicazione e comprendere se il comportamento è previsto.
 
-Utilizzo file di paging o di scambio: controllare se si sta usando il file di paging di Windows (\) che si trova nel file di scambio `/dev/sdb`D: o Linux (presente in). Se non è presente alcun elemento in questi volumi, ad eccezione di questi file, verificare la presenza di letture/scritture elevate su tali dischi. Questo problema è indicativo di condizioni di memoria insufficiente.
+Utilizzo file di paging o di scambio: controllare se si sta usando il file di paging di Windows (che si trova nel file di scambio D: \) o Linux (presente in `/dev/sdb` ). Se non è presente alcun elemento in questi volumi, ad eccezione di questi file, verificare la presenza di letture/scritture elevate su tali dischi. Questo problema è indicativo di condizioni di memoria insufficiente.
 
 ### <a name="high-memory-utilization-remediation"></a>Correzione dell'utilizzo elevato della memoria
 
@@ -252,4 +251,4 @@ Questi articoli illustrano gli scenari specifici:
 
 Per ulteriori informazioni in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/).
 
-In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
+In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

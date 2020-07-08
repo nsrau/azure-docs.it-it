@@ -7,17 +7,16 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 ms.openlocfilehash: cef0fcb990cd2c5c6583822d4dc4c6993c52eac2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666789"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrare le app per la logica alla versione più recente dello schema
 
 Per spostare le app per la logica esistenti allo schema più recente, seguire questa procedura: 
 
-1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
 2. Scegliere **Panoramica** dal menu dell'app per la logica. Sulla barra degli strumenti scegliere **Aggiorna schema**.
 

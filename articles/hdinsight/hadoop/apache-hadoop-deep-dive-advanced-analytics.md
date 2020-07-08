@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 6fc6ea9ca0ce3bf82f027b964db94df50f07f2bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75646524"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondimento - Analisi avanzata
@@ -44,10 +43,10 @@ Insieme alla selezione degli algoritmi più adatti, è necessario considerare se
 
 | Categoria algoritmo| Uso | Tipo di apprendimento | Algoritmi |
 | --- | --- | --- | -- |
-| Classificazione | Classificare oggetti o persone in gruppi | Supervisionato | Alberi delle decisioni, regressione logistica, reti neurali |
+| Classificazione | Classificare oggetti o persone in gruppi | Sotto la supervisione | Alberi delle decisioni, regressione logistica, reti neurali |
 | Clustering | Dividere un set di esempi in gruppi omogenei | Non supervisionato | Clustering K-Means |
 | Rilevamento schemi | Identificare associazioni frequenti nei dati | Non supervisionato | Regole di associazione |
-| Regressione | Prevedere risultati numerici | Supervisionato | Regressione lineare, reti neurali |
+| Regressione | Prevedere risultati numerici | Sotto la supervisione | Regressione lineare, reti neurali |
 | Rinforzo | Determinare il comportamento ottimale dei robot | Rinforzo | Simulazioni Monte Carlo, DeepMind |
 
 ## <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight

@@ -4,10 +4,9 @@ description: Informazioni su come installare o aggiornare le estensioni di assoc
 ms.topic: reference
 ms.date: 09/26/2018
 ms.openlocfilehash: e8716f691a5d19ddac7fece47c423e1f7787b9db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75768861"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installare o aggiornare manualmente le estensioni delle associazioni di Funzioni di Azure dal portale
@@ -22,9 +21,9 @@ Usare la procedura seguente per installare o aggiornare manualmente le estension
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare l'app per le funzioni e selezionarla. Scegliere la scheda **Panoramica** e selezionare **Arresta**.  L'arresto dell'app per le funzioni sblocca i file in modo che sia possibile apportare modifiche.
 
-1. Scegliere la scheda **Funzionalità della piattaforma** e in **Strumenti di sviluppo** selezionare **Strumenti avanzati (Kudu)**. L'endpoint Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) viene aperto in una nuova finestra.
+1. Scegliere la scheda **Funzionalità della piattaforma** e in **Strumenti di sviluppo** selezionare **Strumenti avanzati (Kudu)**. L'endpoint Kudu ( `https://<APP_NAME>.scm.azurewebsites.net/` ) viene aperto in una nuova finestra.
 
-1. Nella finestra Kudu selezionare **console** > di debug**cmd**.  
+1. Nella finestra Kudu selezionare Console di **debug**  >  **cmd**.  
 
 1. Nella finestra di comando passare a `D:\home\site\wwwroot` e scegliere l'icona di eliminazione accanto a `bin` per eliminare la cartella. Selezionare **OK** per confermare l'eliminazione.
 

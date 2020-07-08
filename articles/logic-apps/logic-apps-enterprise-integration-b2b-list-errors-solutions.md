@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 38e281ce3d8117bff719b1bb572f09acbbb89669
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666687"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Errori B2B e soluzioni per le App per la logica di Azure
@@ -25,7 +24,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 
 |   |   |  
 |---|---|
-| Descrizione dell'errore | Non sono stati trovati accordi con parametri di risoluzione del contratto. | 
+| Descrizione errore | Non sono stati trovati accordi con parametri di risoluzione del contratto. | 
 | Azione utente | L'accordo deve essere aggiunto all'account di integrazione con le identità di business concordate. </br>Le identità di business devono corrispondere agli ID dei messaggi di input. |  
 |   |   |
 
@@ -33,7 +32,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 
 |   |   | 
 |---|---|
-| Descrizione dell'errore | Non sono stati trovati accordi con le identità: 'AS2Identity'::'Partner1' e 'AS2Identity'::'Partner3' | 
+| Descrizione errore | Non sono stati trovati accordi con le identità: 'AS2Identity'::'Partner1' e 'AS2Identity'::'Partner3' | 
 | Azione utente | Configurata un'intestazione AS2-From o AS2-To non valida per l'accordo. </br>Correggere l'intestazione "AS2-From" o "AS2-To" del messaggio AS2 o l'accordo in modo da assicurare la corrispondenza degli ID AS2 presenti nelle intestazioni del messaggio AS2 con le configurazioni dell'accordo. |
 |   |   |     
 
@@ -43,7 +42,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 
 |   |   |  
 |---|---|
-| Descrizione dell'errore | Intestazioni AS2 non valide. Una delle intestazioni "AS2-To" o "AS2-From" è vuota. | 
+| Descrizione errore | Intestazioni AS2 non valide. Una delle intestazioni "AS2-To" o "AS2-From" è vuota. | 
 | Azione utente | Ricevuto un messaggio AS2 che non contiene l'intestazione AS2-From o AS2-To o entrambe le intestazioni. </br> Controllare le intestazioni AS2-From e AS2-To del messaggio AS2 e correggerle in base alla configurazione dell'accordo. |
 |  |  | 
 
@@ -51,7 +50,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 
 |   |   |  
 |---|---|
-| Descrizione dell'errore | Il contenuto della richiesta è null o vuoto. | 
+| Descrizione errore | Il contenuto della richiesta è null o vuoto. | 
 | Azione utente | Ricevuto un messaggio AS2 che non contiene il corpo del messaggio. |
 |  |  | 
 
@@ -59,7 +58,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 
 |   |   | 
 |---|---|
-| Descrizione dell'errore |  [processed/Error: decryption-failed] | 
+| Descrizione errore |  [processed/Error: decryption-failed] | 
 | Azione utente | Aggiungere @base64ToBinary a AS2Message prima dell'invio al partner. |
 |||
 
@@ -79,7 +78,7 @@ Ad esempio:
 
 |   |   | 
 |---|---|
-| Descrizione dell'errore |  [processed/Error: decryption-failed] | 
+| Descrizione errore |  [processed/Error: decryption-failed] | 
 | Azione utente | Aggiungere @base64ToBinary alla notifica sulla ricezione del messaggio prima dell'invio al partner. | 
 |||
 
@@ -98,7 +97,7 @@ Ad esempio:
 
 |   |   |  
 |---|---|
-| Descrizione dell'errore| Certificato di firma non configurato per l'entità AS2. </br>AS2-From: partner1 AS2-To: partner2 | 
+| Descrizione errore| Certificato di firma non configurato per l'entità AS2. </br>AS2-From: partner1 AS2-To: partner2 | 
 | Azione utente | Configurare le impostazioni dell'accordo AS2 con il certificato corretto per la firma. |
 |  |  | 
 
@@ -108,7 +107,7 @@ Ad esempio:
     
 |   |   | 
 |---|---|
-| Descrizione dell'errore | Errore rilevato durante l'analisi. Il set di transazioni EDIFACT con ID "123456" contenuto nell'interscambio (senza gruppo) con ID "987654", ID mittente "Partner1", ID ricevitore "Partner2" viene sospeso con gli errori seguenti: <p>"Trovato separatore iniziale" |
+| Descrizione errore | Errore rilevato durante l'analisi. Il set di transazioni EDIFACT con ID "123456" contenuto nell'interscambio (senza gruppo) con ID "987654", ID mittente "Partner1", ID ricevitore "Partner2" viene sospeso con gli errori seguenti: <p>"Trovato separatore iniziale" |
 | Azione utente | Configurare le impostazioni dell'accordo in modo da consentire lo spazio iniziale e finale. </br>Modificare le impostazioni dell'accordo in modo che consentano lo spazio iniziale e finale. |
 |   |   |
 
@@ -118,7 +117,7 @@ Ad esempio:
 
 |   |   | 
 |---|---| 
-| Descrizione dell'errore | Numero di controllo duplicato |
+| Descrizione errore | Numero di controllo duplicato |
 | Azione utente | Questo errore indica che il messaggio ricevuto contiene numeri di controllo duplicati. </br>Correggere il numero di controllo e inviare nuovamente il messaggio. |
 |   |   |
 
@@ -126,7 +125,7 @@ Ad esempio:
 
 |   |   | 
 |---|---| 
-| Descrizione dell'errore | Errore rilevato durante l'analisi. Il set di transazioni X12 con ID "564220001" contenuto nel gruppo funzionale con ID "56422", nell'interscambio con ID "000056422", ID mittente "12345678", ID ricevitore '"87654321", verrà sospeso. Errori: <p>"Il messaggio ha un tipo di documento sconosciuto e non è stato risolto in nessuno degli schemi esistenti configurati nell'accordo" |
+| Descrizione errore | Errore rilevato durante l'analisi. Il set di transazioni X12 con ID "564220001" contenuto nel gruppo funzionale con ID "56422", nell'interscambio con ID "000056422", ID mittente "12345678", ID ricevitore '"87654321", verrà sospeso. Errori: <p>"Il messaggio ha un tipo di documento sconosciuto e non è stato risolto in nessuno degli schemi esistenti configurati nell'accordo" |
 | Azione utente | Configurare lo schema nelle impostazioni dell'accordo.  |
 |   |   |
 
@@ -134,7 +133,7 @@ Ad esempio:
 
 |   |   | 
 |---|---| 
-| Descrizione dell'errore | Il messaggio ha un tipo di documento sconosciuto e non è stato risolto in nessuno degli schemi esistenti configurati nell'accordo. |
+| Descrizione errore | Il messaggio ha un tipo di documento sconosciuto e non è stato risolto in nessuno degli schemi esistenti configurati nell'accordo. |
 | Azione utente | Configurare lo schema corretto nelle impostazioni dell'accordo. |
 |   |   |
 
@@ -144,7 +143,7 @@ Ad esempio:
 
 |   |   | 
 |---|---|
-| Descrizione dell'errore | Modello non valido. Impossibile elaborare le espressioni del linguaggio del modello negli input dell'azione "Flat_File_Decoding", riga "1" e colonna "1902". Per la proprietà obbligatoria "content" è previsto un valore ma risulta null. Percorso ".'. |
+| Descrizione errore | Modello non valido. Impossibile elaborare le espressioni del linguaggio del modello negli input dell'azione "Flat_File_Decoding", riga "1" e colonna "1902". Per la proprietà obbligatoria "content" è previsto un valore ma risulta null. Percorso ".'. |
 | Azione utente | Questo errore indica che il messaggio di input non contiene un corpo. |
 |   |   | 
 

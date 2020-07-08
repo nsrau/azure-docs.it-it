@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: b3c1abb7bff54e3e2d294b073b867c6c0e06f482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75830072"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight mediante PowerShell
@@ -43,7 +42,7 @@ Durante l'esecuzione di processi MapReduce in un cluster HDInsight remoto, vengo
 
 La seguente procedura illustra come usare questi cmdlet per eseguire un processo nel cluster HDInsight.
 
-1. Utilizzando un editor, salvare il seguente codice come **mapreducejob. ps1**.
+1. Usando un editor, salvare il codice seguente come **mapreducejob.ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
@@ -81,7 +80,7 @@ Per vedere le parole e i numeri generati dal processo, aprire il file **output.t
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se al termine del processo non viene restituita alcuna informazione, visualizzare gli errori relativi al processo. Per visualizzare le informazioni sull'errore per questo processo, aggiungere il comando seguente alla fine del file **mapreducejob. ps1** . Salvare quindi il file ed eseguire di nuovo lo script.
+Se al termine del processo non viene restituita alcuna informazione, visualizzare gli errori relativi al processo. Per visualizzare le informazioni sull'errore per questo processo, aggiungere il comando seguente alla fine del file di **mapreducejob.ps1** . Salvare quindi il file ed eseguire di nuovo lo script.
 
 ```powershell
 # Print the output of the WordCount job.

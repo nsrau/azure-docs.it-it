@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: a683ad71f5e80c91728262dc7bbabf36e9d68deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75775225"
 ---
 # <a name="peering-policy"></a>Criteri di peering
@@ -44,7 +43,7 @@ I requisiti generali di Microsoft della rete sono illustrati nelle sezioni ripor
 
 ## <a name="physical-connection-requirements"></a>Requisiti di connessione fisica
 * Le località in cui è possibile connettersi con Microsoft per il peering diretto o il peering di Exchange sono elencate in [PeeringDB](https://www.peeringdb.com/net/694)
-* **Peering di interscambio:**
+* **Peering di Exchange:**
     * L'interconnessione deve essere basata su Fiber in modalità singola usando l'ottica 10Gbps appropriata.
     * Si prevede che i peer aggiornino le porte quando il picco di utilizzo supera il 50%.
 * **Peering diretto:**
@@ -65,7 +64,7 @@ I requisiti generali di Microsoft della rete sono illustrati nelle sezioni ripor
     | Europa                   |   2 Gbps                       |
     | LATAM                    |   2 Gbps                       |
     | Medio Oriente              | 500 Mbps                       |
-    | N/D                       |   2 Gbps                       |
+    | ND                       |   2 Gbps                       |
 
 * **Diversità**
     * In NA, Europe, APAC e LATAt, interconnettersi in almeno tre posizioni geograficamente diverse, se possibile, e mantenere diverse capacità per consentire il failover del traffico all'interno di ogni metro.

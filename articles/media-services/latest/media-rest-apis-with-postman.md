@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
 ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75779638"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurare il post per le chiamate all'API REST di servizi multimediali V3
@@ -35,7 +34,7 @@ Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimedia
     Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 > [!IMPORTANT]
-> Esaminare le [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
+> Vedere [Convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="download-postman-files"></a>Scaricare i file Postman
 
@@ -49,7 +48,7 @@ Clonare un repository di GitHub che contiene i file di raccolta e ambiente Postm
 
 ### <a name="configure-the-environment"></a>Configurare l'ambiente 
 
-1. Aprire l'app **Postman**.
+1. Aprire l'app **postazione** .
 2. A destra dello schermo, selezionare l'opzione **Manage environment** (Gestisci ambiente).
 
     ![Gestire l'ambiente](./media/develop-with-postman/postman-import-env.png)

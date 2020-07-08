@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3c820a7be561aeef9b7e50fd0ac0cf4dee721af8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75775407"
 ---
 # <a name="prerequisites-to-set-up-peering-with-microsoft"></a>Prerequisiti per la configurazione del peering con Microsoft
@@ -34,5 +33,5 @@ Verificare che i prerequisiti seguenti siano soddisfatti prima di richiedere un 
 
 * [Creare o modificare un peering diretto usando il portale](howto-direct-portal.md).
 * [Convertire un peering diretto legacy in una risorsa di Azure con il portale](howto-legacy-direct-portal.md)
-* [Creare o modificare il peering di Exchange tramite il portale](howto-exchange-portal.md)
+* [Creare o modificare un peering di Exchange con il portale](howto-exchange-portal.md)
 * [Convertire un peering di Exchange legacy in una risorsa di Azure con il portale](howto-legacy-exchange-portal.md)

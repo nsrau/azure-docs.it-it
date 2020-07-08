@@ -9,18 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: 1c79d0390a80a1358ddb09707fbabf6a5a2affdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75660240"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluzioni di archiviazione di Azure per i servizi ML in Azure HDInsight
 
 ML Services in HDInsight può usare soluzioni di archiviazione diverse per salvare in modo permanente i dati, il codice o gli oggetti che contengono risultati dall'analisi. Queste soluzioni includono le opzioni seguenti:
 
-- [BLOB Azure](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
+- [BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/)
+- [Archiviazione di Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Archiviazione file di Azure](https://azure.microsoft.com/services/storage/files/)
 
 È possibile anche accedere a più account di archiviazione o contenitori di Azure con il cluster HDInsight. Archiviazione file di Azure è un'opzione di archiviazione dati comoda da usare nel nodo perimetrale che consente di montare una condivisione file di archiviazione di Azure in, ad esempio, il file system Linux. Tuttavia, le condivisioni File di Azure possono essere montate e usate in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux.
@@ -169,7 +168,7 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 È anche disponibile un'opzione di archiviazione dati comoda da usare nel nodo perimetrale denominato [file di Azure](https://azure.microsoft.com/services/storage/files/). Consente di montare una condivisione file di Archiviazione di Azure nel file system Linux. Questa opzione può essere utile per l'archiviazione di file di dati, script R e oggetti risultato che potrebbero essere necessari in seguito, soprattutto quando sarà opportuno usare il file system nativo nel nodo perimetrale invece di HDFS.
 
-Un vantaggio importante di File di Azure riguarda la possibilità di montare e usare le condivisioni file in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux. Ad esempio, può essere usato da un altro cluster HDInsight disponibile all'utente o a un membro del team, da una macchina virtuale di Azure o anche da un sistema locale. Per altre informazioni, vedi:
+Un vantaggio importante di File di Azure riguarda la possibilità di montare e usare le condivisioni file in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux. Ad esempio, può essere usato da un altro cluster HDInsight disponibile all'utente o a un membro del team, da una macchina virtuale di Azure o anche da un sistema locale. Per altre informazioni, vedere:
 
 - [Come usare archiviazione file di Azure con Linux](../../storage/files/storage-how-to-use-files-linux.md)
 - [Come usare Archiviazione file di Azure su Windows](../../storage/files/storage-dotnet-how-to-use-files.md)

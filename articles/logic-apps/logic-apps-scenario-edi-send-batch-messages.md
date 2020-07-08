@@ -8,10 +8,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666670"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Scambiare messaggi EDI come batch o gruppi tra partner commerciali in app per la logica di Azure
@@ -36,7 +35,7 @@ Per seguire questo esempio, è necessario disporre di questi elementi:
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/). In alternativa, [iscriversi per ottenere una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) esistente che è associato alla sottoscrizione di Azure ed è collegato alle App per la logica
 
@@ -70,7 +69,7 @@ Per questo ricevitore di batch, è necessario specificare la modalità di batch,
    | **Nome batch** | TestBatch | Disponibile solo con modalità batch **Inline** | 
    | **Criteri di rilascio** | In base al numero di messaggi, In base alla pianificazione | Disponibile solo con modalità batch **Inline** | 
    | **Numero messaggi** | 10 | Disponibile solo con i criteri di rilascio **In base al numero di messaggi** | 
-   | **Intervallo** | 10 | Disponibile solo con i criteri di rilascio **In base alla pianificazione** | 
+   | **Interval** | 10 | Disponibile solo con i criteri di rilascio **In base alla pianificazione** | 
    | **Frequenza** | minute | Disponibile solo con i criteri di rilascio **In base alla pianificazione** | 
    ||| 
 
@@ -126,7 +125,7 @@ Per assicurarsi che il ricevitore di batch funzioni nel modo previsto, è possib
    | Proprietà | Descrizione | 
    |----------|-------------|
    | **Metodo** | Selezionare **POST** dall'elenco. | 
-   | **URI** | Generare un URI per il contenitore delle richieste e immetterlo. | 
+   | **Uri** | Generare un URI per il contenitore delle richieste e immetterlo. | 
    | **Corpo** | Fare clic all'interno di questa casella e dopo aver aperto l'elenco di contenuto dinamico, selezionare il token **corpo**, che viene visualizzato nella sezione **Codifica in batch in base al nome di contratto**. <p>Se il token **Corpo** non è visualizzato, selezionare **Vedi altri** accanto a **Codifica in batch in base al nome del contratto**. | 
    ||| 
 

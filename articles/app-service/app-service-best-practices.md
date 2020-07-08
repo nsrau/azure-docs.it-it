@@ -8,10 +8,9 @@ ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
 ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75768487"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedure consigliate per il servizio app di Azure
@@ -74,4 +73,4 @@ Per altre informazioni sulle procedure consigliate, vedere la pagina relativa al
 - Scegliere riquadro **Best Practices** Homepage.
 - Fare clic su procedure consigliate **per la disponibilità & le prestazioni** o le procedure consigliate **per la configurazione ottimale** per visualizzare lo stato corrente dell'app per quanto riguarda queste procedure consigliate.
 
-È anche possibile usare questo collegamento per aprire direttamente la diagnostica del servizio app per la `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`risorsa:.
+È anche possibile usare questo collegamento per aprire direttamente la diagnostica del servizio app per la risorsa: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot` .

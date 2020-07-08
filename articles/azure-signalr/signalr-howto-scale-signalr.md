@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: zhshang
 ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75659288"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Come ridimensionare un'istanza del servizio Azure SignalR?
@@ -29,7 +28,7 @@ Per informazioni sui prezzi e le capacità del servizio Single SignalR, vedere [
 
 ## <a name="scale-on-azure-portal"></a>Scalabilità in portale di Azure
 
-1. Nel browser aprire il [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com) nel browser.
 
 2. Nel menu a sinistra della pagina del servizio SignalR selezionare **Ridimensiona**.
    

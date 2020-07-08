@@ -4,10 +4,9 @@ description: Service Fabric supporta l'uso di File di Azure per eseguire il back
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750051"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>File di Azure driver del volume per Service Fabric
@@ -29,7 +28,7 @@ Il driver del volume File di Azure è un plug-in del [volume Docker](https://doc
 
 * È necessario che sia installato [Powershell con il modulo Service Fabric](/azure/service-fabric/service-fabric-get-started) o [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli).
 
-* Se si usano contenitori di Hyper-V, è necessario aggiungere i frammenti di codice seguenti nella sezione ClusterManifest (cluster locale) o fabricSettings nel modello di Azure Resource Manager (cluster di Azure) o ClusterConfig. JSON (cluster autonomo).
+* Se si usano contenitori di Hyper-V, è necessario aggiungere i frammenti di codice seguenti nella sezione ClusterManifest (cluster locale) o fabricSettings nel modello di Azure Resource Manager (cluster di Azure) o ClusterConfig.jsin (cluster autonomo).
 
 In ClusterManifest è necessario aggiungere il codice seguente nella sezione Hosting. In questo esempio il nome del volume è **sfazurefile** e la porta su cui è in ascolto nel cluster è **19100**. Sostituirli con i valori corretti per il cluster.
 
@@ -39,7 +38,7 @@ In ClusterManifest è necessario aggiungere il codice seguente nella sezione Hos
 </Section>
 ```
 
-Nella sezione fabricSettings del modello di Azure Resource Manager (per le distribuzioni di Azure) o ClusterConfig. JSON (per le distribuzioni autonome) è necessario aggiungere il frammento di codice seguente. Anche in questo caso, sostituire i valori di nome e porta del volume con quelli personalizzati.
+Nella sezione fabricSettings del modello di Azure Resource Manager (per le distribuzioni di Azure) o ClusterConfig.jsin (per le distribuzioni autonome) è necessario aggiungere il frammento di codice seguente. Anche in questo caso, sostituire i valori di nome e porta del volume con quelli personalizzati.
 
 ```json
 "fabricSettings": [

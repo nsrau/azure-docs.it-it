@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645753"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventi cluster Linux di Service Fabric in Syslog
@@ -28,7 +27,7 @@ Ogni evento Syslog dispone di 4 componenti
 * Message
 * Gravità
 
-Il SyslogConsumer scrive tutti gli eventi della piattaforma tramite Facility `Local0`. È possibile eseguire l'aggiornamento a qualsiasi funzionalità valida modificando la configurazione config. L'identità utilizzata è `ServiceFabric`. Il campo Messaggio contiene l'intero evento serializzato in JSON, in modo che possa essere eseguita una query o essere usato da una serie di strumenti. 
+Il SyslogConsumer scrive tutti gli eventi della piattaforma tramite Facility `Local0`. È possibile eseguire l'aggiornamento a qualsiasi funzionalità valida modificando la configurazione config. L'identità utilizzata è `ServiceFabric` . Il campo Messaggio contiene l'intero evento serializzato in JSON, in modo che possa essere eseguita una query o essere usato da una serie di strumenti. 
 
 ## <a name="enable-syslogconsumer"></a>Abilitare SyslogConsumer
 
@@ -113,6 +112,6 @@ L'esempio precedente è di un evento NodeDown. L'elenco completo degli eventi è
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere contatori delle prestazioni, statistiche Docker e registri per i contenitori
-* Acquisire familiarità con le funzionalità di [Ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) disponibili nell'ambito dei log di monitoraggio di Azure
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) incluse nei log di Monitoraggio di Azure
 * [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../log-analytics/log-analytics-view-designer.md)
 * Informazioni di riferimento sull' [integrazione dei log di monitoraggio di Azure con syslog](../log-analytics/log-analytics-data-sources-syslog.md).

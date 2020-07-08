@@ -4,10 +4,9 @@ description: Questo articolo descrive come creare avvisi personalizzati in base 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75730926"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Come configurare gli avvisi relativi ai problemi di prestazioni in Monitoraggio di Azure per contenitori
@@ -100,7 +99,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Nelle query seguenti vengono usati i valori \<segnaposto your-cluster-Name \<> e il nome-controller-name> per rappresentare il cluster e il controller. Sostituirli con valori specifici dell'ambiente quando si configurano gli avvisi.
+>Nelle query seguenti vengono usati i valori segnaposto \<your-cluster-name> e \<your-controller-name> per rappresentare il cluster e il controller. Sostituirli con valori specifici dell'ambiente quando si configurano gli avvisi.
 
 La query seguente calcola l'utilizzo medio della CPU di tutti i contenitori in un controller come media di utilizzo della CPU di ogni istanza del contenitore in un controller ogni minuto. La misurazione è una percentuale del limite configurato per un contenitore.
 
@@ -284,12 +283,12 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
 >
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nella portale di Azure cercare e selezionare **log Analytics aree di lavoro**.
+2. Nel portale di Azure cercare e selezionare **Aree di lavoro di Log Analytics**.
 3. Nell'elenco delle aree di lavoro Log Analytics selezionare l'area di lavoro che supporta monitoraggio di Azure per i contenitori. 
 4. Nel riquadro sul lato sinistro selezionare **log** per aprire la pagina log di monitoraggio di Azure. Usare questa pagina per scrivere ed eseguire query Log Analytics di Azure.
 5. Nella pagina **logs** incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** e quindi selezionare **Run (Esegui** ) per convalidare i risultati. Se non si esegue questo passaggio, l'opzione **+ nuovo avviso** non è disponibile per la selezione.
 6. Selezionare **+ nuovo avviso** per creare un avviso del log.
-7. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<una logica non definita>** condizione predefinita del registro personalizzato. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
+7. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<logic undefined> ** una condizione di log personalizzata predefinita. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
 8. Incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** .
 9. Configurare l'avviso come segue:
 

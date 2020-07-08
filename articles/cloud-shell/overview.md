@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
 ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75832482"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Panoramica di Azure Cloud Shell
@@ -73,7 +72,7 @@ Cloud Shell è uno strumento flessibile che può essere usato da:
 * [Estensione Azure Account per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Connettersi all'archiviazione di File di Microsoft Azure
-I computer Cloud Shell sono temporanei, ma i file vengono mantenuti in due modi: tramite un'immagine del disco e tramite una condivisione file `clouddrive`montata denominata.  Al primo avvio, Cloud Shell chiede di creare un gruppo di risorse, un account di archiviazione e una condivisione di File di Azure per conto dell'utente. Questo passaggio è occasionale e verrà automaticamente collegato per tutte le sessioni. Può essere eseguito il mapping di un'unica condivisione file, che verrà utilizzato da Bash e PowerShell in Cloud Shell.
+I computer Cloud Shell sono temporanei, ma i file vengono mantenuti in due modi: tramite un'immagine del disco e tramite una condivisione file montata denominata `clouddrive` .  Al primo avvio, Cloud Shell chiede di creare un gruppo di risorse, un account di archiviazione e una condivisione di File di Azure per conto dell'utente. Questo passaggio è occasionale e verrà automaticamente collegato per tutte le sessioni. Può essere eseguito il mapping di un'unica condivisione file, che verrà utilizzato da Bash e PowerShell in Cloud Shell.
 
 Per altre informazioni su come montare un [account di archiviazione nuovo o esistente](persisting-shell-storage.md) o per informazioni sui [meccanismi di persistenza usati in cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works), vedere.
 

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75780335"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali
@@ -83,7 +82,7 @@ Di seguito è riportato l'esempio del **Corpo della richiesta** che definisce le
 
 ## <a name="create-account-filters"></a>Creare filtri account
 
-Nella raccolta dei post che è stata scaricata selezionare **filtri**->account**Crea o aggiorna un filtro account**.
+Nella raccolta dei post che è stata scaricata selezionare **filtri account** -> **Crea o aggiorna un filtro account**.
 
 Il metodo di richiesta HTTP **PUT** è simile a:
 
@@ -93,7 +92,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Selezionare la scheda **Corpo** e incollare il codice json [definito in precedenza](#define-a-filter).
 
-Selezionare **Invia**. 
+Selezionare **Send** (Invia). 
 
 Il filtro è stato creato.
 
@@ -101,7 +100,7 @@ Per altre informazioni, vedere [Creare o aggiornare](https://docs.microsoft.com/
 
 ## <a name="create-asset-filters"></a>Creare filtri asset  
 
-Nella raccolta di post di "Media Services V3" scaricata selezionare **Asset**->**Crea o Aggiorna filtro asset**.
+Nella raccolta di post di "Media Services V3" scaricata selezionare **Asset** -> **Crea o Aggiorna filtro asset**.
 
 Il metodo di richiesta HTTP **PUT** è simile a:
 
@@ -111,7 +110,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Selezionare la scheda **Corpo** e incollare il codice json [definito in precedenza](#define-a-filter).
 
-Selezionare **Invia**. 
+Selezionare **Send** (Invia). 
 
 Il filtro asset è stato creato.
 
