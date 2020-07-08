@@ -9,15 +9,14 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 04/01/2020
 ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80879174"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Eseguire trasformazioni JSON avanzate con i modelli Liquid in App per la logica di Azure
 
-È possibile eseguire trasformazioni JSON di base nelle app per la logica tramite operazioni native sui dati, come **Componi** o **Analizza JSON**. Per eseguire trasformazioni JSON avanzate, è possibile creare modelli o mappe con [Liquid](https://shopify.github.io/liquid/), un linguaggio del modello open source per app Web flessibili. Un modello Liquid definisce come trasformare l'output JSON e supporta trasformazioni JSON più complesse, ad esempio iterazioni, flussi di controllo, variabili e così via.
+È possibile eseguire trasformazioni JSON di base nelle app per la logica tramite operazioni native sui dati, come **Componi** o **Analizza JSON**. Per eseguire trasformazioni JSON avanzate, è possibile creare modelli o mappe con [Liquid](https://shopify.github.io/liquid/), un linguaggio del modello open source per app Web flessibili. I modelli Liquid definiscono come trasformare l'output JSON e supportano trasformazioni JSON più complesse, ad esempio iterazioni, flussi di controllo, variabili e così via.
 
 Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è necessario innanzitutto definire il mapping da JSON a JSON con un modello Liquid e archiviare tale mappa nell'account di integrazione. In questo articolo viene illustrato come creare e usare il modello o la mappa Liquid.
 
@@ -25,7 +24,7 @@ Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è nec
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) di base
 
@@ -57,7 +56,7 @@ Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è nec
    }
    ```
 
-1. Nel [portale di Azure](https://portal.azure.com), nella casella di ricerca di Azure, immettere `integration accounts`e selezionare **account di integrazione**.
+1. Nel [portale di Azure](https://portal.azure.com), nella casella di ricerca di Azure, immettere `integration accounts` e selezionare **account di integrazione**.
 
    ![Trova "account di integrazione"](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
 

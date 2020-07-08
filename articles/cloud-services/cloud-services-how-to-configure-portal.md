@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
 ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811405"
 ---
 # <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
@@ -46,7 +45,7 @@ Se è necessario fare riferimento a una versione specifica del sistema operativo
 
 ## <a name="monitoring"></a>Monitoraggio
 
-È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni** > **regole** > di avviso**Aggiungi avviso**.
+È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni**  >  **regole di avviso**  >  **Aggiungi avviso**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,7 +61,7 @@ Da qui è possibile configurare un avviso. La casella di riepilogo a discesa **M
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configurazione del monitoraggio da un riquadro della metrica
 
-Invece di usare **Impostazioni** > **regole di avviso**, è possibile fare clic su uno dei riquadri metrici nella sezione **monitoraggio** del servizio cloud.
+Invece di usare **Impostazioni**  >  **regole di avviso**, è possibile fare clic su uno dei riquadri metrici nella sezione **monitoraggio** del servizio cloud.
 
 ![Monitoraggio del servizio cloud](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -92,7 +91,7 @@ Potrebbe essere necessario riconfigurare il servizio cloud con il file di [confi
     ![Blade Configurazione](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Fare clic sul pulsante **Download** .
 
-    ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+    ![Scarica](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Dopo aver aggiornato il file di configurazione del servizio, caricare e applicare gli aggiornamenti della configurazione:
 
     ![Caricamento](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)

@@ -12,10 +12,9 @@ ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f159105046231ba5fb4e458cdd70d930a411a920
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882336"
 ---
 # <a name="single-page-application-code-configuration"></a>Applicazione a pagina singola: configurazione del codice
@@ -28,8 +27,8 @@ La piattaforma Microsoft Identity fornisce le librerie Microsoft Authentication 
 
 | Libreria MSAL | Descrizione |
 |--------------|--------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Libreria JavaScript semplice da usare in qualsiasi app Web sul lato client compilata tramite Framework JavaScript o SPA come angolare, VME. js e React. js. |
-| ![MSAL angolare](media/sample-v2-code/logo_angular.png) <br/> [MSAL angolare](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper della libreria MSAL. js di base per semplificare l'uso nelle app a singola pagina compilate tramite il Framework angolare. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Libreria JavaScript semplice da usare in qualsiasi app Web sul lato client compilata tramite Framework JavaScript o SPA, ad esempio angolare, Vue.js e React.js. |
+| ![MSAL angolare](media/sample-v2-code/logo_angular.png) <br/> [MSAL angolare](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper della libreria di base MSAL.js per semplificare l'uso nelle app a singola pagina compilate tramite il Framework angolare. |
 
 ## <a name="application-code-configuration"></a>Configurazione del codice dell'applicazione
 
@@ -50,7 +49,7 @@ const config = {
 const userAgentApplication = new UserAgentApplication(config);
 ```
 
-Per altre informazioni sulle opzioni configurabili, vedere [inizializzazione dell'applicazione con MSAL. js](msal-js-initializing-client-applications.md).
+Per ulteriori informazioni sulle opzioni configurabili, vedere [inizializzazione di un'applicazione con MSAL.js](msal-js-initializing-client-applications.md).
 
 # <a name="angular"></a>[Angular](#tab/angular)
 

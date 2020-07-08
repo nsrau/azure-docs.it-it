@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259137"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Come integrare Gestione API di Azure con Azure Application Insights
@@ -37,7 +36,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 2. Fare clic su **+ Aggiungi**.  
     ![Creazione di Application Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. Compilare il modulo. Selezionare **Generale** come **tipo di applicazione**.
-4. Scegliere **Crea**.
+4. Fare clic su **Crea**.
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Creare una connessione tra Azure Application Insights e l'istanza del servizio Gestione API di Azure
 
@@ -46,7 +45,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 3. Fare clic su **+ Aggiungi**.  
     ![Logger di Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Selezionare l'istanza di **Application Insights** creata in precedenza e immettere una breve descrizione.
-5. Scegliere **Crea**.
+5. Fare clic su **Crea**.
 6. È appena stato creato un logger di Azure Application Insights con una chiave di strumentazione. Verrà ora visualizzato nell'elenco.  
     ![Logger di Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
@@ -64,7 +63,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 6. Selezionare la casella **Abilita**.
 7. Selezionare il logger associato nell'elenco a discesa **Destinazione**.
 8. Immettere **100** come **Sampling (%)** (Campionamento - %) e selezionare la casella di controllo **Always log errors** (Registra sempre gli errori).
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 > [!WARNING]
 > Sovrascrivere il valore predefinito **0** nei **primi byte del campo corpo** potrebbe ridurre in modo significativo le prestazioni delle API.
@@ -72,7 +71,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 > [!NOTE]
 > A parte viene creata un'entità [Diagnostica](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
 
-| Nome impostazione                        | Tipo valore                        | Descrizione                                                                                                                                                                                                                                                                                                                                      |
+| Nome impostazione                        | Tipo di valore                        | Descrizione                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Abilitare                              | boolean                           | Specifica se la registrazione di questa API è abilitata.                                                                                                                                                                                                                                                                                                |
 | Destination                         | Logger di Azure Application Insights | Specifica il logger di Azure Application Insights da usare                                                                                                                                                                                                                                                                                           |

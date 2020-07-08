@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81113360"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
@@ -30,7 +29,7 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
 
 - **Attività** 
     - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
-    - **Log di controllo log**di controllo forniscono informazioni sulle attività di sistema relative agli utenti e alla gestione dei gruppi, alle applicazioni gestite e alle attività di directory.[Audit logs](concept-audit-logs.md)  - 
+    - **Log**  -  di controllo I [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative a utenti e gestione dei gruppi, applicazioni gestite e attività di directory.
     - **Log di provisioning** : fornire le attività di sistema relative a utenti, gruppi e ruoli di cui è stato effettuato il provisioning tramite il servizio di provisioning di Azure ad. 
 
 - **Sicurezza** 
@@ -120,18 +119,18 @@ Il filtro **Stato** consente di selezionare:
 
 - Tutti
 - Operazione completata
-- Errore
+- Operazioni non riuscite
 - Operazione ignorata
 
 
 
 Il filtro **azione** consente di filtrare:
 
-- Creazione 
+- Create 
 - Aggiornamento
-- Elimina
+- Delete
 - Disabilitato
-- Altri
+- Altro
 
 Inoltre, per i filtri della visualizzazione predefinita, è anche possibile impostare i filtri seguenti:
 
@@ -172,7 +171,7 @@ I dettagli sono raggruppati in base alle categorie seguenti:
 
 - Proprietà modificate
 
-- Riepilogo
+- Summary
 
 
 ![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Schede")
@@ -204,11 +203,11 @@ La scheda **risoluzione dei problemi e indicazioni** fornisce il codice e il mot
 Le **proprietà modificate** visualizzano il valore precedente e il nuovo valore. Nei casi in cui non è presente alcun valore precedente, la colonna del valore precedente è vuota. 
 
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degli identificatori per l'oggetto nel sistema di origine e di destinazione. 
 
-## <a name="what-you-should-know"></a>Informazioni importanti
+## <a name="what-you-should-know"></a>Informazioni utili
 
 - Il portale di Azure archivia i dati di provisioning segnalati per 30 giorni se si dispone di un'edizione Premium e di 7 giorni se si dispone di un'edizione gratuita.
 
@@ -220,7 +219,7 @@ La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degl
 
 - Quando si accede ai log di provisioning dal contesto di un'app, non filtra automaticamente gli eventi per l'app specifica nel modo in cui i log di controllo lo eseguono.
 
-## <a name="error-codes"></a>Codici di errore
+## <a name="error-codes"></a>Codici errore
 
 Usare la tabella seguente per comprendere meglio come risolvere gli errori che si possono trovare nei log di provisioning. Per i codici di errore mancanti, fornire commenti e suggerimenti usando il collegamento nella parte inferiore della pagina. 
 

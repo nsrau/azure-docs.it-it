@@ -4,10 +4,9 @@ description: Aggiungere indicatori della distribuzione o della build ai grafici 
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010723"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
@@ -63,7 +62,7 @@ Creare una chiave API separata per ogni modello di versione di Azure Pipelines.
    
 1. Nella finestra modello di rilascio, nella scheda **variabili** selezionare **Aggiungi** per creare una definizione di variabile per la nuova chiave API.
 
-1. In **nome**immettere `ApiKey`e in **valore**incollare la chiave API copiata dalla scheda **accesso API** .
+1. In **nome**immettere `ApiKey` e in **valore**incollare la chiave API copiata dalla scheda **accesso API** .
    
    ![Nella scheda variabili di Azure DevOps selezionare Aggiungi, denominare la variabile ApiKey e incollare la chiave API in valore.](./media/annotations/7-paste-api-key.png)
    
@@ -94,11 +93,11 @@ Selezionare un marcatore di annotazione per aprire i dettagli della versione, in
 ## <a name="create-custom-annotations-from-powershell"></a>Creare annotazioni personalizzate da PowerShell
 È possibile usare lo script di PowerShell [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) da GitHub per creare annotazioni da qualsiasi processo, senza usare Azure DevOps. 
 
-1. Creare una copia locale di [CreateReleaseAnnotation. ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+1. Creare una copia locale del [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
    
 1. Usare i passaggi nella procedura precedente per ottenere l'ID Application Insights e creare una chiave API dalla scheda accesso Application Insights **API** .
    
-1. Chiamare lo script di PowerShell con il codice seguente, sostituendo i segnaposto tra parentesi angolari con i valori. `-releaseProperties` Sono facoltativi. 
+1. Chiamare lo script di PowerShell con il codice seguente, sostituendo i segnaposto tra parentesi angolari con i valori. `-releaseProperties`Sono facoltativi. 
    
    ```powershell
    

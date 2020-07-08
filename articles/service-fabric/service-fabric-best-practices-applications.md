@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
 ms.openlocfilehash: 56df6e28940eb15597a3d6bccca3f85e5f690f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991655"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Procedure consigliate per la progettazione di applicazioni Service Fabric Azure
@@ -32,7 +31,7 @@ Usare un servizio gateway API che comunica con i servizi back-end che possono qu
 - [Gestione API di Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), [integrato con Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
 - [Hub](https://docs.microsoft.com/azure/iot-hub/) eventi di Azure o [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/), usando [ServiceFabricProcessor](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.ServiceFabricProcessor) per leggere le partizioni dell'hub eventi.
 - [Træfik il proxy inverso](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/), usando il [provider di Service fabric di Azure](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/).
-- [Gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/).
+- [Gateway applicazione Azure](https://docs.microsoft.com/azure/application-gateway/).
 
    > [!NOTE] 
    > Il gateway applicazione Azure non è integrato direttamente con Service Fabric. Gestione API di Azure è in genere la scelta migliore.
@@ -57,7 +56,7 @@ Risparmio sui costi e miglioramento della disponibilità:
 
 ## <a name="how-to-work-with-reliable-services"></a>Come usare Reliable Services
 Service Fabric Reliable Services consente di creare facilmente servizi con e senza stato. Per ulteriori informazioni, vedere [Introduzione a reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
-- Rispettare sempre il [token di annullamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) nel `RunAsync()` metodo per i servizi con e senza stato e `ChangeRole()` il metodo per i servizi con stato. In caso contrario, Service Fabric non sa se il servizio può essere chiuso. Se, ad esempio, non si rispetta il token di annullamento, è possibile che si verifichino tempi di aggiornamento dell'applicazione molto più lunghi.
+- Rispettare sempre il [token di annullamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) nel `RunAsync()` metodo per i servizi con e senza stato e il `ChangeRole()` metodo per i servizi con stato. In caso contrario, Service Fabric non sa se il servizio può essere chiuso. Se, ad esempio, non si rispetta il token di annullamento, è possibile che si verifichino tempi di aggiornamento dell'applicazione molto più lunghi.
 -    Aprire e chiudere i [listener di comunicazione](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) in modo tempestivo e rispettare i token di annullamento.
 -    Non combinare mai codice di sincronizzazione con codice asincrono. Ad esempio, non usare `.GetAwaiter().GetResult()` nelle chiamate asincrone. Usare async fino a questo *punto* nello stack di chiamate.
 
@@ -70,7 +69,7 @@ Service Fabric Reliable Actors consente di creare facilmente attori virtuali con
 - A causa della [concorrenza basata su turni](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency), gli attori vengono utilizzati in modo ottimale come oggetti indipendenti. Non creare grafici di chiamate a metodi sincroni multiattore (ognuno dei quali più probabilmente diventa una chiamata di rete separata) o creare richieste di attori circolari. Questi influiscono significativamente sulle prestazioni e sulla scalabilità.
 - Non combinare codice di sincronizzazione con codice asincrono. Usare Async in modo coerente per evitare problemi di prestazioni.
 - Non eseguire chiamate con esecuzione prolungata negli attori. Le chiamate con esecuzione prolungata bloccano altre chiamate allo stesso attore, a causa della concorrenza basata su turni.
-- Se si sta comunicando con altri servizi usando [Service Fabric comunicazione remota](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) e si sta `ServiceProxyFactory`creando un, creare la Factory a livello di [servizio Actor](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) e *non* a livello di attore.
+- Se si sta comunicando con altri servizi usando [Service Fabric comunicazione remota](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) e si sta creando un `ServiceProxyFactory` , creare la Factory a livello di [servizio Actor](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) e *non* a livello di attore.
 
 
 ## <a name="application-diagnostics"></a>Diagnostica applicazioni

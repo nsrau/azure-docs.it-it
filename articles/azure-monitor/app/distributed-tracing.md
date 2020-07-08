@@ -7,10 +7,9 @@ ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892258"
 ---
 # <a name="what-is-distributed-tracing"></a>Che cos'è la traccia distribuita?
@@ -31,7 +30,7 @@ L'abilitazione della traccia distribuita tra i servizi di un'applicazione è sem
 
 ## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Abilitazione tramite Application Insights tramite strumentazione o SDK automatici
 
-Gli agenti Application Insights e/o gli SDK per .NET, .NET Core, Java, node. js e JavaScript supportano in modo nativo la traccia distribuita. Le istruzioni per l'installazione e la configurazione di ogni versione di Application Insights SDK sono disponibili di seguito:
+Gli agenti Application Insights e/o gli SDK per .NET, .NET Core, Java, Node.js e JavaScript supportano in modo nativo la traccia distribuita. Le istruzioni per l'installazione e la configurazione di ogni versione di Application Insights SDK sono disponibili di seguito:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)

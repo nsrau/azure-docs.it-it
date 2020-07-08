@@ -9,18 +9,17 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878970"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticazione in uscita per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
+> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà Utilità di pianificazione di Azure di cui è [in corso il ritiro](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
 >
-> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
+> Utilità di pianificazione non è più disponibile nel portale di Azure, ma l'[API REST](/rest/api/scheduler) e i [cmdlet di PowerShell per Utilità di pianificazione di Azure](scheduler-powershell-reference.md) rimangono attualmente disponibili, quindi è possibile gestire processi e raccolte di processi.
 
 I processi dell'Utilità di pianificazione di Azure potrebbero dover chiamare servizi che richiedono l'autenticazione, ad esempio altri servizi di Azure, Salesforce.com, Facebook e siti Web personalizzati protetti. Il servizio chiamato può determinare se il processo dell'Utilità di pianificazione può accedere alle risorse richieste. 
 
@@ -28,7 +27,7 @@ L'Utilità di pianificazione supporta questi modelli di autenticazione:
 
 * Autenticazione con *certificato client* quando si usano certificati client SSL/TLS
 * Autenticazione di *base*
-* Autenticazione *OAuth Active Directory*
+* Autenticazione *Active Directory OAuth*
 
 ## <a name="add-or-remove-authentication"></a>Aggiungere o rimuovere un'autenticazione
 
@@ -48,8 +47,8 @@ Quando si aggiunge un'autenticazione usando il modello `ClientCertificate`, spec
 | Elemento | Obbligatoria | Descrizione |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto di autenticazione per l'utilizzo di un certificato client SSL/TLS |
-| **type** | Sì | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore `ClientCertificate`è. |
-| **pfx** | Sì | Contenuto del file PFX in codifica base64. |
+| **type** | Sì | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate` . |
+| **PFX** | Sì | Contenuto del file PFX in codifica base64. |
 | **password** | Sì | Password per accedere al file PFX. |
 ||| 
 
@@ -60,7 +59,7 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 | Elemento | Descrizione | 
 |---------|-------------| 
 | **authentication** (elemento padre) | Oggetto di autenticazione per l'utilizzo di un certificato client SSL/TLS |
-| **type** | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore `ClientCertificate`è. |
+| **type** | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate` . |
 | **certificateThumbprint** |Identificazione personale del certificato. |
 | **certificateSubjectName** |Nome distintivo del soggetto del certificato. |
 | **certificateExpiration** | Data di scadenza del certificato. |

@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
 ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81113446"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logica di elaborazione delle regole del Firewall di Azure
@@ -99,4 +98,4 @@ Se si modifica una regola per negare il traffico precedentemente consentito, ver
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [distribuire e configurare Firewall di Azure](tutorial-firewall-deploy-portal.md).
+- Informazioni su come [distribuire e configurare un firewall di Azure](tutorial-firewall-deploy-portal.md).

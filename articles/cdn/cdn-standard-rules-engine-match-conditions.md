@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259928"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condizioni di corrispondenza nel motore delle regole standard per la rete CDN di Azure
@@ -58,11 +57,11 @@ Identifica le richieste in base alle informazioni sui cookie nella richiesta in 
 
 Nome del cookie | Operatore | Valore cookie | Trasformazione case
 ------------|----------|--------------|---------------
-Stringa | [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+string | [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
 
 #### <a name="key-information"></a>Informazioni chiave
 
-- Quando si specifica un nome di cookie, non è\*possibile usare valori jolly (inclusi gli asterischi). è necessario usare un nome esatto del cookie.
+- Quando si specifica un nome di cookie, non è possibile usare i valori jolly (inclusi gli asterischi) \* . è necessario usare un nome esatto del cookie.
 - È possibile specificare solo un nome di cookie singolo per ogni istanza di questa condizione di corrispondenza.
 - I confronti tra nomi di cookie non fanno distinzione tra maiuscole e minuscole.
 - Per specificare più valori dei cookie, usare uno spazio singolo tra ogni valore di cookie. 
@@ -77,7 +76,7 @@ Identifica le richieste in base agli argomenti definiti per il metodo di richies
 
 Nome dell'argomento | Operatore | Valore dell'argomento | Trasformazione case
 --------------|----------|----------------|---------------
-Stringa | [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+string | [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
 
 ### <a name="query-string"></a>Stringa di query
 
@@ -114,13 +113,13 @@ Non corrispondenza IP | Indirizzo IP (separato da spazi)
   - **Esempio IPv4**: *5.5.5.64/26* corrisponde alle richieste provenienti dagli indirizzi 5.5.5.64 tramite 5.5.5.127.
   - **Esempio IPv6**: *1:2:3:/48* corrisponde a tutte le richieste che arrivano dagli indirizzi da 1:2:3:0:0:0:0:0 a 1:2: 3: ffff: ffff: ffff: ffff: FFFF.
 
-### <a name="request-body"></a>Testo della richiesta
+### <a name="request-body"></a>Corpo della richiesta
 
 Identifica le richieste in base a testo specifico visualizzato nel corpo della richiesta.
 
 #### <a name="required-fields"></a>Required fields
 
-Operatore | Testo della richiesta | Trasformazione case
+Operatore | Corpo della richiesta | Trasformazione case
 ---------|--------------|---------------
 [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
 
@@ -132,7 +131,7 @@ Identifica le richieste che usano un'intestazione specifica nella richiesta.
 
 Nome intestazione | Operatore | Valore intestazione | Trasformazione case
 ------------|----------|--------------|---------------
-Stringa | [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+string | [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
 
 ### <a name="request-method"></a>Metodo richiesta
 
@@ -170,7 +169,7 @@ Operatore | URL richiesta | Trasformazione case
 
 #### <a name="key-information"></a>Informazioni chiave
 
-- Quando si usa questa condizione della regola, assicurarsi di includere le informazioni sul protocollo. Ad esempio: *https://www.\<yourdomain\>.com*.
+- Quando si usa questa condizione della regola, assicurarsi di includere le informazioni sul protocollo. Ad esempio: * https://www . \<yourdomain\> . com*.
 
 ### <a name="url-file-extension"></a>Estensione di file URL
 
@@ -244,5 +243,5 @@ Per gli operatori numerici come *minore di* e *maggiore o uguale*a, il confronto
 
 - [Panoramica della rete CDN di Azure](cdn-overview.md)
 - [Informazioni di riferimento sul motore regole standard](cdn-standard-rules-engine-reference.md)
-- [Azioni nel motore regole standard](cdn-standard-rules-engine-actions.md)
+- [Azioni del motore regole standard](cdn-standard-rules-engine-actions.md)
 - [Applicare HTTPS usando il motore regole standard](cdn-standard-rules-engine.md)

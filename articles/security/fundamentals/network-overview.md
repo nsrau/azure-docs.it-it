@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811091"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
@@ -93,7 +92,7 @@ Gli endpoint di servizio sono un altro modo per applicare il controllo sul traff
 
 Altre informazioni:
 
-* [Endpoint di servizio](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
+* [Endpoint servizio](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
 
 ### <a name="route-control-and-forced-tunneling"></a>Controllo di route e tunneling forzato
 

@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811721"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
@@ -24,11 +23,11 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 
 È possibile creare un piano di servizio app vuoto, o creare un piano come parte della creazione di app.
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa**.
+1. Nella [portale di Azure](https://portal.azure.com)selezionare **Crea una risorsa**.
 
    ![Creare una risorsa nel portale di Azure.][createResource] 
 
-1. Selezionare **nuova** > **app Web** o un altro tipo di app del servizio app.
+1. Selezionare **nuova**  >  **app Web** o un altro tipo di app del servizio app.
 
    ![Creare un'app nel portale di Azure.][createWebApp] 
 

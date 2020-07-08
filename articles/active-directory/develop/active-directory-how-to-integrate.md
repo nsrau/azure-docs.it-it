@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: 4eaca7350ac006a2fcf2eed8d3eb0cb8ef274841
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885702"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrazione con Azure Active Directory
@@ -71,7 +70,7 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 ### <a name="advanced-security-features"></a>Funzionalità di sicurezza avanzate
 
-**Autenticazione a più fattori.**   Azure AD offre l'autenticazione a più fattori nativa. Gli amministratori IT possono richiedere l'autenticazione a più fattori per l'accesso all'applicazione, evitando così di dover scrivere il codice per garantire questo tipo di supporto. Altre informazioni su [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Autenticazione a più fattori.**   Azure AD offre l'autenticazione a più fattori nativa. Gli amministratori IT possono richiedere l'autenticazione a più fattori per l'accesso all'applicazione, evitando così di dover scrivere il codice per garantire questo tipo di supporto. Altre informazioni su [multi-factor authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 **Rilevamento di attività di accesso con anomalie.**   Azure AD elabora oltre un miliardo di accessi al giorno e si avvale di algoritmi di apprendimento automatico per rilevare attività sospette e notificare agli amministratori IT eventuali problemi. Grazie al supporto dell'accesso tramite Azure AD, l'applicazione può usufruire di questa ulteriore protezione. Altre informazioni sulla [visualizzazione del report di accesso di Azure Active Directory](../active-directory-view-access-usage-reports.md).
 

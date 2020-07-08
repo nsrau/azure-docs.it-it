@@ -1,7 +1,7 @@
 ---
 title: Preparare le API Web per la chiamata di app per dispositivi mobili per la produzione | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come creare un'app per dispositivi mobili che chiama le API Web. (Preparare le app per la produzione).
+description: Informazioni su come creare un'app per dispositivi mobili che chiama API Web (Preparare le app per la produzione).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,10 +14,9 @@ ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 28ace84f9a80b71209d7963d02b66317292b151b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882540"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Preparare le app per dispositivi mobili per la produzione

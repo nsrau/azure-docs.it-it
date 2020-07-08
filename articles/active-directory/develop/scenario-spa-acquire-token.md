@@ -12,15 +12,14 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882319"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Applicazione a pagina singola: acquisire un token per chiamare un'API
 
-Il modello per l'acquisizione di token per le API con MSAL. js consiste nel tentare prima una richiesta di token invisibile all' `acquireTokenSilent` utente usando il metodo. Quando viene chiamato questo metodo, la libreria controlla prima di tutto la cache nell'archivio browser per verificare se esiste un token valido e lo restituisce. Quando non è presente alcun token valido nella cache, invia una richiesta di token invisibile all'utente Azure Active Directory (Azure AD) da un iframe nascosto. Questo metodo consente inoltre alla libreria di rinnovare i token. Per ulteriori informazioni sui valori di durata Single Sign-On sessione e token in Azure AD, vedere [durate dei token](active-directory-configurable-token-lifetimes.md).
+Il modello per l'acquisizione di token per le API con MSAL.js consiste nel tentare prima una richiesta di token invisibile all'utente usando il `acquireTokenSilent` metodo. Quando viene chiamato questo metodo, la libreria controlla prima di tutto la cache nell'archivio browser per verificare se esiste un token valido e lo restituisce. Quando non è presente alcun token valido nella cache, invia una richiesta di token invisibile all'utente Azure Active Directory (Azure AD) da un iframe nascosto. Questo metodo consente inoltre alla libreria di rinnovare i token. Per ulteriori informazioni sui valori di durata Single Sign-On sessione e token in Azure AD, vedere [durate dei token](active-directory-configurable-token-lifetimes.md).
 
 Le richieste di token invisibile al Azure AD potrebbero non riuscire per motivi quali una sessione di Azure AD scaduta o una modifica della password. In tal caso, è possibile richiamare uno dei metodi interattivi (che richiederanno all'utente) di acquisire i token:
 
@@ -126,7 +125,7 @@ ngOnDestroy() {
  }
 ```
 
-In alternativa, è possibile acquisire in modo esplicito i token usando i metodi di acquisizione dei token come descritto nella libreria MSAL. js di base.
+In alternativa, è possibile acquisire in modo esplicito i token usando i metodi di acquisizione dei token come descritto nella libreria principale MSAL.js.
 
 ---
 
@@ -168,7 +167,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 - Modificare il comportamento di determinate attestazioni che Azure AD restituisce nei token.
 - Aggiungere e accedere ad attestazioni personalizzate per l'applicazione.
 
-Per richiedere attestazioni facoltative in `IdToken`, è possibile inviare un oggetto Claims `claimsRequest` file al campo `AuthenticationParameters.ts` della classe.
+Per richiedere attestazioni facoltative in `IdToken` , è possibile inviare un oggetto Claims file al `claimsRequest` campo della `AuthenticationParameters.ts` classe.
 
 ```javascript
 "optionalClaims":

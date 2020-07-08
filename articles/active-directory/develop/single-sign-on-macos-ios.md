@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881249"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedura: configurare l'accesso SSO in macOS e iOS
@@ -78,7 +77,7 @@ URI di reindirizzamento dell'app 3: `msauth.com.contoso.mytestapp3://auth`
 
 Per abilitare la condivisione keychain, vedere l'articolo relativo all' [aggiunta di funzionalità](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) di Apple. Ciò che è importante è che si decida cosa si vuole chiamare il keychain e aggiungere tale funzionalità a tutte le applicazioni che saranno necessarie per l'accesso SSO.
 
-Quando i diritti sono configurati correttamente, verrà visualizzato un file nella directory `entitlements.plist` del progetto che contiene un elemento simile a questo esempio:
+Quando i diritti sono configurati correttamente, verrà visualizzato un `entitlements.plist` file nella directory del progetto che contiene un elemento simile a questo esempio:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -137,7 +136,7 @@ do {
 > Questa operazione è particolarmente utile se sono presenti applicazioni che si basano su token per eseguire operazioni in background.
 > La condivisione di un keychain significa che è necessario prestare molta attenzione quando l'app usa le operazioni di rimozione di Microsoft Identity SDK.
 
-Ecco fatto! Microsoft Identity SDK ora condividerà le credenziali tra tutte le applicazioni. L'elenco di account verrà inoltre condiviso tra le istanze dell'applicazione.
+L'operazione è terminata. Microsoft Identity SDK ora condividerà le credenziali tra tutte le applicazioni. L'elenco di account verrà inoltre condiviso tra le istanze dell'applicazione.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>SSO tramite il broker di autenticazione in iOS
 
@@ -145,7 +144,7 @@ MSAL fornisce il supporto per l'autenticazione negoziata con Microsoft Authentic
 
 La procedura seguente illustra come abilitare SSO usando un broker di autenticazione per l'app:
 
-1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione nel file INFO. plist dell'app. Il formato dell'URI di reindirizzamento compatibile `msauth.<app.bundle.id>://auth`con Service Broker è. Sostituire '<app.bundle.id>'' con l'ID bundle dell'applicazione. Ad esempio:
+1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione nel file INFO. plist dell'app. Il formato dell'URI di reindirizzamento compatibile con Service Broker è `msauth.<app.bundle.id>://auth` . Sostituire '<app.bundle.id>'' con l'ID bundle dell'applicazione. Ad esempio:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -154,7 +153,7 @@ La procedura seguente illustra come abilitare SSO usando un broker di autenticaz
     </array>
     ```
 
-1. Aggiungere gli schemi seguenti al file INFO. plist dell'app `LSApplicationQueriesSchemes`in:
+1. Aggiungere gli schemi seguenti al file INFO. plist dell'app in `LSApplicationQueriesSchemes` :
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -183,7 +182,7 @@ La procedura seguente illustra come abilitare SSO usando un broker di autenticaz
     }
     ```
     
-**Se si usa Xcode 11**, è necessario inserire invece il `SceneDelegate` callback di MSAL nel file.
+**Se si usa Xcode 11**, è necessario inserire invece il callback di MSAL nel `SceneDelegate` file.
 Se si supportano sia UISceneDelegate che UIApplicationDelegate per la compatibilità con le versioni precedenti di iOS, il callback MSAL deve essere inserito in entrambi i file.
 
 Objective-C:

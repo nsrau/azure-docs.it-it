@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80891510"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
@@ -60,7 +59,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Verifiche di accesso|Richiedere il risultato dell'applicazione della verifica|
 |Verifiche di accesso|Verificare l'appartenenza al ruolo di controllo degli accessi in base al ruolo|
 |Verifiche di accesso|Verificare l'assegnazione di app|
-|Verifiche di accesso|Verificare l'appartenenza a gruppi|
+|Verifiche di accesso|Verificare l'appartenenza ai gruppi|
 |Verifiche di accesso|Verificare la richiesta di approvazione richiesta|
 |Verifiche di accesso|Eliminare il collegamento al controllo del programma|
 |Verifiche di accesso|Aggiornare la verifica di accesso|
@@ -79,22 +78,22 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione delle applicazioni|Recuperare le concessioni di autorizzazione per l'applicazione V2|
-|Gestione delle applicazioni|Recuperare le entità servizio dell'applicazione V2 nel tenant corrente|
-|Gestione delle applicazioni|Aggiornare l'applicazione V1|
-|Gestione delle applicazioni|Aggiornare l'applicazione V2|
-|Gestione delle applicazioni|Aggiornare le concessioni di autorizzazione per l'applicazione V2|
-|Gestione delle applicazioni|Aggiungere OAuth2PermissionGrant|
-|Gestione delle applicazioni|Aggiungere un'assegnazione di ruolo app a un'entità servizio|
+|Gestione applicazioni|Recuperare le concessioni di autorizzazione per l'applicazione V2|
+|Gestione applicazioni|Recuperare le entità servizio dell'applicazione V2 nel tenant corrente|
+|Gestione applicazioni|Aggiornare l'applicazione V1|
+|Gestione applicazioni|Aggiornare l'applicazione V2|
+|Gestione applicazioni|Aggiornare le concessioni di autorizzazione per l'applicazione V2|
+|Gestione applicazioni|Aggiungere OAuth2PermissionGrant|
+|Gestione applicazioni|Aggiungere un'assegnazione di ruolo app a un'entità servizio|
 
 ## <a name="application-proxy"></a>Proxy dell'applicazione
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione delle applicazioni|Aggiunta di un'applicazione|
-|Gestione delle applicazioni|Aggiungere un proprietario a un'applicazione|
-|Gestione delle applicazioni|Aggiungere un proprietario a un'entità servizio|
-|Gestione delle applicazioni|Aggiungere un criterio a un'entità servizio|
+|Gestione applicazioni|Aggiunta di un'applicazione|
+|Gestione applicazioni|Aggiungere un proprietario a un'applicazione|
+|Gestione applicazioni|Aggiungere un proprietario a un'entità servizio|
+|Gestione applicazioni|Aggiungere un criterio a un'entità servizio|
 |Gestione directory|Aggiunta di un'entità servizio|
 |Gestione directory|Aggiunta delle credenziali dell'entità servizio|
 |Gestione directory|Dare il consenso a un'applicazione|
@@ -112,40 +111,40 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione delle applicazioni|Rimozione delle credenziali dell'entità servizio|
+|Gestione applicazioni|Rimozione delle credenziali dell'entità servizio|
 
 
 ## <a name="b2c"></a>B2C
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione delle applicazioni|Ripristinare l'applicazione|
-|Gestione delle applicazioni|Revocare il consenso|
-|Gestione delle applicazioni|Aggiornare l'applicazione|
-|Gestione delle applicazioni|Vengono aggiornati i segreti esterni.|
-|Gestione delle applicazioni|Aggiornare un'entità servizio|
-|Gestione delle applicazioni|Emettere un token di accesso per l'applicazione|
-|Gestione delle applicazioni|Emettere un codice di autorizzazione per l'applicazione|
-|Gestione delle applicazioni|Emettere un id_token per l'applicazione|
-|Gestione delle applicazioni|Convalidare le credenziali dell'account utente locale|
-|Gestione delle applicazioni|Convalidare l'autenticazione utente|
-|Gestione delle applicazioni|Aggiungere autorizzazioni applicazione V2|
-|Gestione delle applicazioni|Aggiungere una chiave basata sul segreto ASCII a un contenitore di chiavi CPIM|
-|Gestione delle applicazioni|Aggiungere una chiave a un contenitore di chiavi CPIM|
-|Gestione delle applicazioni|AdminPolicyDatas-SetResources|
-|Gestione delle applicazioni|AdminUserJourneys-GetResources|
-|Gestione delle applicazioni|AdminUserJourneys-RemoveResources|
-|Autenticazione|AdminUserJourneys-SetResources|
-|Autenticazione|Creare un provider di identità|
-|Autenticazione|Creare un'applicazione V1|
-|Autenticazione|Creare un'applicazione V2|
-|Autenticazione|Creare un dominio personalizzato nel tenant|
+|Gestione applicazioni|Ripristinare l'applicazione|
+|Gestione applicazioni|Revocare il consenso|
+|Gestione applicazioni|Aggiornare l'applicazione|
+|Gestione applicazioni|Vengono aggiornati i segreti esterni.|
+|Gestione applicazioni|Aggiornare un'entità servizio|
+|Gestione applicazioni|Emettere un token di accesso per l'applicazione|
+|Gestione applicazioni|Emettere un codice di autorizzazione per l'applicazione|
+|Gestione applicazioni|Emettere un id_token per l'applicazione|
+|Gestione applicazioni|Convalidare le credenziali dell'account utente locale|
+|Gestione applicazioni|Convalidare l'autenticazione utente|
+|Gestione applicazioni|Aggiungere autorizzazioni applicazione V2|
+|Gestione applicazioni|Aggiungere una chiave basata sul segreto ASCII a un contenitore di chiavi CPIM|
+|Gestione applicazioni|Aggiungere una chiave a un contenitore di chiavi CPIM|
+|Gestione applicazioni|AdminPolicyDatas-SetResources|
+|Gestione applicazioni|AdminUserJourneys-GetResources|
+|Gestione applicazioni|AdminUserJourneys-RemoveResources|
+|Authentication|AdminUserJourneys-SetResources|
+|Authentication|Creare un provider di identità|
+|Authentication|Creare un'applicazione V1|
+|Authentication|Creare un'applicazione V2|
+|Authentication|Creare un dominio personalizzato nel tenant|
 |Autorizzazione|Crea un nuovo AdminUserJourney|
 |Autorizzazione|Creare JSON di risorse localizzate|
 |Autorizzazione|Creare un nuovo provider di identità personalizzato|
 |Autorizzazione|Creare un nuovo provider di identità|
 |Autorizzazione|Creare o aggiornare una risorsa della directory B2C|
-|Autorizzazione|Crea criteri|
+|Autorizzazione|Creare i criteri|
 |Autorizzazione|Creare criteri trustFramework|
 |Autorizzazione|Creare criteri trustFramework con prefisso configurabile|
 |Autorizzazione|Creare un attributo utente|
@@ -267,8 +266,8 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Chiave|Vengono eliminate le impostazioni aziendali.|
 |Chiave|Abbassare un partner di livello|
 |Chiave|Directory eliminata|
-|Altri|Directory eliminata in modo permanente|
-|Altri|Directory pianificata per l'eliminazione|
+|Altro|Directory eliminata in modo permanente|
+|Altro|Directory pianificata per l'eliminazione|
 |Risorsa|Innalzare un'azienda a livello di partner|
 |Risorsa|Ripulire le proprietà di Rights Management|
 |Risorsa|Rimuovere un partner dalla società|
@@ -353,29 +352,29 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione delle unità amministrative|Scarica tutti i tipi di rilevamento del rischio|
 |Gestione delle unità amministrative|Scarica i rilevamenti di rischi utente gratuiti|
 |Gestione delle unità amministrative|Scaricare gli utenti contrassegnati per il rischio|
-|Gestione delle applicazioni|Inviti batch elaborati|
-|Gestione delle applicazioni|Inviti batch caricati|
-|Gestione delle applicazioni|Aggiungere un proprietario a un criterio|
-|Gestione delle applicazioni|Aggiungi criteri|
-|Gestione delle applicazioni|Elimina criteri|
-|Gestione delle applicazioni|Rimuovere le credenziali dei criteri|
-|Gestione delle applicazioni|Aggiorna criteri|
-|Gestione delle applicazioni|Impostare i criteri della registrazione MFA|
-|Gestione delle applicazioni|Impostare i criteri di rischio di accesso|
-|Gestione delle applicazioni|Impostare i criteri di rischio utente|
-|Gestione delle applicazioni|Accettare le condizioni per l'utilizzo|
-|Gestione delle applicazioni|Creare le condizioni per l'utilizzo|
-|Gestione delle applicazioni|Rifiutare le condizioni per l'utilizzo|
-|Gestione delle applicazioni|Eliminare le condizioni per l'utilizzo|
-|Gestione delle applicazioni|Modificare le condizioni per l'utilizzo|
-|Gestione delle applicazioni|Pubblicare le condizioni per l'utilizzo|
-|Gestione delle applicazioni|Annullare la pubblicazione delle condizioni per l'utilizzo|
-|Gestione delle applicazioni|Aggiungi certificato TLS/SSL dell'applicazione|
-|Gestione delle applicazioni|Elimina binding TLS|
-|Gestione delle applicazioni|Registrare il connettore|
-|Gestione delle applicazioni|AdminPolicyDatas-RemoveResources|
-|Gestione delle applicazioni|AdminPolicyDatas-SetResources|
-|Gestione delle applicazioni|AdminUserJourneys-GetResources|
+|Gestione applicazioni|Inviti batch elaborati|
+|Gestione applicazioni|Inviti batch caricati|
+|Gestione applicazioni|Aggiungere un proprietario a un criterio|
+|Gestione applicazioni|Aggiungi criteri|
+|Gestione applicazioni|Elimina criteri|
+|Gestione applicazioni|Rimuovere le credenziali dei criteri|
+|Gestione applicazioni|Aggiorna criteri|
+|Gestione applicazioni|Impostare i criteri della registrazione MFA|
+|Gestione applicazioni|Impostare i criteri di rischio di accesso|
+|Gestione applicazioni|Impostare i criteri di rischio utente|
+|Gestione applicazioni|Accettare le condizioni per l'utilizzo|
+|Gestione applicazioni|Creare le condizioni per l'utilizzo|
+|Gestione applicazioni|Rifiutare le condizioni per l'utilizzo|
+|Gestione applicazioni|Eliminare le condizioni per l'utilizzo|
+|Gestione applicazioni|Modificare le condizioni per l'utilizzo|
+|Gestione applicazioni|Pubblicare le condizioni per l'utilizzo|
+|Gestione applicazioni|Annullare la pubblicazione delle condizioni per l'utilizzo|
+|Gestione applicazioni|Aggiungi certificato TLS/SSL dell'applicazione|
+|Gestione applicazioni|Elimina binding TLS|
+|Gestione applicazioni|Registrare il connettore|
+|Gestione applicazioni|AdminPolicyDatas-RemoveResources|
+|Gestione applicazioni|AdminPolicyDatas-SetResources|
+|Gestione applicazioni|AdminUserJourneys-GetResources|
 |Gestione directory|AdminUserJourneys-RemoveResources|
 |Gestione directory|AdminUserJourneys-SetResources|
 |Gestione directory|Creare un provider di identità|
@@ -384,7 +383,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione directory|Creare un nuovo provider di identità personalizzato|
 |Gestione directory|Creare un nuovo provider di identità|
 |Gestione directory|Creare o aggiornare una risorsa della directory B2C|
-|Gestione directory|Crea criteri|
+|Gestione directory|Creare i criteri|
 |Gestione directory|Creare criteri trustFramework|
 |Gestione directory|Creare criteri trustFramework con prefisso configurabile|
 |Gestione directory|Creare un attributo utente|
@@ -473,8 +472,8 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |User Management|Aggiungere l'assegnazione di ruolo alla definizione del ruolo|
 |User Management|Aggiungere un ruolo da un modello|
 |User Management|Aggiungere un membro con ambito a un ruolo|
-|User Management|Aggiunto|
-|User Management|Assegnare|
+|User Management|Aggiunta|
+|User Management|Assegnazione|
 |User Management|Creazione bulk utenti-avviato|
 |User Management|Creazione bulk di utenti-operazione completata|
 |User Management|Eliminazione bulk utenti-avviato|
@@ -507,11 +506,11 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione directory|Elevare|
 |Gestione directory|Rimosso|
 |Gestione directory|Modifiche alle impostazioni dei ruoli|
-|Altri|ScanAlertsNow|
-|Altri|Iscrizione|
-|Altri|Annullare elevazione|
-|Altri|UpdateAlertSettings|
-|Altri|UpdateCurrentState|
+|Altro|ScanAlertsNow|
+|Altro|Iscrizione|
+|Altro|Annullare elevazione|
+|Altro|UpdateAlertSettings|
+|Altro|UpdateCurrentState|
 |Gestione dei criteri|Verifica di accesso terminata|
 |Gestione dei criteri|Aggiungere un responsabile approvazione all'approvazione delle richieste|
 |Gestione dei criteri|Aggiungere un revisore alla verifica di accesso|
@@ -523,13 +522,13 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Altri|Creare un'approvazione richiesta|
-|Altri|Eliminare la verifica di accesso|
+|Altro|Creare un'approvazione richiesta|
+|Altro|Eliminare la verifica di accesso|
 |User Management|Rimuovere un revisore dalla verifica di accesso|
 |User Management|Richiedere il risultato dell'applicazione della verifica|
 |User Management|Richiedere l'arresto della verifica|
 |User Management|Verificare l'assegnazione di app|
-|User Management|Verificare l'appartenenza a gruppi|
+|User Management|Verificare l'appartenenza ai gruppi|
 |User Management|Verificare l'appartenenza al ruolo di controllo degli accessi in base al ruolo|
 
 
@@ -556,9 +555,9 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |PIM|ActivationCanceled|
 |PIM|ActivationDenied|
 |PIM|ActivationRequested|
-|PIM|Aggiunto|
+|PIM|Aggiunta|
 |PIM|AddedOutsidePIM|
-|PIM|Assegnare|
+|PIM|Assegnazione|
 |PIM|DismissAlert|
 |PIM|Elevare|
 |PIM|ReactivateAlert|

@@ -10,18 +10,17 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878392"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
+> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà Utilità di pianificazione di Azure di cui è [in corso il ritiro](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
 >
-> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
+> Utilità di pianificazione non è più disponibile nel portale di Azure, ma l'[API REST](/rest/api/scheduler) e i [cmdlet di PowerShell per Utilità di pianificazione di Azure](scheduler-powershell-reference.md) rimangono attualmente disponibili, quindi è possibile gestire processi e raccolte di processi.
 
 ## <a name="entity-hierarchy"></a>Gerarchia di entità
 
@@ -31,7 +30,7 @@ L'API REST di Utilità di pianificazione di Microsoft Azure espone e utilizza le
 |--------|-------------|
 | **Processo** | Definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio. | 
 | **Raccolta di processi** | Contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi della raccolta. In quanto proprietario della sottoscrizione di Azure, è possibile creare raccolte di processi e raggruppare i processi in base ai limiti di utilizzo o dell'applicazione. Una raccolta processi presenta questi attributi: <p>- È vincolata a un'area. <br>- Consente di applicare quote in modo che sia possibile limitare l'utilizzo per tutti i processi in una raccolta. <br>- Le quote includono MaxJobs e MaxRecurrence. | 
-| **Cronologia processo** | Descrive i dettagli per l'esecuzione del processo, ad esempio, lo stato e i dettagli della risposta. |
+| **Cronologia dei processi** | Descrive i dettagli per l'esecuzione del processo, ad esempio, lo stato e i dettagli della risposta. |
 ||| 
 
 ## <a name="entity-management"></a>Gestione delle entità
@@ -82,7 +81,7 @@ A un livello elevato, un processo di Utilità di pianificazione di Microsoft Azu
 
 Il processo include anche i dati forniti dal sistema, ad esempio l'ora successiva di esecuzione pianificata del processo. La definizione di codice del processo è un oggetto in formato JavaScript Object Notation (JSON), con questi elementi:
 
-| Elemento | Obbligatoria | Descrizione | 
+| Elemento | Obbligatoria | Description | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | No | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**azione**](#action) | Sì | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
@@ -249,12 +248,12 @@ Un processo è ricorrente se la definizione JSON del processo include l’oggett
 | Proprietà | Obbligatoria | valore | Descrizione | 
 |----------|----------|-------|-------------| 
 | **frequenza** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
-| **interval** | No | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
-| **pianificazione** | No | Variabile | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
+| **intervallo** | No | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
+| **pianificazione** | No | Varia | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
 | **ore** | No | Da 1 a 24 | Una matrice con l'ora segna quando eseguire il processo | 
-| **minuti** | No | da 0 a 59 | Una matrice con i minuti segna quando eseguire il processo | 
+| **minutes** | No | da 0 a 59 | Una matrice con i minuti segna quando eseguire il processo | 
 | **months** | No | Da 1 a 12 | Una matrice con i mesi segna quando eseguire il processo | 
-| **monthDays** | No | Variabile | Una matrice con i giorni segna quando eseguire il processo | 
+| **monthDays** | No | Varia | Una matrice con i giorni segna quando eseguire il processo | 
 | **Giorni feriali** | No | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matrice con i giorni della settimana segna quando eseguire il processo | 
 | **count** | No | <*nessuno*> | Il numero di ricorrenze. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
 | **endTime** | No | <*nessuno*> | Data e ora di arresto della ricorrenza. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 

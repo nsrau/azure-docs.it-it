@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 79f8eb9e804502a7c0e61c18e4998fa05db10278
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885141"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>API Web che chiama le API Web: acquisire un token per l'app
@@ -48,7 +47,7 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()`è simile allo scenario in [un'API Web che chiama API Web: configurazione dell'app](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()`Crea un' `IConfidentialClientApplication` istanza di con una cache che contiene informazioni per un solo account. L'account viene fornito dal `GetAccountIdentifier` metodo.
+`BuildConfidentialClient()`è simile allo scenario in [un'API Web che chiama API Web: configurazione dell'app](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()`Crea un'istanza `IConfidentialClientApplication` di con una cache che contiene informazioni per un solo account. L'account viene fornito dal `GetAccountIdentifier` metodo.
 
 Il `GetAccountIdentifier` metodo usa le attestazioni associate all'identità dell'utente per cui l'API Web ha ricevuto il token Web JSON (JWT):
 
@@ -91,7 +90,7 @@ public class ApiController {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Un'API Web Python dovrà usare un middleware per convalidare la bearer token ricevuta dal client. L'API Web può quindi ottenere il token di accesso per l'API downstream usando la libreria MSAL Python [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) chiamando il metodo. Un esempio che illustra questo flusso con MSAL Python non è ancora disponibile.
+Un'API Web Python dovrà usare un middleware per convalidare la bearer token ricevuta dal client. L'API Web può quindi ottenere il token di accesso per l'API downstream usando la libreria MSAL Python chiamando il [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metodo. Un esempio che illustra questo flusso con MSAL Python non è ancora disponibile.
 
 ---
 

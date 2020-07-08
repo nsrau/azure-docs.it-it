@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 073eca94ad93c69811b02abe2c8649940a394e8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882472"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protetta: configurazione del codice
@@ -134,7 +133,7 @@ Il frammento di codice precedente viene estratto dall'esercitazione incrementale
 
 ## <a name="token-validation"></a>Convalida dei token
 
-Nel frammento di codice precedente, il middleware JwtBearer, come il middleware OpenID Connect nelle app Web, convalida il token in base al valore `TokenValidationParameters`di. Il token viene decrittografato in base alle esigenze, le attestazioni vengono estratte e la firma viene verificata. Il middleware convalida quindi il token controllando la presenza di questi dati:
+Nel frammento di codice precedente, il middleware JwtBearer, come il middleware OpenID Connect nelle app Web, convalida il token in base al valore di `TokenValidationParameters` . Il token viene decrittografato in base alle esigenze, le attestazioni vengono estratte e la firma viene verificata. Il middleware convalida quindi il token controllando la presenza di questi dati:
 
 - Destinatari: il token è destinato all'API Web.
 - Sub: è stato emesso per un'app che può chiamare l'API Web.
@@ -150,7 +149,7 @@ I passaggi di convalida vengono acquisiti nei validator, forniti dalla libreria 
 
 Questa tabella descrive i validator:
 
-| Componente di convalida | Descrizione |
+| Validator | Descrizione |
 |---------|---------|
 | **ValidateAudience** | Garantisce che il token sia per l'applicazione che convalida il token per l'utente. |
 | **ValidateIssuer** | Garantisce che il token sia stato emesso da un servizio token di sicurezza attendibile, vale a dire che è un utente attendibile. |

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: tisande
 ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261568"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Parole chiave in Azure Cosmos DB
@@ -34,10 +33,10 @@ Questo articolo descrive in dettaglio le parole chiave che possono essere usate 
     FROM Families.children[0] c
 ```
 
-Diversamente da ANSI SQL, nell'API SQL è possibile esprimere query di intervallo su proprietà di tipi misti. Ad esempio, `grade` può essere un numero come `5` in alcuni elementi e una stringa come `grade4` in altri. In questi casi, come in JavaScript, il confronto tra i due tipi diversi restituisce `Undefined`, quindi l'elemento viene ignorato.
+Diversamente da ANSI SQL, nell'API SQL è possibile esprimere query di intervallo su proprietà di tipi misti. Ad esempio, `grade` può essere un numero come `5` in alcuni elementi e una stringa come `grade4` in altri. In questi casi, come in JavaScript, il confronto tra i due tipi diversi restituisce `Undefined` , quindi l'elemento viene ignorato.
 
 > [!TIP]
-> Per velocizzare i tempi di esecuzione delle query, creare un criterio di indicizzazione che utilizza un tipo di indice di intervallo `BETWEEN` rispetto a qualsiasi proprietà o percorso numerico che la clausola filtra.
+> Per velocizzare i tempi di esecuzione delle query, creare un criterio di indicizzazione che utilizza un tipo di indice di intervallo rispetto a qualsiasi proprietà o percorso numerico che la `BETWEEN` clausola filtra.
 
 ## <a name="distinct"></a>DISTINCT
 
@@ -103,7 +102,7 @@ I risultati sono:
 ]
 ```
 
-Le query con una funzione di sistema di aggregazione e `DISTINCT` una sottoquery con non sono supportate. Ad esempio, la query seguente non è supportata:
+Le query con una funzione di sistema di aggregazione e una sottoquery con `DISTINCT` non sono supportate. Ad esempio, la query seguente non è supportata:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -111,7 +110,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 ## <a name="in"></a>IN
 
-Usare la parola chiave IN per verificare se un valore specificato corrisponde a qualsiasi valore in un elenco. Ad esempio, la query seguente restituisce tutti gli elementi della `id` famiglia in `WakefieldFamily` cui `AndersenFamily`è o.
+Usare la parola chiave IN per verificare se un valore specificato corrisponde a qualsiasi valore in un elenco. Ad esempio, la query seguente restituisce tutti gli elementi della famiglia in cui `id` è `WakefieldFamily` o `AndersenFamily` .
 
 ```sql
     SELECT *
@@ -133,7 +132,7 @@ Se si include la chiave di partizione nel `IN` filtro, la query verrà automatic
 
 ## <a name="top"></a>TOP
 
-La parola chiave TOP restituisce il `N` primo numero di risultati della query in un ordine non definito. Come procedura consigliata, utilizzare TOP con la `ORDER BY` clausola per limitare i risultati al primo `N` numero di valori ordinati. La combinazione di queste due clausole è l'unico modo per indicare in modo prevedibile quali righe hanno effetto.
+La parola chiave TOP restituisce il primo `N` numero di risultati della query in un ordine non definito. Come procedura consigliata, utilizzare TOP con la `ORDER BY` clausola per limitare i risultati al primo `N` numero di valori ordinati. La combinazione di queste due clausole è l'unico modo per indicare in modo prevedibile quali righe hanno effetto.
 
 È possibile utilizzare TOP con un valore costante, come nell'esempio seguente, oppure con un valore di variabile utilizzando query con parametri.
 
@@ -166,6 +165,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva](sql-query-getting-started.md)
+- [Introduzione](sql-query-getting-started.md)
 - [Join](sql-query-join.md)
-- [Sottoquery:](sql-query-subquery.md)
+- [Sottoquery](sql-query-subquery.md)

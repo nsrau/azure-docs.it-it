@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
 ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010580"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output Live in servizi multimediali
@@ -30,7 +29,7 @@ Servizi multimediali di Azure ti permette di offrire eventi live ai tuoi clienti
 
 ## <a name="live-events"></a>Eventi live
 
-Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Quando si crea un evento Live, viene creato un endpoint di input primario e secondario che è possibile usare per inviare un segnale Live da un codificatore remoto. Il codificatore Live remoto invia il feed di contributo a tale endpoint di input usando il protocollo di input [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (frammentato-MP4). Per il protocollo di inserimento RTMP, il contenuto può essere inviato in chiaro (`rtmp://`) o crittografato in modo sicuro in transito`rtmps://`(). Per il protocollo di inserimento Smooth Streaming, gli schemi URL supportati sono `http://` o `https://`.  
+Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Quando si crea un evento Live, viene creato un endpoint di input primario e secondario che è possibile usare per inviare un segnale Live da un codificatore remoto. Il codificatore Live remoto invia il feed di contributo a tale endpoint di input usando il protocollo di input [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (frammentato-MP4). Per il protocollo di inserimento RTMP, il contenuto può essere inviato in chiaro ( `rtmp://` ) o crittografato in modo sicuro in transito ( `rtmps://` ). Per il protocollo di inserimento Smooth Streaming, gli schemi URL supportati sono `http://` o `https://`.  
 
 ## <a name="live-event-types"></a>Tipi di evento live
 
@@ -69,7 +68,7 @@ Le risoluzioni e le velocità in bit contenute nell'output del codificatore Live
 
 ## <a name="creating-live-events"></a>Creazione di eventi Live
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Quando si crea un evento live, è possibile specificare le opzioni seguenti:
 
@@ -87,7 +86,7 @@ Quando si crea un evento live, è possibile specificare le opzioni seguenti:
 ### <a name="naming-rules"></a>Regole di denominazione
 
 * Il nome dell'evento Live massimo è di 32 caratteri.
-* Il nome deve seguire questo modello [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+* Il nome deve seguire questo modello [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 Vedere anche [convenzioni di denominazione degli endpoint di streaming](streaming-endpoint-concept.md#naming-convention).
 
@@ -116,11 +115,11 @@ Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da 
     > [!NOTE]
     > Nell'portale di Azure l'URL di Vanity è denominato "*URL di input permanente*".
 
-    Per specificare questa modalità nell'API, impostare `vanityUrl` su `true` al momento della creazione (il valore `false`predefinito è). È anche necessario passare il proprio token di accesso (`LiveEventInput.accessToken`) al momento della creazione. Il valore del token viene specificato per evitare un token casuale nell'URL. Il token di accesso deve essere una stringa GUID valida (con o senza trattini). Una volta impostata la modalità, non è possibile aggiornarla.
+    Per specificare questa modalità nell'API, impostare `vanityUrl` su `true` al momento della creazione (il valore predefinito è `false` ). È anche necessario passare il proprio token di accesso ( `LiveEventInput.accessToken` ) al momento della creazione. Il valore del token viene specificato per evitare un token casuale nell'URL. Il token di accesso deve essere una stringa GUID valida (con o senza trattini). Una volta impostata la modalità, non è possibile aggiornarla.
 
     Il token di accesso deve essere univoco nel data center. Se l'app deve usare un URL di Vanity, è consigliabile creare sempre una nuova istanza GUID per il token di accesso, anziché riusare un GUID esistente.
 
-    Usare le API seguenti per abilitare l'URL di Vanity e impostare il token di accesso su un GUID valido (ad `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`esempio,).  
+    Usare le API seguenti per abilitare l'URL di Vanity e impostare il token di accesso su un GUID valido (ad esempio, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
     |Linguaggio|Abilita URL Vanity|Impostare il token di accesso|
     |---|---|---|

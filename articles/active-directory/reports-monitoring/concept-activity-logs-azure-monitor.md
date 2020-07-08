@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261024"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD log attività in monitoraggio di Azure
@@ -103,7 +102,7 @@ La tabella seguente contiene i costi stimati al mese per un hub eventi di base n
 | Categoria di log | Numero di utenti | Eventi al secondo | Eventi per intervallo di cinque minuti | Volume per intervallo | Messaggi per intervallo | Messaggi al mese | Costo mensile (stima) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100,000 | 18 | 5.400 | 10,8 MB | 43 | 371.520 | $10,83 |
-| Audit | 1\.000 | 0,1 | 52 | 104 KB | 1 | 8.640 | $10,80 |
+| Audit | 1\.000 | 0.1 | 52 | 104 KB | 1 | 8.640 | $10,80 |
 | Accessi | 100,000 | 18000 | 5,4 milioni | 10,8 GB | 42188 | 364.504.320 | $23,9 |  
 | Accessi | 1\.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
@@ -115,7 +114,7 @@ La tabella seguente contiene i costi stimati al mese per un hub eventi di base n
 | :--                | ---             | ---            | ---                        | --:                          |
 | Controllo e accessi | 100,000         | 16,5 milioni     | 495 milioni                |  $1093,00                       |
 | Audit              | 100,000         | 1,5 milioni      | 45.000.000                 |  $246,66                     |
-| Accessi           | 100,000         | 15.000.000     | 450 milioni                |  $847,28                     |
+| Accessi           | 100,000         | 15.000.000     | 450.000.000                |  $847,28                     |
 
 
 

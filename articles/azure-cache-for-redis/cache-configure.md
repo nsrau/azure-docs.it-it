@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010308"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
@@ -39,9 +38,9 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Chiavi di accesso](#access-keys)
     * [Impostazioni avanzate](#advanced-settings)
     * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-    * [Ridimensionare](#scale)
+    * [Ridimensionamento](#scale)
     * [Dimensioni del cluster](#cluster-size)
-    * [Persistenza dei dati](#redis-data-persistence)
+    * [Salvataggio permanente dei dati](#redis-data-persistence)
     * [Pianificare gli aggiornamenti](#schedule-updates)
     * [Replica geografica](#geo-replication)
     * [Rete virtuale](#virtual-network)
@@ -51,14 +50,14 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Script di automazione](#automation-script)
 * Amministrazione
     * [Importa dati](#importexport)
-    * [Esportazione dei dati](#importexport)
+    * [Esporta dati](#importexport)
     * [Reboot](#reboot)
-* [Monitoraggio](#monitoring)
+* [Monitoring](#monitoring)
     * [Metriche Redis](#redis-metrics)
     * [Regole di avviso](#alert-rules)
     * [Diagnostica](#diagnostics)
 * Supporto e impostazioni di risoluzione dei problemi
-    * [Integrità risorse](#resource-health)
+    * [Integrità delle risorse](#resource-health)
     * [Nuova richiesta di supporto](#new-support-request)
 
 
@@ -91,9 +90,9 @@ La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per 
 * [Chiavi di accesso](#access-keys)
 * [Impostazioni avanzate](#advanced-settings)
 * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-* [Ridimensionare](#scale)
+* [Ridimensionamento](#scale)
 * [Dimensioni del cluster](#cluster-size)
-* [Persistenza dei dati](#redis-data-persistence)
+* [Salvataggio permanente dei dati](#redis-data-persistence)
 * [Pianificare gli aggiornamenti](#schedule-updates)
 * [Replica geografica](#geo-replication)
 * [Rete virtuale](#virtual-network)
@@ -169,15 +168,15 @@ Per altre informazioni, vedere [Notifiche di Keyspace Redis](https://redis.io/to
 ## <a name="azure-cache-for-redis-advisor"></a>Redis Cache Advisor
 Il pannello **Redis Cache Advisor** visualizza le raccomandazioni per la cache. Durante il normale funzionamento non viene visualizzata nessuna raccomandazione.
 
-![Indicazioni](./media/cache-configure/redis-cache-no-recommendations.png)
+![Consigli](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Se durante l'uso della cache si verifica una determinata condizione, ad esempio uso della memoria, larghezza di banda di rete o carico del server elevato, nel pannello **Cache Redis** viene visualizzato un avviso.
 
-![Indicazioni](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Consigli](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Per altre informazioni, vedere il pannello **Raccomandazioni** .
 
-![Indicazioni](./media/cache-configure/redis-cache-recommendations.png)
+![Consigli](./media/cache-configure/redis-cache-recommendations.png)
 
 È possibile monitorare le metriche nelle sezioni relative ai grafici di [Monitoraggio](cache-how-to-monitor.md#monitoring-charts) e [Utilizzo](cache-how-to-monitor.md#usage-charts) del pannello **Cache Redis**.
 
@@ -188,7 +187,7 @@ Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e l
 | Uso della larghezza di banda di rete |[Prestazioni della cache - Larghezza di banda disponibile](cache-faq.md#cache-performance) |
 | Client connessi |[Configurazione predefinita del server Redis - maxclients](#maxclients) |
 | Carico del server |[Grafici di utilizzo - Carico server Redis](cache-how-to-monitor.md#usage-charts) |
-| Utilizzo della memoria |[Prestazioni della cache - Dimensioni](cache-faq.md#cache-performance) |
+| Utilizzo memoria |[Prestazioni della cache - Dimensioni](cache-faq.md#cache-performance) |
 
 Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il piano tariffario e [ridimensionare](#scale) la cache. Per altre informazioni su come scegliere un piano tariffario, vedere [Quali offerte e dimensioni della Cache Redis è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
@@ -291,7 +290,7 @@ Le impostazioni della sezione **Amministrazione** consentono di eseguire le atti
 ![Amministrazione](./media/cache-configure/redis-cache-administration.png)
 
 * [Importa dati](#importexport)
-* [Esportazione dei dati](#importexport)
+* [Esporta dati](#importexport)
 * [Reboot](#reboot)
 
 
@@ -307,14 +306,14 @@ L'esportazione consente di esportare in i file RDB compatibili con Redis i dati 
 >
 >
 
-### <a name="reboot"></a>Riavvio
+### <a name="reboot"></a>Reboot
 Il pannello **Riavvia** consente di riavviare i nodi della cache. La funzionalità di riavvio consente di testare la resilienza dell'applicazione in presenza di un errore di un nodo della cache.
 
-![Riavvio](./media/cache-configure/redis-cache-reboot.png)
+![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
-![Riavvio](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot**(Riavvia). Se si dispone di una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Reboot**(Riavvia). Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
@@ -356,7 +355,7 @@ Le impostazioni nella sezione **Supporto e risoluzione dei problemi** forniscono
 
 ![Supporto e risoluzione dei problemi](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
-* [Integrità risorse](#resource-health)
+* [Integrità delle risorse](#resource-health)
 * [Nuova richiesta di supporto](#new-support-request)
 
 ### <a name="resource-health"></a>Resource Health
@@ -394,7 +393,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i valori predefini
 | `maxmemory-samples` |3 |Per risparmiare memoria, gli algoritmi LRU e TTL minimo sono algoritmi approssimativi anziché precisi. Per impostazione predefinita Redis controlla tre chiavi e sceglie quella usata meno di recente. |
 | `lua-time-limit` |5\.000 |Tempo massimo di esecuzione di uno script Lua in millisecondi. Se viene raggiunto il tempo massimo di esecuzione, Redis registra che uno script è ancora in esecuzione dopo il tempo massimo consentito e inizia a rispondere alle query con un errore. |
 | `lua-event-limit` |500 |Dimensione massima della coda di eventi di script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per ulteriori informazioni, vedere [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per altre informazioni, vedere [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>Il limite per `databases` è diverso per ogni piano tariffario di Cache Redis di Azure e può essere impostato durante la creazione della cache. Se durante la creazione della cache non viene specificata alcuna impostazione `databases` , il valore predefinito è 16.
@@ -461,14 +460,14 @@ Per altre informazioni sui database SQL di Azure, vedere [What are Redis databas
 >
 >
 
-Per ulteriori informazioni sui comandi di redis, [https://redis.io/commands](https://redis.io/commands)vedere.
+Per ulteriori informazioni sui comandi di redis, vedere [https://redis.io/commands](https://redis.io/commands) .
 
 ## <a name="redis-console"></a>Console Redis
 È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **console Redis** disponibile nel portale di Azure per tutti i piani della cache.
 
 > [!IMPORTANT]
 > - La Console Redis non funziona con [VNET](cache-how-to-premium-vnet.md). Quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache. Poiché la Console Redis viene eseguita nel browser locale, che si trova esternamente alla rete virtuale, non può connettersi alla cache.
-> - Non tutti i comandi di Redis sono supportati in Cache Redis di Azure. Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere la sezione precedente [Comandi di Redis non supportati in Cache Redis di Azure](#redis-commands-not-supported-in-azure-cache-for-redis). Per ulteriori informazioni sui comandi di redis, [https://redis.io/commands](https://redis.io/commands)vedere.
+> - Non tutti i comandi di Redis sono supportati in Cache Redis di Azure. Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere la sezione precedente [Comandi di Redis non supportati in Cache Redis di Azure](#redis-commands-not-supported-in-azure-cache-for-redis). Per ulteriori informazioni sui comandi di redis, vedere [https://redis.io/commands](https://redis.io/commands) .
 >
 >
 

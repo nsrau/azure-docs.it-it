@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometeo, Aro, OpenShift, metriche, Red Hat
 ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80886889"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Distribuire un'istanza di Prometeo autonoma in un cluster Azure Red Hat OpenShift
@@ -30,7 +29,7 @@ I file di configurazione Prometheus verranno preparati localmente. Creare una nu
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Accedere al cluster usando lo strumento OC
 
-1. Aprire un Web browser e quindi passare alla console Web del cluster (https://openshift.* ID casuale*. *Region*. azmosa.io).
+1. Aprire un Web browser e quindi passare alla console Web del cluster ( https://openshift .* ID casuale*. *Region*. azmosa.io).
 2. Accedere con le credenziali di Azure.
 3. Selezionare il nome utente nell'angolo in alto a destra e quindi selezionare **copia login comando**.
 4. Incollare il nome utente nel terminale che verrà usato.
@@ -49,7 +48,7 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> È possibile usare il `-n` parametro o `--namespace` oppure selezionare un progetto attivo eseguendo il `oc project` comando.
+> È possibile usare il `-n` parametro o oppure `--namespace` selezionare un progetto attivo eseguendo il `oc project` comando.
 
 ## <a name="prepare-the-prometheus-configuration-file"></a>Preparare il file di configurazione Prometheus
 Per creare un file Prometheus. yml, immettere il contenuto seguente:
@@ -118,10 +117,10 @@ https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometh
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
-Il file Prometheus-standalone. YAML è un modello OpenShift. Verrà creata un'istanza di Prometeo con OAuth-proxy davanti a essa e un'istanza di Alertmanager, anche protetta con OAuth-proxy. In questo modello, OAuth-proxy è configurato per consentire a qualsiasi utente che può "ottenere" lo spazio dei nomi Prometheus-Project `-openshift-sar` (vedere il flag).
+Il file Prometheus-standalone. YAML è un modello OpenShift. Verrà creata un'istanza di Prometeo con OAuth-proxy davanti a essa e un'istanza di Alertmanager, anche protetta con OAuth-proxy. In questo modello, OAuth-proxy è configurato per consentire a qualsiasi utente che può "ottenere" lo spazio dei nomi Prometheus-Project (vedere il `-openshift-sar` flag).
 
 > [!NOTE]
-> Per verificare se il StatefulSet di Prom ha le repliche dei numeri DESIDERAte e correnti `oc get statefulset -n prometheus-project` uguali, eseguire il comando. Per controllare tutte le risorse del progetto, eseguire il `oc get all -n prometheus-project` comando.
+> Per verificare se il StatefulSet di Prom ha le repliche dei numeri DESIDERAte e correnti uguali, eseguire il `oc get statefulset -n prometheus-project` comando. Per controllare tutte le risorse del progetto, eseguire il `oc get all -n prometheus-project` comando.
 
 ## <a name="add-permissions-to-allow-service-discovery"></a>Aggiungere autorizzazioni per consentire l'individuazione del servizio
 
@@ -178,11 +177,11 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 ```
 
 > [!NOTE]
-> Per verificare che i ruoli e i ruoli siano stati creati correttamente, `oc get role` eseguire `oc get rolebinding` i comandi e.
+> Per verificare che i ruoli e i ruoli siano stati creati correttamente, eseguire i `oc get role` `oc get rolebinding` comandi e.
 
 ## <a name="optional-deploy-example-application"></a>Facoltativo: distribuire un'applicazione di esempio
 
-Tutto funziona, ma non sono presenti fonti di metriche. Passare all'URL Prometeo (https://prom-prometheus-project.apps.* ID casuale*. *Region*. azmosa.io/). È possibile trovarlo usando il comando seguente:
+Tutto funziona, ma non sono presenti fonti di metriche. Passare all'URL Prometeo ( https://prom-prometheus-project.apps .* ID casuale*. *Region*. azmosa.io/). È possibile trovarlo usando il comando seguente:
 
 ```
 oc get route prom -n prometheus-project
@@ -200,7 +199,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 Le nuove applicazioni dovrebbero essere visualizzate come destinazioni valide nella pagina Individuazione servizio entro 30 secondi dopo la distribuzione.
 
-Per altri dettagli, selezionare **Status** > **destinazioni**di stato.
+Per altri dettagli, selezionare **Status**  >  **destinazioni**di stato.
 
 > [!NOTE]
 > Per ogni destinazione ricavata correttamente, Prometeo aggiunge un punto dati nella metrica in alto. Selezionare **Prometheus** nell'angolo superiore sinistro **, immettere come** espressione, quindi selezionare **Execute (Esegui**).

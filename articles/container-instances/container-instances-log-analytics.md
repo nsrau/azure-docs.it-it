@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: danlep
 ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892394"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze e gruppi di contenitori con i log di monitoraggio di Azure
@@ -28,7 +27,7 @@ Le sezioni seguenti descrivono come creare un gruppo di contenitori abilitato pe
 
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
-* [Area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Ottenere le credenziali di Log Analytics
@@ -39,10 +38,10 @@ Per ottenere l'ID e la chiave primaria dell'area di lavoro Log Analytics:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
 1. In **Impostazioni**selezionare **Impostazioni avanzate**
-1. Selezionare **origini** > connesse**server Windows** (o **server Linux**--l'ID e le chiavi sono uguali per entrambi)
+1. Selezionare **origini connesse**  >  **server Windows** (o **server Linux**--l'ID e le chiavi sono uguali per entrambi)
 1. Prendere nota di:
    * **ID AREA DI LAVORO**
-   * **PRIMARY KEY**
+   * **CHIAVE PRIMARIA**
 
 ## <a name="create-container-group"></a>Creare un gruppo di contenitori
 
@@ -153,7 +152,7 @@ ContainerInstanceLog_CL
 
 Per altre informazioni sull'esecuzione di query sui log e la configurazione di avvisi nei log di Monitoraggio di Azure, vedere:
 
-* [Informazioni sulle ricerche nei log di Monitoraggio di Azure](../log-analytics/log-analytics-log-search.md)
+* [Informazioni sulle ricerche nei log nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-search.md)
 * [Avvisi unificati in Monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md)
 
 

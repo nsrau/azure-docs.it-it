@@ -4,10 +4,9 @@ description: Azure Service Fabric consente di specificare limiti di risorse per 
 ms.topic: conceptual
 ms.date: 8/9/2017
 ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81115137"
 ---
 # <a name="resource-governance"></a>Governance delle risorse
@@ -23,7 +22,7 @@ In Service Fabric la governance delle risorse è supportata in base al [pacchett
 
 * *CPU* (nome della metrica `servicefabric:/_CpuCores`): core logico disponibile sul computer host. Tutti i core in tutti i nodi hanno lo stesso peso.
 
-* *Memoria* (nome `servicefabric:/_MemoryInMB`della metrica): la memoria è espressa in megabyte e viene mappata alla memoria fisica disponibile nel computer.
+* *Memoria* (nome `servicefabric:/_MemoryInMB` della metrica): la memoria è espressa in megabyte e viene mappata alla memoria fisica disponibile nel computer.
 
 Per queste due metriche, [Cluster Resource Manager](service-fabric-cluster-resource-manager-cluster-description.md) rileva la capacità totale del cluster, il carico presente su ciascun nodo e le restanti risorse del cluster. Queste due metriche sono equivalenti a qualsiasi altra metrica utente o personalizzata. Possono essere usate tutte le funzionalità esistenti:
 
@@ -206,7 +205,7 @@ Per evitare che si verifichino queste situazioni, Service Fabric consente di *i
 
 Osservazioni aggiuntive:
 
-* L'imposizione del `servicefabric:/_CpuCores` limite di risorse si applica solo `servicefabric:/_MemoryInMB` alle metriche delle risorse e
+* L'imposizione del limite di risorse si applica solo alle `servicefabric:/_CpuCores` `servicefabric:/_MemoryInMB` metriche delle risorse e
 * L'imposizione del limite di risorse funziona solo se le capacità del nodo per le metriche delle risorse sono disponibili per Service Fabric, tramite il meccanismo di rilevamento automatico o tramite gli utenti che specificano manualmente le capacità dei nodi, come illustrato nella sezione [configurazione del cluster per l'abilitazione della governance delle risorse](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) .Se le capacità del nodo non sono configurate, non è possibile usare la funzionalità di imposizione del limite di risorse perché Service Fabric non è in grado di conoscere la quantità di risorse da riservare per i servizi utente.Service Fabric genererà un avviso di integrità se "EnforceUserServiceMetricCapacities" è true, ma le capacità del nodo non sono configurate.
 
 ## <a name="other-resources-for-containers"></a>Altre risorse per i contenitori

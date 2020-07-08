@@ -6,10 +6,9 @@ ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811690"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Usare un certificato TLS/SSL nel codice nel Servizio app di Azure
@@ -29,7 +28,7 @@ Per completare questa guida pratica:
 
 ## <a name="find-the-thumbprint"></a>Trovare l'identificazione personale
 
-Nel menu a sinistra del <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<nome app>** .
+Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a>scegliere **Servizi app**dal menu a sinistra  >  **\<app-name>** .
 
 Dall'area di spostamento a sinistra dell'app selezionare **Impostazioni TLS/SSL**, quindi selezionare **certificati di chiave privata (con estensione pfx)** o **certificati di chiave pubblica (. cer)**.
 
@@ -39,13 +38,13 @@ Individuare il certificato che si vuole usare e copiare l'identificazione person
 
 ## <a name="make-the-certificate-accessible"></a>Rendere accessibile il certificato
 
-Per accedere a un certificato nel codice dell'app, aggiungere l'identificazione personale `WEBSITE_LOAD_CERTIFICATES` all'impostazione dell'app, eseguendo il comando seguente nella <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>:
+Per accedere a un certificato nel codice dell'app, aggiungere l'identificazione personale all' `WEBSITE_LOAD_CERTIFICATES` impostazione dell'app, eseguendo il comando seguente nella <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
 ```
 
-Per rendere accessibili tutti i certificati, impostare il valore su `*`.
+Per rendere accessibili tutti i certificati, impostare il valore su `*` .
 
 ## <a name="load-certificate-in-windows-apps"></a>Caricare il certificato nelle app di Windows
 
@@ -128,7 +127,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Per informazioni su come caricare un certificato TLS/SSL da un file in node. js, PHP, Python, Java o Ruby, vedere la documentazione relativa alla rispettiva lingua o piattaforma Web.
+Per informazioni su come caricare un certificato TLS/SSL da un file in Node.js, PHP, Python, Java o Ruby, vedere la documentazione relativa alla rispettiva lingua o piattaforma Web.
 
 ## <a name="load-certificate-from-file"></a>Carica certificato da file
 
@@ -157,7 +156,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Per informazioni su come caricare un certificato TLS/SSL da un file in node. js, PHP, Python, Java o Ruby, vedere la documentazione relativa alla rispettiva lingua o piattaforma Web.
+Per informazioni su come caricare un certificato TLS/SSL da un file in Node.js, PHP, Python, Java o Ruby, vedere la documentazione relativa alla rispettiva lingua o piattaforma Web.
 
 ## <a name="more-resources"></a>Altre risorse
 

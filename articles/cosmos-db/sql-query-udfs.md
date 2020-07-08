@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81011124"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funzioni definite dall'utente (UDF) in Azure Cosmos DB
@@ -26,13 +25,13 @@ Con le funzioni definite dall'utente è possibile estendere il linguaggio di que
 Tuttavia, è consigliabile evitare le UDF nei casi seguenti:
 
 - Esiste già una [funzione di sistema](sql-query-system-functions.md) equivalente in Azure Cosmos DB. Le funzioni di sistema utilizzeranno sempre un minor numero di ur rispetto alla funzione definita dall'utente equivalente.
-- La funzione definita dall'utente è l'unico `WHERE` filtro nella clausola della query. Le funzioni UDF non utilizzano l'indice, pertanto la valutazione della funzione definita dall'utente richiede il caricamento di documenti. La combinazione di predicati di filtro aggiuntivi che utilizzano l'indice, in combinazione con una `WHERE` funzione definita dall'utente, nella clausola ridurrà il numero di documenti elaborati dalla funzione definita dall'utente.
+- La funzione definita dall'utente è l'unico filtro nella `WHERE` clausola della query. Le funzioni UDF non utilizzano l'indice, pertanto la valutazione della funzione definita dall'utente richiede il caricamento di documenti. La combinazione di predicati di filtro aggiuntivi che utilizzano l'indice, in combinazione con una funzione definita dall'utente, nella `WHERE` clausola ridurrà il numero di documenti elaborati dalla funzione definita dall'utente.
 
 Se è necessario utilizzare la stessa funzione UDF più volte in una query, è necessario fare riferimento alla funzione definita dall'utente in una [sottoquery](sql-query-subquery.md#evaluate-once-and-reference-many-times), consentendo di utilizzare un'espressione di join per valutare la funzione definita dall'utente una volta, ma fare riferimento più volte.
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene registrata una funzione definita dall'utente in un contenitore di elementi nel database Cosmos. Nell'esempio viene creata una funzione definita dall' `REGEX_MATCH`utente il cui nome è. Accetta due valori stringa JSON, `input` e `pattern`e controlla se il primo corrisponde al modello specificato nel secondo usando la funzione di `string.match()` JavaScript.
+Nell'esempio seguente viene registrata una funzione definita dall'utente in un contenitore di elementi nel database Cosmos. Nell'esempio viene creata una funzione definita dall'utente il cui nome è `REGEX_MATCH` . Accetta due valori stringa JSON, `input` e e `pattern` Controlla se il primo corrisponde al modello specificato nel secondo usando la funzione di JavaScript `string.match()` .
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -48,7 +47,7 @@ Nell'esempio seguente viene registrata una funzione definita dall'utente in un c
            regexMatchUdf).Result;  
 ```
 
-A questo punto, usare questa funzione definita dall'utente in una proiezione di query. È necessario qualificare le funzioni definite dall'utente con `udf.` il prefisso con distinzione tra maiuscole e minuscole quando vengono chiamate da query.
+A questo punto, usare questa funzione definita dall'utente in una proiezione di query. È necessario qualificare le funzioni definite dall'utente con il prefisso con distinzione tra maiuscole e minuscole `udf.` quando vengono chiamate da query.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
@@ -68,7 +67,7 @@ I risultati sono:
     ]
 ```
 
-È possibile usare la funzione definita dall'utente `udf.` qualificata con il prefisso all'interno di un filtro, come nell'esempio seguente:
+È possibile usare la funzione definita dall'utente qualificata con il `udf.` prefisso all'interno di un filtro, come nell'esempio seguente:
 
 ```sql
     SELECT Families.id, Families.address.city

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7950b3f584c36b68a4eff66b05e83ba94c1ec1dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114358"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Modificare la preferenza della API degli avvisi di Log Alerts
@@ -50,7 +49,7 @@ Gli effetti della commutazione delle preferenze API scheduledQueryRules sono i s
 Il processo di estensione degli avvisi da [API legacy degli avvisi di Log Analytics](api-alerts.md) non comporta la modifica della definizione, della query o della configurazione degli avvisi. Le regole di avviso e il monitoraggio non sono interessati e gli avvisi non vengono arrestati o bloccati, durante o dopo l'opzione. Le uniche modifiche sono:
 
 - Una modifica alle preferenze dell'API e all'accesso alle regole tramite una nuova API.
-- URI di risorsa della regola di avviso modificato contenente gli ID usati nell' [API log Analytics Alert legacy](api-alerts.md) anziché il nome della regola di avviso in `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`questa struttura. Il nome visualizzato della regola di avviso rimarrà invariato.
+- URI di risorsa della regola di avviso modificato contenente gli ID usati nell' [API log Analytics Alert legacy](api-alerts.md) anziché il nome della regola di avviso in questa struttura `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Il nome visualizzato della regola di avviso rimarrà invariato.
 
 Qualsiasi cliente che desideri passare volontariamente al nuovo [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloccare l'uso dalla [API legacy degli avvisi relativi a Log Analytics](api-alerts.md) può farlo effettuando una chiamata PUT sull'API per cambiare tutte le regole relative agli avvisi associate all'area di lavoro specifica di Log Analytics.
 

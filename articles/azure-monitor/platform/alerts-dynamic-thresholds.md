@@ -6,10 +6,9 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261075"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi relativi alle metriche con soglie dinamiche in monitoraggio di Azure
@@ -127,7 +126,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 8. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti.
 
-9. Fare clic su **Fine**.
+9. Fare clic su **Done**.
 
 10. Compilare **Dettagli avviso**, ad esempio **Nome regola di avviso**, **Descrizione** e **Gravità**.
 
@@ -162,7 +161,7 @@ Di seguito sono illustrate le procedure consigliate per configurare gli avvisi p
 
 8. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti.
 
-9. Fare clic su **Fine**.
+9. Fare clic su **Done**.
 
 10. Compilare **Dettagli avviso**, ad esempio **Nome regola di avviso**, **Descrizione** e **Gravità**.
 

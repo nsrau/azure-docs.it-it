@@ -4,10 +4,9 @@ description: Per ottenere risposte alle domande comuni sul ripristino di emergen
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259511"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti sulla replica da VMware ad Azure
@@ -282,7 +281,7 @@ Sì, ma si noti che è possibile eseguire il failback del computer fisico solo i
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Dove è possibile scaricare le chiavi di registrazione dell'insieme di credenziali?
 
-Nell'insieme di credenziali di servizi di ripristino selezionare **server di configurazione** in **Site Recovery infrastruttura** > **Gestisci**. Quindi, in **Server**selezionare **Scarica chiave di registrazione** per scaricare il file dell'insieme di credenziali.
+Nell'insieme di credenziali di servizi di ripristino selezionare **server di configurazione** in **Site Recovery infrastruttura**  >  **Gestisci**. Quindi, in **Server**selezionare **Scarica chiave di registrazione** per scaricare il file dell'insieme di credenziali.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>È possibile usare un singolo server di configurazione per proteggere più istanze di vCenter?
 

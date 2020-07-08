@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80981308"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
@@ -118,7 +117,7 @@ Un Gateway Desktop remoto è un servizio proxy RDP basato su criteri che applica
 ## <a name="security-guidelines"></a>Linee guida sulla sicurezza
 In genere, la configurazione della sicurezza delle workstation dell'amministratore per l'uso con il cloud è simile alle procedure usate per qualsiasi workstation locale, ad esempio compilazione ridotta al minimo e autorizzazioni restrittive. Alcuni aspetti unici della gestione cloud sono più simili alla gestione remota o alla gestione aziendale fuori banda, ad esempio l'uso e il controllo delle credenziali, l'accesso remoto con sicurezza avanzata e il rilevamento e la risposta alle minacce.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 È possibile usare le restrizioni di accesso di Azure per impedire agli indirizzi IP di origine di accedere agli strumenti amministrativi e controllare le richieste di accesso. Per consentire ad Azure di identificare i client di gestione (workstation e/o applicazioni), è possibile configurare entrambi SMAPI (tramite strumenti sviluppati dal cliente, ad esempio i cmdlet di Windows PowerShell) e il portale di Azure per richiedere l'installazione di certificati di gestione lato client, oltre ai certificati TLS/SSL. È anche consigliabile che l'accesso amministratore richieda l'autenticazione a più fattori.
 
 Alcune applicazioni o alcuni servizi distribuiti in Azure possono avere meccanismi di autenticazione specifici per l'accesso degli utenti finali e degli amministratori, mentre altri sfruttano tutte le funzionalità di Azure AD. Indipendentemente dalla federazione di credenziali tramite Active Directory Federation Services (AD FS), dall'uso della sincronizzazione delle directory o dalla gestione degli account utente esclusivamente nel cloud, l'uso di [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx), incluso in Azure AD Premium, semplifica la gestione dei cicli di vita delle identità tra le risorse.
@@ -171,10 +170,10 @@ La macchina virtuale del computer aziendale è in esecuzione in uno spazio prote
 ## <a name="best-practices"></a>Procedure consigliate
 Prendere in considerazione le linee guida aggiuntive seguenti quando si gestiscono le applicazioni e i dati in Azure.
 
-### <a name="dos-and-donts"></a>Procedure rischiose e procedure consigliate
+### <a name="dos-and-donts"></a>Cosa fare e cosa non fare
 Occorre non presupporre che il blocco di una workstation renda superflui gli altri requisiti comuni per la sicurezza. Il rischio potenziale risulta maggiore a causa dei livelli di accesso con privilegi elevati associati in genere agli account di amministratore. La tabella seguente illustra esempi di rischi e le procedure consigliate alternative.
 
-| Cosa non fare | Cosa fare |
+| Cosa non fare | Do |
 | --- | --- |
 | Non inviare tramite posta elettronica le credenziali per l'accesso amministratore o altri segreti, ad esempio TLS/SSL o certificati di gestione |Mantenere la riservatezza comunicando a voce i nomi e le password degli account, ma non memorizzandoli nella posta vocale, eseguire un'installazione remota di certificati client/server (tramite una sessione crittografata), eseguire il download da una condivisione di rete crittografata oppure eseguire la distribuzione manuale tramite un supporto rimovibile. |
 | - | Gestire in modo proattivo i cicli di vita del certificati di gestione. |
@@ -206,7 +205,7 @@ La riduzione al minimo del numero di attività che gli amministratori possono es
 * Crittografia. Assicurarsi che le workstation di gestione abbiano un TPM per abilitare in modo più sicuro [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) e BitLocker.
 * Governance. Usare gli oggetti Criteri di gruppo di Active Directory Domain Services per controllare tutte le interfacce amministrative di Windows, ad esempio la condivisione di file. Includere le workstation di gestione nei processi di controllo, monitoraggio e registrazione. Tenere traccia di tutti gli accessi e gli utilizzi di amministratori e sviluppatori.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 L'uso di una configurazione di workstation con protezione avanzata per l'amministrazione dei servizi cloud di Azure, delle macchine virtuali e delle applicazione può contribuire a evitare numerosi rischi e minacce derivanti dalla gestione remota dell'infrastruttura IT essenziale. Azure e Windows offrono meccanismi utili per semplificare la protezione e il controllo di comunicazioni, autenticazione e comportamento del client.
 
 ## <a name="next-steps"></a>Passaggi successivi

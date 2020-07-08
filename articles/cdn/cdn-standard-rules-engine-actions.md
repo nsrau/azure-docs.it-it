@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259953"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Azioni nel motore delle regole standard per la rete CDN di Azure
@@ -38,7 +37,7 @@ Imposta se mancante | Quando questa opzione è selezionata e la regola corrispon
 
 #### <a name="additional-fields"></a>Campi aggiuntivi
 
-Days | Ore | Minuti | Secondi
+Giorni | Ore | Minuti | Secondi
 -----|-------|---------|--------
 Int | Int | Int | Int 
 
@@ -63,9 +62,9 @@ Usare questa azione per modificare le intestazioni presenti nelle richieste invi
 
 Action | Nome intestazione HTTP | valore
 -------|------------------|------
-Accoda | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore viene aggiunto al valore esistente. | Stringa
-Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore specificato sovrascrive il valore esistente. | Stringa
-Elimina | Quando questa opzione è selezionata, la regola corrisponde a e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla richiesta. | Stringa
+Accoda | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore viene aggiunto al valore esistente. | string
+Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore specificato sovrascrive il valore esistente. | string
+Elimina | Quando questa opzione è selezionata, la regola corrisponde a e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla richiesta. | string
 
 ### <a name="modify-response-header"></a>Modifica intestazione risposta
 
@@ -75,9 +74,9 @@ Usare questa azione per modificare le intestazioni presenti nelle risposte resti
 
 Action | Nome intestazione HTTP | valore
 -------|------------------|------
-Accoda | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla risposta usando il **valore**specificato. Se l'intestazione è già presente, il **valore** viene aggiunto al valore esistente. | Stringa
-Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla risposta usando il **valore**specificato. Se l'intestazione è già presente, il **valore** sovrascrive il valore esistente. | Stringa
-Elimina | Quando questa opzione è selezionata, la regola corrisponde a e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla risposta. | Stringa
+Accoda | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla risposta usando il **valore**specificato. Se l'intestazione è già presente, il **valore** viene aggiunto al valore esistente. | string
+Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla risposta usando il **valore**specificato. Se l'intestazione è già presente, il **valore** sovrascrive il valore esistente. | string
+Elimina | Quando questa opzione è selezionata, la regola corrisponde a e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla risposta. | string
 
 ### <a name="url-redirect"></a>Reindirizzamento URL
 
@@ -90,7 +89,7 @@ Campo | Descrizione
 Type | Selezionare il tipo di risposta da restituire al richiedente: trovato (302), spostato (301), Reindirizzamento temporaneo (307) e Reindirizzamento permanente (308).
 Protocollo | Request match, HTTP, HTTPS.
 nomehost | Selezionare il nome host a cui si desidera reindirizzare la richiesta. Lasciare vuoto per mantenere l'host in ingresso.
-Path | Definire il percorso da usare nel reindirizzamento. Lasciare vuoto per conservare il percorso in arrivo.  
+Percorso | Definire il percorso da usare nel reindirizzamento. Lasciare vuoto per conservare il percorso in arrivo.  
 Stringa di query | Definire la stringa di query utilizzata nel reindirizzamento. Lasciare vuoto per mantenere la stringa di query in ingresso. 
 Frammento | Definire il frammento da usare nel reindirizzamento. Lasciare vuoto per conservare il frammento in ingresso. 
 
@@ -104,7 +103,7 @@ Usare questa azione per riscrivere il percorso di una richiesta che viene indiri
 
 Campo | Descrizione 
 ------|------------
-Modello di origine | Definire il modello di origine nel percorso URL da sostituire. Attualmente, il modello di origine usa una corrispondenza basata sul prefisso. Per trovare la corrispondenza con tutti i percorsi URL, usare**/** una barra () come valore del modello di origine.
+Modello di origine | Definire il modello di origine nel percorso URL da sostituire. Attualmente, il modello di origine usa una corrispondenza basata sul prefisso. Per trovare la corrispondenza con tutti i percorsi URL, usare una barra ( **/** ) come valore del modello di origine.
 Destination | Definire il percorso di destinazione da utilizzare nella riscrittura. Il percorso di destinazione sovrascrive il modello di origine.
 Mantieni percorso senza corrispondenza | Se impostato su **Sì**, il percorso rimanente dopo il modello di origine viene aggiunto al nuovo percorso di destinazione. 
 
@@ -112,5 +111,5 @@ Mantieni percorso senza corrispondenza | Se impostato su **Sì**, il percorso ri
 
 - [Panoramica della rete CDN di Azure](cdn-overview.md)
 - [Informazioni di riferimento sul motore regole standard](cdn-standard-rules-engine-reference.md)
-- [Condizioni di corrispondenza nel motore regole standard](cdn-standard-rules-engine-match-conditions.md)
+- [Condizioni di corrispondenza del motore regole standard](cdn-standard-rules-engine-match-conditions.md)
 - [Applicare HTTPS usando il motore regole standard](cdn-standard-rules-engine.md)

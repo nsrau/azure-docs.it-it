@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80884869"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
@@ -20,7 +19,7 @@ Per il funzionamento della replica di Site Recovery, è necessaria la connettivi
 
 | URL | Dettagli |
 |---|---|
-| `*.blob.core.windows.net` | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile usare un elenco Consenti per gli URL specifici dell'account di archiviazione. Ad esempio, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` anziché `*.blob.core.windows.net`. |
+| `*.blob.core.windows.net` | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile usare un elenco Consenti per gli URL specifici dell'account di archiviazione. Ad esempio, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` anziché `*.blob.core.windows.net` . |
 | `login.microsoftonline.com` | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery. |
 | `*.hypervrecoverymanager.windowsazure.com` | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare l' _IP Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
 | `*.servicebus.windows.net` | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. È possibile usare l' _indirizzo IP di monitoraggio Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
@@ -51,7 +50,7 @@ Provare ad accedere al server DNS dalla macchina virtuale. Se il server DNS non 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: La configurazione di Site Recovery non è riuscita (151196)
 
 > [!NOTE]
-> Se le macchine virtuali si trovano dietro un servizio di bilanciamento del carico interno **standard** , per impostazione predefinita non avrà accesso agli indirizzi IP di `login.microsoftonline.com`Office 365, ad esempio. Impostarlo sul tipo di servizio di bilanciamento del carico interno di **base** o creare un accesso in uscita come indicato nell'articolo [configurare le regole di bilanciamento del carico e in uscita in Load Balancer standard usando l'interfaccia della](/azure/load-balancer/configure-load-balancer-outbound-cli)riga di comando di Azure.
+> Se le macchine virtuali si trovano dietro un servizio di bilanciamento del carico interno **standard** , per impostazione predefinita non avrà accesso agli indirizzi IP di Office 365, ad esempio `login.microsoftonline.com` . Impostarlo sul tipo di servizio di bilanciamento del carico interno di **base** o creare un accesso in uscita come indicato nell'articolo [configurare le regole di bilanciamento del carico e in uscita in Load Balancer standard usando l'interfaccia della](/azure/load-balancer/configure-load-balancer-outbound-cli)riga di comando di Azure.
 
 #### <a name="possible-cause"></a>Possibile causa
 
@@ -82,7 +81,7 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 1. Creare le regole in uscita della porta HTTPS 443 per gli IP Site Recovery che corrispondono alla posizione di destinazione:
 
-   | Percorso | Indirizzo IP di Site Recovery | Indirizzo IP di monitoraggio di Site Recovery |
+   | Location | Indirizzo IP di Site Recovery | Indirizzo IP di monitoraggio di Site Recovery |
    | --- | --- | --- |
    | Stati Uniti centrali | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +101,7 @@ Per questo esempio, queste regole NSG sono necessarie in modo che la replica pos
 
 1. Creare le regole in uscita della porta HTTPS 443 per gli IP Site Recovery che corrispondono alla posizione di origine:
 
-   | Percorso | Indirizzo IP di Site Recovery | Indirizzo IP di monitoraggio di Site Recovery |
+   | Location | Indirizzo IP di Site Recovery | Indirizzo IP di monitoraggio di Site Recovery |
    | --- | --- | --- |
    | Stati Uniti orientali | 13.82.88.226 | 104.45.147.24 |
 
@@ -124,7 +123,7 @@ Le impostazioni proxy personalizzate non sono valide e l'agente del servizio di 
 
 #### <a name="resolution"></a>Soluzione
 
-1. L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer in `/etc/environment` Windows e in Linux.
+1. L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer in Windows e `/etc/environment` in Linux.
 1. Se si preferisce impostare il proxy solo per Azure Site Recovery servizio Mobility, è possibile specificare i dettagli del proxy in _ProxyInfo. conf_ disponibile all'indirizzo:
 
    - **Linux**:`/usr/local/InMage/config/`

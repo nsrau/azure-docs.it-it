@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: allensu
 ms.openlocfilehash: a5f3f8dbb83b23fc16fd1225e5a9cbeab16b9576
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81260242"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Località POP della rete CDN di Azure per abbreviazione
@@ -30,7 +29,7 @@ ms.locfileid: "81260242"
 
 Questo articolo elenca le località POP ordinate in base all'abbreviazione POP per la **rete CDN di Azure da Verizon**.
 
-Abbreviazione | Percorso | Region
+Abbreviazione | Location | Region
 | --- | --- | --- |
 AGA | Atlanta, Georgia, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 AGB | Atlanta, Georgia, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
@@ -41,7 +40,7 @@ AMS | Amsterdam, Paesi Bassi | Europa
 ARN | Stoccolma, Svezia | Europa
 ATL | Atlanta, Georgia, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 BAQ | Barranquilla, Colombia | America Latina
-BLR | Bengaluru (Bangalore), India | Asia
+BLR | Bangalore, India | Asia
 BNJ | Newark, New Jersey, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 BOS | Boston, Massachusetts, Stati Uniti | America del Nord: costa orientale degli Stati Uniti
 BTH | Batam, Indonesia | Asia

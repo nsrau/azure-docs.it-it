@@ -12,10 +12,9 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991570"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Spostare dati da un'origine HTTP tramite Azure Data Factory
@@ -102,8 +101,8 @@ Per usare l'autenticazione di base, impostare **authenticationType** su **Client
 Se si usa **certThumbprint** per l'autenticazione e il certificato è installato nell'archivio personale del computer locale, è necessario concedere autorizzazioni di lettura per il servizio gateway:
 
 1. Aprire Microsoft Management Console (MMC). Aggiungere lo snap-in **Certificati** con **Computer locale** come destinazione.
-2. Espandere **Certificates** > **Personal**, quindi selezionare **Certificates**.
-3. Fare clic con il pulsante destro del mouse sul certificato nell'archivio personale, quindi selezionare **tutte le attività** >**Gestisci chiavi private**.
+2. Espandere **Certificates**  >  **Personal**, quindi selezionare **Certificates**.
+3. Fare clic con il pulsante destro del mouse sul certificato nell'archivio personale, quindi selezionare **tutte le attività**  > **Gestisci chiavi private**.
 3. Nella scheda **Sicurezza** aggiungere l'account utente in cui è in esecuzione il servizio host di Gateway di gestione dati con l'accesso in lettura al certificato.  
 
 **Esempio: Uso di un certificato client**

@@ -13,10 +13,9 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881078"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Procedura: risolvere i problemi relativi a MSAL per iOS e macOS TLS/SSL
@@ -27,7 +26,7 @@ Questo articolo fornisce informazioni utili per la risoluzione dei problemi che 
 
 **Errore-1200**: "si è verificato un errore SSL e non è possibile effettuare una connessione protetta al server".
 
-Questo errore indica che la connessione non è protetta. Si verifica quando un certificato non è valido. Per ulteriori informazioni, tra cui il server che non ha superato il controllo TLS `NSURLErrorFailingURLErrorKey` , fare `userInfo` riferimento a nel dizionario dell'oggetto Error.
+Questo errore indica che la connessione non è protetta. Si verifica quando un certificato non è valido. Per ulteriori informazioni, tra cui il server che non ha superato il controllo TLS, fare riferimento a `NSURLErrorFailingURLErrorKey` nel `userInfo` dizionario dell'oggetto Error.
 
 Questo errore è stato dalla libreria di rete di Apple. Un elenco completo dei codici di errore NSURL si trova in NSURLError. h negli SDK macOS e iOS. Per ulteriori informazioni su questo errore, vedere [codici di errore del sistema di caricamento degli URL](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc).
 

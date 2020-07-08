@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 672f145b638fa6b85f7139f2edb4fc41bb2855d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81260973"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Come gestire gli account utente in Gestione API di Azure
@@ -36,13 +35,13 @@ Completare le attività riportate in questo articolo: [Creare un'istanza di Gest
 Per aggiungere un nuovo utente, eseguire la procedura in questa sezione:
 
 1. Selezionare la scheda **Utenti** a sinistra della schermata.
-2. Premere **+ Aggiungi**.
+2. Premere **+Aggiungi**.
 3. Immettere le informazioni appropriate per l'utente.
-4. Fare clic su **Aggiungi**.
+4. Premere **Aggiungi**.
 
     ![Aggiungere un nuovo utente](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-Per impostazione predefinita, i nuovi account sviluppatore creati sono **attivi** e associati al gruppo **Sviluppatori**. Gli account sviluppatore con stato **attivo** possono essere usati per accedere a tutte le API per cui dispongono di sottoscrizioni. Per associare il nuovo sviluppatore creato ad altri gruppi, vedere [Come associare i gruppi agli sviluppatori][How to associate groups with developers].
+Per impostazione predefinita, gli account sviluppatore appena creati sono **attivi**e associati al gruppo **Developers** . Gli account per sviluppatori che si trovano in uno stato **attivo** possono essere usati per accedere a tutte le API per le quali hanno sottoscrizioni. Per associare il nuovo sviluppatore creato ad altri gruppi, vedere [Come associare i gruppi agli sviluppatori][How to associate groups with developers].
 
 ## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Invitare uno sviluppatore
 Per invitare uno sviluppatore, eseguire la procedura in questa sezione:

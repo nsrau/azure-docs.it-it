@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: dbe21d020d5d01f24913b95587721403fa218cc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881266"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocollo SAML per Single Sign-Out
@@ -66,9 +65,9 @@ Azure AD invia un elemento `LogoutResponse` in risposta a un elemento `LogoutReq
 Azure AD imposta i valori `ID`, `Version` e `IssueInstant` nell'elemento `LogoutResponse`. Imposta anche l'elemento `InResponseTo` sul valore dell'attributo `ID` dell'elemento `LogoutRequest` che ha provocato la risposta.
 
 ### <a name="issuer"></a>Issuer
-Azure AD imposta questo valore su `https://login.microsoftonline.com/<TenantIdGUID>/` dove \<TENANTIDGUID> è l'ID tenant del tenant di Azure ad.
+Azure AD imposta questo valore su `https://login.microsoftonline.com/<TenantIdGUID>/`, dove \<TenantIdGUID> è l'ID del tenant di Azure AD.
 
 Per valutare il valore dell'elemento `Issuer` usare il valore dell' **URI ID app** specificato durante la registrazione dell'applicazione.
 
 ### <a name="status"></a>Stato
-Azure AD usa l' `StatusCode` elemento nell' `Status` elemento per indicare l'esito positivo o negativo della disconnessione. Quando il tentativo di disconnessione ha esito `StatusCode` negativo, l'elemento può contenere anche messaggi di errore personalizzati.
+Azure AD usa l' `StatusCode` elemento nell' `Status` elemento per indicare l'esito positivo o negativo della disconnessione. Quando il tentativo di disconnessione ha esito negativo, l' `StatusCode` elemento può contenere anche messaggi di errore personalizzati.

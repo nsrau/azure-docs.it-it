@@ -14,10 +14,9 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80982600"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gestire le app e l'accesso alle risorse tramite i gruppi di Azure Active Directory
@@ -41,9 +40,9 @@ Azure AD consente di concedere l'accesso alle risorse dell'organizzazione fornen
 
 - **Assegnazione diretta.** Il proprietario della risorsa assegna direttamente l'utente alla risorsa.
 
-- **Assegnazione di gruppi.** Il proprietario della risorsa assegna un gruppo di Azure AD alla risorsa, concedendo automaticamente a tutti i membri del gruppo l'accesso alla risorsa. L'appartenenza al gruppo viene gestita sia dal proprietario del gruppo che dal proprietario della risorsa, consentendo a entrambi i proprietari di aggiungere o rimuovere i membri dal gruppo. Per altre informazioni sull'aggiunta o sulla rimozione dell'appartenenza al gruppo, vedere [Procedura: Aggiungere o rimuovere un gruppo da un altro gruppo usando il portale di Azure Active Directory](active-directory-groups-membership-azure-portal.md). 
+- **Assegnazione di gruppo.** Il proprietario della risorsa assegna un gruppo di Azure AD alla risorsa, concedendo automaticamente a tutti i membri del gruppo l'accesso alla risorsa. L'appartenenza al gruppo viene gestita sia dal proprietario del gruppo che dal proprietario della risorsa, consentendo a entrambi i proprietari di aggiungere o rimuovere i membri dal gruppo. Per altre informazioni sull'aggiunta o sulla rimozione dell'appartenenza al gruppo, vedere [Procedura: Aggiungere o rimuovere un gruppo da un altro gruppo usando il portale di Azure Active Directory](active-directory-groups-membership-azure-portal.md). 
 
-- **Assegnazione basata su regole.** Il proprietario della risorsa crea un gruppo e usa una regola per definire quali utenti vengono assegnati a una risorsa specifica. La regola è basata su attributi che vengono assegnati ai singoli utenti. Il proprietario della risorsa gestisce la regola, determinando quali attributi e valori sono necessari per consentire l'accesso alla risorsa. Per altre informazioni, vedere [Creare un gruppo dinamico e controllare lo stato](../users-groups-roles/groups-create-rule.md).
+- **Assegnazione basata su regole.** Il proprietario della risorsa crea un gruppo e usa una regola per definire quali utenti vengono assegnati a una risorsa specifica. La regola è basata su attributi che vengono assegnati ai singoli utenti. Il proprietario della risorsa gestisce la regola, determinando quali attributi e valori sono necessari per consentire l'accesso alla risorsa. Per ulteriori informazioni, vedere [creare un gruppo dinamico e verificare lo stato](../users-groups-roles/groups-create-rule.md).
 
     È anche possibile guardare questo breve video per una rapida spiegazione sulla creazione e l'uso di gruppi dinamici:
 

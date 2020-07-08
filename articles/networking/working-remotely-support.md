@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
 ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80982855"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Lavorare in remoto usando i servizi di rete di Azure
@@ -60,7 +59,7 @@ Azure dispone anche di un ampio set di partner di sistema eco. I nostri partner 
 
 I servizi di Azure seguenti consentono ai dipendenti di accedere alle risorse distribuite a livello globale. Le risorse possono trovarsi in qualsiasi area di Azure, in reti locali o anche in altri cloud pubblici o privati. 
 
-- **Peering di rete virtuale di Azure**: se le risorse vengono distribuite in più aree di Azure e/o se si aggrega la connettività dei dipendenti che lavorano in remoto usando più reti virtuali, è possibile stabilire la connettività tra più reti virtuali di Azure usando il peering di rete virtuale. Per altre informazioni, vedere [peering di rete virtuale][VNet-peer].
+- **Peering di rete virtuale di Azure**: se le risorse vengono distribuite in più aree di Azure e/o se si aggrega la connettività dei dipendenti che lavorano in remoto usando più reti virtuali, è possibile stabilire la connettività tra più reti virtuali di Azure usando il peering di rete virtuale. Per altre informazioni, vedere [Peering di rete virtuale][VNet-peer].
 
 - **Soluzione basata su VPN di Azure**: per i dipendenti remoti connessi ad Azure tramite la VPN P2S o S2S, è possibile abilitare l'accesso alle reti locali configurando la VPN S2S tra le reti locali e il gateway VPN di Azure. Per ulteriori informazioni, vedere [la pagina relativa alla creazione di una connessione da sito a sito][S2S].
 

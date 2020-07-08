@@ -1,5 +1,5 @@
 ---
-title: Campi di registrazione portale di Azure per app personalizzate
+title: Campi di registrazione del portale di Azure per app personalizzate
 description: Linee guida per la registrazione di un'applicazione sviluppata personalizzata con Azure AD
 services: active-directory
 author: rwike77
@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: c44575ca43063388d5c65855542cf15700d2cb5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80883169"
 ---
-# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campi di registrazione portale di Azure per app personalizzate
+# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campi di registrazione del portale di Azure per app personalizzate
 
 Questo articolo include una breve descrizione di tutti i campi disponibili nel modulo di registrazione dell'applicazione del [Portale di Azure](https://portal.azure.com).
 
@@ -47,7 +46,7 @@ Dopo aver compilato i campi sopra indicati, l'applicazione viene registrata nell
 | Campo           | Descrizione        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID applicazione  | Quando si registra un'applicazione, Azure AD assegna un ID all'applicazione. L'ID dell'applicazione può essere usato per identificare in modo univoco l'applicazione nelle richieste di autenticazione ad Azure AD, nonché per accedere a risorse, ad esempio l'API Graph.                                                          |
-| URI dell'ID dell'app      | Deve trattarsi di un URI univoco, in genere nel **formato&lt;https://\_nome&gt;/&lt;tenant\_applicazione&gt;.** Viene usato durante il flusso di concessione dell'autorizzazione come identificatore univoco per specificare la risorsa per cui deve essere emesso il token. Diventa anche l'attestazione "aud" nel token di accesso emesso. |
+| URI ID app      | Deve trattarsi di un URI univoco, in genere nel formato **https://nome &lt; tenant \_ &gt; / &lt; applicazione \_ &gt; .** Viene usato durante il flusso di concessione dell'autorizzazione come identificatore univoco per specificare la risorsa per cui deve essere emesso il token. Diventa anche l'attestazione "aud" nel token di accesso emesso. |
 
 ### <a name="branding"></a>Personalizzazione
 
@@ -56,11 +55,11 @@ Dopo aver compilato i campi sopra indicati, l'applicazione viene registrata nell
 | Carica nuovo logo | Questo campo consente di caricare un logo per l'applicazione. Il logo deve essere in formato BMP, jpg o PNG e le dimensioni del file devono essere inferiori a 100 KB. Le dimensioni dell'immagine devono essere 215 x 215 pixel, con le dimensioni dell'immagine centrale di 94 x 94 pixel.|
 | URL della home page   | Questo è l'URL di accesso specificato durante la registrazione dell'applicazione.|
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 | Campo           | Descrizione        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| URL di disconnessione      | Si tratta dell'URL di disconnessione Single Sign-out. Azure AD invia una richiesta di disconnessione a questo URL quando l'utente cancella la sessione di Azure AD usando qualsiasi altra applicazione registrata.|
+| URL di chiusura sessione      | Si tratta dell'URL di disconnessione Single Sign-out. Azure AD invia una richiesta di disconnessione a questo URL quando l'utente cancella la sessione di Azure AD usando qualsiasi altra applicazione registrata.|
 | Tipi di account supportati  | Questa opzione specifica se l'applicazione può essere usata da più tenant. In genere, ciò significa che le organizzazioni esterne possono usare l'applicazione registrandola nel proprio tenant e concedendo accesso ai dati dell'organizzazione.|
 | URL di reindirizzamento      | Gli URL di reindirizzamento, o risposta, sono gli endpoint in cui Azure AD restituisce i token richiesti dall'applicazione. Per le applicazioni native, questo è il punto in cui l'utente deve essere inviato in seguito a un'autorizzazione riuscita. Azure AD verifica che l'URI di reindirizzamento fornito dall'applicazione nella richiesta OAuth 2,0 corrisponda a uno dei valori registrati nel portale.|
 

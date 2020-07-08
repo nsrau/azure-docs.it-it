@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882965"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>App desktop che chiama le API Web: chiamare un'API Web
@@ -64,7 +63,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Chiamare un'API Web in MSAL per iOS e macOS
 
-I metodi per acquisire i token restituiscono `MSALResult` un oggetto. `MSALResult`espone una `accessToken` proprietà che può essere usata per chiamare un'API Web. Aggiungere un token di accesso all'intestazione di autorizzazione HTTP prima di effettuare la chiamata per accedere all'API Web protetta.
+I metodi per acquisire i token restituiscono un oggetto `MSALResult`. `MSALResult`espone una `accessToken` proprietà che può essere usata per chiamare un'API Web. Aggiungere un token di accesso all'intestazione di autorizzazione HTTP prima di effettuare la chiamata per accedere all'API Web protetta.
 
 Objective-C:
 
@@ -94,7 +93,7 @@ task.resume()
 
 ## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Chiamare diverse API: consenso incrementale e accesso condizionale
 
-Per chiamare diverse API per lo stesso utente, dopo aver ottenuto un token per la prima API, chiamare `AcquireTokenSilent`. Si otterrà un token per le altre API in modo invisibile all'utente nella maggior parte dei casi.
+Per chiamare diverse API per lo stesso utente, dopo aver ottenuto un token per la prima API, chiamare `AcquireTokenSilent` . Si otterrà un token per le altre API in modo invisibile all'utente nella maggior parte dei casi.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -104,9 +103,9 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-L'interazione è obbligatoria nei casi seguenti:
+L'interazione è necessaria nei casi seguenti:
 
-- L'utente ha acconsentito alla prima API, ma ora deve fornire il consenso per più ambiti. Questo tipo di consenso è noto come consenso incrementale.
+- L'utente ha concesso il consenso per la prima API, ma deve ora fornirlo per altri ambiti. Questo tipo di consenso è noto come consenso incrementale.
 - La prima API non richiede l'autenticazione a più fattori, ma la successiva.
 
 ```csharp

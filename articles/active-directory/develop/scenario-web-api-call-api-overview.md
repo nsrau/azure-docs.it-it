@@ -12,10 +12,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 88a0177755fbd913bdaaf0ecf3e12c62dee294c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885073"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Scenario: un'API Web che chiama le API Web
@@ -30,7 +29,7 @@ Questo scenario, in cui un'API Web protetta chiama API Web, si basa sullo scenar
 
 - Un client di applicazioni Web, desktop, per dispositivi mobili o a singola pagina (non rappresentato nel diagramma associato) chiama un'API Web protetta e fornisce un token JSON Web (JWT) bearer token nell'intestazione HTTP "Authorization".
 - L'API Web protetta convalida il token e usa il metodo Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` per richiedere un altro token da Azure Active Directory (Azure ad), in modo che l'API Web protetta possa chiamare una seconda API Web o un'API Web downstream per conto dell'utente.
-- L'API Web protetta può anche chiamare `AcquireTokenSilent`in un secondo momento per richiedere token per altre API downstream per conto dello stesso utente. `AcquireTokenSilent`Aggiorna il token quando necessario.
+- L'API Web protetta può anche chiamare `AcquireTokenSilent` in un secondo momento per richiedere token per altre API downstream per conto dello stesso utente. `AcquireTokenSilent`Aggiorna il token quando necessario.
 
 ![Diagramma di un'API Web che chiama un'API Web](media/scenarios/web-api.svg)
 

@@ -4,10 +4,9 @@ description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892343"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
@@ -77,7 +76,7 @@ Sono disponibili diverse opzioni:
 
 Per visualizzare questi eventi, aprire [Cerca](../../azure-monitor/app/diagnostic-search.md) dal menu a sinistra, selezionare i **tipi di evento**del menu a discesa, quindi scegliere evento personalizzato, traccia o eccezione.
 
-![Eseguire il drill-through](./media/asp-net-exceptions/customevents.png)
+![Drill through](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Se l’app genera molti dati di telemetria, il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Gli eventi che fanno parte della stessa operazione verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
@@ -94,7 +93,7 @@ I dettagli della richiesta non includono i dati inviati all'app in una chiamata 
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Acquisizione delle eccezioni e dei relativi dati di diagnostica
 Inizialmente, nel portale non verranno visualizzate tutte le eccezioni che causano errori nell'app. Verranno visualizzate tutte le eccezioni del browser (se si usa [JavaScript SDK](../../azure-monitor/app/javascript.md) nelle pagine Web). La maggior parte delle eccezioni del server viene rilevata da IIS, ma è necessario scrivere qualche riga di codice per visualizzarle.
 
-È possibile scegliere:
+È possibile:
 
 * **Registrare le eccezioni in modo esplicito** inserendo il codice nei gestori di eccezioni per segnalare le eccezioni.
 * **Acquisire automaticamente le eccezioni** configurando il framework di ASP.NET. Gli elementi da aggiungere variano a seconda dei diversi tipi di framework.
@@ -157,7 +156,7 @@ I parametri delle proprietà e delle misurazioni sono facoltativi, ma sono utili
 ## <a name="browser-exceptions"></a>Eccezioni del browser
 Viene segnalata la maggior parte delle eccezioni del browser.
 
-Se la pagina Web include file di script provenienti da reti per la distribuzione di contenuti o da altri domini, ```crossorigin="anonymous"```verificare che il tag dello script contenga l'attributo e che il server invii [intestazioni CORS](https://enable-cors.org/). Ciò consentirà di ottenere un'analisi dello stack e i dettagli per le eccezioni JavaScript non gestite da queste risorse.
+Se la pagina Web include file di script provenienti da reti per la distribuzione di contenuti o da altri domini, verificare che il tag dello script contenga l'attributo ```crossorigin="anonymous"``` e che il server invii [intestazioni CORS](https://enable-cors.org/). Ciò consentirà di ottenere un'analisi dello stack e i dettagli per le eccezioni JavaScript non gestite da queste risorse.
 
 ## <a name="reuse-your-telemetry-client"></a>Riutilizzare il client di telemetria
 

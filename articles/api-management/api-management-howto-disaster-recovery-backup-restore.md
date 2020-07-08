@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
 ms.openlocfilehash: e74d7dcf8764d167e0080c9d7cca5573bd69ef1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261007"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -68,7 +67,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 4. Immettere un nome per l'applicazione.
 5. Come tipo di applicazione selezionare **Nativo**.
 6. Immettere un URL di segnaposto, ad esempio `http://resources` per **URI di reindirizzamento**, che è un campo obbligatorio, ma il valore non viene usato in seguito. Selezionare la casella di controllo per salvare l'applicazione.
-7. Scegliere **Crea**.
+7. Fare clic su **Crea**.
 
 ### <a name="add-an-application"></a>Aggiungere un'applicazione
 
@@ -115,7 +114,7 @@ namespace GetTokenResourceManagerRequests
 
 Sostituire `{tenant id}`, `{application id}` e `{redirect uri}` usando le istruzioni seguenti:
 
-1. Sostituire `{tenant id}` con l'ID tenant dell'applicazione Azure Active Directory creata. È possibile accedere all'ID facendo clic su **registrazioni app** -> **endpoint**.
+1. Sostituire `{tenant id}` con l'ID tenant dell'applicazione Azure Active Directory creata. È possibile accedere all'ID facendo clic su **registrazioni app**  ->  **endpoint**.
 
     ![Endpoint][api-management-endpoint]
 
@@ -124,7 +123,7 @@ Sostituire `{tenant id}`, `{application id}` e `{redirect uri}` usando le istruz
 
     Dopo avere specificato i valori, l'esempio di codice dovrebbe restituire un token simile all'esempio seguente:
 
-    ![Token][api-management-arm-token]
+    ![token][api-management-arm-token]
 
     > [!NOTE]
     > Il token può scadere dopo un certo periodo. Eseguire nuovamente l'esempio di codice per generare un nuovo token.
@@ -229,8 +228,8 @@ Vedere le risorse seguenti per procedure dettagliate diverse del processo di bac
 
 -   [Replicare account di Gestione API di Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) (Automazione del backup e del ripristino di Gestione API con App per la logica)
--   [Gestione API di Azure: backup e ripristino della configurazione](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-     _. l'approccio descritto da Stuart non corrisponde alle linee guida ufficiali, ma è interessante._
+-   [Gestione API di Azure: backup e ripristino della configurazione](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) 
+     _L'approccio descritto da Stuart non corrisponde alle linee guida ufficiali, ma è interessante._
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

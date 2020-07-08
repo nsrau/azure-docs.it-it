@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80876293"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
@@ -128,7 +127,7 @@ Come gli utenti dell'organizzazione, anche i dispositivi rappresentano identità
 È possibile portare a termine questo obiettivo portando le identità dei dispositivi e gestendo tali identità in Azure AD usando uno dei metodi seguenti:
 
 - Le organizzazioni possono usare [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) per gestire il dispositivo e applicare i criteri di conformità, attestare l'integrità del dispositivo e impostare i criteri di accesso condizionale a seconda che il dispositivo sia conforme. Microsoft Intune possibile gestire i dispositivi iOS, i desktop Mac (tramite l'integrazione con JAMF), i desktop Windows (usando in modo nativo la gestione dei dispositivi mobili per Windows 10 e la co-gestione con Microsoft endpoint Configuration Manager) e i dispositivi mobili Android.
-- [Azure ad ibrido join](../devices/hybrid-azuread-join-managed-domains.md) fornisce la gestione con criteri di gruppo o Microsoft endpoint Configuration Manager in un ambiente con Active Directory dispositivi di computer aggiunti a un dominio. Le organizzazioni possono distribuire un ambiente gestito tramite pH o PTA con seamless SSO. I dispositivi Azure ad massimizzano la produttività degli utenti tramite SSO nelle risorse cloud e locali, consentendo al tempo stesso di proteggere l'accesso alle risorse cloud e locali con  [accesso condizionale](../conditional-access/overview.md).
+- [Azure ad ibrido join](../devices/hybrid-azuread-join-managed-domains.md) fornisce la gestione con criteri di gruppo o Microsoft endpoint Configuration Manager in un ambiente con Active Directory dispositivi di computer aggiunti a un dominio. Le organizzazioni possono distribuire un ambiente gestito tramite pH o PTA con seamless SSO. I dispositivi Azure AD massimizzano la produttività degli utenti tramite SSO nelle risorse cloud e locali, consentendo al tempo stesso di proteggere l'accesso alle risorse cloud e locali con [accesso condizionale](../conditional-access/overview.md)   .
 
 Se si dispone di dispositivi Windows aggiunti a un dominio che non sono registrati nel cloud o di dispositivi Windows aggiunti a un dominio registrati nel cloud ma senza criteri di accesso condizionale, è necessario registrare i dispositivi non registrati e, in entrambi i casi, [usare Azure ad ibrido join come controllo](../conditional-access/require-managed-devices.md) nei criteri di accesso condizionale.
 
@@ -140,7 +139,7 @@ Se si gestiscono dispositivi con MDM o Microsoft Intune, ma non si usano control
 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Lettura consigliata criteri di accesso attendibilità dispositivo
 
-- [Procedura: pianificare l'implementazione ibrida di Azure Active Directory join](../devices/hybrid-azuread-join-plan.md)
+- [Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido](../devices/hybrid-azuread-join-plan.md)
 - [Configurazioni di identità e accesso dei dispositivi](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello for Business
@@ -199,7 +198,7 @@ D'altra parte, se si trovano applicazioni con assegnazione a singoli utenti, ass
 Con le [località denominate](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) in Azure ad, è possibile etichettare gli intervalli di indirizzi IP attendibili nell'organizzazione. Azure AD usa le località denominate per:
 
 - Impedisci falsi positivi negli eventi di rischio. L'accesso da un percorso di rete attendibile riduce il rischio di accesso di un utente.
-- Configurare [l'accesso condizionale basato sul percorso](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations).
+- Configurare l'[Accesso condizionale basato sulla località](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations).
 
 ![Località denominate](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 
@@ -258,7 +257,7 @@ L'accesso condizionale è uno strumento essenziale per migliorare il comportamen
 - [Procedure consigliate per l'accesso condizionale in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
 - [Configurazioni di identità e accesso dei dispositivi](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Informazioni di riferimento sulle impostazioni di accesso condizionale Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
-- [Criteri di accesso condizionale comuni](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
+- [Criteri comuni di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
 ## <a name="access-surface-area"></a>Area di superficie di accesso
 
@@ -296,7 +295,7 @@ In un attacco di concessione di consenso illecito, l'autore dell'attacco crea un
 
 Di seguito è riportato un elenco di app con autorizzazioni che possono essere esaminate per i servizi cloud Microsoft:
 
-- App con app o delegate \*. Autorizzazioni ReadWrite
+- App con app o delegate \* . Autorizzazioni ReadWrite
 - Le app con autorizzazioni delegate possono leggere, inviare o gestire i messaggi di posta elettronica per conto dell'utente
 - App a cui viene concesso usando le autorizzazioni seguenti:
 
@@ -367,7 +366,7 @@ L'accesso a attività di accesso, controlli ed eventi di rischio per Azure AD è
 
 - [Informazioni di riferimento sull'API di controllo di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)
 - [Riferimento API del report sull'attività di accesso di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-sign-in-activity-reference)
-- [Ottenere dati con l'API di creazione report di Azure AD con certificati](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
+- [Ottenere dati con l'API di creazione report di Azure AD con i certificati](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Microsoft Graph per Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [Informazioni di riferimento sull'API di gestione di Office 365](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
 - [Come usare il pacchetto di contenuto Azure Active Directory Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)

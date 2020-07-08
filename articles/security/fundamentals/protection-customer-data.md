@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811420"
 ---
 # <a name="azure-customer-data-protection"></a>Protezione dei dati dei clienti di Azure   
@@ -33,7 +32,7 @@ Al personale di supporto di Azure vengono assegnati account aziendali Active Dir
 
 Tutti i tentativi di accesso vengono monitorati e possono essere visualizzati tramite un set di report di base.
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 Azure offre ai clienti un livello efficace di sicurezza dei dati, per impostazione predefinita e come opzione.
 
 **Separazione dei dati**: Azure è un servizio multi-tenant, ovvero un servizio in cui le distribuzioni e le macchine virtuali di molti clienti vengono archiviate nello stesso hardware fisico. Microsoft usa l'isolamento logico per separare i dati di ogni cliente dagli altri. La separazione offre i vantaggi economici e di ridimensionamento dei servizi multi-tenant, impedendo al contempo in modo rigoroso ai clienti di accedere ai dati altrui.
@@ -78,10 +77,10 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 
 - [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
-- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
+- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
 - [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
-- [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
+- [Azure production operations and management](infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)

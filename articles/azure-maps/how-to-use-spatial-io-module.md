@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804640"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Come usare il modulo di i/o spaziale di Maps di Azure
@@ -127,7 +126,7 @@ Prima di poter usare il modulo di i/o spaziale, è necessario [creare un account
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-3. Inizializzare `datasource`un oggetto e aggiungere l'origine dati alla mappa. Inizializzare `layer`un oggetto e aggiungere l'origine dati al livello mappa. Eseguire quindi il rendering dell'origine dati e del livello. Prima di scorrere verso il basso per visualizzare il codice completo nel passaggio successivo, valutare i punti migliori in cui inserire i frammenti di codice dell'origine dati e del livello. Prima di modificare a livello di codice la mappa, è necessario attendere che la risorsa della mappa sia pronta.
+3. Inizializzare un oggetto `datasource` e aggiungere l'origine dati alla mappa. Inizializzare un oggetto `layer` e aggiungere l'origine dati al livello mappa. Eseguire quindi il rendering dell'origine dati e del livello. Prima di scorrere verso il basso per visualizzare il codice completo nel passaggio successivo, valutare i punti migliori in cui inserire i frammenti di codice dell'origine dati e del livello. Prima di modificare a livello di codice la mappa, è necessario attendere che la risorsa della mappa sia pronta.
 
     ```javascript
     var datasource, layer;
@@ -222,7 +221,7 @@ Prima di poter usare il modulo di i/o spaziale, è necessario [creare un account
     </html>
     ```
 
-5. Ricordarsi di `<Your Azure Maps Key>` sostituire con la chiave primaria. Aprire il file HTML. verranno visualizzati risultati simili all'immagine seguente:
+5. Ricordarsi di sostituire `<Your Azure Maps Key>` con la chiave primaria. Aprire il file HTML. verranno visualizzati risultati simili all'immagine seguente:
 
     <center>
 
@@ -238,7 +237,7 @@ La funzionalità illustrata di seguito è solo una delle numerose funzionalità 
 > [Aggiungere un livello dati semplice](spatial-io-add-simple-data-layer.md)
 
 > [!div class="nextstepaction"]
-> [Lettura e scrittura dei dati spaziali](spatial-io-read-write-spatial-data.md)
+> [Leggere e scrivere dati spaziali](spatial-io-read-write-spatial-data.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello mappa OGC](spatial-io-add-ogc-map-layer.md)
@@ -250,7 +249,7 @@ La funzionalità illustrata di seguito è solo una delle numerose funzionalità 
 > [Sfruttare le operazioni principali](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Dettagli del formato dati supportati](spatial-io-supported-data-format-details.md)
+> [Dettagli sul formato dati supportato](spatial-io-supported-data-format-details.md)
 
 Vedere la documentazione relativa ai i/o spaziali di Azure Maps:
 

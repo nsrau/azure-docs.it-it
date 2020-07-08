@@ -7,10 +7,9 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114315"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informazioni sul funzionamento dello strumento di migrazione
@@ -115,18 +114,18 @@ Si tratta di regole di avviso classiche sulle metriche che in precedenza erano s
 | Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.Network/publicIPAddresses | defaultddostriggerrate |
-| Microsoft. SQL/Servers/databases | service_level_objective, storage_limit, storage_used, limitazione, dtu_consumption_percent, storage_used |
+| Microsoft.SQL/servers/databases | service_level_objective, storage_limit, storage_used, limitazione, dtu_consumption_percent, storage_used |
 | Microsoft. Web/hostingEnvironments/multirolepools | averagememoryworkingset |
 | Microsoft. Web/hostingEnvironments/dei pool | BytesReceived, httpqueuelength |
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>Modalità di creazione di nuovi gruppi di azione e regole di avviso equivalenti
 
-Lo strumento di migrazione converte le regole di avviso classiche in nuovi gruppi di azione e regole di avviso equivalenti. Per la maggior parte delle regole di avviso classiche, le nuove regole di avviso equivalenti sono sulla stessa `windowSize` metrica `aggregationType`con le stesse proprietà, ad esempio e. Tuttavia, alcune regole di avviso classiche sono relative alle metriche con una metrica equivalente diversa nel nuovo sistema. I principi seguenti si applicano alla migrazione di avvisi classici, a meno che non sia specificato nella sezione seguente:
+Lo strumento di migrazione converte le regole di avviso classiche in nuovi gruppi di azione e regole di avviso equivalenti. Per la maggior parte delle regole di avviso classiche, le nuove regole di avviso equivalenti sono sulla stessa metrica con le stesse proprietà, ad esempio `windowSize` e `aggregationType` . Tuttavia, alcune regole di avviso classiche sono relative alle metriche con una metrica equivalente diversa nel nuovo sistema. I principi seguenti si applicano alla migrazione di avvisi classici, a meno che non sia specificato nella sezione seguente:
 
 - **Frequency**: definisce la frequenza con cui una regola di avviso classica o nuova controlla la condizione. Le `frequency` regole di avviso classiche non possono essere configurate dall'utente ed è sempre 5 minuti per tutti i tipi di risorse tranne Application Insights componenti per i quali è stato di 1 min. La frequenza delle regole equivalenti viene anche impostata rispettivamente su 5 min e 1 min.
-- **Tipo di aggregazione**: definisce la modalità di aggregazione della metrica sulla finestra di interesse. `aggregationType` È anche lo stesso tra gli avvisi classici e i nuovi avvisi per la maggior parte delle metriche. In alcuni casi, poiché la metrica è diversa tra gli avvisi classici e i nuovi avvisi `aggregationType` , viene `primary Aggregation Type` usato il valore equivalente o quello definito per la metrica.
+- **Tipo di aggregazione**: definisce la modalità di aggregazione della metrica sulla finestra di interesse. `aggregationType`È anche lo stesso tra gli avvisi classici e i nuovi avvisi per la maggior parte delle metriche. In alcuni casi, poiché la metrica è diversa tra gli avvisi classici e i nuovi avvisi, viene usato il valore equivalente `aggregationType` o quello `primary Aggregation Type` definito per la metrica.
 - **Unità**: proprietà della metrica in cui viene creato l'avviso. Alcune metriche equivalenti hanno unità diverse. La soglia viene modificata in modo appropriato in base alle esigenze. Se, ad esempio, la metrica originale presenta secondi come unità, ma la nuova metrica equivalente ha milliSecondi come unità, la soglia originale viene moltiplicata per 1000 per garantire lo stesso comportamento.
-- **Dimensioni finestra**: definisce la finestra su cui vengono aggregati i dati delle metriche per il confronto con la soglia. Per i `windowSize` valori standard come 5 minuti, 15mins, 30mins, 1 ora, 3 ore, 6 ore, 12 ore, 1 giorno, non sono state apportate modifiche per la nuova regola di avviso equivalente. Per gli altri valori, `windowSize` viene scelto il più vicino da usare. Per la maggior parte dei clienti, questa modifica non ha alcun effetto. Per una piccola percentuale di clienti, potrebbe essere necessario modificare la soglia per ottenere lo stesso comportamento.
+- **Dimensioni finestra**: definisce la finestra su cui vengono aggregati i dati delle metriche per il confronto con la soglia. Per `windowSize` i valori standard come 5 minuti, 15mins, 30mins, 1 ora, 3 ore, 6 ore, 12 ore, 1 giorno, non sono state apportate modifiche per la nuova regola di avviso equivalente. Per gli altri valori, viene scelto il più vicino `windowSize` da usare. Per la maggior parte dei clienti, questa modifica non ha alcun effetto. Per una piccola percentuale di clienti, potrebbe essere necessario modificare la soglia per ottenere lo stesso comportamento.
 
 Nelle sezioni seguenti vengono illustrate in dettaglio le metriche con una metrica equivalente diversa nel nuovo sistema. Tutte le metriche rimanenti per le regole di avviso classiche e nuove non sono elencate. È possibile trovare un elenco delle metriche supportate nel nuovo sistema [qui](metrics-supported.md).
 
@@ -146,7 +145,7 @@ Per i servizi dell'account di archiviazione come BLOB, tabelle, file e code, le 
 | AuthorizationError | Metrica transazioni con dimensioni "ResponseType" = "AuthorizationError" | |
 | AverageE2ELatency | SuccessE2ELatency | |
 | AverageServerLatency | SuccessServerLatency | |
-| Capacity | BlobCapacity | Usare `aggregationType` ' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
+| Capacità | BlobCapacity | Usare `aggregationType` ' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
 | ClientOtherError | Metrica transazioni con dimensioni "ResponseType" = "ClientOtherError"  | |
 | ClientTimeoutError | Metrica transazioni con dimensioni "ResponseType" = "ClientTimeOutError" | |
 | ContainerCount | ContainerCount | Usare `aggregationType` ' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
@@ -193,7 +192,7 @@ Per Application Insights, le metriche equivalenti sono illustrate di seguito:
 | performanceCounter. requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
 | performanceCounter. requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
 | Request. Duration | requests/duration| Moltiplica la soglia originale di 1000 come unità per la metrica classica sono in secondi e per una nuova sono in milliSecondi.  |
-| Request. rate | richieste/frequenza|   |
+| Request. rate | requests/rate|   |
 | requestFailed. Count | requests/failed| Usare `aggregationType` "count" invece di "sum".   |
 | Visualizza. Count | pageViews/count| Usare `aggregationType` "count" invece di "sum".   |
 
@@ -210,11 +209,11 @@ Per Cosmos DB, le metriche equivalenti sono illustrate di seguito:
 | Addebito richiesta numero Mongo| MongoRequestCharge con Dimension "CommandName" = "count"||
 | Frequenza richieste conteggio Mongo | MongoRequestsCount con Dimension "CommandName" = "count"||
 | Costo richiesta di eliminazione Mongo | MongoRequestCharge con Dimension "CommandName" = "Delete"||
-| Frequenza delle richieste di eliminazione Mongo | MongoRequestsCount con Dimension "CommandName" = "Delete"||
+| Mongo Delete Request Rate (Frequenza richieste di eliminazione Mongo) | MongoRequestsCount con Dimension "CommandName" = "Delete"||
 | Costo richiesta di inserimento Mongo | MongoRequestCharge con Dimension "CommandName" = "Insert"||
-| Frequenza di richieste di inserimento Mongo | MongoRequestsCount con Dimension "CommandName" = "Insert"||
+| Mongo Insert Request Rate (Frequenza richieste di inserimento Mongo) | MongoRequestsCount con Dimension "CommandName" = "Insert"||
 | Addebito richieste di query Mongo | MongoRequestCharge con Dimension "CommandName" = "Find"||
-| Frequenza di richieste di query Mongo | MongoRequestsCount con Dimension "CommandName" = "Find"||
+| Mongo Query Request Rate (Frequenza richieste di query Mongo) | MongoRequestsCount con Dimension "CommandName" = "Find"||
 | Costo richiesta aggiornamento Mongo | MongoRequestCharge con Dimension "CommandName" = "Update"||
 | Servizio non disponibile| ServiceAvailability||
 | TotalRequestUnits | TotalRequestUnits||
@@ -245,8 +244,8 @@ Tutti gli utenti che dispongono del ruolo predefinito di collaboratore del monit
 - */lettura
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
-- Microsoft. Insights/metricAlerts/*
-- Microsoft. AlertsManagement/smartDetectorAlertRules/*
+- Microsoft.Insights/metricAlerts/*
+- Microsoft.AlertsManagement/smartDetectorAlertRules/*
 
 > [!NOTE]
 > Oltre a disporre delle autorizzazioni precedenti, la sottoscrizione deve essere registrata anche con il provider di risorse Microsoft. AlertsManagement. Questa operazione è necessaria per eseguire correttamente la migrazione degli avvisi di anomalia degli errori in Application Insights. 
@@ -273,4 +272,4 @@ Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuov
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Come usare lo strumento di migrazione](alerts-using-migration-tool.md)
-- [Preparare la migrazione](alerts-prepare-migration.md)
+- [Prepararsi per la migrazione](alerts-prepare-migration.md)

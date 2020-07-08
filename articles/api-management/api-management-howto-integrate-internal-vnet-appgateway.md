@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
 ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811165"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
@@ -87,11 +86,11 @@ In questa guida verrà esposto il **portale per sviluppatori** anche a destinata
 > Se si usa Azure AD o un'autenticazione di terze parti, attivare la funzionalità [affinità di sessione basata su cookie](../application-gateway/features.md#session-affinity) nel gateway applicazione.
 
 > [!WARNING]
-> Per evitare che WAF del gateway applicazione rompa il download della specifica OpenAPI nel portale per sviluppatori, è necessario disabilitare la regola `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`del firewall.
+> Per evitare che WAF del gateway applicazione rompa il download della specifica OpenAPI nel portale per sviluppatori, è necessario disabilitare la regola del firewall `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` .
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creare un gruppo di risorse per Gestione risorse
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 Accedere ad Azure
 
@@ -126,7 +125,7 @@ Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un
 
 Nell'esempio seguente viene illustrato come creare una rete virtuale utilizzando Gestione risorse.
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 Assegnare l'intervallo di indirizzi 10.0.0.0/24 alla variabile subnet da usare per il gateway applicazione durante la creazione di una rete virtuale.
 
@@ -163,7 +162,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 
 L'esempio seguente illustra come creare un servizio Gestione API in una rete virtuale configurata per il solo accesso interno.
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 Creare un oggetto rete virtuale di Gestione API usando la subnet $apimsubnetdata creata in precedenza.
 
@@ -189,7 +188,7 @@ Dopo il completamento del comando precedente, per l'accesso vedere la [configura
 > [!IMPORTANT]
 > Il [nuovo portale per sviluppatori](api-management-howto-developer-portal.md) richiede anche l'abilitazione della connettività all'endpoint di gestione di gestione API, oltre ai passaggi seguenti.
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 Inizializzare le variabili seguenti con i dettagli dei certificati con chiavi private per i domini. In questo esempio vengono usati `api.contoso.net` e `portal.contoso.net`.  
 
@@ -220,7 +219,7 @@ Set-AzApiManagement -InputObject $apimService
 ```
 
 > [!NOTE]
-> Per configurare la connettività legacy del portale per sviluppatori, è `-HostnameType DeveloperPortal` necessario `-HostnameType Portal`sostituire con.
+> Per configurare la connettività legacy del portale per sviluppatori, è necessario sostituire `-HostnameType DeveloperPortal` con `-HostnameType Portal` .
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creare un indirizzo IP pubblico per la configurazione front-end
 
@@ -236,7 +235,7 @@ All'avvio del servizio viene assegnato un indirizzo IP al gateway applicazione.
 
 Prima di creare il gateway applicazione, è necessario impostare tutti gli elementi di configurazione. La procedura seguente consente di creare gli elementi di configurazione necessari per una risorsa del gateway applicazione.
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 Creare una configurazione IP del gateway applicazione denominata **gatewayIP01**. All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Tenere presente che ogni istanza ha un indirizzo IP.
 

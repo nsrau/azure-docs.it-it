@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878596"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Individuazione della corrispondenza tra le richieste e una regola di routing in Frontdoor
@@ -29,7 +28,7 @@ Una configurazione di una regola di routing di Frontdoor è costituita da due pa
 Le seguenti proprietà determinano se la richiesta in ingresso corrisponde alla regola di routing (o lato sinistro):
 
 * **Protocolli HTTP** (HTTP/HTTPS)
-* **Host** (ad esempio, www\.foo.com, \*. bar.com)
+* **Host** (ad esempio, www \. foo.com, \* . bar.com)
 * **Percorsi** (ad esempio, /\*, /users/\*, /file.gif)
 
 Queste proprietà vengono espanse internamente, pertanto ogni combinazione di protocollo/host/percorso è un set di corrispondenze possibili.
@@ -48,23 +47,23 @@ Per la corrispondenza degli host front-end, viene usata la logica seguente:
 
 Per spiegare ulteriormente questo processo, esaminiamo una configurazione di esempio delle route di Frontdoor (solo lato sinistro):
 
-| Regola di routing | Host front-end | Path |
+| Regola di routing | Host front-end | Percorso |
 |-------|--------------------|-------|
 | Una | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
-| C | www\.fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
+| C | www \. Fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
 
 Se venissero inviate a Frontdoor, le richieste in ingresso seguenti corrisponderebbero alle regole di routing indicate di seguito dall'esempio precedente:
 
 | Host front-end in ingresso | Regole di routing corrispondenti |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| fabrikam.com\.www | C |
+| \.Fabrikam.com www | C |
 | images.fabrikam.com | Errore 400 - Richiesta non valida |
 | foo.adventure-works.com | C |
 | contoso.com | Errore 400 - Richiesta non valida |
-| adventure-works.com\.www | Errore 400 - Richiesta non valida |
-| northwindtraders.com\.www | Errore 400 - Richiesta non valida |
+| \.Adventure-Works.com www | Errore 400 - Richiesta non valida |
+| \.northwindtraders.com www | Errore 400 - Richiesta non valida |
 
 ### <a name="path-matching"></a>Corrispondenza del percorso
 Dopo aver determinato lo specifico host front-end e filtrato le possibili regole di routing solo alle route con tale host front-end, Frontdoor filtra le regole di routing in base al percorso della richiesta. Usiamo una logica simile a quella per gli host front-end:
@@ -78,7 +77,7 @@ Dopo aver determinato lo specifico host front-end e filtrato le possibili regole
 
 Per chiarire ulteriormente il processo, esaminiamo un altro set di esempi:
 
-| Regola di routing | Host front-end    | Path     |
+| Regola di routing | Host front-end    | Percorso     |
 |-------|---------|----------|
 | Una     | www\.contoso.com | /        |
 | b     | www\.contoso.com | /\*      |
@@ -93,26 +92,26 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 
 | Richiesta in ingresso    | Route corrispondente |
 |---------------------|---------------|
-| contoso.com/\.www            | Una             |
-| contoso.com/a\.www           | b             |
-| contoso.com/ab\.www          | C             |
-| contoso.com/abc\.www         | D             |
-| contoso.com/abzzz\.www       | b             |
-| contoso.com/abc/\.www        | E             |
-| contoso.com/abc/d\.www       | F             |
-| contoso.com/abc/def\.www     | G             |
-| contoso.com/abc/defzzz\.www  | F             |
-| contoso.com/abc/def/ghi\.www | F             |
-| contoso.com/path\.www        | b             |
-| contoso.com/path/\.www       | H             |
-| contoso.com/path/zzz\.www    | b             |
+| \.contoso.com/www            | Una             |
+| \.contoso.com/a www           | b             |
+| \.contoso.com/AB www          | C             |
+| \.contoso.com/ABC www         | D             |
+| \.contoso.com/abzzz www       | b             |
+| \.contoso.com/ABC/www        | E             |
+| \.contoso.com/ABC/d www       | F             |
+| \.contoso.com/ABC/def www     | G             |
+| \.contoso.com/ABC/defzzz www  | F             |
+| \.contoso.com/ABC/def/ghi www | F             |
+| \.contoso.com/path www        | b             |
+| \.contoso.com/path/www       | H             |
+| \.contoso.com/path/zzz www    | b             |
 
 >[!WARNING]
 > </br> Se non sono presenti regole di routing per un host front-end con corrispondenza esatta con un percorso di route catch-all (`/*`), non vi sarà alcuna corrispondenza con alcuna regola di routing.
 >
 > Configurazione di esempio:
 >
-> | Route | Host             | Path    |
+> | Route | Host             | Percorso    |
 > |-------|------------------|---------|
 > | Una     | profile.contoso.com | /api/\* |
 >
@@ -120,7 +119,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 >
 > | Richiesta in ingresso       | Route corrispondente |
 > |------------------------|---------------|
-> | profile.domain.com/other | Nessuno. Errore 400 - Richiesta non valida |
+> | profile.domain.com/other | No. Errore 400 - Richiesta non valida |
 
 ### <a name="routing-decision"></a>Decisione di routing
 Dopo aver individuato la corrispondenza con una singola regola di routing di Frontdoor, è necessario scegliere la modalità di elaborazione della richiesta. Se per la regola di routing corrispondente Frontdoor dispone di una risposta memorizzata nella cache, questa viene restituita al client. In caso contrario, l'elemento successivo che viene valutato è se è stata configurata o meno la [riscrittura URL (percorso di inoltro personalizzato)](front-door-url-rewrite.md) per la regola di routing corrispondente. Se non è definito un percorso di inoltro personalizzato, la richiesta viene inoltrata così com'è al back-end appropriato nel pool back-end configurato. In caso contrario, il percorso della richiesta viene aggiornato in base al [percorso di inoltro personalizzato](front-door-url-rewrite.md) definito e quindi inoltrata al back-end.
