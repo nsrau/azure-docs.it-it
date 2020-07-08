@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809471"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -46,7 +46,7 @@ Gli scenari principali per cui è consigliabile usare il gateway applicazione di
 
 - Lo sportello anteriore può eseguire il bilanciamento del carico basato sul percorso solo a livello globale, ma se si vuole bilanciare il carico del traffico ancora più all'interno della rete virtuale (VNET), è necessario usare il gateway applicazione.
 - Poiché la porta anteriore non funziona a livello di macchina virtuale o contenitore, non è possibile eseguire lo svuotamento della connessione. Tuttavia, il gateway applicazione consente di eseguire lo svuotamento della connessione. 
-- Con un gateway applicazione dietro a AFD, è possibile ottenere il 100% di offload TLS/SSL e instradare solo le richieste HTTP all'interno della rete virtuale (VNET).
+- Con un gateway applicazione dietro la porta anteriore, è possibile ottenere il 100% di offload TLS/SSL e instradare solo le richieste HTTP all'interno della rete virtuale (VNET).
 - La porta anteriore e il gateway applicazione supportano entrambi l'affinità di sessione. Mentre la porta anteriore può indirizzare il traffico successivo da una sessione utente allo stesso cluster o back-end in una determinata area, il gateway applicazione può indirizzare il traffico creare affinità tra al server all'interno del cluster.  
 
 ### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>È possibile distribuire Azure Load Balancer dietro la porta anteriore?
@@ -98,7 +98,7 @@ Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello
     > [!WARNING]
     > Lo spazio IP back-end della porta anteriore potrebbe cambiare in un secondo momento, tuttavia, prima che ciò accada, avremmo integrato gli [intervalli IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519). È consigliabile sottoscrivere gli [intervalli IP e i tag di servizio di Azure](https://www.microsoft.com/download/details.aspx?id=56519) per eventuali modifiche o aggiornamenti.
 
--    Eseguire un'operazione GET sulla porta anteriore con la versione `2020-01-01` API o successiva. Nella chiamata API cercare il `frontdoorID` campo. Filtrare in base all'intestazione in ingresso '**X-Azure-FDID**' inviata dalla porta anteriore al back-end con il valore come quello del `frontdoorID`campo. 
+-    Eseguire un'operazione GET sulla porta anteriore con la versione API `2020-01-01` o successiva. Nella chiamata API cercare il `frontdoorID` campo. Filtrare in base all'intestazione in ingresso '**X-Azure-FDID**' inviata dalla porta anteriore al back-end con il valore come quello del campo `frontdoorID` . È anche possibile trovare `Front Door ID` il valore nella sezione Panoramica della pagina del portale di porta anteriore. 
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>È possibile modificare l'IP anycast per la durata della mia porta anteriore?
 
@@ -213,7 +213,7 @@ No, i certificati autofirmati non sono supportati nella porta anteriore e la res
 
 Per avere correttamente le connessioni HTTPS al back-end, sia per i probe di integrità che per le richieste di invio, potrebbero verificarsi due motivi per cui il traffico HTTPS potrebbe non riuscire:
 
-1. **Mancata corrispondenza del nome del soggetto del certificato**: per le connessioni HTTPS, la porta anteriore prevede che il back-end presenti un certificato da una CA valida con i nomi di soggetto corrispondenti al nome host del back-end. Ad esempio, se il nome host del back-end `myapp-centralus.contosonews.net` è impostato su e il certificato presentato dal back-end durante l'handshake TLS non ha `myapp-centralus.contosonews.net` né `*myapp-centralus*.contosonews.net` nel nome del soggetto, la porta anteriore rifiuterà la connessione e restituirà un errore. 
+1. **Mancata corrispondenza del nome del soggetto del certificato**: per le connessioni HTTPS, la porta anteriore prevede che il back-end presenti un certificato da una CA valida con i nomi di soggetto corrispondenti al nome host del back-end. Ad esempio, se il nome host del back-end è impostato su `myapp-centralus.contosonews.net` e il certificato presentato dal back-end durante l'handshake TLS non ha `myapp-centralus.contosonews.net` né `*myapp-centralus*.contosonews.net` nel nome del soggetto, la porta anteriore rifiuterà la connessione e restituirà un errore. 
     1. **Soluzione**: Sebbene non sia consigliabile dal punto di vista della conformità, è possibile risolvere questo errore disabilitando la verifica del nome del soggetto del certificato per la porta anteriore. Questo è presente in impostazioni in portale di Azure e in BackendPoolsSettings nell'API.
 2. **Certificato di hosting back-end da autorità di certificazione non valida**: solo i certificati delle [autorità di certificazione valide](/azure/frontdoor/front-door-troubleshoot-allowed-ca) possono essere usati nel back-end con sportello anteriore. I certificati da autorità di certificazione interne o certificati autofirmati non sono consentiti.
 

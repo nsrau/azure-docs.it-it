@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73903692"
 ---
 Tuttavia, se si vuole condividere immagini all'esterno del tenant di Azure, è necessario creare una registrazione dell'app per semplificare la condivisione.  L'uso di una registrazione dell'app può consentire scenari di condivisione più complessi, ad esempio: 
@@ -46,7 +46,7 @@ Concedere all'app l'autorizzazione di registrazione per usare la raccolta di imm
 
 ## <a name="give-tenant-2-access"></a>Concedere l'accesso al tenant 2
 
-Concedere all'applicazione l'accesso al tenant 2 richiedendo un accesso usando un browser. Sostituire * \<Tenant2 ID>* con l'ID tenant per il tenant con cui si vuole condividere la raccolta immagini. Sostituire * \<l'ID applicazione (client)>* con l'ID applicazione della registrazione dell'app creata. Al termine delle operazioni di sostituzione, incollare l'URL in un browser e seguire le istruzioni di accesso per accedere al tenant 2.
+Concedere all'applicazione l'accesso al tenant 2 richiedendo un accesso usando un browser. Sostituire *\<Tenant2 ID>* con l'ID tenant del tenant con cui si vuole condividere la raccolta immagini. Sostituire *\<Application (client) ID>* con l'ID applicazione della registrazione dell'app creata. Al termine delle operazioni di sostituzione, incollare l'URL in un browser e seguire le istruzioni di accesso per accedere al tenant 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 
@@ -60,5 +60,5 @@ Nella [portale di Azure](https://portal.azure.com) accedere come tenant 2 e conc
 1. In **Seleziona** tipo *myGalleryApp* quindi selezionarlo quando viene visualizzato nell'elenco. Al termine, selezionare **Salva**.
 
 > [!NOTE]
-> È necessario attendere che la versione dell'immagine completi la compilazione e la replica prima di poter usare la stessa immagine gestita per creare un'altra versione dell'immagine.
+> È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 

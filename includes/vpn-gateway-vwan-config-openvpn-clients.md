@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80986798"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Client Windows
@@ -92,7 +92,7 @@ ms.locfileid: "80986798"
 
 9. Toccare **altro** se non viene visualizzata l'opzione **copia in OpenVPN**
 
-    ![Altro](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
+    ![Più informazioni](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
 
 10. Toccare **copia in OpenVPN** 
 
@@ -164,7 +164,7 @@ ms.locfileid: "80986798"
     sudo openvpn --config <name and path of your VPN profile file>&
     ```
 12. Per connettersi usando l'interfaccia utente grafica, passare alle impostazioni di sistema.
-13. Fare **+** clic per aggiungere una nuova connessione VPN.
+13. Fare clic **+** per aggiungere una nuova connessione VPN.
 14. Sotto **Add VPN** (Aggiungi VPN), selezionare **Import from file…** (Importa da file...)
 15. Individuare il file del profilo e fare doppio clic o selezionare **Apri**.
 16. Fare clic su **Add** (Aggiungi) nella finestra **Add VPN** (Aggiungi VPN).

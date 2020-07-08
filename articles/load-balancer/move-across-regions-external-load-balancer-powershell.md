@@ -3,21 +3,21 @@ title: Spostare Load Balancer esterni di Azure in un'altra area di Azure usando 
 description: Usare Azure Resource Manager modello per spostare Load Balancer esterni di Azure da un'area di Azure a un'altra usando Azure PowerShell.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a24eb4608e7630d5b613751fa2120361eccd7672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be1971c9184d0b2b406b669ae9d1ea61598b201f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75644818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809421"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Spostare Load Balancer esterni di Azure in un'altra area usando Azure PowerShell
 
 Esistono diversi scenari in cui si vuole spostare il servizio di bilanciamento del carico esterno esistente da un'area a un'altra. Ad esempio, è possibile creare un servizio di bilanciamento del carico esterno con la stessa configurazione per il test. È anche possibile spostare un servizio di bilanciamento del carico esterno in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
 
-I bilanciamenti del carico esterno di Azure non possono essere spostati da un'area all'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente e l'indirizzo IP pubblico di un servizio di bilanciamento del carico esterno.  È quindi possibile organizzare la risorsa in un'altra area esportando il servizio di bilanciamento del carico e l'indirizzo IP pubblico in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire i modelli nella nuova area.  Per altre informazioni su Gestione risorse e sui modelli, vedere [esportare gruppi di risorse nei modelli](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+I bilanciamenti del carico esterno di Azure non possono essere spostati da un'area all'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente e l'indirizzo IP pubblico di un servizio di bilanciamento del carico esterno.  È quindi possibile organizzare la risorsa in un'altra area esportando il servizio di bilanciamento del carico e l'indirizzo IP pubblico in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire i modelli nella nuova area.  Per altre informazioni su Resource Manager e sui modelli, vedere [Esporta gruppi di risorse in modelli](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -35,7 +35,7 @@ I bilanciamenti del carico esterno di Azure non possono essere spostati da un'ar
 - Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta dei bilanciamenti del carico per questo processo.  Vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
-## <a name="prepare-and-move"></a>Preparare e spostare
+## <a name="prepare-and-move"></a>Preparazione e spostamento
 I passaggi seguenti illustrano come preparare il servizio di bilanciamento del carico esterno per lo spostamento usando un modello di Gestione risorse e spostare la configurazione del servizio di bilanciamento del carico esterno nell'area di destinazione usando Azure PowerShell.  Come parte di questo processo, è necessario includere la configurazione IP pubblico del servizio di bilanciamento del carico esterno e prima di eseguire il bilanciamento del carico esterno.
 
 
@@ -43,12 +43,12 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 ### <a name="export-the-public-ip-template-and-deploy-from-azure-powershell"></a>Esportare il modello IP pubblico e distribuirlo da Azure PowerShell
 
-1. Accedere alla sottoscrizione di Azure con il comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e seguire le istruzioni visualizzate:
+1. Accedere alla propria sottoscrizione di Azure con il comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e seguire le istruzioni visualizzate:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2. Ottenere l'ID risorsa dell'indirizzo IP pubblico che si vuole spostare nell'area di destinazione e inserirlo in una variabile usando [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+2. Ottenere l'ID risorsa dell'IP pubblico che si vuole spostare nell'area di destinazione e inserirlo in una variabile usando [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
@@ -60,13 +60,13 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato ** \<Resource-Group-Name>. JSON** e aprirlo in un editor di propria scelta:
+4. Il file scaricato avrà il nome del gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando **\<resource-group-name>.json** e aprilo in un editor a propria scelta:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
    ```
 
-5. Per modificare il parametro del nome IP pubblico, modificare la proprietà **DefaultValue** del nome IP pubblico di origine con il nome dell'indirizzo IP pubblico di destinazione, verificare che il nome sia racchiuso tra virgolette:
+5. Per modificare il parametro del nome IP pubblico, modificare la proprietà **defaultValue** del nome IP pubblico di origine con il nome dell'IP pubblico di destinazione assicurandosi che il nome sia tra virgolette:
     
     ```json
         {
@@ -81,7 +81,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
     ```
 
-6. Per modificare l'area di destinazione in cui verrà spostato l'IP pubblico, modificare la proprietà **location** in Resources:
+6. Per modificare l'area di destinazione in spostare l'indirizzo IP pubblico, modificare la proprietà **location** nelle risorse:
 
     ```json
             "resources": [
@@ -107,16 +107,16 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
              ]             
     ```
   
-7. Per ottenere i codici di posizione dell'area, è possibile usare il cmdlet Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) eseguendo il comando seguente:
+7. Per ottenere i codici di posizione dell'area, è possibile usare il cmdlet di Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) eseguendo questo comando:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-8. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
+8. Se lo si desidera, è anche possibile modificare altri parametri nel modello, che sono facoltativi in base ai requisiti:
 
-    * **SKU** : è possibile modificare lo SKU dell'indirizzo IP pubblico nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel file ** \<Resource-Group-Name>. JSON** :
+    * **SKU**: è possibile modificare il parametro SKU dell'indirizzo IP pubblico nella configurazione da standard a basic o da basic a standard modificando la proprietà s**sku** > **name** nel file **\<resource-group-name>.json**:
 
          ```json
             "resources": [
@@ -131,9 +131,9 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                     },
          ```
 
-         Per altre informazioni sulle differenze tra gli indirizzi IP pubblici con SKU Basic e standard, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+         Per altre informazioni sulle differenze tra gli indirizzi IP pubblici con SKU basic o standard, vedere [Creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
-    * **Metodo di allocazione IP pubblico** e **timeout di inattività** : è possibile modificare entrambe le opzioni nel modello modificando la proprietà **publicIPAllocationMethod** da **dinamico** a **statico** o **statico** a **dinamico**. Il timeout di inattività può essere modificato modificando la proprietà **idleTimeoutInMinutes** in base al valore desiderato.  Il valore predefinito è **4**:
+    * **Metodo di allocazione dell'IP pubblico** e **timeout di inattività**: è possibile modificare entrambe queste opzioni nel modello modificando la proprietà **publicIPAllocationMethod** da **dinamica** a **statica** o da **statica** a **dinamica**. Il timeout di inattività può essere modificato impostando la proprietà **idleTimeoutInMinutes** sul valore desiderato.  Il valore predefinito è **4**:
 
          ```json
          "resources": [
@@ -158,17 +158,17 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                 }            
          ```
 
-        Per ulteriori informazioni sui metodi di allocazione e i valori di timeout di inattività, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Per ulteriori informazioni sui metodi di allocazione e i valori di timeout di inattività, vedere [Creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-9. Salvare il ** \<file Resource-Group-Name>. JSON** .
+9. Salvare il file **\<resource-group-name>.json**.
 
-10. Creare un gruppo di risorse nell'area di destinazione per l'indirizzo IP pubblico di destinazione da distribuire tramite [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
+10. Creare un gruppo di risorse nell'area di destinazione per l'IP pubblico di destinazione da distribuire utilizzando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Distribuire il ** \<nome del gruppo di risorse modificato>** file con estensione JSON al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuire il file **\<resource-group-name>.json** modificato nel gruppo di risorse creato nel passaggio precedente utilizzando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -176,7 +176,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
     
     ```
 
-12. Per verificare che le risorse siano state create nell'area di destinazione, usare [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+12. Per verificare che le risorse siano state create nell'area di destinazione, utilizzare [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -192,7 +192,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 ### <a name="export-the-external-load-balancer-template-and-deploy-from-azure-powershell"></a>Esportare il modello del servizio di bilanciamento del carico esterno e distribuirlo da Azure PowerShell
 
-1. Accedere alla sottoscrizione di Azure con il comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e seguire le istruzioni visualizzate:
+1. Accedere alla propria sottoscrizione di Azure con il comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e seguire le istruzioni visualizzate:
     
     ```azurepowershell-interactive
     Connect-AzAccount
@@ -209,7 +209,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
    ```
-4. Il file scaricato verrà denominato dopo il gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando denominato ** \<Resource-Group-Name>. JSON** e aprirlo in un editor di propria scelta:
+4. Il file scaricato avrà il nome del gruppo di risorse da cui è stata esportata la risorsa.  Individuare il file che è stato esportato dal comando **\<resource-group-name>.json** e aprilo in un editor a propria scelta:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -232,7 +232,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
     ```
 
-6.  Per modificare il valore dell'indirizzo IP pubblico di destinazione spostato in precedenza, è innanzitutto necessario ottenere l'ID risorsa e quindi copiarlo e incollarlo nel file ** \<Resource-Group-Name>. JSON** .  Per ottenere l'ID, usare [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+6.  Per modificare il valore dell'indirizzo IP pubblico di destinazione spostato in precedenza, è innanzitutto necessario ottenere l'ID risorsa e quindi copiarlo e incollarlo nel file con ** \<resource-group-name> estensione JSON** .  Per ottenere l'ID, usare [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -244,7 +244,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
     ```
 
-7.  Nel file ** \<Resource-Group-Name>. JSON** incollare l' **ID risorsa** dalla variabile al posto del **DefaultValue** nel secondo parametro per l'indirizzo IP pubblico External ID, assicurarsi di racchiudere il percorso tra virgolette:
+7.  Nel file ** \<resource-group-name> JSON** incollare l' **ID risorsa** dalla variabile al posto del **DefaultValue** nel secondo parametro per l'indirizzo IP pubblico External ID, assicurarsi di racchiudere il percorso tra virgolette:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -261,7 +261,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
     ```
 
-8.  Se sono state configurate le regole NAT in uscita e in uscita per il servizio di bilanciamento del carico, in questo file sarà presente una terza voce per l'ID esterno per l'IP pubblico in uscita.  Ripetere i passaggi precedenti nell' **area di destinazione** per ottenere l'ID per l'indirizzo IP pubblico in uscita e incollare tale voce nel file ** \<Resource-Group-Name>. JSON** :
+8.  Se sono state configurate le regole NAT in uscita e in uscita per il servizio di bilanciamento del carico, in questo file sarà presente una terza voce per l'ID esterno per l'IP pubblico in uscita.  Ripetere i passaggi precedenti nell' **area di destinazione** per ottenere l'ID per l'indirizzo IP pubblico in uscita e incollare tale voce nel file con ** \<resource-group-name> estensione JSON** :
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -282,7 +282,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         },
     ```
 
-10. Per modificare l'area di destinazione in cui verrà spostata la configurazione del servizio di bilanciamento del carico esterno, modificare la proprietà **location** in **Resources** nel file ** \<Resource-Group-Name>. JSON** :
+10. Per modificare l'area di destinazione in cui verrà spostata la configurazione del servizio di bilanciamento del carico esterno, modificare la proprietà **location** in **Resources** nel file con ** \<resource-group-name> estensione JSON** :
 
     ```json
         "resources": [
@@ -297,16 +297,16 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                 },
     ```
 
-11. Per ottenere i codici di posizione dell'area, è possibile usare il cmdlet Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) eseguendo il comando seguente:
+11. Per ottenere i codici di posizione dell'area, è possibile usare il cmdlet di Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) eseguendo questo comando:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-12. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
+12. Se lo si desidera, è anche possibile modificare altri parametri nel modello, che sono facoltativi in base ai requisiti:
     
-    * **SKU** : è possibile modificare lo SKU del servizio di bilanciamento del carico esterno nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU** > **Name** nel file ** \<Resource-Group-Name>. JSON** :
+    * **SKU** : è possibile modificare lo SKU del servizio di bilanciamento del carico esterno nella configurazione da standard a Basic o Basic a standard modificando la proprietà **SKU**  >  **Name** nel file con ** \<resource-group-name> estensione JSON** :
 
         ```json
         "resources": [
@@ -322,7 +322,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         ```
       Per altre informazioni sulle differenze tra i bilanciamenti del carico SKU Basic e standard, vedere [Panoramica di Azure Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Regole di bilanciamento del carico** : è possibile aggiungere o rimuovere le regole di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **loadBalancingRules** del file ** \<Resource-Group-Name>. JSON** :
+    * **Regole di bilanciamento del carico** : è possibile aggiungere o rimuovere le regole di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **loadBalancingRules** del file ** \<resource-group-name> JSON** :
 
         ```json
         "loadBalancingRules": [
@@ -354,7 +354,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         ```
        Per ulteriori informazioni sulle regole di bilanciamento del carico, vedere [che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Probe** : è possibile aggiungere o rimuovere un probe per il servizio di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **Probe** del file ** \<Resource-Group-Name>. JSON** :
+    * **Probe** : è possibile aggiungere o rimuovere un probe per il servizio di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **Probe** del file con ** \<resource-group-name> estensione JSON** :
 
         ```json
         "probes": [
@@ -374,7 +374,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         ```
        Per altre informazioni sui Probe di integrità di Azure Load Balancer, vedere [Probe di integrità Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Regole NAT in ingresso** : è possibile aggiungere o rimuovere le regole NAT in ingresso per il servizio di bilanciamento del carico aggiungendo o rimuovendo le voci nella sezione **inboundNatRules** del file ** \<Resource-Group-Name>. JSON** :
+    * **Regole NAT in ingresso** : è possibile aggiungere o rimuovere le regole NAT in ingresso per il servizio di bilanciamento del carico aggiungendo o rimuovendo le voci nella sezione **inboundNatRules** del file con ** \<resource-group-name> estensione JSON** :
 
         ```json
         "inboundNatRules": [
@@ -396,7 +396,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                     }
                 ]
         ```
-        Per completare l'aggiunta o la rimozione di una regola NAT in ingresso, è necessario che la regola sia presente o rimossa come proprietà del **tipo** alla fine del ** \<nome del gruppo di risorse> file con estensione JSON** :
+        Per completare l'aggiunta o la rimozione di una regola NAT in ingresso, è necessario che la regola sia presente o rimossa come proprietà del **tipo** alla fine del file con ** \<resource-group-name> estensione JSON** :
 
         ```json
         {
@@ -422,7 +422,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
         ```
         Per ulteriori informazioni sulle regole NAT in ingresso, vedere [che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Regole in uscita** : è possibile aggiungere o rimuovere regole in uscita nella configurazione modificando la proprietà **outboundRules** nel file ** \<Resource-Group-Name>. JSON** :
+    * **Regole in uscita** : è possibile aggiungere o rimuovere regole in uscita nella configurazione modificando la proprietà **outboundRules** nel file ** \<resource-group-name> JSON** :
 
         ```json
         "outboundRules": [
@@ -450,14 +450,14 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
          Per ulteriori informazioni sulle regole in uscita, vedere [Load Balancer regole in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
 
-13. Salvare il ** \<file Resource-Group-Name>. JSON** .
+13. Salvare il file **\<resource-group-name>.json**.
     
 10. Creare o un gruppo di risorse nell'area di destinazione per la distribuzione del servizio di bilanciamento del carico esterno di destinazione usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). Il gruppo di risorse esistente precedente può essere riutilizzato anche nell'ambito di questo processo:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Distribuire il ** \<nome del gruppo di risorse modificato>** file con estensione JSON al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Distribuire il file **\<resource-group-name>.json** modificato nel gruppo di risorse creato nel passaggio precedente utilizzando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -510,7 +510,7 @@ Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-na
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato spostato un gruppo di sicurezza di rete di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo trasferimento di risorse tra aree e ripristino di emergenza in Azure, vedere:
+In questa esercitazione è stato spostato un gruppo di sicurezza di rete di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo spostamento di risorse tra aree e sul ripristino di emergenza in Azure, vedere:
 
 
 - [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

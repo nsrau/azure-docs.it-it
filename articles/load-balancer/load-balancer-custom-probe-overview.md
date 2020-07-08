@@ -8,18 +8,18 @@ author: asudbring
 manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 8e79f4c791d0252c719846da3aa8024b0e622dca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80477011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809419"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 

@@ -4,14 +4,14 @@ description: Informazioni su come configurare un set di scalabilità di macchine
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 0db09083a2197ce72e6d6eed2381b0308239586e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 858315008434f511e3adc0a91d591d924634fc39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80350001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809491"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-azure-powershell"></a>Configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente usando Azure PowerShell
 
@@ -86,5 +86,5 @@ New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualN
 In questo articolo è stato distribuito un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente.  Per altre informazioni sui set di scalabilità di macchine virtuali e sul servizio di bilanciamento del carico, vedere:
 
 - [Informazioni su Azure Load Balancer](load-balancer-overview.md)
-- [Che cosa sono i set di scalabilità delle macchine virtuali?](../virtual-machine-scale-sets/overview.md)
+- [Informazioni sui set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md)
                                 

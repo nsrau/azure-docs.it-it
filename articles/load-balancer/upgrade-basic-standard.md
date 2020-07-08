@@ -4,15 +4,15 @@ description: Questo articolo illustra come aggiornare il Load Balancer pubblico 
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f1c85c98b9ea0dcaa6498622a0667bffba080401
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809346"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Aggiornare Load Balancer pubblico di Azure
 [Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -49,7 +49,7 @@ Sono disponibili due opzioni a seconda della configurazione e delle preferenze d
 * Se non si dispone di Azure AZ Modules installato o non si vuole disinstallare i moduli AZ di Azure, l'opzione migliore consiste nell'usare l' `Install-Script` opzione per eseguire lo script.
 * Se è necessario proteggere i moduli di Azure AZ, la scommessa migliore consiste nel scaricare lo script ed eseguirlo direttamente.
 
-Per determinare se Azure AZ Modules è installato, eseguire `Get-InstalledModule -Name az`. Se non vengono visualizzati i moduli AZ installati, è possibile usare il `Install-Script` metodo.
+Per determinare se Azure AZ Modules è installato, eseguire `Get-InstalledModule -Name az` . Se non vengono visualizzati i moduli AZ installati, è possibile usare il `Install-Script` metodo.
 
 ### <a name="install-using-the-install-script-method"></a>Eseguire l'installazione usando il metodo Install-script
 
@@ -128,7 +128,7 @@ No. Lo script Azure PowerShell esegue solo la migrazione della configurazione. L
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Si sono verificati alcuni problemi con l'uso di questo script. Come è possibile ottenere assistenza?
   
-È possibile inviare un messaggio di slbupgradesupport@microsoft.composta elettronica a, aprire un caso di supporto con il supporto tecnico di Azure o eseguire entrambe le operazioni.
+È possibile inviare un messaggio di posta elettronica a slbupgradesupport@microsoft.com , aprire un caso di supporto con il supporto tecnico di Azure o eseguire entrambe le operazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
