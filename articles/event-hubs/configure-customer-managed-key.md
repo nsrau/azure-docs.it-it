@@ -1,19 +1,14 @@
 ---
 title: Configurare la propria chiave per la crittografia dei dati inattivi di hub eventi di Azure
 description: Questo articolo fornisce informazioni su come configurare la propria chiave per la crittografia dei dati REST di hub eventi di Azure.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: spelluru
-ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479828"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
@@ -26,14 +21,14 @@ L'abilitazione della funzionalità BYOK è un processo di configurazione una vol
 > [!NOTE]
 > La funzionalità BYOK è supportata dai cluster a [tenant singolo dedicati di hub eventi](event-hubs-dedicated-overview.md) . Non può essere abilitata per gli spazi dei nomi standard di hub eventi.
 
-È possibile usare Azure Key Vault per gestire le chiavi e controllare l'utilizzo della chiave. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](../key-vault/general/overview.md)
+È possibile usare Azure Key Vault per gestire le chiavi e controllare l'utilizzo della chiave. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](../key-vault/general/overview.md)
 
 Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando il portale di Azure. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
 > Per usare chiavi gestite dal cliente con hub eventi di Azure, è necessario che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Sono: **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
 
-## <a name="enable-customer-managed-keys"></a>Abilita chiavi gestite dal cliente
+## <a name="enable-customer-managed-keys"></a>Abilitare chiavi gestite dal cliente
 Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla procedura seguente:
 
 1. Passare al cluster Hub eventi Dedicato.
@@ -41,7 +36,7 @@ Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla
 1. Nella pagina **Impostazioni** dello spazio dei nomi di hub eventi selezionare **crittografia**. 
 1. Selezionare la **crittografia della chiave gestita dal cliente** , come illustrato nella figura seguente. 
 
-    ![Abilita chiave gestita dal cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
+    ![Abilitare la chiave gestita dal cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Configurare un insieme di credenziali delle chiavi con chiavi
 Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la chiave gestita dal cliente allo spazio dei nomi di hub eventi di Azure. Hub eventi supporta solo Azure Key Vault. Se si Abilita l'opzione **crittografia con chiave gestita dal cliente** nella sezione precedente, è necessario importare la chiave in Azure Key Vault. Inoltre, le chiavi devono essere **eliminate temporaneamente** e **non vengono rieliminate** configurate per la chiave. Queste impostazioni possono essere configurate tramite [PowerShell](../key-vault/general/soft-delete-powershell.md) o l' [interfaccia](../key-vault/general/soft-delete-cli.md#enabling-purge-protection)della riga di comando.
@@ -71,7 +66,7 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
 
 
 ## <a name="rotate-your-encryption-keys"></a>Ruotare le chiavi di crittografia
-È possibile ruotare la chiave nell'insieme di credenziali delle chiavi usando il meccanismo di rotazione di Azure Key Vault. Per altre informazioni, vedere [configurare la rotazione e il controllo delle chiavi](../key-vault/secrets/key-rotation-log-monitoring.md). È anche possibile impostare le date di attivazione e di scadenza per automatizzare la rotazione delle chiavi. Il servizio Hub eventi rileverà nuove versioni chiave e inizierà a utilizzarle automaticamente.
+È possibile ruotare la chiave nell'insieme di credenziali delle chiavi usando il meccanismo di rotazione di Azure Key Vault. È anche possibile impostare le date di attivazione e di scadenza per automatizzare la rotazione delle chiavi. Il servizio Hub eventi rileverà nuove versioni chiave e inizierà a utilizzarle automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revoca l'accesso alle chiavi
 La revoca dell'accesso alle chiavi di crittografia non eliminerà i dati da Hub eventi. Tuttavia, non è possibile accedere ai dati dallo spazio dei nomi di hub eventi. Per revocare la chiave di crittografia, è possibile usare i criteri di accesso oppure eliminare la chiave. Altre informazioni sui criteri di accesso e sulla protezione dell'insieme di credenziali delle chiavi dall' [accesso sicuro a un insieme di](../key-vault/general/secure-your-key-vault.md)credenziali delle chiavi.
@@ -99,7 +94,7 @@ Seguire questa procedura per abilitare i log per le chiavi gestite dal cliente.
 ## <a name="log-schema"></a>Schema del log 
 Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogni voce contiene campi stringa che usano il formato descritto nella tabella seguente. 
 
-| Name | Descrizione |
+| Nome | Descrizione |
 | ---- | ----------- | 
 | TaskName | Descrizione dell'attività non riuscita. |
 | ActivityId | ID interno usato per il rilevamento. |
@@ -107,9 +102,9 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 | resourceId | ID della risorsa Azure Resource Manager |
 | keyVault | Nome completo dell'insieme di credenziali delle chiavi. |
 | Key | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
-| Versione | Versione della chiave usata. |
+| version | Versione della chiave usata. |
 | operazione | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |
-| code | Codice associato all'operazione. Esempio: codice errore 404 indica che la chiave non è stata trovata. |
+| codice | Codice associato all'operazione. Esempio: codice errore 404 indica che la chiave non è stata trovata. |
 | message | Qualsiasi messaggio di errore associato all'operazione |
 
 Di seguito è riportato un esempio di log per una chiave gestita dal cliente:
@@ -155,7 +150,7 @@ In questa sezione viene illustrato come eseguire le attività seguenti utilizzan
 ### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>Creare un cluster di hub eventi e uno spazio dei nomi con identità del servizio gestito
 Questa sezione illustra come creare uno spazio dei nomi di hub eventi di Azure con l'identità del servizio gestito usando un modello di Azure Resource Manager e PowerShell. 
 
-1. Creare un modello di Azure Resource Manager per creare uno spazio dei nomi di hub eventi con un'identità del servizio gestito. Denominare il file: **CreateEventHubClusterAndNamespace. JSON**: 
+1. Creare un modello di Azure Resource Manager per creare uno spazio dei nomi di hub eventi con un'identità del servizio gestito. Denominare il file: **CreateEventHubClusterAndNamespace.jsil**: 
 
     ```json
     {
@@ -224,7 +219,7 @@ Questa sezione illustra come creare uno spazio dei nomi di hub eventi di Azure c
        }
     }
     ```
-2. Creare un file di parametri di modello denominato: **CreateEventHubClusterAndNamespaceParams. JSON**. 
+2. Creare un file di parametri di modello denominato: **CreateEventHubClusterAndNamespaceParams.json**. 
 
     > [!NOTE]
     > Sostituire i valori seguenti: 
@@ -289,7 +284,7 @@ Fino a questo punto sono stati eseguiti i passaggi seguenti:
 
 In questo passaggio verrà aggiornato lo spazio dei nomi di hub eventi con le informazioni sull'insieme di credenziali delle chiavi. 
 
-1. Creare un file JSON denominato **CreateEventHubClusterAndNamespace. JSON** con il contenuto seguente: 
+1. Creare un file JSON denominato **CreateEventHubClusterAndNamespace.json** con il contenuto seguente: 
 
     ```json
     {
@@ -361,7 +356,7 @@ In questo passaggio verrà aggiornato lo spazio dei nomi di hub eventi con le in
     }
     ``` 
 
-2. Creare un file di parametri di modello: **UpdateEventHubClusterAndNamespaceParams. JSON**. 
+2. Creare un file di parametri di modello: **UpdateEventHubClusterAndNamespaceParams.js**. 
 
     > [!NOTE]
     > Sostituire i valori seguenti: 
@@ -405,7 +400,7 @@ Come procedura consigliata, abilitare sempre i log, come illustrato nella sezion
 
 Di seguito sono riportati i codici di errore comuni da cercare quando è abilitata la crittografia BYOK.
 
-| Action | Codice errore | Stato risultante dei dati |
+| Action | Codice di errore | Stato risultante dei dati |
 | ------ | ---------- | ----------------------- | 
 | Rimuovere l'autorizzazione wrap/unwrap da un insieme di credenziali delle chiavi | 403 |    Inaccessible |
 | Rimuovere l'appartenenza al ruolo AAD da un'entità AAD che ha concesso l'autorizzazione wrap/unwrap | 403 |  Inaccessible |

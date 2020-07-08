@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: d9c46368b42cac1d06f7d78d5e0d03ad2de0bada
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478400"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -325,6 +325,7 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | jobtitle | Posizione |
 | Utente | employeeid | ID dipendente |
 | Utente | facsimiletelephonenumber | Numero di telefono fax |
+| Utente | assignedroles | elenco dei ruoli dell'app assegnati all'utente|
 | application, resource, audience | displayname | Nome visualizzato |
 | application, resource, audience | objected | ObjectID |
 | application, resource, audience | tags | Tag di entità servizio |
@@ -469,7 +470,7 @@ In questo esempio si creano criteri che rimuovono il set di attestazioni di base
       Get-AzureADPolicy
       ```
 1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio.
-   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire query nell'API Microsoft Graph](/graph/traverse-the-graph). In alternativa, eseguire l'accesso all'account Azure AD dallo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire query nell'API di Microsoft Graph](/graph/traverse-the-graph). In alternativa, eseguire l'accesso all'account Azure AD dallo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
    2. Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando:  
      
       ``` powershell
@@ -493,7 +494,7 @@ In questo esempio si creano criteri che aggiungono EmployeeID e TenantCountry ai
       Get-AzureADPolicy
       ```
 1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio. 
-   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire query nell'API Microsoft Graph](/graph/traverse-the-graph). In alternativa, eseguire l'accesso all'account Azure AD dallo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile [eseguire query nell'API di Microsoft Graph](/graph/traverse-the-graph). In alternativa, eseguire l'accesso all'account Azure AD dallo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
    2. Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando:  
      
       ``` powershell

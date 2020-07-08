@@ -1,35 +1,35 @@
 ---
-title: Associazioni di Azure Cosmos DB per Funzioni 2.x
+title: Binding Azure Cosmos DB per le funzioni 2. xD e versioni successive
 description: Informazioni su come usare trigger e associazioni di Azure Cosmos DB in Funzioni di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
-ms.openlocfilehash: f258a7aff52796a53540706bc8413575d63c9e7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c6efd14bd974de1b01b1725b9810f153df74bf8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77605767"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482174"
 ---
-# <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-overview"></a>Trigger e associazioni di Azure Cosmos DB per la Panoramica di funzioni di Azure 2. x
+# <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Trigger e associazioni di Azure Cosmos DB per funzioni di Azure 2. x e una panoramica superiore
 
 > [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
 > * [Versione 1](functions-bindings-cosmosdb.md)
-> * [Versione 2](functions-bindings-cosmosdb-v2.md)
+> * [Versione 2 e successive](functions-bindings-cosmosdb-v2.md)
 
-Questo set di articoli illustra come usare le associazioni di [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) in funzioni di Azure 2. x. Funzioni di Azure supporta i trigger e le associazioni di input e output per Azure Cosmos DB.
+Questo set di articoli illustra come usare le associazioni di [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) in funzioni di Azure 2. x e versioni successive. Funzioni di Azure supporta i trigger e le associazioni di input e output per Azure Cosmos DB.
 
-| Action | Tipo |
+| Action | Type |
 |---------|---------|
 | Esegue una funzione quando viene creato o modificato un documento di Azure Cosmos DB | [Trigger](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Leggi un documento Azure Cosmos DB | [Binding di input](./functions-bindings-cosmosdb-v2-input.md) |
 | Salvare le modifiche apportate a un documento Azure Cosmos DB  |[Binding di output](./functions-bindings-cosmosdb-v2-output.md) |
 
 > [!NOTE]
-> Questo riferimento è per le [funzioni di Azure versione 2. x](functions-versions.md).  Per informazioni su come usare le associazioni in Funzioni 1.x, vedere [Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x](functions-bindings-cosmosdb.md).
+> Questo riferimento è per [le funzioni di Azure versione 2. x e successive](functions-versions.md).  Per informazioni su come usare le associazioni in Funzioni 1.x, vedere [Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x](functions-bindings-cosmosdb.md).
 >
-> Questa associazione è stata originariamente denominata DocumentDB. In Funzioni versione 2.x, i trigger, le associazioni e il pacchetto sono tutti denominati Cosmos DB.
+> Questa associazione è stata originariamente denominata DocumentDB. Nelle funzioni versione 2. x e successive, il trigger, le associazioni e il pacchetto sono tutti denominati Cosmos DB.
 
 ## <a name="supported-apis"></a>API supportate
 
@@ -37,7 +37,7 @@ Questo set di articoli illustra come usare le associazioni di [Azure Cosmos DB](
 
 ## <a name="add-to-your-functions-app"></a>Aggiungi all'app funzioni
 
-### <a name="functions-2x-and-higher"></a>Funzioni 2. x e versioni successive
+### <a name="functions-2x-and-higher"></a>Funzioni 2.x e versioni successive
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 

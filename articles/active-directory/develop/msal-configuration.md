@@ -7,18 +7,18 @@ author: shoatman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479420"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>File di configurazione della libreria di autenticazione Microsoft Android
 
@@ -30,14 +30,14 @@ Questo articolo consente di comprendere le diverse impostazioni nel file di conf
 
 ### <a name="general-settings"></a>Impostazioni generali
 
-| Proprietà | Tipo di dati | Obbligatoria | Note |
+| Proprietà | Tipo di dati | Necessario | Note |
 |-----------|------------|-------------|-------|
 | `client_id` | string | Sì | ID client dell'app dalla pagina di [registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | string | Sì | URI di reindirizzamento dell'app dalla [pagina di registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | Elenca\<> autorità | No | Elenco delle autorità necessarie per l'app |
-| `authorization_user_agent` | AuthorizationAgent (enumerazione) | No | Valori possibili: `DEFAULT`, `BROWSER`,`WEBVIEW` |
+| `authorities` | Elenco\<Authority> | No | Elenco delle autorità necessarie per l'app |
+| `authorization_user_agent` | AuthorizationAgent (enumerazione) | No | Valori possibili: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
 | `http` | HttpConfiguration | No | Configurare `HttpUrlConnection` `connect_timeout` e`read_timeout` |
-| `logging` | LoggingConfiguration | No | Specifica il livello di dettaglio della registrazione. Le configurazioni facoltative `pii_enabled`includono: `log_level`, che accetta un valore booleano, e `ERROR`, `WARNING`che `INFO`accetta, `VERBOSE`, o. |
+| `logging` | LoggingConfiguration | No | Specifica il livello di dettaglio della registrazione. Le configurazioni facoltative includono: `pii_enabled` , che accetta un valore booleano, e `log_level` , che accetta `ERROR` ,, `WARNING` `INFO` o `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
 
@@ -49,7 +49,7 @@ URI di reindirizzamento registrato durante la registrazione dell'applicazione. S
 
 ### <a name="authorities"></a>autorità
 
-Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autorità elencate qui, MSAL interroga Microsoft per ottenere un elenco di cloud e autorità noti a Microsoft. In questo elenco di autorità specificare il tipo di autorità ed eventuali altri parametri facoltativi, ad esempio `"audience"`, che devono essere allineati con i destinatari dell'app in base alla registrazione dell'app. Di seguito è riportato un elenco di esempi di autorità:
+Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autorità elencate qui, MSAL interroga Microsoft per ottenere un elenco di cloud e autorità noti a Microsoft. In questo elenco di autorità specificare il tipo di autorità ed eventuali altri parametri facoltativi, ad esempio `"audience"` , che devono essere allineati con i destinatari dell'app in base alla registrazione dell'app. Di seguito è riportato un elenco di esempi di autorità:
 
 ```javascript
 // Example AzureAD and Personal Microsoft Account
@@ -97,23 +97,23 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
 > [!NOTE]
 > La convalida dell'autorità non può essere abilitata e disabilitata in MSAL.
 > Le autorità sono note come sviluppatore come specificato tramite configurazione o note a Microsoft tramite metadati.
-> Se MSAL riceve una richiesta di un token a un'autorità sconosciuta, un `MsalClientException` oggetto di `UnknownAuthority` tipo results.
+> Se MSAL riceve una richiesta di un token a un'autorità sconosciuta, un oggetto `MsalClientException` di tipo `UnknownAuthority` results.
 
 #### <a name="authority-properties"></a>Proprietà dell'autorità
 
-| Proprietà | Tipo di dati  | Obbligatoria | Note |
+| Proprietà | Tipo di dati  | Necessario | Note |
 |-----------|-------------|-----------|--------|
-| `type` | string | Sì | Rispecchia il tipo di destinatari o di account a cui è destinata l'app. Valori possibili: `AAD`,`B2C` |
-| `audience` | Oggetto | No | Si applica solo quando il`AAD`tipo è =. Specifica l'identità a cui è destinata l'app. Usare il valore della registrazione dell'app |
-| `authority_url` | string | Sì | Obbligatorio solo quando il tipo`B2C`è =. Specifica l'URL dell'autorità o i criteri che devono essere usati dall'app  |
+| `type` | string | Sì | Rispecchia il tipo di destinatari o di account a cui è destinata l'app. Valori possibili: `AAD` ,`B2C` |
+| `audience` | Oggetto | No | Si applica solo quando il tipo è = `AAD` . Specifica l'identità a cui è destinata l'app. Usare il valore della registrazione dell'app |
+| `authority_url` | string | Sì | Obbligatorio solo quando il tipo è = `B2C` . Specifica l'URL dell'autorità o i criteri che devono essere usati dall'app  |
 | `default` | boolean | Sì | Un singolo `"default":true` è obbligatorio quando si specifica una o più autorità. |
 
 #### <a name="audience-properties"></a>Proprietà del gruppo di destinatari
 
-| Proprietà | Tipo di dati  | Obbligatoria | Note |
+| Proprietà | Tipo di dati  | Necessario | Note |
 |-----------|-------------|------------|-------|
-| `type` | string | Sì | Specifica i destinatari a cui si vuole assegnare l'app. Valori possibili: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`,`AzureADMyOrg` |
-| `tenant_id` | string | Sì | Obbligatorio solo quando `"type":"AzureADMyOrg"`. Facoltativo per altri `type` valori. Può trattarsi di un dominio tenant `contoso.com`, ad esempio, o un ID tenant `72f988bf-86f1-41af-91ab-2d7cd011db46`, ad esempio, |
+| `type` | string | Sì | Specifica i destinatari a cui si vuole assegnare l'app. Valori possibili: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `tenant_id` | string | Sì | Obbligatorio solo quando `"type":"AzureADMyOrg"` . Facoltativo per altri `type` valori. Può trattarsi di un dominio tenant, ad esempio `contoso.com` , o un ID tenant, ad esempio, `72f988bf-86f1-41af-91ab-2d7cd011db46` |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -126,31 +126,31 @@ Valori possibili:
 
 ### <a name="multiple_clouds_supported"></a>multiple_clouds_supported
 
-Per i client che supportano più cloud nazionali, `true`specificare. La piattaforma Microsoft Identity reindirizza automaticamente al cloud nazionale corretto durante l'autorizzazione e il riscatto dei token. È possibile determinare il cloud nazionale dell'account di accesso esaminando l'autorità associata al `AuthenticationResult`. Si noti che `AuthenticationResult` non fornisce l'indirizzo endpoint specifico del cloud nazionale della risorsa per cui si richiede un token.
+Per i client che supportano più cloud nazionali, specificare `true` . La piattaforma Microsoft Identity reindirizza automaticamente al cloud nazionale corretto durante l'autorizzazione e il riscatto dei token. È possibile determinare il cloud nazionale dell'account di accesso esaminando l'autorità associata al `AuthenticationResult` . Si noti che `AuthenticationResult` non fornisce l'indirizzo endpoint specifico del cloud nazionale della risorsa per cui si richiede un token.
 
 ### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
 
 Valore booleano che indica se si usa un URI di reindirizzamento in-Broker compatibile con Microsoft Identity Broker. Impostare su `false` se non si vuole usare il broker nell'app.
 
-Se si usa l'autorità AAD con audience impostato su `"MicrosoftPersonalAccount"`, il broker non verrà usato.
+Se si usa l'autorità AAD con audience impostato su `"MicrosoftPersonalAccount"` , il broker non verrà usato.
 
 ### <a name="http"></a>http
 
 Configurare le impostazioni globali per i timeout HTTP, ad esempio:
 
-| Proprietà | Tipo di dati | Obbligatoria | Note |
+| Proprietà | Tipo di dati | Necessario | Note |
 | ---------|-----------|------------|--------|
-| `connect_timeout` | INT | No | Tempo in millisecondi |
-| `read_timeout` | INT | No | Tempo in millisecondi |
+| `connect_timeout` | int | No | Tempo in millisecondi |
+| `read_timeout` | int | No | Tempo in millisecondi |
 
 ### <a name="logging"></a>registrazione
 
 Per la registrazione sono disponibili le impostazioni globali seguenti:
 
-| Proprietà | Tipo di dati  | Obbligatoria | Note |
+| Proprietà | Tipo di dati  | Necessario | Note |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Indica se creare dati personali |
-| `log_level`   | boolean | No | Messaggi di log da restituire |
+| `log_level`   | stringa | No | I messaggi di log da restituire. I livelli di log supportati sono `ERROR` ,, `WARNING` `INFO` e `VERBOSE` . |
 | `logcat_enabled` | boolean | No | Indica se eseguire l'output in log Cat oltre all'interfaccia di registrazione |
 
 ### <a name="account_mode"></a>account_mode
@@ -160,7 +160,7 @@ Specifica il numero di account che possono essere usati all'interno dell'app all
 - `MULTIPLE` (impostazione predefinita)
 - `SINGLE`
 
-La costruzione di `PublicClientApplication` un oggetto utilizzando una modalità account che non corrisponde a questa impostazione genererà un'eccezione.
+La costruzione di un oggetto `PublicClientApplication` utilizzando una modalità account che non corrisponde a questa impostazione genererà un'eccezione.
 
 Per altre informazioni sulle differenze tra account singoli e multipli, vedere [app di account singolo e multiple](single-multi-account.md).
 
@@ -340,8 +340,8 @@ Nell'esempio seguente viene illustrata una configurazione di base che specifica 
 
 ## <a name="how-to-use-a-configuration-file"></a>Come usare un file di configurazione
 
-1. Creare un file di configurazione. Si consiglia di creare il file di configurazione personalizzato in `res/raw/auth_config.json`. Ma è possibile inserirlo ovunque si desideri.
-2. Indicare a MSAL dove cercare la configurazione quando si costruisce il `PublicClientApplication`. Ad esempio:
+1. Creare un file di configurazione. Si consiglia di creare il file di configurazione personalizzato in `res/raw/auth_config.json` . Ma è possibile inserirlo ovunque si desideri.
+2. Indicare a MSAL dove cercare la configurazione quando si costruisce il `PublicClientApplication` . Ad esempio:
 
    ```java
    //On Worker Thread

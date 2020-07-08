@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 4169bfb5da5b1ad13bab0eb01397f7c1fb20b11b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85480134"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Aggiungere o rimuovere interfacce di rete da macchine virtuali
 
@@ -46,7 +46,7 @@ Se non si ha una sottoscrizione, configurare un account Azure con una sottoscriz
 
 Quando si crea una macchina virtuale tramite il portale, il portale crea un'interfaccia di rete con le impostazioni predefinite e connette l'interfaccia di rete alla macchina virtuale. Non è possibile usare il portale per aggiungere interfacce di rete esistenti a una nuova macchina virtuale o per creare una macchina virtuale con più interfacce di rete. È possibile eseguire entrambe le operazioni usando l'interfaccia della riga di comando o PowerShell. Assicurarsi di acquisire familiarità con i [vincoli](#constraints). Se si crea una macchina virtuale con più interfacce di rete, è anche necessario configurare il sistema operativo per usarle correttamente dopo aver creato la macchina virtuale. Informazioni su come configurare [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) o [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) per più interfacce di rete.
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 Prima di creare la macchina virtuale, [creare un'interfaccia di rete](virtual-network-network-interface.md#create-a-network-interface).
 
@@ -65,18 +65,18 @@ Per aggiungere un'interfaccia di rete alla macchina virtuale:
 
 3. Nella barra dei comandi della macchina virtuale selezionare **Arresta**, quindi **OK** nella finestra di dialogo di conferma. Attendere quindi che lo **stato** della macchina virtuale venga modificato in **arrestato (deallocato)**.
 
-4. Dalla barra dei menu della macchina virtuale scegliere **rete** > **collegare l'interfaccia di rete**. Quindi, in **collegare l'interfaccia di rete esistente**, scegliere l'interfaccia di rete che si vuole collegare e fare clic su **OK**.
+4. Dalla barra dei menu della macchina virtuale scegliere **rete**  >  **collegare l'interfaccia di rete**. Quindi, in **collegare l'interfaccia di rete esistente**, scegliere l'interfaccia di rete che si vuole collegare e fare clic su **OK**.
 
     >[!NOTE]
     >L'interfaccia di rete selezionata non può essere abilitata per la rete accelerata, non può avere un indirizzo IPv6 assegnato e deve essere presente nella stessa rete virtuale con l'interfaccia di rete attualmente collegata alla VM.
 
     Se non è disponibile un'interfaccia di rete esistente, è prima di tutto necessario crearla. A tale scopo, selezionare **Crea interfaccia di rete**. Per altre informazioni su come creare un'interfaccia di rete, vedere [Creare un'interfaccia di rete](virtual-network-network-interface.md#create-a-network-interface). Per altre informazioni sui vincoli aggiuntivi esistenti per l'aggiunta di interfacce di rete alle macchine virtuali, vedere [Vincoli](#constraints).
 
-5. Dalla barra dei menu della VM scegliere **Panoramica** > **Avvia** per riavviare la macchina virtuale.
+5. Dalla barra dei menu della VM scegliere **Panoramica**  >  **Avvia** per riavviare la macchina virtuale.
 
 A questo punto è possibile configurare il sistema operativo della macchina virtuale per l'uso corretto di più interfacce di rete. Informazioni su come configurare [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) o [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) per più interfacce di rete.
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 |Strumento|Comando|
 |---|---|
@@ -98,7 +98,7 @@ A questo punto è possibile configurare il sistema operativo della macchina virt
 
 Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificarle, vedere [Gestire le interfacce di rete](virtual-network-network-interface.md). Per informazioni su come aggiungere, modificare o rimuovere gli indirizzi IP assegnati a un'interfaccia di rete, vedere [Gestire gli indirizzi IP dell'interfaccia di rete](virtual-network-network-interface-addresses.md).
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 |Strumento|Comando|
 |---|---|
@@ -115,14 +115,14 @@ Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificar
 
 4. Aspettare che lo **Stato** della macchina virtuale venga modificato in **Arrestata (deallocata)**.
 
-5. Dalla barra dei menu della macchina virtuale scegliere **rete** > **Scollega interfaccia di rete**.
+5. Dalla barra dei menu della macchina virtuale scegliere **rete**  >  **Scollega interfaccia di rete**.
 
 6. Nella finestra di dialogo **Scollega interfaccia di rete** selezionare l'interfaccia di rete che si desidera scollegare. Selezionare **OK**.
 
     >[!NOTE]
     >Se è elencata una sola interfaccia di rete, non è possibile scollegarla perché a una macchina virtuale deve essere sempre associata almeno un'interfaccia di rete.
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 |Strumento|Comando|
 |---|---|
@@ -151,7 +151,7 @@ Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificar
 
 - L'eliminazione di una macchina virtuale non comporta l'eliminazione delle interfacce di rete collegate. Quando si elimina una macchina virtuale, le interfacce di rete vengono scollegate dalla macchina virtuale. È possibile aggiungere tali interfacce di rete a macchine virtuali diverse o eliminarle.
 
-- Analogamente a IPv6, non è possibile collegare un'interfaccia di rete con rete accelerata abilitata a una macchina virtuale dopo averla creata. Inoltre, per sfruttare i vantaggi della rete accelerata, è anche necessario completare i passaggi all'interno del sistema operativo della macchina virtuale. Sono disponibili altre informazioni sulle rete accelerata e altri vincoli per il relativo uso per macchine virtuali [Windows](create-vm-accelerated-networking-powershell.md) o [Linux](create-vm-accelerated-networking-cli.md).
+- Per ottenere prestazioni ottimali documentate, è necessaria una rete accelerata. In alcuni casi, è necessario abilitare in modo esplicito la rete accelerata per le macchine virtuali [Windows](create-vm-accelerated-networking-powershell.md) o [Linux](create-vm-accelerated-networking-cli.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

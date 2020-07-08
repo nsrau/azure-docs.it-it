@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 62b79ee7398286b8e6c8ed8612bd001595e1f6ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41389bc5ed8580cd80dbc40e771c7f15241f5ae7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479403"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Differenze tra Microsoft Authentication Library per iOS e macOS
 
@@ -33,7 +33,7 @@ MSAL per macOS è un subset delle funzionalità disponibili per iOS.
 
 MSAL per macOS non supporta:
 
-- tipi di `ASWebAuthenticationSession`browser diversi, ad `SFAuthenticationSession`esempio `SFSafariViewController`,,.
+- tipi di browser diversi, ad esempio `ASWebAuthenticationSession` , `SFAuthenticationSession` , `SFSafariViewController` .
 - l'autenticazione negoziata tramite l'app Microsoft Authenticator non è supportata per macOS.
 
 La condivisione del keychain tra le app dello stesso server di pubblicazione è più limitata in macOS 10,14 e versioni precedenti. Usare gli [elenchi di controllo di accesso](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) per specificare i percorsi delle app che devono condividere il keychain. L'utente può visualizzare richieste di Keychain aggiuntive.

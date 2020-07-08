@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 8db27819b7eef6cdf05ea3f6645ae930ebc4ef58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad66e0698cf0705c7a4db90a6dd515b71fed84e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478621"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -148,11 +148,11 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
 8. Aggiornare la tabella **Attributi** per definire un mapping personalizzato dell'attestazione basata su ruolo.
 
-9. Nella sezione **attestazioni utente** della finestra di dialogo **attributi utente** seguire questa procedura per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
+9. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
     | Nome attributo | Valore di attributo |
     | -------------- | ----------------|
-    | Nome ruolo  | user.assignedroles |
+    | Nome del ruolo  | user.assignedroles |
 
     >[!NOTE]
     >Se il valore dell'attestazione del ruolo è null, Azure AD non invierà questo valore nel token e questa impostazione è predefinita in base alla progettazione.

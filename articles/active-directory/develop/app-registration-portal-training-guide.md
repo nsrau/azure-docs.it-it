@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478162"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Nuova esperienza di registrazione delle app portale di Azure
 
@@ -77,7 +77,7 @@ Nella nuova esperienza, i **segreti dell'applicazione** sono stati rinominati in
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Piattaforme/autenticazione: URL di risposta/URI di Reindirizzamento
 Nell'esperienza precedente, un'app aveva una sezione Platforms per l'API Web, nativa e Web per configurare gli URL di reindirizzamento, l'URL di disconnessione e il flusso implicito.
 
-Nella nuova esperienza è possibile trovare gli URL di risposta nella sezione relativa\'all'autenticazione di un'app. Vengono inoltre definiti URI di reindirizzamento e il formato degli URI di reindirizzamento è stato modificato. È necessario che siano associati a un tipo di app (Web o client pubblico-mobile e desktop). [Altre informazioni](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Nella nuova esperienza è possibile trovare gli URL di risposta nella sezione relativa all'autenticazione di un'app \' . Vengono inoltre definiti URI di reindirizzamento e il formato degli URI di reindirizzamento è stato modificato. È necessario che siano associati a un tipo di app (Web o client pubblico-mobile e desktop). [Altre informazioni](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 Le API Web sono configurate nella pagina esporre un'API.
 
@@ -106,7 +106,7 @@ Nella pagina manifesto della nuova esperienza è possibile modificare e aggiorna
 
 -   Gli ambiti definiti da questa API (oauth2Permissions) e dalle applicazioni client autorizzate (preAuthorizedApplications) possono essere configurati tramite la pagina esporre un'API. Per altre informazioni su come configurare un'app in modo che sia un'API Web ed esporre le autorizzazioni e gli ambiti, vedere [questa Guida introduttiva](quickstart-configure-app-expose-web-apis.md).
 
--   Il dominio del server di pubblicazione (visualizzato agli utenti [nella\'richiesta di consenso dell'applicazione](application-consent-experience.md)) è disponibile nella pagina personalizzazione. Per ulteriori informazioni su come configurare un dominio del server di pubblicazione, vedere [questa procedura](howto-configure-publisher-domain.md).
+-   Il dominio del server di pubblicazione (visualizzato agli utenti [nella \' richiesta di consenso dell'applicazione](application-consent-experience.md)) è disponibile nella pagina personalizzazione. Per ulteriori informazioni su come configurare un dominio del server di pubblicazione, vedere [questa procedura](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -116,7 +116,7 @@ La nuova esperienza presenta le limitazioni seguenti:
 
 -   La nuova esperienza non supporta ancora le app Live SDK create con account Microsoft personali.
 
--   La modifica del valore per gli account supportati non è supportata nell'interfaccia utente. È necessario usare il manifesto dell'app, a meno\'che non si ripassi da Azure ad a tenant singolo e multi-tenant.
+-   La modifica del valore per gli account supportati non è supportata nell'interfaccia utente. È necessario usare il manifesto dell'app, a meno che non si ripassi da \' Azure ad a tenant singolo e multi-tenant.
 
    > [!NOTE]
    > Se si è un utente account Microsoft personale in Azure AD tenant e l'amministratore del tenant ha accesso limitato ai portale di Azure, è possibile che venga negato l'accesso. Tuttavia, se si passa attraverso il collegamento digitando Registrazioni app nella barra di ricerca o aggiungendola, sarà possibile accedere alla nuova esperienza.

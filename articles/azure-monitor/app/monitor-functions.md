@@ -4,13 +4,13 @@ description: Monitoraggio di Azure si integra perfettamente con l'applicazione i
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/20/2020
-ms.openlocfilehash: a936c77abb9aed5886fae8b2ec4a10bb076b7cb5
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.date: 06/26/2020
+ms.openlocfilehash: 093448ad0280ada039f1d4e5abd0e83e4be19b03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482106"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Monitoraggio di Funzioni di Azure con Application Insights di Monitoraggio di Azure
 
@@ -20,11 +20,10 @@ Application Insights raccoglie i dati relativi a log, prestazioni ed errori e ri
 
 La strumentazione di Application Insights necessaria è incorporata in Funzioni di Azure. L'unico elemento necessario è una chiave di strumentazione valida per connettere l'app per le funzioni a una risorsa Application Insights. La chiave di strumentazione deve essere aggiunta alle impostazioni dell'applicazione quando la risorsa dell'app per le funzioni viene creata in Azure. Se l'app per le funzioni non dispone già di questa chiave, è possibile impostarla manualmente. Per altre informazioni, vedere la sezione sul [monitoraggio di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
 
-## <a name="distributed-tracing-for-java-applications-public-preview"></a>Traccia distribuita per le applicazioni Java (anteprima pubblica)
-
+## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Traccia distribuita per applicazioni Java in Windows (anteprima pubblica)
 
 > [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima pubblica per Funzioni di Azure Java. Per il piano a consumo, presenta un'implicazione di avvio a freddo di 8-9 secondi.
+> Questa funzionalità è attualmente disponibile in anteprima pubblica per le funzioni Java di Azure in Windows, mentre la traccia distribuita per le funzioni Java di Azure in Linux non è supportata. Per il piano a consumo, l'avvio a freddo di 8-9 secondi.
 
 Se le applicazioni sono scritte in Java, è possibile visualizzare dati più completi dalle applicazioni per le funzioni, tra cui richieste, dipendenze, log e metriche. I dati aggiuntivi consentono inoltre di visualizzare e diagnosticare le transazioni end-to-end e visualizzare la mappa delle applicazioni, che aggrega numerose transazioni per mostrare una visualizzazione topologica dell'interazione tra i sistemi, con informazioni sulle prestazioni medie e sulla frequenza degli errori.
 

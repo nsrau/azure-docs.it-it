@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: cd2217046a725f0bb0a05f1eb0afc5434bf3b6fa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 838542bf4c3d566c76987754c8f336e00250d04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482412"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Esercitazione: Configurare MediusFlow per il provisioning utenti automatico
 
@@ -52,14 +52,14 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="step-2-configure-mediusflow-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare MediusFlow per supportare il provisioning con Azure AD
 
-### <a name="activate-the-office-365-app-within-mediusflow"></a>Attivare l'app Office 365 in MediusFlow
+### <a name="activate-the-microsoft-365-app-within-mediusflow"></a>Attivare l'app Microsoft 365 in MediusFlow
 Per iniziare, abilitare l'accesso all'account di accesso di Azure AD e la funzionalità di configurazione Azure AD in MediusFlow attenendosi alla procedura seguente:
 
 #### <a name="user-login"></a>Accesso utente
-Per abilitare il flusso di accesso a Office 365/Azure AD, fare riferimento a questo articolo (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup).
+Per abilitare il flusso di accesso Microsoft 365/Azure AD fare riferimento a [this] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) articolo.
 
 #### <a name="user-transfer-configuration"></a>Configurazione di trasferimento utente
-Per abilitare il portale di configurazione degli utenti per il provisioning da Azure AD, fare riferimento a [questo](
+Per abilitare il portale di configurazione degli utenti per il provisioning da Azure AD fare riferimento a [questo](
 https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) articolo.
 
 #### <a name="configure-user-provisioning"></a>Configura provisioning utenti
@@ -94,7 +94,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
     ![Authenticate](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
 
-8. Per fare in modo che gli utenti vengano importati con un set predefinito di ruoli, aziende e altre configurazioni generali in MediusFlow, sarà necessario configurarlo per primo. Per iniziare, aggiungere la configurazione facendo clic su **Add new configuration** (Aggiungi nuova configurazione).
+8. Per fare in modo che gli utenti importati con un set predefinito di ruoli, aziende e altre configurazioni generali in MediusFlow, è necessario configurarlo per primo. Per iniziare, aggiungere la configurazione facendo clic su **Add new configuration** (Aggiungi nuova configurazione).
 
     ![Configurazione utenti](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
 

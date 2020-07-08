@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481732"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -35,7 +35,7 @@ Usare le reti virtuali per:
 
 * Abilitare scenari cloud ibridi. Le reti virtuali offrono la flessibilità per supportare una gamma di scenari cloud ibridi. È possibile connettere applicazioni basate sul cloud in modo sicuro a qualsiasi tipo di sistema locale, come mainframe e sistemi Unix.
 
-### <a name="how-do-i-get-started"></a>Come iniziare
+### <a name="how-do-i-get-started"></a>Come iniziare?
 Per iniziare, visitare la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/) . che contiene una panoramica e informazioni sulla distribuzione per tutte le funzionalità di rete virtuale.
 
 ### <a name="can-i-use-vnets-without-cross-premises-connectivity"></a>È possibile usare reti virtuali senza connettività cross-premise?
@@ -55,7 +55,14 @@ Per creare o configurare una rete virtuale, è possibile usare gli strumenti seg
 * Un file di configurazione di rete (netcfg - solo per reti virtuali classiche). Vedere l'articolo [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quali intervalli di indirizzi è possibile usare nelle reti virtuali?
-Qualsiasi intervallo di indirizzi IP definito in [RFC 1918](https://tools.ietf.org/html/rfc1918). Ad esempio, 10.0.0.0/16. Non è possibile aggiungere gli intervalli di indirizzi seguenti:
+Si consiglia di usare gli intervalli di indirizzi enumerati in [RFC 1918](https://tools.ietf.org/html/rfc1918), che sono stati accantonati dall'IETF per spazi di indirizzi privati e non instradabili:
+* 10.0.0.0 - 10.255.255.255 (prefisso 10/8)
+* 172.16.0.0-172.31.255.255 (prefisso 172.16/12)
+* 192.168.0.0 - 192.168.255.255 (prefisso 192.168/16)
+
+Altri spazi di indirizzi possono funzionare, ma possono avere effetti collaterali indesiderati.
+
+Non è inoltre possibile aggiungere gli intervalli di indirizzi seguenti:
 * 224.0.0.0/4 (multicast)
 * 255.255.255.255/32 (broadcast)
 * 127.0.0.0/8 (loopback)
@@ -131,7 +138,7 @@ Sì. È possibile specificare gli indirizzi IP del server DNS nelle impostazioni
 Fare riferimento a [Limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>È possibile modificare i server DNS dopo aver creato la rete?
-Sì. È possibile modificare l'elenco dei server DNS per la rete virtuale in qualsiasi momento. Se si modifica l'elenco dei server DNS, è necessario eseguire un rinnovo del lease DHCP in tutte le macchine virtuali interessate nella VNet per rendere effettive le nuove impostazioni DNS. Per le macchine virtuali che eseguono il sistema operativo Windows è `ipconfig /renew` possibile eseguire questa operazione digitando direttamente nella macchina virtuale. Per altri tipi di sistema operativo, fare riferimento alla documentazione relativa al rinnovo dei lease DHCP per il tipo di sistema operativo specifico. 
+Sì. È possibile modificare l'elenco dei server DNS per la rete virtuale in qualsiasi momento. Se si modifica l'elenco dei server DNS, è necessario eseguire un rinnovo del lease DHCP in tutte le macchine virtuali interessate nella VNet per rendere effettive le nuove impostazioni DNS. Per le macchine virtuali che eseguono il sistema operativo Windows è possibile eseguire questa operazione digitando `ipconfig /renew` direttamente nella macchina virtuale. Per altri tipi di sistema operativo, fare riferimento alla documentazione relativa al rinnovo dei lease DHCP per il tipo di sistema operativo specifico. 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>Qual è il DNS fornito da Azure e funziona con le reti virtuali?
 Il DNS fornito da Azure è un servizio DNS multi-tenant offerto da Microsoft. Azure registra tutte le macchine virtuali e le istanze del ruolo del servizio cloud in questo servizio. Questo servizio fornisce la risoluzione dei nomi dal nome host per le macchine virtuali e le istanze del ruolo contenute all'interno dello stesso servizio cloud e da FQDN per le macchine virtuali e le istanze del ruolo nella stessa rete virtuale. Per altre informazioni sul servizio DNS, vedere [Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo di Servizi cloud](virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -188,7 +195,7 @@ Sì. È possibile distribuire app Web all'interno di una VNet usando un ambiente
 
 * [Funzionalità di rete del servizio app](../app-service/networking-features.md)
 * [Creare app Web in un ambiente del servizio app](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Integrare un'app in una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Integrare l'app con una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Restrizioni di accesso al servizio app](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>È possibile distribuire i servizi cloud con ruolo di lavoro e Web (PaaS) in una rete virtuale?

@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 3e66cd6a05a7c616b22eefffdd9d132aa0f4d36d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 23283a44f78522d2b589993c11b494092352cbb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478366"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durate dei token configurabili in Azure Active Directory (anteprima)
 
@@ -47,9 +47,9 @@ I client usano i token di accesso per accedere a una risorsa protetta. I token d
 
 I token SAML vengono utilizzati da numerose applicazioni SAAS basate sul Web e vengono ottenuti utilizzando l'endpoint del protocollo SAML2 di Azure Active Directory. Vengono inoltre utilizzate da applicazioni che utilizzano WS-Federation. La durata predefinita del token è 1 ora. Dal punto di vista di un'applicazione, il periodo di validità del token viene specificato dal valore NotOnOrAfter dell' `<conditions …>` elemento nel token. Al termine del periodo di validità del token, il client deve avviare una nuova richiesta di autenticazione, che verrà spesso soddisfatta senza l'accesso interattivo come risultato del token di sessione Single Sign-on (SSO).
 
-Il valore di NotOnOrAfter può essere modificato utilizzando il `AccessTokenLifetime` parametro in un `TokenLifetimePolicy`oggetto. Verrà impostato sulla durata configurata nel criterio, se presente, più un fattore di sfasamento di clock di cinque minuti.
+Il valore di NotOnOrAfter può essere modificato utilizzando il `AccessTokenLifetime` parametro in un oggetto `TokenLifetimePolicy` . Verrà impostato sulla durata configurata nel criterio, se presente, più un fattore di sfasamento di clock di cinque minuti.
 
-Si noti che il NotOnOrAfter di conferma dell'oggetto `<SubjectConfirmationData>` specificato nell'elemento non è influenzato dalla configurazione della durata del token. 
+Si noti che il NotOnOrAfter di conferma dell'oggetto specificato nell' `<SubjectConfirmationData>` elemento non è influenzato dalla configurazione della durata del token. 
 
 ### <a name="refresh-tokens"></a>Token di aggiornamento
 
@@ -62,7 +62,7 @@ I client riservati sono applicazioni che possono archiviare in modo sicuro una p
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Durata dei token con token di aggiornamento per client pubblici
 
-I client pubblici non possono archiviare in modo sicuro una password client, ovvero un segreto. Un'app iOS o Android, ad esempio, non può offuscare un segreto dal proprietario della risorsa e per questo è considerata un client pubblico. È possibile impostare criteri sulle risorse per evitare che i token di aggiornamento di client pubblici precedenti a un periodo specificato ottengano una nuova coppia di token di accesso/aggiornamento. A tale scopo, usare la proprietà tempo inattività massimo token di aggiornamento (`MaxInactiveTime`). È anche possibile usare i criteri per impostare un periodo oltre il quale i token di aggiornamento non vengono più accettati. A tale scopo, usare la proprietà validità massima token di aggiornamento. È possibile regolare la durata di un token di aggiornamento per controllare quando e con quale frequenza viene richiesto all'utente di immettere nuovamente le credenziali, anziché essere riautenticato automaticamente, quando si usa un'applicazione client pubblica.
+I client pubblici non possono archiviare in modo sicuro una password client, ovvero un segreto. Un'app iOS o Android, ad esempio, non può offuscare un segreto dal proprietario della risorsa e per questo è considerata un client pubblico. È possibile impostare criteri sulle risorse per evitare che i token di aggiornamento di client pubblici precedenti a un periodo specificato ottengano una nuova coppia di token di accesso/aggiornamento. A tale scopo, usare la proprietà tempo inattività massimo token di aggiornamento ( `MaxInactiveTime` ). È anche possibile usare i criteri per impostare un periodo oltre il quale i token di aggiornamento non vengono più accettati. A tale scopo, usare la proprietà validità massima token di aggiornamento. È possibile regolare la durata di un token di aggiornamento per controllare quando e con quale frequenza viene richiesto all'utente di immettere nuovamente le credenziali, anziché essere riautenticato automaticamente, quando si usa un'applicazione client pubblica.
 
 > [!NOTE]
 > La proprietà validità massima indica il periodo di tempo in cui è possibile usare un singolo token. 
@@ -75,7 +75,7 @@ Quando un utente esegue l'autenticazione con Azure AD, viene stabilita una sessi
 
 Azure AD usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione I cookie di sessione vengono eliminati quando il browser viene chiuso. In genere, viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso**, viene archiviato un token di sessione permanente.
 
-I token di sessione non permanenti hanno una durata di 24 ore, mentre i token permanenti hanno una durata di 180 giorni. Ogni volta che un token di sessione SSO viene usato entro il relativo periodo di validità, il periodo di validità viene esteso per altre 24 ore o 180 giorni, a seconda del tipo di token. Se un token di sessione SSO non viene usato entro il relativo periodo di validità, è considerato scaduto e non viene più accettato.
+I token di sessione non permanenti hanno una durata di 24 ore, I token permanenti hanno una durata di 90 giorni. Ogni volta che un token di sessione SSO viene usato entro il relativo periodo di validità, il periodo di validità viene esteso per altre 24 ore o 90 giorni, a seconda del tipo di token. Se un token di sessione SSO non viene usato entro il relativo periodo di validità, è considerato scaduto e non viene più accettato.
 
 È possibile usare criteri per impostare il periodo di tempo dopo il rilascio del primo token di sessione oltre il quale tale token non viene più accettato. A tale scopo, usare la proprietà validità massima token di sessione. È possibile regolare la durata di un token di sessione per controllare quando e con quale frequenza viene richiesto a un utente di immettere nuovamente le credenziali, anziché essere autenticate automaticamente quando si usa un'applicazione Web.
 
@@ -209,11 +209,11 @@ Gli esempi illustrano come:
 * Gestire criteri avanzati
 
 ### <a name="prerequisites"></a>Prerequisiti
-Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le app, le entità servizio e l'intera organizzazione. Se non si ha familiarità con Azure AD, è consigliabile vedere [come ottenere un tenant di Azure AD](quickstart-create-new-tenant.md) prima di procedere con questi esempi.  
+Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le app, le entità servizio e l'intera organizzazione. Se non si ha familiarità con Azure AD, è consigliabile acquisire informazioni su [come ottenere un tenant di Azure ad](quickstart-create-new-tenant.md) prima di procedere con questi esempi.  
 
 Per iniziare, seguire questa procedura:
 
-1. Scaricare l'ultima [versione di anteprima del modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Scaricare la [versione di anteprima pubblica del modulo Azure ad PowerShell](https://www.powershellgallery.com/packages/AzureADPreview)più recente.
 2. Eseguire il comando `Connect` per accedere all'account amministratore di Azure AD. Eseguire questo comando ogni volta che si avvia una nuova sessione.
 
     ```powershell
@@ -283,13 +283,13 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    1. Per visualizzare i nuovi criteri e ottenere il relativo **ObjectId**, eseguire questo comando:
+    1. Per visualizzare i nuovi criteri e per ottenere l' **ObjectID**dei criteri, eseguire il comando seguente:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'**ObjectId** dell'entità servizio.
+1. Assegnare i criteri all'entità servizio. È anche necessario ottenere l' **ObjectID** dell'entità servizio.
 
     1. Usare il cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) per visualizzare tutte le entità servizio dell'organizzazione o una singola entità servizio.
         ```powershell
@@ -545,3 +545,9 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |
+
+## <a name="license-requirements"></a>Requisiti relativi alle licenze
+
+Per usare questa funzionalità è necessario disporre di una licenza di Azure AD Premium P1. Per trovare la licenza corretta per i propri requisiti, vedere [confronto tra le funzionalità disponibili a livello generale delle edizioni Premium e gratuita](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Anche i clienti con [licenze di Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) possono accedere alle funzionalità di accesso condizionale.

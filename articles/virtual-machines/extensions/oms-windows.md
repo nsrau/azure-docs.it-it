@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/30/2020
+ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 85977819d30ddc8745eb9231242eb1990222676c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa8f5fa9901055957c5c94923ebd74c3d57ce41a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530989"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481783"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale Log Analytics per Windows
 
@@ -36,13 +36,14 @@ La tabella seguente fornisce un mapping della versione dell'estensione della mac
 
 | Log Analytics versione bundle agente Windows | Versione dell'estensione della macchina virtuale Log Analytics Windows | Data di rilascio | Note sulla versione |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18038 | 1.0.18038 | Aprile 2020   | <ul><li>Abilita la connettività sul collegamento privato usando gli ambiti di collegamento privato di monitoraggio di Azure</li><li>Aggiunge la limitazione di inserimento per evitare un improvviso afflusso accidentale di inserimenti in un'area di lavoro</li><li>Aggiunge il supporto per altre aree e cloud di Azure per enti pubblici</li><li>Risolve un bug in cui si è verificato un arresto anomalo HealthService.exe</li></ul> |
 | 10.20.18029 | 1.0.18029 | Marzo 2020   | <ul><li>Aggiunge il supporto per la firma del codice SHA-2</li><li>Migliora l'installazione e la gestione delle estensioni VM</li><li>Risolve un bug in Azure Arc per l'integrazione dei server</li><li>Aggiunge uno strumento integrato per la risoluzione dei problemi per il supporto tecnico</li><li>Aggiunge il supporto per altre aree di Azure per enti pubblici</li> |
 | 10.20.18018 | 1.0.18018 | Ottobre 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li></ul> |
 | 10.20.18011 | 1.0.18011 | Luglio 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li><li> Aumento della MaxExpressionDepth a 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Giugno 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li><li> Aggiunta della possibilità di disabilitare le credenziali predefinite quando si crea una connessione proxy (supporto per WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | Marzo 2019 | <ul><li>Correzioni di stabilizzazione secondarie </li></ul> |
 | 10.19.10006 | n/d | 2018 dicembre | <ul><li> Correzioni di stabilizzazione secondarie </li></ul> | 
-| 8.0.11136 | n/d | 2018 settembre |  <ul><li> Aggiunta del supporto per il rilevamento della modifica dell'ID risorsa nello spostamento della macchina virtuale </li><li> Aggiunta del supporto per la creazione di report di ID risorsa quando si usa un'installazione non di estensione </li></ul>| 
+| 8.0.11136 | n/d | Settembre 2018 |  <ul><li> Aggiunta del supporto per il rilevamento della modifica dell'ID risorsa nello spostamento della macchina virtuale </li><li> Aggiunta del supporto per la creazione di report di ID risorsa quando si usa un'installazione non di estensione </li></ul>| 
 | 8.0.11103 | n/d |  Aprile 2018 | |
 | 8.0.11081 | 1.0.11081 | 2017 novembre | | 
 | 8.0.11072 | 1.0.11072 | 2017 settembre | |
@@ -85,7 +86,7 @@ Il codice JSON seguente mostra lo schema per l'estensione dell'agente di Log Ana
 ```
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio |
+| Nome | Valore/Esempio |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
@@ -106,7 +107,7 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
 >[!NOTE]
 >Il modello non supporta la specifica di più di un ID e una chiave dell'area di lavoro quando si desidera configurare l'agente per la segnalazione a più aree di lavoro. Per configurare l'agente per la segnalazione a più aree di lavoro, vedere [aggiunta o rimozione di un'area di lavoro](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
-Il codice JSON per un'estensione della macchina virtuale può essere nidificato nella risorsa della macchina virtuale o posizionato nel livello radice o nel livello superiore di un modello JSON di Resource Manager. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [impostare il nome e il tipo per le risorse figlio](../../azure-resource-manager/templates/child-resource-name-type.md). 
+Il codice JSON per un'estensione della macchina virtuale può essere nidificato nella risorsa della macchina virtuale o posizionato nel livello radice o nel livello superiore di un modello JSON di Resource Manager. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md) (Impostare il nome e il tipo per le risorse figlio). 
 
 L'esempio seguente presuppone che l'estensione Log Analytics sia annidata all'interno della risorsa della macchina virtuale. Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
 
@@ -198,4 +199,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 
 ### <a name="support"></a>Supporto
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

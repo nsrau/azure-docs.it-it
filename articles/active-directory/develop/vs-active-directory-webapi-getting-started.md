@@ -6,22 +6,22 @@ manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 9a9f8aaa9e3f90e78668d2294ea9959b480e3384
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee79333e1092cfcf2cd35e408f86dcfc9e1327cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479012"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Introduzione ad Azure Active Directory (progetti WebAPI)
 
 > [!div class="op_single_selector"]
 > - [Per iniziare](vs-active-directory-webapi-getting-started.md)
-> - [Cos'è successo](vs-active-directory-webapi-what-happened.md)
+> - [Risultati](vs-active-directory-webapi-what-happened.md)
 
 Questo articolo fornisce istruzioni aggiuntive da seguire dopo l'aggiunta di Active Directory a un progetto WebAPI ASP.NET tramite il comando **Progetto > Servizi connessi** di Visual Studio. Se il servizio non è ancora stato aggiunto al progetto, è possibile farlo in qualsiasi momento.
 

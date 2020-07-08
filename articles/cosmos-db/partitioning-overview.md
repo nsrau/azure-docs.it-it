@@ -6,18 +6,18 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864335"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481834"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partizionamento in Azure Cosmos DB
 
 Azure Cosmos DB usa il partizionamento per ridimensionare i singoli contenitori di un database per soddisfare le esigenze di prestazioni dell'applicazione. Nel partizionamento gli elementi in un contenitore sono divisi in subset distinti denominati *partizioni logiche*. Le partizioni logiche vengono formate in base al valore di una *chiave di partizione* associata a ogni elemento in un contenitore. Tutti gli elementi di una partizione logica hanno lo stesso valore della chiave di partizione.
 
-Un contenitore, ad esempio, include gli elementi. Ogni elemento ha un valore univoco per la `UserID` proprietà. Se `UserID` funge da chiave di partizione per gli elementi nel contenitore e sono presenti 1.000 valori univoci `UserID` , vengono create 1.000 partizioni logiche per il contenitore.
+Un contenitore, ad esempio, include gli elementi. Ogni elemento ha un valore univoco per la `UserID` Proprietà. Se `UserID` funge da chiave di partizione per gli elementi nel contenitore e sono presenti 1.000 valori univoci `UserID` , vengono create 1.000 partizioni logiche per il contenitore.
 
 Oltre a una chiave di partizione che determina la partizione logica dell'elemento, ogni elemento in un contenitore dispone di un *ID elemento* (univoco all'interno di una partizione logica). Combinando la chiave di partizione e l' *ID* dell'elemento viene creato l' *Indice*dell'elemento, che identifica in modo univoco l'elemento.
 
@@ -35,6 +35,14 @@ Sono disponibili altre informazioni sul [modo in cui Azure Cosmos DB gestisce le
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Scelta di una chiave di partizione
 
+Una chiave di partizione ha due componenti: il **percorso della chiave di partizione** e il valore della chiave di **partizione**. Si consideri, ad esempio, un elemento {"userId": "Andrew", "lavora per": "Microsoft"} Se si sceglie "userId" come chiave di partizione, di seguito sono riportati i due componenti chiave di partizione:
+
+* Percorso della chiave di partizione, ad esempio: "/userId". Il percorso della chiave di partizione accetta caratteri alfanumerici e di sottolineatura (_). È inoltre possibile utilizzare gli oggetti annidati utilizzando la notazione del percorso standard (/).
+
+* Valore della chiave di partizione (ad esempio: "Andrew"). Il valore della chiave di partizione può essere di tipo stringa o numerico.
+
+Per informazioni sui limiti relativi alla velocità effettiva, all'archiviazione e alla lunghezza della chiave di partizione, vedere l'articolo relativo alle [quote del servizio Azure Cosmos DB](concepts-limits.md) .
+
 La selezione della chiave di partizione è una scelta di progettazione semplice, ma importante, in Azure Cosmos DB. Una volta selezionata la chiave di partizione, non è possibile modificarla sul posto. Se è necessario modificare la chiave di partizione, è necessario spostare i dati in un nuovo contenitore con la nuova chiave di partizione desiderata.
 
 Per **tutti i** contenitori, la chiave di partizione deve:
@@ -49,7 +57,7 @@ Se sono necessarie [transazioni ACID](database-transactions-optimistic-concurren
 
 Per la maggior parte dei contenitori, i criteri indicati sopra sono tutti quelli da considerare quando si sceglie una chiave di partizione. Per i contenitori di grandi dimensioni, tuttavia, potrebbe essere necessario scegliere una chiave di partizione che viene visualizzata frequentemente come filtro nelle query. Le query possono essere [indirizzate in modo efficiente solo alle partizioni fisiche pertinenti](how-to-query-container.md#in-partition-query) includendo la chiave di partizione nel predicato del filtro.
 
-Se la maggior parte delle richieste del carico di lavoro è costituita da query e la maggior parte delle query dispone di un filtro di uguaglianza sulla stessa proprietà, questa proprietà può essere una scelta ottimale per la chiave di partizione. Se, ad esempio, si esegue spesso una query che filtra `UserID`in, la `UserID` selezione come chiave di partizione ridurrebbe il numero di [query tra partizioni](how-to-query-container.md#avoiding-cross-partition-queries).
+Se la maggior parte delle richieste del carico di lavoro è costituita da query e la maggior parte delle query dispone di un filtro di uguaglianza sulla stessa proprietà, questa proprietà può essere una scelta ottimale per la chiave di partizione. Se, ad esempio, si esegue spesso una query che filtra in `UserID` , `UserID` la selezione come chiave di partizione ridurrebbe il numero di [query tra partizioni](how-to-query-container.md#avoiding-cross-partition-queries).
 
 Tuttavia, se il contenitore è di dimensioni ridotte, è probabile che non si disponga di partizioni fisiche sufficienti per preoccuparsi dell'effetto sulle prestazioni delle query tra partizioni. La maggior parte dei contenitori di piccole dimensioni in Azure Cosmos DB richiede solo una o due partizioni fisiche.
 

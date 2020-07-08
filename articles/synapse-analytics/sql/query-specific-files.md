@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e8d7301799bfb4af9a0f5a6f242be929e8253d7c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478417"
 ---
 # <a name="using-file-metadata-in-queries"></a>Uso dei metadati dei file nelle query
 
@@ -22,7 +22,7 @@ Il servizio di query su richiesta SQL può essere usato con più file e cartelle
 
 In alcuni casi, potrebbe essere necessario individuare l'origine del file o della cartella correlata a una riga specifica nel set di risultati.
 
-È possibile usare la funzione `filepath` e `filename` per restituire i nomi file e/o il percorso nel set di risultati. In alternativa, è possibile usarli per filtrare i dati in base al nome file e/o al percorso della cartella. Queste funzioni sono descritte nella sezione relativa alla sintassi della [funzione filename](develop-storage-files-overview.md#filename-function) e della [funzione filepath](develop-storage-files-overview.md#filepath-function). Di seguito sono riportate brevi descrizioni insieme agli esempi.
+È possibile usare la funzione `filepath` e `filename` per restituire i nomi file e/o il percorso nel set di risultati. In alternativa, è possibile usarli per filtrare i dati in base al nome file e/o al percorso della cartella. Queste funzioni sono descritte nella sezione relativa alla sintassi della [funzione filename](query-data-storage.md#filename-function) e della [funzione filepath](query-data-storage.md#filepath-function). Di seguito sono riportate brevi descrizioni insieme agli esempi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
