@@ -9,17 +9,16 @@ ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83195245"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Usare chiavi gestite dal cliente in Azure Key Vault per il servizio di importazione/esportazione
 
 Importazione/esportazione di Azure protegge le chiavi BitLocker usate per bloccare le unità tramite una chiave di crittografia. Per impostazione predefinita, le chiavi BitLocker vengono crittografate con le chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è anche possibile fornire chiavi gestite dal cliente.
 
-Le chiavi gestite dal cliente devono essere create e archiviate in un Azure Key Vault. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](../../key-vault/general/overview.md)
+Le chiavi gestite dal cliente devono essere create e archiviate in un Azure Key Vault. Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](../../key-vault/general/overview.md)
 
 Questo articolo illustra come usare le chiavi gestite dal cliente con il servizio di importazione/esportazione nell' [portale di Azure](https://portal.azure.com/).
 
@@ -97,7 +96,7 @@ Nel pannello **crittografia** è possibile visualizzare l'insieme di credenziali
 
 Se si ricevono errori correlati alla chiave gestita dal cliente, usare la tabella seguente per risolvere i problemi:
 
-| Codice errore     |Dettagli     | Ripristinabili?    |
+| Codice di errore     |Dettagli     | Ripristinabili?    |
 |----------------|------------|-----------------|
 | CmkErrorAccessRevoked | L'accesso alla chiave gestita dal cliente è stato revocato.                                                       | Sì, controllare se: <ol><li>L'insieme di credenziali delle chiavi ha ancora il file MSI nei criteri di accesso.</li><li>Per i criteri di accesso sono abilitate le autorizzazioni Get, wrap e unwrap.</li><li>Se l'insieme di credenziali delle chiavi si trova in una VNet dietro il firewall, verificare che l'opzione **Consenti servizi attendibili Microsoft** sia abilitata.</li><li>Controllare se l'identità del servizio gestito della risorsa del processo è stata reimpostata `None` usando le API.<br>In caso affermativo, impostare il valore di nuovo su `Identity = SystemAssigned` . Viene ricreata l'identità per la risorsa processo.<br>Una volta creata la nuova identità, abilitare le `Get` `Wrap` autorizzazioni, e `Unwrap` per la nuova identità nei criteri di accesso dell'insieme di credenziali delle chiavi</li></ol>                                                                                            |
 | CmkErrorKeyDisabled      | La chiave gestita dal cliente è disabilitata.                                         | Sì, abilitando la versione della chiave     |

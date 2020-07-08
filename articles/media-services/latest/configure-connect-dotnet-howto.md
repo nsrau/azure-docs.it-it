@@ -16,7 +16,6 @@ ms.author: juliako
 ms.custom: has-adal-ref
 ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83201124"

@@ -4,10 +4,9 @@ description: Questo articolo illustra come ripristinare File di Azure usando il 
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: 63c318b66ec8f876a260b3c5b8db38bb088fb862
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201966"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Ripristinare File di Azure con PowerShell
@@ -125,7 +124,7 @@ Usare il comando [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.c
 
 ### <a name="restore-multiple-files"></a>Ripristinare più file
 
-Nello script seguente si sta provando a ripristinare i file *FileSharePage. png* e *MyTestFile. txt* .
+Nello script seguente si sta tentando di ripristinare i file di *FileSharePage.png* e di *MyTestFile.txt* .
 
 ```powershell
 $vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"

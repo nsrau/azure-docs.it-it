@@ -13,10 +13,9 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
 ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124789"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure
@@ -29,7 +28,7 @@ Quando si crea una macchina virtuale (VM), si riavviano VM arrestate (deallocate
 
 Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce possibili soluzioni alternative.
 
-Se il problema di Azure non viene risolto in questo articolo, visitare il [forum di Azure su MSDN e Overflow dello Stack](https://azure.microsoft.com/support/forums/). È possibile pubblicare il problema in questi forum o in @AzureSupport su Twitter. È anche possibile inviare una richiesta di supporto tecnico di Azure selezionando Ottieni supporto nel sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
+Se il problema di Azure non viene risolto in questo articolo, visitare i [Forum di Azure su MSDN e stack overflow](https://azure.microsoft.com/support/forums/). È possibile pubblicare il problema in questi forum o in @AzureSupport su Twitter. È anche possibile inviare una richiesta di supporto tecnico di Azure selezionando Ottieni supporto nel sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 
 Fino a quando il tipo preferito di VM è disponibile nella propria area preferita, è consigliabile che i clienti che hanno problemi di distribuzione tengano in considerazione le indicazioni nella tabella seguente come soluzione alternativa temporanea. 
 

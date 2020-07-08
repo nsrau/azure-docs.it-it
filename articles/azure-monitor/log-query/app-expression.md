@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
 ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201113"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Espressione app() in una query di Monitoraggio di Azure
@@ -25,7 +24,7 @@ L'espressione `app` viene usata in una query di Monitoraggio di Azure per recupe
 `app(`*Identificatore*`)`
 
 
-## <a name="arguments"></a>Argomenti
+## <a name="arguments"></a>Arguments
 
 - *Identificatore*: identifica l'app usando uno dei formati indicati nella tabella seguente.
 

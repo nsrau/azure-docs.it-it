@@ -4,10 +4,9 @@ description: Questo articolo descrive come usare l'archivio dei segreti centrali
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83197772"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Archivio dei segreti centrali in Azure Service Fabric 
@@ -73,7 +72,7 @@ Invoke-WebRequest -CertificateThumbprint <ClusterCertThumbprint> -Method POST -U
 
 Seguire questa procedura per usare il segreto nell'applicazione Service Fabric.
 
-1. Aggiungere una sezione nel file **Settings. XML** con il frammento di codice seguente. Si noti che il valore è nel formato { `secretname:version` }.
+1. Aggiungere una sezione nel file di **settings.xml** con il frammento di codice seguente. Si noti che il valore è nel formato { `secretname:version` }.
 
    ```xml
      <Section Name="testsecrets">
@@ -81,7 +80,7 @@ Seguire questa procedura per usare il segreto nell'applicazione Service Fabric.
      </Section>
    ```
 
-1. Importare la sezione in **ApplicationManifest. XML**.
+1. Importare la sezione in **ApplicationManifest.xml**.
    ```xml
      <ServiceManifestImport>
        <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
@@ -99,7 +98,7 @@ Seguire questa procedura per usare il segreto nell'applicazione Service Fabric.
    secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
    ```
 1. Montare i segreti in un contenitore. L'unica modifica necessaria per rendere i segreti disponibili all'interno del contenitore è a `specify` un punto di montaggio in `<ConfigPackage>` .
-Il frammento di codice seguente è il **file ApplicationManifest. XML**modificato.  
+Il frammento di codice seguente è il **ApplicationManifest.xml**modificato.  
 
    ```xml
    <ServiceManifestImport>
@@ -117,7 +116,7 @@ Il frammento di codice seguente è il **file ApplicationManifest. XML**modificat
    ```
    I segreti sono disponibili nel punto di montaggio all'interno del contenitore.
 
-1. È possibile associare un segreto a una variabile di ambiente del processo specificando `Type='SecretsStoreRef` . Il frammento di codice seguente è un esempio di come associare la `supersecret` versione `ver1` alla variabile di ambiente `MySuperSecret` in **ServiceManifest. XML**.
+1. È possibile associare un segreto a una variabile di ambiente del processo specificando `Type='SecretsStoreRef` . Il frammento di codice seguente è un esempio di come associare la `supersecret` versione `ver1` alla variabile di ambiente `MySuperSecret` in **ServiceManifest.xml**.
 
    ```xml
    <EnvironmentVariables>

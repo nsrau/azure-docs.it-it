@@ -8,10 +8,9 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125775"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Azure Resource Manager per un set di scalabilità di macchine virtuali Windows
@@ -22,15 +21,15 @@ L'[estensione Diagnostica di Microsoft Azure (WAD)](diagnostics-extension-overvi
 
 In questo articolo viene descritto il processo per inviare le metriche delle prestazioni del sistema operativo guest per un set di scalabilità di macchine virtuali Windows all'archivio dati di Monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica di Microsoft Azure è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. L'archiviazione in questa posizione consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono la creazione di avvisi in tempo quasi reale, la creazione di grafici, il routing, l'accesso dall'API REST e altro ancora. Le versioni precedenti dell'estensione Diagnostica di Microsoft Azure eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.  
 
-Se non si ha familiarità con Gestione risorse modelli, vedere le informazioni sulle [distribuzioni](../../azure-resource-manager/management/overview.md) dei modelli e la relativa struttura e sintassi.  
+Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribuzioni dei modelli](../../azure-resource-manager/management/overview.md) e la struttura e la sintassi correlate.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- La sottoscrizione deve essere registrata con [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - È necessario avere installato [Azure PowerShell](/powershell/azure) oppure è possibile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
-- La risorsa VM deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
+- La risorsa della macchina virtuale deve trovarsi in un'[area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurare Monitoraggio di Azure come sink dei dati 
 L'estensione Diagnostica di Azure usa una funzionalità denominata **sink di dati** per indirizzare le metriche e i log in posizioni diverse. Le procedure seguenti illustrano come usare un modello di Resource Manager e PowerShell per distribuire una VM usando il nuovo sink di dati Monitoraggio di Azure. 
@@ -38,14 +37,14 @@ L'estensione Diagnostica di Azure usa una funzionalità denominata **sink di dat
 ## <a name="author-a-resource-manager-template"></a>Creare un modello di Resource Manager 
 Per questo esempio, è possibile usare un modello di [esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)disponibile pubblicamente:  
 
-- **File azuredeploy. JSON** è un modello di gestione risorse preconfigurato per la distribuzione di un set di scalabilità di macchine virtuali.
+- **Azuredeploy.json** è un modello di gestione risorse preconfigurato per la distribuzione di un set di scalabilità di macchine virtuali.
 
 - **Azuredeploy.parameters.json** è un file di parametri in cui sono archiviate alcune informazioni, ad esempio il nome utente e la password che si vogliono impostare per la macchina virtuale. Durante la distribuzione, il modello di Resource Manager usa i parametri impostati in questo file. 
 
 Scaricare e salvare entrambi i file in locale. 
 
 ###  <a name="modify-azuredeployparametersjson"></a>Modificare azuredeploy.parameters.json
-Aprire il file **file azuredeploy. Parameters. JSON** :  
+Aprire il **azuredeploy.parameters.jsnel** file:  
  
 - Specificare un valore per **vmSKU** da distribuire. È consigliabile usare Standard_D2_v3. 
 - Specificare un valore desiderato per **windowsOSVersion** per il set di scalabilità di macchine virtuali. È consigliabile usare 2016-Datacenter. 
@@ -55,7 +54,7 @@ Aprire il file **file azuredeploy. Parameters. JSON** :
 
 
 ###  <a name="modify-azuredeployjson"></a>Modificare azuredeploy.json
-Aprire il file **file azuredeploy. JSON** . 
+Aprire il **azuredeploy.jssu** file. 
 
 Aggiungere una variabile per conservare le informazioni sull'account di archiviazione nel modello di Resource Manager. Tutti i log o i contatori delle prestazioni specificati nel file di configurazione di diagnostica verranno scritti sia nell'archivio delle metriche di Monitoraggio di Azure sia nell'account di archiviazione specificato di seguito: 
 
@@ -266,7 +265,7 @@ Per distribuire il modello di Resource Manager, usare Azure PowerShell:
 1. Al termine della distribuzione, il set di scalabilità di macchine virtuali dovrebbe essere disponibile nel portale di Azure e inviare metriche a Monitoraggio di Azure. 
 
    > [!NOTE]  
-   > È possibile che si verifichino errori in relazione al valore selezionato per **vmSkuSize**. In questo caso, tornare al file **azuredeploy.json** e aggiornare il valore predefinito del parametro **vmSkuSize**. È consigliabile provare **Standard_DS1_v2**. 
+   > È possibile che si verifichino errori intorno ai **vmSkuSize**selezionati. In questo caso, tornare al file **azuredeploy.json** e aggiornare il valore predefinito del parametro **vmSkuSize**. È consigliabile provare **Standard_DS1_v2**. 
 
 
 ## <a name="chart-your-metrics"></a>Tracciare il grafico delle metriche 
@@ -275,7 +274,7 @@ Per distribuire il modello di Resource Manager, usare Azure PowerShell:
 
 1. Nel menu a sinistra selezionare **Monitoraggio**. 
 
-1. Nella pagina **Monitoraggio** selezionare **Metriche**. 
+1. Nella pagina **monitoraggio** selezionare **metriche**. 
 
    ![Monitoraggio - pagina Metriche](media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png) 
 

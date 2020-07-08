@@ -8,15 +8,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201440"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel Centro per i partner
 
-Fornire informazioni sulla scheda co-Sell è interamente facoltativo. È necessario per ottenere lo stato pronto per la co-selling e per il co-selling IP. Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sulla soluzione durante la valutazione dell'idoneità alle esigenze dei clienti. Non è disponibile direttamente per i clienti. Per ulteriori informazioni, vedere la pagina relativa alla [vendita tramite Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+Fornire informazioni sulla scheda co-Sell è interamente facoltativo. È tuttavia obbligatoria per ottenere lo stato di idoneità per il co-selling o di soluzione pronta per il co-selling della proprietà intellettuale. Le informazioni fornite verranno usate dai team di vendita Microsoft per approfondire la soluzione durante la valutazione dell'idoneità alle esigenze dei clienti. Non saranno direttamente disponibile ai clienti. Per ulteriori informazioni, vedere la pagina relativa alla [vendita tramite Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 L'opzione di co-selling nel centro per i partner è attualmente disponibile per alcuni tipi di offerte. Il supporto per i tipi di offerta aggiuntivi sarà reso disponibile nel corso del tempo.
 
@@ -51,7 +50,7 @@ I tipi di soluzioni consentono di definire gli scenari in cui l'offerta è proge
 | :------------------- | :-------------------|
 | Dispositivo (hardware) | Offerta che prevede la creazione o la vendita di hardware da un produttore di dispositivi. |
 | IP (applicazione) | App o altro materiale con copyright concesso in licenza per l'uso da parte del cliente. Ad esempio, un programma CRM che può essere concesso in licenza e installato in locale. |
-| Service | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
+| Servizio | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
 | Servizio gestito | Esperienza pratica per un progetto basato sul cloud, in genere su base continuativa. Ad esempio: fornire una piattaforma e strumenti per l'esecuzione di un database online, con una gestione continuativa fornita dal provider di servizi gestiti. |
 
 ### <a name="solution-areas"></a>Aree della soluzione
@@ -64,7 +63,7 @@ Le aree della soluzione consentono di definire ulteriormente la soluzione.
 
 È possibile fornire garanzie per Microsoft da usare per valutare le esigenze dei clienti.
 
-| **Documenti**    | **Descrizione**  |
+| **Documents** (Documenti)    | **Descrizione**  |
 | :------------------- | :-------------------|
 | *Un cercapersone del cliente* | Descrizione dell'offerta da parte del cliente. I team di vendita Microsoft possono condividere queste informazioni con i clienti per determinare se l'offerta potrebbe essere una scelta ottimale e per assicurarsi che sia pronta per i clienti. <br> <br> Usare uno dei modelli pertinenti disponibili nel centro per i partner: <br> <ul> <li> Microsoft Azure modello a un cercapersone </li> <li> Microsoft Dynamics 365 1-modello di cercapersone </li> <li> Office 365 1-modello di cercapersone </li> <li> Windows 10 1-modello di cercapersone </li> </ul> |
 | *Presentazione del cliente* | Slide deck per passare la soluzione e la relativa proposta di valore. Dopo aver verificato che l'offerta sia pronta per il cliente, i team di vendita Microsoft possono condividere la presentazione con i clienti per esprimere il valore che entrambe le aziende portano quando distribuiscono una soluzione congiunta. La presentazione dovrebbe comprendere le funzionalità della soluzione, il modo in cui può aiutare i clienti, i settori a cui è destinata la soluzione e il modo in cui vengono confrontati con le soluzioni in competizione. <br> <br> Usare il modello disponibile nel centro per i partner.|

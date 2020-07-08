@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2ccaf662488203e346065cfee082018128f37d95
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201676"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS
@@ -228,7 +227,7 @@ Prima di iniziare l'installazione, esaminare l'articolo seguente:
 
 **Tabella 1**: cluster ASCS/SCS
 
-| SAP \<SID> | Numero di istanza di SAP ASCS/SCS |
+| SAP\<SID> | Numero di istanza di SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 

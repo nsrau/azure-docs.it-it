@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 699715e1188616c2d6bda47016ec1ea7b05cef83
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125589"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configurare il firewall IP per Azure ricerca cognitiva
@@ -39,7 +38,7 @@ Per semplificare lo sviluppo, il portale di Azure consente di identificare e agg
 
 Il portale rileva automaticamente l'indirizzo IP del client. Potrebbe trattarsi dell'indirizzo IP del client del computer o del gateway di rete. Assicurarsi di rimuovere questo indirizzo IP prima di portare il carico di lavoro nell'ambiente di produzione.
 
-Per aggiungere l'indirizzo IP corrente all'elenco di indirizzi IP, selezionare **Aggiungi l'indirizzo IP del client**. Selezionare **Salva**.
+Per aggiungere l'indirizzo IP corrente all'elenco di indirizzi IP, selezionare **Aggiungi l'indirizzo IP del client**. Selezionare quindi **Salva**.
 
 ![Screenshot che illustra come configurare le impostazioni del firewall IP per consentire l'indirizzo IP corrente](./media/service-configure-firewall/enable-current-ip.png)
 

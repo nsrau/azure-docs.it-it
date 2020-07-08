@@ -4,10 +4,9 @@ description: Impostare manualmente il monitoraggio di Application Insights per u
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83200676"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
@@ -97,15 +96,15 @@ Per la documentazione completa di PowerShell per questo cmdlet e per informazion
 
 ### <a name="azure-cli-preview"></a>INTERFACCIA della riga di comando di Azure (anteprima)
 
-Per accedere all'anteprima Application Insights comandi dell'interfaccia della riga di comando di Azure, è prima di tutto necessario eseguire:
+Per accedere all'anteprima dell'interfaccia della riga di comando di Azure di Application Insights, è prima necessario eseguire:
 
 ```azurecli
  az extension add -n application-insights
 ```
 
-Se non si esegue il `az extension add` comando, verrà visualizzato un messaggio di errore che indica:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Se non si esegue il comando `az extension add`, verrà visualizzato un messaggio di errore che indica: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
-A questo punto è possibile eseguire il comando seguente per creare la risorsa Application Insights:
+A questo punto è possibile eseguire il comando seguente per creare la risorsa di Application Insights:
 
 ```azurecli
 az monitor app-insights component create --app
@@ -154,7 +153,7 @@ Per la documentazione completa dell'interfaccia della riga di comando di Azure p
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
-* [Esplora le metriche](../../azure-monitor/platform/metrics-charts.md)
+* [Esplorare le metriche](../../azure-monitor/platform/metrics-charts.md)
 * [Scrivere query di Analisi](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->

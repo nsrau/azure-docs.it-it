@@ -7,16 +7,15 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
 ms.openlocfilehash: 83c33e6935de7c9ed9f1b2c9f97aa18dd6b10f01
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83199900"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Eseguire query di log su più risorse in Monitoraggio di Azure  
 
 > [!IMPORTANT]
-> Se si usa un' [area di lavoro Application Insights](../app/create-workspace-resource.md) la telemetria delle risorse è archiviata in un'area di lavoro log Analytics con tutti gli altri dati di log. Usare l'espressione log () per scrivere una query che includa l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
+> Se si usa una [risorsa di Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md), i dati di telemetria vengono archiviati in un'area di lavoro Log Analytics con tutti gli altri dati di log. Usare l'espressione log () per scrivere una query che includa l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
 
 Monitoraggio di Azure consentiva in precedenza di analizzare i dati solo all'interno dell'area di lavoro corrente, limitando la possibilità di eseguire query su più aree di lavoro definite nella sottoscrizione.  Inoltre, era possibile solo cercare gli elementi di telemetria raccolti dall'applicazione basata sul Web con Application Insights direttamente in Application Insights o in Visual Studio. Per questi motivi, risultava difficile anche analizzare insieme in modo nativo i dati operativi e quelli dell'applicazione.
 
