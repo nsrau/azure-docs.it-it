@@ -14,7 +14,6 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: a4ee2679da5065ab9e9b02d4ddb313fab75e78f7
 ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/26/2020
 ms.locfileid: "83845136"

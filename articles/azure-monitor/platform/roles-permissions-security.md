@@ -9,7 +9,6 @@ ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
 ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/25/2020
 ms.locfileid: "83836380"
