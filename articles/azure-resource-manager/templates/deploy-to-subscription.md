@@ -2,13 +2,13 @@
 title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 60f77d7bb29af8bcd1a0932a9ac93f5fe4b8e3ac
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.date: 07/01/2020
+ms.openlocfilehash: ab39fed11ee53849e7d588d16749de96172b234d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299248"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832815"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
@@ -17,7 +17,7 @@ Per semplificare la gestione delle risorse, è possibile distribuire le risorse 
 > [!NOTE]
 > È possibile eseguire una distribuzione a livello di sottoscrizione in un massimo di 800 gruppi di risorse diversi.
 
-Per distribuire modelli a livello di sottoscrizione, usare l'interfaccia della riga di comando di Azure, PowerShell o l'API REST. Il portale di Azure non supporta la distribuzione nel livello di sottoscrizione.
+Per distribuire modelli a livello di sottoscrizione, usare l'interfaccia della riga di comando di Azure, PowerShell o l'API REST.
 
 ## <a name="supported-resources"></a>Risorse supportate
 
@@ -209,8 +209,8 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiv
     {
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2019-10-01",
-      "location": "[parameters('rgLocation')]",
       "name": "[parameters('rgName')]",
+      "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
@@ -224,7 +224,7 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiv
       "properties": {
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {},
           "variables": {},

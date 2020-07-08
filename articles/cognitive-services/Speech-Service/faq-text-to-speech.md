@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f647727c01bbddafe3b10877af3e1d5652bedd29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74110502"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833588"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Domande frequenti su Sintesi vocale
 
@@ -59,7 +59,7 @@ Offriamo servizi aggiuntivi per agevolare la preparazione degli script per la re
 
 **D: Le richieste sono limitate?**
 
-**R**: l'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative a [Sintesi vocale](text-to-speech.md).
+**R**: l'API REST limita le richieste a 25 per 5 secondi per le sottoscrizioni standard. Il livello gratuito (F0) è limitato a 20 richieste al minuto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

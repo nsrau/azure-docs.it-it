@@ -3,12 +3,12 @@ title: Distribuzione push con file ZIP per Funzioni di Azure
 description: Per pubblicare Funzioni di Azure, usare le funzionalità di distribuzione con file ZIP del servizio di distribuzione Kudu.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833053"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Distribuzione con file ZIP per Funzioni di Azure
 
@@ -56,7 +56,9 @@ Quando lo sviluppo avviene in un computer locale, è facile creare un file ZIP d
 
     Usare l'API GET di distribuzione seguente per scaricare i file dal progetto `<function_app>`: 
 
-        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```http
+    https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```
 
     Includendo `/site/wwwroot/` ci si assicura che il file ZIP contenga solo i file di progetto dell'app per le funzioni e non l'intero sito. Se l'accesso ad Azure non è ancora stato eseguito, verrà richiesto di farlo.  
 
@@ -66,7 +68,7 @@ Quando lo sviluppo avviene in un computer locale, è facile creare un file ZIP d
 
 Per attivare una distribuzione push, è possibile utilizzare l'interfaccia della riga di comando di Azure. Eseguire la distribuzione push di un file ZIP nell'app per le funzioni usando il comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Per usare questo comando, è necessario utilizzare l'interfaccia della riga di comando di Azure 2.0.21 o versione successiva. Per visualizzare la versione dell'interfaccia della riga di comando di Azure in uso, utilizzare il comando `az --version`.
 
-Nel comando seguente sostituire il segnaposto `<zip_file_path>` con il percorso del file ZIP. Sostituire `<app_name>` anche con il nome univoco dell'app per le funzioni e sostituire `<resource_group>` con il nome del gruppo di risorse.
+Nel comando seguente sostituire il segnaposto `<zip_file_path>` con il percorso del file ZIP. Sostituire anche `<app_name>` con il nome univoco dell'app per le funzioni e sostituire `<resource_group>` con il nome del gruppo di risorse.
 
 ```azurecli-interactive
 az functionapp deployment source config-zip -g <resource_group> -n \

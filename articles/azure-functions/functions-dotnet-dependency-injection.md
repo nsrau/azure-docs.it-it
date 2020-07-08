@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: a994111d2f7e938ecdd71236858e4cb8773b00f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832866"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in Funzioni di Azure .NET
 
@@ -36,11 +36,8 @@ Per registrare i servizi, creare un metodo per configurare e aggiungere componen
 Per registrare il metodo, aggiungere l'attributo dell'assembly `FunctionsStartup` che specifica il nome del tipo usato durante l'avvio.
 
 ```csharp
-using System;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Http;
-using Microsoft.Extensions.Logging;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
@@ -52,7 +49,7 @@ namespace MyNamespace
         {
             builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton((s) => {
+            builder.Services.AddSingleton<IMyService>((s) => {
                 return new MyService();
             });
 
@@ -61,6 +58,8 @@ namespace MyNamespace
     }
 }
 ```
+
+Questo esempio usa il pacchetto [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessario per registrare un `HttpClient` all'avvio.
 
 ### <a name="caveats"></a>Precisazioni
 
@@ -72,48 +71,47 @@ Una serie di passaggi di registrazione viene eseguita prima e dopo l'elaborazion
 
 ## <a name="use-injected-dependencies"></a>Usare dipendenze inserite
 
-L'inserimento del costruttore viene usato per rendere disponibili le dipendenze in una funzione. L'uso dell'inserimento del costruttore richiede che non si usino classi statiche.
+L'inserimento del costruttore viene usato per rendere disponibili le dipendenze in una funzione. L'uso dell'inserimento del costruttore richiede che non si usino classi statiche per i servizi inseriti o per le classi di funzione.
 
-Nell'esempio seguente viene illustrata la modalità di inserimento delle dipendenze `IMyService` e `HttpClient` in una funzione attivata tramite HTTP. Questo esempio usa il pacchetto [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessario per registrare un `HttpClient` all'avvio.
+Nell'esempio seguente viene illustrata la modalità di inserimento delle dipendenze `IMyService` e `HttpClient` in una funzione attivata tramite HTTP.
 
 ```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MyNamespace
 {
-    public class HttpTrigger
+    public class MyHttpTrigger
     {
-        private readonly IMyService _service;
         private readonly HttpClient _client;
+        private readonly IMyService _service;
 
-        public HttpTrigger(IMyService service, HttpClient httpClient)
+        public MyHttpTrigger(HttpClient httpClient, MyService service)
         {
-            _service = service;
-            _client = httpClient;
+            this._client = httpClient;
+            this._service = service;
         }
 
-        [FunctionName("GetPosts")]
-        public async Task<IActionResult> Get(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "posts")] HttpRequest req,
+        [FunctionName("MyHttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            var res = await _client.GetAsync("https://microsoft.com");
-            await _service.AddResponse(res);
+            var response = await _client.GetAsync("https://microsoft.com");
+            var message = _service.GetMessage();
 
-            return new OkResult();
+            return new OkObjectResult("Response from function with injected dependencies.");
         }
     }
 }
 ```
+
+Questo esempio usa il pacchetto [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessario per registrare un `HttpClient` all'avvio.
 
 ## <a name="service-lifetimes"></a>Durate del servizio
 
@@ -121,13 +119,15 @@ Le app di Funzioni di Azure offrono la stessa durata del servizio dell'[inserime
 
 - **Temporanea**: I servizi temporanei vengono creati a ogni richiesta del servizio.
 - **Con ambito**: La durata del servizio con ambito corrisponde a una durata di esecuzione della funzione. I servizi con ambito vengono creati una volta per ogni esecuzione. Le richieste successive per un dato servizio durante l'esecuzione riutilizzeranno l'istanza del servizio esistente.
-- **Singleton**: La durata del servizio singleton corrisponde alla durata dell'host e viene riutilizzata tra le esecuzioni di una funzione su tale istanza. I servizi con durata singleton sono consigliati per connessioni e client, ad esempio per le istanze `SqlConnection` o `HttpClient`.
+- **Singleton**: La durata del servizio singleton corrisponde alla durata dell'host e viene riutilizzata tra le esecuzioni di una funzione su tale istanza. I servizi con durata singleton sono consigliati per connessioni e client, ad esempio per le istanze `DocumentClient` o `HttpClient`.
 
 Visualizzare o scaricare un [esempio di diverse durate dei servizi](https://aka.ms/functions/di-sample) su GitHub.
 
 ## <a name="logging-services"></a>Servizi di registrazione
 
-Se è necessario un provider di registrazione personalizzato, registrare un tipo personalizzato come istanza di `ILoggerProvider`. Application Insights viene aggiunto automaticamente da Funzioni di Azure.
+Se è necessario un provider di registrazione personalizzato, registrare un tipo personalizzato come istanza di [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory) , disponibile tramite il pacchetto NuGet [Microsoft. Extensions. Logging. abstracts](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) .
+
+Application Insights viene aggiunto automaticamente da Funzioni di Azure.
 
 > [!WARNING]
 > - Non aggiungere `AddApplicationInsightsTelemetry()` alla raccolta di servizi durante la registrazione di servizi in conflitto con i servizi forniti dall'ambiente.
@@ -135,7 +135,9 @@ Se è necessario un provider di registrazione personalizzato, registrare un tipo
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
 
-L'host inserirà i servizi `ILogger<T>` e `ILoggerFactory` in costruttori.  Per impostazione predefinita, tuttavia, questi nuovi filtri di registrazione verranno filtrati all'esterno dei log di funzione.  Sarà necessario modificare il file `host.json` per acconsentire esplicitamente ad altri filtri e categorie.  Nell'esempio seguente viene illustrata l'aggiunta di un `ILogger<HttpTrigger>` con log che verranno esposti dall'host
+L'host inserisce i `ILogger<T>` `ILoggerFactory` Servizi e nei costruttori.  Per impostazione predefinita, tuttavia, questi nuovi filtri di registrazione vengono esclusi dai log delle funzioni.  È necessario modificare il `host.json` file per acconsentire esplicitamente ad altri filtri e categorie.
+
+Nell'esempio seguente viene illustrato come aggiungere un oggetto `ILogger<HttpTrigger>` con i log esposti all'host.
 
 ```csharp
 namespace MyNamespace
@@ -160,7 +162,7 @@ namespace MyNamespace
 }
 ```
 
-e di un file `host.json` che aggiunge il filtro del log.
+Nel file di esempio seguente `host.json` viene aggiunto il filtro del log.
 
 ```json
 {
@@ -251,7 +253,7 @@ public class HttpTrigger
 Per informazioni dettagliate sull'uso delle opzioni, fare riferimento al [modello di opzioni in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
 
 > [!WARNING]
-> Evitare di provare a leggere i valori da file come *local.settings.json* o *appsettings.{environment}.json* nel piano a consumo. I valori letti da questi file correlati alle connessioni trigger non sono disponibili mentre l'app viene ridimensionata perché l'infrastruttura host non ha accesso alle informazioni di configurazione.
+> Evitare di provare a leggere i valori da file come *local.settings.json* o *appsettings.{environment}.json* nel piano a consumo. I valori letti da questi file correlati alle connessioni trigger non sono disponibili perché l'app viene ridimensionata perché l'infrastruttura host non ha accesso alle informazioni di configurazione perché il controller di scalabilità crea nuove istanze dell'app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

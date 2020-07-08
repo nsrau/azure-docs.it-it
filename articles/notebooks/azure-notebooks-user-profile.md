@@ -3,14 +3,16 @@ title: Profilo utente e ID da usare con Azure Notebooks Preview
 description: Come creare e gestire il profilo utente e l'ID utente con Azure Notebooks, che diventa parte dell'URL dei notebook condivisi.
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831353"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Profilo e ID utente per Azure Notebooks anteprima
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Nello spazio potente e collaborativo di Azure Notebooks, il profilo utente presenta l'immagine pubblica agli altri:
 
@@ -23,8 +25,6 @@ L'ID utente è parte della URL usata per condividere i progetti e i notebook. L'
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: File di progetto.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Cloni di un progetto specifico.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: Anteprima HTML di un file o di un notebook specifico.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>ID utente
 
@@ -49,16 +49,16 @@ Il profilo è composto da informazioni visualizzabili pubblicamente nella URL, `
 
 Per modificare il profilo, usare il comando **Modifica le informazioni del profilo** nella pagina del profilo. Le sezioni del profilo sono le seguenti:
 
-| Sezione | Sommario |
+| Sezione | Contenuto |
 | --- | --- |
 | Foto profilo | Un'immagine che viene visualizzata nella pagina del profilo. |
 | Informazioni account | Il nome visualizzato, l'ID utente e l'account di posta elettronica pubblico. In questo caso l'account di posta elettronica fornisce agli altri utenti un mezzo di contatto e può essere diverso dall'[account](azure-notebooks-user-account.md) usato per accedere ad Azure Notebooks stesso. |
 | Informazioni del profilo | Percorso, azienda, posizione, sito Web e una breve descrizione personale. |
 | Profili social | Di GItHub, Twitter e Facebook, se li si vuole condividere. |
-| Impostazioni sulla privacy | Fornisce due comandi:<ul><li>**Esporta il profilo**: crea e scarica un file *.zip* che contiene tutte le informazioni che Azure Notebooks salva nel profilo, tra cui la foto, le informazioni del profilo e i log di protezione.</li><li>**Elimina account**personale: Elimina definitivamente tutte le informazioni personali archiviate in Azure Notebooks.</li></ul> |
+| impostazioni del profilo | Fornisce due comandi:<ul><li>**Esporta il profilo**: crea e scarica un file *.zip* che contiene tutte le informazioni che Azure Notebooks salva nel profilo, tra cui la foto, le informazioni del profilo e i log di protezione.</li><li>**Elimina account**personale: Elimina definitivamente tutte le informazioni personali archiviate in Azure Notebooks.</li></ul> |
 | Abilitare le funzionalità del sito | Consente di controllare gli aspetti del comportamento di Azure Notebooks:<ul><li>**Front-end unificato per Notebooks**: abilita l'avvio più veloce del notebook e una persistenza migliore.</li><li>**Esegui in JupyterLab per**impostazione predefinita: per impostazione predefinita, Azure Notebooks fornisce una semplice interfaccia utente adatta alla maggior parte degli utenti. JupyterLab fornisce un'interfaccia più completa ma più complessa per utenti esperti.</li><li>**Sito Web VNext**: consente il layout Web moderno mostrato in questa documentazione.</li></ul> |
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare ed eseguire un notebook di Jupyter per la regressione lineare](tutorial-create-run-jupyter-notebook.md)
+> [Esercitazione: creare ed eseguire un notebook Jupyter per eseguire una regressione lineare](tutorial-create-run-jupyter-notebook.md)

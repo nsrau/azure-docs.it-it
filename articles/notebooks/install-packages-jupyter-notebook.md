@@ -3,20 +3,20 @@ title: Installare i pacchetti in Jupyter Notebooks-anteprima Azure Notebooks
 description: "Informazioni su come installare i pacchetti Python, R e F # dall'interno di un notebook di Jupyter in esecuzione in Azure."
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43d38c9f3a4b0095967ab3e103ea729ec86ea2bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831217"
 ---
 # <a name="install-packages-from-within-azure-notebooks-preview"></a>Installare i pacchetti dall'interno Azure Notebooks anteprima
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Sebbene sia possibile configurare l'[ambiente per il notebook a livello di progetto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), è possibile installare i pacchetti direttamente all'interno di un notebook singolo.
 
 I pacchetti installati dal notebook si applicano solo alla sessione del server corrente. Le installazioni di un pacchetto non sono persistenti dopo che il server è stato arrestato.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 

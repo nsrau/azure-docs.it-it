@@ -4,16 +4,16 @@ description: Come preparare, personalizzare e caricare un'immagine master di un 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fe354991ce19031cc4a51b07098ab12240569a90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832526"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
@@ -37,11 +37,13 @@ Per creare una macchina virtuale con il disco rigido virtuale copiato:
 
 2. Nella pagina specifica generazione selezionare **generazione 1**.
 
-    ![Screenshot della pagina Impostazione generazione. È selezionata l'opzione "generazione 1".](media/a41174fd41302a181e46385e1e701975.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della pagina Impostazione generazione. È selezionata l'opzione "generazione 1".](media/a41174fd41302a181e46385e1e701975.png)
 
 3. In tipo di checkpoint disabilitare i checkpoint deselezionando la casella di controllo.
 
-    ![Screenshot della sezione del tipo di checkpoint della pagina checkpoints.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della sezione del tipo di checkpoint della pagina checkpoints.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
 È anche possibile eseguire il cmdlet seguente in PowerShell per disabilitare i checkpoint.
 
@@ -53,7 +55,8 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 Se si crea una macchina virtuale da un disco rigido virtuale esistente, per impostazione predefinita viene creato un disco dinamico. Può essere modificato in un disco fisso selezionando **modifica disco...** come illustrato nell'immagine seguente. Per istruzioni più dettagliate, vedere [preparare un disco rigido virtuale Windows o VHDX per il caricamento in Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![Screenshot dell'opzione modifica disco.](media/35772414b5a0f81f06f54065561d1414.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot dell'opzione modifica disco.](media/35772414b5a0f81f06f54065561d1414.png)
 
 È anche possibile eseguire il cmdlet di PowerShell seguente per modificare il disco in un disco fisso.
 
@@ -63,9 +66,9 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 ## <a name="software-preparation-and-installation"></a>Preparazione e installazione del software
 
-Questa sezione illustra come preparare e installare FSLogix e Windows Defender, nonché alcune opzioni di configurazione di base per le app e il registro di sistema dell'immagine. 
+Questa sezione illustra come preparare e installare FSLogix e Windows Defender, nonché alcune opzioni di configurazione di base per le app e il registro di sistema dell'immagine.
 
-Se si installa Office 365 ProPlus e OneDrive nella macchina virtuale, passare a [installa Office in un'immagine del disco rigido virtuale Master](install-office-on-wvd-master-image.md) e seguire le istruzioni per installare le app. Al termine, tornare a questo articolo.
+Se si installano Microsoft 365 app per Enterprise e OneDrive nella macchina virtuale, passare a [installa Office in un'immagine del disco rigido virtuale Master](install-office-on-wvd-master-image.md) e seguire le istruzioni per installare le app. Al termine, tornare a questo articolo.
 
 Se gli utenti devono accedere ad alcune applicazioni LOB, è consigliabile installarle dopo aver completato le istruzioni della sezione.
 
@@ -87,7 +90,7 @@ Per altre informazioni su come configurare Windows Defender in modo da escludere
 
 Per disabilitare Aggiornamenti automatici tramite Criteri di gruppo locale:
 
-1. Aprire **Editor criteri di gruppo locali\\componenti\\\\di Windows modelli amministrativi Windows Update**.
+1. Aprire **Editor criteri di gruppo locali \\ \\ componenti di Windows modelli amministrativi \\ Windows Update**.
 2. Fare clic con il pulsante destro del mouse su **Configura aggiornamento automatico** e impostarlo su **disabilitato**.
 
 È anche possibile eseguire il comando seguente al prompt dei comandi per disabilitare Aggiornamenti automatici.
@@ -113,7 +116,7 @@ Per reindirizzare i fusi orari:
 1. Nel server Active Directory aprire il **console Gestione criteri di gruppo**.
 2. Espandere il dominio e gli oggetti Criteri di gruppo.
 3. Fare clic con il pulsante destro del mouse sull' **oggetto Criteri di gruppo** creato per le impostazioni di criteri di gruppo e scegliere **modifica**.
-4. Nella **Editor gestione criteri di gruppo**passare a **configurazione** > **criteri** > **modelli amministrativi** > **componenti** > di Windows**Servizi Desktop remoto** > **host sessione Desktop remoto** > **Reindirizzamento risorse e dispositivi**.
+4. Nella **Editor gestione criteri di gruppo**passare a **Configurazione computer**  >  **criteri**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Servizi Desktop remoto**  >  **host sessione Desktop remoto**  >  **Reindirizzamento risorse e dispositivi**.
 5. Abilitare l'impostazione **Consenti reindirizzamento del fuso orario** .
 
 È anche possibile eseguire questo comando sull'immagine master per reindirizzare i fusi orari:
@@ -126,7 +129,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 Per gli host sessione desktop virtuale Windows che usano Windows 10 Enterprise o Windows 10 Enterprise Multisession, è consigliabile disabilitare il senso di archiviazione. È possibile disabilitare il rilevamento dell'archiviazione nel menu impostazioni sotto **archiviazione**, come illustrato nello screenshot seguente:
 
-![Screenshot del menu archiviazione in impostazioni. L'opzione "rilevamento archiviazione" è disattivata.](media/storagesense.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot del menu archiviazione in impostazioni. L'opzione "rilevamento archiviazione" è disattivata.](media/storagesense.png)
 
 È anche possibile modificare l'impostazione con il registro di sistema eseguendo il comando seguente:
 
@@ -183,28 +187,31 @@ Dopo aver preparato l'immagine per il caricamento, assicurarsi che la macchina v
 
 Questa sezione si applica solo quando l'immagine master è stata creata localmente.
 
-Le istruzioni seguenti illustrano come caricare l'immagine master in un account di archiviazione di Azure. Se non si ha già un account di archiviazione di Azure, seguire le istruzioni riportate in [questo articolo](/azure/javascript/tutorial-vscode-static-website-node-03) per crearne uno.
+Le istruzioni seguenti illustrano come caricare l'immagine master in un account di archiviazione di Azure. Se non si ha già un account di archiviazione di Azure, seguire le istruzioni riportate in [questo articolo](/azure/developer/javascript/tutorial-vscode-static-website-node-03) per crearne uno.
 
 1. Convertire l'immagine di macchina virtuale (VHD) in corretta, se non è già stata eseguita. Se l'immagine non viene convertita in fixed, non è possibile crearla correttamente.
 
 2. Caricare il disco rigido virtuale in un contenitore BLOB nell'account di archiviazione. È possibile caricare rapidamente con lo [strumento Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Per altre informazioni sullo strumento Storage Explorer, vedere [questo articolo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-    ![Screenshot della finestra di ricerca dello strumento Microsoft Azure Storage Explorer. È selezionata la casella di controllo "carica file con estensione VHD o VHDX come BLOB di pagine (scelta consigliata)".](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della finestra di ricerca dello strumento Microsoft Azure Storage Explorer. È selezionata la casella di controllo "carica file con estensione VHD o VHDX come BLOB di pagine (scelta consigliata)".](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Passare quindi al portale di Azure nel browser e cercare "immagini". La ricerca dovrebbe condurre alla pagina **Crea immagine** , come illustrato nello screenshot seguente:
 
-    ![Screenshot della pagina Create image del portale di Azure, con valori di esempio per l'immagine.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della pagina Create image del portale di Azure, con valori di esempio per l'immagine.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. Una volta creata l'immagine, viene visualizzata una notifica come quella riportata nello screenshot seguente:
 
-    ![Screenshot della notifica di "immagine creata correttamente".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della notifica di "immagine creata correttamente".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che si dispone di un'immagine, è possibile creare o aggiornare i pool host. Per ulteriori informazioni su come creare e aggiornare i pool host, vedere gli articoli seguenti:
 
 - [Creare un pool di host con un modello di Azure Resource Manager](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
-- [Esercitazione: creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Esercitazione: Creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Creare un pool di host con PowerShell](create-host-pools-powershell.md)
 - [Creare un contenitore di profili per un pool di host con una condivisione file](create-host-pools-user-profile.md)
 - [Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows](configure-host-pool-load-balancing.md)

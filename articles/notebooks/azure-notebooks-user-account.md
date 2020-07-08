@@ -3,22 +3,22 @@ title: Accedi Azure Notebooks anteprima
 description: Configurare l'account utente per Azure Notebooks usando un account Microsoft o un account aziendale o dell'istituto di istruzione.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 929a21785b5b48c81c2d2016874feed61021d3c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832186"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>Account utente per Azure Notebooks anteprima
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 È possibile usare Azure Notebooks anche senza aver eseguito l'accesso con un account utente:
 
 - Se non si esegue l'accesso, è possibile creare ed eseguire i notebook ma non è possibile conservare i notebook o i file di dati nell'ambito dei progetti. Gli utenti che ricevono un collegamento a un notebook di Azure, ad esempio, possono accedere al notebook senza dover eseguire l'accesso.
 - Se si esegue l'accesso, Azure Notebooks mantiene tutti i progetti associati al proprio account. Agli utenti viene inoltre assegnato un ID utente che consente di condividere i progetti e i notebook con altre persone.
 - Se l'account usato per Azure Notebooks è associato anche a una sottoscrizione di Azure, è possibile ottenere vantaggi aggiuntivi, come la possibilità di eseguire i notebook in server più potenti, creare notebook privati e concedere autorizzazioni per i notebook a singoli utenti.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 L'accesso ad Azure Notebooks richiede un account Microsoft o un account aziendale o dell'istituto di istruzione. Viene richiesto di immettere le credenziali dell'account quando si seleziona il comando **Accedi** nell'angolo superiore destro della pagina di Notebooks:
 
@@ -53,7 +53,7 @@ Per abilitare l'accesso, un genitore deve seguire questa procedura:
 
 ## <a name="work-or-school-accounts"></a>Account aziendali o dell'istituto di istruzione
 
-Un amministratore dell'organizzazione crea un account aziendale o dell'istituto di istruzione per consentire ai membri dell'organizzazione di accedere ai servizi cloud Microsoft (come Office 365), oltre a un account per accedere a Windows in un computer aggiunto al dominio. In genere, un account aziendale o dell'istituto di istruzione usa un indirizzo di posta elettronica dell'organizzazione, ad esempio any-user@contoso.com.
+Un account aziendale o dell'Istituto di istruzione viene creato da un amministratore dell'organizzazione per consentire a un membro dell'organizzazione di accedere ai servizi cloud Microsoft, ad esempio Microsoft 365, e anche come account per accedere a Windows in un computer aggiunto al dominio. In genere, un account aziendale o dell'istituto di istruzione usa un indirizzo di posta elettronica dell'organizzazione, ad esempio any-user@contoso.com.
 
 L'accesso ad Azure Notebooks con un account aziendale o dell'istituto di istruzione può richiedere il consenso dell'amministratore perché Azure Notebooks raccoglie o usa (ma non divulga) informazioni come l'indirizzo di posta elettronica dell'account e il browser dell'utente (i dati del browser consentono di ottimizzare le funzionalità in base all'utilizzo comune).
 

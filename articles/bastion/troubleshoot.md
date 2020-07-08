@@ -4,15 +4,15 @@ description: Questo articolo illustra come risolvere i problemi relativi ad Azur
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 749d7125c013f419197ef8243d2475e612dc81b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831931"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Risolvere i problemi di Azure Bastion
 
@@ -20,7 +20,7 @@ Questo articolo illustra come risolvere i problemi relativi ad Azure Bastion.
 
 ## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>Non è possibile creare un NSG su AzureBastionSubnet
 
-**D:** Quando si tenta di creare un NSG di sicurezza di rete nella subnet di Azure Bastion, viene ricevuto l'errore seguente: *"il <NSG name> gruppo di sicurezza di rete non ha le regole necessarie per la subnet di Azure Bastion AzureBastionSubnet"*.
+**D:** Quando si tenta di creare un NSG di sicurezza di rete nella subnet di Azure Bastion, viene ricevuto l'errore seguente: *"il gruppo di sicurezza di rete non <NSG name> ha le regole necessarie per la subnet di Azure Bastion AzureBastionSubnet"*.
 
 **R:** Se si crea e si applica un NSG a *AzureBastionSubnet*, assicurarsi di avere aggiunto le regole seguenti nel NSG. Se non si aggiungono queste regole, la creazione o l'aggiornamento di NSG avrà esito negativo.
 
@@ -28,7 +28,7 @@ Questo articolo illustra come risolvere i problemi relativi ad Azure Bastion.
 2. Registrazione diagnostica e altri utenti: in uscita il 443 a AzureCloud (i tag internazionali all'interno di questo tag di servizio non sono ancora supportati).
 3. VM di destinazione: in uscita per 3389 e 22 a VirtualNetwork
 
-Un esempio di regole NSG è disponibile come riferimento nel modello di [avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Un esempio di regole NSG è disponibile come riferimento nel modello di [avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Per altre informazioni, vedere [NSG Guidance for Azure Bastion](bastion-nsg.md).
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Non è possibile usare la chiave SSH con Azure Bastion
@@ -39,7 +39,7 @@ Per altre informazioni, vedere [NSG Guidance for Azure Bastion](bastion-nsg.md).
 
 Ad esempio, è possibile usare il comando seguente per creare una nuova chiave SSH RSA:
 
-**ssh-keygen-t RSA-b 4096-C "email@domain.com"**
+**ssh-keygen-t RSA-b 4096-C " email@domain.com "**
 
 Output:
 
@@ -71,7 +71,7 @@ The key's randomart image is:
 
 **D:** Non è possibile connettersi alla macchina virtuale Windows aggiunta a un dominio.
 
-**R:** Azure Bastion supporta l'accesso alla macchina virtuale aggiunta a un dominio per l'accesso solo al dominio basato su password utente. Quando si specificano le credenziali del dominio nella portale di Azure, usare ilusername@domainformato UPN () invece del formato *DOMINIO\nomeutente* per accedere. Questa operazione è supportata per le macchine virtuali appartenenti a un dominio o ibride (appartenenti a un dominio e unite a Azure AD). Non è supportata per le macchine virtuali con solo join Azure AD.
+**R:** Azure Bastion supporta l'accesso alla macchina virtuale aggiunta a un dominio per l'accesso solo al dominio basato su password utente. Quando si specificano le credenziali del dominio nella portale di Azure, usare il username@domain formato UPN () invece del formato *DOMINIO\nomeutente* per accedere. Questa operazione è supportata per le macchine virtuali appartenenti a un dominio o ibride (appartenenti a un dominio e unite a Azure AD). Non è supportata per le macchine virtuali con solo join Azure AD.
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problemi di trasferimento di file
 

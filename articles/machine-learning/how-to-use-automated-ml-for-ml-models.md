@@ -1,22 +1,22 @@
 ---
-title: Usare autoML per la creazione e la distribuzione di modelli
+title: Usare AutoML per creare modelli & distribuire
 titleSuffix: Azure Machine Learning
 description: Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: nibaccam
-author: tsikiksr
+author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 03/10/2020
-ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 05/20/2020
+ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831914"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -106,7 +106,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
     Selezionare **Avanti**.
 
-1. Nel modulo **Tipo di attività e impostazioni** selezionare il tipo di attività: classificazione, regressione o previsione. Per altre informazioni, vedere [Come definire i tipi di attività](how-to-define-task-type.md).
+1. Nel modulo **Tipo di attività e impostazioni** selezionare il tipo di attività: classificazione, regressione o previsione. Per ulteriori informazioni, vedere [tipi di attività supportati](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
     1. Per la classificazione, è anche possibile abilitare il Deep Learning usato per la definizione delle funzionalità di testo.
 
@@ -120,14 +120,16 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
     Configurazioni aggiuntive|Descrizione
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche dei modelli](how-to-configure-auto-train.md#explore-model-metrics).
-    Automatic featurization (Definizione automatica funzionalità)| Selezionare per abilitare o disabilitare la pre-elaborazione eseguita da Machine Learning automatizzato. La pre-elaborazione include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. Non supportata per il tipo di attività di previsione delle serie temporali. [Altre informazioni sulla pre-elaborazione](#featurization). 
+    Automatic featurization (Definizione automatica funzionalità)| Selezionare questa impostazione per abilitare o disabilitare la conteggi eseguita da Automatic Machine Learning. Conteggi automatici include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. Non supportata per il tipo di attività di previsione delle serie temporali. [Altre informazioni su conteggi](how-to-configure-auto-features.md#featurization). 
     Modello esplicativo migliore | Selezionare per abilitare o disabilitare la visualizzazione del modello esplicativo migliore consigliato
     Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training.
     Exit criterion (Esci da criterio)| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Durata del processo di training (ore)* : per quanto tempo consentire l'esecuzione del processo di training. <br> *Soglia di punteggio metrica*:  punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo del necessario al processo di training.
-    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-auto-train.md).
+    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-cross-validation-data-splits.md#prerequisites).
     Concorrenza| *Numero massimo di iterazioni simultanee*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più volte del numero specificato di iterazioni.
 
-1. (Facoltativo) Visualizzare le impostazioni di definizione delle funzionalità: se si sceglie di abilitare **Definizione automatica delle funzionalità** nel modulo **Impostazioni di configurazione aggiuntive**, in questo modulo è possibile specificare le colonne su cui eseguire la definizione delle funzionalità e selezionare il valore statistico da usare per l’imputazione dei valori mancanti.
+1. Opzionale Visualizza impostazioni conteggi: se si sceglie di abilitare **conteggi automatici** nel modulo **impostazioni di configurazione aggiuntive** , vengono applicate le tecniche conteggi predefinite. Nelle **impostazioni di visualizzazione conteggi** è possibile modificare queste impostazioni predefinite e personalizzarle di conseguenza. Informazioni su come [personalizzare featurizations](#customize-featurization). 
+
+    ![Form del tipo di attività di Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 <a name="profile"></a>
 
@@ -155,58 +157,19 @@ Variance| Misura della distribuzione dei dati di questa colonna rispetto al rela
 Asimmetria| Misura della differenza dei dati di questa colonna rispetto a una distribuzione normale.
 Curtosi| Misura della pesantezza delle code dei dati di questa colonna in relazione a una distribuzione normale.
 
-<a name="featurization"></a>
+## <a name="customize-featurization"></a>Personalizzare conteggi
 
-## <a name="advanced-featurization-options"></a>Opzioni avanzate di definizione delle funzionalità
+Nel modulo **conteggi** è possibile abilitare o disabilitare conteggi automatici e personalizzare le impostazioni conteggi automatiche per l'esperimento. Per aprire questo modulo, vedere il passaggio 10 nella sezione [creare ed eseguire l'esperimento](#create-and-run-experiment) . 
 
-Il Machine Learning automatizzato offre automaticamente la pre-elaborazione e la protezione dati, per facilitare l'identificazione e la gestione di potenziali problemi con i dati, come [overfitting e sbilanciamento dei dati](concept-manage-ml-pitfalls.md#prevent-over-fitting). 
+Nella tabella seguente sono riepilogate le personalizzazioni attualmente disponibili tramite Studio. 
 
-### <a name="preprocessing"></a>Pre-elaborazione
+Colonna| Personalizzazione
+---|---
+Incluso | Specifica le colonne da includere per il training.
+Tipo di funzionalità| Modificare il tipo di valore per la colonna selezionata.
+Imputa con| Selezionare il valore in cui si desidera imputare i valori mancanti nei dati.
 
-> [!NOTE]
-> Se si prevede di esportare i modelli creati dal Machine Learning automatizzato in un [modello ONNX](concept-onnx.md), solo le opzioni di definizione delle funzionalità indicate con un * sono supportate nel formato ONNX. Altre informazioni sulla [conversione di modelli in ONNX](concept-automated-ml.md#use-with-onnx). 
-
-|Passaggi di&nbsp;pre-elaborazione| Descrizione |
-| ------------- | ------------- |
-|Eliminazione delle funzionalità con alta cardinalità o senza varianza* |Elimina queste funzionalità dai set di convalida e training, incluse le funzionalità con tutti i valori mancanti, con lo stesso valore in tutte le righe o con cardinalità molto alta, ad esempio hash, ID o GUID.|
-|Imputazione dei valori mancanti* |Per le funzionalità numeriche, vengono imputati con la media dei valori nella colonna.<br/><br/>Per le funzionalità di categoria, vengono imputati con il valore più frequente.|
-|Generazione di caratteristiche aggiuntive* |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br/><br/>Per le caratteristiche di tipo Text: frequenza dei termini basata su unigrammi, digrammi e trigrammi.|
-|Trasformazione e codifica*|Le funzionalità numeriche con un numero ridotto di valori univoci vengono trasformate in funzionalità di categoria.<br/><br/>Per una cardinalità bassa di categoria viene eseguita la codifica one-hot; per una cardinalità alta, viene eseguita la codifica one-hot-hash.|
-|Incorporamenti di parole|Funzione di definizione delle funzionalità di testo che converte vettori di token di testo in vettori di frasi usando un modello con training preliminare. Il vettore di incorporamento di ogni parola in un documento viene aggregato per produrre un vettore di funzionalità del documento.|
-|Codifiche di destinazione|Per le funzionalità di categoria, viene eseguito il mapping di ogni categoria con il valore di destinazione medio per i problemi di regressione e alla probabilità di classe per ogni classe per i problemi di classificazione. Vengono applicate la ponderazione basata sulla frequenza e la convalida incrociata k-fold per ridurre l'overfitting del mapping e il rumore causato da categorie di dati di tipo sparse.|
-|Codifica di destinazione del testo|Per l'input di testo, viene usato un modello lineare in stack con elenco di parole per generare la probabilità di ogni classe.|
-|Peso dell’evidenza|Calcola il peso dell’evidenza come misura della correlazione delle colonne di categoria con la colonna di destinazione. Viene calcolato come log del rapporto tra le probabilità nella classe ed esterne alla classe. Questo passaggio restituisce una colonna di funzionalità numeriche per classe ed elimina la necessità di imputare in modo esplicito i valori mancanti e la gestione degli outlier.|
-|Distanza cluster|Esegue il training di un modello di clustering K-means su tutte le colonne numeriche.  Restituisce k nuove funzionalità, una nuova funzionalità numerica per cluster, che contengono la distanza di ogni campione dal centro di ogni cluster.|
-
-### <a name="data-guardrails"></a>Protezione dati
-
-La protezione dati viene applicata quando la definizione automatica delle funzionalità è abilitata o la convalida è impostata su auto. La protezione dati consente di identificare i potenziali problemi relativi ai dati (ad esempio i valori mancanti, lo sbilanciamento della classe) e di intraprendere azioni correttive per ottenere risultati migliori. 
-
-Gli utenti possono esaminare la protezione dati in Studio nella scheda **Protezione dati** di un'esecuzione di ML automatizzato o impostando ```show_output=True``` quando si invia un esperimento con l’SDK Python. 
-
-#### <a name="data-guardrail-states"></a>Stati di protezione dati
-
-La protezione dati visualizzerà uno dei tre stati seguenti: **Riuscito**, **Completato** o **Avvisato**.
-
-State| Descrizione
-----|----
-Passed| Non sono stati rilevati problemi relativi ai dati e non è richiesta alcuna azione da parte dell’utente. 
-Operazione completata| Le modifiche sono state applicate ai dati. Si consiglia agli utenti di esaminare le azioni correttive intraprese da ML automatizzato per verificare che le modifiche siano in linea con i risultati previsti. 
-Avvisato| È stato rilevato un problema relativo ai dati che non è stato possibile risolvere. Si consiglia agli utenti di esaminare e risolvere il problema. 
-
->[!NOTE]
-> Nelle versioni precedenti degli esperimenti di ML automatizzato veniva visualizzato un quarto stato: **Corretto**. Gli esperimenti più recenti non visualizzeranno questo stato e tutte le protezioni dati che visualizzavano lo stato **Corretto** ora visualizzeranno **Completato**.   
-
-Nella tabella seguente sono descritte le protezioni dati attualmente supportate e gli stati associati che gli utenti possono riscontrare durante l'invio dell'esperimento.
-
-Protezione|Stato|Condizione&nbsp;per il&nbsp;trigger
----|---|---
-Imputazione di valori di funzionalità mancanti |**Riuscito** <br><br><br> **Completato**| Nei dati di training non sono stati rilevati valori di funzionalità mancanti. Altre informazioni sull'[imputazione di valori mancanti.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Nei dati di training sono stati rilevati valori di funzionalità mancanti e sono stati imputati.
-Gestione di funzionalità ad alta cardinalità |**Riuscito** <br><br><br> **Completato**| Gli input sono stati analizzati e non sono state rilevate funzionalità ad alta cardinalità. Altre informazioni sul [rilevamento delle funzionalità ad alta cardinalità.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Sono state rilevate funzionalità ad alta cardinalità negli input e sono state gestite.
-Gestione della suddivisione della convalida |**Completato**| *La configurazione della convalida è stata impostata su "auto" e i dati di training contenevano **meno** di 20.000 righe.* <br> Ogni iterazione del modello con training è stata convalidata tramite la convalida incrociata. Altre informazioni sui [dati di convalida.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *La configurazione della convalida è stata impostata su "auto" e i dati di training contenevano **più** di 20.000 righe.* <br> I dati di input sono stati suddivisi in un set di dati di training e un set di dati di convalida per la convalida del modello.
-Rilevamento bilanciamento classi |**Riuscito** <br><br><br><br> **Avvisato** | Gli input sono stati analizzati e tutte le classi sono bilanciate nei dati di training. Un set di dati è considerato bilanciato se ogni classe è rappresentata in modo corretto nel set di dati, come da misurazione in base al numero e al rapporto dei campioni. <br><br><br> Sono state rilevate classi non bilanciate negli input. Per correggere la distorsione del modello, risolvere il problema di bilanciamento. Altre informazioni sui dati [non bilanciati.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
-Rilevamento dei problemi di memoria |**Riuscito** <br><br><br><br> **Completato** |<br> I valori selezionati di {orizzonte, ritardo, finestra mobile} sono stati analizzati e non è stato rilevato alcun potenziale problema di memoria insufficiente. Altre informazioni sulle [configurazioni di previsione](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) di serie temporali. <br><br><br>I valori selezionati di {orizzonte, ritardo, finestra mobile} sono stati analizzati e potrebbero causare un problema di memoria insufficiente per l’esperimento. Le configurazioni del ritardo o della finestra mobile sono state disattivate.
-Rilevamento della frequenza |**Riuscito** <br><br><br><br> **Completato** |<br> La serie temporale è stata analizzata e tutti i punti dati sono allineati con la frequenza rilevata. <br> <br> La serie temporale è stata analizzata e sono stati rilevati dei punti dati non allineati alla frequenza rilevata. Questi punti dati sono stati rimossi dal set di dati. Altre informazioni sulla [preparazione dei dati per la previsione delle serie temporali.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
+![Form del tipo di attività di Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Eseguire l'esperimento e visualizzare i risultati
 
@@ -255,6 +218,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
     Il menu *Avanzata* offre funzionalità di distribuzione predefinite, quali la [raccolta dati](how-to-enable-app-insights.md) e le impostazioni di utilizzo delle risorse. Se si desidera eseguire l'override di queste impostazioni predefinite, effettuare questa operazione in questo menu.
 
 1. Selezionare **Distribuisci**. Il completamento della distribuzione può richiedere circa 20 minuti.
+    Una volta avviata la distribuzione, viene visualizzata la scheda **Dettagli modello** . Vedere lo stato di avanzamento della distribuzione nella sezione **stato** di distribuzione del riquadro **Proprietà** . 
 
 A questo punto, è disponibile un servizio Web operativo per generare previsioni. Per eseguire il test delle previsioni, è possibile eseguire una query sul servizio dal [supporto Azure Machine Learning incorporato di Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

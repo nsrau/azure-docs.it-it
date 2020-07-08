@@ -3,15 +3,15 @@ title: Guida di riferimento alle funzioni nelle espressioni
 description: Guida di riferimento per le funzioni nelle espressioni per App per la logica di Azure e Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: fea444f2e864683d6350e1c08872ec574a36852c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 07/01/2020
+ms.openlocfilehash: 30806880b3ce9ab89479cedbce60435f44024efd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83646003"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833019"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -120,6 +120,9 @@ Per eseguire operazioni con le raccolte, generalmente matrici, stringhe e talvol
 ## <a name="logical-comparison-functions"></a>Funzioni di confronto logico
 
 Per eseguire operazioni con le condizioni, confrontare i valori e i risultati delle espressioni o valutare vari tipi di logica, è possibile usare queste funzioni di confronto logico. Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> Se si utilizzano funzioni o condizioni logiche per confrontare i valori, i valori null vengono convertiti in valori di stringa ( `""` ) vuoti. Il comportamento delle condizioni è diverso quando si esegue il confronto con una stringa vuota anziché con un valore null. Per ulteriori informazioni, vedere la [funzione String ()](#string). 
 
 | Funzione di confronto logico | Attività |
 | --------------------------- | ---- |
@@ -474,6 +477,9 @@ E viene restituito questo risultato:
 Restituisce l'output di un'azione in fase di esecuzione oppure i valori di altre coppie nome-valore JSON che è possibile assegnare a un'espressione. Per impostazione predefinita, questa funzione fa riferimento all'intero oggetto azione, ma è possibile specificare una proprietà con il valore desiderato.
 Per le versioni a sintassi abbreviata, vedere [actionBody()](#actionBody), [actionOutputs()](#actionOutputs) e [body()](#body).
 Per l'azione corrente, vedere [action()](#action).
+
+> [!TIP]
+> La `actions()` funzione restituisce l'output sotto forma di stringa. Se è necessario usare un valore restituito come oggetto JSON, è prima di tutto necessario convertire il valore stringa. È possibile trasformare il valore stringa in un oggetto JSON usando l' [azione analizza JSON](logic-apps-perform-data-operations.md#parse-json-action).
 
 > [!NOTE]
 > In precedenza, era possibile usare la funzione `actions()` o l'elemento `conditions` per specificare che un'azione veniva eseguita in base all'output di un'altra azione. Tuttavia, per dichiarare in modo esplicito le dipendenze tra le azioni, ora è necessario usare la proprietà `runAfter` dell'azione dipendente.
@@ -2043,7 +2049,7 @@ formatNumber(<number>, <format>, <locale>?)
 Si supponga di voler formattare il numero `1234567890`. Questo esempio formatta il numero come stringa "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'en-us')
+formatNumber(1234567890, '0,0.00', 'en-us')
 ```
 
 *Esempio 2"
@@ -2051,7 +2057,7 @@ formatNumber(1234567890, '{0:0,0.00}', 'en-us')
 Si supponga di voler formattare il numero `1234567890`. Questo esempio formatta il numero come stringa "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'is-is')
+formatNumber(1234567890, '0,0.00', 'is-is')
 ```
 
 *Esempio 3*
@@ -3820,13 +3826,17 @@ string(<value>)
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sì | Qualsiasi | Valore da convertire |
+| <*value*> | Sì | Qualsiasi | Valore da convertire. Se questo valore è null o restituisce null, il valore viene convertito in un valore stringa vuoto ( `""` ). <p><p>Se ad esempio si assegna una variabile stringa a una proprietà inesistente, a cui è possibile accedere con l' `?` operatore, il valore null viene convertito in una stringa vuota. Tuttavia, il confronto di un valore null non equivale a confrontare una stringa vuota. |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*string-value*> | string | Versione stringa del valore specificato |
+| <*string-value*> | string | Versione della stringa per il valore specificato. Se il parametro del *valore* è null o restituisce null, questo valore viene restituito come valore stringa vuoto ( `""` ). |
 ||||
+
+
+
+
 
 *Esempio 1*
 

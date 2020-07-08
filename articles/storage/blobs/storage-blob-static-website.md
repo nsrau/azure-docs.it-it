@@ -3,26 +3,27 @@ title: Hosting di siti Web statici in Archiviazione di Azure
 description: Hosting di siti Web statici in Archiviazione di Azure che fornisce una soluzione economica e scalabile per l'hosting di applicazioni Web moderne.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833347"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
 È possibile gestire contenuto statico (file di immagine, HTML, CSS e JavaScript) direttamente da un contenitore di archiviazione denominato *$web*. L'hosting del contenuto in Archiviazione di Azure consente di usare architetture serverless che includono [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi di piattaforma distribuita come servizio (PaaS).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
 > Se il sito dipende dal codice sul lato server, usare invece il [Servizio app di Azure](/azure/app-service/overview).
+Assicurarsi di creare un account di archiviazione standard per utilizzo generico V2. I siti Web statici non sono disponibili in nessun altro tipo di account di archiviazione.
 
 ## <a name="setting-up-a-static-website"></a>Configurazione di un sito Web statico
 
@@ -46,7 +47,7 @@ I file nel contenitore **$web** contenitore fanno distinzione tra maiuscole e mi
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Estensione di Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Estensione di Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Visualizzazione di contenuto
 
@@ -63,11 +64,11 @@ L'URL del sito contiene un codice internazionale. Ad esempio, l'URL `https://con
 
 Sebbene il codice debba rimanere nell'URL, è solo per uso interno e non è necessario usare tale codice in altro modo.
 
-Il documento di indice specificato quando si abilita l'hosting di siti Web statici viene visualizzato quando gli utenti aprono il sito e non specificano un file specifico (ad esempio: `https://contosoblobaccount.z22.web.core.windows.net`).  
+Il documento di indice specificato quando si abilita l'hosting di siti Web statici viene visualizzato quando gli utenti aprono il sito e non specificano un file specifico (ad esempio: `https://contosoblobaccount.z22.web.core.windows.net`).
 
 ### <a name="secondary-endpoints"></a>Endpoint secondari
 
-Se si configura la [ridondanza in un'area secondaria](../common/storage-redundancy.md#redundancy-in-a-secondary-region), è anche possibile accedere al contenuto del sito Web usando un endpoint secondario. Poiché i dati vengono replicati in aree secondarie in modo asincrono, i file disponibili nell'endpoint secondario non sono sempre sincronizzati con i file disponibili nell'endpoint primario. 
+Se si configura la [ridondanza in un'area secondaria](../common/storage-redundancy.md#redundancy-in-a-secondary-region), è anche possibile accedere al contenuto del sito Web usando un endpoint secondario. Poiché i dati vengono replicati in aree secondarie in modo asincrono, i file disponibili nell'endpoint secondario non sono sempre sincronizzati con i file disponibili nell'endpoint primario.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impatto dell'impostazione del livello di accesso pubblico del contenitore Web
 
@@ -85,11 +86,11 @@ Tuttavia, l'accesso pubblico all'endpoint del servizio BLOB primario `https://co
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapping di un dominio personalizzato a un URL di un sito Web statico
 
-È possibile rendere disponibile il sito Web statico mediante un dominio personalizzato. 
+È possibile rendere disponibile il sito Web statico mediante un dominio personalizzato.
 
 L'abilitazione dell'accesso HTTP per il dominio personalizzato è più semplice, perché Archiviazione di Azure la supporta in modo nativo. Per abilitare HTTPS, è necessario usare Rete CDN di Azure perché Archiviazione di Azure non supporta ancora in modo nativo HTTPS con domini personalizzati. Vedere [Eseguire il mapping di un dominio personalizzato a un endpoint di Archiviazione BLOB di Azure](storage-custom-domain-name.md) per indicazioni dettagliate.
 
-Se l'account di archiviazione è configurato per [richiedere il trasferimento sicuro](../common/storage-require-secure-transfer.md) su HTTPS, gli utenti devono usare l'endpoint HTTPS. 
+Se l'account di archiviazione è configurato per [richiedere il trasferimento sicuro](../common/storage-require-secure-transfer.md) su HTTPS, gli utenti devono usare l'endpoint HTTPS.
 
 > [!TIP]
 > Valutare la possibilità di ospitare il dominio in Azure. Per altre informazioni, vedere [Ospitare un dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md).

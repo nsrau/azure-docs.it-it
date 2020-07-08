@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 1aea1f3b2401d7b9639c32927ffa7390727d25b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827515"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833639"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -54,7 +54,7 @@ La tabella seguente illustra gli endpoint per il piano dati e di gestione.
 
 | Piano di&nbsp;accesso | Endpoint di accesso | Operazioni | Meccanismo di controllo&nbsp;di accesso |
 | --- | --- | --- | --- |
-| Piano di gestione | **Globale:**<br> management.azure.com:443<br><br> **21Vianet per Azure Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 | Creare, leggere, aggiornare ed eliminare insiemi di credenziali delle chiavi<br><br>Impostare i criteri di accesso dell'insieme di credenziali delle chiavi<br><br>Impostare tag per l'insieme di credenziali delle chiavi | Controllo degli accessi in base al ruolo di Azure Resource Manager |
+| Piano di gestione | **Globale:**<br> management.azure.com:443<br><br> **21Vianet per Azure Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 | Creare, leggere, aggiornare ed eliminare insiemi di credenziali delle chiavi<br><br>Impostare i criteri di accesso dell'insieme di credenziali delle chiavi<br><br>Impostare tag per l'insieme di credenziali delle chiavi | Controllo degli accessi in base al ruolo Azure |
 | Piano dati | **Globale:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.net:443<br><br> **21Vianet per Azure Cina:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.cn:443<br><br> **Azure US Gov:**<br> &lt;nome-insiemecredenziali&gt;.vault.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> &lt;nome-insiemecredenziali&gt;.vault.microsoftazure.de:443 | Chiavi: decrittografare, crittografare,<br> annullare il wrapping, eseguire il wrapping, verificare, firmare,<br> ottenere, elencare, aggiornare, creare,<br> importare, eliminare, eseguire il backup, ripristinare<br><br> Segreti: ottenere, elencare, impostare, eliminare | Criteri di accesso dell'insieme di credenziali delle chiavi |
 
 ## <a name="management-plane-and-rbac"></a>Piano di gestione e controllo degli accessi in base al ruolo
@@ -79,6 +79,8 @@ Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le speci
 L'accesso al piano dati viene concesso impostando i criteri di accesso di Key Vault per un insieme di credenziali delle chiavi. Per impostare i criteri di accesso, un utente, un gruppo o un'applicazione deve avere le autorizzazioni `Contributor` per il piano di gestione per l'insieme di credenziali delle chiavi.
 
 È possibile concedere l'accesso a un utente, un gruppo o un'applicazione per eseguire operazioni specifiche relative a segreti o chiavi in un insieme di credenziali delle chiavi. Key Vault supporta fino a 1.024 voci di criteri di accesso per un insieme di credenziali delle chiavi. Per concedere a più utenti l'accesso al piano dati, creare un gruppo di sicurezza di Azure AD e aggiungere gli utenti a tale gruppo.
+
+È possibile visualizzare l'elenco completo delle operazioni di insieme di credenziali e segreti e informazioni sulle operazioni consentite quando si configurano i criteri di accesso dell'insieme di credenziali delle chiavi visualizzando il riferimento seguente. [Riferimento all'operazione di Key Vault](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a> I criteri di accesso dell'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati. È possibile concedere a un utente l'accesso solo alle chiavi e non ai segreti. Le autorizzazioni di accesso per chiavi, segreti e certificati vengono definite a livello di insieme di credenziali. I criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni granulari a livello di oggetto, ad esempio una chiave, un segreto o un certificato specifico. Per impostare i criteri di accesso per un insieme di credenziali delle chiavi, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di gestione di Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 

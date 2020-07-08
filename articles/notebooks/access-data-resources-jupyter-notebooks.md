@@ -3,22 +3,23 @@ title: Accedere ai dati in Jupyter Notebooks-anteprima Azure Notebooks
 description: Informazioni su come accedere a file, API REST, database e diverse risorse di archiviazione di Azure da un notebook di Jupyter.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833486"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Accedere ai dati cloud in un notebook
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Per svolgere lavori interessanti in un notebook di Jupyter sono necessari i dati. I dati, in effetti, sono l'anima dei notebook.
 
 È ovviamente possibile [importare i file di dati in un progetto](work-with-project-data-files.md), anche usando comandi `curl` da un notebook per scaricare direttamente un file. È probabile, tuttavia, che sia necessario lavorare con dati molto più estesi che sono disponibili da origini non file come API REST, database relazionali e risorse di archiviazione cloud come le tabelle di Azure.
 
 Questo articolo illustra brevemente le varie opzioni. Poiché l'accesso ai dati risulta ottimale in azione, è possibile trovare il codice eseguibile negli [Esempi di notebook di Azure: accesso ai dati](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>API REST
 
@@ -41,11 +42,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Database SQL di Azure
+## <a name="azure-sql-database-and-sql-managed-instance"></a>Database SQL di Azure e Istanza gestita SQL
 
-È possibile accedere ai database di SQL Server con il supporto delle librerie di pyodbc o pymssql.
+È possibile accedere ai database nel database SQL o in SQL Istanza gestita con l'assistenza delle librerie pyodbc o pymssql.
 
-[Usare Python per eseguire query su un database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) fornisce istruzioni sulla creazione di un database che contiene i dati di AdventureWorks e illustra come eseguire una query su tali dati. Nel notebook di esempio per questo articolo viene illustrato lo stesso codice.
+[Usare Python per eseguire query in un database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) fornisce istruzioni sulla creazione di un database nel database SQL contenente i dati di AdventureWorks e Mostra come eseguire query su tali dati. Nel notebook di esempio per questo articolo viene illustrato lo stesso codice.
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
@@ -64,7 +65,7 @@ Azure Cosmos DB offre un archivio NoSQL completamente indicizzato per i document
 - [Compilare un'app Flask con l'API Azure Cosmos DB per MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Creare un database a grafo usando Python e l'API Gremlin](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Creare un'app Cassandra con Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [Creare un'app API Tabella con Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Creare un'app dell'API Tabella con Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
 Quando si lavora con Cosmos DB, è possibile usare la libreria [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/).
 

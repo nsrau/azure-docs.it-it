@@ -1,18 +1,18 @@
 ---
 title: Creare un ambiente del servizio app ILB V1
-description: Creazione e uso di un ambiente del servizio app con un ILB. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+description: Creazione e uso di un ambiente del servizio app con un ILB. Questo documento è rivolto solo ai clienti che usano l'ambiente del servizio app v1 legacy.
 author: ccompy
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833104"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app
 
@@ -118,11 +118,12 @@ Le attività di gestione aggiuntive sono la gestione dei certificati e la gestio
 #### <a name="dns-configuration"></a>Configurazione del DNS
 Quando si usa un indirizzo VIP esterno, il DNS viene gestito da Azure. Qualsiasi app creata nell'ambiente del servizio app viene aggiunta automaticamente al DNS di Azure, che è un DNS pubblico. In un ambiente del servizio app ILB, è necessario gestire il proprio DNS. Per un sottodominio specifico, ad esempio contoso.corp.net, è necessario creare record A DNS che puntano all'indirizzo del bilanciamento del carico interno per:
 
-    * 
-    *.scm ftp publish 
+- \*
+- *.scm
+- ftp
+- Pubblica
 
-
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione agli ambienti del servizio app][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
