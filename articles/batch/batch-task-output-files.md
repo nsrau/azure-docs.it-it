@@ -4,12 +4,12 @@ description: Informazioni su come usare l'API del servizio Batch per rendere per
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8020fbd184e200504d0fb0a9ab7ef5de64bd76c9
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726316"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965128"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
 
@@ -32,7 +32,7 @@ Se lo scenario è diverso da quelli sopra elencati, potrebbe essere necessario p
 
 ## <a name="create-a-container-in-azure-storage"></a>Creare un contenitore in Archiviazione di Azure
 
-Per rendere persistente l'output delle attività in Archiviazione di Azure, è necessario creare un contenitore che funge da destinazione per i file di output. Creare il contenitore prima di eseguire l'attività, preferibilmente prima di inviare il processo. Per creare il contenitore, usare la libreria client o l'SDK di Archiviazione di Azure appropriati. Per altre informazioni sulle API di Archiviazione di Azure, vedere la [documentazione su Archiviazione di Azure](https://docs.microsoft.com/azure/storage/).
+Per rendere persistente l'output delle attività in Archiviazione di Azure, è necessario creare un contenitore che funge da destinazione per i file di output. Creare il contenitore prima di eseguire l'attività, preferibilmente prima di inviare il processo. Per creare il contenitore, usare la libreria client o l'SDK di Archiviazione di Azure appropriati. Per altre informazioni sulle API di Archiviazione di Azure, vedere la [documentazione su Archiviazione di Azure](../storage/index.yml).
 
 Se si scrive l'applicazione in C#, ad esempio, usare la [libreria client di Archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). L'esempio seguente mostra come creare un contenitore:
 
@@ -61,7 +61,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 ## <a name="specify-output-files-for-task-output"></a>Specificare i file di output per l'output dell'attività
 
-Per specificare i file di output per un'attività, creare una raccolta di oggetti [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e assegnarla alla proprietà [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quando si crea l'attività.
+Per specificare i file di output per un'attività, creare una raccolta di oggetti [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) e assegnarla alla proprietà [CloudTask.OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quando si crea l'attività.
 
 L'esempio di codice C# seguente crea un'attività che scrive numeri casuali in un file denominato `output.txt`. Nell'esempio viene creato un file di output per `output.txt` da scrivere nel contenitore. L'esempio crea anche i file di output per gli eventuali file di log corrispondenti al modello di file `std*.txt` (_ad esempio_, `stdout.txt` e `stderr.txt`). L'URL del contenitore richiede la firma di accesso condiviso creata in precedenza per il contenitore. Il servizio Batch usa la firma di accesso condiviso per autenticare l'accesso al contenitore:
 
@@ -91,7 +91,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 ### <a name="specify-a-file-pattern-for-matching"></a>Specificare un modello di file per la corrispondenza
 
-Quando si specifica un file di output, è possibile usare la proprietà [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) per specificare un modello di file per la corrispondenza. Il modello di file potrebbe corrispondere a zero file, un singolo file o un set di file creati dall'attività.
+Quando si specifica un file di output, è possibile usare la proprietà [OutputFile.FilePattern](/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) per specificare un modello di file per la corrispondenza. Il modello di file potrebbe corrispondere a zero file, un singolo file o un set di file creati dall'attività.
 
 La proprietà **FilePattern** supporta i caratteri jolly standard del file system, ad esempio `*` (per corrispondenze non ricorsive) e `**` (per corrispondenze ricorsive). Ad esempio, l'esempio di codice precedente specifica il modello di file da usare per trovare corrispondenze per `std*.txt` in modo non ricorsivo:
 
@@ -103,19 +103,19 @@ Per caricare un singolo file, specificare un modello di file senza caratteri jol
 
 ### <a name="specify-an-upload-condition"></a>Specificare una condizione di caricamento
 
-La proprietà [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) consente il caricamento condizionale dei file di output. Uno scenario comune consiste nel caricare un set di file se l'attività ha esito positivo e un set di file diverso, in caso di errore. Ad esempio, può essere necessario caricare i file di log dettagliati solo quando l'attività ha esito negativo e viene terminata con un codice di uscita diverso da zero. Analogamente, può essere utile caricare il file dei risultati solo se l'attività ha esito positivo, perché tali file potrebbero essere mancanti o incompleti se l'attività non riesce.
+La proprietà [OutputFileUploadOptions.UploadCondition](/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) consente il caricamento condizionale dei file di output. Uno scenario comune consiste nel caricare un set di file se l'attività ha esito positivo e un set di file diverso, in caso di errore. Ad esempio, può essere necessario caricare i file di log dettagliati solo quando l'attività ha esito negativo e viene terminata con un codice di uscita diverso da zero. Analogamente, può essere utile caricare il file dei risultati solo se l'attività ha esito positivo, perché tali file potrebbero essere mancanti o incompleti se l'attività non riesce.
 
 L'esempio di codice precedente imposta la proprietà **UploadCondition** su **TaskCompletion**. Questa impostazione specifica che il file deve essere caricato dopo aver completato le attività, indipendentemente dal valore del codice di uscita.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
-Per altre impostazioni, vedere l'enumerazione [OutputFileUploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition).
+Per altre impostazioni, vedere l'enumerazione [OutputFileUploadCondition](/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition).
 
 ### <a name="disambiguate-files-with-the-same-name"></a>Eliminare le ambiguità causate da file con lo stesso nome
 
 Le attività in un processo possono produrre file con lo stesso nome. Ad esempio, i file `stdout.txt` e `stderr.txt` vengono creati per ogni attività eseguita in un processo. Dato che ogni attività viene eseguita in un contesto specifico, questi file non sono in conflitto nel file system del nodo. Quando si caricano file da più attività in un contenitore condiviso, tuttavia, è necessario evitare ambiguità tra i file con lo stesso nome.
 
-La proprietà [OutputFileBlobContainerDestination.Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) specifica il BLOB o la directory virtuale di destinazione per i file di output. È possibile usare la proprietà **Path** come nome del BLOB o della directory virtuale, in modo che i file di output con lo stesso nome abbiano un nome univoco in Archiviazione di Azure. L'uso dell'ID attività nel percorso è un buon metodo per garantire nomi univoci e identificare facilmente i file.
+La proprietà [OutputFileBlobContainerDestination.Path](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) specifica il BLOB o la directory virtuale di destinazione per i file di output. È possibile usare la proprietà **Path** come nome del BLOB o della directory virtuale, in modo che i file di output con lo stesso nome abbiano un nome univoco in Archiviazione di Azure. L'uso dell'ID attività nel percorso è un buon metodo per garantire nomi univoci e identificare facilmente i file.
 
 Se la proprietà **FilePattern** è impostata su un'espressione con caratteri jolly, tutti i file che corrispondono al modello vengono caricati nella directory virtuale specificata dalla proprietà **Path**. Ad esempio, se il contenitore è `mycontainer`, l'ID attività è `mytask` e il modello di file è `..\std*.txt`, l'URI assoluto per i file di output in Archiviazione di Azure sarà simile a:
 
@@ -139,7 +139,7 @@ Per altre informazioni sulle directory virtuali in Archiviazione di Azure, veder
 
 ## <a name="diagnose-file-upload-errors"></a>Diagnosticare gli errori di caricamento file
 
-Se si verifica un errore di caricamento dei file di output in Archiviazione di Azure, l'attività passa allo stato **Completato** e viene impostata la proprietà [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation). Esaminare la proprietà **FailureInformation** per determinare l'errore che si è verificato. Quello che segue è un esempio di errore che si verifica al momento del caricamento di file se non è possibile trovare il contenitore:
+Se si verifica un errore di caricamento dei file di output in Archiviazione di Azure, l'attività passa allo stato **Completato** e viene impostata la proprietà [TaskExecutionInformation.FailureInformation](/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation). Esaminare la proprietà **FailureInformation** per determinare l'errore che si è verificato. Quello che segue è un esempio di errore che si verifica al momento del caricamento di file se non è possibile trovare il contenitore:
 
 ```
 Category: UserError
@@ -163,7 +163,7 @@ Se si sviluppa in C#, è possibile usare i metodi inclusi nella [libreria Batch 
 string containerName = job.OutputStorageContainerName();
 ```
 
-È possibile usare il metodo [CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) per restituire un URL di firma di accesso condiviso usato per scrivere nel contenitore. È quindi possibile passare questa firma di accesso condiviso al costruttore [OutputFileBlobContainerDestination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination).
+È possibile usare il metodo [CloudJobExtensions.GetOutputStorageContainerUrl](/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) per restituire un URL di firma di accesso condiviso usato per scrivere nel contenitore. È quindi possibile passare questa firma di accesso condiviso al costruttore [OutputFileBlobContainerDestination](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination).
 
 Se si sviluppa in un linguaggio diverso da C#, sarà necessario implementare manualmente lo standard File Conventions.
 

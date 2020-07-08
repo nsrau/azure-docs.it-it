@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658284"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965044"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parametri elenco a discesa cartella di lavoro
 
@@ -31,7 +31,7 @@ Il modo più semplice per specificare un elenco a discesa consiste nel fornire u
     1. Nome parametro:`Environment`
     2. Tipo di parametro:`Drop down`
     3. Obbligatorio:`checked`
-    4. Consenti `multiple selection`:`unchecked`
+    4. Consenti `multiple selection` :`unchecked`
     5. Ottenere i dati da:`JSON`
 5. Nel blocco di testo di input JSON inserire il frammento di codice JSON seguente:
     ```json
@@ -41,14 +41,16 @@ Il modo più semplice per specificare un elenco a discesa consiste nel fornire u
         { "value":"prod", "label":"Production", "selected":true }
     ]
     ```
-6. Premere il pulsante `Update` blu.
+6. Premere il `Update` pulsante blu.
 7. Scegliere ' Salva ' dalla barra degli strumenti per creare il parametro.
 8. Il parametro Environment sarà un elenco a discesa con i tre valori.
 
     ![Immagine che mostra la creazione di un annegamento statico](./media/workbook-dropdowns/dropdown-create.png)
 
 ## <a name="creating-a-static-dropdown-with-groups-of-items"></a>Creazione di un elenco a discesa statico con gruppi di elementi
+
 Se il risultato della query/JSON contiene un campo "gruppo", nell'elenco a discesa vengono visualizzati i gruppi di valori. Seguire l'esempio precedente, ma usare invece il codice JSON seguente:
+
 ```json
 [
     { "value":"dev", "label":"Development", "group":"Development" },
@@ -59,7 +61,8 @@ Se il risultato della query/JSON contiene un campo "gruppo", nell'elenco a disce
     { "value":"prod2", "label":"Prod 2", "group":"Production" }
 ]
 ```
-    ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
+
+![Immagine che mostra un esempio di un elenco a discesa raggruppato](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
 ## <a name="creating-a-dynamic-drop-down-parameter"></a>Creazione di un parametro a discesa dinamico
@@ -70,7 +73,7 @@ Se il risultato della query/JSON contiene un campo "gruppo", nell'elenco a disce
     1. Nome parametro:`RequestName`
     2. Tipo di parametro:`Drop down`
     3. Obbligatorio:`checked`
-    4. Consenti `multiple selection`:`unchecked`
+    4. Consenti `multiple selection` :`unchecked`
     5. Ottenere i dati da:`Query`
 5. Nel blocco di testo di input JSON inserire il frammento di codice JSON seguente:
 
@@ -79,13 +82,14 @@ Se il risultato della query/JSON contiene un campo "gruppo", nell'elenco a disce
         | summarize by name
         | order by name asc
     ```
-1. Premere il pulsante `Run Query` blu.
+1. Premere il `Run Query` pulsante blu.
 2. Scegliere ' Salva ' dalla barra degli strumenti per creare il parametro.
 3. Il parametro RequestName sarà un elenco a discesa dei nomi di tutte le richieste nell'app.
 
     ![Immagine che mostra la creazione di un elenco a discesa dinamico](./media/workbook-dropdowns/dropdown-dynamic.png)
 
 ## <a name="referencing-drop-down-parameter"></a>Parametro elenco a discesa di riferimento
+
 ### <a name="in-kql"></a>In KQL
 1. Aggiungere un controllo query alla cartella di lavoro e selezionare una risorsa Application Insights.
 2. Nell'editor di KQL immettere questo frammento di codice
@@ -122,7 +126,8 @@ dependencies
 | serialize Rank = row_number()
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
-    ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
+
+![Immagine che mostra un parametro a discesa utilizzando le opzioni valore, etichetta, selezione e gruppo](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
 ## <a name="drop-down-parameter-options"></a>Opzioni parametri elenco a discesa
@@ -133,9 +138,9 @@ dependencies
 | `{DependencyName:value}` | Valore selezionato | OTTENERE fabrikamaccount |
 
 ## <a name="multiple-selection"></a>Selezione multipla
-Gli esempi finora impostano in modo esplicito il parametro per selezionare solo un valore nell'elenco a discesa. I parametri a discesa supportano `multiple selection` anche l'abilitazione di questa operazione è semplice `Allow multiple selection` come selezionare l'opzione. 
+Gli esempi finora impostano in modo esplicito il parametro per selezionare solo un valore nell'elenco a discesa. I parametri a discesa supportano anche `multiple selection` l'abilitazione di questa operazione è semplice come selezionare l' `Allow multiple selection` opzione. 
 
-L'utente ha anche la possibilità di specificare il formato del set di risultati tramite le `delimiter` impostazioni `quote with` e. Il valore predefinito restituisce solo i valori come raccolta nel formato seguente:' a',' b ',' c'. Hanno anche la possibilità di limitare il numero di selezioni.
+L'utente ha anche la possibilità di specificare il formato del set di risultati tramite le `delimiter` `quote with` Impostazioni e. Il valore predefinito restituisce solo i valori come raccolta nel formato seguente:' a',' b ',' c'. Hanno anche la possibilità di limitare il numero di selezioni.
 
 Il KQL che fa riferimento al parametro dovrà essere modificato in modo che funzioni con il formato del risultato. Il modo più comune per abilitarlo è tramite l' `in` operatore.
 

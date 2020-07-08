@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 49f86a79eb5358d27c15d93004db396436c3e680
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 9783eb1dbcbfc3ee01008dfa33ff2429a87cf62a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657967"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963377"
 ---
 # <a name="iot-edge-modules"></a>Moduli di IoT Edge
 
@@ -30,7 +30,7 @@ Con i [Moduli di Azure IoT Edge in Azure Marketplace](https://azuremarketplace.m
 
 ## <a name="what-is-an-iot-edge-module"></a>Che cosa è un modulo IoT Edge?
 
-Azure IoT Edge consente di distribuire e gestire la logica di business sui dispositivi perimetrali sotto forma di moduli. I moduli di Azure IoT Edge sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere i servizi di Microsoft, ad esempio analisi di flusso, servizi di terze parti o il codice specifico per la soluzione. Per altre informazioni sui moduli Azure IoT Edge, vedere [Informazioni sui moduli Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
+Azure IoT Edge consente di distribuire e gestire la logica di business sui dispositivi perimetrali sotto forma di moduli. I moduli di Azure IoT Edge sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere i servizi di Microsoft, ad esempio analisi di flusso, servizi di terze parti o il codice specifico per la soluzione. Per altre informazioni sui moduli Azure IoT Edge, vedere [Informazioni sui moduli Azure IoT Edge](../iot-edge/iot-edge-modules.md).
 
 **Qual è la differenza tra un tipo di offerta Contenitore e un tipo di offerta di modulo Azure IoT Edge?**
 
@@ -40,7 +40,7 @@ Il tipo di offerta di modulo Azure IoT Edge è un tipo specifico di contenitore 
 
 **Selezione della vetrina corretta**
 
-I moduli Azure IoT Edge vengono pubblicati solo in Azure Marketplace, AppSource non è applicabile.  Per altre informazioni sulle differenze e sui destinatari delle vetrine, vedere [Determinare l'opzione di pubblicazione per la soluzione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
+I moduli Azure IoT Edge vengono pubblicati solo in Azure Marketplace, AppSource non è applicabile.  Per altre informazioni sulle differenze e sui destinatari delle vetrine, vedere [Determinare l'opzione di pubblicazione per la soluzione](determine-your-listing-type.md).
  
 **Opzioni di fatturazione**
 
@@ -48,7 +48,7 @@ Per i moduli Azure IoT Edge il marketplace supporta attualmente le opzioni di fa
  
 **Opzioni di pubblicazione**
 
-In tutti i casi, i moduli Azure IoT Edge devono selezionare l'opzione di pubblicazione **Transazione**.  Vedere [Determinare l'opzione di pubblicazione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) per altre informazioni sulle opzioni di pubblicazione.  
+In tutti i casi, i moduli Azure IoT Edge devono selezionare l'opzione di pubblicazione **Transazione**.  Vedere [Determinare l'opzione di pubblicazione](determine-your-listing-type.md) per altre informazioni sulle opzioni di pubblicazione.  
 
 ## <a name="eligibility-criteria"></a>Criteri di idoneità
 
@@ -58,7 +58,7 @@ Tutti i criteri e le condizioni dei contratti di Microsoft Azure Marketplace si 
 
 Per pubblicare un modulo Azure IoT Edge in Azure Marketplace, è necessario soddisfare i seguenti prerequisiti:
 
-- Accesso al Centro per i partner. Per altre informazioni, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Accesso al Centro per i partner. Per altre informazioni, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](marketplace-publishers-guide.md).
 - Ospitare il modulo Azure IoT Edge in un'istanza di Registro Azure Container. 
 - Avere a pronti i metadati del modulo Azure IoT Edge, come i seguenti (elenco non completo): 
     - Un titolo

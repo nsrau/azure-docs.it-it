@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 1a1ba6f393eba257fcbe2757b8b4bced00bef8fe
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ba746710227cba95dc4c73a910c22bb6cdaae0ed
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792905"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963751"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Domande frequenti sulle API di evasione SaaS
 
@@ -46,7 +46,7 @@ Quando l'utente di Azure viene reindirizzato alla pagina di destinazione, viene 
 
 ![Flusso della sottoscrizione del cliente](media/saas-metering-service-integration-flow-a.png)
 
-Per altre informazioni sul contratto API per la gestione di scenari Transact nel ciclo di vita di un'offerta SaaS, vedere [API di evasione Saas](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+Per altre informazioni sul contratto API per la gestione di scenari Transact nel ciclo di vita di un'offerta SaaS, vedere [API di evasione Saas](pc-saas-fulfillment-api-v2.md).
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>Come si conosce l'offerta SaaS a cui l'utente sottoscrive Azure?
 

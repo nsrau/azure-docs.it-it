@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: c40ea07fc4224052aa2474ebd61ef7838ba2cedf
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 82e131b0e6209089b658c622b415e997b40e9e4b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837839"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964652"
 ---
 # <a name="power-bi-app-creation-overview"></a>Panoramica della creazione di app Power BI
 
@@ -20,11 +20,11 @@ Questo articolo illustra come pubblicare un'app Power BI in Microsoft [AppSource
 
 ## <a name="publishing-benefits"></a>Vantaggi della pubblicazione
 
-Vantaggi della pubblicazione nel Marketplace commerciale:
+Vantaggi della pubblicazione nel marketplace commerciale:
 
-- Promuovere la propria azienda usando il marchio Microsoft.
-- È potenzialmente raggiungibile da più di 100 milioni utenti di Office 365 e Dynamics 365 in AppSource e più di 200.000 organizzazioni tramite Azure Marketplace.
-- Ricevi lead di alta qualità da questi Marketplace.
+- Promozione della propria azienda usando il marchio Microsoft.
+- Possibilità di raggiungere potenzialmente più di 100 milioni di utenti di Office 365 e Dynamics 365 in AppSource e più di 200.000 organizzazioni tramite Azure Marketplace.
+- Acquisizione di lead di alta qualità dai marketplace.
 - I servizi promossi dai team Microsoft Field e Telesales.
 
 ## <a name="overview"></a>Panoramica
@@ -66,16 +66,16 @@ Il principale asset tecnico necessario è un' [app Power bi](https://go.microsof
 2. Creare e testare l'app in Power BI.
 3. Quando si riceve l'indirizzo Web di installazione dell'app, aggiungerlo alla pagina **configurazione tecnica** nel centro per i partner.
 
-Dopo aver creato e testato l'app in Power BI, salvare l'indirizzo Web di installazione dell'applicazione, perché sarà necessario per [creare un'offerta di Power bi app](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer).
+Dopo aver creato e testato l'app in Power BI, salvare l'indirizzo Web di installazione dell'applicazione, perché sarà necessario per [creare un'offerta di Power bi app](create-power-bi-app-offer.md).
 
 ### <a name="business-requirements"></a>Requisiti aziendali
 
 I requisiti aziendali includono le procedure, i contratti e gli obblighi legali. È necessario:
 
-- Essere un editore di Marketplace commerciale registrato. Se non si è registrati, seguire i passaggi in [diventare un editore del Marketplace commerciale](https://docs.microsoft.com/azure/marketplace/become-publisher).
+- Essere un editore di Marketplace commerciale registrato. Se non si è registrati, seguire i passaggi illustrati in [creare un account Marketplace commerciale nel centro per i partner](create-account.md).
 - Fornire contenuti che soddisfino i criteri per l'offerta da elencare in AppSource. Per altre informazioni, vedere [avere un'app da elencare in AppSource? Ecco come](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Accettare e seguire l' [informativa sulla privacy Microsoft](https://privacy.microsoft.com/privacystatement).
 
 ## <a name="next-step"></a>Passaggio successivo
 
-- [Creare un'offerta di app Power BI nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)
+- [Creare un'offerta di app Power BI nel centro per i partner](create-power-bi-app-offer.md)

@@ -3,12 +3,12 @@ title: Rilevamento e gestione degli errori in Azure Batch
 description: Informazioni sulla gestione degli errori nei flussi di lavoro del servizio Batch dal punto di vista dello sviluppo.
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 07b9d43ea9bdf21fe3188c4481e6dd0c86374607
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790828"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964278"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Rilevamento e gestione degli errori in Azure Batch
 
@@ -23,13 +23,13 @@ I tipi di errori generici includono:
 - Errori correlati alla limitazione delle richieste, ad esempio le risposte HTTP del codice di stato 429 o 503 con l'intestazione retry-after.
 - Errori 4xx come AlreadyExists e InvalidOperation. Ciò significa che la risorsa non è nello stato corretto per la transizione di stato.
 
-Per informazioni dettagliate sui codici di errore specifici, inclusi i codici di errore per l'API REST, il servizio Batch e l'attività/pianificazione del processo, vedere [Codici di stato e di errore di Batch](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+Per informazioni dettagliate sui codici di errore specifici, inclusi i codici di errore per l'API REST, il servizio Batch e l'attività/pianificazione del processo, vedere [Codici di stato e di errore di Batch](/rest/api/batchservice/batch-status-and-error-codes).
 
 ## <a name="application-failures"></a>Errori delle applicazioni
 
 Durante l'esecuzione un'applicazione può generare un output di diagnostica che può essere usato per la risoluzione dei problemi. Come descritto in [File e directory](files-and-directories.md), il servizio Batch scrive l'output standard e l'output degli errori standard nei file `stdout.txt` e `stderr.txt` nella directory dell'attività nel nodo di calcolo.
 
-Per scaricare questi file, è possibile usare il portale di Azure oppure uno degli SDK di Batch. È ad esempio possibile recuperare questi e altri file per la risoluzione dei problemi con [ComputeNode.GetNodeFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) e [CloudTask.GetNodeFile nella libreria Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask).
+Per scaricare questi file, è possibile usare il portale di Azure oppure uno degli SDK di Batch. È ad esempio possibile recuperare questi e altri file per la risoluzione dei problemi con [ComputeNode.GetNodeFile](/dotnet/api/microsoft.azure.batch.computenode) e [CloudTask.GetNodeFile nella libreria Batch .NET](/dotnet/api/microsoft.azure.batch.cloudtask).
 
 ## <a name="task-errors"></a>Errori attività
 
@@ -73,10 +73,10 @@ In alcuni casi, le attività non riescono o vengono interrotte. È possibile che
 
 ## <a name="connect-to-compute-nodes"></a>Connessione ai nodi di calcolo
 
-È possibile eseguire altre operazioni di debug e di risoluzione dei problemi accedendo a un nodo di calcolo in remoto. È possibile usare il portale di Azure per scaricare un file Remote Desktop Protocol (RDP) per i nodi Windows e ottenere informazioni sulla connessione SSH (Secure Shell) per i nodi Linux. È anche possibile eseguire questa operazione usando le API Batch, ad esempio con [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) o [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
+È possibile eseguire altre operazioni di debug e di risoluzione dei problemi accedendo a un nodo di calcolo in remoto. È possibile usare il portale di Azure per scaricare un file Remote Desktop Protocol (RDP) per i nodi Windows e ottenere informazioni sulla connessione SSH (Secure Shell) per i nodi Linux. È anche possibile eseguire questa operazione usando le API Batch, ad esempio con [Batch .NET](/dotnet/api/microsoft.azure.batch.computenode) o [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
-> Per connettersi a un nodo tramite RDP o SSH, è necessario creare prima di tutto un utente nel nodo. A questo scopo è possibile usare il Portale di Azure, [aggiungere un account utente a un nodo](https://docs.microsoft.com/rest/api/batchservice/computenode/adduser) con l'API Batch REST, chiamare il metodo [ComputeNode.CreateComputeNodeUser](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) in Batch .NET o chiamare il metodo [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) nel modulo Batch Python.
+> Per connettersi a un nodo tramite RDP o SSH, è necessario creare prima di tutto un utente nel nodo. A questo scopo è possibile usare il Portale di Azure, [aggiungere un account utente a un nodo](/rest/api/batchservice/computenode/adduser) con l'API Batch REST, chiamare il metodo [ComputeNode.CreateComputeNodeUser](/dotnet/api/microsoft.azure.batch.computenode) in Batch .NET o chiamare il metodo [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) nel modulo Batch Python.
 
 Se è necessario limitare o disabilitare l'accesso RDP o SSH ai nodi di calcolo, vedere [Configurare o disabilitare l'accesso remoto ai nodi di calcolo in un pool di Azure Batch](pool-endpoint-configuration.md).
 
@@ -84,21 +84,21 @@ Se è necessario limitare o disabilitare l'accesso RDP o SSH ai nodi di calcolo,
 
 Nei casi in cui alcune attività non riescono, il servizio o l'applicazione client Batch può esaminare i metadati delle attività non riuscite per identificare un nodo non correttamente funzionante. A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseguita un'attività viene incluso nei metadati dell'attività. Dopo avere identificato un "nodo problematico", è possibile intervenire in diversi modi:
 
-- **Riavviare un nodo** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/reboot) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reboot)))
+- **Riavviare un nodo** ([REST](/rest/api/batchservice/computenode/reboot) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reboot)))
 
     Il riavvio del nodo a volte consente di eliminare problemi latenti, ad esempio processi bloccati o arrestati in modo anomalo. Se il pool usa un'attività di avvio o il processo usa un'attività di preparazione del processo, vengono eseguite quando il nodo viene riavviato.
-- **Ricreare l'immagine di un nodo** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reimage))
+- **Ricreare l'immagine di un nodo** ([REST](/rest/api/batchservice/computenode/reimage) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reimage))
 
     Il sistema operativo viene reinstallato nel nodo. Come durante il riavvio di un nodo, le attività di avvio e le attività di preparazione del processo vengono rieseguite dopo che è stata ricreata l'immagine del nodo.
-- **Rimuovere i nodi di calcolo da un pool** ([REST](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations))
+- **Rimuovere i nodi di calcolo da un pool** ([REST](/rest/api/batchservice/pool/removenodes) | [.NET](/dotnet/api/microsoft.azure.batch.pooloperations))
 
     A volte è necessario rimuovere completamente il nodo dal pool.
-- **Disabilitare la pianificazione delle attività in un nodo** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/disablescheduling) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
+- **Disabilitare la pianificazione delle attività in un nodo** ([REST](/rest/api/batchservice/computenode/disablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
 
-    In questo modo il nodo in realtà passa offline e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È ad esempio possibile disabilitare la pianificazione delle attività nel nodo, quindi accedere in remoto per esaminare i log eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Al termine dell'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/enablescheduling) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)) o eseguire una delle altre azioni illustrate in precedenza.
+    In questo modo il nodo in realtà passa offline e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È ad esempio possibile disabilitare la pianificazione delle attività nel nodo, quindi accedere in remoto per esaminare i log eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Al termine dell'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([REST](/rest/api/batchservice/computenode/enablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)) o eseguire una delle altre azioni illustrate in precedenza.
 
 > [!IMPORTANT]
-> Con le azioni descritte in precedenza, è possibile specificare il modo in cui vengono gestite le attività in esecuzione nel nodo quando si esegue l'azione. Quando ad esempio si disabilita la pianificazione delle attività in un nodo con la libreria client Batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) per specificare se eseguire l'operazione **Termina** per terminare le attività in esecuzione o **Reinserisci nella coda** per la pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
+> Con le azioni descritte in precedenza, è possibile specificare il modo in cui vengono gestite le attività in esecuzione nel nodo quando si esegue l'azione. Quando ad esempio si disabilita la pianificazione delle attività in un nodo con la libreria client Batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) per specificare se eseguire l'operazione **Termina** per terminare le attività in esecuzione o **Reinserisci nella coda** per la pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
 
 ## <a name="retry-after-errors"></a>Riprovare dopo gli errori
 
@@ -110,4 +110,4 @@ In seguito a un errore, prima di riprovare è necessario attendere alcuni second
 
 - Informazioni su come [verificare la presenza di errori in pool e nodi](batch-pool-node-error-checking.md).
 - Informazioni su come [verificare la presenza di errori relativi a processi e attività](batch-job-task-error-checking.md).
-- Esaminare l'elenco dei [codici di stato e di errore di Batch](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+- Esaminare l'elenco dei [codici di stato e di errore di Batch](/rest/api/batchservice/batch-status-and-error-codes).

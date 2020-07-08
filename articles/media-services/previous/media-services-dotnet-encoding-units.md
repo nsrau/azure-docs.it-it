@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
-ms.openlocfilehash: 86fd923c121b9d46109529f75bc3d0d040f1a7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd2a94a1d10e4c8078e5437959bf7e101b3c6dd7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74887289"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964771"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Come scalare la codifica con .NET SDK
 > [!div class="op_single_selector"]
@@ -40,15 +40,17 @@ ms.locfileid: "74887289"
 
 Per cambiare il tipo di unità riservata e il numero di unità riservate di codifica mediante l'SDK per .NET, seguire questa procedura:
 
-    IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-    encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
-    encodingS1ReservedUnit.Update();
-    Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
+```csharp
+IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+encodingS1ReservedUnit.Update();
+Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
 
-    encodingS1ReservedUnit.CurrentReservedUnits = 2;
-    encodingS1ReservedUnit.Update();
+encodingS1ReservedUnit.CurrentReservedUnits = 2;
+encodingS1ReservedUnit.Update();
 
-    Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+```
 
 ## <a name="opening-a-support-ticket"></a>Apertura di un ticket di supporto
 
@@ -57,6 +59,6 @@ Per impostazione predefinita, ogni account di Servizi multimediali può includer
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

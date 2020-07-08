@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 180015a6bab576c02dcfaaea589628e40c6adde4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 5a867243e57790bf72cef6991d6d8ac06639be49
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736175"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963921"
 ---
 # <a name="managed-application-metered-billing"></a>Fatturazione a consumo delle applicazioni gestite 
 
@@ -125,7 +125,7 @@ Per inviare il ticket di supporto, attenersi alla procedura seguente:
 4. In "selezionare un problema che descrive meglio il problema" selezionare **fatturazione a consumo**.
 5. Selezionando il pulsante **Avanti** , si verrà indirizzati alla pagina dei **Dettagli del problema** , in cui è possibile immettere ulteriori dettagli sul problema.
 
-Per altre opzioni di supporto per gli editori, vedere [supporto per il programma Commercial Marketplace nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Per altre opzioni di supporto per gli editori, vedere [supporto per il programma Commercial Marketplace nel centro per i partner](support.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

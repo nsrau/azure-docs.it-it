@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 3c0ee2f8d5291f7904435dea32d913adeaaf25c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27a51a1203b0c25474bdb292c467a40b67309757
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262367"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964431"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Account di lavoro aziendali e centro per i partner
 
@@ -23,7 +23,7 @@ Il centro per i partner USA account aziendali aziendali, noti anche come tenant 
 Se la società ha effettuato la sottoscrizione a un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365, si dispone già di un dominio di account di posta elettronica di lavoro (noto anche come tenant di Azure Active Directory) che può essere usato con il centro per i partner.
 
 Seguire questa procedura per verificare:
-1. Accedere al portale di amministrazione di Azure all' https://portal.azure.comindirizzo.
+1. Accedere al portale di amministrazione di Azure all'indirizzo https://portal.azure.com .
 2. Selezionare **Azure Active Directory** dal menu di spostamento a sinistra e quindi selezionare **nomi di dominio personalizzati**.
 3. Se hai già un account aziendale, il nome del tuo dominio verrà visualizzato nell'elenco.
 
@@ -38,13 +38,13 @@ Prima di decidere di usare un account aziendale esistente, prendere in considera
 Per creare un nuovo account aziendale per la società, attenersi alla procedura riportata di seguito. Potrebbe essere necessario richiedere assistenza da chiunque disponga di autorizzazioni amministrative per l'account Microsoft Azure della società.
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
-2. Nel menu di spostamento a sinistra selezionare il **Azure Active Directory** -> **utenti**.
+2. Nel menu di spostamento a sinistra selezionare il **Azure Active Directory**  ->  **utenti**.
 3. Selezionare **nuovo utente** e creare un nuovo account di lavoro di Azure immettendo un nome e un indirizzo di posta elettronica. Verificare che il **ruolo della directory** sia impostato su **utente** , quindi selezionare la casella di controllo **Mostra password** nella parte inferiore per visualizzare e prendere nota della password generata automaticamente.
 4. Selezionare **Crea** per salvare il nuovo utente.
 
-L'indirizzo di posta elettronica per l'account utente deve essere un nome di dominio verificato nella directory. È possibile elencare tutti i domini verificati nella directory selezionando **Azure Active Directory** -> **nomi di dominio personalizzati** nel menu di spostamento a sinistra.
+L'indirizzo di posta elettronica per l'account utente deve essere un nome di dominio verificato nella directory. È possibile elencare tutti i domini verificati nella directory selezionando **Azure Active Directory**  ->  **nomi di dominio personalizzati** nel menu di spostamento a sinistra.
 
-Per ulteriori informazioni sull'aggiunta di domini personalizzati in Azure Active Directory, vedere [aggiungere o associare un dominio nel Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+Per ulteriori informazioni sull'aggiunta di domini personalizzati in Azure Active Directory, vedere [aggiungere o associare un dominio nel Azure ad](../../active-directory/active-directory-add-domain.md).
 
 ## <a name="troubleshoot-work-email-sign-in"></a>Risolvere i problemi di accesso alla posta elettronica di lavoro
 
@@ -54,4 +54,4 @@ Se si verificano problemi durante l'accesso all'account aziendale (noto anche co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Gestisci l'account del Marketplace commerciale nel centro per i partner](./manage-account.md) 
+- [Gestire l'account del marketplace commerciale nel Centro per i partner](./manage-account.md) 

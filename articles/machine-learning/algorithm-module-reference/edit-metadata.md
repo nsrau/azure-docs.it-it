@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 9853a3decc8d145fee58d1da526926e224ee2030
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/10/2020
+ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064252"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965009"
 ---
 # <a name="edit-metadata-module"></a>Modulo Modifica metadati
 
@@ -34,7 +34,7 @@ Le modifiche tipiche ai metadati possono includere le operazioni seguenti:
   
 + Ridenominazione di colonne.
   
- Usare Modifica metadati ogni volta che è necessario modificare la definizione di una colonna, in genere per soddisfare i requisiti per un modulo downstream. Alcuni moduli, ad esempio, funzionano solo con tipi di dati specifici o richiedono flag sulle colonne, ad `IsFeature` esempio `IsCategorical`o.  
+ Usare Modifica metadati ogni volta che è necessario modificare la definizione di una colonna, in genere per soddisfare i requisiti per un modulo downstream. Alcuni moduli, ad esempio, funzionano solo con tipi di dati specifici o richiedono flag sulle colonne, ad esempio `IsFeature` o `IsCategorical` .  
   
  Dopo aver eseguito l'operazione richiesta, è possibile ripristinare lo stato originale dei metadati.
   
@@ -55,7 +55,8 @@ Le modifiche tipiche ai metadati possono includere le operazioni seguenti:
     + Il tipo e i valori della colonna cambieranno dopo l'esecuzione dell'operazione di modifica dei metadati. È possibile ripristinare il tipo di dati originale in qualsiasi momento utilizzando Modifica metadati per reimpostare il tipo di dati della colonna.  
 
     > [!NOTE]
-    > Se si modifica un tipo di numero nel tipo **DateTime** , lasciare vuoto il campo **formato DateTime** . Attualmente non è possibile specificare il formato dei dati di destinazione.  
+    > Il **formato DateTime** segue il [formato DateTime incorporato di Python](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+    > Se si modifica un tipo di numero nel tipo **DateTime** , lasciare vuoto il campo **formato DateTime** . Attualmente non è possibile specificare il formato dei dati di destinazione.
 
 1. Selezionare l'opzione **categorica** per specificare che i valori nelle colonne selezionate devono essere considerati come categorie.
 

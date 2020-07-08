@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 4/6/2020
-ms.openlocfilehash: a2c376ec2bd1f03b626c11b0d6a6c3850c9ef8c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 7/1/2020
+ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804589"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964516"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opzioni di configurazione di database di Azure per PostgreSQL – iperscalabilità (CITUS)
 
@@ -20,7 +20,7 @@ ms.locfileid: "80804589"
  
 È possibile selezionare le impostazioni di calcolo e archiviazione in modo indipendente per i nodi del ruolo di lavoro e il nodo coordinatore in un gruppo di server con iperscalabilità (CITUS).  Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Le dimensioni di archiviazione per il provisioning si riferiscono alla capacità disponibile per il coordinatore e i nodi del ruolo di lavoro nel gruppo di server di iperscalabilità (CITUS). L'archiviazione include i file di database, i file temporanei, i log delle transazioni e i log del server postgres.
  
-|                       | Nodo del ruolo di lavoro           | Nodo coordinatore      |
+| Risorsa              | Nodo del ruolo di lavoro           | Nodo coordinatore      |
 |-----------------------|-----------------------|-----------------------|
 | Calcolo, vcore       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Memoria per vCore, GiB | 8                     | 4                     |
@@ -91,6 +91,33 @@ I gruppi di server iperscalare (CITUS) sono disponibili nelle aree di Azure segu
     * Europa occidentale
 
 Alcune di queste aree potrebbero non essere attivate inizialmente in tutte le sottoscrizioni di Azure. Se si vuole usare un'area dall'elenco precedente e non visualizzarla nella sottoscrizione o se si vuole usare un'area non presente nell'elenco, aprire una [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## <a name="limits-and-limitations"></a>Limiti e limitazioni
+
+Nella sezione seguente vengono descritti i limiti di capacità e funzionalità nel servizio di iperscalabilità (CITUS).
+
+### <a name="maximum-connections"></a>Numero massimo di connessioni
+
+Ogni connessione PostgreSQL (anche quelle inattive) USA almeno 10 MB di memoria, quindi è importante limitare le connessioni simultanee. Di seguito sono riportati i limiti che abbiamo scelto di rendere integri i nodi:
+
+* Nodo coordinatore
+   * Numero massimo di connessioni: 300
+   * Numero massimo di connessioni utente: 297
+* Nodo del ruolo di lavoro
+   * Numero massimo di connessioni: 600
+   * Numero massimo di connessioni utente: 597
+
+I tentativi di connessione oltre questi limiti avranno esito negativo e si verificherà un errore. Il sistema riserva tre connessioni per il monitoraggio dei nodi ed è per questo motivo che per le query utente sono disponibili tre connessioni minori rispetto alle connessioni totali.
+
+La creazione di nuove connessioni richiede tempo. Funziona per la maggior parte delle applicazioni, che richiedono numerose connessioni di breve durata. È consigliabile usare una connessione pool, sia per ridurre le transazioni inattive che per riutilizzare le connessioni esistenti. Per altre informazioni, visitare il [post di Blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
+
+### <a name="storage-scaling"></a>Ridimensionamento dell'archiviazione
+
+È possibile aumentare le capacità di archiviazione sui nodi coordinatore e di lavoro (aumentate), ma non è possibile ridurle (diminuita).
+
+### <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
+
+Fino a 2 TiB di archiviazione è supportato nei nodi del coordinatore e del ruolo di lavoro. Per le dimensioni del nodo e del cluster, vedere le [Opzioni di archiviazione](#compute-and-storage) e il calcolo IOPS disponibili.
 
 ## <a name="pricing"></a>Prezzi
 Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/postgresql/).

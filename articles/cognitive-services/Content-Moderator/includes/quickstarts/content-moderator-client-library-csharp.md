@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 24319fe80130c1ac116c8423e1d82a5bc08b4b20
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 3245b4d0ce164acd8fcd367597dcbddc9436c782
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84124253"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965939"
 ---
 Introduzione alla libreria client di Content Moderator per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Content Moderator è un servizio cognitivo che verifica la presenza di materiale potenzialmente offensivo, rischioso o altrimenti indesiderato in contenuti di testo, immagini e video. Quando tale materiale viene trovato, il servizio applica al contenuto apposite etichette (flag). L'app può quindi gestire il contenuto contrassegnato per garantire la conformità alle normative o gestire un ambiente con le caratteristiche previste per gli utenti.
 
@@ -160,7 +160,7 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Passare i file di input e di output nella chiamata seguente al metodo `Main`. Questo metodo verrà definito in un passaggio successivo.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_call)]
 
 ### <a name="define-helper-class"></a>Definire la classe helper
 

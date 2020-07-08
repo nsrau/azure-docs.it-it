@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: 42e2419301b282685b2afe13782c2deb4f52823c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 24ba593a56d4d12211d10f143261caaf6d901bfc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725874"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964669"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Ottenere l'URI di firma di accesso condiviso per l'immagine di macchina virtuale
 
@@ -124,6 +124,6 @@ Esaminare ogni URI di firma di accesso condiviso creato usando l'elenco di contr
 
 ## <a name="next-step"></a>Passaggio successivo
 
-In caso di difficoltà nella creazione di un URI di firma di accesso condiviso, vedere [Problemi comuni degli URL di firma di accesso condiviso](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues). In caso contrario, salvare gli URI di firma di accesso condiviso in un percorso sicuro Sarà necessario per pubblicare l'offerta per le macchine virtuali nel centro per i partner.
+In caso di difficoltà nella creazione di un URI di firma di accesso condiviso, vedere [Problemi comuni degli URL di firma di accesso condiviso](common-sas-uri-issues.md). In caso contrario, salvare gli URI di firma di accesso condiviso in un percorso sicuro Sarà necessario per pubblicare l'offerta per le macchine virtuali nel centro per i partner.
 
-* [Creare un'offerta per macchine virtuali di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer)
+* [Creare un'offerta per macchine virtuali di Azure](azure-vm-create-offer.md)

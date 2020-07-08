@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647733"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964584"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
 In quanto servizio di database cloud nativo completamente gestito, Azure Cosmos DB semplifica la fatturazione, addebitando solo la velocità effettiva di cui è stato effettuato il provisioning e le risorse di archiviazione utilizzate. Non ci sono corrispettivi aggiuntivi per licenze, hardware, utenze o infrastrutture, a differenza delle alternative in locale o ospitate all'interno di sistemi IaaS. Se si considerano le funzionalità multiarea di Azure Cosmos DB, ci si rende conto che il servizio di database garantisce una riduzione sostanziale dei costi rispetto alle soluzioni locali o IaaS esistenti.
 
-Con Azure Cosmos DB i costi vengono addebitati su base oraria a seconda della velocità effettiva di cui viene effettuato il provisioning e a seconda delle risorse di archiviazione utilizzate. Per la velocità effettiva di cui è stato effettuato il provisioning, l'unità per la fatturazione è 100 UR al secondo all'ora, l'importo addebitato è di 0,008 dollari all'ora, in base al prezzo pubblico standard. Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). Per le risorse di archiviazione utilizzate, vengono fatturati 0,25 dollari al mese per ogni GB di spazio di archiviazione. Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+Con Azure Cosmos DB i costi vengono addebitati su base oraria a seconda della velocità effettiva di cui viene effettuato il provisioning e a seconda delle risorse di archiviazione utilizzate. Per la velocità effettiva con provisioning, l'unità per la fatturazione è 100 ur/sec all'ora, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) per le ultime informazioni sui prezzi. Per lo spazio di archiviazione utilizzato, la fatturazione viene addebitata per 1 GB di spazio di archiviazione al mese. per informazioni sui prezzi più recenti, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
-Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli della fattura mensile. I numeri visualizzati negli esempi possono essere diversi se per i contenitori di Azure Cosmos in uso è stato effettuato il provisioning di una quantità diversa di velocità effettiva, se i contenitori si estendono su più aree o vengono eseguiti per un periodo diverso nel corso di un mese.
+Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli della fattura mensile. I numeri visualizzati negli esempi possono essere diversi se per i contenitori di Azure Cosmos in uso è stato effettuato il provisioning di una quantità diversa di velocità effettiva, se i contenitori si estendono su più aree o vengono eseguiti per un periodo diverso nel corso di un mese. Tutti gli esempi in questo articolo calcolano la fattura in base alle informazioni sui prezzi indicate nella [pagina dei prezzi.](https://azure.microsoft.com/pricing/details/cosmos-db/)
 
 > [!NOTE]
-> La fatturazione è per qualsiasi parte di un'ora, non per una durata di 60 minuti.
+> La fatturazione è per qualsiasi parte di un'ora, non per una durata di 60 minuti. Tutti gli esempi illustrati in questo documento sono basati sul prezzo di un account Azure Cosmos distribuito in un'area non governativa negli Stati Uniti. I prezzi e il calcolo variano a seconda dell'area in uso. per informazioni più aggiornate sui prezzi, vedere la pagina relativa ai [prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
 ## <a name="billing-examples"></a>Esempi di fatturazione
 
@@ -73,7 +73,7 @@ Se alle 9:30 si aumenta la velocità effettiva di cui è stato effettuato il pro
 
 * In un mese di 720 ore (24 ore * 30 giorni), se per 500 ore la velocità effettiva di cui è stato effettuato il provisioning è stata pari a 1.200 UR/sec e per le restanti 220 ore è stata pari a 22.200 UR/sec, la fattura mensile indicherà: 500 x 0,096 dollari/ora + 220 x 1,776 dollari/ora =  438,72 dollari/mese.
 
-![Esempio di fattura con velocità effettiva dedicata](./media/understand-your-bill/bill-example1.png)
+:::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Esempio di fattura con velocità effettiva dedicata":::
 
 ### <a name="billing-example-containers-with-shared-throughput-mode"></a>Esempio di fatturazione: contenitori con velocità effettiva condivisa
 
@@ -87,7 +87,7 @@ Se alle 9:30 si aumenta la velocità effettiva di cui è stato effettuato il pro
 
 * In un mese di 720 ore, se per 300 ore la velocità effettiva di cui è stato effettuato il provisioning è stata pari a 120 K UR/sec e per le restanti 420 ore è stata pari a 155 K UR/sec, la fattura mensile indicherà: 300 x 9,60 dollari/ora + 420 x 12,40 dollari/ora =  2.880 dollari + 5.208 dollari = 8.088 dollari/mese. 
 
-![Esempio di fattura con velocità effettiva condivisa](./media/understand-your-bill/bill-example2.png)
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Esempio di fattura con velocità effettiva condivisa":::
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Esempi di fatturazione con replica geografica e multimaster  
 
@@ -177,7 +177,7 @@ Si consideri l'esempio seguente, un account di Azure Cosmos multiarea in cui tut
 
 Le modifiche della velocità effettiva totale durante le 720 ore del mese sono illustrate nella figura seguente: 
 
-![Esempio reale](./media/understand-your-bill/bill-example3.png)
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Esempio reale":::
 
 La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calcolata come segue:
 
@@ -234,19 +234,18 @@ Questo esempio riflette [i prezzi multimaster](https://azure.microsoft.com/prici
 
 Si consideri un altro esempio, in cui si vuole stimare in modo proattivo la fattura prima della fine del mese. È possibile stimare la fattura nel modo seguente:
 
-|**Costi di archiviazione** | |
-|----|----|
-|Dimensioni medie dei record (KB) |1 |
-|Numero di record  |100.000.000  |
-|Spazio di archiviazione totale (GB)  |100 |
-|Costo mensile per GB  |$ 0,25  |
-|Costo mensile previsto per l'archiviazione   |$ 25,00  |
+**Costo di archiviazione**
 
-<br>
+* Dimensioni del record medio (KB) = 1 
+* Numero di record = 100 milioni 
+* Spazio di archiviazione totale (GB) = 100 
+* Costo mensile per GB = $0,25 
+* Costo mensile previsto per l'archiviazione = $25,00 
 
-|**Costi della velocità effettiva** | | | |
-|----|----|----|----|
+**Costi della velocità effettiva**
+
 |Tipo di operazione| Richieste/sec| Avg. UR/richiesta| UR necessarie|
+|----|----|----|----|
 |Scrittura| 100 | 5 | 500|
 |Lettura| 400| 1| 400|
 

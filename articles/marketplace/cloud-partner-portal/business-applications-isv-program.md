@@ -1,5 +1,5 @@
 ---
-title: Guida all'onboarding di Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
+title: Guida all'onboarding del programma Business Applications ISV Connect
 description: Di seguito viene illustrato come eseguire l'onboarding nel programma Business Applications ISV Connect.
 author: qianw211
 ms.service: marketplace
@@ -7,14 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: dsindona
-ms.openlocfilehash: f7fd3f43c7faddb5481411dc9c4c94864b6dc0b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f312fad8e4cbdbfae6bd17f293f65fc3bb637a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80288972"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964890"
 ---
-# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guida all'onboarding di Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
+# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guida all'onboarding del programma Business Applications ISV Connect
 
 Il [programma di Business Applications ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview) mira ad accelerare la crescita e il successo complessivo di fornitori di software indipendenti (ISV) che compilano soluzioni line-of-business (LOB) moderne e basate sul cloud con *Dynamics 365 Customer Engagement e PowerApps* ("Dynamics CE offers") o *Dynamics 365 Finance and Operations* ("Dynamics Ops offers"). Ecco come fare parte di esso.
 
@@ -43,7 +43,7 @@ Se sono già state pubblicate le offerte Dynamics CE o Dynamics Ops, è probabil
 1. Accedere alla pagina del **profilo di pubblicazione** in [portale cloud partner](https://cloudpartner.azure.com/).
 2. Se viene visualizzato un banner che indica che è stata eseguita la migrazione delle impostazioni dell'account al centro per i partner, continuare con la sezione successiva. In caso contrario, selezionare il banner che richiede l'attivazione dell'account del centro per i partner.
 
-Per ulteriori informazioni, vedere la pagina relativa [alla migrazione degli account da portale cloud partner al centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
+Per ulteriori informazioni, vedere la pagina relativa [alla migrazione degli account da portale cloud partner al centro per i partner](../partner-center-portal/account-migration-from-cpp-to-pc.md).
 
 ## <a name="accept-the-business-applications-isv-program-addendum"></a>Accetta il Business Applications addendum del programma ISV
 
@@ -67,7 +67,7 @@ Configurare quindi le informazioni di fatturazione per il programma Business App
 > [!NOTE]
 > Per aggiornare le informazioni di fatturazione, questo passaggio richiede un ruolo *proprietario* o *Manager* nel centro per i partner per l'account.
 
-1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard).
+1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard).
 
 2. Selezionare l'icona *delle impostazioni* (a forma di ingranaggio) e selezionare **Impostazioni sviluppatore**.
 
@@ -88,7 +88,7 @@ Una volta completati i passaggi precedenti, le offerte esistenti di Dynamics CE 
 Il passaggio finale per la registrazione nel programma Business Applications ISV Connect consiste nel ricertificare le applicazioni esistenti.
 
 1. Per ricertificare l'applicazione in AppSource, [seguire questa procedura](https://partner.microsoft.com/solutions/business-applications/isv-publish) .
-2. [Creazione e pubblicazione di una nuova offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). Questa offerta sarà un'offerta completamente nuova e non sostituirà quella esistente.
+2. [Creazione e pubblicazione di una nuova offerta](../partner-center-portal/create-new-customer-engagement-offer.md). Questa offerta sarà un'offerta completamente nuova e non sostituirà quella esistente.
 
 ## <a name="further-info"></a>Altre informazioni
 

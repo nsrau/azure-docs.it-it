@@ -3,12 +3,12 @@ title: Evento di attività non riuscita di Azure Batch
 description: Riferimento per l'evento di fallimento dell'attività batch. Questo evento verrà generato in aggiunta a un evento di completamento attività e può essere usato per rilevare quando un'attività non è riuscita.
 ms.topic: reference
 ms.date: 08/15/2019
-ms.openlocfilehash: 54a6965fbefeaf502372c611c2b3152dc43b0efe
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: fbd0e5f2397fffce654d64a0e95a115b861db680
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726350"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965162"
 ---
 # <a name="task-fail-event"></a>Evento di attività non riuscita
 
@@ -50,7 +50,7 @@ ms.locfileid: "83726350"
 |`taskType`|string|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi. Questo evento non viene generato per le attività di preparazione del processo, le attività di rilascio del processo o le attività di avvio.|
 |`systemTaskVersion`|Int32|Contatore dei tentativi interni di esecuzione di un'attività. Il servizio Batch può ritentare internamente l'esecuzione di un'attività in funzione di problemi transitori. Questi problemi possono includere errori interni di pianificazione o tentativi di ripristino a seguito di nodi di calcolo in uno stato non valido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complesso|Contiene informazioni sul nodo di calcolo in cui è stata eseguita l'attività.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Per informazioni dettagliate, vedere [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task).|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Per informazioni dettagliate, vedere [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task).|
 |[`constraints`](#constraints)|Tipo complesso|Vincoli di esecuzione che si applicano a questa attività.|
 |[`executionInfo`](#executionInfo)|Tipo complesso|Contiene informazioni sull'esecuzione dell'attività.|
 

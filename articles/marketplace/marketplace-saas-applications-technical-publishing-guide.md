@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 46f8da8b2b688900e50548bbece01117a7a47e24
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657819"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963836"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione di offerte di applicazioni SaaS
 
@@ -62,11 +62,9 @@ Per iniziare, è consigliabile disporre di una sottoscrizione dedicata per la pu
 
 La documentazione, gli esempi e le linee guida migliori per Azure Active Directory sono disponibili nei siti seguenti: 
 
-* [Guida per gli sviluppatori di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Guida per gli sviluppatori di Azure Active Directory](../active-directory/develop/index.yml)
 
-* [Integrazione con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
-
-* [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integrazione con Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md)
 
 * [Roadmap per Azure - Sicurezza e identità](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -90,7 +88,7 @@ Azure Active Directory fornisce inoltre un sito in cui verificare la disponibili
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Uso di Azure Active Directory per abilitare l'accesso alle versioni di valutazione  
 
-Microsoft usa Azure AD per autenticare tutti gli utenti del marketplace. Pertanto, quando un utente autenticato fa clic su un'inserzione relativa a una versione di valutazione nel marketplace e viene reindirizzato all'ambiente di valutazione, l'editore può consentire all'utente di accedere direttamente a tale ambiente senza richiedere un altro passaggio di accesso. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Microsoft usa Azure AD per autenticare tutti gli utenti del marketplace. Pertanto, quando un utente autenticato fa clic su un'inserzione relativa a una versione di valutazione nel marketplace e viene reindirizzato all'ambiente di valutazione, l'editore può consentire all'utente di accedere direttamente a tale ambiente senza richiedere un altro passaggio di accesso. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](../active-directory/develop/active-directory-token-and-claims.md).
 
 L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla versione di valutazione offre i vantaggi seguenti:  
 * Consente di ottimizzare l'esperienza di accesso dei clienti da Marketplace alla versione di valutazione.  
@@ -106,15 +104,15 @@ L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla
 
 Se Azure AD è già supportato, eseguire le operazioni seguenti:
 1.    Registrare l'applicazione nel portale di Azure
-2.    Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+2.    Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](../active-directory/develop/active-directory-integrating-applications.md).  
 
 Se non si ha familiarità con l'accesso SSO federato di Azure AD, eseguire queste operazioni: 
 1.  Registrare l'applicazione nel portale di Azure
-2.  Sviluppare SSO con Azure AD usando [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) o [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Abilitare la funzionalità per il supporto multi-tenancy in AAD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Sviluppare SSO con Azure AD usando [OpenID Connect](../active-directory/develop/active-directory-protocols-openid-connect-code.md) o [OAuth 2.0](../active-directory/develop/active-directory-protocols-oauth-code.md).
+3.  Abilitare la funzionalità per il supporto multi-tenancy in AAD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](../active-directory/develop/active-directory-devhowto-appsource-certified.md).  
 
 **Per un'applicazione single-tenant, usare una delle opzioni seguenti:**  
-* Aggiungere utenti alla directory come utenti guest tramite [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Aggiungere utenti alla directory come utenti guest tramite [Azure B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)
 * Effettuare manualmente il provisioning delle versioni di valutazione per i clienti tramite l'opzione Contatta
 * Sviluppare una test drive per ogni cliente
 * Creare un'app demo di esempio multi-tenant con SSO
@@ -139,7 +137,7 @@ Microsoft gestisce la transazione commerciale. Microsoft invia gli addebiti al c
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è già stato fatto,
 
-* [vedere le informazioni](https://azuremarketplace.microsoft.com/sell) sul marketplace.
+* [Vedere le informazioni](https://azuremarketplace.microsoft.com/sell) sul marketplace.
 
 Per eseguire la registrazione nel Centro per i partner, iniziare a creare una nuova offerta o a lavorare su una esistente:
 

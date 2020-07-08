@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996364"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964686"
 ---
 # <a name="unsupported-language-deployments"></a>Distribuzioni in lingue non supportate
 
@@ -32,7 +32,7 @@ Affinché i modelli siano candidati per la distribuzione, è necessario che sodd
 * Il modello deve trovarsi nello stato distribuito quando viene eseguita la migrazione.  
 * La coppia di lingue del modello deve essere una coppia di lingue non supportata nel convertitore personalizzato.  Le coppie di lingue in cui una lingua è supportata da o verso l'inglese, ma la coppia non include l'inglese, sono candidati per le distribuzioni di linguaggio non supportate.  Ad esempio, un modello di hub per una coppia di lingua francese-tedesca viene considerato una coppia di lingue non supportata anche se la coppia di lingue è supportata da Francese a inglese e da inglese a tedesco.
 
-## <a name="process"></a>Process
+## <a name="process"></a>Processo
 Dopo aver eseguito la migrazione dei modelli dall'hub candidati per la distribuzione, è possibile trovarli nella pagina **Impostazioni** per l'area di lavoro e scorrere fino alla fine della pagina in cui verrà visualizzata una sezione **Training Hub di conversione non supportata** .  Questa sezione viene visualizzata solo se sono presenti progetti che soddisfano i prerequisiti menzionati in precedenza.
 
 ![Come eseguire la migrazione da Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
@@ -47,7 +47,7 @@ Una volta inviato, il modello non sarà più disponibile nella scheda **Training
 
 ## <a name="whats-next"></a>Quali sono le operazioni successive?
 
-I modelli selezionati per la distribuzione vengono salvati dopo la rimozione delle autorizzazioni dell'hub e la distribuzione di tutti i modelli.  Si ha fino al 24 maggio per inviare le richieste per la distribuzione di modelli non supportati.  Questi modelli verranno distribuiti a partire dal 15 giugno e saranno accessibili tramite l'API Translator V3.  Inoltre, saranno disponibili tramite l'API v2 fino al 1 ° luglio.  
+I modelli selezionati per la distribuzione vengono salvati dopo la rimozione delle autorizzazioni dell'hub e la distribuzione di tutti i modelli.  Si ha fino al 24 maggio per inviare le richieste per la distribuzione di modelli non supportati.  Questi modelli verranno distribuiti a partire dal 15 giugno e saranno accessibili tramite Translator V3.  Inoltre, saranno disponibili tramite Translator V2 fino al 1 ° luglio.  
 
 Per ulteriori informazioni sulle date importanti per la deprecazione dell'hub, vedere [qui](https://www.microsoft.com/translator/business/hub/).
 Una volta distribuiti, verranno applicati i normali addebiti per l'hosting.  Per informazioni dettagliate, vedere [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) .  

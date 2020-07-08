@@ -2,13 +2,13 @@
 title: Nodi e pool in Azure Batch
 description: Informazioni sui nodi di calcolo, sui pool e sul modo in cui vengono usati in un flusso di lavoro di Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: eadc5236926fed12ebee087f7354c492ae5fc745
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.date: 06/16/2020
+ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790918"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964043"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodi e pool in Azure Batch
 
@@ -27,6 +27,8 @@ Tutti i nodi di Calcolo in Batch includono anche:
 - Una [struttura di cartelle](files-and-directories.md) standard e le [variabili di ambiente](jobs-and-tasks.md) associate disponibili come riferimento per le attività.
 - Impostazioni **firewall** configurate per controllare l'accesso.
 - [Accesso remoto](error-handling.md#connect-to-compute-nodes) ai nodi Windows (Remote Desktop Protocol (RDP)) e Linux (Secure Shell (SSH)).
+
+Per impostazione predefinita, i nodi possono comunicare tra loro, ma non possono comunicare con macchine virtuali che non fanno parte dello stesso pool. Per consentire ai nodi di comunicare in modo sicuro con altre macchine virtuali o con una rete locale, è possibile effettuare il provisioning del pool [in una subnet di una rete virtuale di Azure (VNet)](batch-virtual-network.md). Quando si esegue questa operazione, è possibile accedere ai nodi tramite indirizzi IP pubblici. Questi indirizzi IP pubblici vengono creati da batch e possono cambiare nel corso della durata del pool. È anche possibile [creare un pool con indirizzi IP pubblici statici](create-pool-public-ip.md) da controllare, in modo da garantire che non cambino in modo imprevisto.
 
 ## <a name="pools"></a>Pool
 
@@ -78,7 +80,7 @@ Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una 
 
 ### <a name="node-agent-skus"></a>SKU dell'agente nodo
 
-Quando si crea un pool, è necessario selezionare il valore appropriato di **nodeAgentSkuId**, a seconda del sistema operativo dell'immagine di base del disco rigido virtuale. È possibile ottenere un mapping tra gli ID SKU dell'agente del nodo e i relativi riferimenti all'immagine del sistema operativo, chiamando l'operazione di [elenco degli SKU degli agenti nodo supportati](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+Quando si crea un pool, è necessario selezionare il valore appropriato di **nodeAgentSkuId**, a seconda del sistema operativo dell'immagine di base del disco rigido virtuale. È possibile ottenere un mapping tra gli ID SKU dell'agente del nodo e i relativi riferimenti all'immagine del sistema operativo, chiamando l'operazione di [elenco degli SKU degli agenti nodo supportati](/rest/api/batchservice/list-supported-node-agent-skus).
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Immagini personalizzate per pool di macchine virtuali
 
@@ -127,7 +129,7 @@ Una formula può essere basata sulle metriche seguenti:
 - **Metriche delle risorse**: basate su utilizzo di CPU, larghezza di banda, memoria e numero di nodi.
 - **Metriche delle attività**: basate sullo stato delle attività, ad esempio *Attiva* (in coda), *In esecuzione* o *Completata*.
 
-Quando il ridimensionamento automatico riduce il numero di nodi di calcolo in un pool, è necessario considerare come gestire le attività in esecuzione al momento dell'operazione di riduzione. A questo scopo, il servizio Batch offre un'[*opzione di deallocazione dei nodi*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) che è possibile includere nelle formule. Ad esempio, è possibile specificare che le attività in esecuzione devono essere arrestate immediatamente e quindi riaccodate per l'esecuzione in un altro nodo o che ne deve essere consentita la fine prima della rimozione del nodo dal pool. Si noti che l'impostazione dell'opzione di deallocazione del nodo come `taskcompletion` o `retaineddata` impedisce le operazioni di ridimensionamento del pool fino al completamento di tutte le attività o fino a che tutti i periodi di memorizzazione delle attività siano scaduti, rispettivamente.
+Quando il ridimensionamento automatico riduce il numero di nodi di calcolo in un pool, è necessario considerare come gestire le attività in esecuzione al momento dell'operazione di riduzione. A questo scopo, il servizio Batch offre un'[*opzione di deallocazione dei nodi*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) che è possibile includere nelle formule. Ad esempio, è possibile specificare che le attività in esecuzione devono essere arrestate immediatamente e quindi riaccodate per l'esecuzione in un altro nodo o che ne deve essere consentita la fine prima della rimozione del nodo dal pool. Si noti che l'impostazione dell'opzione di deallocazione del nodo come `taskcompletion` o `retaineddata` impedisce le operazioni di ridimensionamento del pool fino al completamento di tutte le attività o fino a che tutti i periodi di memorizzazione delle attività siano scaduti, rispettivamente.
 
 Per altre informazioni sulla scalabilità automatica di un'applicazione, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](batch-automatic-scaling.md).
 
@@ -162,13 +164,16 @@ Per altre informazioni sull'uso di pacchetti dell'applicazione per distribuire a
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configurazione della rete virtuale e del firewall
 
-Quando si effettua il provisioning di un pool di nodi di calcolo in Batch di Azure, è possibile associare il pool a una subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. Per usare una rete virtuale di Azure, l'API client di Batch deve usare l'autenticazione di Azure Active Directory (AD). Il supporto di Azure Batch per Azure AD è documentato in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).  
+Quando si effettua il provisioning di un pool di nodi di calcolo in Batch di Azure, è possibile associare il pool a una subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. Per usare una rete virtuale di Azure, l'API client di Batch deve usare l'autenticazione di Azure Active Directory (AD). Il supporto di Azure Batch per Azure AD è documentato in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).
 
 ### <a name="vnet-requirements"></a>Requisiti per la rete virtuale
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 Per altre informazioni sulla configurazione di un pool di Batch in una rete virtuale, vedere [Creare un pool di macchine virtuali con la rete virtuale](batch-virtual-network.md).
+
+> [!TIP]
+> Per assicurarsi che gli indirizzi IP pubblici usati per accedere ai nodi non cambiano, è possibile [creare un pool con gli indirizzi IP pubblici specificati che si controllano](create-pool-public-ip.md).
 
 ## <a name="pool-and-compute-node-lifetime"></a>Durata del pool e dei nodi di calcolo
 
@@ -184,7 +189,7 @@ Un approccio combinato viene in genere usato per la gestione di un carico variab
 
 È in genere necessario usare certificati per crittografare o decrittografare informazioni riservate per le attività, ad esempio la chiave per un [account di archiviazione di Azure](accounts.md#azure-storage-accounts). Per supportare questa funzionalità, è possibile installare certificati nei nodi. I segreti crittografati vengono passati alle attività nei parametri della riga di comando o incorporati in una delle risorse dell'attività e i certificati installati possono essere usati per decrittografarli.
 
-Per aggiungere un certificato a un account Batch, usare l'operazione [Aggiungi certificato](https://docs.microsoft.com/rest/api/batchservice/certificate/add) (Batch REST) o il metodo [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) (Batch .NET). È quindi possibile associare il certificato a un pool nuovo o esistente.
+Per aggiungere un certificato a un account Batch, usare l'operazione [Aggiungi certificato](/rest/api/batchservice/certificate/add) (Batch REST) o il metodo [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) (Batch .NET). È quindi possibile associare il certificato a un pool nuovo o esistente.
 
 Quando un certificato è associato a un pool, il servizio Batch installa il certificato in ogni nodo del pool. Il servizio Batch installa i certificati appropriati all'avvio del nodo, prima di avviare le attività, incluse quelle di [avvio](jobs-and-tasks.md#start-task) e del [gestore di processi](jobs-and-tasks.md#job-manager-task).
 

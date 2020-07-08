@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 1eae45eea35a118be51dc1e2f95055238212560d
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 985a8ac83d48de11ac134bc9a942c766e4ff5d32
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800663"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963598"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Domande frequenti sul marketplace commerciale di Microsoft
 
@@ -67,7 +67,7 @@ Il modo in cui i clienti interagiscono con le offerte nel marketplace commercial
 
 Dopo aver effettuato l'iscrizione e accettato il Contratto per gli editori, sarà possibile accedere alla pagina del marketplace commerciale nel Centro per i partner. Qui è possibile creare e gestire le offerte e visualizzare i report di analisi. Per le app di Microsoft 365 è necessario attivare anche il programma Office Store nel Centro per i partner.
 
-Per altre informazioni, vedere [Introduzione al marketplace commerciale](https://docs.microsoft.com/azure/marketplace/) e [Monetizzare il componente aggiuntivo di Office 365 tramite il marketplace commerciale di Microsoft](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+Per altre informazioni, vedere [Introduzione al marketplace commerciale](index.yml) e [Monetizzare il componente aggiuntivo di Office 365 tramite il marketplace commerciale di Microsoft](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>In che modo è possibile ottenere assistenza per il marketplace commerciale?
 
@@ -77,7 +77,7 @@ Per contattare il team di supporto per gli editori del marketplace, è possibile
 
 ### <a name="what-analytics-are-available-to-my-organization-from-the-commercial-marketplace"></a>Quali sono i dati di analisi disponibili per un'organizzazione nel marketplace commerciale?
 
-All'interno del marketplace commerciale vengono forniti report sulle offerte. Per accedere ai dati relativi a clienti, ordini, engagement nello Store e altro ancora, vedere [Analisi per il marketplace commerciale nel Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics).
+All'interno del marketplace commerciale vengono forniti report sulle offerte. Per accedere ai dati relativi a clienti, ordini, engagement nello Store e altro ancora, vedere [Analisi per il marketplace commerciale nel Centro per i partner](partner-center-portal/analytics.md).
 
 ### <a name="what-is-microsofts-relationship-with-my-customers"></a>Quale relazione si instaura tra Microsoft e i clienti dell'utente?
 
@@ -89,7 +89,7 @@ Gli editori definiscono le condizioni per l'utilizzo della soluzione software, c
 
 È possibile apportare modifiche applicabili a tutti i clienti o solo ad alcuni. È anche possibile personalizzare completamente i termini e le condizioni, che possono essere immessi in una casella di testo oppure ospitati in un sito Web che verrà visualizzato sotto forma di indirizzo Web.
 
-Per altre informazioni, vedere il [contratto standard per il marketplace commerciale di Microsoft](https://docs.microsoft.com/azure/marketplace/standard-contract).
+Per altre informazioni, vedere il [contratto standard per il marketplace commerciale di Microsoft](standard-contract.md).
 
 ### <a name="is-azure-marketplace-available-in-azure-government"></a>Azure Marketplace è disponibile in Azure per enti pubblici?
 
@@ -126,7 +126,7 @@ Per completare un acquisto a un prezzo molto basso, è consigliabile pubblicare 
 
 Quando i clienti usano le offerte nelle vetrine di Microsoft AppSource e Azure Marketplace, vengono acquisite informazioni. Dopo che i clienti hanno dimostrato sufficiente interesse, viene creato un cliente potenziale e inviata un'opportunità al sistema scelto. Gli editori di maggior successo nel marketplace commerciale di Microsoft acquisiscono spesso clienti potenziali, sviluppano relazioni e trasformano l'interesse in affari.
 
-Per altre informazioni, vedere [Clienti potenziali dall'offerta del marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads).
+Per altre informazioni, vedere [Clienti potenziali dall'offerta del marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ### <a name="why-arent-my-changes-reflected-in-the-offer-on-microsoft-appsource-or-azure-marketplace"></a>Perché le modifiche non sono riportate nell'offerta su Microsoft AppSource o Azure Marketplace?
 
@@ -146,7 +146,7 @@ Microsoft AppSource è la destinazione delle soluzioni aziendali e di settore, m
 
 La rete globale Microsoft di rivenditori include decine di migliaia di organizzazioni che partecipano al programma Cloud Solution Provider. Il programma CSP mette a disposizione delle organizzazioni gli strumenti necessari per rivendere i prodotti e le offerte nel marketplace commerciale.
 
-Per altre informazioni, vedere [Cloud Solution Provider](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+Per altre informazioni, vedere [Cloud Solution Provider](cloud-solution-providers.md).
 
 ### <a name="how-can-i-find-resellers-to-establish-partnerships"></a>In che modo è possibile trovare rivenditori per instaurare una collaborazione?
 
@@ -156,7 +156,7 @@ Tramite la [directory dei provider di soluzioni](https://www.microsoft.com/solut
 
 Sì, è possibile rendere disponibili le offerte a tutti o solo ad alcuni rivenditori del programma Cloud Solution Provider.
 
-Per altre informazioni, vedere [Cloud Solution Provider](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+Per altre informazioni, vedere [Cloud Solution Provider](cloud-solution-providers.md).
 
 ### <a name="how-can-i-pay-margin-to-resellers"></a>In che modo è possibile pagare il margine ai rivenditori?
 
@@ -229,7 +229,7 @@ L'account utente deve disporre delle autorizzazioni di *Proprietario* o *Collabo
 
 I clienti possono acquistare le soluzioni del marketplace commerciale da 141 località in tutto il mondo.
 
-Per consultare l'elenco delle località, passare a [Dettagli sulle imposte per gli autori del marketplace commerciale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/tax-details-paid-transactions).
+Per consultare l'elenco delle località, passare a [Dettagli sulle imposte per gli autori del marketplace commerciale](partner-center-portal/tax-details-paid-transactions.md).
 
 ### <a name="what-currencies-are-supported-with-the-commercial-marketplace"></a>Quali valute sono supportate nel marketplace commerciale?
 
@@ -252,7 +252,7 @@ Le transazioni possono essere gestite nelle 17 valute seguenti:
 - TWD
 - USD
 
-Per consultare l'elenco delle valute, passare a [Disponibilità geografica e supporto delle valute per il marketplace commerciale](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Per consultare l'elenco delle valute, passare a [Disponibilità geografica e supporto delle valute per il marketplace commerciale](marketplace-geo-availability-currencies.md).
 
 ### <a name="can-customers-change-subscriptions-or-license-volumes-mid-term"></a>I clienti possono modificare le sottoscrizioni o i volumi di licenza a metà periodo?
 
@@ -274,29 +274,32 @@ In genere, i clienti ricevono un addebito su base mensile per gli acquisti effet
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>Con quale frequenza vengono accreditati i pagamenti per le vendite concluse tramite il marketplace commerciale?
 
-I pagamenti vengono erogati mensilmente. Le riscossioni elaborate nel mese precedente vengono pagate in un'unica soluzione e le vendite devono avere un valore combinato minimo pari a $ 50,00.
+I pagamenti vengono erogati mensilmente. Per informazioni dettagliate sulle pianificazioni dei pagamenti, la ricerca dei pagamenti imminenti nel centro per i partner e il modo in cui si gestiscono i pagamenti dei clienti, vedere [Dettagli sui criteri](partner-center-portal/payout-policy-details.md)di pagamento.
 
-Le sottoscrizioni e gli acquisti con carta di credito vengono addebitati mensilmente e le fatture per i Contratti del cliente Microsoft o per i Contratti Enterprise potrebbero essere meno frequenti. Per i clienti è previsto un intervallo di tempo di 30 giorni dalla data di fatturazione per l'esecuzione del pagamento. Dopo aver ricevuto il pagamento, le transazioni con carta di credito entrano in un periodo di deposito di 30 giorni.
+- Per le transazioni in cui il cliente ha usato una Enterprise Agreement, i pagamenti vengono rilasciati nel ciclo di pagamento successivo di 30 giorni dopo la fattura del cliente. 
+- Per le transazioni in cui il cliente ha usato una carta di credito, è previsto un periodo di deposito aggiuntivo di 30 giorni dopo la ricezione del pagamento per garantire la cancellazione dei fondi e non ci sono chargeback o sospetti illeciti.
 
-Per ulteriori informazioni, vedere [Soglie, metodi e periodi di pagamento](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payment-thresholds-methods-timeframes).
+I pagamenti vengono emessi solo quando le vendite hanno raggiunto un valore minimo combinato pari a $50,00.
+
+Per ulteriori informazioni, vedere [Soglie, metodi e periodi di pagamento](partner-center-portal/payment-thresholds-methods-timeframes.md).
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>In quali paesi o aree geografiche vengono gestite le imposte per conto dell'utente?
 
 I clienti possono trovare le soluzioni del marketplace commerciale di Microsoft in tutto il mondo e Microsoft si occupa della gestione delle imposte in molte località. 
 
-Per consultare l'elenco completo delle località, passare a [Dettagli sulle imposte per gli autori del marketplace commerciale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/tax-details-paid-transactions).
+Per consultare l'elenco completo delle località, passare a [Dettagli sulle imposte per gli autori del marketplace commerciale](partner-center-portal/tax-details-paid-transactions.md).
 
 ### <a name="where-can-i-find-payout-reporting-for-the-commercial-marketplace"></a>Dove è possibile trovare i report dei pagamenti per il marketplace commerciale?
 
 Nel Centro per i partner, gli utenti con le autorizzazioni di *Proprietario* o *Collaboratore finanziario* possono visualizzare i report sui pagamenti e accedervi selezionando l'icona in alto a destra con l'icona di una mano che tiene una fattura.
 
-Per altre informazioni, vedere [Report sui pagamenti](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-summary).
+Per altre informazioni, vedere [Report sui pagamenti](partner-center-portal/payout-summary.md).
 
 ### <a name="how-do-i-configure-my-payout-method-and-destination"></a>In che modo è possibile configurare il metodo e la destinazione di pagamento?
 
 Nel Centro per i partner gli utenti con autorizzazioni di *Proprietario* possono configurare l'account di pagamento e i moduli fiscali selezionando il pulsante **Impostazioni** (icona a forma di ingranaggio) in alto a destra.
 
-Per altre informazioni, passare a [Configurare l'account proventi e i moduli fiscali](https://docs.microsoft.com/azure/marketplace/partner-center-portal/set-up-your-payout-account-tax-forms).
+Per altre informazioni, passare a [Configurare l'account proventi e i moduli fiscali](partner-center-portal/set-up-your-payout-account-tax-forms.md).
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Resi e rimborsi sono supportati nel marketplace commerciale?
 
@@ -310,7 +313,7 @@ Di seguito sono riportate alcune risorse per iniziare:
 
 - [Introduzione al marketplace commerciale di Microsoft](/azure/marketplace/marketplace-publishers-guide)
 - [Hub partner del marketplace commerciale di Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [Introduzione al marketplace commerciale](https://docs.microsoft.com/azure/marketplace/)
+- [Introduzione al marketplace commerciale](index.yml)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>In che modo è possibile creare engagement con Microsoft e altri partner?
 
@@ -322,7 +325,7 @@ Risorse consigliate:
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Dove è possibile reperire altre informazioni sul Centro per i partner?
 
 - [Documentazione sul Centro per i partner](https://docs.microsoft.com/partner-center/)
-- [Introduzione al marketplace commerciale](https://docs.microsoft.com/azure/marketplace/)
+- [Introduzione al marketplace commerciale](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Dove è possibile reperire altre informazioni sull'interfaccia di amministrazione di Microsoft?
 
@@ -330,14 +333,14 @@ Per informazioni sull'interfaccia di amministrazione di Microsoft, vedere [Gesti
 
 ### <a name="where-can-i-learn-more-about-azure-billing"></a>Dove è possibile reperire altre informazioni sulla fatturazione di Azure?
 
-- [Documentazione di Gestione dei costi e fatturazione di Azure](https://docs.microsoft.com/azure/cost-management-billing/)
-- [Informazioni sugli addebiti per i servizi esterni di Azure](https://docs.microsoft.com/azure/cost-management-billing/understand/understand-azure-marketplace-charges)
-- [Pagare la sottoscrizione di Azure tramite fattura](https://docs.microsoft.com/azure/cost-management-billing/manage/pay-by-invoice)
+- [Documentazione di Gestione dei costi e fatturazione di Azure](../cost-management-billing/index.yml)
+- [Informazioni sugli addebiti per i servizi esterni di Azure](../cost-management-billing/understand/understand-azure-marketplace-charges.md)
+- [Pagare la sottoscrizione di Azure tramite fattura](../cost-management-billing/manage/pay-by-invoice.md)
 
 ### <a name="where-can-i-learn-about-azure-government-and-the-azure-government-marketplace"></a>Dove è possibile reperire informazioni su Azure per enti pubblici e sul marketplace di Azure per enti pubblici?
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
 - [Centro protezione Microsoft](https://www.microsoft.com/trust-center)
-- [Documentazione di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/)
-- [Marketplace di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace)
-- [Conformità di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-plan-compliance)
+- [Documentazione di Azure per enti pubblici](../azure-government/index.yml)
+- [Marketplace di Azure per enti pubblici](../azure-government/documentation-government-manage-marketplace.md)
+- [Conformità di Azure per enti pubblici](../azure-government/documentation-government-plan-compliance.md)

@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/19/2019
-ms.openlocfilehash: f47c7412bdd5ada1e50d1005b8e740e3f46ffd8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536234"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964635"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -47,9 +47,9 @@ Un [ *ambiente Integration Services* (ISE)](../logic-apps/connect-virtual-networ
 
 * **Premium** ISE: le unità di base di questo SKU hanno una capacità fissa, ma se è necessaria una velocità effettiva maggiore, è possibile [aggiungere altre unità di scala](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) durante la creazione di ISE o in seguito. Per i limiti di ISE, vedere [limiti e configurazione per app per la logica di Azure](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
-* Per **sviluppatori** ISE: questo SKU non ha funzionalità per la scalabilità verticale, nessun contratto di servizio (SLA) e nessun limite pubblicato. Utilizzare questo SKU solo per la sperimentazione, lo sviluppo e il test, non per la produzione o il test delle prestazioni.
+* Per **sviluppatori** ISE: questo SKU non ha funzionalità per la scalabilità verticale, nessun contratto di servizio (SLA) e nessun limite pubblicato. Usare questo SKU solo per la sperimentazione, lo sviluppo e il test, non per la produzione o il test delle prestazioni.
 
-Per le app per la logica create ed eseguite in un ISE, si paga un [Prezzo mensile fisso](https://azure.microsoft.com/pricing/details/logic-apps) per queste funzionalità:
+Per le app per la logica create ed eseguite in un ISE, si paga un [prezzo fisso](https://azure.microsoft.com/pricing/details/logic-apps) (rispetto al pagamento in base all'uso) per queste funzionalità:
 
 * Trigger e azioni [predefiniti](../connectors/apis-list.md#built-in)
 
@@ -57,7 +57,7 @@ Per le app per la logica create ed eseguite in un ISE, si paga un [Prezzo mensil
 
 * Connettori [standard](../connectors/apis-list.md#managed-connectors) e connettori [aziendali](../connectors/apis-list.md#enterprise-connectors) , che consentono di avere tutte le connessioni aziendali desiderate
 
-   I connettori standard ed Enterprise che visualizzano l'etichetta **ISE** vengono eseguiti nello stesso ISE delle app per la logica. I connettori che non visualizzano l'etichetta ISE vengono eseguiti nel servizio app per la logica pubblico "globale" e multi-tenant. I prezzi mensili fissi si applicano anche ai connettori che vengono eseguiti nel servizio multi-tenant quando vengono usati con app per la logica eseguite in ISE.
+   I connettori standard ed Enterprise che visualizzano l'etichetta **ISE** vengono eseguiti nello stesso ISE delle app per la logica. I connettori che non visualizzano l'etichetta ISE vengono eseguiti nel servizio app per la logica pubblico "globale" e multi-tenant. I prezzi fissi si applicano anche ai connettori eseguiti nel servizio multi-tenant quando vengono usati con app per la logica eseguite in un ISE.
 
 * Utilizzo dell' [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) senza costi aggiuntivi, in base allo [SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
@@ -116,13 +116,13 @@ Le app per la logica disabilitate non vengono addebitate perché non è possibil
 
 Un [modello di determinazione prezzi fisso](https://azure.microsoft.com/pricing/details/logic-apps) si applica agli [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) in cui è possibile esplorare, sviluppare e testare le funzionalità di elaborazione [B2B ed EDI](logic-apps-enterprise-integration-b2b.md) e [XML](logic-apps-enterprise-integration-xml.md) in app per la logica di Azure senza costi aggiuntivi. Ogni sottoscrizione di Azure può avere fino a un [limite specifico di account di integrazione](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Ogni account di integrazione può archiviare fino a un [limite specifico di elementi](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), tra cui partner commerciali, contratti, mappe, schemi, assembly, certificati, configurazioni batch e così via.
 
-App per la logica di Azure offre account di integrazione gratuito, di base e standard. I livelli Basic e standard sono supportati dal contratto di servizio delle app per la logica, mentre il livello gratuito non è supportato da un contratto di servizio e presenta limiti per la velocità effettiva e l'utilizzo. Ad eccezione degli account di integrazione del livello gratuito, è possibile avere più di un account di integrazione in ogni area di Azure. Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/)per la logica.
+App per la logica di Azure offre account di integrazione gratuito, di base e standard. I livelli Basic e standard sono supportati dal contratto di servizio delle app per la logica, mentre il livello gratuito non è supportato da un contratto di servizio e presenta limiti per la disponibilità, la velocità effettiva e l'utilizzo dell'area. Ad eccezione degli account di integrazione del livello gratuito, è possibile avere più di un account di integrazione in ogni area di Azure. Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-Se si dispone di un [ *ambiente Integration Services* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Premium o Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), ISE può avere 5 account di integrazione totali. Per informazioni sul funzionamento del modello di determinazione prezzi fisso per un ISE, vedere la sezione [modello di determinazione prezzi fisso](#fixed-pricing) precedente in questo argomento. Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps)per la logica.
+Se si dispone di un [ *ambiente Integration Services* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Premium o Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), ISE può avere 5 account di integrazione totali. Per informazioni sul funzionamento del modello di determinazione prezzi fisso per un ISE, vedere la sezione [modello di determinazione prezzi fisso](#fixed-pricing) precedente in questo argomento. Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Per scegliere tra un account di integrazione gratuito, Basic o standard, esaminare le descrizioni dei casi d'uso seguenti:
 
-* **Gratuito**: per i casi in cui si vuole provare scenari esplorativi, non scenari di produzione
+* **Gratuito**: per i casi in cui si vuole provare scenari esplorativi, non scenari di produzione. Questo livello è disponibile solo per le aree pubbliche in Azure, ad esempio Stati Uniti occidentali o Asia sudorientale, ma non per [Azure Cina 21ViaNet](https://docs.microsoft.com/azure/china/overview-operations) o [Azure per enti](../azure-government/documentation-government-welcome.md)pubblici.
 
 * **Basic**: per i casi in cui si desidera solo la gestione dei messaggi o fungere da partner commerciale di piccole dimensioni con una relazione tra partner commerciali e un'entità di business più ampia
 
@@ -132,7 +132,7 @@ Per scegliere tra un account di integrazione gratuito, Basic o standard, esamina
 
 ## <a name="data-retention"></a>Conservazione dei dati
 
-Fatta eccezione per le app per la logica eseguite in un ambiente Integration Services (ISE), tutti gli input e gli output archiviati nella cronologia di esecuzione dell'app per la logica vengono fatturati in base al [periodo di memorizzazione](logic-apps-limits-and-config.md#run-duration-retention-limits)dell'app per la logica. Le app per la logica eseguite in ISE non incorrono sui costi di conservazione dei dati. Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps)per la logica.
+Fatta eccezione per le app per la logica eseguite in un ambiente Integration Services (ISE), tutti gli input e gli output archiviati nella cronologia di esecuzione dell'app per la logica vengono fatturati in base al [periodo di memorizzazione](logic-apps-limits-and-config.md#run-duration-retention-limits)dell'app per la logica. Le app per la logica eseguite in ISE non incorrono sui costi di conservazione dei dati. Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Per facilitare il monitoraggio del consumo di spazio di archiviazione dell'app per la logica, è possibile:
 

@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8622ede9e6f7fba2fde2e0b2e90eb31520a23d04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6583a2fe5abd0193f37502e07c7b3fa0ee58ba9d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892445"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963435"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analizzare i modelli di spostamento degli utenti con Flussi utente in Application Insights
 
-![Strumento Flussi utente di Application Insights](./media/usage-flows/00001-flows.png)
+![Strumento Flussi utente di Application Insights](./media/usage-flows/flows.png)
 
 Lo strumento Flussi utente permette di visualizzare il modo in cui gli utenti si spostano tra le pagine e le funzionalità del sito. È utile per rispondere a domande simili alle seguenti:
 
@@ -33,7 +33,7 @@ Lo strumento Flussi utente parte da un'eccezione, un evento personalizzato o una
 
 ## <a name="start-by-choosing-an-initial-event"></a>Scegliere un evento iniziale come punto di partenza
 
-![Scegliere un evento iniziale per Flussi utente](./media/usage-flows/00002-flows-initial-event.png)
+![Scegliere un evento iniziale per Flussi utente](./media/usage-flows/initial-event.png)
 
 Per iniziare a rispondere alle domande con lo strumento Flussi utente, scegliere un'eccezione, un evento personalizzato o una visualizzazione pagina iniziale da usare come punto di partenza per la visualizzazione:
 
@@ -58,7 +58,7 @@ Per vedere più passaggi nella visualizzazione, usare gli elenchi a discesa **Pa
 
 ## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>Dopo aver visitato una pagina o una funzionalità, dove si spostano gli utenti e su quali elementi fanno clic?
 
-![Usare Flussi utente per determinare su quali elementi fanno clic gli utenti](./media/usage-flows/00003-flows-one-step.png)
+![Usare Flussi utente per determinare su quali elementi fanno clic gli utenti](./media/usage-flows/one-step.png)
 
 Se l'evento iniziale è una visualizzazione di pagina, la prima colonna ("Passaggio 1") della visualizzazione offre un modo rapido per capire cosa hanno fatto gli utenti immediatamente dopo aver visitato la pagina. Provare ad aprire il sito in una finestra accanto alla visualizzazione di Flussi utente. Confrontare le aspettative sull'interazione degli utenti con la pagina con l'elenco di eventi nella colonna "Passaggio 1". Spesso, un elemento dell'interfaccia utente della pagina che al team sembra insignificante può essere tra i più usati nella pagina. Può essere un ottimo punto di partenza per migliorare la progettazione del sito.
 

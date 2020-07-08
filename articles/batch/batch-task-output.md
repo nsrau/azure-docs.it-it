@@ -4,12 +4,12 @@ description: Informazioni su diverse opzioni per rendere persistenti i dati di o
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 492de237acdf2d6d42f27638bac3adc0f6549828
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726299"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965111"
 ---
 # <a name="persist-job-and-task-output"></a>Rendere persistente l'output di processi e attività
 
@@ -35,7 +35,7 @@ Le sezioni seguenti descrivono brevemente ogni approccio, oltre a considerazioni
 
 ### <a name="use-the-batch-service-api"></a>Usare l'API del servizio Batch
 
-Il servizio Batch consente di specificare i di file di output in Archiviazione di Azure per i dati delle attività quando si [aggiunge un'attività a un processo](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) o si [aggiunge una raccolta di attività a un processo](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
+Il servizio Batch consente di specificare i di file di output in Archiviazione di Azure per i dati delle attività quando si [aggiunge un'attività a un processo](/rest/api/batchservice/add-a-task-to-a-job) o si [aggiunge una raccolta di attività a un processo](/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
 Per altre informazioni su come rendere persistente l'output delle attività con l'API del servizio Batch, vedere [Rendere persistenti i dati di attività in Archiviazione di Azure con l'API del servizio Batch](batch-task-output-files.md).
 

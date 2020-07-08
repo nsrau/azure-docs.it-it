@@ -7,16 +7,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 633656af72790c7dfebeee567713875ce0d609b4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798140"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964210"
 ---
 # <a name="cloud-solution-provider-program"></a>Programma per provider di soluzioni cloud
 
-Questo articolo illustra come configurare l'offerta in modo che sia disponibile per il programma Cloud Solution Provider (CSP). Oltre a pubblicare le offerte tramite le [vetrine Web del marketplace commerciale](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace), è anche possibile venderle tramite il programma CSP per raggiungere milioni di clienti Microsoft qualificati gestiti dal programma.
+Questo articolo illustra come configurare l'offerta in modo che sia disponibile per il programma Cloud Solution Provider (CSP). Oltre a pubblicare le offerte tramite le [vetrine Web del marketplace commerciale](comparing-appsource-azure-marketplace.md), è anche possibile venderle tramite il programma CSP per raggiungere milioni di clienti Microsoft qualificati gestiti dal programma.
 
 È possibile configurare offerte nuove o esistenti in modo che siano disponibili nel programma CSP per il consenso esplicito. Ciò consente ai partner CSP di vendere i prodotti e creare soluzioni in bundle per i clienti.
 
@@ -191,7 +191,7 @@ Se si è dato il consenso esplicitamente per il canale CSP nel portale Cloud Par
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visitare la [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+Visitare la [Guida alla pubblicazione per Azure Marketplace e AppSource](marketplace-publishers-guide.md).
 
 Per altre informazioni sui servizi per l'immissione sul mercato del marketplace, vedere [Servizi per l'immissione sul mercato](https://partner.microsoft.com/reach-customers/gtm).
 

@@ -5,16 +5,16 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 21ae6e0a190875e3e541eb858ec38658ce191ee6
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: ace3fe7aee6b9ffc7226448b455bcfea1f931458
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726503"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964873"
 ---
 # <a name="rendering-applications"></a>Applicazioni per il rendering
 
-Per usare le applicazioni per il rendering è necessario creare attività e processi Batch. La proprietà della riga di comando dell'attività specifica la riga di comando e i parametri appropriati.  Il modo più semplice per creare attività di processo consiste nell'uso di modelli di Batch Explorer, come illustrato in [questo articolo](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  I modelli possono essere visualizzati e, se necessario, è possibile crearne versioni modificate.
+Per usare le applicazioni per il rendering è necessario creare attività e processi Batch. La proprietà della riga di comando dell'attività specifica la riga di comando e i parametri appropriati.  Il modo più semplice per creare attività di processo consiste nell'uso di modelli di Batch Explorer, come illustrato in [questo articolo](./batch-rendering-using.md#using-batch-explorer).  I modelli possono essere visualizzati e, se necessario, è possibile crearne versioni modificate.
 
 Questo articolo presenta una breve descrizione di come eseguire ogni applicazione per il rendering.
 

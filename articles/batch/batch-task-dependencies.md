@@ -4,21 +4,21 @@ description: Creare attività che dipendono dal completamento di altre attività
 ms.topic: how-to
 ms.date: 05/22/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42cf24758c64f107723ae0907db08bd4b757a15a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 4aad67b4537befd251798aac7601bc4efcc276f2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726384"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965230"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creare relazioni tra attività per eseguire attività che dipendono da altre attività
 
 È possibile definire dipendenze delle attività per eseguire un'attività o un set di attività solo dopo il completamento di un'attività padre. Ecco alcuni degli scenari in cui le dipendenze delle attività sono utili:
 
-* Carichi di lavoro di tipo MapReduce nel cloud.
-* Processi le cui attività di elaborazione dati può essere espressa come grafo aciclico diretto (DAG).
-* Processi di pre-rendering e post-rendering, in cui ogni attività deve essere completata prima di poter avviare quella successiva.
-* Qualsiasi altro processo in cui le attività downstream dipendono l'output delle attività upstream.
+- Carichi di lavoro di tipo MapReduce nel cloud.
+- Processi le cui attività di elaborazione dati può essere espressa come grafo aciclico diretto (DAG).
+- Processi di pre-rendering e post-rendering, in cui ogni attività deve essere completata prima di poter avviare quella successiva.
+- Qualsiasi altro processo in cui le attività downstream dipendono l'output delle attività upstream.
 
 Tramite le dipendenze delle attività di Batch è possibile creare attività di cui pianificare l'esecuzione nei nodi di calcolo dopo il completamento di una o più attività padre. Ad esempio, è possibile creare un processo che esegue il rendering di ogni fotogramma di un film 3D con le attività parallele separate. L'attività finale, ovvero "attività di unione", unisce i fotogrammi sottoposti a rendering in un filmato completo solo dopo che è stato eseguito il rendering di tutti i fotogrammi.
 
@@ -27,9 +27,11 @@ Per impostazione predefinita, l'esecuzione delle attività dipendenti è pianifi
 È possibile creare attività che dipendono da altre attività in una relazione uno-a-uno o uno-a-molti. È anche possibile creare una dipendenza da un intervallo, in cui un'attività dipende dal completamento di un gruppo di attività all'interno di un intervallo di ID attività specifico. È possibile combinare questi tre scenari di base per creare relazioni molti-a-molti.
 
 ## <a name="task-dependencies-with-batch-net"></a>Relazioni tra attività con Batch .NET
+
 Questo articolo illustra la configurazione di relazioni tra attività tramite la libreria [Batch .NET][net_msdn]. Viene illustrato prima come [abilitare le dipendenze tra attività](#enable-task-dependencies) nei processi, quindi viene spiegato come [configurare un'attività con dipendenze](#create-dependent-tasks). Viene inoltre descritto come specificare un'azione di dipendenza per l'esecuzione di attività dipendenti se l'attività padre non riesce. Vengono infine illustrati gli [scenari delle relazione](#dependency-scenarios) supportate da Batch.
 
 ## <a name="enable-task-dependencies"></a>Abilitare le relazioni tra attività
+
 Per usare le dipendenze delle attività nell'applicazione Batch, è innanzitutto necessario configurare il processo per l'uso delle dipendenze. In Batch .NET abilitare la funzionalità in [CloudJob][net_cloudjob] impostando la rispettiva proprietà [UsesTaskDependencies][net_usestaskdependencies] su `true`:
 
 ```csharp
@@ -43,6 +45,7 @@ unboundJob.UsesTaskDependencies = true;
 Nel frammento di codice precedente "batchClient" è un'istanza della classe [BatchClient][net_batchclient].
 
 ## <a name="create-dependent-tasks"></a>Creare attività dipendenti
+
 Per creare un'attività che dipende dal completamento di una o più attività padre, è possibile specificare che l'attività "dipende" dalle altre attività. In Batch .NET configurare la proprietà [CloudTask][net_cloudtask].[DependsOn][net_dependson] con un'istanza della classe [TaskDependencies][net_taskdependencies]:
 
 ```csharp
@@ -58,13 +61,12 @@ Questo frammento di codice crea un'attività dipendente con ID attività "Flower
 
 > [!NOTE]
 > Per impostazione predefinita, un'attività viene considerata correttamente completata quando l'attività è in **stato completato** e il **codice di uscita** è `0`. In Batch .NET ciò corrisponde a un valore della proprietà [CloudTask][net_cloudtask].[State][net_taskstate] pari a `Completed` e il valore della proprietà [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] è `0`. Per informazioni su come modificare questa impostazione, vedere la sezione [Azioni di dipendenza](#dependency-actions).
-> 
-> 
 
 ## <a name="dependency-scenarios"></a>scenari delle relazione
+
 In Azure Batch è possibile usare tre scenari di relazioni tra attività di base, ovvero uno-a-uno, uno-a-molti e la relazione tra intervalli di ID. Questi scenari possono essere combinati per ottenere un quarto scenario, ovvero molti-a-molti.
 
-| Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Esempio |  |
+| Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Esempio | Illustrazione |
 |:---:| --- | --- |
 |  [Uno-a-uno](#one-to-one) |L'*attivitàB* dipende dall'*attivitàA* <p/> L'*attivitàB* sarà pianificata per l'esecuzione solo dopo il completamento corretto dell'*attivitàA* |![Diagramma: relazione uno-a-uno tra attività][1] |
 |  [Uno-a-molti](#one-to-many) |L'*attivitàC* dipende sia dall'*attivitàA* che dall'*attivitàB*. <p/> L'*attivitàC* sarà pianificata per l'esecuzione solo dopo il completamento corretto dell'*attivitàA* e dell'*attivitàB* |![Diagramma: relazione uno-a-molti tra attività][2] |
@@ -76,6 +78,7 @@ In Azure Batch è possibile usare tre scenari di relazioni tra attività di base
 > Negli esempi di questa sezione un'attività dipendente viene eseguita solo dopo che le attività padre vengono completate correttamente. Questo comportamento è quello predefinito per un'attività dipendente. È possibile eseguire un'attività dipendente dopo che un'attività padre non riesce specificando un'azione di dipendenza per sostituire il comportamento predefinito. Per informazioni dettagliate, vedere la sezione [Azioni di dipendenza](#dependency-actions).
 
 ### <a name="one-to-one"></a>Uno-a-uno
+
 In una relazione uno-a-uno un'attività dipende dal corretto completamento di una sola attività padre. Per creare la dipendenza, specificare un solo ID attività nel metodo statico [TaskDependencies][net_taskdependencies].[OnId][net_onid] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
 
 ```csharp
@@ -90,6 +93,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Uno-a-molti
+
 In una relazione uno-a-molti un'attività dipende dal completamento di più attività padre. Per creare la dipendenza, specificare una raccolta di ID attività nel metodo statico [TaskDependencies][net_taskdependencies].[OnId][net_onids] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
 
 ```csharp
@@ -106,17 +110,16 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### <a name="task-id-range"></a>Intervallo di ID attività
+
 In una dipendenza da un intervallo di attività padre un'attività dipende dal completamento delle attività il cui ID è compreso all'interno di un intervallo.
 Per creare la dipendenza, specificare il primo e l'ultimo ID attività dell'intervallo nel metodo statico [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
 > Quando si usano intervalli di ID attività per le dipendenze, verranno selezionate solo le attività con ID che rappresentano valori interi. Pertanto, l'intervallo `1..10` selezionerà le attività `3` e `7`, ma non `5flamingoes`. 
-> 
+>
 > Gli zeri iniziali non sono rilevanti per la valutazione delle dipendenze nell'intervallo, per cui le attività con gli identificatori di stringa `4`, `04` e `004` saranno tutte *all'interno* dell'intervallo e verranno tutte considerate attività `4`, in modo che la prima a essere completata soddisferà la dipendenza.
-> 
+>
 > Ogni attività compresa nell'intervallo deve soddisfare la dipendenza attraverso il corretto completamento o il completamento con un errore associato a un'azione di dipendenza impostata su **Satisfy**. Per informazioni dettagliate, vedere la sezione [Azioni di dipendenza](#dependency-actions).
->
->
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
@@ -193,6 +196,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 ```
 
 ## <a name="code-sample"></a>Esempio di codice
+
 Il progetto di esempio [TaskDependencies][github_taskdependencies] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio mostra:
 
 - Come abilitare la dipendenza delle attività in un processo
@@ -200,31 +204,29 @@ Il progetto di esempio [TaskDependencies][github_taskdependencies] è uno degli 
 - Come eseguire queste attività in un pool di nodi di calcolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-### <a name="application-deployment"></a>Distribuzione dell'applicazione
-La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di Batch offre un modo semplice per distribuire e controllare le versioni delle applicazioni eseguite dalle attività nei nodi di calcolo.
 
-### <a name="installing-applications-and-staging-data"></a>Installazione delle applicazioni e staging dei dati
-Per una panoramica dei metodi di preparazione dei nodi per l'esecuzione di attività, vedere [Installing applications and staging data on Batch compute nodes][forum_post] (Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per copiare applicazioni, dati di input di attività e altri file nei nodi di calcolo.
+- La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di Batch offre un modo semplice per distribuire e controllare le versioni delle applicazioni eseguite dalle attività nei nodi di calcolo.
+- Per una panoramica dei metodi di preparazione dei nodi per l'esecuzione di attività, vedere [Installing applications and staging data on Batch compute nodes][forum_post] (Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per copiare applicazioni, dati di input di attività e altri file nei nodi di calcolo.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
-[net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-[net_dependson]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.dependson.aspx
-[net_exitcode]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.exitcode.aspx
-[net_exitconditions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitconditions
-[net_exitoptions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions
-[net_dependencyaction]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions
-[net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
-[net_onid]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onid.aspx
-[net_onids]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onids.aspx
-[net_onidrange]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onidrange.aspx
-[net_taskexecutioninformation]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.aspx
-[net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
-[net_usestaskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.usestaskdependencies.aspx
-[net_taskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskdependencies.aspx
+[net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
+[net_cloudjob]: /dotnet/api/microsoft.azure.batch.cloudjob
+[net_cloudtask]: /dotnet/api/microsoft.azure.batch.cloudtask
+[net_dependson]: /dotnet/api/microsoft.azure.batch.cloudtask
+[net_exitcode]: /dotnet/api/microsoft.azure.batch.taskexecutioninformation
+[net_exitconditions]: /dotnet/api/microsoft.azure.batch.exitconditions
+[net_exitoptions]: /dotnet/api/microsoft.azure.batch.exitoptions
+[net_dependencyaction]: /dotnet/api/microsoft.azure.batch.exitoptions
+[net_msdn]: /dotnet/api/microsoft.azure.batch
+[net_onid]: /dotnet/api/microsoft.azure.batch.taskdependencies
+[net_onids]: /dotnet/api/microsoft.azure.batch.taskdependencies
+[net_onidrange]: /dotnet/api/microsoft.azure.batch.taskdependencies
+[net_taskexecutioninformation]: /dotnet/api/microsoft.azure.batch.taskexecutioninformation
+[net_taskstate]: /dotnet/api/microsoft.azure.batch.common.taskstate
+[net_usestaskdependencies]: /dotnet/api/microsoft.azure.batch.cloudjob
+[net_taskdependencies]: /dotnet/api/microsoft.azure.batch.taskdependencies
 
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagramma: relazione uno-a-uno"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagramma: relazione uno-a-molti"

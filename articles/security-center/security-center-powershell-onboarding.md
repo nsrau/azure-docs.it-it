@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ca5cdcb0410d52f40e28c66a839bddcb34cc8a8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80435486"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963360"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
 
@@ -45,54 +45,55 @@ In questo esempio si abiliterà il Centro sicurezza per una sottoscrizione con I
 
 Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa procedura:
 
-1.  Eseguire PowerShell come amministratore.
-2.  Eseguire i comandi seguenti in PowerShell:
+1. Eseguire PowerShell come amministratore.
+
+1. Eseguire i comandi seguenti in PowerShell:
       
-        Set-ExecutionPolicy -ExecutionPolicy AllSigned
-        Install-Module -Name Az.Security -Force
+    ```Set-ExecutionPolicy -ExecutionPolicy AllSigned```
+
+    ```Install-Module -Name Az.Security -Force```
 
 ## <a name="onboard-security-center-using-powershell"></a>Caricare il Centro sicurezza usando PowerShell
 
-1.  Registrare le sottoscrizioni nel provider di risorse del Centro sicurezza:
+1. Registrare le sottoscrizioni nel provider di risorse del Centro sicurezza:
 
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
-2.  (Facoltativo) Impostare il livello di copertura (piano tariffario) delle sottoscrizioni (se non è definito, il piano tariffario è impostato su Gratuito):
+    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
+1. (Facoltativo) Impostare il livello di copertura (piano tariffario) delle sottoscrizioni (se non è definito, il piano tariffario è impostato su Gratuito):
 
-3.  Configurare un'area di lavoro Log Analytics a cui gli agenti invieranno i report. È necessario avere già creato un'area di lavoro Log Analytics a cui le VM della sottoscrizione invieranno i report. È possibile definire l'invio di report alla stessa area di lavoro da più sottoscrizioni. Se non è specificata, verrà usata l'area di lavoro predefinita.
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
-        Set-AzSecurityWorkspaceSetting -Name "default" -Scope
-        "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
+    ```Set-AzSecurityPricing -Name "default" -PricingTier "Standard"```
 
-4.  Eseguire il provisioning automatico dell'agente di Log Analytics nelle macchine virtuali di Azure:
+1. Configurare un'area di lavoro Log Analytics a cui gli agenti invieranno i report. È necessario avere già creato un'area di lavoro Log Analytics a cui le VM della sottoscrizione invieranno i report. È possibile definire l'invio di report alla stessa area di lavoro da più sottoscrizioni. Se non è specificata, verrà usata l'area di lavoro predefinita.
+
+    ```Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"```
+
+1. Eseguire il provisioning automatico dell'agente di Log Analytics nelle macchine virtuali di Azure:
     
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
     
-        Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
+    ```Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision```
 
     > [!NOTE]
     > È consigliabile abilitare il provisioning automatico per assicurarsi che le macchine virtuali di Azure siano protette automaticamente dal Centro sicurezza di Azure.
     >
 
-5.  (Facoltativo) È consigliabile definire i dettagli dei contatti di sicurezza per le sottoscrizioni caricate, che verranno usati come destinatari delle notifiche e degli avvisi generati dal Centro sicurezza:
+1. (Facoltativo) È consigliabile definire i dettagli dei contatti di sicurezza per le sottoscrizioni caricate, che verranno usati come destinatari delle notifiche e degli avvisi generati dal Centro sicurezza:
 
-        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
+    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert```
 
-6.  Assegnare i criteri predefiniti del Centro sicurezza:
+1. Assegnare i criteri predefiniti del Centro sicurezza:
 
-        Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
-        New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'```
 
-È stato completato l'onboarding del Centro sicurezza di Azure con PowerShell.
+    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
+
+Il Centro sicurezza di Azure è stato caricato con PowerShell.
 
 È ora possibile usare i cmdlet di PowerShell con gli script di automazione per eseguire l'iterazione a livello di codice nelle sottoscrizioni e nelle risorse. Ciò consente di risparmiare tempo e riduce la probabilità di errori umani. È possibile usare questo [script di esempio](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) come riferimento.
-
-
 
 
 
@@ -100,7 +101,7 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni su come usare PowerShell per automatizzare l'onboarding nel Centro sicurezza, vedere l'articolo seguente:
 
-* [Az.Security](https://docs.microsoft.com/powershell/module/az.security).
+* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security)
 
 Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 

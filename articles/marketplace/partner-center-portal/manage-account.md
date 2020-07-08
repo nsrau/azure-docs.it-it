@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 76eb0638d2b67e7859b25cdda8a6f4cbda285920
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 6dbadee427abfa82fb32ebb7db85adf627dd5e0a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800210"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964839"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire il proprio account del marketplace commerciale nel Centro per i partner
 
@@ -128,7 +128,7 @@ Se si usa un modello per distribuire un prodotto disponibile su Azure Marketplac
 
 La creazione di report viene effettuata in base al valore partner (ID partner Microsoft) e ai GUID. È anche possibile tenere traccia dei GUID a un livello più granulare allineandosi a ogni piano dell'offerta.
 
-Per altre informazioni, vedere le [domande frequenti sulla verifica dell'utilizzo da parte dei clienti di Azure con i GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
+Per altre informazioni, vedere la pagina relativa alla [Verifica dell'utilizzo dei clienti di Azure con GUID](../azure-partner-customer-usage-attribution.md#faq).
 
 ## <a name="create-a-billing-profile"></a>Creare un profilo di fatturazione
 
@@ -138,7 +138,7 @@ L'indirizzo di fatturazione viene prepopolato in base alla persona giuridica ed 
 
 ## <a name="multi-user-account-management"></a>Gestione di account multiutente
 
-Il Centro per i partner utilizza [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) per l'accesso e la gestione di account multiutente. L'istanza di Azure AD dell'organizzazione viene automaticamente associata all'account del Centro per i partner durante il processo di registrazione.
+Il Centro per i partner utilizza [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) per l'accesso e la gestione di account multiutente. L'istanza di Azure AD dell'organizzazione viene automaticamente associata all'account del Centro per i partner durante il processo di registrazione.
 
 ## <a name="manage-users"></a>Gestire gli utenti
 
@@ -168,7 +168,7 @@ Per aggiungere utenti all'account del Centro per i partner già esistenti nell'[
 
 ### <a name="create-new-users"></a>Creare nuovi utenti
 
-Per creare nuovi account utente, è necessario avere un account con autorizzazioni di [**amministratore globale**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+Per creare nuovi account utente, è necessario avere un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). 
 
 1. Passare a **Utenti** (in **Impostazioni account**), selezionare **Aggiungi utenti**, quindi scegliere **Crea nuovi utenti**.
 1. Immettere un nome, un cognome e un nome utente per ogni nuovo utente. 
@@ -182,7 +182,7 @@ La creazione di un nuovo utente nel Centro per i partner creerà anche un accoun
 
 ### <a name="invite-new-users-by-email"></a>Invitare nuovi utenti tramite posta elettronica
 
-Per invitare tramite posta elettronica utenti che attualmente non fanno parte dell'account aziendale (tenant di Azure AD) della società, è necessario un account con autorizzazioni di [**amministratore globale**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+Per invitare tramite posta elettronica utenti che attualmente non fanno parte dell'account aziendale (tenant di Azure AD) della società, è necessario un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 1. Passare a **Utenti** (in **Impostazioni account**), selezionare **Aggiungi utenti**, quindi scegliere **Invitare gli utenti tramite posta elettronica**.
 2. Immettere uno o più indirizzi di posta elettronica (fino a dieci), separati da virgola o punto e virgola.
@@ -202,7 +202,7 @@ Per rimuovere un utente dall'account aziendale (tenant di Azure AD), passare a *
 
 ### <a name="change-a-user-password"></a>Modificare una password utente
 
-Se uno degli utenti deve modificare la password, può farlo autonomamente se al momento della creazione dell'account si è specificato un **indirizzo e-mail per il ripristino della password**. È anche possibile aggiornare la password di un utente seguendo questa procedura. Per modificare la password di un utente nell'account aziendale della società (tenant di Azure AD), è necessario aver effettuato l'accesso a un account con autorizzazioni di [**amministratore globale**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Si noti che in questo modo verrà modificata la password dell'utente nel tenant di Azure AD, insieme alla password usata per accedere al Centro per i partner.
+Se uno degli utenti deve modificare la password, può farlo autonomamente se al momento della creazione dell'account si è specificato un **indirizzo e-mail per il ripristino della password**. È anche possibile aggiornare la password di un utente seguendo questa procedura. Per modificare la password di un utente nell'account aziendale della società (tenant di Azure AD), è necessario aver effettuato l'accesso a un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). Si noti che in questo modo verrà modificata la password dell'utente nel tenant di Azure AD, insieme alla password usata per accedere al Centro per i partner.
 
 1. Nella pagina **Utenti** (in **Impostazioni account**) selezionare il nome dell'account utente che si vuole modificare.
 2. Selezionare il pulsante **Reimposta password** nella parte inferiore della pagina.
@@ -264,7 +264,7 @@ Per concedere all'account di una nuova applicazione Azure AD l'accesso al Centro
 1. Nella pagina **Utenti** (in **Impostazioni account**) selezionare **Aggiungi applicazioni Azure AD**.
 2. Nella pagina successiva selezionare **Nuova applicazione Azure AD**.
 3. Immettere l'**URL di risposta** per la nuova applicazione Azure AD. Si tratta dell'URL dove gli utenti possono accedere e usare l'applicazione Azure AD (noto anche come URL dell'app o URL di accesso). L'**URL di risposta** non può contenere più di 256 caratteri e deve essere univoco all'interno della directory.
-4. Immettere l'**URI ID app** per la nuova applicazione Azure AD. Si tratta di un identificatore logico per l'applicazione Azure AD, presentato quando viene inviata ad Azure AD una richiesta di accesso Single Sign-On. Si noti che l'**URI ID app** deve essere univoco per ogni applicazione Azure AD nella directory. Questo ID può contenere al massimo 256 caratteri. Per altre informazioni sull'URI ID app, vedere [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+4. Immettere l'**URI ID app** per la nuova applicazione Azure AD. Si tratta di un identificatore logico per l'applicazione Azure AD, presentato quando viene inviata ad Azure AD una richiesta di accesso Single Sign-On. Si noti che l'**URI ID app** deve essere univoco per ogni applicazione Azure AD nella directory. Questo ID può contenere al massimo 256 caratteri. Per altre informazioni sull'URI ID app, vedere [integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
 5. Nella sezione **Ruoli** specificare i ruoli o le autorizzazioni personalizzate per l'applicazione Azure AD.
 6. Selezionare **Salva**.
 
@@ -328,7 +328,7 @@ Per creare un altro tenant di Azure AD con l'account del Centro per i partner:
 3. Selezionare **Crea** per confermare il nuovo dominio e le informazioni sull'account.
 4. Accedere con il nuovo nome utente e la nuova password di amministratore globale di Azure AD per iniziare ad [aggiungere e gestire gli utenti](#manage-users).
 
-Per altre informazioni sulla creazione di nuovi tenant all'interno del portale di Azure, invece che tramite il portale del Centro per i partner, vedere l'articolo [Creare un nuovo tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+Per altre informazioni sulla creazione di nuovi tenant all'interno del portale di Azure, invece che tramite il portale del Centro per i partner, vedere l'articolo [Creare un nuovo tenant in Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ### <a name="remove-a-tenant"></a>Rimuovere un tenant
 

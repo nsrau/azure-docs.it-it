@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: d75ba63955deb3fb6ef4a1207754097b0b3be532
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "64868111"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962680"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si eseguono processi di codifica, spesso è necessario monitorarne l'avanzamento. È possibile configurare Servizi multimediali per recapitare le notifiche ad [archiviazione code di Azure](../../storage/storage-dotnet-how-to-use-queues.md). È possibile controllare l'avanzamento del processo ottenendo le notifiche da archiviazione code. 
 
@@ -53,7 +53,10 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 5. Collega l'endpoint di notifica al processo e invia il processo di codifica. A un processo possono essere collegati anche più endpoint di notifica.
 6. Passa **NotificationJobState.FinalStatesOnly** al metodo **AddNew**. (In questo esempio vanno notati solo gli stati finali dell'elaborazione dei processi.)
 
-        job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```csharp
+    job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```
+
 7. Se si passa **NotificationJobState.All**, si ricevono tutte le notifiche di modifica dello stato: in coda, pianificate, in elaborazione e completate. Tuttavia, come indicato in precedenza, il servizio di archiviazione code non garantisce un recapito ordinato. Per ordinare i messaggi, usare la proprietà **Timestamp** (definita nel tipo **EncodingJobMessage** nell'esempio seguente). Sono possibili i messaggi duplicati. Per verificare la presenza di duplicati, usare la **proprietà ETag** (definita nel tipo **EncodingJobMessage**). È possibile inoltre che alcune notifiche di modifica dello stato vengano ignorate.
 8. Attende che il processo abbia raggiunto lo stato Completato controllando la coda ogni 10 secondi. Elimina i messaggi man mano che vengono elaborati.
 9. Elimina la coda e l'endpoint di notifica.
@@ -67,7 +70,7 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-1. Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+1. Configurare l'ambiente di sviluppo e popolare il file di app.config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 2. Creare una nuova cartella, in un punto qualsiasi nell'unità locale, e copiare un file con estensione mp4 di cui si vuole eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\Media".
 3. Aggiungere un riferimento alla libreria **System.Runtime.Serialization**.
 
@@ -344,36 +347,37 @@ namespace JobNotification
 
 L'esempio precedente ha generato l'output seguente: i valori possono variare.
 
-    Created assetFile BigBuckBunny.mp4
-    Upload BigBuckBunny.mp4
-    Done uploading of BigBuckBunny.mp4
+```output
+Created assetFile BigBuckBunny.mp4
+Upload BigBuckBunny.mp4
+Done uploading of BigBuckBunny.mp4
 
-    EventType: NotificationEndPointRegistration
-    MessageVersion: 1.0
-    ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
-    TimeStamp: 2013-05-14T20:22:37
-        NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
-        State: Registered
-        Name: dde957b2-006e-41f2-9869-a978870ac620
-        Created: 2013-05-14T20:22:35
+EventType: NotificationEndPointRegistration
+MessageVersion: 1.0
+ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
+TimeStamp: 2013-05-14T20:22:37
+    NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
+    State: Registered
+    Name: dde957b2-006e-41f2-9869-a978870ac620
+    Created: 2013-05-14T20:22:35
 
-    EventType: JobStateChange
-    MessageVersion: 1.0
-    ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
-    TimeStamp: 2013-05-14T20:24:40
-        JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
-        JobName: My MP4 to Smooth Streaming encoding job
-        NewState: Finished
-        OldState: Processing
-        AccountName: westeuropewamsaccount
-    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
-    State: Finished
-
+EventType: JobStateChange
+MessageVersion: 1.0
+ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
+TimeStamp: 2013-05-14T20:24:40
+    JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
+    JobName: My MP4 to Smooth Streaming encoding job
+    NewState: Finished
+    OldState: Processing
+    AccountName: westeuropewamsaccount
+job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
+State: Finished
+```
 
 ## <a name="next-step"></a>Passaggio successivo
 Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

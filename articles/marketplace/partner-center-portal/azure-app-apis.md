@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: e50534639f5f46b1675ba5c074fb8fdd843ac87e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 3d86329313c1b6af1e4723dc64c982f9c81ea86b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770058"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964975"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API di invio del Centro per i partner per eseguire l'onboarding di app di Azure nel Centro per i partner
 
@@ -29,7 +29,7 @@ Sono disponibili alcune risorse programmatiche necessarie per usare l'API del Ce
 
 Prima di iniziare a scrivere il codice per chiamare l'API di invio del Centro per i partner, verificare di aver soddisfatto i prerequisiti seguenti.
 
-- L'utente o l'organizzazione deve disporre di una directory di Azure AD e dell'autorizzazione come [amministratore aziendale](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per la directory. Se si usa già Office 365 o altri servizi aziendali Microsoft, si dispone già di una directory di Azure AD. In caso contrario, è possibile [creare una nuova directory di Azure AD nel Centro per i partner](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) senza costi aggiuntivi.
+- L'utente o l'organizzazione deve disporre di una directory di Azure AD e dell'autorizzazione come [amministratore aziendale](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) per la directory. Se si usa già Microsoft 365 o altri servizi aziendali di Microsoft, è già presente Azure AD directory. In caso contrario, è possibile [creare una nuova directory di Azure AD nel Centro per i partner](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) senza costi aggiuntivi.
 
 - È necessario [associare un'applicazione Azure AD all'account del Centro per i partner](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) e ottenere l'ID tenant, l'ID client e la chiave. Questi valori sono necessari per ottenere un token di accesso di Azure AD, che sarà usato nelle chiamate all'API di invio di Microsoft Store.
 

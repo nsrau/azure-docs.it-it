@@ -3,12 +3,12 @@ title: Modello di applicazione Service Fabric di Azure
 description: Come modellare e descrivere le applicazioni e i servizi in Azure Service Fabric usando i file manifesto dell'applicazione e del servizio.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84e6b2309fdb206771d4ea01aa03c7f355d6ff19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75551880"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963734"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modellare un'applicazione in Service Fabric
 Questo articolo fornisce una panoramica del modello applicativo di Azure Service Fabric e come definire un'applicazione e un servizio attraverso file manifesto.
@@ -22,7 +22,7 @@ Un tipo di applicazione è una categorizzazione di un'applicazione e consiste in
 
 Le classi (o "tipi") di applicazioni e servizi vengono descritte nei file XML (manifesti dell'applicazione e manifesti del servizio).  I manifesti descrivono applicazioni e servizi e sono i modelli in base ai quali è possibile creare istanze delle applicazioni dall'archivio immagini del cluster.  I manifesti sono descritti in dettaglio in [Manifesti dell'applicazione e del servizio](service-fabric-application-and-service-manifests.md). La definizione dello schema per i file ServiceManifest.xml e ApplicationManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\Programmi\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. Lo schema XML è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
 
-Il codice di istanze di applicazioni diverse viene eseguito come processo separato anche se ospitato dallo stesso nodo di Service Fabric. Il ciclo di vita di ogni istanza dell'applicazione può inoltre essere gestito, ad esempio aggiornato, in modo indipendente. Il diagramma seguente illustra come i tipi di applicazioni siano costituiti da tipi di servizi, che a loro volta sono costituiti da codice, configurazione e pacchetti di dati. Per semplificare il diagramma, vengono visualizzati solo i pacchetti codice/configurazione/dati relativi a `ServiceType4`, anche se ogni tipo di servizio può includere tutti questi tipi di pacchetti o solo alcuni.
+Il codice per istanze di applicazione diverse viene eseguito come processo separato anche se ospitato dallo stesso nodo Service Fabric. Il ciclo di vita di ogni istanza dell'applicazione può inoltre essere gestito, ad esempio aggiornato, in modo indipendente. Il diagramma seguente illustra come i tipi di applicazioni siano costituiti da tipi di servizi, che a loro volta sono costituiti da codice, configurazione e pacchetti di dati. Per semplificare il diagramma, vengono visualizzati solo i pacchetti codice/configurazione/dati relativi a `ServiceType4`, anche se ogni tipo di servizio può includere tutti questi tipi di pacchetti o solo alcuni.
 
 ![Tipi di applicazioni di Service Fabric e tipi di servizio][cluster-imagestore-apptypes]
 

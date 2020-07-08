@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 3c5e22c14d0df46ddac9a503f43df8d54c3c93d5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "61244230"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964754"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET 
 
@@ -408,9 +408,12 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 * Creare un processo di codifica.
 * Ottenere un riferimento al codificatore Media Encoder Standard.
 * Caricare il set di impostazioni [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) o [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) che contiene la codifica dei set di impostazioni e le informazioni necessarie per generare anteprime. È possibile salvare questo [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) o [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in un file e usare il codice seguente per caricare il file.
-  
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the XML (or JSON) from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
+
 * Aggiungere una singola attività di codifica al processo. 
 * Specificare l’asset di input da codificare.
 * Creare un asset di output che contenga l'asset codificato.
@@ -568,9 +571,9 @@ Mentre è in corso il processo di codifica, è possibile controllarne lo [stato 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
