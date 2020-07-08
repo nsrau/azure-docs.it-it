@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855134"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -32,6 +32,24 @@ ms.locfileid: "83714050"
 
 > [!NOTE]
 > Identità gestite per le risorse di Azure è il nuovo nome per il servizio precedentemente noto come identità del servizio gestita.
+
+
+### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Come è possibile trovare le risorse con un'identità gestita?
+
+È possibile trovare l'elenco delle risorse che hanno un'identità gestita assegnata dal sistema usando il comando dell'interfaccia della riga di comando di Azure seguente: 
+
+`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
+
+
+
+
+### <a name="do-managed-identities-have-a-backing-app-object"></a>Le identità gestite hanno un oggetto app di supporto?
+
+No. Le identità gestite e le registrazioni App Azure AD non sono la stessa cosa nella directory. 
+
+Registrazioni app hanno due componenti: un oggetto applicazione e un oggetto entità servizio. Le identità gestite per le risorse di Azure hanno solo uno di questi componenti: un oggetto entità servizio. 
+
+Le identità gestite non hanno un oggetto applicazione nella directory, ovvero ciò che viene comunemente usato per concedere le autorizzazioni dell'app per MS Graph. Al contrario, le autorizzazioni di Microsoft Graph per le identità gestite devono essere concesse direttamente all'entità servizio.  
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Le identità gestite per le risorse di Azure funzionano con i Servizi cloud di Azure?
 
@@ -114,6 +132,8 @@ Soluzione alternativa per le identità gestite in una sottoscrizione che è stat
 
  - Per le identità gestite assegnate dal sistema: disabilitare e abilitare di nuovo. 
  - Per le identità gestite assegnate dall'utente: eliminare, ricreare e collegare nuovamente alle risorse necessarie (ad esempio macchine virtuali)
+
+Per altre informazioni, vedere [trasferire una sottoscrizione di Azure a un'altra directory di Azure ad (anteprima)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Spostamento di un'identità gestita assegnata dall'utente in un'altra sottoscrizione o in un gruppo di risorse diverso
 

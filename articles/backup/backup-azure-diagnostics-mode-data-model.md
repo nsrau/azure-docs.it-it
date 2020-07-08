@@ -3,12 +3,12 @@ title: Modello di dati di Monitoraggio di Azure
 description: In questo articolo si apprenderanno i dettagli del modello di dati di Log Analytics di Monitoraggio di Azure per i dati di Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 78d43e4c65f31b47f4b6070f071c932692cee883
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
-ms.translationtype: HT
+ms.openlocfilehash: e776649ff22e3249e2472adbe298c869ff5c946a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83707990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854758"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
@@ -22,7 +22,7 @@ Usare il modello di dati di Log Analytics per creare avvisi personalizzati da Lo
 
 ## <a name="using-azure-backup-data-model"></a>Uso del modello di dati di Backup di Azure
 
-È possibile usare i campi seguenti forniti come parte del modello di dati per creare oggetti visivi, query personalizzate e dashboard in base alle esigenze.
+È possibile usare i campi seguenti forniti come parte del modello di dati per creare oggetti visivi, query personalizzate e dashboard in base ai propri requisiti.
 
 ### <a name="alert"></a>Avviso
 
@@ -466,6 +466,30 @@ In precedenza, i dati di diagnostica per l'agente di Backup di Azure e per il ba
 Per motivi di compatibilità con le versioni precedenti, i dati di diagnostica per l'agente di Backup di Azure e per il backup delle macchine virtuali di Azure vengono attualmente inviati alla tabella di Diagnostica di Azure sia nello schema V1 che nello schema V2 (con lo schema V1 ora in un percorso di deprecazione). È possibile identificare quali record in Log Analytics appartengono allo schema V1 filtrando i record per SchemaVersion_s=="V1" nelle query di log. 
 
 Fare riferimento alla terza colonna, 'Description', nel [modello di dati ](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) descritto in precedenza per identificare le colonne che appartengono solo allo schema V1.
+
+### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Modifica delle query per l'uso dello schema V2
+Poiché lo schema V1 si trova in un percorso di deprecazione, è consigliabile usare solo lo schema V2 in tutte le query personalizzate sui dati di diagnostica di backup di Azure. Di seguito è riportato un esempio di come aggiornare le query per rimuovere la dipendenza dallo schema v1:
+
+1. Identificare se la query utilizza qualsiasi campo applicabile solo allo schema v1. Si supponga di disporre di una query per elencare tutti gli elementi di backup e i server protetti associati come indicato di seguito:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+````
+
+La query precedente usa il campo ProtectedServerUniqueId_s applicabile solo allo schema v1. L'equivalente dello schema V2 di questo campo è ProtectedContainerUniqueId_s (vedere le tabelle precedenti). Il campo BackupItemUniqueId_s è applicabile anche allo schema V2 e lo stesso campo può essere utilizzato in questa query.
+
+2. Aggiornare la query per utilizzare i nomi dei campi dello schema V2. È consigliabile usare il filtro ' where SchemaVersion_s = = "V2"' in tutte le query, in modo che solo i record corrispondenti allo schema V2 vengano analizzati dalla query:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| where SchemaVersion_s=="V2"
+| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
+````
 
 ## <a name="next-steps"></a>Passaggi successivi
 

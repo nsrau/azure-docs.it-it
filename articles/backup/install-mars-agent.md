@@ -3,12 +3,12 @@ title: Installare l'agente di Servizi di ripristino di Microsoft Azure (MARS)
 description: Informazioni su come installare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup di computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855233"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installare l'agente MARS di backup di Azure
 
@@ -42,7 +42,7 @@ I dati disponibili per il backup dipendono dalla posizione in cui è installato 
 
 ## <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
 
-Per impostazione predefinita, gli insiemi di credenziali usano l' [archiviazione con ridondanza geografica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Per impostazione predefinita, gli insiemi di credenziali usano l'[archiviazione con ridondanza geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
 * Se l'insieme di credenziali è il meccanismo di backup principale, si consiglia di usare GRS.
 * È possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per ridurre i costi di archiviazione di Azure.
@@ -66,11 +66,12 @@ Per modificare il tipo di replica di archiviazione:
 Se il computer ha accesso a Internet limitato, verificare che le impostazioni del firewall nel computer o nel proxy consentano gli URL e gli indirizzi IP seguenti:
 
 * URL
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * Indirizzi IP
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -82,6 +83,7 @@ Se il computer ha accesso a Internet limitato, verificare che le impostazioni de
 Per usare il peering pubblico, assicurarsi innanzitutto di accedere ai domini e agli indirizzi seguenti:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
@@ -133,7 +135,7 @@ Se l'agente è già stato installato in qualsiasi computer, verificare che sia i
 
 ## <a name="install-and-register-the-agent"></a>Installare e registrare l'agente
 
-1. Eseguire il file *MARSagentinstaller. exe* nei computer di cui si desidera eseguire il backup.
+1. Eseguire il file di *MARSagentinstaller.exe* nei computer di cui si desidera eseguire il backup.
 1. Nell'installazione guidata dell'agente MARS selezionare **impostazioni di installazione**. Scegliere la posizione in cui installare l'agente e scegliere un percorso per la cache. Selezionare quindi **Avanti**.
    * Backup di Azure usa la cache per archiviare gli snapshot dei dati prima di inviarli ad Azure.
    * Il percorso della cache deve avere uno spazio disponibile pari almeno al 5% delle dimensioni dei dati di cui eseguire il backup.
@@ -149,7 +151,7 @@ Se l'agente è già stato installato in qualsiasi computer, verificare che sia i
 
 1. Per l' **installazione**, esaminare i prerequisiti e selezionare **Installa**.
 1. Dopo l'installazione dell'agente, selezionare **procedi alla registrazione**.
-1. In registra l'insieme di credenziali della **procedura guidata** > server**individuare e**selezionare il file delle credenziali scaricato. Selezionare quindi **Avanti**.
+1. In registra l'insieme di credenziali della **procedura guidata server**  >  **Vault Identification**individuare e selezionare il file delle credenziali scaricato. Selezionare quindi **Avanti**.
 
     ![Aggiungere le credenziali dell'insieme di credenziali tramite la registrazione guidata server](./media/backup-configure-vault/register1.png)
 

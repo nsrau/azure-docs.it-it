@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 04/16/2020
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a4a0dfaeda18b3f68ddc3c7cc7333b8c994d174
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 977a90419c142e576fcf484562875d12c8dad451
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851768"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gestire le unità amministrative in Azure Active Directory
 
@@ -57,20 +57,24 @@ Per un controllo amministrativo più granulare in Azure Active Directory (Azure 
 
 Installare Azure AD PowerShell (anteprima) prima di provare a eseguire i comandi seguenti:
 
-    Connect-AzureAD
-    New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+```powershell
+Connect-AzureAD
+New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+```
 
 È possibile modificare i valori racchiusi tra virgolette, come richiesto.
 
 ### <a name="use-microsoft-graph"></a>USA Microsoft Graph
 
-    Http Request
-    POST /administrativeUnits
-    Request body
-    {
-        "displayName": "North America Operations",
-        "description": "North America Operations administration"
-    }
+```http
+Http Request
+POST /administrativeUnits
+Request body
+{
+  "displayName": "North America Operations",
+  "description": "North America Operations administration"
+}
+```
 
 ## <a name="remove-an-administrative-unit"></a>Rimuovere un'unità amministrativa
 
@@ -78,7 +82,7 @@ In Azure AD, è possibile rimuovere un'unità amministrativa che non è più nec
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-1. Nella portale di Azure passare a **Azure ad** > **unità amministrative**. 
+1. Nella portale di Azure passare a **Azure ad**  >  **unità amministrative**. 
 1. Selezionare l'unità amministrativa da eliminare, quindi selezionare **Elimina**. 
 1. Per confermare che si vuole eliminare l'unità amministrativa, selezionare **Sì**. L'unità amministrativa viene eliminata.
 
@@ -86,17 +90,21 @@ In Azure AD, è possibile rimuovere un'unità amministrativa che non è più nec
 
 ### <a name="use-powershell"></a>Usare PowerShell
 
-    $delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-    Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+```powershell
+$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+```
 
 È possibile modificare i valori racchiusi tra virgolette, come richiesto per l'ambiente specifico.
 
 ### <a name="use-the-graph-api"></a>Usare il API Graph
 
-    HTTP request
-    DELETE /administrativeUnits/{Admin id}
-    Request body
-    {}
+```http
+HTTP request
+DELETE /administrativeUnits/{Admin id}
+Request body
+{}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

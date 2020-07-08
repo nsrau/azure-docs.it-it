@@ -3,12 +3,12 @@ title: Configurare l'ambiente di sviluppo in Linux
 description: Installare il runtime e l'SDK e creare un cluster di sviluppo locale in Linux. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854792"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ L'installazione del runtime di Service Fabric e dell'SDK nel sottosistema di Win
 
 Queste versioni dei sistemi operativi sono supportate per lo sviluppo.
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16,04 ( `Xenial Xerus` ), 18,04 ( `Bionic Beaver` )
 
     Assicurarsi che il pacchetto `apt-transport-https` sia installato.
          
@@ -60,46 +60,40 @@ Per installare l'SDK e il pacchetto di runtime associato tramite lo strumento da
 ### <a name="ubuntu"></a>Ubuntu
 
 1. Aprire un terminale.
-2. Aggiungere il repository di Service Fabric all'elenco di origini.
+
+2. Aggiungere il `dotnet` repository all'elenco di origini corrispondente alla distribuzione.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. Aggiungere il repository `dotnet` all'elenco di origini.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. Aggiungere la nuova chiave Gnu Privacy Guard (GnuPG o GPG) al keyring di APT.
+3. Aggiungere la nuova chiave MS Open Tech GNU Privacy Guard (GnuPG o GPG) al portachiavi APT.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. Aggiungere la chiave GPG Docker ufficiale al keyring di APT.
+4. Aggiungere la chiave GPG Docker ufficiale al keyring di APT.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Configurare il repository di Docker.
+5. Configurare il repository di Docker.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Aggiungere la chiave JDK di Azul al keyring di APT e configurare il repository.
+6. Aggiungere la chiave JDK di Azul al keyring di APT e configurare il repository.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Aggiornare l'elenco dei pacchetti in base ai repository appena aggiunti.
+7. Aggiornare l'elenco dei pacchetti in base ai repository appena aggiunti.
 
     ```bash
     sudo apt-get update
@@ -179,7 +173,7 @@ Dopo aver completato l'installazione, avviare un cluster locale.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Aprire un Web browser e passare a **Service Fabric Explorer** (`http://localhost:19080/Explorer`). All'avvio del cluster viene visualizzato il dashboard di Service Fabric Explorer. Per il completamento della configurazione del cluster possono essere richiesti alcuni minuti. Se il browser non riesce ad aprire l'URL o Service Fabric Explorer non visualizza il sistema come pronto, attendere qualche minuto e riprovare.
+2. Aprire un Web browser e passare a **Service Fabric Explorer** ( `http://localhost:19080/Explorer` ). All'avvio del cluster viene visualizzato il dashboard di Service Fabric Explorer. Per il completamento della configurazione del cluster possono essere richiesti alcuni minuti. Se il browser non riesce ad aprire l'URL o Service Fabric Explorer non visualizza il sistema come pronto, attendere qualche minuto e riprovare.
 
     ![Service Fabric Explorer in Linux][sfx-linux]
 
@@ -261,11 +255,11 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 > 
 > In Ubuntu si consiglia di eseguire l'installazione direttamente dal sito di Eclipse invece di usare un programma di installazione di pacchetti (`apt` o `apt-get`). In questo modo si è certi di ottenere la versione più aggiornata di Eclipse. È possibile installare l'IDE di Eclipse per sviluppatori Java o per sviluppatori Java EE.
 
-1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando la **Guida** > **sui** > **Dettagli di installazione**di Eclipse. È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: plug-in Eclipse per Gradle).
+1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando la **Guida**  >  **sui**  >  **Dettagli di installazione**di Eclipse. È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: plug-in Eclipse per Gradle).
 
-2. Per installare il plug-in Service Fabric, selezionare **Guida** > **Installa nuovo software**.
+2. Per installare il plug-in Service Fabric, selezionare **Guida**  >  **Installa nuovo software**.
 
-3. Nella casella **work with** (USA) immettere **https\/:/dl.Microsoft.com/Eclipse**.
+3. Nella casella **work with** (USA) immettere **https: \/ /dl.Microsoft.com/Eclipse**.
 
 4. Selezionare **Aggiungi**.
 
@@ -275,7 +269,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 6. Eseguire la procedura d'installazione. Accettare quindi il contratto di licenza con l'utente finale.
 
-Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. **Selezionare** > **sui** > **Dettagli di installazione**di Eclipse. Quindi cercare Service Fabric nell'elenco dei plug-in installati. Selezionare **Aggiorna** se è disponibile una versione più recente.
+Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. **Selezionare informazioni**  >  **sui**  >  **Dettagli di installazione**di Eclipse. Quindi cercare Service Fabric nell'elenco dei plug-in installati. Selezionare **Aggiorna** se è disponibile una versione più recente.
 
 Per altre informazioni, vedere [Plug-in Service Fabric per lo sviluppo di applicazioni Java in Eclipse](service-fabric-get-started-eclipse.md).
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: rambala
-ms.openlocfilehash: 378b639e89ffd46f6b32d7004f934104dd4b5407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec9c6248f4054329bd3cd9b74855964c4acf72c4
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855157"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurare il rilevamento dell'inoltro bidirezionale su ExpressRoute
 
@@ -37,22 +37,24 @@ Il rilevamento dell'inoltro bidirezionale è configurato per impostazione predef
 
 Di seguito è riportata una configurazione di esempio CE/PE (usando Cisco IOS XE). 
 
-    interface TenGigabitEthernet2/0/0.150
-       description private peering to Azure
-       encapsulation dot1Q 15 second-dot1q 150
-       ip vrf forwarding 15
-       ip address 192.168.15.17 255.255.255.252
-       bfd interval 300 min_rx 300 multiplier 3
+```console
+interface TenGigabitEthernet2/0/0.150
+   description private peering to Azure
+   encapsulation dot1Q 15 second-dot1q 150
+   ip vrf forwarding 15
+   ip address 192.168.15.17 255.255.255.252
+   bfd interval 300 min_rx 300 multiplier 3
 
 
-    router bgp 65020
-       address-family ipv4 vrf 15
-          network 10.1.15.0 mask 255.255.255.128
-          neighbor 192.168.15.18 remote-as 12076
-          neighbor 192.168.15.18 fall-over bfd
-          neighbor 192.168.15.18 activate
-          neighbor 192.168.15.18 soft-reconfiguration inbound
-       exit-address-family
+router bgp 65020
+   address-family ipv4 vrf 15
+      network 10.1.15.0 mask 255.255.255.128
+      neighbor 192.168.15.18 remote-as 12076
+      neighbor 192.168.15.18 fall-over bfd
+      neighbor 192.168.15.18 activate
+      neighbor 192.168.15.18 soft-reconfiguration inbound
+   exit-address-family
+```
 
 >[!NOTE]
 >Per abilitare il rilevamento dell'inoltro bidirezionale per un peering privato già esistente è necessario reimpostare il peering. Vedere [Reimpostare i peering ExpressRoute][ResetPeering].

@@ -3,12 +3,12 @@ title: Usare le impostazioni di diagnostica per gli insiemi di credenziali dei s
 description: Questo articolo descrive come usare i vecchi e i nuovi eventi di diagnostica per backup di Azure.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 4efc00da96493c751c4a85dbdcc280d1ca0ef5ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be99b73a4dac12c9e70e4cb8a85f34b97f5c42d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854809"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Usare le impostazioni di diagnostica per gli insiemi di credenziali dei servizi di ripristino
 
@@ -28,6 +28,8 @@ Backup di Azure fornisce gli eventi di diagnostica seguenti. Ogni evento fornisc
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
+
+Se si usa l' [evento legacy](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) AzureBackupReport, si consiglia di passare all'uso degli eventi precedenti al più presto.
 
 Per altre informazioni, vedere [modello di dati per gli eventi di diagnostica di backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model).
 
@@ -112,7 +114,7 @@ Backup di Azure e gli eventi di Azure Site Recovery vengono inviati dallo stesso
 
 ![Eventi Site Recovery](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
-Per riepilogare:
+Per concludere:
 
 * Se è già stata configurata la diagnostica Log Analytics con Diagnostica di Azure e sono state scritte query personalizzate, mantenere l'impostazione *intatta* fino a quando non si esegue la migrazione delle query per usare i dati dei nuovi eventi.
 * Se si desidera eseguire l'onboarding anche nelle nuove tabelle, è consigliabile creare una **nuova** impostazione di diagnostica, selezionare specifico per la **risorsa**e selezionare i sei nuovi eventi.
