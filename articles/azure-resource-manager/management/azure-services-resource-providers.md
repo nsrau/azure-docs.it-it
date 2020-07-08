@@ -2,13 +2,13 @@
 title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: 9bb8d91d141997a7dd466d247ddcb0bd364e1c80
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 06/05/2020
+ms.openlocfilehash: 1f57f5cd5822e9acf59462c9ecd6d0fda359b5a0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559864"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054373"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -20,147 +20,162 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Servizi di dominio Azure Active Directory](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
-| Microsoft.ADHybridHealthService | [Azure Active Directory](/azure/active-directory/) |
+| Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
-| Microsoft.AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
+| Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
 | Microsoft.ApiManagement | [Gestione API](../../api-management/index.yml) |
-| Microsoft. AppConfiguration | core |
-| Microsoft. AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.AppConfiguration | [Configurazione app di Azure](../../azure-app-configuration/index.yml) |
+| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Servizio di attestazione di Azure |
-| Microsoft.Authorization | [Azure Resource Manager](../index.yml) |
+| Microsoft. Authorization<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automazione](../../automation/index.yml) |
+| Microsoft. AutonomousSystems | [Sistemi autonomi](https://www.microsoft.com/ai/autonomous-systems) |
+| Microsoft.AVS | [Soluzione Azure VMware](../../azure-vmware/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
-| Microsoft. AzureData | Registro SQL Server |
+| Microsoft.AzureData | Registro SQL Server |
 | Microsoft.AzureStack | core |
+| Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing | [Gestione dei costi e fatturazione](/azure/billing/) |
-| Microsoft.BingMaps | [Bing Mappe](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
-| Microsoft.Blockchain | [Servizio Azure Blockchain](/azure/blockchain/workbench/) |
-| Microsoft.Blueprint | [Azure Blueprint](/azure/governance/blueprints/) |
+| Microsoft. fatturazione<sup>1</sup> | [Gestione dei costi e fatturazione](/azure/billing/) |
+| Microsoft.BingMaps | [Bing Mappe](/BingMaps/#pivot=main&panel=BingMapsAPI) |
+| Microsoft.Blockchain | [Servizio Azure Blockchain](../../blockchain/workbench/index.yml) |
+| Microsoft.BlockchainTokens | [Token di blockchain di Azure](https://azure.microsoft.com/services/blockchain-tokens/) |
+| Microsoft.Blueprint | [Azure Blueprint](../../governance/blueprints/index.yml) |
 | Microsoft.BotService | [Servizio Azure Bot](/azure/bot-service/) |
-| Microsoft.Cache | [Cache Redis di Azure](/azure/azure-cache-for-redis/) |
+| Microsoft.Cache | [Cache Redis di Azure](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Rete per la distribuzione di contenuti (CDN)](../../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [Certificati del servizio app](../../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) |
-| Microsoft. ChangeAnalysis | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
+| Microsoft.ChangeAnalysis | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | Macchina virtuale del modello di distribuzione classica |
 | Microsoft.ClassicInfrastructureMigrate | Migrazione del modello di distribuzione classica |
 | Microsoft.ClassicNetwork | Rete virtuale del modello di distribuzione classica |
 | Microsoft.ClassicStorage | Archiviazione modello di distribuzione classica |
-| Microsoft. ClassicSubscription | Modello di distribuzione classica |
-| Microsoft.CognitiveServices | [Servizi cognitivi](/azure/cognitive-services/) |
-| Microsoft.Commerce | core |
-| Microsoft.Compute | [Macchine virtuali](/azure/virtual-machines/)<br />[Set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) |
-| Microsoft.Consumption | [Gestione dei costi](/azure/cost-management/) |
-| Microsoft.ContainerInstance | [Istanze di Container](/azure/container-instances/) |
-| Microsoft.ContainerRegistry | [Registro Container](/azure/container-registry/) |
-| Microsoft.ContainerService | [Servizio Azure Kubernetes](/azure/aks/) |
-| Microsoft.CostManagement | [Gestione dei costi](/azure/cost-management/) |
-| Microsoft. CostManagementExports | [Gestione dei costi](/azure/cost-management/) |
-| Microsoft. CustomerLockbox | Customer Lockbox per Microsoft Azure |
-| Microsoft. CustomProviders | [Provider personalizzati di Azure](../custom-providers/overview.md) |
-| Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
+| Microsoft. ClassicSubscription<sup>1</sup> | Modello di distribuzione classica |
+| Microsoft.CognitiveServices | [Servizi cognitivi](../../cognitive-services/index.yml) |
+| Microsoft. Commerce<sup>1</sup> | core |
+| Microsoft.Compute | [Macchine virtuali](../../virtual-machines/index.yml)<br />[Set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft. consumo<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
+| Microsoft.ContainerInstance | [Istanze di Container](../../container-instances/index.yml) |
+| Microsoft.ContainerRegistry | [Registro Container](../../container-registry/index.yml) |
+| Microsoft.ContainerService | [Servizio Azure Kubernetes](../../aks/index.yml) |
+| Microsoft. CostManagement<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Gestione costi](/azure/cost-management/) |
+| Microsoft.CustomerLockbox | [Customer Lockbox per Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
+| Microsoft.CustomProviders | [Provider personalizzati di Azure](../custom-providers/overview.md) |
+| Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
 | Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
-| Microsoft.DataCatalog | [Data Catalog](/azure/data-catalog/) |
-| Microsoft.DataFactory | [Data Factory](/azure/data-factory/) |
-| Microsoft.DataLakeAnalytics | [Data Lake Analytics](/azure/data-lake-analytics/) |
+| Microsoft.DataCatalog | [Data Catalog](../../data-catalog/index.yml) |
+| Microsoft.DataFactory | [Data Factory](../../data-factory/index.yml) |
+| Microsoft.DataLakeAnalytics | [Data Lake Analytics](../../data-lake-analytics/index.yml) |
 | Microsoft.DataLakeStore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) |
-| Microsoft.DataMigration | [Servizio Migrazione del database di Azure](/azure/dms/) |
-| Microsoft. DataShare | [Condivisione dati di Azure](/azure/data-share/) |
-| Microsoft.DBforMariaDB | [Database di Azure per MariaDB](/azure/mariadb/) |
-| Microsoft.DBforMySQL | [Database di Azure per MySQL](/azure/mysql/) |
-| Microsoft.DBforPostgreSQL | [Database di Azure per PostgreSQL](/azure/postgresql/) |
-| Microsoft. DesktopVirtualization | [Desktop virtuale Windows](/azure/virtual-desktop/) |
+| Microsoft.DataMigration | [Servizio Migrazione del database di Azure](../../dms/index.yml) |
+| Microsoft.DataProtection | Protezione dei dati |
+| Microsoft.DataShare | [Condivisione dati di Azure](../../data-share/index.yml) |
+| Microsoft.DBforMariaDB | [Database di Azure per MariaDB](../../mariadb/index.yml) |
+| Microsoft.DBforMySQL | [Database di Azure per MySQL](../../mysql/index.yml) |
+| Microsoft.DBforPostgreSQL | [Database di Azure per PostgreSQL](../../postgresql/index.yml) |
 | Microsoft.DeploymentManager | [Deployment Manager di Azure](../templates/deployment-manager-overview.md) |
-| Microsoft.Devices | [Hub IoT Azure](/azure/iot-hub/)<br />[Servizio Device Provisioning in hub IoT di Azure](/azure/iot-dps/) |
-| Microsoft. DevOps | [Azure DevOps](/azure/devops/) |
-| Microsoft.DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
+| Microsoft.DesktopVirtualization | [Desktop virtuale Windows](../../virtual-desktop/index.yml) |
+| Microsoft.Devices | [Hub IoT Azure](../../iot-hub/index.yml)<br />[Servizio Device Provisioning in hub IoT di Azure](../../iot-dps/index.yml) |
+| Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
+| Microsoft.DevSpaces | [Azure Dev Spaces](../../dev-spaces/index.yml) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
-| Microsoft. DigitalTwins | [Gemelli digitali di Azure](../../digital-twins/about-digital-twins.md) |
+| Microsoft.DigitalTwins | [Gemelli digitali di Azure](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
-| Microsoft.DomainRegistration | [Servizio app](/azure/app-service/) |
-| Microsoft. EnterpriseKnowledgeGraph | Grafico Knowledge base Enterprise |
-| Microsoft.EventGrid | [Griglia di eventi](/azure/event-grid/) |
+| Microsoft.DomainRegistration | [Servizio app](../../app-service/index.yml) |
+| Microsoft.EnterpriseKnowledgeGraph | Grafico Knowledge base Enterprise |
+| Microsoft.EventGrid | [Griglia di eventi](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Hub eventi](../../event-hubs/index.yml) |
-| Microsoft.Features | [Azure Resource Manager](../index.yml) |
+| Microsoft. Features<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Criteri di Azure](../../governance/policy/index.yml) |
 | Microsoft.HanaOnAzure | [SAP HANA in istanze Large di Azure](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Modulo di protezione hardware dedicato di Azure](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
-| Microsoft. HealthcareApis | [API di Azure per FHIR](../../healthcare-apis/index.yml) |
+| Microsoft.HealthcareApis | [API di Azure per FHIR](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
-| Microsoft.HybridData | [StorSimple](/azure/storsimple/) |
+| Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.ImportExport | [Importazione/Esportazione di Azure](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
-| Microsoft.IoTCentral | [Azure IoT Central](/azure/iot-central/) |
+| Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Gemelli digitali di Azure](../../digital-twins/index.yml) |
-| Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
-| Microsoft. Kubernetes | [Servizio Azure Kubernetes](/azure/aks/) |
+| Microsoft.KeyVault | [Insieme di credenziali di chiave](../../key-vault/index.yml) |
+| Microsoft.Kubernetes | [Servizio Azure Kubernetes](../../aks/index.yml) |
+| Microsoft.KubernetesConfiguration | [Servizio Azure Kubernetes](../../aks/index.yml) |
 | Microsoft.Kusto | [Esplora dati di Azure](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [App per la logica](../../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/studio/index.yml) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
-| Microsoft. Maintenance | [Manutenzione di Azure](../../virtual-machines/maintenance-control-cli.md) |
+| Microsoft.Maintenance | [Manutenzione di Azure](../../virtual-machines/maintenance-control-cli.md) |
 | Microsoft.ManagedIdentity | [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/index.yml) |
-| Microsoft. ManagedServices | [Azure Lighthouse](/azure/lighthouse/) |
-| Microsoft.Management | [Gruppi di gestione](/azure/governance/management-groups/) |
+| Microsoft.ManagedServices | [Azure Lighthouse](../../lighthouse/index.yml) |
+| Microsoft.Management | [Gruppi di gestione](../../governance/management-groups/index.yml) |
 | Microsoft.Maps | [Mappe di Azure](../../azure-maps/index.yml) |
 | Microsoft.Marketplace | core |
 | Microsoft.MarketplaceApps | core |
-| Microsoft.MarketplaceOrdering | core |
+| Microsoft. MarketplaceOrdering<sup>1</sup> | core |
 | Microsoft.Media | [Servizi multimediali](../../media-services/index.yml) |
-| Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-overview.md) |
-| Microsoft. MixedReality | [Ancoraggi nello spazio di Azure](/azure/spatial-anchors/) |
+| Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
+| Microsoft.MixedReality | [Ancoraggi nello spazio di Azure](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Gateway applicazione](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS di Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Firewall di Azure](../../firewall/index.yml)<br />[Servizio Frontdoor di Azure](../../frontdoor/index.yml)<br />[Collegamento privato di Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Gestione traffico](../../traffic-manager/index.yml)<br />[Rete virtuale](../../virtual-network/index.yml)<br />[Rete WAN virtuale](../../virtual-wan/index.yml)<br />[Gateway VPN](../../vpn-gateway/index.yml)<br /> |
-| Microsoft.NotificationHubs | [Hub di notifica](../../notification-hubs/index.yml) |
-| Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-overview.md) |
+| Microsoft.Network | [Gateway applicazione](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS di Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Firewall di Azure](../../firewall/index.yml)<br />[Servizio Frontdoor di Azure](../../frontdoor/index.yml)<br />[Collegamento privato di Azure](../../private-link/index.yml)<br />[Bilanciamento del carico](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Gestione traffico](../../traffic-manager/index.yml)<br />[Rete virtuale](../../virtual-network/index.yml)<br />[Rete WAN virtuale](../../virtual-wan/index.yml)<br />[Gateway VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.NotificationHubs | [Hub di notifica di Azure](../../notification-hubs/index.yml) |
+| Microsoft.ObjectStore | Archivio oggetti |
+| Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.OperationalInsights | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.OperationsManagement | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
-| Microsoft. peering | [Servizio peering di Azure](../../peering-service/index.yml) |
+| Microsoft.Peering | [Servizio di peering di Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Criteri di Azure](../../governance/policy/index.yml) |
-| Microsoft.Portal | [Azure portal](/azure/azure-portal/) |
+| Microsoft. Portal<sup>1</sup> | [Azure portal](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
+| Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
+| Microsoft.Quantum | [Quantum di Azure](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
-| Microsoft. RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
-| Microsoft.Relay | [Servizio di inoltro di Azure](../../service-bus-relay/relay-what-is-it.md) |
-| Microsoft.ResourceGraph | [Diagramma delle risorse di Azure](/azure/governance/resource-graph/) |
-| Microsoft.ResourceHealth | [Integrità dei servizi di Azure](../../service-health/index.yml)|
-| Microsoft.Resources | [Azure Resource Manager](../index.yml) |
+| Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
+| Microsoft.Relay | [Inoltro di Azure](../../azure-relay/relay-what-is-it.md) |
+| Microsoft. ResourceGraph<sup>1</sup> | [Diagramma delle risorse di Azure](../../governance/resource-graph/index.yml) |
+| Microsoft.ResourceHealth | [Integrità dei servizi di Azure](../../service-health/index.yml) |
+| Microsoft. Resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | core |
-| Microsoft.Scheduler | [Utilità di pianificazione](/azure/scheduler/) |
+| Microsoft.Scheduler | [Utilità di pianificazione](../../scheduler/index.yml) |
 | Microsoft.Search | [Ricerca cognitiva di Azure](../../search/index.yml) |
 | Microsoft.Security | [Centro sicurezza](../../security-center/index.yml) |
-| Microsoft. SecurityInsights | [Azure Sentinel](/azure/sentinel/) |
-| Microsoft. SerialConsole | [Console seriale di Azure per Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
+| Microsoft. SerialConsole<sup>1</sup> | [Console seriale di Azure per Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Bus di servizio](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
+| Microsoft.Services | core |
 | Microsoft.SignalRService | [Servizio Azure SignalR](../../azure-signalr/index.yml) |
-| Microsoft. SoftwarePlan | Licenza |
+| Microsoft.SoftwarePlan | Licenza |
 | Microsoft.Solutions | [Applicazioni gestite di Azure](../managed-applications/index.yml) |
-| Microsoft.Sql | [Database SQL di Azure](../../sql-database/index.yml)<br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [SQL Server in Macchine virtuali di Azure](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
+| Microsoft.Sql | [Database SQL di Azure](../../azure-sql/database/index.yml)<br /> [Istanza gestita di database SQL di Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
+| Microsoft.SqlVirtualMachine | [SQL Server in Macchine virtuali di Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
-| Microsoft. StorageCache | [Cache HPC di Azure](/azure/hpc-cache/) |
 | Microsoft.StorageSync | [Storage](../../storage/index.yml) |
-| Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
+| Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Analisi di flusso di Azure](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
-| microsoft.support | core |
-| Microsoft. sinapsi | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
+| Microsoft. support<sup>1</sup> | core |
+| Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
+| Microsoft.Token | token |
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
-| Microsoft. VMwareCloudSimple | [Soluzione Azure VMware di CloudSimple](/azure/vmware-cloudsimple/) |
+| Microsoft.VMware | [Soluzione Azure VMware](../../azure-vmware/index.yml) |
+| Microsoft.VMwareCloudSimple | [Soluzione Azure VMware di CloudSimple](/azure/vmware-cloudsimple/) |
+| Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.Web | [Servizio app](../../app-service/index.yml)<br />[Funzioni di Azure](../../azure-functions/index.yml) |
-| Microsoft.WindowsIoT | [Servizi Windows 10 IoT Core](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
-| Microsoft.WorkloadMonitor | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
+| Microsoft.WindowsESU | Aggiornamenti della sicurezza estesi |
+| Microsoft.WindowsIoT | [Servizi Windows 10 IoT Core](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
+| Microsoft. WorkloadMonitor<sup>1</sup> | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
+
+<sup>1</sup> registrata per impostazione predefinita
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui provider di risorse, vedere [provider e tipi di risorse di Azure](resource-providers-and-types.md)
+Per altre informazioni sui provider di risorse, ad esempio su come registrare un provider di risorse, vedere [provider e tipi di risorse di Azure](resource-providers-and-types.md) .

@@ -123,7 +123,7 @@
           href: partitioning-overview.md
         - name: Partizionamento e scalabilità orizzontale
           href: partition-data.md
-        - name: Creare una chiave di partizione sintetica
+        - name: Chiave di partizione sintetica
           href: synthetic-partition-keys.md
     - name: Velocità effettiva con provisioning
       items:

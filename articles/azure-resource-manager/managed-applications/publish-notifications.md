@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76715679"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054526"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Applicazioni gestite di Azure con notifiche
 
@@ -20,7 +20,7 @@ Le notifiche delle applicazioni gestite di Azure consentono agli editori di auto
 Per iniziare a ricevere le applicazioni gestite, creare un endpoint HTTPS pubblico e specificarlo quando si pubblica la definizione dell'applicazione del catalogo di servizi o l'offerta di Azure Marketplace.
 
 Ecco i passaggi consigliati per iniziare rapidamente:
-1. Attivare un endpoint HTTPS pubblico che registra le richieste POST in ingresso e restituisce `200 OK`il risultato.
+1. Attivare un endpoint HTTPS pubblico che registra le richieste POST in ingresso e restituisce il risultato `200 OK` .
 2. Aggiungere l'endpoint alla definizione dell'applicazione del catalogo di servizi o all'offerta di Azure Marketplace, come illustrato più avanti in questo articolo.
 3. Creare un'istanza dell'applicazione gestita che faccia riferimento alla definizione dell'applicazione o all'offerta di Azure Marketplace.
 4. Verificare che le notifiche vengano ricevute.
@@ -61,7 +61,7 @@ Per iniziare, vedere [pubblicare un'applicazione del catalogo di servizi tramite
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Aggiungere le notifiche delle applicazioni gestite di Azure Marketplace
-Per altre informazioni, vedere [creare un'offerta di applicazione Azure](../../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
+Per altre informazioni, vedere [creare un'offerta di applicazione Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 ![Notifiche delle applicazioni gestite di Azure Marketplace nel portale di Azure](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Trigger di evento
@@ -69,7 +69,7 @@ Nella tabella seguente vengono descritte tutte le possibili combinazioni di Even
 
 EventType | ProvisioningState | Trigger per la notifica
 ---|---|---
-PUT | Accepted | Il gruppo di risorse gestite è stato creato e proiettato correttamente dopo l'inserimento dell'applicazione (prima che la distribuzione all'interno del gruppo di risorse gestite venga avviata).
+PUT | Accettato | Il gruppo di risorse gestite è stato creato e proiettato correttamente dopo l'inserimento dell'applicazione (prima che la distribuzione all'interno del gruppo di risorse gestite venga avviata).
 PUT | Operazione riuscita | Il provisioning completo dell'applicazione gestita è riuscito dopo un'operazione PUT.
 PUT | Operazione non riuscita | Errore di inserimento del provisioning dell'istanza dell'applicazione in qualsiasi momento.
 PATCH | Operazione riuscita | Dopo una PATCH corretta nell'istanza dell'applicazione gestita per aggiornare i tag, i criteri di accesso JIT o l'identità gestita.
@@ -189,9 +189,9 @@ billingDetails | *Specificata solo per le applicazioni gestite di Azure Marketpl
 
 ## <a name="endpoint-authentication"></a>Autenticazione dell'endpoint
 Per proteggere l'endpoint del webhook e garantire l'autenticità della notifica:
-1. Specificare un parametro di query all'inizio dell'URI del webhook, come indicato di\:seguito: https//your-endpoint.com? sig = GUID. Con ogni notifica, verificare che il parametro `sig` di query includa il `Guid`valore previsto.
+1. Specificare un parametro di query all'inizio dell'URI del webhook, come indicato di seguito: https \: //Your-endpoint.com? sig = GUID. Con ogni notifica, verificare che il parametro di query includa `sig` il valore previsto `Guid` .
 2. Eseguire un'richiesta GET sull'istanza dell'applicazione gestita usando applicationId. Verificare che provisioningState corrisponda al provisioningState della notifica per garantire la coerenza.
 
 ## <a name="notification-retries"></a>Tentativi di notifica
 
-Il servizio di notifica dell'applicazione gestita prevede `200 OK` una risposta dall'endpoint del webhook alla notifica. Il servizio di notifica tenterà di nuovo se l'endpoint del webhook restituisce un codice di errore HTTP maggiore o uguale a 500, se restituisce un codice di errore 429 o se l'endpoint è temporaneamente irraggiungibile. Se l'endpoint del webhook non diventa disponibile entro 10 ore, il messaggio di notifica verrà eliminato e i tentativi verranno interrotti.
+Il servizio di notifica dell'applicazione gestita prevede una `200 OK` risposta dall'endpoint del webhook alla notifica. Il servizio di notifica tenterà di nuovo se l'endpoint del webhook restituisce un codice di errore HTTP maggiore o uguale a 500, se restituisce un codice di errore 429 o se l'endpoint è temporaneamente irraggiungibile. Se l'endpoint del webhook non diventa disponibile entro 10 ore, il messaggio di notifica verrà eliminato e i tentativi verranno interrotti.

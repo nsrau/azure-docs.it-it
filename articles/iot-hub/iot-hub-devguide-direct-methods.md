@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9fb2242f6e3f8ce78a0e5043a53ce3055819725b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 873f871625b812937d1e6ac360f7e0565121a4eb
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583676"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045995"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
 
@@ -33,7 +33,7 @@ Vedere [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md
 
 ## <a name="method-lifecycle"></a>Ciclo di vita dei metodi
 
-I metodi diretti vengono implementati nel dispositivo. Per creare correttamente un'istanza possono essere necessari zero o più input nel payload del metodo. Per richiamare un metodo diretto è possibile usare un URI per il servizio (`{iot hub}/twins/{device id}/methods/`). Un dispositivo riceve metodi diretti tramite un argomento MQTT specifico del dispositivo (`$iothub/methods/POST/{method name}/`) o tramite collegamenti AMQP (proprietà `IoThub-methodname` e `IoThub-status` dell'applicazione). 
+I metodi diretti vengono implementati nel dispositivo. Per creare correttamente un'istanza possono essere necessari zero o più input nel payload del metodo. Per richiamare un metodo diretto è possibile usare un URI per il servizio (`{iot hub}/twins/{device id}/methods/`). Un dispositivo riceve metodi diretti tramite un argomento MQTT specifico del dispositivo (`$iothub/methods/POST/{method name}/`) o tramite collegamenti AMQP (proprietà `IoThub-methodname` e `IoThub-status` dell'applicazione).
 
 > [!NOTE]
 > Quando si richiama un metodo diretto in un dispositivo, i valori e i nomi di proprietà possono contenere solo caratteri alfanumerici stampabili US-ASCII, ad eccezione dei seguenti: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -41,7 +41,7 @@ I metodi diretti vengono implementati nel dispositivo. Per creare correttamente 
 
 I metodi diretti sono sincroni e possono avere esito positivo o negativo dopo il periodo di timeout (valore predefinito: 30 secondi, impostabile tra 5 e 300 secondi). Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
 
-I metodi diretti supportano solo HTTPS lato cloud e solo MQTT o AMQP lato dispositivo.
+I metodi diretti sono solo HTTPS dal lato cloud e MQTT, AMQP, MQTT su WebSocket o AMQP su WebSocket dal lato dispositivo.
 
 Il payload per le richieste e le risposte del metodo è un documento JSON con dimensioni massime di 128 KB.
 
@@ -80,18 +80,17 @@ Il valore fornito come `responseTimeoutInSeconds` nella richiesta è la quantit�
 
 Il valore fornito come `connectTimeoutInSeconds` nella richiesta è la quantità di tempo dopo la chiamata di un metodo diretto che il servizio hub Internet deve attendere per la connessione di un dispositivo disconnesso. Il valore predefinito è 0, ovvero i dispositivi devono essere già online al momento della chiamata a un metodo diretto. Il valore massimo per `connectTimeoutInSeconds` è 300 secondi.
 
-
 #### <a name="example"></a>Esempio
 
 Questo esempio consentirà di avviare in modo sicuro una richiesta per richiamare un metodo diretto su un dispositivo Internet degli utenti registrato in un hub Azure.
 
-Per iniziare, usare l' [estensione Microsoft Azure Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension) della riga di comando di Azure per creare un SharedAccessSignature. 
+Per iniziare, usare l' [estensione Microsoft Azure Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension) della riga di comando di Azure per creare un SharedAccessSignature.
 
 ```bash
 az iot hub generate-sas-token -n <iothubName> -du <duration>
 ```
 
-Sostituire quindi l'intestazione di autorizzazione con il SharedAccessSignature appena generato, quindi modificare i `iothubName`parametri `deviceId`, `methodName` e `payload` in modo che corrispondano all'implementazione nel `curl` comando di esempio seguente.  
+Sostituire quindi l'intestazione di autorizzazione con il SharedAccessSignature appena generato, quindi modificare i `iothubName` `deviceId` parametri, `methodName` e `payload` in modo che corrispondano all'implementazione nel `curl` comando di esempio seguente.  
 
 ```bash
 curl -X POST \
@@ -114,7 +113,7 @@ Eseguire il comando modificato per richiamare il metodo diretto specificato. Le 
 > Nell'esempio precedente viene illustrato come richiamare un metodo diretto in un dispositivo.  Se si vuole richiamare un metodo diretto in un modulo IoT Edge, è necessario modificare la richiesta URL come illustrato di seguito:
 
 ```bash
-https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
 ```
 ### <a name="response"></a>Risposta
 
@@ -122,8 +121,8 @@ L'app back-end riceve una risposta composta dagli elementi seguenti:
 
 * *Codice di stato http*:
   * 200 indica l'esecuzione corretta del metodo diretto;
-  * 404 indica che l'ID dispositivo non è valido o che il dispositivo non era online al momento della chiamata di un metodo diretto e `connectTimeoutInSeconds` per poi (usare un messaggio di errore accompagnato per comprendere la causa principale);
-  * 504 indica il timeout del gateway causato dal dispositivo che non risponde a una chiamata `responseTimeoutInSeconds`al metodo diretto all'interno di.
+  * 404 indica che l'ID dispositivo non è valido o che il dispositivo non era online al momento della chiamata di un metodo diretto e per `connectTimeoutInSeconds` poi (usare un messaggio di errore accompagnato per comprendere la causa principale);
+  * 504 indica il timeout del gateway causato dal dispositivo che non risponde a una chiamata al metodo diretto all'interno di `responseTimeoutInSeconds` .
 
 * *Intestazioni* contenenti l'ETag, l'ID richiesta, il tipo di contenuto e la codifica del contenuto.
 

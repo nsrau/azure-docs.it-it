@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b453a04a170764a037eed7415eaf71e5a4d37526
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0fc6a62a94f31617209bcc60bfaa95bc8927551a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844590"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050473"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Distribuisci modulo di IoT Edge griglia di eventi
 
@@ -31,7 +31,7 @@ Esistono diversi modi per distribuire i moduli in un dispositivo IoT Edge e tutt
 1. Passare all'hub IoT.
 1. Selezionare **IOT Edge** dal menu nella sezione **gestione automatica dei dispositivi** . 
 1. Fare clic sull'ID del dispositivo di destinazione dall'elenco di dispositivi
-1. Selezionare **Set Modules** (Configura i moduli). Mantieni aperta la pagina. Si procederà con la procedura descritta nella sezione successiva.
+1. Selezionare **imposta moduli**. Mantieni aperta la pagina. Si procederà con la procedura descritta nella sezione successiva.
 
 ### <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
@@ -49,23 +49,23 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
    * **URI immagine**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opzioni di creazione del contenitore**:
 
-    ```json
-        {
-          "Env": [
-            "inbound__clientAuth:clientCert__enabled=false",
-            "outbound__webhook__httpsOnly=false"
-          ],
-          "HostConfig": {
-            "PortBindings": {
-              "4438/tcp": [
-                {
-                  "HostPort": "4438"
-                }
-              ]
+```json
+    {
+      "Env": [
+        "inbound__clientAuth:clientCert__enabled=false",
+        "outbound__webhook__httpsOnly=false"
+      ],
+      "HostConfig": {
+        "PortBindings": {
+          "4438/tcp": [
+            {
+              "HostPort": "4438"
             }
-          }
+          ]
         }
-    ```
+      }
+    }
+```
 
  1. Fare clic su **Save** (Salva).
  1. Fare clic su **Avanti** per passare alla sezione Route

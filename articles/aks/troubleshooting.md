@@ -3,13 +3,13 @@ title: Risolvere i problemi comuni del servizio Azure Kubernetes
 description: Informazioni su come individuare e risolvere i problemi comuni quando si usa il servizio Azure Kubernetes
 services: container-service
 ms.topic: troubleshooting
-ms.date: 05/16/2020
-ms.openlocfilehash: f9831077d1f2850d39e4ef5e5ba35245f16cd683
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 06/20/2020
+ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724995"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054390"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -31,11 +31,34 @@ Il numero massimo di pod per nodo è 110 per impostazione predefinita se si dist
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Viene visualizzato l'errore "insufficientSubnetSize" durante la distribuzione di un cluster del servizio Azure Kubernetes con funzionalità di rete avanzate. Cosa devo fare?
 
-Quando si usa il plug-in di rete Azure CNI, il servizio Azure Kubernetes alloca gli indirizzi IP in base al parametro relativo al numero massimo di pod per nodo. La dimensione della subnet deve essere maggiore del numero di nodi in base all'impostazione del numero massimo di pod per nodo. L'equazione seguente descrive questo caso:
+Questo errore indica che una subnet in uso per un cluster non dispone più di IP disponibili all'interno della relativa CIDR per l'assegnazione di risorse riuscita. Per i cluster Kubenet, il requisito è uno spazio IP sufficiente per ogni nodo del cluster. Per i cluster CNI di Azure, il requisito è uno spazio IP sufficiente per ogni nodo e Pod nel cluster.
+Scopri di più sulla [progettazione di Azure CNI per assegnare indirizzi IP ai pod](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Dimensione della subnet > numero di nodi nel cluster (prendendo in considerazione i requisiti di scalabilità futuri) * numero massimo di pod per set di nodi.
+Questi errori sono inoltre esposti nella [diagnostica AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics) , che consente di individuare in modo proattivo problemi come le dimensioni di una subnet insufficiente.
 
-Per altre informazioni, vedere [Pianificare l'indirizzamento IP per il cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+I tre (3) casi seguenti generano un errore di dimensione della subnet insufficiente:
+
+1. Scala AKS o AKS Nodepool scale
+   1. Se si usa Kubenet, questo errore si verifica quando `number of free IPs in the subnet` è **minore di** `number of new nodes requested` .
+   1. Se si usa Azure CNI, questo errore si verifica quando `number of free IPs in the subnet` è **minore di** `number of nodes requested times (*) the node pool's --max-pod value` .
+
+1. Aggiornamento AKS Nodepool o AKS
+   1. Se si usa Kubenet, questo errore si verifica quando `number of free IPs in the subnet` è **minore di** `number of buffer nodes needed to upgrade` .
+   1. Se si usa Azure CNI, questo errore si verifica quando `number of free IPs in the subnet` è **minore di** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
+   
+   Per impostazione predefinita, i cluster AKS impostano un valore max Surge (buffer di aggiornamento) pari a uno (1), ma questo comportamento di aggiornamento può essere personalizzato impostando il [valore di picco massimo di un pool di nodi](upgrade-cluster.md#customize-node-surge-upgrade-preview) che aumenterà il numero di IP disponibili necessari per completare un aggiornamento.
+
+1. AKS create o AKS Nodepool Add
+   1. Se si usa Kubenet, questo errore si verifica quando `number of free IPs in the subnet` è **minore di** `number of nodes requested for the node pool` .
+   1. Se si usa Azure CNI, questo errore si verifica quando `number of free IPs in the subnet` è **minore di** `number of nodes requested times (*) the node pool's --max-pod value` .
+
+La mitigazione seguente può essere eseguita creando nuove subnet. L'autorizzazione per la creazione di una nuova subnet è necessaria per la mitigazione, a causa dell'impossibilità di aggiornare l'intervallo CIDR di una subnet esistente.
+
+1. Ricompilare una nuova subnet con un intervallo CIDR più ampio sufficiente per gli obiettivi dell'operazione:
+   1. Crea una nuova subnet con un nuovo intervallo non sovrapposto desiderato.
+   1. Creare un nuovo nodepool sulla nuova subnet.
+   1. Svuotare i pod dei nodepool precedenti che si trovano nella subnet precedente per la sostituzione.
+   1. Eliminare la subnet precedente e il vecchio nodepool.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Il pod è bloccato in modalità “CrashLoopBackOff”. Cosa devo fare?
 
@@ -46,6 +69,19 @@ Potrebbero esistere vari motivi per cui il modo rimane bloccato in tale modalit�
 
 Per altre informazioni su come risolvere i problemi di pod, vedere [Debug delle applicazioni](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
+## <a name="im-receiving-tcp-timeouts-when-using-kubectl-or-other-third-party-tools-connecting-to-the-api-server"></a>Ricevo `TCP timeouts` quando `kubectl` si usa o altri strumenti di terze parti che si connettono al server API
+AKS dispone di piani di controllo a disponibilità elevata che si ridimensionano verticalmente in base al numero di core per assicurare gli obiettivi del livello di servizio (SLOs) e i contratti di servizio (SLA). Se si verifica un timeout delle connessioni, controllare quanto segue:
+
+- **Si verifica il timeout di tutti i comandi API in modo coerente o solo pochi?** Se sono solo pochi, il `tunnelfront` pod o il `aks-link` Pod, responsabile della comunicazione del piano di controllo > nodo, potrebbe non trovarsi in uno stato di esecuzione. Assicurarsi che i nodi che ospitano questo pod non siano sovrautilizzati o sottoposti a stress. Provare a spostarli nel proprio [ `system` pool di nodi](use-system-pools.md).
+- **Sono state aperte tutte le porte, i nomi di dominio completi e gli IP richiesti indicati nel servizio contenitore di identità che [limita la documentazione sul traffico in uscita](limit-egress-traffic.md)?** In caso contrario, è possibile che più chiamate ai comandi non
+- **L'IP corrente è coperto dagli [intervalli autorizzati per l'API IP](api-server-authorized-ip-ranges.md)?** Se si usa questa funzionalità e l'IP non è incluso negli intervalli, le chiamate verranno bloccate. 
+- **Si dispone di un client o di un'applicazione che perde le chiamate al server API?** Assicurarsi di usare gli orologi anziché le chiamate Get frequenti e che le applicazioni di terze parti non perdano tali chiamate. Ad esempio, un bug nel mixer Istio causa la creazione di una nuova connessione di controllo del server API ogni volta che un segreto viene letto internamente. Poiché questo comportamento si verifica a intervalli regolari, le connessioni di controllo si accumulano rapidamente e infine causano l'overload del server API, indipendentemente dal modello di scalabilità. https://github.com/istio/istio/issues/19481
+- **Sono disponibili molte versioni nelle distribuzioni Helm?** Questo scenario può causare l'uso di una quantità eccessiva di memoria da parte di entrambi i nodi, oltre a una grande quantità di `configmaps` , che può causare picchi superflui sul server API. Prendere `--history-max` in considerazione la possibilità di configurare `helm init` e sfruttare il nuovo Helm 3. Altre informazioni sui problemi seguenti: 
+    - https://github.com/helm/helm/issues/4821
+    - https://github.com/helm/helm/issues/3500
+    - https://github.com/helm/helm/issues/4543
+
+
 ## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Qual è la procedura per abilitare il controllo degli accessi in base al ruolo (RBAC) in un cluster esistente?
 
 L'abilitazione del controllo degli accessi in base al ruolo (RBAC) nei cluster esistenti non è al momento supportata. Deve essere impostata durante la creazione di nuovi cluster. Il controllo degli accessi in base al ruolo è abilitato per impostazione predefinita quando si usa l'interfaccia della riga di comando, il portale o una versione API successiva alla `2020-03-01`.
@@ -53,12 +89,6 @@ L'abilitazione del controllo degli accessi in base al ruolo (RBAC) nei cluster e
 ## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>È stato creato un cluster con il controllo degli accessi in base al ruolo abilitato e ora vengono visualizzati molti avvisi nel dashboard di Kubernetes. Il dashboard non generava avvisi. Cosa devo fare?
 
 Il motivo degli avvisi è che il cluster è abilitato per il controllo degli accessi in base al ruolo e l'accesso al dashboard è ora limitato per impostazione predefinita. In generale, questo approccio è considerato una procedura appropriata perché l'esposizione predefinita del dashboard a tutti gli utenti del cluster può comportare rischi per la sicurezza. Se si vuole comunque abilitare il dashboard, seguire le indicazioni riportate in questo [post di blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
-
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Non è possibile connettersi al dashboard. Cosa devo fare?
-
-Il modo più semplice per accedere al servizio all'esterno del cluster consiste nell'eseguire `kubectl proxy`, per inoltrare le richieste inviate a localhost sulla porta 8001 al server API Kubernetes. Da qui, il server API può usare un proxy per il servizio: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
-
-Se non viene visualizzato il dashboard di Kubernetes, controllare se il pod `kube-proxy` è in esecuzione nello spazio dei nomi `kube-system`. Se non è esecuzione, eliminare il pod in modo che venga riavviato.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Non è possibile ottenere i log usando i log di kubectl o non è possibile connettersi al server API. Viene visualizzato un errore simile a "Errore del server: errore durante il contatto con il back-end: contattare tcp…". Cosa devo fare?
 
@@ -119,6 +149,7 @@ Le restrizioni di denominazione sono implementate sia dalla piattaforma Azure ch
 * Il nodo del servizio Azure Kubernetes o il nome del gruppo di risorse *MC_* combina il nome del gruppo di risorse e il nome della risorsa. La sintassi generata automaticamente di `MC_resourceGroupName_resourceName_AzureRegion` non deve superare gli 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o del cluster del servizio Azure Kubernetes. È anche possibile [personalizzare il nome del gruppo di risorse del nodo](cluster-configuration.md#custom-resource-group-name).
 * Il prefisso *dnsPrefix* deve iniziare e terminare con valori alfanumerici e deve avere una lunghezza compresa tra 1 e 54 caratteri. I caratteri validi includono valori alfanumerici e trattini (-). Il prefisso *dnsPrefix* non può includere caratteri speciali, ad esempio un punto (.).
 * I nomi dei pool di nodi del servizio Azure Kubernetes devono contenere tutti caratteri minuscoli e devono avere una lunghezza compresa tra 1 e 11 caratteri per i pool di nodi Linux e tra 1 e 6 caratteri per i pool di nodi Windows. Il nome deve iniziare con una lettera e gli unici caratteri consentiti sono lettere e numeri.
+* Il *nome utente*amministratore, che imposta il nome utente dell'amministratore per i nodi Linux, deve iniziare con una lettera, può contenere solo lettere, numeri, trattini e caratteri di sottolineatura e deve avere una lunghezza massima di 64 caratteri.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Errori durante il tentativo di creare, aggiornare, ridimensionare o eliminare il cluster. Operazione non consentita quando è in corso un'altra operazione
 

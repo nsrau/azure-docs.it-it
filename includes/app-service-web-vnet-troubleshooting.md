@@ -4,25 +4,29 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: 652d42d6e2d9e909c3a03bd82a3a36f91bc73807
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419577"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050288"
 ---
-La funzionalità è facile da configurare, ma ciò non significa che la tua esperienza sarà priva di problemi. Se si verificano problemi durante l'accesso all'endpoint desiderato, sono disponibili alcune utilità che è possibile usare per testare la connettività dalla console app. Le console disponibili sono due: Uno è la console Kudu e l'altro è la console nella portale di Azure. Per accedere alla console Kudu dall'app, passare a **strumenti** > **Kudu**. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Al termine del caricamento del sito Web, passare alla scheda **debug console** . Per accedere alla console ospitata da portale di Azure dall'app, passare a **strumenti** > **console**.
+La funzionalità è facile da configurare, ma ciò non significa che la tua esperienza sarà priva di problemi. Se si verificano problemi durante l'accesso all'endpoint desiderato, sono disponibili alcune utilità che è possibile usare per testare la connettività dalla console app. Le console disponibili sono due: Uno è la console Kudu e l'altro è la console nella portale di Azure. Per accedere alla console Kudu dall'app, passare a **strumenti**  >  **Kudu**. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Al termine del caricamento del sito Web, passare alla scheda **debug console** . Per accedere alla console ospitata da portale di Azure dall'app, passare a **strumenti**  >  **console**.
 
 #### <a name="tools"></a>Strumenti
-Gli strumenti **ping**, **nslookup**e **tracert** non funzioneranno tramite la console a causa di vincoli di sicurezza. Per riempire il void, vengono aggiunti due strumenti distinti. Per testare la funzionalità DNS, è stato aggiunto uno strumento denominato **nameresolver. exe**. La sintassi è:
+Gli strumenti **ping**, **nslookup**e **tracert** non funzioneranno tramite la console a causa di vincoli di sicurezza. Per riempire il void, vengono aggiunti due strumenti distinti. Per testare la funzionalità DNS, è stato aggiunto uno strumento denominato **nameresolver.exe**. La sintassi è:
 
-    nameresolver.exe hostname [optional: DNS Server]
+```console
+nameresolver.exe hostname [optional: DNS Server]
+```
 
 Si può usare nameresolver per controllare i nomi host da cui dipende l'app. In questo modo è possibile verificare se si dispone di una configurazione non configurata correttamente con il DNS o se non si ha accesso al server DNS. È possibile visualizzare il server DNS usato dall'app nella console esaminando le variabili di ambiente WEBSITE_DNS_SERVER e WEBSITE_DNS_ALT_SERVER.
 
 È possibile utilizzare lo strumento successivo per verificare la connettività TCP a una combinazione di host e porta. Questo strumento viene chiamato **tcpping** la cui sintassi è:
 
-    tcpping.exe hostname [optional: port]
+```console
+tcpping.exe hostname [optional: port]
+```
 
 L'utilità **tcpping** indica se è possibile raggiungere un host e una porta specifici. Può mostrare l'esito positivo solo se un'applicazione è in ascolto sulla combinazione di host e porta e se l'app e l'host specificati hanno accesso alla rete.
 
@@ -34,7 +38,7 @@ Una serie di elementi può impedire all'app di raggiungere un host e una porta s
 
 Se tali elementi non rispondono ai problemi, cercare prima di tutto, ad esempio:
 
-**Integrazione VNet a livello di area**
+**Integrazione rete virtuale a livello di area**
 * La destinazione è un indirizzo non RFC1918 e non si ha WEBSITE_VNET_ROUTE_ALL impostato su 1?
 * Esiste una NSG che blocca l'uscita dalla subnet di integrazione?
 * Se si usa Azure ExpressRoute o una VPN, il gateway locale è configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint nella rete virtuale ma non in locale, verificare le route.
@@ -62,7 +66,9 @@ Di seguito è riportata la procedura di debug aggiuntiva:
 
 * Connettersi a una macchina virtuale nella rete virtuale e provare a raggiungere l'host di risorse: porta da qui. Per verificare l'accesso al protocollo TCP usare il comando di PowerShell **test-netconnection**. La sintassi è:
 
-      test-netconnection hostname [optional: -Port]
+```powershell
+test-netconnection hostname [optional: -Port]
+```
 
 * Visualizzare un'applicazione in una macchina virtuale e testare l'accesso all'host e alla porta dalla console dall'app usando **tcpping**.
 

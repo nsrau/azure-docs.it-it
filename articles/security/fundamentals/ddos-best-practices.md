@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 8be1f1161ac1c4611ddb2a5ec61592394014c488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548673"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054441"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Protezione DDoS di Azure-progettazione di soluzioni resilienti
 
@@ -97,7 +97,7 @@ Protezione DDoS Standard espone dati di telemetria avanzata tramite [Monitoraggi
 
 ##### <a name="ddos-mitigation-policies"></a>Criteri di mitigazione della protezione DDoS
 
-Nella portale di Azure selezionare **monitoraggio** > **metriche**. Nel riquadro **Metriche** selezionare il gruppo di risorse, il tipo di risorsa **Indirizzo IP pubblico** e l'indirizzo IP pubblico di Azure. Le metriche DDoS sono visibili nel riquadro **Metriche disponibili**.
+Nella portale di Azure selezionare **monitoraggio**  >  **metriche**. Nel riquadro **Metriche** selezionare il gruppo di risorse, il tipo di risorsa **Indirizzo IP pubblico** e l'indirizzo IP pubblico di Azure. Le metriche DDoS sono visibili nel riquadro **Metriche disponibili**.
 
 Protezione DDoS Standard applica tre criteri di mitigazione ottimizzati automaticamente (TCP SYN, TCP e UDP) per ogni indirizzo IP pubblico della risorsa protetta, nella rete virtuale in cui è abilitata la protezione DDoS. È possibile visualizzare le soglie dei criteri selezionando i **pacchetti in ingresso metrica per attivare la mitigazione DDoS**.
 
@@ -235,7 +235,7 @@ In questa architettura, il servizio Protezione DDoS Standard è abilitato nella 
 
 #### <a name="paas-web-application"></a>Applicazione Web PaaS
 
-Questa architettura di riferimento mostra l'esecuzione di un'applicazione di servizio App di Azure in una singola area. Questa architettura Mostra un set di procedure collaudate per un'applicazione Web che usa [app Azure servizio](https://azure.microsoft.com/documentation/services/app-service/) e il [database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/).
+Questa architettura di riferimento mostra l'esecuzione di un'applicazione di servizio App di Azure in una singola area. Questa architettura Mostra un set di procedure collaudate per un'applicazione Web che usa [app Azure servizio](https://azure.microsoft.com/documentation/services/app-service/)   e il [database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/).
 Viene configurata un'area di stand-by per gli scenari di failover.
 
 ![Diagramma dell'architettura di riferimento per un'applicazione Web PaaS](./media/ddos-best-practices/image11.png)
@@ -269,7 +269,5 @@ Per altre informazioni su questa architettura di riferimento, vedere la document
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Responsabilità condivisa nel cloud](shared-responsibility.md)
-
 * [Pagina del prodotto protezione DDoS di Azure](https://azure.microsoft.com/services/ddos-protection/)
-
 * [Documentazione sulla protezione DDoS di Azure](/azure/virtual-network/ddos-protection-overview)

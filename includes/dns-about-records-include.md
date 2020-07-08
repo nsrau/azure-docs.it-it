@@ -4,18 +4,18 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 8ca054b3a3d5147b7d98a021ce1e26d02d5581b0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73832065"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050318"
 ---
 ### <a name="record-names"></a>Nomi dei record
 
-Nel servizio DNS di Azure i record vengono specificati usando nomi relativi. Un nome di dominio completo (FQDN) include il nome della zona, *mentre un nome* *relativo* non lo è. Ad esempio, il nome `www` del record relativo nella zona `contoso.com` restituisce il nome `www.contoso.com`completo del record.
+Nel servizio DNS di Azure i record vengono specificati usando nomi relativi. Un nome di dominio completo (FQDN) include il nome della zona, *mentre un nome* *relativo* non lo è. Ad esempio, il nome del record relativo `www` nella zona `contoso.com` restituisce il nome completo del record `www.contoso.com` .
 
-Un record *vertice* è un record DNS alla radice (o *vertice*) di una zona DNS. Ad esempio, nella zona `contoso.com`DNS un record Apex ha anche il nome `contoso.com` completo (a volte viene definito dominio *nudo* ).  Per convenzione, per rappresentare record vertice viene usato il nome relativo "\@".
+Un record *vertice* è un record DNS alla radice (o *vertice*) di una zona DNS. Ad esempio, nella zona DNS `contoso.com` un record Apex ha anche il nome completo `contoso.com` (a volte viene definito dominio *nudo* ).  Per convenzione, per rappresentare record vertice viene usato il nome relativo "\@".
 
 ### <a name="record-types"></a>Tipi di record
 
@@ -27,8 +27,10 @@ DNS di Azure supporta tutti i tipi di record DNS comuni: A, AAAA, CAA, CNAME, MX
 
 In alcuni casi è necessario creare più record DNS con un determinato nome e tipo. Si supponga, ad esempio, che il sito Web "www.contoso.com" sia ospitato in due diversi indirizzi IP. Questo sito Web richiede due diversi record A, uno per ogni indirizzo IP. Ecco un esempio di un set di record:
 
-    www.contoso.com.        3600    IN    A    134.170.185.46
-    www.contoso.com.        3600    IN    A    134.170.188.221
+```dns
+www.contoso.com.        3600    IN    A    134.170.185.46
+www.contoso.com.        3600    IN    A    134.170.188.221
+```
 
 DNS di Azure gestisce tutti i record DNS usando *set di record*. Un set di record, chiamato anche set di record di *risorse* è la raccolta di record DNS che hanno lo stesso nome e sono dello stesso tipo in una zona. La maggior parte dei set di record contiene un singolo record. Non sono tuttavia rari esempi come quello precedente, in cui un set di record contiene più di un record.
 
