@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 48b322f32bd6e8f2a2da0c5be8eb7b7987881f83
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204118"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085940"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux
 
@@ -31,13 +31,13 @@ Oozie può anche essere usato per pianificare processi specifici di un sistema, 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster Hadoop in HDInsight**. Vedere [Introduzione a HDInsight in Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Un cluster Hadoop in HDInsight**. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 * **Un client SSH**. Vedere [connettersi a HDInsight (Apache Hadoop) tramite SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Un database SQL di Azure**.  Vedere [creare un database SQL di Azure nel portale di Azure](../sql-database/sql-database-get-started.md).  Questo articolo usa un database denominato **oozietest**.
+* **Un database SQL di Azure**.  Vedere [creare un database nel database SQL di Azure nel portale di Azure](../sql-database/sql-database-get-started.md).  Questo articolo usa un database denominato **oozietest**.
 
-* Lo schema URI per l'archiviazione primaria dei cluster. `wasb://`per l'archiviazione di `abfs://` Azure, per `adl://` Azure Data Lake storage Gen2 o per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`. Vedere anche l'articolo sul [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
+* Lo schema URI per l'archiviazione primaria dei cluster. `wasb://`per l'archiviazione di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`. Vedere anche l'articolo sul [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="example-workflow"></a>Esempio di flusso di lavoro
 
@@ -45,11 +45,13 @@ Il flusso di lavoro usato in questo documento prevede due azioni. Le azioni sono
 
 ![Diagramma del flusso di lavoro oozie HDInsight](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
 
-1. Un'azione hive esegue uno script HiveQL per estrarre i `hivesampletable` record da incluso in HDInsight. Ogni riga di dati descrive una visita da un dispositivo mobile specifico. Il formato del record risulterà simile al testo seguente:
+1. Un'azione hive esegue uno script HiveQL per estrarre i record da `hivesampletable` incluso in HDInsight. Ogni riga di dati descrive una visita da un dispositivo mobile specifico. Il formato del record risulterà simile al testo seguente:
 
-        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```output
+    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```
 
     Lo script Hive usato in questo documento conta le visite totali per ogni piattaforma (ad esempio Android o iPhone) e archivia i conteggi in una nuova tabella Hive.
 
@@ -77,7 +79,7 @@ Oozie presuppone che tutte le risorse necessarie per un processo siano archiviat
     ```
 
     > [!NOTE]  
-    > Il parametro `-p` crea tutte le directory nel percorso. La `data` directory viene utilizzata per conservare i dati utilizzati dallo `useooziewf.hql` script.
+    > Il parametro `-p` crea tutte le directory nel percorso. La `data` Directory viene utilizzata per conservare i dati utilizzati dallo `useooziewf.hql` script.
 
 3. Modificare il codice seguente per sostituire `sshuser` con il nome utente SSH.  Per assicurarsi che Oozie possa rappresentare l'account utente, usare il comando seguente:
 
@@ -97,7 +99,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 ```
 
 > [!IMPORTANT]  
-> Verificare il driver JDBC effettivo presente in `/usr/share/java/`.
+> Verificare il driver JDBC effettivo presente in `/usr/share/java/` .
 
 Se il flusso di lavoro ha usato altre risorse, ad esempio un file con estensione jar contenente un'applicazione MapReduce, è necessario aggiungere anche queste risorse.
 
@@ -126,11 +128,11 @@ Usare la procedura seguente per creare uno script HiveQL (linguaggio di query Hi
 
    * `${hiveDataFolder}`: contiene il percorso in cui archiviare i file di dati per la tabella.
 
-     Il file di definizione del flusso di lavoro, Workflow. XML in questo articolo, passa questi valori allo script HiveQL in fase di esecuzione.
+     Il file di definizione del flusso di lavoro, workflow.xml in questo articolo, passa questi valori allo script HiveQL in fase di esecuzione.
 
 1. Per salvare il file, premere **CTRL + X**, immettere **Y**, quindi premere **invio**.  
 
-1. Usare il comando seguente per copiare `useooziewf.hql` `wasbs:///tutorials/useoozie/useooziewf.hql`:
+1. Usare il comando seguente per copiare `useooziewf.hql` `wasbs:///tutorials/useoozie/useooziewf.hql` :
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -232,7 +234,7 @@ Le definizioni del flusso di lavoro di Oozie sono scritte in un linguaggio di de
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Modificare il codice seguente per sostituire `<serverName>` con il nome del server SQL di Azure `<sqlLogin>` e con l'account di accesso del server di Azure SQL.  Immettere il comando per connettersi al database SQL prerequisito.  Immettere la password al prompt.
+2. Modificare il codice riportato di seguito per sostituire `<serverName>` con il nome del [server SQL logico](../azure-sql/database/logical-servers.md) e `<sqlLogin>` con l'account di accesso del server.  Immettere il comando per connettersi al database SQL prerequisito.  Immettere la password al prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -240,11 +242,13 @@ Le definizioni del flusso di lavoro di Oozie sono scritte in un linguaggio di de
 
     L'output ricevuto ha un aspetto simile al testo seguente:
 
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to oozietest
-        1>
+    ```output
+    locale is "en_US.UTF-8"
+    locale charset is "UTF-8"
+    using default charset "UTF-8"
+    Default database being set to oozietest
+    1>
+    ```
 
 3. Al prompt `1>`, immettere il codice seguente:
 
@@ -257,7 +261,7 @@ Le definizioni del flusso di lavoro di Oozie sono scritte in un linguaggio di de
     GO
     ```
 
-    Dopo aver immesso l'istruzione `GO`, vengono valutate le istruzioni precedenti. Queste istruzioni creano una tabella, denominata `mobiledata`, che viene usata dal flusso di lavoro.
+    Dopo aver immesso l'istruzione `GO`, vengono valutate le istruzioni precedenti. Queste istruzioni creano una tabella, denominata `mobiledata` , che viene usata dal flusso di lavoro.
 
     Per verificare che la tabella sia stata creata, usare i comandi seguenti:
 
@@ -268,8 +272,10 @@ Le definizioni del flusso di lavoro di Oozie sono scritte in un linguaggio di de
 
     Viene visualizzato un output simile al testo seguente:
 
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo             mobiledata      BASE TABLE
+    ```output
+    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+    oozietest       dbo             mobiledata      BASE TABLE
+    ```
 
 4. Uscire dall'utilità TSQL immettendo `exit` al `1>` prompt.
 
@@ -299,7 +305,7 @@ La definizione del processo descrive dove trovare il file workflow.xml. Descrive
 
     |Valore segnaposto| Valore sostituito|
     |---|---|
-    |mystorageaccount.blob.core.windows.net\@wasbs://mycontainer| Valore ricevuto al passaggio 1.|
+    |\@mystorageaccount.blob.core.windows.net wasbs://mycontainer| Valore ricevuto al passaggio 1.|
     |admin| Nome dell'account di accesso per il cluster HDInsight, se non è amministratore.|
     |serverName| Nome del server di database SQL di Azure.|
     |sqlLogin| Accesso al server di database SQL di Azure.|
@@ -366,7 +372,7 @@ La definizione del processo descrive dove trovare il file workflow.xml. Descrive
     </configuration>
     ```
 
-    La maggior parte delle informazioni in questo file viene usata per popolare i valori usati nel file workflow.xml o ooziewf.hql (ad esempio `${nameNode}`).  Se il percorso è un percorso `wasbs`, è necessario usare il percorso completo, Non abbreviarlo semplicemente `wasbs:///`. La voce `oozie.wf.application.path` definisce il percorso in cui trovare il file workflow.xml, che contiene il flusso di lavoro eseguito da questo processo.
+    La maggior parte delle informazioni in questo file viene usata per popolare i valori usati nel file workflow.xml o ooziewf.hql (ad esempio `${nameNode}`).  Se il percorso è un percorso `wasbs`, è necessario usare il percorso completo, Non abbreviarlo semplicemente `wasbs:///` . La voce `oozie.wf.application.path` definisce il percorso in cui trovare il file workflow.xml, che contiene il flusso di lavoro eseguito da questo processo.
 
 3. Per creare la configurazione della definizione del processo Oozie, usare il comando seguente:
 
@@ -412,11 +418,11 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
     oozie job -config job.xml -submit
     ```
 
-    Questo comando carica le informazioni sul processo `job.xml` da e le invia a oozie, ma non lo esegue.
+    Questo comando carica le informazioni sul processo da `job.xml` e le invia a oozie, ma non lo esegue.
 
     Dopo il completamento, il comando dovrebbe restituire l'ID del processo, ad esempio `0000005-150622124850154-oozie-oozi-W`. L'ID viene usato per gestire il processo.
 
-4. Modificare il codice riportato di seguito `<JOBID>` per sostituire con l'ID restituito nel passaggio precedente.  Per visualizzare lo stato del processo, usare il comando seguente:
+4. Modificare il codice riportato di seguito per sostituire `<JOBID>` con l'ID restituito nel passaggio precedente.  Per visualizzare lo stato del processo, usare il comando seguente:
 
     ```bash
     oozie job -info <JOBID>
@@ -424,24 +430,26 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 
     Verranno restituite informazioni simili al testo seguente:
 
-        Job ID : 0000005-150622124850154-oozie-oozi-W
-        ------------------------------------------------------------------------------------------------------------------------------------
-        Workflow Name : useooziewf
-        App Path      : wasb:///tutorials/useoozie
-        Status        : PREP
-        Run           : 0
-        User          : USERNAME
-        Group         : -
-        Created       : 2015-06-22 15:06 GMT
-        Started       : -
-        Last Modified : 2015-06-22 15:06 GMT
-        Ended         : -
-        CoordAction ID: -
-        ------------------------------------------------------------------------------------------------------------------------------------
+    ```output
+    Job ID : 0000005-150622124850154-oozie-oozi-W
+    ------------------------------------------------------------------------------------------------------------------------------------
+    Workflow Name : useooziewf
+    App Path      : wasb:///tutorials/useoozie
+    Status        : PREP
+    Run           : 0
+    User          : USERNAME
+    Group         : -
+    Created       : 2015-06-22 15:06 GMT
+    Started       : -
+    Last Modified : 2015-06-22 15:06 GMT
+    Ended         : -
+    CoordAction ID: -
+    ------------------------------------------------------------------------------------------------------------------------------------
+    ```
 
     Lo stato del processo è `PREP`. Questo stato indica che il processo è stato creato, ma non avviato.
 
-5. Modificare il codice riportato di seguito `<JOBID>` per sostituire con l'ID restituito in precedenza.  Per avviare il processo, usare il comando seguente:
+5. Modificare il codice riportato di seguito per sostituire `<JOBID>` con l'ID restituito in precedenza.  Per avviare il processo, usare il comando seguente:
 
     ```bash
     oozie job -start <JOBID>
@@ -449,7 +457,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 
     Dopo questo comando, lo stato risulterà in esecuzione e verranno restituite informazioni relative alle azioni all'interno del processo.  Il completamento del processo può richiedere alcuni minuti.
 
-6. Modificare il codice seguente per sostituire `<serverName>` con il nome del server SQL di Azure `<sqlLogin>` e con l'account di accesso del server di Azure SQL.  *Una volta completata l'attività* , è possibile verificare che i dati siano stati generati ed esportati nella tabella del database SQL usando il comando seguente.  Immettere la password al prompt.
+6. Modificare il codice riportato di seguito per sostituire `<serverName>` con il nome del server e `<sqlLogin>` con l'account di accesso del server.  *Una volta completata l'attività* , è possibile verificare che i dati siano stati generati ed esportati nella tabella del database SQL usando il comando seguente.  Immettere la password al prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -464,14 +472,16 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 
     Le informazioni restituite sono simili al testo seguente:
 
-        deviceplatform  count
-        Android 31591
-        iPhone OS       22731
-        proprietary development 3
-        RIM OS  3464
-        Unknown 213
-        Windows Phone   1791
-        (6 rows affected)
+    ```output
+    deviceplatform  count
+    Android 31591
+    iPhone OS       22731
+    proprietary development 3
+    RIM OS  3464
+    Unknown 213
+    Windows Phone   1791
+    (6 rows affected)
+    ```
 
 Per altre informazioni sul comando Oozie, vedere [Oozie command-line tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html) (Strumento da riga di comando di Apache Oozie).
 
@@ -505,9 +515,9 @@ Per accedere all'interfaccia utente Web di Oozie, completare la procedura seguen
 
 1. Creare un tunnel SSH per il cluster HDInsight. Per altre informazioni, vedere [Usare il tunneling SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambariri nel Web browser `http://headnodehost:8080`usando URI.
+2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambariri nel Web browser usando URI `http://headnodehost:8080` .
 
-3. Sul lato sinistro della pagina selezionare **oozie** > **Quick Links** > **oozie Web UI**.
+3. Sul lato sinistro della pagina selezionare **oozie**  >  **Quick Links**  >  **oozie Web UI**.
 
     ![Passaggi dell'interfaccia utente Web di Apache Ambari OOZIE](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
@@ -651,4 +661,4 @@ In questo articolo si è appreso come definire un flusso di lavoro di oozie e co
 * [Caricare dati per processi Apache Hadoop in HDInsight](hdinsight-upload-data.md)
 * [Usare Apache Sqoop con Apache Hadoop in HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md)
 * [Usare Apache Hive con Apache Hadoop su HDInsight](hadoop/hdinsight-use-hive.md)
-* [Risolvere i problemi di Apache OOZIE](./troubleshoot-oozie.md)
+* [Risolvere i problemi di Apache Oozie](./troubleshoot-oozie.md)

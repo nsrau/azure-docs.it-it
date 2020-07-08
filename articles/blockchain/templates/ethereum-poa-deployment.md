@@ -1,15 +1,15 @@
 ---
 title: Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 description: Usare la soluzione Ethereum di verifica dell'autorità di certificazione per distribuire e configurare una rete Ethereum per il Consorzio multimembro in Azure
-ms.date: 06/04/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210117"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085923"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 
@@ -17,15 +17,17 @@ ms.locfileid: "85210117"
 
 Il modello di soluzione può essere usato da ogni membro del Consorzio per eseguire il provisioning di un footprint di rete blockchain usando Microsoft Azure servizi di calcolo, rete e archiviazione. Il footprint di rete di ogni membro del Consorzio è costituito da un set di nodi validator con carico bilanciato con cui un'applicazione o un utente può interagire per inviare transazioni Ethereum.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## <a name="choose-an-azure-blockchain-solution"></a>Scegliere una soluzione Azure blockchain
 
 Prima di scegliere di usare il modello di soluzione del Consorzio di prova Ethereum, confrontare lo scenario con i casi d'uso comuni delle opzioni di Azure blockchain disponibili.
 
 Opzione | Modello di servizio | Caso d'uso comune
 -------|---------------|-----------------
-Modelli di soluzioni | IaaS | I modelli di soluzione sono Azure Resource Manager modelli che è possibile usare per eseguire il provisioning di una topologia di rete blockchain completamente configurato I modelli distribuiscono e configurano Microsoft Azure servizi di calcolo, rete e archiviazione per un determinato tipo di rete blockchain.
+Modelli di soluzioni | IaaS | I modelli di soluzione sono Azure Resource Manager modelli che è possibile usare per eseguire il provisioning di una topologia di rete blockchain completamente configurato I modelli distribuiscono e configurano Microsoft Azure servizi di calcolo, rete e archiviazione per un determinato tipo di rete blockchain. I modelli di soluzione sono forniti senza un contratto di servizio. Per il supporto, utilizzare la pagina Domande e risposte di [Microsoft&](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) .
 [Servizio Azure Blockchain](../service/overview.md) | PaaS | Azure blockchain Service Preview semplifica la formazione, la gestione e la governance delle reti blockchain del Consorzio. Usa il servizio Azure blockchain per le soluzioni che richiedono PaaS, la gestione del consorzio o la privacy dei contratti e delle transazioni.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | L'anteprima di Azure Blockchain Workbench è una raccolta di servizi e funzionalità di Azure che consentono di creare e distribuire applicazioni blockchain per condividere dati e processi di business con altre organizzazioni. Usare Azure blockchain Workbench per la realizzazione di prototipi di una soluzione blockchain o di un modello di prova dell'applicazione blockchain.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | L'anteprima di Azure Blockchain Workbench è una raccolta di servizi e funzionalità di Azure che consentono di creare e distribuire applicazioni blockchain per condividere dati e processi di business con altre organizzazioni. Usare Azure blockchain Workbench per la realizzazione di prototipi di una soluzione blockchain o di un modello di prova dell'applicazione blockchain. Azure Blockchain Workbench viene fornito senza un contratto di servizio. Per il supporto, utilizzare la pagina Domande e risposte di [Microsoft&](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) .
 
 ## <a name="solution-architecture"></a>Architettura della soluzione
 
@@ -144,7 +146,7 @@ Parametro | Descrizione | Valore di esempio
 Consortium Member ID (ID membro del consorzio) | ID associato a ogni membro che partecipa alla rete Consortium. Viene usato per configurare gli spazi degli indirizzi IP per evitare conflitti. Per una rete privata, l'ID membro deve essere univoco tra organizzazioni diverse nella stessa rete.  È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni. Prendere nota del valore di questo parametro poiché è necessario condividerlo con altri membri di join per assicurarsi che non esistano conflitti. L'intervallo valido è compreso tra 0 e 255. | 0
 ID rete | L'ID di rete per la rete di consorzio Ethereum in fase di realizzazione. Ogni rete Ethereum ha il proprio ID di rete, di cui 1 è l'ID della rete pubblica. L'intervallo valido è compreso tra 5 e 999.999.999 | 10101010
 Admin Ethereum Address (Indirizzo Ethereum amministratore) | Indirizzo dell'account Ethereum usato per partecipare alla governance del PoA. È possibile usare metamask per generare un indirizzo Ethereum. |
-Opzioni avanzate | Opzioni avanzate per le impostazioni di Ethereum | Abilitare
+Opzioni avanzate | Opzioni avanzate per le impostazioni di Ethereum | Abilita
 Eseguire la distribuzione tramite IP pubblico | Se si seleziona VNet privato, la rete viene distribuita dietro un gateway VNet e rimuove l'accesso al peering. Per i VNet privati, tutti i membri devono usare un gateway VNet per la compatibilità della connessione. | IP pubblico
 Limite di gas di blocco | Limite di gas di blocco iniziale della rete. | 50 milioni
 Block Reseal Period (sec) (Periodo nuovo sigillo blocco (sec)) | Frequenza con cui verranno creati blocchi vuoti in assenza di transazioni in rete. Una frequenza maggiore determina una finalità più rapida, ma costi di archiviazione maggiori. | 15
@@ -160,7 +162,7 @@ Il monitoraggio consente di configurare una risorsa di log per la rete. L'agente
 
 Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
-Monitoraggio | Opzione per abilitare il monitoraggio | Abilitare
+Monitoraggio | Opzione per abilitare il monitoraggio | Abilita
 Connettersi ai log di monitoraggio di Azure esistenti | Opzione per creare una nuova istanza di log di monitoraggio di Azure o aggiungere un'istanza esistente | Create new
 Location | Area in cui è distribuita la nuova istanza | Stati Uniti orientali
 ID dell'area di lavoro di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|ID area di lavoro dell'istanza dei log di monitoraggio di Azure esistente||ND
@@ -729,7 +731,7 @@ Per inviare un feedback sul prodotto o richiedere nuove funzionalità, pubblicar
 
 È possibile interagire con i tecnici Microsoft e con gli esperti della community di Azure Blockchain.
 
-* [Microsoft Q&una pagina di domande per il servizio Azure blockchain](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Il supporto tecnico per i modelli blockchain è limitato ai problemi di distribuzione.
+* [Microsoft Q&una pagina di domande](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Il supporto tecnico per i modelli blockchain è limitato ai problemi di distribuzione.
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
