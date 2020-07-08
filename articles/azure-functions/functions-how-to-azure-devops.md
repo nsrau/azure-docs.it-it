@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 5e2fc8fb06248e2cdad9067c56647da6d9626b50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 0e47078e9f7620e72524ccf91e942d4e15a6b5bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559113"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Recapito continuo tramite Azure DevOps
 
@@ -25,7 +25,7 @@ Per la definizione della pipeline sono disponibili due opzioni:
 
 Per creare una pipeline basata su YAML, compilare prima l'app e quindi distribuire l'app.
 
-### <a name="build-your-app"></a>Creare l'app
+### <a name="build-your-app"></a>Compilare l'app
 
 La modalità di compilazione dell'app in Azure Pipelines dipende dal linguaggio di programmazione dell'app. Ogni linguaggio dispone di passaggi di compilazione specifici che creano un artefatto di distribuzione. Viene usato un artefatto di distribuzione per distribuire l'app per le funzioni in Azure.
 
@@ -172,7 +172,7 @@ steps:
 
 ---
 
-### <a name="deploy-your-app"></a>Distribuire l'app Web
+### <a name="deploy-your-app"></a>Distribuire l'app
 
 È necessario includere uno degli esempi YAML seguenti nel file YAML, a seconda del sistema operativo host.
 
@@ -215,7 +215,7 @@ steps:
 
 I modelli in Azure DevOps sono gruppi predefiniti di attività che compilano o distribuiscono un'app.
 
-### <a name="build-your-app"></a>Creare l'app
+### <a name="build-your-app"></a>Compilare l'app
 
 La modalità di compilazione dell'app in Azure Pipelines dipende dal linguaggio di programmazione dell'app. Ogni linguaggio dispone di passaggi di compilazione specifici che creano un artefatto di distribuzione. Viene usato un artefatto di distribuzione per aggiornare l'app per le funzioni in Azure.
 
@@ -237,7 +237,7 @@ Se l'app JavaScript dipende da moduli nativi di Windows, è necessario aggiornar
 
 ![Aggiornare la versione del pool di agenti](media/functions-how-to-azure-devops/change-agent.png)
 
-### <a name="deploy-your-app"></a>Distribuire l'app Web
+### <a name="deploy-your-app"></a>Distribuire l'app
 
 Quando si crea una nuova pipeline di versione, cercare il modello di rilascio di funzioni di Azure.
 
@@ -247,7 +247,7 @@ La distribuzione in uno slot di distribuzione non è supportata nel modello di v
 
 ## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Creare una pipeline di compilazione usando l'interfaccia della riga di comando di Azure
 
-Per creare una pipeline di compilazione in Azure, usare `az functionapp devops-pipeline create` il [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). La pipeline di compilazione viene creata per compilare e rilasciare tutte le modifiche al codice apportate nel repository. Il comando genera un nuovo file YAML che definisce la pipeline di compilazione e rilascio e quindi ne viene eseguito il commit nel repository. I prerequisiti per questo comando dipendono dalla posizione del codice.
+Per creare una pipeline di compilazione in Azure, usare il `az functionapp devops-pipeline create` [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). La pipeline di compilazione viene creata per compilare e rilasciare tutte le modifiche al codice apportate nel repository. Il comando genera un nuovo file YAML che definisce la pipeline di compilazione e rilascio e quindi ne viene eseguito il commit nel repository. I prerequisiti per questo comando dipendono dalla posizione del codice.
 
 - Se il codice è in GitHub:
 

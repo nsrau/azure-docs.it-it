@@ -3,12 +3,11 @@ title: Concetti-archiviazione
 description: Informazioni sulle funzionalità di archiviazione chiavi in cloud privati di Azure Solution (AVS) Preview.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7e58a829a40d590b7936a58ccdc866211a4f5cb4
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740356"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604117"
 ---
 # <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Concetti relativi all'archiviazione di anteprima della soluzione VMware di Azure (AVS)
 
@@ -21,7 +20,7 @@ L'archiviazione locale in ogni host del cluster viene usata come parte di un arc
 L'archiviazione locale negli host del cluster viene usata nell'archivio dati rete VSAN a livello di cluster. Tutti gli archivi dati vengono creati come parte di una distribuzione di cloud privato e sono disponibili per l'uso immediato. L'utente cloudadmin e tutti gli utenti nel gruppo CloudAdmin possono gestire gli archivi dati con questi privilegi rete VSAN:
 - Datastore.AllocateSpace
 - Datastore.Browse
-- Archivio dati. config
+- Datastore.Config
 - Archivio dati. DeleteFile
 - Archivio dati. filemanagement
 - Archivio dati. UpdateVirtualMachineMetadata
@@ -32,7 +31,7 @@ per impostazione predefinita, i datastore rete VSAN usano la crittografia dei da
 
 ## <a name="scaling"></a>Scalabilità
 
-La capacità di archiviazione del cluster nativa viene ridimensionata aggiungendo host a un cluster. Per i cluster che usano host, la capacità a livello di cluster non elaborata viene aumentata di 15,4 TB con ogni host aggiuntivo. I cluster compilati con gli host GP hanno una capacità non elaborata aumentata di 7,7 TB con ogni host aggiuntivo. In entrambi i tipi di cluster, gli host importano circa 10 minuti per essere aggiunti a un cluster. Per istruzioni su come ridimensionare i cluster, vedere l'esercitazione [scalabilità del cloud privato] [Tutorial-scale-private-cloud].
+La capacità di archiviazione del cluster nativa viene ridimensionata aggiungendo host a un cluster. Per i cluster che usano host, la capacità a livello di cluster non elaborata viene aumentata di 15,4 TB con ogni host aggiuntivo. I cluster compilati con gli host GP hanno una capacità non elaborata aumentata di 7,7 TB con ogni host aggiuntivo. In entrambi i tipi di cluster, gli host importano circa 10 minuti per essere aggiunti a un cluster. Per istruzioni sulla scalabilità dei cluster, vedere l' [esercitazione scalare un cloud privato][tutorial-scale-private-cloud] .
 
 ## <a name="azure-storage-integration"></a>Integrazione di archiviazione di Azure
 
@@ -45,5 +44,5 @@ Il passaggio successivo consiste nel comprendere i [concetti relativi alle ident
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-scale-private-cloud]: ./tutorials-scale-private-cloud.md
+[tutorial-scale-private-cloud]: ./tutorial-scale-private-cloud.md
 [concepts-identity]: ./concepts-identity.md

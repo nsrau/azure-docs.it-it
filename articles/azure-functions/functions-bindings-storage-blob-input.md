@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 33db9a8d86e02db2076cdb85170d466697930b96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 1dbd3765b691d1ba7b958d765a59f6451f380a2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559083"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Binding di input di archiviazione BLOB di Azure per funzioni di Azure
 
 L'associazione di input consente di leggere i dati di archiviazione BLOB come input per una funzione di Azure.
 
-Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](./functions-bindings-storage-blob.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-storage-blob.md).
 
 ## <a name="example"></a>Esempio
 
@@ -281,7 +281,7 @@ public static void Run(
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script C#.
+Gli attributi non sono supportati da Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -293,26 +293,26 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L' `@BlobInput` attributo consente di accedere al BLOB che ha attivato la funzione. Se si usa una matrice di byte con l'attributo, `dataType` impostare `binary`su. Per informazioni dettagliate, vedere l' [esempio di input](#example) .
+L' `@BlobInput` attributo consente di accedere al BLOB che ha attivato la funzione. Se si usa una matrice di byte con l'attributo, impostare `dataType` su `binary` . Per informazioni dettagliate, vedere l' [esempio di input](#example) .
 
 ---
 
 ## <a name="configuration"></a>Configurazione
 
-La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `Blob` attributo.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Blob`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `blob`. |
-|**direzione** | n/d | Il valore deve essere impostato su `in`. Le eccezioni sono indicate nella sezione [usage](#usage). |
-|**name** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione.|
+|**direction** | n/d | Il valore deve essere impostato su `in`. Le eccezioni sono indicate nella sezione [usage](#usage). |
+|**nome** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione.|
 |**path** |**BlobPath** | Percorso del BLOB. |
-|**connection** |**Connessione**| Nome di un'impostazione dell'app che contiene la [stringa di connessione di archiviazione](../storage/common/storage-configure-connection-string.md) da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione solo BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** |**Connection**| Nome di un'impostazione dell'app che contiene la [stringa di connessione di archiviazione](../storage/common/storage-configure-connection-string.md) da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione solo BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |n/d | **Accesso** | Indica se eseguire la lettura o la scrittura. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -324,7 +324,7 @@ La tabella seguente illustra le proprietà di configurazione dell'associazione i
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Accedere ai dati BLOB `context.bindings.<NAME>` usando `<NAME>` where corrisponde al valore definito in *Function. JSON*.
+Accedere ai dati BLOB usando `context.bindings.<NAME>` Where `<NAME>` corrisponde al valore definito in *function.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -332,7 +332,7 @@ Accedere ai dati BLOB tramite il parametro tipizzato come [InputStream](https://
 
 # <a name="java"></a>[Java](#tab/java)
 
-L' `@BlobInput` attributo consente di accedere al BLOB che ha attivato la funzione. Se si usa una matrice di byte con l'attributo, `dataType` impostare `binary`su. Per informazioni dettagliate, vedere l' [esempio di input](#example) .
+L' `@BlobInput` attributo consente di accedere al BLOB che ha attivato la funzione. Se si usa una matrice di byte con l'attributo, impostare `dataType` su `binary` . Per informazioni dettagliate, vedere l' [esempio di input](#example) .
 
 ---
 

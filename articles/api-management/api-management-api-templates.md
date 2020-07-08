@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 467d8b89ef5c114d647a257053ed3367d6336bdc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559345"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelli di API in Gestione API di Azure
 
@@ -26,7 +26,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 
 I modelli in questa sezione consentono di personalizzare il contenuto delle pagine API del portale per sviluppatori.  
   
--   [Elenco API](#APIList)  
+-   [Elenco delle API](#APIList)  
 -   [Operazione](#Product)  
 -   [Esempi di codice](#CodeSamples)  
     -   [CURL](#Curl)  
@@ -45,7 +45,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="api-list"></a><a name="APIList"></a> Elenco API  
+## <a name="api-list"></a><a name="APIList"></a>Elenco API  
  Il modello **Elenco API** consente di personalizzare il corpo della pagina di elenco API nel portale per sviluppatori.  
   
  ![Elenco API del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Elenco API dei modelli del portale per sviluppatori gestione API")  
@@ -347,11 +347,11 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`apiId`|string|ID dell'API corrente.|  
-|`apiName`|stringa|Nome dell'API.|  
-|`apiDescription`|stringa|Descrizione dell'API.|  
+|`apiName`|string|Nome dell'API.|  
+|`apiDescription`|string|Descrizione dell'API.|  
 |`api`|Entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|API corrente.|  
 |`operation`|[Operazione](api-management-template-data-model-reference.md#Operation)|L'operazione attualmente visualizzata.|  
-|`sampleUrl`|stringa|L'URL per l'operazione corrente.|  
+|`sampleUrl`|string|L'URL per l'operazione corrente.|  
 |`operationMenu`|[Menu operazione](api-management-template-data-model-reference.md#Menu)|Un menu di operazioni per questa API.|  
 |`consoleUrl`|URI|L'URI per il pulsante **Prova**.|  
 |`samples`|Raccolta di entità [Esempio di codice](api-management-template-data-model-reference.md#Sample).|Gli esempi di codice per l'operazione corrente.|  
@@ -717,7 +717,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-### <a name="c"></a><a name="CSharp"></a>C #  
+### <a name="c"></a><a name="CSharp"></a> C#  
  Il modello **DocumentationSamplesCsharp** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -1283,7 +1283,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-### <a name="python"></a><a name="Python"></a>Python  
+### <a name="python"></a><a name="Python"></a> Python  
  Il modello **DocumentationSamplesPython** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  

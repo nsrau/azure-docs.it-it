@@ -1,54 +1,115 @@
 ---
 title: Novità del server di Backup di Microsoft Azure
-description: Il server di Backup di Microsoft Azure offre funzionalità avanzate di backup per la protezione di macchine virtuali, file e cartelle, carichi di lavoro e altro ancora. Informazioni su come installare o aggiornare il server di Backup di Azure V3.
+description: Il server di Backup di Microsoft Azure offre funzionalità avanzate di backup per la protezione di macchine virtuali, file e cartelle, carichi di lavoro e altro ancora.
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/24/2020
+ms.openlocfilehash: 5f8d0aa83f6d54575b76847efa892864b32c456d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77582807"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629084"
 ---
-# <a name="whats-new-in-microsoft-azure-backup-server"></a>Novità del server di Backup di Microsoft Azure
+# <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novità di Backup di Microsoft Azure Server (MAB)
 
-Backup di Microsoft Azure Server versione 3 (MAB V3) è l'aggiornamento più recente e include correzioni di bug critiche, supporto di Windows Server 2019, supporto di SQL 2017 e altre funzionalità e miglioramenti. Per visualizzare l'elenco dei bug corretti e le istruzioni di installazione di MABS V3, vedere l'articolo della knowledge base [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3).
+## <a name="whats-new-in-mabs-v3-ur1"></a>Novità di MAB V3 UR1
+
+Backup di Microsoft Azure Server (MAB) versione 3 UR1 è l'aggiornamento più recente e include correzioni di bug critiche e altre funzionalità e miglioramenti. Per visualizzare l'elenco dei bug corretti e le istruzioni di installazione per MAB V3 UR1, vedere l'articolo [4534062](https://support.microsoft.com/help/4534062)della Knowledge Knowledge.
+
+>[!NOTE]
+>Il supporto per l'agente protezione 32 bit è deprecato con MAB V3 UR1. Vedere [deprecazione di 32 bit Protection Agent](#32-bit-protection-agent-deprecation).
+
+### <a name="faster-backups-with-tiered-storage-using-ssds"></a>Backup più veloci con archiviazione a livelli con unità SSD
+
+In MAB V2 è stato introdotto [Modern backup storage](backup-mabs-add-storage.md) (MBS), che migliora l'utilizzo e le prestazioni dello spazio di archiviazione. MBS usa ReFS come file system sottostante ed è progettato l'uso dell'archiviazione ibrida come l'archiviazione a livelli.
+
+Per ottenere scalabilità e prestazioni per MB è consigliabile usare una piccola percentuale (4% di archiviazione complessiva) di archiviazione Flash (SSD) con MAB V3 UR1 come volume a livelli in combinazione con l'archiviazione HDD di DPM. MAB V3 UR1 con archiviazione a livelli offre backup del 50-70% più veloci. Vedere l'articolo su DPM [configurare MBS con archiviazione a livelli](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) per i passaggi necessari per configurare l'archiviazione a livelli.
+
+### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Supporto per volumi ReFS e volumi ReFS con la deduplicazione abilitata
+
+Con MAB V3 UR1, è possibile eseguire il backup dei volumi ReFS e dei carichi di lavoro distribuiti nel volume ReFS. È possibile eseguire il backup dei carichi di lavoro seguenti distribuiti nei volumi ReFS:
+
+* Sistema operativo (64 bit): Windows Server 2019, 2016, 2012 R2, 2012.
+* SQL Server: SQL Server 2019, SQL Server 2017, 2016.
+* Exchange: Exchange 2019, 2016.
+* SharePoint: SharePoint 2019, 2016 con SP più recente.
+
+>[!NOTE]
+> Il backup di macchine virtuali Hyper-V archiviate in un volume ReFS è supportato con MAB V3
+
+### <a name="azure-vmware-solution-protection-support"></a>Supporto per la protezione della soluzione VMware di Azure
+
+Con MAB V3 UR1 è ora possibile proteggere le macchine virtuali distribuite nella [soluzione VMware di Azure](https://docs.microsoft.com/azure/azure-vmware/).
+
+### <a name="vmware-parallel-backups"></a>Backup paralleli di VMware
+
+Con MAB V3 UR1, tutti i backup di macchine virtuali VMware in un singolo gruppo protezione dati saranno paralleli, con un conseguente 25% di backup di VM più veloci.
+Con le versioni precedenti di MAB, i backup paralleli venivano eseguiti solo tra gruppi protezione dati. Con MAB V3 UR1, i processi di delta replication VMware vengono eseguiti in parallelo. Per impostazione predefinita, il numero di processi da eseguire in parallelo è impostato su 8. Altre informazioni sui [backup paralleli VMware](backup-azure-backup-server-vmware.md#vmware-parallel-backups).
+
+### <a name="disk-exclusion-for-vmware-vm-backup"></a>Esclusione disco per il backup di macchine virtuali VMware
+
+Con MAB V3 UR1 è possibile escludere dischi specifici da un backup di macchine virtuali VMware. Altre informazioni sull' [esclusione di dischi dal backup di macchine virtuali VMware](backup-azure-backup-server-vmware.md#exclude-disk-from-vmware-vm-backup).  
+
+### <a name="support-for-additional-layer-of-authentication-to-delete-online-backup"></a>Supporto per un ulteriore livello di autenticazione per eliminare il backup online
+
+Con MAB V3 UR1, viene aggiunto un ulteriore livello di autenticazione per le operazioni critiche. Verrà richiesto di immettere un PIN di sicurezza quando si esegue l' **arresto della protezione con le operazioni di eliminazione dei dati** .
+
+### <a name="offline-backup-improvements"></a>Miglioramenti al backup offline
+
+MAB V3 UR1 migliora l'esperienza del backup offline con il servizio importazione/esportazione di Azure. Per ulteriori informazioni, vedere la procedura aggiornata [qui](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
+
+>[!NOTE]
+>L'aggiornamento porta anche l'anteprima per il backup offline usando Azure Data Box in MAB. [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com)Per ulteriori informazioni, contattare.
+
+### <a name="new-cmdlet-parameter"></a>Nuovo parametro cmdlet
+
+MAB V3 UR1 include un nuovo parametro **[-CheckReplicaFragmentation]**. Il nuovo parametro calcola la percentuale di frammentazione per una replica ed è inclusa nel cmdlet **Copy-DPMDatasourceReplica** .
+
+### <a name="32-bit-protection-agent-deprecation"></a>deprecazione dell'agente protezione 32 bit
+
+Con MAB V3 UR1, il supporto per l'agente protezione a 32 bit non è più supportato. Non sarà possibile proteggere i carichi di lavoro a 32 bit dopo l'aggiornamento del server MAB V3 a UR1. Eventuali agenti protezione a 32 bit esistenti saranno in uno stato disabilitato e i backup pianificati avranno esito negativo e l' **agente verrà disabilitato** . Se si desidera mantenere i dati di backup per questi agenti, è possibile arrestare la protezione con l'opzione Mantieni dati. In caso contrario, è possibile rimuovere l'agente protezione.
+
+>[!NOTE]
+>Esaminare la [matrice di protezione aggiornata](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) per informazioni sui carichi di lavoro supportati per la protezione con MAB UR 1.
+
+## <a name="whats-new-in-mabs-v3-rtm"></a>Novità di MAB V3 RTM
+
+Backup di Microsoft Azure Server versione 3 (MAB V3) include correzioni di bug critiche, supporto di Windows Server 2019, supporto di SQL 2017 e altre funzionalità e miglioramenti. Per visualizzare l'elenco dei bug corretti e le istruzioni di installazione di MABS V3, vedere l'articolo della knowledge base [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3).
 
 In MABS V3 sono incluse le funzionalità seguenti:
 
-## <a name="volume-to-volume-migration"></a>Migrazione da volume a volume
+### <a name="volume-to-volume-migration"></a>Migrazione da volume a volume
 
 Con Modern Backup Storage (MBS) in MABS V2, è stata annunciata l'archiviazione con riconoscimento del carico di lavoro, in cui è possibile configurare alcuni carichi di lavoro per il backup in specifiche risorse di archiviazione, in base alle proprietà di archiviazione. Dopo la configurazione, tuttavia, può risultare necessario spostare i backup di alcune origini dati in altre risorse di archiviazione per un utilizzo ottimizzato delle risorse. MAB V3 offre la possibilità di eseguire la migrazione dei backup e configurarli in modo che vengano archiviati in un volume diverso in [tre passaggi](https://techcommunity.microsoft.com/t5/system-center-blog/sc-2016-dpm-ur4-migrate-backup-storage-in-3-simple-steps/ba-p/351842).
 
-## <a name="prevent-unexpected-data-loss"></a>Evitare perdite di dati impreviste
+### <a name="prevent-unexpected-data-loss"></a>Evitare perdite di dati impreviste
 
-Nelle aziende, MABS viene gestito da un team di amministratori. Sebbene esistano linee guida sull'archiviazione che devono essere seguite per l'esecuzione dei backup, specificare un volume non corretto come archivio di backup di MABS può causare la perdita di dati di importanza critica. Con MABS V3, è possibile evitare tali scenari configurando questi volumi come non disponibili per l'archiviazione usando [questi cmdlet di PowerShell](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
+Nelle aziende, MABS viene gestito da un team di amministratori. Sebbene esistano linee guida sull'archiviazione che devono essere seguite per l'esecuzione dei backup, specificare un volume non corretto come archivio di backup di MABS può causare la perdita di dati di importanza critica. Con MAB V3, è possibile impedire tali scenari configurando tali volumi come quelli non disponibili per l'archiviazione con [questi cmdlet di PowerShell](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
 
-## <a name="custom-size-allocation"></a>Allocazione dimensioni personalizzate
+### <a name="custom-size-allocation"></a>Allocazione dimensioni personalizzate
 
-Modern Backup Storage (MBS) utilizza l'archiviazione in modo mirato, in base a specifiche esigenze. A tale scopo, MABS calcola le dimensioni dei dati sottoposti a backup quando viene configurato per la protezione. Se, tuttavia, molti file e cartelle vengono sottoposti a backup contemporaneamente, come nel caso di un file server, il calcolo delle dimensioni può richiedere molto tempo. Con MABS V3, è possibile configurare MABS in modo che accetti le dimensioni del volume predefinite, anziché calcolare le dimensioni di ogni file, con un conseguente risparmio di tempo.
+Modern Backup Storage (MBS) utilizza l'archiviazione in modo mirato, in base a specifiche esigenze. A tale scopo, MAB calcola le dimensioni dei dati di cui viene eseguito il backup quando è configurato per la protezione. Se, tuttavia, molti file e cartelle vengono sottoposti a backup contemporaneamente, come nel caso di un file server, il calcolo delle dimensioni può richiedere molto tempo. Con MAB V3, è possibile configurare MAB in modo da accettare le dimensioni del volume come predefinite, anziché calcolare le dimensioni di ogni file, risparmiando tempo.
 
-## <a name="optimized-cc-for-rct-vms"></a>CC ottimizzati per le macchine virtuali RCT
+### <a name="optimized-cc-for-rct-vms"></a>CC ottimizzati per le macchine virtuali RCT
 
 MABS usa RCT (la funzionalità di rilevamento delle modifiche nativa in Hyper-V), che riduce la necessità di verifiche della coerenza molto dispendiose in termini di tempo in scenari come arresti anomali della macchina virtuale. RCT offre una migliore resilienza rispetto al rilevamento delle modifiche offerto dai backup basati su snapshot di VSS. MABS V3 ottimizza ulteriormente il consumo di archiviazione e rete trasferendo solo i dati modificati durante le verifiche della coerenza.
 
-## <a name="support-to-tls-12"></a>Support per TLS 1.2
+### <a name="support-to-tls-12"></a>Support per TLS 1.2
 
 TLS 1.2 è la modalità di comunicazione più sicura suggerita da Microsoft con il miglior livello di crittografia. MABS ora supporta la comunicazione TLS 1.2 tra MABS e i server protetti, per l'autenticazione basata su certificati e per i backup nel cloud.
 
-## <a name="vmware-vm-protection-support"></a>Supporto della protezione di VM VMware
+### <a name="vmware-vm-protection-support"></a>Supporto della protezione di VM VMware
 
 Il backup di VM VMware è ora supportato per le distribuzioni di produzione. MABS V3 offre quanto segue per la protezione di VM VMware:
 
-- Supporto per vCenter ed ESXi 6.5, insieme al supporto per 5.5 e 6.0.
-- Protezione automatica delle macchine virtuali VMware nel cloud. Se vengono aggiunte nuove macchine virtuali VMware a una cartella protetta, sono automaticamente protette su disco e cloud.
-- Miglioramenti dell'efficienza per il ripristino del percorso alternativo di VMware.
+* Supporto per vCenter ed ESXi 6.5, insieme al supporto per 5.5 e 6.0.
+* Protezione automatica delle macchine virtuali VMware nel cloud. Se le nuove macchine virtuali VMware vengono aggiunte a una cartella protetta, vengono protette automaticamente su disco e cloud.
+* Miglioramenti dell'efficienza per il ripristino del percorso alternativo di VMware.
 
-## <a name="sql-2017-support"></a>Supporto per SQL 2017
+### <a name="sql-2017-support"></a>Supporto per SQL 2017
 
 MABS V3 può essere installato con SQL 2017 come database di MABS. È possibile eseguire l'aggiornamento di SQL Server da SQL 2016 a SQL 2017 o una nuova installazione. Con MABS V3 è anche possibile eseguire il backup dei carichi di lavoro di SQL 2017 in ambienti cluster e non cluster.
 
-## <a name="windows-server-2019-support"></a>Supporto per Windows Server 2019
+### <a name="windows-server-2019-support"></a>Supporto per Windows Server 2019
 
 MABS V3 può essere installato in Windows Server 2019. Per usare MABS V3 con WS2019, è possibile aggiornare il sistema operativo a WS2019 prima di installare/aggiornare MABS V3 oppure è possibile eseguire l'aggiornamento del sistema operativo successivamente all'installazione/aggiornamento di V3 su WS2016.
 
@@ -57,14 +118,13 @@ In [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-micros
 
 > [!NOTE]
 >
-> MABS ha la stessa base di codice di System Center Data Protection Manager. MABS V3 corrisponde a Data Protection Manager 1807.
+> MABS ha la stessa base di codice di System Center Data Protection Manager. MABS V3 corrisponde a Data Protection Manager 1807. MAB V3 UR1 equivale a Data Protection Manager 2019 UR1.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Leggere le informazioni su come preparare il server o iniziare a proteggere un carico di lavoro:
 
-- [Problemi noti in MABS V3](backup-mabs-release-notes-v3.md)
-- [Preparare i carichi di lavoro del server di backup](backup-azure-microsoft-azure-backup.md)
-- [Usare il server di backup per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md)
-- [Usare il server di backup per eseguire il backup di SQL Server](backup-azure-sql-mabs.md)
-- [Usare Modern Backup Storage con il server di backup](backup-mabs-add-storage.md)
+* [Preparare i carichi di lavoro del server di backup](backup-azure-microsoft-azure-backup.md)
+* [Usare il server di backup per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md)
+* [Usare il server di backup per eseguire il backup di SQL Server](backup-azure-sql-mabs.md)
+* [Usare Modern Backup Storage con il server di backup](backup-mabs-add-storage.md)

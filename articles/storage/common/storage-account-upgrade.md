@@ -8,12 +8,11 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: 9afbade408d6f95fcd3a61aa1ba65bc09c7a875b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067223"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629571"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
@@ -73,7 +72,7 @@ In entrambi i casi, è prioritario stimare il costo di archiviazione, accesso e 
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
-L'aggiornamento di un account di archiviazione V1 a un account per utilizzo generico V2 è gratuito. È possibile specificare il livello di account desiderato durante il processo di aggiornamento. Se non si specifica un livello di account durante l'aggiornamento, il livello di account predefinito dell'account aggiornato `Hot`sarà. Tuttavia, la modifica del livello di accesso alle archiviazioni dopo l'aggiornamento può comportare modifiche alla fattura, in modo che sia consigliabile specificare il nuovo livello di account durante l'aggiornamento.
+L'aggiornamento di un account di archiviazione V1 a un account per utilizzo generico V2 è gratuito. È possibile specificare il livello di account desiderato durante il processo di aggiornamento. Se non si specifica un livello di account durante l'aggiornamento, il livello di account predefinito dell'account aggiornato sarà `Hot` . Tuttavia, la modifica del livello di accesso alle archiviazioni dopo l'aggiornamento può comportare modifiche alla fattura, in modo che sia consigliabile specificare il nuovo livello di account durante l'aggiornamento.
 
 Tutti gli account di archiviazione usano per l'archivio BLOB un modello di determinazione prezzi basato sul livello di ogni BLOB. Quando si usa un account di archiviazione, tenere conto delle considerazioni seguenti relative alla fatturazione:
 

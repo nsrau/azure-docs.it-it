@@ -9,12 +9,11 @@ ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6ffc92fe8d17970e1408262387140331189d6e51
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 430c08fc318a89c4d11575eab90ee524b88a979a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200131"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84607347"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure
 Questo articolo descrive gli ID istanza per i set di scalabilità e le diverse modalità di esplorazione.
@@ -23,7 +22,7 @@ Questo articolo descrive gli ID istanza per i set di scalabilità e le diverse m
 
 Ogni macchina virtuale in un set di scalabilità ottiene un ID istanza che la identifica in modo univoco. Questo ID istanza viene usato nelle API del set di scalabilità per eseguire operazioni su una specifica macchina virtuale nel set di scalabilità. Ad esempio, è possibile specificare un determinato ID istanza per ricreare l'immagine quando si usa l'API per la ricreazione dell'immagine:
 
-API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (per altre informazioni, vedere la [documentazione dell'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
+API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (per altre informazioni, vedere la [documentazione dell'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimage))
 
 PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
 

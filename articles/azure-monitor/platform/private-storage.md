@@ -6,16 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 7213cb10936fc1c2117b2c5c3fc32a6bfea02d30
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610067"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Account di archiviazione di proprietà del cliente per l'inserimento dei log in Monitoraggio di Azure
 
-Monitoraggio di Azure usa gli account di archiviazione nel processo di inserimento di alcuni tipi di dati, ad esempio [log personalizzati](data-sources-custom-logs.md) e alcuni [log di Azure](azure-storage-iis-table.md). Durante il processo di inserimento, i log vengono prima inviati a un account di archiviazione e successivamente inseriti in Log Analytics o in Application Insights. Se si vuole controllare i dati durante l'inserimento, è possibile usare i propri account di archiviazione anziché l'archiviazione gestita dal servizio. L'uso del proprio account di archiviazione permette di controllare l'accesso, il contenuto, la crittografia e la conservazione dei log durante l'inserimento. Questa operazione viene indicata come Bring Your Own Storage, o BYOS. 
+Monitoraggio di Azure usa gli account di archiviazione nel processo di inserimento di alcuni tipi di dati, ad esempio [log personalizzati](data-sources-custom-logs.md) e alcuni [log di Azure](azure-storage-iis-table.md). Durante il processo di inserimento, i log vengono prima inviati a un account di archiviazione e successivamente inseriti in Log Analytics o in Application Insights. Se si vuole controllare i dati durante l'inserimento, è possibile usare i propri account di archiviazione anziché l'archiviazione gestita dal servizio. L'uso del proprio account di archiviazione consente di controllare l'accesso, il contenuto, la crittografia e la conservazione dei log durante l'inserimento. Questa operazione viene indicata come Bring Your Own Storage, o BYOS. 
 
 Uno scenario che richiede BYOS è l'isolamento di rete tramite collegamenti privati. Quando si usa una rete virtuale, l'isolamento rete è spesso un requisito e l'accesso alla rete Internet pubblica è limitato. In questi casi, l'accesso all'archiviazione del servizio di Monitoraggio di Azure per l'inserimento dei log è completamente bloccato o considerato una procedura non valida. Al contrario, i log devono essere inseriti tramite un account di archiviazione di proprietà del cliente all'interno della VNet o facilmente accessibili da tale account.
 
@@ -232,4 +231,4 @@ Se l'account di archiviazione registrato dell'area di lavoro si trova in un'altr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla configurazione di un collegamento privato, vedere [Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure}(private-link-security.md)
+- Per altre informazioni sulla configurazione di un collegamento privato, vedere [usare il collegamento privato di Azure per connettere in modo sicuro le reti a monitoraggio di Azure](private-link-security.md)

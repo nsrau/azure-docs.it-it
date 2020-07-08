@@ -7,13 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: 9f280aafabd59878ee24a9c3fe809dd027a97284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84635127"
 ---
 # <a name="what-are-mapping-data-flows"></a>Che cosa sono i flussi di dati di mapping?
 
@@ -23,7 +22,9 @@ I flussi di dati di mapping sono le trasformazioni di dati progettate visivament
 
 I flussi di dati di mapping forniscono un'esperienza visiva completamente senza necessità di scrivere codice. I flussi di dati vengono eseguiti nel cluster di esecuzione per l'elaborazione dei dati con scalabilità orizzontale. Azure Data Factory gestisce tutta la conversione del codice, l'ottimizzazione del percorso e l'esecuzione dei processi del flusso di dati.
 
-## <a name="getting-started"></a>Guida introduttiva
+![Architettura](media/data-flow/adf-data-flows.png "Architecture")
+
+## <a name="getting-started"></a>Introduzione
 
 Per creare un flusso di dati, selezionare il segno più in **risorse Factory**, quindi selezionare **flusso di dati**. 
 
@@ -93,7 +94,7 @@ La prima scheda del riquadro di configurazione di ogni trasformazione contiene l
 
 La scheda **ottimizza** contiene le impostazioni per la configurazione degli schemi di partizionamento.
 
-![Ottimizzare](media/data-flow/optimize1.png "Ottimizzazione")
+![Optimize](media/data-flow/optimize1.png "Ottimizzazione") (Ottimizza)
 
 L'impostazione predefinita è **Usa il partizionamento corrente**, che indica Azure Data Factory di usare lo schema di partizionamento nativo per i flussi di dati in esecuzione in Spark. Nella maggior parte degli scenari è consigliabile questa impostazione.
 

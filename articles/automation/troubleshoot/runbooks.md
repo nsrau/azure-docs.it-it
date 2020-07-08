@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ee6920d1870b7449f4b77394aaf918947f57ea5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 5de4b6f16f52d7cab7088ab39aa70267110eed88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84606888"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Risolvere i problemi relativi ai runbook
 
@@ -50,7 +49,7 @@ Quando vengono visualizzati errori durante l'esecuzione dei runbook in Automazio
 
 1. Eseguire questo passaggio se il processo del runbook o l'ambiente nel ruolo di lavoro ibrido per runbook non risponde.
 
-    Se i runbook vengono eseguiti in un ruolo di lavoro ibrido per runbook invece che in Automazione di Azure, potrebbe essere necessario [risolvere i problemi relativi al ruolo di lavoro ibrido](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
+    Se i runbook vengono eseguiti in un ruolo di lavoro ibrido per runbook invece che in Automazione di Azure, potrebbe essere necessario [risolvere i problemi relativi al ruolo di lavoro ibrido](hybrid-runbook-worker.md).
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>Scenario: il runbook ha esito negativo e viene visualizzato l'errore 403 indicante operazione non consentita o autorizzazione mancante
 
@@ -64,7 +63,7 @@ Le autorizzazioni degli account RunAs per le risorse di Azure potrebbero non ess
 
 ### <a name="resolution"></a>Risoluzione
 
-Verificare che l'account RunAs abbia le [autorizzazioni per accedere a tutte le risorse](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) usate nello script.
+Verificare che l'account RunAs abbia le [autorizzazioni per accedere a tutte le risorse](../../role-based-access-control/role-assignments-portal.md) usate nello script.
 
 ## <a name="scenario-sign-in-to-azure-account-failed"></a><a name="sign-in-failed"></a>Scenario: accesso all'account di Azure non riuscito
 
@@ -99,7 +98,7 @@ Per individuare la causa del problema, seguire questa procedura:
    Connect-AzAccount –Credential $Cred
    ```
 
-1. Se l'autenticazione ha esito negativo localmente, le credenziali di Azure Active Directory (Azure AD) non sono state configurate correttamente. Per ottenere la configurazione dell'account Azure AD corretta, vedere il post di blog [Autenticazione in Azure tramite Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
+1. Se l'autenticazione ha esito negativo localmente, le credenziali di Azure Active Directory (Azure AD) non sono state configurate correttamente. Per configurare correttamente l'account Azure AD, vedere l'articolo eseguire l' [autenticazione in Azure usando Azure Active Directory](../automation-use-azure-ad.md).
 
 1. L'errore potrebbe essere temporaneo. In caso, provare ad aggiungere la logica di ripetizione alla routine di autenticazione per rendere più affidabile l'autenticazione.
 
@@ -137,7 +136,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Causa
 
-Questo errore può verificarsi quando non si usa un account RunAs o quando l'account RunAs è scaduto. Per altre informazioni, vedere [Gestire account RunAs di Automazione di Azure](https://docs.microsoft.com/azure/automation/manage-runas-account).
+Questo errore può verificarsi quando non si usa un account RunAs o quando l'account RunAs è scaduto. Per altre informazioni, vedere [Gestire account RunAs di Automazione di Azure](../manage-runas-account.md).
 
 Le principali cause di questo errore sono due:
 
@@ -274,7 +273,7 @@ Se per l'account di Azure è abilitata l'autenticazione a più fattori, non è p
 
 ### <a name="resolution"></a>Risoluzione
 
-Per usare un certificato con i cmdlet del modello di distribuzione classica di Azure, vedere [Creazione e aggiunta di un certificato per la gestione dei servizi di Azure](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere [Creazione di un'entità servizio tramite il portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [Autenticazione di un'entità servizio con Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Per usare un account RunAs classico con i cmdlet del modello di distribuzione classica di Azure, vedere [creare un account RunAs classico per gestire i servizi di Azure](../automation-create-standalone-account.md#create-a-classic-run-as-account). Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere [Creazione di un'entità servizio tramite il portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [Autenticazione di un'entità servizio con Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="scenario-runbook-fails-with-a-task-was-canceled-error-message"></a><a name="task-was-cancelled"></a>Scenario: esito negativo del runbook con messaggio di errore "Un'attività è stata annullata"
 
@@ -383,7 +382,7 @@ Add-AzAccount : Object reference not set to an instance of an object
 
 ### <a name="cause"></a>Causa
 
-Questo errore può verificarsi se il runbook non esegue i passaggi appropriati prima di chiamare `Add-AzAccount` per l'aggiunta dell'account di Automazione. Tra i passaggi necessari è ad esempio incluso l'accesso con un account RunAs. Per informazioni sulle operazioni corrette da eseguire nel runbook, vedere [Esecuzione di runbook in Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
+Questo errore può verificarsi se il runbook non esegue i passaggi appropriati prima di chiamare `Add-AzAccount` per l'aggiunta dell'account di Automazione. Tra i passaggi necessari è ad esempio incluso l'accesso con un account RunAs. Per informazioni sulle operazioni corrette da eseguire nel runbook, vedere [Esecuzione di runbook in Automazione di Azure](../automation-runbook-execution.md).
 
 ## <a name="scenario-object-reference-not-set-to-an-instance-of-an-object"></a><a name="child-runbook-object"></a>Scenario: riferimento a un oggetto non impostato su un'istanza di un oggetto
 
@@ -419,7 +418,7 @@ $waitTime = 0
 while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $job = $job | Get-AzAutomationJob
+   $jobResults = $job | Get-AzAutomationJob
 }
 
 $jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
@@ -652,16 +651,16 @@ Possibili cause di questo problema sono:
 
 #### <a name="not-using-a-run-as-account"></a>Mancato uso di un account RunAs
 
-Eseguire il passaggio 5 [Aggiungere l'autenticazione per gestire le risorse di Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) per assicurarsi di usare un account RunAs per accedere a Key Vault.
+Eseguire il passaggio 5 [Aggiungere l'autenticazione per gestire le risorse di Azure](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources) per assicurarsi di usare un account RunAs per accedere a Key Vault.
 
 #### <a name="insufficient-permissions"></a>Autorizzazioni insufficienti
 
-[Aggiungere autorizzazioni a Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) per assicurarsi che l'account RunAs disponga di autorizzazioni sufficienti per accedere a Key Vault.
+[Aggiungere autorizzazioni a Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) per assicurarsi che l'account RunAs disponga di autorizzazioni sufficienti per accedere a Key Vault.
 
 ## <a name="recommended-documents"></a>Documenti consigliati
 
 * [Esecuzione di runbook in Automazione di Azure](../automation-runbook-execution.md)
-* [Avvio di un Runbook in Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Avvio di un Runbook in Automazione di Azure](../automation-starting-a-runbook.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

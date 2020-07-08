@@ -2,18 +2,17 @@
 title: Ricevere eventi dalla griglia di eventi di Azure in un endpoint HTTP
 description: Viene descritto come convalidare un endpoint HTTP, quindi ricevere e deserializzare gli eventi dalla griglia di eventi di Azure
 services: event-grid
-author: banisadr
+author: femila
 manager: darosa
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
-ms.author: babanisa
-ms.openlocfilehash: 7c363fd4e55fdd6fe04a099ac833a256bbfd2eb2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: dd7535030ea4f6d6769630e463618faab62944a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558463"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ricevere eventi in un endpoint HTTP
 

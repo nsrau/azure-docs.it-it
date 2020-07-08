@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77210466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604695"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Esempio: creare una competenza personalizzata usando Python
 
@@ -31,7 +31,7 @@ L'abilità personalizzata è semplice in base alla progettazione (concatena due 
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
-  + [Estensione Funzioni di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+  + [Estensione di funzioni di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Creare una funzione di Azure
 
@@ -57,7 +57,7 @@ Il modello di progetto Funzioni di Azure in Visual Studio Code crea un progetto 
 
 Visual Studio Code crea il progetto di app per le funzioni in una nuova area di lavoro. Questo progetto contiene i file di configurazione [host.json](../azure-functions/functions-host-json.md) e [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), oltre ad altri file di progetto specifici per il linguaggio. 
 
-Viene anche creata una nuova funzione attivata tramite HTTP nella cartella **Concatenator** del progetto di app per le funzioni. Al suo interno sarà presente un file denominato "\_\_init__. py" con il contenuto seguente:
+Viene anche creata una nuova funzione attivata tramite HTTP nella cartella **Concatenator** del progetto di app per le funzioni. Al suo interno sarà presente un file denominato " \_ \_ init__. py" con il contenuto seguente:
 
 ```py
 import logging
@@ -207,7 +207,7 @@ Ora che si dispone della chiave host predefinita, testare la funzione come segue
 POST [Function URL you copied above]
 ```
 
-### <a name="request-body"></a>Request Body
+### <a name="request-body"></a>Corpo della richiesta
 ```json
 {
     "values": [

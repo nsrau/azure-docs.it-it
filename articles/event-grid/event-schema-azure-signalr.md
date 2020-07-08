@@ -2,17 +2,16 @@
 title: Azure SignalR come origine griglia di eventi
 description: Descrive le proprietà fornite per gli eventi di Azure SignalR con griglia di eventi di Azure
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.author: babanisa
-ms.openlocfilehash: e4ebae9597d750cea6f292655e9f03dd65ccc3f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: 8fbae3fad4aeb85022c804e1ac648060360c6531
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560626"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Schema di eventi di griglia di eventi di Azure per il servizio SignalR
 
@@ -76,26 +75,26 @@ Lo schema per un evento di connessione client disconnessa è simile:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | stringa | Identificatore univoco dell'evento. |
-| data | oggetto | Dati degli eventi del servizio SignalR. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | string | Identificatore univoco dell'evento. |
+| data | object | Dati degli eventi del servizio SignalR. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| timestamp | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| hubName | stringa | Hub a cui appartiene la connessione client. |
-| connectionId | stringa | Identificatore univoco per la connessione client. |
-| userId | stringa | Identificatore utente definito nell'attestazione. |
-| errorMessage | stringa | Errore che causa la disconnessione della connessione. |
+| timestamp | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| hubName | string | Hub a cui appartiene la connessione client. |
+| connectionId | string | Identificatore univoco per la connessione client. |
+| userId | string | Identificatore utente definito nell'attestazione. |
+| errorMessage | string | Errore che causa la disconnessione della connessione. |
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 |Titolo | Descrizione |

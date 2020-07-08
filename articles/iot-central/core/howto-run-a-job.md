@@ -5,15 +5,13 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 03/03/2020
+ms.date: 06/08/2020
 ms.topic: how-to
-manager: peterpr
-ms.openlocfilehash: c9d5a0daa364b09e45699e898511c28d4b4d92ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80157756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609743"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Creare ed eseguire un processo nell'applicazione IoT Central di Azure
 
@@ -27,48 +25,48 @@ Questa sezione descrive come creare ed eseguire un processo. Viene illustrato co
 
 2. Selezionare **+ nuovo** per creare un nuovo processo:
 
-    ![Creare un nuovo processo](./media/howto-run-a-job/createnewjob.png)
+    ![Creare un nuovo processo](./media/howto-run-a-job/create-new-job.png)
 
 3. Immettere un nome e una descrizione per identificare il processo che si sta creando.
 
 4. Selezionare il gruppo di dispositivi di destinazione a cui si vuole applicare il processo. È possibile visualizzare il numero di dispositivi a cui si applica la configurazione del processo nella sezione di **Riepilogo** .
 
-5. Quindi, scegliere **Proprietà Cloud**, **Proprietà** o **comando** come tipo di processo da configurare. Per impostare la configurazione di un processo di **Proprietà** , selezionare una proprietà e impostarne il nuovo valore. Per impostare un **comando**, scegliere il comando da eseguire. Un processo di proprietà può impostare più proprietà:
+5. Quindi, scegliere **Proprietà Cloud**, **Proprietà**o **comando** come tipo di processo da configurare. Per impostare la configurazione di un processo di **Proprietà** , selezionare una proprietà e impostarne il nuovo valore. Per impostare un **comando**, scegliere il comando da eseguire. Un processo di proprietà può impostare più proprietà:
 
-    ![Configurazione del processo](./media/howto-run-a-job/configurejob.png)
+    ![Configurazione del processo](./media/howto-run-a-job/configure-job.png)
 
 6. Dopo aver creato il processo, scegliere **Esegui** o **Salva**. Il processo verrà ora visualizzato nella pagina dei **processi** principali. In questa pagina è possibile visualizzare il processo attualmente in esecuzione e la cronologia dei processi precedentemente eseguiti o salvati. È possibile aprire nuovamente il processo salvato in qualsiasi momento per continuare a modificarlo o eseguirlo:
 
-    ![Visualizzare il processo](./media/howto-run-a-job/viewjob.png)
+    ![Visualizzare il processo](./media/howto-run-a-job/view-job.png)
 
     > [!NOTE]
     > È possibile visualizzare 30 giorni di cronologia per i processi eseguiti in precedenza.
 
 7. Per ottenere una panoramica del processo, selezionare il processo da visualizzare nell'elenco. Questa panoramica contiene i dettagli del processo, i dispositivi e i valori dello stato del dispositivo. Da questa panoramica è inoltre possibile selezionare **Scarica dettagli processo** per scaricare un file CSV dei dettagli del processo, inclusi i dispositivi e i relativi valori di stato. Queste informazioni possono essere utili per la risoluzione dei problemi:
 
-    ![Visualizzare lo stato dei dispositivi](./media/howto-run-a-job/downloaddetails.png)
+    ![Visualizzare lo stato dei dispositivi](./media/howto-run-a-job/download-details.png)
 
-### <a name="manage-a-job"></a>Gestire un processo
+## <a name="manage-jobs"></a>Gestire i processi
 
 Per arrestare uno dei processi in esecuzione, aprirlo e selezionare **Arresta**. Lo stato del processo cambia per riflettere che il processo è stato arrestato. La sezione **Riepilogo** Mostra i dispositivi completati, non riusciti o ancora in sospeso.
 
 Per eseguire un processo attualmente arrestato, selezionarlo e quindi selezionare **Esegui**. Lo stato del processo cambia per riflettere che il processo è ora in esecuzione di nuovo. La sezione di **Riepilogo** continua ad aggiornare con lo stato più recente.
 
-![Gestisci processo](./media/howto-run-a-job/managejob.png)
+![Gestisci processo](./media/howto-run-a-job/manage-job.png)
 
 ## <a name="copy-a-job"></a>Copiare un processo
 
 Per copiare uno dei processi esistenti, selezionarlo nella pagina **processi** e selezionare **copia**. Verrà aperta una copia della configurazione del processo da modificare e la **copia** verrà aggiunta al nome del processo. È possibile salvare o eseguire il nuovo processo:
 
-![Copia processo](./media/howto-run-a-job/copyjob.png)
+![Copia processo](./media/howto-run-a-job/copy-job.png)
 
-## <a name="view-the-job-status"></a>Visualizzare lo stato del processo
+## <a name="view-job-status"></a>Visualizzare lo stato di un processo
 
 Dopo la creazione di un processo, la colonna **stato** viene aggiornata con l'ultimo messaggio di stato del processo. Nella tabella seguente sono elencati i valori di stato possibili:
 
 | Messaggio di stato       | Significato dello stato                                          |
 | -------------------- | ------------------------------------------------------- |
-| Completi            | Questo processo è stato eseguito in tutti i dispositivi.              |
+| Completed            | Questo processo è stato eseguito in tutti i dispositivi.              |
 | Operazione non riuscita               | Questo processo è non riuscito e non è stato completamente eseguito sui dispositivi.  |
 | In sospeso              | Questo processo non è ancora iniziato a eseguire nei dispositivi.         |
 | In esecuzione              | Questo processo è attualmente in esecuzione sui dispositivi.             |
@@ -78,21 +76,58 @@ Il messaggio di stato è seguito da una panoramica dei dispositivi nel processo.
 
 | Messaggio di stato       | Significato dello stato                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Operazione completata            | Il numero di dispositivi in cui il processo è stato eseguito correttamente.       |
+| Operazione riuscita            | Il numero di dispositivi in cui il processo è stato eseguito correttamente.       |
 | Operazione non riuscita               | Il numero di dispositivi in cui l'esecuzione del processo non è riuscita.       |
 
-### <a name="view-the-device-status"></a>Visualizzare lo stato del dispositivo
+### <a name="view-the-device-status-values"></a>Visualizzare i valori dello stato del dispositivo
 
-Per visualizzare lo stato del processo e di tutti i dispositivi interessati, aprire il processo. Per scaricare un file CSV che include i dettagli del processo, incluso l'elenco dei dispositivi e i relativi valori di stato, selezionare **Scarica dettagli processo**. Accanto a ogni nome dispositivo viene visualizzato uno dei seguenti messaggi di stato:
+Per visualizzare lo stato del processo e di tutti i dispositivi interessati, aprire il processo. Accanto a ogni nome dispositivo viene visualizzato uno dei seguenti messaggi di stato:
 
 | Messaggio di stato       | Significato dello stato                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Completi            | Il processo è stato eseguito su questo dispositivo.                                     |
-| Operazione non riuscita               | Il processo non è stato eseguito su questo dispositivo. Il messaggio di errore Mostra ulteriori informazioni.  |
+| Completed            | Processo eseguito in questo dispositivo.                                     |
+| Operazione non riuscita               | Non è stato possibile eseguire il processo in questo dispositivo. Il messaggio di errore Mostra ulteriori informazioni.  |
 | In sospeso              | Il processo non è ancora stato eseguito in questo dispositivo.                                   |
 
+Per scaricare un file CSV che include i dettagli del processo e l'elenco dei dispositivi e i relativi valori di stato, selezionare **Scarica**.
+
+### <a name="filter-the-list-of-devices"></a>Filtrare l'elenco di dispositivi
+
+È possibile filtrare l'elenco dei dispositivi nella pagina dei dettagli del processo selezionando l'icona del filtro. È possibile filtrare i campi relativi a ID o **stato** del **dispositivo** :
+
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Filtrare l'elenco dei dispositivi":::
+
+### <a name="customize-columns-in-the-device-list"></a>Personalizzare le colonne nell'elenco dei dispositivi
+
+È possibile scegliere colonne aggiuntive da visualizzare nell'elenco dei dispositivi selezionando l'icona Opzioni colonna:
+
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Opzioni colonne":::
+
+Viene visualizzata una finestra di dialogo che consente di scegliere le colonne da visualizzare nell'elenco dei dispositivi. Selezionare le colonne che si desidera visualizzare, selezionare l'icona freccia destra e selezionare **OK**. Per selezionare tutte le colonne disponibili, **selezionare Seleziona tutto**:
+
+:::image type="content" source="media/howto-run-a-job/column-picker-popup.png" alt-text="Finestra di dialogo Selezione colonne":::
+
+Le colonne selezionate vengono visualizzate nell'elenco dei dispositivi:
+
+:::image type="content" source="media/howto-run-a-job/column-picker-column-selected.png" alt-text="Seleziona colonne":::
+
+Le colonne selezionate vengono rese permanente in una sessione utente o tra sessioni utente che hanno accesso all'applicazione.
+
+## <a name="rerun-jobs"></a>Riesegui processi
+
+È possibile rieseguire un processo con dispositivi non riusciti. Selezionare **Riesegui**:
+
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Rieseguire un processo":::
+
+Immettere un nome e una descrizione per il processo, quindi selezionare **Riesegui processo**. Viene inviato un nuovo processo per ritentare l'azione nei dispositivi non riusciti:
+
+:::image type="content" source="media/howto-run-a-job/rerun-failed.png" alt-text="Riesegui dispositivi non riusciti":::
+
 > [!NOTE]
-> Se un dispositivo è stato eliminato, non è possibile selezionare il dispositivo. Viene visualizzato come eliminato con l'ID del dispositivo.
+> Non è possibile eseguire più di cinque processi contemporaneamente da un'applicazione IoT Central.
+
+> [!NOTE]
+> Quando un processo viene completato e si elimina un dispositivo che si trova nell'elenco dei dispositivi del processo, la voce del dispositivo visualizzata come eliminata nel nome del dispositivo e il collegamento Dettagli dispositivo non è disponibile per il dispositivo eliminato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

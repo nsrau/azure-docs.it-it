@@ -7,16 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74069635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609166"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servizi a disponibilità elevata supportati da Azure HDInsight
 
  Per offrire livelli ottimali di disponibilità per i componenti di analisi, HDInsight è stato sviluppato con un'architettura univoca per garantire la disponibilità elevata dei servizi critici. Alcuni componenti di questa architettura sono stati sviluppati da Microsoft per fornire il failover automatico. Altri componenti sono componenti Apache standard distribuiti per supportare servizi specifici. Questo articolo illustra l'architettura del modello di servizio a disponibilità elevata in HDInsight, il modo in cui HDInsight supporta il failover per i servizi a disponibilità elevata e le procedure consigliate per il ripristino da altre interruzioni del servizio.
+ 
+> [!NOTE]
+> Comunicazione senza distorsione
+>
+> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+>
+
 
 ## <a name="high-availability-infrastructure"></a>Infrastruttura a disponibilità elevata
 
@@ -134,4 +140,4 @@ I cluster HBase HDInsight supportano HBase Master disponibilità elevata. A diff
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight](hdinsight-high-availability-linux.md)
-- [Architettura della rete virtuale di Azure HDInsight](hdinsight-virtual-network-architecture.md)
+- [Architettura della rete virtuale di HDInsight](hdinsight-virtual-network-architecture.md)

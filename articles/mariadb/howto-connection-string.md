@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 74574fb905ae4ebd2552ef97cd0b5430eea6363a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 18e3f2ab7c581a1ff93a65e410e83739564b5be5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558292"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Come connettere le applicazioni a Database di Azure per MariaDB
 Questo argomento elenca i tipi di stringhe di connessione supportati da Database di Azure per MariaDB, oltre a modelli ed esempi. Nella stringa di connessione possono essere presenti parametri e impostazioni diverse.

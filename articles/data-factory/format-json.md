@@ -7,14 +7,13 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 2e26a2ed81ed215d7ef2029123349b39e6e67d25
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: 7fd8fd35ee411d929843be81a1daaa512e0b3ca1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84611048"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,16 +24,16 @@ Il formato JSON è supportato per i connettori seguenti [: Amazon S3](connector-
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere l'articolo [set di impostazioni](concepts-datasets-linked-services.md) . Questa sezione presenta un elenco delle proprietà supportate dal set di dati JSON.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati JSON.
 
 | Proprietà         | Descrizione                                                  | Obbligatoria |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La proprietà Type del set di dati deve essere impostata su **JSON**. | Sì      |
-| posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
+| posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location` . **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
 | encodingName     | Tipo di codifica utilizzato per leggere/scrivere file di test. <br>I valori consentiti sono i seguenti: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
 | compressione | Gruppo di proprietà per configurare la compressione dei file. Configurare questa sezione quando si desidera eseguire la compressione/decompressione durante l'esecuzione dell'attività. | No |
-| type | Codec di compressione usato per leggere/scrivere file JSON. <br>I valori consentiti sono **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **Snapper**o **LZ4**. da usare quando si salva il file. Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate".<br>**Nota** quando si usa l'attività di copia per decomprimere i file ZipDeflate e scrivere nell'archivio dati sink basato su file, i file verranno estratti nella `<path specified in dataset>/<folder named as source zip file>/`cartella:. | No.  |
-| level | Rapporto di compressione. <br>I valori consentiti sono **ottimali** o più **veloci**.<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale**: l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| tipo | Codec di compressione usato per leggere/scrivere file JSON. <br>I valori consentiti sono **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **Snapper**o **LZ4**. da usare quando si salva il file. Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate".<br>**Nota** quando si usa l'attività di copia per decomprimere i file **ZipDeflate** e scrivere nell'archivio dati sink basato su file, per impostazione predefinita i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source zip file>/` , usare `preserveZipFileNameAsFolder` nell' [origine dell'attività di copia](#json-as-source) per controllare se mantenere il nome del file zip come struttura di cartelle. | No.  |
+| livello | Rapporto di compressione. <br>I valori consentiti sono **ottimali** o più **veloci**.<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale**: l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 Di seguito è riportato un esempio di set di dati JSON nell'archivio BLOB di Azure:
 
@@ -68,24 +67,33 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="json-as-source"></a>JSON come origine
 
-Nella sezione *** \*origine\* *** dell'attività di copia sono supportate le proprietà seguenti.
+Nella sezione *** \* origine \* *** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **JSONSource**. | Sì      |
-| storeSettings | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate `storeSettings`in. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
+| formatSettings | Gruppo di proprietà. Vedere la tabella **delle impostazioni di lettura JSON** riportata di seguito. | No       |
+| storeSettings | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings` . **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
+
+**Impostazioni di lettura JSON** supportate in `formatSettings` :
+
+| Proprietà      | Descrizione                                                  | Obbligatoria |
+| ------------- | ------------------------------------------------------------ | -------- |
+| type          | Il tipo di formatSettings deve essere impostato su **JsonReadSettings**. | Sì      |
+| compressionProperties | Gruppo di proprietà su come decomprimere i dati per un determinato codec di compressione. | No       |
+| preserveZipFileNameAsFolder<br>(*in `compressionProperties` *) | Si applica quando il set di dati di input viene configurato con la compressione **ZipDeflate** . Indica se mantenere il nome del file zip di origine come struttura di cartelle durante la copia. Se è impostato su true (impostazione predefinita), Data Factory scrive file decompressi in `<path specified in dataset>/<folder named as source zip file>/` ; se è impostato su false, Data Factory scrive i file decompressi direttamente in `<path specified in dataset>` .  | No |
 
 ### <a name="json-as-sink"></a>JSON come sink
 
-Nella sezione *** \*sink\* *** dell'attività di copia sono supportate le proprietà seguenti.
+Nella sezione *** \* sink \* *** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **JSONSink**. | Sì      |
 | formatSettings | Gruppo di proprietà. Vedere la tabella **delle impostazioni di scrittura JSON** riportata di seguito. | No       |
-| storeSettings | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate `storeSettings`in. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
+| storeSettings | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate in `storeSettings` . **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
-**Impostazioni di scrittura JSON** supportate `formatSettings`in:
+**Impostazioni di scrittura JSON** supportate in `formatSettings` :
 
 | Proprietà      | Descrizione                                                  | Obbligatoria                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
@@ -183,75 +191,27 @@ Quando si copiano dati da file JSON, l'attività di copia può rilevare e analiz
     ]
     ```
 
-## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati
+## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
 
-I tipi di file JSON possono essere usati sia come sink che come origine nel flusso di dati di mapping.
+In mapping di flussi di dati è possibile leggere e scrivere in formato JSON negli archivi dati seguenti: [archiviazione BLOB di Azure](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
-### <a name="creating-json-structures-in-a-derived-column"></a>Creazione di strutture JSON in una colonna derivata
+### <a name="source-properties"></a>Proprietà origine
 
-È possibile aggiungere una colonna complessa al flusso di dati tramite il generatore di espressioni della colonna derivata. Nella trasformazione colonna derivata aggiungere una nuova colonna e aprire il generatore di espressioni facendo clic sulla casella blu. Per rendere complessa una colonna, è possibile immettere la struttura JSON manualmente o usare l'esperienza utente per aggiungere le sottocolonne in modo interattivo.
+La tabella seguente elenca le proprietà supportate da un'origine JSON. È possibile modificare queste proprietà nella scheda **Opzioni di origine** .
 
-#### <a name="using-the-expression-builder-ux"></a>Uso del generatore di espressioni UX
-
-Nel riquadro lato schema di output posizionare il puntatore del mouse su una colonna e fare clic sull'icona con il segno più. Selezionare **Aggiungi sottocolonna** per rendere la colonna un tipo complesso.
-
-![Aggiungi sottocolonna](media/data-flow/addsubcolumn.png "Aggiungi sottocolonna")
-
-È possibile aggiungere colonne e sottocolonne aggiuntive nello stesso modo. Per ogni campo non complesso, è possibile aggiungere un'espressione nell'editor di espressioni a destra.
-
-![Colonna complessa](media/data-flow/complexcolumn.png "Colonna complessa")
-
-#### <a name="entering-the-json-structure-manually"></a>Immissione manuale della struttura JSON
-
-Per aggiungere manualmente una struttura JSON, aggiungere una nuova colonna e immettere l'espressione nell'editor. L'espressione segue il formato generale seguente:
-
-```
-@(
-    field1=0,
-    field2=@(
-        field1=0
-    )
-)
-```
-
-Se questa espressione è stata immessa per una colonna denominata "complexColumn", viene scritta nel sink come il JSON seguente:
-
-```
-{
-    "complexColumn": {
-        "field1": 0,
-        "field2": {
-            "field1": 0
-        }
-    }
-}
-```
-
-#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Script manuale di esempio per la definizione gerarchica completa
-```
-@(
-    title=Title,
-    firstName=FirstName,
-    middleName=MiddleName,
-    lastName=LastName,
-    suffix=Suffix,
-    contactDetails=@(
-        email=EmailAddress,
-        phone=Phone
-    ),
-    address=@(
-        line1=AddressLine1,
-        line2=AddressLine2,
-        city=City,
-        state=StateProvince,
-        country=CountryRegion,
-        postCode=PostalCode
-    ),
-    ids=[
-        toString(CustomerID), toString(AddressID), rowguid
-    ]
-)
-```
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no | String[] | wildcardPaths |
+| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no | string | partitionRootPath |
+| Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | no | `true` o `false` | fileList |
+| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | no | string | rowUrlColumn |
+| Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | no | Elimina: `true` o`false` <br> Spostare`['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Documento singolo | Mapping dei flussi di dati leggere un documento JSON da ogni file | no | `true` o `false` | singleDocument |
+| Nomi di colonna non racchiusi tra virgolette | Se è selezionato **nomi di colonna non racchiusi tra virgolette** , il mapping dei flussi di dati legge le colonne JSON che non sono racchiuse tra virgolette | no | `true` o `false` |  unquotedColumnNames
+| Con commenti | Select **ha commenti** se i dati JSON hanno commenti in stile C o C++ | no | `true` o `false` | asComments |
+| Virgoletta singola | Legge le colonne JSON che non sono racchiuse tra virgolette | no | `true` o `false` | singleQuoted |
+| Barra rovesciata con escape | Selezionare la **barra rovesciata** con caratteri di escape se vengono usate barre rovesciate per l'escape dei caratteri nei dati JSON | no | `true` o `false` | backslashEscape |
 
 ### <a name="source-format-options"></a>Opzioni del formato di origine
 
@@ -322,7 +282,7 @@ Selezionare **singolo racchiuso tra** virgolette se i campi e i valori JSON usan
 
 #### <a name="backslash-escaped"></a>Barra rovesciata con escape
 
-Selezionare **singolo racchiuso tra virgolette** se le barre rovesciate vengono usate per usare caratteri di escape nei dati JSON.
+Selezionare la **barra rovesciata** con caratteri di escape se le barre rovesciate vengono usate per usare caratteri di escape nei dati JSON.
 
 ```
 { "json": "record 1" }
@@ -330,9 +290,84 @@ Selezionare **singolo racchiuso tra virgolette** se le barre rovesciate vengono 
 { "json": "record 3" }
 ```
 
+### <a name="sink-properties"></a>Proprietà sink
+
+La tabella seguente elenca le proprietà supportate da un sink JSON. È possibile modificare queste proprietà nella scheda **Impostazioni** .
+
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
+| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato`part-#####-tid-<guid>` | no | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### <a name="creating-json-structures-in-a-derived-column"></a>Creazione di strutture JSON in una colonna derivata
+
+È possibile aggiungere una colonna complessa al flusso di dati tramite il generatore di espressioni della colonna derivata. Nella trasformazione colonna derivata aggiungere una nuova colonna e aprire il generatore di espressioni facendo clic sulla casella blu. Per rendere complessa una colonna, è possibile immettere la struttura JSON manualmente o usare l'esperienza utente per aggiungere le sottocolonne in modo interattivo.
+
+#### <a name="using-the-expression-builder-ux"></a>Uso del generatore di espressioni UX
+
+Nel riquadro lato schema di output posizionare il puntatore del mouse su una colonna e fare clic sull'icona con il segno più. Selezionare **Aggiungi sottocolonna** per rendere la colonna un tipo complesso.
+
+![Aggiungi sottocolonna](media/data-flow/addsubcolumn.png "Aggiungi sottocolonna")
+
+È possibile aggiungere colonne e sottocolonne aggiuntive nello stesso modo. Per ogni campo non complesso, è possibile aggiungere un'espressione nell'editor di espressioni a destra.
+
+![Colonna complessa](media/data-flow/complexcolumn.png "Colonna complessa")
+
+#### <a name="entering-the-json-structure-manually"></a>Immissione manuale della struttura JSON
+
+Per aggiungere manualmente una struttura JSON, aggiungere una nuova colonna e immettere l'espressione nell'editor. L'espressione segue il formato generale seguente:
+
+```
+@(
+    field1=0,
+    field2=@(
+        field1=0
+    )
+)
+```
+
+Se questa espressione è stata immessa per una colonna denominata "complexColumn", viene scritta nel sink come il JSON seguente:
+
+```
+{
+    "complexColumn": {
+        "field1": 0,
+        "field2": {
+            "field1": 0
+        }
+    }
+}
+```
+
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Script manuale di esempio per la definizione gerarchica completa
+```
+@(
+    title=Title,
+    firstName=FirstName,
+    middleName=MiddleName,
+    lastName=LastName,
+    suffix=Suffix,
+    contactDetails=@(
+        email=EmailAddress,
+        phone=Phone
+    ),
+    address=@(
+        line1=AddressLine1,
+        line2=AddressLine2,
+        city=City,
+        state=StateProvince,
+        country=CountryRegion,
+        postCode=PostalCode
+    ),
+    ids=[
+        toString(CustomerID), toString(AddressID), rowguid
+    ]
+)
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
-- [Mapping del flusso di dati](concepts-data-flow-overview.md)
+- [Flusso di dati per mapping](concepts-data-flow-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività GetMetadata](control-flow-get-metadata-activity.md)

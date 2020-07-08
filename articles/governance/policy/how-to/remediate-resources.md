@@ -1,14 +1,13 @@
 ---
 title: Correggere le risorse non conformi
 description: Questa guida descrive come correggere le risorse che non sono conformi ai criteri di Criteri di Azure.
-ms.date: 02/26/2020
+ms.date: 06/09/2020
 ms.topic: how-to
-ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636309"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
@@ -17,7 +16,7 @@ Le risorse che non sono conformi ai criteri **deployIfNotExists** o **modify** p
 ## <a name="how-remediation-security-works"></a>Funzionamento della sicurezza della correzione
 
 Quando il servizio Criteri di Azure esegue il modello nella definizione dei criteri **deployIfNotExists**, usa un'[identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md).
-Il servizio Criteri di Azure crea un'identità gestita per ogni assegnazione, ma è necessario specificare i dettagli su quali ruoli concedere all'identità gestita. Se all'identità gestita non sono assegnati ruoli, viene visualizzato questo errore durante l'assegnazione dei criteri o un'iniziativa. Quando si usa il portale, il servizio Criteri di Azure concede automaticamente all'identità gestita i ruoli elencati dopo l'inizio dell'assegnazione. La _posizione_ dell'identità gestita non ha alcun effetto sull'operazione con Criteri di Azure.
+Il servizio Criteri di Azure crea un'identità gestita per ogni assegnazione, ma è necessario specificare i dettagli su quali ruoli concedere all'identità gestita. Se all'identità gestita non sono assegnati ruoli, viene visualizzato questo errore durante l'assegnazione dei criteri o un'iniziativa. Quando si usa il portale, il servizio Criteri di Azure concede automaticamente all'identità gestita i ruoli elencati dopo l'inizio dell'assegnazione. Il _percorso_ dell'identità gestita non ha alcun effetto sull'operazione con i criteri di Azure.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Entità gestita - ruolo mancante" border="false":::
 
@@ -51,9 +50,6 @@ Quando si crea un'assegnazione tramite il portale, il servizio Criteri di Azure 
 - Quando si usa l'SDK (ad esempio, Azure PowerShell)
 - Quando una risorsa esterna all'ambito di assegnazione viene modificata dal modello
 - Quando una risorsa esterna all'ambito di assegnazione viene letta dal modello
-
-> [!NOTE]
-> Azure PowerShell e .NET sono gli unici SDK che attualmente supportano questa funzionalità.
 
 ### <a name="create-managed-identity-with-powershell"></a>Creare un'identità gestita con PowerShell
 
@@ -183,13 +179,13 @@ Per altri cmdlet ed esempi di correzione, vedere il modulo [Az.PolicyInsights](/
 
 ### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Creare un'attività di correzione durante l'assegnazione dei criteri nel portale di Azure
 
-Un modo efficace per creare un'attività di correzione consiste nell'eseguire questa operazione dal portale di Azure durante l'assegnazione dei criteri. Se la definizione dei criteri da assegnare è un effetto **deployIfNotExists** o **modify**, la procedura guidata nella scheda **Correzione** offre un'opzione _Crea un'attività di correzione_. Se questa opzione è selezionata, un'attività di corrrezione viene creata contemporaneamente ll'assegnazione dei criteri.
+Un modo efficace per creare un'attività di correzione consiste nell'eseguire questa operazione dal portale di Azure durante l'assegnazione dei criteri. Se la definizione dei criteri da assegnare è un **deployIfNotExists** o un effetto di **modifica** , la procedura guidata nella scheda **monitoraggio e aggiornamento** offre un'opzione _Crea un'attività di correzione_ . Se questa opzione è selezionata, viene creata un'attività di monitoraggio e aggiornamento allo stesso tempo dell'assegnazione dei criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md).
 - Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
-- Informazioni su come [creare criteri a livello di programmazione](programmatically-create.md).
+- Informazioni su come [creare criteri a livello di codice](programmatically-create.md).
 - Informazioni su come [ottenere dati sulla conformità](get-compliance-data.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

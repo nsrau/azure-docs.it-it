@@ -6,14 +6,13 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628685"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Supporto del gateway applicazione per back-end multi-tenant, ad esempio il servizio app
 
@@ -42,7 +41,7 @@ Con questa funzionalità, i clienti specificano le opzioni nelle impostazioni HT
 
 ### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>Terminazione TLS e TLS end-to-end con servizi multi-tenant
 
-Con i servizi multi-tenant è supportata sia la terminazione TLS che la crittografia TLS end-to-end. Per la terminazione TLS nel gateway applicazione, il certificato TLS continua a essere necessario per l'aggiunta al listener del gateway applicazione. Tuttavia, nel caso di TLS end-to-end, i servizi di Azure attendibili, ad esempio le app Web del servizio app Azure non richiedono l'inserimento dei backend nel gateway applicazione. Pertanto, non è necessario aggiungere alcun certificato di autenticazione. 
+Con i servizi multi-tenant è supportata sia la terminazione TLS che la crittografia TLS end-to-end. Per la terminazione TLS nel gateway applicazione, il certificato TLS continua a essere necessario per l'aggiunta al listener del gateway applicazione. Tuttavia, nel caso di TLS end-to-end, i servizi di Azure attendibili, ad esempio le app Web di app Azure Service, non richiedono l'abilitazione dei backend nel gateway applicazione. Pertanto, non è necessario aggiungere alcun certificato di autenticazione. 
 
 ![TLS end-to-end](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 

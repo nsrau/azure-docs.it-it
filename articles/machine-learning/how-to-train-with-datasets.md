@@ -5,18 +5,18 @@ description: Informazioni su come usare i set di impostazioni nel training
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/20/2020
-ms.openlocfilehash: cd72ce9fed7f821807b8604f68068c64a38293e3
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: a9b9faed111e6126bfdb30e4237a988afd947823
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996666"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560133"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Per creare ed eseguire il training con i set di impostazioni, è necessario:
 
 È possibile accedere a un TabularDataset esistente dallo script di training di un esperimento nell'area di lavoro e caricare il set di dati in un frame di dati Pandas per un'ulteriore esplorazione nell'ambiente locale.
 
-Il codice seguente usa il [`get_context()`]() metodo nella [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) classe per accedere al TabularDataset di input esistente, `titanic`, nello script di training. USA quindi il [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metodo per caricare il set di dati in un frame di dati Pandas per eseguire ulteriori operazioni di esplorazione e preparazione dei dati prima del training.
+Il codice seguente usa il [`get_context()`]() metodo nella [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) classe per accedere al TabularDataset di input esistente, `titanic` , nello script di training. USA quindi il [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metodo per caricare il set di dati in un frame di dati Pandas per eseguire ulteriori operazioni di esplorazione e preparazione dei dati prima del training.
 
 > [!Note]
 > Se l'origine dati originale contiene NaN, stringhe vuote o valori vuoti, quando si usa il to_pandas_dataframe (), questi valori vengono sostituiti come valore *null* . 
@@ -66,7 +66,7 @@ Se è necessario caricare i dati preparati in un nuovo set di dati da un frame d
 
 Se i dati strutturati non sono ancora registrati come set di dati, creare un TabularDataset e usarlo direttamente nello script di training per l'esperimento locale o remoto.
 
-In questo esempio si crea un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) non registrato e lo si usa come input diretto all'oggetto per il `estimator` training. Se si vuole riusare questo TabularDataset con altri esperimenti nell'area di lavoro, vedere [come registrare i set di impostazioni nell'area di lavoro](how-to-create-register-datasets.md#register-datasets).
+In questo esempio si crea un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) non registrato e lo si usa come input diretto all' `estimator` oggetto per il training. Se si vuole riusare questo TabularDataset con altri esperimenti nell'area di lavoro, vedere [come registrare i set di impostazioni nell'area di lavoro](how-to-create-register-datasets.md#register-datasets).
 
 ### <a name="create-a-tabulardataset"></a>Creare un TabularDataset
 
@@ -85,11 +85,11 @@ Gli oggetti TabularDataset offrono la possibilità di caricare i dati nel Tabula
 
 Viene usato un oggetto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) per inviare l'esecuzione dell'esperimento. Azure Machine Learning dispone di estimatori preconfigurati per i Framework di apprendimento automatico comuni, oltre a uno strumento di stima generico.
 
-Questo codice crea un oggetto estimatore generico `est`,, che specifica
+Questo codice crea un oggetto estimatore generico, `est` , che specifica
 
 * Directory di script per gli script. Tutti i file in questa directory vengono caricati nei nodi del cluster per l'esecuzione.
 * Script di training, *train_titanic. py*.
-* Set di dati di input per `titanic_ds`il training. `as_named_input()`è necessario per fare riferimento al set di dati di input in base al nome `titanic` assegnato nello script di training. 
+* Set di dati di input per il training `titanic_ds` . `as_named_input()`è necessario per fare riferimento al set di dati di input in base al nome assegnato `titanic` nello script di training. 
 * Destinazione di calcolo per l'esperimento.
 * Definizione dell'ambiente per l'esperimento.
 
@@ -130,9 +130,9 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Configurare lo strumento di stima
 
-È consigliabile passare il set di dati come argomento durante il montaggio. Oltre a passare il set di `inputs` dati tramite il parametro nello strumento di stima, è anche possibile `script_params` passare il set di dati tramite e ottenere il percorso dati (punto di montaggio) nello script di training tramite argomenti. In questo modo, sarà possibile usare lo stesso script di training per il debug locale e il training remoto in qualsiasi piattaforma cloud.
+È consigliabile passare il set di dati come argomento durante il montaggio. Oltre a passare il set di `inputs` dati tramite il parametro nello strumento di stima, è anche possibile passare il set `script_params` di dati tramite e ottenere il percorso dati (punto di montaggio) nello script di training tramite argomenti. In questo modo, sarà possibile usare lo stesso script di training per il debug locale e il training remoto in qualsiasi piattaforma cloud.
 
-Un oggetto [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) Estimator viene usato per inviare l'esecuzione per gli esperimenti Scikit-learn. Dopo aver inviato l'esecuzione, i file di dati a `mnist` cui fa riferimento il set di dati verranno montati nella destinazione di calcolo. Scopri di più sul training con [SKlearn Estimator](how-to-train-scikit-learn.md).
+Un oggetto [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) Estimator viene usato per inviare l'esecuzione per gli esperimenti Scikit-learn. Dopo aver inviato l'esecuzione, i file di dati a cui fa riferimento il `mnist` set di dati verranno montati nella destinazione di calcolo. Scopri di più sul training con [SKlearn Estimator](how-to-train-scikit-learn.md).
 
 ```Python
 from azureml.train.sklearn import SKLearn

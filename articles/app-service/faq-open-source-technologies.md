@@ -8,13 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: seodec18
-ms.openlocfilehash: 3a7a00e59db677e156037c007537ab1b54c1cfaf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 82bdf4cd25d486d48f4f2adda222197a600434d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559568"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle tecnologie open source per App Web in Azure
 
@@ -26,8 +25,8 @@ Questo articolo fornisce risposte alle domande frequenti sui problemi relativi a
 
 Per attivare la registrazione PHP:
 
-1. Accedere al **sito Web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
-2. Nel menu in alto selezionare **console di debug** > **cmd**.
+1. Accedere al **sito Web Kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
+2. Nel menu in alto selezionare **console di debug**  >  **cmd**.
 3. Selezionare la cartella **Site** (Sito).
 4. Selezionare la cartella **wwwroot**.
 5. Selezionare l' **+** icona e quindi selezionare **nuovo file**.
@@ -56,7 +55,7 @@ Per cambiare la versione dell'applicazione Node.js, è possibile usare una delle
   1. Nel portale di Azure passare all'app Web.
   2. Nel pannello **Impostazioni** selezionare **Impostazioni dell'applicazione**.
   3. In **Impostazioni dell'applicazione** è possibile includere WEBSITE_NODE_DEFAULT_VERSION come chiave e la versione di Node.js da usare come valore.
-  4. Passare alla **console Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+  4. Passare alla **console Kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
   5. Per verificare la versione di Node.js, immettere il comando seguente:  
      ```
      node -v
@@ -91,7 +90,7 @@ Se viene visualizzato questo errore nei file debug.log o php_errors.log, l'app h
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Come si esegue il debug di un'app Node.js ospitata nel servizio app?
 
-1.  Passare alla **console Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole`).
+1.  Passare alla **console Kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole` ).
 2.  Passare alla cartella dei log dell'applicazione (D:\home\LogFiles\Application).
 3.  Nel file logging_errors.txt controllare il contenuto.
 
@@ -138,7 +137,7 @@ Per risolvere l'errore:
 
 1. Rimuovere il file sqljdbc*.jar dalla cartella app/lib.
 2. Se si usa il server Web Tomcat o Azure Marketplace Tomcat personalizzato, copiare questo file con estensione jar nella cartella lib di Tomcat.
-3. Se si Abilita Java dalla portale di Azure (selezionare **Java 1,8** > **Tomcat Server**), copiare il file sqljdbc. * jar nella cartella parallela all'app. Aggiungere quindi l'impostazione classpath seguente al file web.config:
+3. Se si Abilita Java dalla portale di Azure (selezionare **Java 1,8**  >  **Tomcat Server**), copiare il file sqljdbc. * jar nella cartella parallela all'app. Aggiungere quindi l'impostazione classpath seguente al file web.config:
 
     ```xml
     <httpPlatform>

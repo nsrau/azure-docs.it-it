@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: a386c7d44cf5ba7eda895006cda7ce1fa9b798ac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610220"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Verifica della coerenza dei dati nell'attività di copia (anteprima)
 
@@ -93,9 +92,8 @@ path | Percorso dei file di log. | Specificare il percorso desiderato per archiv
 
 >[!NOTE]
 >- La coerenza dei dati non è supportata nello scenario di copia di staging. 
->- Quando si copiano file binari da qualsiasi archivio di archiviazione in Archiviazione BLOB di Azure o Azure Data Lake Storage Gen2, l'attività di copia esegue la verifica delle dimensioni del file e del checksum MD5 per assicurare la coerenza dei dati tra gli archivi di origine e di destinazione. 
->- Quando si copiano i file binari da qualsiasi archivio di archiviazione in qualsiasi di archiviazione diversi dall'Archiviazione BLOB di Azure o Azure Data Lake Storage Gen2, l'attività di copia verifica le dimensioni dei file per garantire la coerenza dei dati tra l'archivio di origine e quello di destinazione.
-
+>- Quando si copiano i file da o in BLOB di Azure o in Azure Data Lake Storage Gen2, ADF esegue la verifica del checksum MD5 a livello di blocco sfruttando l' [API blob di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) e l' [API Azure Data Lake storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Se sono presenti ContentMD5 nei file nel BLOB di Azure o Azure Data Lake Storage Gen2 come origini dati, ADF esegue la verifica del checksum MD5 a livello di file anche dopo aver letto i file. Dopo aver copiato i file nel BLOB di Azure o Azure Data Lake Storage Gen2 come destinazione dati, ADF scrive ContentMD5 nel BLOB di Azure o in Azure Data Lake Storage Gen2, che può essere ulteriormente utilizzato dalle applicazioni downstream per la verifica della coerenza dei dati.
+>- ADF esegue la verifica delle dimensioni dei file durante la copia di file tra gli archivi di archiviazione.
 
 ## <a name="monitoring"></a>Monitoraggio
 

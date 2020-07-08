@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: ead39343cca9943ba55d66509bd9917402efb8cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 921015d6aa7acd840a4a231a899217daafe3525b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558558"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App daemon che chiama API Web-configurazione del codice
 
@@ -38,7 +37,7 @@ Le applicazioni daemon utilizzano le autorizzazioni dell'applicazione anziché l
 
 Quindi, l'autorità specificata nella configurazione dell'applicazione deve essere tenant (specificando un ID tenant o un nome di dominio associato all'organizzazione).
 
-Se si è un ISV e si vuole fornire uno strumento multi-tenant, è possibile `organizations`usare. Tenere tuttavia presente che è anche necessario spiegare ai clienti come concedere il consenso dell'amministratore. Per informazioni dettagliate, vedere [richiesta di consenso per un intero tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Inoltre, esiste attualmente una limitazione in MSAL: `organizations` è consentito solo quando le credenziali client sono un segreto dell'applicazione (non un certificato).
+Se si è un ISV e si vuole fornire uno strumento multi-tenant, è possibile usare `organizations` . Tenere tuttavia presente che è anche necessario spiegare ai clienti come concedere il consenso dell'amministratore. Per informazioni dettagliate, vedere [richiesta di consenso per un intero tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Inoltre, esiste attualmente una limitazione in MSAL: `organizations` è consentito solo quando le credenziali client sono un segreto dell'applicazione (non un certificato).
 
 ## <a name="configure-and-instantiate-the-application"></a>Configurare e creare un'istanza dell'applicazione
 
@@ -57,7 +56,7 @@ Il file di configurazione definisce:
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appSettings. JSON](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) dall'esempio [daemon console di .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
+[appsettings.js](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) dall'esempio [daemon console di .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
 
 ```json
 {
@@ -69,11 +68,11 @@ Il file di configurazione definisce:
 }
 ```
 
-È possibile specificare un `ClientSecret` oggetto o `CertificateName`un oggetto. Queste impostazioni sono esclusive.
+È possibile specificare un oggetto `ClientSecret` o un oggetto `CertificateName` . Queste impostazioni sono esclusive.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Quando si compila un client riservato con i segreti client, il file di configurazione [Parameters. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) nell'esempio [daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) è il seguente:
+Quando si compila un client riservato con i segreti client, il [parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) nel file di configurazione nell'esempio [Python daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) è il seguente:
 
 ```Json
 {
@@ -85,7 +84,7 @@ Quando si compila un client riservato con i segreti client, il file di configura
 }
 ```
 
-Quando si compila un client riservato con certificati, il file di configurazione [Parameters. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) nell'esempio [Python daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) è il seguente:
+Quando si compila un client riservato con certificati, il [parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) nel file di configurazione nell'esempio [Python daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) è il seguente:
 
 ```Json
 {
@@ -267,7 +266,7 @@ MSAL.NET dispone di due metodi per fornire asserzioni firmate all'app client ris
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Quando si usa `WithClientAssertion`, è necessario specificare un JWT con segno. Questo scenario avanzato è descritto in dettaglio nelle [asserzioni client](msal-net-client-assertions.md).
+Quando si usa `WithClientAssertion` , è necessario specificare un JWT con segno. Questo scenario avanzato è descritto in dettaglio nelle [asserzioni client](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -276,7 +275,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Quando si usa `WithClientClaims`, MSAL.NET produrrà un'asserzione firmata che contiene le attestazioni previste da Azure ad, oltre ad altre attestazioni client che si desidera inviare.
+Quando si usa `WithClientClaims` , MSAL.NET produrrà un'asserzione firmata che contiene le attestazioni previste da Azure ad, oltre ad altre attestazioni client che si desidera inviare.
 Questo codice illustra come eseguire questa operazione:
 
 ```csharp
@@ -293,7 +292,7 @@ Per informazioni dettagliate, vedere [asserzioni client](msal-net-client-asserti
 
 # <a name="python"></a>[Python](#tab/python)
 
-In MSAL Python è possibile fornire attestazioni client usando le attestazioni che verranno firmate da questa `ConfidentialClientApplication`chiave privata.
+In MSAL Python è possibile fornire attestazioni client usando le attestazioni che verranno firmate da questa `ConfidentialClientApplication` chiave privata.
 
 ```Python
 config = json.load(open(sys.argv[1]))

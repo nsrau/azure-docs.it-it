@@ -5,19 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: dd8442c00e2b7685b0dc1a7bd5150c87f2c27b7c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.custom: cc996988-fb4f-47, tracking-python
+ms.openlocfilehash: eb61cad5f505e6895b550adca3e9f156222d6d30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559969"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Associazioni di output di archiviazione code di Azure per funzioni di Azure
 
 Funzioni di Azure può creare nuovi messaggi di archiviazione code di Azure impostando un'associazione di output.
 
-Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](./functions-bindings-storage-queue.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-storage-queue.md).
 
 ## <a name="example"></a>Esempio
 
@@ -153,9 +152,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene illustrato come restituire valori singoli e multipli nelle code di archiviazione. La configurazione necessaria per *Function. JSON* è identica in entrambi i casi.
+Nell'esempio seguente viene illustrato come restituire valori singoli e multipli nelle code di archiviazione. La configurazione necessaria per *function.json* è identica in entrambi i casi.
 
-Un binding della coda di archiviazione è definito in *Function. JSON,* dove *Type* è impostato su `queue`.
+Un binding della coda di archiviazione è definito infunction.jsin cui il *tipo* è impostato *su* `queue` .
 
 ```json
 {
@@ -230,7 +229,7 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
  }
 ```
 
-Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare l'annotazione `@QueueOutput` per i parametri il cui valore viene scritto nell'archiviazione code.  Il tipo di parametro deve `OutputBinding<T>`essere, `T` dove è qualsiasi tipo Java nativo di un POJO.
+Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare l'annotazione `@QueueOutput` per i parametri il cui valore viene scritto nell'archiviazione code.  Il tipo di parametro deve essere `OutputBinding<T>` , dove `T` è qualsiasi tipo Java nativo di un POJO.
 
 ---
 
@@ -268,7 +267,7 @@ Per un esempio completo, vedere [esempio di output](#example).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script C#.
+Gli attributi non sono supportati da Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -307,29 +306,29 @@ public class HttpTriggerQueueOutput {
 |`queueName`  | Dichiara il nome della coda nell'account di archiviazione. |
 |`connection` | Punta alla stringa di connessione dell'account di archiviazione. |
 
-Il parametro associato all' `QueueOutput` annotazione viene tipizzato come istanza di [output\<T\> ](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) .
+Il parametro associato all' `QueueOutput` annotazione viene tipizzato come istanza di [output \<T\> ](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) .
 
 ---
 
 ## <a name="configuration"></a>Configurazione
 
-La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `Queue` attributo.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Queue`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `queue`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
-|**direzione** | n/d | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**name** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. Impostare su `$return` per fare riferimento al valore restituito della funzione.|
+|**direction** | n/d | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
+|**nome** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. Impostare su `$return` per fare riferimento al valore restituito della funzione.|
 |**queueName** |**QueueName** | Nome della coda. |
-|**connection** | **Connessione** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "" Storage ". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
+|**connection** | **Connection** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "" Storage ". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Scrivere un singolo messaggio della coda usando un parametro di metodo, `out T paramName`ad esempio. È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
+Scrivere un singolo messaggio della coda usando un parametro di metodo, ad esempio `out T paramName` . È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
 
 * Un oggetto serializzabile come JSON
 * `string`
@@ -345,7 +344,7 @@ In C# e negli script C# scrivere più messaggi nella coda usando uno dei seguent
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Scrivere un singolo messaggio della coda usando un parametro di metodo, `out T paramName`ad esempio. `paramName` È il valore specificato nella `name` proprietà di *Function. JSON*. È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
+Scrivere un singolo messaggio della coda usando un parametro di metodo, ad esempio `out T paramName` . `paramName`È il valore specificato nella `name` proprietà di *function.jssu*. È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
 
 * Un oggetto serializzabile come JSON
 * `string`
@@ -361,13 +360,13 @@ In C# e negli script C# scrivere più messaggi nella coda usando uno dei seguent
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-L'elemento della coda di output è `context.bindings.<NAME>` disponibile `<NAME>` tramite dove corrisponde al nome definito in *Function. JSON*. È possibile usare una stringa o un oggetto serializzabile in JSON per il payload dell'elemento della coda.
+L'elemento della coda di output è disponibile tramite `context.bindings.<NAME>` dove `<NAME>` corrisponde al nome definito in *function.js*. È possibile usare una stringa o un oggetto serializzabile in JSON per il payload dell'elemento della coda.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una funzione:
 
-- **Valore restituito**: impostare la `name` proprietà in *Function. JSON* su `$return`. Con questa configurazione, il valore restituito della funzione viene reso permanente come messaggio di archiviazione di Accodamento.
+- **Valore restituito**: impostare la `name` Proprietà in *function.jssu* `$return` . Con questa configurazione, il valore restituito della funzione viene reso permanente come messaggio di archiviazione di Accodamento.
 
 - **Imperativo**: passare un valore al metodo [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) . Il valore passato a `set` viene reso permanente come messaggio di archiviazione di Accodamento.
 
@@ -377,13 +376,13 @@ Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una f
 
 - **Valore restituito**: applicando l'annotazione alla funzione stessa, il valore restituito della funzione viene reso persistente come messaggio dell'hub eventi.
 
-- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)a un `T` parametro specifico del tipo, dove è un POJO o qualsiasi tipo Java nativo. Con questa configurazione, il passaggio di un valore `setValue` al metodo rende permanente il valore come messaggio dell'hub eventi.
+- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico del tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) , dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione, il passaggio di un valore al `setValue` metodo rende permanente il valore come messaggio dell'hub eventi.
 
 ---
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione |  Riferimento |
+| Associazione |  Informazioni di riferimento |
 |---|---|
 | Coda | [Codici di errore della coda](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob, Table, Queue | [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
@@ -393,7 +392,7 @@ Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una f
 
 ## <a name="hostjson-settings"></a>impostazioni host.json
 
-Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il file host. JSON di esempio seguente contiene solo le impostazioni della versione 2. x + per questa associazione. Per ulteriori informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure](functions-host-json.md).
+Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il host.jsdi esempio nel file seguente contiene solo le impostazioni versione 2. x + per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere [host.jsdi riferimento per funzioni di Azure](functions-host-json.md).
 
 > [!NOTE]
 > Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).

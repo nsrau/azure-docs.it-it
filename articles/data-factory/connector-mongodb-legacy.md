@@ -2,7 +2,6 @@
 title: Copiare dati da MongoDB usando legacy
 description: Informazioni su come copiare dati da MongoDB in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
 manager: shwang
@@ -12,14 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 803e34a93e8019cfc2577bfaab3ba13c409c6b01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558173"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiare i dati da MongoDB con Azure Data Factory
+# <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copiare dati da MongoDB usando Azure Data Factory (legacy)
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-on-premises-mongodb-connector.md)
@@ -46,7 +44,7 @@ In particolare, il connettore MongoDB supporta:
 
 Il runtime di integrazione offre un driver per MongoDB predefinito e non è quindi necessario installare manualmente alcun driver quando si copiano dati da MongoDB.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -63,12 +61,12 @@ Per il servizio collegato di MongoDB sono supportate le proprietà seguenti:
 | port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |No (il valore predefinito è 27017) |
 | databaseName |Nome del database MongoDB a cui si vuole accedere. |Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi al database MongoDB.<br/>I valori consentiti sono: **Basic**e **Anonymous**. |Sì |
-| nomeutente |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
-| password |Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì (se si usa l'autenticazione di base). |
+| username |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
+| password |Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì (se si usa l'autenticazione di base). |
 | authSource |Nome del database MongoDB che si vuole usare per controllare le credenziali di autenticazione. |No. Per l'autenticazione di base il valore predefinito usa l'account di amministrazione e il database specificati usando la proprietà databaseName. |
 | enableSsl | Specifica se le connessioni al server sono crittografate con TLS. Il valore predefinito è false.  | No |
 | allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è false.  | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -186,8 +184,8 @@ Quando si copiano dati da MongoDB, vengono usati i mapping seguenti tra i tipi d
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Stringa |
-| Stringa |Stringa |
+| ObjectID |string |
+| string |string |
 | UUID |Guid |
 | Oggetto |Rinormalizzato in colonne rese flat con "_" come separatore annidato |
 

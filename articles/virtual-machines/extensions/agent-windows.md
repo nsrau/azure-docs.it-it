@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: f29a20ddeb93ec3d4aa98bbcb36f50456b543667
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81452571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608690"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Panoramica dell'agente di macchine virtuali di Azure
 L'agente di macchine virtuali di Microsoft Azure è un processo protetto e leggero che gestisce l'interazione delle macchine virtuali con il controller di infrastruttura di Azure. L'agente di macchine virtuali svolge un ruolo primario per l'abilitazione e l'esecuzione delle estensioni macchina virtuale di Azure. Le estensioni macchina virtuale rendono possibile la configurazione post-distribuzione della macchina virtuale, ad esempio l'installazione e la configurazione di software. Le estensioni macchina virtuale abilitano anche funzionalità di ripristino, ad esempio la reimpostazione della password amministrativa di una macchina virtuale. Senza l'agente di macchine virtuali di Azure, le estensioni macchina virtuale non possono essere eseguite.
@@ -58,7 +57,7 @@ Per avviare una macchina virtuale è necessario avere il PA installato nella mac
 Se non si dispone di agenti installati, è possibile usare alcuni servizi di Azure, come ad esempio Backup di Azure o Sicurezza di Azure. Per questi servizi è necessario installare un'estensione. Se è stata distribuita una macchina virtuale senza il WinGA, è possibile installare la versione più recente dell'agente in un secondo momento.
 
 ### <a name="manual-installation"></a>Installazione manuale
-L'agente di macchine virtuali di Windows può essere installato manualmente con un pacchetto di Windows Installer. L'installazione manuale potrebbe essere necessaria quando si crea un'immagine della macchina virtuale personalizzata che viene distribuita in Azure. Per installare manualmente l'agente di macchine virtuali di Windows, [scaricare il programma di installazione dell'agente di macchine virtuali](https://go.microsoft.com/fwlink/?LinkID=394789). L'agente di macchine virtuali è supportato in Windows Server 2008 R2 e versioni successive.
+L'agente di macchine virtuali di Windows può essere installato manualmente con un pacchetto di Windows Installer. L'installazione manuale potrebbe essere necessaria quando si crea un'immagine della macchina virtuale personalizzata che viene distribuita in Azure. Per installare manualmente l'agente di macchine virtuali di Windows, [scaricare il programma di installazione dell'agente di macchine virtuali](https://go.microsoft.com/fwlink/?LinkID=394789). L'agente di macchine virtuali è supportato in Windows Server 2008 (64 bit) e versioni successive.
 
 > [!NOTE]
 > È importante aggiornare l'opzione AllowExtensionOperations dopo l'installazione manuale di VMAgent in una macchina virtuale distribuita da Image senza ProvisionVMAgent Enable.
@@ -69,7 +68,7 @@ $vm | Update-AzVM
 ```
 
 ### <a name="prerequisites"></a>Prerequisiti
-- Per eseguire l'agente di macchine virtuali Windows, è necessario almeno Windows Server 2008 R2 (64-bits) con .NET Framework 4,0. Vedere [supporto della versione minima per gli agenti di macchine virtuali in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- L'agente di macchine virtuali Windows necessita almeno di Windows Server 2008 (64 bit) per l'esecuzione con .NET Framework 4,0. Vedere [supporto della versione minima per gli agenti di macchine virtuali in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 - Assicurarsi che la macchina virtuale abbia accesso all'indirizzo IP 168.63.129.16. Per ulteriori informazioni, vedere la pagina relativa all' [indirizzo IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
 
@@ -114,7 +113,7 @@ Quando è connesso a una macchina virtuale di Windows, è possibile usare Gestio
 L'agente di macchine virtuali di Azure per Windows viene aggiornato automaticamente. In quanto nuove macchine virtuali distribuite in Azure, ricevono la versione più recente dell'agente di macchine virtuali al momento del provisioning della macchina virtuale. Le immagini delle macchine virtuali personalizzate devono essere aggiornate manualmente per includere il nuovo agente di macchine virtuali al momento della creazione dell'immagine.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Raccolta automatica dei log dell'agente guest di Windows
-L'agente guest di Windows ha una funzionalità che consente di raccogliere automaticamente alcuni log. Questa funzionalità è controller dal processo CollectGuestLogs. exe. Esiste sia per i servizi cloud PaaS che per le macchine virtuali IaaS e il suo obiettivo è quello di & rapidamente raccogliere automaticamente alcuni log di diagnostica da una macchina virtuale, in modo che possano essere usati per l'analisi offline. I log raccolti sono i registri eventi, i log del sistema operativo, i log di Azure e alcune chiavi del registro di sistema. Produce un file ZIP che viene trasferito nell'host della macchina virtuale. Questo file ZIP può quindi essere esaminato dai team di progettazione e dai professionisti del supporto tecnico per esaminare i problemi relativi alla richiesta del cliente proprietario della macchina virtuale.
+L'agente guest di Windows ha una funzionalità che consente di raccogliere automaticamente alcuni log. Questa funzionalità è controller dal processo CollectGuestLogs.exe. Esiste sia per i servizi cloud PaaS che per le macchine virtuali IaaS e il suo obiettivo è quello di & rapidamente raccogliere automaticamente alcuni log di diagnostica da una macchina virtuale, in modo che possano essere usati per l'analisi offline. I log raccolti sono i registri eventi, i log del sistema operativo, i log di Azure e alcune chiavi del registro di sistema. Produce un file ZIP che viene trasferito nell'host della macchina virtuale. Questo file ZIP può quindi essere esaminato dai team di progettazione e dai professionisti del supporto tecnico per esaminare i problemi relativi alla richiesta del cliente proprietario della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle estensioni macchina virtuale, vedere [Azure virtual machine extensions and features overview](overview.md) (Panoramica delle funzionalità e delle estensioni macchina virtuale di Azure).

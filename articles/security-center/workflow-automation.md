@@ -8,16 +8,15 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5d947cf41e13abdea9a2fd29f8a740d0c101dc6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c97dafa80adedd64d45666eb98ef6b1e69850719
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629404"
 ---
 # <a name="workflow-automation"></a>Automazione del flusso di lavoro
 
-Ogni programma di sicurezza include più flussi di lavoro per la risposta agli eventi imprevisti. Questi processi possono includere la notifica a stakeholder pertinenti, l'avvio di un processo di gestione delle modifiche e l'applicazione di procedure di correzione specifiche. Gli esperti di sicurezza raccomandano di automatizzare tutti i passaggi di queste procedure come possibile. L'automazione riduce i costi. Consente inoltre di migliorare la sicurezza garantendo che i passaggi del processo vengano eseguiti rapidamente, in modo coerente e in base ai requisiti predefiniti.
+Ogni programma di sicurezza include più flussi di lavoro per la risposta agli eventi imprevisti. Questi processi possono includere la notifica a stakeholder di rilievo, l'avvio di un processo di gestione delle modifiche e l'applicazione di procedure di correzione specifiche. Gli esperti di sicurezza raccomandano di automatizzare quante più procedure possibili. L'automazione riduce i costi. Consente inoltre di migliorare la sicurezza garantendo che i passaggi del processo vengano eseguiti rapidamente, in modo coerente e in base ai requisiti predefiniti.
 
 Questo articolo descrive la funzionalità di automazione del flusso di lavoro del Centro sicurezza di Azure. Questa funzionalità può attivare app per la logica su avvisi di sicurezza e raccomandazioni. Ad esempio, potrebbe essere necessario che il Centro sicurezza invii un messaggio di posta elettronica a un utente specifico quando si verifica un avviso. Si apprenderà anche come creare app per la logica usando app per la [logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
@@ -25,15 +24,25 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 > Se in precedenza è stata usata la visualizzazione PlayBook (anteprima) nella barra laterale, si troveranno le stesse funzionalità insieme alla funzionalità espansa nella pagina nuova automazione del flusso di lavoro.
 
 
-## <a name="requirements"></a>Requisiti
 
-* Per usare i flussi di lavoro di app per la logica di Azure, è necessario disporre dei seguenti ruoli/autorizzazioni per le app per la logica:
+## <a name="availability"></a>Disponibilità
 
-    * Le autorizzazioni dell'operatore per l'app per la [logica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica *run* . questo ruolo non può creare o modificare app per la logica.
+- Stato della versione: **Disponibile a livello generale**
+- Ruoli e autorizzazioni necessari:
+    - **Reader** nella sottoscrizione che contiene la configurazione di esportazione
+    - **Ruolo di amministratore della sicurezza** nel gruppo di risorse (o **proprietario**)
+    - Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione
+    - Per lavorare con i flussi di lavoro di app per la logica di Azure, è inoltre necessario disporre dei seguenti ruoli/autorizzazioni per le app per la logica:
 
-    * Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor)
+        * Le autorizzazioni dell'operatore per l'app per la [logica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica *run* . questo ruolo non può creare o modificare app per la logica.
 
-* Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)
+        * Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor)
+
+        * Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)
+- Cloud: 
+    - ✔ Cloud commerciali
+    - ✔ US Gov
+    - ✘ Cina, altro gov
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Creare un'app per la logica e definire quando deve essere eseguita automaticamente 

@@ -5,43 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 9ed3d960b3f5653ea8706b39559c9d5a71c45a6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81867624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609522"
 ---
-# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chiamare gli endpoint di servizio su HTTP o HTTPS da app per la logica di Azure
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chiamare gli endpoint di servizio su HTTP o HTTPS da App per la logica di Azure
 
 Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione o il trigger http incorporato è possibile creare attività e flussi di lavoro automatizzati che inviano richieste agli endpoint di servizio tramite http o HTTPS. Ad esempio, è possibile monitorare l'endpoint del servizio per il sito Web controllando l'endpoint in base a una pianificazione specifica. Quando l'evento specificato si verifica in corrispondenza di tale endpoint, ad esempio quando il sito Web si arresta, l'evento attiva il flusso di lavoro dell'app per la logica ed esegue le azioni nel flusso di lavoro. Se invece si desidera ricevere e rispondere alle chiamate HTTPS in ingresso, utilizzare il trigger di richiesta incorporato [o l'azione di risposta](../connectors/connectors-native-reqres.md).
 
-> [!NOTE]
-> In base alla funzionalità dell'endpoint di destinazione, il connettore HTTP supporta le versioni di Transport Layer Security (TLS) 1,0, 1,1 e 1,2. App per la logica negozia con l'endpoint usando la versione più elevata supportata possibile. Se, ad esempio, l'endpoint supporta 1,2, il connettore utilizza prima 1,2. In caso contrario, il connettore usa la versione successiva più elevata supportata.
->
-> Il connettore HTTP non supporta i certificati TLS/SSL intermedi per l'autenticazione.
+* Per verificare o eseguire il *polling* di un endpoint in base a una pianificazione ricorrente, [aggiungere il trigger http](#http-trigger) come primo passaggio del flusso di lavoro. Ogni volta che il trigger controlla l'endpoint, il trigger chiama o invia una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa il contenuto dalla risposta dell'endpoint alle azioni nell'app per la logica.
 
-Per verificare o eseguire il *polling* di un endpoint in base a una pianificazione ricorrente, [aggiungere il trigger http](#http-trigger) come primo passaggio del flusso di lavoro. Ogni volta che il trigger controlla l'endpoint, il trigger chiama o invia una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa il contenuto dalla risposta dell'endpoint alle azioni nell'app per la logica.
-
-Per chiamare un endpoint da qualsiasi altra parte del flusso di lavoro, [aggiungere l'azione http](#http-action). La risposta dell'endpoint determina l'esecuzione delle azioni rimanenti del flusso di lavoro.
-
-> [!IMPORTANT]
-> Se un trigger o un'azione HTTP include queste intestazioni, app per la logica rimuove le intestazioni dal messaggio di richiesta generato senza visualizzare alcun avviso o errore:
->
-> * `Accept-*`
-> * `Allow`
-> * `Content-*`con le eccezioni seguenti `Content-Disposition`: `Content-Encoding`, e`Content-Type`
-> * `Cookie`
-> * `Expires`
-> * `Host`
-> * `Last-Modified`
-> * `Origin`
-> * `Set-Cookie`
-> * `Transfer-Encoding`
->
-> Sebbene le app per la logica non interrompano il salvataggio di app per la logica che usano un trigger o un'azione HTTP con queste intestazioni, le app per la logica ignorano queste intestazioni.
+* Per chiamare un endpoint da qualsiasi altra parte del flusso di lavoro, [aggiungere l'azione http](#http-action). La risposta dell'endpoint determina l'esecuzione delle azioni rimanenti del flusso di lavoro.
 
 Questo articolo illustra come aggiungere un trigger o un'azione HTTP al flusso di lavoro dell'app per la logica.
 
@@ -61,7 +39,7 @@ Questo articolo illustra come aggiungere un trigger o un'azione HTTP al flusso d
 
 Questo trigger incorporato esegue una chiamata HTTP all'URL specificato per un endpoint e restituisce una risposta.
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica vuota in progettazione app per la logica.
+1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica vuota nella finestra di progettazione di App per la logica.
 
 1. Nella casella di ricerca della finestra di progettazione selezionare **predefinito**. Nella casella di ricerca immettere `http` come filtro. Dall'elenco **trigger** selezionare il trigger **http** .
 
@@ -75,7 +53,7 @@ Questo trigger incorporato esegue una chiamata HTTP all'URL specificato per un e
 
    Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per ulteriori informazioni sui tipi di autenticazione disponibili per HTTP, vedere gli argomenti seguenti:
 
-   * [Aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Aggiunta dell'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [Autenticare l'accesso alle risorse con identità gestite](../logic-apps/create-managed-service-identity.md)
 
 1. Per aggiungere altri parametri disponibili, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati.
@@ -96,7 +74,7 @@ Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un en
 
 1. Nel passaggio in cui si vuole aggiungere l'azione HTTP, selezionare **nuovo passaggio**.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
 1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `http` come filtro. Nell'elenco **azioni** selezionare l'azione **http** .
 
@@ -110,12 +88,28 @@ Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un en
 
    Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per ulteriori informazioni sui tipi di autenticazione disponibili per HTTP, vedere gli argomenti seguenti:
 
-   * [Aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Aggiunta dell'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [Autenticare l'accesso alle risorse con identità gestite](../logic-apps/create-managed-service-identity.md)
 
 1. Per aggiungere altri parametri disponibili, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati.
 
 1. Al termine, ricordarsi di salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
+
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+
+In base alla funzionalità dell'endpoint di destinazione, le chiamate in uscita supportano Transport Layer Security (TLS), che in precedenza era Secure Sockets Layer (SSL), versioni 1,0, 1,1 e 1,2. App per la logica negozia con l'endpoint usando la versione più elevata supportata possibile.
+
+Se, ad esempio, l'endpoint supporta 1,2, il connettore HTTP USA prima 1,2. In caso contrario, il connettore usa la versione successiva più elevata supportata.
+
+<a name="self-signed"></a>
+
+## <a name="self-signed-certificates"></a>Certificati autofirmati
+
+* Per le app per la logica nell'ambiente Azure multi-tenant globale, il connettore HTTP non consente i certificati TLS/SSL autofirmati. Se l'app per la logica effettua una chiamata HTTP a un server e presenta un certificato autofirmato TLS/SSL, la chiamata HTTP ha esito negativo e viene `TrustFailure` visualizzato un errore.
+
+* Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), il connettore HTTP consente i certificati autofirmati per gli handshake TLS/SSL. Tuttavia, è necessario innanzitutto [abilitare il supporto dei certificati autofirmati](../logic-apps/create-integration-service-environment-rest-api.md#request-body) per un ISE esistente o un nuovo ISE usando l'API REST di app per la logica e installare il certificato pubblico nel `TrustedRoot` percorso.
 
 ## <a name="content-with-multipartform-data-type"></a>Contenuto con tipo di dati multipart/form
 
@@ -135,7 +129,7 @@ Per gestire il contenuto con `multipart/form-data` tipo nelle richieste HTTP, è
 }
 ```
 
-Si supponga, ad esempio, di avere un'app per la logica che invia una richiesta HTTP POST per un file di Excel a un sito Web usando l'API del `multipart/form-data` sito, che supporta il tipo. Ecco come può sembrare questa azione:
+Si supponga, ad esempio, di avere un'app per la logica che invia una richiesta HTTP POST per un file di Excel a un sito Web usando l'API del sito, che supporta il `multipart/form-data` tipo. Ecco come può sembrare questa azione:
 
 ![Dati in formato multipart](./media/connectors-native-http/http-action-multipart.png)
 
@@ -163,6 +157,90 @@ Di seguito è riportato lo stesso esempio che mostra la definizione JSON dell'az
 }
 ```
 
+<a name="asynchronous-pattern"></a>
+
+## <a name="asynchronous-request-response-behavior"></a>Comportamento di richiesta-risposta asincrono
+
+Per impostazione predefinita, tutte le azioni basate su HTTP nelle app per la logica di Azure seguono il [modello di operazione asincrona](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)standard. Questo modello specifica che dopo un'azione HTTP chiama o invia una richiesta a un endpoint, un servizio, un sistema o un'API, il destinatario restituisce immediatamente una risposta ["202 accettata"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) . Questo codice conferma che il ricevitore ha accettato la richiesta ma non ha completato l'elaborazione. La risposta può includere un' `location` intestazione che specifica l'URL e un ID di aggiornamento che il chiamante può usare per eseguire il polling o controllare lo stato della richiesta asincrona finché il ricevitore non interrompe l'elaborazione e restituisce una risposta di esito positivo ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) o un'altra risposta non 202. Tuttavia, il chiamante non deve attendere che la richiesta completi l'elaborazione e possa continuare a eseguire l'azione successiva. Per altre informazioni, vedere l' [integrazione di microservizi asincroni impone l'autonomia dei microservizi](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+
+* Nella finestra di progettazione dell'app per la logica, l'azione HTTP, ma non il trigger, ha un'impostazione del **modello asincrona** , abilitata per impostazione predefinita. Questa impostazione specifica che il chiamante non attende il completamento dell'elaborazione e può passare all'azione successiva, ma continua a controllare lo stato fino a quando l'elaborazione non viene arrestata. Se disabilitata, questa impostazione specifica che il chiamante attende il completamento dell'elaborazione prima di procedere all'azione successiva.
+
+  Per trovare questa impostazione, attenersi alla seguente procedura:
+
+  1. Sulla barra del titolo dell'azione HTTP, selezionare il pulsante con i puntini di sospensione (**...**) per aprire le impostazioni dell'azione.
+
+  1. Trovare l'impostazione del **modello asincrono** .
+
+     ![Impostazione "modello asincrono"](./media/connectors-native-http/asynchronous-pattern-setting.png)
+
+* La definizione di JavaScript Object Notation (JSON) sottostante dell'azione HTTP segue in modo implicito il modello di operazione asincrona.
+
+<a name="disable-asynchronous-operations"></a>
+
+## <a name="disable-asynchronous-operations"></a>Disabilitare le operazioni asincrone
+
+In alcuni casi, potrebbe essere necessario il comportamento asincrono dell'azione HTTP in scenari specifici, ad esempio quando si desidera:
+
+* [Evitare i timeout HTTP per le attività a esecuzione prolungata](#avoid-http-timeouts)
+* [Disabilita controllo intestazioni posizione](#disable-location-header-check)
+
+<a name="turn-off-asynchronous-pattern-setting"></a>
+
+### <a name="turn-off-asynchronous-pattern-setting"></a>Disattiva impostazione del **modello asincrono**
+
+1. Nella finestra di progettazione dell'app per la logica, sulla barra del titolo dell'azione HTTP, selezionare il pulsante con i puntini di sospensione (**...**) per aprire le impostazioni dell'azione.
+
+1. Individuare l'impostazione del **modello asincrono** **, disattivare l'impostazione se** abilitata, quindi fare clic su **fine**.
+
+   ![Disabilitare l'impostazione "modello asincrono"](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
+
+<a name="add-disable-async-pattern-option"></a>
+
+### <a name="disable-asynchronous-pattern-in-actions-json-definition"></a>Disabilitare il modello asincrono nella definizione JSON dell'azione
+
+Nella definizione JSON sottostante dell'azione HTTP [aggiungere l' `"DisableAsyncPattern"` opzione Operation](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) alla definizione dell'azione in modo che l'azione segua invece il modello di operazione sincrona. Per altre informazioni, vedere [eseguire azioni anche in un modello di operazione sincrona](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern).
+
+<a name="avoid-http-timeouts"></a>
+
+## <a name="avoid-http-timeouts-for-long-running-tasks"></a>Evitare i timeout HTTP per le attività a esecuzione prolungata
+
+Le richieste HTTP hanno un [limite di timeout](../logic-apps/logic-apps-limits-and-config.md#http-limits). Se si verifica un timeout di un'azione HTTP a esecuzione prolungata a causa di questo limite, sono disponibili le opzioni seguenti:
+
+* [Disabilitare il modello di operazione asincrona dell'azione http](#disable-asynchronous-operations) in modo che l'azione non esegua continuamente il polling o controlli lo stato della richiesta. Al contrario, l'azione attende che il ricevitore risponda con lo stato e i risultati al termine dell'elaborazione della richiesta.
+
+* Sostituire l'azione HTTP con l' [azione http webhook](../connectors/connectors-native-webhook.md), che attende che il ricevitore risponda con lo stato e i risultati al termine dell'elaborazione della richiesta.
+
+<a name="disable-location-header-check"></a>
+
+## <a name="disable-checking-location-headers"></a>Disabilita controllo intestazioni posizione
+
+Alcuni endpoint, servizi, sistemi o API restituiscono una risposta "202 ACCEPTed" senza `location` intestazione. Per evitare che un'azione HTTP verifichi continuamente lo stato della richiesta quando l' `location` intestazione non esiste, è possibile disporre di queste opzioni:
+
+* [Disabilitare il modello di operazione asincrona dell'azione http](#disable-asynchronous-operations) in modo che l'azione non esegua continuamente il polling o controlli lo stato della richiesta. Al contrario, l'azione attende che il ricevitore risponda con lo stato e i risultati al termine dell'elaborazione della richiesta.
+
+* Sostituire l'azione HTTP con l' [azione http webhook](../connectors/connectors-native-webhook.md), che attende che il ricevitore risponda con lo stato e i risultati al termine dell'elaborazione della richiesta.
+
+## <a name="known-issues"></a>Problemi noti
+
+<a name="omitted-headers"></a>
+
+### <a name="omitted-http-headers"></a>Intestazioni HTTP omesse
+
+Se un trigger o un'azione HTTP include queste intestazioni, app per la logica rimuove le intestazioni dal messaggio di richiesta generato senza visualizzare alcun avviso o errore:
+
+* `Accept-*`
+* `Allow`
+* `Content-*` con le eccezioni seguenti: `Content-Disposition`, `Content-Encoding` e `Content-Type`
+* `Cookie`
+* `Expires`
+* `Host`
+* `Last-Modified`
+* `Origin`
+* `Set-Cookie`
+* `Transfer-Encoding`
+
+Sebbene le app per la logica non interrompano il salvataggio di app per la logica che usano un trigger o un'azione HTTP con queste intestazioni, le app per la logica ignorano queste intestazioni.
+
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
 Per ulteriori informazioni sui parametri trigger e Action, vedere le sezioni seguenti:
@@ -174,11 +252,11 @@ Per ulteriori informazioni sui parametri trigger e Action, vedere le sezioni seg
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP, che restituisce queste informazioni:
 
-| Nome proprietà | Type | Descrizione |
-|---------------|------|-------------|
-| headers | oggetto | Intestazioni della richiesta |
-| Corpo | oggetto | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
-| Codice di stato | INT | Codice di stato della richiesta |
+| Proprietà | Type | Description |
+|----------|------|-------------|
+| `headers` | Oggetto JSON | Intestazioni della richiesta |
+| `body` | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| `status code` | Integer | Codice di stato della risposta |
 |||
 
 | Codice di stato | Descrizione |

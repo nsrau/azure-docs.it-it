@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: d07add7950da531330fe9f64629299cef9fad1ac
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: f197dd5063f8584968277d8d55298c03d9d71ea6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558838"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>App desktop che chiama le API Web: configurazione del codice
 
@@ -39,7 +38,7 @@ Dal punto di vista del codice, le applicazioni desktop sono applicazioni client 
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Sarà necessario compilare e modificare MSAL.NET `IPublicClientApplication`.
+Sarà necessario compilare e modificare MSAL.NET `IPublicClientApplication` .
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
@@ -52,7 +51,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-Se si intende usare l'autenticazione interattiva o il flusso del codice del dispositivo, come illustrato in `.WithRedirectUri` precedenza, usare il modificatore.
+Se si intende usare l'autenticazione interattiva o il flusso del codice del dispositivo, come illustrato in precedenza, usare il `.WithRedirectUri` modificatore.
 
 ```csharp
 IPublicClientApplication app;
@@ -107,12 +106,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Per altre informazioni su come configurare un'applicazione desktop MSAL.NET:
 
-- Per un elenco di tutti i modificatori disponibili `PublicClientApplicationBuilder`in, vedere la documentazione di riferimento [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- Per una descrizione di tutte le opzioni esposte in `PublicClientApplicationOptions`, vedere [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) nella documentazione di riferimento.
+- Per un elenco di tutti i modificatori disponibili in `PublicClientApplicationBuilder` , vedere la documentazione di riferimento [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- Per una descrizione di tutte le opzioni esposte in `PublicClientApplicationOptions` , vedere [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) nella documentazione di riferimento.
 
 ### <a name="complete-example-with-configuration-options"></a>Esempio completo con le opzioni di configurazione
 
-Si supponga di disporre di un'applicazione console .NET Core `appsettings.json` con il seguente file di configurazione:
+Si supponga di disporre di un'applicazione console .NET Core con il seguente `appsettings.json` file di configurazione:
 
 ```json
 {
@@ -180,7 +179,7 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-Prima della chiamata al `.Build()` metodo, è possibile eseguire l'override della configurazione con le `.WithXXX` chiamate ai metodi, come illustrato in precedenza.
+Prima della chiamata al `.Build()` metodo, è possibile eseguire l'override della configurazione con le chiamate ai `.WithXXX` metodi, come illustrato in precedenza.
 
 # <a name="java"></a>[Java](#tab/java)
 

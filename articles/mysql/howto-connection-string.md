@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ff257e101ca925a554f2343d357e2042d2930b45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 1683fba2d8f085569c7cc62a06d0fe95803d4346
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559204"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Come connettere le applicazioni a Database di Azure per MySQL
 Questo argomento elenca i tipi di stringa di connessione supportati da Database di Azure per MySQL, oltre a modelli ed esempi. Nella stringa di connessione possono essere presenti parametri e impostazioni diverse.
 
 - Per ottenere il certificato, vedere [Come configurare SSL](./howto-configure-ssl.md).
-- {your_host} = \<ServerName>. MySQL.database.Azure.com
+- {your_host} = \<servername>.mysql.database.azure.com
 - {your_user}@{servername} = formato userID per l'autenticazione in modo corretto.  Se si usa solo userID, l'autenticazione avrà esito negativo.
 
 ## <a name="adonet"></a>ADO.NET

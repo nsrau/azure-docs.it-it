@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, tracking-python
 ms.date: 04/23/2020
-ms.openlocfilehash: b2394c580b871105fee84d63c478c3c490b56a0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2084bf136300126e56414599caa63d24c98f4542
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604236"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installare un notebook di Jupyter in locale e connetterlo ad Apache Spark in HDInsight
 
@@ -57,7 +56,7 @@ Scaricare il [programma di installazione di Anaconda](https://www.anaconda.com/d
 
 ## <a name="install-pyspark-and-spark-kernels"></a>Installare i kernel PySpark e Spark
 
-1. Identificare la `sparkmagic` posizione in cui è installato immettendo il comando seguente:
+1. Identificare `sparkmagic` la posizione in cui è installato immettendo il comando seguente:
 
     ```cmd
     pip show sparkmagic
@@ -90,7 +89,7 @@ In questa sezione viene configurata la magia di Spark installata in precedenza p
     python
     ```
 
-2. Le informazioni di configurazione di Jupyter sono in genere archiviate nella home directory dell'utente. Immettere il comando seguente per identificare la home directory e creare una cartella denominata ** \.sparkmagic**.  Il percorso completo sarà output.
+2. Le informazioni di configurazione di Jupyter sono in genere archiviate nella home directory dell'utente. Immettere il comando seguente per identificare la home directory e creare una cartella denominata ** \. sparkmagic**.  Il percorso completo sarà output.
 
     ```python
     import os
@@ -100,7 +99,7 @@ In questa sezione viene configurata la magia di Spark installata in precedenza p
     exit()
     ```
 
-3. All'interno della `.sparkmagic`cartella, creare un file denominato **config. JSON** e aggiungere il frammento di codice JSON seguente al suo interno.  
+3. All'interno della cartella `.sparkmagic` , creare un file denominato **config.js** e aggiungere il frammento di codice JSON seguente al suo interno.  
 
     ```json
     {
@@ -130,12 +129,12 @@ In questa sezione viene configurata la magia di Spark installata in precedenza p
 
     |Valore del modello | Nuovo valore |
     |---|---|
-    |NOME utente|Accesso al cluster. il `admin`valore predefinito è.|
+    |NOME utente|Accesso al cluster. il valore predefinito è `admin` .|
     |CLUSTERDNSNAME|Nome cluster|
-    |{BASE64ENCODEDPASSWORD}|Password con codifica Base64 per la password effettiva.  È possibile generare una password base64 all' [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)indirizzo.|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|Usare se si `sparkmagic 0.12.7` USA (cluster v 3.5 e v 3.6).  Se si `sparkmagic 0.2.3` USA (cluster v 3.4), sostituire con `"should_heartbeat": true`.|
+    |{BASE64ENCODEDPASSWORD}|Password con codifica Base64 per la password effettiva.  È possibile generare una password base64 all'indirizzo [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/) .|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Usare se si usa `sparkmagic 0.12.7` (cluster v 3.5 e v 3.6).  Se si usa `sparkmagic 0.2.3` (cluster v 3.4), sostituire con `"should_heartbeat": true` .|
 
-    È possibile visualizzare un file di esempio completo in [config. JSON di esempio](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+    È possibile visualizzare un file di esempio completo in [config.jsdi esempio in](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
    > [!TIP]  
    > Gli heartbeat vengono inviati per assicurare che le sessioni non vengano perse. Quando un computer va in sospensione o viene arrestato, l'heartbeat non verrà inviato e la sessione verrà quindi eliminata. Per disabilitare questo comportamento per i cluster v3.4, è possibile impostare la configurazione di Livy `livy.server.interactive.heartbeat.timeout` su `0` dall'interfaccia utente di Ambari. Per i cluster v3.5, se non si imposta la configurazione 3.5 precedente, la sessione non verrà eliminata.
@@ -153,7 +152,7 @@ In questa sezione viene configurata la magia di Spark installata in precedenza p
     ![Kernel disponibili in Jupyter notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernel nel notebook di Jupyter")
 
     > [!IMPORTANT]  
-    > Dopo aver selezionato **nuovo** verificare la Shell per individuare eventuali errori.  Se viene visualizzato l'errore `TypeError: __init__() got an unexpected keyword argument 'io_loop'` è possibile che si verifichi un problema noto con determinate versioni di tornado.  In tal caso, arrestare il kernel e quindi eseguire il downgrade dell'installazione di Tornado con `pip install tornado==4.5.3`il comando seguente:.
+    > Dopo aver selezionato **nuovo** verificare la Shell per individuare eventuali errori.  Se viene visualizzato l'errore `TypeError: __init__() got an unexpected keyword argument 'io_loop'` è possibile che si verifichi un problema noto con determinate versioni di tornado.  In tal caso, arrestare il kernel e quindi eseguire il downgrade dell'installazione di Tornado con il comando seguente: `pip install tornado==4.5.3` .
 
     b. Eseguire il frammento di codice seguente.
 
@@ -164,13 +163,13 @@ In questa sezione viene configurata la magia di Spark installata in precedenza p
 
     Se è stato possibile recuperare l'output, viene verificata la connessione al cluster HDInsight.
 
-    Se si vuole aggiornare la configurazione del notebook per connettersi a un cluster diverso, aggiornare il file config. JSON con il nuovo set di valori, come illustrato nel passaggio 3, sopra.
+    Se si vuole aggiornare la configurazione del notebook per connettersi a un cluster diverso, aggiornare il config.jscon il nuovo set di valori, come illustrato nel passaggio 3, sopra.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Perché installare Jupyter nel computer locale
 
 Motivi per installare Jupyter nel computer e quindi connetterlo a un cluster Apache Spark in HDInsight:
 
-* Offre la possibilità di creare i notebook in locale, testare l'applicazione in un cluster in esecuzione e quindi caricare i notebook nel cluster. Per caricare i notebook nel cluster, è possibile caricarli usando il notebook di Jupyter che esegue o il cluster o salvarli nella `/HdiNotebooks` cartella dell'account di archiviazione associato al cluster. Per altre informazioni sul modo in cui i notebook vengono archiviati nel cluster, vedere la sezione [Dove sono archiviati i notebook?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
+* Offre la possibilità di creare i notebook in locale, testare l'applicazione in un cluster in esecuzione e quindi caricare i notebook nel cluster. Per caricare i notebook nel cluster, è possibile caricarli usando il notebook di Jupyter che esegue o il cluster o salvarli `/HdiNotebooks` nella cartella dell'account di archiviazione associato al cluster. Per altre informazioni sul modo in cui i notebook vengono archiviati nel cluster, vedere la sezione [Dove sono archiviati i notebook?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
 * Con i notebook disponibili in locale è possibile connettersi a cluster Spark diversi in base alle esigenze dell'applicazione.
 * È possibile usare GitHub per implementare un sistema di controllo del codice sorgente e usare il controllo della versione per il notebook. È anche possibile avere a disposizione un ambiente di collaborazione in cui più utenti possono lavorare allo stesso notebook.
 * È possibile lavorare con i notebook in locale anche senza avere un cluster. È necessario avere un cluster solo per eseguire i test dei notebook, non per gestire manualmente i notebook o un ambiente di sviluppo.
@@ -181,6 +180,6 @@ Motivi per installare Jupyter nel computer e quindi connetterlo a un cluster Apa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 * [Kernel per il notebook di Jupyter in Apache Spark](apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con notebook di Jupyter in Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

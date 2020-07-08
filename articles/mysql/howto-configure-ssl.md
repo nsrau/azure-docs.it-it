@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/7/2020
-ms.openlocfilehash: 18004ba474eb354f6723538a29f9eb90b23fbff2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 7286887b10661d291f6c6d2b6c067dd7e1bf43aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925865"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559231"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL
 Database di Azure per il server MySQL supporta la connessione alle applicazioni client tramite Secure Sockets Layer (SSL). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>Passaggio 1: ottenere un certificato SSL
-Scaricare il certificato necessario per comunicare tramite SSL con il database di Azure per il server [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) MySQL e salvare il file del certificato nell'unità locale. in questa esercitazione viene usato c:\ssl, ad esempio.
-**Per Microsoft Internet Explorer e Microsoft Edge:** una volta completato il download, rinominare il certificato in BaltimoreCyberTrustRoot.crt.pem.
+Scaricare il certificato necessario per comunicare tramite SSL con il database di Azure per il server MySQL [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) e salvare il file del certificato nell'unità locale. in questa esercitazione viene usato c:\ssl, ad esempio.
+**Per Microsoft Internet Explorer e Microsoft Edge:** dopo aver completato il download, rinominare il certificato in BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="step-2-bind-ssl"></a>Passaggio 2: eseguire il binding SSL
 
@@ -29,11 +29,11 @@ Configurare MySQL Workbench per connettersi in modo sicuro tramite SSL.
 
 1. Passare alla scheda **SSL** dalla finestra di dialogo Setup New Connection (Configura nuova connessione). 
 
-1. Aggiornare il campo **Usa SSL** a "Richiedi".
+1. Aggiornare il campo **Usa SSL** impostandolo su "Richiedi".
 
 1. Immettere il percorso del file **BaltimoreCyberTrustRoot.crt.pem** nel campo **SSL CA File:** (File CA SSL:). 
     
-    ![Salva configurazione SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+    ![Salvare la configurazione SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
 Per le connessioni esistenti, è possibile associare SSL facendo clic con il pulsante destro del mouse sull'icona di connessione e scegliendo Modifica. In seguito passare alla scheda **SSL** e associare il file del certificato.
 
@@ -63,7 +63,7 @@ Eseguire il comando mysql **status** per verificare di essere connessi al server
 ```dos
 mysql> status
 ```
-Verificare che la connessione sia crittografata analizzando l'output, che dovrebbe essere il seguente: **SSL: Cipher in use is AES256-SHA** (SSL: la crittografia in uso è AES256-SHA) 
+Verificare che la connessione sia crittografata esaminando l'output, che dovrebbe indicare:  **SSL: Cipher in use is AES256-SHA** (Crittografia usata AES256-SHA) 
 
 ## <a name="sample-code"></a>Codice di esempio
 Per stabilire una connessione sicura a Database di Azure per MySQL tramite SSL dall'applicazione, fare riferimento agli esempi di codice seguenti:

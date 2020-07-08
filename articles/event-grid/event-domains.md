@@ -2,17 +2,16 @@
 title: Domini eventi in Griglia di eventi di Azure
 description: Questo articolo descrive come usare i domini eventi per gestire il flusso di eventi personalizzati per vari clienti, organizzazioni o applicazioni aziendali.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
-ms.author: babanisa
+ms.author: femila
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 11ecf5c2a7bea8a9ef2047bdabcbfd4d844c5a3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559499"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi
 
@@ -105,7 +104,7 @@ Di seguito sono riportati i limiti e le quote correlati ai domini eventi:
 - 50 sottoscrizioni ambito dominio 
 - frequenza di inserimento degli eventi 5.000 al secondo (in un dominio)
 
-Se questi limiti non soddisfano l'utente, contattare il team del prodotto aprendo un ticket di supporto o inviando un [askgrid@microsoft.com](mailto:askgrid@microsoft.com)messaggio di posta elettronica a. 
+Se questi limiti non soddisfano l'utente, contattare il team del prodotto aprendo un ticket di supporto o inviando un messaggio di posta elettronica a [askgrid@microsoft.com](mailto:askgrid@microsoft.com) . 
 
 ## <a name="pricing"></a>Prezzi
 I domini degli eventi utilizzano gli stessi [prezzi delle operazioni](https://azure.microsoft.com/pricing/details/event-grid/) utilizzate da tutte le altre funzionalità di griglia di eventi.

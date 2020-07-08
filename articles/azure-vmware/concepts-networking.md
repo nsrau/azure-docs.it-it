@@ -3,18 +3,17 @@ title: Concetti-interconnettività di rete
 description: Informazioni sugli aspetti chiave e i casi d'uso di rete e interconnettività in Azure VMware Solution (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 82e5497c30bf02313e5ff8ad24167af569a153c2
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 35d886fe0f6a68e522d7f2cf20b450b5d9afc199
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629216"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Concetti relativi alla rete e all'interconnettività di Azure VMware Solution (AVS) Preview
 
 L'interconnettività di rete tra i cloud privati della soluzione VMware di Azure (AVS) e gli ambienti locali o le reti virtuali in Azure consente di accedere e usare il cloud privato. In questo articolo vengono descritti alcuni concetti chiave di rete e interconnettività che definiscono la base dell'interconnettività.
 
-Una prospettiva utile sull'interconnettività consiste nel considerare i due tipi di implementazioni di cloud privato AVS. Le implementazioni con interconnettività solo Azure di base e le implementazioni con l'interconnettività completa da locale a cloud privato.
+Una prospettiva utile sull'interconnettività consiste nel considerare i due tipi di implementazioni di cloud privato AVS: implementazioni con interconnettività solo Azure di base e implementazioni con l'interconnettività completa da locale a cloud privato.
 
 I casi d'uso per i cloud privati AVS includono:
 - nuovi carichi di lavoro delle macchine virtuali VMware nel cloud
@@ -25,7 +24,7 @@ I casi d'uso per i cloud privati AVS includono:
 
  Tutti i casi d'uso per il servizio AVS sono abilitati con la connettività da sito locale a cloud privato. Il modello di interconnettività di base è ideale per le valutazioni AVS o per le implementazioni che non richiedono l'accesso da ambienti locali.
 
-I due tipi di interconnettività del cloud privato AVS sono descritti nelle sezioni riportate di seguito.  L'interconnettività di base è "connettività rete virtuale di Azure" e consente di gestire e usare il cloud privato con una sola rete virtuale in Azure. L'interconnettività descritta in "connettività locale" estende la connettività di rete virtuale per includere anche l'interconnettività tra ambienti locali e cloud privati AVS.
+I due tipi di interconnettività del cloud privato AVS sono descritti nelle sezioni riportate di seguito.  L'interconnettività di base è "connettività rete virtuale di Azure"; consente di gestire e usare il cloud privato con una sola rete virtuale in Azure. L'interconnettività descritta in "connettività locale" estende la connettività di rete virtuale per includere anche l'interconnettività tra ambienti locali e cloud privati AVS.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Interconnettività rete virtuale di Azure
 
@@ -58,20 +57,20 @@ Per stabilire un'interconnettività completa a un cloud privato, è possibile us
 Una volta collegato con Copertura globale, i due circuiti ExpressRoute instraderanno il traffico di rete tra gli ambienti locali e il cloud privato. L'interconnettività da locale a cloud privato è illustrata nel diagramma precedente. L'interconnettività rappresentata nel diagramma consente i casi d'uso seguenti:
 
 - Cross-vCenter a caldo/freddo, vMotion
-- Accesso locale per la gestione del cloud privato AVS
+- Accesso a gestione cloud privato da sito locale ad AVS
 
 Per abilitare la connettività completa, è possibile richiedere una chiave di autorizzazione e un ID di peering privato per Copertura globale nell'portale di Azure. Usare la chiave e l'ID per stabilire Copertura globale tra un circuito ExpressRoute nella sottoscrizione e il circuito ExpressRoute per il nuovo cloud privato. Nell' [esercitazione per la creazione di un cloud privato](tutorial-create-private-cloud.md) vengono fornite le procedure per la richiesta e l'utilizzo della chiave e dell'ID.
 
-Per i requisiti di routing della soluzione è necessario pianificare gli spazi di indirizzi della rete del cloud privato in modo da evitare sovrapposizioni con altre reti virtuali e reti locali. I cloud privati AVS richiedono almeno un `/22` blocco di indirizzi di rete CIDR per le subnet, illustrato di seguito. Questa rete integra le reti locali. Per connettersi ad ambienti locali e reti virtuali, deve trattarsi di un blocco di indirizzi di rete non sovrapposto.
+Per i requisiti di routing della soluzione è necessario pianificare gli spazi di indirizzi della rete del cloud privato in modo da evitare sovrapposizioni con altre reti virtuali e reti locali. I cloud privati di AVS richiedono almeno un blocco di indirizzi di rete `/22` CIDR per le subnet, come illustrato di seguito. Questa rete integra le reti locali disponibili. Per la connessione ad ambienti locali e reti virtuali, questo blocco di indirizzi di rete non deve essere sovrapposto.
 
-Esempio `/22` di blocco di indirizzi di rete CIDR:`10.10.0.0/22`
+Esempio di blocco di indirizzi di rete `/22` CIDR: `10.10.0.0/22`
 
-Subnet:
+Le subnet:
 
-| Utilizzo rete             | Subnet | Esempio        |
+| Utilizzo di rete             | Subnet | Esempio        |
 | ------------------------- | ------ | -------------- |
 | Gestione del cloud privato            | `/24`    | `10.10.0.0/24`   |
-| rete vMotion       | `/24`    | `10.10.1.0/24`   |
+| Rete vMotion       | `/24`    | `10.10.1.0/24`   |
 | Carichi di lavoro della VM | `/24`   | `10.10.2.0/24`   |
 | Peering ExpressRoute | `/24`    | `10.10.3.8/30`   |
 

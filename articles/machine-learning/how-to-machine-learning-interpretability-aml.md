@@ -5,17 +5,17 @@ description: Informazioni su come ottenere spiegazioni sul modo in cui il modell
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: 39d2bf0e527d43e2a5fb9437720f249e54b4dff3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560198"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python
 
@@ -71,8 +71,8 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
    * Per inizializzare un oggetto Explainer, passare il modello e alcuni dati di training al costruttore del sistema di spiegazione.
    * Per rendere più istruttive le spiegazioni e le visualizzazioni, è possibile scegliere di passare i nomi delle funzionalità e i nomi delle classi di output se si esegue la classificazione.
 
-   I blocchi di codice seguenti illustrano come creare un'istanza di un oggetto `TabularExplainer`Explainer `MimicExplainer`con `PFIExplainer` , e localmente.
-   * `TabularExplainer`chiama uno dei tre Explainer Shap sotto (`TreeExplainer`, `DeepExplainer`o `KernelExplainer`).
+   I blocchi di codice seguenti illustrano come creare un'istanza di un oggetto Explainer con `TabularExplainer` , `MimicExplainer` e `PFIExplainer` localmente.
+   * `TabularExplainer`chiama uno dei tre Explainer SHAP sotto ( `TreeExplainer` , `DeepExplainer` o `KernelExplainer` ).
    * `TabularExplainer`Seleziona automaticamente quello più appropriato per il caso d'uso, ma è possibile chiamare direttamente ciascuno dei tre Explainer sottostanti.
 
     ```python
@@ -85,7 +85,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                  classes=classes)
     ```
 
-    oppure
+    o
 
     ```python
 
@@ -111,7 +111,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                classes=classes)
     ```
 
-    oppure
+    o
 
     ```python
     from interpret.ext.blackbox import PFIExplainer
@@ -159,11 +159,11 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ### <a name="raw-feature-transformations"></a>Trasformazioni di funzionalità non elaborate
 
-È possibile scegliere di ottenere spiegazioni in termini di funzionalità non elaborate e non trasformate piuttosto che di funzioni progettate. Per questa opzione, è possibile passare la pipeline di trasformazione della funzionalità a Explainer in `train_explain.py`. In caso contrario, il Explainer fornisce spiegazioni in termini di funzionalità progettate.
+È possibile scegliere di ottenere spiegazioni in termini di funzionalità non elaborate e non trasformate piuttosto che di funzioni progettate. Per questa opzione, è possibile passare la pipeline di trasformazione della funzionalità a Explainer in `train_explain.py` . In caso contrario, il Explainer fornisce spiegazioni in termini di funzionalità progettate.
 
 Il formato delle trasformazioni supportate è identico a quello descritto in [sklearn-Pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In generale, tutte le trasformazioni sono supportate finché operano su una singola colonna, in modo che sia chiaro che sono uno-a-molti.
 
-Ottenere una spiegazione per le funzionalità RAW usando un `sklearn.compose.ColumnTransformer` o un elenco di Tuple Transformer adattate. Nell'esempio seguente viene `sklearn.compose.ColumnTransformer`utilizzato.
+Ottenere una spiegazione per le funzionalità RAW usando un `sklearn.compose.ColumnTransformer` o un elenco di Tuple Transformer adattate. Nell'esempio seguente viene utilizzato `sklearn.compose.ColumnTransformer` .
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -233,7 +233,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="generate-feature-importance-values-via-remote-runs"></a>Generare valori di importanza della funzionalità tramite esecuzioni remote
 
-Nell'esempio seguente viene illustrato come è possibile utilizzare `ExplanationClient` la classe per abilitare l'interpretazione del modello per le esecuzioni remote. È concettualmente simile al processo locale, ad eccezione del fatto che:
+Nell'esempio seguente viene illustrato come è possibile utilizzare la `ExplanationClient` classe per abilitare l'interpretazione del modello per le esecuzioni remote. È concettualmente simile al processo locale, ad eccezione del fatto che:
 
 * Utilizzare il `ExplanationClient` nell'esecuzione remota per caricare il contesto di interpretazione.
 * Scaricare il contesto in un secondo momento in un ambiente locale.
@@ -303,7 +303,7 @@ Dopo aver scaricato le spiegazioni nel notebook di Jupyter locale, è possibile 
 
 I tracciati seguenti forniscono una visualizzazione complessiva del modello sottoposto a training insieme alle relative stime e spiegazioni.
 
-|Tracciato|Descrizione|
+|Grafico|Descrizione|
 |----|-----------|
 |Esplorazione dei dati| Visualizza una panoramica del set di dati insieme ai valori di stima.|
 |Importanza globale|Consente di aggregare i valori di importanza dei singoli punti di riferimento per visualizzare le principali funzionalità importanti della K (configurabile K) del modello. Consente di comprendere il comportamento generale del modello sottostante.|
@@ -317,7 +317,7 @@ I tracciati seguenti forniscono una visualizzazione complessiva del modello sott
 
 È possibile caricare il tracciato dell'importanza della singola funzione per qualsiasi punto dati facendo clic su uno dei singoli punti dati in uno qualsiasi dei tracciati complessivi.
 
-|Tracciato|Descrizione|
+|Grafico|Descrizione|
 |----|-----------|
 |Importanza locale|Mostra le principali funzionalità principali K (configurabili K) per una singola stima. Consente di illustrare il comportamento locale del modello sottostante in un punto dati specifico.|
 |Esplorazione della perturbazione (analisi di simulazione)|Consente di modificare i valori delle funzionalità del punto dati selezionato e osservare le modifiche risultanti al valore di stima.|
@@ -379,7 +379,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
 
 È possibile distribuire il Explainer insieme al modello originale e usarlo in fase di inferenza per fornire i singoli valori di importanza della funzionalità (spiegazione locale) per nuovi nuovi punti di contatto. Sono inoltre disponibili spiegatori per il punteggio più leggeri per migliorare le prestazioni di interpretazione in fase di inferenza. Il processo di distribuzione di un Explainer con punteggio più chiaro è simile alla distribuzione di un modello e include i passaggi seguenti:
 
-1. Creare un oggetto spiegazione. Ad esempio, è possibile usare `TabularExplainer`:
+1. Creare un oggetto spiegazione. Ad esempio, è possibile usare `TabularExplainer` :
 
    ```python
     from interpret.ext.blackbox import TabularExplainer

@@ -5,17 +5,17 @@ description: Informazioni su come usare Azure Machine Learning per distribuire u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: 104e0892e2ad6bc6a0b3212722781f9498eee219
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 3afe5d0993f7e647cbae1281cb9e7387df6e2f50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560401"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ Con Azure Machine Learning, è possibile creare immagini Docker da modelli di ap
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
-* INTERFACCIA della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Un modello di apprendimento automatico sottoposto a training registrato nell'area di lavoro. Se non si dispone di un modello, usare l' [esercitazione relativa alla classificazione delle immagini: Train Model](tutorial-train-models-with-aml.md) per eseguire il training e la registrazione di un modello.
 
     > [!IMPORTANT]
@@ -97,7 +97,7 @@ pip install azureml-contrib-functions
 Per creare l'immagine Docker distribuita in funzioni di Azure, usare [azureml. contrib. Functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) o la funzione specifica del pacchetto per il trigger che si vuole usare. Il frammento di codice seguente illustra come creare un nuovo pacchetto con un trigger di BLOB dal modello e dalla configurazione dell'inferenza:
 
 > [!NOTE]
-> Il frammento di codice `model` presuppone che contenga un modello registrato `inference_config` e che contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
+> Il frammento di codice presuppone che `model` contenga un modello registrato e che `inference_config` contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -108,7 +108,7 @@ blob.wait_for_creation(show_output=True)
 print(blob.location)
 ```
 
-Quando `show_output=True`viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro. Una volta compilata l'immagine, viene visualizzata la località nel Container Registry di Azure. Il percorso restituito è nel formato `<acrinstance>.azurecr.io/package@sha256:<imagename>`.
+Quando `show_output=True` viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro. Una volta compilata l'immagine, viene visualizzata la località nel Container Registry di Azure. Il percorso restituito è nel formato `<acrinstance>.azurecr.io/package@sha256:<imagename>` .
 
 > [!NOTE]
 > Il packaging per le funzioni supporta attualmente trigger HTTP, trigger di BLOB e trigger del bus di servizio. Per altre informazioni sui trigger, vedere [binding di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
@@ -118,7 +118,7 @@ Quando `show_output=True`viene visualizzato l'output del processo di compilazion
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuire un'immagine come app Web
 
-1. Usare il comando seguente per ottenere le credenziali di accesso per il Container Registry di Azure che contiene l'immagine. Sostituire `<myacr>` con il valore restituito in precedenza `package.location`da: 
+1. Usare il comando seguente per ottenere le credenziali di accesso per il Container Registry di Azure che contiene l'immagine. Sostituire `<myacr>` con il valore restituito in precedenza da `package.location` : 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -151,10 +151,10 @@ Quando `show_output=True`viene visualizzato l'output del processo di compilazion
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    In questo esempio viene usato un piano tariffario _Basic Linux_ (`--sku B1`).
+    In questo esempio viene usato un piano tariffario _Basic Linux_ ( `--sku B1` ).
 
     > [!IMPORTANT]
-    > Le immagini create da Azure Machine Learning usano Linux, quindi è necessario usare `--is-linux` il parametro.
+    > Le immagini create da Azure Machine Learning usano Linux, quindi è necessario usare il `--is-linux` parametro.
 
 1. Creare l'account di archiviazione da usare per l'archiviazione dei processi Web e ottenere la relativa stringa di connessione. Sostituire `<webjobStorage>` con il nome che si vuole usare.
 
@@ -165,7 +165,7 @@ Quando `show_output=True`viene visualizzato l'output del processo di compilazion
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. Per creare l'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome che si vuole usare. Sostituire `<acrinstance>` e `<imagename>` con i valori restituiti `package.location` in precedenza. Sostituire `<webjobStorage>` con il nome dell'account di archiviazione nel passaggio precedente:
+1. Per creare l'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome che si vuole usare. Sostituire `<acrinstance>` e `<imagename>` con i valori restituiti in `package.location` precedenza. Sostituire `<webjobStorage>` con il nome dell'account di archiviazione nel passaggio precedente:
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
@@ -281,7 +281,7 @@ Dopo che l'immagine è stata caricata e l'app è disponibile, seguire questa pro
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
     ```
 
-    L'output di questo comando è simile a `sample_input_out.json`.
+    L'output di questo comando è simile a `sample_input_out.json` .
 
 4. Per scaricare il file ed esaminarne il contenuto, usare il comando seguente. Sostituire `<file>` con il nome file restituito dal comando precedente. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza: 
 

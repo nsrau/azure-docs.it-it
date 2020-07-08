@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
-ms.openlocfilehash: 1d721e89534c09a5572e5674796f28355f652165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: ea63b4bd40a610227b4315f9e6e858c39ff9ff6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84606463"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Pianificare e trasmettere processi (Python)
 
@@ -29,7 +29,7 @@ Concettualmente, un processo esegue il wrapping di una di queste azioni e tiene 
 
 Altre informazioni su queste funzionalità sono disponibili in questi articoli:
 
-* Dispositivi gemelli e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-python-twin-getstarted.md) ed [Esercitazione: Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
+* Dispositivo gemello e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-python-twin-getstarted.md) ed [esercitazione: Come usare le proprietà del dispositivo gemello](tutorial-device-twins.md)
 
 * Metodi diretti: [Guida per gli sviluppatori dell'hub Internet-metodi diretti](iot-hub-devguide-direct-methods.md) ed [esercitazione: metodi diretti](quickstart-control-device-python.md)
 
@@ -69,7 +69,7 @@ Al termine di questa esercitazione si hanno due app Python:
 
 In questa sezione viene creata un'applicazione console Python che risponde a un metodo chiamato dal cloud, che attiva un metodo **lockDoor** simulato.
 
-1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet:
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-device**:
 
     ```cmd/sh
     pip install azure-iot-device
@@ -150,7 +150,7 @@ In questa sezione viene creata un'applicazione console Python che risponde a un 
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoT
 
 In questo articolo viene creato un servizio back-end che richiama un metodo diretto su un dispositivo e aggiorna il dispositivo gemello. Il servizio deve disporre dell'autorizzazione **Connect** per chiamare un metodo diretto in un dispositivo. Il servizio necessita inoltre delle autorizzazioni di **lettura** del registro di sistema e di **scrittura del registro** di sistema per leggere e scrivere il registro delle identità. Non sono presenti criteri di accesso condiviso predefiniti che contengono solo queste autorizzazioni, quindi è necessario crearne uno.
 
@@ -158,27 +158,27 @@ Per creare un criterio di accesso condiviso che concede le autorizzazioni di **c
 
 1. Aprire l'hub Internet delle cose nel [portale di Azure](https://portal.azure.com). Il modo più semplice per ottenere l'hub Internet è quello di selezionare i **gruppi di risorse**, selezionare il gruppo di risorse in cui si trova l'hub Internet e quindi selezionare l'hub delle cose dall'elenco di risorse.
 
-2. Nel riquadro sinistro dell'hub Internet, selezionare **criteri di accesso condiviso**.
+2. Nel riquadro sinistro dell'hub IoT selezionare **Criteri di accesso condiviso**.
 
 3. Dal menu superiore sopra l'elenco di criteri selezionare **Aggiungi**.
 
-4. Nel riquadro **Aggiungi criteri di accesso condiviso** immettere un nome descrittivo per il criterio. ad esempio: *serviceAndRegistryReadWrite*. In **autorizzazioni**selezionare **connessione al servizio** e **scrittura del registro** di sistema. la**lettura del registro di sistema** viene selezionata automaticamente quando si seleziona **scrittura del registro**di sistema. Selezionare quindi **Crea**.
+4. Nel riquadro **Aggiungi criteri di accesso condiviso** immettere un nome descrittivo per il criterio. ad esempio: *serviceAndRegistryReadWrite*. In **autorizzazioni**selezionare **connessione al servizio** e **scrittura del registro** di sistema. la**lettura del registro di sistema** viene selezionata automaticamente quando si seleziona **scrittura del registro**di sistema. Quindi selezionare **Crea**
 
-    ![Mostra come aggiungere nuovi criteri di accesso condiviso](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+    ![Mostrare come aggiungere nuovi criteri di accesso condiviso](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
 5. Tornare al riquadro **criteri di accesso condivisi** e selezionare i nuovi criteri dall'elenco dei criteri.
 
-6. In **chiavi di accesso condivise**selezionare l'icona di copia per la **stringa di connessione--chiave primaria** e salvare il valore.
+6. In **Chiavi di accesso condivise** selezionare l'icona di copia per **Stringa di connessione -- Chiave primaria** e salvare il valore.
 
     ![Mostrare come recuperare la stringa di connessione](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-Per altre informazioni sui criteri di accesso condiviso e sulle autorizzazioni dell'hub Internet, vedere [controllo di accesso e autorizzazioni](./iot-hub-devguide-security.md#access-control-and-permissions).
+Per altre informazioni sui criteri di accesso condiviso e sulle autorizzazioni dell'hub IoT, vedere [Controllo dell'accesso e autorizzazioni](./iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Pianificare i processi per chiamare un metodo diretto e aggiornare le proprietà dei dispositivi gemelli
 
 In questa sezione si crea un'app console Python che avvia un **lockDoor** remoto su un dispositivo usando un metodo diretto e aggiorna anche le proprietà desiderate del dispositivo gemello.
 
-1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet per l'hub:
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-hub**:
 
     ```cmd/sh
     pip install azure-iot-hub
@@ -337,4 +337,4 @@ A questo punto è possibile eseguire le applicazioni.
 
 In questa esercitazione è stato usato un processo per pianificare un metodo diretto in un dispositivo e aggiornare le proprietà di un dispositivo gemello.
 
-Per continuare a usare i modelli di gestione di hub e dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware Air, vedere [come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).
+Per altre informazioni sull'hub IoT e sui modelli di gestione dei dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware air, vedere [Come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).

@@ -10,13 +10,12 @@ ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
-ms.date: 10/31/2018
-ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 06/10/2020
+ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84655705"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory
 
@@ -28,21 +27,19 @@ Questa guida illustra come creare un runtime di integrazione self-hosted condivi
 
 Per creare un runtime di integrazione self-hosted condiviso usando l'interfaccia utente di Azure Data Factory, è possibile seguire questa procedura:
 
-1. Nel runtime di integrazione self-hosted da condividere concedere l'autorizzazione alla data factory in cui si intende creare il runtime di integrazione collegato.
+1. Nel runtime di integrazione self-hosted da condividere selezionare **Concedi autorizzazione a un'altra data factory** e nella pagina "installazione di Integration Runtime" selezionare la data factory in cui si vuole creare il runtime di integrazione collegato.
       
-    ![Pulsante per concedere l'autorizzazione nella scheda di condivisione](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
-      
-    ![Selezioni per l'assegnazione delle autorizzazioni](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    ![Pulsante per concedere l'autorizzazione nella scheda di condivisione](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
     
-2. Trovare l'ID risorsa del runtime di integrazione self-hosted da condividere.
-      
-   ![Percorso dell'ID risorsa](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
-    
+2. Si noti e si copia il precedente "ID risorsa" del runtime di integrazione self-hosted da condividere.
+         
 3. Nella data factory per cui sono state concesse le autorizzazioni creare un nuovo runtime di integrazione self-hosted (collegato) e immettere l'ID risorsa.
       
-   ![Pulsante per la creazione di un runtime di integrazione self-hosted collegato](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
-      
-    ![Caselle per nome e ID risorsa](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+    ![Pulsante per la creazione di un runtime di integrazione self-hosted](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+   
+    ![Pulsante per la creazione di un runtime di integrazione self-hosted collegato](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+
+    ![Caselle per nome e ID risorsa](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Creare un runtime di integrazione self-hosted condiviso usando Azure PowerShell
 

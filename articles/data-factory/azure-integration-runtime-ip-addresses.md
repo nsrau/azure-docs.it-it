@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: e3fae34d0bb1aaaa2471f1cc9fd55ef9b4b73dfd
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: f3eed03c585ba6b48a21b36c21cb77585456fc2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660257"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Indirizzi IP di Azure Integration Runtime
 
@@ -31,35 +30,8 @@ Gli indirizzi IP usati da Azure Integration Runtime dipendono dall'area in cui s
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Indirizzi IP Azure Integration Runtime: aree specifiche
 
-Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazione di Azure nell'area specifica di Azure in cui si trovano le risorse:
+Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazione di Azure nell'area specifica di Azure in cui si trovano le risorse. È possibile ottenere un elenco di intervalli IP di tag del servizio dal [collegamento di download dell'intervallo IP dei tag del servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Ad esempio, se l'area di Azure è **AustraliaEast**, è possibile ottenere un elenco di intervalli IP da **DataFactory. AustraliaEast**.
 
-|                | Region              | Indirizzi IP                                                 |
-| -------------- | ------------------- | ------------------------------------------------------------ |
-| Asia           | Asia orientale           | 20.189.104.128/25, </br>20.189.106.0/26, </br>13.75.39.112/28 |
-| &nbsp;         | Asia sud-orientale      | 20.43.128.128/25, </br>20.43.130.0/26, </br>40.78.236.176/28 |
-| Australia      | Australia orientale      | 20.37.193.0/25,</br>20.37.193.128/26,</br>13.70.74.144/28    |
-| &nbsp;         | Australia sud-orientale | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |
-| Brasile         | Brasile meridionale        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |
-| Canada         | Canada centrale      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
-| Cina          | Cina orientale 2        | 40.73.172.48/28,</br>52.130.0.128/25,</br>52.130.1.0/26      |
-| Europa         | Europa settentrionale        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
-| &nbsp;         | Europa occidentale         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
-| Francia         | Francia centrale      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
-| India          | India centrale       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
-| Giappone          | Giappone orientale          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
-| Corea del Sud          | Corea centrale       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
-| Sud Africa   | Sudafrica settentrionale  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
-| Regno Unito | Regno Unito meridionale            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
-| Stati Uniti  | Stati Uniti centrali          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
-|                | Stati Uniti orientali             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |
-|                | Stati Uniti Orientali 2            | 20.41.2.0/23,</br>20.41.4.0/26,</br>20.44.17.80/28           |
-|                | Stati Uniti orientali 2 EUAP      | 20.39.8.128/26,</br>20.39.8.96/27,</br>40.75.35.144/28       |
-|                | Stati Uniti centro-settentrionali    | 40.80.185.0/24,</br>40.80.186.0/25,</br>52.162.111.48/28      |
-|                | Stati Uniti centro-meridionali    | 40.119.9.0/25,</br>40.119.9.128/26,</br>13.73.244.32/28      |
-|                | Stati Uniti centro-occidentali     | 52.150.137.128/25,</br>52.150.136.192/26,</br>13.71.199.0/28 |
-|                | Stati Uniti occidentali             | 40.82.250.0/23,</br>40.82.249.64/26,</br>13.86.219.208/28    |
-|                | Stati Uniti occidentali 2            | 20.42.132.0/23,</br>20.42.129.64/26,</br>13.66.143.128/28    |
-|                | US Gov Virginia     | 52.127.45.96/28,</br>52.127.48.128/25,</br>52.127.49.0/26    |
 
 ## <a name="known-issue-with-azure-storage"></a>Problemi noti con archiviazione di Azure
 

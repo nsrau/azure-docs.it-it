@@ -2,18 +2,17 @@
 title: Sicurezza e autenticazione di Griglia di eventi di Azure
 description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: babanisa
-ms.openlocfilehash: 5f8b0a779e6cb70537d126c251e1e065892934a9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: 87d436024dae21b0122bf6b861b8a3ae4299db73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629508"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559019"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizzazione dell'accesso alle risorse di griglia di eventi
 Griglia di eventi di Azure consente di controllare il livello di accesso assegnato ai diversi utenti per eseguire svariate operazioni di gestione, ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. Griglia di eventi usa a questo scopo il controllo degli accessi in base al ruolo di Azure.
@@ -182,7 +181,7 @@ Le seguenti sono definizioni di esempio del ruolo di Griglia di eventi che conse
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
-Tutti gli eventi o i dati scritti sul disco dal servizio griglia di eventi vengono crittografati da una chiave gestita da Microsoft, assicurando che siano crittografati. Inoltre, il periodo massimo di tempo per cui gli eventi o i dati conservati sono pari a 24 ore rispetto ai [criteri di ripetizione dei tentativi di griglia di eventi](delivery-and-retry.md). Griglia di eventi eliminerà automaticamente tutti gli eventi o i dati dopo 24 ore o la durata (TTL) dell'evento, a seconda del numero minore.
+Tutti gli eventi o i dati scritti sul disco dal servizio Griglia di eventi vengono crittografati con una chiave gestita da Microsoft, per garantire che siano crittografati quando sono inattivi. Il periodo massimo di conservazione di eventi o dati è inoltre pari a 24 ore, in conformità ai [criteri di ripetizione di Griglia di eventi](delivery-and-retry.md). Griglia di eventi eliminerà automaticamente tutti gli eventi o i dati una volta trascorse 24 ore o il tempo impostato per la durata (TTL) dell'evento, a seconda dell'evento che si verifica per primo.
 
 ## <a name="permissions-for-event-subscriptions"></a>Autorizzazioni per sottoscrizioni di eventi
 Se si usa un gestore eventi che non è un WebHook, ad esempio, un hub eventi o un'archiviazione code, è necessario l'accesso in scrittura a tale risorsa. Questo controllo delle autorizzazioni impedisce che un utente non autorizzato invii eventi alla risorsa.
@@ -203,4 +202,4 @@ Per sottoscrivere, ad esempio, un argomento personalizzato denominato **mytopic*
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione a griglia di eventi, vedere [informazioni su griglia di eventi](overview.md)
+* Per un'introduzione a Griglia di eventi, vedere [Informazioni su Griglia di eventi](overview.md).

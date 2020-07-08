@@ -9,15 +9,14 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/29/2020
+ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 15d2b029937c58d45a2c1148c568cd396cea336a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76908735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84634643"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -65,10 +64,11 @@ Per sbloccare l'accesso dell'amministratore al tenant, è consigliabile creare a
 
 Incorporare i controlli di accesso seguenti nei criteri di accesso condizionale esistenti per l'organizzazione:
 
-1. Effettuare il provisioning di più metodi di autenticazione per ogni utente che si basano su canali di comunicazione diversi, ad esempio l'app Microsoft Authenticator (basata su internet), il token OATH (generato sul dispositivo) e l'autenticazione via SMS (telefonica).
+1. Effettuare il provisioning di più metodi di autenticazione per ogni utente che si basano su canali di comunicazione diversi, ad esempio l'app Microsoft Authenticator (basata su internet), il token OATH (generato sul dispositivo) e l'autenticazione via SMS (telefonica). Il seguente script di PowerShell consentirà di identificare in anticipo i metodi aggiuntivi che gli utenti devono registrare: [script per l'analisi del metodo di autenticazione a più fattori di Azure](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Distribuire Windows Hello for Business nei dispositivi Windows 10 per soddisfare i requisiti di autenticazione a più fattori direttamente dall'accesso del dispositivo.
 3. Usare dispositivi attendibili tramite [Aggiunta ad Azure AD ibrido](https://docs.microsoft.com/azure/active-directory/devices/overview) o [ dispositivi gestiti di Microsoft Intune](https://docs.microsoft.com/intune/planning-guide). Un dispositivo attendibile migliorerà l'esperienza dell'utente, in quanto il dispositivo stesso è in grado di soddisfare i requisiti avanzati di autenticazione dei criteri senza una richiesta di autenticazione a più fattori per l'utente. L'autenticazione a più fattori sarà poi necessaria durante la registrazione di un nuovo dispositivo e durante l'accesso alle app o risorse da dispositivi non attendibili.
 4. Usare criteri di protezione dell'identità di Azure AD basati sul rischio, i quali impediscono l'accesso quando l'utente o l'accesso è a rischio, piuttosto che criteri di autenticazione a più fattori fissi.
+5. Se si sta proteggendo l'accesso VPN usando l'estensione server dei criteri di rete di Azure, è consigliabile eseguire la Federazione della soluzione VPN come [app SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) e determinare la categoria dell'app come indicato di seguito. 
 
 >[!NOTE]
 > I criteri basati sul rischio richiedono licenze di [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -91,8 +91,9 @@ Questo set di criteri di esempio concederà, agli utenti selezionati in **AppUse
 
 ### <a name="contingencies-for-user-lockout"></a>Contingenze per blocco dell'utente
 
-In alternativa, l'organizzazione può anche creare dei criteri di emergenza. Per creare i criteri di emergenza, è necessario definire i criteri di compromesso tra continuità aziendale, costo operativo, costo finanziario e rischi relativi alla sicurezza. Ad esempio, è possibile attivare un criterio di emergenza solo in un subset di utenti, per un subset di app, per un subset di client o da un subset di percorsi. I criteri di emergenza forniranno l'accesso ad app e risorse agli amministratori e agli utenti finali durante un'interruzione se non è stato implementato alcun metodo di mitigazione dei rischi.
-Comprendere l'esposizione durante un'interruzione aiuta a ridurre i rischi ed è una parte essenziale del processo di pianificazione. Per creare il piano di emergenza, determinare innanzitutto i seguenti requisiti aziendali dell'organizzazione:
+In alternativa, l'organizzazione può anche creare dei criteri di emergenza. Per creare i criteri di emergenza, è necessario definire i criteri di compromesso tra continuità aziendale, costo operativo, costo finanziario e rischi relativi alla sicurezza. Ad esempio, è possibile attivare un criterio di emergenza solo in un subset di utenti, per un subset di app, per un subset di client o da un subset di percorsi. I criteri di emergenza forniranno l'accesso ad app e risorse agli amministratori e agli utenti finali durante un'interruzione se non è stato implementato alcun metodo di mitigazione dei rischi. Microsoft consiglia di abilitare i criteri di contingenza in [modalità solo rapporto](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only) quando non è in uso, in modo che gli amministratori possano monitorare il potenziale impatto dei criteri qualora debbano essere attivati.
+
+ Comprendere l'esposizione durante un'interruzione aiuta a ridurre i rischi ed è una parte essenziale del processo di pianificazione. Per creare il piano di emergenza, determinare innanzitutto i seguenti requisiti aziendali dell'organizzazione:
 
 1. Determinare in anticipo le app mission-critical: quali sono le app a cui è necessario concedere l'accesso, anche con un livello di rischio/sicurezza inferiore? Compilare un elenco di queste app e assicurarsi che gli altri stakeholder (business, sicurezza, legali, leadership) concordino sul fatto che se tutto il controllo di accesso è indisponibile, l'esecuzione di queste app deve comunque continuare. È probabile che si vadano a formare le seguenti categorie:
    * **Categoria 1: app di importanza strategica fondamentale** che non possono essere indisponibili per più di pochi minuti, ad esempio le app che hanno un effetto diretto sui ricavi dell'organizzazione.
@@ -110,12 +111,12 @@ Comprendere l'esposizione durante un'interruzione aiuta a ridurre i rischi ed è
 
 #### <a name="microsoft-recommendations"></a>Elementi consigliati di Microsoft
 
-Un criterio di accesso condizionale di emergenza è un **criterio disabilitato** che omette l'autenticazione a più fattori di Azure, l'autenticazione a più fattori di terze parti, i controlli basati sul rischio o sul dispositivo. Quindi, quando l'organizzazione decide di attivare il piano di emergenza, gli amministratori possono abilitare il criterio e disabilitare i normali criteri basati sui controlli.
+Un criterio di accesso condizionale di emergenza è un **criterio di backup** che omette l'autenticazione a più fattori di Azure, l'autenticazione a più fattori di terze parti, i controlli basati sul rischio o sui dispositivi. Per ridurre al minimo l'arresto imprevisto quando è abilitato un criterio di emergenza, il criterio deve rimanere in modalità solo report quando non è in uso. Gli amministratori possono monitorare il potenziale impatto dei criteri di contingenza usando la cartella di lavoro delle informazioni dettagliate sull'accesso condizionale. Quando l'organizzazione decide di attivare il piano di emergenza, gli amministratori possono abilitare i criteri e disabilitare i normali criteri basati sul controllo.
 
 >[!IMPORTANT]
 > La disabilitazione dei criteri che applicano la sicurezza sugli utenti, anche solo temporaneamente, ridurrà il livello di sicurezza mentre il piano di emergenza è in funzione.
 
-* Configurare un set di criteri di fallback se un'interruzione in un tipo di credenziali o in un meccanismo di controllo di accesso ha effetti sull'accesso alle app. Configurare un criterio disattivato che richiede il controllo di aggiunta a un dominio come backup per un criterio attivo che richiede un provider di autenticazione a più fattori di terze parti.
+* Configurare un set di criteri di fallback se un'interruzione in un tipo di credenziali o in un meccanismo di controllo di accesso ha effetti sull'accesso alle app. Configurare un criterio nello stato solo report che richiede l'aggiunta a un dominio come controllo, come backup per un criterio attivo che richiede un provider di autenticazione a più fattori di terze parti.
 * Ridurre il rischio di password indovinate da malintenzionati, quando l'autenticazione a più fattori non è necessaria, seguendo le procedure consigliate nel white paper relativo alle [indicazioni sulle password](https://aka.ms/passwordguidance).
 * Distribuire [Reimpostazione self-service delle password di Azure AD (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) e [Protezione della password di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) per assicurarsi che gli utenti non usino password comuni e termini esclusi.
 * Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. Ad esempio:
@@ -146,28 +147,28 @@ Nell'esempio seguente, **un esempio di criterio CA di emergenza per ripristinare
   * App Cloud: Exchange Online e SharePoint Online
   * Condizioni: any
   * Concessione del controllo: Richiedi aggiunta a un dominio
-  * Stato: disabilitato
+  * Stato: solo report
 * Criterio 2: bloccare le piattaforme diverse da Windows
   * Nome: EM002-ENABLE IN EMERGENCY: interferenza dell'autenticazione a più fattori [2/4]-Exchange SharePoint-bloccare l'accesso ad eccezione di Windows
   * Utenti e gruppi: Includi tutti gli utenti. Escludere CoreAdmins ed EmergencyAccess
   * App Cloud: Exchange Online e SharePoint Online
   * Condizioni: la piattaforma del dispositivo include tutte le piattaforme, Escludi Windows
   * Grant Control: blocco
-  * Stato: disabilitato
+  * Stato: solo report
 * Criterio 3: bloccare le reti diverse da CorpNetwork
   * Nome: EM003-ENABLE IN EMERGENCY: interferenza dell'autenticazione a più fattori [3/4]-Exchange SharePoint-bloccare l'accesso ad eccezione della rete aziendale
   * Utenti e gruppi: Includi tutti gli utenti. Escludere CoreAdmins ed EmergencyAccess
   * App Cloud: Exchange Online e SharePoint Online
   * Condizioni: i percorsi includono qualsiasi percorso, escluso CorpNetwork
   * Grant Control: blocco
-  * Stato: disabilitato
+  * Stato: solo report
 * Criterio 4: bloccare EAS in modo esplicito
   * Nome: EM004-ENABLE IN EMERGENCY: interferenza dell'autenticazione a più fattori [4/4]-Exchange-blocca EAS per tutti gli utenti
   * Utenti e gruppi: Includi tutti gli utenti
   * App Cloud: Includi Exchange Online
   * Condizioni: app client: Exchange Active Sync
   * Grant Control: blocco
-  * Stato: disabilitato
+  * Stato: solo report
 
 Ordine di attivazione:
 
@@ -188,14 +189,14 @@ In questo esempio successivo, **Esempio B: criteri di accesso condizionale di em
   * App Cloud: Salesforce.
   * Condizioni: nessuna
   * Grant Control: blocco
-  * Stato: disabilitato
+  * Stato: solo report
 * Criterio 2: bloccare il team di vendita da qualsiasi piattaforma diversa da mobile (per ridurre la superficie di attacco)
   * Nome: EM002-ENABLE IN EMERGENCY: interferenza della conformità del dispositivo [2/2]-Salesforce-bloccare tutte le piattaforme eccetto iOS e Android
   * Utenti e gruppi: includere SalesforceContingency. Escludere SalesAdmins
   * App Cloud: Salesforce
   * Condizioni: la piattaforma del dispositivo include tutte le piattaforme, esclusi iOS e Android
   * Grant Control: blocco
-  * Stato: disabilitato
+  * Stato: solo report
 
 Ordine di attivazione:
 
@@ -203,6 +204,26 @@ Ordine di attivazione:
 2. Abilitare i criteri 1: verificare che gli utenti esterni a SalesContingency non possano accedere a Salesforce. Verificare che gli utenti in SalesAdmins e SalesforceContingency possano accedere a Salesforce.
 3. Abilitare i criteri 2: verificare che gli utenti nel gruppo SalesContingency non possano accedere a Salesforce dai computer portatili Windows/Mac, ma possono comunque accedere ai dispositivi mobili. Verificare che SalesAdmin possa comunque accedere a Salesforce da qualsiasi dispositivo.
 4. Disabilitare i criteri di conformità del dispositivo esistenti per Salesforce.
+
+### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Contingenze per il blocco degli utenti da risorse locali (estensione NPS)
+
+Se si sta proteggendo l'accesso VPN usando l'estensione server dei criteri di rete di Azure, è consigliabile eseguire la Federazione della soluzione VPN come [app SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) e determinare la categoria dell'app come indicato di seguito. 
+
+Se è stata distribuita Azure AD estensione di server dei criteri di rete multi-factor authentication per proteggere le risorse locali, ad esempio VPN e gateway di Desktop remoto, con l'autenticazione a più fattori, è consigliabile prendere in considerazione se si è pronti per disabilitare l'autenticazione a più fattori in caso di emergenza.
+
+In questo caso, è possibile disabilitare l'estensione NPS, di conseguenza il server NPS verificherà solo l'autenticazione primaria e non imporrà l'autenticazione a più fattori sugli utenti.
+
+Disabilitare l'estensione NPS: 
+-   Esportare la chiave del registro di sistema \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters HKEY_LOCAL_MACHINE come backup. 
+-   Eliminare i valori del registro di sistema per "AuthorizationDLLs" e "ExtensionDLLs", non la chiave Parameters. 
+-   Riavviare il servizio IAS (Network Policy Service) per rendere effettive le modifiche 
+-   Determinare se l'autenticazione principale per la VPN è riuscita.
+
+Dopo che il servizio è stato recuperato e si è pronti per applicare l'autenticazione a più fattori sugli utenti, abilitare l'estensione NPS: 
+-   Importante la chiave del registro di sistema da backup HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-   Riavviare il servizio IAS (Network Policy Service) per rendere effettive le modifiche 
+-   Determinare se l'autenticazione principale e l'autenticazione secondaria per la VPN hanno esito positivo.
+-   Esaminare il server dei criteri di rete e il registro VPN per determinare gli utenti che hanno eseguito l'accesso durante la finestra di emergenza.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Distribuire la sincronizzazione dell'hash delle password, anche in caso di federazione o uso dell'autenticazione pass-through
 
@@ -240,7 +261,7 @@ A seconda delle mitigazioni o emergenze usate durante un'interruzione, l'organiz
 Annullare le modifiche apportate nell'ambito del piano di emergenza attivato una volta ripristinato il servizio che ha causato l'interruzione. 
 
 1. Abilitare i criteri normali
-2. Disabilitare i criteri di emergenza. 
+2. Disabilitare i criteri di emergenza in modalità di sola segnalazione. 
 3. Eseguire il rollback delle modifiche apportate e documentate durante l'interruzione.
 4. Se si usa un account di accesso di emergenza, ricordarsi di rigenerare le credenziali e proteggere fisicamente i dettagli delle nuove credenziali come parte delle procedure di account di accesso di emergenza.
 5. Continua a valutare [tutti i rilevamenti dei rischi segnalati](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) dopo l'interferenza per attività sospette.
@@ -271,3 +292,4 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
   * [Materiale sussidiario sulle password - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Quali sono le condizioni in Azure Active Directory l'accesso condizionale?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Che cosa sono i controlli di accesso nell'accesso condizionale Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Che cos'è la modalità solo report di accesso condizionale?](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only)

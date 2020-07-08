@@ -6,16 +6,15 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858018"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659702"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Come creare e configurare il runtime di integrazione di Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,7 +28,7 @@ Questo documento illustra come creare e configurare il runtime di integrazione d
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-azure-ir"></a>Runtime di integrazione di Azure predefinito
-Per impostazione predefinita, ogni data factory ha un runtime di integrazione di Azure nel back-end che supporta le operazioni negli archivi dati cloud e i servizi di calcolo nella rete pubblica. La località di tale runtime di integrazione di Azure viene risolta automaticamente. Se la proprietà **connectVia** non viene specificata nella definizione del servizio collegato, viene usato il runtime di integrazione di Azure predefinito. È necessario creare in modo esplicito un runtime di integrazione di Azure solo quando si vuole definire in modo esplicito la località del runtime di integrazione o si vogliono raggruppare le esecuzioni di attività in runtime di integrazione diversi a scopo di gestione. 
+Per impostazione predefinita, ogni data factory ha un runtime di integrazione di Azure nel back-end che supporta le operazioni negli archivi dati cloud e i servizi di calcolo nella rete pubblica. Il percorso di tale Azure IR è la risoluzione automaticamente. Se la proprietà **connectVia** non viene specificata nella definizione del servizio collegato, viene usato il runtime di integrazione di Azure predefinito. È necessario creare in modo esplicito un runtime di integrazione di Azure solo quando si vuole definire in modo esplicito la località del runtime di integrazione o si vogliono raggruppare le esecuzioni di attività in runtime di integrazione diversi a scopo di gestione. 
 
 ## <a name="create-azure-ir"></a>Creare il runtime di integrazione di Azure
 
@@ -48,13 +47,13 @@ Per il runtime di integrazione di Azure, il tipo deve essere impostato su **Mana
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Creare una Azure IR tramite Azure Data Factory interfaccia utente
 Usare la procedura seguente per creare un Azure IR usando Azure Data Factory interfaccia utente.
 
-1. Nella pagina attività **iniziali** dell'interfaccia utente di Azure Data Factory selezionare la scheda **Author (autore** ) nel riquadro sinistro.
+1. Nella pagina **Attività iniziali** dell'interfaccia utente di Azure Data Factory selezionare la [scheda Gestisci](https://docs.microsoft.com/azure/data-factory/author-management-hub) nel riquadro all'estrema sinistra.
 
-   ![Pulsante home page author](media/doc-common-process/get-started-page-author-button.png)
+   ![Pulsante Gestisci nella home page](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Selezionare **connessioni** nella parte inferiore del riquadro a sinistra e selezionare **runtime di integrazione** nella finestra **connessioni** . Selezionare **+ nuovo**.
+1. Selezionare **Runtime di integrazione** nel riquadro sinistro, quindi selezionare **+ Nuovo**.
 
-   ![Creare un runtime di integrazione](media/create-azure-integration-runtime/new-integration-runtime.png)
+   ![Creare un runtime di integrazione](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. Nella pagina di **installazione di Integration Runtime** selezionare **Azure, self-hosted**e quindi selezionare **continue (continua**). 
 

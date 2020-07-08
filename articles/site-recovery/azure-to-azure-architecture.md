@@ -8,12 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: d941f3e13e99accadc59c5836d88a824182329b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629721"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -34,7 +33,7 @@ La tabella seguente riepiloga i componenti coinvolti nel ripristino di emergenza
 **Account di archiviazione della cache** | È necessario un account di archiviazione della cache nella rete di origine. Durante la replica, le modifiche alle macchine virtuali vengono memorizzate nella cache prima di essere inviate all'archivio di destinazione.  Gli account di archiviazione della cache devono essere standard.<br/><br/> L'uso di una cache assicura un impatto minimo sulle applicazioni di produzione in esecuzione in una macchina virtuale.<br/><br/> [Altre informazioni](azure-to-azure-support-matrix.md#cache-storage) sui requisiti di archiviazione nella cache. 
 **Risorse di destinazione** | Le risorse di destinazione vengono usate durante la replica e in caso di failover. Site Recovery può configurare le risorse di destinazione per impostazione predefinita oppure è possibile crearle o personalizzarle.<br/><br/> Nell'area di destinazione verificare che sia possibile creare macchine virtuali e che la sottoscrizione disponga di risorse sufficienti per supportare le dimensioni di macchina virtuale che saranno necessarie nell'area di destinazione. 
 
-![Replica delle risorse di origine e di destinazione](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Replica delle risorse di origine e di destinazione](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Risorse di destinazione
 
@@ -62,7 +61,7 @@ Quando si abilita la replica per una macchina virtuale, Site Recovery offre la p
 
 Quando si abilita la replica delle macchine virtuali di Azure, per impostazione predefinita Site Recovery crea nuovi criteri di replica con le impostazioni predefinite riepilogate nella tabella.
 
-**Impostazione di criteri** | **Dettagli** | **Predefinita**
+**Impostazione di criteri** | **Dettagli** | **Impostazione predefinita**
 --- | --- | ---
 **Conservazione del punto di ripristino** | Specifica per quanto tempo Site Recovery conserva i punti di ripristino | 24 ore
 **Frequenza snapshot coerenti con l'applicazione** | Specifica con quale frequenza Site Recovery accetta uno snapshot coerente con l'app. | Ogni quattro ore
@@ -116,7 +115,7 @@ Quando si abilita la replica per una macchina virtuale di Azure, accade quanto s
 4. Site Recovery elabora i dati nella cache e li invia all'account di archiviazione di destinazione o ai dischi gestiti di replica.
 5. Al termine dell'elaborazione dei dati, i punti di ripristino coerenti con l'arresto anomalo del sistema vengono generati ogni pochi minuti. I punti di ripristino coerenti con l'app vengono generati in base all'impostazione specificata nei criteri di replica.
 
-![Abilitare il processo di replica - Passaggio 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Abilitare il processo di replica - Passaggio 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Processo di replica**
 
@@ -146,9 +145,9 @@ Si noti che i dettagli relativi ai requisiti di connettività di rete sono dispo
 
 **Regola** |  **Dettagli** | **Tag servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione. \<Region-Name>
+Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione.\<region-name>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Active Directory (Azure AD)  | AzureActiveDirectory
-Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di destinazione. | EventsHub. \<Region-Name>
+Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di destinazione. | EventsHub.\<region-name>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Site Recovery  | AzureSiteRecovery
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Key Vault (questo è necessario solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale) | AzureKeyVault
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al controller di automazione di Azure (necessario solo per abilitare l'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale) | GuestAndHybridManagement
@@ -157,9 +156,9 @@ Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al c
 
 **Regola** |  **Dettagli** | **Tag servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono agli account di archiviazione nell'area di destinazione | Archiviazione. \<Region-Name>
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono agli account di archiviazione nell'area di destinazione | Archiviazione.\<region-name>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure AD  | AzureActiveDirectory
-Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di origine. | EventsHub. \<Region-Name>
+Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di origine. | EventsHub.\<region-name>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Site Recovery  | AzureSiteRecovery
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Key Vault (questo è necessario solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale) | AzureKeyVault
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al controller di automazione di Azure (necessario solo per abilitare l'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale) | GuestAndHybridManagement
@@ -191,7 +190,7 @@ Se si abilita la coerenza tra più macchine virtuali, i computer inclusi nel gru
 
 Quando si avvia un failover, le macchine virtuali vengono create nel gruppo di risorse di destinazione, nella rete virtuale di destinazione, nella subnet di destinazione e nel set di disponibilità di destinazione. Durante un failover è possibile usare qualsiasi punto di ripristino.
 
-![Processo di failover](./media/concepts-azure-to-azure-architecture/failover.png)
+![Processo di failover](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

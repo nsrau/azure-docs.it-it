@@ -2,13 +2,12 @@
 title: Distribuire un criterio che è possibile correggere
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
 ms.date: 10/11/2019
-ms.topic: conceptual
-ms.openlocfilehash: b625e9e3c96866cfbc655a55b770c9ac07a626bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: a953db44d8b4fc035d947d3534185062d0ec884b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84634133"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata
 

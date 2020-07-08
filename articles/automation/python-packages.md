@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: c2871c4c988675dd9a1a5749d908805994b6b309
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: f3ba52c1396928d8c76fb85fda3f29c625e60919
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835156"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84561858"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gestire pacchetti Python 2 in Automazione di Azure
 
@@ -48,10 +48,10 @@ Una volta scaricati i pacchetti, è possibile importarli nell'account di Automaz
 
  Per ottenere un runbook, [importare i pacchetti Python 2 da pypi nell'account di Automazione di Azure](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) dalla raccolta nell'account di automazione. Verificare che le impostazioni di esecuzione siano impostate su **Azure** e avviare il runbook con i parametri. Per il corretto funzionamento dell'account di Automazione, il runbook richiede un account RunAs. Assicurarsi di avviare ogni parametro con l'opzione come illustrato nell'elenco e nell'immagine seguenti:
 
-* -s \<subscriptionId\>
-* -g \<resourceGroup\>
-* -a \<automationAccount\>
-* -m \<modulePackage\>
+* -s\<subscriptionId\>
+* -g\<resourceGroup\>
+* -a\<automationAccount\>
+* -m\<modulePackage\>
 
 ![Elenco di pacchetti](media/python-packages/import-python-runbook.png)
 

@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 483d2152f3af13c82830528ea73e837fe3788ca4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257823"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629380"
 ---
 # <a name="service-updates-in-site-recovery"></a>Aggiornamenti del servizio in Site Recovery
 
@@ -90,14 +89,13 @@ In questo scenario si consiglia vivamente di [abilitare gli aggiornamenti automa
 - Durante il processo di abilitazione della replica.
 - Impostando le impostazioni di aggiornamento dell'estensione all'interno dell'insieme di credenziali.
 
-Se si desidera gestire manualmente gli aggiornamenti, eseguire le operazioni seguenti:
+Se si desidera gestire manualmente gli aggiornamenti, è possibile scegliere una delle opzioni seguenti:
 
-1. Nell'insieme di credenziali > **elementi replicati**fare clic su questa notifica nella parte superiore della schermata: 
+1. Quando è disponibile un nuovo aggiornamento dell'agente, Site Recovery fornisce una notifica nell'insieme di credenziali verso la parte superiore della pagina. Nell'insieme di credenziali > **elementi replicati**fare clic su questa notifica nella parte superiore della schermata: 
     
-    **È disponibile un nuovo Site Recovery aggiornamento dell'agente di replica. Fare clic per installare->**
+    **È disponibile un nuovo Site Recovery aggiornamento dell'agente di replica. Fare clic per installare->** <br/><br/>Selezionare le macchine virtuali per cui si desidera applicare l'aggiornamento, quindi fare clic su **OK**.
 
-4. Selezionare le macchine virtuali per cui si desidera applicare l'aggiornamento, quindi fare clic su **OK**.
-
+2. Nella pagina Panoramica del ripristino di emergenza della macchina virtuale, si troverà il campo "stato agente", che dirà "aggiornamento critico" se l'agente è scaduto. Fare clic su di esso e seguire le istruzioni successive per aggiornare manualmente la macchina virtuale.
 
 ## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>Ripristino di emergenza di macchine virtuali VMware/server fisici in Azure
 

@@ -2,24 +2,23 @@
 title: Schema di eventi di Griglia di eventi di Azure
 description: Descrive le proprietà e lo schema presenti per tutti gli eventi.Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: femila
+ms.openlocfilehash: 3104d29b84b08add89e7c19772dffaaa782755a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559426"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
 Questo articolo descrive le proprietà e lo schema presenti per tutti gli eventi.Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio. Le proprietà sono comuni a tutti gli eventi di tutti gli autori. L'oggetto di dati contiene le proprietà specifiche per ogni editore. Per gli argomenti di sistema, le proprietà sono specifiche del provider di risorse, ad esempio Archiviazione di Azure o Hub eventi di Azure.
 
-Le origini degli eventi inviano gli eventi a Griglia di eventi di Azure in una matrice, che può contenere più oggetti evento. Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nella matrice è limitato a 1 MB. Se un evento o una matrice supera i limiti delle dimensioni, si riceve la risposta **413 Payload Too Large** (413 Playload troppo grande). Tuttavia, le operazioni vengono addebitate in incrementi di 64 KB. Quindi, gli eventi oltre 64 KB comporteranno addebiti per le operazioni come se fossero più eventi. Ad esempio, un evento 130 KB comporterebbe operazioni come se si trattasse di 3 eventi distinti.
+Le origini degli eventi inviano gli eventi a Griglia di eventi di Azure in una matrice, che può contenere più oggetti evento. Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nella matrice è limitato a 1 MB. Se un evento o una matrice supera i limiti delle dimensioni, si riceve la risposta **413 Payload Too Large** (413 Playload troppo grande). Tuttavia, le operazioni vengono addebitate in incrementi di 64 kB. Pertanto, gli eventi oltre 64 kB comporteranno addebiti di operazione come se fossero più eventi. Ad esempio, un evento da 130 kB comporterebbe addebiti di operazione come se si trattasse di 3 eventi distinti.
 
 Griglia di eventi invia gli eventi ai sottoscrittori in una matrice che contiene un singolo evento. Questo comportamento può cambiare in futuro.
 
@@ -89,7 +88,7 @@ Tutti gli eventi contengono gli stessi dati di livello principale indicati di se
 | id | string | Sì | Identificatore univoco dell'evento. |
 | data | object | No | Dati dell'evento specifici del provider di risorse. |
 | dataVersion | string | No, ma verrà contrassegnato con un valore vuoto. | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Non obbligatorio, ma se incluso, deve corrispondere esattamente allo schema `metadataVersion` di griglia di eventi (attualmente `1`, solo). Se non è incluso, griglia di eventi viene timbrato sull'evento. | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| metadataVersion | string | Non obbligatorio, ma se incluso, deve corrispondere esattamente allo schema di griglia di eventi `metadataVersion` (attualmente, solo `1` ). Se non è incluso, griglia di eventi viene timbrato sull'evento. | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Per informazioni sulle proprietà nell'oggetto dati, vedere l'origine dell'evento:
 

@@ -2,13 +2,12 @@
 title: Visualizzare l'attività dei provider di servizi
 description: I clienti possono visualizzare le attività registrate per visualizzare le azioni eseguite dai provider di servizi tramite la gestione delle risorse delegate di Azure.
 ms.date: 01/15/2020
-ms.topic: conceptual
-ms.openlocfilehash: a923a57ecc94ac15af207c2b8dc8998708b708d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 42af2aa7fca5031eb50bd421a5207320858b70cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649637"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636445"
 ---
 # <a name="view-service-provider-activity"></a>Visualizzare l'attività dei provider di servizi
 
@@ -45,5 +44,5 @@ Per altre informazioni, vedere [Panoramica delle query di log in monitoraggio di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri di più su [monitoraggio di Azure](../../azure-monitor/index.yml).
+- Altre informazioni su [Monitoraggio di Azure](../../azure-monitor/index.yml).
 - Informazioni su come [visualizzare e gestire le offerte del provider di servizi](view-manage-service-providers.md) nel portale di Azure.

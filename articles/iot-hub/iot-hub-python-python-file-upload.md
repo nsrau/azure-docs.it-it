@@ -8,13 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 47fb7c615389e24322450ed1785aa7da9ec50db6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: mqtt, tracking-python
+ms.openlocfilehash: 9a3782c0d5791f20f14aabb53d486fc012518c1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608503"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Caricare i file dal dispositivo al cloud con l'hub Internet (Python)
 
@@ -26,7 +25,7 @@ Questo articolo mostra come usare le [funzionalità di caricamento dei file dell
 
 * Usare il client Python per caricare un file tramite l'hub IoT.
 
-La Guida introduttiva inviare dati di [telemetria da un dispositivo a un hub](quickstart-send-telemetry-python.md) Internet viene illustrata la funzionalità di messaggistica di base da dispositivo a cloud dell'hub Internet. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Quando è necessario caricare file da un dispositivo, è comunque possibile usare la sicurezza e l'affidabilità dell'hub IoT.
+L'argomento di avvio rapido [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) (Inviare dati di telemetria da un dispositivo a un hub IoT) illustra le funzionalità di messaggistica di base da dispositivo a cloud dell'hub IoT. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Quando è necessario caricare file da un dispositivo, è comunque possibile usare la sicurezza e l'affidabilità dell'hub IoT.
 
 Al termine di questa esercitazione si eseguirà l'app console Python:
 
@@ -38,7 +37,7 @@ Al termine di questa esercitazione si eseguirà l'app console Python:
 
 [!INCLUDE [iot-hub-include-python-v2-async-installation-notes](../../includes/iot-hub-include-python-v2-async-installation-notes.md)]
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo di questo articolo usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 

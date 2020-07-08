@@ -6,12 +6,11 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a3d13919a54e170d410abba5da66172c2029d9b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73490507"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636275"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorare Condivisione dati di Azure  
 
@@ -40,13 +39,17 @@ Per visualizzare lo stato delle sottoscrizioni di condivisione, passare a condiv
 
 ## <a name="snapshot-history"></a>Cronologia snapshot 
 
-Nella scheda cronologia è possibile visualizzare gli snapshot che sono stati copiati nel tenant del consumer di dati. È possibile monitorare la frequenza e la durata di ogni intervallo di snapshot. 
+Nella scheda **cronologia** di una condivisione è possibile visualizzare quando i dati vengono copiati dal provider di dati all'archivio dati del consumer di dati. È possibile monitorare la frequenza, la durata e lo stato di ogni snapshot. 
 
 ![Cronologia snapshot](./media/sent-shares.png "Cronologia snapshot") 
 
-È possibile visualizzare altri dettagli su ogni esecuzione di snapshot facendo clic sulla data di inizio dell'esecuzione. 
+È possibile visualizzare altri dettagli su ogni esecuzione di snapshot facendo clic sulla data di inizio dell'esecuzione. Fare quindi clic sullo stato di ogni set di dati per visualizzare la quantità di dati trasferiti, il numero di file/record copiati, la durata dello snapshot, il numero di Vcore usati e il messaggio di errore, se presenti. 
 
-Per impostazione predefinita, vengono visualizzati fino a 30 giorni di cronologia snapshot. Se è necessario visualizzare la cronologia di più di 30 giorni, passare a monitoraggio-> impostazioni di diagnostica e selezionare **Aggiungi**impostazioni di diagnostica. Verrà richiesto di selezionare un account di archiviazione in cui archiviare questi log. 
+Viene visualizzato un massimo di 30 giorni di cronologia degli snapshot. Se è necessario salvare e visualizzare più di 30 giorni di cronologia, è possibile sfruttare le impostazioni di diagnostica.
+
+## <a name="diagnostic-setting"></a>Impostazione di diagnostica
+
+È possibile configurare l'impostazione di diagnostica per salvare i dati o gli eventi del log. Passare a monitoraggio-> impostazioni di diagnostica e selezionare Aggiungi impostazioni di **diagnostica**. Selezionare i dati o gli eventi di log a cui si è interessati e dove si desidera archiviarli o inviarli. 
 
 ![Cronologia snapshot](./media/diagnostic-settings.png "Impostazioni di diagnostica") 
 

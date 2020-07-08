@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, tracking-python
 ms.date: 04/27/2020
-ms.openlocfilehash: 48bd53160c3d2e76dccd1f22723c30c2c7e00d7a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: c67e8a79e2339c4a329e276c52703bd749137037
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608418"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
 
@@ -38,7 +37,7 @@ In sintesi, il processo di regressione logistica produce una *funzione logistica
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>Esempio di analisi predittiva dei dati di controllo degli alimenti
 
-In questo esempio si usa Spark per eseguire alcune analisi predittive sui dati di ispezione degli alimenti (**Food_Inspections1. csv**). Dati acquisiti tramite il [portale dati della città di Chicago](https://data.cityofchicago.org/). Questo set di dati contiene informazioni sui controlli degli alimenti condotti a Chicago. Sono incluse informazioni su ogni stabilimento, sulle eventuali violazioni trovate e sui risultati del controllo. Il file di dati in formato CSV è già disponibile nell'account di archiviazione associato al cluster in **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
+In questo esempio si usa Spark per eseguire un'analisi predittiva dei dati di ispezione degli alimenti (**Food_Inspections1.csv**). Dati acquisiti tramite il [portale dati della città di Chicago](https://data.cityofchicago.org/). Questo set di dati contiene informazioni sui controlli degli alimenti condotti a Chicago. Sono incluse informazioni su ogni stabilimento, sulle eventuali violazioni trovate e sui risultati del controllo. Il file di dati in formato CSV è già disponibile nell'account di archiviazione associato al cluster in **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per superare o non superare un controllo sugli alimenti.
 
@@ -361,6 +360,6 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 * [Analisi dei log del sito Web con Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Microsoft Cognitive Toolkit modello di apprendimento avanzato con Azure HDInsight](apache-spark-microsoft-cognitive-toolkit.md)

@@ -5,15 +5,14 @@ services: databox
 author: priestlg
 ms.service: databox
 ms.subservice: disk
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 2933eb216b7faed7b28fb53d79fec2f50bc4458d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748930"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608588"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Usare la spedizione autogestita per Azure Data Box nel portale di Azure
 
@@ -41,7 +40,7 @@ Quando si effettua l'ordine di Data Box, è possibile scegliere l'opzione di spe
 3. Dopo aver indicato il proprio indirizzo di spedizione, sarà necessario convalidarlo e completare l'ordine.
    ![Spedizione autogestita](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Preparato il dispositivo, è possibile pianificare il ritiro.
+4. Una volta che il dispositivo è stato preparato e si riceve una notifica tramite posta elettronica, è possibile pianificare un pickup.
 
    Nell'ordine di Azure Data Box passare a **Panoramica** e quindi selezionare **Pianifica ritiro**.
 
@@ -57,7 +56,7 @@ Quando si effettua l'ordine di Data Box, è possibile scegliere l'opzione di spe
 
    ![Visualizzazione del codice di autorizzazione](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   Prendere nota del **codice di autorizzazione**. In base ai requisiti di sicurezza, al momento della pianificazione del ritiro e della consegna, è necessario indicare il nome della persona che si dovrebbe presentare per il ritiro e la consegna.
+   Prendere nota del **codice di autorizzazione**. In base ai requisiti di sicurezza, al momento della pianificazione del prelievo, è necessario presentare il nome della persona che arriverebbe per la selezione.
 
    È anche necessario specificare i dettagli relativi a chi accederà al data center per il ritiro. L'utente o il punto di contatto deve esibire un ID con foto approvato dall'ente pubblico che verrà convalidato presso il data center.
 

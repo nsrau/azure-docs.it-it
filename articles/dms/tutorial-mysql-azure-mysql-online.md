@@ -12,12 +12,11 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 7c8087a01bb71657e816be89b6a562dd4783b271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609234"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di MySQL in Database di Azure per MySQL online mediante il Servizio Migrazione del database
 
@@ -37,6 +36,13 @@ In questa esercitazione verranno illustrate le procedure per:
 
 > [!IMPORTANT]
 > Per un'esperienza di migrazione ottimale, Microsoft consiglia di creare un'istanza del Servizio Migrazione del database di Azure nella stessa area di Azure del database di destinazione. Lo spostamento dei dati tra regioni o aree geografiche può rallentare il processo di migrazione e causare errori.
+
+> [!NOTE]
+> Comunicazione senza distorsione
+>
+> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+>
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -71,7 +77,7 @@ Per completare questa esercitazione, è necessario:
 * Abilitare la registrazione binaria nel file my.ini (Windows) o my.cnf (Unix) nel database di origine usando la configurazione seguente:
 
   * **server_id** = 1 o superiore (rilevante solo per MySQL 5.6)
-  * **log-bin** =\<percorso> (rilevante solo per MySQL 5.6) Ad esempio: log-bin = E:\MySQL_logs\BinLog
+  * **log-bin** = \<path> (pertinente solo per MySQL 5,6)    Ad esempio: log-bin = E:\ MySQL_logs \BinLog
   * **binlog_format** = row
   * **Expire_logs_days** = 5 (è consigliabile non usare zero, che è pertinente solo per MySQL 5.6)
   * **Binlog_row_image** = full (rilevante solo per MySQL 5.6)
@@ -154,7 +160,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     ![Visualizzare i provider di risorse](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
 
-3. Cercare la migrazione e quindi a destra di **Microsoft. DataMigration**selezionare Register ( **registra**).
+3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
 
     ![Registrare il provider di risorse](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)
 

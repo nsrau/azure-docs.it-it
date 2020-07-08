@@ -11,16 +11,21 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: c5d2ad481124f5ae048d010cdf632ee661bbd6ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 40c7b1b0ae2065ed00cf21f99ab2046e25970237
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609438"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Risolvere i problemi e gli errori comuni del servizio migrazione del database di Azure
 
 Questo articolo descrive alcuni problemi comuni ed errori che gli utenti del servizio migrazione del database di Azure possono incontrare. L'articolo contiene anche informazioni su come risolvere questi problemi ed errori.
+
+> [!NOTE]
+> Comunicazione senza distorsione
+>
+> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+>
 
 ## <a name="migration-activity-in-queued-state"></a>Attività di migrazione nello stato in coda
 
@@ -32,7 +37,7 @@ Quando si creano nuove attività in un progetto di servizio migrazione del datab
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>Numero massimo di database selezionati per la migrazione
 
-Quando si crea un'attività per un progetto di migrazione del database per lo spostamento nel database SQL di Azure o in un'istanza gestita di database SQL di Azure, si verifica l'errore seguente:
+Si verifica l'errore seguente quando si crea un'attività per un progetto di migrazione del database per lo spostamento nel database SQL di Azure o in un Istanza gestita SQL di Azure:
 
 * **Errore**: errore di convalida delle impostazioni di migrazione "," errorDetail ":" più del numero massimo di oggetti ' 4' di ' database ' è stato selezionato per la migrazione. "
 
@@ -58,7 +63,7 @@ Viene visualizzato l'errore seguente quando si arresta l'istanza del servizio mi
 
 | Causa         | Soluzione |
 | ------------- | ------------- |
-| Questo errore viene visualizzato quando l'istanza del servizio che si sta tentando di arrestare include attività ancora in esecuzione o presenti nei progetti di migrazione. <br><br><br><br><br><br> | Assicurarsi che non siano presenti attività in esecuzione nell'istanza del servizio migrazione del database di Azure che si sta tentando di arrestare. È anche possibile eliminare le attività o i progetti prima di tentare di arrestare il servizio. Nei passaggi seguenti viene illustrato come rimuovere i progetti per la pulizia dell'istanza del servizio di migrazione eliminando tutte le attività in esecuzione:<br>1. install-module-name AzureRM. DataMigration <br>2. login-AzureRmAccount <br>3. Select-AzureRmSubscription-Subscriptionname "\<sottonome>" <br> 4. Remove-AzureRmDataMigrationProject-Name \<NomeProgetto>-ResourceGroupName \<RgName>-servicename \<ServiceName>-DeleteRunningTask |
+| Questo errore viene visualizzato quando l'istanza del servizio che si sta tentando di arrestare include attività ancora in esecuzione o presenti nei progetti di migrazione. <br><br><br><br><br><br> | Assicurarsi che non siano presenti attività in esecuzione nell'istanza del servizio migrazione del database di Azure che si sta tentando di arrestare. È anche possibile eliminare le attività o i progetti prima di tentare di arrestare il servizio. Nei passaggi seguenti viene illustrato come rimuovere i progetti per la pulizia dell'istanza del servizio di migrazione eliminando tutte le attività in esecuzione:<br>1. install-module-name AzureRM. DataMigration <br>2. login-AzureRmAccount <br>3. Select-AzureRmSubscription-Subscriptionname " \<subName> " <br> 4. Remove-AzureRmDataMigrationProject-Name \<projectName> -ResourceGroupName \<rgName> -ServiceName \<serviceName> -DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Errore durante il tentativo di avviare il servizio migrazione del database di Azure
 
@@ -72,13 +77,13 @@ Viene visualizzato l'errore seguente all'avvio dell'istanza del servizio migrazi
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Errore durante il ripristino del database durante la migrazione di SQL nell'istanza gestita di database SQL di Azure
 
-Quando si esegue una migrazione in linea da SQL Server a un'istanza gestita di database SQL di Azure, il cutover ha esito negativo con l'errore seguente:
+Quando si esegue una migrazione in linea da SQL Server ad Azure SQL Istanza gestita, il cutover ha esito negativo con l'errore seguente:
 
 * **Errore**: operazione di ripristino non riuscita per l'ID operazione ' OperationId '. Il codice ' AuthorizationFailed ', messaggio ' client ' ClientID ' con ID oggetto ' objectId ' non è autorizzato a eseguire l'azione ' Microsoft. SQL/locations/managedDatabaseRestoreAzureAsyncOperation/Read ' sull'ambito '/subscriptions/subscriptionId ' .'.
 
 | Causa         | Soluzione    |
 | ------------- | ------------- |
-| Questo errore indica che l'entità applicazione utilizzata per la migrazione in linea da SQL Server a un'istanza gestita di database SQL di Azure non dispone dell'autorizzazione di collaborazione per la sottoscrizione. Alcune chiamate API con Istanza gestita attualmente richiedono questa autorizzazione per la sottoscrizione per l'operazione di ripristino. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Usare il `Get-AzureADServicePrincipal` cmdlet di PowerShell `-ObjectId` con disponibile nel messaggio di errore per elencare il nome visualizzato dell'ID applicazione usato.<br><br> Convalidare le autorizzazioni per questa applicazione e assicurarsi che disponga del [ruolo Collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) a livello di sottoscrizione. <br><br> Il team di progettazione del servizio migrazione del database di Azure sta lavorando per limitare l'accesso richiesto dal ruolo di collaborazione corrente per la sottoscrizione. Se si dispone di un requisito aziendale che non consente l'uso del ruolo collaborazione, contattare il supporto tecnico di Azure per ulteriori informazioni. |
+| Questo errore indica che l'entità applicazione utilizzata per la migrazione in linea da SQL Server a SQL Istanza gestita non dispone dell'autorizzazione di collaborazione per la sottoscrizione. Alcune chiamate API con Istanza gestita attualmente richiedono questa autorizzazione per la sottoscrizione per l'operazione di ripristino. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Usare il `Get-AzureADServicePrincipal` cmdlet di PowerShell con `-ObjectId` disponibile nel messaggio di errore per elencare il nome visualizzato dell'ID applicazione usato.<br><br> Convalidare le autorizzazioni per questa applicazione e assicurarsi che disponga del [ruolo Collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) a livello di sottoscrizione. <br><br> Il team di progettazione del servizio migrazione del database di Azure sta lavorando per limitare l'accesso richiesto dal ruolo di collaborazione corrente per la sottoscrizione. Se si dispone di un requisito aziendale che non consente l'uso del ruolo collaborazione, contattare il supporto tecnico di Azure per ulteriori informazioni. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Errore durante l'eliminazione della scheda di rete associata al servizio migrazione del database di Azure
 

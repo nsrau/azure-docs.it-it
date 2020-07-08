@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 3b6476b794d2e1b2e9a36aa26f35c247641d44e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eba63ff500aad4538f5b30f11bac168cf14816c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418151"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558171"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiare i dati da MongoDB con Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database MongoDB. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
@@ -37,7 +37,7 @@ In particolare, questo connettore MongoDB supporta **versioni fino alla 3.4**.
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -50,9 +50,9 @@ Per il servizio collegato di MongoDB sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà Type deve essere impostata su: **MongoDbV2** |Sì |
-| connectionString |Specificare la stringa di connessione di MongoDB, ad esempio `mongodb://[username:password@]host[:port][/[database][?options]]`. Per altri dettagli, vedere la sezione sulla [stringa di connessione nel manuale di MongoDB](https://docs.mongodb.com/manual/reference/connection-string/). <br/><br /> È anche possibile inserire una password in Azure Key Vault ed estrarre la `password` configurazione dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . |Sì |
+| connectionString |Specificare la stringa di connessione di MongoDB, ad esempio `mongodb://[username:password@]host[:port][/[database][?options]]`. Per altri dettagli, vedere la sezione sulla [stringa di connessione nel manuale di MongoDB](https://docs.mongodb.com/manual/reference/connection-string/). <br/><br /> È anche possibile inserire una password in Azure Key Vault ed estrarre la  `password`   configurazione dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . |Sì |
 | database | Nome del database a cui si vuole accedere. | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 

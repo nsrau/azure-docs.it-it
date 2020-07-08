@@ -7,14 +7,14 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/31/2020
-ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77580629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560166"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creazione, esecuzione ed eliminazione di risorse di Azure ML con REST
 
@@ -37,7 +37,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 - Una **sottoscrizione di Azure** per cui si dispone di diritti amministrativi. Se non si dispone di tale sottoscrizione, provare a usare la [sottoscrizione gratuita o a pagamento personale](https://aka.ms/AMLFree)
 - [Area di lavoro di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
 - Le richieste REST amministrative usano l'autenticazione basata su entità servizio. Eseguire la procedura descritta in [configurare l'autenticazione per Azure Machine Learning risorse e flussi di lavoro](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) per creare un'entità servizio nell'area di lavoro
-- L'utilità **curl** . Il programma **curl** è disponibile nel [sottosistema Windows per Linux](https://aka.ms/wslinstall/) o qualsiasi distribuzione Unix. In PowerShell, **curl** è un alias per **Invoke-WebRequest** e `curl -d "key=val" -X POST uri` diventa `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
+- L'utilità **curl** . Il programma **curl** è disponibile nel [sottosistema Windows per Linux](https://aka.ms/wslinstall/) o qualsiasi distribuzione Unix. In PowerShell, **curl** è un alias per **Invoke-WebRequest** e `curl -d "key=val" -X POST uri` diventa `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` . 
 
 ## <a name="retrieve-a-service-principal-authentication-token"></a>Recuperare un token di autenticazione dell'entità servizio
 
@@ -53,7 +53,7 @@ Per recuperare un token:
 
 1. Aprire una finestra del terminale
 1. Immettere il codice seguente dalla riga di comando
-1. Sostituire i valori di `{your-tenant-id}`, `{your-client-id}`e. `{your-client-secret}` In questo articolo le stringhe racchiuse tra parentesi graffe sono variabili che è necessario sostituire con i valori appropriati.
+1. Sostituire i valori di `{your-tenant-id}` , `{your-client-id}` e `{your-client-secret}` . In questo articolo le stringhe racchiuse tra parentesi graffe sono variabili che è necessario sostituire con i valori appropriati.
 1. Eseguire il comando
 
 ```bash
@@ -91,7 +91,7 @@ Per recuperare l'elenco dei gruppi di risorse associati alla sottoscrizione, ese
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups?api-version=2019-11-01 -H "Authorization:Bearer {your-access-token}"
 ```
 
-In Azure vengono pubblicate molte API REST. Ogni provider di servizi aggiorna l'API in base alla propria cadenza, ma senza interruzioni dei programmi esistenti. Il provider di servizi utilizza `api-version` l'argomento per garantire la compatibilità. L' `api-version` argomento varia da servizio a servizio. Per il servizio Machine Learning, ad esempio, la versione dell'API corrente `2019-11-01`è. Per gli account di `2019-06-01`archiviazione, è. Per gli insiemi di `2019-09-01`credenziali delle chiavi, è. Tutte le chiamate REST devono impostare `api-version` l'argomento sul valore previsto. È possibile basarsi sulla sintassi e sulla semantica della versione specificata, anche quando l'API continua ad evolversi. Se si invia una richiesta a un provider senza l' `api-version` argomento, la risposta conterrà un elenco leggibile dei valori supportati. 
+In Azure vengono pubblicate molte API REST. Ogni provider di servizi aggiorna l'API in base alla propria cadenza, ma senza interruzioni dei programmi esistenti. Il provider di servizi utilizza l' `api-version` argomento per garantire la compatibilità. L' `api-version` argomento varia da servizio a servizio. Per il servizio Machine Learning, ad esempio, la versione dell'API corrente è `2019-11-01` . Per gli account di archiviazione, è `2019-06-01` . Per gli insiemi di credenziali delle chiavi, è `2019-09-01` . Tutte le chiamate REST devono impostare l' `api-version` argomento sul valore previsto. È possibile basarsi sulla sintassi e sulla semantica della versione specificata, anche quando l'API continua ad evolversi. Se si invia una richiesta a un provider senza l' `api-version` argomento, la risposta conterrà un elenco leggibile dei valori supportati. 
 
 La chiamata precedente comporterà una risposta JSON compattata nel formato seguente: 
 
@@ -123,7 +123,7 @@ La chiamata precedente comporterà una risposta JSON compattata nel formato segu
 
 ## <a name="drill-down-into-workspaces-and-their-resources"></a>Eseguire il drill-down nelle aree di lavoro e nelle relative risorse
 
-Per recuperare il set di aree di lavoro in un gruppo di risorse, eseguire il comando seguente `{your-subscription-id}`, `{your-resource-group}`sostituendo `{your-access-token}`, e: 
+Per recuperare il set di aree di lavoro in un gruppo di risorse, eseguire il comando seguente, sostituendo `{your-subscription-id}` , `{your-resource-group}` e `{your-access-token}` : 
 
 ```
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
@@ -183,7 +183,7 @@ Per lavorare con le risorse all'interno di un'area di lavoro, passare dal server
 }
 ```
 
-Il valore della `api` risposta è l'URL del server che verrà utilizzato per richieste aggiuntive. Per elencare gli esperimenti, ad esempio, inviare il comando seguente. Sostituire `regional-api-server` con il valore della `api` risposta (ad esempio, `centralus.api.azureml.ms`). Sostituire `your-subscription-id`anche, `your-resource-group`, `your-workspace-name`e `your-access-token` come di consueto:
+Il valore della `api` risposta è l'URL del server che verrà utilizzato per richieste aggiuntive. Per elencare gli esperimenti, ad esempio, inviare il comando seguente. Sostituire `regional-api-server` con il valore della `api` risposta (ad esempio, `centralus.api.azureml.ms` ). Sostituire anche `your-subscription-id` , `your-resource-group` , `your-workspace-name` e `your-access-token` come di consueto:
 
 ```bash
 curl https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -199,15 +199,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Si noti che per elencare gli esperimenti il `history/v1.0` percorso inizia con while per elencare i modelli `modelmanagement/v1.0`, il percorso inizia con. L'API REST è divisa in diversi gruppi operativi, ognuno con un percorso distinto. La documentazione di riferimento dell'API nei collegamenti seguenti elenca le operazioni, i parametri e i codici di risposta per le varie operazioni.
+Si noti che per elencare gli esperimenti il percorso inizia con `history/v1.0` while per elencare i modelli, il percorso inizia con `modelmanagement/v1.0` . L'API REST è divisa in diversi gruppi operativi, ognuno con un percorso distinto. La documentazione di riferimento dell'API nei collegamenti seguenti elenca le operazioni, i parametri e i codici di risposta per le varie operazioni.
 
-|Area|Path|Informazioni di riferimento|
+|Area|Percorso|Informazioni di riferimento|
 |-|-|-|
-|Elementi|artefatto/v 2.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Archivi dati|archivio dati/v 1.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Ottimizzazione degli iperparametri|iperguida/v 1.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modelli|Modelmanagement/v 1.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Cronologia di esecuzione|esecuzione/v 1.0/e cronologia/v 1.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Artifacts|artefatto/v 2.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
+|Archivi dati|archivio dati/v 1.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
+|Ottimizzazione degli iperparametri|iperguida/v 1.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
+|Modelli|Modelmanagement/v 1.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
+|Cronologia di esecuzione|esecuzione/v 1.0/e cronologia/v 1.0/|[Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/azureml/runs)|
 
 È possibile esplorare l'API REST usando il modello generale di:
 
@@ -235,7 +235,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Per creare o sovrascrivere una risorsa di calcolo denominata, si userà una richiesta PUT. Nell'esempio seguente vengono aggiunte le sostituzioni note `your-subscription-id`di, `your-resource-group` `your-workspace-name`, e `your-access-token`, sostituendo `your-compute-name`e i valori per `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`e. `adminUserPassword` Come specificato nella Guida di riferimento a [ambiente di calcolo di Machine Learning-create o Update SDK Reference](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), il comando seguente crea una Standard_D1 dedicata a nodo singolo (una risorsa di calcolo di base della CPU) che verrà ridotta dopo 30 minuti:
+Per creare o sovrascrivere una risorsa di calcolo denominata, si userà una richiesta PUT. Nell'esempio seguente vengono aggiunte le sostituzioni note di `your-subscription-id` ,, `your-resource-group` `your-workspace-name` e `your-access-token` , sostituendo `your-compute-name` e i valori per `location` , `vmSize` , `vmPriority` , `scaleSettings` , `adminUserName` e `adminUserPassword` . Come specificato nella Guida di riferimento a [ambiente di calcolo di Machine Learning-create o Update SDK Reference](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), il comando seguente crea una Standard_D1 dedicata a nodo singolo (una risorsa di calcolo di base della CPU) che verrà ridotta dopo 30 minuti:
 
 ```bash
 curl -X PUT \
@@ -264,13 +264,13 @@ curl -X PUT \
 ```
 
 > [!Note]
-> Nei terminali di Windows potrebbe essere necessario eseguire l'escape dei simboli con virgolette doppie quando si inviano dati JSON. Ovvero, il `"location"` testo come diventa `\"location\"`. 
+> Nei terminali di Windows potrebbe essere necessario eseguire l'escape dei simboli con virgolette doppie quando si inviano dati JSON. Ovvero, il testo come `"location"` diventa `\"location\"` . 
 
-Una richiesta con esito positivo `201 Created` riceverà una risposta, ma si noti che questa risposta indica semplicemente che il processo di provisioning è iniziato. È necessario eseguire il polling (o usare il portale) per confermare il corretto completamento.
+Una richiesta con esito positivo riceverà una `201 Created` risposta, ma si noti che questa risposta indica semplicemente che il processo di provisioning è iniziato. È necessario eseguire il polling (o usare il portale) per confermare il corretto completamento.
 
 ### <a name="create-an-experimental-run"></a>Creare un'esecuzione sperimentale
 
-Per avviare un'esecuzione all'interno di un esperimento, è necessaria una cartella zip contenente lo script di training e i file correlati e un file JSON di definizione di esecuzione. La cartella zip deve contenere il file di voce Python nella directory radice. Ad esempio, eseguire il zip di un programma Python semplice come il seguente in una cartella denominata **Train. zip**.
+Per avviare un'esecuzione all'interno di un esperimento, è necessaria una cartella zip contenente lo script di training e i file correlati e un file JSON di definizione di esecuzione. La cartella zip deve contenere il file di voce Python nella directory radice. Ad esempio, è possibile comprimere un semplice programma Python come il seguente in una cartella denominata **train.zip**.
 
 ```python
 # hello.py
@@ -278,7 +278,7 @@ Per avviare un'esecuzione all'interno di un esperimento, è necessaria una carte
 print("Hello, REST!")
 ```
 
-Salvare il frammento di codice successivo come **Definition. JSON**. Confermare che il valore "script" corrisponda al nome del file Python appena compresso. Verificare che il valore di destinazione corrisponda al nome di una risorsa di calcolo disponibile. 
+Salvare il frammento di codice seguente come **definition.js**. Confermare che il valore "script" corrisponda al nome del file Python appena compresso. Verificare che il valore di destinazione corrisponda al nome di una risorsa di calcolo disponibile. 
 
 ```json
 {
@@ -320,7 +320,7 @@ Salvare il frammento di codice successivo come **Definition. JSON**. Confermare 
 }
 ```
 
-Inserire i file nel server usando `multipart/form-data` il contenuto:
+Inserire i file nel server usando il `multipart/form-data` contenuto:
 
 ```bash
 curl https://{regional-api-server}/execution/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-name}/startrun?api-version=2019-11-01 \
@@ -331,7 +331,7 @@ curl https://{regional-api-server}/execution/v1.0/subscriptions/{your-subscripti
   -F runDefinitionFile=@runDefinition.json
 ```
 
-Una richiesta POST eseguita correttamente genererà `200 OK` uno stato, con un corpo della risposta contenente l'identificatore dell'esecuzione creata:
+Una richiesta POST eseguita correttamente genererà uno `200 OK` stato, con un corpo della risposta contenente l'identificatore dell'esecuzione creata:
 
 ```json
 {
@@ -359,7 +359,7 @@ curl
 
 ## <a name="use-rest-to-score-a-deployed-model"></a>Usare REST per assegnare un punteggio a un modello distribuito
 
-Sebbene sia possibile distribuire un modello in modo che esegua l'autenticazione con un'entità servizio, la maggior parte delle distribuzioni per il client usa l'autenticazione basata su chiavi. È possibile trovare la chiave appropriata nella pagina della distribuzione all'interno della scheda **endpoint** di studio. Lo stesso percorso indicherà l'URI di assegnazione dei punteggi dell'endpoint. Gli input del modello devono essere modellati come matrice JSON denominata `data`:
+Sebbene sia possibile distribuire un modello in modo che esegua l'autenticazione con un'entità servizio, la maggior parte delle distribuzioni per il client usa l'autenticazione basata su chiavi. È possibile trovare la chiave appropriata nella pagina della distribuzione all'interno della scheda **endpoint** di studio. Lo stesso percorso indicherà l'URI di assegnazione dei punteggi dell'endpoint. Gli input del modello devono essere modellati come matrice JSON denominata `data` :
 
 ```bash
 curl 'https://{scoring-uri}' \
@@ -372,7 +372,7 @@ curl 'https://{scoring-uri}' \
 
 Ogni area di lavoro di Azure ML presenta una dipendenza da quattro altre risorse di Azure: un registro contenitori con l'amministrazione abilitata, un insieme di credenziali delle chiavi, una risorsa Application Insights e un account di archiviazione. Non è possibile creare un'area di lavoro fino a quando non sono presenti risorse. Per informazioni dettagliate sulla creazione di ogni risorsa, vedere il riferimento all'API REST.
 
-Per creare un'area di lavoro, inserire una chiamata simile alla seguente `management.azure.com`a. Sebbene questa chiamata richieda di impostare un numero elevato di variabili, è strutturalmente identica ad altre chiamate illustrate in questo articolo. 
+Per creare un'area di lavoro, inserire una chiamata simile alla seguente a `management.azure.com` . Sebbene questa chiamata richieda di impostare un numero elevato di variabili, è strutturalmente identica ad altre chiamate illustrate in questo articolo. 
 
 ```bash
 curl -X PUT \
@@ -408,14 +408,14 @@ Si dovrebbe ricevere una `202 Accepted` risposta e, nelle intestazioni restituit
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="moving-the-workspace"></a>Trasferimento dell'area di lavoro
+### <a name="moving-the-workspace"></a>Spostamento dell'area di lavoro
 
 > [!WARNING]
-> Non è supportato lo stato di un'area di lavoro di Azure Machine Learning in una sottoscrizione diversa o di trasferimento della sottoscrizione proprietaria a un nuovo tenant. Questa operazione può causare errori.
+> Lo spostamento dell’area di lavoro di Azure Machine Learning in una diversa sottoscrizione o della sottoscrizione proprietaria su un nuovo tenant non è supportato in quanto ciò può provocare errori.
 
-### <a name="deleting-the-azure-container-registry"></a>Eliminazione del Container Registry di Azure
+### <a name="deleting-the-azure-container-registry"></a>Eliminazione del Registro Azure Container
 
-L'area di lavoro Azure Machine Learning USA Azure Container Registry (ACR) per alcune operazioni. Verrà creata automaticamente un'istanza di ACR quando è necessaria per la prima volta.
+L'area di lavoro di Azure Machine Learning usa il Registro Azure Container (ACR) per alcune operazioni. Verrà creata automaticamente un'istanza di ACR quando è necessaria per la prima volta.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 

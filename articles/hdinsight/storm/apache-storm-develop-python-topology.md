@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017, tracking-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 20e4827b1a86bff338646ef71f0dd732255c09c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 71709e2f1dcbab188646241eaeb4809e168d5697
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77460025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608775"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Sviluppare topologie Apache Storm con Python in HDInsight
 
@@ -36,7 +35,7 @@ Informazioni su come creare una topologia [Apache Storm](https://storm.apache.or
 
 ## <a name="storm-multi-language-support"></a>Supporto per più linguaggi in Storm
 
-Apache Storm è stato progettato per funzionare con componenti scritti con qualsiasi linguaggio di programmazione. I componenti devono poter lavorare con la definizione Thrift per Storm. Per Python viene fornito un modulo, come parte del progetto Apache Storm, che consente di interfacciarsi facilmente con Storm. Questo modulo è reperibile in [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Apache Storm è stato progettato per funzionare con componenti scritti con qualsiasi linguaggio di programmazione. I componenti devono poter lavorare con la definizione Thrift per Storm. Per Python viene fornito un modulo, come parte del progetto Apache Storm, che consente di interfacciarsi facilmente con Storm. Questo modulo è reperibile in [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py) .
 
 Storm è un processo Java che viene eseguito su Java Virtual Machine (JVM). I componenti scritti in altri linguaggi vengono eseguiti come sottoprocessi. Storm comunica con tali sottoprocessi tramite messaggi JSON inviati tramite stdin/stdout. Altri dettagli sulla comunicazione tra i componenti sono disponibili nella documentazione relativa al [protocollo Multi-lang](https://storm.apache.org/releases/current/Multilang-protocol.html) .
 
@@ -70,13 +69,13 @@ Flux prevede che gli script Python siano nella directory `/resources` all'intern
 </resource>
 ```
 
-Come indicato in precedenza, è disponibile `storm.py` un file che implementa la definizione di risparmio per Storm. Il framework Flux include automaticamente `storm.py` quando viene compilato il progetto, quindi non è necessario preoccuparsi di includerlo manualmente.
+Come indicato in precedenza, è disponibile un `storm.py` file che implementa la definizione di risparmio per Storm. Il framework Flux include automaticamente `storm.py` quando viene compilato il progetto, quindi non è necessario preoccuparsi di includerlo manualmente.
 
 ## <a name="build-the-project"></a>Compilare il progetto
 
-1. Scaricare il progetto da [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+1. Scaricare il progetto da [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) .
 
-1. Aprire un prompt dei comandi e passare alla radice del progetto `hdinsight-python-storm-wordcount-master`:. Immettere il comando seguente:
+1. Aprire un prompt dei comandi e passare alla radice del progetto: `hdinsight-python-storm-wordcount-master` . Immettere il comando seguente:
 
     ```cmd
     mvn clean compile package
@@ -86,7 +85,7 @@ Come indicato in precedenza, è disponibile `storm.py` un file che implementa la
 
 ## <a name="run-the-storm-topology-on-hdinsight"></a>Eseguire la topologia Storm in HDInsight
 
-1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per copiare `WordCount-1.0-SNAPSHOT.jar` il file nel cluster Storm in HDInsight. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per copiare il `WordCount-1.0-SNAPSHOT.jar` file nel cluster Storm in HDInsight. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster in uso e quindi immettere il comando:
 
     ```cmd
     scp target/WordCount-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:

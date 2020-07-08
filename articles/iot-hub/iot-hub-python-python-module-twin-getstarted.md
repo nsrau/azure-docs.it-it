@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
-ms.openlocfilehash: f846af548913e0cb3e872560e4b8438da306a255
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: f324b04dd87f84a07c07394f2ee7c3efdc30c3e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84607075"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (Python)
 
@@ -41,7 +41,7 @@ Al termine di questa esercitazione si avranno tre app Python:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoT
 
 In questo articolo viene creato un servizio back-end che aggiunge un dispositivo nel registro delle identità e quindi aggiunge un modulo al dispositivo. Questo servizio richiede l'autorizzazione di **scrittura del registro di sistema** , che include anche la **lettura del registro**di sistema. Si crea anche un servizio che aggiunge le proprietà desiderate al modulo gemello per il modulo appena creato. Questo servizio richiede l'autorizzazione Connect per il **servizio** . Sebbene esistano criteri di accesso condiviso predefiniti che concedono singolarmente queste autorizzazioni, in questa sezione viene creato un criterio di accesso condiviso personalizzato che contiene entrambe le autorizzazioni.
 
@@ -51,7 +51,7 @@ In questo articolo viene creato un servizio back-end che aggiunge un dispositivo
 
 In questa sezione si crea un'app di servizio Python che crea un'identità del dispositivo e un'identità del modulo nel registro delle identità nell'hub Internet. Un dispositivo o un modulo non è in grado di connettersi all'hub delle cose a meno che non includa una voce nel registro delle identità. Per altre informazioni, vedere [comprendere il registro delle identità nell'hub](iot-hub-devguide-identity-registry.md). Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
 
-1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet per l'hub:
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-hub**:
 
     ```cmd/sh
     pip install azure-iot-hub
@@ -190,7 +190,7 @@ In questa sezione si crea un'app Python per ottenere l'aggiornamento delle propr
 
    ![Dettagli del modulo nel portale di Azure](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet:
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-device**:
 
     ```cmd/sh
     pip install azure-iot-device

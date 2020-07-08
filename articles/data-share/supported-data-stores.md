@@ -6,12 +6,11 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 624bb45de3e2ff184326949611d437f71f3e2def
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e0daa2b02c16d8d5a65b5e7e0f983a4f47181d40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501799"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84635969"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Archivi dati supportati nella condivisione dati di Azure
 
@@ -38,16 +37,17 @@ La condivisione di dati di Azure offre la flessibilità dei consumer di dati per
 
 Nella tabella seguente vengono illustrate le diverse combinazioni e scelte che i consumer di dati hanno per l'accettazione e la configurazione della condivisione di dati. Per ulteriori informazioni su come configurare i mapping dei set di dati, vedere [come configurare i mapping dei set di dati](how-to-configure-mapping.md).
 
-|  | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | database SQL di Azure | Azure Synapse Analytics 
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| Archiviazione BLOB di Azure | ✓ || ✓|
-| Azure Data Lake Storage Gen1 | ✓ | | ✓|
-| Azure Data Lake Storage Gen2 | ✓ | | ✓|
-| database SQL di Azure | ✓ | | ✓| ✓| ✓|
-| Azure sinapsi Analytics (in precedenza Azure SQL DW) | ✓ | | ✓| ✓| ✓|
+|  | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | database SQL di Azure | Azure Synapse Analytics | Esplora dati di Azure
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Archiviazione BLOB di Azure | ✓ || ✓ ||
+| Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
+| Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
+| database SQL di Azure | ✓ | | ✓ | ✓ | ✓ ||
+| Azure sinapsi Analytics (in precedenza Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
+| Esplora dati di Azure |||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Condividi da un account di archiviazione
-Condivisione dati di Azure supporta la condivisione di file, cartelle e file System da Azure Data Lake Gen1 e Azure Data Lake Gen2. Supporta anche la condivisione di BLOB, cartelle e contenitori dall'archiviazione BLOB di Azure. Attualmente è supportato solo il BLOB in blocchi. Quando le cartelle vengono condivise nella condivisione basata su snapshot, il consumer di dati può scegliere di eseguire una copia completa dei dati di condivisione o sfruttare la funzionalità di snapshot incrementale per copiare solo i file nuovi o aggiornati. I file esistenti con lo stesso nome verranno sovrascritti.
+Condivisione dati di Azure supporta la condivisione di file, cartelle e file System da Azure Data Lake Gen1 e Azure Data Lake Gen2. Supporta anche la condivisione di BLOB, cartelle e contenitori dall'archiviazione BLOB di Azure. Attualmente è supportato solo il BLOB in blocchi. Quando i file System, i contenitori o le cartelle sono condivisi nella condivisione basata su snapshot, il consumer di dati può scegliere di eseguire una copia completa dei dati di condivisione o sfruttare la funzionalità di snapshot incrementale per copiare solo i file nuovi o aggiornati. Gli snapshot incrementali si basano sull'ora dell'Ultima modifica dei file. I file esistenti con lo stesso nome verranno sovrascritti.
 
 ## <a name="share-from-a-sql-based-source"></a>Condividi da un'origine basata su SQL
 La condivisione di dati di Azure supporta la condivisione di tabelle o viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL DW). I consumer di dati possono scegliere di accettare i dati nel Azure Data Lake Store Gen2 o nell'archiviazione BLOB di Azure come file CSV o parquet. Si noti che per impostazione predefinita, i formati di file sono CSV. Se lo si desidera, il consumer di dati può scegliere di ricevere i dati in formato parquet. Questa operazione può essere eseguita nelle impostazioni di mapping del set di dati durante la ricezione dei dati. 

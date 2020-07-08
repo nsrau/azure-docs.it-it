@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 360d01d01c163e494340c2da3182192dc15612a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641480"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560807"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -66,11 +66,11 @@ Le sezioni successive illustrano la procedura per creare un trigger di pianifica
 
     ![Pulsante Publish](./media/how-to-create-schedule-trigger/publish-2.png)
 
-1. Passare alla scheda **esecuzioni pipeline** a sinistra, quindi selezionare **Aggiorna** per aggiornare l'elenco. Vengono visualizzate le esecuzioni della pipeline attivate dal trigger pianificato. Notare i valori della colonna **Attivato da**. Se si usa l'opzione **Attiva ora** , l'esecuzione del trigger manuale verrà visualizzata nell'elenco. 
+1. Passare alla scheda **esecuzioni pipeline** a sinistra, quindi selezionare **Aggiorna** per aggiornare l'elenco. Vengono visualizzate le esecuzioni della pipeline attivate dal trigger pianificato. Si notino i valori nella colonna **attivata da** . Se si usa l'opzione **Attiva ora** , l'esecuzione del trigger manuale verrà visualizzata nell'elenco. 
 
     ![Monitorare le esecuzioni attivate](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Passare alla visualizzazione **Trigger Runs** (Esecuzioni del trigger). 
+1. Passa alla visualizzazione **esecuzioni di trigger** . 
 
     ![Monitorare le esecuzioni del trigger](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -326,7 +326,7 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 | **Fuso orario** | Fuso orario. È attualmente supportato solo il fuso orario UTC. |
 | **ricorrenza** | Oggetto recurrence che specifica le regole di ricorrenza per il trigger. L'oggetto recurrence supporta gli elementi **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando viene definito un oggetto recurrence, l'elemento **frequency** è obbligatorio. Gli altri elementi dell'oggetto recurrence sono facoltativi. |
 | **frequenza** | Unità di frequenza con cui il trigger si ripete. I valori supportati includono "minute", "hour", "day", "week" e "month". |
-| **interval** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "week", il trigger si ripete ogni 3 settimane. |
+| **intervallo** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "week", il trigger si ripete ogni 3 settimane. |
 | **pianificazione** | Pianificazione della ricorrenza per il trigger. Un trigger con un valore **frequency** specificato modifica la ricorrenza in base a una pianificazione di ricorrenza. La proprietà **schedule** contiene modifiche per la ricorrenza basate su minuti, ore, giorni della settimana, giorni del mese e numero della settimana.
 
 
@@ -334,11 +334,11 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 | Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Sì | Nessuno | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **ricorrenza** | Oggetto | Sì | Nessuno | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Numero | No | 1 | Da 1 a 1.000 | `"interval":10` |
-| **endTime** | string | Sì | Nessuno | Valore di data e ora che fa riferimento a un momento nel futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **pianificazione** | Oggetto | No | Nessuno | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | string | Sì | nessuno | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **ricorrenza** | Oggetto | Sì | nessuno | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervallo** | Number | No | 1 | Da 1 a 1.000 | `"interval":10` |
+| **endTime** | string | Sì | nessuno | Valore di data e ora che fa riferimento a un momento nel futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **pianificazione** | Oggetto | No | nessuno | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
 La tabella seguente illustra come la proprietà **startTime** controlla l'esecuzione di un trigger:
@@ -368,7 +368,7 @@ La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 
 | Elemento JSON | Descrizione | Valori validi |
 |:--- |:--- |:--- |
-| **minuti** | Minuti dell'ora in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul>
+| **minutes** | Minuti dell'ora in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul>
 | **ore** | Ore del giorno in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul> |
 | **Giorni feriali** | Giorni della settimana in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza settimanale. | <ul><li>I valori consentiti sono Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</li><li>Matrice di valori in giorni (la dimensione massima della matrice è 7)</li><li>I valori dei giorni non fanno distinzione tra maiuscole e minuscole</li></ul> |
 | **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. | <ul><li>Matrice di oggetti **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`.</li><li>L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.</li><li>L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.</li></ul> |

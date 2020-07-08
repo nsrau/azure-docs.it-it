@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 22fd67797bbec516317aadaa4b33371c5d335b36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609455"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Usare il portale di Azure per amministrare i Azure Data Box e Azure Data Box Heavy
 
@@ -48,7 +47,7 @@ Eseguire la procedura seguente per clonare un ordine.
 
     ![Clonazione ordine 1](media/data-box-portal-admin/clone-order1.png)
 
-2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Scegliere **Crea**.
+2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Fare clic su **Crea**.
 
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
@@ -206,7 +205,7 @@ Quando viene modificato lo stato del dispositivo nel portale, si riceve una noti
 |Ritirato     |La spedizione di restituzione è stata prelevata e scansionata dal trasportatore.         |
 |Ricevuto     | Il dispositivo viene ricevuto e scansionato nel data center di Azure. <br> Dopo il controllo della spedizione viene avviato il caricamento del dispositivo.      |
 |Copia dati     | La copia dei dati è in corso. Tenere traccia dello stato della copia dell'ordine nel portale di Azure. <br> Attendere il completamento della copia dei dati. |
-|Completi       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
+|Completed       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
 |Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori durante la copia. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Vedere [esempi di log di copia quando il caricamento è stato completato con errori](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
 |Completato con avvisi| La copia dei dati è stata completata, ma i dati sono stati modificati. I dati contengono errori di BLOB o di file non critici corretti cambiando il nome del file o del BLOB. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Prendere nota delle modifiche apportate ai dati. Vedere [esempi di log di copia quando il caricamento è stato completato con avvisi](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine. Se l'ordine non può essere soddisfatto entro 90 giorni, viene anche annullato e l'utente riceve una notifica.     |

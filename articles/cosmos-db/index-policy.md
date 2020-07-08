@@ -4,14 +4,13 @@ description: Informazioni su come configurare e modificare i criteri di indicizz
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 06/09/2020
 ms.author: tisande
-ms.openlocfilehash: 68adfb8b4cfb7c665a8e8b162b4698a095bb671e
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: a335da61fac914368b4044a97582ef0060f5de4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636326"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
 
@@ -30,16 +29,16 @@ Azure Cosmos DB supporta due modalità di indicizzazione:
 - **None**: l'indicizzazione è disabilitata nel contenitore. Questa operazione viene in genere usata quando un contenitore viene usato come archivio chiave-valore puro senza la necessità di indici secondari. Può anche essere usato per migliorare le prestazioni delle operazioni bulk. Una volta completate le operazioni bulk, è possibile impostare la modalità di indicizzazione su coerente e quindi monitorarla utilizzando [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) fino al completamento.
 
 > [!NOTE]
-> Azure Cosmos DB supporta anche una modalità di indicizzazione differita. L'indicizzazione Lazy esegue gli aggiornamenti dell'indice con un livello di priorità molto inferiore quando il motore non esegue altre operazioni. Ciò può comportare risultati di query **incoerenti o incompleti** . Se si prevede di eseguire una query su un contenitore Cosmos, non selezionare l'indicizzazione differita.
+> Azure Cosmos DB supporta anche una modalità di indicizzazione differita. L'indicizzazione Lazy esegue gli aggiornamenti dell'indice con un livello di priorità molto inferiore quando il motore non esegue altre operazioni. Ciò può comportare risultati di query **incoerenti o incompleti** . Se si prevede di eseguire una query su un contenitore Cosmos, non selezionare l'indicizzazione differita. Nel giugno 2020 è stata introdotta una modifica che non consente più l'impostazione dei nuovi contenitori sulla modalità di indicizzazione differita. Se l'account Azure Cosmos DB contiene già almeno un contenitore con indicizzazione differita, questo account viene esentato automaticamente dalla modifica. È anche possibile richiedere un'esenzione contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Per impostazione predefinita, i criteri di indicizzazione vengono impostati su `automatic`. Per ottenere questo risultato, impostare `automatic` la proprietà nei criteri di indicizzazione su `true`. L'impostazione di questa `true` proprietà su consente ad Azure CosmosDB di indicizzare automaticamente i documenti man mano che vengono scritti.
+Per impostazione predefinita, i criteri di indicizzazione vengono impostati su `automatic` . Per ottenere questo risultato, impostare la `automatic` proprietà nei criteri di indicizzazione su `true` . L'impostazione di questa proprietà su `true` consente ad Azure CosmosDB di indicizzare automaticamente i documenti man mano che vengono scritti.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusione ed esclusione dei percorsi delle proprietà
 
 Un criterio di indicizzazione personalizzato può specificare percorsi di proprietà inclusi o esclusi in modo esplicito dall'indicizzazione. Ottimizzando il numero di percorsi indicizzati, è possibile ridurre la quantità di spazio di archiviazione usato dal contenitore e migliorare la latenza delle operazioni di scrittura. Questi percorsi vengono definiti seguendo [il metodo descritto nella sezione Panoramica dell'indicizzazione](index-overview.md#from-trees-to-property-paths) con le aggiunte seguenti:
 
 - un percorso che conduce a un valore scalare (stringa o numero) termina con`/?`
-- gli elementi di una matrice vengono risolti insieme `/[]` tramite la notazione `/0`, anziché `/1` e così via.
+- gli elementi di una matrice vengono risolti insieme tramite la `/[]` notazione `/0` , anziché e `/1` così via.
 - il `/*` carattere jolly può essere usato per trovare la corrispondenza con qualsiasi elemento al di sotto del nodo
 
 Riprendendo lo stesso esempio:
@@ -58,34 +57,34 @@ Riprendendo lo stesso esempio:
     }
 ```
 
-- il `headquarters`percorso `employees` di è`/headquarters/employees/?`
+- il `headquarters` `employees` percorso di è`/headquarters/employees/?`
 
 - il `locations` `country` percorso è`/locations/[]/country/?`
 
-- il percorso di qualsiasi elemento `headquarters` in è`/headquarters/*`
+- il percorso di qualsiasi elemento in `headquarters` è`/headquarters/*`
 
 Ad esempio, è possibile includere il `/headquarters/employees/?` percorso. Questo percorso garantisce che la proprietà Employees venga indicizzata, ma non verrà indicizzato un altro JSON annidato all'interno di questa proprietà.
 
 ## <a name="includeexclude-strategy"></a>Includi/Escludi strategia
 
-Tutti i criteri di indicizzazione devono includere il `/*` percorso radice come un percorso incluso o escluso.
+Tutti i criteri di indicizzazione devono includere il percorso radice `/*` come un percorso incluso o escluso.
 
 - Includere il percorso radice per escludere in modo selettivo i percorsi che non devono essere indicizzati. Si tratta dell'approccio consigliato, in quanto consente Azure Cosmos DB indicizzare in modo proattivo tutte le nuove proprietà che possono essere aggiunte al modello.
 - Escludere il percorso radice per includere in modo selettivo i percorsi che devono essere indicizzati.
 
-- Per i percorsi con caratteri regolari che includono caratteri alfanumerici e _ (carattere di sottolineatura), non è necessario eseguire l'escape della stringa di percorso intorno alle virgolette doppie (ad esempio, "/Path/?"). Per i percorsi con altri caratteri speciali, è necessario eseguire l'escape della stringa di percorso intorno alle virgolette doppie (\"ad esempio,\""/Path-ABC/?"). Se si prevede che nel percorso siano presenti caratteri speciali, è possibile evitare ogni percorso per la sicurezza. Dal punto di vista funzionale, non fa alcuna differenza se si Escape ogni percorso rispetto a quelli che contengono caratteri speciali.
+- Per i percorsi con caratteri regolari che includono caratteri alfanumerici e _ (carattere di sottolineatura), non è necessario eseguire l'escape della stringa di percorso intorno alle virgolette doppie (ad esempio, "/Path/?"). Per i percorsi con altri caratteri speciali, è necessario eseguire l'escape della stringa di percorso intorno alle virgolette doppie (ad esempio, "/ \" path-ABC \" /?"). Se si prevede che nel percorso siano presenti caratteri speciali, è possibile evitare ogni percorso per la sicurezza. Dal punto di vista funzionale, non fa alcuna differenza se si Escape ogni percorso rispetto a quelli che contengono caratteri speciali.
 
-- Per impostazione predefinita `_etag` , la proprietà di sistema viene esclusa dall'indicizzazione, a meno che l'eTag non venga aggiunto al percorso incluso per l'indicizzazione.
+- Per `_etag` impostazione predefinita, la proprietà di sistema viene esclusa dall'indicizzazione, a meno che l'eTag non venga aggiunto al percorso incluso per l'indicizzazione.
 
-- Se la modalità di indicizzazione è impostata su **coerente**, le `id` proprietà `_ts` di sistema e vengono indicizzate automaticamente.
+- Se la modalità di indicizzazione è impostata su **coerente**, le proprietà di sistema `id` e `_ts` vengono indicizzate automaticamente.
 
 Quando si includono ed escludono i percorsi, è possibile che si verifichino gli attributi seguenti:
 
-- `kind`può essere `range` o `hash`. La funzionalità degli indici di intervallo fornisce tutte le funzionalità di un indice hash, quindi è consigliabile usare un indice di intervallo.
+- `kind`può essere `range` o `hash` . La funzionalità degli indici di intervallo fornisce tutte le funzionalità di un indice hash, quindi è consigliabile usare un indice di intervallo.
 
-- `precision`numero definito a livello di indice per i percorsi inclusi. Il valore `-1` indica la precisione massima. È consigliabile impostare sempre questo valore su `-1`.
+- `precision`numero definito a livello di indice per i percorsi inclusi. Il valore `-1` indica la precisione massima. È consigliabile impostare sempre questo valore su `-1` .
 
-- `dataType`può essere `String` o `Number`. Indica i tipi di proprietà JSON che saranno indicizzate.
+- `dataType`può essere `String` o `Number` . Indica i tipi di proprietà JSON che saranno indicizzate.
 
 Quando non è specificato, queste proprietà avranno i valori predefiniti seguenti:
 
@@ -107,23 +106,23 @@ Ad esempio:
 
 **Percorso escluso**:`/food/ingredients/*`
 
-In questo caso, il percorso incluso avrà la precedenza sul percorso escluso perché è più preciso. In base a questi percorsi, tutti i dati `food/ingredients` nel percorso o annidati all'interno di verrebbero esclusi dall'indice. L'eccezione è costituita dai dati all'interno del `/food/ingredients/nutrition/*`percorso incluso:, che verrebbe indicizzato.
+In questo caso, il percorso incluso avrà la precedenza sul percorso escluso perché è più preciso. In base a questi percorsi, tutti i dati nel `food/ingredients` percorso o annidati all'interno di verrebbero esclusi dall'indice. L'eccezione è costituita dai dati all'interno del percorso incluso: `/food/ingredients/nutrition/*` , che verrebbe indicizzato.
 
 Di seguito sono riportate alcune regole per la precedenza dei percorsi inclusi ed esclusi nei Azure Cosmos DB:
 
-- I percorsi più profondi sono più precisi dei percorsi più ristretti. ad esempio: `/a/b/?` è più preciso di `/a/?`.
+- I percorsi più profondi sono più precisi dei percorsi più ristretti. ad esempio: `/a/b/?` è più preciso di `/a/?` .
 
-- `/?` È più preciso di `/*`. Ad esempio `/a/?` , è più preciso `/a/*` di `/a/?` quanto abbia la precedenza.
+- `/?`È più preciso di `/*` . Ad esempio `/a/?` , è più preciso di quanto abbia la `/a/*` `/a/?` precedenza.
 
 - Il percorso `/*` deve essere un percorso incluso o un percorso escluso.
 
 ## <a name="spatial-indexes"></a>Indici spaziali
 
-Quando si definisce un percorso spaziale nei criteri di indicizzazione, è necessario definire quale ```type``` Indice applicare a tale percorso. I tipi possibili per gli indici spaziali includono:
+Quando si definisce un percorso spaziale nei criteri di indicizzazione, è necessario definire quale indice ```type``` applicare a tale percorso. I tipi possibili per gli indici spaziali includono:
 
 * Point
 
-* Polygon
+* Poligono
 
 * MultiPolygon
 
@@ -131,11 +130,11 @@ Quando si definisce un percorso spaziale nei criteri di indicizzazione, è neces
 
 Per impostazione predefinita, Azure Cosmos DB non creerà indici spaziali. Se si desidera utilizzare le funzioni predefinite di SQL spaziali, è necessario creare un indice spaziale sulle proprietà obbligatorie. Vedere [questa sezione](geospatial.md) per esempi di criteri di indicizzazione per l'aggiunta di indici spaziali.
 
-## <a name="composite-indexes"></a>Indici compositi
+## <a name="composite-indexes"></a>Indici composti
 
-Per le query con `ORDER BY` una clausola con due o più proprietà è necessario un indice composto. È anche possibile definire un indice composito per migliorare le prestazioni di molte query di uguaglianza e di intervallo. Per impostazione predefinita, non sono definiti indici compositi, pertanto è necessario [aggiungere indici compositi](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) in base alle esigenze.
+`ORDER BY`Per le query con una clausola con due o più proprietà è necessario un indice composto. È anche possibile definire un indice composito per migliorare le prestazioni di molte query di uguaglianza e di intervallo. Per impostazione predefinita, non sono definiti indici compositi, pertanto è necessario [aggiungere indici compositi](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) in base alle esigenze.
 
-A differenza dei percorsi inclusi o esclusi, non è possibile creare un percorso `/*` con il carattere jolly. Ogni percorso composito ha un `/?` implicito alla fine del percorso che non è necessario specificare. I percorsi compositi portano a un valore scalare ed è l'unico valore incluso nell'indice composto.
+A differenza dei percorsi inclusi o esclusi, non è possibile creare un percorso con il `/*` carattere jolly. Ogni percorso composito ha un implicito `/?` alla fine del percorso che non è necessario specificare. I percorsi compositi portano a un valore scalare ed è l'unico valore incluso nell'indice composto.
 
 Quando si definisce un indice composito, è necessario specificare:
 
@@ -154,11 +153,11 @@ Quando si usano indici compositi per le query con una `ORDER BY` clausola con du
 
 - L'ordine dei percorsi di indice composito (crescente o decrescente) deve corrispondere anche `order` a nella `ORDER BY` clausola.
 
-- L'indice composito supporta anche `ORDER BY` una clausola con l'ordine opposto su tutti i percorsi.
+- L'indice composito supporta anche una `ORDER BY` clausola con l'ordine opposto su tutti i percorsi.
 
 Si consideri l'esempio seguente in cui viene definito un indice composito per le proprietà Name, Age e _ts:
 
-| **Indice composto**     | **Query `ORDER BY` di esempio**      | **Supportato da un indice composito?** |
+| **Indice composto**     | **Query di esempio `ORDER BY`**      | **Supportato da un indice composito?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
@@ -167,7 +166,7 @@ Si consideri l'esempio seguente in cui viene definito un indice composito per le
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC, timestamp ASC``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC``` | ```No```            |
 
-È necessario personalizzare i criteri di indicizzazione per poter soddisfare tutte `ORDER BY` le query necessarie.
+È necessario personalizzare i criteri di indicizzazione per poter soddisfare tutte le `ORDER BY` query necessarie.
 
 ### <a name="queries-with-filters-on-multiple-properties"></a>Query con filtri su più proprietà
 
@@ -181,7 +180,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age = 18
 
 Questa query sarà più efficiente, richiedendo meno tempo e consumando meno ur, se è in grado di sfruttare un indice composto in (nome ASC, Age ASC).
 
-È possibile ottimizzare le query con filtri di intervallo anche con un indice composto. Tuttavia, la query può avere solo un filtro di intervallo singolo. I filtri di `>`intervallo `<`includono `<=`, `>=`,, `!=`e. Il filtro di intervallo deve essere definito per ultimo nell'indice composto.
+È possibile ottimizzare le query con filtri di intervallo anche con un indice composto. Tuttavia, la query può avere solo un filtro di intervallo singolo. I filtri di intervallo includono `>` ,, `<` `<=` , `>=` e `!=` . Il filtro di intervallo deve essere definito per ultimo nell'indice composto.
 
 Si consideri la query seguente con i filtri di uguaglianza e di intervallo:
 
@@ -195,8 +194,8 @@ Quando si creano indici compositi per le query con filtri su più proprietà, ve
 
 - Le proprietà nel filtro della query devono corrispondere a quelle nell'indice composto. Se una proprietà è nell'indice composto ma non è inclusa nella query come filtro, la query non utilizzerà l'indice composto.
 - Se una query include proprietà aggiuntive nel filtro che non sono state definite in un indice composito, per valutare la query verrà utilizzata una combinazione di indici composti e di intervallo. Questa operazione richiederà meno ur rispetto all'uso esclusivo degli indici di intervallo.
-- Se una proprietà ha un filtro di intervallo`>`( `<`, `<=`, `>=`, o `!=`), questa proprietà deve essere definita per ultima nell'indice composto. Se una query contiene più di un filtro di intervallo, non utilizzerà l'indice composto.
-- Quando si crea un indice composto per ottimizzare le query con più filtri `ORDER` , l'oggetto dell'indice composto non avrà alcun effetto sui risultati. Questa proprietà è facoltativa.
+- Se una proprietà ha un filtro di intervallo ( `>` , `<` , `<=` , `>=` o `!=` ), questa proprietà deve essere definita per ultima nell'indice composto. Se una query contiene più di un filtro di intervallo, non utilizzerà l'indice composto.
+- Quando si crea un indice composto per ottimizzare le query con più filtri, l'oggetto `ORDER` dell'indice composto non avrà alcun effetto sui risultati. Questa proprietà è facoltativa.
 - Se non si definisce un indice composto per una query con filtri su più proprietà, la query avrà comunque esito positivo. Tuttavia, il costo ur della query può essere ridotto con un indice composto.
 
 Si considerino gli esempi seguenti in cui viene definito un indice composito per le proprietà Name, Age e timestamp:
@@ -242,14 +241,14 @@ Query con indice composito:
 SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
 ```
 
-Quando si creano indici compositi per ottimizzare una query con un filtro e una clausola `ORDER BY` , vengono utilizzate le considerazioni seguenti:
+Quando si creano indici compositi per ottimizzare una query con un filtro e una clausola, vengono utilizzate le considerazioni seguenti `ORDER BY` :
 
 * Se la query Filtra le proprietà, è necessario includerle prima nella `ORDER BY` clausola.
-* Se non si definisce un indice composto in una query con un filtro su una proprietà e una clausola separata `ORDER BY` con una proprietà diversa, la query avrà comunque esito positivo. Tuttavia, il costo ur della query può essere ridotto con un indice composito, in particolare se la proprietà nella `ORDER BY` clausola ha una cardinalità elevata.
-* Sono comunque valide tutte le considerazioni per `ORDER BY` la creazione di indici compositi per le query con più proprietà e per le query con filtri su più proprietà.
+* Se non si definisce un indice composto in una query con un filtro su una proprietà e una clausola separata con `ORDER BY` una proprietà diversa, la query avrà comunque esito positivo. Tuttavia, il costo ur della query può essere ridotto con un indice composito, in particolare se la proprietà nella `ORDER BY` clausola ha una cardinalità elevata.
+* Sono comunque valide tutte le considerazioni per la creazione di indici compositi per le `ORDER BY` query con più proprietà e per le query con filtri su più proprietà.
 
 
-| **Indice composto**                      | **Query `ORDER BY` di esempio**                                  | **Supportato da un indice composito?** |
+| **Indice composto**                      | **Query di esempio `ORDER BY`**                                  | **Supportato da un indice composito?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |

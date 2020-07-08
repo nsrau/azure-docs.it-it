@@ -12,13 +12,12 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 58697cc535357710c6889f05060b5e04e129ae7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 300b7e4fe3e3c150a78fee5b63458feab266aafe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558681"
 ---
 # <a name="logging-in-msal-applications"></a>Registrazione nelle applicazioni MSAL
 
@@ -50,7 +49,7 @@ In MSAL 3.x la registrazione viene impostata per le singole applicazioni durante
 
 - `Level`consente di scegliere il livello di registrazione desiderato. Se lo si imposta su Error, verranno restituiti solo gli errori.
 - `PiiLoggingEnabled`consente di registrare dati personali e aziendali se impostati su true. Per impostazione predefinita, questo parametro è impostato su false, in modo che l'applicazione non registri dati personali.
-- `LogCallback`viene impostato su un delegato che esegue la registrazione. Se `PiiLoggingEnabled` è true, questo metodo riceverà i messaggi due volte: una volta `containsPii` con il parametro uguale a false e il messaggio senza dati personali e la seconda volta con `containsPii` il parametro è uguale a true e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
+- `LogCallback`viene impostato su un delegato che esegue la registrazione. Se `PiiLoggingEnabled` è true, questo metodo riceverà i messaggi due volte: una volta con il `containsPii` parametro uguale a false e il messaggio senza dati personali e la seconda volta con il `containsPii` parametro è uguale a true e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
 - `DefaultLoggingEnabled`Abilita la registrazione predefinita per la piattaforma. Per impostazione predefinita, questo parametro è impostato su false. Se viene impostato su true, usa Event Tracing nelle applicazioni desktop/UWP, NSLog in iOS e logcat in Android.
 
 ```csharp
@@ -87,9 +86,9 @@ class Program
 Attivare la registrazione durante la creazione dell'app creando un callback di registrazione. Il callback accetta i parametri seguenti:
 
 - `tag`stringa passata al callback dalla libreria. È associato alla voce di log e può essere usato per ordinare i messaggi di registrazione.
-- `logLevel`consente di scegliere il livello di registrazione desiderato. I livelli di registrazione supportati sono `Error`: `Warning`, `Info`, e `Verbose`.
+- `logLevel`consente di scegliere il livello di registrazione desiderato. I livelli di registrazione supportati sono: `Error` ,, `Warning` `Info` e `Verbose` .
 - `message`contenuto della voce di log.
-- `containsPII`Specifica se i messaggi contenenti dati personali o i dati aziendali vengono registrati. Per impostazione predefinita, questo valore è impostato su false, in modo che l'applicazione non registri i dati personali. Se `containsPII` è `true`, questo metodo riceverà i messaggi due volte: una volta `containsPII` con il parametro `false` impostato su `message` e senza dati personali e una seconda volta con il `containsPii` parametro impostato su `true` e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
+- `containsPII`Specifica se i messaggi contenenti dati personali o i dati aziendali vengono registrati. Per impostazione predefinita, questo valore è impostato su false, in modo che l'applicazione non registri i dati personali. Se `containsPII` è `true` , questo metodo riceverà i messaggi due volte: una volta con il `containsPII` parametro impostato su `false` e `message` senza dati personali e una seconda volta con il `containsPii` parametro impostato su `true` e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
 
 ```java
 private StringBuilder mLogs;
@@ -126,10 +125,10 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
- Abilitare la registrazione in MSAL. js (JavaScript) passando un oggetto logger durante la configurazione per la creazione `UserAgentApplication` di un'istanza. Questo oggetto logger ha le proprietà seguenti:
+ Abilitare la registrazione in MSAL.js (JavaScript) passando un oggetto logger durante la configurazione per la creazione di un' `UserAgentApplication` istanza. Questo oggetto logger ha le proprietà seguenti:
 
 - `localCallback`: istanza di callback che può essere fornita dallo sviluppatore per utilizzare e pubblicare i log in modo personalizzato. Implementare il metodo localCallback a seconda del modo in cui si intende reindirizzare i log.
-- `level`(facoltativo): livello di registrazione configurabile. I livelli di registrazione supportati sono `Error`: `Warning`, `Info`, e `Verbose`. Il valore predefinito è `Info`.
+- `level`(facoltativo): livello di registrazione configurabile. I livelli di registrazione supportati sono: `Error` ,, `Warning` `Info` e `Verbose` . Il valore predefinito è `Info`.
 - `piiLoggingEnabled`(facoltativo): se impostato su true, registra i dati personali e aziendali. Per impostazione predefinita, questo valore è false in modo che l'applicazione non registri i dati personali. I log dei dati personali non vengono mai scritti negli output predefiniti come Console, Logcat o NSLog.
 - `correlationId`(facoltativo): identificatore univoco, usato per eseguire il mapping della richiesta con la risposta a scopo di debug. Per impostazione predefinita, viene usato il GUID RFC 4122 versione 4 (128 bit).
 
@@ -194,7 +193,7 @@ Ad esempio:
 
 ### <a name="personal-data"></a>Dati personali
 
-Per impostazione predefinita, MSAL non acquisisce né registra i dati personali (PII). La libreria consente agli sviluppatori di app di attivare questa operazione tramite una proprietà nella classe MSALLogger. Attivando `pii.Enabled`, l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e i requisiti normativi.
+Per impostazione predefinita, MSAL non acquisisce né registra i dati personali (PII). La libreria consente agli sviluppatori di app di attivare questa operazione tramite una proprietà nella classe MSALLogger. Attivando `pii.Enabled` , l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e i requisiti normativi.
 
 ```objc
 // By default, the `MSALLogger` doesn't capture any PII
@@ -271,7 +270,7 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 
 ### <a name="personal-data"></a>Dati personali
 
-Per impostazione predefinita, MSAL non acquisisce né registra i dati personali (PII). La libreria consente agli sviluppatori di app di attivare questa operazione tramite una proprietà nella classe MSALLogger. Attivando `pii.Enabled`, l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e i requisiti normativi.
+Per impostazione predefinita, MSAL non acquisisce né registra i dati personali (PII). La libreria consente agli sviluppatori di app di attivare questa operazione tramite una proprietà nella classe MSALLogger. Attivando `pii.Enabled` , l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e i requisiti normativi.
 
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
@@ -350,7 +349,7 @@ Per impostazione predefinita, la registrazione di MSAL non acquisisce né regist
             .build();
 ```
 
-Attivare la registrazione dei dati personali e aziendali impostando il generatore di `logPii()` applicazioni client. Se si attiva la registrazione dei dati personali o aziendali, l'app deve avere la responsabilità di gestire in modo sicuro i dati altamente sensibili e rispettare eventuali requisiti normativi.
+Attivare la registrazione dei dati personali e aziendali impostando il `logPii()` Generatore di applicazioni client. Se si attiva la registrazione dei dati personali o aziendali, l'app deve avere la responsabilità di gestire in modo sicuro i dati altamente sensibili e rispettare eventuali requisiti normativi.
 
 Nell'esempio seguente viene abilitata la registrazione dei dati personali o aziendali:
 
@@ -365,7 +364,7 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
 
 ## <a name="msal-for-python-logging"></a>MSAL per la registrazione di Python
 
-La registrazione in MSAL Python usa il meccanismo di registrazione standard di Python `logging.info("msg")` . ad esempio, è possibile configurare la registrazione MSAL come indicato di seguito (e visualizzarla in azione nella [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
+La registrazione in MSAL Python usa il meccanismo di registrazione standard di Python. ad esempio, `logging.info("msg")` è possibile configurare la registrazione MSAL come indicato di seguito (e visualizzarla in azione nella [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
 
 ### <a name="enable-debug-logging-for-all-modules"></a>Abilitare la registrazione di debug per tutti i moduli
 

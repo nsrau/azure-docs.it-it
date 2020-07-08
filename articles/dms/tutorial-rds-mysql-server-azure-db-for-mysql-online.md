@@ -11,13 +11,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255154"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609251"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: eseguire la migrazione di Servizi Desktop remoto MySQL a database di Azure per MySQL online con DMS
 
@@ -67,6 +66,7 @@ Per completare questa esercitazione, è necessario:
 
 1. Per creare un nuovo gruppo di parametri, seguire le istruzioni fornite da AWS nell'articolo [MySQL Database Log Files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html) (File di log di Database MySQL), nella sezione **F**.
 2. Creare un nuovo gruppo di parametri con la configurazione seguente:
+    * log_bin = ON
     * binlog_format = row
     * binlog_checksum = NONE
 3. Salvare il nuovo gruppo di parametri.
@@ -143,7 +143,7 @@ Per completare questa esercitazione, è necessario:
 
     ![Visualizzare i provider di risorse](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-select-resource-provider.png)
 
-3. Cercare la migrazione e quindi a destra di **Microsoft. DataMigration**selezionare Register ( **registra**).
+3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
 
     ![Registrare il provider di risorse](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
 

@@ -6,16 +6,16 @@ keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'ana
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: d8a5cf428f41b130e6faf68ac87a075c15211099
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 25ce99d3dced3caf1ec4bcce13b062b28774642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557492"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Apprendimento avanzato e Framework di intelligenza artificiale per Azure Data Science VM
 I Framework per Deep Learning in DSVM sono elencati di seguito.
@@ -26,7 +26,7 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | ------------- | ------------- |
 | Versioni supportate | |
 | Edizioni DSVM supportate      | Linux (Ubuntu)     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | Caffe è installato in `/opt/caffe`.   Gli esempi sono `/opt/caffe/examples`disponibili in.|
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Caffe è installato in `/opt/caffe`.   Gli esempi sono disponibili in `/opt/caffe/examples` .|
 | Come eseguirla      | usare X2Go per accedere alla macchina virtuale e quindi avviare un nuovo terminale e immettere quanto segue:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Si apre una nuova finestra del browser con i blocchi appunti di esempio. I file binari vengono installati in /opt/caffe/build/installazioni/bin.<br/><br/>La versione installata di caffe richiede Python 2,7 e non funziona con Python 3,5, che è attivato per impostazione predefinita. Per passare a Python 2,7, eseguire `source activate root` per passare all'ambiente Anaconda.|    
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
@@ -45,7 +45,7 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | Versioni supportate | 5,2 |
 | Edizioni DSVM supportate      | Linux (Ubuntu)     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Chainer viene installato in Python 3.5. |
-| Come eseguirla      | Terminale: attivare l'ambiente Python 3,5, eseguire `python`, quindi `import chainer`. <br/> * JupyterHub: [connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi passare alla directory chainer per trovare i blocchi appunti di esempio.| 
+| Come eseguirla      | Terminale: attivare l'ambiente Python 3,5, eseguire `python` , quindi `import chainer` . <br/> * JupyterHub: [connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi passare alla directory chainer per trovare i blocchi appunti di esempio.| 
 
 ## <a name="cuda-cudnn-nvidia-driver"></a>[Driver CUDA, cuDNN, NVIDIA](https://developer.nvidia.com/cuda-toolkit)
 
@@ -89,8 +89,8 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | ------------- | ------------- |
 | Versioni supportate | 1.3.0 |
 | Edizioni DSVM supportate      | Windows e Linux   |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | MXNet viene installato in `C:\dsvm\tools\mxnet` in Windows e `/dsvm/tools/mxnet` in Ubuntu. Le associazioni di Python vengono installate in Python 3,6 in [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) e in Python 3,5 in [Linux](./dsvm-tools-languages.md#python-linux-edition)) i binding R sono inclusi anche in Ubuntu DSVM. |
-| Come eseguirla      | Terminale: attivare l'ambiente conda corretto, quindi eseguire `import mxnet`. <br/>Jupyter: connettersi a [Jupyter](provision-vm.md#access-the-dsvm) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la directory `mxnet` per gli esempi. |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | MXNet viene installato in in `C:\dsvm\tools\mxnet` Windows e `/dsvm/tools/mxnet` in Ubuntu. Le associazioni di Python vengono installate in Python 3,6 in [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) e in Python 3,5 in [Linux](./dsvm-tools-languages.md#python-linux-edition)) i binding R sono inclusi anche in Ubuntu DSVM. |
+| Come eseguirla      | Terminale: attivare l'ambiente conda corretto, quindi eseguire `import mxnet` . <br/>Jupyter: connettersi a [Jupyter](provision-vm.md#access-the-dsvm) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la `mxnet` Directory per gli esempi. |
 
 ## <a name="mxnet-model-server"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
@@ -109,7 +109,7 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | Edizioni DSVM supportate      | Windows e Linux   |
 | A cosa serve? | Lo strumento NVIDIA per l'esecuzione di query sull'attività GPU |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | `nvidia-smi`si trova nel percorso di sistema. |
-| Come eseguirla      | In una macchina virtuale **con GPU**aprire un prompt dei comandi (in Windows) o un terminale (in Linux), quindi eseguire `nvidia-smi`. |
+| Come eseguirla      | In una macchina virtuale **con GPU**aprire un prompt dei comandi (in Windows) o un terminale (in Linux), quindi eseguire `nvidia-smi` . |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 

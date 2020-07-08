@@ -8,13 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 0bb1371de827fbb68afd5d114f49afa4acec0deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: mqtt, tracking-python
+ms.openlocfilehash: 142ac150e863b69a4580812478828062c1f5c6c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759726"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84605596"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introduzione ai dispositivi gemelli (Python)
 
@@ -32,7 +31,7 @@ Al termine di questa esercitazione, si avranno due app console Python:
 
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo di questo articolo usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -42,7 +41,7 @@ Al termine di questa esercitazione, si avranno due app console Python:
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoT
 
 [!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
 
@@ -69,7 +68,7 @@ In questa sezione si crea un'app console Python che aggiunge i metadati della po
    from azure.iot.hub.models import Twin, TwinProperties, QuerySpecification, QueryResult
    ```
 
-4. Aggiungere il codice seguente. Sostituire `[IoTHub Connection String]` con la stringa di connessione dell'hub Internet che è stata copiata in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string). Sostituire `[Device Id]` con l'ID del dispositivo registrato in [registrare un nuovo dispositivo nell'hub Internet delle](#register-a-new-device-in-the-iot-hub)cose.
+4. Aggiungere il codice seguente. Sostituire `[IoTHub Connection String]` con la stringa di connessione dell'hub IoT copiata in [Ottenere la stringa di connessione dell'hub IoT](#get-the-iot-hub-connection-string). Sostituire `[Device Id]` con l'ID del dispositivo registrato in [registrare un nuovo dispositivo nell'hub Internet delle](#register-a-new-device-in-the-iot-hub)cose.
   
     ```python
     IOTHUB_CONNECTION_STRING = "[IoTHub Connection String]"
@@ -239,8 +238,8 @@ In questa esercitazione è stato configurato un nuovo hub IoT nel Portale di Azu
 
 Per altre informazioni, vedere le risorse seguenti:
 
-* Per inviare dati di telemetria dai dispositivi, usare l'esercitazione [Introduzione all'hub](quickstart-send-telemetry-python.md) Internet.
+* Per inviare dati di telemetria dai dispositivi, vedere l'esercitazione [Introduzione all'hub IoT](quickstart-send-telemetry-python.md).
 
 * Configurare i dispositivi usando le proprietà desiderate del dispositivo gemello con l'esercitazione [usare le proprietà desiderate per configurare i dispositivi](tutorial-device-twins.md) .
 
-* Per controllare i dispositivi in modo interattivo, ad esempio per attivare un ventilatore da un'app controllata dall'utente, vedere l'esercitazione [Usare i metodi diretti](quickstart-control-device-python.md).
+* Controllare i dispositivi in modo interattivo, ad esempio l'accensione di una ventola da un'app controllata dall'utente, con l'esercitazione [usare i metodi diretti](quickstart-control-device-python.md) .

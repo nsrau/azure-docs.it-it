@@ -2,18 +2,17 @@
 title: Recapito eventi webhook
 description: Questo articolo descrive il recapito eventi webhook e la convalida degli endpoint quando si usano webhook.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.author: babanisa
-ms.openlocfilehash: 80efee18ff7cc927ea9029c11aadcf13ad75781a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: cf298156fe7a347799afced8bb065cb3a02bc49a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558430"
 ---
 # <a name="webhook-event-delivery"></a>Recapito eventi webhook
 I webhook sono uno dei modi per ricevere gli eventi da Griglia di eventi di Azure. Quando un nuovo evento è pronto, il servizio Griglia di eventi esegue il POST di una richiesta HTTP nell'endpoint configurato con l'evento nel corpo della richiesta.

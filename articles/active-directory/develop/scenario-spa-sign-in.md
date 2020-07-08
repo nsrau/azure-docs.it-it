@@ -11,26 +11,25 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7e809def048c95b6688a13ac99783615eb045d11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558755"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Applicazione a singola pagina: accesso e disconnessione
 
 Informazioni su come aggiungere l'accesso al codice per l'applicazione a singola pagina.
 
-Prima di poter ottenere i token per accedere alle API nell'applicazione, è necessario un contesto utente autenticato. È possibile eseguire l'accesso degli utenti all'applicazione in MSAL. js in due modi:
+Prima di poter ottenere i token per accedere alle API nell'applicazione, è necessario un contesto utente autenticato. È possibile eseguire l'accesso degli utenti all'applicazione in MSAL.js in due modi:
 
-* [Finestra popup](#sign-in-with-a-pop-up-window), tramite il `loginPopup` metodo
-* [Reindirizzamento](#sign-in-with-redirect), tramite il `loginRedirect` metodo
+* [Finestra popup](#sign-in-with-a-pop-up-window), tramite il `loginPopup` Metodo
+* [Reindirizzamento](#sign-in-with-redirect), tramite il `loginRedirect` Metodo
 
 Facoltativamente, è anche possibile passare gli ambiti delle API per cui è necessario che l'utente acconsente al momento dell'accesso.
 
 > [!NOTE]
-> Se l'applicazione dispone già dell'accesso a un contesto utente autenticato o a un token ID, è possibile ignorare il passaggio di accesso e acquisire direttamente i token. Per informazioni dettagliate, vedere [SSO senza accesso a MSAL. js](msal-js-sso.md#sso-without-msaljs-login).
+> Se l'applicazione dispone già dell'accesso a un contesto utente autenticato o a un token ID, è possibile ignorare il passaggio di accesso e acquisire direttamente i token. Per informazioni dettagliate, vedere [SSO senza MSAL.js account di accesso](msal-js-sso.md#sso-without-msaljs-login).
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Scelta tra un'esperienza popup o un reindirizzamento
 
@@ -45,17 +44,29 @@ Non è possibile usare entrambi i metodi popup e redirect nell'applicazione. La 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const loginRequest = {
-    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
 }
 
-userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
-    //login success
-    let idToken = loginResponse.idToken;
-}).catch(function (error) {
-    //login failure
-    console.log(error);
-});
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new userAgentApplication(config);
+
+myMsal.loginPopup(loginRequest)
+    .then(function (loginResponse) {
+        //login success
+        let idToken = loginResponse.idToken;
+    }).catch(function (error) {
+        //login failure
+        console.log(error);
+    });
 ```
 
 # <a name="angular"></a>[Angular](#tab/angular)
@@ -103,7 +114,7 @@ Per un'esperienza di finestra popup, abilitare l' `popUp` opzione di configurazi
             }
         }, {
             popUp: true,
-            consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
+            consentScopes: ["User.ReadWrite"]
         })
     ]
 })
@@ -117,17 +128,28 @@ Per un'esperienza di finestra popup, abilitare l' `popUp` opzione di configurazi
 I metodi di reindirizzamento non restituiscono una promessa a causa dell'allontanamento dall'app principale. Per elaborare e accedere ai token restituiti, è necessario registrare i callback di esito positivo ed errore prima di chiamare i metodi di reindirizzamento.
 
 ```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new userAgentApplication(config);
+
 function authCallback(error, response) {
     //handle redirect response
 }
 
-userAgentApplication.handleRedirectCallback(authCallback);
+myMsal.handleRedirectCallback(authCallback);
 
-const loginRequest = {
-    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
-}
-
-userAgentApplication.loginRedirect(loginRequest);
+myMsal.loginRedirect(loginRequest);
 ```
 
 # <a name="angular"></a>[Angular](#tab/angular)
@@ -143,7 +165,7 @@ Il codice qui è identico a quello descritto in precedenza nella sezione relativ
 
 La libreria MSAL fornisce un `logout` metodo che cancella la cache nell'archivio del browser e invia una richiesta di disconnessione a Azure Active Directory (Azure ad). Dopo la disconnessione, la libreria reindirizza nuovamente alla pagina di avvio dell'applicazione per impostazione predefinita.
 
-È possibile configurare l'URI a cui deve essere reindirizzato dopo la disconnessione `postLogoutRedirectUri`impostando. Questo URI deve essere registrato anche come URI di disconnessione nella registrazione dell'applicazione.
+È possibile configurare l'URI a cui deve essere reindirizzato dopo la disconnessione impostando `postLogoutRedirectUri` . Questo URI deve essere registrato anche come URI di disconnessione nella registrazione dell'applicazione.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -156,9 +178,9 @@ const config = {
     }
 }
 
-const userAgentApplication = new UserAgentApplication(config);
-userAgentApplication.logout();
+const myMsal = new UserAgentApplication(config);
 
+myMsal.logout();
 ```
 
 # <a name="angular"></a>[Angular](#tab/angular)

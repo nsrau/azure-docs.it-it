@@ -7,13 +7,12 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: b2f533e8bd9199025260aaca9cff587b13adce64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/05/2020
+ms.openlocfilehash: e106f5b615cd667551ef3d597a45b522320eed6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610185"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Trasformazione origine nel flusso di dati di mapping 
 
@@ -23,22 +22,36 @@ Una trasformazione origine configura l'origine dati per il flusso di dati. Quand
 
 Ogni flusso di dati richiede almeno una trasformazione di origine, ma è possibile aggiungere tutte le origini necessarie per completare le trasformazioni dei dati. È possibile unire tali origini insieme a una trasformazione join, Lookup o Union.
 
-Ogni trasformazione di origine è associata a un solo set di dati Data Factory. Il set di dati definisce la forma e il percorso dei dati da cui si desidera eseguire la scrittura o la lettura. Se si usa un set di dati basato su file, è possibile usare i caratteri jolly e gli elenchi di file nell'origine per lavorare con più di un file alla volta.
+Ogni trasformazione di origine è associata esattamente a un set di dati o a un servizio collegato. Il set di dati definisce la forma e il percorso dei dati da cui si desidera eseguire la scrittura o la lettura. Se si usa un set di dati basato su file, è possibile usare i caratteri jolly e gli elenchi di file nell'origine per lavorare con più di un file alla volta.
 
-## <a name="supported-source-connectors-in-mapping-data-flow"></a>Connettori di origine supportati nel flusso di dati di mapping
+## <a name="inline-datasets"></a>Set di impostazioni di set di righe
+
+La prima decisione da prendere durante la creazione di una trasformazione di origine è se le informazioni sull'origine sono definite all'interno di un oggetto DataSet o nella trasformazione di origine. La maggior parte dei formati è disponibile solo in uno o nell'altro. Per informazioni su come usare un connettore specifico, fare riferimento al documento del connettore appropriato.
+
+Quando un formato è supportato sia per inline che per un oggetto DataSet, sono disponibili entrambi i vantaggi. Gli oggetti DataSet sono entità riutilizzabili che possono essere utilizzate in altri flussi di dati e attività quali la copia. Queste sono particolarmente utili quando si usa uno schema finalizzato. I set di dati non sono basati su Spark e talvolta potrebbe essere necessario eseguire l'override di determinate impostazioni o proiezione dello schema nella trasformazione di origine.
+
+I set di dati inline sono consigliati quando si utilizzano schemi flessibili, istanze di origine monouso o origini con parametri. Se l'origine è fortemente parametrizzata, i set di dati inline consentono di non creare un oggetto "fittizio". I set di dati inline sono basati su Spark e le relative proprietà sono native per il flusso di dati.
+
+Per usare un set di dati inline, selezionare il formato desiderato nel selettore del **tipo di origine** . Anziché selezionare un set di dati di origine, selezionare il servizio collegato a cui si desidera connettersi.
+
+![Set di dati inline](media/data-flow/inline-selector.png "Set di dati inline")
+
+##  <a name="supported-source-types"></a><a name="supported-sources"></a>Tipi di origine supportati
 
 Il flusso di dati di mapping segue un approccio di estrazione, caricamento e trasformazione (ELT) e funziona con i set di dati di *staging* che sono tutti in Azure. Attualmente i set di dati seguenti possono essere utilizzati in una trasformazione di origine:
-    
-* [Archiviazione BLOB di Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, avro, testo, parquet)
-* [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, avro, testo, parquet)
-* [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, avro, testo, parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Database SQL di Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-Le impostazioni specifiche di questi connettori si trovano nella scheda **Opzioni di origine** . le informazioni su queste impostazioni sono disponibili nella documentazione del connettore. 
+| Connettore | Format | Set di dati/inline |
+| --------- | ------ | -------------- |
+| [Archiviazione BLOB di Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Testo delimitato](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Testo delimitato](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Testo delimitato](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (anteprima)](format-common-data-model.md#source-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Database SQL di Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure CosmosDB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 
-Azure Data Factory ha accesso a oltre [90 connettori nativi](connector-overview.md). Per includere dati da tali origini nel flusso di dati, usare l'attività di copia per caricare i dati in una delle aree di gestione temporanea supportate.
+Le impostazioni specifiche di questi connettori si trovano nella scheda **Opzioni di origine** . gli esempi di script del flusso di dati e informazioni su queste impostazioni sono disponibili nella documentazione del connettore. 
+
+Azure Data Factory può accedere a più di [90 connettori nativi](connector-overview.md). Per includere dati da tali origini nel flusso di dati, usare l'attività di copia per caricare i dati in una delle aree di gestione temporanea supportate.
 
 ## <a name="source-settings"></a>Impostazioni origine
 
@@ -46,6 +59,10 @@ Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di o
 
 ![Scheda Impostazioni di origine](media/data-flow/source1.png "Scheda Impostazioni di origine")
 
+**Nome flusso di output:** Nome della trasformazione di origine.
+
+**Tipo di origine:** Scegliere se si desidera utilizzare un set di dati inline o un oggetto DataSet esistente.
+ 
 **Test connessione:** Verificare se il servizio Spark del flusso di dati è in grado di connettersi al servizio collegato usato nel set di dati di origine. Per abilitare questa funzionalità, è necessario attivare la modalità di debug.
 
 **Schema Drift:** la [deriva dello schema](concepts-data-flow-schema-drift.md) è data factory capacità di gestire in modo nativo schemi flessibili nei flussi di dati senza dover definire in modo esplicito le modifiche apportate alle colonne.
@@ -60,12 +77,14 @@ Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di o
 
 **Campionamento:** Abilitare il campionamento per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
 
-**Righe su più righe:** Selezionare righe su più righe se il file di testo di origine contiene valori stringa che si estendono su più righe, ad esempio le nuove righe all'interno di un valore. Questa impostazione è disponibile solo nei set di impostazioni DelimitedText.
-
 Per convalidare che l'origine sia configurata correttamente, attivare la modalità di debug e recuperare un'anteprima dei dati. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
 > Quando la modalità di debug è attivata, la configurazione del limite di righe nelle impostazioni di debug sovrascriverà l'impostazione di campionamento nell'origine durante l'anteprima dei dati.
+
+## <a name="source-options"></a>Opzioni origine
+
+La scheda Opzioni di origine contiene impostazioni specifiche per il connettore e il formato scelti. Per ulteriori informazioni ed esempi, fare riferimento alla [documentazione del connettore](#supported-sources)pertinente.
 
 ## <a name="projection"></a>Proiezione
 
@@ -83,26 +102,18 @@ Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di
 
 Il pulsante **Importa schema** nella scheda **proiezione** consente di usare un cluster di debug attivo per creare una proiezione dello schema. Disponibile in ogni tipo di origine, l'importazione dello schema qui sostituirà la proiezione definita nel set di dati. L'oggetto DataSet non verrà modificato.
 
-Questa operazione è utile nei set di dati, ad esempio Avro e CosmosDB che supportano strutture di dati complesse, che non richiedono la presenza di definizioni dello schema nel set di dati.
+Questa operazione è utile nei set di dati, ad esempio Avro e CosmosDB che supportano strutture di dati complesse, che non richiedono la presenza di definizioni dello schema nel set di dati. Per i set di righe in linea, questo è l'unico modo per fare riferimento ai metadati della colonna senza la deriva dello schema.
 
 ## <a name="optimize-the-source-transformation"></a>Ottimizzare la trasformazione di origine
 
-Nella scheda **ottimizza** per la trasformazione origine è possibile che venga visualizzato un tipo di partizione di **origine** . Questa opzione è disponibile solo quando l'origine è il database SQL di Azure. Questo perché Data Factory tenta di rendere le connessioni parallele per eseguire query di grandi dimensioni sull'origine del database SQL.
+La scheda **ottimizza** consente di modificare le informazioni sulle partizioni a ogni passaggio della trasformazione. Nella maggior parte dei casi, l' **utilizzo del partizionamento corrente** viene ottimizzato per la struttura di partizionamento ideale per un'origine.
+
+Se si esegue la lettura da un'origine del database SQL di Azure, il partizionamento di **origine** personalizzato leggerà probabilmente i dati più velocemente. ADF leggerà query di grandi dimensioni rendendo le connessioni al database in parallelo. Questo partizionamento di origine può essere eseguito su una colonna o utilizzando una query.
 
 ![Impostazioni partizione di origine](media/data-flow/sourcepart3.png "partizionamento")
-
-Non è necessario partizionare i dati nell'origine del database SQL, ma le partizioni sono utili per le query di grandi dimensioni. È possibile basare la partizione su una colonna o su una query.
-
-### <a name="use-a-column-to-partition-data"></a>Usare una colonna per partizionare i dati
-
-Dalla tabella di origine selezionare una colonna in base alla quale eseguire la partizione. Impostare anche il numero di partizioni.
-
-### <a name="use-a-query-to-partition-data"></a>Usare una query per partizionare i dati
-
-È possibile scegliere di partizionare le connessioni in base a una query. Immettere il contenuto di un predicato WHERE. Immettere, ad esempio, anno > 1980.
 
 Per ulteriori informazioni sull'ottimizzazione all'interno del flusso di dati di mapping, vedere la [scheda Optimize](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Inizia la compilazione di una [trasformazione colonna derivata](data-flow-derived-column.md) e una [trasformazione selezione](data-flow-select.md).
+Iniziare a compilare il flusso di dati con una [trasformazione colonna derivata](data-flow-derived-column.md) e una [trasformazione selezione](data-flow-select.md).

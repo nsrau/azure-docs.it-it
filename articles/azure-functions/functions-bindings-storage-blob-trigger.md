@@ -5,20 +5,20 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559988"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Trigger di archiviazione BLOB di Azure per funzioni di Azure
 
 Il trigger di archiviazione BLOB avvia una funzione quando viene rilevato un BLOB nuovo o aggiornato. Il contenuto del BLOB viene fornito come [input alla funzione](./functions-bindings-storage-blob-input.md).
 
-Il trigger di archiviazione BLOB di Azure richiede un account di archiviazione per utilizzo generico. Per usare un account solo BLOB o se l'applicazione ha esigenze specializzate, esaminare le alternative all'uso di questo trigger.
+Il trigger di archiviazione BLOB di Azure richiede un account di archiviazione per utilizzo generico. Sono supportati anche gli account di archiviazione V2 con [spazi dei nomi gerarchici](../storage/blobs/data-lake-storage-namespace.md) . Per usare un account solo BLOB o se l'applicazione ha esigenze specializzate, esaminare le alternative all'uso di questo trigger.
 
-Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](./functions-bindings-storage-blob.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-storage-blob.md).
 
 ## <a name="alternatives"></a>Alternativi
 
@@ -58,7 +58,7 @@ Per ulteriori informazioni sull' `BlobTrigger` attributo, vedere [attributi e an
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *Function. JSON* e il codice che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel `samples-workitems` [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+Nell'esempio seguente viene illustrata un'associazione di trigger di BLOB in una *function.jsnel* file e nel codice che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel `samples-workitems` [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -254,7 +254,7 @@ L'account di archiviazione da usare è determinato nell'ordine seguente:
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script C#.
+Gli attributi non sono supportati da Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -272,19 +272,19 @@ L' `@BlobTrigger` attributo viene usato per fornire l'accesso al BLOB che ha att
 
 ## <a name="configuration"></a>Configurazione
 
-La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `BlobTrigger` attributo.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `BlobTrigger`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `blobTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
-|**direzione** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. Le eccezioni sono indicate nella sezione [usage](#usage). |
-|**name** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione. |
+|**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. Le eccezioni sono indicate nella sezione [usage](#usage). |
+|**nome** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione. |
 |**path** | **BlobPath** |[Contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) da monitorare.  Può essere un [modello di nome per il BLOB](#blob-name-patterns). |
-|**connection** | **Connessione** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** | **Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -296,7 +296,7 @@ La tabella seguente illustra le proprietà di configurazione dell'associazione i
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Accedere ai dati BLOB `context.bindings.<NAME>` usando `<NAME>` where corrisponde al valore definito in *Function. JSON*.
+Accedere ai dati BLOB usando `context.bindings.<NAME>` Where `<NAME>` corrisponde al valore definito in *function.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -348,7 +348,7 @@ Per cercare le parentesi graffe nei nomi dei file, raddoppiare le parentesi graf
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se il BLOB è denominato * {20140101}-soundfile. mp3*, il `name` valore della variabile nel codice della funzione sarà *soundfile. mp3*.
+Se il BLOB è denominato * {20140101}-soundfile.mp3*, il `name` valore della variabile nel codice della funzione viene *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadati
 
@@ -385,13 +385,13 @@ Il runtime di Funzioni di Azure verifica che nessuna funzione trigger di BLOB ve
 
 Funzioni di Azure archivia le conferme di BLOB in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure per l'app per le funzioni, specificato dall'impostazione app `AzureWebJobsStorage`. Una conferma di BLOB contiene le seguenti informazioni:
 
-* Funzione attivata ("*&lt;nome dell'app per le funzioni>*. Funzioni. nome della funzione>", ad esempio:" MyFunctionApp. Functions. CopyBlob ") * &lt; *
+* Funzione attivata ("nome dell'app per le* &lt; funzioni>*. Funzioni. * &lt; nome della funzione>*", ad esempio:" MyFunctionApp. Functions. CopyBlob ")
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
 * Il valore ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
 
-Per forzare la rielaborazione di un BLOB è possibile eliminare manualmente la conferma del BLOB dal contenitore *azure-webjobs-hosts*. Mentre la rielaborazione potrebbe non essere immediatamente eseguita, è garantita in un momento successivo. Per la rielaborazione immediata, il BLOB *ScanInfo* in *Azure-webjobs-hosts/blobscaninfo* può essere aggiornato. Tutti i BLOB con il timestamp dell'Ultima modifica `LatestScan` dopo la proprietà verranno analizzati nuovamente.
+Per forzare la rielaborazione di un BLOB è possibile eliminare manualmente la conferma del BLOB dal contenitore *azure-webjobs-hosts*. Mentre la rielaborazione potrebbe non essere immediatamente eseguita, è garantita in un momento successivo. Per la rielaborazione immediata, il BLOB *ScanInfo* in *Azure-webjobs-hosts/blobscaninfo* può essere aggiornato. Tutti i BLOB con il timestamp dell'Ultima modifica dopo la `LatestScan` proprietà verranno analizzati nuovamente.
 
 ## <a name="poison-blobs"></a>BLOB non elaborabili
 
@@ -399,7 +399,7 @@ Se una funzione di trigger del BLOB ha esito negativo per un determinato BLOB, p
 
 Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a una coda di archiviazione denominata *webjobs-blobtrigger-poison*. Il numero massimo di tentativi è configurabile. La stessa impostazione MaxDequeueCount viene usata per la gestione dei BLOB non elaborabili e per la gestione dei messaggi della coda non elaborabile. Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato * &lt;nome dell'app per le funzioni>*. Funzioni. Nome funzione>) * &lt; *
+* FunctionId (nel formato nome dell'app per le * &lt; funzioni>*. Funzioni. * &lt; nome funzione>*)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName

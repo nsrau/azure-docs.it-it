@@ -6,16 +6,21 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/2/2020
-ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 606279c0db92ad3aeb76d4f7a1a914f14348dd8f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81263472"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608469"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Creare utenti in Database di Azure per MySQL
 
 Questo articolo descrive come creare utenti in un database di Azure per il server MySQL.
+
+> [!NOTE]
+> Comunicazione senza distorsione
+>
+> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+>
 
 Quando si è creato il database di Azure per MySQL, si sono specificati un nome utente e una password per l'accesso come amministratore del server. Per altre informazioni, è possibile seguire le istruzioni della [Guida introduttiva](quickstart-create-mysql-server-database-using-azure-portal.md). È possibile trovare il nome utente per l'accesso come amministratore del server nel portale di Azure.
 

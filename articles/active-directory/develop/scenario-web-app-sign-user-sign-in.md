@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: df02c7d2ace6c58d86f4044607eca386f1790e1d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 41124e7237c2c16034fe8cce1fa89fa0132d09b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558932"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>App Web per l'accesso degli utenti: accesso e disconnessione
 
@@ -33,7 +32,7 @@ L'accesso è costituito da due parti:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core, per le applicazioni della piattaforma Microsoft Identity, il pulsante **Accedi** viene esposto `Views\Shared\_LoginPartial.cshtml` in (per un'app MVC) `Pages\Shared\_LoginPartial.cshtm` o (per un'app Razor). Viene visualizzato solo quando l'utente non è autenticato. Ovvero, viene visualizzato quando l'utente non ha ancora eseguito l'accesso o si è disconnesso. Al contrario, il pulsante di **disconnessione** viene visualizzato quando l'utente ha già eseguito l'accesso. Si noti che il controller di account è definito nel pacchetto NuGet **Microsoft. Identity. Web. UI** , nell'area denominata **MicrosoftIdentity**
+In ASP.NET Core, per le applicazioni della piattaforma Microsoft Identity, il pulsante **Accedi** viene esposto in `Views\Shared\_LoginPartial.cshtml` (per un'app MVC) o `Pages\Shared\_LoginPartial.cshtm` (per un'app Razor). Viene visualizzato solo quando l'utente non è autenticato. Ovvero, viene visualizzato quando l'utente non ha ancora eseguito l'accesso o si è disconnesso. Al contrario, il pulsante di **disconnessione** viene visualizzato quando l'utente ha già eseguito l'accesso. Si noti che il controller di account è definito nel pacchetto NuGet **Microsoft. Identity. Web. UI** , nell'area denominata **MicrosoftIdentity**
 
 ```html
 <ul class="navbar-nav">
@@ -57,7 +56,7 @@ In ASP.NET Core, per le applicazioni della piattaforma Microsoft Identity, il pu
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-In ASP.NET MVC il pulsante di disconnessione viene esposto in `Views\Shared\_LoginPartial.cshtml`. Viene visualizzato solo quando è presente un account autenticato. Ovvero viene visualizzato quando l'utente ha già eseguito l'accesso.
+In ASP.NET MVC il pulsante di disconnessione viene esposto in `Views\Shared\_LoginPartial.cshtml` . Viene visualizzato solo quando è presente un account autenticato. Ovvero viene visualizzato quando l'utente ha già eseguito l'accesso.
 
 ```html
 @if (Request.IsAuthenticated)
@@ -112,13 +111,13 @@ def index():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET, selezionando il pulsante di **accesso** nell'app Web, viene attivata `SignIn` l'azione sul `AccountController` controller. Nelle versioni precedenti dei modelli ASP.NET Core il `Account` controller era incorporato con l'app Web. Non è più così perché il controller fa ora parte del pacchetto NuGet **Microsoft. Identity. Web. UI** . Per informazioni dettagliate, vedere [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
+In ASP.NET, selezionando il pulsante di **accesso** nell'app Web, viene attivata l' `SignIn` azione sul `AccountController` controller. Nelle versioni precedenti dei modelli ASP.NET Core il `Account` controller era incorporato con l'app Web. Non è più così perché il controller fa ora parte del pacchetto NuGet **Microsoft. Identity. Web. UI** . Per informazioni dettagliate, vedere [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
 
 Questo controller gestisce anche le applicazioni Azure AD B2C.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-In ASP.NET, la `SignOut()` disconnessione viene attivata dal metodo su un controller, ad esempio [AccountController. cs # L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23). Questo metodo non fa parte del framework ASP.NET (contrariamente a quanto accade in ASP.NET Core). Invia una richiesta di accesso OpenID dopo aver proposto un URI di reindirizzamento.
+In ASP.NET, la disconnessione viene attivata dal `SignOut()` metodo su un controller, ad esempio [AccountController. cs # L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23). Questo metodo non fa parte del framework ASP.NET (contrariamente a quanto accade in ASP.NET Core). Invia una richiesta di accesso OpenID dopo aver proposto un URI di reindirizzamento.
 
 ```csharp
 public void SignIn()
@@ -133,7 +132,7 @@ public void SignIn()
 
 # <a name="java"></a>[Java](#tab/java)
 
-In Java la disconnessione viene gestita chiamando direttamente l'endpoint della piattaforma `logout` Microsoft Identity e specificando il `post_logout_redirect_uri` valore. Per informazioni dettagliate, vedere [AuthPageController. Java # L30-L48](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L30-L48).
+In Java la disconnessione viene gestita chiamando direttamente l'endpoint della piattaforma Microsoft Identity `logout` e specificando il `post_logout_redirect_uri` valore. Per informazioni dettagliate, vedere [AuthPageController. Java # L30-L48](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L30-L48).
 
 ```Java
 @Controller
@@ -211,9 +210,9 @@ Dopo che l'utente ha eseguito l'accesso all'app, è opportuno abilitarne la disc
 ## <a name="sign-out"></a>Disconnessione
 
 La disconnessione da un'app Web prevede più di rimuovere le informazioni relative all'account connesso dallo stato dell'app Web.
-L'app Web deve anche reindirizzare l'utente all'endpoint della `logout` piattaforma Microsoft Identity per disconnettersi.
+L'app Web deve anche reindirizzare l'utente all'endpoint della piattaforma Microsoft Identity `logout` per disconnettersi.
 
-Quando l'app Web reindirizza l'utente all' `logout` endpoint, questo endpoint Cancella la sessione dell'utente dal browser. Se l'app non è stata inviata `logout` all'endpoint, l'utente eseguirà di nuovo l'autenticazione all'app senza immettere di nuovo le credenziali. Il motivo è che avranno una sessione Single Sign-on valida con l'endpoint della piattaforma di identità Microsoft.
+Quando l'app Web reindirizza l'utente all' `logout` endpoint, questo endpoint Cancella la sessione dell'utente dal browser. Se l'app non è stata inviata all' `logout` endpoint, l'utente eseguirà di nuovo l'autenticazione all'app senza immettere di nuovo le credenziali. Il motivo è che avranno una sessione Single Sign-on valida con l'endpoint della piattaforma di identità Microsoft.
 
 Per altre informazioni, vedere la sezione [inviare una richiesta](v2-protocols-oidc.md#send-a-sign-out-request) di disconnessione nella [piattaforma di identità Microsoft e nella documentazione del protocollo OpenID Connect](v2-protocols-oidc.md) .
 
@@ -221,15 +220,15 @@ Per altre informazioni, vedere la sezione [inviare una richiesta](v2-protocols-o
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita `https://localhost:44321/signout-oidc` la registrazione nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [registrare l'app webapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita la registrazione `https://localhost:44321/signout-oidc` nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [registrare l'app webapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita `https://localhost:44308/Account/EndSession` la registrazione nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [registrare l'app webapp](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita la registrazione `https://localhost:44308/Account/EndSession` nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [registrare l'app webapp](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita `http://localhost:8080/msal4jsample/sign_out` la registrazione nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** .
+Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita la registrazione `http://localhost:8080/msal4jsample/sign_out` nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** .
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -241,7 +240,7 @@ Durante la registrazione dell'applicazione, non è necessario registrare un URL 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET, se si seleziona il pulsante di **disconnessione** nell'app Web `SignOut` , viene attivata `AccountController` l'azione sul controller (vedere di seguito)
+In ASP.NET, se si seleziona il pulsante di **disconnessione** nell'app Web, viene attivata l' `SignOut` azione sul `AccountController` Controller (vedere di seguito)
 
 ```html
 <ul class="navbar-nav">
@@ -265,7 +264,7 @@ In ASP.NET, se si seleziona il pulsante di **disconnessione** nell'app Web `Sign
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-In ASP.NET MVC il pulsante di disconnessione viene esposto in `Views\Shared\_LoginPartial.cshtml`. Viene visualizzato solo quando è presente un account autenticato. Ovvero viene visualizzato quando l'utente ha già eseguito l'accesso.
+In ASP.NET MVC il pulsante di disconnessione viene esposto in `Views\Shared\_LoginPartial.cshtml` . Viene visualizzato solo quando è presente un account autenticato. Ovvero viene visualizzato quando l'utente ha già eseguito l'accesso.
 
 ```html
 @if (Request.IsAuthenticated)
@@ -291,7 +290,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nella Guida introduttiva di Java il pulsante di disconnessione si trova nel file main/resources/templates/auth_page.html.
+Nella Guida introduttiva di Java il pulsante di disconnessione si trova nel file Main/Resources/templates/auth_page.html.
 
 ```html
 <!DOCTYPE html>
@@ -306,7 +305,7 @@ Nella Guida introduttiva di Java il pulsante di disconnessione si trova nel file
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nella Guida introduttiva di Python il pulsante di disconnessione si trova nel file [templates/index. html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) .
+Nella Guida introduttiva di Python, il pulsante di disconnessione è disponibile nel file [templates/index.html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) .
 
 ```html
 <!DOCTYPE html>
@@ -331,15 +330,15 @@ Nella Guida introduttiva di Python il pulsante di disconnessione si trova nel fi
 
 Nelle versioni precedenti dei modelli ASP.NET Core il `Account` controller era incorporato con l'app Web. Non è più così perché il controller fa ora parte del pacchetto NuGet **Microsoft. Identity. Web. UI** . Per informazioni dettagliate, vedere [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) .
 
-- Imposta un URI di reindirizzamento OpenID `/Account/SignedOut` su in modo che il controller venga richiamato quando Azure ad ha completato la disconnessione.
-- Chiama `Signout()`, che consente al middleware di OpenID Connect di contattare l'endpoint `logout` della piattaforma di identità Microsoft. L'endpoint:
+- Imposta un URI di reindirizzamento OpenID su in `/Account/SignedOut` modo che il controller venga richiamato quando Azure ad ha completato la disconnessione.
+- Chiama `Signout()` , che consente al middleware di OpenID Connect di contattare l'endpoint della piattaforma di identità Microsoft `logout` . L'endpoint:
 
   - Cancella il cookie di sessione dal browser.
-  - Richiama l'URL di disconnessione. Per impostazione predefinita, l'URL di disconnessione Visualizza la pagina di visualizzazione di cui è stato effettuato l'accesso [. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Questa pagina viene fornita anche come parte di MIcrosoft. Identity. Web.
+  - Richiama l'URL di disconnessione. Per impostazione predefinita, l'URL di disconnessione Visualizza la pagina di visualizzazione con segno [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Questa pagina viene fornita anche come parte di MIcrosoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-In ASP.NET, la `SignOut()` disconnessione viene attivata dal metodo su un controller, ad esempio [AccountController. cs # L25-L31](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L25-L31). Questo metodo non fa parte del framework ASP.NET, contrariamente a quanto accade in ASP.NET Core. È
+In ASP.NET, la disconnessione viene attivata dal `SignOut()` metodo su un controller, ad esempio [AccountController. cs # L25-L31](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L25-L31). Questo metodo non fa parte del framework ASP.NET, contrariamente a quanto accade in ASP.NET Core. È
 
 - Invia una richiesta di disconnessione OpenID.
 - Cancella la cache.
@@ -360,7 +359,7 @@ public void SignOut()
 
 # <a name="java"></a>[Java](#tab/java)
 
-In Java la disconnessione viene gestita chiamando direttamente l'endpoint della piattaforma `logout` Microsoft Identity e specificando il `post_logout_redirect_uri` valore. Per informazioni dettagliate, vedere [AuthPageController. Java # L50-L60](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L50-L60).
+In Java la disconnessione viene gestita chiamando direttamente l'endpoint della piattaforma Microsoft Identity `logout` e specificando il `post_logout_redirect_uri` valore. Per informazioni dettagliate, vedere [AuthPageController. Java # L50-L60](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L50-L60).
 
 ```Java
 @RequestMapping("/msal4jsample/sign_out")
@@ -397,7 +396,7 @@ L'URI di post-disconnessione consente alle applicazioni di partecipare alla disc
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Il middleware OpenID Connect ASP.NET Core consente all'app di intercettare la chiamata all'endpoint della piattaforma `logout` di identità Microsoft fornendo un evento OpenID Connect `OnRedirectToIdentityProviderForSignOut`denominato. Questa operazione viene gestita automaticamente da Microsoft. Identity. Web (che cancella gli account nel caso in cui l'app Web chiami API Web)
+Il middleware OpenID Connect ASP.NET Core consente all'app di intercettare la chiamata all'endpoint della piattaforma `logout` di identità Microsoft fornendo un evento OpenID Connect denominato `OnRedirectToIdentityProviderForSignOut` . Questa operazione viene gestita automaticamente da Microsoft. Identity. Web (che cancella gli account nel caso in cui l'app Web chiami API Web)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -418,11 +417,11 @@ public class AccountController : Controller
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nella Guida introduttiva per Java, l'URI di reindirizzamento di post-disconnessione Visualizza solo la pagina index. html.
+Nella Guida introduttiva per Java, l'URI di reindirizzamento di post-disconnessione Visualizza solo la pagina index.html.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nella Guida introduttiva di Python, l'URI di reindirizzamento di post-disconnessione Visualizza solo la pagina index. html.
+Nella Guida introduttiva di Python, l'URI di reindirizzamento di post-disconnessione Visualizza solo la pagina index.html.
 
 ---
 

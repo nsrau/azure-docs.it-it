@@ -6,15 +6,20 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/2/2020
-ms.openlocfilehash: 1b79a49b2fb87ebf180aaaa40447f40c5a982c2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0db446c90589e8ff3262656b1e49e4b1631f4468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608741"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Creare utenti in Database di Azure per MariaDB 
 Questo articolo descrive come creare utenti in Database di Azure per MariaDB.
+
+> [!NOTE]
+> Comunicazione senza distorsione
+>
+> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+>
 
 Quando si è creato il Database di Azure per MariaDB, si sono specificati un nome utente e una password per l'accesso come amministratore del server. Per altre informazioni, è possibile seguire le istruzioni della [Guida introduttiva](quickstart-create-mariadb-server-database-using-azure-portal.md). È possibile trovare il nome utente per l'accesso come amministratore del server nel portale di Azure.
 

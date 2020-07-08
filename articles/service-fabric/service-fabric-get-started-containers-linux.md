@@ -3,12 +3,12 @@ title: Creare un'applicazione contenitore di Service Fabric di Azure in Linux
 description: Creare la prima applicazione contenitore Linux in Azure Service Fabric. Compilare un'immagine Docker con l'applicazione, eseguire il push dell'immagine in un registro contenitori e compilare e distribuire un'applicazione contenitore di Service Fabric.
 ms.topic: conceptual
 ms.date: 1/4/2019
-ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 07e3682ec1787ceb350ac72c8b80d86eed80b339
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75457966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560653"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* assegna un nome al contenitore in esecuzione, anziché l'ID contenitore.
 
-Connettersi al contenitore in esecuzione. Aprire un Web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http:\//localhost: 4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
+Connettersi al contenitore in esecuzione. Aprire un Web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http: \/ /localhost: 4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
 
 ![Hello World!][hello-world]
 
@@ -256,9 +256,9 @@ Usare lo script di installazione messo a disposizione nei modelli in https://git
 ./install.sh
 ```
 
-Aprire un browser e passare a Service Fabric Explorer all'indirizzo http\/:/localhost: 19080/Explorer (sostituire localhost con l'indirizzo IP privato della macchina virtuale se si usa un vagabondo in Mac OS X). Espandere il nodo delle applicazioni, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
+Aprire un browser e passare a Service Fabric Explorer all'indirizzo http: \/ /localhost: 19080/Explorer (sostituire localhost con l'indirizzo IP privato della macchina virtuale se si usa un vagabondo in Mac OS X). Espandere il nodo delle applicazioni, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
 
-Connettersi al contenitore in esecuzione. Aprire un Web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http:\//localhost: 4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
+Connettersi al contenitore in esecuzione. Aprire un Web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http: \/ /localhost: 4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
 
 ![Hello World!][hello-world]
 

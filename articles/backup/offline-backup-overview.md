@@ -3,12 +3,11 @@ title: Panoramica del backup offline
 description: Informazioni sui componenti del backup offline. Includono il backup offline basato su Azure Data Box e sul servizio Importazione/Esportazione di Azure.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628338"
 ---
 # <a name="overview-of-offline-backup"></a>Panoramica del backup offline
 
@@ -60,7 +59,7 @@ Di seguito è riportato un riepilogo dell'architettura:
 
 Per usare il backup offline basato sul servizio Importazione/Esportazione di Azure con l'agente MARS, vedere [Backup offline basato sul servizio Importazione/Esportazione di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
 
-Per usare lo stesso backup assieme a MABS o DPM-A, vedere [Flusso di lavoro di backup offline per DPM e server di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+Per usare lo stesso backup assieme a MABS o DPM-A, vedere [Flusso di lavoro di backup offline per DPM e server di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
 
 ## <a name="offline-backup-support-summary"></a>Riepilogo del supporto per il backup offline
 
@@ -83,4 +82,4 @@ Nella tabella seguente vengono confrontate le due opzioni disponibili, in modo d
 
 - [Backup offline di Backup di Azure tramite Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
 - [Flusso di lavoro del backup offline in Backup di Azure](backup-azure-backup-import-export.md)
-- [Flusso di lavoro di backup offline per DPM e server di Backup di Azure](backup-azure-backup-server-import-export-.md)
+- [Flusso di lavoro di backup offline per DPM e server di Backup di Azure](backup-azure-backup-server-import-export.md)

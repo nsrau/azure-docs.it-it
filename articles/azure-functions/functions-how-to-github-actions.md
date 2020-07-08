@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.openlocfilehash: dedca6912fd9d9e7b6f5089d02de9e4020e4e0ef
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 1a7cc37f297f902fb5de473303f1dc260cbea9ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559097"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Recapito continuo tramite l'azione GitHub
 
@@ -18,7 +18,7 @@ Le [azioni di GitHub](https://github.com/features/actions) consentono di definir
 
 Nelle azioni di GitHub un [flusso di lavoro](https://help.github.com/articles/about-github-actions#workflow) è un processo automatico definito nel repository GitHub. Questo processo spiega a GitHub come compilare e distribuire il progetto di app per le funzioni su GitHub. 
 
-Un flusso di lavoro viene definito da un file YAML (. yml) nel `/.github/workflows/` percorso nel repository. Questa definizione contiene i vari passaggi e parametri che costituiscono il flusso di lavoro. 
+Un flusso di lavoro viene definito da un file YAML (con estensione yml) nel percorso `/.github/workflows/` del repository. Questa definizione contiene i vari passaggi e i parametri che costituiscono il flusso di lavoro. 
 
 Per un flusso di lavoro di funzioni di Azure, il file è costituito da tre sezioni: 
 
@@ -33,13 +33,13 @@ Per un flusso di lavoro di funzioni di Azure, il file è costituito da tre sezio
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-È possibile creare un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'interfaccia della riga di comando di [Azure](/cli/azure/). È possibile eseguire questo comando usando [Azure cloud Shell](https://shell.azure.com) nel portale di Azure o selezionando il pulsante **prova** .
+È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'[interfaccia della riga di comando di Azure](/cli/azure/). È possibile eseguire questo comando usando [Azure Cloud Shell](https://shell.azure.com) nel portale di Azure oppure selezionando il pulsante **Prova**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
 ```
 
-In questo esempio, sostituire i segnaposto nella risorsa con l'ID sottoscrizione, il gruppo di risorse e il nome dell'app per le funzioni. L'output è costituito dalle credenziali di assegnazione di ruolo che consentono l'accesso all'app per le funzioni. Copiare questo oggetto JSON, che è possibile usare per eseguire l'autenticazione da GitHub.
+In questo esempio, sostituire i segnaposto nella risorsa con l'ID sottoscrizione, il gruppo di risorse e il nome dell'app per le funzioni. L'output è costituito dalle credenziali di assegnazione di ruolo che consentono l'accesso all'app per le funzioni. Copiare questo oggetto JSON, che potrà essere usato per eseguire l'autenticazione da GitHub.
 
 > [!IMPORTANT]
 > È sempre consigliabile concedere l'accesso minimo. Questo è il motivo per cui l'ambito nell'esempio precedente è limitato all'app per le funzioni specifica e non all'intero gruppo di risorse.
@@ -203,8 +203,8 @@ Per distribuire il codice in un'app per le funzioni, sarà necessario usare l' `
 
 |Parametro |Spiegazione  |
 |---------|---------|
-|**_Nome app_** | Obbligatorio Nome dell'app per le funzioni. |
-|_**nome slot**_ | Opzionale Nome dello slot di [distribuzione](functions-deployment-slots.md) in cui si desidera eseguire la distribuzione. Lo slot deve essere già definito nell'app per le funzioni. |
+|**_app-name_** | Obbligatorio Nome dell'app per le funzioni. |
+|_**slot-name**_ | Opzionale Nome dello slot di [distribuzione](functions-deployment-slots.md) in cui si desidera eseguire la distribuzione. Lo slot deve essere già definito nell'app per le funzioni. |
 
 
 Nell'esempio seguente viene utilizzata la versione 1 di `functions-action` :

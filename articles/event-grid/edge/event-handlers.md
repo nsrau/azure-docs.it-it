@@ -1,19 +1,18 @@
 ---
 title: Gestori eventi e destinazioni-IoT Edge di griglia di eventi di Azure | Microsoft Docs
 description: Gestori di eventi e destinazioni in griglia di eventi sul perimetro
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e144461b80dca2cf02c0cc06d7feee882293848
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557630"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Gestori di eventi e destinazioni in griglia di eventi sul perimetro
 
@@ -42,7 +41,7 @@ Per pubblicare in un endpoint di Webhook, impostare `endpointType` su `WebHook` 
 
 ## <a name="azure-event-grid"></a>Griglia di eventi di Azure
 
-Per pubblicare in un endpoint cloud di griglia di eventi di Azure `endpointType` , `eventGrid` impostare su e fornire:
+Per pubblicare in un endpoint cloud di griglia di eventi di Azure, impostare `endpointType` su `eventGrid` e fornire:
 
 * endpointUrl: URL dell'argomento della griglia di eventi nel cloud
 * sasKey: chiave SAS dell'argomento della griglia di eventi
@@ -106,7 +105,7 @@ Per pubblicare in un hub eventi, impostare `endpointType` su `eventHub` e specif
 
 ## <a name="service-bus-queues"></a>Code del bus di servizio
 
-Per pubblicare in una coda del `endpointType` bus di servizio, impostare `serviceBusQueue` su e specificare:
+Per pubblicare in una coda del bus di servizio, impostare `endpointType` su `serviceBusQueue` e specificare:
 
 * connectionString: stringa di connessione per la coda del bus di servizio specifica di destinazione generata tramite criteri di accesso condiviso.
 
@@ -128,7 +127,7 @@ Per pubblicare in una coda del `endpointType` bus di servizio, impostare `servic
 
 ## <a name="service-bus-topics"></a>Argomenti del bus di servizio
 
-Per pubblicare in un argomento del `endpointType` bus di servizio, impostare `serviceBusTopic` su e specificare:
+Per pubblicare in un argomento del bus di servizio, impostare `endpointType` su `serviceBusTopic` e specificare:
 
 * connectionString: stringa di connessione per l'argomento del bus di servizio specifico di destinazione generato tramite criteri di accesso condiviso.
 

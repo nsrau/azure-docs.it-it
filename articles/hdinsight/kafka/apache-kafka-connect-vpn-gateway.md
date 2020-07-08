@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, tracking-python
 ms.date: 03/04/2020
-ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d8bf80cad86f45c24a475799a840b861c23fc28a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610917"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Connettersi ad Apache Kafka in HDInsight tramite una rete virtuale di Azure
 
@@ -274,7 +273,7 @@ Per impostazione predefinita, Apache ZooKeeper restituisce il nome di dominio de
 
 8. Per salvare le modifiche alla configurazione usare il pulsante __Salva__. Immettere un messaggio di testo che descrive le modifiche. Selezionare __OK__ dopo aver salvato le modifiche.
 
-    ![Configurazione del salvataggio di Apache Ambari](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    ![Salvare la configurazione di Apache Ambari](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. Per evitare errori al riavvio di Kafka, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Attiva modalità di manutenzione__. Per completare questa operazione selezionare OK.
 
@@ -284,7 +283,7 @@ Per impostazione predefinita, Apache ZooKeeper restituisce il nome di dominio de
 
     ![Pulsante di riavvio con Restart all affected (Riavviare tutti gli elementi interessati) evidenziato](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
 
-11. Per disabilitare la modalità di manutenzione, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Disattiva modalità di manutenzione__. Selezionare **OK** per completare l'operazione.
+11. Per disabilitare la modalità di manutenzione, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Disattiva modalità di manutenzione__. Per completare questa operazione selezionare **OK**.
 
 ### <a name="connect-to-the-vpn-gateway"></a>Connettersi al gateway VPN
 

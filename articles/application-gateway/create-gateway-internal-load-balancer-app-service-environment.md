@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 06/09/2020
 ms.author: genli
-ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8861e850e168169762d95c44a54b6a88a036f396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668567"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628526"
 ---
-# <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Il certificato del server back-end non è consentito per un gateway applicazione quando si usa un servizio di bilanciamento del carico interno con un ambiente del servizio app
+# <a name="back-end-server-certificate-is-not-allow-listed-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Il certificato del server back-end non è consentito nell'elenco per un gateway applicazione che usa un Load Balancer interno con una ambiente del servizio app
 
-Questo articolo illustra come risolvere il problema seguente: un certificato non è consentita quando si crea un gateway applicazione usando un Load Balancer interno (ILB) insieme a un ambiente del servizio app (ASE) nel back-end quando si usa TLS end-to-end in Azure.
+Questo articolo illustra come risolvere il problema: un certificato non è consentito nell'elenco quando si crea un gateway applicazione usando un Load Balancer interno (ILB) insieme a un ambiente del servizio app (ASE) nel back-end quando si usa TLS end-to-end in Azure.
 
 ## <a name="symptoms"></a>Sintomi
 
@@ -41,7 +40,7 @@ Quando si crea un gateway applicazione tramite un servizio di bilanciamento del 
 - **Porta:**: 443
 - **Probe personalizzato:** Nome host - test.appgwtestase.com
 - **Certificato di autenticazione:** file CER di test.appgwtestase.com
-- **Integrità del back-end:** Danneggiato - Il certificato del server back-end non è consentito con il gateway applicazione.
+- **Integrità back-end:** Non integro: il certificato del server back-end non è consentito nell'elenco con il gateway applicazione.
 
 **Configurazione dell'ambiente del servizio app:**
 
@@ -68,7 +67,7 @@ Quando si usa un nome di dominio completo (FQDN) per accedere al servizio di bil
 
 - Deselezionare l'opzione **Use for App service** (Usa per servizio app) per il gateway applicazione se si usa l'indirizzo IP del servizio di bilanciamento del carico interno.
 
-Per ridurre il sovraccarico, è possibile caricare il certificato del servizio di bilanciamento del carico interno nelle impostazioni HTTP per il funzionamento del percorso del probe. Questo passaggio è solo per l'inserimento del certificato nell'elenco dei certificati consentiti. Non verrà usato per la comunicazione TLS. È possibile recuperare il certificato ILB accedendo al ILB con il relativo indirizzo IP dal browser su HTTPS, quindi esportando il certificato TLS/SSL in un formato CER con codifica base 64 e caricando il certificato nelle rispettive impostazioni HTTP.
+Per ridurre il sovraccarico, è possibile caricare il certificato del servizio di bilanciamento del carico interno nelle impostazioni HTTP per il funzionamento del percorso del probe. (Questo passaggio è solo per l'elenco Consenti. Non verrà usato per la comunicazione TLS. È possibile recuperare il certificato ILB accedendo al ILB con il relativo indirizzo IP dal browser su HTTPS, quindi esportando il certificato TLS/SSL in un formato CER con codifica base 64 e caricando il certificato nelle rispettive impostazioni HTTP.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

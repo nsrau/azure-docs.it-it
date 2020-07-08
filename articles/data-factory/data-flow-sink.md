@@ -8,42 +8,55 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4b10a4c98abd6bec4074bf35764a9cbb85d5b157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: 143c94527b947495709d2e94f107dc578e7f2866
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610203"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Dopo aver trasformato i dati, è possibile affondare i dati in un set di dati di destinazione. Ogni flusso di dati richiede almeno una trasformazione sink, ma è possibile scrivere in tutti i sink necessari per completare il flusso di trasformazione. Per scrivere in sink aggiuntivi, creare nuovi flussi tramite nuovi rami e divisioni condizionali.
+Dopo aver completato la trasformazione dei dati, scriverli in un archivio di destinazione usando la trasformazione sink. Ogni flusso di dati richiede almeno una trasformazione sink, ma è possibile scrivere in tutti i sink necessari per completare il flusso di trasformazione. Per scrivere in sink aggiuntivi, creare nuovi flussi tramite nuovi rami e divisioni condizionali.
 
-Ogni trasformazione sink è associata esattamente a un set di dati Data Factory. Il set di dati definisce la forma e la posizione dei dati in cui si desidera scrivere.
+Ogni trasformazione sink è associata esattamente a un oggetto Azure Data Factory DataSet o a un servizio collegato. La trasformazione sink determina la forma e la posizione dei dati in cui si desidera scrivere.
 
-## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Connettori sink supportati nel flusso di dati di mapping
+## <a name="inline-datasets"></a>Set di impostazioni di set di righe
 
-Attualmente i set di impostazioni seguenti possono essere utilizzati in una trasformazione sink:
-    
-* [Archiviazione BLOB di Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, avro, testo, parquet)
-* [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, avro, testo, parquet)
-* [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, avro, testo, parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Database SQL di Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
+Quando si crea una trasformazione sink, scegliere se le informazioni sul sink sono definite all'interno di un oggetto DataSet o nella trasformazione sink. La maggior parte dei formati è disponibile solo in uno o nell'altro. Per informazioni su come usare un connettore specifico, fare riferimento al documento del connettore appropriato.
 
-Le impostazioni specifiche di questi connettori si trovano nella scheda **Impostazioni** . le informazioni su queste impostazioni sono disponibili nella documentazione del connettore. 
+Quando un formato è supportato sia per inline che per un oggetto DataSet, sono disponibili entrambi i vantaggi. Gli oggetti DataSet sono entità riutilizzabili che possono essere utilizzate in altri flussi di dati e attività quali la copia. Queste sono particolarmente utili quando si usa uno schema finalizzato. I set di impostazioni non sono basati su Spark e talvolta potrebbe essere necessario eseguire l'override di determinate impostazioni o proiezione dello schema nella trasformazione sink.
 
-Azure Data Factory ha accesso a oltre [90 connettori nativi](connector-overview.md). Per scrivere i dati nelle altre origini dal flusso di dati, usare l'attività di copia per caricare i dati da una delle aree di gestione temporanea supportate dopo il completamento del flusso di dati.
+I set di impostazioni di set di righe sono consigliati quando si utilizzano schemi flessibili, istanze di sink monouso o sink con parametri. Se il sink è fortemente parametrizzato, i set di impostazioni inline consentono di non creare un oggetto "fittizio". I set di dati inline sono basati su Spark e le relative proprietà sono native per il flusso di dati.
+
+Per usare un set di dati inline, selezionare il formato desiderato nel selettore del **tipo di sink** . Anziché selezionare un set di dati sink, è necessario selezionare il servizio collegato a cui si desidera connettersi.
+
+![Set di dati inline](media/data-flow/inline-selector.png "Set di dati inline")
+
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a>Tipi di sink supportati
+
+Il flusso di dati di mapping segue un approccio di estrazione, caricamento e trasformazione (ELT) e funziona con i set di dati di *staging* che sono tutti in Azure. Attualmente i set di dati seguenti possono essere utilizzati in una trasformazione di origine:
+
+| Connettore | Format | Set di dati/inline |
+| --------- | ------ | -------------- |
+| [Archiviazione BLOB di Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Testo delimitato](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Testo delimitato](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Testo delimitato](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (anteprima)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Database SQL di Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure CosmosDB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+
+Le impostazioni specifiche di questi connettori si trovano nella scheda **Impostazioni** . gli esempi di script del flusso di dati e informazioni su queste impostazioni sono disponibili nella documentazione del connettore. 
+
+Azure Data Factory può accedere a più di [90 connettori nativi](connector-overview.md). Per scrivere i dati nelle altre origini dal flusso di dati, usare l'attività di copia per caricare i dati da un sink supportato.
 
 ## <a name="sink-settings"></a>Impostazioni sink
 
 Una volta aggiunto un sink, configurare tramite la scheda **sink** . Qui è possibile selezionare o creare il set di dati in cui il sink scrive. Di seguito è riportato un video che illustra una serie di opzioni di sink diverse per i tipi di file delimitati da testo:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
 ![Impostazioni sink](media/data-flow/sink-settings.png "Impostazioni sink")
 

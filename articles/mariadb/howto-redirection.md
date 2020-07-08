@@ -1,29 +1,29 @@
 ---
-title: Connettersi con reindirizzamento - Database di Azure per MySQL
-description: Questo articolo descrive come configurare l'applicazione per la connessione a Database di Azure per MySQL con reindirizzamento.
+title: 'Connettersi con reindirizzamento: database di Azure per MariaDB'
+description: Questo articolo descrive come è possibile configurare l'applicazione per la connessione al database di Azure per MariaDB con reindirizzamento.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 4036fe5b08a087f1f26027d5c5d98da851fb377c
+ms.openlocfilehash: ae61f58f2ac44db77db496dd5d3e38fad268129f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610288"
+ms.locfileid: "84612409"
 ---
-# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Connettersi a Database di Azure per MySQL con reindirizzamento
+# <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Connettersi al database di Azure per MariaDB con Reindirizzamento
 
-Questo argomento descrive come connettere un'applicazione al server di Database di Azure per MySQL con la modalità di reindirizzamento. Il reindirizzamento mira a ridurre la latenza di rete tra le applicazioni client e i server MySQL consentendo alle applicazioni di connettersi direttamente ai nodi server back-end.
+Questo argomento illustra come connettere un'applicazione al database di Azure per il server MariaDB con la modalità di reindirizzamento. Il reindirizzamento mira a ridurre la latenza di rete tra le applicazioni client e i server MariaDB consentendo alle applicazioni di connettersi direttamente ai nodi del server back-end.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Accedere al [portale di Azure](https://portal.azure.com). Creare un server Database di Azure per MySQL con motore versione 5.6, 5.7 o 8.0. 
+Accedere al [portale di Azure](https://portal.azure.com). Creare un database di Azure per il server MariaDB con il motore versione 10,2 o 10,3. 
 
-Per informazioni dettagliate, vedere come creare un database di Azure per il server MySQL usando il [portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md) o l'interfaccia della riga di comando di [Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+Per informazioni dettagliate, vedere come creare un database di Azure per il server MariaDB usando il [portale di Azure](quickstart-create-mariadb-server-database-using-azure-portal.md) o l'interfaccia della riga di comando di [Azure](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## <a name="enable-redirection"></a>Abilita reindirizzamento
 
-Nel database di Azure per il server MySQL configurare il `redirect_enabled` parametro su `ON` per consentire le connessioni con la modalità di reindirizzamento. Per aggiornare il parametro del server, usare l' [portale di Azure](howto-server-parameters.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).
+Nel database di Azure per il server MariaDB configurare il `redirect_enabled` parametro su `ON` per consentire le connessioni con la modalità di reindirizzamento. Per aggiornare il parametro del server, usare l' [portale di Azure](howto-server-parameters.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-cli.md).
 
 ## <a name="php"></a>PHP
 
@@ -46,7 +46,7 @@ Se si usa una versione precedente dell'estensione mysqlnd_azure (versione 1.0.0-
 |**Valore mysqlnd_azure.enableRedirect**| **Comportamento**|
 |----------------------------------------|-------------|
 |`off` o `0`|Il reindirizzamento non viene usato. |
-|`on` o `1`|- Se la connessione non usa SSL sul lato driver, non verrà eseguita alcuna connessione. Verrà restituito l'errore seguente: *"mysqlnd_azure.enableRedirect is on, but SSL option is not set in connection string. Redirection is only possible with SSL."* (mysqlnd_azure.enableRedirect è attivo ma l'opzione SSL non è impostata nella stringa di connessione. Il reindirizzamento è possibile solo con SSL).<br>- Se si usa SSL sul lato driver, ma il reindirizzamento non è supportato nel server, la prima connessione viene interrotta e viene restituito l'errore seguente: *"Connection aborted because redirection is not enabled on the MySQL server or the network package doesn't meet redirection protocol."* (Connessione interrotta. Il reindirizzamento non è abilitato nel server MySQL o il pacchetto di rete non è conforme al protocollo di reindirizzamento).<br>- Se il server MySQL supporta il reindirizzamento, ma la connessione reindirizzata non riesce per qualsiasi motivo, viene interrotta anche la prima connessione proxy. Restituisce l'errore della connessione reindirizzata.|
+|`on` o `1`|- Se la connessione non usa SSL sul lato driver, non verrà eseguita alcuna connessione. Verrà restituito l'errore seguente: *"mysqlnd_azure.enableRedirect is on, but SSL option is not set in connection string. Redirection is only possible with SSL."* (mysqlnd_azure.enableRedirect è attivo ma l'opzione SSL non è impostata nella stringa di connessione. Il reindirizzamento è possibile solo con SSL).<br>-Se si usa SSL sul lato del driver, ma il reindirizzamento non è supportato nel server, la prima connessione viene interrotta e viene restituito l'errore seguente: *"connessione interrotta perché il reindirizzamento non è abilitato nel server MariaDB o il pacchetto di rete non soddisfa il protocollo di reindirizzamento".*<br>-Se il server MariaDB supporta il reindirizzamento, ma la connessione reindirizzata non riesce per qualsiasi motivo, interrompere anche la prima connessione proxy. Restituisce l'errore della connessione reindirizzata.|
 |`preferred` o `2`<br> (valore predefinito)|- mysqlnd_azure userà il reindirizzamento, se possibile.<br>- Se la connessione non usa SSL sul lato driver, il server non supporta il reindirizzamento o la connessione reindirizzata non riesce per un qualsiasi motivo non irreversibile mentre la connessione proxy è ancora valida, verrà eseguito il fallback alla prima connessione proxy.|
 
 Le prossime sezioni del documento illustrano come installare l'estensione `mysqlnd_azure` usando PECL e come impostare il valore di questo parametro.
@@ -57,7 +57,7 @@ Le prossime sezioni del documento illustrano come installare l'estensione `mysql
 - PHP versioni 7.2.15+ e 7.3.2+
 - PHP PEAR 
 - php-mysql
-- Server di Database di Azure per MySQL
+- Database di Azure per il server MariaDB
 
 1. Installare [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) con [PECL](https://pecl.php.net/package/mysqlnd_azure). È consigliabile usare la versione 1.1.0+.
 
@@ -95,7 +95,7 @@ Le prossime sezioni del documento illustrano come installare l'estensione `mysql
 #### <a name="prerequisites"></a>Prerequisiti 
 - PHP versioni 7.2.15+ e 7.3.2+
 - php-mysql
-- Server di Database di Azure per MySQL
+- Database di Azure per il server MariaDB
 
 1. Determinare se è in esecuzione una versione x64 o x86 di PHP eseguendo il comando seguente:
 
@@ -140,7 +140,7 @@ Le prossime sezioni del documento illustrano come installare l'estensione `mysql
  
  ```php
 <?php
-$host = '<yourservername>.mysql.database.azure.com';
+$host = '<yourservername>.mariadb.database.azure.com';
 $username = '<yourusername>@<yourservername>';
 $password = '<yourpassword>';
 $db_name = 'testdb';

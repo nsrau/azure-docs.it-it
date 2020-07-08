@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 2e862410e2bf12e09e1a6388bbb6f7105b5b2edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: ca186fa62605953bfb90c1a4669fc8283eb78469
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559787"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -21,11 +21,11 @@ Questo articolo illustra il modello di dati usato da Application Insights per co
 
 ## <a name="data-model-for-telemetry-correlation"></a>Modello di dati per la correlazione di dati di telemetria
 
-Application Insights definisce un [modello di dati](../../azure-monitor/app/data-model.md) per la correlazione di dati di telemetria distribuita. Per associare i dati di telemetria a un'operazione logica, ogni elemento di telemetria ha un campo di contesto denominato `operation_Id`. Questo identificatore viene condiviso da ogni elemento di telemetria nella traccia distribuita. Quindi, anche se si perdono i dati di telemetria da un singolo livello, è comunque possibile associare i dati di telemetria segnalati da altri componenti.
+Application Insights definisce un [modello di dati](../../azure-monitor/app/data-model.md) per la correlazione di dati di telemetria distribuita. Per associare i dati di telemetria a un'operazione logica, ogni elemento di telemetria ha un campo di contesto denominato `operation_Id` . Questo identificatore viene condiviso da ogni elemento di telemetria nella traccia distribuita. Quindi, anche se si perdono i dati di telemetria da un singolo livello, è comunque possibile associare i dati di telemetria segnalati da altri componenti.
 
-Un'operazione logica distribuita è in genere costituita da un set di operazioni più piccole che sono richieste elaborate da uno dei componenti. Queste operazioni sono definite dalla [telemetria delle richieste](../../azure-monitor/app/data-model-request-telemetry.md). Ogni elemento di telemetria delle richieste `id` ha una propria proprietà che lo identifica in modo univoco e globale. Tutti gli elementi di telemetria (ad esempio tracce ed eccezioni) associati alla richiesta devono impostare sul `operation_parentId` valore della richiesta. `id`
+Un'operazione logica distribuita è in genere costituita da un set di operazioni più piccole che sono richieste elaborate da uno dei componenti. Queste operazioni sono definite dalla [telemetria delle richieste](../../azure-monitor/app/data-model-request-telemetry.md). Ogni elemento di telemetria delle richieste ha una propria proprietà `id` che lo identifica in modo univoco e globale. Tutti gli elementi di telemetria (ad esempio tracce ed eccezioni) associati alla richiesta devono impostare sul `operation_parentId` valore della richiesta `id` .
 
-Ogni operazione in uscita, ad esempio una chiamata HTTP a un altro componente, è rappresentata dalla [telemetria delle dipendenze](../../azure-monitor/app/data-model-dependency-telemetry.md). La `id` telemetria delle dipendenze definisce anche un oggetto univoco globale. La telemetria delle richieste, avviata dalla chiamata di dipendenza, usa questo `id` come `operation_parentId`.
+Ogni operazione in uscita, ad esempio una chiamata HTTP a un altro componente, è rappresentata dalla [telemetria delle dipendenze](../../azure-monitor/app/data-model-dependency-telemetry.md). La telemetria delle dipendenze definisce anche un oggetto `id` univoco globale. La telemetria delle richieste, avviata dalla chiamata di dipendenza, usa questo `id` come `operation_parentId`.
 
 È possibile creare una visualizzazione dell'operazione logica distribuita usando `operation_Id`, `operation_parentId` e `request.id` con `dependency.id`. Questi campi definiscono anche l'ordine della causalità delle chiamate di telemetria.
 
@@ -33,7 +33,7 @@ In un ambiente di microservizi, le tracce dai componenti possono finire in eleme
 
 ## <a name="example"></a>Esempio
 
-Ecco un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client `GET /Home/Stock`si apre usando. L'applicazione esegue una query sull'API azionario usando la `GET /api/stock/value`chiamata http.
+Ecco un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client si apre usando `GET /Home/Stock` . L'applicazione esegue una query sull'API azionario usando la chiamata HTTP `GET /api/stock/value` .
 
 È possibile analizzare i dati di telemetria risultanti eseguendo una query:
 
@@ -43,7 +43,7 @@ Ecco un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di 
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-Nei risultati tutti gli elementi di telemetria condividono l'elemento `operation_Id` radice. Quando viene eseguita una chiamata AJAX dalla pagina, viene assegnato un nuovo ID univoco`qJSXU`() ai dati di telemetria delle dipendenze e l'ID della pagina di visualizzazione `operation_ParentId`viene utilizzato come. La richiesta server usa quindi l'ID Ajax come `operation_ParentId`.
+Nei risultati tutti gli elementi di telemetria condividono l'elemento `operation_Id` radice. Quando viene eseguita una chiamata AJAX dalla pagina, viene assegnato un nuovo ID univoco ( `qJSXU` ) ai dati di telemetria delle dipendenze e l'ID della pagina di visualizzazione viene utilizzato come `operation_ParentId` . La richiesta server usa quindi l'ID Ajax come `operation_ParentId`.
 
 | itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
@@ -52,7 +52,7 @@ Nei risultati tutti gli elementi di telemetria condividono l'elemento `operation
 | richiesta    | GET /Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
 | dependency | GET /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
 
-Quando viene effettuata `GET /api/stock/value` la chiamata a un servizio esterno, è necessario conoscerne l'identità per poter impostare il `dependency.target` campo in modo appropriato. Quando il servizio esterno non supporta il monitoraggio, `target` è impostato sul nome host del servizio (ad esempio, `stock-prices-api.com`). Tuttavia, se il servizio viene identificato restituendo un'intestazione HTTP predefinita, `target` contiene l'identità del servizio che consente Application Insights di compilare una traccia distribuita eseguendo una query sui dati di telemetria di tale servizio.
+Quando `GET /api/stock/value` viene effettuata la chiamata a un servizio esterno, è necessario conoscerne l'identità per poter impostare il campo in modo `dependency.target` appropriato. Quando il servizio esterno non supporta il monitoraggio, `target` è impostato sul nome host del servizio (ad esempio, `stock-prices-api.com`). Tuttavia, se il servizio viene identificato restituendo un'intestazione HTTP predefinita, `target` contiene l'identità del servizio che consente Application Insights di compilare una traccia distribuita eseguendo una query sui dati di telemetria di tale servizio.
 
 ## <a name="correlation-headers"></a>Intestazioni di correlazione
 
@@ -68,16 +68,16 @@ Il [protocollo http di correlazione, denominato anche Request-ID](https://github
 - `Request-Id`: Contiene l'ID univoco globale della chiamata.
 - `Correlation-Context`: Contiene la raccolta di coppie nome-valore delle proprietà della traccia distribuita.
 
-Application Insights definisce anche l' [estensione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) per il protocollo http di correlazione. Usa le coppie nome-valore `Request-Context` per propagare la raccolta di proprietà usate dal chiamante o dal destinatario della chiamata. L'SDK Application Insights usa questa intestazione per impostare i `dependency.target` campi `request.source` e.
+Application Insights definisce anche l' [estensione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) per il protocollo http di correlazione. Usa le coppie nome-valore `Request-Context` per propagare la raccolta di proprietà usate dal chiamante o dal destinatario della chiamata. L'SDK Application Insights usa questa intestazione per impostare i `dependency.target` `request.source` campi e.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET classiche
  
   > [!NOTE]
-  >  A partire `Microsoft.ApplicationInsights.Web` da `Microsoft.ApplicationInsights.DependencyCollector`e, non è necessaria alcuna configurazione.
+  >  A partire da `Microsoft.ApplicationInsights.Web` e `Microsoft.ApplicationInsights.DependencyCollector` , non è necessaria alcuna configurazione.
 
 Il supporto del contesto di traccia W3C viene implementato in modo compatibile con le versioni precedenti. Si prevede che la correlazione funzioni con le applicazioni instrumentate con le versioni precedenti dell'SDK (senza supporto W3C).
 
-Se si desidera utilizzare il protocollo legacy `Request-Id` , è possibile disabilitare il contesto di traccia utilizzando questa configurazione:
+Se si desidera utilizzare il `Request-Id` protocollo legacy, è possibile disabilitare il contesto di traccia utilizzando questa configurazione:
 
 ```csharp
   Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
@@ -85,12 +85,12 @@ Se si desidera utilizzare il protocollo legacy `Request-Id` , è possibile disab
 ```
 
 Se si esegue una versione precedente dell'SDK, è consigliabile aggiornarla o applicare la configurazione seguente per abilitare il contesto di traccia.
-Questa funzionalità è disponibile nei pacchetti `Microsoft.ApplicationInsights.Web` e `Microsoft.ApplicationInsights.DependencyCollector` , a partire dalla versione 2.8.0-beta1.
-È disabilitata per impostazione predefinita. Per abilitarla, apportare le modifiche seguenti `ApplicationInsights.config`a:
+Questa funzionalità è disponibile nei `Microsoft.ApplicationInsights.Web` pacchetti e `Microsoft.ApplicationInsights.DependencyCollector` , a partire dalla versione 2.8.0-beta1.
+È disabilitata per impostazione predefinita. Per abilitarla, apportare le modifiche seguenti a `ApplicationInsights.config` :
 
-- In `RequestTrackingTelemetryModule`aggiungere l'elemento `EnableW3CHeadersExtraction` e impostarne il valore su `true`.
-- In `DependencyTrackingTelemetryModule`aggiungere l'elemento `EnableW3CHeadersInjection` e impostarne il valore su `true`.
-- Aggiungere `W3COperationCorrelationTelemetryInitializer` sotto `TelemetryInitializers`. L'aspetto sarà simile a questo esempio:
+- In `RequestTrackingTelemetryModule` aggiungere l' `EnableW3CHeadersExtraction` elemento e impostarne il valore su `true` .
+- In `DependencyTrackingTelemetryModule` aggiungere l' `EnableW3CHeadersInjection` elemento e impostarne il valore su `true` .
+- Aggiungere `W3COperationCorrelationTelemetryInitializer` sotto `TelemetryInitializers` . L'aspetto sarà simile a questo esempio:
 
 ```xml
 <TelemetryInitializers>
@@ -102,11 +102,11 @@ Questa funzionalità è disponibile nei pacchetti `Microsoft.ApplicationInsights
 ### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET Core
 
  > [!NOTE]
-  > A partire `Microsoft.ApplicationInsights.AspNetCore` dalla versione 2.8.0, non è necessaria alcuna configurazione.
+  > A partire dalla `Microsoft.ApplicationInsights.AspNetCore` versione 2.8.0, non è necessaria alcuna configurazione.
  
 Il supporto del contesto di traccia W3C viene implementato in modo compatibile con le versioni precedenti. Si prevede che la correlazione funzioni con le applicazioni instrumentate con le versioni precedenti dell'SDK (senza supporto W3C).
 
-Se si desidera utilizzare il protocollo legacy `Request-Id` , è possibile disabilitare il contesto di traccia utilizzando questa configurazione:
+Se si desidera utilizzare il `Request-Id` protocollo legacy, è possibile disabilitare il contesto di traccia utilizzando questa configurazione:
 
 ```csharp
   Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
@@ -136,7 +136,7 @@ public void ConfigureServices(IServiceCollection services)
 #### <a name="java-sdk"></a>SDK per Java
 - **Configurazione in ingresso**
 
-  - Per le `<TelemetryModules>` app Java EE, aggiungere quanto segue al tag in ApplicationInsights. XML:
+  - Per le app Java EE, aggiungere quanto segue al `<TelemetryModules>` tag nel ApplicationInsights.xml:
 
     ```xml
     <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
@@ -172,7 +172,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Abilitare il supporto per la traccia distribuita W3C per le app Web
 
-Questa funzionalità è in `Microsoft.ApplicationInsights.JavaScript`. È disabilitata per impostazione predefinita. Per abilitarla, usare `distributedTracingMode` config. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi legacy instrumentati da Application Insights.
+Questa funzionalità è in `Microsoft.ApplicationInsights.JavaScript` . È disabilitata per impostazione predefinita. Per abilitarla, usare `distributedTracingMode` config. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi legacy instrumentati da Application Insights.
 
 - **installazione di NPM (ignora se si usa l'installazione del frammento)**
 
@@ -248,7 +248,7 @@ if __name__ == '__main__':
     app.run(host='localhost', port=8080, threaded=True)
 ```
 
-Questo codice esegue un'applicazione Flask di esempio nel computer locale, ascoltando la `8080`porta. Per correlare il contesto della traccia, inviare una richiesta all'endpoint. In questo esempio, è possibile usare un `curl` comando:
+Questo codice esegue un'applicazione Flask di esempio nel computer locale, ascoltando la porta `8080` . Per correlare il contesto della traccia, inviare una richiesta all'endpoint. In questo esempio, è possibile usare un `curl` comando:
 ```
 curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
 ```
@@ -266,13 +266,13 @@ Se si esamina la voce della richiesta inviata a monitoraggio di Azure, è possib
 
 ![Telemetria delle richieste nei log (analisi)](./media/opencensus-python/0011-correlation.png)
 
-Il `id` campo ha il formato `<trace-id>.<span-id>`, dove `trace-id` è tratto dall'intestazione di traccia passata nella richiesta e `span-id` è una matrice a 8 byte generata per questo intervallo.
+Il `id` campo ha il formato `<trace-id>.<span-id>` , dove `trace-id` è tratto dall'intestazione di traccia passata nella richiesta e `span-id` è una matrice a 8 byte generata per questo intervallo.
 
-Il `operation_ParentId` campo è nel formato `<trace-id>.<parent-id>`, in cui sia `trace-id` che `parent-id` sono ricavati dall'intestazione della traccia passata nella richiesta.
+Il `operation_ParentId` campo è nel formato `<trace-id>.<parent-id>` , in cui sia `trace-id` `parent-id` che sono ricavati dall'intestazione della traccia passata nella richiesta.
 
-### <a name="log-correlation"></a>Correlazione dei registri
+### <a name="log-correlation"></a>Correlazione dei log
 
-OpenCensus Python consente di correlare i log aggiungendo un ID traccia, un ID span e un flag di campionamento ai record di log. Per aggiungere questi attributi, installare OpenCensus [Logging Integration](https://pypi.org/project/opencensus-ext-logging/). Gli attributi seguenti verranno aggiunti agli oggetti Python `LogRecord` : `traceId`, `spanId`e `traceSampled`. Si noti che questa operazione ha effetto solo per i logger creati dopo l'integrazione.
+OpenCensus Python consente di correlare i log aggiungendo un ID traccia, un ID span e un flag di campionamento ai record di log. Per aggiungere questi attributi, installare OpenCensus [Logging Integration](https://pypi.org/project/opencensus-ext-logging/). Gli attributi seguenti verranno aggiunti agli oggetti Python `LogRecord` : `traceId` , `spanId` e `traceSampled` . Si noti che questa operazione ha effetto solo per i logger creati dopo l'integrazione.
 
 Ecco un'applicazione di esempio che dimostra quanto segue:
 
@@ -299,9 +299,9 @@ Quando viene eseguito questo codice, nella console vengono stampate le seguenti 
 2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
-Si noti che è presente `spanId` un oggetto per il messaggio di log compreso nell'intervallo. Questo è lo stesso `spanId` che appartiene all'intervallo denominato `hello`.
+Si noti che è presente un oggetto `spanId` per il messaggio di log compreso nell'intervallo. Questo è lo stesso `spanId` che appartiene all'intervallo denominato `hello` .
 
-È possibile esportare i dati di log usando `AzureLogHandler`. Per altre informazioni, vedere [questo articolo](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs).
+È possibile esportare i dati di log usando `AzureLogHandler` . Per altre informazioni, vedi [questo articolo](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs).
 
 ## <a name="telemetry-correlation-in-net"></a>Correlazione di dati di telemetria in .NET
 
@@ -312,9 +312,9 @@ Nel corso del tempo, .NET ha definito diversi modi per correlare i log di diagno
 - `ILogger`USA gli [ambiti del log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes).
 - Windows Communication Foundation (WCF) e HTTP creano la propagazione del contesto "corrente".
 
-Tuttavia, questi metodi non abilitavano il supporto automatico per la traccia distribuita. `DiagnosticSource`supporta la correlazione automatica tra computer. Le librerie .NET `DiagnosticSource` supportano e consentono la propagazione automatica tra computer del contesto di correlazione tramite il trasporto, ad esempio http.
+Tuttavia, questi metodi non abilitavano il supporto automatico per la traccia distribuita. `DiagnosticSource`supporta la correlazione automatica tra computer. Le librerie .NET supportano `DiagnosticSource` e consentono la propagazione automatica tra computer del contesto di correlazione tramite il trasporto, ad esempio http.
 
-La [Guida dell'utente](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) dell' `DiagnosticSource` attività in illustra le nozioni di base delle attività di monitoraggio.
+La [Guida dell'utente dell'attività](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) in `DiagnosticSource` illustra le nozioni di base delle attività di monitoraggio.
 
 ASP.NET Core 2,0 supporta l'estrazione di intestazioni HTTP e l'avvio di nuove attività.
 
@@ -350,9 +350,9 @@ Potrebbe essere necessario personalizzare il modo in cui i nomi dei componenti v
       }
     }
     ```
-    È anche possibile impostare il nome del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_NAME`di ambiente.
+    È anche possibile impostare il nome del ruolo cloud usando la variabile di ambiente `APPLICATIONINSIGHTS_ROLE_NAME` .
 
-- Con Application Insights SDK Java 2.5.0 e versioni successive, è possibile specificare `cloud_RoleName` aggiungendo `<RoleName>` al file ApplicationInsights. XML:
+- Con Application Insights SDK Java 2.5.0 e versioni successive, è possibile specificare `cloud_RoleName` aggiungendo `<RoleName>` al file di ApplicationInsights.xml:
 
   ```XML
   <?xml version="1.0" encoding="utf-8"?>
@@ -367,7 +367,7 @@ Potrebbe essere necessario personalizzare il modo in cui i nomi dei componenti v
 
   `spring.application.name=<name-of-app>`
 
-  L'Starter Spring boot assegna `cloudRoleName` automaticamente il valore immesso per la `spring.application.name` proprietà.
+  L'Starter Spring boot assegna automaticamente il `cloudRoleName` valore immesso per la `spring.application.name` Proprietà.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

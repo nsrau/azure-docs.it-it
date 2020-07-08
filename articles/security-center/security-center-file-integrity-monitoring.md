@@ -13,15 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 46ff4d9c941af25fcec3a70d7a2e6da95da59f32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628297"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
+
+
+## <a name="availability"></a>Disponibilità
+
+- Stato della versione: **Disponibile a livello generale**
+- Ruoli necessari: il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). Il **lettore** può visualizzare i risultati.
+- Cloud:
+    - ✔ Cloud commerciali
+    - ✔ US Gov cloud
+    - ✘ Cina gov/altro gov
+
 
 ## <a name="what-is-fim-in-security-center"></a>Cos'è il monitoraggio dell'integrità dei file nel Centro sicurezza?
 Il monitoraggio dell'integrità dei file, detto anche monitoraggio delle modifiche, esamina i file e i registri del sistema operativo, il software delle applicazioni e altri elementi alla ricerca di modifiche che potrebbero indicare un attacco. Viene usato un metodo di confronto per determinare se lo stato corrente del file è diverso rispetto all'ultima analisi. È possibile sfruttare questo confronto per determinare se sono state apportate modifiche sospette o valide ai file.
@@ -37,7 +47,7 @@ Il Centro sicurezza consiglia le entità da monitorare, in cui è possibile abil
 > [!NOTE]
 > La funzionalità di monitoraggio dell'integrità dei file viene eseguita nelle macchine virtuali e nei computer Windows e Linux ed è disponibile nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **rilevamento modifiche** di tipo **soluzione**. Per informazioni dettagliate sulla frequenza di raccolta dati, vedere [rilevamento modifiche dettagli sulla raccolta dei dati](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per rilevamento modifiche di Azure.
+Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **rilevamento modifiche** di tipo **soluzione**. Per informazioni dettagliate sulla frequenza di raccolta dati, vedere [Informazioni dettagliate sulla raccolta dei dati di Rilevamento modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per Rilevamento modifiche di Azure.
 
 > [!NOTE]
 > Se si rimuove la risorsa di **rilevamento modifiche** , viene disabilitata anche la funzionalità di monitoraggio dell'integrità dei file nel centro sicurezza.
@@ -47,11 +57,11 @@ Quando si scelgono i file da monitorare, è necessario considerare quali sono cr
 
 Il Centro sicurezza fornisce l'elenco seguente di elementi consigliati da monitorare in base ai modelli di attacco noti. Inclusi i file e le chiavi del registro di sistema di Windows. Tutte le chiavi sono sotto HKEY_LOCAL_MACHINE ("HKLM" nella tabella).
 
-|**File Linux**|**File di Windows**|**Chiavi del registro di sistema di Windows**|
+|**File Linux**|**File di Windows**|**Chiavi del Registro di sistema di Windows**|
 |:----|:----|:----|
-|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
-|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4b59-4E08-B724-D2C6297EF351}|
-|/etc/*. conf|C:\config.sys|NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot HKLM\SOFTWARE\Microsoft\Windows|
+|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4b59-4E08-B724-D2C6297EF351}|
+|/etc/*. conf|C:\config.sys|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini \boot|
 |/usr/bin|C:\Windows\system.ini|CurrentVersion HKLM\SOFTWARE\Microsoft\Windows|
 |/usr/sbin|C:\Windows\win.ini|NT\CurrentVersion\Winlogon HKLM\SOFTWARE\Microsoft\Windows|
 |/bin|C:\Windows\regedit.exe|Cartelle HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell|
@@ -61,9 +71,9 @@ Il Centro sicurezza fornisce l'elenco seguente di elementi consigliati da monito
 |/usr/local/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx|
 |/opt/bin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices|
 |/opt/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce|
-|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
-|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4b59-4E08-B724-D2C6297EF351}|
-|/etc/cron.hourly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot|
+|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4b59-4E08-B724-D2C6297EF351}|
+|/etc/cron.hourly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini \boot|
 |/etc/cron.daily||CurrentVersion HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows|
 |/etc/cron.weekly||NT\CurrentVersion\Winlogon HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows|
 |/etc/cron.monthly||Cartelle HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Shell|
@@ -230,7 +240,7 @@ Usare i caratteri jolly per semplificare le attività di rilevamento nelle direc
 4. Selezionare **Rimuovi** per disabilitare.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si è appreso come usare il monitoraggio dell'integrità dei file (FIM) nel centro sicurezza. Per ulteriori informazioni sul centro sicurezza, vedere le pagine seguenti:
+In questo articolo si è appreso come usare il monitoraggio dell'integrità dei file (FIM) nel centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere le pagine seguenti:
 
 * [Impostazione dei criteri di sicurezza](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione dei consigli di sicurezza](security-center-recommendations.md): informazioni su come i consigli semplificano la protezione delle risorse di Azure.
