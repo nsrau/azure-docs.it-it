@@ -13,11 +13,10 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708961"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizzare i file audio e video con servizi multimediali di Azure
 
@@ -63,11 +62,11 @@ Il set di impostazioni consente di estrarre da un file video più informazioni d
 
 ## <a name="insightsjson-elements"></a>Elementi di insights.json
 
-L'output include un file JSON (Insights. Json) con tutte le informazioni dettagliate disponibili nel video o audio. JSON può contenere gli elementi seguenti:
+L'output include un file JSON (insights.json) con tutte le informazioni dettagliate disponibili nel video o audio. JSON può contenere gli elementi seguenti:
 
 ### <a name="transcript"></a>transcript
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della riga.|
 |text|Testo della trascrizione.|
@@ -105,7 +104,7 @@ Esempio:
 
 ### <a name="ocr"></a>ocr
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
@@ -148,7 +147,7 @@ Esempio:
 
 ### <a name="faces"></a>faces
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID del volto.|
 |name|Nome del volto. Può essere "Unknown #0", una celebrità identificata o una persona con training del cliente.|
@@ -193,7 +192,7 @@ Esempio:
 
 ### <a name="shots"></a>shots
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco dei fotogrammi chiave inclusi nello scatto, ciascuno con un ID e un elenco degli intervalli di tempo delle istanze. Le istanze dei fotogrammi chiave hanno un campo thumbnailId con l'ID anteprima del fotogramma chiave.|
@@ -250,7 +249,7 @@ Esempio:
 
 ### <a name="statistics"></a>statistiche
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |WordCount|Numero di parole per ogni voce.|
@@ -263,7 +262,7 @@ Esempio:
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
@@ -298,7 +297,7 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 
 ### <a name="labels"></a>Etichette
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
@@ -356,7 +355,7 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 
 ### <a name="keywords"></a>keywords
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
 |text|Testo della parola chiave.|
@@ -405,9 +404,9 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 
 Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video Indexer ha rilevato contenuti potenzialmente per adulti. Se visualContentModeration è vuoto, non è presente alcun contenuto per adulti identificato.
 
-I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti possono inviare una richiesta di revisione umana del contenuto, nel qual caso l' `IsAdult` attributo conterrà il risultato della revisione umana.
+I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti possono inviare una richiesta di revisione umana del contenuto, nel qual caso l'attributo conterrà `IsAdult` il risultato della revisione umana.
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|

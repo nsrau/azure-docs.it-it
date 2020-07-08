@@ -8,17 +8,16 @@ manager: dcscontentpm
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 09c911838d34a083de8450145ce849fc966eb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3f8c35604af9780fb4299bbd7bfd87c3d93ac537
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459152"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702840"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visualizzazione e modifica di nomi host
 Per consentire alle istanze di ruolo di essere collegate al nome host, è necessario impostare il valore per il nome host nel file di configurazione del servizio per ogni ruolo. Tale operazione è possibile aggiungendo il nome host desiderato all'attributo **vmName** dell'elemento **Role**. Il valore dell'attributo **vmName** viene usato come base per il nome host di ogni istanza del ruolo. Se ad esempio **vmName** è *webrole* e sono disponibili tre istanze di quel ruolo, i nomi host delle istanze saranno *webrole0*, *webrole1* e *webrole2*. Non è necessario specificare un nome host per le macchine virtuali nel file di configurazione, poiché il nome host per una macchina virtuale viene formulato in base al nome della macchina virtuale stessa. Per altre informazioni sulla configurazione di un servizio di Microsoft Azure, vedere [Schema di configurazione dei servizi di Azure (file .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -41,7 +40,7 @@ Da un client REST, seguire queste istruzioni:
 
 1. Assicurarsi di disporre di un certificato client per connettersi al portale di Azure. Per ottenere un certificato client, eseguire la procedura descritta in [Procedura: informazioni sul Download e Importazione delle impostazioni di pubblicazione e Sottoscrizione](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Impostare una voce di intestazione denominata x-ms-version con un valore di 2013-11-01.
-3. Inviare una richiesta nel formato seguente:\/https:/Management.Core.Windows.NET/\<subscrition-ID\>sottoscrizione/services/hostedservices/nome\<nome\>-servizio? Embed-detail = true
+3. Inviare una richiesta nel formato seguente: https: \/ /Management.Core.Windows.NET/ \<subscrition-id\> sottoscrizione/services/hostedservices/nome \<service-name\> ? Embed-detail = true
 4. Cercare l'elemento **HostName** per ogni elemento **RoleInstance**.
 
 > [!WARNING]

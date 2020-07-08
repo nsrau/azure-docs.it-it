@@ -15,11 +15,10 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269757"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705101"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codec e formati del flusso di lavoro Premium del codificatore multimediale
 
@@ -137,14 +136,14 @@ In uscita, sono disponibili le seguenti opzioni:
 
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto. 
 
-## <a name="need-help"></a>Serve assistenza?
+## <a name="need-help"></a>Richiesta di assistenza
 
-È possibile aprire un ticket di supporto passando alla [nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

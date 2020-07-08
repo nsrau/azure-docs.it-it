@@ -8,15 +8,14 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257927"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699907"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
-Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce alla strategia di ripristino di emergenza gestendo e orchestrando la replica, il failover e il failback dei computer locali e delle macchine virtuali (VM) di Azure.
+Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
 In questa esercitazione viene illustrato come configurare il ripristino di emergenza per server Windows e Linux fisici locali in Azure. In questa esercitazione verranno illustrate le procedure per:
 
@@ -105,7 +104,7 @@ Selezionare l'elemento da replicare e la posizione in cui replicarlo.
 
 Configurare il server di configurazione, registrarlo nell'insieme di credenziali e individuare le VM.
 
-1. Fare clic su **Site Recovery** > **preparare l'infrastruttura** > **origine**.
+1. Fare clic su **Site Recovery**  >  **preparare l'infrastruttura**  >  **origine**.
 2. Se non è disponibile un server di configurazione, fare clic su **+Server di configurazione**.
 3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
 4. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
@@ -131,12 +130,12 @@ Le regole del firewall basate sull'indirizzo IP dovrebbero consentire la comunic
 - **IP commerciali**: è necessario consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443). Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione per supportare gli URL di Azure Active Directory, backup, replica e archiviazione.  
 - **IP di enti pubblici**: consentire gli [intervalli IP del data center di Azure per enti pubblici](https://www.microsoft.com/en-us/download/details.aspx?id=57063) e la porta HTTPS (443) per tutte le aree US Gov (Virginia, Texas, Arizona e Iowa) per supportare gli URL di Azure Active Directory, backup, replica e archiviazione.  
 
-#### <a name="run-setup"></a>Eseguire l'installazione.
+#### <a name="run-setup"></a>Eseguire l'installazione
 Eseguire l'installazione unificata come amministratore locale per installare il server di configurazione. Per impostazione predefinita, sul server di configurazione vengono installati anche il server di elaborazione e il server di destinazione master.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Al termine della registrazione, il server di configurazione viene visualizzato nella pagina **Impostazioni** > **server** nell'insieme di credenziali.
+Al termine della registrazione, il server di configurazione viene visualizzato nella pagina **Impostazioni**  >  **server** nell'insieme di credenziali.
 
 ## <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
 
@@ -151,7 +150,7 @@ Selezionare e verificare le risorse di destinazione.
 
 ## <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
-1. Per creare un nuovo criterio di replica, fare clic su **Site Recovery infrastruttura** > **Replication Policies** > criteri di replica **+ criteri di replica**.
+1. Per creare un nuovo criterio di replica, fare clic su **Site Recovery infrastruttura**criteri di replica  >  **Replication Policies**  >  **+ criteri di replica**.
 2. In **Creare i criteri di replica** specificare un nome per i criteri.
 3. In **Soglia RPO**, specificare il limite dell'obiettivo del punto di ripristino (RPO). Questo valore specifica la frequenza con cui vengono creati punti di ripristino dei dati. Se la replica continua supera questo limite, viene generato un avviso.
 4. In **Conservazione del punto di recupero**, specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo. È supportata la conservazione fino a 24 ore per le macchine replicate in Archiviazione Premium e fino a 72 ore per Archiviazione Standard.
@@ -169,21 +168,21 @@ Abilitare la replica per ogni server.
 - Quando viene abilitata la replica, Site Recovery installa il servizio Mobility.
 - Quando viene abilitata la replica per un server, le modifiche diventeranno effettive e verranno visualizzate nel portale dopo 15 minuti o più.
 
-1. Fare clic su **replica** > **origine**applicazione.
+1. Fare clic su **Eseguire la replica dell'applicazione** > **Origine**.
 2. In **Origine** selezionare il server di configurazione.
 3. In **tipo di computer**selezionare **computer fisici**.
 4. Selezionare il server di elaborazione (server di configurazione). Fare quindi clic su **OK**.
 5. In **destinazione**selezionare la sottoscrizione e il gruppo di risorse in cui si vogliono creare le VM di Azure dopo il failover. Scegliere il modello di distribuzione (classica o Resource Manager) da usare in Azure.
 6. Selezionare l'account di archiviazione di Azure da usare per la replica dei dati. 
 7. Selezionare la rete di Azure e la subnet a cui dovranno connettersi le VM di Azure create dopo il failover.
-8. Selezionare **Configura ora per le macchine virtuali selezionate**per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Selezionare **Configura in seguito** per selezionare la rete di Azure per computer. 
+8. Selezionare **Configura ora per le macchine virtuali selezionate**per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer. 
 9. In **Computer fisici**, fare clic su **+Computer fisico**. Specificare il nome e l'indirizzo IP. Selezionare il sistema operativo del computer da replicare. Sono necessari alcuni minuti per individuare ed elencare i server. 
-10. In **Proprietà** > **Configura proprietà**selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
-11. In **Impostazioni** > di replica**configurare le impostazioni di replica**, verificare che sia selezionato il criterio di replica corretto. 
-12. Fare clic su **Abilita replica**. È possibile tenere traccia dello stato di avanzamento del processo di **Abilitazione della protezione** in **Impostazioni** > **processi** > **Site Recovery processi**. Dopo l'esecuzione del processo **finalizza protezione** , la macchina virtuale è pronta per il failover.
+10. In **Proprietà**  >  **Configura proprietà**selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
+11. In **Impostazioni della replica** > **Configurare le impostazioni di replica** verificare che siano stati selezionati i criteri di replica corretti. 
+12. Fare clic su **Abilita replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **finalizza protezione** , la macchina virtuale è pronta per il failover.
 
 
-Per monitorare i server aggiunti, è possibile controllare l'ora dell'ultima individuazione nei **Server** > di configurazione**ultimo contatto all'indirizzo**. Per aggiungere computer senza attendere l'individuazione pianificata, evidenziare il server di configurazione, senza selezionarlo, e fare clic su **Aggiorna**.
+Per monitorare i server aggiunti, è possibile controllare l'ora dell'ultima individuazione nei **server di configurazione**  >  **ultimo contatto all'indirizzo**. Per aggiungere computer senza attendere l'individuazione pianificata, evidenziare il server di configurazione, senza selezionarlo, e fare clic su **Aggiorna**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

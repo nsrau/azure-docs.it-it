@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: fe338ca3f25cd606da7f95f6c9437a3cd3dc4e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699788"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Panoramica del ciclo di vita di Reliable Services
 > [!div class="op_single_selector"]
@@ -113,7 +112,7 @@ Service Fabric modifica lo stato Primario di un servizio con stato per una serie
 
 I servizi che non gestiscono correttamente l'annullamento possono essere soggetti a diversi problemi. Queste operazioni sono lente perché Service Fabric attende l'arresto normale dei servizi. Questo può infine comportare la mancata riuscita degli aggiornamenti che raggiungono timeout ed eseguono il rollback. Il mancato rispetto del token di annullamento può anche provocare uno sbilanciamento dei cluster. I cluster diventano sbilanciati perché viene eseguito un accesso frequente ai nodi, ma i servizi non possono essere ribilanciati in quanto il loro spostamento richiede troppo tempo. 
 
-Poiché si tratta di servizi con stato, è anche probabile che usino [raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, quando un servizio primario viene abbassato di livello, una delle prime cose che accade è che viene revocato l'accesso in scrittura allo stato sottostante. Ciò comporta un secondo set di problemi che possono influire sul ciclo di vita del servizio. Le raccolte restituiscono eccezioni in base alla tempistica e al fatto che la replica venga spostata o arrestata. Queste eccezioni devono essere gestite correttamente. Le eccezioni generate da Service Fabric rientrano nelle categorie permanenti [(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) e temporanee [(`FabricTransientException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) . Le eccezioni permanenti devono essere registrate e generate, mentre quelle temporanee possono essere ripetute in base a una logica di ripetizione.
+Poiché si tratta di servizi con stato, è anche probabile che usino [raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, quando un servizio primario viene abbassato di livello, una delle prime cose che accade è che viene revocato l'accesso in scrittura allo stato sottostante. Ciò comporta un secondo set di problemi che possono influire sul ciclo di vita del servizio. Le raccolte restituiscono eccezioni in base alla tempistica e al fatto che la replica venga spostata o arrestata. Queste eccezioni devono essere gestite correttamente. Le eccezioni generate da Service Fabric rientrano nelle categorie permanenti [( `FabricException` )](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) e temporanee [( `FabricTransientException` )](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) . Le eccezioni permanenti devono essere registrate e generate, mentre quelle temporanee possono essere ripetute in base a una logica di ripetizione.
 
 La gestione delle eccezioni che derivano dall'uso di `ReliableCollections` in combinazione con gli eventi del ciclo di vita del servizio è una parte importante di test e convalida di un servizio Reliable. Si consiglia sempre di eseguire il servizio in condizioni di carico durante l'esecuzione di aggiornamenti e [test CHAOS](service-fabric-controlled-chaos.md) prima della distribuzione nell'ambiente di produzione. Questi passaggi di base contribuiscono ad assicurare che il servizio sia implementato correttamente e gestisca gli eventi del ciclo di vita nel modo giusto.
 

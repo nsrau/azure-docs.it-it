@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699924"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurare il server di configurazione per il ripristino di emergenza da server fisici ad Azure
 
@@ -36,7 +35,7 @@ La tabella seguente elenca i requisiti minimi hardware, software e di rete per u
 ## <a name="choose-your-protection-goals"></a>Scegliere gli obiettivi della protezione
 
 1. Nel portale di Azure accedere al pannello relativo agli insiemi di credenziali di **Servizi di ripristino** e selezionare l'insieme di credenziali specifico.
-2. Nel menu delle **risorse** dell'insieme di credenziali fare clic su **Introduzione** > **Site Recovery** > **passaggio 1: preparare l'infrastruttura** > **obiettivo di protezione**.
+2. Nel menu delle **risorse** dell'insieme di credenziali fare clic su **Introduzione**  >  **Site Recovery**  >  **passaggio 1: preparare l'infrastruttura**  >  **obiettivo di protezione**.
 
     ![Scegliere gli obiettivi](./media/physical-azure-set-up-source/choose-goals.png)
 3. In **Obiettivo di protezione** selezionare **In Azure** e scegliere **Non virtualizzato/Altro**e quindi fare clic su **OK**.

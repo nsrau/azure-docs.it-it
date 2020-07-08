@@ -7,11 +7,10 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707396"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuire un dispositivo StorSimple locale (aggiornamento 3 e successivi)
 
@@ -28,10 +27,10 @@ Le informazioni contenute in queste esercitazioni prevedono che siano state esam
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. Si consiglia di esaminare l'elenco di controllo di pre-installazione prima di iniziare. Il processo di distribuzione e configurazione può richiedere parecchio tempo.
 
 > [!NOTE]
-> Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Per informazioni complete sui dispositivi della serie 7000, vedere: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Per informazioni sulla distribuzione della serie 7000, vedere la [Guida introduttiva al sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
+> Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Per informazioni complete sui dispositivi della serie 7000, vedere: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com) . Per informazioni sulla distribuzione della serie 7000, vedere la [Guida introduttiva al sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
 
 
-## <a name="deployment-steps"></a>Fasi di distribuzione
+## <a name="deployment-steps"></a>Passaggi di distribuzione
 Eseguire questi passaggi obbligatori per configurare il dispositivo StorSimple e connetterlo al servizio Gestione dispositivi StorSimple. Oltre ai passaggi necessari sono disponibili passaggi facoltativi e procedure che possono essere necessarie durante la distribuzione. Le istruzioni dettagliate di distribuzione indicano quando è necessario eseguire ciascuno di questi passaggi facoltativi.
 
 | Passaggio | Descrizione |
@@ -66,10 +65,10 @@ Prima di distribuire il dispositivo, è necessario raccogliere informazioni per 
 Le sezioni seguenti illustrano i prerequisiti di configurazione per il servizio Gestione dispositivi StorSimple e per il dispositivo StorSimple.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Per il servizio Gestione dispositivi StorSimple
-Prima di iniziare:
+Prima di iniziare, verificare che:
 
 * Si dispone dell'account Microsoft con credenziali di accesso.
-* Verificare di avere un account di archiviazione di Microsoft Azure con credenziali di accesso.
+* Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
 * La sottoscrizione di Microsoft Azure è abilitata per il servizio Gestione dispositivi StorSimple. La sottoscrizione deve essere acquistata tramite il [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 * È possibile accedere a un software di emulazione terminal, ad esempio PuTTY.
 
@@ -80,7 +79,7 @@ Prima di configurare il dispositivo, assicurarsi che il dispositivo sia completa
 * [Decomprimere, montare su rack e cablare il dispositivo 8600](storsimple-8600-hardware-installation.md)
 
 ### <a name="for-the-network-in-the-datacenter"></a>Per la rete nel datacenter
-Prima di iniziare:
+Prima di iniziare, verificare che:
 
 * Per consentire il traffico iSCSI e cloud vengono aperte le porte nel firewall del data center come descritto in [Requisiti di rete per il dispositivo StorSimple](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 

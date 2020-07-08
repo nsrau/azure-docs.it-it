@@ -1,26 +1,25 @@
 ---
-title: Serie EV3 e serie Esv3-macchine virtuali di Azure
+title: Serie EV3 e serie Esv3
 description: Specifiche per le macchine virtuali serie EV3 e Esv3.
-services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: aad4610a44c59ed95cf1ad9777329097886c5bed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9fcb714e68548b95ed6d32bb16fb08c43ff0e5fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707634"
 ---
 # <a name="ev3-and-esv3-series"></a>Serie Ev3 e Esv3
 
-Le serie EV3 e Esv3 includono il processore Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) in una configurazione con Hyper-Threading, che offre una proposta di valore migliore per la maggior parte dei carichi di lavoro per uso generico e l'allineamento delle EV3 con le VM per utilizzo generico della maggior parte degli altri cloud.  La memoria è stata estesa (da 7 GiB/vCPU a 8 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading. La serie Ev3 rappresenta un passo avanti rispetto alle dimensioni delle macchine virtuali con memoria elevata delle famiglie D/Dv2.
+Le serie EV3 e Esv3 vengono eseguite su Intel® Xeon® Platinum 8272CL (Cascade Lake), o Intel® Xeon® 8171M 2,1 GHz (Skylake) o il processore Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) in una configurazione con Hyper-Threading, fornendo una proposta di valore migliore per la maggior parte dei carichi di lavoro per uso generico e portando l'allineamento dei EV3 con le VM per utilizzo generico della maggior parte degli altri cloud.  La memoria è stata estesa (da 7 GiB/vCPU a 8 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading. La serie Ev3 rappresenta un passo avanti rispetto alle dimensioni delle macchine virtuali con memoria elevata delle famiglie D/Dv2.
 
 ## <a name="ev3-series"></a>Serie Ev3
 
-Le istanze della serie EV3 sono basate sulla funzionalità Intel® Xeon® 8171M a 2,1 GHz (Skylake) o sul processore Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) e sulla tecnologia Intel Turbo Boost 2,0. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
+Le istanze della serie EV3 vengono eseguite su Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) o i processori Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) e includono la tecnologia Intel Turbo Boost 2,0. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
 L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare dischi di archiviazione Premium, usare le dimensioni ESv3. I prezzi e i contatori di fatturazione per le dimensioni ESv3 sono uguali a quelli della serie Ev3.
 
@@ -28,15 +27,15 @@ La funzionalità della VM serie EV3 Intel® tecnologia Hyper-Threading.
 
 Unità di calcolo di Azure: 160-190
 
-Archiviazione Premium: non supportata
+Archiviazione Premium:  Non supportato
 
-Caching archiviazione Premium: non supportato
+Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
-Live Migration: supportato
+Live Migration: Supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Manutenzione con mantenimento della memoria: Supportato
 
-| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Larghezza di banda della rete/scheda NIC max |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Larghezza di banda della rete/scheda NIC max |
 |---|---|---|---|---|---|---|
 | Standard_E2_v3  | 2  | 16  | 50   | 4  | 3000/46/23     | 2/1000  |
 | Standard_E4_v3  | 4  | 32  | 100  | 8  | 6000/93/46     | 2/2000  |
@@ -54,21 +53,21 @@ Aggiornamenti con mantenimento della memoria: supportati
 
 ## <a name="esv3-series"></a>Serie Esv3
 
-Le istanze della serie Esv3 sono basate sulla funzionalità Intel® Xeon® 8171M a 2,1 GHz (Skylake) o sul processore Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), sulla tecnologia Intel Turbo Boost 2,0 e sull'uso di archiviazione Premium. Le istanze della serie Esv3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
+Le istanze della serie Esv3 sono eseguite su Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) o sul processore Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), che offre la tecnologia Intel Turbo Boost 2,0 e Usa archiviazione Premium. Le istanze della serie Esv3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
 La funzionalità della VM serie Esv3 Intel® tecnologia Hyper-Threading.
 
 Unità di calcolo di Azure: 160-190
 
-Archiviazione Premium: supportata
+Archiviazione Premium:  Supportato
 
-Caching archiviazione Premium: supportato
+Memorizzazione nella cache Archiviazione Premium:  Supportato
 
-Live Migration: supportato
+Live Migration: Supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Manutenzione con mantenimento della memoria: Supportato
 
-| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2s_v3 | 2 | 16 | 32 | 4 | 4000/32 (50) | 3200/48 | 2/1000 |
 | Standard_E4s_v3 <sup>1</sup>  | 4  | 32  | 64  | 8  | 8000/64 (100)   | 6400/96   | 2/2000 |

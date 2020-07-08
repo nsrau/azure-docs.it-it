@@ -10,11 +10,10 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707787"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio
 
@@ -55,11 +54,11 @@ Per questa esercitazione è necessario che sia installato Data Lake Tools per Vi
 
 1. Aprire Visual Studio.
 
-1. Aprire **Esplora server** selezionando **Visualizza** > **Esplora server**.
+1. Aprire **Esplora server** selezionando **Visualizza**  >  **Esplora server**.
 
 1. Fare clic con il pulsante destro del mouse su **Azure**, quindi scegliere **Connetti a Microsoft Azure sottoscrizione**. **Per accedere al proprio account**, seguire le istruzioni.
 
-1. In **Esplora server**selezionare**Data Lake Analytics**di **Azure** > . Verrà visualizzato un elenco degli account Data Lake Analytics.
+1. In **Esplora server**selezionare Data Lake Analytics di **Azure**  >  **Data Lake Analytics**. Verrà visualizzato un elenco degli account Data Lake Analytics.
 
 ## <a name="write-your-first-u-sql-script"></a>Scrivere il primo script U-SQL
 
@@ -112,7 +111,7 @@ Per visualizzare lo stato del processo più recente e aggiornare la schermata, s
 
 ## <a name="check-job-status"></a>Controllare lo stato del processo
 
-1. In **Esplora server**selezionare**Data Lake Analytics**di **Azure** > .
+1. In **Esplora server**selezionare Data Lake Analytics di **Azure**  >  **Data Lake Analytics**.
 
 1. Espandere il nome dell'account Data Lake Analytics.
 

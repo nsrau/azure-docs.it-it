@@ -4,15 +4,14 @@ description: Con questo percorso di apprendimento, iniziare a delegare un sottod
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
-ms.openlocfilehash: cd1443a9ca8ccf7172072078734f21d789d36194
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710882"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegare un sottodominio DNS di Azure
 
@@ -36,7 +35,7 @@ Creare prima di tutto la zona per il sottodominio **engineering**.
 3. Selezionare **Crea**.
 4. Nel riquadro **Crea zona DNS** digitare **engineering.contoso.com** nella casella di testo **Nome**.
 5. Selezionare il gruppo di risorse della zona. È consigliabile usare lo stesso gruppo di risorse della zona padre per tenere insieme le risorse simili.
-6. Scegliere **Crea**.
+6. Fare clic su **Crea**.
 7. Al termine della distribuzione, passare alla nuova zona.
 
 ## <a name="note-the-name-servers"></a>Prendere nota dei server dei nomi

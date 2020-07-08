@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699813"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -20,7 +19,7 @@ Il nome EventSource per la classe StatefulServiceBase dei servizi Reliable con s
 
 Esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) e la [libreria TraceEvent di Microsoft](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 | Nome evento | ID evento | Level | Descrizione dell'evento |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informativo |Emesso quando l'attività RunAsync del servizio viene avviata |
@@ -60,7 +59,7 @@ Per la categoria `Service Fabric Transactional Replicator`, i nomi delle istanze
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) tramite con l'identificatore di formato "D".
+*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) con l'identificatore di formato "D".
 
 *ServiceFabricReplicaId* è l'ID associato a una determinata replica di un servizio Reliable Services. L'ID replica è incluso nel nome dell'istanza del contatore delle prestazioni per garantirne l'univocità ed evitare conflitti con altre istanze del contatore delle prestazioni generate dalla stessa partizione. Informazioni dettagliate sulle repliche e il relativo ruolo nei servizi Reliable Services sono disponibili [qui](service-fabric-concepts-replica-lifecycle.md).
 
@@ -75,7 +74,7 @@ Per la categoria `Service Fabric TStore`, i nomi delle istanze dei contatori son
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) tramite con l'identificatore di formato "D".
+*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) con l'identificatore di formato "D".
 
 *ServiceFabricReplicaId* è l'ID associato a una determinata replica di un servizio Reliable Services. L'ID replica è incluso nel nome dell'istanza del contatore delle prestazioni per garantirne l'univocità ed evitare conflitti con altre istanze del contatore delle prestazioni generate dalla stessa partizione. Informazioni dettagliate sulle repliche e il relativo ruolo nei servizi Reliable Services sono disponibili [qui](service-fabric-concepts-replica-lifecycle.md).
 
@@ -89,7 +88,7 @@ Di seguito è riportato un esempio di un nome di istanza per un contatore appart
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresentazione in formato stringa dell'ID della partizione di Service Fabric, `131652217797162571` è l'ID della replica, `142652217797162571` è l'ID del provider di stato e `1337` è il differenziatore dell'istanza del contatore delle prestazioni. `urn:MyReliableDictionary/dataStore`nome del provider di stato che archivia i dati per la raccolta denominata `urn:MyReliableDictionary`.
+Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresentazione in formato stringa dell'ID della partizione di Service Fabric, `131652217797162571` è l'ID della replica, `142652217797162571` è l'ID del provider di stato e `1337` è il differenziatore dell'istanza del contatore delle prestazioni. `urn:MyReliableDictionary/dataStore`nome del provider di stato che archivia i dati per la raccolta denominata `urn:MyReliableDictionary` .
 
 ### <a name="transactional-replicator-performance-counters"></a>Contatori delle prestazioni di Replicatore transazionale
 

@@ -4,12 +4,11 @@ description: Informazioni sull'uso delle identità gestite per Azure con Service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5c82f49195fc6d790ca4308d78b70106b6cc042
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461447"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710304"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Uso delle identità gestite per Azure con Service Fabric
 
@@ -35,7 +34,7 @@ Sono disponibili due tipi di identità gestite:
 - Un' **identità gestita assegnata dal sistema** è abilitata direttamente in un'istanza del servizio di Azure.  Il ciclo di vita di un'identità assegnata dal sistema è univoco per l'istanza del servizio di Azure in cui è abilitata.
 - Un'**identità gestita assegnata dall'utente** viene creata come risorsa di Azure autonoma. L'identità può essere assegnata a una o più istanze del servizio di Azure ed è gestita separatamente dai cicli di vita di tali istanze.
 
-Per comprendere meglio la differenza tra i tipi di identità gestiti, vedere [come funzionano le identità gestite per le risorse di Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
+Per comprendere meglio la differenza tra i tipi di identità gestiti, vedere [come funzionano le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Scenari supportati per applicazioni Service Fabric
 

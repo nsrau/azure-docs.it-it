@@ -1,6 +1,6 @@
 ---
 title: Creare un'app Web nell'ambiente del servizio app V1
-description: Informazioni su come creare app Web in un ambiente del servizio app V1. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+description: Informazioni su come creare app Web in un ambiente del servizio app V1. Questo documento è rivolto solo ai clienti che usano l'ambiente del servizio app v1 legacy.
 author: ccompy
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
 ms.topic: article
@@ -8,11 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701831"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
 
@@ -40,7 +39,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
     Se sono presenti più sottoscrizioni, ricordare che per creare un'app nell'ambiente del servizio app è necessario usare la stessa sottoscrizione usata per la creazione dell'ambiente. 
 3. Selezionare o creare un gruppo di risorse.
    
-    I *gruppi di risorse* consentono di gestire le risorse di Azure correlate come un'unità e sono utili per stabilire le regole di controllo degli *accessi in base al ruolo* (RBAC) per le app. Per ulteriori informazioni, vedere [Azure Resource Manager Overview][ResourceGroups]. 
+    I *gruppi di risorse* consentono di gestire le risorse di Azure correlate come un'unità e sono utili per stabilire le regole di controllo degli *accessi in base al ruolo* (RBAC) per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ResourceGroups]. 
 4. Selezionare o creare un piano di servizio app.
    
     *piani di servizio app* sono costituiti da set gestiti di app Web.  Quando si seleziona il prezzo, in genere l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Nell'ambiente del servizio app vengono addebitate le istanze di calcolo allocate all'ambiente e non quanto elencato nel piano di servizio app.  Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano.  Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale.  Per ulteriori informazioni, vedere [app Azure Panoramica dei piani di servizio](../overview-hosting-plans.md)

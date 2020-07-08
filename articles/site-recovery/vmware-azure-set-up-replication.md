@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699601"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurare e gestire i criteri di replica per il ripristino di emergenza di VMware
 
@@ -20,7 +19,7 @@ Questo articolo illustra come configurare criteri di replica quando si esegue la
 
 ## <a name="create-a-policy"></a>Creare un criterio
 
-1. Selezionare **Gestisci** > **Site Recovery infrastruttura**.
+1. Selezionare **Gestisci**  >  **Site Recovery infrastruttura**.
 2. In **For VMware and Physical machines** (Per VMware e computer fisici) selezionare **Criteri di replica**.
 3. Fare clic su **+Criteri di replica** e specificare il nome del criterio.
 4. In **soglia RPO**specificare il limite di RPO. Quando la replica continua supera questo limite, vengono generati avvisi.
@@ -49,11 +48,11 @@ Associare il criterio di replica al server di configurazione locale.
 - Se si desidera associare computer replicati a criteri di replica diversi, è necessario disabilitare e riabilitare la protezione per i computer pertinenti.
 
 Modificare i criteri come indicato di seguito:
-1. Selezionare **Gestisci** > **Site Recovery** > **criteri di replica**infrastruttura.
+1. Selezionare **Gestisci**  >  **Site Recovery**  >  **criteri di replica**infrastruttura.
 2. Selezionare i criteri di replica che si desidera modificare.
 3. Fare clic su **Modifica impostazioni**e aggiornare i campi soglia RPO/ore di conservazione del punto di ripristino/frequenza snapshot coerenti con l'app secondo le esigenze.
 4. Se si desidera disattivare la generazione di punti di coerenza dell'applicazione, scegliere valore "disattivato" nell'elenco a discesa della **frequenza di snapshot coerenti**con l'app campo.
-5. Fare clic su **Save**. Il criterio deve essere aggiornato da 30 a 60 secondi.
+5. Fare clic su **Salva**. Il criterio deve essere aggiornato da 30 a 60 secondi.
 
 
 

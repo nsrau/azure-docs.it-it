@@ -11,11 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708009"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Strumenti di inserimento dati della macchina virtuale per data science
 
@@ -30,7 +29,7 @@ Ecco alcuni strumenti di spostamento dei dati disponibili in DSVM.
 | Che cos'è?   | Uno strumento per copiare i dati dall'archiviazione BLOB di Azure in Azure Data Lake Store. Consente anche di copiare dati tra due account di Azure Data Lake Store.      |
 | Versioni di DSVM supportate      | Windows      |
 | Usi tipici      | Importazione di più BLOB dall'archiviazione BLOB di Azure in Azure Data Lake Store.      |
-|  Come usarla o eseguirla?    |   Aprire un prompt dei comandi e `adlcopy` Digitare per visualizzare la guida.    |
+|  Come usarla o eseguirla?    |   Aprire un prompt dei comandi e digitare `adlcopy` per visualizzare la guida.    |
 | Collegamenti agli esempi      | [Con AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Strumenti correlati in DSVM      | AzCopy, interfaccia della riga di comando di Azure     |
 
@@ -41,7 +40,7 @@ Ecco alcuni strumenti di spostamento dei dati disponibili in DSVM.
 | Che cos'è?   | Uno strumento di gestione per Azure. Contiene anche i verbi di comando per spostare i dati dalle piattaforme dati di Azure, ad esempio archiviazione BLOB di Azure e Azure Data Lake Store.     |
 | Versioni di DSVM supportate      | Windows, Linux     |
 | Usi tipici      | Importazione ed esportazione di dati da e verso archiviazione di Azure e Azure Data Lake Store.      |
-|  Come usarla o eseguirla?    |   Aprire un prompt dei comandi e `az` Digitare per visualizzare la guida.    |
+|  Come usarla o eseguirla?    |   Aprire un prompt dei comandi e digitare `az` per visualizzare la guida.    |
 | Collegamenti agli esempi      | [Utilizzare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)     |
 | Strumenti correlati in DSVM      | AzCopy, AdlCopy      |
 
@@ -53,7 +52,7 @@ Ecco alcuni strumenti di spostamento dei dati disponibili in DSVM.
 | Che cos'è?   | Strumento per copiare dati da e verso file locali, archiviazione BLOB di Azure, file e tabelle.      |
 | Versioni di DSVM supportate      | Windows      |
 | Usi tipici      | Copia di file nell'archivio BLOB di Azure e copia di BLOB tra account.      |
-|  Come usarla o eseguirla?    |   Aprire un prompt dei comandi e `azcopy` Digitare per visualizzare la guida.    |
+|  Come usarla o eseguirla?    |   Aprire un prompt dei comandi e digitare `azcopy` per visualizzare la guida.    |
 | Collegamenti agli esempi      | [AzCopy in Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | Strumenti correlati in DSVM      | AdlCopy     |
 
@@ -65,7 +64,7 @@ Ecco alcuni strumenti di spostamento dei dati disponibili in DSVM.
 | Che cos'è?   | Strumento per importare dati da diverse origini in Azure Cosmos DB, un database NoSQL nel cloud. Queste origini includono file JSON, file CSV, SQL, MongoDB, archiviazione tabelle di Azure, Amazon DynamoDB e raccolte di API SQL Azure Cosmos DB.      |
 | Versioni di DSVM supportate      | Windows      |
 | Usi tipici      | Importazione di file da una macchina virtuale a CosmosDB, importazione di dati da archiviazione tabelle di Azure a CosmosDB e importazione di dati da un database di Microsoft SQL Server a CosmosDB.     |
-|  Come usarla o eseguirla?    |   Per utilizzare la versione della riga di comando, aprire un prompt dei comandi `dt`e digitare. Per utilizzare lo strumento GUI, aprire un prompt dei comandi e `dtui`Digitare.    |
+|  Come usarla o eseguirla?    |   Per utilizzare la versione della riga di comando, aprire un prompt dei comandi e digitare `dt` . Per utilizzare lo strumento GUI, aprire un prompt dei comandi e digitare `dtui` .    |
 | Collegamenti agli esempi      | [CosmosDB importare dati](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Strumenti correlati in DSVM      | AzCopy, AdlCopy      |
 
@@ -87,7 +86,7 @@ Ecco alcuni strumenti di spostamento dei dati disponibili in DSVM.
 | Che cos'è?   | Strumento di SQL Server per copiare i dati tra SQL Server e un file di dati.      |
 | Versioni di DSVM supportate      | Windows      |
 | Usi tipici      | Importazione di un file CSV in una tabella SQL Server e esportazione di una tabella SQL Server in un file.      |
-|  Come usarla o eseguirla?    |   Aprire un prompt dei comandi e `bcp` Digitare per visualizzare la guida.    |
+|  Come usarla o eseguirla?    |   Aprire un prompt dei comandi e digitare `bcp` per visualizzare la guida.    |
 | Collegamenti agli esempi      | [utilità bcp](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Strumenti correlati in DSVM      | SQL Server, sqlcmd      |
 

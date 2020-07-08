@@ -5,15 +5,14 @@ description: Convertire un peering di Exchange legacy in una risorsa di Azure tr
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: eedf87548d62e05d4940911ed3dcd821077acb27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2abd05243f30a32d8fe49f12bf4ee2ad09855002
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699992"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>Convertire un peering di Exchange legacy in una risorsa di Azure tramite PowerShell
 
@@ -22,7 +21,7 @@ Questo articolo descrive come convertire un peering di Exchange legacy esistente
 Se si preferisce, è possibile completare questa guida usando il [portale](howto-legacy-exchange-portal.md)di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Prima di iniziare la configurazione, esaminare i [prerequisiti](prerequisites.md) e la [procedura dettagliata per il peering di Exchange](walkthrough-exchange-all.md) .
+* Prima di iniziare la configurazione, esaminare i [prerequisiti](prerequisites.md) e la [procedura dettagliata per il peering di Exchange](walkthrough-exchange-all.md).
 
 ### <a name="work-with-azure-powershell"></a>Usare Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
@@ -97,7 +96,7 @@ Questa risposta di esempio mostra quando il provisioning end-to-end è stato com
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
-Per altre informazioni, vedere [domande frequenti sul peering Internet](faqs.md).
+Per altre informazioni, vedere [Domande frequenti sul peering Internet](faqs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

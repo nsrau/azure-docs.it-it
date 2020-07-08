@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: cd955f97a2f26543f799d95b7dc0b1de235333c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74186222"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705203"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrare i manifesti usando Dynamic Packager
 
@@ -36,7 +35,7 @@ Questa possibilità di specificare filtri diversi nel flusso fornisce una potent
 
 ## <a name="overview-of-manifests"></a>Panoramica dei manifesti
 
-Servizi multimediali di Azure supporta i protocolli HLS, MPEG DASH e Smooth Streaming. Nell'ambito della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md), i manifesti del client di streaming (playlist Master HLS, la descrizione della presentazione dei supporti Dash [MPD] e Smooth Streaming) vengono generati in modo dinamico in base al selettore di formato nell'URL. Per ulteriori informazioni, vedere la pagina relativa ai protocolli di recapito in un [flusso di lavoro comune su richiesta](dynamic-packaging-overview.md#delivery-protocols).
+Servizi multimediali di Azure supporta i protocolli HLS, MPEG DASH e Smooth Streaming. Nell'ambito della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md), i manifesti del client di streaming (playlist Master HLS, la descrizione della presentazione dei supporti Dash [MPD] e Smooth Streaming) vengono generati in modo dinamico in base al selettore di formato nell'URL. Per ulteriori informazioni, vedere la pagina relativa ai protocolli di recapito in un [flusso di lavoro comune su richiesta](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery).
 
 ### <a name="get-and-examine-manifest-files"></a>Ottenere ed esaminare i file manifesto
 
@@ -135,9 +134,9 @@ Oltre al supporto per gli annunci, è possibile usare l'impostazione Live back-o
 
 Per combinare i filtri, impostare i nomi dei filtri sull'URL del manifesto o della playlist in formato delimitato da punto e virgola. Si supponga di avere un filtro denominato *MyMobileDevice* che filtra le qualità e di avere un altro denominato *MyStartTime* per impostare un'ora di avvio specifica. È possibile combinare fino a tre filtri.
 
-Per altre informazioni, vedere [questo post di Blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
-## <a name="considerations-and-limitations"></a>Considerazioni e limiti
+## <a name="considerations-and-limitations"></a>Considerazioni e limitazioni
 
 - I valori per **forceEndTimestamp**, **presentationWindowDuration**e **liveBackoffDuration** non devono essere impostati per un filtro VOD. Sono usati solo per gli scenari di filtro Live.
 - Un manifesto dinamico opera nei limiti del GOP (fotogrammi chiave), quindi l'operazione di taglio ha una precisione GOP.
@@ -146,7 +145,7 @@ Per altre informazioni, vedere [questo post di Blog](https://azure.microsoft.com
 - I clienti devono scaricare manualmente il manifesto e analizzare lo Stamp dell'ora di inizio esatto e la scala temporale.
 
     - Per determinare le proprietà delle tracce in un asset, [ottenere ed esaminare il file manifesto](#get-and-examine-manifest-files).
-    - La formula per impostare le proprietà relative al timestamp del filtro asset è la seguente: <br/>startTimestamp = &lt;ora di inizio nel manifesto&gt; +  &lt;prevista ora di inizio filtro in&gt; secondi * scala cronologica
+    - La formula per impostare le proprietà relative al timestamp del filtro asset è la seguente: <br/>startTimestamp = &lt; ora di inizio nel manifesto &gt;  +   &lt; prevista ora di inizio filtro in secondi &gt; * scala cronologica
 
 ## <a name="next-steps"></a>Passaggi successivi
 

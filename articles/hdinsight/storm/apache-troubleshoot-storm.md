@@ -10,11 +10,10 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700366"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Storm tramite Azure HDInsight
 
@@ -46,9 +45,9 @@ Quando si sviluppano topologie che leggono da Hub eventi di Azure usando il file
 
 I dati dei checkpoint per gli offset vengono archiviati dallo spout dell'hub eventi in due percorsi radice di ZooKeeper:
 
-- I checkpoint del beccuccio non transazionali `/eventhubspout`vengono archiviati in.
+- I checkpoint del beccuccio non transazionali vengono archiviati in `/eventhubspout` .
 
-- I dati del checkpoint del punto di arresto transazionale vengono archiviati in `/transactional`.
+- I dati del checkpoint del punto di arresto transazionale vengono archiviati in `/transactional` .
 
 ### <a name="how-to-restore"></a>Come eseguire il ripristino
 
@@ -65,7 +64,7 @@ Il comando di esportazione scrive i metadati in un percorso Apache Hadoop Distri
 #### <a name="export-offset-metadata"></a>Esportare i metadati dell'offset
 
 1. Usare SSH per andare al cluster ZooKeeper del vecchio cluster da cui è necessario esportare l'offset dei checkpoint.
-2. Eseguire il comando seguente (dopo aver aggiornato la stringa della versione HDP) per esportare i dati dell'offset `/stormmetadta/zkdata` ZooKeeper nel percorso HDFS:
+2. Eseguire il comando seguente (dopo aver aggiornato la stringa della versione HDP) per esportare i dati dell'offset ZooKeeper nel `/stormmetadta/zkdata` percorso HDFS:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -74,7 +73,7 @@ Il comando di esportazione scrive i metadati in un percorso Apache Hadoop Distri
 #### <a name="import-offset-metadata"></a>Importare i metadati dell'offset
 
 1. Usare SSH per andare al cluster ZooKeeper del vecchio cluster da cui è necessario importare l'offset dei checkpoint.
-2. Eseguire il comando seguente (dopo aver aggiornato la stringa della versione HDP) per importare i dati di offset ZooKeeper dal `/stormmetadata/zkdata` percorso HDFS al server ZooKeeper nel cluster di destinazione:
+2. Eseguire il comando seguente (dopo aver aggiornato la stringa della versione HDP) per importare i dati di offset ZooKeeper dal percorso HDFS `/stormmetadata/zkdata` al server ZooKeeper nel cluster di destinazione:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -91,9 +90,9 @@ Il comando di esportazione scrive i metadati in un percorso Apache Hadoop Distri
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Come individuare i file binari Storm in un cluster
 
-I file binari Storm per lo stack HDP corrente `/usr/hdp/current/storm-client`si trovano in. Il percorso è lo stesso sia per i nodi head che per i nodi di lavoro.
+I file binari Storm per lo stack HDP corrente si trovano in `/usr/hdp/current/storm-client` . Il percorso è lo stesso sia per i nodi head che per i nodi di lavoro.
 
-Potrebbero essere presenti più file binari per versioni specifiche di HDP in/usr/HDP (ad `/usr/hdp/2.5.0.1233/storm`esempio,). La `/usr/hdp/current/storm-client` cartella è collegati simbolicamente alla versione più recente in esecuzione nel cluster.
+Potrebbero essere presenti più file binari per versioni specifiche di HDP in/usr/HDP (ad esempio, `/usr/hdp/2.5.0.1233/storm` ). La `/usr/hdp/current/storm-client` cartella è collegati simbolicamente alla versione più recente in esecuzione nel cluster.
 
 Per altre informazioni, vedere [Connettersi a un cluster HDInsight con SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [Apache Storm](https://storm.apache.org/).
 
@@ -157,13 +156,13 @@ Per identificare i file di configurazione di [Apache Log4j 2](https://logging.ap
 
 ### <a name="on-head-nodes"></a>Nei nodi head
 
-La configurazione di Nimbus Log4J viene letta `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`da.
+La configurazione di Nimbus Log4J viene letta da `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
 ### <a name="on-worker-nodes"></a>Nei nodi di lavoro
 
-Viene letta la configurazione del supervisore Log4J `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`.
+Viene letta la configurazione del supervisore Log4J `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
-Il file di configurazione Log4J di lavoro viene `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`letto da.
+Il file di configurazione Log4J di lavoro viene letto da `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml` .
 
 Esempi`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
@@ -172,9 +171,9 @@ Esempi`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 
 ## <a name="not-a-leader-exception"></a>Non è un'eccezione leader
 
-Quando si invia una topologia, l'utente può ricevere un messaggio di `Topology submission exception, cause not a leader, the current leader is NimbusInfo`errore simile a:.
+Quando si invia una topologia, l'utente può ricevere un messaggio di errore simile a: `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
 
-Per risolvere il problema, è possibile che l'utente debba presentare un ticket per riavviarlo o riavviarlo. Per ulteriori informazioni, vedere [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
+Per risolvere il problema, è possibile che l'utente debba presentare un ticket per riavviarlo o riavviarlo. Per altre informazioni, vedere [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 
@@ -182,8 +181,8 @@ Per risolvere il problema, è possibile che l'utente debba presentare un ticket 
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-- Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
+- Ricevere risposte dagli esperti di Azure tramite la pagina [Supporto della community per Azure](https://azure.microsoft.com/support/community/).
 
-- Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+- Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-- Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+- Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

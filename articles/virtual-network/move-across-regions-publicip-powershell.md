@@ -4,15 +4,14 @@ description: Utilizzo del modello di Azure Resource Manager per spostare la conf
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 6535c08a952bf24ad351f67aac793a73ef8cce56
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: 4f72c22ee26375e025af7b3a391fdd45187e7041
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235393"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703741"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-azure-powershell"></a>Spostare la configurazione dell’IP pubblico di Azure in un'altra area usando Azure PowerShell
 

@@ -16,18 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
 ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707838"
 ---
 # <a name="virtual-network-tap"></a>TAP di rete virtuale
 
 Un TAP (Terminal Access Point) di rete virtuale di Azure consente di trasmettere il traffico di rete della macchina virtuale come flusso continuo a un agente di raccolta di pacchetti di rete o a uno strumento di analisi. Lo strumento di raccolta dati o analisi viene fornito da un partner di [appliance virtuale di rete](https://azure.microsoft.com/solutions/network-appliances/) . Per un elenco delle soluzioni dei partner convalidate per l'uso con un TAP di rete virtuale, vedere le [soluzioni dei partner](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Il tocco della rete virtuale è attualmente in anteprima in tutte le aree di Azure. Per usare il tocco della rete virtuale, è necessario iscriversi all'anteprima inviando un <azurevnettap@microsoft.com> messaggio di posta elettronica a con l'ID sottoscrizione. Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. Questa versione di anteprima viene fornita senza un contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per informazioni dettagliate, vedere le [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
+> Il tocco della rete virtuale è attualmente in anteprima in tutte le aree di Azure. Per usare il tocco della rete virtuale, è necessario iscriversi all'anteprima inviando un messaggio di posta elettronica a  <azurevnettap@microsoft.com> con l'ID sottoscrizione. Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. Questa versione di anteprima viene fornita senza un contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per i dettagli, vedere  [Condizioni supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Soluzioni dei partner per TAP di rete virtuale
 
@@ -64,7 +63,7 @@ Prima di creare un TAP di rete virtuale, è necessario aver ricevuto un messaggi
 
 Gli account usati per applicare la configurazione TAP alle interfacce di rete devono essere assegnati al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le azioni necessarie dalla tabella seguente:
 
-| Action | Name |
+| Action | Nome |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | Necessaria per creare, aggiornare, leggere ed eliminare una risorsa TAP di rete virtuale |
 | Microsoft.Network/networkInterfaces/read | Necessaria per leggere la risorsa interfaccia di rete in cui verrà configurato il TAP |

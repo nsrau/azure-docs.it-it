@@ -5,11 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: cccc476a944b28d24c53a947e434d465c94f94ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79126591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704744"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità di base dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -77,7 +76,7 @@ L'impatto delle interruzioni involontarie può essere attenuato usando più repl
 
 Se è necessario aggiornare un cluster o un modello di distribuzione, l'utilità di pianificazione di Kubernetes verifica che vengano pianificati ulteriori pod su altri nodi prima che gli eventi di interruzione volontaria possano continuare. L'utilità di pianificazione attende prima che un nodo sia riavviato finché il numero definito di pod non viene pianificato correttamente su altri nodi nel cluster.
 
-Verrà ora preso in esame un set di repliche con cinque pod che eseguono NGINX. Ai pod del set di repliche viene assegnata `app: nginx-frontend`l'etichetta. Durante un evento di interruzione volontaria, ad esempio un aggiornamento del cluster, ci si vuole assicurare che almeno tre pod continuino a essere eseguiti. Il manifesto YAML seguente per un oggetto *PodDisruptionBudget* definisce questi requisiti:
+Verrà ora preso in esame un set di repliche con cinque pod che eseguono NGINX. Ai pod del set di repliche viene assegnata l'etichetta `app: nginx-frontend` . Durante un evento di interruzione volontaria, ad esempio un aggiornamento del cluster, ci si vuole assicurare che almeno tre pod continuino a essere eseguiti. Il manifesto YAML seguente per un oggetto *PodDisruptionBudget* definisce questi requisiti:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -119,11 +118,11 @@ Per altre informazioni sull'uso dei budget di interruzione dei pod, vedere [Spec
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verificare regolarmente la presenza di problemi del cluster con kube-advisor
 
-**Indicazioni sulle procedure consigliate** : eseguire regolarmente la versione `kube-advisor` più recente dello strumento open source per rilevare i problemi del cluster. Se si applicano le quote di risorse in un cluster servizio Azure Kubernetes esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
+**Indicazioni sulle procedure consigliate** : eseguire regolarmente la versione più recente dello `kube-advisor` strumento open source per rilevare i problemi del cluster. Se si applicano le quote di risorse in un cluster servizio Azure Kubernetes esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
 
 Lo strumento [Kube-Advisor][kube-advisor] è un progetto open source AKS associato che analizza un cluster Kubernetes e segnala i problemi riscontrati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
 
-Lo strumento Kube-Advisor può creare report sulle richieste di risorse e sui limiti mancanti in PodSpecs per le applicazioni Windows e sulle applicazioni Linux, ma lo strumento Kube-Advisor stesso deve essere pianificato in un pod Linux. È possibile pianificare l'esecuzione di un pod in un pool di nodi con un sistema operativo specifico usando un [selettore di nodo][k8s-node-selector] nella configurazione del Pod.
+Con lo strumento kube-advisor è possibile creare report su limiti e richieste di risorse mancanti nei file PodSpec per le applicazioni Windows e le applicazioni Linux, ma è necessario pianificare l'esecuzione di tale strumento in un pod Linux. Per pianificare l'esecuzione di un pod in un pool di nodi con un sistema operativo specifico, è possibile usare un [selettore di nodo][k8s-node-selector] nella configurazione del pod.
 
 In un cluster servizio Azure Kubernetes che ospita più team di sviluppo e applicazioni può essere difficile tenere traccia dei pod senza questi limiti e richieste di risorse impostati. Come procedura consigliata, eseguire regolarmente `kube-advisor` nei cluster servizio Azure Kubernetes, soprattutto se non si assegnano quote di risorse agli spazi dei nomi.
 

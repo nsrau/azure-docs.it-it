@@ -8,12 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cce3a0e6993ea91236a3ce8c8b14eb6c66f72ad1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84717801"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticazione dei dispositivi con i certificati della CA X.509
 
@@ -50,7 +49,7 @@ Il proprietario di un certificato della CA X.509 può firmare a livello di critt
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-Il certificato del dispositivo (detto anche certificato foglia) deve avere il *nome soggetto* impostato sull' **ID del dispositivo** usato per la registrazione del dispositivo Internet delle cose nell'hub Azure. Questa impostazione è obbligatoria per l'autenticazione.
+Il certificato del dispositivo (detto anche certificato foglia) deve avere il *nome soggetto* impostato sull' **ID del dispositivo** ( `CN=deviceId` ) usato durante la registrazione del dispositivo Internet delle cose nell'hub Azure. Questa impostazione è obbligatoria per l'autenticazione.
 
 Informazioni su come [creare una catena di certificati](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) simile a quella creata durante il processo di firma dei dispositivi.
 

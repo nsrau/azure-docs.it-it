@@ -13,11 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281054"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707277"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Spostare dati da SAP Business Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -42,7 +41,7 @@ Per abilitare la connettività all'istanza di SAP BW, installare i componenti se
 > [!TIP]
 > Inserire le DLL estratte dall'SDK di NetWeaver RFC nella cartella system32.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
@@ -63,12 +62,12 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-server | Nome del server in cui si trova l'istanza di SAP BW. | stringa | Sì
+server | Nome del server in cui si trova l'istanza di SAP BW. | string | Sì
 systemNumber | Numero del sistema SAP BW. | Numero decimale a due cifre rappresentato come stringa. | Sì
 clientId | ID del client nel sistema SAP BW. | Numero decimale a tre cifre rappresentato come stringa. | Sì
-nomeutente | Nome dell'utente che ha accesso al server SAP | stringa | Sì
-password | Password per l'utente. | stringa | Sì
-gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP BW locale. | stringa | Sì
+username | Nome dell'utente che ha accesso al server SAP | string | Sì
+password | Password per l'utente. | string | Sì
+gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP BW locale. | string | Sì
 encryptedCredential | Stringa di credenziali crittografata. | stringa | No
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati

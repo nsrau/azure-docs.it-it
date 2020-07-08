@@ -7,18 +7,17 @@ author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: azurecli
-ms.topic: article
+ms.devlang: ''
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 3ef96c83b460346ba49051f6f5c4fd0dd5df34ab
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 745b12e2278c487ed49a9d2d726a760a7df8f276
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703168"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Creare una macchina virtuale con un indirizzo IP pubblico statico usando il portale di Azure
 
@@ -32,7 +31,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 1. Selezionare **+ Crea una risorsa** visualizzato nell'angolo in alto a sinistra del portale di Azure.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 VM** o un altro sistema operativo a scelta.
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le restanti impostazioni e quindi fare clic su **OK**:
+3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
     |Impostazione|valore|
     |---|---|
@@ -41,7 +40,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selezionare la propria sottoscrizione.|
     |Resource group| Selezionare **Usa esistente** e selezionare **myResourceGroup**.|
-    |Percorso| Seleziona **Stati Uniti orientali**|
+    |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
 5. In **Impostazioni** selezionare **Indirizzo IP pubblico**.
@@ -77,11 +76,11 @@ Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risors
 
 1. Immettere *myResourceGroup* nella casella di **ricerca** nella parte superiore del portale. Selezionare **myResourceGroup** quando viene visualizzato nei risultati della ricerca.
 2. Selezionare **Elimina gruppo di risorse**.
-3. Immettere *myResourceGroup* per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
+3. Immettere *myResourceGroup* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sugli [indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure
-- Altre informazioni su tutte le [impostazioni relative agli indirizzi IP pubblici](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Altre informazioni su tutte [le impostazioni degli indirizzi IP pubblici](virtual-network-public-ip-address.md#create-a-public-ip-address)
 - Altre informazioni sugli [indirizzi IP privati](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure
 - Altre informazioni sulla creazione di macchine virtuali [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

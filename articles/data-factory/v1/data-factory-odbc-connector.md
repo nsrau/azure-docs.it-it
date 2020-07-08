@@ -13,11 +13,10 @@ ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e1735c2d2ed107f7ec65d68a6826267ee83a93f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707379"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Spostare dati da archivi dati ODBC con Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,7 +43,7 @@ Oltre a Gateway di gestione dati, è necessario installare anche il driver ODBC 
 > [!NOTE]
 > Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati ODBC usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -136,7 +135,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sul percorso dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** , che include il set di dati ODBC, presenta le proprietà seguenti
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'archivio dati ODBC. |Sì |
 
@@ -187,7 +186,7 @@ Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono 
 }
 ```
 
-**Servizio collegato archiviazione di Azure**
+**Servizio collegato Archiviazione di Azure**
 
 ```json
 {
@@ -354,7 +353,7 @@ Per informazioni sul mapping delle colonne del set di dati di origine alle colon
 ## <a name="repeatable-read-from-relational-sources"></a>Lettura ripetibile da origini relazionali
 Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Vedere [lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="troubleshoot-connectivity-issues"></a>Risoluzione dei problemi di connettività
+## <a name="troubleshoot-connectivity-issues"></a>Risolvere i problemi di connettività
 Per risolvere i problemi di connessione, usare la scheda **Diagnostica** di **Gestione configurazione di Gateway di gestione dati**.
 
 1. Avviare **Gestione configurazione di Gateway di gestione dati**. È possibile eseguire direttamente "C:\Programmi\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft**, come mostrato nell'immagine seguente.

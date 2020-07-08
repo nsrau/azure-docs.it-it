@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700886"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Microsoft Azure ExpressRoute con Azure Site Recovery
 
@@ -33,12 +32,12 @@ Azure Site Recovery consente il ripristino di emergenza e la migrazione in Azure
 
 Site Recovery replica i dati in un account di archiviazione di Azure o in un disco gestito di replica nell'area di Azure di destinazione tramite un endpoint pubblico. Per usare ExpressRoute per il traffico di replica Site Recovery, è possibile usare il [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) o un [peering pubblico](../expressroute/about-public-peering.md) esistente (deprecato per le nuove creazioni). Il peering Microsoft è il dominio di routing consigliato per la replica. Si noti che la replica non è supportata sul peering privato.
 
-Verificare che siano soddisfatti anche i [requisiti di rete](vmware-azure-configuration-server-requirements.md#network-requirements) per il server di configurazione. La connettività a URL specifici è richiesta dal server di configurazione per l'orchestrazione della replica Site Recovery. Non è possibile usare ExpressRoute per questa connettività. 
+Verificare che siano soddisfatti anche i [requisiti di rete](vmware-azure-configuration-server-requirements.md#network-requirements) per il server di configurazione. Per l'orchestrazione della replica Site Recovery, il server di configurazione richiede la connettività a URL specifici. Non è possibile usare ExpressRoute per questa connettività. 
 
 Se si usa il proxy in locale e si vuole usare ExpressRoute per il traffico di replica, è necessario configurare l'elenco proxy bypass nel server di configurazione e nei server di elaborazione. Seguire la procedura descritta di seguito:
 
 - Scaricare lo strumento PsExec da [qui](https://aka.ms/PsExec) per accedere al contesto utente del sistema.
-- Aprire Internet Explorer nel contesto utente del sistema eseguendo la seguente riga di comando psexec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
+- Aprire Internet Explorer nel contesto utente del sistema eseguendo la riga di comando seguente PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
 - Aggiungere impostazioni proxy in Internet Explorer
 - Nell'elenco di bypass aggiungere l'URL di archiviazione di Azure *. blob.core.windows.net
 

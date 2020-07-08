@@ -7,17 +7,16 @@ documentationcenter: na
 author: steveesp
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 964b0bd543e887cce304d785d18a651f50bd4c45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60743079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708247"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test della larghezza di banda/velocità effettiva (NTTTCP)
 
@@ -63,7 +62,7 @@ Nella macchina RICEVITORE, creare una regola di assenso in Windows Firewall per 
 
 Consentire NTTTCP in Windows Firewall nel modo seguente:
 
-netsh advfirewall firewall add rule program=\<PERCORSO\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
+netsh advfirewall firewall add rule Program = \<PATH\> \\ntttcp.exe Name = "NTTTCP" Protocol = any dir = in action = allow Enable = Yes profile = any
 
 Ad esempio, se è stato copiato ntttcp.exe nella cartella "c:\\tools", il comando sarà il seguente: 
 
@@ -132,13 +131,13 @@ In questi scenari si dovrebbe attivare la modalità no-sync per consentire l'ese
 
 #### <a name="from-linux-to-windows"></a>Da Linux a Windows:
 
-> \<Windows ricevitore:
+Ricevitore \<Windows>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-> \<Linux mittente:
+Mittente \<Linux>:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +145,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>Da Windows a Linux:
 
-> \<Receiver Linux:
+Ricevitore \<Linux>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-> \<finestre mittente:
+Mittente \<Windows>:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

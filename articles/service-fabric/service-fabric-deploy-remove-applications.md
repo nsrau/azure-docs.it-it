@@ -4,11 +4,10 @@ description: Informazioni sulla rimozione e la distribuzione di applicazioni in 
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699839"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuire e rimuovere applicazioni con PowerShell
 
@@ -64,7 +63,7 @@ Se si desidera verificare il pacchetto dell'applicazione in locale, usare il cmd
 
 Il comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) consente di caricare il pacchetto dell'applicazione nell'archivio di immagini del cluster.
 
-Si supponga di compilare e assemblare un'applicazione denominata *MyApplication* in Visual Studio 2015. Per impostazione predefinita, il nome del tipo di applicazione elencato nel file ApplicationManifest.xml è "MyApplicationType".  Il pacchetto dell'applicazione, che contiene il manifesto dell'applicazione necessario, i manifesti dei servizi e i pacchetti di codice, configurazione e dati, si trova in *C:\Users\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*. 
+Si supponga di compilare e assemblare un'applicazione denominata *MyApplication* in Visual Studio 2015. Per impostazione predefinita, il nome del tipo di applicazione elencato nel file ApplicationManifest.xml è "MyApplicationType".  Il pacchetto dell'applicazione, che contiene il manifesto dell'applicazione necessario, i manifesti del servizio e i pacchetti di codice, configurazione e dati, si trova in *C:\Users \<username\> \Documenti\Visual Studio 2015 \ Projects\MyApplication\MyApplication\pkg\Debug*. 
 
 Il comando seguente elenca il contenuto del pacchetto dell'applicazione:
 

@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
 ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708927"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 

@@ -10,11 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279507"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702823"
 ---
 # <a name="private-cloud-vmware-components"></a>Componenti VMware del cloud privato
 
@@ -34,7 +33,7 @@ Un cloud privato VMware stack viene distribuito con la versione del software seg
 | ESXi | 6.7 U2 | Enterprise Plus |
 | vCenter | 6.7 U2 | Standard vCenter |
 | Rete VSAN | 6.7 | Enterprise |
-| Data Center NSX | 2.4.1 | Avanzate |
+| Data Center NSX | 2.4.1 | Avanzato |
 
 ## <a name="esxi"></a>ESXi
 
@@ -48,7 +47,7 @@ vCenter Server Appliance (VCSA) fornisce le funzioni di autenticazione, gestione
 
 ### <a name="vcenter-single-sign-on"></a>Single Sign-On vCenter
 
-Il controller Embedded Platform Services in VCSA è associato a un **dominio Single Sign-on di vCenter**.  Il nome di dominio è **cloudsimple. local**.  Per accedere a **CloudOwner@cloudsimple.com** vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
+Il controller Embedded Platform Services in VCSA è associato a un **dominio Single Sign-on di vCenter**.  Il nome di dominio è **cloudsimple. local**.  **CloudOwner@cloudsimple.com**Per accedere a vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>archiviazione rete VSAN
 
@@ -82,7 +81,7 @@ NSX Data Center offre funzionalità di virtualizzazione di rete, micro segmentaz
 
 ## <a name="vsphere-cluster"></a>cluster vSphere
 
-Gli host ESXi sono configurati come cluster per garantire la disponibilità elevata del cloud privato.  Quando si crea un cloud privato, i componenti di gestione di vSphere vengono distribuiti nel primo cluster.  Viene creato un pool di risorse per i componenti di gestione e tutte le macchine virtuali di gestione vengono distribuite in questo pool di risorse. Non è possibile eliminare il primo cluster per compattare il cloud privato.  il cluster vSphere offre disponibilità elevata per le macchine virtuali che usano **vSphere ha**.  Gli errori da tollerare si basano sul numero di nodi disponibili nel cluster.  È possibile utilizzare la formula ```Number of nodes = 2N+1``` in ```N``` cui è il numero di errori da tollerare.
+Gli host ESXi sono configurati come cluster per garantire la disponibilità elevata del cloud privato.  Quando si crea un cloud privato, i componenti di gestione di vSphere vengono distribuiti nel primo cluster.  Viene creato un pool di risorse per i componenti di gestione e tutte le macchine virtuali di gestione vengono distribuite in questo pool di risorse. Non è possibile eliminare il primo cluster per compattare il cloud privato.  il cluster vSphere offre disponibilità elevata per le macchine virtuali che usano **vSphere ha**.  Gli errori da tollerare si basano sul numero di nodi disponibili nel cluster.  È possibile utilizzare la formula ```Number of nodes = 2N+1``` ```N``` in cui è il numero di errori da tollerare.
 
 ### <a name="vsphere-cluster-limits"></a>limiti del cluster vSphere
 

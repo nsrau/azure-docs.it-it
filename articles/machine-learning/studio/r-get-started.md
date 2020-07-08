@@ -4,21 +4,18 @@ description: Usare questa esercitazione sulla programmazione R per iniziare a us
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: b2bd75750670a83409b0f5b8839144e55ef2c4d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706282"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introduzione a Azure Machine Learning Studio (classico) in R
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
 Questa esercitazione illustra come usare ML Studio (classico) per creare, testare ed eseguire codice R. Alla fine, sarà presente una soluzione di previsione completa.  
@@ -37,7 +34,7 @@ La previsione è un metodo analitico molto utile e ampiamente distribuito. Viene
 
 In questa esercitazione vengono usati i dati relativi alla produzione casearia in California e ai prezzi, che includono informazioni mensili sulla produzione di diversi prodotti caseari e sul prezzo del grasso del latte, un prodotto di benchmark.
 
-I dati usati in questo articolo, insieme agli script R, possono essere scaricati da [MachineLearningSamples-Notebooks/Studio-Samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). I dati nel file `cadairydata.csv` sono stati originariamente sintetizzati dalle informazioni disponibili presso la University of Wisconsin [https://dairymarkets.com](https://dairymarkets.com)all'indirizzo.
+I dati usati in questo articolo, insieme agli script R, possono essere scaricati da [MachineLearningSamples-Notebooks/Studio-Samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). I dati nel file `cadairydata.csv` sono stati originariamente sintetizzati dalle informazioni disponibili presso la University of Wisconsin all'indirizzo [https://dairymarkets.com](https://dairymarkets.com) .
 
 
 
@@ -125,7 +122,7 @@ Se al momento non si riesce a comprendere l'ultima riga del codice, continuare a
 
 RStudio è un IDE ampiamente usato per R. Utilizzerò RStudio per la modifica, il test e il debug di parte del codice R usato in questa guida. Una volta testato e pronto il codice R, è possibile semplicemente tagliare e incollare dall'editor RStudio in un modulo Machine Learning Studio (classico) [Execute R script][execute-r-script] .  
 
-Se il linguaggio di programmazione R non è installato nel computer desktop, eseguirne ora l'installazione. I download gratuiti del linguaggio R Open Source sono disponibili presso la rete di archiviazione R completa (CRAN) [https://www.r-project.org/](https://www.r-project.org/)all'indirizzo. Sono disponibili anche download per Windows, Mac OS e Linux/UNIX. Scegliere un mirror vicino e seguire le istruzioni di download. Il sistema CRAN contiene anche una serie di utili pacchetti di analisi e manipolazione di dati.
+Se il linguaggio di programmazione R non è installato nel computer desktop, eseguirne ora l'installazione. I download gratuiti del linguaggio R Open Source sono disponibili presso la rete di archiviazione R completa (CRAN) all'indirizzo [https://www.r-project.org/](https://www.r-project.org/) . Sono disponibili anche download per Windows, Mac OS e Linux/UNIX. Scegliere un mirror vicino e seguire le istruzioni di download. Il sistema CRAN contiene anche una serie di utili pacchetti di analisi e manipolazione di dati.
 
 Se non si ha familiarità con RStudio, è consigliabile scaricare e installare la versione desktop. I download di RStudio per Windows, Mac OS e Linux/UNIX sono disponibili all'indirizzo http://www.rstudio.com/products/RStudio/. Seguire le indicazioni fornite per installare RStudio sul proprio desktop.  
 
@@ -143,7 +140,7 @@ Il codice completo per questa sezione è in [MachineLearningSamples-Notebooks/St
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Caricare il set di dati
 
-Si inizierà caricando il file **csdairydata. csv** in Azure Machine Learning Studio (classico).
+Si inizierà caricando il file di **csdairydata.csv** in Azure Machine Learning Studio (classico).
 
 1. Avviare l'ambiente Azure Machine Learning Studio (classico).
 1. Selezionare **+ nuovo** in basso a sinistra della schermata e selezionare **set di dati**.
@@ -173,7 +170,7 @@ A questo punto, l'esperimento dovrebbe essere simile a quanto riportato nella Fi
 
 #### <a name="check-on-the-data"></a>Controllo dei dati
 
-Diamo ora un'occhiata ai dati caricati nell'esperimento. Nell'esperimento selezionare l'output del **set di dati dati cadairydata. csv** e selezionare **Visualizza**. Dovrebbe apparire una tabella simile a quella riportata nella Figura 4.  
+Diamo ora un'occhiata ai dati caricati nell'esperimento. Nell'esperimento selezionare l'output del **set di daticadairydata.csv** e selezionare **Visualizza**. Dovrebbe apparire una tabella simile a quella riportata nella Figura 4.  
 
 ![Riepilogo del set di dati cadairydata.csv](./media/r-quickstart/fig4.png)
 
@@ -1057,7 +1054,7 @@ Viene generato quanto segue.
     ## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
     ## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
 
-Da P Values`Pr(>|t|)`() in questo output, possiamo notare che il termine quadrato potrebbe non essere significativo. Verrà usata la funzione `update()` per modificare il modello eliminando il termine al quadrato.
+Da P values ( `Pr(>|t|)` ) in questo output, possiamo notare che il termine quadrato potrebbe non essere significativo. Verrà usata la funzione `update()` per modificare il modello eliminando il termine al quadrato.
 
 ```R
 milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
@@ -1302,7 +1299,7 @@ RStudio è molto ben documentato. Di seguito sono riportati alcuni collegamenti 
 * La **modifica e l'esecuzione del codice r** : rstudio fornisce un ambiente integrato per la modifica e l'esecuzione di codice r. Per informazioni dettagliate, vedere [modifica ed esecuzione del codice](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) .
 * **Debug** -rstudio include potenti funzionalità di debug. Per ulteriori informazioni su queste funzionalità, vedere [debug con rstudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) . Per informazioni sulle funzionalità di risoluzione dei problemi, vedere [risoluzione dei problemi](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)del punto di interruzione.
 
-## <a name="further-reading"></a><a id="appendixb"></a>Letture di approfondimento
+## <a name="further-reading"></a><a id="appendixb"></a>Ulteriori informazioni
 
 Questa esercitazione sulla programmazione R illustra le nozioni di base di ciò che è necessario per usare il linguaggio R con Azure Machine Learning Studio (classico). Se non si ha familiarità con R, in CRAN sono disponibili due introduzioni:
 
@@ -1315,7 +1312,7 @@ Sono disponibili molti libri con informazioni introduttive su R. Di seguito sono
 * **R Cookbook** di Paul Teetor fornisce un problema e un approccio alla soluzione per l'uso di r.  
 * **R in azione** di Robert Kabacoff è un altro interessante libro introduttivo. Il [sito Web Quick R](https://www.statmethods.net/) complementare è una risorsa utile.
 * **R inferno** di Patrick Burns è un libro sorprendentemente divertente che tratta di una serie di argomenti complessi e difficili che possono verificarsi durante la programmazione in R. Il libro è disponibile gratuitamente a [R inferno](https://www.burns-stat.com/documents/books/the-r-inferno/).
-* Per approfondimenti sugli argomenti avanzati in R, vedere il libro **Advanced r** di Hadley Wickham. La versione online di questo libro è disponibile gratuitamente all'indirizzo [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/).
+* Per approfondimenti sugli argomenti avanzati in R, vedere il libro **Advanced r** di Hadley Wickham. La versione online di questo libro è disponibile gratuitamente all'indirizzo [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/) .
 
 Un catalogo dei pacchetti di serie temporali R è disponibile in [Cran task view: Time Series Analysis](https://cran.r-project.org/web/views/TimeSeries.html). Per informazioni su specifici pacchetti di oggetti della serie temporale, fare riferimento alla documentazione dei singoli pacchetti.
 

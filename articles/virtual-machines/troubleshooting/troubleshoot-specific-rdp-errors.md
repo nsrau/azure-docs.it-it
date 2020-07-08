@@ -16,21 +16,20 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266871"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701882"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Risoluzione dei problemi relativi a specifici messaggi di errore RDP inviati a una VM Windows in Azure
 Quando si usa una connessione Desktop remoto a una macchina virtuale (VM) Windows in Azure, è possibile ricevere uno specifico messaggio di errore. Questo articolo illustra nei dettagli alcuni dei più comuni messaggi di errore visualizzati e spiega le procedure per la risoluzione dei problemi relativi a tali messaggi. Se si verificano problemi di connessione alla VM mediante RDP ma non viene visualizzato un messaggio di errore specifico, vedere la [guida alla risoluzione dei problemi relativi a Desktop remoto](troubleshoot-rdp-connection.md).
 
 Per informazioni su messaggi di errore specifici, vedere quanto segue:
 
-* [La sessione remota è stata disconnessa perché non sono disponibili server licenze Desktop remoto per fornire una licenza](#rdplicense).
+* [La sessione remota è stata disconnessa perché non sono disponibili server licenze di Desktop remoto per il rilascio della licenza](#rdplicense).
 * [Desktop remoto: impossibile rilevare il "nome" del computer](#rdpname).
 * [Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di sicurezza locale](#rdpauth).
-* [Errore di sicurezza di Windows: Le credenziali specificate non funzionano](#wincred).
+* [Eventi di sicurezza di Windows: le credenziali non funzionavano](#wincred).
 * [Il computer non è in grado di connettersi al computer remoto](#rdpconnect).
 
 <a id="rdplicense"></a>
@@ -69,7 +68,7 @@ La parte dell'indirizzo del file RDP contiene:
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di sicurezza locale.
 Causa: la macchina virtuale di destinazione non è in grado di individuare l'autorità di sicurezza nella porzione di nome utente delle credenziali.
 
-Quando il nome utente è nel formato *autoritàsicurezza*\\*nomeutente* (ad esempio: corp\user1.), la parte *autoritàsicurezza* è il nome del computer della macchina virtuale (per l'autorità di sicurezza locale) o un nome di dominio Active Directory.
+Quando il nome utente è nel formato *autoritàsicurezza* \\ *nomeutente* (ad esempio: corp\user1.), la parte *autoritàsicurezza* è il nome del computer della macchina virtuale (per l'autorità di sicurezza locale) o un nome di dominio Active Directory.
 
 Possibili soluzioni:
 
@@ -84,8 +83,8 @@ Causa: la macchina virtuale di destinazione non può convalidare il nome e la pa
 
 Un computer basato su Windows può convalidare le credenziali di un account locale o di un account di dominio.
 
-* Per gli account locali, usare la sintassi *nomecomputer*\\*nomeutente* (esempio: SQL1\Admin4798).
-* Per gli account di dominio, usare la sintassi *DomainName*\\*username* (esempio: CONTOSO\peterodman).
+* Per gli account locali, usare la sintassi *nomecomputer* \\ *nomeutente* (esempio: SQL1\Admin4798).
+* Per gli account di dominio, usare la sintassi *DomainName* \\ *username* (esempio: CONTOSO\peterodman).
 
 Se la VM è stata innalzata al livello di controller di dominio in una nuova foresta Active Directory, l'account amministratore locale con il quale è stato eseguito l'accesso viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account locale viene quindi eliminato.
 

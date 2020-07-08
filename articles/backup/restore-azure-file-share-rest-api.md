@@ -4,11 +4,10 @@ description: Informazioni su come usare l'API REST per ripristinare condivisioni
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252506"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710576"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Ripristinare le condivisioni file di Azure usando l'API REST
 
@@ -378,7 +377,7 @@ Per l'elenco completo delle definizioni del corpo della richiesta e altri dettag
 
 ### <a name="restore-to-original-location"></a>Il ripristino viene eseguito nel percorso originale
 
-Il corpo della richiesta seguente consente di ripristinare il file *Restoretest. txt* nella condivisione file *risorsa* nell'account di archiviazione *afsaccount* .
+Il corpo della richiesta seguente consente di ripristinare il file di *Restoretest.txt* nella condivisione file *risorsa* nell'account di archiviazione *afsaccount* .
 
 Crea corpo della richiesta
 
@@ -404,7 +403,7 @@ Crea corpo della richiesta
 
 ### <a name="restore-to-alternate-location"></a>Ripristinare in un percorso alternativo
 
-Il corpo della richiesta seguente consente di ripristinare il file *Restoretest. txt* nella condivisione file *risorsa* nell'account di archiviazione *afsaccount* nella cartella *RestoreData* della condivisione file *azurefiles1* nell'account di archiviazione *afaccount1* .
+Il corpo della richiesta seguente consente di ripristinare il file di *Restoretest.txt* nella condivisione file *risorsa* nell'account di archiviazione *afsaccount* nella cartella *RestoreData* della condivisione file *azurefiles1* nell'account di archiviazione *afaccount1* .
 
 Creare il corpo della richiesta
 

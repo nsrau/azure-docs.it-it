@@ -5,15 +5,14 @@ description: Creare o modificare un peering di Exchange tramite PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 23c905f148da614c7785b61b76abed191206cd90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1c0620875e7da4582156080c4a52fd6fbe0e573c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700247"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Creare o modificare un peering di Exchange tramite PowerShell
 
@@ -22,13 +21,13 @@ Questo articolo descrive come creare un peering di Microsoft Exchange usando i c
 Se si preferisce, è possibile completare questa guida usando il [portale](howto-exchange-portal.md)di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Prima di iniziare la configurazione, esaminare i [prerequisiti](prerequisites.md) e la [procedura dettagliata per il peering di Exchange](walkthrough-exchange-all.md) .
+* Prima di iniziare la configurazione, esaminare i [prerequisiti](prerequisites.md) e la [procedura dettagliata per il peering di Exchange](walkthrough-exchange-all.md).
 * Se si dispone già di peering di Exchange con Microsoft che non vengono convertite in risorse di Azure, vedere [convertire un peering Exchange legacy in una risorsa di Azure tramite PowerShell](howto-legacy-exchange-powershell.md).
 
 ### <a name="work-with-azure-powershell"></a>Usare Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="create-and-provision-an-exchange-peering"></a>Creare ed effettuare il provisioning di un peering Exchange
+## <a name="create-and-provision-an-exchange-peering"></a>Creare un peering di Exchange ed effettuarne il provisioning
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Accedere al proprio account Azure e selezionare la sottoscrizione
 [!INCLUDE [Account](./includes/account-powershell.md)]
@@ -61,4 +60,4 @@ Se si preferisce, è possibile completare questa guida usando il [portale](howto
 Get-Help Get-AzPeering -detailed
 ```
 
-Per altre informazioni, vedere [domande frequenti sul peering Internet](faqs.md).
+Per altre informazioni, vedere [Domande frequenti sul peering Internet](faqs.md).

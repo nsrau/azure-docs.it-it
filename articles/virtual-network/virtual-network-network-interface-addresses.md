@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 8ff958b7bab7be3124452c1206baf64d0f8ccb7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82142511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711001"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Aggiungere, modificare o rimuovere indirizzi IP per un'interfaccia di rete di Azure
 
@@ -54,13 +53,13 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 
    |Impostazione|Necessaria?|Dettagli|
    |---|---|---|
-   |Name|Sì|Deve essere univoco per l'interfaccia di rete|
-   |Tipo|Sì|Dato che si aggiunge una configurazione IP a un'interfaccia di rete esistente e ogni interfaccia di rete deve avere una configurazione IP [primaria](#primary), l'unica opzione possibile è **Secondaria**.|
+   |Nome|Sì|Deve essere univoco per l'interfaccia di rete|
+   |Type|Sì|Dato che si aggiunge una configurazione IP a un'interfaccia di rete esistente e ogni interfaccia di rete deve avere una configurazione IP [primaria](#primary), l'unica opzione possibile è **Secondaria**.|
    |Metodo di assegnazione di indirizzi IP privati|Sì|[**Dinamico**](#dynamic): Azure assegna l'indirizzo successivo disponibile per l'intervallo di indirizzi della subnet in cui viene distribuita l'interfaccia di rete. [**Statico**](#static): assegnare un indirizzo non usato per l'intervallo di indirizzi di subnet in cui viene distribuita l'interfaccia di rete.|
    |Indirizzo IP pubblico|No|**Disabilitato:** nessuna risorsa di indirizzo IP pubblico è attualmente associata alla configurazione IP. **Abilitato:** selezionare un indirizzo IPv4 pubblico esistente o crearne uno nuovo. Per informazioni su come creare un indirizzo IP pubblico, vedere l'articolo [Indirizzi IP](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Aggiungere manualmente gli indirizzi IP privati secondari al sistema operativo della macchina virtuale seguendo le istruzioni disponibili nell'articolo [Assegnare più indirizzi IP ai sistemi operativi della macchina virtuale](virtual-network-multiple-ip-addresses-portal.md#os-config). Vedere indirizzi IP [privati](#private) per alcune considerazioni specifiche prima di aggiungere manualmente gli indirizzi IP a un sistema operativo della macchina virtuale. Non aggiungere indirizzi IP pubblici al sistema operativo della macchina virtuale.
 
-**Comandi:**
+**Comandi**
 
 |Strumento|Comando|
 |---|---|
@@ -81,7 +80,7 @@ Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4
 >[!NOTE]
 >Se l'interfaccia di rete primaria ha più configurazioni IP e si modifica l'indirizzo IP privato della configurazione IP primaria, in Windows è necessario riassegnare manualmente gli indirizzi IP primari e secondari all'interfaccia di rete. Questa operazione non è necessaria in Linux. Per assegnare manualmente gli indirizzi IP a un'interfaccia di rete in un sistema operativo, vedere l'articolo relativo all'[assegnazione di più indirizzi IP alle macchine virtuali](virtual-network-multiple-ip-addresses-portal.md#os-config). Per alcune considerazioni specifiche prima di aggiungere manualmente gli indirizzi IP a un sistema operativo della macchina virtuale, vedere gli indirizzi IP [privati](#private). Non aggiungere indirizzi IP pubblici al sistema operativo della macchina virtuale.
 
-**Comandi:**
+**Comandi**
 
 |Strumento|Comando|
 |---|---|
@@ -97,7 +96,7 @@ Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4
 3. In **IMPOSTAZIONI**, selezionare **Configurazioni IP**.
 4. Selezionare con il pulsante destro del mouse una configurazione IP [secondaria](#secondary) (non è possibile eliminare la configurazione [primaria](#primary)) che si desidera eliminare, selezionare **Elimina** e quindi **Sì** per confermare l'eliminazione. Se la configurazione aveva una risorsa di indirizzo IP pubblico associata, la risorsa verrà dissociata dalla configurazione IP, ma non eliminata.
 
-**Comandi:**
+**Comandi**
 
 |Strumento|Comando|
 |---|---|
@@ -108,7 +107,7 @@ Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4
 
 Gli indirizzi IP [privati](#private) e (facoltativamente) [pubblici](#public) vengono assegnati a uno o più configurazioni IP assegnate a un'interfaccia di rete. Esistono due tipi di configurazioni IP:
 
-### <a name="primary"></a>Primaria
+### <a name="primary"></a>Principale
 
 Ogni interfaccia di rete viene assegnata a una configurazione IP primaria. Una configurazione IP primaria:
 
@@ -169,7 +168,7 @@ Gli indirizzi IP pubblici assegnati tramite una risorsa di indirizzo IP pubblico
 Gli indirizzi IPv4 e (facoltativamente) IPv6 privati dinamici vengono assegnati per impostazione predefinita.
 
 - **Solo pubblico**: Azure assegna gli indirizzi da un intervallo univoco a ogni area di Azure. Per informazioni sull'assegnazione degli intervalli a ogni area, vedere [Intervalli IP del data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). L'indirizzo può cambiare quando una macchina virtuale viene arrestata (deallocata), quindi avviata nuovamente. Nessuno dei due metodi di assegnazione consente di assegnare un indirizzo IPv6 pubblico a una configurazione IP.
-- **Solo privato**: Azure riserva i primi quattro indirizzi dell'intervallo di indirizzi di ogni subnet e non li assegna. Azure assegna a una risorsa l'indirizzo disponibile successivo dell'intervallo di indirizzi della subnet. Ad esempio, se l'intervallo di indirizzi della subnet è 10.0.0.0/16 e gli indirizzi 10.0.0.0.4-10.0.0.14 sono già assegnati (quelli da .0 a .3 sono riservati), Azure assegna alla risorsa l'indirizzo 10.0.0.15. Il metodo di allocazione predefinito è quello dinamico. Dopo che sono stati assegnati, gli indirizzi IP dinamici vengono rilasciati solo se un'interfaccia di rete viene eliminata o assegnata a un'altra subnet della stessa rete virtuale oppure se il metodo di allocazione viene modificato in statico e viene specificato un diverso indirizzo IP. Quando si modifica il metodo di allocazione da dinamico a statico, per impostazione predefinita Azure assegna l'indirizzo assegnato dinamicamente precedente come indirizzo statico. 
+- **Solo privato**: Azure riserva i primi quattro indirizzi dell'intervallo di indirizzi di ogni subnet e non li assegna. Azure assegna a una risorsa l'indirizzo disponibile successivo dell'intervallo di indirizzi della subnet. Ad esempio, se l'intervallo di indirizzi della subnet è 10.0.0.0/16 e gli indirizzi 10.0.0.4-10.0.0.14 sono già assegnati (. 0-.3 sono riservati), Azure assegna 10.0.0.15 alla risorsa. Il metodo di allocazione predefinito è quello dinamico. Dopo che sono stati assegnati, gli indirizzi IP dinamici vengono rilasciati solo se un'interfaccia di rete viene eliminata o assegnata a un'altra subnet della stessa rete virtuale oppure se il metodo di allocazione viene modificato in statico e viene specificato un diverso indirizzo IP. Quando si modifica il metodo di allocazione da dinamico a statico, per impostazione predefinita Azure assegna l'indirizzo assegnato dinamicamente precedente come indirizzo statico. 
 
 ### <a name="static"></a>Statico
 

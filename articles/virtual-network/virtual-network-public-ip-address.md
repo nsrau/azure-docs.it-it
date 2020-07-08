@@ -11,17 +11,16 @@ ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: de680e7cb542e7606b80ad46934f4ad7256bfb92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2f71a1d26543e7436dee039592d120b52d5c9fea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710967"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creare, modificare o eliminare un indirizzo IP pubblico
 
@@ -51,7 +50,7 @@ Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare
 3. In **Indirizzo IP pubblico**, selezionare **Crea**.
 4. In **Crea indirizzi IP pubblici** immettere o selezionare i valori per le impostazioni seguenti, quindi selezionare **Crea**:
 
-   |Impostazione|Obbligatorio?|Dettagli|
+   |Impostazione|Necessaria?|Dettagli|
    |---|---|---|
    |Versione indirizzo IP|Sì| Selezionare IPv4 o IPv6 o entrambi. Se si selezionano entrambe, i due indirizzi IP pubblici vengono creati con un indirizzo IPv4 e un indirizzo IPv6. Altre informazioni su [IPv6 in Azure reti virtuali](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
    |SKU|Sì|Tutti gli indirizzi IP pubblici creati prima dell'introduzione degli SKU sono indirizzi IP pubblici con SKU di **base** . Dopo aver creato l'indirizzo IP pubblico, non è possibile modificare lo SKU. Una macchina virtuale autonoma, le macchine virtuali all'interno di un set di disponibilità o i set di scalabilità di macchine virtuali possono usare SKU Basic o Standard. Non è consentito combinare SKU tra macchine virtuali all'interno di set di disponibilità o set di scalabilità o macchine virtuali autonome. SKU **Basic**: se si sta creando un indirizzo IP pubblico in un'area che supporta zone di disponibilità, l'opzione **Zona di disponibilità** è impostata su *Nessuna* per impostazione predefinita. Gli indirizzi IP pubblici di base non supportano le zone di disponibilità. SKU **Standard**: un indirizzo IP pubblico con SKU Standard può essere associato a una macchina virtuale o a un front-end di bilanciamento del carico. Se si sta creando un indirizzo IP pubblico in un'area che supporta zone di disponibilità, l'opzione **Zona di disponibilità** è impostata su *Con ridondanza della zona* per impostazione predefinita. Per altre informazioni sulle zone di disponibilità, vedere l'impostazione **Zona di disponibilità**. Lo SKU Standard è necessario se si associa l'indirizzo a un bilanciamento del carico Standard. Per saperne di più sui servizi di bilanciamento del carico standard, vedere [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU Standard per il bilanciamento del carico di Azure). Quando si assegna un indirizzo IP pubblico con SKU Standard all'interfaccia di rete di una macchina virtuale, è necessario consentire in modo esplicito il traffico previsto con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups). La comunicazione con la risorsa non riesce finché non si crea e si associa un gruppo di sicurezza di rete e si consente in modo esplicito il traffico desiderato.|
@@ -63,10 +62,10 @@ Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare
    |Assegnazione di indirizzi IP (visibile solo se si seleziona la versione IP di **entrambi**)|Sì, se si seleziona la versione IP di **entrambi**|Stesse restrizioni dell'assegnazione di indirizzi IP precedente|
    |Subscription|Sì|Deve esistere nella stessa [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) della risorsa a cui si associeranno gli IP pubblici.|
    |Resource group|Sì|Può esistere nello stesso gruppo di risorse o in un altro [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) della risorsa alla quale si associeranno gli indirizzi IP pubblici.|
-   |Location|Sì|Deve esistere nella stessa [posizione](https://azure.microsoft.com/regions), nota anche come area, come risorsa a cui associare gli IP pubblici.|
+   |Posizione|Sì|Deve esistere nella stessa [posizione](https://azure.microsoft.com/regions), nota anche come area, come risorsa a cui associare gli IP pubblici.|
    |Zona di disponibilità| No | Questa impostazione viene visualizzata solo se si seleziona una località supportata. Per un elenco di località supportate, vedere [Panoramica di Zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se è stato selezionato lo SKU **Basic**, viene selezionata automaticamente l'opzione *Nessuna*. Se si preferisce garantire una zona specifica, è possibile selezionarne una. Entrambe le opzioni non prevedono la ridondanza della zona. Se è stato selezionato lo SKU **Standard**: viene selezionata automaticamente l'opzione con ridondanza della zona e il percorso dei dati è resiliente agli errori a livello di zona. Se si preferisce garantire una zona specifica, non resiliente agli errori a livello di zona, è possibile selezionarne una.
 
-**Comandi:**
+**Comandi**
 
 Anche se il portale consente di creare due risorse indirizzo IP pubblico (IPv4 e IPv6), i comandi dell'interfaccia della riga di comando e di PowerShell seguenti creano una sola risorsa con un indirizzo per una versione IP o per l'altra. Se si vogliono due risorse indirizzo IP pubblico, una per ogni versione IP, è necessario eseguire il comando due volte, specificando nomi e versioni IP diverse per le risorse indirizzo IP pubblico.
 
@@ -87,7 +86,7 @@ Anche se il portale consente di creare due risorse indirizzo IP pubblico (IPv4 e
    >[!WARNING]
    >Quando si modifica il metodo di assegnazione da statico a dinamico, l'indirizzo IP assegnato all'indirizzo IP pubblico viene perso. Mentre i server DNS pubblici Azure mantengono un mapping tra gli indirizzi statici o dinamici e qualsiasi etichetta del nome DNS (se ne è stato definito uno), un indirizzo IP dinamico può essere modificato quando la macchina virtuale viene avviata dopo essere stata arrestata (deallocata). Per evitare la modifica dell'indirizzo, assegnare un indirizzo IP statico.
 
-**Comandi:**
+**Comandi**
 
 |Strumento|Comando|
 |---|---|
@@ -99,8 +98,8 @@ Anche se il portale consente di creare due risorse indirizzo IP pubblico (IPv4 e
 Informazioni su come assegnare un indirizzo IP pubblico alle risorse seguenti:
 
 - Una macchina virtuale [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (durante la creazione) o una [macchina virtuale esistente](virtual-network-network-interface-addresses.md#add-ip-addresses)
-- [Servizio di bilanciamento del carico con connessione Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Gateway applicazione Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Load Balancer con connessione Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Gateway applicazione di Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Connessione da sito a sito con gateway VPN di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
@@ -108,7 +107,7 @@ Informazioni su come assegnare un indirizzo IP pubblico alle risorse seguenti:
 
 Per eseguire attività negli indirizzi IP pubblici, l'account deve essere assegnato al ruolo [collaboratore rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Azione                                                             | Nome                                                           |
+| Action                                                             | Nome                                                           |
 | ---------                                                          | -------------                                                  |
 | Microsoft.Network/publicIPAddresses/read                           | Leggere un indirizzo IP pubblico                                          |
 | Microsoft.Network/publicIPAddresses/write                          | Creare o aggiornare un indirizzo IP pubblico                           |

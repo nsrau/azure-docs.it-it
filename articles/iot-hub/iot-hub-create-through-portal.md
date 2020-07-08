@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708111"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creare un hub IoT usando il portale di Azure
 
@@ -20,7 +19,7 @@ ms.locfileid: "79284733"
 
 Questo articolo descrive come creare e gestire hub IoT con il [portale di Azure](https://portal.azure.com).
 
-Per eseguire i passaggi in questa esercitazione, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Per eseguire i passaggi in questa esercitazione, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -123,5 +122,5 @@ Per eliminare un hub IoT, trovare l'hub IoT che si vuole eliminare e quindi sceg
 Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Routing dei messaggi con l'hub IoT](tutorial-routing.md)
-* [Metriche di Hub IoT](iot-hub-metrics.md)
+* [Metriche di hub IoT](iot-hub-metrics.md)
 * [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)

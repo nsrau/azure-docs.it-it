@@ -13,11 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706597"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Come reimpostare l'interfaccia di rete per la VM Windows di Azure 
 
@@ -117,7 +116,7 @@ Per reimpostare l'interfaccia di rete, seguire questi passaggi:
 Dopo essere riusciti a eseguire una connessione desktop remoto al computer, è necessario eliminare le schede NIC precedenti per evitare il problema potenziale:
 
 1.  Aprire Gestione dispositivi.
-2.  Selezionare Visualizza **Mostra** > **dispositivi nascosti**.
+2.  Selezionare Visualizza **Mostra**  >  **dispositivi nascosti**.
 3.  Selezionare **schede di rete**. 
 4.  Controllare le schede di rete con un nome simile a "Scheda di rete Microsoft Hyper-V".
 5.  Potrebbe essere visualizzata una scheda non disponibile che è disabilitata. Fare clic con il pulsante destro del mouse sulla scheda e quindi scegliere Disinstalla.

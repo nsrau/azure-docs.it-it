@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704948"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
 
@@ -177,7 +176,7 @@ Indipendentemente dall'uso del [portale di Azure](#diagnose-using-azure-portal),
 | Protocollo                | TCP                                                                                |
 | Azione                  | Allow                                                                              |
 | Priorità                | 100                                                                                |
-| Name                    | Allow-HTTP-All                                                                     |
+| Nome                    | Allow-HTTP-All                                                                     |
 
 Dopo aver creato la regola, la porta 80 può ricevere comunicazioni in ingresso da Internet, perché la priorità della regola è superiore rispetto alla regola di sicurezza predefinita denominata *DenyAllInBound*, che impedisce il traffico. Informazioni su come [creare una regola di sicurezza](manage-network-security-group.md#create-a-security-rule). Se più NSG sono associati sia all'interfaccia di rete che alla subnet, è necessario creare la stessa regola in tutti gli NSG.
 

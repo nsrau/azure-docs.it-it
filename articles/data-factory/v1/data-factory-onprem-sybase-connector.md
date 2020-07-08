@@ -13,11 +13,10 @@ ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: cefa0c15dd50f95780034dcb63f888a2e1c6b65e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281249"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707362"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Spostare i dati da Sybase utilizzando Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,7 +43,7 @@ Perché Gateway di gestione dati si connetta al database Sybase, è necessario i
 
 SAP Sybase SQL Anywhere (ASA) versione 16 e successive è supportato. IQ e ASE non sono supportati.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
@@ -70,7 +69,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | database |Nome del database Sybase. |Sì |
 | schema |Nome dello schema nel database. |No |
 | authenticationType |Tipo di autenticazione usato per connettersi al database Sybase. I valori possibili sono: anonima, di base e Windows. |Sì |
-| nomeutente |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
+| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
 | password |Specificare la password per l'account utente specificato per il nome utente. |No |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Sybase locale. |Sì |
 
@@ -79,7 +78,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable** (che include il set di dati Sybase) presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database Sybase a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 

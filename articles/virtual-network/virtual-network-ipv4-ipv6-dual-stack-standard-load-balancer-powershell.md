@@ -8,17 +8,16 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: d6b61e27324220fc78ace3e964aed98f9ba114d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a13a2a081815f2a3b668caf9b4e78c2208601cb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420939"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702993"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Distribuire un'applicazione IPv6 dual stack in Azure-PowerShell
 
@@ -26,7 +25,7 @@ Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell versione 6.9.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 6.9.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -39,7 +38,7 @@ Prima di poter creare la rete virtuale a doppio stack, è necessario creare un g
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>Creare indirizzi IP pubblici IPv4 e IPv6
-Per accedere alle macchine virtuali da Internet, sono necessari indirizzi IP pubblici IPv4 e IPv6 per il servizio di bilanciamento del carico. Creare indirizzi IP pubblici con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). L'esempio seguente crea un indirizzo IP pubblico IPv4 e IPv6 denominato *dsPublicIP_v4* e *dsPublicIP_v6* nel gruppo di risorse *dsRG1* :
+Per accedere alle macchine virtuali da Internet, sono necessari indirizzi IP pubblici IPv4 e IPv6 per il servizio di bilanciamento del carico. Creare un indirizzo IP pubblico con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). L'esempio seguente crea un indirizzo IP pubblico IPv4 e IPv6 denominato *dsPublicIP_v4* e *dsPublicIP_v6* nel gruppo di risorse *dsRG1* :
 
 ```azurepowershell-interactive
 $PublicIP_v4 = New-AzPublicIpAddress `
@@ -307,7 +306,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>Determinare gli indirizzi IP degli endpoint IPv4 e IPv6
-Ottenere tutti gli oggetti dell'interfaccia di rete nel gruppo di risorse per riepilogare l'IP usato in questa `get-AzNetworkInterface`distribuzione con. Inoltre, ottenere gli indirizzi Front-End Load Balancer degli endpoint IPv4 e IPv6 con `get-AzpublicIpAddress`.
+Ottenere tutti gli oggetti dell'interfaccia di rete nel gruppo di risorse per riepilogare l'IP usato in questa distribuzione con `get-AzNetworkInterface` . Inoltre, ottenere gli indirizzi Front-End Load Balancer degli endpoint IPv4 e IPv6 con `get-AzpublicIpAddress` .
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"
@@ -353,7 +352,7 @@ Nella figura seguente viene illustrato un output di esempio in cui sono elencati
   ![Rete virtuale dual stack IPv6 in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 

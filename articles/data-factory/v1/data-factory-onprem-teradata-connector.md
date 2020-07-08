@@ -13,11 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707311"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Spostare i dati da Teradata utilizzando Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -42,7 +41,7 @@ Il gateway è necessario anche se il database Teradata è ospitato in una macchi
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
 Perché Gateway di gestione dati si connetta al database Teradata, è necessario installare il [provider di dati .NET per Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) versione 14 o successiva nello stesso sistema di Gateway di gestione dati. Sono supportate le versioni di Teradata a partire dalla 12.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API.
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -66,7 +65,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | type |La proprietà del tipo deve essere impostata su: **OnPremisesTeradata** |Sì |
 | server |Nome del server Teradata. |Sì |
 | authenticationType |Tipo di autenticazione usato per connettersi al database Teradata. I valori possibili sono: anonima, di base e Windows. |Sì |
-| nomeutente |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
+| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
 | password |Specificare la password per l'account utente specificato per il nome utente. |No |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Teradata locale. |Sì |
 

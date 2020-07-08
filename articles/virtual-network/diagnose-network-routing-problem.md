@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 13d74fbb4a7c133ca2365fd2cbfce4b3d2bea72e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75350575"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705050"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticare un problema di routing di una macchina virtuale
 
@@ -38,7 +37,7 @@ I passaggi che seguono presuppongono la disponibilità di una macchina virtuale 
 2. Nella parte superiore del portale di Azure immettere nella casella di ricerca il nome di una macchina virtuale in stato di esecuzione. Quando il nome della VM viene visualizzato nei risultati della ricerca, selezionarlo.
 3. In **Impostazioni** a sinistra selezionare **rete**e passare alla risorsa interfaccia di rete selezionando il nome.
      ![Visualizzare le interfacce di rete](./media/diagnose-network-routing-problem/view-nics.png)
-4. A sinistra selezionare **Route effettive**. Le route valide per un'interfaccia di rete denominata **myVMNic1** sono visualizzate nell'immagine seguente: ![Visualizza route valide](./media/diagnose-network-routing-problem/view-effective-routes.png)
+4. A sinistra selezionare **Route effettive**. Le route valide per un'interfaccia di rete denominata **myVMNic1** sono visualizzate nell'immagine seguente: ![ Visualizza route valide](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
     Se sono presenti più interfacce di rete collegate alla macchina virtuale, è possibile visualizzare le route valide per qualsiasi interfaccia di rete selezionandola. Poiché ogni interfaccia di rete può trovarsi in una subnet diversa, ogni interfaccia di rete può avere route valide differenti.
 

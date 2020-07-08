@@ -13,11 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707141"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Spostare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -38,7 +37,7 @@ Per abilitare la connettività all'istanza di SAP HANA, installare i componenti 
 - **Gateway di gestione dati**: il servizio Data Factory supporta la connessione ad archivi dati locali (incluso SAP HANA) usando un componente denominato Gateway di gestione dati. Per informazioni su Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md). Il gateway è necessario anche se il database SAP HANA è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
 - **Driver ODBC di SAP HANA** nel computer del gateway. È possibile scaricare il driver ODBC di SAP HANA dall'[area per il download di software SAP](https://support.sap.com/swdc). Per cercare il driver, usare la parola chiave **SAP HANA CLIENT for Windows**. 
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia che sposta i dati da un archivio dati SAP HANA locale usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
@@ -59,11 +58,11 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | stringa | Sì
+server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | string | Sì
 authenticationType | Tipo di autenticazione. | . "Basic" o "Windows" | Sì 
-nomeutente | Nome dell'utente che ha accesso al server SAP | stringa | Sì
-password | Password per l'utente. | stringa | Sì
-gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | stringa | Sì
+username | Nome dell'utente che ha accesso al server SAP | string | Sì
+password | Password per l'utente. | string | Sì
+gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | string | Sì
 encryptedCredential | Stringa di credenziali crittografata. | stringa | No
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
@@ -287,7 +286,7 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 bigint | Int64
-real | Single
+REAL | Single
 DOUBLE | Single
 DECIMAL | Decimal
 BOOLEAN | Byte

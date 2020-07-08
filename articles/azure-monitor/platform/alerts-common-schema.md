@@ -5,11 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710933"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
 
@@ -17,7 +16,7 @@ Questo articolo descrive lo schema di avviso comune, i vantaggi derivanti dall'u
 
 ## <a name="what-is-the-common-alert-schema"></a>Che cos'è lo schema di avviso comune?
 
-Lo schema di avviso comune standardizza l'esperienza di utilizzo per le notifiche di avviso attualmente in Azure. Storicamente, i tre tipi di avviso attualmente disponibili in Azure (metrica, log e log attività) hanno modelli di posta elettronica, schemi webhook e così via. Con lo schema di avviso comune è ora possibile ricevere notifiche di avviso con uno schema coerente.
+Lo schema di avviso comune standardizza attualmente l'esperienza di utilizzo per le notifiche di avviso in Azure. Storicamente, i tre tipi di avviso attualmente disponibili in Azure (metrica, log e log attività) hanno modelli di posta elettronica, schemi webhook e così via. Con lo schema di avviso comune è ora possibile ricevere notifiche di avviso con uno schema coerente.
 
 Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa origine**, che vengono descritte nello schema comune nelle seguenti sezioni:
 * **Essentials**: un set di **campi standardizzati**, comune in tutti i tipi di avviso, che descrivono la **risorsa** in cui si trova l'avviso insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 

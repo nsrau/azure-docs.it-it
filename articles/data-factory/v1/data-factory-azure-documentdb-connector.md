@@ -13,11 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a638184d5232de916ebd25360147301a93309dd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702295"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Spostare dati da e verso il BLOB di Azure mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -36,7 +35,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Per copiare i dati così come sono da e verso i file JSON o un'altra raccolta Cosmos DB, vedere [Importare/esportare documenti JSON](#importexport-json-documents).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso Azure Cosmos DB usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -56,7 +55,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato di Azure Cosmos DB.
 
-| **Proprietà** | **Descrizione** | **Richiesto** |
+| **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
 | type |La proprietà del tipo deve essere impostata su: **DocumentDb** |Sì |
 | connectionString |Specificare le informazioni necessarie per connettersi al database di Azure Cosmos DB. |Sì |
@@ -80,7 +79,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **DocumentDbCollection** presenta le proprietà seguenti.
 
-| **Proprietà** | **Descrizione** | **Richiesto** |
+| **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
 | collectionName |Nome della raccolta documenti di Cosmos DB. |Sì |
 
@@ -132,7 +131,7 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 | --- | --- | --- | --- |
 | nestingSeparator |È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Per l'esempio sopra: `Name.First` nella tabella di output produce la struttura JSON seguente nel documento di Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carattere utilizzato per separare i livelli di nidificazione.<br/><br/>Il valore predefinito è `.` (punto). |Carattere utilizzato per separare i livelli di nidificazione. <br/><br/>Il valore predefinito è `.` (punto). |
 | writeBatchSize |Numero di richieste in parallelo per il servizio Azure Cosmos DB per creare documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso Cosmos DB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a Cosmos DB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore: "La frequenza delle richieste è troppo elevata".<br/><br/>La limitazione viene decisa da diversi fattori, tra cui le dimensioni dei documenti, il numero di termini nei documenti, i criteri di indicizzazione della raccolta di destinazione e così via. Per le operazioni di copia, è possibile usare una raccolta migliore, ad esempio S3, per ottenere la massima velocità effettiva disponibile (2.500 unità richiesta al secondo). |Integer |No (valore predefinito: 5) |
-| writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout. |Intervallo di tempo<br/><br/>  Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout. |timespan<br/><br/>  Ad esempio: "00:30:00" (30 minuti). |No |
 
 ## <a name="importexport-json-documents"></a>Importare/esportare documenti JSON
 Usando questo connettore Cosmos DB, è possibile:
@@ -483,16 +482,16 @@ Azure Cosmos DB è un archivio NoSQL per i documenti JSON, dove sono consentite 
 ## <a name="appendix"></a>Appendice
 1. **Domanda:** C’è l'aggiornamento del supporto di attività di copia dei record esistenti?
 
-    **Risposta:** no.
+    **Risposta:** No.
 2. **Domanda:** in che modo un nuovo tentativo di copia in Azure Cosmos DB gestisce i record già copiati?
 
     **Risposta:** se i record dispongono di un campo "ID" e l'operazione di copia tenta di inserire un record con lo stesso ID, l'operazione di copia genera un errore.
 3. **Domanda:** Data Factory supporta il [partizionamento dei dati basato su hash o su intervalli](../../cosmos-db/sql-api-partition-data.md)?
 
-    **Risposta:** no.
+    **Risposta:** No.
 4. **Domanda:** è possibile specificare più raccolte di Azure Cosmos DB per una tabella?
 
-    **Risposta:** no. In questo momento, è possibile specificare solo una raccolta.
+    **Risposta:** No. In questo momento, è possibile specificare solo una raccolta.
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).

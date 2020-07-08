@@ -8,17 +8,16 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 396c37d4c8de6a890102e435c5ec6cc70b598638
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fd5fcd2356742222b162e31a3178db135acd8ccf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80421028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703129"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Distribuire un'applicazione IPv6 dual stack usando l'interfaccia della riga di comando di base Load Balancer
 
@@ -31,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se invece si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, questa Guida introduttiva richiede l'uso dell'interfaccia della riga di comando di Azure versione 2.0.49 Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa guida di avvio rapido è necessario usare la versione 2.0.49 o successiva. Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -133,7 +132,7 @@ az network lb address-pool create \
 ```
 
 ### <a name="create-a-health-probe"></a>Creare un probe di integrità
-Creare un probe di integrità con [AZ Network lb Probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) per monitorare l'integrità delle macchine virtuali. 
+Creare un probe di integrità con il comando [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) per monitorare l'integrità delle macchine virtuali. 
 
 ```azurecli
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
@@ -259,7 +258,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Creare una rete virtuale con [AZ Network VNET create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). Nell'esempio seguente viene creata una rete virtuale denominata *dsVNET* con subnet *dsSubNET_v4* e *dsSubNET_v6*:
+Creare una rete virtuale con [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). Nell'esempio seguente viene creata una rete virtuale denominata *dsVNET* con subnet *dsSubNET_v4* e *dsSubNET_v6*:
 
 ```azurecli
 # Create the virtual network

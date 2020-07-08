@@ -9,18 +9,17 @@ Customer intent: I want to connect two virtual networks so that virtual machines
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: aa2d75173b14e768a207336b54b3dc10a8c3ea5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b8c226d083c75d50639e7036de938626ca81a5ee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703469"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connettere reti virtuali con il peering di rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -31,7 +30,7 @@ ms.locfileid: "80235158"
 * Distribuire una macchina virtuale in ogni rete virtuale
 * Stabilire la comunicazione tra le macchine virtuali
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -45,7 +44,7 @@ Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare una rete virtuale con [AZ Network VNET create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata *myVirtualNetwork1* con prefisso di indirizzo *10.0.0.0/16*.
+Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata *myVirtualNetwork1* con prefisso di indirizzo *10.0.0.0/16*.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -188,7 +187,7 @@ Si riceveranno quattro risposte.
 
 Chiudere la sessione SSH alla macchina virtuale *myVm2*. 
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure/group) per rimuoverli.
 

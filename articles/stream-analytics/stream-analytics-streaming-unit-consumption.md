@@ -8,11 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704183"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -86,7 +85,7 @@ Ad esempio, nella query seguente il numero associato a `clusterid` è la cardina
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Per attenuare i problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare eventi a hub eventi partizionati in base `clusterid`a e scalare verticalmente la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **Partition by** , come illustrato nell'esempio seguente:
+Per attenuare i problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare eventi a hub eventi partizionati in base a `clusterid` e scalare verticalmente la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **Partition by** , come illustrato nell'esempio seguente:
 
    ```sql
    SELECT count(*) 

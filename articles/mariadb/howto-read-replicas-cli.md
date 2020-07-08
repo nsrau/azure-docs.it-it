@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/21/2020
-ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/10/2020
+ms.openlocfilehash: ddcfea684a22c9ad06197086b3e74700df755da1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707992"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure e l'API REST
 
@@ -30,6 +29,9 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 ### <a name="create-a-read-replica"></a>Creare una replica in lettura
 
+> [!IMPORTANT]
+> Quando viene creata una replica per un master senza repliche esistenti, il master verrà prima riavviato per prepararsi alla replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
+
 È possibile creare un server di replica in lettura usando il comando seguente:
 
 ```azurecli-interactive
@@ -44,7 +46,7 @@ Il comando `az mariadb server replica create` richiede i parametri seguenti:
 | name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
 | source-server | mydemoserver | Nome o ID del server master esistente in base al quale eseguire la replica. |
 
-Per creare una replica di lettura tra aree, usare `--location` il parametro. 
+Per creare una replica di lettura tra aree, usare il `--location` parametro. 
 
 L'esempio dell'interfaccia della riga di comando seguente crea la replica negli Stati Uniti occidentali.
 
@@ -53,7 +55,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 ```
 
 > [!NOTE]
-> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
+> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md). 
 
 > [!NOTE]
 > Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
@@ -131,9 +133,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 > [!NOTE]
-> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
+> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md). 
 
-Se il `azure.replication_support` parametro non è stato impostato su **REPLICA** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
+Se il parametro non è stato impostato `azure.replication_support` su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
 
 Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 

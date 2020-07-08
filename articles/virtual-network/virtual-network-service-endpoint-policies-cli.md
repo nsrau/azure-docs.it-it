@@ -11,18 +11,17 @@ Customer intent: I want only specific Azure Storage account to be allowed access
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78271179"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708213"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gestire i dati exfiltration negli account di archiviazione di Azure con i criteri dell'endpoint del servizio rete virtuale usando l'interfaccia della riga di comando
 
@@ -37,7 +36,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 * Verificare l'accesso all'account di archiviazione consentito dalla subnet.
 * Verificare che l'accesso sia stato negato all'account di archiviazione non consentito dalla subnet.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -263,7 +262,7 @@ az network service-endpoint policy create \
   --location eastus
 ```
 
-Salvare l'URI di risorsa per l'account di archiviazione consentito in una variabile. Prima di eseguire il comando seguente, sostituire * \<your-Subscription-ID>* con il valore effettivo dell'ID sottoscrizione.
+Salvare l'URI di risorsa per l'account di archiviazione consentito in una variabile. Prima di eseguire il comando seguente, sostituire *\<your-subscription-id>* con il valore effettivo dell'ID sottoscrizione.
 
 ```azurecli-interactive
 $serviceResourceId="/subscriptions/<your-subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/allowedstorageacc"
@@ -313,7 +312,7 @@ La creazione della VM richiede alcuni minuti. Dopo la creazione, prendere nota d
 
 ### <a name="confirm-access-to-storage-account"></a>Verificare che venga consentito l'accesso a un account di archiviazione
 
-Eseguire SSH nella VM *myVmPrivate*. Sostituire * \<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale *myVmPrivate* .
+Eseguire SSH nella VM *myVmPrivate*. Sostituire *\<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>
@@ -325,7 +324,7 @@ Creare una cartella per un punto di montaggio:
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-Montare la condivisione file di Azure nella directory creata. Prima di eseguire il comando seguente, sostituire * \<storage-account-Key>* con valore *AccountKey* da **$saConnectionString 1**.
+Montare la condivisione file di Azure nella directory creata. Prima di eseguire il comando seguente, sostituire *\<storage-account-key>* con il valore *AccountKey* da **$saConnectionString 1**.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -343,7 +342,7 @@ sudo mkdir /mnt/MyAzureFileShare2
 
 Provare a montare la condivisione file di Azure dall'account di archiviazione *notallowedstorageacc* alla directory creata. Questo articolo presuppone che sia stata distribuita la versione più recente di Ubuntu. Se si usano versioni meno recenti di Ubuntu, vedere [Eseguire il montaggio in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per istruzioni aggiuntive sul montaggio di condivisioni file. 
 
-Prima di eseguire il comando seguente, sostituire * \<storage-account-Key>* con valore *AccountKey* da **$saConnectionString 2**.
+Prima di eseguire il comando seguente, sostituire *\<storage-account-key>* con il valore *AccountKey* da **$saConnectionString 2**.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino

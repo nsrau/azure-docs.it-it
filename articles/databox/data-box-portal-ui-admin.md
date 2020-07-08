@@ -9,11 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707736"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usare il portale di Azure per amministrare Azure Data Box
 
@@ -51,7 +50,7 @@ Eseguire la procedura seguente per clonare un ordine.
 
     ![Clonazione ordine 1](media/data-box-portal-ui-admin/clone-order1.png)
 
-2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Scegliere **Crea**.    
+2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Fare clic su **Crea**.    
 
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
@@ -128,7 +127,7 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
 |Ritirato     |La spedizione di ritorno è stata ritirata. <br> Dopo che la spedizione è stata ricevuta dal data center di Azure, i dati vengono caricati automaticamente in Azure.         |
 |Ricevuto     | I dischi sono stati ricevuti nel data center di Azure. La copia dei dati inizierà a breve.        |
 |Dati copiati     |La copia dei dati è in corso.<br> Attendere il completamento della copia dei dati.         |
-|Completi       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
+|Completed       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
 |Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori. <br> Esaminare i log degli errori per il caricamento usando il percorso specificato nella **Panoramica**. Per altre informazioni, passare a [Scaricare i log di errori di caricamento](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine.     |
 

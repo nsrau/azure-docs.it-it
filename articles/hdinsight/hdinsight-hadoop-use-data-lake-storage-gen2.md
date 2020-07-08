@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cd41c162d44320fc19af904118f202423e68e96a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4a9a3aaecc854ddb710f19bcb3d455c63b3a8bef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706172"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -169,7 +168,7 @@ La capacità del cluster HDInsight di accedere ai file in Data Lake Storage Gen2
 
 I servizi di Azure hanno due tipi di identità gestite, ovvero assegnati dal sistema e assegnati dall'utente. HDInsight Usa identità gestite assegnate dall'utente per accedere Data Lake Storage Gen2. Un `user-assigned managed identity` viene creato come una risorsa di Azure autonoma. Tramite un processo di creazione, Azure crea un'identità nel tenant di Azure AD considerato attendibile dalla sottoscrizione in uso. Dopo la creazione, l'identità può essere assegnata a una o più istanze del servizio di Azure.
 
-Il ciclo di vita di un'identità assegnata dall'utente viene gestito separatamente dal ciclo di vita delle istanze del servizio di Azure a cui l'identità è assegnata. Per altre informazioni sulle identità gestite, vedere [come funzionano le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+Il ciclo di vita di un'identità assegnata dall'utente viene gestito separatamente dal ciclo di vita delle istanze del servizio di Azure a cui l'identità è assegnata. Per altre informazioni sulle identità gestite, vedere informazioni sulle [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>Ricerca per categorie impostare le autorizzazioni per consentire agli utenti Azure AD di eseguire query sui dati in Data Lake Storage Gen2 usando hive o altri servizi?
 
@@ -185,7 +184,7 @@ Per impostare le autorizzazioni per consentire agli utenti di eseguire query sui
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Uso del formato con percorso abbreviato**. Con questo approccio, si sostituisce il percorso fino alla radice del cluster con:
+* **Uso del formato con percorso abbreviato**. Con questo approccio si sostituisce il percorso fino alla radice del cluster con:
 
     ```
     abfs:///<file.path>/
@@ -199,17 +198,17 @@ Per impostare le autorizzazioni per consentire agli utenti di eseguire query sui
 
 ### <a name="data-access-examples"></a>Esempi di accesso ai dati
 
-Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo head del cluster. Negli esempi vengono utilizzati tutti e tre gli schemi URI. Sostituire `CONTAINERNAME` e `STORAGEACCOUNT` con i valori rilevanti
+Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo head del cluster. Negli esempi vengono usati tutti e tre gli schemi URI. Sostituire `CONTAINERNAME` e `STORAGEACCOUNT` con i valori appropriati
 
 #### <a name="a-few-hdfs-commands"></a>Alcuni comandi HDFS
 
-1. Creare un file nella risorsa di archiviazione locale.
+1. Creare un file nell'archiviazione locale.
 
     ```bash
     touch testFile.txt
     ```
 
-1. Creare directory nell'archivio cluster.
+1. Creare directory nell'archiviazione del cluster.
 
     ```bash
     hdfs dfs -mkdir abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
@@ -217,7 +216,7 @@ Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. Copiare i dati dalla risorsa di archiviazione locale all'archiviazione cluster.
+1. Copiare i dati dall'archiviazione locale all'archiviazione del cluster.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt  abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
@@ -225,7 +224,7 @@ Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh
     hdfs dfs -copyFromLocal testFile.txt  /sampledata3/
     ```
 
-1. Elencare il contenuto della directory nell'archivio cluster.
+1. Elencare il contenuto della directory nell'archiviazione del cluster.
 
     ```bash
     hdfs dfs -ls abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
@@ -233,9 +232,9 @@ Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh
     hdfs dfs -ls /sampledata3/
     ```
 
-#### <a name="creating-a-hive-table"></a>Creazione di una tabella hive
+#### <a name="creating-a-hive-table"></a>Creazione di una tabella Hive
 
-Per scopi illustrativi, vengono visualizzati tre percorsi di file. Per l'esecuzione effettiva, utilizzare solo una delle `LOCATION` voci.
+Per scopi illustrativi, vengono visualizzati tre percorsi di file. Per l'esecuzione effettiva, usare solo una delle voci `LOCATION`.
 
 ```hql
 DROP TABLE myTable;

@@ -13,11 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260449"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702312"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -33,7 +32,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un'archiviazione tabelle di Azure usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -60,7 +59,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **AzureTable** presenta le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database di tabelle di Azure a cui fa riferimento il servizio collegato. |Sì. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
 
@@ -106,7 +105,7 @@ Se la colonna della tabella di Azure è di tipo datetime:
 | azureTableRowKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di riga. Se non specificato, usare un GUID per ogni riga. |Nome colonna. |No |
 | azureTableInsertType |Modalità di inserimento dei dati in una tabella di Azure.<br/><br/>Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori vengono sostituiti o uniti. <br/><br/>Per scoprire come funzionano queste impostazioni (unione e sostituzione), vedere gli argomenti [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Inserire o unire un'entità) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Inserire o sostituire un'entità). <br/><br>  Queste impostazioni vengono applicate a livello di riga, non a livello di tabella, e nessuna delle due opzioni elimina le righe della tabella di output che non esistono nell'input. |merge (impostazione predefinita)<br/>replace |No |
 | writeBatchSize |Inserisce dati nella tabella di Azure quando viene raggiunto il writeBatchSize o writeBatchTimeout. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
-| writeBatchTimeout |Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout |Intervallo di tempo<br/><br/>Ad esempio: "00:20:00" (20 minuti) |No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi) |
+| writeBatchTimeout |Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout |timespan<br/><br/>Ad esempio: "00:20:00" (20 minuti) |No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 Eseguire il mapping di una colonna di origine a una colonna di destinazione usando la funzione di conversione proprietà JSON prima di poter usare la colonna di destinazione come azureTablePartitionKeyName.
@@ -142,7 +141,7 @@ L'esempio seguente mostra:
 
 Nell'esempio vengono copiati i dati appartenenti alla partizione predefinita in una tabella di Azure a un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
-**Servizio collegato di archiviazione di Azure:**
+**Servizio collegato archiviazione di Azure:**
 
 ```JSON
 {

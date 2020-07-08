@@ -15,11 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704591"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurarlo come server iSCSI tramite il portale di Azure
 
@@ -77,7 +76,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 5. I server DNS sono necessari perché vengono usati quando il dispositivo tenta di comunicare con i provider del servizio di archiviazione cloud o per risolvere il dispositivo in base al nome se è configurato come file server. Nella pagina **Impostazioni di rete** in **Server DNS**:
    
    1. Un server DNS primario e secondario viene configurato automaticamente. Se si sceglie di configurare gli indirizzi IP statici, è possibile specificare i server DNS. Per una disponibilità elevata, si consiglia di configurare un server DNS primario e uno secondario.
-   2. Fare clic su **Applica**. Si applicano e convalidano così le impostazioni di rete.
+   2. Fare clic su **Apply**. Si applicano e convalidano così le impostazioni di rete.
 6. Nella pagina **Impostazioni del dispositivo** :
    
    1. Assegnare un **Nome** univoco al dispositivo. Questo nome può avere da 1 a 15 caratteri e contenere lettere, numeri e trattini.
@@ -93,17 +92,17 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    4. Verrà visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull'icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
       
        ![credentials](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
-   5. Fare clic su **Applica**. Si applicano e convalidano così le impostazioni del dispositivo.
+   5. Fare clic su **Apply**. Si applicano e convalidano così le impostazioni del dispositivo.
 7. Configurare il server proxy Web (facoltativo). Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui.
    
     ![configurare il proxy Web](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
    
     Nella pagina **Proxy Web** :
    
-   1. Specificare l' **URL del proxy Web** nel formato seguente: *http\/:/host-IP indirizzo* o *FQDN: numero di porta*. Notare che gli URL HTTPS non sono supportati.
+   1. Specificare l' **URL del proxy Web** nel formato seguente: *http: \/ /host-IP indirizzo* o *FQDN: numero di porta*. Notare che gli URL HTTPS non sono supportati.
    2. Specificare **Autenticazione** come **Basic** o **Nessuna**.
    3. Se si usa l'autenticazione, è necessario fornire anche **Nome utente** e **Password**.
-   4. Fare clic su **Applica**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
+   4. Fare clic su **Apply**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
 8. Configurare le impostazioni ora per il dispositivo, ad esempio il fuso orario e i server NTP primari e secondari (facoltativo). I server NTP sono obbligatori in quanto il dispositivo deve sincronizzare l'ora e consentire l'autenticazione con i provider del servizio cloud.
    
     ![Impostazioni ora](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
@@ -113,7 +112,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    1. Nell'elenco a discesa, selezionare il **Fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
    2. Specificare un **Server NTP primario** per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
    3. Facoltativamente, specificare un **Server NTP secondario** per il dispositivo.
-   4. Fare clic su **Applica**. Le impostazioni ora configurate vengono così convalidate e applicate.
+   4. Fare clic su **Apply**. Le impostazioni ora configurate vengono così convalidate e applicate.
 9. Configurare le impostazioni del cloud per il dispositivo. In questo passaggio viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio Gestione dispositivi StorSimple.
    
    1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).

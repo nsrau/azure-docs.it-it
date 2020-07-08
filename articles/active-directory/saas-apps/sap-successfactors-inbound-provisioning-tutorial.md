@@ -15,11 +15,10 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249685"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702176"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Esercitazione: configurare SAP SuccessFactors per il provisioning utenti di Active Directory (anteprima)
 Questa esercitazione descrive la procedura da eseguire per effettuare il provisioning degli utenti da SuccessFactors Employee Central a Active Directory (AD) e Azure AD, con Write-back facoltativo dell'indirizzo di posta elettronica in SuccessFactors. Questa integrazione è in anteprima pubblica e supporta il recupero di più di [70 attributi utente](../app-provisioning/sap-successfactors-attribute-reference.md) da SuccessFactors Employee Central.
@@ -69,7 +68,7 @@ Questa sezione descrive l'architettura della soluzione end-to-end di provisionin
 
 1. Il team HR esegue le transazioni di lavoro (join/spostamenti/abbandonati o nuove assunzioni/trasferimenti/interruzioni) in SuccessFactors Employee Central
 2. Il servizio di provisioning Azure AD esegue sincronizzazioni pianificate di identità da SuccessFactors EC e identifica le modifiche che devono essere elaborate per la sincronizzazione con Active Directory locale.
-3. Il servizio di provisioning di Azure AD richiama l'agente di provisioning Azure AD Connect locale con un payload di richiesta che contiene le operazioni di creazione/aggiornamento/abilitazione/disabilitazione dell'account Active Directory.
+3. Il servizio di provisioning di Azure AD richiama l'agente di provisioning locale di Azure AD Connect con un payload di richiesta contenente operazioni di creazione/aggiornamento/abilitazione o disabilitazione dell'account AD.
 4. L'agente di provisioning di Azure AD Connect usa un account del servizio per aggiungere/aggiornare i dati dell'account AD.
 5. Il motore di sincronizzazione Azure AD Connect esegue la sincronizzazione Delta per eseguire il pull degli aggiornamenti in Active Directory.
 6. Gli aggiornamenti di Active Directory sono sincronizzati con Azure Active Directory.
@@ -152,13 +151,13 @@ Collaborare con il team amministratore di SuccessFactors o con il partner di imp
 
 Questa sezione illustra i passaggi per il provisioning degli account utente da SuccessFactors a ogni dominio Active Directory nell'ambito dell'integrazione.
 
-* [Aggiungere l'app del connettore di provisioning e scaricare l'agente di provisioning](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [Aggiungere l'app di connettori di provisioning e scaricare l'agente di provisioning](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 * [Installare e configurare gli agenti di provisioning locali](#part-2-install-and-configure-on-premises-provisioning-agents)
 * [Configurare la connettività a SuccessFactors e Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory)
 * [Configurare i mapping degli attributi](#part-4-configure-attribute-mappings)
 * [Abilitare e avviare il provisioning utenti](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>Parte 1: aggiungere l'app del connettore di provisioning e scaricare l'agente di provisioning
+### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>Parte 1: Aggiungere l'app di connettori di provisioning e scaricare l'agente di provisioning
 
 **Per configurare SuccessFactors per Active Directory il provisioning:**
 
@@ -172,18 +171,18 @@ Questa sezione illustra i passaggi per il provisioning degli account utente da S
 
 5. Cercare **SuccessFactors per Active Directory il provisioning utenti**e aggiungere tale app dalla raccolta.
 
-6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**
+6. Dopo aver aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **provisioning**
 
-7. Impostare **Modalità di** **provisioning** su **Automatico**
+7. Impostare la **modalità** di **provisioning** su **automatico**
 
-8. Fare clic sul banner informativo visualizzato per scaricare l'agente di provisioning. 
+8. Fare clic sul banner di informazioni visualizzato per scaricare l'agente di provisioning. 
    > [!div class="mx-imgBorder"]
-   > ![Scarica agente](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "Schermata di download dell'agente")
+   > ![Scaricare l'agente](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "Schermata Scarica agente")
 
 
-### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Parte 2: installare e configurare agenti di provisioning locali
+### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Parte 2: installare e configurare gli agenti di provisioning locali
 
-Per eseguire il provisioning in Active Directory in locale, l'agente di provisioning deve essere installato in un server con .NET 4.7.1 + Framework e accesso di rete ai domini Active Directory desiderati.
+Per effettuare il provisioning in Active Directory locale, è necessario installare un agente di provisioning in un server con .NET Framework 4.7.1 e versioni successive e con accesso alla rete ai domini di Active Directory richiesti.
 
 > [!TIP]
 > È possibile controllare la versione di .NET Framework nel server seguendo le istruzioni disponibili [qui](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
@@ -191,9 +190,9 @@ Per eseguire il provisioning in Active Directory in locale, l'agente di provisio
 
 Trasferire il programma di installazione dell'agente scaricato nell'host del server e seguire i passaggi indicati di seguito per completare la configurazione dell'agente.
 
-1. Accedere al server Windows in cui si vuole installare il nuovo agente.
+1. Accedere all'istanza di Windows Server in cui si intende installare il nuovo agente.
 
-1. Avviare il programma di installazione dell'agente di provisioning, accettare le condizioni e fare clic sul pulsante **Installa** .
+1. Avviare il programma di installazione dell'agente di provisioning, accettare le condizioni e fare clic sul pulsante **Installa**.
 
    ![Schermata di installazione](./media/workday-inbound-tutorial/pa_install_screen_1.png "Schermata di installazione")
    
@@ -234,7 +233,7 @@ Trasferire il programma di installazione dell'agente scaricato nell'host del ser
    
 1. Al termine della registrazione dell'agente sarà possibile fare clic su **Exit** (Esci) per uscire dalla procedura guidata.
   
-   ![Schermata di uscita](./media/workday-inbound-tutorial/pa_install_screen_9.png "Schermata di uscita")
+   ![Schermata Exit](./media/workday-inbound-tutorial/pa_install_screen_9.png "Schermata Exit")
    
 1. Verificare l'installazione dell'agente e accertarsi che sia in esecuzione aprendo lo snap-in "Services" e cercare il servizio denominato "Microsoft Azure AD Connect Provisioning Agent" (Agente di provisioning Microsoft Azure Active Directory Connect)
   
@@ -247,7 +246,7 @@ In questo passaggio viene stabilita la connettività con SuccessFactors e Active
 
 1. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente amministratore** : immettere il nome utente dell'account utente dell'API SuccessFactors, con l'ID società accodato. Il formato è: **username\@companyID**
+   * **Nome utente amministratore** : immettere il nome utente dell'account utente dell'API SuccessFactors, con l'ID società accodato. Il formato è: **username \@ companyID**
 
    * **Password amministratore:** Immettere la password dell'account utente dell'API SuccessFactors. 
 
@@ -282,21 +281,21 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
       * Attributo: personIdExternal
 
-      * Operatore: Corrispondenza REGEX
+      * Operator: REGEX Match (Corrispondenza REGEX)
 
       * Valore: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * Esempio: Solo i dipendenti, senza i lavoratori occasionali
+   * Esempio: solo i dipendenti, senza i lavoratori occasionali
 
       * Attributo: EmployeeID
 
-      * Operatore: NON È NULL
+      * Operator: IS NOT NULL (NON È NULL)
 
    > [!TIP]
    > Quando si configura l'app di provisioning per la prima volta, è necessario testare e verificare i mapping degli attributi e le espressioni per assicurarsi che restituisca il risultato desiderato. Microsoft consiglia di usare i filtri di ambito nell' **ambito dell'oggetto di origine** per testare i mapping con alcuni utenti di test di SuccessFactors. Dopo avere verificato che i mapping funzionino è possibile rimuovere il filtro o espanderlo gradualmente in modo da includere altri utenti.
 
    > [!CAUTION] 
-   > Il comportamento predefinito del motore di provisioning è disabilitare/eliminare gli utenti che non rientrano nell'ambito. Questa operazione potrebbe non essere auspicabile nell'integrazione di SuccessFactors con Active Directory. Per eseguire l'override di questo comportamento predefinito, vedere l'articolo [ignorare l'eliminazione di account utente che non rientrano nell'ambito](../app-provisioning/skip-out-of-scope-deletions.md)
+   > Il comportamento predefinito del motore di provisioning è disabilitare/eliminare gli utenti che non rientrano nell'ambito. Questa operazione potrebbe non essere auspicabile nell'integrazione di SuccessFactors con Active Directory. Per eseguire l'override di questo comportamento predefinito, fare riferimento all'articolo [Ignorare l'eliminazione di account utente che non rientrano nell'ambito](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. Nel campo **Target Object Actions** (Azioni oggetto di destinazione) è possibile applicare un filtro a livello globale per le azioni che vengono eseguite in Active Directory. **Creazione** e **Aggiornamento** sono le più comuni.
 
@@ -312,7 +311,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
          * **Direct** : scrive il valore dell'attributo SuccessFactors nell'attributo di Active Directory, senza modifiche
 
-         * **Constant** -scrive un valore stringa costante statico nell'attributo ad
+         * **Costant** (Costante): scrive un valore stringa costante statico nell'attributo di AD
 
          * **Espressione** : consente di scrivere un valore personalizzato nell'attributo di Active Directory, in base a uno o più attributi SuccessFactors. [Per altre informazioni, vedere questo articolo sulle espressioni](../app-provisioning/functions-for-customizing-application-data.md).
 
@@ -321,7 +320,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
       * **Valore predefinito**: facoltativo. Se l'attributo di origine ha un valore vuoto, il mapping eseguirà la scrittura di questo valore.
             Nella maggior parte delle configurazioni questo campo viene lasciato vuoto.
 
-      * **Attributo di destinazione** : l'attributo utente in Active Directory.
+      * **Attributo di destinazione**: l'attributo utente in Active Directory.
 
       * **Corrisponde a oggetti che usano questo attributo** , indipendentemente dal fatto che questo mapping debba essere usato per identificare in modo univoco gli utenti tra SuccessFactors e Active Directory. Questo valore viene in genere impostato sul campo ID di lavoro per SuccessFactors, che in genere viene mappato a uno degli attributi ID dipendente in Active Directory.
 
@@ -329,11 +328,11 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
       * **Applica questo mapping**
 
-         * **Sempre** : applica il mapping sia all'azione di creazione che all'aggiornamento dell'utente
+         * **Sempre**: applica il mapping sia all'azione di creazione che all'azione di aggiornamento dell'utente
 
-         * **Solo durante la creazione** : applicare questo mapping solo alle azioni di creazione dell'utente
+         * **Only during creation** (Solo durante la creazione): applica il mapping solo alle azioni di creazione dell'utente
 
-1. Per salvare i mapping, fare clic su **Salva** nella parte superiore della sezione mapping attributi.
+1. Per salvare i mapping, fare clic su **Save**, Salva, nella parte superiore della sezione Attribute-Mapping, Mapping attributi.
 
 Dopo aver completato la configurazione di mapping di attributo, è ora possibile [abilitare e avviare il servizio di provisioning utenti](#enable-and-launch-user-provisioning).
 
@@ -346,7 +345,7 @@ Una volta completate le configurazioni dell'app di provisioning di SuccessFactor
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Save**.
+2. Fare clic su **Salva**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nel tenant di SuccessFactors. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
 

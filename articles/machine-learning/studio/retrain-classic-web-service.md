@@ -5,21 +5,18 @@ description: Informazioni su come ripetere il training di un modello e aggiornar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 0639a525384e751ac4441da5d2c03532618b801a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 659011a13be310512ace68d2e020eaebff9a10ee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209452"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706036"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ripetere il training e distribuire un servizio Web classico in studio (classico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 La ripetizione del training dei modelli di Machine Learning è un modo per garantire che rimangano accurati e si basino sui dati più rilevanti disponibili. In questo articolo viene illustrato come ripetere il training di un servizio Web classico di studio (classico). Per una guida su come ripetere il training di un nuovo servizio Web di studio (classico), [vedere questo articolo sulle procedure.](retrain-machine-learning-model.md)
 
@@ -48,7 +45,7 @@ Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 
 1. In Machine Learning Studio (classico), nella colonna di spostamento a sinistra fare clic su servizi Web.
 1. Nella parte inferiore del dashboard del servizio Web fare clic su **Gestisci endpoint anteprima**.
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 1. Immettere un nome e una descrizione per il nuovo endpoint. Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [abilitare la registrazione per i servizi web Machine Learning](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Aggiornare il modello con training dell'endpoint aggiunto

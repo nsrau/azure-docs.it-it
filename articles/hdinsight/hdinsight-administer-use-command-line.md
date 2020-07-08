@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/26/2020
 ms.openlocfilehash: 2c6495454e5ba2449d4b3c74a096681f74610813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699363"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gestire cluster HDInsight di Azure con l'interfaccia della riga di comando di Azure
 
@@ -27,9 +26,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per la relativa procedura.
 
-* Un cluster Apache Hadoop in HDInsight. Vedere [Introduzione a HDInsight in Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Apache Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="connect-to-azure"></a>Connettiti ad Azure
+## <a name="connect-to-azure"></a>Connettersi ad Azure
 
 Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, fare clic su **Prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
 
@@ -60,7 +59,7 @@ az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:
 
 ## <a name="show-cluster"></a>Mostrare cluster
 
-Usare il comando [AZ HDInsight Show](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-show) per visualizzare le informazioni relative a un cluster specificato. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME`e `CLUSTER_NAME` con le informazioni rilevanti, quindi immettere il comando:
+Usare il comando [AZ HDInsight Show](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-show) per visualizzare le informazioni relative a un cluster specificato. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME` e `CLUSTER_NAME` con le informazioni rilevanti, quindi immettere il comando:
 
 ```azurecli-interactive
 az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -68,7 +67,7 @@ az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 
 ## <a name="delete-clusters"></a>Eliminare cluster
 
-Usare il comando [AZ HDInsight Delete](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-delete) per eliminare un cluster specificato. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME`e `CLUSTER_NAME` con le informazioni rilevanti, quindi immettere il comando:
+Usare il comando [AZ HDInsight Delete](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-delete) per eliminare un cluster specificato. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME` e `CLUSTER_NAME` con le informazioni rilevanti, quindi immettere il comando:
 
 ```azurecli-interactive
 az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -82,7 +81,7 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## <a name="scale-clusters"></a>Ridimensionare i cluster
 
-Usare il comando [AZ HDInsight Resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) per ridimensionare il cluster HDInsight specificato alla dimensione specificata. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME`e `CLUSTER_NAME` con le informazioni rilevanti. Sostituire `WORKERNODE_COUNT` con il numero desiderato di nodi del ruolo di lavoro per il cluster. Per altre informazioni sul ridimensionamento dei cluster, vedere [ridimensionare i cluster HDInsight](./hdinsight-scaling-best-practices.md). Immettere il comando:
+Usare il comando [AZ HDInsight Resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) per ridimensionare il cluster HDInsight specificato alla dimensione specificata. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME` e `CLUSTER_NAME` con le informazioni rilevanti. Sostituire `WORKERNODE_COUNT` con il numero desiderato di nodi del ruolo di lavoro per il cluster. Per altre informazioni sul ridimensionamento dei cluster, vedere [ridimensionare i cluster HDInsight](./hdinsight-scaling-best-practices.md). Immettere il comando:
 
 ```azurecli-interactive
 az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT

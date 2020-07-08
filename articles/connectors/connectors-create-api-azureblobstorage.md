@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247358"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711290"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creare e gestire i BLOB nell'archiviazione BLOB di Azure usando app per la logica di Azure
 
@@ -20,7 +19,7 @@ Questo articolo illustra come accedere ai file archiviati come BLOB nell'account
 
 Si supponga di avere uno strumento che viene aggiornato in un sito Web di Azure. L'evento funge da trigger per l'app per la logica. Quando l'evento si verifica, è possibile impostare l'app per la logica per aggiornare alcuni file nel contenitore di archiviazione BLOB, eseguendo un'azione nell'app per la logica.
 
-Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, vedere le [informazioni di riferimento sul connettore di Archiviazione BLOB di Azure](https://docs.microsoft.com/connectors/azureblobconnector/).
+Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, vedere le [informazioni di riferimento sul connettore di Archiviazione BLOB di Azure](https://docs.microsoft.com/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
 > Le app per la logica non possono accedere direttamente agli account di archiviazione protetti da firewall se si trovano entrambi nella stessa area. Come soluzione alternativa, è possibile avere le app per la logica e l'account di archiviazione in aree diverse. Per altre informazioni su come abilitare l'accesso dalle app per la logica di Azure agli account di archiviazione dietro ai firewall, vedere la sezione [accedere agli account di archiviazione dietro ai firewall](#storage-firewalls) più avanti in questo argomento.
@@ -89,7 +88,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
    ![Aggiungi nuovo passaggio al flusso di lavoro dell'app per la logica](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Scegliere il segno più (**+**) visualizzato e selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Scegliere il segno più ( **+** ) visualizzato e selezionare **Aggiungi un'azione**.
 
 3. Nella casella di ricerca immettere "BLOB di Azure" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
 
@@ -123,7 +122,7 @@ Questo esempio ottiene solo i contenuti di un BLOB. Per visualizzare i contenuti
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
-   | **Nome connessione** | Sì | <*Nome connessione*> | Nome creato per la connessione |
+   | **Connection Name** (Nome connessione) | Sì | <*Nome connessione*> | Nome creato per la connessione |
    | **Storage Account** | Sì | <*account di archiviazione*> | Selezionare l'account di archiviazione dall'elenco. |
    ||||
 
@@ -194,7 +193,7 @@ Per configurare l'eccezione e il supporto dell'identità gestita, attenersi alla
 1. Nel flusso di lavoro dell'app per la logica aggiungere e configurare l'azione o il trigger HTTP per accedere all'entità o all'account di archiviazione.
 
    > [!IMPORTANT]
-   > Per le chiamate all'azione HTTP in uscita o al trigger per gli account di archiviazione di Azure, assicurarsi che `x-ms-version` l'intestazione della richiesta includa la proprietà e la versione dell'API per l'operazione che si vuole eseguire nell'account di archiviazione. Per altre informazioni, vedere [autenticare l'accesso con l'identità gestita](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) e il [controllo delle versioni per i servizi di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > Per le chiamate all'azione HTTP in uscita o al trigger per gli account di archiviazione di Azure, assicurarsi che l'intestazione della richiesta includa la `x-ms-version` proprietà e la versione dell'API per l'operazione che si vuole eseguire nell'account di archiviazione. Per altre informazioni, vedere [autenticare l'accesso con l'identità gestita](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) e il [controllo delle versioni per i servizi di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. In tale azione [selezionare l'identità gestita](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) da usare per l'autenticazione.
 

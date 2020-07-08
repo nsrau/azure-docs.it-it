@@ -7,17 +7,16 @@ author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: 6d720067b619b0d871899f2ac9025a9d8ab24d95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b0585c755e8dd9a6625a8259dc71ca521f156afb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82130760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704064"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
@@ -48,7 +47,7 @@ Per risolvere gli errori di probe, è necessario uno strumento che mostri il cod
 
 È inoltre possibile utilizzare la scheda Rete in Strumenti F12 per il debug di Internet Explorer per visualizzare le risposte HTTP.
 
-Per questo esempio si vuole visualizzare la risposta dall'URL del probe: http:\//watestsdp2008r2.cloudapp.NET:80/Probe. L'esempio di PowerShell seguente illustra il problema.
+Per questo esempio si vuole visualizzare la risposta dall'URL del probe: http: \/ /watestsdp2008r2.cloudapp.NET:80/Probe. L'esempio di PowerShell seguente illustra il problema.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

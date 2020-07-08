@@ -5,17 +5,16 @@ author: rohinkoul
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: rohink
-ms.openlocfilehash: 4e017dc940e1d32888ff279904e44d34db1fd5c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4bf3ee75c9445856fb8a2ce789a3f2f345e720fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701665"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gestire record e recordset DNS in DNS di Azure con l'interfaccia della riga di comando di Azure
 
@@ -38,7 +37,7 @@ Per altre informazioni sui record DNS nel servizio DNS di Azure, vedere [Zone e 
 
 ## <a name="create-a-dns-record"></a>Creare un record DNS
 
-Per creare un record DNS, usare il comando `az network dns record-set <record-type> add-record` (dove `<record-type>` è il tipo di record, ossia a, SRV, txt e così via) Per informazioni, vedere `az network dns record-set --help`.
+Per creare un record DNS, usare il comando `az network dns record-set <record-type> add-record` (dove `<record-type>` è il tipo di record, ossia a, SRV, txt e così via) Per informazioni, vedere `az network dns record-set --help` .
 
 Quando si crea un record è necessario specificare il nome del gruppo di risorse, della zona e del set di record, il tipo di record e i dettagli del record da creare. Il nome assegnato al set di record deve essere un nome *relativo*, ovvero deve escludere il nome della zona.
 

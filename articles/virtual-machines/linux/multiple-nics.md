@@ -9,11 +9,10 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706682"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 
@@ -169,7 +168,7 @@ I modelli di Azure Resource Manager utilizzano i file JSON dichiarativi per defi
 
 Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../../resource-group-create-multiple.md). 
 
-È anche possibile usare un `copyIndex()` oggetto per aggiungere un numero al nome di una risorsa, che consente di creare `myNic1`, `myNic2`e così via. Di seguito viene illustrato un esempio di aggiunta del valore di indice:
+È anche possibile usare un oggetto `copyIndex()` per aggiungere un numero al nome di una risorsa, che consente di creare `myNic1` , `myNic2` e così via. Di seguito viene illustrato un esempio di aggiunta del valore di indice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 

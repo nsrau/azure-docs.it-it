@@ -5,15 +5,14 @@ description: Creare o modificare un peering di Exchange con il portale di Azure
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/2/2020
 ms.author: derekol
-ms.openlocfilehash: 259ced3032eb43a946de7f1cf4dad9abb99d4a11
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 69201c97882846fb929b3b6f9a90be6647603bcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700481"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-the-azure-portal"></a>Creare o modificare un peering di Exchange con il portale di Azure
 

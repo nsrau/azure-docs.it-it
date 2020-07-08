@@ -4,25 +4,24 @@ description: Questo articolo descrive come instradare il traffico di rete con un
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 70f7bd4443602f6f18be54c5bc4ff038e868e58e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703350"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Instradare il traffico di rete con una tabella di route usando l'interfaccia della riga di comando di Azure
 
@@ -36,7 +35,7 @@ Per impostazione predefinita, Azure indirizza automaticamente il traffico tra tu
 * Distribuire le macchine virtuali in subnet diverse
 * Indirizzare il traffico da una subnet a un'altra attraverso un'appliance virtuale di rete
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -210,7 +209,7 @@ Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere 
 
 ## <a name="route-traffic-through-an-nva"></a>Indirizzare il traffico attraverso un'appliance virtuale di rete
 
-Usare il comando seguente per creare una sessione SSH con la macchina virtuale *myVmPrivate*. Sostituire * \<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP è *13.90.242.231*.
+Usare il comando seguente per creare una sessione SSH con la macchina virtuale *myVmPrivate*. Sostituire *\<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP è *13.90.242.231*.
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -269,7 +268,7 @@ Come si può notare, il primo hop è 10.0.2.4, cioè l'indirizzo IP privato dell
 
 Chiudere le sessioni SSH a entrambe le macchine virtuali *myVmPublic* e *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure/group) per rimuoverli.
 

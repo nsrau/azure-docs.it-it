@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/29/2020
-ms.openlocfilehash: 9ac85299311c1fd233988c6472d6325934dd42dd
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.date: 6/10/2020
+ms.openlocfilehash: eff70d193674877b3b9453319197b60569399968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707090"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Come creare e gestire le repliche di lettura nel database di Azure per MySQL usando PowerShell
 
@@ -29,8 +28,8 @@ Per completare questa guida, è necessario:
 - Un [database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Mentre il modulo AZ. MySql PowerShell è in anteprima, è necessario installarlo separatamente dal modulo AZ PowerShell usando il comando seguente: `Install-Module -Name Az.MySql -AllowPrerelease`.
-> Una volta che il modulo AZ. MySql PowerShell è disponibile a livello generale, diventa parte delle future versioni del modulo AZ PowerShell e disponibile in modo nativo dall'interno Azure Cloud Shell.
+> Durante la fase di anteprima del modulo Az.MySql PowerShell, è necessario installarlo separatamente dal modulo Az PowerShell usando il comando seguente: `Install-Module -Name Az.MySql -AllowPrerelease`.
+> Quando il modulo Az.MySql PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e disponibile in modo nativo dall'interno di Azure Cloud Shell.
 
 Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
 
@@ -40,6 +39,9 @@ Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure us
 > La funzionalità relativa alle repliche in lettura è disponibile solo per i server di Database di Azure per MySQL nei piani tariffari Utilizzo generico o Con ottimizzazione per la memoria. Verificare che il server master sia incluso in uno di questi piani tariffari.
 
 ### <a name="create-a-read-replica"></a>Creare una replica in lettura
+
+> [!IMPORTANT]
+> Quando viene creata una replica per un master senza repliche esistenti, il master verrà prima riavviato per prepararsi alla replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
 
 È possibile creare un server di replica in lettura usando il comando seguente:
 
@@ -62,7 +64,7 @@ Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
   New-AzMySqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
-Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md).
+Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md).
 
 Per impostazione predefinita, le repliche di lettura vengono create con la stessa configurazione del server del database master, a meno che non sia stato specificato il parametro **SKU** .
 
@@ -86,7 +88,7 @@ Il comando `Get-AzMySqlReplica` richiede i parametri seguenti:
 
 ### <a name="delete-a-replica-server"></a>Eliminare un server di replica
 
-L'eliminazione di un server di replica di lettura può essere `Remove-AzMySqlServer` eseguita eseguendo il cmdlet.
+L'eliminazione di un server di replica di lettura può essere eseguita eseguendo il `Remove-AzMySqlServer` cmdlet.
 
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup

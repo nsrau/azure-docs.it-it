@@ -11,14 +11,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75611067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711086"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizzare i criteri di protezione delle informazioni SQL in Centro sicurezza di Azure (Anteprima)
  
@@ -29,7 +28,7 @@ Information Protection è una funzionalità di sicurezza avanzata per l'individu
 - Scenari di sicurezza, ad esempio monitoraggio (controllo) e avvisi sull'accesso anomalo ai dati sensibili
 - Controllare l'accesso ai database che contengono dati molto sensibili e rafforzarne la sicurezza
  
-[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implementa questo paradigma per gli archivi dati SQL, attualmente supportati per il database SQL di Azure. SQL Information Protection consente di individuare e classificare automaticamente i dati potenzialmente sensibili, offre un meccanismo di assegnazione delle etichette per contrassegnare in modo permanente i dati sensibili con attributi di classificazione e contiene un dashboard dettagliato che indica lo stato di classificazione del database. Inoltre, calcola la riservatezza del set di risultati delle query SQL, in modo che le query che estraggono dati sensibili possano essere controllate in modo esplicito, e i dati protetti. Per altre informazioni su SQL Information Protection, vedere [individuazione e classificazione dei dati del database SQL di Azure](../sql-database/sql-database-data-discovery-and-classification.md).
+[SQL Information Protection](../azure-sql/database/data-discovery-and-classification-overview.md) implementa questo paradigma per gli archivi dati SQL, attualmente supportati per il database SQL di Azure. SQL Information Protection consente di individuare e classificare automaticamente i dati potenzialmente sensibili, offre un meccanismo di assegnazione delle etichette per contrassegnare in modo permanente i dati sensibili con attributi di classificazione e contiene un dashboard dettagliato che indica lo stato di classificazione del database. Inoltre, calcola la riservatezza del set di risultati delle query SQL, in modo che le query che estraggono dati sensibili possano essere controllate in modo esplicito, e i dati protetti. Per altre informazioni su SQL Information Protection, vedere [individuazione e classificazione dei dati del database SQL di Azure](../azure-sql/database/data-discovery-and-classification-overview.md).
  
 Il meccanismo di classificazione si basa su due costrutti principali che costituiscono la tassonomia di classificazione, cioè le **etichette** e i **tipi di informazioni**.
 - **Labels** : gli attributi di classificazione principali, usati per definire il livello di sensibilità dei dati archiviati nella colonna. 
@@ -75,11 +74,15 @@ Per personalizzare i criteri di protezione delle informazioni del tenant di Azur
 7. Fare clic su **Salva** nel pannello **Etichette** principale per applicare tutte le modifiche.
  
 Dopo che è stato definito e salvato, il criterio di Information Protection verrà applicato alla classificazione dei dati in tutti i database SQL di Azure nel tenant.
- 
+
+## <a name="manage-sql-information-protection-using-azure-powershell"></a>Gestire SQL Information Protection usando Azure PowerShell
+
+- [Get-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/get-azsqlinformationprotectionpolicy): Recupera il criterio tenant SQL Information Protection effettivo.
+- [Set-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/set-azsqlinformationprotectionpolicy): imposta i criteri di SQL Information Protection del tenant effettivi.
  
 ## <a name="next-steps"></a>Passaggi successivi
  
-In questo articolo è stata illustrata la definizione di un criterio di Information Protection per SQL nel Centro sicurezza di Azure. Per altre informazioni sull'utilizzo di SQL Information Protection per classificare e proteggere i dati sensibili nel database SQL, vedere [Individuazione dati e classificazione nel database SQL di Azure](../sql-database/sql-database-data-discovery-and-classification.md). 
+In questo articolo è stata illustrata la definizione di un criterio di Information Protection per SQL nel Centro sicurezza di Azure. Per altre informazioni sull'utilizzo di SQL Information Protection per classificare e proteggere i dati sensibili nel database SQL, vedere [Individuazione dati e classificazione nel database SQL di Azure](../azure-sql/database/data-discovery-and-classification-overview.md). 
 
 Per altre informazioni sui criteri di sicurezza e la protezione dei dati nel Centro sicurezza di Azure, vedere gli articoli seguenti:
  

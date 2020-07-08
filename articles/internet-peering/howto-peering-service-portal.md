@@ -5,15 +5,14 @@ description: Abilitare il servizio peering di Azure in un peering diretto usando
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 3/18/2020
 ms.author: derekol
-ms.openlocfilehash: 625a17e5acff00f78c5a19725653eec629936f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a52e6038b622c004dc0d133394cd4f53600b2935
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700043"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Abilitare il servizio peering di Azure in un peering diretto usando il portale di Azure
 
@@ -43,8 +42,8 @@ Per modificare le impostazioni di connessione, vedere la sezione "modificare un 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare o modificare il peering di Exchange tramite il portale](howto-exchange-portal.md)
-* [Convertire un peering di Exchange legacy in una risorsa di Azure tramite il portale](howto-legacy-exchange-portal.md)
+* [Creare o modificare un peering di Exchange con il portale](howto-exchange-portal.md)
+* [Convertire un peering di Exchange legacy in una risorsa di Azure con il portale](howto-legacy-exchange-portal.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -6,18 +6,17 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701167"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Esempi di manifesti dell'applicazione e del servizio per applicazioni multicontenitore
 Di seguito sono riportati alcuni esempi di manifesto dell'applicazione e del servizio per un'applicazione di Service Fabric con più contenitori. Lo scopo di questi esempi è mostrare le impostazioni disponibili e come usarle. Questi manifesti dell'applicazione e del servizio sono basati sui manifesti descritti nell'[esempio di contenitore di Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
 
 Sono disponibili le funzionalità seguenti:
 
-|manifesto|Caratteristiche|
+|Manifesto|Funzionalità|
 |---|---|
 |[Manifesto dell'applicazione](#application-manifest)| [override delle variabili di ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurazione del mapping da porta a host del contenitore](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [configurazione dell'autenticazione del registro contenitori](service-fabric-get-started-containers.md#configure-container-repository-authentication), [governance delle risorse](service-fabric-resource-governance.md), [impostazione della modalità di isolamento](service-fabric-get-started-containers.md#configure-isolation-mode), [specifica delle immagini del contenitore specifiche delle build del sistema operativo](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[Manifesto del servizio FrontEndService](#frontendservice-service-manifest)| [impostazione delle variabili di ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurazione di un endpoint](service-fabric-get-started-containers.md#configure-communication), passaggio di comandi al contenitore, [importazione di un certificato in un contenitore](service-fabric-securing-containers.md)| 
@@ -342,7 +341,7 @@ L'eseguibile specificato da EntryPoint è in genere l'host servizio a esecuzione
  Per altre informazioni, vedere [Elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-Il repository e l'immagine [https://hub.docker.com](https://hub.docker.com) in o container Registry di Azure. Per altre informazioni, vedere [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+Il repository e l'immagine in [https://hub.docker.com](https://hub.docker.com) o container Registry di Azure. Per altre informazioni, vedere [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="environmentvariables-element"></a>Elemento EnvironmentVariables
 Passa le variabili di ambiente al contenitore o all'eseguibile.  Per altre informazioni, vedere [Elemento EnvironmentVariables](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -386,7 +385,7 @@ L'eseguibile specificato da EntryPoint è in genere l'host servizio a esecuzione
 Per altre informazioni, vedere [Elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-Il repository e l'immagine [https://hub.docker.com](https://hub.docker.com) in o container Registry di Azure. Per altre informazioni, vedere [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+Il repository e l'immagine in [https://hub.docker.com](https://hub.docker.com) o container Registry di Azure. Per altre informazioni, vedere [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="commands-element"></a>Elemento Commands
 Passa un elenco di comandi delimitato da virgole al contenitore. Per altre informazioni, vedere [Elemento Commands](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)

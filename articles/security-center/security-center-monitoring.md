@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 40352b7ae1f3fb6b1178f2dfe70cdca9871c76b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d18258d62267c931a39947611dda038ff6e65205
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77603780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718700"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Migliorare il comportamento di sicurezza con il Centro sicurezza di Azure
 Questo articolo fornisce informazioni utili per migliorare il comportamento di sicurezza. Descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure per verificare che la sicurezza delle risorse sia elevata e monitorare la conformità ai criteri.
@@ -34,7 +33,7 @@ Lo stato di sicurezza delle risorse ed eventuali problemi sono visualizzabili in
 - Per monitorare le risorse di rete, ad esempio le macchine virtuali, i gruppi di sicurezza di rete e gli endpoint, e ricevere consigli per migliorare la sicurezza, vedere [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md) per altre informazioni. 
 - Per monitorare i dati e le risorse di archiviazione, ad esempio i server SQL e gli account di archiviazione, e ricevere consigli per migliorare la sicurezza, vedere [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md) per altre informazioni. 
 - Per monitorare le risorse di identità e di accesso, tra cui le autorizzazioni MFA e per gli account, e ricevere consigli per migliorare la sicurezza, vedere [Monitoraggio dell'identità e dell'accesso nel Centro sicurezza di Azure](security-center-identity-access.md) per altre informazioni. 
-- Per monitorare l'accesso just-in-time alle risorse, vedere [gestire l'accesso alle macchine virtuali usando JIT (just-in-Time](security-center-just-in-time.md) ) per ulteriori informazioni. 
+- Per monitorare l'accesso just-in-time alle risorse, vedere [gestire l'accesso alle macchine virtuali usando JIT (just-in-Time](security-center-just-in-time.md) ) per ulteriori informazioni.
 
 
 Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo sull'[implementazione delle raccomandazioni sulla sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).

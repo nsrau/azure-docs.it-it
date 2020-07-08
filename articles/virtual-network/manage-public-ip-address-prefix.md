@@ -8,17 +8,16 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 720496c56cdae69e3b7415ac4d4d05d5796fbff9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4eac4a7ecc6febedd205fcde45ea550dd15a6b93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146358"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703843"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creare, modificare o eliminare un prefisso dell'indirizzo IP pubblico
 
@@ -50,11 +49,11 @@ I prefissi di indirizzi IP pubblici prevedono un addebito. Per informazioni dett
    |---|---|---|
    |Subscription|Sì|Deve essere inclusa nella stessa [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) della risorsa cui si vuole associare l'indirizzo IP pubblico.|
    |Resource group|Sì|Può trovarsi nello stesso [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) della risorsa cui si vuole associare l'indirizzo IP pubblico oppure in un gruppo di risorse diverso.|
-   |Name|Sì|Il nome deve essere univoco all'interno del gruppo di risorse selezionato.|
+   |Nome|Sì|Il nome deve essere univoco all'interno del gruppo di risorse selezionato.|
    |Region|Sì|Deve trovarsi nella stessa [area](https://azure.microsoft.com/regions)degli indirizzi IP pubblici che vengono poi assegnati nell'intervallo.|
    |Dimensione prefisso|Sì| Le dimensioni del prefisso necessario. Indirizzi IP A/28 o 16 è il valore predefinito.
 
-**Comandi:**
+**Comandi**
 
 |Strumento|Comando|
 |---|---|
@@ -71,7 +70,7 @@ Dopo aver creato un prefisso, è necessario creare gli indirizzi IP statici di u
 
    |Impostazione|Necessaria?|Dettagli|
    |---|---|---|
-   |Name|Sì|Il nome dell'indirizzo IP pubblico deve essere univoco all'interno del gruppo delle risorse selezionato.|
+   |Nome|Sì|Il nome dell'indirizzo IP pubblico deve essere univoco all'interno del gruppo delle risorse selezionato.|
    |Timeout di inattività (minuti)|No|Il numero di minuti in cui la connessione TCP o HTTP resta aperta senza affidarsi ai client per l'invio di messaggi Keep-Alive. |
    |Etichetta del nome DNS|No|Deve essere univoca all'interno dell'area di Azure nella quale viene creato il nome (incluse tutte le sottoscrizioni e tutti i clienti). Azure registra automaticamente il nome e l'indirizzo IP nel proprio DNS, consentendo la connessione a una risorsa con tale nome. Azure accoda un subnet predefinito, ad esempio *location.cloudapp.azure.com* (dove location è il percorso selezionato) del nome fornito, per creare il nome del DNS completo.Per altre informazioni, vedere [Usare DNS di Azure con un indirizzo IP pubblico di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
@@ -90,7 +89,7 @@ In alternativa, è possibile usare i comandi dell'interfaccia della riga di coma
    - **Vista**: la sezione **Panoramica** mostra le impostazioni chiave per il prefisso dell'indirizzo IP pubblico, ad esempio prefisso.
    - **Elimina**: per eliminare il prefisso dell'indirizzo IP pubblico, selezionare **Elimina** nella sezione **Panoramica**. Se gli indirizzi all'interno del prefisso sono associati a risorse di indirizzo IP pubblico, è innanzitutto necessario eliminare le risorse di indirizzo IP pubblico. Vedere [eliminare un indirizzo IP pubblico](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
-**Comandi:**
+**Comandi**
 
 |Strumento|Comando|
 |---|---|
@@ -101,7 +100,7 @@ In alternativa, è possibile usare i comandi dell'interfaccia della riga di coma
 
 Per eseguire attività nei prefissi degli indirizzi IP pubblici, l'account deve essere assegnato al ruolo [collaboratore rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Action                                                            | Name                                                           |
+| Action                                                            | Nome                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | Leggere un prefisso di indirizzo IP pubblico                                |
 | Microsoft.Network/publicIPPrefixes/write                          | Creare o aggiornare un prefisso di indirizzo IP pubblico                    |

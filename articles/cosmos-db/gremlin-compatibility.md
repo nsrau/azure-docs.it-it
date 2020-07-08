@@ -7,15 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 989a033a843b861c34dc9dbdbced50399f8e5cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1db7937cb574ce62986f25e0bfa688dc54b5c606
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81449885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700600"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilità di Azure Cosmos DB Gremlin
-Il motore di Azure Cosmos DB Graph segue strettamente la specifica della procedura di attraversamento di [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) , ma esistono differenze.
+Il motore di Azure Cosmos DB Graph segue strettamente la specifica dei passaggi di attraversamento di [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) , ma esistono differenze nell'implementazione specifiche per Azure Cosmos DB. Per informazioni sull'elenco di passaggi di Gremlin supportati, vedere l'articolo [supporto del protocollo Wire API Gremlin](gremlin-support.md) .
 
 ## <a name="behavior-differences"></a>Differenze di comportamento
 
@@ -27,19 +26,49 @@ Il motore di Azure Cosmos DB Graph segue strettamente la specifica della procedu
 
 * ***`property(set, 'xyz', 1)`*** la cardinalità impostata non è attualmente supportata. Usare invece `property(list, 'xyz', 1)`. Per altre informazioni, vedere [Proprietà Vertex con TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-* ***`atch()`*** consente di eseguire query sui grafici usando criteri di ricerca dichiarativi. Questa funzionalità non è disponibile.
+* Il *** `match()` passaggio*** non è attualmente disponibile. Questo passaggio fornisce funzionalità di query dichiarative.
 
 * ***Gli oggetti come proprietà*** su vertici o bordi non sono supportati. Le proprietà possono essere solo tipi primitivi o matrici.
 
-* L' ***ordinamento in base alle proprietà*** `order().by(<array property>)` della matrice non è supportato. L'ordinamento è supportato solo per tipi primitivi.
+* ***Ordinamento in base alle proprietà*** `order().by(<array property>)` della matrice non è supportato. L'ordinamento è supportato solo per tipi primitivi.
 
-* I ***tipi JSON non primitivi*** non sono supportati. Usare `string`i `number`tipi, `true` / `false` o. `null`i valori non sono supportati. 
+* I ***tipi JSON non primitivi*** non sono supportati. Usare `string` i `number` tipi, o `true` / `false` . `null`i valori non sono supportati. 
 
-* Il serializzatore ***GraphSONv3*** non è attualmente supportato. Utilizzare `GraphSONv2` le classi serializer, Reader e writer nella configurazione della connessione. I risultati restituiti dall'API Azure Cosmos DB Gremlin non hanno lo stesso formato del formato GraphSON. 
+* Il serializzatore ***GraphSONv3*** non è attualmente supportato. Utilizzare le `GraphSONv2` classi serializer, Reader e writer nella configurazione della connessione. I risultati restituiti dall'API Azure Cosmos DB Gremlin non hanno lo stesso formato del formato GraphSON. 
 
-* **Le funzioni e le espressioni lambda** non sono attualmente supportate. Sono incluse le `.map{<expression>}` `.filter{<expression>}` funzioni, `.by{<expression>}`e. Per altre informazioni e per informazioni su come riscriverle usando i passaggi Gremlin, vedere [una nota sulle espressioni lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
+* **Le funzioni e le espressioni lambda** non sono attualmente supportate. Sono incluse le `.map{<expression>}` funzioni, `.by{<expression>}` e `.filter{<expression>}` . Per altre informazioni e per informazioni su come riscriverle usando i passaggi Gremlin, vedere [una nota sulle espressioni lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 
 * ***Le transazioni*** non sono supportate a causa della natura distribuita del sistema.  Configurare il modello di coerenza appropriato nell'account Gremlin per "leggere le proprie scritture" e usare la concorrenza ottimistica per risolvere le Scritture in conflitto.
+
+## <a name="known-limitations"></a>Limitazioni note
+
+* **Utilizzo degli indici per le query Gremlin con `.V()` passaggi intermedi**: attualmente, solo la prima `.V()` chiamata di un attraversamento utilizzerà l'indice per risolvere eventuali filtri o predicati collegati. Le chiamate successive non consulteranno l'indice, che può aumentare la latenza e il costo della query.
+    
+    Presupponendo l'indicizzazione predefinita, una tipica query di lettura Gremlin che inizia con il `.V()` passaggio utilizzerà i parametri nei passaggi di filtro collegati, ad esempio `.has()` o `.where()` per ottimizzare i costi e le prestazioni della query. Ad esempio:
+
+    ```java
+    g.V().has('category', 'A')
+    ```
+
+    Tuttavia, quando `.V()` nella query Gremlin viene incluso più di un passaggio, la risoluzione dei dati per la query potrebbe non essere ottimale. Eseguire la query seguente come esempio:
+
+    ```java
+    g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
+    ```
+
+    Questa query restituirà due gruppi di vertici in base alla relativa proprietà denominata `category` . In questo caso, solo la prima chiamata a utilizzerà `g.V().has('category', 'A')` l'indice per risolvere i vertici in base ai valori delle relative proprietà.
+
+    Una soluzione alternativa per questa query consiste nell'usare passaggi di sottoattraversamento, ad esempio `.map()` e `union()` . Questo è esemplificato di seguito:
+
+    ```java
+    // Query workaround using .map()
+    g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
+
+    // Query workaround using .union()
+    g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
+    ```
+
+    È possibile esaminare le prestazioni delle query usando il [ `executionProfile()` passaggio Gremlin] (Graph-Execution-profile.MD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Visitare [Cosmos DB pagina voce utente](https://feedback.azure.com/forums/263030-azure-cosmos-db) per condividere commenti e suggerimenti e aiutare il team a concentrarsi sulle funzionalità più importanti.

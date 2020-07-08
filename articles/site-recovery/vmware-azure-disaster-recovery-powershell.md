@@ -8,11 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257199"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704387"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurare il ripristino di emergenza di VM VMware in Azure con PowerShell
 
@@ -37,7 +36,7 @@ Prima di iniziare:
 
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](vmware-azure-architecture.md).
 - Esaminare i [requisiti di supporto](site-recovery-support-matrix-to-azure.md) per tutti i componenti.
-- Si dispone del modulo `Az` Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+- Si dispone del `Az` modulo Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Accedere ad Azure
 
@@ -105,7 +104,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Impostare il contesto dell'insieme di credenziali usando il cmdlet Set-ASRVaultContext. In questo modo, le successive operazioni di Azure Site Recovery nella sessione di PowerShell verranno eseguite nel contesto dell'insieme di credenziali selezionato.
 
 > [!TIP]
-> Il modulo Azure Site Recovery PowerShell (AZ. RecoveryServices Module) è dotato di alias facili da usare per la maggior parte dei cmdlet. I cmdlet nel modulo accettano l' * \<operazione form>-**AzRecoveryServicesAsr**\<>* e hanno alias equivalenti che accettano il form * \<operazione> l'oggetto**ASR**\<>*. È possibile sostituire gli alias dei cmdlet per facilitarne l'uso.
+> Il modulo Azure Site Recovery PowerShell (AZ. RecoveryServices Module) è dotato di alias facili da usare per la maggior parte dei cmdlet. I cmdlet nel modulo hanno il formato * \<Operation> - **AzRecoveryServicesAsr** \<Object> * e hanno alias equivalenti che hanno il formato * \<Operation> - **ASR** \<Object> *. È possibile sostituire gli alias dei cmdlet per facilitarne l'uso.
 
 Nell'esempio seguente, vengono usati i dettagli dell'insieme di credenziali ottenuti dalla variabile $vault per specificare il contesto dell'insieme di credenziali per la sessione di PowerShell.
 

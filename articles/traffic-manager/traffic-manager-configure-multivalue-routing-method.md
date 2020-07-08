@@ -4,20 +4,18 @@ description: Questo articolo descrive come configurare Gestione traffico per ins
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: rohink
-ms.openlocfilehash: daf7d09916d276130e337f7acea738228ee23707
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3ac6d20acf32be9678818483e5929dee225501b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76938773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706818"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurare il metodo di routing multivalore in Gestione traffico
 
@@ -38,7 +36,7 @@ Creare un gruppo di risorse per il profilo di Gestione traffico.
 ## <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 Creare un profilo di Gestione traffico che indirizza il traffico degli utenti verso l'endpoint con latenza più bassa.
 
-1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa** > **rete** > **profilo** > di gestione traffico**Crea**.
+1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **rete**  >  **profilo di gestione traffico**  >  **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Crea**:
     
     | Impostazione                 | valore                                              |
@@ -47,7 +45,7 @@ Creare un profilo di Gestione traffico che indirizza il traffico degli utenti ve
     | Metodo di routing          | Selezionare il metodo di routing **multivalore**.                                       |
     | Subscription            | Selezionare la propria sottoscrizione.                          |
     | Resource group          | Selezionare *myResourceGroupTM1*. |
-    | Percorso                | Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.                              |
+    | Location                | Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.                              |
    |        |           | 
   
    ![Creare un profilo di Gestione traffico](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
@@ -58,12 +56,12 @@ Aggiungere due indirizzi IP come endpoint esterni al profilo multivalore di Gest
 
 1. Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico creato nella sezione precedente e selezionarlo nei risultati visualizzati.
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le restanti impostazioni e quindi fare clic su **OK**:
+3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
     | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Type                    | Endpoint esterno                                   |
-    | Name           | myEndpoint1                                        |
+    | Nome           | myEndpoint1                                        |
     | Nome di dominio completo (FQDN) o IP           | Digitare l'indirizzo IP pubblico dell'endpoint che si vuole aggiungere a questo profilo di Gestione traffico                         |
     |        |           |
 

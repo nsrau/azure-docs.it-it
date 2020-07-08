@@ -11,18 +11,17 @@ Customer intent: I want only resources in a virtual network subnet to access an 
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 673431e2ddfc9a641bb1c640891daac79350cb3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1d4fcc280ba2e34d2fa81584846441ad6fe81431
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78253026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708196"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gestire i dati exfiltration negli account di archiviazione di Azure con i criteri dell'endpoint di servizio di rete virtuale usando Azure PowerShell
 
@@ -39,7 +38,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 * Verificare l'accesso all'account di archiviazione consentito dalla subnet.
 * Verificare che l'accesso sia stato negato all'account di archiviazione non consentito dalla subnet.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -374,7 +373,7 @@ L'accesso alla condivisione viene rifiutato e si riceve un errore `New-PSDrive :
 
 Chiudere la sessione Desktop remoto alla VM *myVmPublic*.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuoverli:
 

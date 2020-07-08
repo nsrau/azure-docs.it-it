@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/21/2020
-ms.openlocfilehash: 20d8e46d6fa6b031c809d629a6af41e8e682bcef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/10/2020
+ms.openlocfilehash: 703879ab2dba59327b9224781eb93ee106ae10d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025085"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707968"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando il portale di Azure
 
@@ -26,9 +25,12 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 ## <a name="create-a-read-replica"></a>Creare una replica in lettura
 
+> [!IMPORTANT]
+> Quando viene creata una replica per un master senza repliche esistenti, il master verrà prima riavviato per prepararsi alla replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
+
 È possibile creare un server di replica in lettura seguendo questa procedura:
 
-1. Accedi al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Selezionare il database di Azure per il server MariaDB che si vuole usare come master. Questa azione apre la pagina **Panoramica**.
 
@@ -42,7 +44,7 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
     ![Database di Azure per MariaDB-nome replica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Selezionare il percorso per il server di replica. Il percorso predefinito è identico a quello del server master.
+6. Selezionare la posizione per il server di replica. La posizione predefinita è la stessa di quella del server master.
 
     ![Database di Azure per MariaDB-percorso della replica](./media/howto-read-replica-portal/replica-location.png)
 

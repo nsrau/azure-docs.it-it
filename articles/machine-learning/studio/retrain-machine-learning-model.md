@@ -5,21 +5,18 @@ description: Informazioni su come aggiornare un servizio Web per l'uso di un mod
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 218c1c98a2ed775ae86c1657156991879708cc7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 601717ce487f8564ed2d431db9b31a3b43fcee75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706087"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 La ripetizione del training è un modo per garantire che i modelli di Machine Learning rimangano accurati e si basino sui dati più rilevanti disponibili. Questo articolo illustra come ripetere il training e distribuire un modello di machine learning come nuovo servizio Web in studio (classico). Se si sta cercando di ripetere il training di un servizio Web classico, [vedere questo articolo delle procedure](retrain-classic-web-service.md).
 
@@ -61,7 +58,7 @@ In questo esempio si userà il linguaggio C# per creare l'applicazione di ripeti
 
 Usare la procedura seguente per chiamare le API per la ripetizione del training:
 
-1. Creare un'applicazione console c# in Visual Studio: **nuovo** > **progetto** > **Visual c#** > app console**Desktop** > classico di Windows **(.NET Framework)**.
+1. Creare un'applicazione console c# in Visual Studio: **nuovo**  >  **progetto**  >  **Visual c#**  >  app console**desktop classico di Windows**  >  **(.NET Framework)**.
 1. Accedere al portale dei servizi Web Machine Learning.
 1. Fare clic sul servizio Web usato.
 1. Fare clic su **Consume**(Uso).

@@ -4,11 +4,10 @@ description: Informazioni su come creare un pacchetto di un'applicazione Service
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701048"
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
 
@@ -52,7 +51,7 @@ Per altre informazioni su come configurare **SetupEntryPoint**, vedere [configur
 
 <a id="Package-App"></a>
 
-## <a name="configure"></a>Configura
+## <a name="configure"></a>Configurare
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Creare un pacchetto mediante Visual Studio
 

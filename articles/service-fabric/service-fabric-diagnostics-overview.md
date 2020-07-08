@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712225"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoraggio e diagnostica in Azure Service Fabric
 
@@ -41,7 +40,7 @@ Service Fabric offre un set completo di eventi immediatamente disponibili. Tali 
 
 ![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
 
-Le funzionalità di diagnostica fornite sono costituite da un set completo di eventi predefiniti. Questi [eventi Service Fabric](service-fabric-diagnostics-events.md) illustrano le azioni eseguite dalla piattaforma su entità diverse, ad esempio nodi, applicazioni, servizi, partizioni e così via. Nell'ultimo scenario precedente, se un nodo venisse arrestato, la piattaforma emetterebbe un evento e si `NodeDown` potrebbe ricevere una notifica immediatamente dallo strumento di monitoraggio desiderato. Altri esempi comuni sono `ApplicationUpgradeRollbackStarted` o `PartitionReconfigured` durante un failover. **Gli stessi eventi sono disponibili sia in cluster di Windows che in cluster di Linux.**
+Le funzionalità di diagnostica fornite sono costituite da un set completo di eventi predefiniti. Questi [eventi Service Fabric](service-fabric-diagnostics-events.md) illustrano le azioni eseguite dalla piattaforma su entità diverse, ad esempio nodi, applicazioni, servizi, partizioni e così via. Nell'ultimo scenario precedente, se un nodo venisse arrestato, la piattaforma emetterebbe un `NodeDown` evento e si potrebbe ricevere una notifica immediatamente dallo strumento di monitoraggio desiderato. Altri esempi comuni sono `ApplicationUpgradeRollbackStarted` o `PartitionReconfigured` durante un failover. **Gli stessi eventi sono disponibili sia in cluster di Windows che in cluster di Linux.**
 
 Gli eventi vengono inviati tramite canali standard sia su Windows che su Linux e possono essere letti da qualsiasi strumento di monitoraggio che li supporti. La soluzione monitoraggio di Azure è log di monitoraggio di Azure. È possibile leggere altre informazioni sull' [integrazione dei log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md) , che include un dashboard operativo personalizzato per il cluster e alcune query di esempio da cui è possibile creare avvisi. Per altri concetti di monitoraggio del cluster, vedere [Monitoraggio del cluster e della piattaforma](service-fabric-diagnostics-event-generation-infra.md).
 

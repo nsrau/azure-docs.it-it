@@ -1,6 +1,6 @@
 ---
 title: Architettura di rete V1
-description: Panoramica dell'architettura della topologia di rete degli ambienti del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+description: Panoramica dell'architettura della topologia di rete degli ambienti del servizio app. Questo documento è rivolto solo ai clienti che usano l'ambiente del servizio app v1 legacy.
 author: stefsch
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.topic: article
@@ -8,11 +8,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701814"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Panoramica dell'architettura di rete degli ambienti del servizio app
 Gli ambienti del servizio app vengono sempre creati in una subnet di una [rete virtuale][virtualnetwork]. Le app in esecuzione in un ambiente del servizio app possono comunicare con gli endpoint privati che fanno parte della stessa topologia di rete virtuale.  Poiché i clienti possono bloccare alcune parti dell'infrastruttura di rete virtuale, è importante conoscere i tipi di flusso delle comunicazioni di rete che avvengono con un ambiente del servizio app.

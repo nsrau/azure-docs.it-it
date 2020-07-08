@@ -4,11 +4,10 @@ description: Viene descritto come risolvere gli errori di registrazione del prov
 ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.openlocfilehash: a9182be53cc91240a62ab201efc53d674f7cf427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706530"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Risoluzione degli errori di registrazione del provider di risorse
 
@@ -105,7 +104,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
    ![Selezionare Tutti i servizi](./media/error-register-resource-provider/select-all-services.png)
 
-1. Selezionare **sottoscrizioni**.
+1. Selezionare **Sottoscrizioni**.
 
    ![Selezionare le sottoscrizioni](./media/error-register-resource-provider/select-subscriptions.png)
 

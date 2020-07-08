@@ -7,17 +7,16 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: b30c912319104726069ae98920f0bc825d7358cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708264"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
@@ -31,9 +30,9 @@ Se non si ha una sottoscrizione, configurare un account Azure con una sottoscriz
 
 - **Utenti di PowerShell**: è possibile eseguire i comandi nel [Azure cloud Shell](https://shell.azure.com/powershell)o eseguire PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Nella scheda Azure Cloud Shell browser trovare l'elenco a discesa **Seleziona ambiente** , quindi scegliere **PowerShell** se non è già selezionato.
 
-    Se si esegue PowerShell localmente, usare Azure PowerShell modulo 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az.Network` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Eseguire `Connect-AzAccount` anche per creare una connessione con Azure.
+    Se si esegue PowerShell localmente, usare Azure PowerShell modulo 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az.Network` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Eseguire anche `Connect-AzAccount` per creare una connessione con Azure.
 
-- **Utenti dell'interfaccia della riga di comando di Azure**: è possibile eseguire i comandi nel [Azure cloud Shell](https://shell.azure.com/bash)o eseguire l'interfaccia della riga di comando dal computer. Usare l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva se si esegue l'interfaccia della riga di comando di Azure Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Eseguire `az login` anche per creare una connessione con Azure.
+- **Utenti dell'interfaccia della riga di comando di Azure**: è possibile eseguire i comandi nel [Azure cloud Shell](https://shell.azure.com/bash)o eseguire l'interfaccia della riga di comando dal computer. Usare l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva se si esegue l'interfaccia della riga di comando di Azure Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Eseguire anche `az login` per creare una connessione con Azure.
 
 L'account a cui si accede o che si connette ad Azure deve essere assegnato al [ruolo Collaboratore rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le azioni appropriate elencate in [autorizzazioni](#permissions).
 
@@ -50,7 +49,7 @@ Esiste un limite al numero di tabelle di route che è possibile creare per ogni 
 1. Nella finestra di dialogo **Crea tabella di route** :
 
     1. Immettere un **nome** per la tabella di route.
-    1. Scegliere la **sottoscrizione**.
+    1. Scegliere la propria **sottoscrizione**.
     1. Scegliere un **gruppo di risorse** esistente oppure selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.
     1. Scegliere una **località**.
     1. Se si prevede di associare la tabella di route a una subnet in una rete virtuale connessa alla rete locale tramite un gateway VPN e non si vuole propagare le route locali alle interfacce di rete nella subnet, impostare la **propagazione delle route del gateway di rete virtuale** su **disabilitato**.
@@ -186,7 +185,7 @@ Esiste un limite al numero di route per tabella di route che è possibile creare
 
 1. Nell'elenco tabella di route scegliere la tabella di route a cui si vuole aggiungere una route.
 
-1. Dalla barra dei menu della tabella di route scegliere **Route** > **Aggiungi**.
+1. Dalla barra dei menu della tabella di route scegliere **Route**  >  **Aggiungi**.
 
 1. Immettere un **nome di route** univoco per la route all'interno della tabella di route.
 
@@ -333,7 +332,7 @@ Dopo una breve attesa, Azure indica il tipo di hop successivo e l'ID della route
 
 Per eseguire attività nelle tabelle e nelle route di route, l'account deve essere assegnato al [ruolo Collaboratore rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le azioni appropriate elencate nella tabella seguente:
 
-| Azione                                                          |   Nome                                                  |
+| Action                                                          |   Nome                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Leggere una tabella di route                                    |
 | Microsoft.Network/routeTables/write                             |   Creare o aggiornare una tabella di route                        |

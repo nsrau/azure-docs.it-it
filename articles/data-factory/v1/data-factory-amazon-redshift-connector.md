@@ -13,11 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260527"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710151"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Spostare i dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -38,7 +37,7 @@ Attualmente Data Factory supporta solo lo spostamento di dati da Amazon Redshift
 * Se si spostano i dati in un archivio dati locale, installare il [gateway di gestione dati](data-factory-data-management-gateway.md) su un computer locale. Concedere l'accesso per un gateway al cluster Amazon Redshift usando l'indirizzo IP del computer locale. Per istruzioni, vedere [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorizzare l'accesso al cluster).
 * Per spostare i dati in un archivio dati di Azure, vedere gli [intervalli di indirizzi IP di calcolo e gli intervalli SQL usati dai data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia per spostare dati da un'origine Amazon Redshift usando diversi strumenti e API.
 
 Il modo più semplice per creare una pipeline è usare la Copia guidata di Azure Data Factory. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
@@ -62,10 +61,10 @@ La tabella seguente include le descrizioni degli elementi JSON specifici di un s
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **type** |Questa proprietà deve essere impostata su **AmazonRedshift**. |Sì |
-| **Server** |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
+| **server** |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
 | **port** |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No (il valore predefinito è 5439) |
 | **database** |Nome del database Amazon Redshift. |Sì |
-| **nome utente** |Nome dell'utente che ha accesso al database. |Sì |
+| **username** |Nome dell'utente che ha accesso al database. |Sì |
 | **password** |La password per l'account utente. |Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
@@ -333,7 +332,7 @@ Quando l'attività di copia converte i dati da un tipo Amazon Redshift a un tipo
 | INTEGER |Int32 |
 | bigint |Int64 |
 | DECIMAL |Decimal |
-| real |Single |
+| REAL |Single |
 | DOUBLE PRECISION |Double |
 | BOOLEAN |string |
 | CHAR |string |

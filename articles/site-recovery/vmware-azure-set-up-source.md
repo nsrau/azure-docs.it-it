@@ -9,11 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699550"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurare l'ambiente di origine per la replica da VMware in Azure
 
@@ -31,7 +30,7 @@ Nell'articolo si presuppone che le seguenti procedure siano già state eseguite:
 
 1. In **Insiemi di credenziali dei servizi di ripristino** selezionare il nome dell'insieme di credenziali. In questo scenario viene usato **ContosoVMVault**.
 2. In **Attività iniziali** selezionare su Site Recovery. Selezionare quindi **Preparare l'infrastruttura**.
-3. In **obiettivo** > di protezione in**cui si trovano i computer**, selezionare **locale**.
+3. In **Obiettivo di protezione** > **Dove si trovano le macchine virtuali** selezionare **Locale**.
 4. Nella casella **In quale destinazione si vuole eseguire la replica dei computer** selezionare **In Azure**.
 5. In **I computer sono virtuali** selezionare **Sì con VMware vSphere Hypervisor**. Selezionare **OK**.
 

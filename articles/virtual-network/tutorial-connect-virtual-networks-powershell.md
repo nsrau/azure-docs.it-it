@@ -9,18 +9,17 @@ Customer intent: I want to connect two virtual networks so that virtual machines
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: caa620c2389bb6e2387636bc262ceb2de99d8e34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e040938cd0bde127d3ae36819b978ad4e56ded4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77201289"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703435"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Connettere reti virtuali con il peering reti virtuali usando PowerShell
 
@@ -33,7 +32,7 @@ ms.locfileid: "77201289"
 * Distribuire una macchina virtuale in ogni rete virtuale
 * Stabilire la comunicazione tra le macchine virtuali
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -196,7 +195,7 @@ ping 10.0.0.4
 
 Si riceveranno quattro risposte. Disconnettere le sessioni RDP con *myVm1* e *myVm2*.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non è più necessario, usare [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute.
 

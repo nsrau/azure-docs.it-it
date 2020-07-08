@@ -8,17 +8,16 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: fdf726fd31e8b92a04a1c136eb5cd7110e0c6d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72333365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707515"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Distribuire un'applicazione IPv6 dual stack usando Load Balancer interni standard in Azure-PowerShell (anteprima)
 
@@ -38,13 +37,13 @@ La procedura per creare un Load Balancer interno in grado di supportare IPv6 è 
 ```
 
 Le modifiche che rendono la configurazione front-end del servizio di bilanciamento del carico interno sono le seguenti:
-- `PrivateIpAddressVersion` Viene specificato come "IPv6".
-- L' `-PublicIpAddress` argomento è stato omesso o sostituito con `-PrivateIpAddress`. Si noti che l'indirizzo privato deve essere compreso nell'intervallo di spazio IP della subnet in cui verrà distribuito il servizio di bilanciamento del carico interno. Se un oggetto `-PrivateIpAddress` statico viene omesso, verrà selezionato il successivo indirizzo IPv6 libero dalla subnet in cui viene distribuito il servizio di bilanciamento del carico interno.
+- `PrivateIpAddressVersion`Viene specificato come "IPv6".
+- L' `-PublicIpAddress` argomento è stato omesso o sostituito con `-PrivateIpAddress` . Si noti che l'indirizzo privato deve essere compreso nell'intervallo di spazio IP della subnet in cui verrà distribuito il servizio di bilanciamento del carico interno. Se un oggetto statico `-PrivateIpAddress` viene omesso, verrà selezionato il successivo indirizzo IPv6 libero dalla subnet in cui viene distribuito il servizio di bilanciamento del carico interno.
 - La subnet dello stack doppio in cui verrà distribuito il servizio di bilanciamento del carico interno viene specificata con `-Subnet` un `-SubnetId` argomento o.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell versione 6.9.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 6.9.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di distribuire un'applicazione dual stack in Azure, è necessario configurare la sottoscrizione per questa funzionalità di anteprima usando i Azure PowerShell seguenti:
@@ -76,7 +75,7 @@ $rg = New-AzResourceGroup `
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>Creare indirizzi IP pubblici IPv4 e IPv6
-Per accedere alle macchine virtuali da Internet, sono necessari indirizzi IP pubblici IPv4 e IPv6 per le VM. Creare indirizzi IP pubblici con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). L'esempio seguente crea un indirizzo IP pubblico IPv4 e IPv6 denominato *RdpPublicIP_1* e *RdpPublicIP_2* nel gruppo di risorse *dsStd_ILB_RG* :
+Per accedere alle macchine virtuali da Internet, sono necessari indirizzi IP pubblici IPv4 e IPv6 per le VM. Creare un indirizzo IP pubblico con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). L'esempio seguente crea un indirizzo IP pubblico IPv4 e IPv6 denominato *RdpPublicIP_1* e *RdpPublicIP_2* nel gruppo di risorse *dsStd_ILB_RG* :
 
 ```azurepowershell
 $RdpPublicIP_1 = New-AzPublicIpAddress `

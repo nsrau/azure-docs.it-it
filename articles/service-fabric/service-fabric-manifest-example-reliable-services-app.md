@@ -6,18 +6,17 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701099"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Esempi di manifesti dell'applicazione e del servizio per Reliable Services
 Di seguito sono riportati esempi dei manifesti dell'applicazione e del servizio per un'applicazione di Service Fabric con un front-end Web ASP.NET Core e un back-end con stato. Lo scopo di questi esempi è mostrare le impostazioni disponibili e come usarle. Questi manifesti dell'applicazione e del servizio sono basati sui manifesti descritti nella [guida introduttiva su .NET per Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
 
 Sono disponibili le funzionalità seguenti:
 
-|manifesto|Caratteristiche|
+|Manifesto|Funzionalità|
 |---|---|
 |[Manifesto dell'applicazione](#application-manifest)| [governance delle risorse](service-fabric-resource-governance.md), [eseguire un servizio come account amministratore locale](service-fabric-application-runas-security.md), [applicare un criterio predefinito a tutti i pacchetti di codice del servizio](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [creare entità per utenti e gruppi](service-fabric-application-runas-security.md), condividere un pacchetto di dati tra istanze del servizio, [eseguire l'override degli endpoint del servizio](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
 |Manifesto del servizio FrontEndService| [Eseguire uno script all'avvio del servizio](service-fabric-run-script-at-service-startup.md), [definire un endpoint HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
