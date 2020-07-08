@@ -8,10 +8,9 @@ ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
 ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80758027"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indicizzazione secondaria in Azure Cosmos DB API Cassandra
@@ -51,7 +50,7 @@ insert into sampleks.t1(user_id,lastname) values (8, 'Theo');
 insert into sampleks.t1(user_id,lastname) values (9, 'jagan');
 ```
 
-Se si tenta di eseguire l'istruzione seguente, si otterrà un errore che richiede di usare `ALLOW FILTERING`: 
+Se si tenta di eseguire l'istruzione seguente, si otterrà un errore che richiede di usare `ALLOW FILTERING` : 
 
 ```shell
 select user_id, lastname from sampleks.t1 where lastname='nishu';
@@ -62,10 +61,10 @@ Sebbene il API Cassandra supporti il filtro Consenti, come indicato nella sezion
 ```shell
 CREATE INDEX ON sampleks.t1 (lastname);
 ```
-Dopo aver creato un indice nel campo "LastName", è ora possibile eseguire correttamente la query precedente. Con API Cassandra Azure Cosmos DB, non è necessario specificare un nome di indice. Viene usato un indice predefinito `tablename_columnname_idx` con formato. Ad esempio, ` t1_lastname_idx` è il nome dell'indice per la tabella precedente.
+Dopo aver creato un indice nel campo "LastName", è ora possibile eseguire correttamente la query precedente. Con API Cassandra Azure Cosmos DB, non è necessario specificare un nome di indice. Viene usato un indice predefinito con formato `tablename_columnname_idx` . Ad esempio, ` t1_lastname_idx` è il nome dell'indice per la tabella precedente.
 
 ## <a name="dropping-the-index"></a>Eliminazione dell'indice 
-È necessario conoscere il nome dell'indice per eliminare l'indice. Eseguire il `desc schema` comando per ottenere la descrizione della tabella. L'output di questo comando include il nome dell'indice nel formato `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)`. È quindi possibile usare il nome dell'indice per eliminare l'indice, come illustrato nell'esempio seguente:
+È necessario conoscere il nome dell'indice per eliminare l'indice. Eseguire il `desc schema` comando per ottenere la descrizione della tabella. L'output di questo comando include il nome dell'indice nel formato `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)` . È quindi possibile usare il nome dell'indice per eliminare l'indice, come illustrato nell'esempio seguente:
 
 ```shell
 drop index sampleks.t1_lastname_idx;
@@ -73,4 +72,4 @@ drop index sampleks.t1_lastname_idx;
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sul funzionamento dell' [indicizzazione automatica](index-overview.md) in Azure Cosmos DB
-* [Funzionalità di Apache Cassandra supportate da Azure Cosmos DB API Cassandra](cassandra-support.md)
+* [Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB](cassandra-support.md)

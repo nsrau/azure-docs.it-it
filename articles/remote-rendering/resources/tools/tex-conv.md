@@ -6,20 +6,19 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 1d9b2ca163b70435a6c0e245e66492e8e2866639
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80680024"
 ---
 # <a name="texconv---texture-conversion-tool"></a>TexConv-strumento di conversione della trama
 
 TexConv è uno strumento da riga di comando per elaborare trame da formati di input tipici come PNG, TGA, JPEG e DDS in formati ottimizzati per l'utilizzo in fase di esecuzione.
-Sebbene lo scenario più comune consiste nel convertire un singolo file `A.xxx` di input in un formato `B.yyy`ottimizzato, lo strumento offre molte opzioni aggiuntive per gli utilizzi avanzati.
+Sebbene lo scenario più comune consiste nel convertire un singolo file di input `A.xxx` in un formato ottimizzato `B.yyy` , lo strumento offre molte opzioni aggiuntive per gli utilizzi avanzati.
 
 ## <a name="command-line-help"></a>Guida della riga di comando
 
-Eseguendo TexConv. exe con il `--help` parametro, vengono elencate tutte le opzioni disponibili. Inoltre, TexConv stampa le opzioni usate al momento dell'esecuzione, per facilitare la comprensione del funzionamento. Per informazioni dettagliate, vedere questo output.
+Eseguendo TexConv.exe con il `--help` parametro, vengono elencate tutte le opzioni disponibili. Inoltre, TexConv stampa le opzioni usate al momento dell'esecuzione, per facilitare la comprensione del funzionamento. Per informazioni dettagliate, vedere questo output.
 
 ## <a name="general-usage"></a>Utilizzo generale
 
@@ -37,13 +36,13 @@ TexConv.exe -out D:/result.dds -in0 D:/img.jpg -rgba in0
 
 ## <a name="multiple-input-files"></a>Più file di input
 
-Per assemblare l'output da più file di input, specificare ogni file di `-in` input usando l'opzione con un numero crescente:
+Per assemblare l'output da più file di input, specificare ogni file di input usando l' `-in` opzione con un numero crescente:
 
 ```cmd
 -in0 D:/img0.jpg -in1 D:/img1.jpg -in2 D:/img2.jpg ...
 ```
 
-Quando si assembla un mappa cubi da trame 2D, è possibile usare `-right`anche `-left`, `-top`, `-bottom`, `-front`, `-back` o `-px`, `-nx` `-py`,, `-ny`, `-pz`, `-nz`.
+Quando si assembla un mappa cubi da trame 2D, è possibile usare anche `-right` ,, `-left` `-top` , `-bottom` , o,,, `-front` `-back` `-px` `-nx` `-py` `-ny` , `-pz` , `-nz` .
 
 Per eseguire il mapping di questi input al file di output, è necessario un mapping del canale appropriato.
 
@@ -67,7 +66,7 @@ La specifica del mapping per ogni canale garantisce la massima flessibilità. Pe
 
 Sono disponibili le seguenti opzioni di mapping dei canali:
 
-- `-r`, `-g`, `-b`, `-a` : Specificano assegnazioni a canale singolo
+- `-r`, `-g` , `-b` , `-a` : Specificano assegnazioni a canale singolo
 - `-rg`: Specificare le assegnazioni di canale rosso e verde.
 - `-rgb`: Specificare le assegnazioni di canale rosso, verde e blu.
 - `-rgba`: Specifica tutte e quattro le assegnazioni di canale.
@@ -89,7 +88,7 @@ Uno può anche riempire i canali con il nero o il bianco:
 
 ## <a name="common-options"></a>Opzioni comuni
 
-Le opzioni più interessanti sono elencate di seguito. Altre opzioni sono elencate da `TexConv --help`.
+Le opzioni più interessanti sono elencate di seguito. Altre opzioni sono elencate da `TexConv --help` .
 
 ### <a name="output-type"></a>Tipo di output
 

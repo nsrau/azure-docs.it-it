@@ -9,15 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804657"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Usare il modulo servizi di mappe di Azure
 
-Azure Maps Web SDK fornisce un *modulo dei servizi*. Questo modulo è una libreria helper che semplifica l'uso dei servizi REST di Maps di Azure nelle applicazioni Web o node. js usando JavaScript o TypeScript.
+Azure Maps Web SDK fornisce un *modulo dei servizi*. Questo modulo è una libreria helper che semplifica l'uso dei servizi REST di Maps di Azure in applicazioni Web o Node.js usando JavaScript o TypeScript.
 
 ## <a name="use-the-services-module-in-a-webpage"></a>Usare il modulo servizi in una pagina Web
 
@@ -160,7 +159,7 @@ Azure Maps Web SDK fornisce un *modulo dei servizi*. Questo modulo è una librer
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Uso del modulo Services" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere la penna <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando il modulo Servizi</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+Vedere la penna <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando il modulo Servizi</a> di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
@@ -169,7 +168,7 @@ Vedere la penna <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando il mod
 
 Azure Maps Web SDK supporta il cloud di Azure per enti pubblici. Tutti gli URL JavaScript e CSS usati per accedere ad Azure Maps Web SDK rimangono invariati, ma è necessario eseguire le attività seguenti per connettersi alla versione cloud di Azure per enti pubblici della piattaforma Azure maps.
 
-Quando si usa il controllo mappa interattiva, aggiungere la riga di codice seguente prima di creare un'istanza `Map` della classe. 
+Quando si usa il controllo mappa interattiva, aggiungere la riga di codice seguente prima di creare un'istanza della `Map` classe. 
 
 ```javascript
 atlas.setDomain('atlas.azure.us');
@@ -183,7 +182,7 @@ Quando si usa il modulo Services, il dominio per i servizi deve essere impostato
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Se si accede direttamente ai servizi REST di Azure Maps, modificare il dominio dell' `atlas.azure.us`URL in. Ad esempio, se si usa il servizio API di ricerca, modificare il dominio `https://atlas.microsoft.com/search/` URL `https://atlas.azure.us/search/`da a.
+Se si accede direttamente ai servizi REST di Azure Maps, modificare il dominio dell'URL in `atlas.azure.us` . Ad esempio, se si usa il servizio API di ricerca, modificare il dominio URL da `https://atlas.microsoft.com/search/` a `https://atlas.azure.us/search/` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

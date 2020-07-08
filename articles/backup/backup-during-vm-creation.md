@@ -4,10 +4,9 @@ description: Viene descritto come abilitare il backup quando si crea una macchin
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80672819"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
@@ -41,21 +40,21 @@ Se non è già stato effettuato l'accesso al proprio account, accedere al [porta
 
 8. Accettare i criteri di backup predefiniti o modificare le impostazioni.
     - Un criterio di backup specifica la frequenza con cui eseguire snapshot di backup della macchina virtuale e il tempo di conservazione delle copie di backup.
-    - Il criterio predefinito esegue il backup della VM una volta al giorno.
+    - Il criterio predefinito esegue il backup della macchina virtuale una volta al giorno.
     - È possibile personalizzare i criteri di backup per una macchina virtuale di Azure per eseguire backup giornalieri o settimanali.
     - [Altre](backup-azure-vms-introduction.md#backup-and-restore-considerations) informazioni sulle considerazioni relative al backup per le VM di Azure.
     - [Altre](backup-instant-restore-capability.md) informazioni sulla funzionalità di ripristino istantaneo.
 
-      ![Criteri di backup predefiniti](./media/backup-during-vm-creation/daily-policy.png)
+      ![Criterio di backup predefinito](./media/backup-during-vm-creation/daily-policy.png)
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Gruppo di risorse di backup di Azure per le macchine virtuali
 
-Il servizio di backup crea un gruppo di risorse separato (RG), diverso dal gruppo di risorse della macchina virtuale in cui archiviare la raccolta di punti di ripristino (RPC). La RPC ospita i punti di ripristino istantaneo delle macchine virtuali gestite. Il formato di denominazione predefinito del gruppo di risorse creato dal servizio di backup è `AzureBackupRG_<Geo>_<number>`:. Ad esempio: *AzureBackupRG_northeurope_1*. È ora possibile personalizzare il nome del gruppo di risorse creato da backup di Azure.
+Il servizio di backup crea un gruppo di risorse separato (RG), diverso dal gruppo di risorse della macchina virtuale in cui archiviare la raccolta di punti di ripristino (RPC). La RPC ospita i punti di ripristino istantaneo delle macchine virtuali gestite. Il formato di denominazione predefinito del gruppo di risorse creato dal servizio di backup è: `AzureBackupRG_<Geo>_<number>` . Ad esempio: *AzureBackupRG_northeurope_1*. È ora possibile personalizzare il nome del gruppo di risorse creato da backup di Azure.
 
 Punti da notare:
 
 1. È possibile usare il nome predefinito del RG oppure modificarlo in base ai requisiti aziendali.
-2. Il modello di nome RG viene fornito come input durante la creazione dei criteri di backup della macchina virtuale. Il nome RG deve avere il formato seguente: `<alpha-numeric string>* n <alpha-numeric string>`. ' n'viene sostituito con un numero intero (a partire da 1) e viene usato per la scalabilità orizzontale se il primo RG è pieno. Un RG può avere un massimo di 600 RPC oggi.
+2. Il modello di nome RG viene fornito come input durante la creazione dei criteri di backup della macchina virtuale. Il nome RG deve avere il formato seguente: `<alpha-numeric string>* n <alpha-numeric string>` . ' n'viene sostituito con un numero intero (a partire da 1) e viene usato per la scalabilità orizzontale se il primo RG è pieno. Un RG può avere un massimo di 600 RPC oggi.
               ![Scegliere il nome quando si creano i criteri](./media/backup-during-vm-creation/create-policy.png)
 3. Il modello deve seguire le regole di denominazione RG riportate di seguito e la lunghezza totale non deve superare la lunghezza massima consentita per il nome RG.
     1. I nomi dei gruppi di risorse consentono solo caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi. Non possono terminare con un punto.

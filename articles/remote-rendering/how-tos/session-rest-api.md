@@ -6,17 +6,16 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681246"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usare l'API REST di gestione delle sessioni
 
 Per usare la funzionalità di rendering remoto di Azure, è necessario creare una *sessione*. Ogni sessione corrisponde a una macchina virtuale (VM) allocata in Azure e in attesa della connessione di un dispositivo client. Quando un dispositivo si connette, la macchina virtuale esegue il rendering dei dati richiesti e fornisce il risultato come flusso video. Durante la creazione della sessione, è stato scelto il tipo di server in cui si desidera eseguire, che determina i prezzi. Quando la sessione non è più necessaria, è consigliabile arrestarla. Se non viene arrestato manualmente, viene arrestato automaticamente al termine del *periodo di lease* della sessione.
 
-Viene fornito uno script di PowerShell nel [repository di esempi arr](https://github.com/Azure/azure-remote-rendering) nella cartella *Scripts* , denominata *RenderingSession. ps1*, che illustra l'uso del servizio. Lo script e la relativa configurazione sono descritti di seguito: [script di PowerShell di esempio](../samples/powershell-example-scripts.md)
+Viene fornito uno script di PowerShell nel [repository di esempi arr](https://github.com/Azure/azure-remote-rendering) nella cartella *Scripts* , denominato *RenderingSession.ps1*, che illustra l'uso del servizio. Lo script e la relativa configurazione sono descritti di seguito: [script di PowerShell di esempio](../samples/powershell-example-scripts.md)
 
 > [!TIP]
 > I comandi di PowerShell elencati in questa pagina sono destinati a essere integrati tra loro. Se si eseguono tutti gli script in sequenza all'interno dello stesso prompt dei comandi di PowerShell, verranno compilati uno sopra l'altro.
@@ -46,7 +45,7 @@ $accountKey = "*******************************************="
 
 ## <a name="common-request-headers"></a>Intestazioni di richiesta comuni
 
-* L'intestazione dell' *autorizzazione* deve avere il valore "`Bearer TOKEN`", dove "`TOKEN`" è il token di autenticazione [restituito dal servizio token di sicurezza](tokens.md).
+* L'intestazione dell' *autorizzazione* deve avere il valore " `Bearer TOKEN` ", dove " `TOKEN` " è il token di autenticazione [restituito dal servizio token di sicurezza](tokens.md).
 
 ### <a name="example-script-request-a-token"></a>Script di esempio: richiedere un token
 
@@ -73,7 +72,7 @@ Questo comando crea una sessione. Restituisce l'ID della nuova sessione. È nece
 
 * maxLeaseTime (TimeSpan): valore di timeout quando la macchina virtuale verrà ritirata automaticamente
 * modelli (Array): URL del contenitore di asset da precaricare
-* Size (String): dimensioni della macchina virtuale (**"standard"** o **"Premium"**). Vedere limitazioni specifiche delle [dimensioni della macchina virtuale](../reference/limits.md#overall-number-of-polygons).
+* Size (String): dimensioni della macchina virtuale (**"standard"** o **"Premium"**). Vedere [Limitazioni delle dimensioni della macchina virtuale](../reference/limits.md#overall-number-of-polygons) per le specifiche.
 
 **Risposte**
 

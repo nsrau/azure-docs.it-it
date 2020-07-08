@@ -4,10 +4,9 @@ description: Informazioni su come usare l'interfaccia della riga di comando di A
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.openlocfilehash: 980044011e3417a2aff8447a939e02299923da38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80757098"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Ripristinare le condivisioni file di Azure con l'interfaccia della riga di comando
@@ -138,7 +137,7 @@ Specificare i seguenti parametri per gli elementi che si desidera ripristinare:
 
 Usare il cmdlet [AZ backup restore-risorsa](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) con la modalità di ripristino impostata su *originallocation* per ripristinare i file o le cartelle specifici nel percorso originale.
 
-Nell'esempio seguente viene ripristinato il file *RestoreTest. txt* nel percorso originale, ovvero la condivisione file *risorsa* .
+Nell'esempio seguente viene ripristinato il file di *RestoreTest.txt* nel percorso originale: la condivisione file *risorsa* .
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
@@ -160,7 +159,7 @@ Per ripristinare file o cartelle specifiche in un percorso alternativo, usare il
 * **--target-file-share**: la condivisione file all'interno dell'account di archiviazione di destinazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup.
 * **--target-folder**: cartella nella condivisione file in cui vengono ripristinati i dati. Se il contenuto di cui è stato eseguito il backup deve essere ripristinato in una cartella radice, assegnare il valore della cartella di destinazione come stringa vuota.
 
-Nell'esempio seguente viene ripristinato il file *RestoreTest. txt* originariamente presente nella condivisione file *risorsa* in un percorso alternativo, ovvero la cartella *RestoreData* nella condivisione file *azurefiles1* ospitata nell'account di archiviazione *afaccount1* .
+Nell'esempio seguente viene ripristinato il file di *RestoreTest.txt* originariamente presente nella condivisione file *risorsa* in un percorso alternativo: la cartella *RestoreData* nella condivisione file *azurefiles1* ospitata nell'account di archiviazione *afaccount1* .
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
@@ -178,7 +177,7 @@ L'attributo **Name** nell'output corrisponde al nome del processo creato dal ser
 
 Per eseguire il ripristino per più elementi, passare il valore per il parametro del **percorso del file di origine** come percorsi separati da **spazi** di tutti i file o le cartelle che si desidera ripristinare.
 
-Nell'esempio seguente vengono ripristinati i file di *report. docx* *Restore. txt* e AFS che si verificano nel percorso originale.
+Nell'esempio seguente viene ripristinato il *Restore.txt* e il *test AFS Report.docx* i file nel percorso originale.
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932889937058317910 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore Test.txt" "AFS Testing Report.docx" --resolve-conflict overwrite  --out table

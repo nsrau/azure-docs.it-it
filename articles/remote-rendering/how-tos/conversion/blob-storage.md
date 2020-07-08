@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681649"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usare l'archiviazione BLOB di Azure per la conversione dei modelli
@@ -57,7 +56,7 @@ Per informazioni dettagliate sulle associazioni di firma di accesso condiviso, v
   - fare clic con il pulsante destro del mouse sul contenitore "Ottieni firma di accesso condiviso" (lettura, elencare l'accesso per il contenitore di input, accesso in scrittura per il contenitore
 - SDK (C#, Python...)
 
-Un esempio di come usare le firme di accesso condiviso nella conversione degli asset viene visualizzato in conversione. ps1 degli [script di esempio di PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
+Un esempio di come usare le firme di accesso condiviso nella conversione degli asset è illustrato in Conversion.ps1 degli [script di esempio di PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## <a name="upload-an-input-model"></a>Caricare un modello di input
 
@@ -70,7 +69,7 @@ Per iniziare a convertire un modello, è necessario caricarlo, usando una delle 
 - [Uso di un SDK di archiviazione (Python, C#...)](https://docs.microsoft.com/azure/storage/)
 - [Uso delle API REST di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
-Per un esempio di come caricare i dati per la conversione, vedere conversione. ps1 degli [script di esempio di PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
+Per un esempio di come caricare i dati per la conversione, vedere Conversion.ps1 degli [script di esempio di PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## <a name="get-a-sas-uri-for-the-converted-model"></a>Ottenere un URI di firma di accesso condiviso per il modello convertito
 
@@ -82,5 +81,5 @@ Una firma di accesso condiviso (SAS) per caricare i modelli è necessaria se l'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurazione della conversione del modello](configure-model-conversion.md)
+- [Configurare la conversione di modelli](configure-model-conversion.md)
 - [API REST per la conversione di modelli](conversion-rest-api.md)

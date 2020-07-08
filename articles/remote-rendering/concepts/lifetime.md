@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681870"
 ---
 # <a name="object-and-resource-lifetime"></a>Durata di oggetti e risorse
@@ -32,7 +31,7 @@ Molte risorse non sono modificabili, ad esempio [mesh](meshes.md) e [trame](text
 
 ### <a name="built-in-resources"></a>Risorse predefinite
 
-Il rendering remoto di Azure contiene alcune risorse predefinite, che possono essere caricate anteponendo il rispettivo identificatore con `builtin://` durante la chiamata a. `AzureSession.Actions.LoadXYZAsync()` Le risorse predefinite disponibili sono elencate nella documentazione per ogni rispettiva funzionalità. Il [capitolo Sky](../overview/features/sky.md) elenca ad esempio le trame Sky predefinite.
+Il rendering remoto di Azure contiene alcune risorse predefinite, che possono essere caricate anteponendo il rispettivo identificatore con `builtin://` durante la chiamata a `AzureSession.Actions.LoadXYZAsync()` . Le risorse predefinite disponibili sono elencate nella documentazione per ogni rispettiva funzionalità. Il [capitolo Sky](../overview/features/sky.md) elenca ad esempio le trame Sky predefinite.
 
 ## <a name="general-lifetime"></a>Durata generale
 
@@ -42,6 +41,6 @@ In pratica, il caricamento della stessa risorsa in una sessione, dopo una discon
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Entities](entities.md)
+* [Entità](entities.md)
 * [Componenti](components.md)
 * [Modelli](models.md)

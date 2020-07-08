@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681701"
 ---
 # <a name="rendering-modes"></a>Modalità di rendering
@@ -38,7 +37,7 @@ In modalità **DepthBasedComposition** , tutti i rendering GPU coinvolgono la ri
 
 Ogni singola GPU USA MSAA per antialias il contenuto locale. Tuttavia, potrebbe esserci un alias intrinseco tra i bordi da GPU distinte. Questo effetto viene mitigato dalla postelaborazione dell'immagine finale, ma la qualità MSAA è ancora peggiore rispetto alla modalità **TileBasedComposition** .
 
-Gli artefatti MSAA sono illustrati nell'immagine seguente ![: MSAA in DepthBasedComposition](./media/service-render-mode-balanced.png)
+Gli artefatti MSAA sono illustrati nell'immagine seguente: ![ MSAA in DepthBasedComposition](./media/service-render-mode-balanced.png)
 
 L'anti-aliasing funziona correttamente tra la scultura e la Cortina, perché entrambe le parti vengono sottoposte a rendering nella stessa GPU. D'altra parte, il bordo tra Curtain e Wall Mostra alcuni alias, perché queste due parti sono costituite da GPU distinte.
 
@@ -50,7 +49,7 @@ Le caratteristiche delle prestazioni per entrambe le modalità variano in base a
 
 ## <a name="setting-the-render-mode"></a>Impostazione della modalità di rendering
 
-La modalità di rendering utilizzata in una macchina virtuale per il rendering `AzureSession.ConnectToRuntime` remoto viene `ConnectToRuntimeParams`specificata durante tramite il.
+La modalità di rendering utilizzata in una macchina virtuale per il rendering remoto viene specificata durante `AzureSession.ConnectToRuntime` tramite il `ConnectToRuntimeParams` .
 
 ```cs
 async void ExampleConnect(AzureSession session)

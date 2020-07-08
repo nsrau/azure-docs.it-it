@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
 ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80680076"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>Strumento di ispezione ArrInspector
@@ -20,20 +19,20 @@ ArrInspector è uno strumento basato sul Web usato per esaminare una sessione di
 
 ## <a name="connecting-to-the-arrinspector"></a>Connessione a ArrInspector
 
-Una volta ottenuto il nome host (che `mixedreality.azure.com`termina con) del server ARR, connettersi usando [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Questa funzione crea un `StartArrInspector.html` oggetto nel dispositivo in cui è in esecuzione l'applicazione. Per avviare ArrInspector, aprire il file con un browser (Edge, Firefox o Chrome) in un PC. Il file è valido solo per 24 ore.
+Una volta ottenuto il nome host (che termina con `mixedreality.azure.com` ) del server ARR, connettersi usando [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Questa funzione crea un oggetto `StartArrInspector.html` nel dispositivo in cui è in esecuzione l'applicazione. Per avviare ArrInspector, aprire il file con un browser (Edge, Firefox o Chrome) in un PC. Il file è valido solo per 24 ore.
 
 Se l'app che chiama `ConnectToArrInspectorAsync` è già in esecuzione in un computer:
 
 * Se si usa l'integrazione di Unity, è possibile che venga avviata automaticamente.
-* In caso contrario, sarà possibile trovare il *file in\\cartelle\\utente LocalAppData [\\your_app\\] AC Temp*.
+* In caso contrario, sarà possibile trovare il file in *cartelle utente \\ LocalAppData \\ [your_app] \\ AC \\ Temp*.
 
 Se l'app è in esecuzione in un HoloLens:
 
 1. Accedere a HoloLens tramite il [portale del dispositivo Windows](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
 1. Passare a *System > file Explorer*.
-1. Passare a *\\cartelle utente LocalAppData\\[your_app]\\temp\\AC*.
-1. Salvare *StartArrInspector. html* nel PC.
-1. Aprire *StartArrInspector. html* per caricare il ArrInspector della sessione.
+1. Passare a *cartelle utente \\ LocalAppData \\ [your_app] \\ \\ Temp AC*.
+1. Salvare *StartArrInspector.html* nel PC.
+1. Aprire *StartArrInspector.html* per caricare il ArrInspector della sessione.
 
 ## <a name="the-performance-panel"></a>Pannello prestazioni
 
@@ -57,7 +56,7 @@ Per impostazione predefinita, l'intervallo verticale viene calcolato in base ai 
 
 Il pannello log mostra un elenco di messaggi di log generati sul lato server. Per la connessione verrà visualizzato un massimo di 200 messaggi di log precedenti e verranno stampati quelli nuovi appena si verificano.
 
-È possibile filtrare l'elenco in base al tipo `[Error/Warning/Info/Debug]` di log usando i pulsanti nella parte superiore.
+È possibile filtrare l'elenco in base al tipo di log `[Error/Warning/Info/Debug]` usando i pulsanti nella parte superiore.
 ![Pulsanti filtro log](./media/log-filter.png)
 
 ## <a name="the-timing-data-capture-panel"></a>Pannello di acquisizione dati temporizzato
@@ -113,7 +112,7 @@ Quando si riattiva l'aggiornamento in tempo reale, tutti i pannelli vengono reim
 
 Per impostazione predefinita, lo strumento si connette al server ARR in esecuzione nello stesso host che funge da ArrInspector. Tuttavia, è possibile configurarlo in modo da ispezionare un altro server, supponendo che sia in esecuzione un'istanza ARR con la porta degli strumenti aperta.
 
-A tale scopo, accedere al menu principale a sinistra della barra di intestazione e selezionare *Configurazione host*. Fare clic su **Aggiungi nuovo host**e immettere il nome e il nome host. Per *hostname* usare solo il nome host che `.mixedreality.azure.com`termina con, `http://` non includere o una porta.
+A tale scopo, accedere al menu principale a sinistra della barra di intestazione e selezionare *Configurazione host*. Fare clic su **Aggiungi nuovo host**e immettere il nome e il nome host. Per *hostname* usare solo il nome host che termina con `.mixedreality.azure.com` , non includere `http://` o una porta.
 
 ![Configurazione dell'host](./media/host-configuration.png)
 

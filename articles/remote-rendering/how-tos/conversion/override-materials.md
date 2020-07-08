@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
 ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681480"
 ---
 # <a name="override-materials-during-model-conversion"></a>Sostituire i materiali durante la conversione di modelli
@@ -22,7 +21,7 @@ Nella sezione relativa alla [configurazione della conversione del modello](confi
 ## <a name="the-override-file-used-during-conversion"></a>File di sostituzione usato durante la conversione
 
 Come esempio semplice, supponiamo che un modello di riquadro disponga di un unico materiale, denominato "default". È necessario modificare il colore dell'albedo per l'uso in ARR.
-In questo caso, è `box_materials_override.json` possibile creare un file nel modo seguente:
+In questo caso, `box_materials_override.json` è possibile creare un file nel modo seguente:
 
 ```json
 [
@@ -38,7 +37,7 @@ In questo caso, è `box_materials_override.json` possibile creare un file nel mo
 ]
 ```
 
-Il `box_materials_override.json` file viene inserito nel contenitore di input e viene aggiunto `ConversionSettings.json` un oggetto accanto `box.fbx`, che indica alla conversione dove trovare il file di sostituzione (vedere [configurazione della conversione del modello](configure-model-conversion.md)):
+Il `box_materials_override.json` file viene inserito nel contenitore di input e `ConversionSettings.json` viene aggiunto un oggetto accanto `box.fbx` , che indica alla conversione dove trovare il file di sostituzione (vedere [configurazione della conversione del modello](configure-model-conversion.md)):
 
 ```json
 {
@@ -52,7 +51,7 @@ Quando il modello viene convertito, verranno applicate le nuove impostazioni.
 
 Il modello [Material color](../../overview/features/color-materials.md) descrive una superficie costantemente ombreggiata che è indipendente dall'illuminazione.
 Questa operazione è utile per gli asset creati dagli algoritmi fotogrammetria, ad esempio.
-Nei file di override del materiale un materiale può essere dichiarato come materiale a colori impostando `unlit` su `true`.
+Nei file di override del materiale un materiale può essere dichiarato come materiale a colori impostando `unlit` su `true` .
 
 ```json
 [
@@ -71,7 +70,7 @@ Nei file di override del materiale un materiale può essere dichiarato come mate
 
 In alcuni casi potrebbe essere necessario che il processo di conversione ignori mappe di trama specifiche. Questo potrebbe essere il caso in cui il modello è stato generato da uno strumento che genera mappe speciali non riconosciute correttamente dal renderer. Ad esempio, un "OpacityMap" usato per definire un valore diverso da Opacity o un modello in cui "NormalMap" viene archiviato come "sbalzo". Nel secondo caso si vuole ignorare "NormalMap", che farà sì che il convertitore usi "sbalzo" come "NormalMap".
 
-Il principio è semplice. È sufficiente aggiungere una proprietà `ignoreTextureMaps` denominata e aggiungere qualsiasi mappa di trama che si desidera ignorare:
+Il principio è semplice. È sufficiente aggiungere una proprietà denominata `ignoreTextureMaps` e aggiungere qualsiasi mappa di trama che si desidera ignorare:
 
 ```json
 [
@@ -86,7 +85,7 @@ Per l'elenco completo delle mappe di trama che è possibile ignorare, vedere lo 
 
 ## <a name="json-schema"></a>Schema JSON
 
-Di seguito è riportato lo schema JSON completo per i file di materiali. Ad eccezione `unlit` di `ignoreTextureMaps`e, le proprietà disponibili sono un subset delle proprietà descritte nelle sezioni sui modelli di materiali [color Material](../../overview/features/color-materials.md) e [PBR](../../overview/features/pbr-materials.md) .
+Di seguito è riportato lo schema JSON completo per i file di materiali. Ad eccezione di `unlit` e `ignoreTextureMaps` , le proprietà disponibili sono un subset delle proprietà descritte nelle sezioni sui modelli di materiali [color Material](../../overview/features/color-materials.md) e [PBR](../../overview/features/pbr-materials.md) .
 
 ```json
 {

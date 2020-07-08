@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 19765bd28f365cc6f6d5b06646896613dd3e3e87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804555"
 ---
 # <a name="add-a-heat-map-layer"></a>Aggiungere un livello per le mappe termiche
@@ -29,7 +28,7 @@ Il rendering di decine di migliaia di punti come simboli può coprire la maggior
 - **Traccia GPS**: include la velocità come mappa con altezza ponderata, in cui l'intensità di ogni punto dati è basata sulla velocità. Questa funzionalità, ad esempio, consente di visualizzare la posizione in cui un veicolo è stato velocizzato.
 
 > [!TIP]
-> Per impostazione predefinita, i livelli mappa termica eseguono il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo da eseguire il rendering solo delle funzionalità di geometria dei `filter` punti, impostare la proprietà `['==', ['geometry-type'], 'Point']`del livello su. Se si desidera includere anche le funzionalità MultiPoint, impostare la `filter` proprietà del livello su. `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`
+> Per impostazione predefinita, i livelli mappa termica eseguono il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo da eseguire il rendering solo delle funzionalità di geometria dei punti, impostare la `filter` proprietà del livello su `['==', ['geometry-type'], 'Point']` . Se si desidera includere anche le funzionalità MultiPoint, impostare la `filter` proprietà del livello su `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` .
 
 <br/>
 
@@ -37,7 +36,7 @@ Il rendering di decine di migliaia di punti come simboli può coprire la maggior
 
 ## <a name="add-a-heat-map-layer"></a>Aggiungere un livello per le mappe termiche
 
-Per eseguire il rendering di un'origine dati di punti come mappa termica, passare l'origine dati in un'istanza `HeatMapLayer` della classe e aggiungerla alla mappa.
+Per eseguire il rendering di un'origine dati di punti come mappa termica, passare l'origine dati in un'istanza della `HeatMapLayer` classe e aggiungerla alla mappa.
 
 Nel codice seguente, ogni punto di riscaldamento ha un raggio di 10 pixel a tutti i livelli di zoom. Per garantire un'esperienza utente migliore, la mappa termica si trova al di sotto del livello Label. Le etichette vengono visualizzate chiaramente. I dati in questo esempio sono del [programma USGS Earthquake Hazards](https://earthquake.usgs.gov/). Si tratta di terremoti significativi che si sono verificati negli ultimi 30 giorni.
 
@@ -70,7 +69,7 @@ Nell'esempio precedente viene personalizzata la mappa termica impostando le opzi
 * `radius`: Definisce un raggio di pixel in cui eseguire il rendering di ogni punto dati. È possibile impostare il raggio come numero fisso o come espressione. Utilizzando un'espressione, è possibile ridimensionare il raggio in base al livello di zoom e rappresentare un'area spaziale coerente sulla mappa, ad esempio un raggio di 5 chilometri.
 * `color`: Specifica la modalità di colorazione della mappa termica. Una sfumatura di colore è una funzionalità comune delle mappe termiche. È possibile ottenere l'effetto con un' `interpolate` espressione. È anche possibile usare un' `step` espressione per colorare la mappa termica, suddividendo in modo visivo la densità in intervalli simili a una mappa di contorno o di stile radar. Queste tavolozze di colori definiscono i colori dal valore di densità minima a quello massimo. 
 
-  È possibile specificare i valori dei colori per le `heatmap-density` mappe termiche come espressione sul valore. Il colore dell'area in cui non sono stati definiti dati in corrispondenza dell'indice 0 dell'espressione "interpolazione" o del colore predefinito di un'espressione "con rientri". È possibile utilizzare questo valore per definire un colore di sfondo. Spesso, questo valore è impostato su Transparent o su un nero semi-trasparente. 
+  È possibile specificare i valori dei colori per le mappe termiche come espressione sul `heatmap-density` valore. Il colore dell'area in cui non sono stati definiti dati in corrispondenza dell'indice 0 dell'espressione "interpolazione" o del colore predefinito di un'espressione "con rientri". È possibile utilizzare questo valore per definire un colore di sfondo. Spesso, questo valore è impostato su Transparent o su un nero semi-trasparente. 
    
   Di seguito sono riportati alcuni esempi di espressioni colori:
 
@@ -83,7 +82,7 @@ Nell'esempio precedente viene personalizzata la mappa termica impostando le opzi
 - `weight`: Per impostazione predefinita, tutti i punti dati hanno un peso di 1 e sono ponderati equamente. L'opzione Weight funge da moltiplicatore ed è possibile impostarla come numero o espressione. Se un numero è impostato come peso, è l'equivalenza di posizionare due volte ogni punto dati sulla mappa. Ad esempio, se il peso è 2, la densità raddoppia. Impostando l'opzione peso su un numero, la mappa termica viene renderizzata in modo simile all'utilizzo dell'opzione intensità. 
 
   Tuttavia, se si utilizza un'espressione, il peso di ogni punto dati può essere basato sulle proprietà di ogni punto dati. Si supponga, ad esempio, che ogni punto dati rappresenti un terremoto. Il valore magnitude è un'importante metrica per ogni punto dati sismico. I terremoti si verificano sempre, ma hanno una grandezza bassa e non vengono rilevati. Usare il valore magnitude in un'espressione per assegnare il peso a ogni punto dati. Usando il valore Magnitude per assegnare il peso, si ottiene una rappresentazione migliore dell'importanza dei terremoti all'interno della mappa termica.
-- `source`e `source-layer`: consentono di aggiornare l'origine dati.
+- `source`e `source-layer` : consentono di aggiornare l'origine dati.
 
 Ecco uno strumento per testare le diverse opzioni del livello mappa termica.
 
@@ -98,16 +97,16 @@ Per impostazione predefinita, i raggi dei punti dati di cui viene eseguito il re
 
 Utilizzare un' `zoom` espressione per ridimensionare il raggio per ogni livello di zoom, in modo che ogni punto dati copra la stessa area fisica della mappa. Questa espressione rende il livello mappa termica più statico e coerente. Ogni livello di zoom della mappa ha una doppia quantità di pixel verticale e orizzontale pari al livello di zoom precedente. 
 
-Il ridimensionamento del raggio in modo che raddoppi a ogni livello di zoom crea una mappa termica che sembra coerente in tutti i livelli di zoom. Per applicare questa scala, utilizzare `zoom` con un'espressione base `exponential interpolation` 2, con il raggio di pixel impostato per il livello di zoom minimo e un raggio scalato per il livello di `2 * Math.pow(2, minZoom - maxZoom)` zoom massimo calcolato come illustrato nell'esempio seguente. Eseguire lo zoom della mappa per vedere come la mappa termica viene ridimensionata con il livello di zoom.
+Il ridimensionamento del raggio in modo che raddoppi a ogni livello di zoom crea una mappa termica che sembra coerente in tutti i livelli di zoom. Per applicare questa scala, utilizzare `zoom` con un'espressione base 2 `exponential interpolation` , con il raggio di pixel impostato per il livello di zoom minimo e un raggio scalato per il livello di zoom massimo calcolato come `2 * Math.pow(2, minZoom - maxZoom)` illustrato nell'esempio seguente. Eseguire lo zoom della mappa per vedere come la mappa termica viene ridimensionata con il livello di zoom.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mappa termica Zoomable coerente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedi la <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mappa termica compatibile</a> con la penna con le mappe di<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure () su <a href='https://codepen.io'>CodePen</a>.
+Vedi la <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mappa termica compatibile</a> con la penna con le mappe di Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> Quando si Abilita il clustering nell'origine dati, i punti vicini tra loro vengono raggruppati come punto cluster. È possibile utilizzare il conteggio punti di ogni cluster come espressione di ponderazione per la mappa termica. Questo può ridurre significativamente il numero di punti di cui eseguire il rendering. Il numero di punti di un cluster viene archiviato in `point_count` una proprietà della funzionalità punto: 
+> Quando si Abilita il clustering nell'origine dati, i punti vicini tra loro vengono raggruppati come punto cluster. È possibile utilizzare il conteggio punti di ogni cluster come espressione di ponderazione per la mappa termica. Questo può ridurre significativamente il numero di punti di cui eseguire il rendering. Il numero di punti di un cluster viene archiviato in una `point_count` proprietà della funzionalità punto: 
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']

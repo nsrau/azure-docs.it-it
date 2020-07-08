@@ -4,10 +4,9 @@ description: Elenca i tipi di risorse di Azure usati per estendere le funzionali
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80754865"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipi di risorse che estendono le funzionalità di altre risorse
@@ -111,7 +110,7 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. PolicyInsights/policyEvents
 - Microsoft. PolicyInsights/policyStates
 - Microsoft. PolicyInsights/policyTrackedResources
-- Microsoft. PolicyInsights/monitoraggio e aggiornamento
+- Microsoft.PolicyInsights/remediations
 - Microsoft. RecoveryServices/backupProtectedItems
 - Microsoft. RecoveryServices/replicationEligibilityResults    
 - Microsoft. ResourceHealth/availabilityStatuses

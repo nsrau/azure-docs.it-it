@@ -11,10 +11,9 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: rohink
 ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80757269"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
@@ -40,7 +39,7 @@ Per configurare il monitoraggio degli endpoint è necessario specificare le segu
 
 ## <a name="how-endpoint-monitoring-works"></a>Funzionamento del monitoraggio degli endpoint
 
-Se il protocollo di monitoraggio è impostato come HTTP o HTTPS, l'agente di sondaggio di Gestione traffico esegue una richiesta GET all'endpoint usando il protocollo, la porta e il percorso relativo specificati. Se viene restituita una risposta 200-OK o una qualsiasi delle risposte configurate negli **intervalli di codice \*di stato previsti**, l'endpoint viene considerato integro. Se la risposta è un valore diverso, oppure se non viene ricevuta alcuna risposta entro il periodo di timeout specificato, l'agente di sondaggio di Gestione traffico esegue un nuovo tentativo in base all'impostazione Numero di tentativi tollerati. Se quindi questa impostazione è pari a 0, non viene eseguito alcun altro tentativo. Se il numero di tentativi consecutivi non riusciti è superiore all'impostazione di Numero di tentativi tollerati, l'endpoint viene contrassegnato come non integro. 
+Se il protocollo di monitoraggio è impostato come HTTP o HTTPS, l'agente di sondaggio di Gestione traffico esegue una richiesta GET all'endpoint usando il protocollo, la porta e il percorso relativo specificati. Se viene restituita una risposta 200-OK o una qualsiasi delle risposte configurate negli ** \* intervalli di codice di stato previsti**, l'endpoint viene considerato integro. Se la risposta è un valore diverso, oppure se non viene ricevuta alcuna risposta entro il periodo di timeout specificato, l'agente di sondaggio di Gestione traffico esegue un nuovo tentativo in base all'impostazione Numero di tentativi tollerati. Se quindi questa impostazione è pari a 0, non viene eseguito alcun altro tentativo. Se il numero di tentativi consecutivi non riusciti è superiore all'impostazione di Numero di tentativi tollerati, l'endpoint viene contrassegnato come non integro. 
 
 Se il protocollo di monitoraggio è TCP, l'agente di sondaggio di Gestione traffico avvia una richiesta di connessione TCP usando la porta specificata. Se l'endpoint risponde alla richiesta con una risposta per stabilire la connessione, il controllo integrità viene contrassegnato come esito positivo e l'agente di sondaggio di Gestione traffico reimposta la connessione TCP. Se la risposta è un valore diverso, oppure se non viene ricevuta alcuna risposta entro il periodo di timeout specificato, l'agente di sondaggio di Gestione traffico esegue un nuovo tentativo in base all'impostazione Numero di tentativi tollerati. Se quindi questa impostazione è pari a 0, non viene eseguito alcun altro tentativo. Se il numero di tentativi consecutivi non riusciti è superiore all'impostazione di Numero di errori tollerati, l'endpoint viene contrassegnato come non integro.
 
@@ -69,9 +68,9 @@ Il valore relativo allo stato di monitoraggio dell'endpoint viene generato da Ge
 
 | Stato profilo | Stato endpoint | Endpoint monitor status (Stato monitoraggio endpoint) | Note |
 | --- | --- | --- | --- |
-| Disabled |Attivato |Inactive |Il profilo è stato disabilitato. Anche se lo stato dell'endpoint è Enabled, se lo stato del profilo è Disabled, quest'ultimo avrà la precedenza. Gli endpoint nei profili disabilitati non vengono monitorati. Per la query DNS viene restituito un codice di risposta NXDOMAIN. |
-| &lt;qualsiasi&gt; |Disabled |Disabled |L'endpoint è stato disabilitato. Gli endpoint disabilitati non vengono monitorati. L'endpoint non è incluso nelle risposte DNS e pertanto non riceve traffico. |
-| Attivato |Attivato |Online |L'endpoint è monitorato e integro. È incluso nelle risposte DNS ed è in grado di ricevere traffico. |
+| Disabled |Attivato |Inattivo |Il profilo è stato disabilitato. Anche se lo stato dell'endpoint è Enabled, se lo stato del profilo è Disabled, quest'ultimo avrà la precedenza. Gli endpoint nei profili disabilitati non vengono monitorati. Per la query DNS viene restituito un codice di risposta NXDOMAIN. |
+| &lt;qualsiasi&gt; |Disabilitata |Disabled |L'endpoint è stato disabilitato. Gli endpoint disabilitati non vengono monitorati. L'endpoint non è incluso nelle risposte DNS e pertanto non riceve traffico. |
+| Attivato |Abilitato |Online |L'endpoint è monitorato e integro. È incluso nelle risposte DNS ed è in grado di ricevere traffico. |
 | Attivato |Attivato |Degraded |I controlli di integrità del monitoraggio dell'endpoint hanno esito negativo. L'endpoint non è incluso nelle risposte DNS e non riceve traffico. <br>Un'eccezione a questa situazione è quando tutti gli endpoint sono danneggiati. In questo caso tutti gli elementi vengono considerati da restituire nella risposta alla query.</br>|
 | Attivato |Attivato |CheckingEndpoint |L'endpoint è monitorato, ma i risultati del primo test non sono ancora pervenuti. CheckingEndpoint è un stato temporaneo che in genere si verifica immediatamente dopo l'aggiunta o l'abilitazione di un endpoint nel profilo. Un endpoint con questo stato viene incluso nelle risposte DNS e può ricevere traffico. |
 | Attivato |Attivato |Arrestato |L'app Web a cui punta l'endpoint non è in esecuzione. Controllare le impostazioni dell'app Web. Questa situazione può verificarsi anche se l'endpoint è di tipo annidato e il profilo figlio è disabilitato o non è attivo. <br>Gli endpoint con stato Interrotto non vengono monitorati. Non è incluso nelle risposte DNS e non riceve traffico. Un'eccezione a questa situazione è quando tutti gli endpoint sono danneggiati. In questo caso tutti gli elementi vengono considerati da restituire nella risposta alla query.</br>|
@@ -87,11 +86,11 @@ Lo stato di monitoraggio del profilo è una combinazione dei valori relativi all
 
 | Stato profilo (come configurato) | Endpoint monitor status (Stato monitoraggio endpoint) | Stato monitoraggio profilo | Note |
 | --- | --- | --- | --- |
-| Disabled |&lt;qualsiasi&gt; o un profilo senza endpoint definiti. |Disabled |Il profilo è stato disabilitato. |
-| Attivato |Almeno un endpoint è associato allo stato Degraded. |Degraded |Esaminare i valori di stato dei singoli endpoint per determinare quali endpoint richiedono attenzione. |
-| Attivato |Almeno un endpoint è associato allo stato Online. Nessun endpoint presenta lo stato Degraded. |Online |Il servizio sta accettando il traffico. Non è necessaria alcuna azione. |
-| Attivato |Almeno un endpoint è associato allo stato CheckingEndpoint. Nessun endpoint presenta lo stato Online o Degraded. |CheckingEndpoints |Questo stato di transizione si verifica quando un profilo viene creato o abilitato. Viene verificata l'integrità dell'endpoint per la prima volta. |
-| Attivato |Tutti gli endpoint del profilo presentano lo stato Disabled o Stopped oppure nel profilo non sono definiti endpoint. |Inactive |Non ci sono endpoint attivi, ma il profilo presenta lo stato Enabled. |
+| Disabilitata |&lt;qualsiasi&gt; o un profilo senza endpoint definiti. |Disabilitata |Il profilo è stato disabilitato. |
+| Abilitato |Almeno un endpoint è associato allo stato Degraded. |Degraded |Esaminare i valori di stato dei singoli endpoint per determinare quali endpoint richiedono attenzione. |
+| Abilitato |Almeno un endpoint è associato allo stato Online. Nessun endpoint presenta lo stato Degraded. |Online |Il servizio sta accettando il traffico. Non è richiesta alcuna azione ulteriore. |
+| Abilitato |Almeno un endpoint è associato allo stato CheckingEndpoint. Nessun endpoint presenta lo stato Online o Degraded. |CheckingEndpoints |Questo stato di transizione si verifica quando un profilo viene creato o abilitato. Viene verificata l'integrità dell'endpoint per la prima volta. |
+| Abilitato |Tutti gli endpoint del profilo presentano lo stato Disabled o Stopped oppure nel profilo non sono definiti endpoint. |Inattivo |Non ci sono endpoint attivi, ma il profilo presenta lo stato Enabled. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Failover e ripristino degli endpoint
 

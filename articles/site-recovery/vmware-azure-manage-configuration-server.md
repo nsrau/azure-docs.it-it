@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80672758"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware/server fisici
@@ -45,7 +44,7 @@ La licenza fornita con il modello OVF è una licenza di valutazione valida per 1
 
 È possibile modificare le credenziali anche tramite CSPSConfigtool.exe.
 
-1. Accedere al server di configurazione e avviare CSPSConfigtool. exe
+1. Accedere al server di configurazione e avviare CSPSConfigtool.exe
 2. Scegliere l'account che si vuole modificare e fare clic su **Modifica**.
 3. Immettere le credenziali modificate e fare clic su **OK**.
 
@@ -61,7 +60,7 @@ Modificare le credenziali usate per installare automaticamente il servizio Mobil
 
 È possibile modificare le credenziali anche tramite CSPSConfigtool.exe.
 
-1. Accedere al server di configurazione e avviare CSPSConfigtool. exe
+1. Accedere al server di configurazione e avviare CSPSConfigtool.exe
 2. Scegliere l'account che si desidera modificare e fare clic su **modifica** .
 3. Immettere le nuove credenziali e fare clic su **OK**.
 
@@ -76,7 +75,7 @@ Se non si sono aggiunte le credenziali durante la distribuzione OVF del server d
 
 È possibile aggiungere le credenziali anche tramite CSPSConfigtool.exe.
 
-1. Accedere al server di configurazione e avviare CSPSConfigtool. exe
+1. Accedere al server di configurazione e avviare CSPSConfigtool.exe
 2. Fare clic su **Aggiungi**, immettere le nuove credenziali e fare clic su **OK**.
 
 ## <a name="modify-proxy-settings"></a>Modificare le impostazioni proxy
@@ -107,7 +106,7 @@ La data di scadenza viene visualizzata in **Integrità del server di configurazi
 
 ### <a name="if-certificates-are-yet-to-expire"></a>Se i certificati hanno ancora una scadenza
 
-1. Per rinnovare, nell'insieme di credenziali aprire **Site Recovery** > **server di configurazione**dell'infrastruttura. Selezionare il server di configurazione richiesto.
+1. Per rinnovare, nell'insieme di credenziali aprire **Site Recovery**  >  **server di configurazione**dell'infrastruttura. Selezionare il server di configurazione richiesto.
 2. Assicurarsi che tutti i componenti server di elaborazione con scalabilità orizzontale, server di destinazione master e agenti di mobilità in tutti i computer protetti si trovino nelle versioni più recenti e siano in stato connesso.
 3. A questo punto, selezionare **rinnova certificati**.
 4. Seguire attentamente le istruzioni in questa pagina e fare clic su OK per rinnovare i certificati nel server di configurazione selezionato e i relativi componenti.
@@ -125,12 +124,12 @@ La data di scadenza viene visualizzata in **Integrità del server di configurazi
 È possibile registrare nuovamente il server di configurazione nello stesso insieme di credenziali, se necessario. Se si ha un altro computer server di elaborazione, oltre al server di elaborazione predefinito in esecuzione nel computer server di configurazione, registrare nuovamente entrambi i computer.
 
 
-1. Nell'insieme di credenziali aprire **Gestisci** > **Site Recovery** > **server di configurazione**dell'infrastruttura.
+1. Nell'insieme di credenziali aprire **Gestisci**  >  **Site Recovery**  >  **server di configurazione**dell'infrastruttura.
 2. In **Server** selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
 3. Accedere al computer del server di configurazione.
 4. In **%ProgramData%\ASR\home\svsystems\bin** aprire **cspsconfigtool.exe**.
 5. Nella scheda **Registrazione insieme di credenziali** selezionare **Sfoglia** e individuare il file di credenziali dell'insieme di credenziali scaricato.
-6. Se necessario, fornire i dettagli del server proxy. Selezionare quindi **Register (registra**).
+6. Se necessario, fornire i dettagli del server proxy. Selezionare **Registra**.
 7. Aprire una finestra dei comandi di PowerShell per amministratore ed eseguire il comando seguente:
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -138,7 +137,7 @@ La data di scadenza viene visualizzata in **Integrità del server di configurazi
    ```
 
     >[!NOTE]
-    >Per eseguire il **pull dei certificati più recenti** dal server di configurazione al server di elaborazione con scalabilità orizzontale, eseguire il comando *\<"installazione Drive\Microsoft Azure site Recovery\agent\cdpcli.exe>"--registermt*
+    >Per eseguire il **pull dei certificati più recenti** dal server di configurazione al server di elaborazione con scalabilità orizzontale, eseguire il comando *" \<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe> "--registermt*
 
 8. Infine, riavviare obengine eseguendo il comando seguente.
    ```
@@ -178,7 +177,7 @@ I collegamenti agli aggiornamenti cumulativi a tutte le versioni del server di c
 
 Per aggiornare il server, seguire questa procedura:
 
-1. Nell'insieme di credenziali passare a **Gestisci** > **Site Recovery** > **server di configurazione**dell'infrastruttura.
+1. Nell'insieme di credenziali passare a **Gestisci**  >  **Site Recovery**  >  **server di configurazione**dell'infrastruttura.
 2. Se è disponibile un aggiornamento, verrà visualizzato un collegamento nella colonna **Versione agente**.
     ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Scaricare il file del programma di installazione dell'aggiornamento nel server di configurazione.
@@ -214,19 +213,19 @@ Eseguire il file di installazione come segue:
 
 |Nome parametro| Type | Descrizione| Valori|
 |-|-|-|-|
-| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
+| /Modalità server|Necessario|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|Necessario|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|Necessario|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|Necessario|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|Necessario|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|Necessario|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|Necessario|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|Necessario|Percorso completo del file della passphrase|Percorso del file valido|
 |/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
 |/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
 |DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
 |/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/AcceptThirdpartyEULA|Necessario|Il flag implica l'accettazione dell'EULA di terze parti| |
 |/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 
@@ -256,7 +255,7 @@ ProxyPassword="Password"
 1. [Disabilitare la protezione](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) per tutte le macchine virtuali nel server di configurazione.
 2. [Annullare l'associazione](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) ed [eliminare](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) tutti i criteri di replica dal server di configurazione.
 3. [Eliminare](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) tutti i server vCenter/host vSphere associati al server di configurazione.
-4. Nell'insieme di credenziali aprire **Site Recovery** > **server di configurazione**dell'infrastruttura.
+4. Nell'insieme di credenziali aprire **Site Recovery**  >  **server di configurazione**dell'infrastruttura.
 5. Selezionare il server di configurazione che si vuole rimuovere, quindi nella pagina **Dettagli** selezionare **Elimina**.
 
     ![Eliminare il server di configurazione](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
@@ -298,10 +297,10 @@ Facoltativamente, è possibile eliminare il server di configurazione usando Powe
 
 ## <a name="refresh-configuration-server"></a>Aggiornare il server di configurazione
 
-1. Nel portale di Azure passare a insieme di credenziali di **Servizi** > di ripristino**Gestisci** > **infrastruttura** > Site Recovery**per VMware & server di configurazione dei computer fisici** > **Configuration Servers**
+1. Nel portale di Azure passare a insieme di credenziali di **servizi di ripristino**  >  **Gestisci**  >  **infrastruttura Site Recovery**  >  **per VMware & server di configurazione dei computer fisici**  >  **Configuration Servers**
 2. Fare clic sul server di configurazione che si vuole aggiornare.
-3. Nel pannello con i dettagli del server di configurazione scelto fare clic su **altro** > **Aggiorna server**.
-4. Monitorare lo stato di avanzamento del processo nel**monitoraggio** > dell'insieme di credenziali di **Servizi** > di ripristino**Site Recovery processi**.
+3. Nel pannello con i dettagli del server di configurazione scelto fare clic su **altro**  >  **Aggiorna server**.
+4. Monitorare lo stato di avanzamento del processo nel monitoraggio dell'insieme di credenziali di **servizi di ripristino**  >  **Monitoring**  >  **Site Recovery processi**.
 
 ## <a name="failback-requirements"></a>Requisiti di failback
 

@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.openlocfilehash: ad195085c049776bf0db418c57f2c72830f1adff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80803570"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controllare l'accesso alle risorse cluster usando il controllo degli accessi in base al ruolo e le identità del Azure Active Directory nel servizio Azure Kubernetes
@@ -22,7 +21,7 @@ Questo articolo illustra come usare l'appartenenza a un gruppo Azure AD per cont
 
 Questo articolo presuppone che sia disponibile un cluster AKS esistente abilitato con l'integrazione Azure AD. Se è necessario un cluster AKS, vedere [integrare Azure Active Directory con AKS][azure-ad-aks-cli].
 
-È necessaria l'interfaccia della riga di comando di Azure versione 2.0.61 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.61 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="create-demo-groups-in-azure-ad"></a>Creare gruppi dimostrativi in Azure AD
 
@@ -50,7 +49,7 @@ Creare il primo gruppo di esempio in Azure AD per gli sviluppatori di applicazio
 APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
 ```
 
-A questo punto, creare un'assegnazione di ruolo di Azure per il gruppo *AppDev* usando il comando [AZ Role Assignment create][az-role-assignment-create] . Questa assegnazione consente `kubectl` a tutti i membri del gruppo di interagire con un cluster del servizio contenitore di Azure concedendo loro il *ruolo utente cluster del servizio Azure Kubernetes*.
+A questo punto, creare un'assegnazione di ruolo di Azure per il gruppo *AppDev* usando il comando [AZ Role Assignment create][az-role-assignment-create] . Questa assegnazione consente a tutti i membri del gruppo di `kubectl` interagire con un cluster del servizio contenitore di Azure concedendo loro il *ruolo utente cluster del servizio Azure Kubernetes*.
 
 ```azurecli-interactive
 az role assignment create \
@@ -60,7 +59,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Se viene visualizzato un errore `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`, ad esempio, attendere alcuni secondi affinché l'ID oggetto del gruppo Azure ad propaghi attraverso la directory, quindi riprovare a eseguire il `az role assignment create` comando.
+> Se viene visualizzato un errore, ad esempio `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.` , attendere alcuni secondi affinché l'ID oggetto del gruppo Azure ad propaghi attraverso la directory, quindi riprovare a eseguire il `az role assignment create` comando.
 
 Creare un secondo gruppo di esempio, quello per SRE denominato *opssre*:
 
@@ -83,7 +82,7 @@ Con due gruppi di esempio creati in Azure AD per gli sviluppatori di applicazion
 
 Creare il primo account utente in Azure AD usando il comando [AZ ad User create][az-ad-user-create] .
 
-Nell'esempio seguente viene creato un utente con il nome visualizzato *AKS dev* e il nome dell'entità utente (UPN `aksdev@contoso.com`) di. Aggiornare l'UPN per includere un dominio verificato per il tenant di Azure AD (sostituire *contoso.com* con il proprio dominio) e fornire le proprie credenziali `--password` sicure:
+Nell'esempio seguente viene creato un utente con il nome visualizzato *AKS dev* e il nome dell'entità utente (UPN) di `aksdev@contoso.com` . Aggiornare l'UPN per includere un dominio verificato per il tenant di Azure AD (sostituire *contoso.com* con il proprio dominio) e fornire le proprie credenziali sicure `--password` :
 
 ```azurecli-interactive
 AKSDEV_ID=$(az ad user create \
@@ -99,7 +98,7 @@ A questo punto, aggiungere l'utente al gruppo *AppDev* creato nella sezione prec
 az ad group member add --group appdev --member-id $AKSDEV_ID
 ```
 
-Creare un secondo account utente. Nell'esempio seguente viene creato un utente con il nome visualizzato *AKS SRE* e il nome dell'entità utente (UPN `akssre@contoso.com`) di. Aggiornare l'UPN in modo da includere un dominio verificato per il tenant di Azure AD (sostituire *contoso.com* con il proprio dominio) e fornire le proprie credenziali `--password` sicure:
+Creare un secondo account utente. Nell'esempio seguente viene creato un utente con il nome visualizzato *AKS SRE* e il nome dell'entità utente (UPN) di `akssre@contoso.com` . Aggiornare l'UPN in modo da includere un dominio verificato per il tenant di Azure AD (sostituire *contoso.com* con il proprio dominio) e fornire le proprie credenziali sicure `--password` :
 
 ```azurecli-interactive
 # Create a user for the SRE role
@@ -269,7 +268,7 @@ Pianificare un pod NGINX di base usando il comando [kubectl Run][kubectl-run] ne
 kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
 ```
 
-Al prompt di accesso immettere le credenziali per il proprio `appdev@contoso.com` account creato all'inizio dell'articolo. Una volta eseguito l'accesso, il token dell'account viene memorizzato nella cache `kubectl` per i comandi successivi. La pianificazione di NGINX è stata completata, come illustrato nell'output di esempio seguente:
+Al prompt di accesso immettere le credenziali per il proprio `appdev@contoso.com` account creato all'inizio dell'articolo. Una volta eseguito l'accesso, il token dell'account viene memorizzato nella cache per i `kubectl` comandi successivi. La pianificazione di NGINX è stata completata, come illustrato nell'output di esempio seguente:
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
@@ -296,7 +295,7 @@ nginx-dev   1/1     Running   0          4m
 
 ### <a name="create-and-view-cluster-resources-outside-of-the-assigned-namespace"></a>Creare e visualizzare risorse cluster al di fuori dello spazio dei nomi assegnato
 
-Ora provare a visualizzare i pod all'esterno dello spazio dei nomi *dev* . Usare di nuovo il comando [kubectl Get Pod][kubectl-get] , questa volta per `--all-namespaces` vedere come segue:
+Ora provare a visualizzare i pod all'esterno dello spazio dei nomi *dev* . Usare di nuovo il comando [kubectl Get Pod][kubectl-get] , questa volta per vedere `--all-namespaces` come segue:
 
 ```console
 kubectl get pods --all-namespaces
@@ -367,7 +366,7 @@ $ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 In questo articolo sono state create risorse nel cluster AKS e utenti e gruppi in Azure AD. Per pulire tutte le risorse, eseguire i comandi seguenti:
 

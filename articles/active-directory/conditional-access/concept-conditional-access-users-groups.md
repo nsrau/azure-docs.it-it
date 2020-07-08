@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80755274"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
@@ -30,13 +29,13 @@ Questo elenco di utenti include in genere tutti gli utenti a cui è destinata un
 
 Quando si creano criteri di accesso condizionale, è possibile includere le opzioni seguenti.
 
-- Nessuno
+- nessuno
    - Nessun utente selezionato
 - tutti gli utenti
    - Tutti gli utenti presenti nella directory, inclusi i guest B2B.
 - Selezionare Utenti e gruppi
    - Tutti gli utenti guest ed esterni
-      - Questa selezione include tutti i guest B2B e gli utenti esterni, incluso qualsiasi `user type` utente con l' `guest`attributo impostato su. Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio un provider di soluzioni cloud (CSP). 
+      - Questa selezione include tutti i guest B2B e gli utenti esterni, incluso qualsiasi utente con l' `user type` attributo impostato su `guest` . Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio un provider di soluzioni cloud (CSP). 
    - Ruoli della directory
       - Consente agli amministratori di selezionare ruoli di directory Azure AD specifici utilizzati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
    - Utenti e gruppi
@@ -52,7 +51,7 @@ Quando le organizzazioni includono ed escludono un utente o un gruppo, l'utente 
 Quando si creano criteri di accesso condizionale, è possibile escludere le opzioni seguenti.
 
 - Tutti gli utenti guest ed esterni
-   - Questa selezione include tutti i guest B2B e gli utenti esterni, incluso qualsiasi `user type` utente con l' `guest`attributo impostato su. Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio un provider di soluzioni cloud (CSP). 
+   - Questa selezione include tutti i guest B2B e gli utenti esterni, incluso qualsiasi utente con l' `user type` attributo impostato su `guest` . Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio un provider di soluzioni cloud (CSP). 
 - Ruoli della directory
    - Consente agli amministratori di selezionare ruoli di directory Azure AD specifici utilizzati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
 - Utenti e gruppi
@@ -70,6 +69,6 @@ Per impostazione predefinita, il criterio fornirà un'opzione per escludere l'ut
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Accesso condizionale: app Cloud o azioni](concept-conditional-access-cloud-apps.md)
+- [Accesso condizionale: App o azioni cloud](concept-conditional-access-cloud-apps.md)
 
-- [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+- [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
