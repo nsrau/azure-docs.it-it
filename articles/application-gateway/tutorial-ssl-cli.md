@@ -4,16 +4,16 @@ description: Informazioni su come creare un gateway applicazione e aggiungere un
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16ad8d7fd0f46381f2e2e7076015af65bd4bddcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806154"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Creare un gateway applicazione con terminazione TLS usando l'interfaccia della riga di comando di Azure
 
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Per questo esempio, l'URL è: **https://52.170.203.149**.
+Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Per questo esempio, l'URL è: **https://52.170.203.149** .
 
 ![Avviso di sicurezza](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -173,7 +173,7 @@ Per accettare l'avviso di sicurezza se è stato usato un certificato autofirmato
 
 ![Testare l'URL di base nel gateway applicazione](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
 

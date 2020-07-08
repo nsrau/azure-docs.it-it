@@ -4,16 +4,16 @@ description: Informazioni su come instradare il traffico Web in base all'URL a p
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8ca5c411db5644182f7e87f1ee1c63f3cbc4d2e9
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: fccc7281ed2978ccc63cd7b53a82c8a00b57d3c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73200412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806002"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Instradare il traffico Web in base all'URL tramite Azure PowerShell
 
@@ -422,11 +422,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testare l'URL di base nel gateway applicazione](./media/tutorial-url-route-powershell/application-gateway-iistest.png)
 
-Modificare l'URL in http://&lt;IP-address&gt;: 8080/images/test.htm, sostituendo l'indirizzo IP &lt;per IP-&gt;Address e dovrebbe essere visualizzato un esempio simile al seguente:
+Modificare l'URL in http:// &lt; IP-address &gt; : 8080/images/test.htm, sostituendo l'indirizzo IP per &lt; IP-address &gt; e dovrebbe essere visualizzato qualcosa di simile all'esempio seguente:
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/tutorial-url-route-powershell/application-gateway-iistest-images.png)
 
-Modificare l'URL in http://&lt;IP-address&gt;: 8080/video/test.htm, sostituendo l'indirizzo IP &lt;per IP-&gt;Address e dovrebbe essere visualizzato un esempio simile al seguente:
+Modificare l'URL in http:// &lt; IP-address &gt; : 8080/video/test.htm, sostituendo l'indirizzo IP per &lt; IP-address &gt; . verrà visualizzata una schermata simile all'esempio seguente:
 
 ![Testare l'URL video nel gateway applicazione](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 

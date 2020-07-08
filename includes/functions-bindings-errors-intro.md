@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77474157"
 ---
 Gli errori generati in funzioni di Azure possono provenire da una qualsiasi delle origini seguenti:
@@ -33,7 +33,7 @@ L'acquisizione e la pubblicazione di errori è fondamentale per il monitoraggio 
 
 I trigger seguenti hanno il supporto di ripetizione dei tentativi incorporato:
 
-* [Archiviazione BLOB di Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
+* [Archivio BLOB di Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Archiviazione code di Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Bus di servizio Azure (coda/argomento)](../articles/azure-functions/functions-bindings-service-bus.md)
 

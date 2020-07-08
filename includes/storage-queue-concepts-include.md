@@ -6,10 +6,10 @@ ms.date: 10/26/2018
 ms.author: tamram
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 23b93f507ef6abe19a0202b28afa31d28490b2b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80151222"
 ---
 ## <a name="what-is-queue-storage"></a>Che cos'è l'archiviazione code?
@@ -22,7 +22,7 @@ Il Servizio di accodamento di Azure contiene i componenti seguenti:
 
 ![Componenti di Azure Servizio di accodamento](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
-* **Formato URL:** Le code sono indirizzabili usando il formato di URL seguente:`<storage account>`http://. Queue.Core.Windows.NET/`<queue>`
+* **Formato URL:** Le code sono indirizzabili usando il formato di URL seguente: http:// `<storage account>` . Queue.Core.Windows.NET/`<queue>`
   
     L'URL seguente fa riferimento a una delle code nel diagramma:   
   

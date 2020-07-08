@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67673387"
 ---
 *Preparare la cache*  
@@ -81,7 +81,7 @@ Dopo la preparazione del disco della cache, procedere con gli scenari di test el
 
 | Scenario di test | Volume di destinazione | Nome | Risultato |
 | --- | --- | --- | --- |
-| Max. IOPS di lettura |CacheReads |RandomWrites\_8K |50.000 IOPS  |
+| Max. IOPS di lettura |CacheReads |RandomWrites\_8K |50.000 IOPS |
 | Max. IOPS di scrittura |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
 | Max. IOPS combinate |CacheReads |RandomWrites\_8K |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |

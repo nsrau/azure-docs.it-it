@@ -4,16 +4,16 @@ description: In questo articolo viene descritto come instradare il traffico Web,
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: fc32dd5c477a76a20bc3a641ec8761e95c129554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68688186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805899"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
 
@@ -252,7 +252,7 @@ Modificare l'URL in http://&lt;indirizzo-ip&gt;:8080/video/test.htm, sostituendo
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Modificare l'URL in http://&lt;IP-address&gt;: 8080/video/test.html, sostituendo l'indirizzo IP &lt;per IP-&gt;Address e dovrebbe essere visualizzato un esempio simile al seguente.
+Modificare l'URL in http:// &lt; IP-address &gt; : 8080/video/test.html, sostituendo l'indirizzo IP per &lt; IP-address &gt; . verrà visualizzata una schermata simile all'esempio seguente.
 
 ![Testare l'URL video nel gateway applicazione](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 

@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 010/17/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 26e48d1af8e29c7d00a80910dcca62811da14822
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67673380"
 ---
 Nel portale di Azure è possibile visualizzare lo stato della connessione di un gateway VPN di rete virtuale classica passando alla connessione. La procedura seguente illustra uno dei modi in cui è possibile accedere alla connessione e verificarla.
@@ -24,7 +24,7 @@ Nel portale di Azure è possibile visualizzare lo stato della connessione di un 
     ![Sito locale](./media/vpn-gateway-verify-connection-azureportal-classic/localsitename.png "sito locale")
 4. Nel pannello **Connessioni VPN da sito a sito** visualizzare le informazioni sul sito.
 
-    ![Stato connessione](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Stato della connessione")
+    ![Stato della connessione](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Stato della connessione")
 5. Per visualizzare altre informazioni sulla connessione, fare clic sul nome della connessione per aprire il pannello **Connessione VPN da sito a sito**.
 
     ![Stato connessione altro](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Ulteriori informazioni sullo stato della connessione")

@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,17 +9,17 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d2dba0f657b418267db90c07014dc8996ed12a10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80059956"
 ---
 Dopo avere creato un certificato radice autofirmato, esportare il file con estensione cer con la chiave pubblica (non la chiave privata) del certificato radice. Successivamente, caricare il file in Azure. La procedura seguente consente di esportare il file con estensione .cer per il certificato radice autofirmato:
 
 1. Per ottenere un file con estensione cer dal certificato, aprire **Gestire i certificati utente**. Individuare il certificato radice autofirmato, in genere in "Certificati - Utente corrente\Personale\Certificati" e fare clic con il pulsante destro del mouse. Fare clic su **Tutte le attività** e quindi su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**. Se non è possibile trovare il certificato in Utente corrente\Personale\Certificati, è possibile aver accidentalmente aperto Certificati - Computer locale" invece di "Certificati - Utente corrente". Se si vuole aprire Gestione certificati nell'ambito dell'utente corrente usando PowerShell, digitare *certmgr* nella finestra della console.
 
-   ![Export](./media/vpn-gateway-certificates-export-public-key-include/export.png)
+   ![Esportazione](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. Nella procedura guidata, fare clic su **Avanti**.
 
    ![Esportare il certificato](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
@@ -31,7 +31,7 @@ Dopo avere creato un certificato radice autofirmato, esportare il file con esten
    ![Codifica Base 64](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
 5. In **File da esportare** fare clic su **Sfoglia** e passare alla posizione in cui si vuole esportare il certificato. Per **Nome file**, assegnare un nome al file del certificato. Quindi fare clic su **Next**.
 
-   ![Sfoglia](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
+   ![Esplora](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Fare clic su **Fine** per esportare il certificato.
 
    ![Finish](./media/vpn-gateway-certificates-export-public-key-include/finish.png)

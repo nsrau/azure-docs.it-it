@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cb959b94807678187363d3132ece273584f13a0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77590715"
 ---
 Risparmia sull'utilizzo del archiviazione su disco di Azure con capacità riservata. Archiviazione su disco di Azure prenotazioni combinate con le istanze di macchina virtuale riservate di Azure consentono di ridurre i costi totali della macchina virtuale (VM). Lo sconto relativo alla prenotazione viene applicato automaticamente ai dischi corrispondenti nell'ambito della prenotazione selezionato. A causa di questa applicazione automatica, non è necessario assegnare una prenotazione a un disco gestito per ottenere gli sconti.
@@ -69,12 +69,12 @@ Per acquistare la capacità riservata, seguire questa procedura:
    |Elemento  |Descrizione  |
    |---------|---------|
    |**Ambito**   |  Il numero di sottoscrizioni che possono usare il vantaggio di fatturazione associato alla prenotazione. Questo valore specifica anche il modo in cui la prenotazione viene applicata a sottoscrizioni specifiche. <br/><br/> Se si seleziona **condiviso**, lo sconto relativo alla prenotazione viene applicato alla capacità di archiviazione di Azure in ogni sottoscrizione all'interno del contesto di fatturazione. Il contesto di fatturazione si basa sul modo in cui è stata effettuata l'iscrizione ad Azure. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso include tutte le singole sottoscrizioni con tariffe con pagamento in base al consumo create dall'amministratore account.  <br/><br/>  Se si seleziona una **singola sottoscrizione**, lo sconto per la prenotazione viene applicato alla capacità di archiviazione di Azure nella sottoscrizione selezionata. <br/><br/> Se si seleziona **gruppo di risorse singolo**, lo sconto per la prenotazione viene applicato alla capacità di archiviazione di Azure nella sottoscrizione selezionata e nel gruppo di risorse selezionato di tale sottoscrizione. <br/><br/> È possibile modificare l'ambito di prenotazione dopo aver acquistato la prenotazione.  |
-   |**Abbonamento**  | Sottoscrizione usata per pagare la prenotazione di archiviazione di Azure. Il metodo di pagamento per la sottoscrizione selezionata viene utilizzato per l'addebito dei costi. La sottoscrizione deve essere di uno dei seguenti tipi:<br/><ul><li> Enterprise Agreement (offer Numbers MS-AZR-0017P e MS-AZR-0148P). per una sottoscrizione Enterprise, il costo viene detratto dal saldo dell'impegno monetario della registrazione oppure viene addebitato come eccedenza.</li><br/><li>Sottoscrizione singola con tariffe con pagamento in base al consumo (numeri di offerta MS-AZR-0003P e MS-AZR-0023P). Per una singola sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.</li></ul>    |
+   |**Sottoscrizione**  | Sottoscrizione usata per pagare la prenotazione di archiviazione di Azure. Il metodo di pagamento per la sottoscrizione selezionata viene utilizzato per l'addebito dei costi. La sottoscrizione deve essere di uno dei seguenti tipi:<br/><ul><li> Enterprise Agreement (offer Numbers MS-AZR-0017P e MS-AZR-0148P). per una sottoscrizione Enterprise, il costo viene detratto dal saldo dell'impegno monetario della registrazione oppure viene addebitato come eccedenza.</li><br/><li>Sottoscrizione singola con tariffe con pagamento in base al consumo (numeri di offerta MS-AZR-0003P e MS-AZR-0023P). Per una singola sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.</li></ul>    |
    | **Dischi** | SKU che si vuole creare. |
    | **Area** | Area in cui è attiva la prenotazione. |
    | **Frequenza di fatturazione** | Frequenza con cui l'account viene fatturato per la prenotazione. Le opzioni includono **mensile** e **iniziale**. |
 
-    ![Riquadro per la selezione del prodotto che si desidera acquistare. png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
+    ![Riquadro per la selezione del prodotto che si desidera purchase.png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
 
 1. Dopo aver specificato i valori per la prenotazione, il portale di Azure Visualizza il costo. Il portale Mostra anche la percentuale di sconto rispetto alla fatturazione con pagamento in base al consumo. Selezionare **Avanti** per passare al riquadro **prenotazioni acquisti** .
 
@@ -88,7 +88,7 @@ Dopo l'acquisto di una prenotazione, viene applicata automaticamente a tutte le 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
-È possibile annullare, scambiare o rimborsare le prenotazioni entro determinate limitazioni. Per altre informazioni, vedere [scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+È possibile annullare, scambiare o rimborsare le prenotazioni entro determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## <a name="expiration-of-a-reservation"></a>Scadenza di una prenotazione
 

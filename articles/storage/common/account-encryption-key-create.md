@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 09558a8d1e4e2dc68cefd2c870f54e008d10b97b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e47440a54d733d0b5d849123633bf7e067fcd81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805704"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creazione di un account che supporta chiavi gestite dal cliente per tabelle e code
 
@@ -138,8 +138,8 @@ Per usare PowerShell per creare un account di archiviazione che si basa sulla ch
 
 Successivamente, creare un account di archiviazione per utilizzo generico V2 chiamando il comando [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) con i parametri appropriati:
 
-- Includere l' `-EncryptionKeyTypeForQueue` opzione e impostarne il valore `Account` su per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio code.
-- Includere l' `-EncryptionKeyTypeForTable` opzione e impostarne il valore `Account` su per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio tabelle.
+- Includere l' `-EncryptionKeyTypeForQueue` opzione e impostarne il valore su `Account` per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio code.
+- Includere l' `-EncryptionKeyTypeForTable` opzione e impostarne il valore su `Account` per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio tabelle.
 
 L'esempio seguente illustra come creare un account di archiviazione per utilizzo generico V2 configurato per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) e che usa la chiave di crittografia dell'account per crittografare i dati sia per l'archiviazione code che per quella tabella. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
@@ -159,8 +159,8 @@ Per usare l'interfaccia della riga di comando di Azure per creare un account di 
 
 Successivamente, creare un account di archiviazione per utilizzo generico V2 chiamando il comando [AZ storage account create](/cli/azure/storage/account#az-storage-account-create) con i parametri appropriati:
 
-- Includere l' `--encryption-key-type-for-queue` opzione e impostarne il valore `Account` su per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio code.
-- Includere l' `--encryption-key-type-for-table` opzione e impostarne il valore `Account` su per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio tabelle.
+- Includere l' `--encryption-key-type-for-queue` opzione e impostarne il valore su `Account` per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio code.
+- Includere l' `--encryption-key-type-for-table` opzione e impostarne il valore su `Account` per usare la chiave di crittografia dell'account per crittografare i dati nell'archivio tabelle.
 
 L'esempio seguente illustra come creare un account di archiviazione per utilizzo generico V2 configurato per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) e che usa la chiave di crittografia dell'account per crittografare i dati sia per l'archiviazione code che per quella tabella. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
@@ -222,11 +222,11 @@ Dopo aver creato un account che si basa sulla chiave di crittografia dell'accoun
 
 ## <a name="verify-the-account-encryption-key"></a>Verificare la chiave di crittografia dell'account
 
-Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare l'interfaccia della riga di comando di Azure [AZ storage account](/cli/azure/storage/account#az-storage-account-show) Command. Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `keyType` campo per ogni servizio all'interno della proprietà di crittografia e verificare che sia impostato su `Account`.
+Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare l'interfaccia della riga di comando di Azure [AZ storage account](/cli/azure/storage/account#az-storage-account-show) Command. Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `keyType` campo per ogni servizio all'interno della proprietà di crittografia e verificare che sia impostato su `Account` .
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare il comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `KeyType` campo per ogni servizio all'interno della `Encryption` proprietà e verificare che sia impostato su `Account`.
+Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare il comando [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `KeyType` campo per ogni servizio all'interno della `Encryption` proprietà e verificare che sia impostato su `Account` .
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -237,7 +237,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare il comando [AZ storage account](/cli/azure/storage/account#az-storage-account-show) . Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `keyType` campo per ogni servizio all'interno della proprietà di crittografia e verificare che sia impostato su `Account`.
+Per verificare che un servizio in un account di archiviazione usi la chiave di crittografia dell'account, chiamare il comando [AZ storage account](/cli/azure/storage/account#az-storage-account-show) . Questo comando restituisce un set di proprietà dell'account di archiviazione e i relativi valori. Cercare il `keyType` campo per ogni servizio all'interno della proprietà di crittografia e verificare che sia impostato su `Account` .
 
 ```azurecli
 az storage account show /
@@ -253,5 +253,5 @@ N/D
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md) 
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md) 
 - [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

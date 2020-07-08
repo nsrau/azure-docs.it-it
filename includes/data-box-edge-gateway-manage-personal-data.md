@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67180788"
 ---
 - **Dettagli dell'ordine**. Quando viene creato un ordine, l'indirizzo di spedizione, l'indirizzo di posta elettronica e le informazioni di contatto dell'utente vengono archiviati nella portale di Azure. Le informazioni salvate includono:
@@ -18,7 +18,7 @@ ms.locfileid: "67180788"
   - Indirizzo
   - city
   - CAP Codice postale
-  - Stato
+  - State
   - Paese/provincia/regione
   - Numero di tracciabilità della spedizione
 

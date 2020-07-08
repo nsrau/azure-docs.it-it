@@ -6,10 +6,10 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 02/03/2020
 ms.openlocfilehash: 6a3837d01815306e469a684404ab76506f547f43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77013697"
 ---
 ## <a name="business-disaster-recovery"></a>BCDR (Business disaster recovery)
@@ -38,7 +38,7 @@ Alcuni servizi di Azure e includono anche funzionalità di ripristino di emergen
 
 - [Ripristino di emergenza a disponibilità elevata dell'hub Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), che include la ridondanza all'interno dell'area
 - [Criteri di hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-- [Ridondanza di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) (Ridondanza di Archiviazione di Azure)
 
 L'integrazione di Time Series Insights con gli altri servizi offre opportunità aggiuntive per il ripristino di emergenza. Ad esempio, la telemetria inviata all'hub eventi potrebbe essere salvata in modo permanente in un database di archiviazione BLOB di Azure di backup.
 
