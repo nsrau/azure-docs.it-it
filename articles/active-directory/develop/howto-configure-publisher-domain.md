@@ -7,18 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: 68040c8ee22454c300296493b6c840eabbca98aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 408d8856130947e9be9c6d2714310332d9935cdd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76697133"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477992"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procedura: configurare un dominio di pubblicazione di un'applicazione
 
@@ -85,7 +85,7 @@ Se l'app non è registrata in un tenant, verrà visualizzata solo l'opzione per 
 
 1. Sostituire il segnaposto *{Your-App-ID-here}* con l'ID dell'applicazione (client) che corrisponde all'app.
 
-1. Ospitare il file in: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Sostituire il segnaposto *{Your-Domain-here}* in modo che corrisponda al dominio verificato.
+1. Ospitare il file in: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json` . Sostituire il segnaposto *{Your-Domain-here}* in modo che corrisponda al dominio verificato.
 
 1. Fare clic sul pulsante **Verifica e salva dominio** .
 
@@ -94,7 +94,7 @@ Se l'app non è registrata in un tenant, verrà visualizzata solo l'opzione per 
 - Se il tenant ha verificato domini, selezionare uno dei domini dall'elenco **a discesa selezionare un dominio verificato** .
 
 >[!Note]
-> L'intestazione ' Content-Type ' prevista restituita è `application/json`. È possibile che venga ricevuto un errore come indicato di seguito se si usa qualsiasi altra operazione, ad esempio`application/json; charset=utf-8` 
+> L'intestazione ' Content-Type ' prevista restituita è `application/json` . È possibile che venga ricevuto un errore come indicato di seguito se si usa qualsiasi altra operazione, ad esempio`application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

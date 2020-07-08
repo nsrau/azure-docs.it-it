@@ -7,18 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f22ecb13284eaf6fb2a833791b5563351ca19147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477856"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -145,7 +145,7 @@ Ciò viene illustrato in un client nativo multilivello che esegue la chiamata al
 
 Un caso simile si verifica se i diversi livelli di un'applicazione vengono registrati in tenant diversi. Ad esempio, si consideri il caso della creazione di un'applicazione client nativa che esegue la chiamata all'API di Office 365 Exchange Online. Per sviluppare l'applicazione nativa e successivamente eseguire l'applicazione nativa nel tenant del cliente, è necessario che sia presente l'entità servizio Exchange Online. In questo caso lo sviluppatore e il cliente devono acquistare Exchange Online per creare l'entità servizio nei tenant.
 
-Se si tratta di un'API creata da un'organizzazione diversa da Microsoft, lo sviluppatore dell'API deve fornire un modo per consentire ai clienti di fornire il consenso dell'applicazione ai tenant dei clienti. La progettazione consigliata è destinata allo sviluppatore di terze parti a compilare l'API in modo che possa fungere anche da client Web per implementare l'iscrizione. A tale scopo:
+Se si tratta di un'API creata da un'organizzazione diversa da Microsoft, lo sviluppatore dell'API deve fornire un modo per consentire ai clienti di fornire il consenso dell'applicazione ai tenant dei clienti. La progettazione consigliata è destinata allo sviluppatore di terze parti a compilare l'API in modo che possa fungere anche da client Web per implementare l'iscrizione. A tale scopo, effettuare l'operazione seguente:
 
 1. Seguire le sezioni precedenti per verificare che l'API implementi i requisiti del codice/registrazione dell'applicazione multi-tenant.
 2. Oltre ad esporre gli ambiti o i ruoli dell'API, assicurarsi che la registrazione includa l'autorizzazione "Accedi e leggi profilo utente" (fornita per impostazione predefinita).

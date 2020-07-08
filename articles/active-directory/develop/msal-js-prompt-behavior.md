@@ -1,30 +1,30 @@
 ---
-title: Comportamento della richiesta interattiva delle richieste (MSAL. js) | Azure
+title: Comportamento delle richieste interattive (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come personalizzare il comportamento della richiesta nelle chiamate interattive usando Microsoft Authentication Library per JavaScript (MSAL. js).
+description: Informazioni su come personalizzare il comportamento della richiesta nelle chiamate interattive tramite Microsoft Authentication Library per JavaScript (MSAL.js).
 services: active-directory
 author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/24/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 778e89655019a49a30904fbe8d8e6aedf1833e9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 85f5269c3c2616070b826ecc38735c31617db537
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76695977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477550"
 ---
-# <a name="prompt-behavior-in-msaljs-interactive-requests"></a>Comportamento della richiesta nelle richieste interattive MSAL. js
+# <a name="prompt-behavior-in-msaljs-interactive-requests"></a>Comportamento del prompt in MSAL.js richieste interattive
 
 Quando un utente ha stabilito una sessione di Azure AD attiva con più account utente, per impostazione predefinita nella pagina di accesso Azure AD verrà richiesto all'utente di selezionare un account prima di procedere con l'accesso. Gli utenti non vedranno un'esperienza di selezione dell'account se è presente una sola sessione autenticata con Azure AD.
 
-La libreria MSAL. js (a partire da v 0.2.4) non invia un parametro di richiesta durante le richieste interattive `loginPopup`( `acquireTokenRedirect` `loginRedirect`, `acquireTokenPopup`e) e pertanto non impone alcun comportamento della richiesta. Per le richieste di token invisibile `acquireTokenSilent` all'utente che usano il metodo, MSAL. js passa `none`un parametro prompt impostato su.
+La libreria MSAL.js (a partire da v 0.2.4) non invia un parametro di richiesta durante le richieste interattive ( `loginRedirect` , `loginPopup` `acquireTokenRedirect` e `acquireTokenPopup` ) e pertanto non impone alcun comportamento della richiesta. Per le richieste di token invisibile all'utente tramite il `acquireTokenSilent` metodo, MSAL.js passa un parametro prompt impostato su `none` .
 
 In base allo scenario dell'applicazione, è possibile controllare il comportamento del prompt per le richieste interattive impostando il parametro prompt nei parametri della richiesta passati ai metodi. Ad esempio, se si desidera richiamare l'esperienza di selezione dell'account:
 
@@ -46,8 +46,8 @@ Quando si esegue l'autenticazione con Azure AD, è possibile passare i valori di
 
 **consenso:** Questo valore richiama la finestra di dialogo di consenso di OAuth che consente agli utenti di concedere le autorizzazioni all'app.
 
-**nessuno:** Questo valore garantisce che l'utente non visualizzi alcun prompt interattivo. Si consiglia di non passare questo valore ai metodi interattivi in MSAL. js poiché può presentare comportamenti imprevisti. Usare invece il metodo `acquireTokenSilent` per ottenere le chiamate invisibili.
+**nessuno:** Questo valore garantisce che l'utente non visualizzi alcun prompt interattivo. Si consiglia di non passare questo valore ai metodi interattivi in MSAL.js perché può presentare comportamenti imprevisti. Usare invece il `acquireTokenSilent` metodo per ottenere le chiamate invisibili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul `prompt` parametro, vedere il protocollo di [concessione implicita OAuth 2,0](v2-oauth2-implicit-grant-flow.md) usato dalla libreria MSAL. js.
+Per altre informazioni sul `prompt` parametro, vedere il protocollo di [concessione implicita OAuth 2,0](v2-oauth2-implicit-grant-flow.md) usato da MSAL.js Library.

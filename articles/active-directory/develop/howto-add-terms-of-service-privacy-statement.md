@@ -6,18 +6,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 40e7a05505bc501c1c622e627a6d97cc57db1cfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478009"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: configurare le condizioni del servizio e l'informativa sulla privacy per un'app
 
@@ -55,7 +55,7 @@ Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy s
 * [Con il codice JSON dell'oggetto app](#app-object-json)
 * [Uso dell'API Microsoft Graph](#msgraph-rest-api)
 
-### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Uso del portale di Azure
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Uso della portale di Azure
 Seguire questa procedura nella portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).

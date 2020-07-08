@@ -6,18 +6,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: cf886b7b43280e542f1941e7c0edb570868525d9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: dcdce6ee6683c5770f97f5f3dc20e1c9b409ead0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477040"
 ---
 # <a name="troubleshoot-publisher-verification-preview"></a>Risolvere i problemi di verifica dell'autore (anteprima)
 Se non è possibile completare il processo o si riscontra un comportamento imprevisto con la [verifica dell'autore (anteprima)](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o in presenza di comportamenti imprevisti: 

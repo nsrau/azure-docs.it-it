@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
-ms.openlocfilehash: a437d54dac50be7ddaad899a1cf0a3e93aade8f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f72e16afd61d364a2dad634f3502c801f1b99380
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478145"
 ---
 # <a name="new-azure-portal-app-registration-training-guide"></a>Guida alla formazione per la nuova registrazione di app nel portale di Azure
 
@@ -62,7 +62,7 @@ L'esperienza Legacy ha una pagina delle **Proprietà** . I campi delle **Proprie
 - **URL della home page**
 - **URL di disconnessione**
 - **URL delle condizioni per il servizio**
-- **URL informativa sulla privacy**
+- **URL dell'informativa sulla privacy**
 - **Tipo di applicazione**
 - **Multi-tenant**
 
@@ -73,13 +73,13 @@ La nuova esperienza non dispone di questa pagina. Qui è possibile trovare la fu
 - La funzionalità controllata dall'interruttore **multi-tenant** nell'esperienza legacy è stata sostituita dai tipi di **account supportati** nella pagina di **autenticazione** . Per altre informazioni, vedere [Guida introduttiva: modificare gli account supportati da un'applicazione](quickstart-modify-supported-accounts.md).
 - L' **URL di disconnessione** è ora disponibile nella pagina di **autenticazione** .
 - Il **tipo di applicazione** non è più un campo valido. Al contrario, gli URI di reindirizzamento, che è possibile trovare nella pagina di **autenticazione** , determinano quali tipi di app sono supportati.
-- L' **URI ID app** è ora denominato **URI ID applicazione** ed è possibile trovarlo in **esporre un'API**. Nell'esperienza legacy questa proprietà è stata registrata con registrazione automatica usando il formato seguente: `https://{tenantdomain}/{appID}`, ad esempio, `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b`. Nella nuova esperienza, viene generato automaticamente come `api://{appID}`, ma deve essere salvato in modo esplicito. In Azure AD B2C tenant il `https://{tenantdomain}/{appID}` formato è ancora usato.
+- L' **URI ID app** è ora denominato **URI ID applicazione** ed è possibile trovarlo in **esporre un'API**. Nell'esperienza legacy questa proprietà è stata registrata con registrazione automatica usando il formato seguente: `https://{tenantdomain}/{appID}` , ad esempio, `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b` . Nella nuova esperienza, viene generato automaticamente come `api://{appID}` , ma deve essere salvato in modo esplicito. In Azure AD B2C tenant il `https://{tenantdomain}/{appID}` formato è ancora usato.
 
 ### <a name="reply-urlsredirect-urls"></a>URL di risposta/URL di Reindirizzamento
 
 Nell'esperienza legacy, un'app ha una pagina **URL di risposta** . Nella nuova esperienza, gli URL di risposta sono reperibili nella pagina di **autenticazione** di un'app. Sono ora definiti **URI di reindirizzamento**.
 
-Il formato degli URI di reindirizzamento è stato modificato. È necessario che siano associati a un tipo di app, ovvero Web o pubblico. Per motivi di sicurezza, gli schemi `http://` e i caratteri jolly non sono *http://localhost*supportati, ad eccezione di.
+Il formato degli URI di reindirizzamento è stato modificato. È necessario che siano associati a un tipo di app, ovvero Web o pubblico. Per motivi di sicurezza, gli schemi e i caratteri jolly `http://` non sono supportati, ad eccezione di *http://localhost* .
 
 ### <a name="keyscertificates--secrets"></a>Chiavi/certificati & segreti
 
@@ -118,8 +118,8 @@ Le esperienze legacy e nuove usano versioni diverse per il formato JSON nell'edi
 
 La nuova esperienza aggiunge i controlli dell'interfaccia utente per le proprietà seguenti:
 
-- La pagina di **autenticazione** dispone del flusso di`oauth2AllowImplicitFlow` **concessione implicito** (). Diversamente dall'esperienza legacy, è possibile abilitare i **token di accesso** o i **token ID**o entrambi.
-- La **pagina esporre un'API** contiene **gli ambiti definiti da questa API** `oauth2Permissions`() e dalle **applicazioni client autorizzate** (`preAuthorizedApplications`). Per altre informazioni su come configurare un'app in modo che sia un'API Web ed esporre autorizzazioni/ambiti, vedere [Guida introduttiva: configurare un'applicazione per esporre le API Web](quickstart-configure-app-expose-web-apis.md).
+- La pagina di **autenticazione** dispone del **flusso di concessione implicito** ( `oauth2AllowImplicitFlow` ). Diversamente dall'esperienza legacy, è possibile abilitare i **token di accesso** o i **token ID**o entrambi.
+- La pagina **esporre un'API** contiene gli **ambiti definiti da questa API** ( `oauth2Permissions` ) e dalle **applicazioni client autorizzate** ( `preAuthorizedApplications` ). Per altre informazioni su come configurare un'app in modo che sia un'API Web ed esporre autorizzazioni/ambiti, vedere [Guida introduttiva: configurare un'applicazione per esporre le API Web](quickstart-configure-app-expose-web-apis.md).
 - La pagina **personalizzazione** contiene il **dominio del server di pubblicazione**. Il dominio del server di pubblicazione viene visualizzato agli utenti nella [richiesta di consenso dell'applicazione](application-consent-experience.md). Per altre informazioni, vedere [procedura: configurare un dominio di pubblicazione di un'applicazione](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Limitazioni

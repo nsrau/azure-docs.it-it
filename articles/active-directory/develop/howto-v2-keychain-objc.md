@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06e197a6e445c7dc1179be696318905f2132ee36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77085857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477737"
 ---
 # <a name="configure-keychain"></a>Configurare il keychain
 
@@ -30,21 +30,21 @@ Questo articolo illustra come configurare i diritti delle app in modo che MSAL p
 
 ### <a name="ios"></a>iOS
 
-Per impostazione predefinita, MSAL `com.microsoft.adalcache` in iOS usa il gruppo di accesso. Questo è il gruppo di accesso condiviso usato dagli SDK MSAL e Autenticazione di Azure AD Library (ADAL) e garantisce la migliore esperienza di Single Sign-On (SSO) tra più app dello stesso server di pubblicazione.
+Per impostazione predefinita, MSAL in iOS usa il `com.microsoft.adalcache` gruppo di accesso. Questo è il gruppo di accesso condiviso usato dagli SDK MSAL e Autenticazione di Azure AD Library (ADAL) e garantisce la migliore esperienza di Single Sign-On (SSO) tra più app dello stesso server di pubblicazione.
 
-In iOS `com.microsoft.adalcache` aggiungere il gruppo di portachiavi al diritto dell'app in Xcode in **Impostazioni** > progetto**funzionalità** > **condivisione Keychain**
+In iOS aggiungere il `com.microsoft.adalcache` gruppo di portachiavi al diritto dell'app in Xcode in **Impostazioni progetto**  >  **funzionalità**  >  **condivisione Keychain**
 
 ### <a name="macos"></a>macOS
 
-Per impostazione predefinita, `com.microsoft.identity.universalstorage` MSAL in MacOS usa il gruppo di accesso.
+Per impostazione predefinita, MSAL in macOS usa il `com.microsoft.identity.universalstorage` gruppo di accesso.
 
-A causa delle limitazioni dei portachiavi macOS, `access group` MSAL non esegue direttamente la conversione nell'attributo del gruppo di accesso a keychain (vedere [KSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) in MacOS 10,14 e versioni precedenti. Tuttavia, si comporta in modo analogo da una prospettiva SSO garantendo che più applicazioni distribuite dallo stesso sviluppatore Apple possano avere l'accesso SSO invisibile all'utente.
+A causa delle limitazioni dei portachiavi macOS, MSAL `access group` non esegue direttamente la conversione nell'attributo del gruppo di accesso a keychain (vedere [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) in MacOS 10,14 e versioni precedenti. Tuttavia, si comporta in modo analogo da una prospettiva SSO garantendo che più applicazioni distribuite dallo stesso sviluppatore Apple possano avere l'accesso SSO invisibile all'utente.
 
 In macOS 10,15 e versioni successive (macOS Catalina), MSAL usa l'attributo del gruppo di accesso a Keychain per ottenere l'accesso SSO invisibile all'utente, in modo analogo a iOS.
 
 ## <a name="custom-keychain-access-group"></a>Gruppo di accesso a keychain personalizzato
 
-Se si vuole usare un gruppo di accesso a keychain diverso, è possibile passare il gruppo personalizzato durante la creazione `MSALPublicClientApplicationConfig` prima della `MSALPublicClientApplication`creazione, come indicato di seguito:
+Se si vuole usare un gruppo di accesso a keychain diverso, è possibile passare il gruppo personalizzato durante la creazione `MSALPublicClientApplicationConfig` prima della creazione, come indicato di seguito `MSALPublicClientApplication` :
 
 # <a name="objective-c"></a>[Objective-C](#tab/objc)
 

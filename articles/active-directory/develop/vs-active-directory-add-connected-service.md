@@ -7,15 +7,15 @@ ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: d5b6452684757aead684356fd9bb032b90c58c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b77241b1413fea09e5a16e8bd5cbcda8db5b2327
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535826"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477125"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Aggiungere un Azure Active Directory usando Servizi connessi in Visual Studio
 
@@ -44,7 +44,7 @@ Al momento, il servizio connesso di Active Directory non supporta applicazioni A
 
     ![Pagina Introduzione](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Nella pagina **Single-Sign On** selezionare un dominio nell’elenco a discesa **Dominio**. L'elenco contiene tutti i domini accessibili dagli account elencati nella finestra di dialogo Impostazioni account di Visual Studio (**File > impostazioni account...**). In alternativa, è possibile immettere un nome di dominio se non si trova quello che si sta cercando, ad esempio `mydomain.onmicrosoft.com`. È possibile scegliere l'opzione per creare una nuova app di Azure Active Directory o usare le impostazioni di un'app di Azure Active Directory esistente. Al termine scegliere **Avanti**.
+1. Nella pagina **Single-Sign On** selezionare un dominio nell’elenco a discesa **Dominio**. L'elenco contiene tutti i domini accessibili dagli account elencati nella finestra di dialogo Impostazioni account di Visual Studio (**File > impostazioni account...**). In alternativa, è possibile immettere un nome di dominio se non si trova quello che si sta cercando, ad esempio `mydomain.onmicrosoft.com` . È possibile scegliere l'opzione per creare una nuova app di Azure Active Directory o usare le impostazioni di un'app di Azure Active Directory esistente. Al termine scegliere **Avanti**.
 
     ![Pagina Single Sign-On](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

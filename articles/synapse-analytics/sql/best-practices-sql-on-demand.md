@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79318ab67ec58ed10520365a366785ea0de41666
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476275"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Procedure consigliate per SQL su richiesta (anteprima) in Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Se possibile, preparare i file per migliorare le prestazioni:
 
 ## <a name="push-wildcards-to-lower-levels-in-the-path"></a>Eseguire il push di caratteri jolly per ridurre i livelli nel percorso
 
-È possibile usare caratteri jolly nel percorso per [eseguire query su più file e cartelle](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL su richiesta elenca i file nell'account di archiviazione, a partire dal primo carattere * con l'API di archiviazione. Elimina i file che non corrispondono al percorso specificato. La riduzione dell'elenco iniziale di file può migliorare le prestazioni nel caso in cui molti file corrispondano al percorso specificato fino al primo carattere jolly.
+È possibile usare caratteri jolly nel percorso per [eseguire query su più file e cartelle](query-data-storage.md#query-multiple-files-or-folders). SQL su richiesta elenca i file nell'account di archiviazione, a partire dal primo carattere * con l'API di archiviazione. Elimina i file che non corrispondono al percorso specificato. La riduzione dell'elenco iniziale di file può migliorare le prestazioni nel caso in cui molti file corrispondano al percorso specificato fino al primo carattere jolly.
 
 ## <a name="use-appropriate-data-types"></a>Usare i tipi di dati appropriati
 
@@ -113,7 +113,7 @@ FROM
 
 I dati sono spesso organizzati in partizioni. È possibile indicare a SQL su richiesta di eseguire query su cartelle e file specifici. Questa operazione ridurrà il numero di file e la quantità di dati che la query deve leggere ed elaborare. Un ulteriore vantaggio è che si otterranno prestazioni più elevate.
 
-Per altre informazioni, vedere le informazioni sulle funzioni [filename](develop-storage-files-overview.md#filename-function) e [filepath](develop-storage-files-overview.md#filepath-function) e vedere gli esempi relativi a [query su file specifici](query-specific-files.md).
+Per altre informazioni, vedere le informazioni sulle funzioni [filename](query-data-storage.md#filename-function) e [filepath](query-data-storage.md#filepath-function) e vedere gli esempi relativi a [query su file specifici](query-specific-files.md).
 
 > [!TIP]
 > Eseguire sempre il cast dei risultati delle funzioni filepath e filename al tipo di dati appropriato. Se si usano tipi di dati carattere, assicurarsi di usare la lunghezza appropriata.

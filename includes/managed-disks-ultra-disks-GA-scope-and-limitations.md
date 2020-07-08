@@ -1,19 +1,19 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/11/2020
+ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f14a269478541eaa5852697a917afb3d771841a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85448723"
 ---
 Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato di seguito:
 
@@ -26,10 +26,10 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 
 |Regioni  |Numero di zone di disponibilità che supportano dischi ultra  |
 |---------|---------|
-|US Gov Virginia     |Nessuno         |
-|Stati Uniti centro-meridionali     |Nessuno         |
+|US Gov Virginia     |nessuno         |
+|Stati Uniti centro-meridionali     |nessuno         |
 |Stati Uniti centrali     |Tre zone         |
-|Stati Uniti occidentali     |Nessuno         |
+|Stati Uniti occidentali     |nessuno         |
 |Stati Uniti occidentali 2    |Tre zone         |
 |Stati Uniti orientali     |Tre zone         |
 |Stati Uniti orientali 2     |Due zone         |
@@ -38,7 +38,7 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 |Europa occidentale     |Tre zone          |
 |Regno Unito meridionale     |Tre zone          |
 |Giappone orientale     |Due zone         |
-
+|Francia centrale    |Due zone        |
 
 
 - Sono supportate solo nelle serie di macchine virtuali seguenti:
@@ -53,6 +53,7 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 - Possono essere creati solo come dischi vuoti  
 - Attualmente non supporta gli snapshot del disco, le immagini di VM, i set di disponibilità, gli host dedicati di Azure o crittografia dischi di Azure
 - Attualmente non supporta l'integrazione con backup di Azure o Azure Site Recovery
+- Supporta solo letture non memorizzate nella cache e scritture non memorizzate nella cache
 - Il limite massimo corrente per IOPS nelle VM GA è 80.000.
 
 Azure ultra Disks offre fino a 16 TiB per area per sottoscrizione per impostazione predefinita, ma i dischi Ultra supportano una capacità superiore per richiesta. Per richiedere un aumento della capacità, contattare il supporto tecnico di Azure.

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 18e1ab1d01394d585cfb06ced8c5fbac04114177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476768"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -43,7 +43,7 @@ Prima di usare chiavi, segreti o certificati nell'insieme di credenziali delle c
 - [Creare e gestire insiemi di credenziali delle chiavi con la porta di Azure](../secrets/quick-create-portal.md)
 - [Creare e gestire insiemi di credenziali delle chiavi con Python](../secrets/quick-create-python.md)
 - [Creare e gestire insiemi di credenziali delle chiavi con Java](../secrets/quick-create-java.md)
-- [Creare e gestire insiemi di credenziali delle chiavi con node. js](../secrets/quick-create-node.md)
+- [Creare e gestire insiemi di credenziali delle chiavi con Node.js](../secrets/quick-create-node.md)
 - [Creare e gestire insiemi di credenziali delle chiavi con .NET (v4 SDK)](../secrets/quick-create-net.md)
 - [Creare un insieme di credenziali delle chiavi e aggiungere un segreto tramite un modello di Azure Resource Manager](../secrets/quick-create-template.md)
 - [Creare e gestire Key Vault con REST](/rest/api/keyvault/)
@@ -106,7 +106,6 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare
 - [Passare valori protetti come password durante la distribuzione](../../azure-resource-manager/templates/key-vault-parameter.md) : se è necessario passare come parametro durante la distribuzione un valore protetto, ad esempio una password, è possibile archiviare tale valore come chiave privata in un insieme di credenziali delle chiavi di Azure e fare riferimento al valore in altri modelli di Resource Manager.
 - [Extensible Key Management tramite l'insieme di credenziali delle chiavi di Azure (SQL Server)](https://msdn.microsoft.com/library/dn198405.aspx): SQL Server Connector per l'insieme di credenziali delle chiavi di Azure consente a SQL Server e a SQL in una VM di sfruttare il servizio di insieme di credenziali delle chiavi di Azure come provider EKM (Extensible Key Management) per proteggere le chiavi di crittografia per le applicazioni. L'articolo contiene esempi di Transparent Data Encryption, backup della crittografia e crittografia a livello di colonna.
 - [Come distribuire certificati a macchine virtuali dall'insieme di credenziali delle chiavi](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) : un'applicazione cloud in esecuzione su una VM in Azure necessita di un certificato. Come ottenere oggi il certificato per questa VM?
-- [Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](../secrets/key-rotation-log-monitoring.md): illustra come configurare la rotazione e il controllo delle chiavi con l'insieme di credenziali delle chiavi di Azure.
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Distribuzione del certificato dell'app Web di Azure tramite l'insieme di credenziali delle chiavi) offre istruzioni dettagliate per la distribuzione dei certificati archiviati nell'insieme di credenziali delle chiavi come parte dell'offerta del [certificato del servizio app](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
 - [Concedere a molte applicazioni l'autorizzazione per accedere a un insieme di credenziali delle chiavi](group-permissions-for-apps.md): i criteri di controllo di accesso di Key Vault supportano fino a 1024 voci. È tuttavia possibile creare un gruppo di sicurezza di Azure Active Directory. Aggiungere tutte le entità servizio associate a questo gruppo di sicurezza e quindi concedere a tale gruppo di accedere a Key Vault.
 - Per indicazioni specifiche sulle attività relative all'integrazione e all'uso dell'insieme di credenziali delle chiavi con Azure, vedere gli [esempi di modelli di Azure Resource Manager di Ryan Jones per l'insieme di credenziali delle chiavi](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
@@ -128,7 +127,7 @@ Questi articoli illustrano altri scenari e servizi che usano o si integrano con 
 - [Panoramica delle chiavi dell'account di archiviazione Key Vault](../secrets/overview-storage-keys.md)) descrive le chiavi degli account di archiviazione di Azure Key Vault Integration.
 - [Scenari di sicurezza di Key Vault](overview-security-worlds.md) descrive le relazioni tra le aree e le zone di sicurezza.
 
-## <a name="social"></a>Social media
+## <a name="social"></a>Social network
 
 - [Blog sull'insieme di credenziali delle chiavi](https://aka.ms/kvblog)
 - [Forum sull'insieme di credenziali delle chiavi](https://aka.ms/kvforum)

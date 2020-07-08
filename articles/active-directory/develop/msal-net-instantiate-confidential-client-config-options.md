@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1a520c5a1002e401f880fba84f8fc02a0a678133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a76935c5b826f8aa686167f702f7170522744155
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477465"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Creare un'istanza di un'applicazione client riservata con le opzioni di configurazione usando MSAL.NET
 
@@ -35,7 +35,7 @@ Prima di inizializzare un'applicazione, è prima necessario [registrarla](quicks
 ## <a name="configure-the-application-from-the-config-file"></a>Configurare l'applicazione dal file di configurazione
 Il nome delle proprietà delle opzioni in MSAL.NET corrisponde al nome delle proprietà del `AzureADOptions` in ASP.NET Core, quindi non è necessario scrivere codice Glue.
 
-Una configurazione dell'applicazione ASP.NET Core viene descritta in un file *appSettings. JSON* :
+Una configurazione dell'applicazione ASP.NET Core viene descritta in un *appsettings.jssu* file:
 
 ```json
 {
@@ -60,7 +60,7 @@ Una configurazione dell'applicazione ASP.NET Core viene descritta in un file *ap
 
 A partire da MSAL.NET V3. x, è possibile configurare l'applicazione client riservata dal file di configurazione.
 
-Nella classe in cui si desidera configurare e creare un'istanza dell'applicazione, è necessario dichiarare un `ConfidentialClientApplicationOptions` oggetto.  Associare la configurazione letta dall'origine (incluso il file AppConfig. Json) all'istanza delle opzioni dell'applicazione, usando il `IConfigurationRoot.Bind()` metodo dal [pacchetto NuGet Microsoft. Extensions. Configuration. Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+Nella classe in cui si desidera configurare e creare un'istanza dell'applicazione, è necessario dichiarare un `ConfidentialClientApplicationOptions` oggetto.  Associare la configurazione letta dall'origine (incluso il appconfig.jssu file) all'istanza delle opzioni dell'applicazione, usando il `IConfigurationRoot.Bind()` Metodo dalla [Microsoft.Extensions.Configuration. Pacchetto NuGet Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -70,7 +70,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-Ciò consente di associare il contenuto della sezione "AzureAD" del file *appSettings. JSON* alle proprietà corrispondenti dell' `ConfidentialClientApplicationOptions` oggetto.  Successivamente, compilare un `ConfidentialClientApplication` oggetto:
+Ciò consente di associare il contenuto della sezione "AzureAD" del *appsettings.jssu* file alle proprietà corrispondenti dell' `ConfidentialClientApplicationOptions` oggetto.  Successivamente, compilare un `ConfidentialClientApplication` oggetto:
 
 ```csharp
 IConfidentialClientApplication app;

@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bdc7e6e3795719128a8ecfb1e8bc97c1a9a08c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da09f78817e1271832397b4a130195385207645f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477788"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procedura: limitare l'app Azure AD a un set di utenti in un tenant Azure AD
 
@@ -55,8 +55,8 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
     1. Selezionare **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
     1. Digitare **Azure Active Directory** nella casella di ricerca del filtro e quindi selezionare l'elemento **Azure Active Directory** dal risultato.
 
-1. Nel riquadro **Azure Active Directory** selezionare **Applicazioni aziendali** all'interno del menu di spostamento a sinistra di **Azure Active Directory**.
-1. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+1. Nel riquadro **Azure Active Directory** selezionare **applicazioni aziendali** dal menu di spostamento a sinistra **Azure Active Directory** .
+1. Selezionare **tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
      Se l'applicazione desiderata non viene visualizzata, usare i filtri disponibili nella parte superiore dell'elenco **Tutte le applicazioni** per limitare l'elenco o scorrerlo verso il basso fino a trovare l'applicazione.
 
@@ -65,7 +65,7 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
 1. Trovare l'impostazione **Assegnazione utenti obbligatoria** e impostarla su **Sì**. Quando questa opzione è impostata su **Sì**, gli utenti del tenant devono prima essere assegnati a questa applicazione o non saranno in grado di accedere a questa applicazione.
 1. Selezionare **Salva** per salvare questa modifica di configurazione.
 
-### <a name="app-registration"></a>Registrazione delle app
+### <a name="app-registration"></a>Registrazione dell'app
 
 1. Passare alla [**portale di Azure**](https://portal.azure.com/).
 1. Nella barra superiore selezionare l'account connesso. 
@@ -82,7 +82,7 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
 
 Dopo aver configurato l'app per abilitare l'assegnazione degli utenti, è possibile ora assegnare all'app gli utenti e i gruppi desiderati.
 
-1. Selezionare il riquadro **Utenti e gruppi** nel menu di spostamento a sinistra dell'applicazione.
+1. Selezionare il riquadro **utenti e gruppi** nel menu di navigazione a sinistra dell'applicazione.
 1. Nella parte superiore dell'elenco **Utenti e gruppi** selezionare il pulsante **Aggiungi utente** per aprire il riquadro **Aggiungi assegnazione**.
 1. Fare clic sul selettore **Utenti** nel riquadro **Aggiungi assegnazione**. 
 
@@ -93,10 +93,10 @@ Dopo aver configurato l'app per abilitare l'assegnazione degli utenti, è possib
 1. Premere il pulsante **Assegna** nella parte inferiore della pagina per completare le assegnazioni di utenti e gruppi all'app. 
 1. Verificare che gli utenti e i gruppi aggiunti siano presenti nell'elenco **Utenti e gruppi** aggiornato.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 - [Procedura: aggiungere i ruoli dell'app nell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
-- [Aggiungere l'autorizzazione usando i ruoli dell'app & le attestazioni dei ruoli a un'app Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Aggiungere l'autorizzazione a un'app Web ASP.NET Core usando i ruoli dell'app e le attestazioni dei ruoli](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM) (Utilizzo dei gruppi di sicurezza e dei ruoli applicazione nelle app - Video)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862) (Azure Active Directory, ora con attestazioni di gruppo e ruoli applicazione)
 - [Manifesto dell'app Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

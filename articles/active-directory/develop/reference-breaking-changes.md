@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871528"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477244"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione
 
@@ -47,9 +47,9 @@ Gli **endpoint sono interessati**: tutti
 
 **Influisce sul protocollo**: tutti i flussi
 
-Il 1 giugno 2018, l'autorità ufficiale Azure Active Directory (AAD) per Azure Government è cambiata `https://login-us.microsoftonline.com` da `https://login.microsoftonline.us`a. Questa modifica è stata applicata anche a Microsoft 365 GCC High e DoD, che Azure Government AAD ha anche servizi. Se si è proprietari di un'applicazione in un tenant del governo degli Stati Uniti, è necessario aggiornare l'applicazione per `.us` consentire agli utenti di accedere all'endpoint.  
+Il 1 giugno 2018, l'autorità ufficiale Azure Active Directory (AAD) per Azure Government è cambiata da `https://login-us.microsoftonline.com` a `https://login.microsoftonline.us` . Questa modifica è stata applicata anche a Microsoft 365 GCC High e DoD, che Azure Government AAD ha anche servizi. Se si è proprietari di un'applicazione in un tenant del governo degli Stati Uniti, è necessario aggiornare l'applicazione per consentire agli utenti di accedere all' `.us` endpoint.  
 
-A partire dal 5 maggio, Azure AD inizierà a applicare la modifica dell'endpoint, bloccando l'accesso degli utenti del governo alle app ospitate nei tenant del governo`microsoftonline.com`degli Stati Uniti usando l'endpoint pubblico ().  Le app interessate inizieranno a visualizzare un `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`errore. Questo errore indica che l'app sta tentando di accedere a un utente del governo degli Stati Uniti nell'endpoint del cloud pubblico. Se l'app si trova in un tenant cloud pubblico ed è destinata a supportare gli utenti del governo degli Stati Uniti, sarà necessario [aggiornare l'app per supportarli in modo esplicito](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Questa operazione potrebbe richiedere la creazione di una nuova registrazione dell'app nel cloud per il governo degli Stati Uniti. 
+A partire dal 5 maggio, Azure AD inizierà a applicare la modifica dell'endpoint, bloccando l'accesso degli utenti del governo alle app ospitate nei tenant del governo degli Stati Uniti usando l'endpoint pubblico ( `microsoftonline.com` ).  Le app interessate inizieranno a visualizzare un errore `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Questo errore indica che l'app sta tentando di accedere a un utente del governo degli Stati Uniti nell'endpoint del cloud pubblico. Se l'app si trova in un tenant cloud pubblico ed è destinata a supportare gli utenti del governo degli Stati Uniti, sarà necessario [aggiornare l'app per supportarli in modo esplicito](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Questa operazione potrebbe richiedere la creazione di una nuova registrazione dell'app nel cloud per il governo degli Stati Uniti. 
 
 L'imposizione di questa modifica verrà eseguita usando un'implementazione graduale in base alla frequenza con cui gli utenti del cloud degli Stati Uniti possono accedere alle app per la firma degli utenti del governo degli Stati Uniti raramente vedranno l'imposizione e le app usate di frequente dagli utenti del governo degli Stati Uniti avranno infine l'applicazione dell'applicazione. Si prevede che l'applicazione venga completata in tutte le app del 2020 giugno. 
 
@@ -104,7 +104,7 @@ A partire dalla settimana 9/2, le richieste di autenticazione che utilizzano il 
 
 Esempio:
 
-Attualmente, `?e=    "f"&g=h` viene analizzato in `?e=f&g=h` modo `e`  ==  `f`identico.  Con questa modifica, verrà analizzato in modo `e`  ==  `    "f"` da non essere un argomento valido e la richiesta avrà ora esito negativo.
+Attualmente, `?e=    "f"&g=h` viene analizzato in modo identico `?e=f&g=h` `e`  ==  `f` .  Con questa modifica, verrà analizzato in modo da non `e`  ==  `    "f"` essere un argomento valido e la richiesta avrà ora esito negativo.
 
 
 ## <a name="july-2019"></a>Luglio 2019
@@ -117,7 +117,7 @@ Sono stati **interessati endpoint**: [v 1.0](https://docs.microsoft.com/azure/ac
 
 Con **effetti sul protocollo**: [credenziali client (token solo app)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-Una modifica alla sicurezza è passata in diretta il 26 luglio che modifica il modo in cui vengono emessi i token solo app (tramite la concessione delle credenziali client). In precedenza, le applicazioni potevano ottenere i token per chiamare qualsiasi altra app, indipendentemente dalla presenza nel tenant o dai ruoli consentiti per l'applicazione.  Questo comportamento è stato aggiornato in modo che per le risorse (talvolta chiamate API Web) sia impostato come single-tenant (impostazione predefinita), l'applicazione client deve esistere all'interno del tenant delle risorse.  Si noti che il consenso esistente tra il client e l'API non è ancora necessario e le app devono ancora eseguire i propri controlli di autorizzazione per assicurarsi `roles` che sia presente un'attestazione e che contenga il valore previsto per l'API.
+Una modifica alla sicurezza è passata in diretta il 26 luglio che modifica il modo in cui vengono emessi i token solo app (tramite la concessione delle credenziali client). In precedenza, le applicazioni potevano ottenere i token per chiamare qualsiasi altra app, indipendentemente dalla presenza nel tenant o dai ruoli consentiti per l'applicazione.  Questo comportamento è stato aggiornato in modo che per le risorse (talvolta chiamate API Web) sia impostato come single-tenant (impostazione predefinita), l'applicazione client deve esistere all'interno del tenant delle risorse.  Si noti che il consenso esistente tra il client e l'API non è ancora necessario e le app devono ancora eseguire i propri controlli di autorizzazione per assicurarsi che `roles` sia presente un'attestazione e che contenga il valore previsto per l'API.
 
 Il messaggio di errore per questo scenario attualmente indica:
 
@@ -127,7 +127,7 @@ Per risolvere questo problema, usare l'esperienza di consenso dell'amministrator
 
 #### <a name="example-request"></a>Richiesta di esempio
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`In questo esempio, il tenant di risorse (Authority) è contoso.com, l'app per le risorse è un'app a `gateway.contoso.com/api` tenant singolo chiamata per il tenant Contoso e l'app `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`client è.  Se l'app client dispone di un'entità servizio all'interno di Contoso.com, questa richiesta può continuare.  In caso contrario, la richiesta avrà esito negativo con l'errore precedente.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`In questo esempio, il tenant di risorse (Authority) è contoso.com, l'app per le risorse è un'app a tenant singolo chiamata `gateway.contoso.com/api` per il tenant Contoso e l'app client è `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Se l'app client dispone di un'entità servizio all'interno di Contoso.com, questa richiesta può continuare.  In caso contrario, la richiesta avrà esito negativo con l'errore precedente.
 
 Se l'app del gateway contoso era un'applicazione multi-tenant, tuttavia, la richiesta continuerà indipendentemente dall'app client con un'entità servizio all'interno di Contoso.com.
 
@@ -139,7 +139,7 @@ Se l'app del gateway contoso era un'applicazione multi-tenant, tuttavia, la rich
 
 **Influisce sul protocollo**: tutti i flussi
 
-Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure ad applicazioni possono ora registrare e usare gli URI di reindirizzamento (risposta) con parametri di query statici `https://contoso.com/oauth2?idp=microsoft`(ad esempio) per le richieste OAuth 2,0.  Gli URI di reindirizzamento dinamici sono ancora proibiti perché rappresentano un rischio per la sicurezza e non possono essere usati per mantenere le informazioni sullo stato attraverso una richiesta di autenticazione `state` . per questo, usare il parametro.
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure ad applicazioni possono ora registrare e usare gli URI di reindirizzamento (risposta) con parametri di query statici (ad esempio `https://contoso.com/oauth2?idp=microsoft` ) per le richieste OAuth 2,0.  Gli URI di reindirizzamento dinamici sono ancora proibiti perché rappresentano un rischio per la sicurezza e non possono essere usati per mantenere le informazioni sullo stato attraverso una richiesta di autenticazione. per questo, usare il `state` parametro.
 
 Il parametro della query statica è soggetto alla corrispondenza di stringa per gli URI di reindirizzamento come qualsiasi altra parte dell'URI di reindirizzamento: se nessuna stringa è registrata che corrisponde alla redirect_uri decodificata dall'URI, la richiesta verrà rifiutata.  Se l'URI si trova nella registrazione dell'app, l'intera stringa verrà usata per reindirizzare l'utente, incluso il parametro di query statica.
 
@@ -158,7 +158,7 @@ Si noti che al momento (fine del luglio 2019), la registrazione dell'app UX in p
 
 Le applicazioni client possono talvolta comportarsi in maniera non concreta, emettendo centinaia della stessa richiesta di accesso in un breve periodo di tempo.  Queste richieste possono avere esito positivo o negativo, ma contribuiscono all'esperienza utente e ai carichi di lavoro aumentati per l'IDP, aumentando la latenza per tutti gli utenti e riducendo la disponibilità dell'IDP.  Queste applicazioni funzionano al di fuori dei limiti di utilizzo normale e devono essere aggiornate per comportarsi correttamente.
 
-Ai client che inviano richieste duplicate più volte verrà `invalid_grant` inviato un `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`errore:.
+Ai client che inviano richieste duplicate più volte verrà inviato un `invalid_grant` errore: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` .
 
 Per evitare questo errore, la maggior parte dei client non dovrà modificare il comportamento.  Questo errore verrà influenzato solo dai client non configurati correttamente (quelli senza memorizzazione nella cache dei token o che presentano già i cicli di richiesta).  I client vengono rilevati in base alle singole istanze in locale (tramite cookie) sui fattori seguenti:
 
@@ -174,7 +174,7 @@ Per evitare questo errore, la maggior parte dei client non dovrà modificare il 
 
 Le app che eseguono più richieste (15 +) in un breve periodo di tempo (5 minuti) riceveranno un `invalid_grant` errore che indica che sono in ciclo.  I token richiesti hanno una durata sufficientemente lunga (almeno 10 minuti, 60 minuti per impostazione predefinita), quindi le richieste ripetute per questo periodo di tempo non sono necessarie.
 
-Tutte le app devono `invalid_grant` essere gestite visualizzando un prompt interattivo anziché richiedere un token in modo invisibile all'utente.  Per evitare questo errore, è necessario che i client garantiscano la corretta memorizzazione nella cache dei token ricevuti.
+Tutte le app devono essere gestite `invalid_grant` visualizzando un prompt interattivo anziché richiedere un token in modo invisibile all'utente.  Per evitare questo errore, è necessario che i client garantiscano la corretta memorizzazione nella cache dei token ricevuti.
 
 
 ## <a name="october-2018"></a>Ottobre 2018
@@ -209,5 +209,5 @@ Per ovviare a questa modifica, è possibile eseguire le operazioni seguenti:
 
 1. Creare un'API Web per l'applicazione, con uno o più ambiti. Questo punto di ingresso esplicito permetterà di ottenere il controllo e la sicurezza con granularità maggiore.
 1. Nel manifesto dell'app, nel [portale di Azure](https://portal.azure.com) o nel [portale di registrazione delle app](https://apps.dev.microsoft.com) assicurarsi che all'app sia consentito rilasciare token di accesso usando il flusso implicito. Questa funzionalità è controllata attraverso la chiave `oauth2AllowImplicitFlow`.
-1. Quando l'applicazione client richiede un id_token via `response_type=id_token`, richiedere anche un token di accesso`response_type=token`() per l'API Web creata in precedenza. Di conseguenza, quando si usa l'endpoint 2.0, il parametro `scope` dovrebbe essere simile a `api://GUID/SCOPE`. Nell'endpoint v1.0 il parametro `resource` deve essere l'URI dell'app dell'API Web.
+1. Quando l'applicazione client richiede un id_token via `response_type=id_token` , richiedere anche un token di accesso ( `response_type=token` ) per l'API Web creata in precedenza. Di conseguenza, quando si usa l'endpoint 2.0, il parametro `scope` dovrebbe essere simile a `api://GUID/SCOPE`. Nell'endpoint v1.0 il parametro `resource` deve essere l'URI dell'app dell'API Web.
 1. Passare questo token di accesso al livello intermedio al posto del token ID.
