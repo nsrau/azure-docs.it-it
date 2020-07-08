@@ -1,6 +1,6 @@
 ---
 title: Assegnare un accesso a identità gestite a una risorsa usando PowerShell-Azure AD
-description: Istruzioni dettagliate su come assegnare a un'identità gestita in una risorsa l'accesso a un'altra risorsa tramite PowerShell.
+description: Istruzioni dettagliate per l'assegnazione di un'identità gestita in una risorsa, l'accesso a un'altra risorsa tramite PowerShell.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2283ac076ef761fd098d75e7120e6557a959574
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: a9fcca72234340a6284dbba5443ae6fb735d4a04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74547254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608280"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Assegnare a un'identità gestita l'accesso a una risorsa tramite PowerShell
 
@@ -32,7 +32,7 @@ Dopo aver configurato una risorsa di Azure con un'identità gestita, è possibil
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Installare [la versione più recente di Azure PowerShell](/powershell/azure/install-az-ps), se non è già installata.
 

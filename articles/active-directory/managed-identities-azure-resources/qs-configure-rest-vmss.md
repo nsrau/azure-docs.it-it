@@ -1,6 +1,6 @@
 ---
-title: Configurare le identità gestite in Azure VMSS usando REST-Azure AD
-description: Istruzioni dettagliate per configurare identità gestite di sistema e assegnate dall'utente in un set di scalabilità di macchine virtuali di Azure usando CURL per eseguire le chiamate API REST.
+title: Configurare le identità gestite nel set di scalabilità di macchine virtuali di Azure tramite REST-Azure AD
+description: Istruzioni dettagliate per la configurazione di un sistema e di identità gestite assegnate dall'utente in un set di scalabilità di macchine virtuali di Azure tramite CURL per eseguire chiamate API REST.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06bce15dfbd2ccd3ac97f6a4f1e4efb5a24db85d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609101"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite le chiamate API REST
 
@@ -35,7 +35,7 @@ Questo articolo illustra come eseguire queste operazioni di identità gestite pe
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le seguenti assegnazioni di controllo degli accessi in base al ruolo:
 

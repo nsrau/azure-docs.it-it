@@ -1,6 +1,6 @@
 ---
 title: Gestire l'identità gestita assegnata dall'utente-interfaccia della riga di comando di Azure-Azure AD
-description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante l'interfaccia della riga di comando di Azure.
+description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente usando l'interfaccia della riga di comando di Azure.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,33 +9,33 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4761ea8affa85e30ee95f5fc2a665df12dfa128d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639769"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609230"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante l'interfaccia della riga di comando di Azure
 
 
-Le identità gestite per le risorse Azure forniscono ai servizi di Azure un'identità gestita in Azure Active Directory. È possibile usare questa identità per l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure offrono servizi di Azure con un'identità gestita in Azure Active Directory. È possibile usare questa identità per l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-Questo articolo illustra come creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante l'interfaccia della riga di comando di Azure.
+Questo articolo illustra come creare, elencare ed eliminare un'identità gestita assegnata dall'utente usando l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
     - Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
-    - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
+    - Usare il Azure Cloud Shell incorporato tramite il pulsante "prova", che si trova nell'angolo superiore destro di ogni blocco di codice.
     - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. Accedere ad Azure tramite `az login`, usando un account associato alla sottoscrizione di Azure in cui si vuole distribuire l'identità gestita assegnata dall'utente.
 
 

@@ -7,37 +7,37 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611612"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
 
-I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dei processi del servizio e del carico di lavoro. Internamente, i log esistono nel back-end per un breve periodo di tempo, sufficiente per indagini e analisi se si crea un ticket di supporto. Tuttavia, se si desidera la direzione automatica sui dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione.
+I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dei processi del servizio e del carico di lavoro. Internamente, alcune informazioni sul sistema esistono nel back-end per un breve periodo di tempo, sufficiente per l'analisi e l'analisi se si segnala un ticket di supporto. Tuttavia, se si desidera la direzione automatica sui dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione.
 
-La configurazione dei log è utile per la diagnostica e la conservazione della cronologia operativa. Dopo aver abilitato la registrazione, è possibile eseguire query o creare report per l'analisi strutturata.
+La registrazione diagnostica viene abilitata tramite l'integrazione con [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/). 
 
-Nella tabella seguente sono elencate le opzioni per la raccolta e la conservazione dei dati.
+Quando si configura la registrazione diagnostica, verrà richiesto di specificare un meccanismo di archiviazione. Nella tabella seguente sono elencate le opzioni per la raccolta e la conservazione dei dati.
 
 | Risorsa | Utilizzato per |
 |----------|----------|
-| [Invia a area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Gli eventi e le metriche vengono inviati a un'area di lavoro Log Analytics, su cui è possibile eseguire query nel portale per restituire informazioni dettagliate. Per informazioni introduttive, vedere Introduzione [ai log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Inviare all'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Gli eventi e le metriche vengono inviati a un'area di lavoro Log Analytics, su cui è possibile eseguire query nel portale per restituire informazioni dettagliate. Per informazioni introduttive, vedere Introduzione [ai log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Archivia con archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Gli eventi e le metriche vengono archiviati in un contenitore BLOB e archiviati in file JSON. I log possono essere abbastanza granulari (in base all'ora/minuto), utili per la ricerca di un evento imprevisto specifico, ma non per l'analisi aperta. Usare un editor JSON per visualizzare un file di log non elaborato o Power BI per aggregare e visualizzare i dati di log.|
 | [Flusso a hub eventi](https://docs.microsoft.com/azure/event-hubs/) | Gli eventi e le metriche vengono trasmessi a un servizio Hub eventi di Azure. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
 
-I log di monitoraggio di Azure e l'archiviazione BLOB sono disponibili come servizio gratuito, in modo che sia possibile provarli senza costi aggiuntivi per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se si usa Log Analytics o archiviazione di Azure, è possibile creare le risorse in anticipo.
+Creare le risorse in anticipo in modo che sia possibile selezionarne una o più durante la configurazione della registrazione diagnostica.
 
-+ [Creare un'area di lavoro di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
++ [Creare un'area di lavoro di log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md)
+
++ [Creare un hub eventi](../event-hubs/event-hubs-create.md)
 
 ## <a name="enable-data-collection"></a>Abilitare la raccolta di dati
 
@@ -91,25 +91,64 @@ Due tabelle contengono log e metriche per ricerca cognitiva di Azure: **AzureDia
 
    ![Tabella AzureDiagnostics](./media/search-monitor-usage/azurediagnostics-table.png "Tabella AzureDiagnostics")
 
+## <a name="kusto-query-examples"></a>Esempi di query kusto
+
+Se è stata abilitata la registrazione diagnostica, è possibile eseguire una query su **AzureDiagnostics** per un elenco di operazioni eseguite nel servizio e quando. È anche possibile correlare l'attività per esaminare le modifiche delle prestazioni.
+
+#### <a name="example-list-operations"></a>Esempio: operazioni di elenco 
+
+Restituisce un elenco di operazioni e un conteggio di ciascuna di esse.
+
+```
+AzureDiagnostics
+| summarize count() by OperationName
+```
+
+#### <a name="example-correlate-operations"></a>Esempio: correlare le operazioni
+
+Correlare le richieste di query con le operazioni di indicizzazione ed eseguire il rendering dei punti dati in un grafico temporale per vedere le operazioni in coincidenza.
+
+```
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
+
+## <a name="logged-operations"></a>Operazioni registrate
+
+Gli eventi registrati acquisiti da monitoraggio di Azure includono quelli correlati all'indicizzazione e alle query. La tabella **AzureDiagnostics** in log Analytics raccoglie dati operativi correlati a query e indicizzazione.
+
+| OperationName | Descrizione |
+|---------------|-------------|
+| ServiceStats | Questa operazione è una chiamata di routine per [ottenere le statistiche del servizio](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), chiamate direttamente o in modo implicito per popolare una pagina di panoramica del portale quando viene caricata o aggiornata. |
+| Query. search |  Richieste di query su un indice vedere [monitorare](search-monitor-queries.md) le query per ottenere informazioni sulle query registrate.|
+| Indexing. index  | Questa operazione è una chiamata per [aggiungere, aggiornare o eliminare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| indici. Prototipo | Si tratta di un indice creato dalla procedura guidata Importa dati. |
+| Indicizzatori. crea | Creare un indicizzatore in modo esplicito o implicito tramite la procedura guidata Importa dati. |
+| Indicizzatori. Get | Restituisce il nome di un indicizzatore ogni volta che viene eseguito l'indicizzatore. |
+| Indicizzatori. stato | Restituisce lo stato di un indicizzatore ogni volta che viene eseguito l'indicizzatore. |
+| Origini dati. Get | Restituisce il nome dell'origine dati ogni volta che viene eseguito un indicizzatore.|
+| Indexes. Get | Restituisce il nome di un indice ogni volta che viene eseguito un indicizzatore. |
+
 ## <a name="log-schema"></a>Schema del log
 
-Le strutture di dati che contengono dati di log di Azure ricerca cognitiva sono conformi allo schema riportato di seguito. 
-
-Per l'archiviazione BLOB, ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti log. Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa ora.
+Se si compilano report personalizzati, le strutture di dati che contengono i dati di log di Azure ricerca cognitiva sono conformi allo schema riportato di seguito. Per l'archiviazione BLOB, ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti log. Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa ora.
 
 La tabella seguente è un elenco parziale dei campi comuni alla registrazione delle risorse.
 
 | Nome | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | timeGenerated |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
-| resourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
-| operationName |stringa |"Query.Search" |Nome dell'operazione |
-| operationVersion |stringa |"2019-05-06" |api-version usata |
-| category |stringa |"OperationLogs" |constant |
-| resultType |stringa |"Esito positivo" |Valori possibili: esito positivo o negativo |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
+| operationName |string |"Query.Search" |Nome dell'operazione |
+| operationVersion |string |"2020-06-30" |api-version usata |
+| category |string |"OperationLogs" |constant |
+| resultType |string |"Esito positivo" |Valori possibili: esito positivo o negativo |
 | resultSignature |INT |200 |Codice risultato HTTP |
 | durationMS |INT |50 |Durata dell'operazione in millisecondi |
-| properties |oggetto |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
+| properties |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
 
 ### <a name="properties-schema"></a>Schema delle proprietà
 
@@ -117,10 +156,10 @@ Le proprietà seguenti sono specifiche per ricerca cognitiva di Azure.
 
 | Nome | Type | Esempio | Note |
 | --- | --- | --- | --- |
-| Description_s |stringa |"GET /indexes('content')/docs" |Endpoint dell'operazione |
+| Description_s |string |"GET /indexes('content')/docs" |Endpoint dell'operazione |
 | Documents_d |INT |42 |Numero di documenti elaborati |
-| IndexName_s |stringa |"test-index" |Nome dell'indice associato all'operazione |
-| Query_s |stringa |"? Search = AzureSearch&$count = true&API-Version = 2019-05-06" |Parametri della query |
+| IndexName_s |string |"test-index" |Nome dell'indice associato all'operazione |
+| Query_s |string |"? Search = AzureSearch&$count = true&API-Version = 2020-06-30" |Parametri della query |
 
 ## <a name="metrics-schema"></a>Schema delle metriche
 
@@ -128,15 +167,15 @@ Le metriche vengono acquisite per le richieste di query e misurate in intervalli
 
 | Nome | Type | Esempio | Note |
 | --- | --- | --- | --- |
-| resourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa |
-| metricName |stringa |"Latenza" |Nome della metrica |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa |
+| metricName |string |"Latenza" |Nome della metrica |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
 | average |INT |64 |Valore medio degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi o percentuale, a seconda della metrica. |
 | minimum |INT |37 |Valore minimo degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi. |
 | maximum |INT |78 |Valore massimo degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi.  |
 | total |INT |258 |Il valore totale degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi.  |
 | count |INT |4 |Numero di metriche emesse da un nodo al log entro l'intervallo di un minuto.  |
-| timegrain |stringa |"PT1M" |Granularità temporale della metrica in ISO 8601. |
+| timegrain |string |"PT1M" |Granularità temporale della metrica in ISO 8601. |
 
 In genere, le query vengono eseguite in millisecondi, quindi solo le query che vengono misurate come secondi verranno visualizzate in metriche come query al secondo.
 

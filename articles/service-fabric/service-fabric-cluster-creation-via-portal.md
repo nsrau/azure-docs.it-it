@@ -3,12 +3,12 @@ title: Creare un cluster di Service Fabric nel portale di Azure
 description: Informazioni su come configurare un cluster di Service Fabric protetto in Azure tramite il portale di Azure e Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792480"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611153"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Questo articolo contiene una guida dettagliata che illustra i passaggi per la co
 ## <a name="cluster-security"></a>Sicurezza del cluster 
 I certificati vengono usati in Service Fabric per fornire l'autenticazione e la crittografia e proteggere i vari aspetti di un cluster e delle sue applicazioni. Per altre informazioni sull'uso dei certificati in Service Fabric, vedere [Scenari di sicurezza di un cluster di Service Fabric][service-fabric-cluster-security].
 
-Se è la prima volta che si sta creando un cluster dell'infrastruttura di servizio o si sta distribuendo un cluster per dei carichi di lavoro di prova, è possibile passare alla sezione successiva (**Crea cluster nel portale di Azure**) e ottenere dal sistema i certificati necessari per i cluster che eseguono carichi di lavoro di prova. Se si configura un cluster per i carichi di lavoro di produzione, continuare la lettura.
+Se è la prima volta che si crea un cluster di Service fabric o si distribuisce un cluster per i carichi di lavoro di test, è possibile passare alla sezione successiva (**creare un cluster nella portale di Azure**) e fare in modo che il sistema generi i certificati necessari per i cluster che eseguono carichi di lavoro di test. Se si configura un cluster per i carichi di lavoro di produzione, continuare la lettura.
 
 #### <a name="cluster-and-server-certificate-required"></a>Cluster e certificato del server (obbligatorio)
 Questo certificato è richiesto per proteggere un cluster e impedirne accessi non autorizzati. Il certificato fornisce protezione del cluster in due modi:
@@ -42,7 +42,7 @@ A tale scopo, il certificato deve soddisfare i requisiti seguenti:
 
 * Il certificato deve includere una chiave privata.
 * Il certificato deve essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
-* Il nome del **soggetto del certificato deve corrispondere al dominio** usato per accedere al cluster Service Fabric. Questa operazione è necessaria per fornire TLS per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato TLS/SSL da un'autorità di certificazione (CA) `.cloudapp.azure.com` per il dominio. Acquistare un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
+* Il nome del **soggetto del certificato deve corrispondere al dominio** usato per accedere al cluster Service Fabric. Questa operazione è necessaria per fornire TLS per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato TLS/SSL da un'autorità di certificazione (CA) per il `.cloudapp.azure.com` dominio. Acquistare un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
 #### <a name="client-authentication-certificates"></a>Certificati di autenticazione client
 I certificati client aggiuntivi autenticano gli amministratori per le attività di gestione del cluster. Service Fabric ha due livelli di accesso: **admin** e **utente di sola lettura**. Deve essere usato almeno un certificato per l'accesso amministrativo. Per l'accesso aggiuntivo a livello di utente, è necessario specificare un certificato separato. Per altre informazioni sui ruoli di accesso, vedere [Controllo degli accessi in base al ruolo per i client di Service Fabric][service-fabric-cluster-security-roles].
@@ -177,7 +177,7 @@ Per completare la creazione del cluster fare clic su **Crea**. È possibile, fac
 
 È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: Fare clic sull'icona "campanello" accanto alla barra di stato nella parte superiore destra della schermata. Se è stato fatto clic su **Aggiungi a schermata iniziale** durante la creazione del cluster, viene visualizzata la **distribuzione di Service Fabric cluster** aggiunto alla lavagna **iniziale** . Questo processo richiede tempo. 
 
-Per eseguire operazioni di gestione nel cluster tramite Powershell o Interfaccia della riga di comando, è necessario connettersi al cluster, per ottenere altre informazioni leggere [Connessione al cluster](service-fabric-connect-to-secure-cluster.md).
+Per eseguire operazioni di gestione nel cluster tramite PowerShell o l'interfaccia della riga di comando, è necessario connettersi al cluster. per altre informazioni, vedere la pagina relativa alla [connessione al](service-fabric-connect-to-secure-cluster.md)cluster.
 
 ## <a name="view-your-cluster-status"></a>Visualizzare lo stato del cluster
 ![Screenshot dei dettagli del cluster nel dashboard.][ClusterDashboard]
@@ -209,7 +209,7 @@ A questo punto, è stato creato un cluster protetto tramite i certificati per l'
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md
-[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md

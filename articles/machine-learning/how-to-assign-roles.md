@@ -5,18 +5,18 @@ description: Informazioni su come accedere a un'area di lavoro di Azure Machine 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/06/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270095"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609249"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Un'area di lavoro Azure Machine Learning è una risorsa di Azure. Analogamente a
 
 | Ruolo | Livello di accesso |
 | --- | --- |
-| **Lettore** | Azioni di sola lettura nell'area di lavoro. I lettori possono elencare e visualizzare gli asset in un'area di lavoro, ma non possono creare o aggiornare tali asset. |
+| **Lettore** | Azioni di sola lettura nell'area di lavoro. I lettori possono elencare e visualizzare gli asset (incluse le credenziali dell' [archivio dati](how-to-access-data.md) ) in un'area di lavoro, ma non possono creare o aggiornare tali asset. |
 | **Collaboratore** | Consente di visualizzare, creare, modificare o eliminare risorse, ove applicabile, in un'area di lavoro. I collaboratori possono ad esempio creare un esperimento, creare o alleghire un cluster di calcolo, inviare un'esecuzione e distribuire un servizio Web. |
 | **Proprietario** | Accesso completo all'area di lavoro, inclusa la possibilità di visualizzare, creare, modificare o eliminare le risorse (ove applicabile) in un'area di lavoro. Inoltre, è possibile modificare le assegnazioni di ruolo. |
 
@@ -41,7 +41,7 @@ Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefinit
 ## <a name="manage-workspace-access"></a>Gestisci l'accesso all'area di lavoro
 
 Se si è proprietari di un'area di lavoro, è possibile aggiungere e rimuovere ruoli per l'area di lavoro. È anche possibile assegnare ruoli agli utenti. Usare i collegamenti seguenti per scoprire come gestire l'accesso:
-- [Interfaccia utente di portale di Azure](/azure/role-based-access-control/role-assignments-portal)
+- [Interfaccia utente del portale di Azure](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Interfaccia della riga di comando di Azure](/azure/role-based-access-control/role-assignments-cli)
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
@@ -58,6 +58,14 @@ Il `user` campo è l'indirizzo di posta elettronica di un utente esistente nell'
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
+
+> [!NOTE]
+> il comando "AZ ml Workspace Share" non funziona per l'account federato da Azure Active Directory B2B. Usare il portale dell'interfaccia utente di Azure anziché il comando.
+
+
+## <a name="azure-machine-learning-operations"></a>Operazioni di Azure Machine Learning
+
+Azure Machine Learning azioni predefinite per molte operazioni e attività. Per un elenco completo, vedere [operazioni di provider di risorse di Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="create-custom-role"></a>Creare un ruolo personalizzato
 
@@ -87,7 +95,8 @@ Per creare un ruolo personalizzato, creare prima di tutto un file JSON di defini
 }
 ```
 
-È possibile modificare il `AssignableScopes` campo per impostare l'ambito di questo ruolo personalizzato a livello di sottoscrizione, a livello di gruppo di risorse o a livello di area di lavoro specifico.
+> [!TIP]
+> È possibile modificare il `AssignableScopes` campo per impostare l'ambito di questo ruolo personalizzato a livello di sottoscrizione, a livello di gruppo di risorse o a livello di area di lavoro specifico.
 
 Questo ruolo personalizzato può eseguire tutte le operazioni nell'area di lavoro, ad eccezione delle azioni seguenti:
 
@@ -110,23 +119,20 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati per le risorse di Azure](/azure/role-based-access-control/custom-roles).
 
-Per ulteriori informazioni sulle operazioni (azioni) utilizzabili con i ruoli personalizzati, vedere [operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
-
-
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 
 ### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>Q. Quali sono le autorizzazioni necessarie per eseguire varie azioni nel servizio Azure Machine Learning?
 
-La tabella seguente è un riepilogo delle attività Azure Machine Learning e delle autorizzazioni necessarie per eseguirle nel minor ambito. Se, ad esempio, un'attività può essere eseguita con un ambito dell'area di lavoro (colonna 4), anche tutti gli ambiti più elevati con tale autorizzazione funzioneranno automaticamente. Tutti i percorsi in questa tabella sono **percorsi relativi** a `Microsoft.MachineLearningServices/`.
+La tabella seguente è un riepilogo delle attività Azure Machine Learning e delle autorizzazioni necessarie per eseguirle nel minor ambito. Se, ad esempio, un'attività può essere eseguita con un ambito dell'area di lavoro (colonna 4), anche tutti gli ambiti più elevati con tale autorizzazione funzioneranno automaticamente. Tutti i percorsi in questa tabella sono **percorsi relativi** a `Microsoft.MachineLearningServices/` .
 
 | Attività | Ambito a livello di sottoscrizione | Ambito a livello di gruppo di risorse | Ambito a livello di area di lavoro |
 |---|---|---|---|
-| Creare una nuova area di lavoro | Non richiesto | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
-| Crea nuovo cluster di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
-| Creare una nuova macchina virtuale notebook | Non richiesto | Proprietario o collaboratore | Non consentita |
-| Crea nuova istanza di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
-| Attività del piano dati come l'invio dell'esecuzione, l'accesso ai dati, la distribuzione del modello o della pipeline di pubblicazione | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/*/write` <br/> Si noti che è necessario anche un archivio dati registrato nell'area di lavoro per consentire l'accesso di MSI ai dati nell'account di archiviazione. |
+| Creare una nuova area di lavoro | Facoltativo | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
+| Crea nuovo cluster di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
+| Creare una nuova macchina virtuale notebook | Facoltativo | Proprietario o collaboratore | Non consentita |
+| Crea nuova istanza di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
+| Attività del piano dati, ad esempio l'invio dell'esecuzione, l'accesso ai dati, la distribuzione di modelli o la pipeline di pubblicazione | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/*/write` <br/> È anche necessario un archivio dati registrato nell'area di lavoro per consentire l'accesso di MSI ai dati nell'account di archiviazione. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Ricerca per categorie elencare tutti i ruoli personalizzati nella sottoscrizione?
@@ -139,7 +145,7 @@ az role definition list --subscription <sub-id> --custom-role-only true
 
 ### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. Ricerca per categorie trovare la definizione di ruolo per un ruolo nella sottoscrizione?
 
-Nell'interfaccia della riga di comando di Azure eseguire il comando seguente. Si noti `<role-name>` che deve essere nello stesso formato restituito dal comando precedente.
+Nell'interfaccia della riga di comando di Azure eseguire il comando seguente. `<role-name>`Deve avere lo stesso formato restituito dal comando precedente.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
@@ -153,13 +159,13 @@ Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
-Si noti che è necessario disporre delle autorizzazioni per l'intero ambito della nuova definizione di ruolo. Se, ad esempio, il nuovo ruolo dispone di un ambito in tre sottoscrizioni, è necessario disporre delle autorizzazioni per tutte e tre le sottoscrizioni. 
+È necessario disporre delle autorizzazioni per l'intero ambito della nuova definizione di ruolo. Se, ad esempio, il nuovo ruolo dispone di un ambito in tre sottoscrizioni, è necessario disporre delle autorizzazioni per tutte e tre le sottoscrizioni. 
 
 > [!NOTE]
 > Gli aggiornamenti dei ruoli possono richiedere da 15 minuti a un'ora per essere applicati a tutte le assegnazioni di ruolo in tale ambito.
 ### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. È possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro? 
 
-Sì, è possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro. Poiché l'aggiornamento dell'area di lavoro è una chiamata PATCH nell'oggetto dell'area di lavoro, è possibile eseguire questa operazione `"NotActions"` inserendo l'azione seguente nella matrice nella definizione JSON: 
+Sì, è possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro. Poiché l'aggiornamento dell'area di lavoro è una chiamata PATCH nell'oggetto dell'area di lavoro, è possibile eseguire questa operazione inserendo l'azione seguente nella `"NotActions"` matrice nella definizione JSON: 
 
 `"Microsoft.MachineLearningServices/workspaces/write"`
 

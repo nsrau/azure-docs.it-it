@@ -6,13 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 50d870590fa6b8351838af9cb91b7be39b8d30db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73831834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610660"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Distribuire e configurare il firewall di Azure con Azure PowerShell
 
@@ -177,7 +177,7 @@ $AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0
 $AppRuleCollection = New-AzFirewallApplicationRuleCollection -Name App-Coll01 `
   -Priority 200 -ActionType Allow -Rule $AppRule1
 
-$Azfw.ApplicationRuleCollections = $AppRuleCollection
+$Azfw.ApplicationRuleCollections.Add($AppRuleCollection)
 
 Set-AzFirewall -AzureFirewall $Azfw
 ```
@@ -195,7 +195,7 @@ $NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAdd
 $NetRuleCollection = New-AzFirewallNetworkRuleCollection -Name RCNet01 -Priority 200 `
    -Rule $NetRule1 -ActionType "Allow"
 
-$Azfw.NetworkRuleCollections = $NetRuleCollection
+$Azfw.NetworkRuleCollections.Add($NetRuleCollection)
 
 Set-AzFirewall -AzureFirewall $Azfw
 ```
@@ -241,7 +241,7 @@ A questo punto testare il firewall per verificare che funzioni come previsto.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Le `www.google.com` richieste avranno esito positivo e `www.microsoft.com` le richieste avranno esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
+   Le `www.google.com` richieste avranno esito positivo e le `www.microsoft.com` richieste avranno esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
 
 A questo punto si è verificato che le regole del firewall funzionano:
 
@@ -258,4 +258,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
+* [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

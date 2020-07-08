@@ -3,12 +3,12 @@ title: Specifica degli endpoint di servizio Service Fabric
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610745"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
@@ -52,8 +52,6 @@ Per altre informazioni sugli endpoint di riferimento del file delle impostazioni
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Esempio: specificare un endpoint HTTP per il servizio
 Il manifesto del servizio seguente definisce una risorsa di endpoint TCP e due risorse di endpoint HTTP nell'elemento &lt;Risorse&gt;.
-
-Gli endpoint HTTP vengono automaticamente inseriti nell'elenco di controllo di accesso da Service Fabric.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,6 +155,8 @@ Di seguito è riportato un esempio di ApplicationManifest che illustra la config
 
 Per i cluster Linux, l'archivio **MY** predefinito è la cartella **/var/lib/sfcerts**.
 
+## <a name="port-acling-for-http-endpoints"></a>ACLing porta per endpoint HTTP
+Service Fabric verranno automaticamente ACL gli endpoint HTTP (S) specificati per impostazione predefinita. **Non** eseguirà la acling automatica se a un endpoint non è associato un [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) e Service Fabric è configurato per essere eseguito con un account con privilegi di amministratore.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Override degli endpoint in ServiceManifest.xml
 

@@ -1,6 +1,6 @@
 ---
 title: Configurare le identità gestite nella macchina virtuale di Azure usando REST-Azure AD
-description: Istruzioni dettagliate per configurare identità gestite di sistema e assegnate dall'utente in una macchina virtuale di Azure usando CURL per effettuare le chiamate API REST.
+description: Istruzioni dettagliate per la configurazione di un sistema e di identità gestite assegnate dall'utente in una macchina virtuale di Azure tramite CURL per eseguire chiamate API REST.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,24 +9,24 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f975595e935a5c0254450168aa295e6e7366a94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c967e32836586c39131069407fc4808a5f91ae9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609129"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurare le identità gestite per risorse di Azure in una macchina virtuale di Azure usando le chiamate API REST
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità di sistema gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure forniscono ai servizi di Azure un'identità di sistema gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
 Questo articolo illustra come eseguire queste operazioni di identità gestite per risorse di Azure in una macchina virtuale di Azure usando CURL per effettuare le chiamate all'endpoint REST di Azure Resource Manager:
 
@@ -35,7 +35,7 @@ Questo articolo illustra come eseguire queste operazioni di identità gestite pe
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
 - [Installare la console locale di interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), se si utilizzano i [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) o una [distribuzione Linux del sistema operativo](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
@@ -49,7 +49,7 @@ Questa sezione illustra come abilitare e disattivare le identità gestite assegn
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Abilitare l'identità gestita assegnata dal sistema durante la creazione di una macchina virtuale di Azure
 
-Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal sistema abilitata, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
+Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal sistema abilitata, l'account deve avere l'assegnazione di ruolo [collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 1. Creare un [gruppo di risorse](../../azure-resource-manager/management/overview.md#terminology) per il contenuto e la distribuzione della macchina virtuale e le risorse correlate, usando [az group create](/cli/azure/group/#az-group-create). Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio:
 
@@ -519,7 +519,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
 4. Se non si dispone di identità gestite assegnate dall'utente associate alla macchina virtuale, usare il comando CURL seguente per chiamare all'endpoint REST di Azure Resource Manager e assegnare la prima identità gestita assegnata dall'utente alla macchina virtuale.
 
-   L'esempio seguente assegna un'identità gestita assegnata dall'utente `ID1` a una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*.  Sostituire `<ACCESS TOKEN>` con il valore ricevuto nel passaggio precedente relativo alla richiesta di un token bearer di accesso e il valore `<SUBSCRIPTION ID>` appropriato per l'ambiente.
+   Nell'esempio seguente viene assegnata un'identità gestita assegnata dall'utente `ID1` a una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*.  Sostituire `<ACCESS TOKEN>` con il valore ricevuto nel passaggio precedente relativo alla richiesta di un token bearer di accesso e il valore `<SUBSCRIPTION ID>` appropriato per l'ambiente.
 
    **VERSIONE API 01/06/2018**
 

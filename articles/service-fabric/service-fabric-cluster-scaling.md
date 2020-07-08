@@ -4,12 +4,12 @@ description: Informazioni sul ridimensionamento dei cluster di Azure Service Fab
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610201"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Ridimensionamento di cluster di Azure Service Fabric
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I cluster possono contenere migliaia di nodi. Dopo aver creato un cluster di Service Fabric, è possibile scalare il cluster in orizzontale (modificare il numero di nodi) o in verticale (modificare le risorse dei nodi).  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -28,7 +28,7 @@ Quando si ridimensiona un cluster di Azure, tenere presenti le linee guida segue
 - I tipi di nodo primario che eseguono carichi di lavoro di produzione devono contenere sempre cinque o più nodi.
 - I tipi di nodo non primario che eseguono carichi di lavoro di produzione con stato devono contenere sempre cinque o più nodi.
 - I tipi di nodo non primario che eseguono carichi di lavoro di produzione senza stato devono contenere sempre due o più nodi.
-- Qualsiasi tipo di nodo del [livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Gold o Silver deve sempre contenere cinque o più nodi.
+- Qualsiasi tipo di nodo del [livello di durabilità](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Gold o Silver deve sempre contenere cinque o più nodi.
 - Non rimuovere istanze/nodi di VM casuali da un tipo di nodo, usare sempre la funzionalità di scalabilità del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM casuali può influenzare negativamente la capacità dei sistemi di eseguire il bilanciamento del carico in modo corretto.
 - Se si usano regole di scalabilità automatica, impostare le regole in modo che la riduzione (rimozione di istanze di VM) venga eseguita un nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.
 
@@ -59,14 +59,10 @@ Modifica le risorse (CPU, memoria o archiviazione) dei nodi nel cluster.
 - Vantaggi: il software e l'architettura dell'applicazione rimangono inalterati.
 - Svantaggi: scalabilità finita, dal momento che la possibilità di aumento delle risorse nei singoli nodi è limitata. Tempo di inattività, perché sarà necessario portare offline i computer fisici o le macchine virtuali per aggiungere o rimuovere le risorse.
 
-I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente.  Il ridimensionamento verticale di un tipo di nodo comporta la modifica dello SKU delle istanze di macchina virtuale nel set di scalabilità. 
-
-> [!WARNING]
-> È consigliabile non modificare lo SKU VM di un tipo di nodo o set di scalabilità, a meno che non sia in esecuzione al [livello di durabilità Silver o superiore](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). La modifica delle dimensioni della SKU della macchina virtuale è un'operazione dell'infrastruttura sul posto distruttiva per i dati. Senza la capacità di ritardare o monitorare questa modifica, è possibile che l'operazione causi una perdita di dati per i servizi con stato o provochi altri problemi operativi non previsti, anche per i carichi di lavoro senza stato. 
->
+I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente.  Il ridimensionamento di un tipo di nodo verso l'alto o verso il basso comporta l'aggiunta di un nuovo tipo di nodo (con SKU di VM aggiornato) e la rimozione del tipo di nodo precedente.
 
 Quando si ridimensiona un cluster di Azure, tenere presenti le linee guida seguenti:
-- Se si riducono le prestazioni di un tipo di nodo primario, è consigliabile non ridurle mai più di quanto consentito dal [livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster).
+- Se si riducono le prestazioni di un tipo di nodo primario, è consigliabile non ridurle mai più di quanto consentito dal [livello di affidabilità](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster).
 
 Il processo di ridimensionamento verticale di un tipo di nodo varia a seconda del fatto che si tratti di un tipo di nodo primario o non primario.
 
@@ -74,9 +70,9 @@ Il processo di ridimensionamento verticale di un tipo di nodo varia a seconda de
 Creare un nuovo tipo di nodo con le risorse necessarie.  Aggiornare i vincoli di posizionamento dei servizi in esecuzione in modo da includere il nuovo tipo di nodo.  Gradualmente (una alla volta), ridurre a zero il numero di istanze del tipo di nodo precedente, in modo che l'affidabilità del cluster rimanga invariata.  I servizi eseguiranno gradualmente la migrazione al nuovo tipo di nodo Man mano che il vecchio tipo di nodo viene ritirato.
 
 ### <a name="scaling-the-primary-node-type"></a>Ridimensionamento del tipo di nodo primario
-È consigliabile non modificare lo SKU VM del tipo di nodo primario. Se è necessario aumentare la capacità del cluster, è consigliabile aggiungere più istanze. 
+Distribuire un nuovo tipo di nodo primario con SKU di VM aggiornato, quindi disabilitare le istanze del tipo di nodo primario originale una alla volta in modo che i servizi di sistema vengano migrati al nuovo set di scalabilità. Verificare che il cluster e i nuovi nodi siano integri, quindi rimuovere il set di scalabilità originale e lo stato del nodo per i nodi eliminati.
 
-Se non è possibile, creare un nuovo cluster e [ripristinare lo stato dell'applicazione](service-fabric-reliable-services-backup-restore.md) (se applicabile) dal cluster precedente. Non è necessario ripristinare lo stato dei servizi di sistema, perché verrà ricreato quando si distribuiscono le applicazioni nel nuovo cluster. Se nel cluster venivano eseguite solo applicazioni senza stato, è sufficiente distribuire le applicazioni nel nuovo cluster, non sono necessarie operazioni di ripristino. Se si opta per la modalità non supportata e si vuole modificare lo SKU di VM, apportare le modifiche alla definizione del modello di set di scalabilità di macchine virtuali per riflettere il nuovo SKU. Se il cluster include un solo tipo di nodo, verificare che tutte le applicazioni con stato rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-lifecycle.md), ad esempio al blocco della replica in compilazione, e che la durata della ricompilazione della replica del servizio sia inferiore a cinque minuti (per il livello di durabilità Silver). 
+Se non è possibile, creare un nuovo cluster e [ripristinare lo stato dell'applicazione](service-fabric-reliable-services-backup-restore.md) (se applicabile) dal cluster precedente. Non è necessario ripristinare lo stato dei servizi di sistema, perché verrà ricreato quando si distribuiscono le applicazioni nel nuovo cluster. Se nel cluster venivano eseguite solo applicazioni senza stato, è sufficiente distribuire le applicazioni nel nuovo cluster, non sono necessarie operazioni di ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulla [scalabilità delle applicazioni](service-fabric-concepts-scalability.md).

@@ -4,16 +4,16 @@ description: Questo articolo illustra come distribuire e configurare il firewall
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 37bb28419f23fee2c179171a2e5c0e4e851ac9a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471755"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611187"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -71,7 +71,7 @@ Vedere la sezione [creare le route](#create-the-routes) in questo articolo per v
 
 Per esaminare la documentazione di riferimento di Azure PowerShell correlata, vedere [Informazioni di riferimento su Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="declare-the-variables"></a>Dichiarare le variabili
 
@@ -464,7 +464,7 @@ Dal portale di Azure connettersi alla macchina virtuale **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-Aprire un Web browser in **VM-** locale e passare all'indirizzo IP\<\>privato http://VM-spoke-01.
+Aprire un Web browser in **VM-Onprem** e andare a http://\<VM-spoke-01 private IP\>.
 
 Dovrebbe essere visualizzata la pagina predefinita di Internet Information Services.
 
@@ -489,7 +489,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 A questo punto rieseguire i test, che dovrebbero avere tutti esito negativo. Chiudere eventuali desktop remoti esistenti prima di testare le regole modificate.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 È possibile conservare le risorse del firewall per l'esercitazione successiva oppure, se non è più necessario, eliminare il gruppo di risorse **FW-Hybrid-Test** per eliminare tutte le risorse correlate al firewall.
 
@@ -497,4 +497,4 @@ A questo punto rieseguire i test, che dovrebbero avere tutti esito negativo. Chi
 
 È possibile ora monitorare i log di Firewall di Azure.
 
-[Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
+[Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

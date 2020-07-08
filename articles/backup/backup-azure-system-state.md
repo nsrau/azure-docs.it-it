@@ -1,17 +1,16 @@
 ---
 title: Eseguire il backup dello stato del sistema Windows in Azure
 description: Informazioni su come eseguire il backup dello stato del sistema di computer Windows Server e/o Windows in Azure.
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128184"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611442"
 ---
-# <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Eseguire il backup dello stato del sistema Windows in una distribuzione Resource Manager
+# <a name="back-up-windows-system-state-to-azure"></a>Eseguire il backup dello stato del sistema Windows in Azure
 
 Questo articolo illustra come eseguire il backup dello stato del sistema Windows Server in Azure. Il suo scopo è quello di illustrare le nozioni di base.
 
@@ -19,49 +18,9 @@ Per altre informazioni su Backup di Azure, vedere questa [panoramica](backup-ove
 
 Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) che consente di accedere a qualsiasi servizio di Azure.
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Per eseguire il backup dello stato del sistema di Windows Server, è necessario creare un insieme di credenziali di Servizi di ripristino nell'area in cui archiviare i dati. È anche necessario determinare la modalità di replica di archiviazione.
-
-### <a name="to-create-a-recovery-services-vault"></a>Per creare un insieme di credenziali di Servizi di ripristino
-
-1. Se non è già stato fatto, accedere al [portale di Azure](https://portal.azure.com/) usando la sottoscrizione di Azure.
-2. Fare clic su **Tutti i servizi** nel menu Hub e nell'elenco di risorse digitare **Servizi di ripristino**, quindi fare clic su **Insiemi di credenziali dei servizi di ripristino**.
-
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-system-state/open-rs-vault-list.png)
-
-    Se presenti nella sottoscrizione, gli insiemi di credenziali dei servizi di ripristino vengono elencati.
-3. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
-
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
-
-    Verrà visualizzato il pannello degli insiemi di credenziali dei servizi di ripristino, in cui viene richiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
-
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
-
-4. Nel campo **Nome**digitare un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
-
-5. Nella sezione **Sottoscrizione** usare il menu a discesa per scegliere la sottoscrizione di Azure. Se si usa una sola sottoscrizione, questa verrà visualizzata e sarà possibile andare al passaggio successivo. Se non si è certi di quale sottoscrizione usare, usare la sottoscrizione predefinita (o suggerita). Sono disponibili più scelte solo se l'account dell'organizzazione è associato a più sottoscrizioni di Azure.
-
-6. Nella sezione **Gruppo di risorse**:
-
-    * Selezionare **Crea nuovo** se si vuole creare un gruppo di risorse.
-    Oppure
-    * Selezionare **Usa esistente** e fare clic sul menu a discesa per visualizzare l'elenco di gruppi di risorse disponibili.
-
-   Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md).
-
-7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali. La scelta determina l'area geografica in cui vengono inviati i dati di backup.
-
-8. Nella parte inferiore del pannello Insieme di credenziali dei servizi di ripristino fare clic su **Crea**.
-
-    La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino. Se l'insieme di credenziali non viene visualizzato dopo qualche minuto, fare clic su **Aggiorna**.
-
-    ![Fare clic sul pulsante Aggiorna](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
-
-    Dopo la visualizzazione dell'insieme di credenziali nell'elenco corrispondente per i Servizi di ripristino, è possibile configurare la ridondanza di archiviazione.
-
-### <a name="set-storage-redundancy-for-the-vault"></a>Impostare la ridondanza di archiviazione dell'insieme di credenziali
+## <a name="set-storage-redundancy-for-the-vault"></a>Impostare la ridondanza di archiviazione dell'insieme di credenziali
 
 Quando si crea un insieme di credenziali dei Servizi di ripristino, assicurarsi che la ridondanza di archiviazione sia configurata in base alle proprie esigenze.
 
@@ -127,7 +86,7 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 
     ![Scaricare le credenziali dell'insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    Le credenziali dell'insieme di credenziali verranno scaricate nella cartella Download locale. Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se aprire o salvare le credenziali. Fare clic su **Save**. Se si fa clic accidentalmente su **Apri**, attendere che il tentativo di apertura delle credenziali termini con un errore. Non è possibile aprire le credenziali dell'insieme di credenziali. Procedere con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella Downloads.
+    Le credenziali dell'insieme di credenziali verranno scaricate nella cartella Download locale. Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se aprire o salvare le credenziali. Fare clic su **Salva**. Se si fa clic accidentalmente su **Apri**, attendere che il tentativo di apertura delle credenziali termini con un errore. Non è possibile aprire le credenziali dell'insieme di credenziali. Procedere con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella Downloads.
 
     ![Il download delle credenziali dell'insieme di credenziali è terminato](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]

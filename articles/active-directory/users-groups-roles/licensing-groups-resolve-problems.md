@@ -8,19 +8,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611289"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -56,7 +56,7 @@ Le sezioni seguenti riportano una descrizione di ogni potenziale problema con la
 
 **Problema:** le licenze disponibili per uno dei prodotti specificati nel gruppo non sono sufficienti. È necessario acquistare altre licenze per il prodotto o liberare le licenze inutilizzate da altri utenti o gruppi.
 
-Per visualizzare il numero di licenze disponibili, passare a **Azure Active Directory** > **licenze** > **tutti i prodotti**.
+Per visualizzare il numero di licenze disponibili, passare a **Azure Active Directory**  >  **licenze**  >  **tutti i prodotti**.
 
 Per vedere quali utenti e gruppi utilizzano le licenze, selezionare un prodotto. In **Utenti con licenza** compare un elenco di tutti gli utenti a cui sono state assegnate licenze direttamente o tramite uno o più gruppi. In **Gruppi con licenza** compaiono tutti i gruppi a cui sono assegnati prodotti.
 
@@ -87,7 +87,7 @@ Per risolvere questo problema, è necessario assicurarsi che il piano richiesto 
 
 ## <a name="usage-location-isnt-allowed"></a>La località di utilizzo non è consentita
 
-**Problema:** alcuni servizi Microsoft non sono disponibili in tutte le località a causa di leggi e regolamenti locali. Prima di assegnare una licenza a un utente, è necessario specificare la proprietà **Località di utilizzo** per l'utente. È possibile specificare il percorso nella sezione **User** > **Profile** > **Impostazioni** profilo utente nel portale di Azure.
+**Problema:** alcuni servizi Microsoft non sono disponibili in tutte le località a causa di leggi e regolamenti locali. Prima di assegnare una licenza a un utente, è necessario specificare la proprietà **Località di utilizzo** per l'utente. È possibile specificare il percorso **User**  >  **Profile**  >  nella sezione**Impostazioni** profilo utente nel portale di Azure.
 
 Quando Azure AD tenta di assegnare una licenza di gruppo a un utente la cui località di utilizzo non è supportata, l'operazione non riesce e viene registrato un errore per l'utente.
 
@@ -120,7 +120,7 @@ L'aggiornamento dell'assegnazione delle licenze per un utente comporta l'attivaz
 ## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException nei log di controllo
 
 **Problema:** L'utente ha LicenseAssignmentAttributeConcurrencyException per l'assegnazione delle licenze nei log di controllo.
-Quando le licenze basate sui gruppi tentano di elaborare l'assegnazione di licenze simultanee della stessa licenza a un utente, questa eccezione viene registrata nell'utente. Questa situazione si verifica in genere quando un utente è membro di più di un gruppo con la stessa licenza assegnata. AZure AD tenterà di ritentare l'elaborazione della licenza utente e risolverà il problema. Non è richiesta alcuna azione da parte del cliente per risolvere il problema.
+Quando le licenze basate sui gruppi tentano di elaborare l'assegnazione di licenze simultanee della stessa licenza a un utente, questa eccezione viene registrata nell'utente. Questa situazione si verifica in genere quando un utente è membro di più di un gruppo con la stessa licenza assegnata. Azure AD riproverà a elaborare la licenza utente e risolverà il problema. Non è richiesta alcuna azione da parte del cliente per risolvere il problema.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>È stata assegnata più di una licenza del prodotto a un gruppo
 

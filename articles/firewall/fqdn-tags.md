@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: f4fcadb6d930f7863c733dad105432a64127b59b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e29e568786881f663414dcdf3eff72d4d72ab181
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610609"
 ---
 # <a name="fqdn-tags-overview"></a>Panoramica dei tag FQDN
 
@@ -36,7 +36,8 @@ La tabella seguente mostra i tag FQDN attuali che è possibile usare. Microsoft 
 |Ambiente del servizio app|Consente l'accesso in uscita al traffico della piattaforma Ambiente del servizio app. Questo tag non copre gli endpoint di archiviazione ed SQL specifici del cliente creati da Ambiente del servizio app. Tali endpoint devono essere abilitati tramite [Endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o aggiunti manualmente.<br><br>Per altre informazioni sull'integrazione di Firewall di Azure con l'ambiente del servizio app, vedere [Blocco di un ambiente del servizio app](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Backup di Azure|Consente l'accesso in uscita ai servizi Backup di Azure.|
 |HDInsight di Azure|Consente l'accesso in uscita per il traffico della piattaforma HDInsight. Questo tag non copre il traffico SQL o di archiviazione specifico del cliente da HDInsight. Abilitarli usando gli [endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o aggiungerli manualmente.|
-|WindowsVirtualDesktop (WVD)|Consente il traffico della piattaforma desktop virtuale Windows in uscita. Questo tag non copre gli endpoint del bus di servizio e di archiviazione specifici della distribuzione creati da WVD. Sono inoltre necessarie le regole di rete DNS e KMS. Per altre informazioni sull'integrazione di firewall di Azure con WVD, vedere [usare il firewall di Azure per proteggere le distribuzioni di desktop virtuali di Windows](protect-windows-virtual-desktop.md). 
+|WindowsVirtualDesktop (WVD)|Consente il traffico della piattaforma desktop virtuale Windows in uscita. Questo tag non copre gli endpoint del bus di servizio e di archiviazione specifici della distribuzione creati da WVD. Sono inoltre necessarie le regole di rete DNS e KMS. Per altre informazioni sull'integrazione di firewall di Azure con WVD, vedere [usare il firewall di Azure per proteggere le distribuzioni di desktop virtuali di Windows](protect-windows-virtual-desktop.md).|
+|Servizio Azure Kubernetes|Consente l'accesso in uscita a AKS. Per altre informazioni, vedere [usare il firewall di Azure per proteggere le distribuzioni di Azure Kubernetes Service (AKS)](protect-azure-kubernetes-service.md).|
 
 > [!NOTE]
 > Quando si seleziona il tag FQDN nella regola per un'applicazione, il campo protocol:port deve essere impostato su **https**.

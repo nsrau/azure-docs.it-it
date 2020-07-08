@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608263"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -35,7 +35,7 @@ Per preparare l'accesso all'API di creazione report, è necessario:
 1. [Assegnare ruoli](#assign-roles)
 2. [Requisiti di licenza](#license-requirements)
 3. [Registrare un'applicazione](#register-an-application)
-4. [Concedi autorizzazioni](#grant-permissions)
+4. [Concedere le autorizzazioni](#grant-permissions)
 5. [Ottenere le impostazioni di configurazione](#gather-configuration-settings)
 
 ## <a name="assign-roles"></a>Assegnare ruoli
@@ -44,7 +44,7 @@ Per accedere ai dati di creazione dei report tramite l'API, è necessario dispor
 
 - Ruolo con autorizzazioni di lettura per la sicurezza
 
-- Amministratore della sicurezza
+- Amministratore della protezione
 
 - Amministratore globale
 
@@ -85,7 +85,7 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
     b. Per **tipo di account supportati**, selezionare **account solo in questa organizzazione**.
 
-    c. Nella casella di testo **URL di reindirizzamento** selezionare **Web** digitare `https://localhost`.
+    c. Nella casella di testo **URL di reindirizzamento** selezionare **Web** digitare `https://localhost` .
 
     d. Selezionare **Registra**. 
 

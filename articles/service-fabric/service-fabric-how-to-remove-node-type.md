@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9562c09fe99372a9b1106d3ae891f65663cf307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610101"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Come rimuovere un tipo di nodo Service Fabric
 Questo articolo descrive come ridimensionare un cluster di Azure Service Fabric rimuovendo un tipo di nodo esistente da un cluster. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente. Dopo aver creato un cluster di Service Fabric, è possibile ridimensionare un cluster orizzontalmente rimuovendo un tipo di nodo (set di scalabilità di macchine virtuali) e tutti i relativi nodi.  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -20,7 +20,7 @@ Questo articolo descrive come ridimensionare un cluster di Azure Service Fabric 
 > L'uso di questo approccio per rimuovere un tipo di nodo da un cluster di produzione non è consigliato per l'uso frequente. È un comando molto pericoloso perché elimina la risorsa set di scalabilità di macchine virtuali presente dietro il tipo di nodo. 
 
 ## <a name="durability-characteristics"></a>Caratteristiche di durabilità
-Quando si usa Remove-AzServiceFabricNodeType, viene assegnata la priorità alla sicurezza. Il tipo di nodo deve avere un [livello di durabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) Silver o Gold, perché:
+Quando si usa Remove-AzServiceFabricNodeType, viene assegnata la priorità alla sicurezza. Il tipo di nodo deve avere un [livello di durabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster) Silver o Gold, perché:
 - Bronze non offre alcuna garanzia in merito al salvataggio delle informazioni sullo stato.
 - I livelli di durabilità Silver e Gold consentono di intercettare qualsiasi modifica al set di scalabilità.
 - Il livello Gold offre anche il controllo degli aggiornamenti di Azure nell'ambito del set di scalabilità.
@@ -122,7 +122,7 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
     - Individuare il modello di Azure Resource Manager usato per la distribuzione.
     - Trovare la sezione relativa al tipo di nodo nella sezione Service Fabric.
     - Rimuovere la sezione corrispondente al tipo di nodo.
-    - Solo per i cluster di durabilità Silver e versioni successive, aggiornare la risorsa cluster nel modello e configurare i criteri di integrità per ignorare l'integrità dell'applicazione Fabric `applicationDeltaHealthPolicies` :/System `properties` aggiungendo in risorsa cluster come indicato di seguito. Il criterio seguente deve ignorare gli errori esistenti ma non consentire nuovi errori di integrità. 
+    - Solo per i cluster di durabilità Silver e versioni successive, aggiornare la risorsa cluster nel modello e configurare i criteri di integrità per ignorare l'integrità dell'applicazione Fabric:/System aggiungendo `applicationDeltaHealthPolicies` in risorsa cluster `properties` come indicato di seguito. Il criterio seguente deve ignorare gli errori esistenti ma non consentire nuovi errori di integrità. 
  
  
      ```json
@@ -175,6 +175,6 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
     - Attendere il completamento della distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulle [caratteristiche di durabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) dei cluster.
+- Altre informazioni sulle [caratteristiche di durabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster) dei cluster.
 - Altre informazioni sui [tipi di nodo e i set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).
 - Altre informazioni sul [ridimensionamento di un cluster di Service Fabric](service-fabric-cluster-scaling.md).

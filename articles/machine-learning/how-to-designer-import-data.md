@@ -1,23 +1,23 @@
 ---
 title: Importa dati
 titleSuffix: Azure Machine Learning
-description: Informazioni su come importare i dati nella finestra di progettazione di Azure Machine Learning da varie origini dati.
+description: Informazioni su come importare dati in Azure Machine Learning Designer da varie origini dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 2b42f8f9dfe6ef2993b4615f0e4584874beabb28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644575"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610949"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importazione dei propri dati nella finestra di progettazione di Azure Machine Learning (anteprima)
+# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importare dati in Azure Machine Learning Designer (anteprima)
 
 In questo articolo si spiega come importare dati nella finestra di progettazione per creare soluzioni personalizzate. È possibile importare i dati nella finestra di progettazione in due modi: 
 
@@ -89,6 +89,10 @@ La finestra di progettazione usa un tipo di dati interno per passare i dati tra 
 ## <a name="data-constraints"></a>Vincoli dei dati
 
 I moduli della finestra di progettazione sono limitati dalle dimensioni della destinazione di calcolo. Per i set di dati più grandi è necessario usare una risorsa di calcolo Azure Machine Learning più grande. Per altre informazioni sulle destinazioni di calcolo di Azure Machine Learning vedere [Cosa sono le destinazioni di calcolo in Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+
+## <a name="access-data-in-a-virtual-network"></a>Accedere ai dati in una rete virtuale
+
+Se l'area di lavoro si trova in una rete virtuale, è necessario eseguire passaggi di configurazione aggiuntivi per visualizzare i dati nella finestra di progettazione. Per altre informazioni su come usare gli archivi dati e i set di dati in una rete virtuale, vedere [isolamento rete durante il training & inferenza con reti virtuali private](how-to-enable-virtual-network.md#machine-learning-studio).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

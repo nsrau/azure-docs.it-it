@@ -3,12 +3,12 @@ title: Elenco di controllo per l'idoneità per la produzione di Azure Service Fa
 description: Preparare l'applicazione e il cluster di Service Fabric per la produzione seguendo le procedure consigliate.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7011860b8e1162b35cbfee3a9e796163710b7fdc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75376801"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610031"
 ---
 # <a name="production-readiness-checklist"></a>Elenco di controllo per l'idoneità per la produzione
 
@@ -17,13 +17,13 @@ L'applicazione e il cluster sono pronti ad accettare il traffico della produzion
 
 ## <a name="prerequisites-for-production"></a>Prerequisiti per la produzione
 1. Azure Service Fabric procedure consigliate [: progettazione di applicazioni](./service-fabric-best-practices-applications.md), [sicurezza](./service-fabric-best-practices-security.md), [rete](./service-fabric-best-practices-networking.md), [pianificazione della capacità e scalabilità](./service-fabric-best-practices-capacity-scaling.md), [infrastruttura come codice](./service-fabric-best-practices-infrastructure-as-code.md), [monitoraggio e diagnostica](./service-fabric-best-practices-monitoring.md). 
-1. Implementare la configurazione di sicurezza di Reliable Actors, se si usa il modello di programmazione di Actors
+1. [Configurare le impostazioni di FabricTransport](./service-fabric-reliable-actors-fabrictransportsettings.md) se si usa il modello di programmazione Reliable Actors e si richiede la comunicazione tra servizi sicura.
 1. Per i cluster con più di 20 core o 10 nodi, creare un tipo di nodo primario dedicato per i servizi di sistema. Aggiungere [vincoli di posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) per riservare il tipo di nodo primario ai servizi di sistema.
 1. Per il tipo di nodo primario usare uno SKU D2v2 o superiore. È consigliabile scegliere uno SKU con capacità del disco rigido di almeno 50 GB.
 1. I cluster di produzione devono essere [sicuri](service-fabric-cluster-security.md). Per un esempio di configurazione di un cluster sicuro, vedere questo [modello di cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Usare nomi comuni per i certificati ed evitare i certificati autofirmati.
 1. Applicare [vincoli di risorse a contenitori e servizi](service-fabric-resource-governance.md) per evitare che utilizzino più del 75% delle risorse dei nodi. 
-1. Comprendere la finalità del [livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) e impostarlo. Un livello di durabilità Silver o superiore è consigliato per i tipi di nodo che eseguono carichi di lavoro con stato. Per il tipo di nodo primario il livello di durabilità deve essere impostato su Silver o superiore.
-1. Comprendere la finalità del [livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) del tipo di nodo e selezionarlo. È consigliabile impostare un livello di affidabilità Silver o superiore.
+1. Comprendere la finalità del [livello di durabilità](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) e impostarlo. Un livello di durabilità Silver o superiore è consigliato per i tipi di nodo che eseguono carichi di lavoro con stato. Per il tipo di nodo primario il livello di durabilità deve essere impostato su Silver o superiore.
+1. Comprendere la finalità del [livello di affidabilità](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) del tipo di nodo e selezionarlo. È consigliabile impostare un livello di affidabilità Silver o superiore.
 1. Eseguire i test di carico e scalabilità dei carichi di lavoro per identificare i [requisiti di capacità](service-fabric-cluster-capacity.md) per il cluster. 
 1. I servizi e le applicazioni sono sottoposti a monitoraggio e vengono generati e archiviati log delle applicazioni, con funzionalità di avviso. Vedere ad esempio [aggiungere la registrazione all'applicazione Service Fabric](service-fabric-how-to-diagnostics-log.md) e [monitorare i contenitori con i log di monitoraggio di Azure](service-fabric-diagnostics-oms-containers.md).
 1. Il cluster viene monitorato con avvisi, ad esempio con i [log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md). 

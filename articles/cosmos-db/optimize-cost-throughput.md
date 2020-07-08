@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610728"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -65,7 +65,7 @@ Con il provisioning della velocità effettiva a livelli diversi, è possibile ot
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Ottimizzare impostando limiti di velocità per le richieste
 
-Per i carichi di lavoro che non sono sensibili alla latenza, è possibile effettuare il provisioning di una velocità effettiva inferiore e consentire all'applicazione di gestire l'impostazione di limiti quando la velocità effettiva reale supera la velocità effettiva con provisioning. Il server termina preventivamente la richiesta con `RequestRateTooLarge` (codice di stato http 429) e restituisce `x-ms-retry-after-ms` l'intestazione che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di ritentare la richiesta. 
+Per i carichi di lavoro che non sono sensibili alla latenza, è possibile effettuare il provisioning di una velocità effettiva inferiore e consentire all'applicazione di gestire l'impostazione di limiti quando la velocità effettiva reale supera la velocità effettiva con provisioning. Il server termina preventivamente la richiesta con `RequestRateTooLarge` (codice di stato HTTP 429) e restituisce l' `x-ms-retry-after-ms` intestazione che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di ritentare la richiesta. 
 
 ```html
 HTTP Status 429, 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 Gli SDK nativi (.NET/.NET Core, Java, Node.js e Python) intercettano implicitamente questa risposta, rispettano l'intestazione retry-after specificata dal server e ripetono la richiesta. A meno che all'account non accedano contemporaneamente più client, il tentativo successivo avrà esito positivo.
 
-Se si dispone di più di un client che funziona cumulativamente in modo costante al di sopra della frequenza delle richieste, il numero di tentativi predefinito, attualmente impostato su 9, potrebbe non essere sufficiente. In questi casi, il client genera un' `RequestRateTooLargeException` eccezione con codice di stato 429 per l'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione predefinita, `RequestRateTooLargeException` il codice di stato 429 viene restituito dopo un periodo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
+Se si dispone di più di un client che funziona cumulativamente in modo costante al di sopra della frequenza delle richieste, il numero di tentativi predefinito, attualmente impostato su 9, potrebbe non essere sufficiente. In questi casi, il client genera un'eccezione `RequestRateTooLargeException` con codice di stato 429 per l'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione predefinita, il `RequestRateTooLargeException` codice di stato 429 viene restituito dopo un periodo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) è impostato su 3, quindi, in questo caso, se un'operazione di richiesta è limitata alla frequenza superando la velocità effettiva riservata per il contenitore, l'operazione di richiesta esegue tre tentativi prima di generare l'eccezione all'applicazione. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) è impostato su 60, quindi, in questo caso, se il tempo di attesa per tentativi cumulativi in secondi dalla prima richiesta supera i 60 secondi, viene generata l'eccezione.
 
@@ -117,7 +117,7 @@ Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le
 
 È possibile monitorare il numero totale di UR con provisioning, il numero di richieste soggette a limite di velocità e il numero di UR utilizzate nel portale di Azure. L'immagine seguente mostra un esempio di metrica di utilizzo:
 
-![Monitorare le unità richieste nel portale di Azure](./media/optimize-cost-throughput/monitoring.png)
+:::image type="content" source="./media/optimize-cost-throughput/monitoring.png" alt-text="Monitorare le unità richieste nel portale di Azure":::
 
 È anche possibile impostare avvisi per verificare se il numero di richieste soggette a limite di velocità supera una soglia specifica. Per altri dettagli, vedere l'articolo [Come monitorare Azure Cosmos DB](use-metrics.md). Questi avvisi possono inviare un messaggio di posta elettronica agli amministratori dell'account o chiamare un webhook HTTP personalizzato o una funzione di Azure per aumentare automaticamente la velocità effettiva con provisioning. 
 
@@ -155,7 +155,7 @@ La procedura seguente consente di rendere le soluzioni altamente scalabili ed ec
 
 1. Se il provisioning della velocità effettiva tra contenitori e database è notevolmente superiore, esaminare il rapporto tra UR con provisioning e UR utilizzate e perfezionare i carichi di lavoro.  
 
-2. Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito di UR associato all'esecuzione di operazioni tipiche rispetto a un database o a un contenitore di Azure Cosmos rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo. Assicurarsi di misurare e includere anche le query tipiche e il loro utilizzo. Per informazioni su come stimare in modo programmatico o con il portale i costi di UR per le query, vedere [Ottimizzare il costo delle query](online-backup-and-restore.md). 
+2. Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito di UR associato all'esecuzione di operazioni tipiche rispetto a un database o a un contenitore di Azure Cosmos rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo. Assicurarsi di misurare e includere anche le query tipiche e il loro utilizzo. Per informazioni su come stimare in modo programmatico o con il portale i costi di UR per le query, vedere [Ottimizzare il costo delle query](optimize-cost-queries.md). 
 
 3. Un altro modo per ottenere le operazioni e i relativi costi in ur è l'abilitazione dei log di monitoraggio di Azure, che consente di ottenere la suddivisione dell'operazione/durata e l'addebito della richiesta. Azure Cosmos DB offre l'addebito per la richiesta per ogni operazione, in modo che ogni addebito per le operazioni possa essere archiviato dalla risposta e quindi usato per l'analisi. 
 

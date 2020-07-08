@@ -3,22 +3,19 @@ title: Aumentare le prestazioni di un tipo di nodo di Azure Service Fabric
 description: Informazioni su come ridimensionare un cluster di Service Fabric aggiungendo un set di scalabilità di macchine virtuali.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610694"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Aumentare le prestazioni di un tipo di nodo primario di un cluster di Service Fabric
 In questo articolo viene descritto come aumentare le prestazioni di un tipo di nodo primario di un cluster di Service Fabric aumentando le risorse delle macchine virtuali. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente. Dopo aver creato un cluster di Service Fabric, è possibile scalare un tipo di nodo del cluster in verticale (modificare le risorse dei nodi) o aggiornare il sistema operativo delle macchine virtuali del tipo di nodo.  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
 
 > [!WARNING]
-> Non iniziare a modificare lo SKU di macchina virtuale del tipo di nodo primario, se il cluster non è integro. Se il cluster non è integro, provando a modificare lo SKU di macchina virtuale, questo verrà ulteriormente destabilizzato.
+> Non tentare una procedura di scalabilità verticale del tipo di nodo primario se lo stato del cluster non è integro, perché il cluster verrà ulteriormente destabilizzato.
 >
-> È consigliabile non modificare lo SKU VM di un tipo di nodo o set di scalabilità, a meno che non sia in esecuzione al [livello di durabilità Silver o superiore](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). La modifica delle dimensioni della SKU della macchina virtuale è un'operazione dell'infrastruttura sul posto distruttiva per i dati. Senza la capacità di ritardare o monitorare questa modifica, è possibile che l'operazione causi una perdita di dati per i servizi con stato o provochi altri problemi operativi non previsti, anche per i carichi di lavoro senza stato. Ciò interessa il tipo di nodo primario, che esegue i servizi di sistema con stato di Service Fabric, o qualsiasi tipo di nodo che esegue i carichi di lavoro delle applicazioni con stato.
->
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -159,6 +156,8 @@ Get-ServiceFabricClusterHealth
 ## <a name="migrate-nodes-to-the-new-scale-set"></a>Eseguire la migrazione dei nodi al nuovo set di scalabilità
 
 A questo punto è possibile avviare la disabilitazione dei nodi del set di scalabilità originale. Poiché tali nodi diventano disabilitati, i servizi di sistema e i nodi di inizializzazione eseguono la migrazione alle macchine virtuali del nuovo set di scalabilità poiché è anche contrassegnato come tipo di nodo primario.
+
+Per la scalabilità verticale dei tipi di nodo non primari, in questo passaggio è necessario modificare il vincolo di posizionamento del servizio in modo da includere il nuovo tipo di nodo/set di scalabilità di macchine virtuali e quindi ridurre il numero di istanze del set di scalabilità di macchine virtuali precedente a zero, un nodo alla volta (per garantire che la rimozione dei nodi non influisca sull'affidabilità dei
 
 ```powershell
 # Disable the nodes in the original scale set.

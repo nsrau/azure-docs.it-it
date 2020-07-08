@@ -3,12 +3,12 @@ title: Ridimensionare un cluster Service Fabric
 description: Ridimensionare un cluster Service Fabric in modo che corrisponda alla domanda impostando regole di scalabilità automatica per ogni tipo di nodo o set di scalabilità di macchine virtuali. Aggiungere o rimuovere nodi in un cluster di Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 670e2a1fcccf80faaf652f1ce0c749b315c3aaec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c72f8eca9bc054446ceec35448c930098c5f81fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82797266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610252"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Aumentare o ridurre un cluster
 
@@ -251,11 +251,11 @@ Fare riferimento ai [i dettagli sui livelli di durabilità qui](service-fabric-c
 Per altre informazioni sulla pianificazione della capacità del cluster, l'aggiornamento di un cluster e il partizionamento dei servizi, vedere gli articoli seguenti:
 
 * [Considerazioni sulla pianificazione della capacità del cluster di Service Fabric](service-fabric-cluster-capacity.md)
-* [Aggiornamenti cluster](service-fabric-cluster-upgrade.md)
+* [Aggiornare un cluster di Service Fabric](service-fabric-cluster-upgrade.md)
 * [Partizionare Reliable Services di Service Fabric](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-in-out/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-in-out/ClusterResources.png
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster

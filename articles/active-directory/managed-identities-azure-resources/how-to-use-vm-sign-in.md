@@ -1,6 +1,6 @@
 ---
-title: Usare identità gestite in una macchina virtuale di Azure per l'accesso Azure AD
-description: Istruzioni dettagliate ed esempi relativi all'uso di un'entità servizio delle identità gestite della macchina virtuale di Azure per le risorse di Azure per l'accesso al client di script e alle risorse.
+title: Usare identità gestite in una macchina virtuale di Azure per l'accesso-Azure ADV
+description: Istruzioni dettagliate ed esempi per l'uso di identità gestite da macchine virtuali di Azure per l'entità servizio per le risorse di Azure per l'accesso client e le risorse di script.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 1380562cfc073d906ea4cfc0d6d849e9ca2a70d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74547395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608416"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure per l'accesso 
 
@@ -41,7 +41,7 @@ Se si prevede di usare gli esempi di Azure PowerShell e dell'interfaccia della r
 
 ## <a name="overview"></a>Panoramica
 
-Le identità gestite per le risorse di Azure forniscono un [oggetto entità servizio](../develop/developer-glossary.md#service-principal-object) che viene [creato quando si abilitano le identità gestite per le risorse di Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) nella macchina virtuale. L'entità servizio può acquisire l'accesso alle risorse di Azure e può essere usata come identità dai client da script o riga di comando per l'accesso al client e alle risorse. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
+Le identità gestite per le risorse di Azure forniscono un [oggetto entità servizio](../develop/developer-glossary.md#service-principal-object) , che viene [creato quando si abilitano le identità gestite per le risorse di Azure](overview.md) nella macchina virtuale. All'entità servizio è possibile concedere l'accesso a risorse di Azure, usandola come identità tramite client di script/da riga di comando per l'accesso utente e alle risorse. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
 
    - essere registrato e autorizzato da Azure AD come applicazione client Web/riservata
    - accedere con la propria entità servizio usando le credenziali dell'app (probabilmente integrate nello script)
@@ -87,7 +87,7 @@ Per un elenco di risorse che supportano Azure AD e che sono state testate con le
 Risposte come quelle riportate di seguito possono indicare che l'identità gestita per le risorse di Azure della macchina virtuale non è stata configurata correttamente:
 
 - PowerShell: *Invoke-WebRequest: Impossibile connettersi al server remoto*
-- CLI: *MSI: non è stato possibile recuperare un `http://localhost:50342/oauth2/token` token da con un errore di ' HTTPConnectionPool (host =' localhost ', Port = 50342)* 
+- CLI: *MSI: non è stato possibile recuperare un token da `http://localhost:50342/oauth2/token` con un errore di ' HTTPConnectionPool (host =' localhost ', Port = 50342)* 
 
 Se si riceve uno di questi errori, tornare alla macchina virtuale di Azure nel [portale di Azure](https://portal.azure.com) e:
 

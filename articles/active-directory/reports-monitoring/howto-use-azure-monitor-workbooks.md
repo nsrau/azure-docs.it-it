@@ -7,19 +7,19 @@ manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3c6b8ef04e44a68290f61ed4688e3379130231ef
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: ec492466e107eb6f4821f0e6d2caed9daa141a35
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608951"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di Monitoraggio di Azure per i report Azure Active Directory
 

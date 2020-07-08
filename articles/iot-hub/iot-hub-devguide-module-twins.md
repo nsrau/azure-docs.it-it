@@ -1,22 +1,22 @@
 ---
 title: Informazioni sui moduli gemelli nell'hub IoT di Azure | Microsoft Docs
 description: Guida per gli sviluppatori - Usare moduli gemelli per sincronizzare stato e dati di configurazione tra l'hub IoT e i dispositivi
-author: chrissie926
+author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
-ms.author: menchi
-ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/29/2020
+ms.author: asrastog
+ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610150"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendere e usare i moduli gemelli nell'hub IoT
 
-Questo articolo presuppone che sia già stato letto l'articolo [Comprendere e usare i dispositivi gemelli nell'hub IoT](iot-hub-devguide-device-twins.md). Nell'hub IoT è possibile creare fino a 20 identità del modulo in ogni identità del dispositivo. Ogni identità del modulo genera implicitamente un modulo gemello. Simili ai dispositivi gemelli, i moduli gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei moduli, tra cui metadati, configurazioni e condizioni. L'hub IoT di Azure mantiene un modulo gemello per ogni modulo che viene connesso all'hub IoT. 
+Questo articolo presuppone che sia già stato letto l'articolo [Comprendere e usare i dispositivi gemelli nell'hub IoT](iot-hub-devguide-device-twins.md). Nell'hub tutto, in ogni identità del dispositivo, è possibile creare fino a 50 identità del modulo. Ogni identità del modulo genera implicitamente un modulo gemello. Simili ai dispositivi gemelli, i moduli gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei moduli, tra cui metadati, configurazioni e condizioni. L'hub IoT di Azure mantiene un modulo gemello per ogni modulo che viene connesso all'hub IoT. 
 
 Sul lato del dispositivo, gli SDK per dispositivi dell'hub IoT consentono di creare moduli ognuno dei quali apre una connessione indipendente all'hub IoT. Questa funzionalità permette di usare spazi dei nomi distinti per i diversi componenti nel dispositivo. Supponiamo ad esempio di avere un distributore automatico con tre diversi sensori. Ogni sensore è controllato da reparti diversi dell'azienda. È possibile creare un modulo per ogni sensore. In questo modo ogni reparto può inviare processi o metodi diretti solo al sensore che controlla, evitando conflitti ed errori degli utenti.
 
@@ -236,39 +236,49 @@ Tutte le operazioni precedenti richiedono l'autorizzazione **ModuleConnect**, co
 
 I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle restrizioni indicate di seguito:
 
-* **Chiavi**: tutte le chiavi negli oggetti JSON fanno distinzione tra maiuscole e minuscole in stringhe UNICODE da 64 byte UTF-8. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, SP e `$`.
+* **Chiavi**: tutte le chiavi negli oggetti JSON sono con codifica UTF-8, con distinzione tra maiuscole e minuscole e con lunghezza fino a 1 KB. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, `$` e SP.
 
 * **Valori**: tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: Boolean, Number, String, Object. Non sono consentite le matrici.
 
     * I numeri interi possono avere un valore minimo di-4503599627370496 e un valore massimo pari a 4503599627370495.
 
-    * I valori stringa sono codificati in UTF-8 e possono avere una lunghezza massima di 512 byte.
+    * I valori stringa sono codificati in UTF-8 e possono avere una lunghezza massima di 4 KB.
 
-* **Depth**: tutti gli oggetti JSON nei tag, nelle proprietà desiderate e segnalate possono avere una profondità massima di 5. Ad esempio, l'oggetto seguente è valido:
+* **Depth**: la profondità massima degli oggetti JSON nei tag, le proprietà desiderate e le proprietà segnalate sono 10. Ad esempio, l'oggetto seguente è valido:
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## <a name="module-twin-size"></a>Dimensioni del modulo gemello
 
-L'hub Internet delle cose impone un limite di dimensioni di 8 KB sul `tags`valore di e una dimensione di 32 KB per ogni valore di `properties/desired` e `properties/reported`. Questi totali sono esclusivi di elementi di sola lettura come `$etag`, `$version`e. `$metadata/$lastUpdated`
+L'hub Internet delle cose impone un limite di dimensioni di 8 KB sul valore di `tags` e una dimensione di 32 KB per ogni valore di `properties/desired` e `properties/reported` . Questi totali sono esclusivi di elementi di sola lettura come `$etag` , `$version` e `$metadata/$lastUpdated` .
 
 Le dimensioni del dispositivo gemello vengono calcolate come segue:
 

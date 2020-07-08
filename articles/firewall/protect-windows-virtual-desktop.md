@@ -4,21 +4,21 @@ description: Informazioni su come usare il firewall di Azure per proteggere le d
 author: vhorne
 ms.service: firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: 86b30b644da929f10f5d7c9642d5f89fbd29a7fa
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: c725673281b564958bb081fb47fe51a0ad66bea2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611136"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usare il firewall di Azure per proteggere le distribuzioni di desktop virtuali Windows
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usare Firewall di Azure per proteggere distribuzioni di desktop virtuali Windows
 
 Desktop virtuale di Windows è un servizio di virtualizzazione di applicazioni e desktop eseguito in Azure. Quando un utente finale si connette a un ambiente desktop virtuale Windows, la sessione viene eseguita da un pool host. Un pool di host è una raccolta di macchine virtuali di Azure che si registrano in un desktop virtuale Windows come host di sessione. Queste macchine virtuali vengono eseguite nella rete virtuale e sono soggette ai controlli di sicurezza della rete virtuale. Per funzionare correttamente, è necessario l'accesso a Internet in uscita al servizio desktop virtuale di Windows e potrebbe essere necessario l'accesso a Internet in uscita per gli utenti finali. Il firewall di Azure consente di bloccare l'ambiente e filtrare il traffico in uscita.
 
-[![Architettura](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png) del desktop virtuale Windows](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
+[![Architettura ](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png) del desktop virtuale Windows](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
 
 Seguire le linee guida in questo articolo per fornire protezione aggiuntiva per il pool di host di desktop virtuali Windows tramite il firewall di Azure.
 

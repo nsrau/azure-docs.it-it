@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 116c0d5becaea1ca6d488bbf7c94674934d4f7c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608195"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installare e usare le viste di analisi dei log per Azure Active Directory
 
@@ -51,8 +51,8 @@ Per usare le viste di analisi dei log, è necessario:
 
 2. Nell'area di lavoro selezionare **Riepilogo dell'area di lavoro**. Dovrebbero essere visualizzate le tre viste seguenti:
 
-    * **Azure AD Account Provisioning Events**(Eventi di provisioning account Azure AD): questa vista mostra i report relativi al controllo delle attività di provisioning, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e gli errori di provisioning, il numero di utenti aggiornati e gli errori di aggiornamento, nonché il numero di utenti di cui è stato annullato il provisioning e gli errori corrispondenti.    
-    * **Sign-ins Events** (Eventi di accesso): questa vista mostra i report rilevanti relativi al monitoraggio delle attività di accesso, ad esempio gli accessi per applicazione, utente e dispositivo, nonché una visualizzazione di riepilogo che riporta il numero di accessi nel tempo.
+    * **Azure AD Account Provisioning Events** (Eventi di provisioning degli account di Azure AD): questa vista mostra i report relativi al controllo delle attività di provisioning, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e gli errori di provisioning, il numero di utenti aggiornati e gli errori di aggiornamento, nonché il numero di utenti di cui è stato annullato il provisioning e gli errori corrispondenti.    
+    * **Sign-ins Events** (Eventi di accesso): questa vista mostra i report rilevanti relativi al monitoraggio delle attività di accesso, ad esempio gli accessi per applicazione, utente e dispositivo, nonché una visualizzazione di riepilogo che tiene traccia del numero di accessi nel tempo.
 
 3. Selezionare una di queste viste per passare ai singoli report. È anche possibile impostare avvisi per qualsiasi parametro dei report. Ad esempio, di seguito viene descritto come impostare un avviso per ogni errore di accesso. Selezionare prima di tutto la vista **Sign-ins Events** (Eventi di accesso), selezionare il report **Sign-in errors over time** (Errori di accesso nel tempo) e quindi selezionare **Analytics** (Analisi) per aprire la pagina dei dettagli con la query effettiva associata al report. 
 
@@ -67,7 +67,7 @@ Per usare le viste di analisi dei log, è necessario:
 
     ![Creare una regola](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Selezionare il gruppo di azioni per l'avviso. In generale, può trattarsi di un team a cui si vuole inviare notifica tramite posta elettronica o SMS o può essere un'attività automatizzata tramite webhook, runbook, funzioni, app per la logica o soluzioni di gestione dei servizi IT esterne. Vedere le informazioni su come [Creare e gestire gruppi di azione nel portale di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).
+6. Selezionare il gruppo di azioni per l'avviso. In generale, può trattarsi di un team a cui si vuole inviare notifica tramite posta elettronica o SMS o può essere un'attività automatizzata tramite webhook, runbook, funzioni, app per la logica o soluzioni di gestione dei servizi IT esterne. Informazioni su come [creare e gestire gruppi di azioni nel portale di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).
 
 7. Selezionare **Crea regola di avviso** per creare l'avviso. A questo punto si riceverà un avviso ogni volta che si verifica un errore di accesso.
 

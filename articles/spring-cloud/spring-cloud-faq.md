@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 95260d9a15fdc32c9fddccbcf63ae9fa564fd36a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cdbe0630060c9155187e1f62aba3d7a40ceae98
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176771"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610473"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -21,32 +21,17 @@ Questo articolo fornisce le risposte alle domande frequenti su Azure Spring clou
 
 ### <a name="why-azure-spring-cloud"></a>Perché scegliere Azure Spring Cloud?
 
-Azure Spring cloud offre una piattaforma distribuita come servizio (PaaS) per gli sviluppatori di Spring cloud. Azure Spring cloud gestisce l'infrastruttura dell'applicazione in modo da potersi concentrare sul codice dell'applicazione e sulla logica di business. Le funzionalità di base integrate nel cloud Spring di Azure includono Eureka, server di configurazione, server del registro di sistema del servizio, servizio di compilazione pivotal, distribuzioni Blue-Green e altro ancora. Questo servizio consente inoltre agli sviluppatori di associare le proprie applicazioni ad altri servizi di Azure, ad esempio Azure Cosmos DB, database di Azure per MySQL e cache di Azure per Redis.
+Azure Spring cloud offre una piattaforma distribuita come servizio (PaaS) per gli sviluppatori di Spring cloud. Azure Spring cloud gestisce l'infrastruttura dell'applicazione in modo da potersi concentrare sul codice dell'applicazione e sulla logica di business. Le funzionalità di base integrate nel cloud Spring di Azure includono Eureka, server di configurazione, server del registro di sistema del servizio, servizio di compilazione pivotal, distribuzione Blue-Green e altro ancora. Questo servizio consente inoltre agli sviluppatori di associare le proprie applicazioni ad altri servizi di Azure, ad esempio Azure Cosmos DB, database di Azure per MySQL e cache di Azure per Redis.
 
 Azure Spring cloud migliora l'esperienza di diagnostica delle applicazioni per gli sviluppatori e gli operatori integrando monitoraggio di Azure, Application Insights e Log Analytics.
 
-### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Quali piani del servizio offre Azure Spring Cloud?
-
-Azure Spring Cloud offre un unico piano di servizio durante il periodo di anteprima.  Una distribuzione di Spring cloud contiene 16 core vCPU e 32 gigabyte (GB) di memoria.  Il limite superiore per ogni istanza di microservizio all'interno di una distribuzione è di 4 core vCPU con 8 GB di memoria.
-
-Risorsa | Amount
-------- | -------
-Istanze di app per ogni applicazione Spring | 20
-Numero totale di istanze di app per ogni istanza del servizio Azure Spring Cloud | 500
-Istanze del servizio Azure Spring Cloud per area e per sottoscrizione | 10
-Volumi permanenti | 10 x 50 GByte
-
-\*_Per aumentare il limite, aprire un [ticket di supporto](https://azure.microsoft.com/support/faq/)._
-
-Per altre informazioni, vedere [domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
-
 ### <a name="how-secure-is-azure-spring-cloud"></a>Qual è il livello di sicurezza di Azure Spring Cloud?
 
-Sicurezza e privacy sono tra le priorità principali per i clienti di Azure e Azure Spring cloud. Azure contribuisce a garantire che solo i clienti abbiano accesso a dati, log o configurazioni dell'applicazione crittografando in modo sicuro tutti questi dati. Tutte le istanze del servizio in Azure Spring Cloud sono isolate le une dalle altre.
+Sicurezza e privacy sono tra le priorità principali per i clienti di Azure e Azure Spring cloud. Azure contribuisce a garantire che solo i clienti abbiano accesso a dati, log o configurazioni dell'applicazione crittografando in modo sicuro tutti questi dati. 
 
-Azure Spring cloud offre funzionalità complete di gestione dei certificati e TLS/SSL.
-
-Le patch critiche di sicurezza per i runtime OpenJDK e Spring Cloud vengono applicate prima possibile ad Azure Spring Cloud.
+* Le istanze del servizio in Azure Spring cloud sono isolate l'una dall'altra.
+* Azure Spring cloud offre funzionalità complete di gestione dei certificati e TLS/SSL.
+* Le patch critiche di sicurezza per i runtime OpenJDK e Spring Cloud vengono applicate prima possibile ad Azure Spring Cloud.
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>In quali aree è disponibile Azure Spring cloud?
 
@@ -57,9 +42,12 @@ Stati Uniti orientali, Stati Uniti occidentali 2, Europa occidentale e Asia sud-
 Durante la versione di anteprima, Azure Spring cloud presenta le limitazioni note seguenti:
 
 * `spring.application.name`verrà eseguito l'override del nome dell'applicazione usato per creare ogni applicazione.
-* `server.port`non è consentita nel file di configurazione dal repository git. L'aggiunta al file di configurazione probabilmente renderà l'applicazione irraggiungibile da altre applicazioni o da Internet.
+* `server.port`il valore predefinito è porte 80/443. Se viene applicato un altro valore, ne verrà eseguito l'override in 80/443.
 * I modelli portale di Azure e Azure Resource Manager non supportano il caricamento di pacchetti dell'applicazione. È possibile caricare i pacchetti dell'applicazione solo distribuendo l'applicazione tramite l'interfaccia della riga di comando di Azure.
-* Per informazioni sulle limitazioni della quota, vedere [quali piani di servizio offre Azure Spring cloud?](#what-service-plans-does-azure-spring-cloud-offer).
+
+### <a name="what-pricing-tiers-are-available"></a>Quali sono i piani tariffari disponibili? 
+Quale si deve usare e quali sono i limiti all'interno di ogni livello?
+* Azure Spring cloud offre due piani tariffari: Basic e standard. Il livello Basic è destinato a sviluppo/test e a provare Azure Spring cloud. Il livello standard è ottimizzato per eseguire il traffico di produzione per utilizzo generico. Vedere [i dettagli sui prezzi di Azure Spring cloud](https://azure.microsoft.com/pricing/details/spring-cloud/) per i limiti e il confronto a livello di funzionalità.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Come è possibile fornire feedback e segnalare problemi?
 
@@ -73,7 +61,7 @@ Per il modo più rapido per iniziare a usare Azure Spring cloud, seguire le istr
 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Quale runtime Java supporta Azure Spring Cloud?
 
-Azure Spring Cloud supporta Java 8 e 11.
+Azure Spring Cloud supporta Java 8 e 11. Vedere [le versioni del runtime e del sistema operativo Java](#java-runtime-and-os-versions)
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Dove è possibile visualizzare i log e le metriche dell'applicazione Spring cloud?
 
@@ -87,7 +75,10 @@ Sì. Per altre informazioni, vedere [esercitazione: usare la traccia distribuita
 
 ### <a name="what-resource-types-does-service-binding-support"></a>Quali tipi di risorse supporta il binding di servizi?
 
-Sono attualmente supportati tre servizi: Azure Cosmos DB, database di Azure per MySQL e cache di Azure per Redis.
+Attualmente sono supportati tre servizi:
+* Azure Cosmos DB
+* Database di Azure per MySQL
+* Cache Redis di Azure.
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>È possibile visualizzare, aggiungere o spostare volumi permanenti dall'interno delle applicazioni?
 
@@ -95,7 +86,52 @@ Sì.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando si elimina o si sposta un'istanza del servizio cloud di Azure Spring, le risorse di estensione verranno eliminate o spostate?
 
-Dipende dalle logiche dei provider di risorse a cui appartengono le risorse di estensione. Le risorse di estensione di `Microsoft.AppPlatform` un'istanza non appartengono allo stesso spazio dei nomi, quindi i comportamenti variano in base ai diversi provider di risorse. Ad esempio, l'operazione di eliminazione/spostamento non produrrà a catena le risorse delle **impostazioni di diagnostica** . Se viene eseguito il provisioning di una nuova istanza di Azure Spring cloud con lo stesso ID di risorsa di quello eliminato o se viene spostata di nuovo l'istanza di Azure Spring cloud precedente, le risorse delle **impostazioni di diagnostica** precedenti continuano a estenderlo.
+Dipende dalla logica dei provider di risorse che possiedono le risorse di estensione. Le risorse di estensione di un' `Microsoft.AppPlatform` istanza non appartengono allo stesso spazio dei nomi, quindi il comportamento varia a seconda del provider di risorse. Ad esempio, l'operazione di eliminazione/spostamento non produrrà a catena le risorse delle **impostazioni di diagnostica** . Se viene eseguito il provisioning di una nuova istanza di Azure Spring cloud con lo stesso ID di risorsa di quello eliminato o se viene spostata di nuovo l'istanza di Azure Spring cloud precedente, le risorse delle **impostazioni di diagnostica** precedenti continuano a estenderlo.
+
+## <a name="java-runtime-and-os-versions"></a>Runtime Java e versioni del sistema operativo
+
+### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Quali versioni di Java Runtime sono supportate nel cloud Spring di Azure?
+
+Azure Spring cloud supporta le versioni Java LTS con le build più recenti, attualmente il 2020 giugno, Java 8 Build 252 e Java 11 Build 7 sono supportate. Vedere [Install the JDK for Azure and Azure stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+
+### <a name="who-built-these-java-runtimes"></a>Chi ha creato questi runtime Java?
+
+Sistemi Azul. Le build di JDK Azul Zulu per Azure - Enterprise Edition sono distribuzioni di OpenJDK gratuite, multipiattaforma e pronte per la produzione per Azure e Azure Stack, supportate da Microsoft e Azul Systems. Contengono tutti i componenti necessari per compilare ed eseguire applicazioni Java SE.
+
+### <a name="how-often-will-java-runtimes-get-updated"></a>Con quale frequenza vengono aggiornati i runtime Java?
+
+Le versioni di JDK con supporto a medio e lungo termine includono aggiornamenti trimestrali di sicurezza e correzioni di bug, oltre a eventuali patch e aggiornamenti critici straordinari necessari. Il supporto include il backporting a Java 7 e 8 degli aggiornamenti di sicurezza e delle correzioni di bug applicate alle versioni più recenti di Java, come Java 11,
+
+### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Per quanto tempo saranno supportate le versioni Java 8 e Java 11 LTS?
+
+Vedere [supporto a lungo termine Java per Azure e Azure stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+
+* Java 8 LTS sarà supportato fino al 2030 dicembre.
+* Java 11 LTS sarà supportato fino al 2027 settembre.
+
+### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>Come è possibile scaricare un runtime Java supportato per lo sviluppo locale?
+
+Vedere [Install the JDK for Azure and Azure stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+
+### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>Quali sono i criteri di ritiro per i runtime Java precedenti?
+
+Il preavviso pubblico verrà inviato a 12 mesi prima del ritiro di qualsiasi versione precedente del runtime. La migrazione a una versione successiva avrà 12 mesi.
+
+* Gli amministratori della sottoscrizione riceveranno una notifica tramite posta elettronica quando la versione di Java viene ritirata.
+* Le informazioni di ritiro verranno pubblicate nella documentazione.
+
+### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Come è possibile ottenere supporto per i problemi a livello di runtime Java?
+
+È possibile aprire un ticket di supporto con il supporto tecnico di Azure.  Vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+### <a name="what-is-the-operation-system-to-run-my-apps"></a>Qual è il sistema operativo per l'esecuzione di app personali?
+
+Viene usata la versione più recente di Ubuntu LTS, attualmente [ubuntu 20,04 LTS (fossa focale)](https://releases.ubuntu.com/focal/) è il sistema operativo predefinito.
+
+### <a name="how-often-will-os-security-patches-be-applied"></a>Con quale frequenza verranno applicate le patch di sicurezza del sistema operativo?
+
+Le patch di sicurezza applicabili al cloud Spring di Azure verranno implementate in produzione su base mensile.
+Le patch di sicurezza critiche (il Punteggio CVE >= 9) applicabili al cloud Spring di Azure verranno implementate appena possibile.
 
 ## <a name="deployment"></a>Distribuzione
 

@@ -1,206 +1,196 @@
 ---
-title: Pianificazione della capacità del cluster Service Fabric
-description: Considerazioni sulla pianificazione della capacità del cluster Service Fabric. Tipi di nodo, operazioni, livelli di affidabilità e durabilità
+title: Considerazioni sulla pianificazione della capacità del cluster Service Fabric
+description: Tipi di nodo, durabilità, affidabilità e altri aspetti da considerare durante la pianificazione del cluster Service Fabric.
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: f011dee94e135ba40f8d3c87240e905e4a2739ec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.custom: sfrev
+ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793058"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610541"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
-La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
 
-* Numero di tipi di nodo con cui il cluster deve iniziare
-* Proprietà di ogni tipo di nodo (dimensioni, primario, con connessione Internet, numero di macchine virtuali e così via)
-* Caratteristiche di affidabilità e durabilità del cluster
+La pianificazione della capacità del cluster è importante per ogni ambiente di produzione Service Fabric. Le considerazioni principali includono:
 
-> [!NOTE]
-> Durante la pianificazione, è necessario come minimo rivedere tutti i valori **Non consentiti** dei criteri di aggiornamento, per assicurarsi che i valori siano stati impostati in modo corretto e ridurre l'uso del cluster in un secondo momento a causa di impostazioni di configurazione di sistema non modificabili. 
-> 
+* **Numero iniziale e proprietà dei *tipi di nodo* del cluster**
 
-Ogni aspetto verrà ora esaminato brevemente.
+* **Livello di *durabilità* di ogni tipo di nodo**, che determina Service Fabric privilegi della VM nell'infrastruttura di Azure
 
-## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>Numero di tipi di nodo con cui il cluster deve iniziare
-Prima di tutto è necessario stabilire per che cosa verrà usato il cluster che si sta creando.  Che tipo di applicazioni si prevede di distribuire nel cluster? Se lo scopo del cluster non è chiaro, è molto probabile che non si sia ancora pronti per iniziare il processo di pianificazione della capacità.
+* **Livello di *affidabilità* del cluster**, che determina la stabilità dei servizi di sistema Service Fabric e della funzione complessiva del cluster
 
-Stabilire il numero di tipi di nodo con cui il cluster deve iniziare.  Di ogni tipo di nodo viene eseguito il mapping a un set di scalabilità di macchine virtuali. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. Quindi la decisione relativa al numero di tipi di nodo si basa essenzialmente sulle considerazioni seguenti:
+In questo articolo vengono illustrati i punti decisionali significativi per ognuna di queste aree.
 
-* L'applicazione ha più servizi, alcuni dei quali devono essere pubblici o per Internet? Le applicazioni tipiche contengono un servizio gateway front-end che riceve l'input da un client e uno o più servizi back-end che comunicano con i servizi front-end. In questo caso quindi si finirà per avere almeno due tipi di nodi.
-* I servizi (che costituiscono l'applicazione) hanno esigenze diverse per l'infrastruttura, ad esempio cicli di CPU più elevati o una quantità maggiore di RAM? Ad esempio, si supponga che l'applicazione che si vuole distribuire contenga un servizio front-end e un servizio back-end. Il servizio front-end può essere eseguito in VM più piccole (ad esempio, di dimensioni D2), con porte aperte a Internet,  Il servizio back-end è invece a elevato utilizzo di calcolo e deve essere eseguito in VM più grandi (ad esempio di dimensione D4, D6, D15) senza connessione a Internet.
-  
-  In questo esempio, anche se è possibile decidere di inserire tutti i servizi in un unico tipo di nodo, è consigliabile inserirli in un cluster con due tipi di nodo,  perché in questo modo ogni tipo di nodo può avere proprietà distinte, ad esempio la connettività Internet o le dimensioni delle VM. Il numero di VM può essere ridimensionato anche in modo indipendente.  
-* Poiché non è possibile prevedere cosa accadrà in futuro, è importante basarsi sulle condizioni attuali per scegliere il numero di tipi di nodo necessari alle applicazioni per iniziare. Sarà sempre possibile aggiungere o rimuovere i tipi di nodi in seguito. Un cluster di Service Fabric deve avere almeno un tipo di nodo.
+## <a name="initial-number-and-properties-of-cluster-node-types"></a>Numero iniziale e proprietà dei tipi di nodo del cluster
 
-## <a name="the-properties-of-each-node-type"></a>Proprietà di ogni tipo di nodo
-I **tipi di nodo** possono essere paragonati ai ruoli in Servizi cloud, poiché definiscono le dimensioni delle VM, il numero di VM e le relative proprietà. Ogni tipo di nodo definito in un cluster di Service Fabric è mappato a un [set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).  
-Per ogni tipo di nodo, che rappresenta un set di scalabilità distinto, è possibile aumentare o ridurre le prestazioni in modo indipendente e avere diversi set di porte aperte e metriche per la capacità diverse. Per altre informazioni sulle relazioni tra i tipi di nodo e i set di scalabilità di macchine virtuali, su come connettersi tramite RDP a una delle istanze, come aprire nuove porte e così via, vedere la pagina relativa ai [tipi di nodo del cluster di Service Fabric](service-fabric-cluster-nodetypes.md).
+Un *tipo di nodo* definisce dimensioni, numero e proprietà per un set di nodi (macchine virtuali) del cluster. Ogni tipo di nodo definito in un cluster di Service Fabric è mappato a un [set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
-Un cluster di Service Fabric può comprendere più di un tipo di nodo. In tal caso, il cluster è costituito da un tipo di nodo primario e uno o più tipi di nodo non primari.
+Poiché ogni tipo di nodo è un set di scalabilità distinto, può essere ridimensionato in modo indipendente, avere diversi set di porte aperte e avere metriche di capacità diverse. Per altre informazioni sulla relazione tra i tipi di nodo e i set di scalabilità di macchine virtuali, vedere [Service Fabric tipi di nodo del cluster](service-fabric-cluster-nodetypes.md).
 
-Non è possibile per un tipo di nodo singolo ridimensionare in modo affidabile oltre 100 nodi per ciascun set di scalabilità di macchine virtuali, impostati per applicazioni Service Fabric. Per raggiungere in modo affidabile più di 100 nodi, è necessario aggiungere altri set di scalabilità di macchine virtuali.
+Ogni cluster richiede un **tipo di nodo primario**, che esegue i servizi di sistema critici che forniscono Service Fabric funzionalità della piattaforma. Sebbene sia possibile usare i tipi di nodo primari anche per eseguire le applicazioni, è consigliabile dedicarle esclusivamente ai servizi di sistema in esecuzione.
 
-### <a name="primary-node-type"></a>Tipo di nodo primario
+I **tipi di nodo non primari** possono essere usati per definire i ruoli applicazione, ad esempio i servizi *front-end* e *back-end* , e per isolare fisicamente i servizi all'interno di un cluster. I cluster Service Fabric possono avere zero o più tipi di nodo non primari.
 
-I servizi di sistema di Service Fabric (ad esempio, il servizio Gestione cluster o il servizio di archiviazione immagini) sono posizionati nel tipo di nodo primario. 
+Il tipo di nodo primario viene configurato usando l' `isPrimary` attributo sotto la definizione del tipo di nodo nel modello di distribuzione Azure Resource Manager. Per l'elenco completo delle proprietà del tipo di nodo, vedere l' [oggetto NodeTypeDescription](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) . Ad esempio, è possibile aprire qualsiasi *AzureDeploy.js* di file in [Service Fabric esempi di cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e trovare la ricerca della *pagina* per l' `nodetTypes` oggetto.
 
-![Screenshot di un cluster con due tipi di nodo][SystemServices]
+### <a name="node-type-planning-considerations"></a>Considerazioni sulla pianificazione del tipo di nodo
 
-* Le **dimensioni minime delle macchine virtuali** per il tipo di nodo primario sono determinate dal **livello di durabilità** scelto. Il livello di durabilità predefinito è Bronze. Per informazioni dettagliate, vedere [Caratteristiche di durabilità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).  
-* Il **numero minimo delle macchine virtuali** per il tipo di nodo primario è determinato dal **livello di affidabilità** scelto. Il livello di affidabilità predefinito è Silver. Per informazioni dettagliate, vedere [Caratteristiche di affidabilità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster).  
+Il numero di nodi iniziali dipende dallo scopo del cluster e dalle applicazioni e dai servizi in esecuzione su di esso. Prendere in considerazione le domande seguenti:
 
-Dal modello di Azure Resource Manager, il tipo di nodo primario è configurato con l'attributo `isPrimary` nella [definizione del tipo di nodo](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
+* ***L'applicazione ha più servizi, alcuni dei quali devono essere pubblici o per Internet?***
 
-### <a name="non-primary-node-type"></a>Tipo di nodo non primario
+    Le applicazioni tipiche contengono un servizio gateway front-end che riceve l'input da un client e uno o più servizi back-end che comunicano con i servizi front-end, con reti separate tra i servizi front-end e back-end. Questi casi richiedono in genere tre tipi di nodo: un tipo di nodo primario e due tipi di nodo non primari (uno per il servizio front-end e back-end).
 
-In un cluster con più tipi di nodo è presente un tipo di nodo primario, mentre gli altri saranno non primari.
+* ***I servizi che compongono l'applicazione hanno esigenze di infrastruttura diverse, ad esempio maggiore RAM o più cicli di CPU?***
 
-* Le **dimensioni minime delle macchine virtuali** per i tipi di nodo non primari sono determinate dal **livello di durabilità** scelto. Il livello di durabilità predefinito è Bronze. Per altre informazioni, vedere [Caratteristiche di durabilità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).  
-* Il **numero minimo di macchine virtuali** per i tipi di nodo non primari corrisponde a uno. È tuttavia consigliabile scegliere questo numero in base al numero di repliche dell'applicazione o dei servizi che si vuole eseguire in questo tipo di nodo. Il numero di VM in un tipo di nodo può essere aumentato dopo avere distribuito il cluster.
+    Spesso il servizio front-end può essere eseguito in VM più piccole (dimensioni di VM come D2) con porte aperte a Internet.  Potrebbe essere necessario eseguire servizi back-end a elevato utilizzo di calcolo in macchine virtuali di dimensioni maggiori (con dimensioni di VM come D4, D6, D15) che non sono connesse a Internet. La definizione di tipi di nodo diversi per questi servizi consente di rendere più efficiente e sicuro l'uso delle macchine virtuali Service Fabric sottostanti e consente loro di ridimensionarle in modo indipendente. Per altre informazioni sulla stima della quantità di risorse necessarie, vedere [pianificazione della capacità per applicazioni Service Fabric](service-fabric-capacity-planning.md)
 
-## <a name="the-durability-characteristics-of-the-cluster"></a>Caratteristiche di durabilità del cluster
-Il livello di durabilità viene usato per indicare al sistema i privilegi delle VM rispetto all'infrastruttura di Azure sottostante. Nel tipo di nodo primario questo privilegio consente a Service Fabric di sospendere le richieste di infrastruttura a livello di VM (ad esempio il riavvio di una VM, il re-imaging di una VM o la migrazione di una VM) che hanno effetto sui requisiti relativi al quorum per i servizi di sistema e i servizi con stato. Nei tipi di nodo non primari questo privilegio consente a Service Fabric di sospendere le richieste di infrastruttura a livello di macchina virtuale (ad esempio, il riavvio di una VM, il re-imaging di una VM e la migrazione di una VM) che hanno effetto sui requisiti relativi al quorum per i servizi con stato.
+* ***I servizi per le applicazioni dovranno essere scalati oltre 100 nodi?***
 
-| Livello di durabilità  | Numero minimo richiesto di macchine virtuali | SKU di macchine virtuali supportati                                                                  | Aggiornamenti al set di scalabilità di macchine virtuali                               | Aggiornamenti e manutenzione avviati da Azure                                                              | 
+    Un tipo di nodo singolo non può essere ridimensionato in modo affidabile oltre 100 nodi per set di scalabilità di macchine virtuali per Service Fabric applicazioni. Per l'esecuzione di più di 100 nodi sono necessari set di scalabilità di macchine virtuali aggiuntivi (e quindi tipi di nodo aggiuntivi).
+
+* ***Il cluster si estenderà su zone di disponibilità?***
+
+    Service Fabric supporta i cluster che si estendono tra [zone di disponibilità](../availability-zones/az-overview.md) distribuendo i tipi di nodo aggiunti a zone specifiche, garantendo una disponibilità elevata delle applicazioni. Zone di disponibilità richiedono la pianificazione del tipo di nodo e i requisiti minimi. Per informazioni dettagliate, vedere [topologia consigliata per il tipo di nodo primario di Service Fabric cluster](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones)che si estendono tra zone di disponibilità. 
+
+Quando si determinano il numero e le proprietà dei tipi di nodo per la creazione iniziale del cluster, tenere presente che è sempre possibile aggiungere, modificare o rimuovere i tipi di nodo (non primari) dopo che il cluster è stato distribuito. I [tipi di nodo primari possono anche essere modificati](service-fabric-scale-up-node-type.md) nei cluster in esecuzione (anche se tali operazioni richiedono una grande quantità di pianificazione e attenzione negli ambienti di produzione).
+
+Un'ulteriore considerazione per le proprietà del tipo di nodo è il livello di durabilità, che determina i privilegi che le VM di un tipo di nodo hanno all'interno dell'infrastruttura di Azure. Usare le dimensioni delle VM selezionate per il cluster e il numero di istanze assegnato per i singoli tipi di nodo per determinare il livello di durabilità appropriato per ogni tipo di nodo, come descritto di seguito.
+
+## <a name="durability-characteristics-of-the-cluster"></a>Caratteristiche di durabilità del cluster
+
+Il *livello di durabilità* designa i privilegi che le macchine virtuali Service Fabric hanno con l'infrastruttura di Azure sottostante. Questo privilegio consente Service Fabric di sospendere qualsiasi richiesta di infrastruttura a livello di macchina virtuale, ad esempio il riavvio, la ricreazione dell'immagine o la migrazione, che influisca sui requisiti del quorum per i servizi di sistema Service Fabric e i servizi con stato.
+
+> [!IMPORTANT]
+> Il livello di durabilità è impostato per ogni tipo di nodo. Se non viene specificato alcun valore, verrà usato il livello *Bronze* , che tuttavia non fornisce aggiornamenti automatici del sistema operativo. La durabilità *Silver* o *Gold* è consigliata per i carichi di lavoro di produzione.
+
+La tabella seguente elenca Service Fabric livelli di durabilità, i rispettivi requisiti e affordances.
+
+| Livello di durabilità  | Numero minimo richiesto di macchine virtuali | Dimensioni delle macchine virtuali supportate                                                                  | Aggiornamenti al set di scalabilità di macchine virtuali                               | Aggiornamenti e manutenzione avviati da Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Oro             | 5                              | SKU con tutti i nodi dedicati a un singolo cliente (ad esempio, L32s, GS5, G5, DS15_v2, D15_v2) | Può essere ritardato fino all'approvazione da parte del cluster di Service Fabric | Può essere sospeso per 2 ore per ogni dominio di aggiornamento, per concedere più tempo per il ripristino delle repliche da errori precedenti |
+| Oro             | 5                              | Dimensioni del nodo completo dedicate a un singolo cliente (ad esempio, L32s, GS5, G5, DS15_v2 D15_v2) | Può essere ritardato fino all'approvazione da parte del cluster di Service Fabric | Può essere sospeso per 2 ore per dominio di aggiornamento, in modo da consentire ulteriore tempo per il ripristino delle repliche da errori precedenti |
 | Argento           | 5                              | VM di un core singolo o superiore con almeno 50 GB di unità SSD locale                      | Può essere ritardato fino all'approvazione da parte del cluster di Service Fabric | Non può essere ritardato per un periodo di tempo significativo                                                    |
-| Bronzo           | 1                              | VM con almeno 50 GB di unità SSD locale                                              | Non verrà ritardato dal cluster di Service Fabric           | Non può essere ritardato per un periodo di tempo significativo                                                    |
+| Bronzo          | 1                              | VM con almeno 50 GB di unità SSD locale                                              | Non verrà ritardato dal cluster di Service Fabric           | Non può essere ritardato per un periodo di tempo significativo                                                    |
 
 > [!WARNING]
-> I tipi di nodo in esecuzione con durabilità Bronze _non ottengono privilegi_. Ciò significa che i processi di infrastruttura che influiscano sui carichi di lavoro con stato non verranno interrotti o posticipati, che potrebbero influito sui carichi di lavoro. Usare il livello Bronze solo per i tipi di nodo che eseguono esclusivamente carichi di lavoro senza stato. Per i carichi di lavoro di produzione è consigliabile eseguire il livello Silver o superiore. 
-> 
-> Indipendentemente dal livello di durabilità, l'operazione di [deallocazione](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) nel set di scalabilità delle macchine virtuali comporta l'eliminazione del cluster
+> Con la durabilità Bronze, l'aggiornamento automatico delle immagini del sistema operativo non è disponibile. Sebbene [patch Orchestration Application](service-fabric-patch-orchestration-application.md) (destinata solo ai cluster non ospitati da Azure) *non sia consigliata* per i livelli di durabilità Silver o superiore, è l'unica opzione per automatizzare gli aggiornamenti di Windows rispetto ai domini di aggiornamento Service Fabric.
 
-**Vantaggi dell'uso di livelli di durabilità Silver o Gold**
- 
-- Riducono il numero dei passaggi necessari in un'operazione di riduzione del numero di istanze. La disattivazione del nodo e Remove-ServiceFabricNodeState vengono chiamati automaticamente.
-- Riducono il rischio di perdita di dati a causa di un'operazione di modifica sul posto dello SKU di VM avviata dal cliente o di operazioni sull'infrastruttura di Azure.
+> [!IMPORTANT]
+> Indipendentemente dal livello di durabilità, l'esecuzione di un'operazione di [deallocazione](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) in un set di scalabilità di macchine virtuali eliminerà definitivamente il cluster.
 
-**Svantaggi dell'uso di livelli di durabilità Silver o Gold**
- 
-- Le distribuzioni nel set di scalabilità di macchine virtuali e in altre risorse di Azure correlate possono subire ritardi o timeout oppure essere interamente bloccate da problemi nel cluster o a livello di infrastruttura. 
-- Le disattivazioni automatizzate dei nodi durante le operazioni sull'infrastruttura di Azure aumentano il numero di [eventi del ciclo di vita della replica](service-fabric-reliable-services-lifecycle.md), ad esempio di scambi di nodi primari.
-- Accetta nodi fuori servizio per determinati periodi di tempo durante le attività di manutenzione dell'hardware o gli aggiornamenti del software della piattaforma Azure. Quando queste attività sono in corso, possono essere visibili nodi con stato Disabilitazione in corso o Disabilitato. Ciò riduce temporaneamente la capacità del cluster, ma non dovrebbe influire sulla disponibilità del cluster o delle applicazioni.
+### <a name="bronze"></a>Bronzo
 
-### <a name="recommendations-for-when-to-use-silver-or-gold-durability-levels"></a>Raccomandazioni su quando usare i livelli di durabilità Silver o Gold
+I tipi di nodo in esecuzione con durabilità Bronze non ottengono privilegi. Ciò significa che i processi di infrastruttura che influiscano sui carichi di lavoro con stato non verranno interrotti o posticipati. Usare la durabilità Bronze per i tipi di nodo che eseguono solo carichi di lavoro senza stato. Per i carichi di lavoro di produzione è consigliabile eseguire il livello Silver o superiore.
 
-Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi con stato di cui si prevede di ridurre frequentemente il numero di istanze di VM, quando è preferibile ritardare le operazioni di distribuzione o ridurre la capacità a favore della semplificazione di queste operazioni di riduzione del numero di istanze. Gli scenari di aumento del numero di istanze di VM non influiscono sulla scelta del livello di durabilità. Solo la riduzione del numero di istanze ha un impatto su tale scelta.
+### <a name="silver-and-gold"></a>Argento e oro
+
+Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano i servizi con stato che si prevede di ridimensionare spesso e dove si desidera che le operazioni di distribuzione siano ritardate e la capacità venga ridotta a favore della semplificazione del processo. Gli scenari di scalabilità orizzontale non devono influire sulla scelta del livello di durabilità.
+
+#### <a name="advantages"></a>Vantaggi
+
+* Riduce il numero di passaggi necessari per le operazioni di scalabilità (la disattivazione del nodo e Remove-ServiceFabricNodeState vengono chiamati automaticamente).
+* Riduce il rischio di perdita di dati a causa di operazioni di modifica delle dimensioni della macchina virtuale sul posto e di operazioni di infrastruttura di Azure.
+
+#### <a name="disadvantages"></a>Svantaggi
+
+* Le distribuzioni nei set di scalabilità di macchine virtuali e in altre risorse di Azure correlate possono avere un timeout, essere posticipate o essere interamente bloccate da problemi nel cluster o a livello di infrastruttura.
+* Le disattivazioni automatizzate dei nodi durante le operazioni sull'infrastruttura di Azure aumentano il numero di [eventi del ciclo di vita della replica](service-fabric-reliable-services-lifecycle.md), ad esempio di scambi di nodi primari.
+* Accetta nodi fuori servizio per determinati periodi di tempo durante le attività di manutenzione dell'hardware o gli aggiornamenti del software della piattaforma Azure. Quando queste attività sono in corso, possono essere visibili nodi con stato Disabilitazione in corso o Disabilitato. Ciò riduce temporaneamente la capacità del cluster, ma non dovrebbe influire sulla disponibilità del cluster o delle applicazioni.
+
+#### <a name="best-practices-for-silver-and-gold-durability-node-types"></a>Procedure consigliate per i tipi di nodo durabilità Silver e Gold
+
+Seguire questi consigli per la gestione dei tipi di nodo con durabilità Silver o Gold:
+
+* Mantenere sempre integri il cluster e le applicazioni e verificare che le applicazioni rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-lifecycle.md), ad esempio al blocco della replica in compilazione.
+* Adottare modi più sicuri per apportare una modifica alle dimensioni della macchina virtuale (scalabilità verticale/verticale). Per modificare le dimensioni della VM di un set di scalabilità di macchine virtuali, è necessario prestare attenzione. Per informazioni dettagliate, vedere [aumentare il livello di un nodo di tipo Service Fabric](service-fabric-scale-up-node-type.md)
+* Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato. Se si ridimensiona al di sotto di questa soglia, il cluster immetterà lo stato di errore e sarà necessario eseguire manualmente la pulizia dello stato ( `Remove-ServiceFabricNodeState` ) per i nodi rimossi.
+* Ogni set di scalabilità di macchine virtuali con livello di durabilità Silver o Gold deve essere mappato al proprio tipo di nodo del cluster di Service Fabric. Il mapping di più set di scalabilità di macchine virtuali a un singolo tipo di nodo impedirà il corretto funzionamento del coordinamento tra il cluster di Service Fabric e l'infrastruttura di Azure.
+* Non eliminare istanze di VM casuali. usare sempre la funzionalità di scalabilità del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM casuali può creare squilibri nell'istanza di macchina virtuale distribuita in domini di [aggiornamento](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) e [domini di errore](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Questo squilibrio potrebbe influire negativamente sulla capacità del sistema di bilanciare correttamente il carico tra le istanze del servizio o le repliche del servizio.
+* Se si usa la scalabilità automatica, impostare le regole in modo che le operazioni di ridimensionamento (rimozione di istanze di VM) vengano eseguite solo in un nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.
+* Se si eliminano o deallocano macchine virtuali nel tipo di nodo primario, non ridurre mai il numero di macchine virtuali allocate al di sotto di quanto richiesto dal livello di affidabilità. Queste operazioni verranno bloccate indefinitamente in un set di scalabilità con un livello di durabilità di Silver o Gold.
 
 ### <a name="changing-durability-levels"></a>Modifica dei livelli di durabilità
-- Non è possibile effettuare il downgrade al livello Bronze dei tipi di nodo con i livelli di durabilità Silver o Gold.
-- L'aggiornamento dal livello Bronze al livello Silver o Gold può richiedere alcune ore.
-- Quando si modifica il livello di durabilità, assicurarsi di aggiornarlo sia nella configurazione dell'estensione di Service Fabric nella risorsa del set di scalabilità di macchine virtuali che nella definizione del tipo di nodo nella risorsa cluster di Service Fabric. Questi valori devono corrispondere.
 
-### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Raccomandazioni operative per il tipo di nodo impostato sul livello di durabilità Silver o Gold.
+All'interno di determinati vincoli, è possibile modificare il livello di durabilità del tipo di nodo:
 
-- Mantenere sempre integri il cluster e le applicazioni e verificare che le applicazioni rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-lifecycle.md), ad esempio al blocco della replica in compilazione.
-- Adottare modi più sicuri per apportare una modifica dello SKU di VM (aumento/riduzione delle prestazioni): la modifica dello SKU di VM di un set di scalabilità di macchine virtuali richiede una serie di passaggi e considerazioni. Di seguito è illustrato il processo che è possibile seguire per evitare i problemi comuni.
-    - **Per i tipi di nodo non primari:** è consigliabile creare un nuovo set di scalabilità di macchine virtuali, modificare il vincolo di posizionamento del servizio per poter includere il nuovo tipo di nodo/set di scalabilità di macchine virtuali e quindi ridurre il numero di istanze del set di scalabilità di macchine virtuali precedente a zero, un nodo alla volta (perché la rimozione dei nodi non influisca sull'affidabilità del cluster).
-    - **Per il tipo di nodo primario:** Se lo SKU della macchina virtuale selezionato è a capacità e si vuole passare a uno SKU di VM più grande, seguire le indicazioni sulla [scalabilità verticale per un tipo di nodo primario](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
+* Non è possibile effettuare il downgrade in bronzo dei tipi di nodo con livelli di durabilità Silver o Gold.
+* L'aggiornamento dal livello Bronze al livello Silver o Gold può richiedere alcune ore.
+* Quando si modifica il livello di durabilità, assicurarsi di aggiornarlo sia nella configurazione dell'estensione Service Fabric nella risorsa del set di scalabilità di macchine virtuali che nella definizione del tipo di nodo nella risorsa cluster Service Fabric. Questi valori devono corrispondere.
 
-- Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato.
-- Ogni set di scalabilità di macchine virtuali con livello di durabilità Silver o Gold deve essere mappato al proprio tipo di nodo del cluster di Service Fabric. Il mapping di più set di scalabilità di macchine virtuali a un singolo tipo di nodo impedirà il corretto funzionamento del coordinamento tra il cluster di Service Fabric e l'infrastruttura di Azure.
-- Non eliminare istanze di VM casuali. usare sempre la funzionalità di scalabilità del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM causali può creare squilibri nella distribuzione delle istanze di VM tra domini di aggiornamento e domini di errore. Tale squilibrio potrebbe influire negativamente sulla capacità del sistema di bilanciare correttamente il carico tra istanze dei servizi e repliche dei servizi.
-- Se si usa la scalabilità automatica, impostare le regole in modo che la riduzione del numero di istanze (ossia la rimozione di istanze di VM) venga eseguita un solo nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.
-- In caso di eliminazione o deallocazione delle macchine virtuali nel tipo di nodo primario, non ridurre mai il conteggio delle macchine virtuali allocate al di sotto del numero richiesto dal livello di affidabilità. Queste operazioni verranno bloccate indefinitamente in un set di scalabilità con un livello di durabilità di Silver o Gold.
+Un'altra considerazione quando la pianificazione della capacità è il livello di affidabilità per il cluster, che determina la stabilità dei servizi di sistema e del cluster complessivo, come descritto nella sezione successiva.
 
-## <a name="the-reliability-characteristics-of-the-cluster"></a>Caratteristiche di affidabilità del cluster
-Il livello di affidabilità viene usato per impostare il numero di repliche dei servizi di sistema che si vuole eseguire in questo cluster nel tipo di nodo primario. I servizi di sistema nel cluster sono tanto più affidabili quanto più elevato è il numero di repliche.  
+## <a name="reliability-characteristics-of-the-cluster"></a>Caratteristiche di affidabilità del cluster
+
+Il *livello di affidabilità* del cluster determina il numero di repliche dei servizi di sistema in esecuzione sul tipo di nodo primario del cluster. Maggiore è il numero di repliche, più affidabili sono i servizi di sistema e, di conseguenza, il cluster nel suo complesso.
+
+> [!IMPORTANT]
+> Il livello di affidabilità viene impostato a livello di cluster e determina il numero minimo di nodi del tipo di nodo primario. I carichi di lavoro di produzione richiedono un livello di affidabilità Silver (maggiore o uguale a cinque nodi) o superiore.  
 
 Il livello di affidabilità può avere i valori seguenti:
 
-* Platinum: esegue i servizi di sistema con un totale di set di repliche di destinazione pari a nove
-* Gold: esegue i servizi di sistema con un totale di set di repliche di destinazione pari a sette
-* Silver: esegue i servizi di sistema con un totale di set di repliche di destinazione pari a cinque 
-* Bronze: esegue i servizi di sistema con un totale di set di repliche di destinazione pari a tre
+* **Platinum** : i servizi di sistema vengono eseguiti con il numero di set di repliche di destinazione
+* I servizi **Gold** -System vengono eseguiti con il numero di set di repliche di destinazione di sette
+* Servizi di sistema **Silver** eseguiti con numero di set di repliche di destinazione pari a cinque
+* **Bronzo** -servizi di sistema eseguiti con numero di set di repliche di destinazione pari a tre
 
-> [!NOTE]
-> Il livello di affidabilità scelto determina il numero minimo di nodi che deve avere il tipo di nodo primario. 
-> 
-> 
+Ecco la raccomandazione per la scelta del livello di affidabilità. Il numero di nodi di inizializzazione viene anche impostato sul numero minimo di nodi per un livello di affidabilità.
 
-### <a name="recommendations-for-the-reliability-tier"></a>Raccomandazioni per il livello di affidabilità
 
-Quando si aumentano o riducono le dimensioni del cluster (la somma delle istanze di VM in tutti i tipi di nodi), è necessario aggiornare l'affidabilità del cluster da un livello a un altro. Così facendo si attivano gli aggiornamenti del cluster necessari per modificare il totale di set di repliche dei servizi di sistema. Attendere che l'aggiornamento in corso venga completato prima di apportare altre modifiche al cluster, come l'aggiunta di nodi.  È possibile monitorare lo stato di avanzamento dell'aggiornamento in Service Fabric Explorer oppure eseguendo [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
-
-Ecco la raccomandazione per la scelta del livello di affidabilità.  Il numero di nodi di inizializzazione viene anche impostato sul numero minimo di nodi per un livello di affidabilità.  Per un cluster con affidabilità Gold, ad esempio, esistono 7 nodi di inizializzazione.
-
-| **Numero di nodi del cluster** | **Livello di affidabilità** |
+| **Numero di nodi** | **Livello di affidabilità** |
 | --- | --- |
-| 1 |Non specificare il parametro Livello di affidabilità perché viene calcolato automaticamente dal sistema |
-| 3 |Bronzo |
-| 5 o 6|Argento |
-| 7 o 8 |Oro |
-| Da 9 in su |Platinum |
+| 1 | *Non specificare il `reliabilityLevel` parametro: viene calcolato dal sistema.* |
+| 3 | Bronzo |
+| 5 o 6| Argento |
+| 7 o 8 | Oro |
+| Da 9 in su | Platinum |
 
-## <a name="primary-node-type---capacity-guidance"></a>Tipo di nodo primario: guida alla capacità
+Quando si aumentano o si riducono le dimensioni del cluster (la somma delle istanze di VM in tutti i tipi di nodo), è consigliabile aggiornare l'affidabilità del cluster da un livello a un altro. Così facendo si attivano gli aggiornamenti del cluster necessari per modificare il totale di set di repliche dei servizi di sistema. Attendere che l'aggiornamento in corso venga completato prima di apportare altre modifiche al cluster, come l'aggiunta di nodi.  È possibile monitorare lo stato di avanzamento dell'aggiornamento in Service Fabric Explorer oppure eseguendo [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
-Ecco le indicazioni per pianificare la capacità del tipo di nodo primario:
+### <a name="capacity-planning-for-reliability"></a>Pianificazione della capacità per l'affidabilità
 
-- **Numero di istanze delle VM per eseguire qualsiasi carico di lavoro di produzione in Azure:** è necessario specificare una dimensione minima del tipo di nodo primario pari a 5 e un livello di affidabilità Silver.  
-- **Numero di istanze di VM per l'esecuzione di carichi di lavoro di test in Azure** È possibile specificare una dimensione minima del tipo di nodo primario pari a 1 o 3. Il cluster a un nodo viene eseguito con una configurazione speciale, pertanto la scalabilità orizzontale di tale cluster non è supportata. Il cluster a un nodo non ha alcun livello di affidabilità, di conseguenza nel modello di Resource Manager è necessario rimuovere/non specificare tale configurazione (non è sufficiente non impostare il valore di configurazione). Se si configura il cluster a un nodo tramite il portale, la configurazione viene gestita automaticamente. I cluster a uno e tre nodi non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
-- **SKU di VM:** nel tipo di nodo primario vengono eseguiti i servizi di sistema, quindi lo SKU della VM scelto deve tenere in considerazione il carico massimo totale che si prevede di inserire nel cluster. Per comprendere questo concetto, si pensi all'analogia seguente: il tipo di nodo primario è come i polmoni che forniscono ossigeno al cervello e quindi, se il cervello non riceve abbastanza ossigeno, il corpo ne risente. 
+Le esigenze di capacità del cluster verranno determinate in base al carico di lavoro e ai requisiti di affidabilità specifici. In questa sezione vengono fornite indicazioni generali per iniziare a pianificare la capacità.
 
-Poiché le esigenze in termini di capacità di un cluster dipendono dal carico di lavoro che si prevede di eseguire nel cluster, non è possibile offrire una guida valida per un carico di lavoro specifico. Di seguito sono tuttavia riportate indicazioni generali per poter iniziare.
+#### <a name="virtual-machine-sizing"></a>Dimensionamento delle macchine virtuali
 
-Per i carichi di lavoro di produzione: 
+**Per i carichi di lavoro di produzione, le dimensioni della VM consigliate (SKU) sono D2_V2 standard (o equivalenti) con un minimo di 50 GB di unità SSD locale.** È consigliabile disporre di un minimo di 50 GB di unità SSD locale, tuttavia alcuni carichi di lavoro, ad esempio quelli che eseguono i contenitori di Windows, richiederanno dischi di dimensioni maggiori. Quando si scelgono altre [dimensioni di VM](../virtual-machines/sizes-general.md) per i carichi di lavoro di produzione, tenere presenti i vincoli seguenti:
 
-- Si consiglia di dedicare i cluster di tipo di nodo primario a servizi di sistema e utilizzare i vincoli di posizionamento per distribuire l'applicazione ai tipi di nodo secondario.
-- Lo SKU di VM consigliato è D2_V2 standard o equivalente con almeno 50 GB di unità SSD locale.
-- Lo SKU di VM use minimo supportato è Standard_D2_V3 o standard D1_V2 o equivalente con almeno 50 GB di unità SSD locale. 
-- È consigliabile disporre di un'unità SSD di almeno 50 GB. Per i carichi di lavoro in esecuzione, in particolare quando eseguono contenitori Windows, sono necessari dischi di maggiori dimensioni. 
-- Gli SKU per VM con core parziali, ad esempio Standard A0, non sono supportati per i carichi di lavoro di produzione.
-- Gli SKU di VM serie non sono supportati per i carichi di lavoro di produzione per motivi di prestazioni.
+- Le dimensioni delle VM Core parziali, ad esempio a0 standard, non sono supportate.
+- *Serie A* Le dimensioni delle macchine virtuali non sono supportate per motivi di prestazioni.
 - Le macchine virtuali con priorità bassa non sono supportate.
 
+#### <a name="primary-node-type"></a>Tipo di nodo primario
+
+I **carichi di lavoro di produzione** in Azure richiedono almeno cinque nodi primari (istanze VM) e il livello di affidabilità Silver. Si consiglia di dedicare il tipo di nodo primario del cluster ai servizi di sistema e di usare vincoli di posizionamento per distribuire l'applicazione nei tipi di nodo secondari.
+
+I **carichi di lavoro di test** in Azure possono eseguire almeno uno o tre nodi primari. Per configurare un cluster a un nodo, assicurarsi che l' `reliabilityLevel` impostazione venga completamente omessa nel modello di gestione risorse (specificando un valore di stringa vuoto per `reliabilityLevel` non è sufficiente). Se si configura il cluster a un nodo configurato con portale di Azure, questa configurazione viene eseguita automaticamente.
+
 > [!WARNING]
-> Modificare le dimensioni di SKU di VM in un nodo primario in un cluster in esecuzione è un'operazione di ridimensionamento illustrata nella documentazione relativa a [Scalare orizzontalmente il set di scalabilità di macchine virtuali](virtual-machine-scale-set-scale-node-type-scale-out.md).
+> I cluster a un nodo vengono eseguiti con una configurazione speciale senza affidabilità e in cui la scalabilità orizzontale non è supportata.
 
-## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Tipo di nodo non primario: guida alla capacità per carichi di lavoro con stato
+#### <a name="non-primary-node-types"></a>Tipi di nodo non primari
 
-Queste linee guida sono relative ai carichi di lavoro con stato che usano [Reliable Collections o Reliable Actors](service-fabric-choose-framework.md) di Service Fabric in esecuzione nel tipo di nodo non primario.
+Il numero minimo di nodi per un tipo di nodo non primario dipende dal [livello di durabilità](#durability-characteristics-of-the-cluster) specifico del tipo di nodo. È necessario pianificare il numero di nodi (e il livello di durabilità) in base al numero di repliche di applicazioni o servizi che si desidera eseguire per il tipo di nodo e a seconda che il carico di lavoro sia con stato o senza stato. Tenere presente che è possibile aumentare o ridurre il numero di macchine virtuali in un tipo di nodo in qualsiasi momento dopo la distribuzione del cluster.
 
-**Numero di istanze delle VM:** è consigliabile eseguire i carichi di lavoro di produzione con stato con un numero di repliche di destinazione di almeno 5 istanze. Nello stato stabile viene quindi creata una replica (da un set di repliche) in ogni dominio di errore e in ogni dominio di aggiornamento. L'intero concetto di livello di affidabilità per il tipo di nodo primario è un modo per specificare questa impostazione per i servizi di sistema. La stessa considerazione è quindi valida anche per i servizi con stato.
+##### <a name="stateful-workloads"></a>Carichi di lavoro con stato
 
-Per i carichi di lavoro di produzione, la dimensione minima consigliata per il tipo di nodo non primario è quindi 5, se si eseguono carichi di lavoro con stato.
+Per i carichi di lavoro di produzione con stato che usano Service Fabric [Reliable Collections o](service-fabric-choose-framework.md)Reliable Actors, è consigliabile un numero di repliche di destinazione minimo e pari a cinque. Con questo, nello stato stabile si finisce con una replica (da un set di repliche) in ogni dominio di errore e dominio di aggiornamento. In generale, usare il livello di affidabilità impostato per i servizi di sistema come guida per il numero di repliche usato per i servizi con stato.
 
-**SKU di VM:** in questo tipo di nodo sono in esecuzione i servizi dell'applicazione, quindi lo SKU per le VM scelto deve tenere in considerazione il carico massimo che si prevede di inserire in ogni nodo. Poiché le esigenze in termini di capacità del tipo di nodo dipendono dal carico di lavoro che si prevede di eseguire nel cluster, non è possibile offrire una guida valida per un carico di lavoro specifico. Di seguito sono tuttavia riportate indicazioni generali per poter iniziare
+##### <a name="stateless-workloads"></a>Carichi di lavoro senza stato
 
-Per i carichi di lavoro di produzione 
-
-- Lo SKU di VM consigliato è D2_V2 standard o equivalente con almeno 50 GB di unità SSD locale.
-- Lo SKU di VM use minimo supportato è Standard_D2_V3 o standard D1_V2 o equivalente con almeno 50 GB di unità SSD locale. 
-- Gli SKU per VM con core parziali, ad esempio Standard A0, non sono supportati per i carichi di lavoro di produzione.
-- Gli SKU di VM serie non sono supportati per i carichi di lavoro di produzione per motivi di prestazioni.
-
-## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>Tipo di nodo non primario: guida alla capacità per carichi di lavoro senza stato
-
-Linee guida per i carichi di lavoro senza stato in esecuzione nel tipo di nodo non primario.
-
-**Numero di istanze delle VM:** per i carichi di lavoro di produzione senza stato, la dimensione minima supportata per il tipo di nodo non primario è pari a 2. Ciò consente di eseguire due istanze senza stato dell'applicazione e consente al servizio di resistere alla perdita di un'istanza di una VM. 
-
-**SKU di VM:** in questo tipo di nodo sono in esecuzione i servizi dell'applicazione, quindi lo SKU per le VM scelto deve tenere in considerazione il carico massimo che si prevede di inserire in ogni nodo. Le esigenze di capacità del tipo di nodo sono determinate dal carico di lavoro che si prevede di eseguire nel cluster. Non è possibile offrire una guida valida per il carico di lavoro specifico.  Di seguito sono tuttavia riportate le indicazioni generali per iniziare.
-
-Per i carichi di lavoro di produzione 
-
-- Lo SKU di VM consigliato è D2_V2 standard o equivalente. 
-- La versione minima supportata dello SKU per le VM è Standard D1 o Standard D1_V2 o equivalente. 
-- Gli SKU per VM con core parziali, ad esempio Standard A0, non sono supportati per i carichi di lavoro di produzione.
-- Gli SKU di VM serie non sono supportati per i carichi di lavoro di produzione per motivi di prestazioni.
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+Per i carichi di lavoro di produzione senza stato, la dimensione minima supportata per il tipo di nodo non primario è tre per mantenere il quorum, ma è consigliata una dimensione del tipo di nodo pari a cinque.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo avere completato la pianificazione della capacità e configurato un cluster, vedere quanto segue:
 
-* [Sicurezza del cluster Service Fabric](service-fabric-cluster-security.md)
-* [Ridimensionamento di un cluster di Service Fabric](service-fabric-cluster-scaling.md)
+Prima di configurare il cluster, rivedere i `Not Allowed` [criteri di aggiornamento del cluster](service-fabric-cluster-fabric-settings.md) per attenuare la necessità di ricreare il cluster in un secondo momento a causa di impostazioni di configurazione del sistema altrimenti non modificabili.
+
+Per ulteriori informazioni sulla pianificazione dei cluster, vedere:
+
+* [Pianificazione e scalabilità dell'ambiente di calcolo](service-fabric-best-practices-capacity-scaling.md)
+* [Pianificazione della capacità per le applicazioni Service Fabric](service-fabric-capacity-planning.md)
 * [Pianificazione del ripristino di emergenza](service-fabric-disaster-recovery.md)
-* [Relazione tra i tipi di nodo di Service Fabric e i set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png

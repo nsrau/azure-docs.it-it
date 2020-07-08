@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92a8e129188f2790a3e46162b207373b5d6e6ce4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611357"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -31,7 +31,7 @@ Se viene visualizzato l'errore "il file manifesto specificato non è valido: voc
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
-   - In **Home** > **Inventory**selezionare **file** > **deploy OVF template**. Passare a OVA e completare la distribuzione.
+   - In **Home**  >  **Inventory**selezionare **file**  >  **deploy OVF template**. Passare a OVA e completare la distribuzione.
 4. Se l'errore di distribuzione persiste, contattare il supporto di Azure Migrate.
 
 ## <a name="cant-connect-to-the-internet"></a>Non è possibile connettersi a Internet
@@ -62,7 +62,7 @@ Un errore relativo alla sincronizzazione di data e ora (802) indica che l'orolog
 
 ## <a name="unabletoconnecttoserver"></a>UnableToConnectToServer
 
-Se viene ricevuto questo errore di connessione, potrebbe non essere possibile connettersi a server vCenter *nomeserver*. com: 9443. I dettagli dell'errore indicano che non esiste alcun endpoint in `https://\*servername*.com:9443/sdk` ascolto in grado di accettare il messaggio.
+Se viene ricevuto questo errore di connessione, potrebbe non essere possibile connettersi a server vCenter *nomeserver*. com: 9443. I dettagli dell'errore indicano che non esiste alcun endpoint in ascolto in `https://\*servername*.com:9443/sdk` grado di accettare il messaggio.
 
 - Controllare se si sta eseguendo la versione più recente dell'appliance. In caso contrario, aggiornare l'appliance alla [versione più recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 - Se il problema si verifica ancora nella versione più recente, l'appliance potrebbe non essere in grado di risolvere il nome del server vCenter specificato oppure la porta specificata potrebbe essere errata. Per impostazione predefinita, se la porta non è specificata, l'agente di raccolta tenterà di connettersi al numero di porta 443.
@@ -135,7 +135,7 @@ Se questa operazione non funziona e si stanno scoprendo i server VMware:
 
 Se le macchine virtuali individuate non vengono visualizzate nel portale o se i dati della macchina virtuale sono obsoleti, attendere alcuni minuti. Sono necessari fino a 30 minuti per la visualizzazione delle modifiche nei dati di configurazione della macchina virtuale individuati nel portale. Potrebbero essere necessarie alcune ore per visualizzare le modifiche apportate ai dati dell'applicazione. Se non sono presenti dati dopo questa volta, provare ad aggiornare, come indicato di seguito.
 
-1. In **Server** > **Azure migrate Assessment server**selezionare **Panoramica**.
+1. In **Server**  >  **Azure migrate Assessment server**selezionare **Panoramica**.
 2. In **Gestisci**selezionare **integrità agente**.
 3. Selezionare **Aggiorna agente**.
 4. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
@@ -144,45 +144,82 @@ Se le macchine virtuali individuate non vengono visualizzate nel portale o se i 
 
 Se si eliminano macchine virtuali che vengono comunque visualizzate nel portale, attendere 30 minuti. Se vengono ancora visualizzati, aggiornare come descritto in precedenza.
 
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Non vengono visualizzati i dati sulle prestazioni per alcune schede di rete nei server fisici
+
+Questo problema può verificarsi se nel server fisico è abilitata la virtualizzazione Hyper-V. A causa del Gap del prodotto, la velocità effettiva della rete viene acquisita sulle schede di rete virtuali individuate.
+
+## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Errore: il formato del file caricato non è corretto
+Alcuni strumenti hanno impostazioni internazionali che creano il file CSV con il punto e virgola come delimitatore. Modificare le impostazioni in modo che il delimitatore sia una virgola.
+
+## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>È stato importato un CSV ma viene visualizzato il messaggio "Individuazione in corso"
+Questo stato viene visualizzato se il caricamento del file CSV non è riuscito a causa di un errore di convalida. Provare di nuovo a importare il CSV. Per correggere gli errori, è possibile scaricare il report dell’errore relativo al caricamento precedente e seguire le istruzioni per la correzione nel file. Il report degli errori può essere scaricato dalla sezione "Dettagli dell'importazione" nella pagina "Individua macchine virtuali".
+
+## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Non visualizzare i dettagli dell'applicazione anche dopo l'aggiornamento delle credenziali Guest
+L'individuazione dell'applicazione viene eseguita ogni 24 ore. Se si desidera visualizzare immediatamente i dettagli, aggiornare come indicato di seguito. L'operazione potrebbe richiedere alcuni minuti a seconda del numero di minuti. delle macchine virtuali individuate.
+
+1. In **Server**  >  **Azure migrate Assessment server**selezionare **Panoramica**.
+2. In **Gestisci**selezionare **integrità agente**.
+3. Selezionare **Aggiorna agente**.
+4. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
+
+## <a name="unable-to-export-application-inventory"></a>Non è possibile esportare l'inventario delle applicazioni
+Assicurarsi che l'utente che Scarica l'inventario dal portale disponga dei privilegi di collaboratore per la sottoscrizione.
+
 ## <a name="common-app-discovery-errors"></a>Errori comuni di individuazione delle app
 
 Azure Migrate supporta l'individuazione di applicazioni, ruoli e funzionalità, utilizzando Azure Migrate: server assessment. L'individuazione delle app è attualmente supportata solo per VMware. [Altre](how-to-discover-applications.md) informazioni sui requisiti e i passaggi per la configurazione dell'individuazione delle app.
 
 I tipici errori di individuazione delle app sono riepilogati nella tabella. 
 
-**Erroree** | **Causa** | **Azione**
---- | --- | --- | ---
-10000: "Impossibile individuare le applicazioni installate nel server". | Questo problema può verificarsi se il sistema operativo del computer non è Windows o Linux. | Usare solo l'individuazione delle app per Windows/Linux.
-10001: "Impossibile recuperare le applicazioni installate nel server". | Errore interno-alcuni file mancanti nell'appliance. | Contattare il supporto Microsoft.
-10002: "Impossibile recuperare le applicazioni installate nel server". | L'agente di individuazione nell'appliance potrebbe non funzionare correttamente. | Se il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
-10003 "Impossibile recuperare le applicazioni installate nel server". | L'agente di individuazione nell'appliance potrebbe non funzionare correttamente. | Se il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
-10004: "Impossibile individuare le applicazioni installate per <macchine> Windows/Linux". |  Le credenziali per l'accesso <macchine> Windows/Linux non sono state fornite nell'appliance.| Aggiungere una credenziale al dispositivo che ha accesso ai computer> <Windows/Linux.
-10005: "Impossibile accedere al server locale". | Le credenziali di accesso potrebbero essere errate. | Aggiornare le credenziali dell'appliance per assicurarsi di poter accedere al computer pertinente. 
-10006: "Impossibile accedere al server locale". | Questo problema può verificarsi se il sistema operativo del computer non è Windows o Linux.|  Usare solo l'individuazione delle app per Windows/Linux.
-10007: "Impossibile elaborare i metadati recuperati" | Si è verificato un errore interno durante il tentativo di deserializzare JSON | Contattare supporto tecnico Microsoft per una risoluzione
-9000/9001/9002: "Impossibile individuare le applicazioni installate nel server". | È possibile che gli strumenti VMware non siano installati o siano danneggiati. | Installare o reinstallare gli strumenti VMware nel computer pertinente e verificare che sia in esecuzione.
-9003: Impossibile individuare le applicazioni installate nel server ". | Questo problema può verificarsi se il sistema operativo del computer non è Windows o Linux. | Usare solo l'individuazione delle app per Windows/Linux.
-9004: "Impossibile individuare le applicazioni installate nel server". | Questo problema può verificarsi se la macchina virtuale è spenta. | Per l'individuazione, verificare che la macchina virtuale sia attiva.
-9005: "Impossibile individuare le applicazioni installate nella macchina virtuale. | Questo problema può verificarsi se il sistema operativo del computer non è Windows o Linux. | Usare solo l'individuazione delle app per Windows/Linux.
-9006/9007: "Impossibile recuperare le applicazioni installate nel server". | L'agente di individuazione nell'appliance potrebbe non funzionare correttamente. | Se il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
-9008: "Impossibile recuperare le applicazioni installate nel server". | Potrebbe trattarsi di un errore interno.  | TF il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
-9009: "Impossibile recuperare le applicazioni installate nel server". | Può verificarsi se le impostazioni di controllo dell'account utente di Windows nel server sono restrittive e impedire l'individuazione delle applicazioni installate. | Cercare le impostazioni di controllo dell'account utente nel server e configurare l'impostazione UAC sul server su uno dei due livelli inferiori.
-9010: "Impossibile recuperare le applicazioni installate nel server". | Potrebbe trattarsi di un errore interno.  | TF il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
-9011: "il file da scaricare dal Guest non è stato trovato nella macchina virtuale guest" | Il problema può verificarsi a causa di un errore interno. | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
-9012: "il contenuto del file di risultati è vuoto". | Il problema può verificarsi a causa di un errore interno. | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
-9013: "viene creato un nuovo profilo temporaneo per ogni accesso alla macchina virtuale VMware" | Viene creato un nuovo profilo temporaneo per ogni accesso alla macchina virtuale | Verificare che il nome utente specificato nelle credenziali della macchina virtuale Guest sia in formato UPN.
-9015: "non è possibile connettersi alle macchine virtuali VMware a causa di privilegi insufficienti in vCenter" | Il ruolo operazioni Guest non è abilitato nell'account utente di vCenter | Verificare che il ruolo operazioni Guest sia abilitato nell'account utente di vCenter.
-9016: "non è possibile connettersi alle macchine virtuali VMware perché l'agente operativo guest è esterno ai dati" | Gli strumenti VMware non sono installati correttamente o non sono aggiornati. | Verificare che gli strumenti VMware siano installati correttamente e aggiornati.
-9017: "il file con metadati individuati non è stato trovato nella macchina virtuale". | Il problema può verificarsi a causa di un errore interno. | Contattare supporto tecnico Microsoft per una risoluzione.
-9018: "PowerShell non è installato nelle macchine virtuali guest". | PowerShell non è disponibile nella macchina virtuale guest. | Installare PowerShell nella macchina virtuale guest.
-9019: "Impossibile individuare a causa di errori dell'operazione della macchina virtuale guest" | L'operazione guest VMware non è riuscita nella macchina virtuale. | Verificare che le credenziali della macchina virtuale siano valide e che il nome utente specificato nelle credenziali della macchina virtuale Guest sia in formato UPN.
-9020: "autorizzazione per la creazione di file negata". | Il ruolo associato all'utente o i criteri di gruppo limitano l'utente a creare il file nella cartella | Controllare se l'utente Guest specificato dispone dell'autorizzazione Crea per il file nella cartella. Vedere **notifiche** in server assessment per il nome della cartella.
-9021: "autorizzazione Creazione file negata nel percorso temporaneo di sistema cartella". | La versione dello strumento VMware nella macchina virtuale non è supportata | Aggiornare la versione dello strumento VMware precedente a 10.2.0.
-9022: "ottenere l'accesso a un oggetto WMI negato". | Il ruolo associato all'utente o i criteri di gruppo limitano l'accesso dell'utente all'oggetto WMI. | Contattare il supporto tecnico Microsoft.
-9023: "il valore della variabile di ambiente SystemRoot è vuoto". | Non noto | Contattare il supporto tecnico Microsoft.
-9024: "il valore della variabile di ambiente TEMP è vuoto". | Non noto | Contattare il supporto tecnico Microsoft.
-9025: "PowerShell è danneggiato nelle VM guest". | Non noto | Reinstallare PowerShell nella macchina virtuale guest e verificare se PowerShell può essere eseguito nella macchina virtuale guest.
-8084: "Impossibile individuare le applicazioni a causa di un errore <Exception from VMware>VMware:" | Il Azure Migrate Appliance usa le API VMware per individuare le applicazioni. Questo problema può verificarsi se un'eccezione viene generata da server vCenter durante il tentativo di individuazione delle applicazioni. Il messaggio di errore di VMware viene visualizzato nel messaggio di errore visualizzato nel portale. | Cercare il messaggio nella documentazione di [VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e seguire i passaggi da eseguire per risolvere il problema. Se non è possibile risolvere il problema, contattare il supporto tecnico Microsoft.
+**Errore** | **Causa** | **Azione**
+--- | --- | ---
+9000: Impossibile rilevare lo stato dello strumento VMware.     |   È possibile che gli strumenti VMWare non siano installati o siano danneggiati.    |   Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale.
+9001: gli strumenti VMware non sono installati.     |   È possibile che gli strumenti VMWare non siano installati o siano danneggiati.    |   Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale.
+9002: gli strumenti VMware non sono in esecuzione.   |   È possibile che gli strumenti VMWare non siano installati o siano danneggiati.    |   Verificare che gli strumenti VMware siano installati e in esecuzione nella macchina virtuale.
+9003: il tipo di sistema operativo non è supportato per l'individuazione di macchine virtuali guest.    |   Il sistema operativo in esecuzione nel server non è né Windows né Linux.    |   I tipi di sistema operativo supportati sono solo Windows e Linux. Se il server è effettivamente Windows o Linux, controllare il tipo di sistema operativo specificato in server vCenter.
+9004: la macchina virtuale non è in esecuzione.     |   La macchina virtuale è spenta.  |   Verificare che la macchina virtuale sia accesa.
+9005: il tipo di sistema operativo non è supportato per l'individuazione di macchine virtuali guest.    |   Il tipo di sistema operativo non è supportato per l'individuazione delle macchine virtuali guest.     |   I tipi di sistema operativo supportati sono solo Windows e Linux.
+9006: l'URL per scaricare il file di metadati dal Guest è vuoto.     |   Questo problema può verificarsi se l'agente di individuazione non funziona come previsto.    |   Il problema dovrebbe risolvere automaticamente IN24 ore. Se il problema persiste, contattare il supporto tecnico Microsoft.
+9007: Impossibile trovare il processo che esegue l'attività di individuazione nella macchina virtuale guest.   |   Questo problema può verificarsi se l'agente di individuazione non funziona correttamente.   |   Il problema dovrebbe risolversi automaticamente tra 24 ore. Se il problema persiste, contattare il supporto tecnico Microsoft.
+9008: Impossibile recuperare lo stato del processo della macchina virtuale guest.   |   Il problema può verificarsi a causa di un errore interno.   |   Il problema dovrebbe risolversi automaticamente tra 24 ore. Se il problema persiste, contattare il supporto tecnico Microsoft.
+9009: l'account utente di Windows ha impedito l'esecuzione dell'attività di individuazione nel server.  |   Le impostazioni di controllo dell'account utente (UAC) di Windows nel server sono restrittive e impediscono l'individuazione delle applicazioni installate.  |   In impostazioni di controllo dell'account utente nel server configurare l'impostazione UAC su uno dei due livelli inferiori.
+9010: la macchina virtuale è spenta.     |   La macchina virtuale è spenta.  |   Verificare che la macchina virtuale sia accesa.
+9011: il file di metadati individuato non è stato trovato nella macchina virtuale guest file system.    |   Il problema può verificarsi a causa di un errore interno.   |   Il problema dovrebbe risolversi automaticamente tra 24 ore. Se il problema persiste, contattare il supporto tecnico Microsoft.
+9012: il file di metadati individuati è vuoto.     |   Il problema può verificarsi a causa di un errore interno.   |   Il problema dovrebbe risolversi automaticamente tra 24 ore. Se il problema persiste, contattare il supporto tecnico Microsoft.
+9013: viene creato un nuovo profilo temporaneo per ogni account di accesso.    |   Per ogni account di accesso alla macchina virtuale VMware viene creato un nuovo profilo temporaneo.    |   Contattare supporto tecnico Microsoft per una risoluzione.
+9014: Impossibile recuperare i metadati dalla macchina virtuale guest file system.     |   Nessuna connettività all'host ESXi    |   Verificare che l'appliance sia in grado di connettersi alla porta 443 nell'host ESXi che esegue la macchina virtuale
+9015: il ruolo operazioni Guest non è abilitato nell'account utente di vCenter   |   Il ruolo operazioni Guest non è abilitato nell'account utente di vCenter.   |   Verificare che il ruolo operazioni Guest sia abilitato nell'account utente di vCenter.
+9016: Impossibile individuare perché l'agente operativo guest non è aggiornato.   |   Gli strumenti VMware non sono installati correttamente o non sono aggiornati.    |   Verificare che gli strumenti VMware siano installati correttamente e aggiornati.
+9017: il file con metadati individuati non è stato trovato nella macchina virtuale.  |   Il problema può verificarsi a causa di un errore interno.   |   Contattare supporto tecnico Microsoft per una risoluzione.
+9018: PowerShell non è installato nelle macchine virtuali guest.  |   PowerShell non è disponibile nella macchina virtuale guest.    |   Installare PowerShell nella macchina virtuale guest.
+9019: Impossibile individuare a causa di errori dell'operazione della macchina virtuale guest.     |   L'operazione guest VMware non è riuscita nella macchina virtuale.    |   Verificare che le credenziali della macchina virtuale siano valide e che il nome utente specificato nelle credenziali della macchina virtuale Guest sia in formato UPN.
+9020: autorizzazione per la creazione di file negata.    |   Il ruolo associato all'utente o i criteri di gruppo limitano l'utente alla creazione del file nella cartella    |   Controllare se l'utente Guest specificato dispone dell'autorizzazione Crea per il file nella cartella. Vedere **notifiche** in server assessment per il nome della cartella.
+9021: Impossibile creare il file nel percorso temporaneo di sistema.     |   VMware Tool segnala il percorso temporaneo del sistema anziché il percorso temporaneo degli utenti.    |   Aggiornare la versione dello strumento VMware sopra 10287 (formato client NGC/VI).
+9022: accesso all'oggetto WMI negato.    |   Il ruolo associato all'utente o i criteri di gruppo limitano l'accesso dell'utente all'oggetto WMI.  |   Contattare il supporto tecnico Microsoft.
+9023: Impossibile eseguire PowerShell perché il valore della variabile di ambiente SystemRoot è vuoto.    |   Il valore della variabile di ambiente SystemRoot è vuoto per la macchina virtuale guest.     |   Contattare supporto tecnico Microsoft per una risoluzione.
+9024: Impossibile individuare poiché il valore della variabile di ambiente TEMP è vuoto.    |   Il valore della variabile di ambiente TEMP è vuoto per la macchina virtuale guest.   |   Contattare il supporto tecnico Microsoft.
+9025: PowerShell è danneggiato nelle VM guest.  |   PowerShell è danneggiato nella macchina virtuale guest.    |   Reinstallare PowerShell nella macchina virtuale guest e verificare che PowerShell possa essere eseguito nella macchina virtuale guest.
+9026: non è possibile eseguire le operazioni Guest nella macchina virtuale.  |   Lo stato della macchina virtuale non consente l'esecuzione di operazioni Guest nella macchina virtuale.   |   Contattare supporto tecnico Microsoft per una risoluzione.
+9027: l'agente operativo guest non è in esecuzione nella macchina virtuale.   |   Non è stato possibile contattare l'agente operativo guest in esecuzione all'interno della macchina virtuale.    |   Contattare supporto tecnico Microsoft per una risoluzione.
+9028: non è possibile creare il file a causa di spazio di archiviazione su disco insufficiente nella macchina virtuale.     |   Spazio su disco insufficiente.   |   Verificare che lo spazio disponibile nell'archiviazione su disco della macchina virtuale sia sufficiente.
+9029: nessun accesso a PowerShell sulle credenziali della macchina virtuale Guest fornita.   |   L'accesso a PowerShell non è disponibile per l'utente.     |   Assicurarsi che l'utente aggiunto all'appliance possa accedere a PowerShell nella macchina virtuale guest.
+9030: non è possibile raccogliere i metadati individuati perché l'host ESXi è disconnesso.     |   L'host ESXi si trova in uno stato disconnesso.   |   Verificare che l'host ESXi che esegue la macchina virtuale sia connesso.
+9031: non è possibile raccogliere i metadati individuati perché l'host ESXi non risponde.   |   Lo stato dell'host remoto non è valido.    |   Verificare che l'host ESXi che esegue la macchina virtuale sia in esecuzione e connesso.
+9032: Impossibile individuare a causa di un errore interno.   |   Il problema può verificarsi a causa di un errore interno.   |   Contattare supporto tecnico Microsoft per una risoluzione.
+9033: non è possibile rilevare perché il nome utente della macchina virtuale contiene caratteri non validi.     |   Sono stati rilevati caratteri non validi nel nome utente.   |   Fornire di nuovo le credenziali della macchina virtuale per verificare che non siano presenti caratteri non validi.
+9034: il nome utente specificato non è in formato UPN.    |   Il nome utente non è in formato UPN.  |   Verificare che il nome utente sia in formato UPN (User Principal Name).
+9035: Impossibile individuare perché la modalità linguaggio di PowerShell non è impostata su' lingua completa '.  |   La modalità linguaggio per PowerShell nella macchina virtuale guest non è impostata su Full Language.   |   Verificare che la modalità linguaggio di PowerShell sia impostata su "lingua completa".
+10000: il tipo di sistema operativo non è supportato.   |   Il sistema operativo in esecuzione nel server non è né Windows né Linux.    |   I tipi di sistema operativo supportati sono solo Windows e Linux.
+10001: lo script per l'individuazione del server non è stato trovato nel dispositivo.    |   L'individuazione non funziona come previsto.   |   Contattare supporto tecnico Microsoft per una risoluzione.
+10002: l'attività di individuazione non è stata completata nel tempo.     |   L'agente di individuazione non funziona come previsto.     |   Il problema dovrebbe risolversi automaticamente tra 24 ore. Se il problema persiste, contattare il supporto tecnico Microsoft.
+10003: il processo che esegue l'attività di individuazione è stato terminato con un errore.    |   Il processo che esegue l'attività di individuazione è stato terminato con un errore.  |   Il problema dovrebbe risolversi automaticamente tra 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
+10004: le credenziali non sono state specificate per il tipo di sistema operativo guest.  |   Le credenziali per accedere ai computer di questo tipo di sistema operativo non sono state fornite nell'appliance Azure Migrate.    |   Aggiungere le credenziali per i computer nell'appliance
+10005: le credenziali specificate non sono valide.   |   Le credenziali fornite per l'appliance per accedere al server non sono corrette.  |   Aggiornare le credenziali fornite nell'appliance e assicurarsi che il server sia accessibile tramite le credenziali.
+10006: il tipo di sistema operativo guest non è supportato dall'archivio delle credenziali.  |   Il sistema operativo in esecuzione nel server non è né Windows né Linux.    |   I tipi di sistema operativo supportati sono solo Windows e Linux.
+10007: Impossibile elaborare i metadati individuati.    |   Si è verificato un errore durante il tentativo di deserializzare JSON.    |   Contattare supporto tecnico Microsoft per una risoluzione.
+10008: non è possibile creare un file nel server.    |  Il problema può verificarsi a causa di un errore interno.    |   Contattare supporto tecnico Microsoft per una risoluzione.
+10009: Impossibile scrivere i metadati individuati in un file nel server.  |   Il problema può verificarsi a causa di un errore interno.   |   Contattare supporto tecnico Microsoft per una risoluzione.
+
 
 
 

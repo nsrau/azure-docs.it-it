@@ -2,13 +2,13 @@
 title: Domande sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 9374330044bcd0c0c5f2be44688c2b35760d4418
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.date: 06/09/2020
+ms.openlocfilehash: 7d42de52d35d5a3c5e9a54673d8cd933fbee04aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610303"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
 
@@ -22,17 +22,41 @@ Questo articolo risponde alle domande più comuni sull'individuazione, la valuta
 
 ## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Quali sono le aree geografiche supportate per l'individuazione e la valutazione con Azure Migrate?
 
-Esaminare le aree geografiche supportate per i cloud [pubblici](migrate-support-matrix.md#supported-geographies-public-cloud) e [governativi](migrate-support-matrix.md#supported-geographies-azure-government).
+Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-matrix.md#supported-geographies-public-cloud) e per [enti pubblici](migrate-support-matrix.md#supported-geographies-azure-government).
 
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quante VM è possibile individuare con un'appliance?
 
-È possibile individuare fino a 10.000 VM VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 250 server fisici usando una singola appliance. Se sono presenti più computer, vedere la pagina relativa alla [scalabilità di una valutazione di Hyper-V](scale-hyper-v-assessment.md), alla [scalabilità di una valutazione VMware](scale-vmware-assessment.md)o alla [scalabilità di una valutazione del server fisico](scale-physical-assessment.md)
+È possibile individuare fino a 10.000 VM VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 1000 server fisici usando una singola appliance. Se sono presenti più computer, vedere la pagina relativa alla [scalabilità di una valutazione di Hyper-V](scale-hyper-v-assessment.md), alla [scalabilità di una valutazione VMware](scale-vmware-assessment.md)o alla [scalabilità di una valutazione del server fisico](scale-physical-assessment.md)
+
+## <a name="how-do-i-choose-the-assessment-type"></a>Ricerca per categorie scegliere il tipo di valutazione?
+
+- Usare **le valutazioni delle VM di Azure** per valutare le macchine [virtuali VMware](how-to-set-up-appliance-vmware.md)locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md)e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione alle macchine virtuali di Azure. [Altre informazioni](concepts-assessment-calculation.md)
+
+- Usare le valutazioni della **soluzione VMware di Azure (AVS)** quando si vuole valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+
+- È possibile utilizzare un gruppo comune con computer VMware solo per eseguire entrambi i tipi di valutazione. Si noti che se si eseguono le valutazioni AVS in Azure Migrate per la prima volta, è consigliabile creare un nuovo gruppo di computer VMware.
+
+## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Non è possibile visualizzare alcuni gruppi quando si crea una valutazione della soluzione VMware di Azure (AVS)
+
+- AVS assessment può essere eseguito in gruppi con solo computer VMware. Se si intende eseguire una valutazione AVS, rimuovere eventuali computer non VMware dal gruppo.
+- Se si eseguono le valutazioni AVS in Azure Migrate per la prima volta, è consigliabile creare un nuovo gruppo di computer VMware.
+
+## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Ricerca per categorie selezionare l'ITF-RAID level in AVS Assessment?
+
+Il motore di archiviazione usato in AVS è rete VSAN. i criteri di archiviazione di rete VSAN definiscono i requisiti di archiviazione per le macchine virtuali. Questi criteri garantiscono il livello di servizio necessario per le VM, perché determinano il modo in cui l'archiviazione viene allocata alla macchina virtuale. Queste sono le combinazioni di transazioni di ITF-RAID disponibili: 
+
+**Errori da tollerare (ITF)** | **Configurazione RAID** | **Numero minimo di host richiesti** | **Considerazioni sul dimensionamento**
+--- | --- | --- | --- 
+1 | RAID-1 (mirroring) | 3 | Una macchina virtuale da 100 GB utilizzerà 200 GB.
+1 | RAID-5 (codifica della cancellazione) | 4 | Una macchina virtuale da 100 GB utilizzerà 133.33 GB
+2 | RAID-1 (mirroring) | 5 | Una macchina virtuale da 100 GB utilizzerà 300GB.
+2 | RAID-6 (codifica della cancellazione) | 6 | Una macchina virtuale da 100 GB utilizzerà 150 GB.
+3 | RAID-1 (mirroring) | 7 | Una macchina virtuale da 100 GB utilizzerà 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Non è possibile visualizzare alcuni tipi di VM in Azure per enti pubblici
 
 I tipi di VM supportati per la valutazione e la migrazione dipendono dalla disponibilità nella località di Azure per enti pubblici. È possibile [esaminare e confrontare](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) i tipi di VM in Azure per enti pubblici.
-
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>La dimensione della macchina virtuale è cambiata. È possibile eseguire nuovamente una valutazione?
 
@@ -47,7 +71,7 @@ L'appliance Azure Migrate raccoglie continuamente informazioni sull'ambiente loc
 
 Sì, Azure Migrate richiede server vCenter in un ambiente VMware per eseguire l'individuazione. Azure Migrate non supporta l'individuazione di host ESXi che non sono gestiti da server vCenter.
 
-## <a name="what-are-the-sizing-options"></a>Quali sono le opzioni di ridimensionamento?
+## <a name="what-are-the-sizing-options-in-an-azure-vm-assessment"></a>Quali sono le opzioni di ridimensionamento in una valutazione delle VM di Azure?
 
 Con il ridimensionamento locale, Azure Migrate non considera i dati sulle prestazioni della macchina virtuale per la valutazione. Azure Migrate valuta le dimensioni delle macchine virtuali in base alla configurazione locale. Con il dimensionamento basato sulle prestazioni, il dimensionamento è basato sui dati di utilizzo.
 
@@ -59,18 +83,18 @@ Analogamente, il ridimensionamento del disco dipende dai criteri di ridimensiona
 - Se i criteri di ridimensionamento sono basati sulle prestazioni e il tipo di archiviazione è automatico, Azure Migrate prende in considerazione i valori di IOPS e velocità effettiva del disco quando identifica il tipo di disco di destinazione (standard o Premium).
 - Se i criteri di ridimensionamento sono basati sulle prestazioni e il tipo di archiviazione è Premium, Azure Migrate consiglia uno SKU del disco Premium in base alle dimensioni del disco locale. La stessa logica viene applicata al dimensionamento del disco quando il dimensionamento è locale e il tipo di archiviazione è standard o Premium.
 
-## <a name="does-performance-history-and-utilization-affect-sizing"></a>La cronologia delle prestazioni e l'utilizzo influiscono sul dimensionamento?
+## <a name="does-performance-history-and-utilization-affect-sizing-in-an-azure-vm-assessment"></a>La cronologia delle prestazioni e l'utilizzo influiscono sul dimensionamento in una valutazione delle VM di Azure?
 
-Sì, la cronologia delle prestazioni e l'utilizzo influiscono sul dimensionamento in Azure Migrate.
+Sì, la cronologia delle prestazioni e l'utilizzo influiscono sul dimensionamento in una valutazione delle VM di Azure.
 
 ### <a name="performance-history"></a>Cronologia delle prestazioni
 
 Solo per il dimensionamento basato sulle prestazioni, Azure Migrate raccoglie la cronologia delle prestazioni dei computer locali e quindi la usa per consigliare le dimensioni della macchina virtuale e il tipo di disco in Azure:
 
 1. L'appliance continua a profilare l'ambiente locale per raccogliere i dati di utilizzo in tempo reale ogni 20 secondi.
-1. Il dispositivo esegue il rollup degli esempi raccolti di 20 secondi e li usa per creare un singolo punto dati ogni 15 minuti.
-1. Per creare il punto dati, l'appliance seleziona il valore massimo da tutti gli esempi di 20 secondi.
-1. Il dispositivo invia il punto dati ad Azure.
+2. Il dispositivo esegue il rollup degli esempi raccolti di 20 secondi e li usa per creare un singolo punto dati ogni 15 minuti.
+3. Per creare il punto dati, l'appliance seleziona il valore massimo da tutti gli esempi di 20 secondi.
+4. Il dispositivo invia il punto dati ad Azure.
 
 ### <a name="utilization"></a>Utilizzo
 
@@ -80,15 +104,21 @@ Se ad esempio si imposta la durata delle prestazioni su un giorno e il valore pe
 
 L'utilizzo del valore 95 ° percentile garantisce che gli outlier vengano ignorati. Gli outlier potrebbero essere inclusi se il Azure Migrate usa il 99 ° percentile. Per selezionare l'utilizzo di picco per il periodo senza gli outlier, impostare Azure Migrate per usare il 99 ° percentile.
 
+
 ## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>In che modo le valutazioni basate sull'importazione sono diverse dalle valutazioni con l'origine di individuazione come appliance?
 
-Le valutazioni basate sull'importazione sono valutazioni create con computer importati in Azure Migrate usando un file CSV. Solo quattro campi sono obbligatori per l'importazione: nome del server, Core, memoria e sistema operativo. Ecco alcuni aspetti da considerare: 
+Le valutazioni delle VM di Azure basate sull'importazione sono valutazioni create con computer importati in Azure Migrate usando un file CSV. Solo quattro campi sono obbligatori per l'importazione: nome del server, Core, memoria e sistema operativo. Ecco alcuni aspetti da considerare: 
  - I criteri di conformità sono meno rigorosi nelle valutazioni basate sull'importazione sul parametro di tipo di avvio. Se il tipo di avvio non viene specificato, si presuppone che il computer disponga di un tipo di avvio BIOS e che il computer non sia contrassegnato come pronto in modo **condizionale**. Nelle valutazioni con l'origine di individuazione come appliance, la conformità è contrassegnata come **predisposta in modo condizionale** se il tipo di avvio è mancante. Questa differenza nel calcolo della conformità è dovuta al fatto che gli utenti potrebbero non disporre di tutte le informazioni sui computer nelle prime fasi della pianificazione della migrazione quando vengono eseguite le valutazioni basate sull'importazione. 
  - Per le valutazioni di importazione basate sulle prestazioni viene utilizzato il valore di utilizzo fornito dall'utente per il dimensionamento corretto dei calcoli. Poiché il valore di utilizzo viene fornito dall'utente, le opzioni **Cronologia prestazioni** e **utilizzo percentile** sono disabilitate nelle proprietà di valutazione. Nelle valutazioni con l'origine di individuazione come appliance, il valore percentile scelto viene selezionato dai dati sulle prestazioni raccolti dal dispositivo.
 
+## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Perché lo strumento di migrazione suggerito nella valutazione AVS basata sull'importazione è contrassegnato come sconosciuto?
+
+Per i computer importati tramite un file CSV, lo strumento di migrazione predefinito in AVS assessment è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMWare Hybrid Cloud Extension (HCX). [Altre informazioni](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
+
 ## <a name="what-is-dependency-visualization"></a>Informazioni sulla visualizzazione delle dipendenze
 
-La visualizzazione delle dipendenze consente di valutare i gruppi di macchine virtuali per la migrazione con maggiore sicurezza. La visualizzazione delle dipendenze controlla le dipendenze tra computer prima di eseguire una valutazione. Consente di evitare interruzioni impreviste quando si esegue la migrazione ad Azure. Azure Migrate usa la soluzione Mapping dei servizi in Monitoraggio di Azure per abilitare la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md).
+La visualizzazione delle dipendenze consente di valutare i gruppi di macchine virtuali per la migrazione con maggiore sicurezza. La visualizzazione delle dipendenze controlla le dipendenze tra computer prima di eseguire una valutazione. Consente di evitare interruzioni impreviste quando si esegue la migrazione ad Azure. Azure Migrate usa la soluzione Mapping dei servizi in Monitoraggio di Azure per abilitare la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md)
 
 > [!NOTE]
 > L'analisi delle dipendenze basata su agente non è disponibile in Azure per enti pubblici. È possibile usare l'analisi delle dipendenze senza agenti
@@ -99,14 +129,14 @@ Le differenze tra la visualizzazione senza agente e la visualizzazione basata su
 
 **Requisito** | **Senza agente** | **Basata su agenti**
 --- | --- | ---
-Supporto | Questa opzione è attualmente in anteprima ed è disponibile solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) i sistemi operativi supportati. | In disponibilità generale (GA).
+Supporto | Questa opzione è attualmente in anteprima ed è disponibile solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati. | In disponibilità generale (GA).
 Agente | Non è necessario installare gli agenti nei computer che si vuole controllare in modo incrociato. | Agenti da installare in ogni computer locale che si vuole analizzare: [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e [Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Prerequisiti | [Esaminare](concepts-dependency-visualization.md#agentless-analysis) i prerequisiti e i requisiti di distribuzione. | [Esaminare](concepts-dependency-visualization.md#agent-based-analysis) i prerequisiti e i requisiti di distribuzione.
-Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [mapping dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nei [log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#agent-based-analysis).
-Funzionamento | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
+Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [Mapping dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) in [Log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#agent-based-analysis)
+Come funziona | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
 Data | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
 Visualizzazione | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata di un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> La mappa può essere visualizzata solo in un'ora.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/> Aggiungere e rimuovere i server in un gruppo dalla vista mappa.
-Esportazione dati | Attualmente non è possibile scaricare il formato tabulare. | È possibile eseguire query sui dati con Log Analytics.
+Esportazione dati | Ultimi 30 giorni è possibile scaricare i dati in formato CSV. | È possibile eseguire query sui dati con Log Analytics.
 
 
 ## <a name="do-i-need-to-deploy-the-appliance-for-agentless-dependency-analysis"></a>È necessario distribuire l'appliance per l'analisi delle dipendenze senza agenti?

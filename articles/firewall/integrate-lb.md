@@ -4,15 +4,15 @@ description: È possibile integrare un firewall di Azure in una rete virtuale co
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78196713"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610626"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrare Firewall di Azure con Azure Load Balancer Standard
 
@@ -77,4 +77,4 @@ Per ulteriori informazioni su gruppi, vedere [gruppi di sicurezza](../virtual-ne
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [distribuire e configurare Firewall di Azure](tutorial-firewall-deploy-portal.md).
+- Informazioni su come [distribuire e configurare un firewall di Azure](tutorial-firewall-deploy-portal.md).

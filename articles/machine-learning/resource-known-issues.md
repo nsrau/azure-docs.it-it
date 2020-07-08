@@ -1,27 +1,33 @@
 ---
 title: Problemi noti e risoluzione dei problemi
 titleSuffix: Azure Machine Learning
-description: Ottenere un elenco dei problemi noti, le soluzioni alternative e la risoluzione dei problemi per Azure Machine Learning.
+description: Ottenere assistenza per individuare e correggere errori o errori in Azure Machine Learning. Informazioni su problemi noti, risoluzione dei problemi e soluzioni alternative.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
+ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 93015da810f163a48529704e69e1747ac1aec401
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610065"
 ---
-# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
+# <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
-Questo articolo consente di individuare e correggere gli errori o gli errori che possono verificarsi quando si usa Azure Machine Learning.
+Questo articolo consente di risolvere i problemi noti che possono verificarsi quando si usa Azure Machine Learning. 
 
-## <a name="diagnostic-logs"></a>Log di diagnostica
+Per ulteriori informazioni sulla risoluzione dei problemi, vedere la sezione [passaggi successivi](#next-steps) alla fine di questo articolo.
+
+> [!TIP]
+> Errori o altri problemi potrebbero essere il risultato di [quote di risorse](how-to-manage-quotas.md) che si verificano quando si lavora con Azure Machine Learning. 
+
+## <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
 
 In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Per visualizzare alcuni log: 
 1. Visitare [Azure Machine Learning Studio](https://ml.azure.com). 
@@ -31,41 +37,37 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
 1. Nella parte superiore selezionare **output + log**.
 
 > [!NOTE]
-> Azure Machine Learning registra le informazioni da diverse origini durante il training, ad esempio AutoML o il contenitore Docker che esegue il processo di training. Molti di questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, potrebbero essere in grado di utilizzare questi log durante la risoluzione dei problemi.
+> Azure Machine Learning registra le informazioni da diverse origini durante il training, ad esempio AutoML o il contenitore Docker che esegue il processo di training. Molti di questi log non sono documentati. Se si verificano problemi e si contatta il supporto tecnico Microsoft, l'agente potrebbe essere in grado di utilizzare questi log durante la risoluzione dei problemi.
 
-
-## <a name="resource-quotas"></a>Quote di risorse
-
-Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero incontrare quando si lavora con Azure Machine Learning.
 
 ## <a name="installation-and-import"></a>Installazione e importazione
                            
-* **Installazione PIP: le dipendenze non sono necessariamente coerenti con l'installazione di una sola riga**: 
+* **Installazione PIP: le dipendenze non sono necessariamente coerenti con l'installazione su una sola riga:** 
 
    Si tratta di un limite noto di PIP, in quanto non dispone di un resolver di dipendenza funzionante quando si installa come una singola riga. La prima dipendenza univoca è l'unica che esamina. 
 
-   Nel codice `azure-ml-datadrift` seguente e `azureml-train-automl` sono entrambi installati usando un'installazione PIP a riga singola. 
+   Nel codice seguente `azureml-datadrift` e `azureml-train-automl` sono entrambi installati usando un'installazione PIP a riga singola. 
      ```
-       pip install azure-ml-datadrift, azureml-train-automl
+       pip install azureml-datadrift, azureml-train-automl
      ```
-   Per questo esempio, supponiamo che `azure-ml-datadrift` sia richiesta la versione > `azureml-train-automl` 1,0 e che sia richiesta la versione < 1,2. Se la versione più recente `azure-ml-datadrift` di è 1,3, entrambi i pacchetti vengono aggiornati a 1,3, indipendentemente dal `azureml-train-automl` requisito del pacchetto per una versione precedente. 
+   Per questo esempio, supponiamo `azureml-datadrift` che sia richiesta la versione > 1,0 e che sia `azureml-train-automl` richiesta la versione < 1,2. Se la versione più recente di `azureml-datadrift` è 1,3, entrambi i pacchetti vengono aggiornati a 1,3, indipendentemente dal `azureml-train-automl` requisito del pacchetto per una versione precedente. 
 
    Per assicurarsi che le versioni appropriate siano installate per i pacchetti, installare usando più righe, come nel codice seguente. L'ordine non è un problema, poiché PIP esegue il downgrade esplicito come parte della chiamata alla riga successiva. Quindi, vengono applicate le dipendenze della versione appropriate.
     
      ```
-        pip install azure-ml-datadrift
+        pip install azureml-datadrift
         pip install azureml-train-automl 
      ```
      
-* **Il pacchetto di spiegazione non guarateed da installare durante l'installazione di azureml-Train-automl-client:** 
+* **Non è garantito che il pacchetto di spiegazione venga installato quando si installa azureml-Train-automl-client:** 
    
-   Quando si esegue un'esecuzione remota di automl con la spiegazione del modello abilitata, viene visualizzato un messaggio di errore che informa che "" installare il pacchetto azureml-explain-Model per le spiegazioni del modello ". Si tratta di un problema noto e, come soluzione alternativa, attenersi a uno dei passaggi seguenti:
+   Quando si esegue un'esecuzione remota di AutoML con la spiegazione del modello abilitata, viene visualizzato un messaggio di errore che illustra l'installazione del pacchetto azureml-explain-Model per le spiegazioni del modello. Questo è un problema noto Come soluzione alternativa, attenersi a uno dei passaggi seguenti:
   
   1. Installare azureml-explain-Model localmente.
    ```
       pip install azureml-explain-model
    ```
-  2. Disabilitare completamente la funzionalità di spiegazione passando model_explainability = false nella configurazione automl.
+  2. Disabilitare completamente la funzionalità di spiegazione passando model_explainability = false nella configurazione AutoML.
    ```
       automl_config = AutoMLConfig(task = 'classification',
                              path = '.',
@@ -81,7 +83,7 @@ Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero
     
 * **Errori Panda: in genere visualizzati durante l'esperimento AutoML:**
    
-   Quando si configura manualmente la Environmnet con pip, si noterà l'errore degli attributi, soprattutto da Pandas, a causa dell'installazione di versioni del pacchetto non supportate. Per evitare tali errori, [installare AUTOML SDK usando il automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   Quando si configura manualmente l'ambiente mediante PIP, è possibile che si verifichino errori di attributo, specialmente da Pandas, a causa dell'installazione di versioni del pacchetto non supportate. Per evitare tali errori, [installare AUTOML SDK usando il automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
    
     1. Aprire un prompt di Anaconda e clonare il repository GitHub per un set di notebook di esempio.
 
@@ -135,31 +137,31 @@ Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero
 * **Databricks FailToSendFeather**: se viene visualizzato un `FailToSendFeather` errore durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
     
     * Aggiornare `azureml-sdk[automl]` il pacchetto alla versione più recente.
-    * Aggiungere `azureml-dataprep` la versione 1.1.8 o successiva.
-    * Aggiungere `pyarrow` la versione 0,11 o successiva.
+    * Aggiungere la `azureml-dataprep` versione 1.1.8 o successiva.
+    * Aggiungere la `pyarrow` versione 0,11 o successiva.
     
 ## <a name="create-and-manage-workspaces"></a>Creare e gestire aree di lavoro
 
 > [!WARNING]
-> Non è supportato lo stato di un'area di lavoro di Azure Machine Learning in una sottoscrizione diversa o di trasferimento della sottoscrizione proprietaria a un nuovo tenant. Questa operazione può causare errori.
+> Lo spostamento dell’area di lavoro di Azure Machine Learning in una diversa sottoscrizione o della sottoscrizione proprietaria su un nuovo tenant non è supportato in quanto ciò può provocare errori.
 
 * **Portale di Azure**: se si passa direttamente a visualizzare l'area di lavoro da un collegamento di condivisione dall'SDK o dal portale, non sarà possibile visualizzare la pagina **Panoramica** normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se è necessario visualizzare un'altra area di lavoro, passare direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
 
-## <a name="set-up-your-environment"></a>Configurare l'ambiente
+## <a name="set-up-your-environment"></a>Configura il tuo ambiente
 
 * **Problemi di creazione di AmlCompute**: esiste una rara possibilità che alcuni utenti che hanno creato l'area di lavoro Azure Machine Learning dal portale di Azure prima della versione GA potrebbero non essere in grado di creare AmlCompute in tale area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o l'SDK per sbloccarsi immediatamente.
 
-## <a name="work-with-data"></a>Usare i dati
+## <a name="work-with-data"></a>Uso dei dati
 
 ### <a name="overloaded-azurefile-storage"></a>Archiviazione AzureFile di overload
 
-Se viene visualizzato un errore `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, applicare le soluzioni alternative seguenti.
+Se viene visualizzato un errore `Unable to upload project files to working directory in AzureFile because the storage is overloaded` , applicare le soluzioni alternative seguenti.
 
 Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasferimento dei dati, si consiglia di usare i BLOB in modo che la condivisione file sia disponibile per l'invio di esecuzioni. È inoltre possibile suddividere il carico di lavoro tra due aree di lavoro diverse.
 
 ### <a name="passing-data-as-input"></a>Passaggio di dati come input
 
-*  **TypeError: FileNotFound: nessun file o directory**di questo tipo: questo errore si verifica se il percorso del file fornito non è quello in cui si trova il file. È necessario assicurarsi che il modo in cui si fa riferimento al file sia coerente con la posizione in cui è stato montato il set di dati nella destinazione di calcolo. Per garantire uno stato deterministico, è consigliabile usare il percorso astratto quando si monta un set di dati in una destinazione di calcolo. Nel codice seguente, ad esempio, il set di dati viene montato sotto la radice del file System della destinazione di calcolo `/tmp`. 
+*  **TypeError: FileNotFound: nessun file o directory**di questo tipo: questo errore si verifica se il percorso del file fornito non è quello in cui si trova il file. È necessario assicurarsi che il modo in cui si fa riferimento al file sia coerente con la posizione in cui è stato montato il set di dati nella destinazione di calcolo. Per garantire uno stato deterministico, è consigliabile usare il percorso astratto quando si monta un set di dati in una destinazione di calcolo. Nel codice seguente, ad esempio, il set di dati viene montato sotto la radice del file System della destinazione di calcolo `/tmp` . 
     
     ```python
     # Note the leading / in '/tmp/dataset'
@@ -168,16 +170,30 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
     } 
     ```
 
-    Se non si include la barra iniziale '/', sarà necessario anteporre la directory di lavoro ad esempio `/mnt/batch/.../tmp/dataset` alla destinazione di calcolo per indicare dove si desidera montare il set di dati.
+    Se non si include la barra iniziale '/', sarà necessario anteporre la directory di lavoro ad esempio alla `/mnt/batch/.../tmp/dataset` destinazione di calcolo per indicare dove si desidera montare il set di dati.
 
 ### <a name="data-labeling-projects"></a>Progetti di assegnazione di etichette ai dati
 
 |Problema  |Soluzione  |
 |---------|---------|
-|È possibile usare solo i set di dati creati negli archivi dati BLOB     |  si tratta di un limite noto della versione corrente.       |
-|Dopo la creazione, il progetto Mostra "inizializzazione" per molto tempo     | Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto.         |
-|Quando si esaminano le immagini, le immagini appena etichettate non vengono visualizzate     |   Per caricare tutte le immagini con etichetta, scegliere il **primo** pulsante. Il **primo** pulsante consente di tornare all'inizio dell'elenco, ma carica tutti i dati con etichetta.      |
+|È possibile usare solo i set di dati creati negli archivi dati BLOB.     |  Si tratta di un limite noto della versione corrente.       |
+|Dopo la creazione, il progetto Mostra "inizializzazione" per molto tempo.     | Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto.         |
+|Quando si esaminano le immagini, le immagini appena etichettate non vengono visualizzate.     |   Per caricare tutte le immagini con etichetta, scegliere il **primo** pulsante. Il **primo** pulsante consente di tornare all'inizio dell'elenco, ma carica tutti i dati con etichetta.      |
 |Quando si preme il tasto ESC durante l'assegnazione di etichette per il rilevamento di oggetti, viene creata un'etichetta con dimensioni pari a zero nell'angolo superiore sinistro. L'invio di etichette in questo stato non riesce.     |   Eliminare l'etichetta facendo clic sul segno incrociato accanto.  |
+
+### <a name="data-drift-monitors"></a>Monitoraggi della deviazione dati
+
+* Se la `backfill()` funzione SDK non genera l'output previsto, la causa potrebbe essere un problema di autenticazione.  Quando si crea il calcolo da passare a questa funzione, non usare `Run.get_context().experiment.workspace.compute_targets` .  Usare invece [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) come il seguente per creare il calcolo passato a tale `backfill()` funzione: 
+
+  ```python
+   auth = ServicePrincipalAuthentication(
+          tenant_id=tenant_id,
+          service_principal_id=app_id,
+          service_principal_password=client_secret
+          )
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   compute = ws.compute_targets.get("xxx")
+   ```
 
 ## <a name="azure-machine-learning-designer"></a>Finestra di progettazione di Azure Machine Learning
 
@@ -187,11 +203,11 @@ Problemi noti:
 
 ## <a name="train-models"></a>Eseguire il training dei modelli
 
-* **ModuleErrors (nessun modulo denominato)**: se si esegue ModuleErrors durante l'invio di esperimenti in Azure ml, significa che lo script di training prevede l'installazione di un pacchetto, ma non viene aggiunto. Una volta fornito il nome del pacchetto, Azure ML installerà il pacchetto nell'ambiente usato per l'esecuzione del training. 
+* **ModuleErrors (nessun modulo denominato)**: se si esegue ModuleErrors durante l'invio di esperimenti in Azure ml, significa che lo script di training prevede l'installazione di un pacchetto, ma non viene aggiunto. Una volta fornito il nome del pacchetto, Azure ML installa il pacchetto nell'ambiente usato per l'esecuzione del training. 
 
-    Se si usano gli [estimatori](concept-azure-machine-learning-architecture.md#estimators) per inviare esperimenti, è possibile specificare un nome di pacchetto `pip_packages` tramite `conda_packages` il parametro o nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze `conda_dependencies_file`usando o elencare tutti i requisiti PIP in un file `pip_requirements_file` txt usando il parametro. Se si dispone di un oggetto ambiente di Azure ML personalizzato per cui si vuole eseguire l'override dell'immagine predefinita usata dallo strumento di stima, è possibile `environment` specificare tale ambiente tramite il parametro del costruttore Estimator.
+    Se si usano gli [estimatori](concept-azure-machine-learning-architecture.md#estimators) per inviare esperimenti, è possibile specificare un nome di pacchetto `pip_packages` tramite `conda_packages` il parametro o nello strumento di stima basato su da quale origine si vuole installare il pacchetto. È anche possibile specificare un file yml con tutte le dipendenze usando `conda_dependencies_file` o elencare tutti i requisiti PIP in un file txt usando il `pip_requirements_file` parametro. Se si dispone di un oggetto ambiente di Azure ML personalizzato per cui si vuole eseguire l'override dell'immagine predefinita usata dallo strumento di stima, è possibile specificare tale ambiente tramite il `environment` parametro del costruttore Estimator.
 
-    Azure ML fornisce anche estimatori specifici del Framework per Tensorflow, PyTorch, Chainer e SKLearn. Con questi estimatori si assicurerà che le dipendenze del Framework di base siano installate per conto dell'utente nell'ambiente utilizzato per il training. È possibile specificare dipendenze aggiuntive, come descritto in precedenza. 
+    Azure ML fornisce anche estimatori specifici del Framework per TensorFlow, PyTorch, Chainer e SKLearn. Con questi estimatori si assicurerà che le dipendenze del Framework di base siano installate per conto dell'utente nell'ambiente utilizzato per il training. È possibile specificare dipendenze aggiuntive, come descritto in precedenza. 
  
     Le immagini Docker gestite da Azure ML e il relativo contenuto possono essere visualizzate nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers).
     Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione di Framework- [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
@@ -201,7 +217,7 @@ Problemi noti:
  
 * **NameError (nome non definito), AttributeError (oggetto senza attributo)**: questa eccezione deve provenire dagli script di training. È possibile esaminare i file di log da portale di Azure per ottenere altre informazioni sul nome specifico non definito o sull'errore dell'attributo. Dall'SDK è possibile usare `run.get_details()` per esaminare il messaggio di errore. Vengono inoltre elencati tutti i file di log generati per l'esecuzione. Assicurarsi di esaminare lo script di training e correggere l'errore prima di inviare nuovamente l'esecuzione. 
 
-* **Horovod è stato arrestato**: nella maggior parte dei casi se si verifica l'arresto di "AbortedError: Horovod" questa eccezione significa che è presente un'eccezione sottostante in uno dei processi che hanno causato l'arresto di Horovod. Ogni rango nel processo MPI ottiene il proprio file di log dedicato in Azure ML. Questi log sono denominati `70_driver_logs`. In caso di training distribuito, i nomi dei log sono con `_rank` suffisso per semplificare la differenziazione dei log. Per individuare l'errore esatto che ha causato l'arresto di Horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file di driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
+* **Horovod è stato arrestato**: nella maggior parte dei casi se si verifica l'arresto di "AbortedError: Horovod" questa eccezione significa che è presente un'eccezione sottostante in uno dei processi che hanno causato l'arresto di Horovod. Ogni rango nel processo MPI ottiene il proprio file di log dedicato in Azure ML. Questi log sono denominati `70_driver_logs` . In caso di training distribuito, i nomi dei log sono con suffisso `_rank` per semplificare la differenziazione dei log. Per individuare l'errore esatto che ha causato l'arresto di Horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file di driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
 
 * **Esecuzione o eliminazione dell'esperimento**: gli esperimenti possono essere archiviati tramite il metodo [Experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) o dalla visualizzazione della scheda dell'esperimento nel client di Azure Machine Learning Studio tramite il pulsante "Archivia esperimento". Questa azione consente di nascondere l'esperimento dall'elenco di query e viste, ma non di eliminarlo.
 
@@ -218,13 +234,19 @@ Problemi noti:
 
 ## <a name="automated-machine-learning"></a>Funzionalità automatizzate di Machine Learning
 
-* **Flusso tensore**: Machine Learning automatizzato attualmente non supporta il flusso tensore versione 1,13. Se si installa questa versione, le dipendenze del pacchetto smetteranno di funzionare. Ci stiamo impegnando per risolvere questo problema in una versione futura.
-
+* **TensorFlow**: a partire dalla versione 1.5.0 dell'SDK, Machine Learning automatico non installa i modelli TensorFlow per impostazione predefinita. Per installare tensorflow e usarlo con gli esperimenti di Machine Learning automatici, installare tensorflow = = 1.12.0 tramite CondaDependecies. 
+ 
+   ```python
+   from azureml.core.runconfig import RunConfiguration
+   from azureml.core.conda_dependencies import CondaDependencies
+   run_config = RunConfiguration()
+   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
+  ```
 * **Grafici degli esperimenti**: i grafici di classificazione binaria (precisione-richiamo, Roc, curva di guadagno e così via) mostrati nelle iterazioni dell'esperimento di ml automatizzato non vengono visualizzati correttamente nell'interfaccia utente a partire da 4/12. I tracciati del grafico mostrano attualmente risultati inversi, in cui i modelli con prestazioni migliori vengono visualizzati con risultati inferiori. Una soluzione è in fase di analisi.
 
 * **Databricks Annulla un'esecuzione automatica di Machine Learning**: quando si usano le funzionalità automatiche di machine learning in Azure Databricks, per annullare un'esecuzione e avviare una nuova esecuzione dell'esperimento, riavviare il cluster di Azure Databricks.
 
-* **Databricks >10 iterazioni per Machine Learning automatico**: nelle impostazioni automatiche di Machine Learning, se sono presenti più di 10 iterazioni `show_output` , `False` impostare su quando si invia l'esecuzione.
+* **Databricks >10 iterazioni per Machine Learning automatico**: nelle impostazioni automatiche di Machine Learning, se sono presenti più di 10 iterazioni, impostare `show_output` su `False` quando si invia l'esecuzione.
 
 * **Widget databricks per Azure Machine Learning SDK e Machine Learning automatico**: il widget SDK Azure Machine Learning non è supportato in un notebook di databricks perché i notebook non possono analizzare i widget HTML. È possibile visualizzare il widget nel portale usando questo codice Python nella cella Azure Databricks notebook:
 
@@ -267,18 +289,18 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Se non si dispone più del certificato TLS/SSL e della chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster usando `kubectl` e recuperando il segreto. `azuremlfessl`
+Se non si dispone più del certificato TLS/SSL e della chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster usando `kubectl` e recuperando il segreto `azuremlfessl` .
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire tali componenti, è necessario decodificare in base 64 i `cert.pem` componenti e `key.pem` dei segreti `attach_config.enable_ssl`. 
+>Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire tali componenti, è necessario decodificare in base 64 i `cert.pem` `key.pem` componenti e dei segreti `attach_config.enable_ssl` . 
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Problemi relativi ai servizi WebService in Azure Kubernetes
 
-Molti errori WebService nel servizio Azure Kubernetes possono essere sottoposti a debug connettendosi al cluster usando `kubectl`. È possibile ottenere per `kubeconfig.json` un cluster del servizio Kubernetes di Azure eseguendo
+Molti errori WebService nel servizio Azure Kubernetes possono essere sottoposti a debug connettendosi al cluster usando `kubectl` . È possibile ottenere `kubeconfig.json` per un cluster del servizio Kubernetes di Azure eseguendo
 
 ```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -286,7 +308,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="authentication-errors"></a>Errori di autenticazione
 
-Se si esegue un'operazione di gestione in una destinazione di calcolo da un processo remoto, si riceverà uno degli errori seguenti:
+Se si esegue un'operazione di gestione in una destinazione di calcolo da un processo remoto, si riceverà uno degli errori seguenti: 
 
 ```json
 {"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
@@ -297,3 +319,13 @@ Se si esegue un'operazione di gestione in una destinazione di calcolo da un proc
 ```
 
 Ad esempio, si riceverà un errore se si prova a creare o collegare una destinazione di calcolo da una pipeline di Machine Learning che viene inviata per l'esecuzione remota.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Vedere altri articoli sulla risoluzione dei problemi per Azure Machine Learning:
+
+* [Risoluzione dei problemi di distribuzione di Docker con Azure Machine Learning](how-to-troubleshoot-deployment.md)
+* [Debug di pipeline di Machine Learning](how-to-debug-pipelines.md)
+* [Eseguire il debug della classe ParallelRunStep dall'SDK Azure Machine Learning](how-to-debug-parallel-run-step.md)
+* [Debug interattivo di un'istanza di calcolo di Machine Learning con VS Code](how-to-set-up-vs-code-remote.md)
+* [Usare Application Insights per eseguire il debug di pipeline di Machine Learning](how-to-debug-pipelines-application-insights.md)

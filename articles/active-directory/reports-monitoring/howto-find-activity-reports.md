@@ -7,19 +7,19 @@ author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008221"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608212"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -63,7 +63,7 @@ Le categorie includono:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Altri
+- Altro
 - Policy
 - ResourceManagement
 - RoleManagement
@@ -136,7 +136,7 @@ I report di sicurezza delle attività anomale Azure AD seguenti non sono inclusi
 
 È possibile accedere ai report sui rilevamenti dei rischi rilevati nella sezione **sicurezza** del pannello **Azure Active Directory** della [portale di Azure](https://portal.azure.com). I rilevamenti dei rischi rilevati vengono registrati nei report seguenti:   
 
-- [Utenti a rischio.](concept-user-at-risk.md)
+- [Utenti a rischio](concept-user-at-risk.md)
 - [Accessi a rischio](concept-risky-sign-ins.md)
 
     ![Report sulla sicurezza](./media/howto-find-activity-reports/04.png "Report sulla sicurezza")
@@ -155,7 +155,7 @@ I log attività (controllo o accessi) sono stati scaricati ma non vengono visual
 
 Quando si scaricano i log attività nel portale di Azure, viene limitata la scalabilità a 250000 record, ordinati in base alla prima più recente. 
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 È possibile sfruttare le [API di Creazione rapporti di Azure AD](concept-reporting-api.md) per recuperare fino a un milione di record per un momento specifico.
 
@@ -171,12 +171,12 @@ Sono state eseguite alcune azioni nel portale di Azure e si prevedeva la visuali
 
 Le azioni non vengono visualizzate immediatamente nei log attività. La tabella seguente elenca i numeri di latenza per i log attività. 
 
-| Report | &nbsp; | Latenza (P95) | Latenza (P99) |
-|--------|--------|---------------|---------------|
-| Directory Audit (Controllo directory) | &nbsp; | 2 min | 5 min |
-| Attività di accesso | &nbsp; | 2 min | 5 min | 
+| Report | Latenza (P95) | Latenza (P99) |
+|--------|---------------|---------------|
+| Directory Audit (Controllo directory) | 2 min | 5 min |
+| Attività di accesso | 2 min | 5 min |
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate nel log. Se i log non vengono visualizzati nemmeno dopo due ore, [inviare un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) che verrà preso in esame.
 
@@ -192,12 +192,12 @@ Di recente si è eseguito l'accesso al portale di Azure e si prevedeva la visual
 
 Le azioni non vengono visualizzate immediatamente nei log attività. La tabella seguente elenca i numeri di latenza per i log attività. 
 
-| Report | &nbsp; | Latenza (P95) | Latenza (P99) |
-|--------|--------|---------------|---------------|
-| Directory Audit (Controllo directory) | &nbsp; | 2 min | 5 min |
-| Attività di accesso | &nbsp; | 2 min | 5 min | 
+| Report | Latenza (P95) | Latenza (P99) |
+|--------|---------------|---------------|
+| Directory Audit (Controllo directory) | 2 min | 5 min |
+| Attività di accesso | 2 min | 5 min |
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate nel log. Se i log non vengono visualizzati nemmeno dopo due ore, [inviare un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) che verrà preso in esame.
 
@@ -213,14 +213,14 @@ Non è possibile visualizzare più di 30 giorni di dati di accesso e controllo n
 
 In base alla licenza, Azioni di Azure Active Directory archivia i report delle attività per le durate seguenti:
 
-| Report           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Directory Audit (Controllo directory)  | &nbsp; |   7 giorni     | 30 giorni             | 30 giorni             |
-| Attività di accesso | &nbsp; | Non disponibile. È possibile accedere alle informazioni di accesso per 7 giorni dal pannello del singolo profilo utente | 30 giorni | 30 giorni             |
+| Report           | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---
+| Directory Audit (Controllo directory)  | 7 giorni        | 30 giorni             | 30 giorni             |
+| Attività di accesso | Non disponibile. È possibile accedere alle informazioni di accesso per 7 giorni dal pannello del singolo profilo utente | 30 giorni | 30 giorni             |
 
 Per altre informazioni, vedere [Criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Sono disponibili due opzioni per conservare i dati per più di 30 giorni. È possibile usare le [API creazione report di Azure AD](concept-reporting-api.md) per recuperare i dati a livello di codice e archiviarli in un database. In alternativa, è possibile integrare i log di controllo in un sistema SIEM di terze parti, ad esempio Splunk o SumoLogic.
 

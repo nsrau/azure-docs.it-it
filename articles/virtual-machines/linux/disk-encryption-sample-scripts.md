@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32d4e709036135a9a88ec36eaafaa176df33fabf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610354"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Script di esempio per la crittografia dischi di Azure 
 
@@ -320,7 +320,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
 
 6. È ora possibile effettuare il deprovisioning della macchina virtuale e caricare il disco rigido virtuale in Azure.
 
-### <a name="centos-7-and-rhel-81"></a>CentOS 7 e RHEL 8,1
+### <a name="centos-7-and-rhel-7"></a>CentOS 7 e RHEL 7
 
 Per configurare la crittografia durante l'installazione della distribuzione, eseguire i passaggi seguenti:
 1. Selezionare **Encrypt my data** (Crittografa dati personali) durante il partizionamento dei dischi.

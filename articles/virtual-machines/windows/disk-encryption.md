@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 164ce87df77d81a7d36d4448f5d8da8287ed0a01
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: c3a73028350054d54c6714107bfdfa7ead3ee4a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656726"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610439"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server dei dischi gestiti di Azure
 
@@ -75,12 +75,11 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
 
 - Se questa funzionalità è abilitata per il disco, non è possibile disabilitarla.
     Se è necessario risolvere questo problema, occorre [copiare tutti i dati](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) in un disco gestito completamente diverso che non usa chiavi gestite dal cliente.
-- Sono supportate solo [chiavi RSA "soft" e "hard"](../../key-vault/keys/about-keys.md) di dimensioni 2080 e nessun'altra chiave o dimensione.
+- Sono supportate solo [le chiavi RSA software e HSM](../../key-vault/keys/about-keys.md) di dimensioni 2080, senza altre chiavi o dimensioni.
 - I dischi creati da immagini personalizzate crittografati con crittografia lato server e chiavi gestite dal cliente devono essere crittografati usando le stesse chiavi gestite dal cliente e devono trovarsi nella stessa sottoscrizione.
 - Gli snapshot creati da dischi crittografati con crittografia lato server e chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente.
 - Tutte le risorse correlate alle chiavi gestite dal cliente (istanze di Azure Key Vault, set di crittografia dischi, macchine virtuali, dischi e snapshot) devono trovarsi nella stessa sottoscrizione e nella stessa area.
 - I dischi, gli snapshot e le immagini crittografati con chiavi gestite dal cliente non possono passare a un'altra sottoscrizione.
-- Se si usa il portale di Azure per creare il set di crittografia dischi, attualmente non è possibile usare snapshot.
 - I dischi gestiti crittografati usando la crittografia lato server con chiavi gestite dal cliente non possono essere crittografati anche con Crittografia dischi di Azure e viceversa.
 - Per informazioni sull'uso delle chiavi gestite dal cliente con le raccolte immagini condivise, vedere [Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini](../image-version-encryption.md).
 
@@ -88,41 +87,7 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
 
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configurazione di Azure Key Vault e del set di crittografia dischi
 
-1. Verificare di aver installato la [versione di Azure PowerShell](/powershell/azure/install-az-ps) più recente e di aver eseguito l'accesso a un account di Azure con Connect-AzAccount
-
-1. Creare un'istanza di Azure Key Vault e la chiave di crittografia.
-
-    Quando si crea l'istanza di Key Vault, è necessario abilitare l'eliminazione temporanea e la protezione dall'eliminazione. L'eliminazione temporanea assicura che l'insieme di credenziali delle chiavi mantenga una chiave eliminata per un determinato periodo di conservazione (valore predefinito di 90 giorni). La protezione dall'eliminazione garantisce che una chiave eliminata non possa essere eliminata definitivamente fino a quando non scade il periodo di conservazione. Queste impostazioni consentono di evitare la perdita di dati a causa dell'eliminazione accidentale. Queste impostazioni sono obbligatorie quando si usa un insieme di credenziali delle chiavi per la crittografia dei dischi gestiti.
-    
-    ```powershell
-    $ResourceGroupName="yourResourceGroupName"
-    $LocationName="westcentralus"
-    $keyVaultName="yourKeyVaultName"
-    $keyName="yourKeyName"
-    $keyDestination="Software"
-    $diskEncryptionSetName="yourDiskEncryptionSetName"
-
-    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnableSoftDelete -EnablePurgeProtection
-
-    $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
-    ```
-
-1.    Creare un'istanza di un set di crittografia dischi. 
-    
-        ```powershell
-        $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
-        
-        $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
-        ```
-
-1.    Concedere al set di crittografia dischi l'accesso all'insieme di credenziali delle chiavi.
-
-        > [!NOTE]
-        > Potrebbero essere necessari alcuni minuti prima che Azure crei l'identità del set di crittografia dischi in Azure Active Directory. Se quando si esegue il comando seguente viene visualizzato un errore simile a "Impossibile trovare l'oggetto Active Directory", attendere qualche minuto e riprovare.
-        
-        ```powershell  
-        Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-        ```
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Creare una macchina virtuale con un'immagine del Marketplace, crittografando il disco del sistema operativo e i dischi dati con chiavi gestite dal cliente
 
@@ -260,14 +225,7 @@ Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $Reso
 
 #### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>Trovare lo stato di crittografia lato server di un disco
 
-```PowerShell
-$ResourceGroupName="yourResourceGroupName"
-$DiskName="yourDiskName"
-
-$disk=Get-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName
-$disk.Encryption.Type
-
-```
+[!INCLUDE [virtual-machines-disks-encryption-status-powershell](../../../includes/virtual-machines-disks-encryption-status-powershell.md)]
 
 > [!IMPORTANT]
 > Le chiavi gestite dal cliente si basano sulle identità gestite per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Quando si configurano le chiavi gestite dal cliente, un'identità gestita viene assegnata automaticamente alle risorse dietro le quinte. Se successivamente si sposta la sottoscrizione, il gruppo di risorse o il disco gestito da una directory di Azure AD a un'altra, l'identità gestita associata ai dischi gestiti non viene trasferita al nuovo tenant, quindi le chiavi gestite dal cliente potrebbero non funzionare più. Per altre informazioni, vedere [Trasferimento di una sottoscrizione tra directory di Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
