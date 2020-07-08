@@ -8,18 +8,17 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97c03d417f8bf123de3332142344f292de00e3b2
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790247"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Elencare le assegnazioni di Azure Deny usando il portale di Azure
 
@@ -42,7 +41,7 @@ Attenersi alla procedura seguente per elencare le assegnazioni di accesso negato
 
 1. Fare clic sul gruppo di gestione o sulla sottoscrizione che si desidera elencare.
 
-1. Fare clic su **controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **Assegnazioni di rifiuto** (oppure fare clic sul pulsante **Visualizza** nel riquadro Visualizza assegnazioni di rifiuto).
 
@@ -94,7 +93,7 @@ Attenersi alla seguente procedura per elencare ulteriori dettagli su un'assegnaz
     | --- | --- |
     | **Actions**  | Operazioni di gestione negate. |
     | **NotActions** | Operazioni di gestione escluse dall'operazione di gestione negata. |
-    | **Dataactions**  | Operazioni con dati negati. |
+    | **DataActions**  | Operazioni con dati negati. |
     | **NotDataActions** | Operazioni con dati esclusi dalle operazioni con dati negati. |
 
     Nell'esempio illustrato nello screenshot precedente, le autorizzazioni valide sono le seguenti:

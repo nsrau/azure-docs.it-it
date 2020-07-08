@@ -8,14 +8,13 @@ ms.author: trbye
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 4bb32418a9f6f556c3bcdfbdf8a70a10c4588218
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 72b0a3074bfdfb6b6038f6c63eb01a7b33d45ea6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83646137"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959127"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione di una serie temporale
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,7 +54,7 @@ Machine Learning automatizzato fornisce agli utenti sia i modelli nativi della s
 
 Modelli| Descrizione | Vantaggi
 ----|----|---
-Prophet (anteprima)|Il modello Prophet funziona meglio con le serie temporali con effetti stagionali forti e diverse stagioni di dati cronologici. | Accuratezza, rapidità, affidabilità per outlier, dati mancanti e modifiche radicali nella serie temporale.
+Prophet (anteprima)|Il modello Prophet funziona meglio con le serie temporali con effetti stagionali forti e diverse stagioni di dati cronologici. Per utilizzare questo modello, installarlo localmente utilizzando `pip install fbprophet` . | Accuratezza, rapidità, affidabilità per outlier, dati mancanti e modifiche radicali nella serie temporale.
 Auto-ARIMA (anteprima)|AutoRegressive Integrated Moving Average (ARIMA) garantisce prestazioni ottimali quando i dati sono stazionari. Ciò significa che le proprietà statistiche, come la media e la varianza, sono costanti per l'intero set. Se, ad esempio, si lancia una moneta, la probabilità di ottenere testa è pari al 50%, indipendentemente dal fatto che venga lanciata oggi, domani o il prossimo anno.| Ideale per le serie univariate, perché i valori precedenti vengono usati per stimare i valori futuri.
 ForecastTCN (anteprima)| ForecastTCN è un modello di rete neurale progettato per affrontare le attività di previsione più complesse, acquisendo le tendenze locali e globali non lineari nei dati, nonché le relazioni tra le serie temporali.|Capacità di sfruttare le tendenze complesse nei dati e di ridimensionare immediatamente nel set di dati di dimensioni maggiori.
 
@@ -68,17 +67,19 @@ ForecastTCN (anteprima)| ForecastTCN è un modello di rete neurale progettato pe
 
 La differenza più importante tra un tipo di attività di regressione di previsione e un tipo di attività di regressione all'interno di Machine Learning automatizzato consiste nell'includere una funzionalità nei dati che rappresenti una serie temporale valida. Una serie temporale regolare presenta una frequenza ben definita e coerente e un valore in ogni punto di esempio in un intervallo di tempo continuo. Si consideri lo snapshot seguente di un file `sample.csv`.
 
-    day_datetime,store,sales_quantity,week_of_year
-    9/3/2018,A,2000,36
-    9/3/2018,B,600,36
-    9/4/2018,A,2300,36
-    9/4/2018,B,550,36
-    9/5/2018,A,2100,36
-    9/5/2018,B,650,36
-    9/6/2018,A,2400,36
-    9/6/2018,B,700,36
-    9/7/2018,A,2450,36
-    9/7/2018,B,650,36
+```output
+day_datetime,store,sales_quantity,week_of_year
+9/3/2018,A,2000,36
+9/3/2018,B,600,36
+9/4/2018,A,2300,36
+9/4/2018,B,550,36
+9/5/2018,A,2100,36
+9/5/2018,B,650,36
+9/6/2018,A,2400,36
+9/6/2018,B,700,36
+9/7/2018,A,2450,36
+9/7/2018,B,650,36
+```
 
 Questo set di dati è un semplice esempio di dati di vendita giornalieri per una società con due punti vendita diversi, A e B. Esiste inoltre una funzionalità per `week_of_year` che consentirà al modello di rilevare la stagionalità settimanale. Il campo `day_datetime` rappresenta una serie temporale pulita con frequenza giornaliera e il campo `sales_quantity` è la colonna di destinazione per l'esecuzione delle stime. Leggere i dati in un frame di dati Pandas e quindi usare la funzione `to_datetime` per assicurarsi che la serie temporale sia di tipo `datetime`.
 
@@ -271,9 +272,11 @@ rmse
 
 Ora che è stata determinata l'accuratezza complessiva del modello, il passaggio successivo più realistico consiste nell'uso del modello per prevedere valori futuri sconosciuti. Fornire un set di dati nello stesso formato del set di test `test_data`, ma con datetime futuri e il set di stime risultante, corrisponde ai valori previsti per ogni passaggio della serie temporale. Si supponga che gli ultimi record della serie temporale nel set di dati si riferiscano al giorno 31/12/2018. Per prevedere la richiesta del giorno successivo (o il numero di periodi che è necessario prevedere, < = `max_horizon`), creare un singolo record della serie temporale per ogni negozio per il giorno 01/01/2019.
 
-    day_datetime,store,week_of_year
-    01/01/2019,A,1
-    01/01/2019,A,1
+```output
+day_datetime,store,week_of_year
+01/01/2019,A,1
+01/01/2019,A,1
+```
 
 Ripetere i passaggi necessari per caricare i dati futuri in un dataframe e quindi eseguire `best_run.predict(test_data)` per stimare i valori futuri.
 

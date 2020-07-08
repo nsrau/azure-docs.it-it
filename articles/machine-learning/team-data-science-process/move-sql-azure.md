@@ -1,6 +1,6 @@
 ---
 title: Spostare i dati in un database SQL di Azure - Processo di analisi scientifica dei dati per i team
-description: Spostare i dati da file flat (formati CSV o TSV) o da dati archiviati in un SQL Server locale a un database SQL di Azure.
+description: Spostare i dati da file flat (formati CSV o TSV) o da dati archiviati in una SQL Server a un database SQL di Azure.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,18 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f9a1424f2afe6c5153e208601b21dff9651880a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 99e637099e54698e9d6eabb14920251a9d4a81f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194387"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Spostamento dei dati in un database SQL di Azure per Azure Machine Learning
 
-Questo articolo descrive le opzioni per lo stato di trasferimento dei dati da file flat (formati CSV o TSV) o da dati archiviati in un SQL Server locale a un database SQL di Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Processo di analisi scientifica dei dati per i team.
+Questo articolo descrive le opzioni per lo stato di trasferimento dei dati da file flat (formati CSV o TSV) o da dati archiviati in SQL Server a un database SQL di Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Processo di analisi scientifica dei dati per i team.
 
-Per un argomento che descrive le opzioni per lo spostamento dei dati a SQL Server locale per Machine Learning, vedere [Spostamento dei dati in SQL Server in una macchina virtuale di Azure](move-sql-server-virtual-machine.md).
+Per un argomento che descrive le opzioni per lo spostamento dei dati SQL Server per Machine Learning, vedere [spostare i dati in SQL Server in una macchina virtuale di Azure](move-sql-server-virtual-machine.md).
 
 Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati a un database SQL di Azure.
 
@@ -41,7 +40,7 @@ Questa procedura descritta di seguito richiede di disporre di:
 
 **Dati**: i processi di migrazione vengono illustrati usando il [set di dati NYC Taxi](https://chriswhong.com/open-data/foil_nyc_taxi/). Il set di dati NYC Taxi contiene informazioni sulle tariffe e sui dati delle tratte ed è disponibile nell'archivio BLOB di Azure ([dati NYC Taxi](https://www.andresmh.com/nyctaxitrips/)). Un esempio e una descrizione di questi file sono inclusi in [Descrizione del set di dati relativo alle corse dei taxi di NYC](sql-walkthrough.md#dataset).
 
-È possibile adattare le procedure descritte di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server locale, seguire la procedura descritta in [Importazione in blocco dei dati nel database SQL Server](sql-walkthrough.md#dbload). Queste istruzioni sono per SQL Server in una macchina virtuale di Azure, ma la procedura per il caricamento in SQL Server locale è la stessa.
+È possibile adattare le procedure descritte di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server, seguire la procedura illustrata nell'argomento relativo all' [importazione bulk di dati in SQL Server database](sql-walkthrough.md#dbload).
 
 ## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>Trasferimento di dati da un'origine file flat a un database SQL di Azure
 I dati nei file flat (CSV o TSV formattati) possono essere spostati in un database SQL di Azure usando una query SQL BULK INSERT.
@@ -49,8 +48,8 @@ I dati nei file flat (CSV o TSV formattati) possono essere spostati in un databa
 ### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>Query SQL BULK INSERT
 I passaggi per la procedura che usano la query BULK INSERT SQL sono simili alle direzioni per lo trasferimento dei dati da un'origine file flat a SQL Server in una macchina virtuale di Azure. Per altre informazioni, vedere [Inserimento di massa query SQL](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="moving-data-from-on-premises-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Trasferimento di dati da SQL Server locali a un database SQL di Azure
-Se i dati di origine vengono archiviati in un SQL Server locale, esistono diverse possibilità per lo trasferimento dei dati in un database SQL di Azure:
+## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Trasferimento di dati da SQL Server a un database SQL di Azure
+Se i dati di origine vengono archiviati in SQL Server, è possibile trasferire i dati in un database SQL di Azure in diversi modi:
 
 1. [Esporta nel file flat](#export-flat-file)
 2. [Migrazione guidata database SQL](#insert-tables-bcp)
@@ -69,6 +68,6 @@ I passaggi per l'utilizzo della migrazione guidata database SQL sono simili a qu
 I passaggi per l'utilizzo del backup e del ripristino del database sono simili a quelli elencati in [backup e ripristino del database](move-sql-server-virtual-machine.md#sql-backup).
 
 ### <a name="azure-data-factory"></a><a name="adf"></a>Data factory di Azure
-Informazioni su come spostare i dati in un database SQL di Azure con Azure Data Factory (ADF) in questo argomento [spostare i dati da un'istanza di SQL Server locale a SQL Azure con Azure Data Factory](move-sql-azure-adf.md). Questo argomento illustra come usare ADF per spostare i dati da un database di SQL Server locale a un database SQL di Azure tramite l'archiviazione BLOB di Azure.
+Informazioni su come spostare i dati in un database SQL di Azure con Azure Data Factory (ADF) in questo argomento, [spostare i dati da un SQL Server a SQL Azure con Azure Data Factory](move-sql-azure-adf.md). Questo argomento illustra come usare ADF per spostare i dati da un database di SQL Server a un database SQL di Azure tramite l'archiviazione BLOB di Azure.
 
 È consigliabile usare ADF quando i dati devono essere migrati continuamente con origini ibride locali e cloud.  ADF aiuta anche quando i dati necessitano di trasformazioni o necessitano di una nuova logica di business durante la migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. ADF dispone anche di altre funzionalità quali il supporto di operazioni complesse.

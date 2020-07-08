@@ -7,12 +7,11 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655232"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960300"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurare un dominio personalizzato in App Web statiche di Azure (anteprima)
 
@@ -29,11 +28,11 @@ Quando si configurano i nomi di dominio, i record "A" vengono usati per eseguire
 
 Per un'applicazione sono disponibili diversi tipi di configurazioni DNS.
 
-| Se si vuole                            | Risultato                                                |
-| ----------------------------------------- | --------------------------------------------------- |
-| Supporto di `www.example.com`                 | [Esecuzione del mapping di un record CNAME](#map-a-cname-record)           |
-| Supporto di `example.com`                     | [Configurare un dominio radice](#configure-a-root-domain) |
-| Fare in modo che tutti i sottodomini puntino a `www.example.com` | [Eseguire il mapping di un carattere jolly](#map-a-wildcard-domain)                   |
+| Se si vuole                                 | Risultato                                                |
+| -----------------------------------------------| --------------------------------------------------- |
+| Supporto tecnico `www.example.com` o`blog.example.net`| [Esecuzione del mapping di un record CNAME](#map-a-cname-record)           |
+| Supporto di `example.com`                          | [Configurare un dominio radice](#configure-a-root-domain) |
+| Fare in modo che tutti i sottodomini puntino a `www.example.com`      | [Eseguire il mapping di un carattere jolly](#map-a-wildcard-domain)            |
 
 ## <a name="map-a-cname-record"></a>Esecuzione del mapping di un record CNAME
 
@@ -80,7 +79,7 @@ Un record CNAME esegue il mapping di un dominio a un altro. È possibile usare u
 
 1. Fare clic sul pulsante **Convalida**.
 
-Ora che il dominio personalizzato è configurato, il provider DNS potrebbe impiegare diverse ore per propagare le modifiche in tutto il mondo. Per controllare lo stato della propagazione, accedere a [dnspropagation.net](https://dnspropagation.net). Immettere il dominio personalizzato, incluso la `www`, selezionare CNAME nell'elenco a discesa e selezionare **Avvia**.
+Ora che il dominio personalizzato è configurato, potrebbero essere necessarie diverse ore prima che il provider DNS propaghi le modifiche in tutto il mondo. Per controllare lo stato della propagazione, accedere a [dnspropagation.net](https://dnspropagation.net). Immettere il dominio personalizzato, incluso la `www`, selezionare CNAME nell'elenco a discesa e selezionare **Avvia**.
 
 Se le modifiche DNS sono state popolate, il sito Web restituisce l'URL generato automaticamente dell'app Web statica, ad esempio _random-name-123456789c.azurestaticapps.net_.
 

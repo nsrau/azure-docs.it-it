@@ -1,22 +1,21 @@
 ---
-title: Serie Dav4 e Dasv4-macchine virtuali di Azure
+title: Serie Dav4 e Dasv4
 description: Specifiche per le macchine virtuali serie Dav4 e Dasv4.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: c7a2fea94e0dc1ff868eff26399877cab66e6f66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d8478d97ba2615836f3e121d9dd56d94fcd73fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678393"
 ---
 # <a name="dav4-and-dasv4-series"></a>Serie Dav4 e Dasv4
 
-Le serie Dav4 e Dasv4 sono nuove dimensioni che usano il processore AMD 2.35 GHz EPYC<sup>TM</sup> 7452 in una configurazione multithread con una cache L3 fino a 256 MB che dedicano 8 MB di tale cache L3 a ogni 8 core che aumentano le opzioni dei clienti per l'esecuzione dei carichi di lavoro per uso generico. La serie Dav4 e la serie Dasv4 hanno le stesse configurazioni di memoria e disco della serie D & Dsv3.
+Le serie Dav4 e Dasv4 sono nuove dimensioni che usano il processore AMD 2.35 GHz EPYC<sup>TM</sup> 7452 in una configurazione multithread con una cache L3 fino a 256 MB che dedicano 8 MB di tale cache L3 a ogni 8 core che aumentano le opzioni dei clienti per l'esecuzione dei carichi di lavoro per uso generico. Le serie Dav4 e Dasv4 hanno le stesse configurazioni di memoria e disco della serie D e Dsv3.
 
 ## <a name="dav4-series"></a>Serie Dav4
 
@@ -26,13 +25,13 @@ Archiviazione Premium: non supportata
 
 Caching archiviazione Premium: non supportato
 
-Live Migration: supportato
+Live Migration: Supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Manutenzione con mantenimento della memoria: Supportato
 
 Le dimensioni della serie Dav4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz. Le dimensioni della serie Dav4 offrono una combinazione di vCPU, memoria e archiviazione temporanea per la maggior parte dei carichi di lavoro di produzione. L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare l'unità SSD Premium, usare le dimensioni Dasv4. I prezzi e i contatori di fatturazione per le dimensioni Dasv4 sono uguali a quelli della serie Dav4.
 
-| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | NIC massimo/larghezza di banda di rete prevista (MBps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Schede di interfaccia di rete max/Larghezza di banda di rete prevista (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|
 | Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3000 / 46 / 23   | 2 / 1000 |
 | Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6000 / 93 / 46   | 2 / 2000 |
@@ -51,13 +50,13 @@ Archiviazione Premium: supportata
 
 Caching archiviazione Premium: supportato
 
-Live Migration: supportato
+Live Migration: Supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Manutenzione con mantenimento della memoria: Supportato
 
 Le dimensioni della serie Dasv4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz e usare l'unità SSD Premium. Le dimensioni della serie Dasv4 offrono una combinazione di vCPU, memoria e archiviazione temporanea per la maggior parte dei carichi di lavoro di produzione.
 
-| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | NIC massimo/larghezza di banda di rete prevista (MBps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/Larghezza di banda di rete prevista (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_D2as_v4|2|8|16|4|4000/32 (50)|3200/48|2 / 1000 |
 | Standard_D4as_v4|4|16|32|8|8000/64 (100)|6400/96|2 / 2000 |

@@ -3,32 +3,31 @@ title: Funzioni di modello-matrici
 description: Descrive le funzioni da utilizzare in un modello di Azure Resource Manager per l'utilizzo di matrici.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: f34ba74847ac394e37e6ef33f859304128daacde
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203812"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677849"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funzioni di matrice per i modelli ARM
 
 Gestione risorse offre diverse funzioni per l'uso di matrici nel modello di Azure Resource Manager (ARM).
 
 * [array](#array)
-* [Concat](#concat)
+* [concat](#concat)
 * [contains](#contains)
-* [Funzione CreateArray](#createarray)
+* [createArray](#createarray)
 * [empty](#empty)
-* [prima](#first)
-* [intersezione](#intersection)
-* [Ultima](#last)
+* [first](#first)
+* [intersection](#intersection)
+* [last](#last)
 * [length](#length)
 * [max](#max)
 * [min](#min)
-* [intervallo](#range)
-* [ignorare](#skip)
+* [range](#range)
+* [skip](#skip)
 * [take](#take)
-* [Unione](#union)
+* [union](#union)
 
 Per ottenere una matrice di valori stringa delimitata da un valore, vedere [split](template-functions-string.md#split).
 
@@ -54,7 +53,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "intToConvert": {
@@ -93,7 +92,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| intOutput | Array | [1] |
+| intOutput | Array |  [1] |
 | stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
@@ -122,7 +121,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstArray": {
@@ -163,7 +162,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "prefix": {
@@ -185,7 +184,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| concatOutput | Stringa | prefix-5yj4yjf5mbg72 |
+| concatOutput | string | prefix-5yj4yjf5mbg72 |
 
 ## <a name="contains"></a>contains
 
@@ -210,7 +209,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -291,7 +290,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "objectToTest": {
@@ -357,7 +356,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -422,7 +421,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -449,8 +448,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| arrayOutput | Stringa | one |
-| stringOutput | Stringa | O |
+| arrayOutput | string | one |
+| stringOutput | string | O |
 
 ## <a name="intersection"></a>intersezione
 
@@ -476,7 +475,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {
@@ -540,7 +539,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -567,8 +566,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| arrayOutput | Stringa | three |
-| stringOutput | Stringa | e |
+| arrayOutput | string | three |
+| stringOutput | string | e |
 
 ## <a name="length"></a>length
 
@@ -592,7 +591,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -679,7 +678,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -708,7 +707,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 
 `min(arg1)`
 
@@ -730,7 +729,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -782,7 +781,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "startingInt": {
@@ -833,7 +832,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -876,7 +875,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | Stringa | two three |
+| stringOutput | string | two three |
 
 ## <a name="take"></a>take
 
@@ -901,7 +900,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -944,7 +943,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | Stringa | on |
+| stringOutput | string | on |
 
 ## <a name="union"></a>union
 
@@ -970,7 +969,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {

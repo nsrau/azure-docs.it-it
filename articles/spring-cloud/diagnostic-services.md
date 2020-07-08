@@ -6,12 +6,11 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 83b223ab2195516492d55ac85be6e7db0dffbd98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57850b45820ec259337a8ad5b67bfebfd6762c24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176788"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790586"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizzare i log e le metriche con le impostazioni di diagnostica
 
@@ -45,7 +44,7 @@ Per iniziare, abilitare uno di questi servizi per la ricezione dei dati. Per inf
 1. Selezionare l'opzione **impostazioni di diagnostica** e quindi selezionare **Aggiungi impostazione di diagnostica**.
 1. Immettere un nome per l'impostazione e quindi scegliere il percorso in cui si desidera inviare i log. È possibile selezionare qualsiasi combinazione delle tre opzioni seguenti:
     * **Archivia in un account di archiviazione**
-    * **Trasmettere a un hub eventi**
+    * **Streaming in un hub eventi**
     * **Invia a Log Analytics**
 
 1. Scegliere la categoria di log e la categoria metrica che si desidera monitorare, quindi specificare il periodo di conservazione (in giorni). Il periodo di memorizzazione si applica solo all'account di archiviazione.
@@ -105,7 +104,7 @@ Sono disponibili diversi metodi per visualizzare i log e le metriche, come descr
     | limit 50
     ```
 > [!NOTE]
-> `==`fa distinzione tra maiuscole `=~` e minuscole, ma non lo è.
+> `==`fa distinzione tra maiuscole e minuscole, ma `=~` non lo è.
 
 Per altre informazioni sul linguaggio di query usato in Log Analytics, vedere query di [log di monitoraggio di Azure](../azure-monitor/log-query/query-language.md).
 
@@ -174,3 +173,31 @@ AppPlatformLogsforSpring
 ### <a name="learn-more-about-querying-application-logs"></a>Altre informazioni sull'esecuzione di query sui log applicazioni
 
 Monitoraggio di Azure offre un supporto completo per l'esecuzione di query sui log applicazioni usando Log Analytics. Per altre informazioni su questo servizio, vedere [Introduzione alle query di log in monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md). Per altre informazioni sulla compilazione di query per analizzare i log applicazioni, vedere [Panoramica delle query di log in monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="frequently-asked-questions-faq"></a>Domande frequenti
+
+### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Come convertire le tracce dello stack Java a più righe in una singola riga?
+
+Esiste una soluzione alternativa per convertire le tracce dello stack su più righe in una singola riga. È possibile modificare l'output del log Java per riformattare i messaggi di traccia dello stack, sostituendo i caratteri di nuova riga con un token. Se si usa la libreria Java Logback, è possibile riformattare i messaggi di traccia dello stack aggiungendo `%replace(%ex){'[\r\n]+', '\\n'}%nopex` come segue:
+
+```xml
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                level: %level, message: "%logger{36}: %msg", exceptions: "%replace(%ex){'[\r\n]+', '\\n'}%nopex"%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+```
+Quindi, è possibile sostituire il token con i caratteri di nuova riga in Log Analytics come indicato di seguito:
+
+```sql
+AppPlatformLogsforSpring
+| extend Log = array_strcat(split(Log, '\\n'), '\n')
+```
+Potrebbe essere possibile usare la stessa strategia per altre librerie di log Java.

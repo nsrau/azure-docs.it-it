@@ -1,24 +1,13 @@
 ---
 title: Bus di servizio di Azure-esplorazione messaggi
 description: Esplora e visualizza messaggi del bus di servizio consente a un client del bus di servizio di Azure di enumerare tutti i messaggi che si trovano in una coda o una sottoscrizione.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77539366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341244"
 ---
 # <a name="message-browsing"></a>Esplorazione dei messaggi
 

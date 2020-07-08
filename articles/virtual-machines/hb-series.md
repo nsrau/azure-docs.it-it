@@ -1,18 +1,17 @@
 ---
-title: Serie HB-macchine virtuali di Azure
+title: Serie HB
 description: Specifiche per le VM serie HB.
-services: virtual-machines
-author: jonbeck7
+author: ju-shim
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 600f10e81742e9bb66c800b747fd7b2dc062754d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: b0ffd9af8df830c1bdacbfe3809d4086346679b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164832"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678563"
 ---
 # <a name="hb-series"></a>Serie HB
 
@@ -24,11 +23,11 @@ Archiviazione Premium: supportata
 
 Memorizzazione nella cache Archiviazione Premium: supportata
 
-Live Migration: non supportato
+Live Migration: Non supportato
 
-Aggiornamenti con mantenimento della memoria: non supportato
+Manutenzione con mantenimento della memoria: Non supportato
 
-| Dimensioni | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | NIC Ethernet max |
+| Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | NIC Ethernet max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Tutti | 700 | 4 | 1 |
 

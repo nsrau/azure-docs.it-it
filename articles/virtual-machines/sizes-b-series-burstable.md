@@ -2,18 +2,17 @@
 title: 'Serie B: macchine virtuali di Azure'
 description: Descrive le dimensioni delle macchine virtuali di Azure della serie B che includono il supporto per burst.
 services: virtual-machines
+ms.subservice: sizes
 author: ayshakeen
-manager: gwallace
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78161081"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678546"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -21,15 +20,15 @@ Le macchine virtuali della serie B sono ideali per i carichi di lavoro che non n
 
 La serie B è dotata delle dimensioni seguenti per le macchine virtuali:
 
-Archiviazione Premium: supportata
+Archiviazione Premium:  Supportato
 
-Caching archiviazione Premium: non supportato
+Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
-Live Migration: supportato
+Live Migration: Supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Manutenzione con mantenimento della memoria: Supportato
 
-| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Prestazioni base della CPU della VM | Prestazioni massime della CPU della VM | Crediti iniziali | Crediti in banca/ora | Crediti massimi accumulati | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps | Numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Prestazioni base della CPU della VM | Prestazioni massime della CPU della VM | Crediti iniziali | Crediti in banca/ora | Crediti massimi accumulati | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
 | Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |
@@ -86,7 +85,7 @@ Baseline: 270%
 | Nessun traffico | 22:00 | 0 | 162 | 642 |
 | Nessun traffico | 23:00 | 0 | 162 | 804 |
 
-<sup>1</sup> crediti accumulati/crediti utilizzati in un'ora equivale a: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
+<sup>1</sup> crediti accumulati/crediti utilizzati in un'ora equivale a: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` .  
 
 Per un D16s_v3 con 16 vCPU e 64 GiB di memoria la tariffa oraria è $0,936 all'ora ($673,92 mensile) e per B16ms con 16 vCPU e 64 GiB di memoria, la velocità è di $0,794 all'ora (mensile $547,86). <b>Questo comporta un risparmio del 15%.</b>
 

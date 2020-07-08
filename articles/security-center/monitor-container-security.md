@@ -6,30 +6,18 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 900398a701659bff593df042db16890792e5cffd
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801377"
 ---
-# <a name="monitoring-the-security-of-your-containers"></a>Monitoraggio della sicurezza dei contenitori
+# <a name="monitor-the-security-of-your-containers"></a>Monitorare la sicurezza dei contenitori
 
 Questa pagina illustra come usare le funzionalità di sicurezza del contenitore descritte nell' [articolo sulla sicurezza dei contenitori](container-security.md) nella sezione concetti.
 
-Il Centro sicurezza di Azure illustra i tre aspetti seguenti della sicurezza del contenitore:
-
-- **Gestione delle vulnerabilità** : se si usa il piano tariffario standard del Centro sicurezza (vedere i [prezzi](/azure/security-center/security-center-pricing)), è possibile analizzare la container Registry di Azure basata su ARM ogni volta che viene effettuato il push di una nuova immagine. Lo scanner (alimentato da Qualys) presenta i risultati come raccomandazioni del Centro sicurezza.
-    Per istruzioni dettagliate, vedere [analisi dei registri dei contenitori per le vulnerabilità](#scanning-your-arm-based-container-registries-for-vulnerabilities) seguenti.
-
-- Protezione **avanzata degli host Docker dei contenitori** : il Centro sicurezza trova i contenitori non gestiti ospitati in macchine virtuali Linux IaaS o altri computer Linux che eseguono Docker e confronta continuamente le configurazioni dei contenitori con il benchmark Docker di Center for Internet Security (CIS). Il Centro sicurezza avvisa l'utente se i contenitori non soddisfano i controlli. Il monitoraggio continuo dei rischi per la sicurezza a causa di problemi di configurazione è un componente fondamentale di qualsiasi programma di sicurezza. 
-    Per istruzioni dettagliate, vedere [protezione avanzata degli host Docker per i contenitori](#hardening-your-containers-docker-hosts) .
-
-- Protezione **avanzata dei cluster di servizi Kubernetes di Azure** : il Centro sicurezza fornisce consigli quando rileva vulnerabilità nella configurazione dei cluster di servizi Kubernetes di Azure. Per informazioni dettagliate sulle raccomandazioni specifiche che possono essere visualizzate, vedere le raccomandazioni per il [servizio Kubernetes](recommendations-reference.md#recs-containers).
-
-- **Protezione in fase di esecuzione** : se si usa il piano tariffario standard del Centro sicurezza, si otterrà la protezione dalle minacce in tempo reale per gli ambienti in contenitori. Il Centro sicurezza genera avvisi per le attività sospette a livello di host e del cluster AKS. Per informazioni dettagliate sugli avvisi di sicurezza pertinenti che potrebbero essere visualizzati, vedere gli avvisi [per i cluster del servizio Kubernetes di Azure](alerts-reference.md#alerts-akscluster) e gli [avvisi per i contenitori-](alerts-reference.md#alerts-containerhost) sezioni a livello di host della tabella di riferimento degli avvisi.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Analisi dei registri di contenitori basati su ARM per le vulnerabilità 
 
@@ -37,7 +25,7 @@ Il Centro sicurezza di Azure illustra i tre aspetti seguenti della sicurezza del
 
     1. Assicurarsi di trovarsi nel piano tariffario standard del Centro sicurezza di Azure.
 
-    1. Dalla pagina **impostazioni & dei prezzi** abilitare il bundle facoltativo dei registri contenitori per la sottoscrizione: ![abilitazione del bundle registri contenitori](media/monitor-container-security/enabling-container-registries-bundle.png)
+    1. Dalla pagina **impostazioni & dei prezzi** abilitare il bundle facoltativo dei registri contenitori per la sottoscrizione: ![ Abilitazione del bundle registri contenitori](media/monitor-container-security/enabling-container-registries-bundle.png)
 
         Il Centro sicurezza è ora pronto per analizzare le immagini che vengono inserite nel registro di sistema. 
 

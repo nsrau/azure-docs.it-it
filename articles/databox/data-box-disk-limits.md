@@ -8,12 +8,11 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260163"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099078"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limiti di Azure Data Box Disk
 
@@ -56,6 +55,7 @@ Per informazioni aggiornate su limiti del servizio Archiviazione di Azure e le p
     - In tutte le cartelle create preventivamente e in Data Box Disk può essere presente un solo disco gestito con un determinato nome in un gruppo di risorse. I dischi rigidi virtuali caricati nelle cartelle create preventivamente devono quindi avere nomi univoci. Verificare che il nome assegnato non corrisponda a un disco gestito già esistente in un gruppo di risorse. Se i dischi rigidi virtuali hanno lo stesso nome, un solo disco rigido virtuale verrà convertito in un disco gestito con tale nome. Gli altri dischi rigidi virtuali verranno caricati come BLOB di pagine nell'account di archiviazione di staging.
     - Copiare sempre i dischi rigidi virtuali in una delle cartelle create preventivamente. Se vengono copiati all'esterno di queste cartelle o in una cartella creata dall'utente, i dischi rigidi virtuali verranno caricati nell'account di archiviazione di Azure come BLOB di pagine e non come dischi gestiti.
     - Per la creazione di dischi gestiti possono essere caricati solo dischi rigidi virtuali a dimensione fissa. I dischi rigidi virtuali dinamici o differenze e i file VHDX non sono supportati.
+    - I file non VHD copiati nelle cartelle del disco gestito PreCreate non verranno convertiti in un disco gestito.
 
 ## <a name="azure-storage-account-size-limits"></a>Limiti delle dimensioni dell'account di archiviazione di Azure
 
@@ -83,14 +83,14 @@ Di seguito vengono indicate le dimensioni degli oggetti Azure che possono essere
 | Entità                                       | Convenzioni                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nomi di contenitori BLOB in blocchi e BLOB di pagine <br> Nomi FileShare per File di Azure | Deve essere un nome DNS valido compreso tra 3 e 63 caratteri. <br>  Deve iniziare con una lettera o un numero. <br> Può contenere solo lettere minuscole, numeri e trattini (-). <br> Ogni trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero. <br> I trattini consecutivi non sono consentiti nei nomi. |
-| Nomi dei file e delle directory per i file di Azure     |<li> Mantengono le maiuscole/minuscole, non fanno distinzione tra maiuscole e minuscole e non devono superare i 255 caratteri. </li><li> Non possono terminare con la barra (/). </li><li>Se inserita, verrà automaticamente rimossa. </li><li> I caratteri seguenti non sono consentiti:<code>" \\ / : \| < > * ?</code></li><li> I caratteri URL riservati devono essere preceduti da una sequenza di escape. </li><li> Non sono ammessi i caratteri di percorsi URL non validi. I punti di \\codice come uE000 non sono caratteri Unicode validi. Anche alcuni caratteri ASCII o Unicode, ad esempio i caratteri di controllo ( \\da 0x00 a 0x1F, u0081 e così via), non sono consentiti. Per le regole che controllano le stringhe Unicode in HTTP/1.1, vedere RFC 2616, sezione 2.2: Basic Rules e RFC 3987. </li><li> Non sono ammessi i nomi file seguenti: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punto (.) e due punti (..).</li>|
+| Nomi dei file e delle directory per i file di Azure     |<li> Mantengono le maiuscole/minuscole, non fanno distinzione tra maiuscole e minuscole e non devono superare i 255 caratteri. </li><li> Non possono terminare con la barra (/). </li><li>Se inserita, verrà automaticamente rimossa. </li><li> I caratteri seguenti non sono consentiti:<code>" \\ / : \| < > * ?</code></li><li> I caratteri URL riservati devono essere preceduti da una sequenza di escape. </li><li> Non sono ammessi i caratteri di percorsi URL non validi. I punti di codice come \\ uE000 non sono caratteri Unicode validi. Anche alcuni caratteri ASCII o Unicode, ad esempio i caratteri di controllo (da 0x00 a 0x1F, \\ u0081 e così via), non sono consentiti. Per le regole che controllano le stringhe Unicode in HTTP/1.1, vedere RFC 2616, sezione 2.2: Basic Rules e RFC 3987. </li><li> Non sono ammessi i nomi file seguenti: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punto (.) e due punti (..).</li>|
 | Nomi di BLOB per BLOB in blocchi e BLOB di pagine      | I nomi di BLOB fanno distinzione tra maiuscole e minuscole e possono contenere una qualsiasi combinazione di caratteri. <br> La lunghezza di un nome di BLOB deve essere compresa tra 1 e 1.024 caratteri. <br> I caratteri URL riservati devono essere preceduti da una sequenza di escape. <br>Il numero di segmenti del percorso che includono il nome BLOB non può essere superiore a 254. Un segmento di percorso è la stringa tra caratteri di delimitatore consecutivi, ad esempio, la barra rovesciata '/', che corrisponde al nome di una directory virtuale. |
 
 ## <a name="managed-disk-naming-conventions"></a>Convenzioni di denominazione dei dischi gestiti
 
 | Entità | Convenzioni                                             |
 |-------------------|-----------------------------------------------------------|
-| Nomi dei dischi gestiti       | <li> Il nome deve avere una lunghezza di 1 e 80 caratteri. </li><li> Il nome deve iniziare con una lettera o un numero, terminare con una lettera, un numero o un carattere di sottolineatura. </li><li> Il nome può contenere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. </li><li>   Il nome non deve contenere spazi o `/`.                                              |
+| Nomi dei dischi gestiti       | <li> Il nome deve avere una lunghezza di 1 e 80 caratteri. </li><li> Il nome deve iniziare con una lettera o un numero, terminare con una lettera, un numero o un carattere di sottolineatura. </li><li> Il nome può contenere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. </li><li>   Il nome non deve contenere spazi o `/` .                                              |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

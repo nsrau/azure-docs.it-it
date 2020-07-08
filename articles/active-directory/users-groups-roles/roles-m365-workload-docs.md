@@ -8,18 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 430b65217da33185cd3b5c235fb148f3350e1bfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 79e3ed41ad3038cf66d61c25292ebad55c2b5e92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74024447"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731698"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Ruoli di amministratore per i servizi Microsoft 365
 
@@ -38,7 +37,7 @@ Centro sicurezza e conformità (Office 365 Advanced Threat Protection, Exchange 
 Punteggio di sicurezza | [Ruoli di amministratore di Azure AD](directory-assign-admin-roles.md) | [API Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Recuperare le assegnazioni di ruolo](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Compliance Manager | [Ruoli di Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud#permissions-and-role-based-access-control) | Non disponibile
 Azure Information Protection | [Ruoli di amministratore di Azure AD](directory-assign-admin-roles.md) | [API Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Recuperare le assegnazioni di ruolo](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
-Microsoft Cloud App Security | [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/cloud-app-security/manage-admins) | [API (riferimento)](https://docs.microsoft.com/cloud-app-security/api-tokens) 
+Microsoft Cloud App Security | [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/cloud-app-security/manage-admins) | [Informazioni di riferimento sulle API](https://docs.microsoft.com/cloud-app-security/api-tokens) 
 Azure Advanced Threat Protection | [Gruppi di ruoli di Azure ATP](https://docs.microsoft.com/azure-advanced-threat-protection/atp-role-groups) | Non disponibile
 Windows Defender Advanced Threat Protection | [Controllo degli accessi in base al ruolo di Windows Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/rbac-windows-defender-advanced-threat-protection) | Non disponibile
 Privileged Identity Management | [Ruoli di amministratore di Azure AD](directory-assign-admin-roles.md) | [API Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Recuperare le assegnazioni di ruolo](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)

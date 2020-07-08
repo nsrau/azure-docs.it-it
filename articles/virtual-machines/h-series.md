@@ -1,18 +1,17 @@
 ---
 title: Serie H-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie H.
-services: virtual-machines
-author: jonbeck7
+author: ju-shim
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 03/10/2020
-ms.author: lahugh
-ms.openlocfilehash: 6e0257f8a32d05f49dd67195f22d387319358ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: f79dcb8886985d60a1ed82e1a77d231cf7d3ad24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678682"
 ---
 # <a name="h-series"></a>Serie H
 
@@ -20,15 +19,15 @@ Le macchine virtuali serie H sono ottimizzate per le applicazioni basate su freq
 
 ACU: 290-300
 
-Archiviazione Premium: non supportata
+Archiviazione Premium:  Non supportato
 
 Memorizzazione nella cache Archiviazione Premium: non supportata
 
-Live Migration: non supportato
+Live Migration: Non supportato
 
-Aggiornamenti con mantenimento della memoria: non supportato
+Manutenzione con mantenimento della memoria: Non supportato
 
-| Dimensioni | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | Velocità effettiva del disco max: IOPS | NIC Ethernet max |
+| Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | Velocità effettiva del disco max: IOPS | NIC Ethernet max |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8   | 8  | Intel Xeon E5 2667 V3 | 56 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5. x, MS-MPI | 1000 | 32 | 32x500 | 2 |
 | Standard_H16  | 16 | Intel Xeon E5 2667 V3 | 112 | 80 | 3.2 | 3.3 | 3.6 | - | Intel 5. x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |

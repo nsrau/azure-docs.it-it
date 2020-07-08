@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c7791d43ffbbc13ab151362c5c3026ebbdb0d34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: abe9938a3cc9466a56a3e4be24a677751e28e9ac
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531017"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960164"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Creare reti virtuali per i cluster HDInsight di Azure
 
@@ -50,7 +49,7 @@ Usare lo script di PowerShell seguente per creare una rete virtuale che limita i
 > [!IMPORTANT]  
 > Modificare gli indirizzi IP per `hdirule1` e `hdirule2` in questo esempio in modo che corrispondano all'area di Azure in uso. È possibile trovare queste informazioni sugli [indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md).
 
-```powershell
+```azurepowershell
 $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
@@ -153,7 +152,7 @@ $vnet | Set-AzVirtualNetwork
 
 Questo esempio illustra come aggiungere le regole per consentire il traffico in ingresso sugli indirizzi IP richiesti. Non contiene una regola per limitare l'accesso in ingresso da altre origini. Il codice seguente illustra come abilitare l'accesso SSH da Internet:
 
-```powershell
+```azurepowershell
 Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
 Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 ```
@@ -192,9 +191,11 @@ Seguire questa procedura per creare una rete virtuale che limita il traffico in 
 
     Il comando restituisce un valore simile al testo seguente:
 
-        "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```output
+    "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```
 
-4. Usare il comando seguente per applicare il gruppo di sicurezza di rete a una subnet. Sostituire i `GUID` valori `RESOURCEGROUP` e con quelli restituiti nel passaggio precedente. Sostituire `VNETNAME` e `SUBNETNAME` con il nome della rete virtuale e il nome della subnet che si desidera creare.
+4. Usare il comando seguente per applicare il gruppo di sicurezza di rete a una subnet. Sostituire i `GUID` `RESOURCEGROUP` valori e con quelli restituiti nel passaggio precedente. Sostituire `VNETNAME` e `SUBNETNAME` con il nome della rete virtuale e il nome della subnet che si desidera creare.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -228,7 +229,7 @@ Nel server DNS personalizzato nella rete virtuale:
 
     Sostituire `RESOURCEGROUP` con il nome del gruppo di risorse che contiene la rete virtuale, quindi immettere il comando:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
@@ -310,7 +311,7 @@ Questo esempio si basa sui presupposti seguenti:
 
     Sostituire `RESOURCEGROUP` con il nome del gruppo di risorse che contiene la rete virtuale, quindi immettere il comando:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```

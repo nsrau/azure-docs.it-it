@@ -13,15 +13,14 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 49b669627507af0e3e7386f31e344082cc4686df
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: 58f2b1828bcc63ce11c234847bc20f90944aba18
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219316"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960385"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrare più macchine virtuali SQL in Azure con il provider di risorse per VM SQL
-[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)][!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Questo articolo descrive come registrare in blocco le macchine virtuali (VM) di SQL Server in Azure con il provider di risorse per macchine virtuali SQL usando il cmdlet `Register-SqlVMs` di PowerShell.
 
@@ -78,7 +77,7 @@ Register-SqlVMs -SubscriptionList SubscriptionId1,SubscriptionId2
 Output di esempio: 
 
 ```
-Number of Subscriptions registration failed for 
+Number of subscriptions registration failed for 
 because you do not have access or credentials are wrong: 1
 Total VMs Found: 10
 VMs Already registered: 1
@@ -155,7 +154,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="register-specific-vms-in-single-resource-group"></a>Registrare macchine virtuali specifiche in un singolo gruppo di risorse
+## <a name="register-specific-vms-in-a-single-resource-group"></a>Registrare macchine virtuali specifiche in un singolo gruppo di risorse
 
 Usare il cmdlet seguente per registrare macchine virtuali di SQL Server specifiche in un singolo gruppo di risorse:
 

@@ -8,20 +8,23 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549020"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081102"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelli di progettazione per applicazioni SaaS multi-tenant e Azure ricerca cognitiva
+
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con ricerca cognitiva di Azure.
 
 ## <a name="azure-cognitive-search-concepts"></a>Concetti di Azure ricerca cognitiva
-Come soluzione di ricerca distribuita come servizio, Azure ricerca cognitiva consente agli sviluppatori di aggiungere esperienze di ricerca avanzate alle applicazioni senza gestire alcuna infrastruttura o diventare esperti nel recupero delle informazioni. I dati vengano caricati nel servizio e quindi archiviati nel cloud. Usando semplici richieste all'API ricerca cognitiva di Azure, i dati possono quindi essere modificati e cercati. Una panoramica del servizio è riportata in [questo articolo](https://aka.ms/whatisazsearch). Prima di illustrare i modelli di progettazione, è importante comprendere alcuni concetti in Azure ricerca cognitiva.
+Come soluzione di ricerca distribuita come servizio, [Azure ricerca cognitiva](search-what-is-azure-search.md) consente agli sviluppatori di aggiungere esperienze di ricerca avanzate alle applicazioni senza gestire alcuna infrastruttura o diventare esperti nel recupero delle informazioni. I dati vengano caricati nel servizio e quindi archiviati nel cloud. Usando semplici richieste all'API ricerca cognitiva di Azure, i dati possono quindi essere modificati e cercati. 
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Servizi di ricerca, indici, campi e documenti
+
+Prima di illustrare i modelli di progettazione, è importante comprendere alcuni concetti di base.
+
 Quando si usa ricerca cognitiva di Azure, si sottoscrive un *servizio di ricerca*. Quando i dati vengono caricati in ricerca cognitiva di Azure, vengono archiviati in un *Indice* all'interno del servizio di ricerca. In un solo servizio possono essere presenti molti indici. Facendo riferimento ai familiari concetti relativi ai database, il servizio di ricerca può essere paragonato a un database, mentre gli indici all'interno di un servizio possono essere paragonati alle tabelle di un database.
 
 Ogni indice all'interno di un servizio di ricerca ha un proprio schema, definito da un certo numero di *campi*personalizzabili. I dati vengono aggiunti a un indice di ricerca cognitiva di Azure sotto forma di singoli *documenti*. Ogni documento deve essere caricato in un indice specifico e deve adattarsi allo schema di tale indice. Quando si eseguono ricerche nei dati utilizzando Azure ricerca cognitiva, le query di ricerca full-text vengono eseguite su un particolare indice.  Facendo riferimento ai database, i campi possono essere paragonati alle colonne e i documenti alle righe di una tabella del database.
@@ -127,5 +130,5 @@ Questo metodo può essere usato per ottenere funzionalità di account utente div
 ## <a name="next-steps"></a>Passaggi successivi
 Azure ricerca cognitiva è una scelta interessante per molte applicazioni. Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, prendere in considerazione i [diversi piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti di servizio](search-limits-quotas-capacity.md) per personalizzare meglio Azure ricerca cognitiva per adattare i carichi di lavoro delle applicazioni e le architetture di tutte le dimensioni.
 
-Eventuali domande sugli scenari di Azure ricerca cognitiva e multi-tenant possono essere azuresearch_contact@microsoft.comindirizzate a.
+Eventuali domande sugli scenari di Azure ricerca cognitiva e multi-tenant possono essere indirizzate a azuresearch_contact@microsoft.com .
 

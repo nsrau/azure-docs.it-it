@@ -1,24 +1,13 @@
 ---
 title: Sessioni di messaggi del bus di servizio di Azure | Microsoft Docs
 description: In questo articolo viene illustrato come usare le sessioni per abilitare la gestione congiunta e ordinata di sequenze non vincolate di messaggi correlati.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2020
-ms.author: aschhab
-ms.openlocfilehash: 9cedf3678fc73b004c142380b4ba69c10ca72ebf
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341187"
 ---
 # <a name="message-sessions"></a>Sessioni di messaggistica
 Le sessioni del bus di servizio di Microsoft Azure consentono la gestione congiunta e ordinata di sequenze non vincolate di messaggi correlati. Le sessioni possono essere usate in criteri **First in, First out (FIFO)** e di **richiesta-risposta**. Questo articolo illustra come usare le sessioni per implementare questi criteri quando si usa il bus di servizio. 

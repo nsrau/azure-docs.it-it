@@ -9,12 +9,11 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: face605d756d2107c04b3df0c072602ac91d147d
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.openlocfilehash: 02e6d776dbb47ee8e30409f6b8adc5a61fc5fe52
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992896"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958923"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
 
@@ -141,7 +140,7 @@ Questa tabella mette a confronto le funzionalità di Microsoft Translator Hub co
 
 ## <a name="new-languages"></a>Nuove lingue
 
-Se si è una community o un'organizzazione che lavora alla creazione di un nuovo sistema di linguaggio per Microsoft Translator, rivolgersi a [custommt@microsoft.com](mailto:custommt@microsoft.com) per altre informazioni.
+Se si è una community o un'organizzazione che lavora per la creazione di un nuovo sistema di linguaggio per il traduttore, rivolgersi a [custommt@microsoft.com](mailto:custommt@microsoft.com) per altre informazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

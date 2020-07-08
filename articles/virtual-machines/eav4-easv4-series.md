@@ -1,22 +1,21 @@
 ---
-title: Serie Eav4 e serie Easv4-macchine virtuali di Azure
+title: Serie Eav4 e serie Easv4
 description: Specifiche per le macchine virtuali serie Eav4 e Easv4.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: ab45298dbcb8988da7d0211fcbde3087d0099038
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: 230809f4fe42ce0fc8b8c85024b42926a27e699f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678240"
 ---
 # <a name="eav4-and-easv4-series"></a>Serie Eav4 e Easv4
 
-Le serie Eav4 e Easv4 usano il processore AMD 2.35 GHz EPYC<sup>TM</sup> 7452 in una configurazione multithread con una cache L3 fino a 256 MB, aumentando le opzioni per l'esecuzione della maggior parte dei carichi di lavoro con ottimizzazione per la memoria. La serie Eav4 e la serie Easv4 hanno le stesse configurazioni di memoria e disco della serie EV3 & Esv3.
+Le serie Eav4 e Easv4 usano il processore AMD 2.35 GHz EPYC<sup>TM</sup> 7452 in una configurazione multithread con una cache L3 fino a 256 MB, aumentando le opzioni per l'esecuzione della maggior parte dei carichi di lavoro con ottimizzazione per la memoria. La serie Eav4 e Easv4 hanno le stesse configurazioni di memoria e disco della serie EV3 & Esv3.
 
 ## <a name="eav4-series"></a>Serie Eav4
 
@@ -26,23 +25,23 @@ Archiviazione Premium: non supportata
 
 Caching archiviazione Premium: non supportato
 
-Live Migration: supportato
+Live Migration: Supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Manutenzione con mantenimento della memoria: Supportato
 
 Le dimensioni della serie Eav4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz e usare l'unità SSD Premium. Le dimensioni della serie Eav4 sono ideali per applicazioni aziendali a uso intensivo di memoria. L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare l'unità SSD Premium, usare le dimensioni della serie Easv4. I prezzi e i contatori di fatturazione per le dimensioni Easv4 sono uguali a quelli della serie Eav3.
 
-| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | NIC massimo/larghezza di banda di rete prevista (MBps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Schede di interfaccia di rete max/Larghezza di banda di rete prevista (Mbps) |
 | -----|-----|-----|-----|-----|-----|-----|
-| E2a\_\_standard V4|2|16|50|4|3000 / 46 / 23|2 / 1000 |
-| E4a\_\_standard V4|4|32|100|8|6000 / 93 / 46|2 / 2000 |
-| E8a\_\_standard V4|8|64|200|16|12000 / 187 / 93|4 / 4000 |
-| E16a\_\_standard V4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
-| E20a\_\_standard V4|20|160|500|32|30000/468/234|8 / 10000 |
-| E32a\_\_standard V4|32|256|800|32|48000 / 750 / 375|8 / 16000 |
-| E48a\_\_standard V4|48|384|1200|32|96000/1000 (500)|8 / 24000 |
-| E64a\_\_standard V4|64|512|1600|32|96000/1000 (500)|8 / 30000 |
-| E96a\_\_standard V4|96|672|2400|32|96000/1000 (500)|8 / 30000 |
+| \_E2a standard \_ V4|2|16|50|4|3000 / 46 / 23|2 / 1000 |
+| \_E4a standard \_ V4|4|32|100|8|6000 / 93 / 46|2 / 2000 |
+| \_E8a standard \_ V4|8|64|200|16|12000 / 187 / 93|4 / 4000 |
+| \_E16a standard \_ V4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
+| \_E20a standard \_ V4|20|160|500|32|30000/468/234|8 / 10000 |
+| \_E32a standard \_ V4|32|256|800|32|48000 / 750 / 375|8 / 16000 |
+| \_E48a standard \_ V4|48|384|1200|32|96000/1000 (500)|8 / 24000 |
+| \_E64a standard \_ V4|64|512|1600|32|96000/1000 (500)|8 / 30000 |
+| \_E96a standard \_ V4|96|672|2400|32|96000/1000 (500)|8 / 30000 |
 
 ## <a name="easv4-series"></a>Serie Easv4
 
@@ -52,13 +51,13 @@ Archiviazione Premium: supportata
 
 Caching archiviazione Premium: supportato
 
-Live Migration: supportato
+Live Migration: Supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Manutenzione con mantenimento della memoria: Supportato
 
 Le dimensioni della serie Easv4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz e usare l'unità SSD Premium. Le dimensioni della serie Easv4 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
-| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | NIC massimo/larghezza di banda di rete prevista (MBps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/Larghezza di banda di rete prevista (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_E2as_v4|2|16|32|4|4000/32 (50)|3200/48|2 / 1000 |
 | Standard_E4as_v4|4|32|64|8|8000/64 (100)|6400/96|2 / 2000 |

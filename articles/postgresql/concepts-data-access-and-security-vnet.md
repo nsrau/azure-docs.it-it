@@ -6,16 +6,15 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bee705e33267a765c1fb5300c0bfe2d04ff2015d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75965835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099643"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Usare gli endpoint del servizio rete virtuale e le regole per database di Azure per PostgreSQL-server singolo
 
-Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza del firewall che consente di definire se il server di Database di Azure per PostgreSQL accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega i motivi per cui la funzione delle regole di rete virtuale è talvolta la scelta ideale per consentire le comunicazioni con il server di Database di Azure per PostgreSQL.
+*Le regole della rete virtuale* sono una funzionalità di sicurezza del firewall che controlla se il database di Azure per il server PostgreSQL accetta le comunicazioni inviate da determinate subnet nelle reti virtuali. Questo articolo spiega i motivi per cui la funzione delle regole di rete virtuale è talvolta la scelta ideale per consentire le comunicazioni con il server di Database di Azure per PostgreSQL.
 
 Per creare una regola di rete virtuale, devono innanzitutto essere disponibili una [rete virtuale][vm-virtual-network-overview] (VNet) e un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] a cui la regola possa fare riferimento. La figura seguente illustra il funzionamento di un endpoint servizio di rete virtuale con Database di Azure per PostgreSQL:
 
@@ -33,7 +32,7 @@ Per creare una regola di rete virtuale, devono innanzitutto essere disponibili u
 
 **Subnet:** una rete virtuale contiene **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint servizio di rete virtuale:** un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori di proprietà includono uno o più nomi formali di tipi di servizi Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per PostgreSQL e MySQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per PostgreSQL e Database di Azure per MySQL nella subnet. 
+**Endpoint servizio di rete virtuale:** un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per PostgreSQL e MySQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per PostgreSQL e Database di Azure per MySQL nella subnet. 
 
 **Regola di rete virtuale:** una regola di rete virtuale per il server di Database di Azure per PostgreSQL è una subnet presente nell'elenco di controllo di accesso (ACL) del server di Database di Azure per PostgreSQL. Per essere inclusa nell'elenco ACL del server di Database di Azure per PostgreSQL, la subnet deve contenere il nome del tipo **Microsoft.Sql**.
 
@@ -45,13 +44,13 @@ Una regola di rete virtuale indica al server di Database di Azure per PostgreSQL
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Vantaggi di una regola di rete virtuale
 
 Finché non si interviene, le VM nelle subnet non possono comunicare con il server di Database di Azure per PostgreSQL. Un'azione che stabilisce la comunicazione è la creazione di una regola di rete virtuale. La base logica per la scelta dell'approccio delle regole di rete virtuale richiede una discussione di confronto riguardo le opzioni di sicurezza concorrenti offerte dal firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Possibilità di accedere ai servizi di Azure
+### <a name="a-allow-access-to-azure-services"></a>R. Possibilità di accedere ai servizi di Azure
 
 Il riquadro Sicurezza connessione contiene un pulsante **ON/OFF** con l'etichetta **Consenti l'accesso a Servizi di Azure**. L'impostazione **ON** consente le comunicazioni da tutti gli indirizzi IP di Azure e tutte le subnet di Azure. Questi indirizzi IP o subnet di Azure potrebbero non essere di proprietà dell'utente. Questa impostazione **ON** è probabilmente più aperta rispetto al livello desiderato per l'istanza di Database di Azure per PostgreSQL. La funzione delle regole di rete virtuale offre un controllo molto più granulare.
 
@@ -69,7 +68,7 @@ Se il server **Microsoft.Sql** è un nodo in una subnet nella rete virtuale, tut
 
 Tuttavia, a partire da agosto 2018, il servizio Database di Azure per PostgreSQL non è ancora tra i servizi che possono essere assegnati direttamente a una subnet.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Dettagli sulle regole di rete virtuale
 
@@ -102,7 +101,7 @@ I ruoli di amministratore di rete e amministratore di database hanno più funzio
 > In alcuni casi, Database di Azure per PostgreSQL e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
 > - Entrambe le sottoscrizioni devono essere nello stesso tenant di Azure Active Directory.
 > - L'utente ha le autorizzazioni necessarie per avviare le operazioni, ad esempio abilitare gli endpoint di servizio e aggiungere una subnet della rete virtuale al server specificato.
-> - Assicurarsi che la sottoscrizione disponga del provider di risorse **Microsoft. SQL** registrato. Per altre informazioni, vedere [Resource-Manager-Registration][resource-manager-portal]
+> - Assicurarsi che per entrambe le sottoscrizioni sia registrato il provider di risorse **Microsoft. SQL** e **Microsoft. DBforPostgreSQL** . Per altre informazioni, fare riferimento a [resource-manager-registration][resource-manager-portal].
 
 ## <a name="limitations"></a>Limitazioni
 

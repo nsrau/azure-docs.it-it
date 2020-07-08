@@ -6,12 +6,11 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 77c464f51bd17921052b3ae1e9fefb49e777d6c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7621867aad6baf517462983e35afb0b28223756
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341299"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Crittografia dei dati per il server singolo di database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 
@@ -54,16 +53,16 @@ Informazioni su come usare l'interfaccia della riga di comando di Azure per conf
 
 1. Esistono due modi per ottenere l'identità gestita per il server singolo del database di Azure per PostgreSQL.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Creare un nuovo database di Azure per il server MySQL con un'identità gestita.
+    ### <a name="create-an-new-azure-database-for-postgresql-server-with-a-managed-identity"></a>Creare un nuovo database di Azure per il server PostgreSQL con un'identità gestita.
 
     ```azurecli-interactive
-    az postgres server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
+    az postgres server create --name <server_name> -g <resource_group> --location <location> --storage-size <size>  -u <user> -p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled> --assign-identity
     ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Aggiornare un database di Azure per il server MySQL esistente per ottenere un'identità gestita.
+    ### <a name="update-an-existing-the-azure-database-for-postgresql-server-to-get-a-managed-identity"></a>Aggiornare un database di Azure per il server PostgreSQL esistente per ottenere un'identità gestita.
 
     ```azurecli-interactive
-    az postgres server update –name <server name>  -g <resoure_group> --assign-identity
+    az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
 2. Impostare le **autorizzazioni chiave** (**Get**, **Wrap**, **Unwrap**) per l' **entità**, che corrisponde al nome del server a server singolo PostgreSQL.
@@ -77,14 +76,14 @@ Informazioni su come usare l'interfaccia della riga di comando di Azure per conf
 1. Abilitare la crittografia dei dati per il server singolo del database di Azure per PostgreSQL usando la chiave creata nel Azure Key Vault.
 
     ```azurecli-interactive
-    az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key create --name <server_name> -g <resource_group> --kid <key_url>
     ```
 
     URL chiave:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Uso della crittografia dei dati per i server di ripristino o di replica
 
-Dopo che il server singolo di database di Azure per PostgreSQL è stato crittografato con una chiave gestita del cliente archiviata in Key Vault, viene crittografata anche qualsiasi copia appena creata del server. Questa nuova copia può essere eseguita tramite un'operazione di ripristino locale o geografica oppure tramite un'operazione di replica (locale/tra aree). Quindi, per un server a server singolo PostgreSQL crittografato, è possibile usare la procedura seguente per creare un server ripristinato crittografato.
+Una volta crittografato il server singolo di Database di Azure per PostgreSQL con una chiave gestita dal cliente archiviata in Key Vault, viene crittografata anche qualsiasi nuova copia creata del server. Questa nuova copia può essere eseguita tramite un'operazione di ripristino locale o geografica oppure tramite un'operazione di replica (locale/tra aree). Quindi, per un server a server singolo PostgreSQL crittografato, è possibile usare la procedura seguente per creare un server ripristinato crittografato.
 
 ### <a name="creating-a-restoredreplica-server"></a>Creazione di un server ripristinato/di replica
 
@@ -102,7 +101,7 @@ Dopo che il server singolo di database di Azure per PostgreSQL è stato crittogr
 ### <a name="get-the-key-used"></a>Ottenere la chiave utilizzata
 
     ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
     ```
 
     Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`

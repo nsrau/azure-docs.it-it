@@ -10,12 +10,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: a8f9b66bf9a301888f2371fb1c58a4845c2232b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3d6f3a7a5fafc643b346d3df1306820114827049
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193681"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso di Azure Data Lake Storage Gen1 per i requisiti di Big Data
 
@@ -40,7 +39,7 @@ Si tratta di set di dati di piccole dimensioni usati per la creazione del protot
 
 | origine dati | Inserire usando |
 | --- | --- |
-| Computer locale |<ul> <li>[Portale di Azure](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usare Strumenti di Data Lake per Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Computer locale |<ul> <li>[Azure portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usare Strumenti di Data Lake per Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | BLOB di Archiviazione di Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp in esecuzione nel cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Dati di streaming
@@ -108,7 +107,7 @@ Esaminare gli esempi seguenti.
 ## <a name="download-data-from-data-lake-storage-gen1"></a>Scaricare i dati da Data Lake Storage Gen1
 È anche possibile che si voglia scaricare o spostare i dati da Azure Data Lake Storage Gen1 per scenari simili ai seguenti:
 
-* Spostare i dati in altri repository per l'interfaccia con le pipeline di elaborazione dati esistenti. È possibile, ad esempio, che sia necessario spostare i dati da Data Lake Storage Gen1 al database SQL di Azure o al server SQL locale.
+* Spostare i dati in altri repository per l'interfaccia con le pipeline di elaborazione dati esistenti. Ad esempio, potrebbe essere necessario spostare i dati da Data Lake Storage Gen1 al database SQL di Azure o a SQL Server.
 * Scaricare i dati nel computer locale per l'elaborazione in ambienti IDE durante la creazione di prototipi di applicazioni.
 
 ![Dati in uscita da Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/egress-data.png "Dati in uscita da Data Lake Storage Gen1")

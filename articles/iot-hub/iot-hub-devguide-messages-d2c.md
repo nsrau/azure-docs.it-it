@@ -8,12 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790518"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -35,7 +34,15 @@ Un hub IoT ha un endpoint incorporato predefinito (**messaggi/eventi**) compatib
 
 Ogni messaggio viene indirizzato a tutti gli endpoint le cui query di routing corrispondono. In altre parole, è possibile indirizzare un messaggio a più endpoint.
 
-L'hub IoT supporta attualmente i servizi seguenti come endpoint personalizzati:
+
+Se l'endpoint personalizzato ha configurazioni del firewall, prendere in considerazione l'uso dell'eccezione Microsoft attendibile per la prima parte, per consentire all'hub delle cose di accedere all'endpoint specifico, ovvero [archiviazione di Azure](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Hub eventi](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) di Azure e il [bus di servizio di Azure](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Questa operazione è disponibile in aree selezionate per gli hub Internet con [identità del servizio gestito](./virtual-network-support.md).
+
+L'hub Internet delle cose supporta attualmente gli endpoint seguenti:
+
+ - Endpoint predefinito
+ - Archiviazione di Azure
+ - Code e argomenti del bus di servizio
+ - Hub eventi
 
 ### <a name="built-in-endpoint"></a>Endpoint predefinito
 
@@ -75,9 +82,6 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
-> [!NOTE]
-> Se l'account di archiviazione ha configurazioni del firewall che limitano la connettività dell'hub Internet, provare a usare l' [eccezione Microsoft attendibile per la prima parte](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponibile in aree selezionate per hub Internet con identità del servizio gestito).
-
 Per creare un account di archiviazione Azure Data Lake compatibile con Gen2, creare un nuovo account di archiviazione V2 e selezionare *abilitato* nel campo *spazio dei nomi gerarchico* nella scheda **Avanzate** , come illustrato nell'immagine seguente:
 
 ![Selezionare Azure Data Lake Gen2 storage](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -87,17 +91,9 @@ Per creare un account di archiviazione Azure Data Lake compatibile con Gen2, cre
 
 Nelle code e negli argomenti del bus di servizio usati come endpoint dell'hub IoT non devono essere abilitati le **sessioni** e il **rilevamento duplicati**. Se una di queste opzioni è abilitata, l'endpoint risulta **non raggiungibile** nel portale di Azure.
 
-> [!NOTE]
-> Se la risorsa del bus di servizio ha configurazioni del firewall che limitano la connettività dell'hub, provare a usare l' [eccezione Microsoft attendibile per la prima parte](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (disponibile in aree selezionate per hub Internet con identità del servizio gestito).
-
-
 ### <a name="event-hubs"></a>Hub eventi
 
 Oltre all'endpoint compatibile con Hub eventi predefinito, è anche possibile indirizzare i dati a endpoint personalizzati di tipo Hub eventi. 
-
-> [!NOTE]
-> Se la risorsa di hub eventi ha configurazioni del firewall che limitano la connettività dell'hub, provare a usare l' [eccezione Microsoft attendibile per la prima entità](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) , disponibile in aree selezionate per gli hub Internet con identità del servizio gestito.
-
 
 ## <a name="reading-data-that-has-been-routed"></a>Lettura dei dati indirizzati
 
@@ -146,11 +142,9 @@ Nella maggior parte dei casi, l'aumento medio della latenza è inferiore a 500 m
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 
-L'hub Internet delle cose offre diverse metriche relative al routing e agli endpoint per offrire una panoramica dell'integrità dell'hub e dei messaggi inviati. È possibile combinare le informazioni da più metriche per individuare la causa radice dei problemi. Usare, ad esempio, **routing metrica: messaggi di telemetria eliminati** o **D2C. telemetria. in uscita. Dropped** per identificare il numero di messaggi eliminati quando non corrispondono a query su una delle route e la route di fallback è stata disabilitata. In [Metriche di Hub IoT](iot-hub-metrics.md) sono elencate tutte le metriche abilitate per impostazione predefinita per l'hub IoT.
+L'hub Internet delle cose offre diverse metriche relative al routing e agli endpoint per offrire una panoramica dell'integrità dell'hub e dei messaggi inviati. In [Metriche di Hub IoT](iot-hub-metrics.md) sono elencate tutte le metriche abilitate per impostazione predefinita per l'hub IoT. Usando i log di diagnostica delle **Route** nelle [impostazioni di diagnostica](../iot-hub/iot-hub-monitor-resource-health.md)di monitoraggio di Azure, è possibile rilevare gli errori che si verificano durante la valutazione di una query di routing e l'integrità degli endpoint come percepiti dall'hub degli indirizzi È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere [lo stato di integrità](iot-hub-devguide-endpoints.md#custom-endpoints) degli endpoint. 
 
-È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere [lo stato di integrità](iot-hub-devguide-endpoints.md#custom-endpoints) degli endpoint. Si consiglia di usare le [metriche dell'hub](iot-hub-metrics.md) delle cose correlate alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integro. Per il tipo di endpoint Hub eventi, ad esempio, è possibile monitorare **D2C. Endpoints. latence. eventHubs**. Lo stato di un endpoint non integro verrà aggiornato a integro quando lo stato di integrità dell'hub Internet è stabile.
-
-Usando i log di diagnostica delle **Route** nelle [impostazioni di diagnostica](../iot-hub/iot-hub-monitor-resource-health.md)di monitoraggio di Azure, è possibile rilevare gli errori che si verificano durante la valutazione di una query di routing e l'integrità degli endpoint, ad esempio quando un endpoint è inattivo. Questi log di diagnostica possono essere inviati a log di monitoraggio di Azure, Hub eventi o archiviazione di Azure per l'elaborazione personalizzata.
+Per ulteriori informazioni e supporto per la risoluzione dei problemi relativi al routing, utilizzare la [Guida alla risoluzione dei problemi per il routing](troubleshoot-message-routing.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

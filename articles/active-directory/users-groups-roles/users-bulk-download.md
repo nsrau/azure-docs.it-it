@@ -6,19 +6,18 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.date: 04/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00dfac7c3036c4fd457c5d3a6bb4eb7bd4e56998
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81532646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731325"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Scaricare un elenco di utenti nel portale Azure Active Directory
 
@@ -32,8 +31,8 @@ Per scaricare l'elenco di utenti dall'interfaccia di amministrazione di Azure AD
 
 1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account amministratore utente nell'organizzazione.
 2. Passare a Azure Active Directory > utenti. Quindi selezionare gli utenti che si desidera includere nel download selezionando la casella nella colonna a sinistra accanto a ogni utente. Nota: al momento non è possibile selezionare tutti gli utenti per l'esportazione. Ognuna di esse deve essere selezionata singolarmente.
-3. In Azure ad selezionare **utenti** > **Scarica utenti**.
-4. Nella pagina **Scarica utenti** selezionare **inizia** a ricevere un file CSV che elenca le proprietà del profilo utente. Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina risultati operazione bulk. Il file contiene il motivo per ogni errore.
+3. In Azure ad selezionare **utenti**  >  **Scarica utenti**.
+4. Nella pagina **Scarica utenti** selezionare **inizia** a ricevere un file CSV che elenca le proprietà del profilo utente. Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina Risultati dell'operazione in blocco. Il file contiene il motivo di ogni errore.
 
    ![Selezionare la posizione desiderata per l'elenco degli utenti che si desidera scaricare](./media/users-bulk-download/bulk-download.png)
 
@@ -81,5 +80,5 @@ Ogni attività bulk per la creazione di un elenco di utenti può essere eseguita
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Aggiungere utenti in blocco](users-bulk-add.md)
-- [Eliminare utenti in blocco](users-bulk-delete.md)
+- [Eliminazione di utenti in blocco](users-bulk-delete.md)
 - [Ripristinare utenti in blocco](users-bulk-restore.md)

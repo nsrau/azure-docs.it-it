@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77371365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678767"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>L'arresto della macchina virtuale Windows di Azure è bloccato durante il riavvio, l'arresto o l'arresto dei servizi
 
@@ -43,25 +42,25 @@ Windows utilizza il processo di arresto per eseguire operazioni di manutenzione 
 
 Usare la [console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) per completare i passaggi seguenti:
 
-1. Aprire una finestra di PowerShell amministrativa e controllare il servizio bloccato al momento dell'arresto.
+1. Aprire una finestra di PowerShell amministrativa e verificare se il servizio smette di rispondere dopo l'arresto.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. In un CMD amministrativo, ottenere il PID del servizio bloccato.
+2. In un CMD amministrativo, ottenere il PID del servizio che non risponde.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Ottenere un esempio di dump della memoria dal processo <STOPPING SERVICE>bloccato.
+3. Ottenere un esempio di dump della memoria dal processo che non risponde <STOPPING SERVICE> .
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. A questo punto, terminare il processo bloccato per sbloccare il processo di arresto.
+4. A questo punto, terminare il processo che non risponde per sbloccare il processo di arresto.
 
    ``
    taskkill /PID <PID> /t /f

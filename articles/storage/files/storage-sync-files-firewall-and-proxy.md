@@ -3,21 +3,22 @@ title: Impostazioni di proxy e firewall locali di Sincronizzazione file di Azure
 description: Configurazione della rete locale di Sincronizzazione file di Azure
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a5fc469c3db7da45f818230909026cedf6c71a4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515287"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
 
 Questo articolo offre informazioni dettagliate sui requisiti e le opzioni disponibili per connettere un server a Sincronizzazione file di Azure in modo sicuro ed efficiente.
+
+Prima di seguire questa guida pratica, è consigliabile leggere [Considerazioni sulla rete per Sincronizzazione file di Azure](storage-sync-files-networking-overview.md).
 
 ## <a name="overview"></a>Panoramica
 Sincronizzazione file di Azure svolge la funzione di servizio di orchestrazione tra Windows Server, la condivisione file di Azure e altri servizi di Azure per la sincronizzazione dei dati, come descritto nel gruppo di sincronizzazione. Per consentire il corretto funzionamento di Sincronizzazione file di Azure, è necessario configurare i server in modo che possano comunicare con i servizi di Azure seguenti:
@@ -42,14 +43,14 @@ Sincronizzazione file di Azure interagisce con qualsiasi mezzo disponibile che c
 ## <a name="proxy"></a>Proxy
 Sincronizzazione file di Azure supporta impostazioni proxy a livello di computer specifiche per l'app.
 
-**Le impostazioni proxy a livello di computer** consentono di configurare il proxy in modo specifico per il traffico di Sincronizzazione file di Azure. Le impostazioni proxy specifiche per le app sono supportate nella versione 4.0.1.0 o versioni successive dell'agente e possono essere configurate durante l'installazione dell'agente oppure usando il cmdlet Set-StorageSyncProxyConfiguration di PowerShell.
+**Le impostazioni proxy specifiche dell'app** consentono la configurazione di un proxy specifico per il traffico sincronizzazione file di Azure. Le impostazioni proxy specifiche per le app sono supportate nella versione 4.0.1.0 o versioni successive dell'agente e possono essere configurate durante l'installazione dell'agente oppure usando il cmdlet Set-StorageSyncProxyConfiguration di PowerShell.
 
 Comandi di PowerShell per configurare le impostazioni proxy specifiche dell'app:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
-**Le impostazioni proxy a livello di computer** sono trasparenti per l'agente Sincronizzazione file di Azure poiché tutto il traffico diretto al server viene instradato tramite il proxy.
+Le **impostazioni proxy a livello di computer** sono trasparenti per l'agente sincronizzazione file di Azure perché l'intero traffico del server viene instradato attraverso il proxy.
 
 Per configurare le impostazioni proxy a livello di computer, attenersi alla procedura seguente: 
 
@@ -100,41 +101,42 @@ La tabella seguente illustra i domini necessari per la comunicazione:
 | **Infrastruttura a chiave pubblica Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Dopo l'installazione dell'agente di Sincronizzazione file di Azure, l'URL dell'infrastruttura a chiave pubblica viene usato per scaricare i certificati intermedi necessari per comunicare con il servizio Sincronizzazione file di Azure e la condivisione file di Azure. L'URL OCSP viene usato per controllare lo stato di un certificato. |
 
 > [!Important]
+> Quando si consente il traffico a &ast; . AFS.Azure.NET, il traffico è possibile solo per il servizio di sincronizzazione. Non sono presenti altri servizi Microsoft che usano questo dominio.
 > Quando si consente il traffico a &ast;.one.microsoft.com, il traffico dal server non è più limitato solo al servizio di sincronizzazione. Nei sottodomini sono infatti disponibili molti altri servizi Microsoft.
 
-If &ast;.one.microsoft.com è troppo ampio, è possibile limitare le comunicazioni del server consentendo le comunicazioni solo con esplicite istanze regionali del servizio Sincronizzazione file di Azure. Le istanze da scegliere dipendono dall'area del servizio di sincronizzazione archiviazione in cui è stato distribuito e registrato il server. Tale area è chiamata "URL dell'endpoint primario" nella tabella seguente.
+Se &ast; . AFS.Azure.NET o &ast; . One.Microsoft.com è troppo ampio, è possibile limitare la comunicazione del server consentendo la comunicazione solo con istanze internazionali esplicite del servizio file di Azure Sync. Le istanze da scegliere dipendono dall'area del servizio di sincronizzazione archiviazione in cui è stato distribuito e registrato il server. Tale area è chiamata "URL dell'endpoint primario" nella tabella seguente.
 
 Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibile che siano state specificate condivisioni file di Azure in un account di archiviazione con ridondanza geografica (GRS). In tal caso, le condivisioni file di Azure eseguiranno il failover nell'area abbinata se si verifica un'interruzione duratura a livello di area. Sincronizzazione file di Azure usa le stesse associazioni a livello di area della risorsa di archiviazione. Quindi, se si usano gli account di archiviazione GRS, è necessario abilitare URL aggiuntivi per consentire al server di comunicare con l'area abbinata per Sincronizzazione file di Azure. La tabella seguente chiama questa "area abbinata". Inoltre, vi è anche un URL del profilo di gestione traffico che deve essere abilitato. In questo modo il traffico di rete può essere indirizzato di nuovo con facilità all'area abbinata in caso di failover ed è chiamato "URL di individuazione" nella tabella seguente.
 
 | Cloud  | Region | URL dell'endpoint primario | Area associata | URL di individuazione |
 |--------|--------|----------------------|---------------|---------------|
-| Pubblico |Australia orientale | https:\//Kailani-Aue.One.Microsoft.com | Australia sud-orientale | https:\//TM-Kailani-Aue.One.Microsoft.com |
-| Pubblico |Australia sud-orientale | https:\//Kailani-aus.One.Microsoft.com | Australia orientale | https:\//TM-Kailani-aus.One.Microsoft.com |
-| Pubblico | Brasile meridionale | https:\//brazilsouth01.AFS.Azure.NET | Stati Uniti centro-meridionali | https:\//TM-brazilsouth01.AFS.Azure.NET |
-| Pubblico | Canada centrale | https:\//Kailani-CAC.One.Microsoft.com | Canada orientale | https:\//TM-Kailani-CAC.One.Microsoft.com |
-| Pubblico | Canada orientale | https:\//Kailani-CAE.One.Microsoft.com | Canada centrale | https:\//TM-Kailani.CAE.One.Microsoft.com |
-| Pubblico | India centrale | https:\//Kailani-cin.One.Microsoft.com | India meridionale | https:\//TM-Kailani-cin.One.Microsoft.com |
-| Pubblico | Stati Uniti centrali | https:\//Kailani-CUS.One.Microsoft.com | Stati Uniti orientali 2 | https:\//TM-Kailani-CUS.One.Microsoft.com |
-| Pubblico | Asia orientale | https:\//kailani11.One.Microsoft.com | Asia sud-orientale | https:\//TM-kailani11.One.Microsoft.com |
-| Pubblico | Stati Uniti orientali | https:\//kailani1.One.Microsoft.com | Stati Uniti occidentali | https:\//TM-kailani1.One.Microsoft.com |
-| Pubblico | Stati Uniti orientali 2 | https:\//Kailani-ESS.One.Microsoft.com | Stati Uniti centrali | https:\//TM-Kailani-ESS.One.Microsoft.com |
-| Pubblico | Giappone orientale | https:\//japaneast01.AFS.Azure.NET | Giappone occidentale | https:\//TM-japaneast01.AFS.Azure.NET |
-| Pubblico | Giappone occidentale | https:\//japanwest01.AFS.Azure.NET | Giappone orientale | https:\//TM-japanwest01.AFS.Azure.NET |
-| Pubblico | Corea centrale | https:\//koreacentral01.AFS.Azure.NET/ | Corea meridionale | https:\//TM-koreacentral01.AFS.Azure.NET/ |
-| Pubblico | Corea meridionale | https:\//koreasouth01.AFS.Azure.NET/ | Corea centrale | https:\//TM-koreasouth01.AFS.Azure.NET/ |
-| Pubblico | Stati Uniti centro-settentrionali | https:\//northcentralus01.AFS.Azure.NET | Stati Uniti centro-meridionali | https:\//TM-northcentralus01.AFS.Azure.NET |
-| Pubblico | Europa settentrionale | https:\//kailani7.One.Microsoft.com | Europa occidentale | https:\//TM-kailani7.One.Microsoft.com |
-| Pubblico | Stati Uniti centro-meridionali | https:\//southcentralus01.AFS.Azure.NET | Stati Uniti centro-settentrionali | https:\//TM-southcentralus01.AFS.Azure.NET |
-| Pubblico | India meridionale | https:\//Kailani-sin.One.Microsoft.com | India centrale | https:\//TM-Kailani-sin.One.Microsoft.com |
-| Pubblico | Asia sud-orientale | https:\//kailani10.One.Microsoft.com | Asia orientale | https:\//TM-kailani10.One.Microsoft.com |
-| Pubblico | Regno Unito meridionale | https:\//Kailani-UKS.One.Microsoft.com | Regno Unito occidentale | https:\//TM-Kailani-UKS.One.Microsoft.com |
-| Pubblico | Regno Unito occidentale | https:\//Kailani-UKW.One.Microsoft.com | Regno Unito meridionale | https:\//TM-Kailani-UKW.One.Microsoft.com |
-| Pubblico | Stati Uniti centro-occidentali | https:\//westcentralus01.AFS.Azure.NET | Stati Uniti occidentali 2 | https:\//TM-westcentralus01.AFS.Azure.NET |
-| Pubblico | Europa occidentale | https:\//kailani6.One.Microsoft.com | Europa settentrionale | https:\//TM-kailani6.One.Microsoft.com |
-| Pubblico | Stati Uniti occidentali | https:\//Kailani.One.Microsoft.com | Stati Uniti orientali | https:\//TM-Kailani.One.Microsoft.com |
-| Pubblico | Stati Uniti occidentali 2 | https:\//westus201.AFS.Azure.NET | Stati Uniti centro-occidentali | https:\//TM-westus201.AFS.Azure.NET |
-| Government | US Gov Arizona | https:\//usgovarizona01.AFS.Azure.US | US Gov Texas | https:\//TM-usgovarizona01.AFS.Azure.US |
-| Government | US Gov Texas | https:\//usgovtexas01.AFS.Azure.US | US Gov Arizona | https:\//TM-usgovtexas01.AFS.Azure.US |
+| Pubblico |Australia orientale | https: \/ /australiaeast01.AFS.Azure.NET<br>https: \/ /Kailani-Aue.One.Microsoft.com | Australia sud-orientale | https: \/ /TM-australiaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Aue.One.Microsoft.com |
+| Pubblico |Australia sud-orientale | https: \/ /australiasoutheast01.AFS.Azure.NET<br>https: \/ /Kailani-aus.One.Microsoft.com | Australia orientale | https: \/ /TM-australiasoutheast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-aus.One.Microsoft.com |
+| Pubblico | Brasile meridionale | https: \/ /brazilsouth01.AFS.Azure.NET | Stati Uniti centro-meridionali | https: \/ /TM-brazilsouth01.AFS.Azure.NET |
+| Pubblico | Canada centrale | https: \/ /canadacentral01.AFS.Azure.NET<br>https: \/ /Kailani-CAC.One.Microsoft.com | Canada orientale | https: \/ /TM-canadacentral01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CAC.One.Microsoft.com |
+| Pubblico | Canada orientale | https: \/ /canadaeast01.AFS.Azure.NET<br>https: \/ /Kailani-CAE.One.Microsoft.com | Canada centrale | https: \/ /TM-canadaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani.CAE.One.Microsoft.com |
+| Pubblico | India centrale | https: \/ /centralindia01.AFS.Azure.NET<br>https: \/ /Kailani-cin.One.Microsoft.com | India meridionale | https: \/ /TM-centralindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-cin.One.Microsoft.com |
+| Pubblico | Stati Uniti centrali | https: \/ /centralus01.AFS.Azure.NET<br>https: \/ /Kailani-CUS.One.Microsoft.com | Stati Uniti orientali 2 | https: \/ /TM-centralus01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CUS.One.Microsoft.com |
+| Pubblico | Asia orientale | https: \/ /eastasia01.AFS.Azure.NET<br>https: \/ /kailani11.One.Microsoft.com | Asia sud-orientale | https: \/ /TM-eastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani11.One.Microsoft.com |
+| Pubblico | Stati Uniti orientali | https: \/ /eastus01.AFS.Azure.NET<br>https: \/ /kailani1.One.Microsoft.com | Stati Uniti occidentali | https: \/ /TM-eastus01.AFS.Azure.NET<br>https: \/ /TM-kailani1.One.Microsoft.com |
+| Pubblico | Stati Uniti orientali 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.One.Microsoft.com | Stati Uniti centrali | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.One.Microsoft.com |
+| Pubblico | Giappone orientale | https: \/ /japaneast01.AFS.Azure.NET | Giappone occidentale | https: \/ /TM-japaneast01.AFS.Azure.NET |
+| Pubblico | Giappone occidentale | https: \/ /japanwest01.AFS.Azure.NET | Giappone orientale | https: \/ /TM-japanwest01.AFS.Azure.NET |
+| Pubblico | Corea centrale | https: \/ /koreacentral01.AFS.Azure.NET/ | Corea meridionale | https: \/ /TM-koreacentral01.AFS.Azure.NET/ |
+| Pubblico | Corea meridionale | https: \/ /koreasouth01.AFS.Azure.NET/ | Corea centrale | https: \/ /TM-koreasouth01.AFS.Azure.NET/ |
+| Pubblico | Stati Uniti centro-settentrionali | https: \/ /northcentralus01.AFS.Azure.NET | Stati Uniti centro-meridionali | https: \/ /TM-northcentralus01.AFS.Azure.NET |
+| Pubblico | Europa settentrionale | https: \/ /northeurope01.AFS.Azure.NET<br>https: \/ /kailani7.One.Microsoft.com | Europa occidentale | https: \/ /TM-northeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani7.One.Microsoft.com |
+| Pubblico | Stati Uniti centro-meridionali | https: \/ /southcentralus01.AFS.Azure.NET | Stati Uniti centro-settentrionali | https: \/ /TM-southcentralus01.AFS.Azure.NET |
+| Pubblico | India meridionale | https: \/ /southindia01.AFS.Azure.NET<br>https: \/ /Kailani-sin.One.Microsoft.com | India centrale | https: \/ /TM-southindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-sin.One.Microsoft.com |
+| Pubblico | Asia sud-orientale | https: \/ /southeastasia01.AFS.Azure.NET<br>https: \/ /kailani10.One.Microsoft.com | Asia orientale | https: \/ /TM-southeastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani10.One.Microsoft.com |
+| Pubblico | Regno Unito meridionale | https: \/ /uksouth01.AFS.Azure.NET<br>https: \/ /Kailani-UKS.One.Microsoft.com | Regno Unito occidentale | https: \/ /TM-uksouth01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKS.One.Microsoft.com |
+| Pubblico | Regno Unito occidentale | https: \/ /ukwest01.AFS.Azure.NET<br>https: \/ /Kailani-UKW.One.Microsoft.com | Regno Unito meridionale | https: \/ /TM-ukwest01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKW.One.Microsoft.com |
+| Pubblico | Stati Uniti centro-occidentali | https: \/ /westcentralus01.AFS.Azure.NET | Stati Uniti occidentali 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |
+| Pubblico | Europa occidentale | https: \/ /westeurope01.AFS.Azure.NET<br>https: \/ /kailani6.One.Microsoft.com | Europa settentrionale | https: \/ /TM-westeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani6.One.Microsoft.com |
+| Pubblico | Stati Uniti occidentali | https: \/ /westus01.AFS.Azure.NET<br>https: \/ /Kailani.One.Microsoft.com | Stati Uniti orientali | https: \/ /TM-westus01.AFS.Azure.NET<br>https: \/ /TM-Kailani.One.Microsoft.com |
+| Pubblico | Stati Uniti occidentali 2 | https: \/ /westus201.AFS.Azure.NET | Stati Uniti centro-occidentali | https: \/ /TM-westus201.AFS.Azure.NET |
+| Government | US Gov Arizona | https: \/ /usgovarizona01.AFS.Azure.US | US Gov Texas | https: \/ /TM-usgovarizona01.AFS.Azure.US |
+| Government | US Gov Texas | https: \/ /usgovtexas01.AFS.Azure.US | US Gov Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.US |
 
 - Se si usano account di archiviazione con ridondanza locale (LRS) o con ridondanza della zona (ZRS), è sufficiente abilitare l'URL elencato in "URL dell'endpoint primario".
 
@@ -142,23 +144,23 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 
 **Esempio:** si distribuisce un servizio di sincronizzazione archiviazione in `"West US"` e si registra il server con esso. Gli URL con cui consentire al server di comunicare per questo caso sono:
 
-> - https:\//Kailani.One.Microsoft.com (endpoint primario: Stati Uniti occidentali)
-> - https:\//kailani1.One.Microsoft.com (area di failover abbinata: Stati Uniti orientali)
-> - https:\//TM-KAILANI.One.Microsoft.com (URL di individuazione dell'area primaria)
+> - https: \/ /westus01.AFS.Azure.NET (endpoint primario: Stati Uniti occidentali)
+> - https: \/ /eastus01.AFS.Azure.NET (area di failover abbinata: Stati Uniti orientali)
+> - https: \/ /TM-westus01.AFS.Azure.NET (URL di individuazione dell'area primaria)
 
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Elenco Consenti per Sincronizzazione file di Azure indirizzi IP
-Sincronizzazione file di Azure supporta l'uso di [tag di servizio](../../virtual-network/service-tags-overview.md), che rappresentano un gruppo di prefissi di indirizzi IP per un determinato servizio di Azure. È possibile usare i tag di servizio per creare regole del firewall che consentono la comunicazione con il servizio Sincronizzazione file di Azure. Il tag di servizio per Sincronizzazione file di Azure `StorageSyncService`è.
+Sincronizzazione file di Azure supporta l'uso di [tag di servizio](../../virtual-network/service-tags-overview.md), che rappresentano un gruppo di prefissi di indirizzi IP per un determinato servizio di Azure. È possibile usare i tag di servizio per creare regole del firewall che consentono la comunicazione con il servizio Sincronizzazione file di Azure. Il tag di servizio per Sincronizzazione file di Azure è `StorageSyncService` .
 
-Se si usa Sincronizzazione file di Azure in Azure, è possibile usare il nome del tag di servizio direttamente nel gruppo di sicurezza di rete per consentire il traffico. Per ulteriori informazioni su come eseguire questa operazione, vedere [gruppi di sicurezza di rete](../../virtual-network/security-overview.md).
+Se si usa Sincronizzazione file di Azure in Azure, è possibile usare il nome del tag di servizio direttamente nel gruppo di sicurezza di rete per consentire il traffico. Per altre informazioni, vedere [Gruppi di sicurezza di rete](../../virtual-network/security-overview.md).
 
-Se si usa Sincronizzazione file di Azure in locale, è possibile usare l'API tag del servizio per ottenere intervalli di indirizzi IP specifici per l'elenco Consenti del firewall. Per ottenere queste informazioni, sono disponibili due metodi:
+Se si usa Sincronizzazione file di Azure in locale, è possibile usare l'API dei tag di servizio per ottenere gli specifici intervalli di indirizzi IP per l'elenco di elementi consentiti del firewall. Per recuperare queste informazioni, sono disponibili due metodi:
 
-- L'elenco corrente degli intervalli di indirizzi IP per tutti i tag del servizio di supporto di Azure viene pubblicato settimanalmente nell'area download Microsoft sotto forma di documento JSON. Ogni cloud di Azure dispone di un proprio documento JSON con gli intervalli di indirizzi IP rilevanti per il cloud:
-    - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
-    - [Azure per enti pubblici degli Stati Uniti](https://www.microsoft.com/download/details.aspx?id=57063)
-    - [Azure Cina](https://www.microsoft.com/download/details.aspx?id=57062)
+- L'elenco corrente degli intervalli di indirizzi IP per tutti i servizi di Azure che supportano i tag di servizio viene pubblicato settimanalmente nell'Area download Microsoft sotto forma di documento JSON. Ogni cloud di Azure è associato a uno specifico documento JSON con gli intervalli di indirizzi IP pertinenti:
+    - [Pubblico di Azure](https://www.microsoft.com/download/details.aspx?id=56519)
+    - [Azure US Gov](https://www.microsoft.com/download/details.aspx?id=57063)
+    - [Azure per la Cina](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Germania](https://www.microsoft.com/download/details.aspx?id=57064)
-- L'API di individuazione tag di servizio (anteprima) consente il recupero a livello di codice dell'elenco corrente di tag di servizio. Nell'anteprima, l'API di individuazione tag di servizio può restituire informazioni meno aggiornate rispetto alle informazioni restituite dai documenti JSON pubblicati nell'area download Microsoft. È possibile usare la superficie dell'API in base alle preferenze di automazione:
+- L'API di individuazione di tag di servizio (anteprima) consente il recupero a livello di codice dell'elenco corrente di tag di servizio. Nella versione di anteprima questa API potrebbe restituire informazioni meno aggiornate di quelle restituite dai documenti JSON pubblicati nell'Area download Microsoft. È possibile usare la superficie dell'API in base alle preferenze di automazione:
     - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
     - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
     - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
@@ -260,10 +262,10 @@ if ($found) {
 }
 ```
 
-È quindi possibile usare gli intervalli di indirizzi IP `$ipAddressRanges` in per aggiornare il firewall. Per informazioni su come aggiornare il firewall, vedere il sito Web del firewall o dell'appliance di rete.
+È quindi possibile usare gli intervalli di indirizzi IP in `$ipAddressRanges` per aggiornare il firewall. Per informazioni su come aggiornare il firewall, vedere il sito Web del firewall o dell'appliance di rete.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testare la connettività di rete agli endpoint di servizio
-Una volta che un server è stato registrato con il servizio Sincronizzazione file di Azure, è possibile usare il cmdlet test-StorageSyncNetworkConnectivity e ServerRegistration. exe per testare le comunicazioni con tutti gli endpoint (URL) specifici del server. Questo cmdlet consente di risolvere i problemi quando la comunicazione incompleta impedisce al server di lavorare completamente con Sincronizzazione file di Azure e può essere usata per ottimizzare le configurazioni del proxy e del firewall.
+Una volta che un server è stato registrato con il servizio Sincronizzazione file di Azure, è possibile usare il cmdlet test-StorageSyncNetworkConnectivity e ServerRegistration.exe per testare le comunicazioni con tutti gli endpoint (URL) specifici del server. Questo cmdlet consente di risolvere i problemi quando la comunicazione incompleta impedisce al server di lavorare completamente con Sincronizzazione file di Azure e può essere usata per ottimizzare le configurazioni del proxy e del firewall.
 
 Per eseguire il test della connettività di rete, installare Sincronizzazione file di Azure Agent 9,1 o versione successiva ed eseguire i comandi di PowerShell seguenti:
 ```powershell
@@ -278,5 +280,5 @@ La configurazione di regole del firewall con limitazione del dominio può contri
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
-- [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+- [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 - [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)

@@ -3,22 +3,21 @@ title: Funzioni di modello-Logical
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per determinare i valori logici.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677390"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funzioni logiche per i modelli ARM
 
 Gestione risorse offre diverse funzioni per l'esecuzione di confronti nei modelli di Azure Resource Manager (ARM).
 
-* [e](#and)
+* [and](#and)
 * [bool](#bool)
 * [if](#if)
-* [non](#not)
-* [o](#or)
+* [not](#not)
+* [or](#or)
 
 ## <a name="and"></a>e
 
@@ -28,7 +27,7 @@ Verifica se tutti i valori dei parametri sono true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
@@ -44,7 +43,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -80,7 +79,7 @@ Converte il parametro in un valore booleano.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Valore da convertire in un valore booleano. |
 
@@ -93,7 +92,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -134,7 +133,7 @@ Restituisce un valore in base a un condizione true o false.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | condizione |Sì |boolean |Valore per verificare se è true o false. |
 | trueValue |Sì | string, int, object o array |Valore da restituire quando la condizione è true. |
@@ -154,7 +153,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -187,7 +186,7 @@ Nel [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/d
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -239,7 +238,7 @@ Converte il valore booleano nel valore opposto.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Valore da convertire. |
 
@@ -253,7 +252,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -285,7 +284,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -312,7 +311,7 @@ Verifica se uno qualsiasi dei valori dei parametri è true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
@@ -328,7 +327,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {

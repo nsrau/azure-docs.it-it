@@ -4,16 +4,15 @@ description: Questa pagina fornisce istruzioni sulla risoluzione dei problemi e 
 services: expressroute
 author: rambk
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 58ae39e8dfdf918ae14ca9bb8dac28405828999e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 827d68a5f0f35e42acae1fa225646eb509f69c89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78330958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84729320"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
 Questo articolo fornisce informazioni sulla verifica e la risoluzione dei problemi di connettività di ExpressRoute. ExpressRoute estende una rete locale nel cloud Microsoft tramite una connessione privata, comunemente facilitata da un provider di connettività. La connettività ExpressRoute prevede tradizionalmente tre aree di rete distinte, come indicato di seguito:
@@ -291,7 +290,7 @@ Output di esempio del comando per un peering inesistente:
 ## <a name="next-steps"></a>Passaggi successivi
 Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 
-- [supporto tecnico Microsoft][Support]
+- [Supporto tecnico Microsoft][Support]
 - [Creare e modificare un circuito ExpressRoute][CreateCircuit]
 - [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering]
 

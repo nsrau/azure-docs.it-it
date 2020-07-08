@@ -3,12 +3,11 @@ title: Key Vault segreto con il modello
 description: Viene illustrato come passare una chiave privata da un insieme di credenziali chiave come parametro durante la distribuzione.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458267"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677866"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione
 
@@ -18,7 +17,7 @@ Questo articolo è incentrato sullo scenario di passaggio di un valore sensibile
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Distribuire insiemi di credenziali delle chiavi e segreti
 
-Per accedere a un insieme di credenziali delle chiavi durante `enabledForTemplateDeployment` la distribuzione del modello, `true`impostare nell'insieme di credenziali delle chiavi su.
+Per accedere a un insieme di credenziali delle chiavi durante la distribuzione del modello, impostare nell'insieme `enabledForTemplateDeployment` di credenziali delle chiavi su `true` .
 
 Se si dispone già di un Key Vault, assicurarsi che consenta le distribuzioni del modello.
 
@@ -92,7 +91,7 @@ Set-AzKeyVaultAccessPolicy `
 Per ulteriori informazioni sulla creazione di insiemi di credenziali delle chiavi e sull'aggiunta di segreti, vedere:
 
 - [Impostare e recuperare un segreto usando l'interfaccia della riga di comando](../../key-vault/secrets/quick-create-cli.md)
-- [Impostare e recuperare un segreto usando Powershell](../../key-vault/secrets/quick-create-powershell.md)
+- [Impostare e recuperare un segreto usando PowerShell](../../key-vault/secrets/quick-create-powershell.md)
 - [Impostare e recuperare un segreto usando il portale](../../key-vault/secrets/quick-create-portal.md)
 - [Impostare e recuperare un segreto usando .NET](../../key-vault/secrets/quick-create-net.md)
 - [Impostare e recuperare un segreto usando Node.js](../../key-vault/secrets/quick-create-node.md)
@@ -163,7 +162,7 @@ Il modello seguente distribuisce un server SQL che include una password di ammin
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminLogin": {
@@ -201,7 +200,7 @@ Nel file dei parametri seguente il segreto dell'insieme di credenziali delle chi
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "adminLogin": {
@@ -267,7 +266,7 @@ Il modello seguente crea l'ID dell'insieme di credenziali delle chiavi in modo d
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "location": {
@@ -314,7 +313,7 @@ Il modello seguente crea l'ID dell'insieme di credenziali delle chiavi in modo d
           "scope": "inner"
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {

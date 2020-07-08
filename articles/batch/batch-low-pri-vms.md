@@ -5,12 +5,11 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 48350a684844ca0e1624826afeca8e0b9ab36f3b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780188"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959994"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usare le macchine virtuali con priorità bassa in Batch
 
@@ -23,11 +22,11 @@ Il compromesso per l'uso di macchine virtuali con priorità bassa è che queste 
 Le macchine virtuali con priorità bassa sono caratterizzate da un prezzo notevolmente ridotto rispetto alle macchine virtuali dedicate. Per i dettagli sui prezzi vedere [Prezzi dei Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
-> [Le macchine virtuali Spot](https://azure.microsoft.com/pricing/spot/) sono ora disponibili per [macchine virtuali a istanza singola](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) e [set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot). Le macchine virtuali Spot sono un'evoluzione delle macchine virtuali con priorità bassa, ma si differenziano per i prezzi e, durante l'allocazione di macchine virtuali Spot, è possibile impostare un prezzo massimo facoltativo.
+> [Le macchine virtuali Spot](https://azure.microsoft.com/pricing/spot/) sono ora disponibili per [macchine virtuali a istanza singola](../virtual-machines/linux/spot-vms.md) e [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/use-spot.md). Le macchine virtuali Spot sono un'evoluzione delle macchine virtuali con priorità bassa, ma si differenziano per i prezzi e, durante l'allocazione di macchine virtuali Spot, è possibile impostare un prezzo massimo facoltativo.
 >
-> I pool di Azure Batch inizieranno a supportare le macchine virtuali Spot entro pochi mesi, in modo che siano disponibili a livello generale, con le nuove versioni degli [strumenti e delle API Batch](https://docs.microsoft.com/azure/batch/batch-apis-tools). Quando il supporto per la macchina virtuale Spot è disponibile, le macchine virtuali con priorità bassa saranno deprecate. Continueranno a essere supportate mediante le API e le versioni degli strumenti correnti per almeno 12 mesi, per consentire un tempo sufficiente per la migrazione alle macchine virtuali Spot. 
+> I pool di Azure Batch inizieranno a supportare le macchine virtuali Spot entro pochi mesi, in modo che siano disponibili a livello generale, con le nuove versioni degli [strumenti e delle API Batch](./batch-apis-tools.md). Quando il supporto per la macchina virtuale Spot è disponibile, le macchine virtuali con priorità bassa saranno deprecate. Continueranno a essere supportate mediante le API e le versioni degli strumenti correnti per almeno 12 mesi, per consentire un tempo sufficiente per la migrazione alle macchine virtuali Spot. 
 >
-> Le macchine virtuali Spot non saranno supportate per i pool di [Configurazione servizio cloud](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration). Per usare le macchine virtuali Spot, è necessario eseguire la migrazione dei pool del servizio cloud ai pool di [Configurazione macchina virtuale](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+> Le macchine virtuali Spot non saranno supportate per i pool di [Configurazione servizio cloud](/rest/api/batchservice/pool/add#cloudserviceconfiguration). Per usare le macchine virtuali Spot, è necessario eseguire la migrazione dei pool del servizio cloud ai pool di [Configurazione macchina virtuale](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
 ## <a name="use-cases-for-low-priority-vms"></a>Casi di uso per le macchine virtuali con priorità bassa
 

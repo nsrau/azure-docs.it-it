@@ -2,13 +2,12 @@
 title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft Docs
 description: Monitorare le chiamate alle dipendenze dall'applicazione Web locale o Microsoft Azure con Application Insights.
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: 2b7a20731fa5eae8313adcf07d877626fcaa4dce
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.date: 06/26/2020
+ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445220"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rilevamento delle dipendenze in applicazione Azure Insights 
 
@@ -16,7 +15,7 @@ Una *dipendenza* è un componente esterno chiamato dall'applicazione. In genere 
 
 ## <a name="automatically-tracked-dependencies"></a>Dipendenze rilevate automaticamente
 
-Application Insights SDK per .NET e .NET Core viene fornito `DependencyTrackingTelemetryModule` con un modulo di telemetria che raccoglie automaticamente le dipendenze. Questa raccolta delle dipendenze viene abilitata automaticamente per le applicazioni [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) e [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) , se configurata in base alla documentazione ufficiale collegata. `DependencyTrackingTelemetryModule` viene fornito come [questo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) pacchetto NuGet e viene portato automaticamente quando si usa uno dei pacchetti `Microsoft.ApplicationInsights.Web` NuGet o `Microsoft.ApplicationInsights.AspNetCore`.
+Application Insights SDK per .NET e .NET Core viene fornito con `DependencyTrackingTelemetryModule` un modulo di telemetria che raccoglie automaticamente le dipendenze. Questa raccolta delle dipendenze viene abilitata automaticamente per le applicazioni [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) e [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) , se configurata in base alla documentazione ufficiale collegata. `DependencyTrackingTelemetryModule`viene fornito come [questo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) pacchetto NuGet e viene portato automaticamente quando si usa uno dei pacchetti NuGet `Microsoft.ApplicationInsights.Web` o `Microsoft.ApplicationInsights.AspNetCore` .
 
  `DependencyTrackingTelemetryModule`attualmente rileva automaticamente le dipendenze seguenti:
 
@@ -24,7 +23,7 @@ Application Insights SDK per .NET e .NET Core viene fornito `DependencyTrackingT
 |---------------|-------|
 |Http/https | Chiamate http/https locali o remote |
 |Chiamate WCF| Viene rilevata automaticamente solo se vengono utilizzate associazioni basate su http.|
-|SQL | Chiamate effettuate con `SqlClient`. Vedere [questo per l'](#advanced-sql-tracking-to-get-full-sql-query) acquisizione della query SQL.  |
+|SQL | Chiamate effettuate con `SqlClient` . Vedere [questo per l'](#advanced-sql-tracking-to-get-full-sql-query) acquisizione della query SQL.  |
 |[Archiviazione di Azure (BLOB, tabelle, code)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Chiamate effettuate con il client di archiviazione di Azure. |
 |[SDK client EventHub](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Versione 1.1.0 e successive. |
 |[SDK Client di ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versione 3.0.0 e successive. |
@@ -34,7 +33,7 @@ Se manca una dipendenza o se si usa un SDK diverso, assicurarsi che sia presente
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Configurare il rilevamento automatico delle dipendenze nelle app console
 
-Per tenere traccia automaticamente delle dipendenze dalle app console .NET, installare `Microsoft.ApplicationInsights.DependencyCollector`il pacchetto NuGet `DependencyTrackingTelemetryModule` e inizializzare come segue:
+Per tenere traccia automaticamente delle dipendenze dalle app console .NET, installare il pacchetto NuGet `Microsoft.ApplicationInsights.DependencyCollector` e inizializzare `DependencyTrackingTelemetryModule` come segue:
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
@@ -78,9 +77,9 @@ Ad esempio, se si compila il codice con un assembly non scritto personalmente, s
     }
 ```
 
-In alternativa, `TelemetryClient` fornisce metodi `StartOperation` di estensione `StopOperation` e che possono essere usati per tenere traccia manualmente delle dipendenze, come illustrato di [seguito](custom-operations-tracking.md#outgoing-dependencies-tracking) .
+In alternativa, `TelemetryClient` fornisce metodi `StartOperation` di estensione e `StopOperation` che possono essere usati per tenere traccia manualmente delle dipendenze, come illustrato di [seguito](custom-operations-tracking.md#outgoing-dependencies-tracking) .
 
-Se si vuole disattivare il modulo standard di rilevamento delle dipendenze, rimuovere il riferimento a DependencyTrackingTelemetryModule in [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) per le applicazioni ASP.NET. Per ASP.NET Core applicazioni, seguire le istruzioni riportate [qui](asp-net-core.md#configuring-or-removing-default-telemetrymodules).
+Se si vuole disattivare il modulo standard di rilevamento delle dipendenze, rimuovere il riferimento a DependencyTrackingTelemetryModule in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) per le applicazioni ASP.NET. Per ASP.NET Core applicazioni, seguire le istruzioni riportate [qui](asp-net-core.md#configuring-or-removing-default-telemetrymodules).
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>Verifica delle chiamate AJAX da pagine Web
 
@@ -88,20 +87,31 @@ Per le pagine Web, Application Insights JavaScript SDK raccoglie automaticamente
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Rilevamento SQL avanzato per ottenere una query SQL completa
 
-Per le chiamate SQL, il nome del server e del database viene sempre raccolto e archiviato come nome della raccolta `DependencyTelemetry`. È presente un campo aggiuntivo denominato "data", che può contenere il testo completo della query SQL.
+Per le chiamate SQL, il nome del server e del database viene sempre raccolto e archiviato come nome della raccolta `DependencyTelemetry` . È presente un campo aggiuntivo denominato "data", che può contenere il testo completo della query SQL.
 
-Per ASP.NET Core applicazioni, non sono necessari passaggi aggiuntivi per ottenere la query SQL completa.
+Per ASP.NET Core applicazioni, è ora necessario acconsentire esplicitamente alla raccolta di testo SQL utilizzando
+```csharp
+services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
+```
 
-Per le applicazioni ASP.NET, la query SQL completa viene raccolta con l'ausilio della strumentazione del codice byte, che richiede il motore di strumentazione o il pacchetto NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) anziché la libreria System. Data. SqlClient. Sono necessari passaggi aggiuntivi specifici della piattaforma, come descritto di seguito.
+Per le applicazioni ASP.NET, il testo completo della query SQL viene raccolto con l'ausilio della strumentazione del codice byte, che richiede l'uso del motore di strumentazione o il pacchetto NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) anziché la libreria System. Data. SqlClient. I passaggi specifici della piattaforma per abilitare la raccolta completa di query SQL sono descritti di seguito:
 
 | Piattaforma | Passaggi necessari per ottenere la query SQL completa |
 | --- | --- |
 | App Web di Azure |Nel pannello di controllo dell'app Web [aprire il pannello Application Insights](../../azure-monitor/app/azure-web-apps.md) e abilitare i comandi SQL in .NET |
 | Server IIS (VM di Azure, locale e così via) | Usare il pacchetto NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) o usare il modulo Status Monitor PowerShell per [installare il motore di strumentazione](../../azure-monitor/app/status-monitor-v2-api-reference.md) e riavviare IIS. |
 | Servizio cloud di Azure | Aggiungere un' [attività di avvio per installare StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> L'app deve essere caricata in ApplicationInsights SDK in fase di compilazione installando pacchetti NuGet per applicazioni [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) o [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
-| IIS Express | Usare il pacchetto NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient)
+| IIS Express | Usare il pacchetto NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) .
 
-Nei casi precedenti, il modo corretto per convalidare il motore di strumentazione è installato correttamente consiste nel confermare che la versione dell' `DependencyTelemetry` SDK raccolta è' rddp '. ' rdddsd ' o ' rddf ' indica che le dipendenze vengono raccolte tramite callback DiagnosticSource o EventSource e pertanto la query SQL completa non verrà acquisita.
+Oltre ai passaggi specifici della piattaforma descritti in precedenza, è **necessario acconsentire esplicitamente all'abilitazione della raccolta dei comandi SQL** modificando il file applicationInsights.config con quanto segue:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
+
+Nei casi precedenti, il modo corretto per convalidare il motore di strumentazione è installato correttamente consiste nel confermare che la versione dell'SDK raccolta `DependencyTelemetry` è' rddp '. ' rdddsd ' o ' rddf ' indica che le dipendenze vengono raccolte tramite callback DiagnosticSource o EventSource e pertanto la query SQL completa non verrà acquisita.
 
 ## <a name="where-to-find-dependency-data"></a>Dove trovare i dati sulle dipendenze
 
@@ -184,7 +194,7 @@ Qui sarà possibile visualizzare il numero di dipendenze non riuscite. Per otten
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*In che modo l'agente di raccolta dipendenze automatico segnala le chiamate alle dipendenze?*
 
-* Le chiamate alle dipendenze non riuscite avranno il campo ' success ' impostato su false. `DependencyTrackingTelemetryModule`non segnala `ExceptionTelemetry`. Il modello di dati completo per la dipendenza è descritto [qui](data-model-dependency-telemetry.md).
+* Le chiamate alle dipendenze non riuscite avranno il campo ' success ' impostato su false. `DependencyTrackingTelemetryModule`non segnala `ExceptionTelemetry` . Il modello di dati completo per la dipendenza è descritto [qui](data-model-dependency-telemetry.md).
 
 ## <a name="open-source-sdk"></a>SDK open source
 Come ogni Application Insights SDK, anche il modulo di raccolta delle dipendenze è open source. Leggere e contribuire al codice o segnalare problemi nel [repository GitHub ufficiale](https://github.com/Microsoft/ApplicationInsights-dotnet-server).

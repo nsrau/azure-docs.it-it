@@ -7,13 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
-ms.openlocfilehash: 9594a2ddfaa0103e171618925ba6974bf9ad7f00
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 07/03/2020
+ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833983"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958898"
 ---
 # <a name="monitor-data-flows"></a>Monitorare i flussi di dati
 
@@ -56,12 +55,31 @@ Quando il Flusso di dati viene eseguito in Spark, Azure Data Factory determina i
   * Tempo di avvio del cluster: periodo di tempo per l'acquisizione dell'ambiente di calcolo di Spark JIT per l'esecuzione del flusso di dati
   * Numero delle trasformazioni: il numero di passaggi di trasformazione eseguiti nel flusso
   
-![Monitoraggio dei flussi di dati](media/data-flow/monitornew.png "Monitoraggio dei flussi di dati nuovo")  
+![Monitoraggio dei flussi di dati](media/data-flow/monitornew.png "Monitoraggio dei flussi di dati nuovo")
+
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Tempo di elaborazione del sink totale rispetto al tempo di elaborazione della trasformazione
+
+Ogni fase di trasformazione include il tempo totale necessario per completare la fase con ogni tempo di esecuzione della partizione totale. Quando si fa clic sul sink, viene visualizzato il termine "tempo di elaborazione sink". Questa volta include il tempo totale di trasformazione e *il tempo* di i/O impiegato per scrivere i dati nell'archivio di destinazione. La differenza tra il tempo di elaborazione del sink e il totale della trasformazione è il tempo di I/O per la scrittura dei dati.
+
+È inoltre possibile visualizzare un intervallo dettagliato per ogni passaggio di trasformazione della partizione se si apre l'output JSON dall'attività flusso di dati nella visualizzazione di monitoraggio della pipeline di ADF. Il file JSON contiene un intervallo di millisecondi per ogni partizione, mentre la visualizzazione monitoraggio UX è un intervallo aggregato di partizioni aggiunte:
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
   
 ## <a name="monitor-icons"></a>Icona di monitoraggio
 
 Questa icona indica che i dati della trasformazione sono già stati memorizzati nella cache del cluster e di conseguenza le tempistiche e il percorso di esecuzione sono già stati presi in considerazione:
 
-![Monitoraggio dei flussi di dati](media/data-flow/mon004.png "Monitoraggio dei flussi di dati")
+![Monitoraggio dei flussi di dati](media/data-flow/mon005.png "Monitoraggio dei flussi di dati")
 
 Nella trasformazione vengono anche visualizzate alcune icone a forma di cerchio verde. Questa rappresentano un conteggio del numero di sink in cui vengono trasmessi i dati.

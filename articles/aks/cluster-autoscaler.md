@@ -4,12 +4,11 @@ description: Informazioni su come usare il componente di scalabilità automatica
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730017"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -99,7 +98,7 @@ az aks update \
 L'esempio precedente aggiorna il componente di scalabilità automatica del cluster nel pool a nodo singolo in *myAKSCluster* impostando il numero minimo di nodi su *1* e il numero massimo su *5*.
 
 > [!NOTE]
-Il componente di scalabilità automatica del cluster prende le decisioni relative al ridimensionamento in base al numero massimo e al numero minimo impostati in ogni pool di nodi, ma non impone questi valori. Se, ad esempio, si imposta 5 come numero minimo quando il numero di nodi corrente è 3, il pool non verrà ridimensionato immediatamente a 5. Se nel pool di nodi il numero minimo viene impostato su un valore superiore al numero corrente di nodi, questo nuovo limite verrà rispettato quando sono presenti sufficienti pod non pianificabili che richiedono due nuovi nodi aggiuntivi e attivano un evento di scalabilità automatica. In questo caso il nuovo limite verrà rispettato per il componente di scalabilità automatica del cluster.
+> Il servizio di scalabilità automatica del cluster prende le decisioni di scalabilità in base ai conteggi minimi e massimi impostati in ogni pool di nodi, ma non li impone dopo l'aggiornamento dei conteggi min o max. Se, ad esempio, si imposta un numero minimo di 5 quando il numero di nodi corrente è 3, il pool non verrà ridimensionato immediatamente fino a 5. Se il conteggio minimo nel pool di nodi ha un valore maggiore del numero corrente dei nodi, le nuove impostazioni min o Max verranno rispettate quando sono presenti Pod non pianificabili sufficienti che richiederebbero due nuovi nodi aggiuntivi e attiverà un evento di scalabilità automatica. Dopo l'evento di ridimensionamento, vengono rispettati i limiti del nuovo conteggio.
 
 Monitorare le prestazioni delle applicazioni e dei servizi e modificare il numero di nodi del componente di scalabilità automatica del cluster per ottenere le prestazioni necessarie.
 

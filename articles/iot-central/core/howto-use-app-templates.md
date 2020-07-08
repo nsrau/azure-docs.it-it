@@ -8,16 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f50c7e8dcb33fd2ed95829286aaf815926d9fb3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 39bb129d6edba168ed1ed45b1de205a206c83ed2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80157622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678172"
 ---
 # <a name="export-your-application"></a>Esportare l'applicazione
-
-
 
 Questo articolo descrive come Gestione soluzioni per esportare un'applicazione IoT Central per poterla riutilizzare.
 
@@ -61,7 +58,6 @@ Quando si crea un modello di applicazione, non include gli elementi seguenti:
 
 - Dispositivi
 - Utenti
-- Definizioni processi
 - Definizioni di esportazione dei dati continua
 
 Aggiungere manualmente questi elementi a qualsiasi applicazione creata da un modello di applicazione.
@@ -93,4 +89,4 @@ Per aggiornare il modello di applicazione, modificare il nome o la descrizione d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come usare i modelli di applicazione, il passaggio successivo suggerito consiste nell'apprendere come [gestire IOT Central dalla portale di Azure](howto-manage-iot-central-from-portal.md)
+Ora che si è appreso come usare i modelli di applicazione, il passaggio successivo suggerito consiste nell'apprendere come [monitorare l'integrità complessiva dei dispositivi connessi a un'applicazione IoT Central](howto-monitor-application-health.md)

@@ -8,12 +8,11 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: cc4e267c6912b8938db1ba5497a27f9c0026bd79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b24e0487aef73ed7852cb4a64766a1f8d92aff94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677433"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteggere le porte di gestione con accesso just-in-Time
 
@@ -66,7 +65,7 @@ Dal centro sicurezza è possibile configurare un criterio JIT e richiedere l'acc
     - 5986 - WinRM
 1. Facoltativamente, è possibile aggiungere porte personalizzate all'elenco:
 
-      1. Fare clic su **Aggiungi**. Verrà visualizzata la finestra **Aggiungi configurazione porta** .
+      1. Scegliere **Aggiungi**. Verrà visualizzata la finestra **Aggiungi configurazione porta** .
       1. Per ogni porta che si sceglie di configurare, sia predefinita che personalizzata, è possibile personalizzare le impostazioni seguenti:
             - **Tipo di protocollo** - Il protocollo consentito su questa porta quando una richiesta viene approvata.
             - **Allowed source IP addresses** (Indirizzi IP di origine consentiti) - Gli intervalli IP consentiti su questa porta quando una richiesta viene approvata.
@@ -74,7 +73,7 @@ Dal centro sicurezza è possibile configurare un criterio JIT e richiedere l'acc
 
      1. Fare clic su **OK**.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 > [!NOTE]
 >Quando è abilitata l'accesso JIT alla macchina virtuale per una macchina virtuale, il Centro sicurezza di Azure crea le regole di "nega tutto il traffico in ingresso" per le porte selezionate nei gruppi di sicurezza di rete associati e nel firewall di Azure. Se sono state create altre regole per le porte selezionate, le regole esistenti hanno la priorità sulla nuova regola "nega tutto il traffico in ingresso". Se non sono presenti regole esistenti sulle porte selezionate, la nuova regola "nega tutto il traffico in ingresso" ha la priorità nei gruppi di sicurezza di rete e nel firewall di Azure.
@@ -211,7 +210,7 @@ Eseguire i comandi seguenti in PowerShell per svolgere queste operazioni:
 
 1.    Assegnare una variabile che contiene solo i criteri di accesso JIT alla macchina virtuale per una macchina virtuale:
 
-        $JitPolicy = (@ {ID = "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" porte = (@ {Number = 22;        protocollo = "\*";        allowedSourceAddressPrefix = @ ("\*");        maxRequestAccessDuration = "PT3H"}, @ {Number = 3389;        protocollo = "\*";        allowedSourceAddressPrefix = @ ("\*");        maxRequestAccessDuration = "PT3H"})})
+        $JitPolicy = (@ {ID = "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   porte = (@ {Number = 22;        protocollo = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"}, @ {Number = 3389;        protocollo = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"})})
 
 2.    Inserire i criteri di accesso JIT alla macchina virtuale in una matrice:
     
@@ -228,7 +227,7 @@ Nell'esempio seguente, è possibile visualizzare una richiesta di accesso JIT al
 Eseguire questo comando in PowerShell:
 1.    Configurare le proprietà della richiesta di accesso alla macchina virtuale
 
-        $JitPolicyVm 1 = (@ {ID = "/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" porte = (@ {Number = 22;      endTimeUtc = "2018-09-17T17:00:00.3658798 Z";      allowedSourceAddressPrefix = @ ("INDIRIZZOIPV4")})})
+        $JitPolicyVm 1 = (@ {ID = "/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   porte = (@ {Number = 22;      endTimeUtc = "2018-09-17T17:00:00.3658798 Z";      allowedSourceAddressPrefix = @ ("INDIRIZZOIPV4")})})
 2.    Inserire i parametri della richiesta di accesso alla macchina virtuale in una matrice:
 
         $JitPolicyArr = @ ($JitPolicyVm 1)
@@ -241,7 +240,7 @@ Per ulteriori informazioni, vedere la [documentazione del cmdlet di PowerShell](
 
 ## <a name="automatic-cleanup-of-redundant-jit-rules"></a>Pulizia automatica di regole JIT ridondanti 
 
-Ogni volta che si aggiorna un criterio JIT, viene eseguito automaticamente uno strumento di pulizia per verificare la validità dell'intero set di regole. Lo strumento Cerca le mancate corrispondenze tra le regole nei criteri e le regole del NSG. Se lo strumento di pulizia rileva una mancata corrispondenza, determina la cause e, quando è sicuro, rimuove le regole incorporate che non sono più necessarie. Il Pulisci non elimina mai le regole create.
+Ogni volta che si aggiorna un criterio JIT, viene eseguito automaticamente uno strumento di pulizia per verificare la validità dell'intero set di regole. Lo strumento cerca eventuali mancate corrispondenze tra le regole nei criteri e le regole nel gruppo di sicurezza di rete. Se lo strumento di pulizia rileva una mancata corrispondenza, determina la cause e, quando è sicuro, rimuove le regole incorporate che non sono più necessarie. Lo strumento di pulizia non elimina mai le regole create dall'utente.
 
 Scenari di esempio in cui la pulitura potrebbe rimuovere una regola predefinita:
 

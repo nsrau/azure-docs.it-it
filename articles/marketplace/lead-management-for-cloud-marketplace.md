@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: f8b466dca9f3af55e3c11b39b3fbdac315af3675
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 0d16a2fa91b498888ae5dafd1b254b51eca94ebc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798582"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801411"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gestione dei lead per il marketplace commerciale
 
@@ -91,7 +90,7 @@ I lead sono i clienti che distribuiscono i prodotti dal Marketplace. Sia che il 
 **È necessario configurare una destinazione dei lead per pubblicare un'offerta nel Marketplace?**
 
 Sì, se si sta pubblicando un'app SaaS Contattami o Servizi di consulenza.  
- 
+
 **Come è possibile verificare che la configurazione dei lead sia corretta?**
 
 Dopo aver configurato l'offerta e la destinazione dei lead, pubblicare l'offerta. Durante il processo di convalida dei lead, Marketplace invierà un lead di test alla destinazione configurata nell'offerta. 
@@ -100,6 +99,7 @@ Dopo aver configurato l'offerta e la destinazione dei lead, pubblicare l'offerta
 
 Cercare "MSFT_TEST" nella destinazione dei lead. Ecco un esempio di dati di lead di test: 
 
+```text
 company = MSFT_TEST_636573304831318844 
 
 country = US 
@@ -116,64 +116,50 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<Nome offerta> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<Offer Name> 
 
 oid = 00Do0000000ZHog 
 
 phone = 1234567890 
 
 title = MSFT_TEST_636573304831318844 
+```
 
 **Perché per un'offerta attiva non è visualizzato alcun lead?**
 
-I dati di ogni lead vengono passati in campi nella destinazione selezionata. I lead hanno questo formato: **Origine-Azione|Offerta** 
+I dati di ogni lead vengono passati in campi nella destinazione selezionata. I lead hanno questo formato: **Origine-Azione|Offerta**
 
-  *Origini:*
+- *Origini:*
+  - AzureMarketplace
+  - AzurePortal
+  - TestDrive  
+  - SPZA (acronimo di AppSource)
 
-    "AzureMarketplace", 
-    "AzurePortal", 
-    "TestDrive",  
-    "SPZA" (acronym for AppSource) 
+- *Azioni:*
+  - "INS": sta per essere installato. Si trova nel Marketplace di Azure o in AppSource ogni volta che un cliente preme il pulsante per acquistare il prodotto.
+  - "PLT": sta per la versione di valutazione del LED partner. Si trova su AppSource ogni volta che un cliente preme il pulsante Contact me (Contattami).
+  - "DNC": sta per non contattare. Si trova in AppSource ogni volta che un partner che è stato elencato in modo incrociato nella pagina app riceve una richiesta per essere contattato. Viene condiviso l'annuncio che questo cliente è stato elencato nell'app, ma non deve essere contattato.
+  - "Crea": si trova all'interno portale di Azure solo e ogni volta che un cliente acquista l'offerta al proprio account.
+  - "StartTestDrive": questa operazione è destinata solo a test drive e ogni volta che un cliente avvia la test drive.
 
-  *Azioni:*
+- *Offerte:*
+  - "checkpoint. Check-Point-R77-10sg-BYOL",
+  - "Bitnami. openedxcypress",
+  - "DocuSign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a"
 
-    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+*Ecco un esempio di dati sulle informazioni del cliente*
 
-    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
-
-    "Create" - This is inside Azure portal only and is whenever a customer purchases your offer to their account. 
-
-    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
-
-
-  *Offerte:*
-
-    "checkpoint.check-point-r77-10sg-byol", 
-    "bitnami.openedxcypress", 
-    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
-
- 
-
-  *Ecco un esempio di dati sulle informazioni del cliente*
-
-    { 
-
-    "FirstName":"John", 
-
-    "LastName":"Smith", 
-
-    "Email":"jsmith@microsoft.com", 
-
-    "Phone":"1234567890", 
-
-    "Country":"US", 
-
-    "Company":"Microsoft", 
-
-    "Title":"CTO" 
-
-    } 
+```json
+{ 
+"FirstName":"John",
+"LastName":"Smith",
+"Email":"jsmith@microsoft.com",
+"Phone":"1234567890",
+"Country":"US",
+"Company":"Microsoft",
+"Title":"CTO"
+}
+```
 
 Per altre informazioni, vedere [Lead Info](./partner-center-portal/commercial-marketplace-get-customer-leads.md) (Informazioni sui lead). 
 

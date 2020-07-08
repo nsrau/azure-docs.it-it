@@ -9,13 +9,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
-ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.date: 06/30/2020
+ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801529"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorare visivamente Azure Data Factory
 
@@ -191,6 +190,10 @@ Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità,
     ![Casella per i criteri di destinazione](media/monitor-visually/add-criteria-1.png)
 
     ![Elenco dei criteri](media/monitor-visually/add-criteria-2.png)
+
+    ![Elenco dei criteri](media/monitor-visually/add-criteria-3.png)
+
+    È possibile creare avvisi per diverse metriche, incluse quelle per il numero/dimensioni delle entità ADF, le esecuzioni di attività/pipeline/trigger, l'utilizzo della CPU Integration Runtime (IR), il numero di memoria/nodo/coda dei pacchetti, nonché le esecuzioni di pacchetti SSIS e le operazioni di avvio/arresto del runtime di integrazione SSIS.
 
 1.  Configurare la logica degli avvisi. È possibile creare un avviso per la metrica selezionata per tutte le pipeline e attività corrispondenti. È anche possibile selezionare un tipo di attività, un nome di attività, un nome di pipeline o un tipo di errore specifico.
 

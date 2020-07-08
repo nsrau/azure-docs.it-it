@@ -3,12 +3,11 @@ title: Funzioni di modello-distribuzione
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per recuperare informazioni relative alla distribuzione.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a52b4eae9df4ad3fdf9e481ee0a40aac48f6665b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677815"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funzioni di distribuzione per i modelli ARM
 
@@ -16,8 +15,8 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori correlati a
 
 * [distribuzione](#deployment)
 * [ambiente](#environment)
-* [parametri](#parameters)
-* [variabili](#variables)
+* [parameters](#parameters)
+* [variables](#variables)
 
 Per ottenere valori da risorse, gruppi di risorse o sottoscrizioni, vedere [Funzioni delle risorse](template-functions-resource.md).
 
@@ -82,7 +81,7 @@ Quando si distribuisce un modello remoto in un gruppo di risorse, la funzione re
 }
 ```
 
-Quando si esegue la distribuzione in una sottoscrizione, un gruppo di gestione o un tenant di Azure, `location` l'oggetto restituito include una proprietà. La proprietà location è inclusa quando si distribuisce un modello locale o un modello esterno. Il formato è:
+Quando si esegue la distribuzione in una sottoscrizione, un gruppo di gestione o un tenant di Azure, l'oggetto restituito include una `location` Proprietà. La proprietà location è inclusa quando si distribuisce un modello locale o un modello esterno. Il formato è:
 
 ```json
 {
@@ -108,10 +107,10 @@ Quando si esegue la distribuzione in una sottoscrizione, un gruppo di gestione o
 È possibile usare deployment() per il collegamento a un altro modello in base all'URI del modello padre.
 
 ```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+"variables": {
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
 }
-```  
+```
 
 Se si ridistribuisce un modello dalla cronologia di distribuzione nel portale, il modello viene distribuito come file locale. La proprietà `templateLink` non viene restituita nella funzione di distribuzione. Se il modello si basa su `templateLink` per costruire un collegamento a un altro modello, non usare il portale per la ridistribuzione. Usare invece i comandi usati in origine per distribuire il modello.
 
@@ -121,7 +120,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -140,7 +139,7 @@ L'esempio precedente restituisce l'oggetto seguente:
   "name": "deployment",
   "properties": {
     "template": {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
@@ -266,7 +265,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sì |stringa |Nome del parametro da restituire. |
+| parameterName |Sì |string |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -277,7 +276,7 @@ Il valore del parametro specificato.
 Per impostare i valori delle risorse, si usano in genere i parametri. Nell'esempio seguente il nome del sito Web viene impostato sul valore del parametro passato durante la distribuzione.
 
 ```json
-"parameters": { 
+"parameters": {
   "siteName": {
       "type": "string"
   }
@@ -298,7 +297,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringParameter": {
@@ -353,11 +352,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| stringOutput | Stringa | option 1 |
+| stringOutput | string | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Oggetto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | Stringa | option 1 |
+| crossOutput | string | option 1 |
 
 Per ulteriori informazioni sull'utilizzo dei parametri, vedere [parametri in Azure Resource Manager modello](template-parameters.md).
 
@@ -407,7 +406,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {
@@ -445,9 +444,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| exampleOutput1 | Stringa | myVariable |
+| exampleOutput1 | string | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | Stringa | myVariable |
+| exampleOutput3 | string | myVariable |
 | exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
 
 Per ulteriori informazioni sull'utilizzo delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).

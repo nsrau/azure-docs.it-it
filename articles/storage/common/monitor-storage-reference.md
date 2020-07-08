@@ -9,12 +9,11 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195215"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960215"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Archiviazione di Azure
 
@@ -32,11 +31,15 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 #### <a name="account-level"></a>Livello di account
 
+Questa tabella mostra le [metriche a livello di account](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts).
+
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
 | UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 
 #### <a name="blob-storage"></a>Archiviazione BLOB
+
+Questa tabella mostra le [metriche di archiviazione BLOB](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
@@ -47,6 +50,8 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 #### <a name="table-storage"></a>Archiviazione tabelle
 
+Questa tabella mostra le [metriche di archiviazione tabelle](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
 | TableCapacity | Quantità di archiviazione tabelle usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
@@ -55,13 +60,17 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 #### <a name="queue-storage"></a>Archiviazione code
 
+Questa tabella mostra le [metriche di archiviazione delle code](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
 | QueueCapacity | Quantità di archiviazione code usata dall'account di archiviazione. <br/><br/> Unità: Byte <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 | QueueCount   | Numero di code nell'account di archiviazione. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
-| QueueMessageCount | Numero di messaggi non scaduti nella coda nell'account di archiviazione. <br/><br/>Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
+| QueueMessageCount | Numero approssimativo di messaggi della coda nel Servizio di accodamento dell'account di archiviazione. <br/><br/>Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Valore di esempio: 1024 |
 
 #### <a name="file-storage"></a>Archiviazione file
+
+Questa tabella mostra le [metriche di archiviazione file](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |

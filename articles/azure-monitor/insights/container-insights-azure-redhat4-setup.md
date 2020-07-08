@@ -1,69 +1,88 @@
 ---
 title: Configurare Azure Red Hat OpenShift V4. x con monitoraggio di Azure per i contenitori | Microsoft Docs
-description: Questo articolo descrive come configurare il monitoraggio di un cluster Kubernetes con monitoraggio di Azure ospitato in Azure Red Hat OpenShift versione 4 e successive.
+description: Questo articolo descrive come configurare il monitoraggio per un cluster Kubernetes con monitoraggio di Azure ospitato in Azure Red Hat OpenShift versione 4 o successiva.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: 4b827524845874dabaabe535163d99c408f77a60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: 49097d96ecf58d7c5bf7d1a60ff01fc7182587c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801479"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configurare Azure Red Hat OpenShift V4. x con monitoraggio di Azure per i contenitori
 
-Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avanzata per i cluster di Azure Kubernetes Service (AKS) e del motore AKS. Questo articolo descrive come abilitare il monitoraggio dei cluster Kubernetes ospitati in [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versione 4. x per ottenere un'esperienza di monitoraggio simile.
+Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio completa per i cluster di Azure Kubernetes Service (AKS) e del motore AKS. Questo articolo descrive come ottenere un'esperienza di monitoraggio simile abilitando il monitoraggio per i cluster Kubernetes ospitati in [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versione 4. x.
 
 >[!NOTE]
 >Il supporto per Azure Red Hat OpenShift è una funzionalità di anteprima pubblica al momento.
 >
 
-È possibile abilitare monitoraggio di Azure per i contenitori per una o più distribuzioni esistenti di Azure Red Hat OpenShift V4. x usando i metodi supportati seguenti:
+È possibile abilitare monitoraggio di Azure per i contenitori per una o più distribuzioni esistenti di Azure Red Hat OpenShift V4. x usando i metodi supportati descritti in questo articolo.
 
-- Per un cluster esistente usando lo script bash fornito ed eseguito nell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+Per un cluster esistente, eseguire questo [script bash nell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Funzionalità supportate e non supportate
 
-Monitoraggio di Azure per contenitori supporta il monitoraggio di Azure Red Hat OpenShift V4. x, come descritto nell'articolo [introduttivo](container-insights-overview.md) , ad eccezione delle funzionalità seguenti:
+Monitoraggio di Azure per contenitori supporta il monitoraggio di Azure Red Hat OpenShift V4. x, come descritto nella [Panoramica di monitoraggio di Azure per i contenitori](container-insights-overview.md), ad eccezione delle funzionalità seguenti:
 
 - Dati in tempo reale (anteprima)
-- [Raccogliere le metriche](container-insights-update-metrics.md) dai nodi e dai pod del cluster e archiviarle nel database di metriche di monitoraggio di Azure
+- [Raccolta di metriche](container-insights-update-metrics.md) da nodi e Pod del cluster e archiviazione nel database di metriche di monitoraggio di Azure
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Versione 2.0.72 o successiva dell'interfaccia della riga di comando di Azure
+- L'interfaccia della riga di comando di Azure versione 2.0.72 o successiva  
 
-- [Helm 3](https://helm.sh/docs/intro/install/) Strumento dell'interfaccia della riga di comando
+- Strumento dell'interfaccia della riga di [comando di Helm 3](https://helm.sh/docs/intro/install/)
 
 - [Bash versione 4](https://www.gnu.org/software/bash/)
 
 - Strumento da riga di comando [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-- Per abilitare e accedere alle funzionalità di monitoraggio di Azure per i contenitori, è necessario essere almeno un membro del ruolo *collaboratore* di Azure nella sottoscrizione di Azure e un membro del ruolo [*collaboratore log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) dell'area di lavoro log Analytics configurato con monitoraggio di Azure per i contenitori.
+- Un'[area di lavoro Log Analytics](../platform/design-logs-deployment.md).
 
-- Per visualizzare i dati di monitoraggio, l'utente è membro dell'autorizzazione [*log Analytics Role Reader*](../platform/manage-access.md#manage-access-using-azure-permissions) con l'area di lavoro log Analytics configurata con monitoraggio di Azure per i contenitori.
+    Il monitoraggio di Azure per i contenitori supporta un'area di lavoro Log Analytics nelle aree elencate in prodotti Azure in [base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Per creare un'area di lavoro personalizzata, è possibile crearla tramite [Azure Resource Manager](../platform/template-workspace-configuration.md), tramite [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)o nel [portale di Azure](../learn/quick-create-workspace.md).
 
-## <a name="enable-for-an-existing-cluster"></a>Abilita per un cluster esistente
+- Per abilitare e accedere alle funzionalità di monitoraggio di Azure per i contenitori, è necessario avere almeno un ruolo di *collaboratore* di Azure nella sottoscrizione di Azure e un ruolo di [*collaboratore log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) nell'area di lavoro log Analytics, configurato con monitoraggio di Azure per i contenitori.
 
-Eseguire la procedura seguente per abilitare il monitoraggio di un cluster Azure Red Hat OpenShift versione 4 e successive distribuito in Azure usando lo script bash fornito.
+- Per visualizzare i dati di monitoraggio, è necessario avere [*log Analytics ruolo Reader*](../platform/manage-access.md#manage-access-using-azure-permissions) nell'area di lavoro log Analytics, configurato con monitoraggio di Azure per i contenitori.
 
-1. Accesso ad Azure
+## <a name="enable-monitoring-for-an-existing-cluster"></a>Abilitare il monitoraggio per un cluster esistente
+
+Per abilitare il monitoraggio per un cluster Azure Red Hat OpenShift versione 4 o successiva distribuito in Azure usando lo script bash specificato, seguire questa procedura:
+
+1. Accedere ad Azure mediante il comando seguente:
 
     ```azurecli
     az login
     ```
 
-2. Scaricare e salvare lo script in una cartella locale che configuri il cluster con il componente aggiuntivo monitoraggio usando i comandi seguenti:
+1. Scaricare e salvare in una cartella locale lo script che configura il cluster con il componente aggiuntivo di monitoraggio eseguendo il comando seguente:
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aroV4/onboarding_azuremonitor_for_containers.sh.`
+    `curl -o enable-monitoring.sh -L https://aka.ms/enable-monitoring-bash-script`
 
-3. Per identificare il **contesto di Kube** del cluster, dopo avere `oc login` eseguito il comando nel cluster, eseguire il comando `kubectl config current-context` e copiare il valore.
+1. Per identificare il *kubeContext* del cluster, eseguire i comandi seguenti
+
+    ```
+    adminUserName=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminUsername' -o tsv)
+    adminPassword=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminPassword' -o tsv)
+    apiServer=$(az aro show -g $clusterResourceGroup -n $clusterName --query apiserverProfile.url -o tsv)
+    oc login $apiServer -u $adminUserName -p $adminPassword
+    # openshift project name for azure monitor for containers
+    openshiftProjectName="azure-monitor-for-containers"
+    oc new-project $openshiftProjectName
+    # get the kube config context
+    kubeContext=$(oc config current-context)
+    ```
+
+1. Copiare il valore per utilizzarlo in un secondo momento.
 
 ### <a name="integrate-with-an-existing-workspace"></a>Eseguire l'integrazione con un'area di lavoro esistente
 
-Il passaggio seguente consente di monitorare il cluster usando lo script bash scaricato in precedenza. Per eseguire l'integrazione con un'area di lavoro Log Analytics esistente, attenersi alla procedura seguente per identificare prima l'ID risorsa completo dell'area di `workspaceResourceId` lavoro log Analytics necessaria per il parametro, quindi eseguire il comando per abilitare il componente aggiuntivo di monitoraggio per l'area di lavoro specificata. Se non si dispone di un'area di lavoro da specificare, è possibile procedere al passaggio 5 e consentire allo script di creare una nuova area di lavoro.
+In questa sezione viene abilitato il monitoraggio del cluster usando lo script bash scaricato in precedenza. Per l'integrazione con un'area di lavoro Log Analytics esistente, iniziare identificando l'ID risorsa completo dell'area di lavoro Log Analytics richiesta per il `logAnalyticsWorkspaceResourceId` parametro, quindi eseguire il comando per abilitare il componente aggiuntivo di monitoraggio per l'area di lavoro specificata.
 
-1. Elencare tutte le sottoscrizioni a cui si ha accesso usando il comando seguente:
+Se non si dispone di un'area di lavoro da specificare, è possibile passare alla sezione [integrare con l'area di lavoro predefinita](#integrate-with-the-default-workspace) e consentire allo script di creare automaticamente una nuova area di lavoro.
+
+1. Elencare tutte le sottoscrizioni a cui è possibile accedere eseguendo il comando seguente:
 
     ```azurecli
     az account list --all -o table
@@ -74,65 +93,82 @@ Il passaggio seguente consente di monitorare il cluster usando lo script bash sc
     ```azurecli
     Name                                  CloudName    SubscriptionId                        State    IsDefault
     ------------------------------------  -----------  ------------------------------------  -------  -----------
-    Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
+    Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-    Copiare il valore per **SubscriptionId**.
+1. Copiare il valore per **SubscriptionId**.
 
-2. Passare alla sottoscrizione che ospita l'area di lavoro Log Analytics usando il comando seguente:
+1. Passare alla sottoscrizione che ospita l'area di lavoro Log Analytics eseguendo il comando seguente:
 
     ```azurecli
     az account set -s <subscriptionId of the workspace>
     ```
 
-3. Nell'esempio seguente viene visualizzato l'elenco delle aree di lavoro nelle sottoscrizioni nel formato JSON predefinito.
+1. Per visualizzare l'elenco delle aree di lavoro nelle sottoscrizioni nel formato JSON predefinito, eseguire il comando seguente:
 
     ```
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Nell'output trovare il nome dell'area di lavoro, quindi copiare l'ID risorsa completo dell'area di lavoro Log Analytics sotto l' **ID**campo.
+1. Nell'output trovare il nome dell'area di lavoro, quindi copiare l'ID risorsa completo dell'area di lavoro Log Analytics sotto l' **ID**campo.
 
-4. Eseguire il comando seguente per abilitare il monitoraggio, sostituendo il valore `workspaceResourceId` per il parametro: 
+1. Per abilitare il monitoraggio, eseguire il comando seguente. Sostituire i valori per i `azureAroV4ClusterResourceId` `logAnalyticsWorkspaceResourceId` parametri, e `kubeContext` .
 
-    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId> <LogAnayticsWorkspaceResourceId>`
+    ```bash
+    export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
+    export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    export kubeContext="<kubeContext name of your ARO v4 cluster>"  
+    ```
 
     Esempio:
 
-    `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4  /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace`
+    `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
+
+Dopo aver abilitato il monitoraggio, potrebbero essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster.
+
+### <a name="integrate-with-the-default-workspace"></a>Eseguire l'integrazione con l'area di lavoro predefinita
+
+In questa sezione viene abilitato il monitoraggio per il cluster Azure Red Hat OpenShift V4. x usando lo script bash scaricato.
+
+In questo esempio non è necessario creare in anticipo o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster, se non ne esiste già una.
+
+L'area di lavoro predefinita creata ha il formato *DefaultWorkspace- \<GUID> - \<Region> *.  
+
+Sostituire i valori per i `azureAroV4ClusterResourceId` `kubeContext` parametri e.
+
+```bash
+export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
+export kubeContext="<kubeContext name of your ARO v4 cluster>"
+```
+
+Ad esempio:
+
+`bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
 
 Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster.
 
-### <a name="integrate-with-default-workspace"></a>Integrazione con l'area di lavoro predefinita
+### <a name="enable-monitoring-from-the-azure-portal"></a>Abilitare il monitoraggio dalla portale di Azure
 
-Il passaggio seguente abilita il monitoraggio del cluster di Azure Red Hat OpenShift V4. x con lo script bash scaricato. In questo esempio non è necessario creare o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster, se non ne esiste già una nell'area. L'area di lavoro predefinita creata ricorda il formato di *DefaultWorkspace-\<GUID>-\<Region>*.  
-
-    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId>`
-
-    For example:
-
-    `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4`
-
-Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster.
-
-### <a name="from-the-azure-portal"></a>Dal portale di Azure
-
-La visualizzazione multicluster in monitoraggio di Azure per i contenitori evidenzia i cluster OpenShift di Azure Red Hat che non dispongono di monitoraggio abilitato nella scheda **cluster non monitorati** . L'opzione **Abilita** accanto al cluster non avvia l'onboarding del monitoraggio dal portale. Si viene reindirizzati a questo articolo per abilitare manualmente il monitoraggio attenendosi alla procedura descritta in precedenza in questo articolo.
+La visualizzazione multicluster in monitoraggio di Azure per i contenitori evidenzia i cluster OpenShift di Azure Red Hat che non dispongono di monitoraggio abilitato nella scheda **cluster non monitorati** . L'opzione **Abilita** accanto al cluster non avvia l'onboarding del monitoraggio dal portale. Si viene reindirizzati a questo articolo per abilitare il monitoraggio manualmente attenendosi alla procedura illustrata in precedenza in questo articolo.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Dal menu portale di Azure o dalla Home page selezionare **monitoraggio di Azure**. Nella sezione **Informazioni dettagliate** selezionare **Contenitori**.
+1. Nel riquadro sinistro o dal home page selezionare **monitoraggio di Azure**.
 
-3. Nella pagina **Monitoraggio - Contenitori** selezionare **Cluster non monitorati**.
+1. Nella sezione **Insights** selezionare **contenitori**.
 
-4. Dall'elenco dei cluster non monitorati trovare il cluster nell'elenco e fare clic su **Abilita**. È possibile identificare i risultati nell'elenco cercando il valore **Aro** sotto il **tipo di cluster**di colonne. Dopo aver fatto clic su **Abilita**, si verrà reindirizzati a questo articolo.
+1. Nella pagina **monitoraggio-contenitori** selezionare cluster non **monitorati**.
+
+1. Nell'elenco dei cluster non monitorati selezionare il cluster e quindi fare clic su **Abilita**.
+
+    È possibile identificare i risultati nell'elenco cercando il valore **Aro** nella colonna **tipo cluster** . Dopo aver selezionato **Abilita**, si viene reindirizzati a questo articolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Con il monitoraggio abilitato per raccogliere lo stato e l'utilizzo delle risorse del cluster RedHat OpenShift versione 4. x e dei carichi di lavoro in esecuzione su di essi, informazioni su [come usare](container-insights-analyze.md) monitoraggio di Azure per i contenitori.
+- Ora che è stato abilitato il monitoraggio per raccogliere lo stato e l'utilizzo delle risorse del cluster RedHat OpenShift versione 4. x e dei carichi di lavoro in esecuzione su di essi, informazioni su [come usare](container-insights-analyze.md) monitoraggio di Azure per i contenitori.
 
-- Per impostazione predefinita, l'agente in contenitori raccoglie i log del contenitore stdout/stderr di tutti i contenitori in esecuzione in tutti gli spazi dei nomi ad eccezione di Kube-System. Per configurare la raccolta di log del contenitore specifica per determinati spazi dei nomi o spazi dei nomi, esaminare la [configurazione dell'agente di container Insights](container-insights-agent-config.md) per configurare le impostazioni di raccolta dati desiderate nel file di configurazione di ConfigMap.
+- Per impostazione predefinita, l'agente in contenitori raccoglie i log del contenitore *stdout* e *stderr* di tutti i contenitori in esecuzione in tutti gli spazi dei nomi ad eccezione di Kube-System. Per configurare una raccolta di log del contenitore specifica di uno spazio dei nomi o di spazi dei nomi specifico, vedere [configurazione dell'agente di container Insights](container-insights-agent-config.md) per configurare le impostazioni di raccolta dati desiderate per il file di configurazione *ConfigMap* .
 
-- Per rimuovere e analizzare le metriche di Prometeo dal cluster, vedere [configurare la metrica di Prometeo](container-insights-prometheus-integration.md)
+- Per eliminare e analizzare le metriche Prometheus dal cluster, vedere Configurare il ritaglio delle [metriche Prometeo](container-insights-prometheus-integration.md).
 
-- Per informazioni su come interrompere il monitoraggio del cluster con monitoraggio di Azure per i contenitori, vedere [come arrestare il monitoraggio del cluster OpenShift di Azure Red Hat](container-insights-optout-openshift.md).
+- Per informazioni su come interrompere il monitoraggio del cluster usando monitoraggio di Azure per i contenitori, vedere [come arrestare il monitoraggio del cluster OpenShift di Azure Red Hat](container-insights-optout-openshift.md).

@@ -8,20 +8,19 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793126"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193530"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che supporta il controllo degli accessi in base al ruolo di Azure (RBAC) e gli elenchi di controllo di accesso (ACL) di tipo POSIX. Questo articolo offre un riepilogo delle nozioni di base del modello di controllo di accesso per Data Lake Storage Gen2.
 
-<a id="azure-role-based-access-control-rbac" />
+<a id="azure-role-based-access-control-rbac"></a>
 
-## <a name="role-based-access-control"></a>Controllo di accesso in base ai ruoli
+## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
 RBAC usa le assegnazioni di ruolo per applicare in modo efficace i set di autorizzazioni alle *entità di sicurezza*. Un' *entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (ad) che richiede l'accesso alle risorse di Azure.
 
@@ -72,11 +71,11 @@ Per impostare le autorizzazioni a livello di file e directory, vedere gli artico
 |Java|[Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
 |Python|[Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
 |PowerShell|[Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
-|Interfaccia della riga di comando di Azure|[Usare l'interfaccia della riga di comando di Azure per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|Interfaccia della riga di comando di Azure|[Usare l'interfaccia della riga di comando di Azure per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
 |API REST |[Percorso-aggiornamento](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Se l'entità di sicurezza è un'entità *servizio* , è importante usare l'ID oggetto dell'entità servizio e non l'ID oggetto della registrazione dell'app correlata. Per ottenere l'ID oggetto dell'entità servizio, aprire l'interfaccia della riga di comando di Azure, quindi `az ad sp show --id <Your App ID> --query objectId`usare il comando seguente:. Assicurarsi di sostituire il `<Your App ID>` segnaposto con l'ID app della registrazione dell'app.
+> Se l'entità di sicurezza è un'entità *servizio* , è importante usare l'ID oggetto dell'entità servizio e non l'ID oggetto della registrazione dell'app correlata. Per ottenere l'ID oggetto dell'entità servizio, aprire l'interfaccia della riga di comando di Azure, quindi usare il comando seguente: `az ad sp show --id <Your App ID> --query objectId` . Assicurarsi di sostituire il `<Your App ID>` segnaposto con l'ID app della registrazione dell'app.
 
 ### <a name="types-of-access-control-lists"></a>Tipi di elenchi di controllo di accesso
 
@@ -321,7 +320,7 @@ Viene visualizzato un GUID se la voce rappresenta un utente e tale utente non es
 
 Quando si definiscono gli ACL per le entità servizio, è importante usare l'ID oggetto (OID) dell' *entità servizio* per la registrazione dell'app creata. È importante notare che le app registrate hanno un'entità servizio separata nel tenant di Azure AD specifico. Le app registrate hanno un OID visibile nel portale di Azure, ma l' *entità servizio* presenta un altro OID (diverso).
 
-Per ottenere l'OID per l'entità servizio che corrisponde alla registrazione di un'app, è possibile usare `az ad sp show` il comando. Specificare l'ID applicazione come parametro. Di seguito è riportato un esempio su come ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app con ID app = 18218b12-1895-43E9-AD80-6e8fc1ea88ce. Eseguire il comando seguente nell'interfaccia della riga di comando di Azure:
+Per ottenere l'OID per l'entità servizio che corrisponde alla registrazione di un'app, è possibile usare il `az ad sp show` comando. Specificare l'ID applicazione come parametro. Di seguito è riportato un esempio su come ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app con ID app = 18218b12-1895-43E9-AD80-6e8fc1ea88ce. Eseguire il comando seguente nell'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId

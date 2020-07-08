@@ -3,12 +3,11 @@ title: Funzioni di modello-numeric
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per elaborare i numeri.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: dc15ade453fc5ea4dc031ced0377892f4f8cf27d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00b44d971a487a0bbec27f3fc2d0746cedd6f874
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677917"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funzioni numeriche per i modelli ARM
 
@@ -22,8 +21,8 @@ Gestione risorse fornisce le funzioni seguenti per l'utilizzo di numeri interi n
 * [max](#max)
 * [min](#min)
 * [mod](#mod)
-* [Mul](#mul)
-* [Sub](#sub)
+* [mul](#mul)
+* [sub](#sub)
 
 ## <a name="add"></a>add
 
@@ -33,7 +32,7 @@ Restituisce la somma dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 |operand1 |Sì |INT |Il primo numero da aggiungere. |
 |operand2 |Sì |INT |Il secondo numero da aggiungere. |
@@ -48,7 +47,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -91,9 +90,9 @@ Restituisce l'indice di un ciclo di iterazione.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| loopName | No | stringa | Nome del ciclo per ottenere l'iterazione. |
+| loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
 | offset |No |INT |Il numero da aggiungere al valore di iterazione in base zero. |
 
 ### <a name="remarks"></a>Osservazioni
@@ -156,7 +155,7 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da dividere. |
 | operand2 |Sì |INT |Il numero usato per dividere. Non può essere 0. |
@@ -171,7 +170,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -214,7 +213,7 @@ Converte il valore in un numero a virgola mobile. Usare questa funzione solo qua
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Il valore da convertire in un numero a virgola mobile. |
 
@@ -248,7 +247,7 @@ Converte il valore specificato in un numero intero.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì |stringa o numero intero |Il valore da convertire in numero intero. |
 
@@ -262,7 +261,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToConvert": {
@@ -295,7 +294,7 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -309,7 +308,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -338,7 +337,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 
 `min (arg1)`
 
@@ -346,7 +345,7 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -360,7 +359,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -397,7 +396,7 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da dividere. |
 | operand2 |Sì |INT |Il numero usato per dividere, non può essere 0. |
@@ -412,7 +411,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -455,7 +454,7 @@ Restituisce la moltiplicazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il primo numero da moltiplicare. |
 | operand2 |Sì |INT |Il secondo numero da moltiplicare. |
@@ -470,7 +469,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -513,7 +512,7 @@ Restituisce la sottrazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da cui sottrarre. |
 | operand2 |Sì |INT |Il numero sottratto. |
@@ -528,7 +527,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "first": {
@@ -566,4 +565,4 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
-* Per eseguire l'iterazione di un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [creare più istanze di risorse in Azure Resource Manager](copy-resources.md).
+* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).

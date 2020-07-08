@@ -1,5 +1,5 @@
 ---
-title: Delegare perms gestione amministratore applicazione-Azure AD | Microsoft Docs
+title: Delega autorizzazioni Amministratore Gestione applicazioni-Azure AD | Microsoft Docs
 description: Concedere le autorizzazioni per la gestione dell'accesso alle applicazioni in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -8,18 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251bc1c2277f9e43543f95c49d0b730a5a41c3d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2527e4e630e7bf9cce0c68261bfa1c1797fbf795
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253039"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731818"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegare le autorizzazioni di registrazione all'app in Azure Active Directory
 
@@ -60,8 +59,8 @@ In alcuni casi, le applicazioni aziendali create dalla raccolta di applicazioni 
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Per assegnare un proprietario a un'applicazione aziendale
 
-1. Accedere all' [organizzazione](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) Azure ad con un account idoneo per l'amministratore dell'applicazione o l'amministratore di applicazioni cloud per l'organizzazione.
-1. Nella [pagina](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) registrazioni app dell'organizzazione selezionare un'app per aprire la pagina Panoramica dell'app.
+1. Accedere all' [organizzazione Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)   con un account idoneo per l'amministratore dell'applicazione o l'amministratore di applicazioni cloud per l'organizzazione.
+1. Nella [pagina registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)dell'   organizzazione selezionare un'app per aprire la pagina Panoramica dell'app.
 1. Selezionare **Proprietari** per visualizzare l'elenco dei proprietari dell'app.
 1. Selezionare **Aggiungi** per selezionare uno o più proprietari da aggiungere all'app.
 
@@ -74,8 +73,8 @@ In alcuni casi, le applicazioni aziendali create dalla raccolta di applicazioni 
 
 Azure AD dispone di un set di ruoli di amministratore predefiniti per la concessione dell'accesso per la gestione della configurazione in Azure AD per tutte le applicazioni. Questi ruoli sono la soluzione consigliata per concedere agli esperti IT l'accesso per gestire le autorizzazioni di configurazione delle applicazioni generali senza concedere l'accesso per gestire altre parti di Azure AD non correlate alla configurazione dell'applicazione.
 
-- Amministratore di applicazioni: gli utenti in questo ruolo possono creare e gestire tutti gli aspetti di applicazioni aziendali, le registrazioni delle applicazioni e le impostazioni proxy dell'applicazione. Questo ruolo consente inoltre di concedere il consenso per le autorizzazioni delegate e le autorizzazioni dell'applicazione escluse Microsoft Graph. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari per la creazione di nuove registrazioni di applicazioni o applicazioni aziendali.
-- Amministratore applicazione cloud: gli utenti in questo ruolo dispongono delle stesse autorizzazioni del ruolo di amministratore di applicazioni, esclusa la possibilità di gestire il proxy dell'applicazione. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari per la creazione di nuove registrazioni di applicazioni o applicazioni aziendali.
+- Amministratore di applicazioni: gli utenti in questo ruolo possono creare e gestire tutti gli aspetti di applicazioni aziendali, le registrazioni delle applicazioni e le impostazioni proxy dell'applicazione. Questo ruolo consente inoltre di concedere il consenso per le autorizzazioni delegate e le autorizzazioni dell'applicazione escluse Microsoft Graph. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari durante la creazione di nuove registrazioni di applicazione o di applicazioni aziendali.
+- Amministratore applicazione cloud: gli utenti in questo ruolo dispongono delle stesse autorizzazioni del ruolo di amministratore di applicazioni, esclusa la possibilità di gestire il proxy dell'applicazione. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari durante la creazione di nuove registrazioni di applicazione o di applicazioni aziendali.
 
 Per ulteriori informazioni e per visualizzare la descrizione di questi ruoli, vedere [available Roles](directory-assign-admin-roles.md#available-roles).
 

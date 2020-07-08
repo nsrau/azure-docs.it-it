@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04bd7788a9cc9657e14aedfb153182d6e53eb95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 20e566a450768fca81e29692f7c8d2da3ccf5201
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731563"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visualizzare le assegnazioni di ruolo personalizzate in Azure Active Directory
 
@@ -31,7 +30,7 @@ Questo articolo descrive come visualizzare i ruoli personalizzati assegnati in A
 
 In questa procedura viene descritta la visualizzazione delle assegnazioni di un ruolo con ambito a livello di organizzazione.
 
-1. Accedere al [centro](https://aad.portal.azure.com) di amministrazione di Azure ad con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
+1. Accedere all' [interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com)  con autorizzazioni di amministratore ruolo con privilegi o amministratore globale nell'organizzazione di Azure AD.
 1. Selezionare **Azure Active Directory**, selezionare **ruoli e amministratori**, quindi selezionare un ruolo per aprirlo e visualizzarne le proprietà.
 1. Selezionare **assegnazioni** per visualizzare le assegnazioni per il ruolo.
 
@@ -80,7 +79,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 
 In questa sezione viene descritta la visualizzazione delle assegnazioni di un ruolo con ambito a livello di organizzazione.  Per visualizzare le assegnazioni con ambito applicazione singola usando API Graph, è possibile usare le operazioni in [assegnare ruoli personalizzati con API Graph](roles-assign-graph.md).
 
-Richiesta HTTP per ottenere un'assegnazione di ruolo per una determinata definizione di ruolo.
+Richiesta HTTP per ottenere un'assegnazione di ruolo per una definizione del ruolo specifica.
 
 GET
 
@@ -104,8 +103,8 @@ HTTP/1.1 200 OK
 
 In questa sezione viene descritta la visualizzazione delle assegnazioni di un ruolo con ambito applicazione singola. Questa funzionalità è attualmente in anteprima pubblica.
 
-1. Accedere al [centro](https://aad.portal.azure.com) di amministrazione di Azure ad con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
-1. Selezionare **registrazioni app**, quindi selezionare la registrazione dell'app per visualizzarne le proprietà. Potrebbe essere necessario selezionare **tutte le applicazioni** per visualizzare l'elenco completo delle registrazioni di app nell'organizzazione Azure ad.
+1. Accedere all' [interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com)  con autorizzazioni di amministratore ruolo con privilegi o amministratore globale nell'organizzazione di Azure AD.
+1. Selezionare **registrazioni app**, quindi selezionare la registrazione dell'app per visualizzarne le proprietà. Potrebbe essere necessario selezionare **Tutte le applicazioni** per visualizzare l'elenco completo delle registrazioni di app presenti nell'organizzazione di Azure AD.
 
     ![Creare o modificare le registrazioni di app dalla pagina Registrazioni app](./media/roles-create-custom/appreg-all-apps.png)
 

@@ -3,16 +3,15 @@ title: Monitorare Sincronizzazione file di Azure | Microsoft Docs
 description: Come monitorare Sincronizzazione file di Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68699296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515198"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -36,15 +35,15 @@ Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in M
 
 | Nome metrica | Descrizione |
 |-|-|
-| Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento).<br><br>Unità: byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
-| Richiamo cloud a livelli | Dimensioni dei dati richiamati.<br><br>**Nota**: questa metrica verrà rimossa in futuro. Usare la metrica dimensione di richiamo di suddivisione in livelli nel cloud per monitorare le dimensioni dei dati richiamati.<br><br>Unità: byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server |
-| Dimensioni del richiamo di suddivisione in livelli nel cloud | Dimensioni dei dati richiamati.<br><br>Unità: byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server, nome del gruppo di sincronizzazione |
-| Dimensioni del richiamo di suddivisione in livelli nel cloud per applicazione | Dimensioni dei dati richiamati dall'applicazione.<br><br>Unità: byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome dell'applicazione, nome del server, nome del gruppo di sincronizzazione |
-| Velocità effettiva di richiamo di suddivisione in livelli nel cloud | Dimensioni della velocità effettiva di richiamo dei dati.<br><br>Unità: byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server, nome del gruppo di sincronizzazione |
-| File non sincronizzati | Numero di file che non è possibile sincronizzare.<br><br>Unità: conteggio<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
-| File sincronizzati | Numero di file trasferiti (caricamento e scaricamento)<br><br>Unità: conteggio<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
-| Stato online del server | Numero di heartbeat ricevuti dal server.<br><br>Unità: conteggio<br>Tipo di aggregazione: massimo<br>Dimensione applicabile: nome del server |
-| Risultato della sessione di sincronizzazione | Risultato della sessione di sincronizzazione (1 = sessione di sincronizzazione con esito positivo; 0 = sessione di sincronizzazione con esito negativo)<br><br>Unità: conteggio<br>Tipi di aggregazione: massimo<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
+| Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento).<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
+| Richiamo cloud a livelli | Dimensioni dei dati richiamati.<br><br>**Nota**: questa metrica verrà rimossa in futuro. Usare la metrica dimensione di richiamo di suddivisione in livelli nel cloud per monitorare le dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server |
+| Cloud tiering recall size (Dimensioni richiamo cloud a livelli) | Dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server, nome del gruppo di sincronizzazione |
+| Cloud tiering recall size by application (Dimensioni richiamo cloud a livelli per applicazione) | Dimensioni dei dati richiamati dall'applicazione.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome dell'applicazione, nome del server, nome del gruppo di sincronizzazione |
+| Cloud tiering recall throughput (Velocità effettiva richiamo cloud a livelli) | Dimensioni della velocità effettiva di richiamo dei dati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server, nome del gruppo di sincronizzazione |
+| File non sincronizzati | Numero di file che non è possibile sincronizzare.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
+| File sincronizzati | Numero di file trasferiti (caricamento e scaricamento)<br><br>Unità: Conteggio<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
+| Stato online del server | Numero di heartbeat ricevuti dal server.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Massimo<br>Dimensione applicabile: nome del server |
+| Risultato della sessione di sincronizzazione | Risultato della sessione di sincronizzazione (1 = sessione di sincronizzazione con esito positivo; 0 = sessione di sincronizzazione con esito negativo)<br><br>Unità: Conteggio<br>Tipi di aggregazione: massimo<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
 
 ### <a name="alerts"></a>Avvisi
 
@@ -57,7 +56,7 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 | Integrità endpoint server nel portale = errore | Risultato della sessione di sincronizzazione |
 | Impossibile sincronizzare i file in un endpoint server o cloud | File non sincronizzati |
 | Il server registrato non riesce a comunicare con il servizio di sincronizzazione archiviazione | Stato online del server |
-| Le dimensioni di richiamo per la suddivisione in livelli nel cloud hanno superato 500GiB in un giorno  | Dimensioni del richiamo di suddivisione in livelli nel cloud |
+| Le dimensioni di richiamo per la suddivisione in livelli nel cloud hanno superato 500GiB in un giorno  | Cloud tiering recall size (Dimensioni richiamo cloud a livelli) |
 
 Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
@@ -68,7 +67,7 @@ Per visualizzare l'integrità del server registrato, l'integrità dell'endpoint 
 ### <a name="registered-server-health"></a>Stato server registrato
 
 - Se lo stato del **server registrato** è **online**, il server comunica correttamente con il servizio.
-- Se lo stato del **server registrato** viene **visualizzato offline**, verificare che il processo di monitoraggio di sincronizzazione archiviazione (AzureStorageSyncMonitor. exe) nel server sia in esecuzione. Se il server è dietro un firewall o un proxy, vedere [questo articolo](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) per configurare il firewall e il proxy.
+- Se lo stato del **server registrato** viene **visualizzato offline**, verificare che il processo di monitoraggio di sincronizzazione archiviazione (AzureStorageSyncMonitor.exe) nel server sia in esecuzione. Se il server è dietro un firewall o un proxy, vedere [questo articolo](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) per configurare il firewall e il proxy.
 
 ### <a name="server-endpoint-health"></a>Integrità endpoint server
 
@@ -132,7 +131,7 @@ Integrità di suddivisione in livelli nel cloud:
 
 Usare i contatori delle prestazioni di Sincronizzazione file di Azure nel server per monitorare l'attività di sincronizzazione.
 
-Per visualizzare Sincronizzazione file di Azure contatori delle prestazioni nel server, aprire Performance Monitor (Perfmon. exe). È possibile trovare i contatori negli oggetti **operazioni di sincronizzazione** AFS e **trasferiti** .
+Per visualizzare Sincronizzazione file di Azure contatori delle prestazioni nel server, aprire Performance Monitor (Perfmon.exe). È possibile trovare i contatori negli oggetti **operazioni di sincronizzazione** AFS e **trasferiti** .
 
 I contatori delle prestazioni seguenti per Sincronizzazione file di Azure sono disponibili in Monitoraggio delle prestazioni:
 
@@ -148,6 +147,6 @@ I contatori delle prestazioni seguenti per Sincronizzazione file di Azure sono d
 ## <a name="next-steps"></a>Passaggi successivi
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
 - [Impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md)
-- [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+- [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 - [Risolvere i problemi di Sincronizzazione file di Azure](storage-sync-files-troubleshoot.md)
 - [Domande frequenti su File di Azure](storage-files-faq.md)
