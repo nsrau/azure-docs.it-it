@@ -3,15 +3,15 @@ title: Autenticazione .NET-da servizio a servizio-Data Lake Storage Gen1
 description: Informazioni su come ottenere l'autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 usando Azure Active Directory con .NET SDK
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: bac5fa95ca5ce4e289d4dd18cba9238da7b8a2e2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 19b4ac619ec3e72c787efc8e9f043f42dbd8b09b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505155"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 tramite .NET SDK
 > [!div class="op_single_selector"]

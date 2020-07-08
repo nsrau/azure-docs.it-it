@@ -5,17 +5,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/11/2020
-ms.openlocfilehash: 6f65ba96f768a4b88aa13c073cc66920b8c5e049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: f058ce1ae5b7328c6864684994a74f2fd118ca6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480488"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506991"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>Descrizione di Monitoraggio di Azure per le macchine virtuali
 
-Monitoraggio di Azure per le macchine virtuali consente di monitorare le macchine virtuali di Azure e i set di scalabilità di macchine virtuali su larga scala. Analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le dipendenze da altre risorse e processi esterni. Include il supporto per il monitoraggio delle prestazioni e delle dipendenze delle applicazioni per le macchine virtuali ospitate in locale o in un altro provider di servizi cloud. Le funzionalità principali seguenti offrono informazioni approfondite:
+Monitoraggio di Azure per le macchine virtuali monitora le macchine virtuali, i set di scalabilità di macchine virtuali e i computer Azure Arc su larga scala. Analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le dipendenze da altre risorse e processi esterni. Include il supporto per il monitoraggio delle prestazioni e delle dipendenze dell'applicazione per le macchine virtuali ospitate in locale o in un altro provider di servizi cloud. Le funzionalità principali seguenti offrono informazioni approfondite:
 
 - **Grafici delle prestazioni di tendenza**predefiniti: Visualizza le metriche delle prestazioni principali dal sistema operativo della macchina virtuale guest.
 

@@ -18,7 +18,7 @@ ms.locfileid: "67305295"
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
 | App push di Azure | 10 azioni dell'app di Azure per ogni gruppo di azioni. | Chiamare il supporto. |
-| Posta elettronica | 1.000 azioni di posta elettronica in un gruppo di azione.<br>non più di 100 messaggi di posta elettronica in un'ora.<br>Vedere anche le [informazioni sulla limitazione della frequenza](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chiamare il supporto. |
+| E-mail | 1.000 azioni di posta elettronica in un gruppo di azione.<br>non più di 100 messaggi di posta elettronica in un'ora.<br>Vedere anche le [informazioni sulla limitazione della frequenza](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Chiamare il supporto. |
 | Gestione dei servizi IT | 10 azioni ITSM in un gruppo di azione. | Chiamare il supporto. | 
 | App per la logica | 10 azioni dell'app per la logica in un gruppo di azione. | Chiamare il supporto. |
 | Runbook | 10 azioni Runbook in un gruppo di azione. | Chiamare il supporto. |

@@ -4,15 +4,15 @@ description: includere file
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dbac1f4fad940b817befa3a45447cf7367c28c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: HT
+ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317447"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506047"
 ---
 L'uso delle macchine virtuali spot consente di sfruttare la capacità inutilizzata con un notevole risparmio sui costi. Quando, in qualsiasi momento, Azure avrà di nuovo bisogno di quella capacità, l'infrastruttura di Azure rimuoverà le macchine virtuali spot. Le macchine virtuali spot sono pertanto ideali per i carichi di lavoro in grado di gestire le interruzioni, come i processi di elaborazione batch, gli ambienti di sviluppo/test, i carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
 
@@ -21,9 +21,17 @@ La quantità di capacità disponibile dipende dalle dimensioni, dall'area, dal m
 
 ## <a name="eviction-policy"></a>Criteri di rimozione
 
-Le macchine virtuali possono essere eliminate in base alla capacità o al prezzo massimo impostato. Per le macchine virtuali, i criteri di rimozione sono impostati su *Deallocare* che sposta le VM eliminate nello stato arrestata-deallocata, consentendo di ridistribuire le VM eliminate in un secondo momento. Tuttavia, la riallocazione delle macchine virtuali spot dipende dalla disponibilità di capacità spot. Le macchine virtuali deallocate verranno incluse nel conteggio per la quota di vCPU spot e verranno addebitati i costi dei dischi sottostanti. 
+Le macchine virtuali possono essere eliminate in base alla capacità o al prezzo massimo impostato. Quando si crea una VM spot, è possibile impostare i criteri di rimozione per *deallocare* (impostazione predefinita) o *eliminare*. 
 
-Gli utenti possono acconsentire esplicitamente a ricevere notifiche nelle macchine virtuali con [Eventi pianificati di Azure](../articles/virtual-machines/linux/scheduled-events.md). In questo modo riceveranno una notifica se le macchine virtuali vengono eliminate e avranno a disposizione 30 secondi per completare i processi ed eseguire le attività di arresto prima dell'eliminazione. 
+Il criterio *deallocate* sposta la macchina virtuale in stato di arresto-deallocato, consentendo di ridistribuirla in un secondo momento. Tuttavia, non è garantito che l'allocazione avrà esito positivo. Le VM deallocate verranno conteggiate rispetto alla quota e verranno addebitati i costi di archiviazione per i dischi sottostanti. 
+
+Se si vuole che la macchina virtuale venga eliminata quando viene rimossa, è possibile impostare i criteri di rimozione da *eliminare*. Le macchine virtuali rimosse vengono eliminate insieme ai relativi dischi sottostanti, quindi non verrà addebitato alcun costo per l'archiviazione. 
+
+> [!NOTE]
+>
+> Il portale non supporta attualmente `Delete` come opzione di rimozione. è possibile impostare solo usando PowerShell, l'interfaccia della riga di comando `Delete` e i modelli.
+
+È possibile acconsentire esplicitamente a ricevere notifiche in-VM tramite [Azure eventi pianificati](../articles/virtual-machines/linux/scheduled-events.md). In questo modo riceveranno una notifica se le macchine virtuali vengono eliminate e avranno a disposizione 30 secondi per completare i processi ed eseguire le attività di arresto prima dell'eliminazione. 
 
 
 | Opzione | Risultato |
@@ -37,15 +45,29 @@ Gli utenti possono acconsentire esplicitamente a ricevere notifiche nelle macchi
 | Se il prezzo massimo è impostato su `-1` | La macchina virtuale non verrà eliminata per motivi di prezzo. Il prezzo massimo corrisponderà al prezzo corrente, fino al prezzo per le macchine virtuali standard. Non verrà mai addebitato un prezzo superiore al prezzo standard.| 
 | Modifica del prezzo massimo | È necessario deallocare la VM per modificare il prezzo massimo. Deallocare la VM, impostare un nuovo prezzo massimo, quindi aggiornare la VM. |
 
+
 ## <a name="limitations"></a>Limitazioni
 
 Le seguenti dimensioni delle macchine virtuali non sono supportate per le macchine virtuali spot:
  - Serie B
  - Versioni promo di qualsiasi dimensione (ad esempio, dimensioni promo Dv2, NV, NC, H)
 
-Le macchine virtuali spot attualmente non possono usare dischi del sistema operativo temporanei.
-
 Le macchine virtuali spot possono essere distribuite in qualsiasi area, tranne Microsoft Azure Cina (21Vianet).
+
+Alcuni canali di sottoscrizione non sono supportati:
+
+<a name="channel"></a>
+
+| Canali di Azure               | Disponibilità di macchine virtuali spot di Azure       |
+|------------------------------|-----------------------------------|
+| Enterprise Agreement         | Sì                               |
+| Pagamento in base al consumo                | Sì                               |
+| Provider di servizi cloud | [Contattare il partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Vantaggi                     | Non disponibile                     |
+| Sponsorizzato                    | Sì                               |
+| Versione di valutazione gratuita                   | Non disponibile                     |
+
+
 
 ## <a name="pricing"></a>Prezzi
 
@@ -75,23 +97,6 @@ Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari stat
 **D:** È possibile richiedere una quota aggiuntiva per le macchine virtuali spot?
 
 **R:** Sì, è possibile inviare la richiesta di aumento della quota per le macchine virtuali spot attraverso il [processo di richiesta di quota standard](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-
-
-**D:** Quali canali supportano le macchine virtuali spot?
-
-**R:** Vedere la tabella seguente per la disponibilità di macchine virtuali spot.
-
-<a name="channel"></a>
-
-| Canali di Azure               | Disponibilità di macchine virtuali spot di Azure       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Sì                               |
-| Pagamento in base al consumo                | Sì                               |
-| Provider di servizi cloud | [Contattare il partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Contratto del cliente Microsoft | Sì                               |
-| Vantaggi                     | Non disponibile                     |
-| Sponsorizzato                    | Sì                               |
-| Versione di valutazione gratuita                   | Non disponibile                     |
 
 
 **D:** Dove è possibile pubblicare le domande?

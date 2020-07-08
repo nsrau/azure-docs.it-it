@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: 5198729cf96fb48c5dcd05096c04ea4d77c26de5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97bb232f726dada5241242e4a1d90e120c07e38c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931483"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506260"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi
 ## <a name="overview"></a>Panoramica
@@ -72,7 +72,7 @@ Utilizzare la procedura seguente per creare un gruppo di volumi.
     Viene visualizzata la finestra di dialogo **Crea un gruppo di volumi**.
    
     ![Finestra di dialogo Crea un gruppo di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
-3. Immettere le informazioni seguenti:
+3. Immettere le seguenti informazioni:
    
    1. Nella casella **Nome** digitare un nome univoco per il nuovo gruppo di volumi.
    2. Nella casella **Applicazioni** selezionare le applicazioni associate ai volumi che verranno aggiunte al gruppo di volumi.

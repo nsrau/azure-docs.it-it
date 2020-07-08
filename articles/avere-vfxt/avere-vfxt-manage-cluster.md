@@ -3,15 +3,15 @@ title: Gestire il cluster Avere vFXT - Azure
 description: 'Come gestire il cluster Avere: aggiungere o rimuovere nodi, riavviare, interrompere o eliminare definitivamente il cluster vFXT'
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4135bfe528c33a2beaeb21438181deb5b19ad12e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153480"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505495"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gestire il cluster Avere vFXT
 
@@ -23,7 +23,7 @@ A seconda dell'attività di gestione, potrebbe essere necessario usare uno dei t
 
 Questa tabella offre una panoramica degli strumenti utilizzabili per ogni attività.
 
-| Azione | Pannello di controllo di Avere | vfxt.py  | Portale di Azure |
+| Action | Pannello di controllo di Avere | vfxt.py  | Portale di Azure |
 | --- | --- | --- | --- |
 | Aggiungere nodi del cluster | no | sì | no |
 | Rimuovere nodi del cluster | sì | no | no |
@@ -141,7 +141,7 @@ Dal momento che il cluster è interrotto, è necessario passare gli identificato
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-È possibile ``--quick-destroy`` utilizzare l'opzione se non si desidera salvare i dati modificati dalla cache del cluster.
+``--quick-destroy``È possibile utilizzare l'opzione se non si desidera salvare i dati modificati dalla cache del cluster.
 
 Fare riferimento alla [guida all'utilizzo di vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) per altre informazioni.
 

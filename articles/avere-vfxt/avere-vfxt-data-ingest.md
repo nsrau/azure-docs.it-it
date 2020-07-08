@@ -3,15 +3,15 @@ title: Spostamento dei dati in Avere vFXT per Azure
 description: Come aggiungere dati a un nuovo volume di archiviazione da usare con Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505597"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Spostamento dei dati nel cluster vFXT - Inserimento di dati parallelo
 
@@ -25,7 +25,7 @@ I comandi ``cp`` o ``copy`` che vengono comunemente usati per trasferire dati da
 
 Questo articolo illustra le strategie per creare un sistema di copia multi-client a thread multipli per spostare dati nel cluster Avere vFXT. Spiega i concetti relativi al trasferimento di file e le decisioni da prendere per una copia dei dati efficiente usando più client e semplici comandi di copia.
 
-Illustra inoltre alcune utilità che possono essere di ausilio. L' ``msrsync`` utilità può essere usata per automatizzare parzialmente il processo di suddivisione di un set di dati in bucket ``rsync`` e con i comandi. Lo script ``parallelcp`` è un'altra utilità che legge la directory di origine e invia automaticamente i comandi di copia. Inoltre, lo ``rsync`` strumento può essere utilizzato in due fasi per offrire una copia più veloce che fornisce ancora la coerenza dei dati.
+Illustra inoltre alcune utilità che possono essere di ausilio. L' ``msrsync`` utilità può essere usata per automatizzare parzialmente il processo di suddivisione di un set di dati in bucket e con i ``rsync`` comandi. Lo script ``parallelcp`` è un'altra utilità che legge la directory di origine e invia automaticamente i comandi di copia. Inoltre, lo ``rsync`` strumento può essere utilizzato in due fasi per offrire una copia più veloce che fornisce ancora la coerenza dei dati.
 
 Fare clic sul collegamento per passare a una sezione:
 
@@ -260,9 +260,9 @@ L'obiettivo è eseguire contemporaneamente più thread di questi script per clie
 
 ## <a name="use-a-two-phase-rsync-process"></a>Usare un processo rsync a due fasi
 
-L'utilità ``rsync`` standard non funziona correttamente per il popolamento dell'archiviazione cloud tramite il vFXT di sicurezza di rete per Azure perché genera un numero elevato di operazioni di creazione e ridenominazione dei file per garantire l'integrità dei dati. Tuttavia, è possibile usare l' ``--inplace`` opzione con ``rsync`` per ignorare la procedura di copia più attenta se si segue con una seconda esecuzione che controlla l'integrità dei file.
+L' ``rsync`` utilità standard non funziona correttamente per il popolamento dell'archiviazione cloud tramite il vFXT di sicurezza di rete per Azure perché genera un numero elevato di operazioni di creazione e ridenominazione dei file per garantire l'integrità dei dati. Tuttavia, è possibile usare l' ``--inplace`` opzione con ``rsync`` per ignorare la procedura di copia più attenta se si segue con una seconda esecuzione che controlla l'integrità dei file.
 
-Un'operazione ``rsync`` di copia standard crea un file temporaneo e lo compila con i dati. Se il trasferimento dei dati viene completato correttamente, il file temporaneo viene rinominato con il nome file originale. Questo metodo garantisce la coerenza anche se si accede ai file durante la copia. Questo metodo genera tuttavia più operazioni di scrittura, che rallentano lo spostamento dei file nella cache.
+Un' ``rsync`` operazione di copia standard crea un file temporaneo e lo compila con i dati. Se il trasferimento dei dati viene completato correttamente, il file temporaneo viene rinominato con il nome file originale. Questo metodo garantisce la coerenza anche se si accede ai file durante la copia. Questo metodo genera tuttavia più operazioni di scrittura, che rallentano lo spostamento dei file nella cache.
 
 L'opzione ``--inplace`` scrive il nuovo file direttamente nel percorso finale. Non è garantito che i file siano coerenti durante il trasferimento, ma ciò non è importante se si sta comprimendo un sistema di archiviazione per usarlo in seguito.
 
@@ -284,7 +284,7 @@ Lo ``msrsync`` strumento può essere usato anche per spostare i dati in un filer
 
 I test preliminari su una macchina virtuale con quattro core hanno indicato la massima efficienza utilizzando 64 processi. Usare l'opzione ``-p`` di ``msrsync`` per impostare il numero di processi su 64.
 
-È anche possibile usare l' ``--inplace`` argomento con ``msrsync`` i comandi. Se si usa questa opzione, provare a eseguire un secondo comando (come con [rsync](#use-a-two-phase-rsync-process), descritto in precedenza) per garantire l'integrità dei dati.
+È anche possibile usare l' ``--inplace`` argomento con i ``msrsync`` comandi. Se si usa questa opzione, provare a eseguire un secondo comando (come con [rsync](#use-a-two-phase-rsync-process), descritto in precedenza) per garantire l'integrità dei dati.
 
 ``msrsync``può scrivere solo da e verso volumi locali. L'origine e la destinazione devono essere accessibili montaggi locali nella rete virtuale del cluster.
 
@@ -293,9 +293,9 @@ Per usare ``msrsync`` per popolare un volume cloud di Azure con un cluster di in
 1. Installare ``msrsync`` e i relativi prerequisiti (rsync e Python 2,6 o versione successiva)
 1. Determinare il numero totale di file e directory da copiare.
 
-   Ad esempio, usare l'utilità ``prime.py`` di ricerca con gli ```prime.py --directory /path/to/some/directory``` argomenti (disponibili scaricando <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>l'URL).
+   Ad esempio, usare l'utilità di ricerca ``prime.py`` con gli argomenti ```prime.py --directory /path/to/some/directory``` (disponibili scaricando l'URL <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py> ).
 
-   Se non si ``prime.py``USA, è possibile calcolare il numero di elementi con lo ``find`` strumento GNU come indicato di seguito:
+   Se non ``prime.py`` si usa, è possibile calcolare il numero di elementi con lo ``find`` strumento GNU come indicato di seguito:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -311,7 +311,7 @@ Per usare ``msrsync`` per popolare un volume cloud di Azure con un cluster di in
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   Se si ``--inplace``USA, aggiungere una seconda esecuzione senza l'opzione per verificare che i dati vengano copiati correttamente:
+   Se ``--inplace`` si usa, aggiungere una seconda esecuzione senza l'opzione per verificare che i dati vengano copiati correttamente:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>

@@ -3,15 +3,15 @@ title: Configurare l'archiviazione di Avere vFXT - Azure
 description: Come aggiungere un sistema di archiviazione back-end ad Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505750"
 ---
 # <a name="configure-storage"></a>Configurare l'archiviazione
 
@@ -47,9 +47,9 @@ Attenersi alla seguente procedura per aggiungere un filer Core NAS:
 
 1. Nel pannello di controllo di Avere fare clic sulla scheda **Settings** (Impostazioni) nella parte superiore.
 
-1. Fare clic su **Core filer** > **Gestisci file di base** sulla sinistra.
+1. Fare clic su **Core filer**  >  **Gestisci file di base** sulla sinistra.
 
-1. Scegliere **Crea**.
+1. Fare clic su **Crea**.
 
    ![Screenshot della pagina per l'aggiunta di un nuovo core filer con il puntatore sul pulsante Create (Crea)](media/avere-vfxt-add-core-filer-start.png)
 
@@ -137,7 +137,7 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
 
    ![Modulo delle credenziali cloud completato nel pannello di controllo di Avere](media/avere-vfxt-new-credential-submit.png)
 
-1. A questo punto, creare il core filer. Sul lato sinistro del pannello di controllo, fare clic su **Core filer** >  **Gestisci Core**filer.
+1. A questo punto, creare il core filer. Sul lato sinistro del pannello di controllo, fare clic su **Core filer**  >   **Gestisci Core**filer.
 
 1. Fare clic sul pulsante **Create** (Crea) nella pagine delle impostazioni **Manage Core Filers** (Gestisci core filer).
 
@@ -172,7 +172,7 @@ Altre informazioni sulle giunzioni sono disponibili nella [sezione relativa agli
 
 Attenersi alla seguente procedura nell'interfaccia del pannello di controllo di.
 
-* Fare clic su**spazio dei nomi** **vserver** > in alto a sinistra.
+* Fare **VServer**clic su  >  **spazio dei nomi** vserver in alto a sinistra.
 * Fornire un percorso dello spazio dei nomi che inizi con una barra (/), ad esempio ``/vfxt/data``.
 * Scegliere il core filer.
 * Scegliere l'esportazione del core filer.

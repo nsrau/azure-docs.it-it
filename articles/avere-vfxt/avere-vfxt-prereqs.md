@@ -3,15 +3,15 @@ title: Prerequisiti per Avere vFXT - Azure
 description: Prerequisiti per Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252545"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505342"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
@@ -98,7 +98,7 @@ Creare l'endpoint del servizio di archiviazione dal portale di Azure.
 1. Selezionare la rete virtuale per il cluster.
 1. Fare clic su **endpoint servizio** nel menu a sinistra.
 1. Fare clic su **Aggiungi** nella parte superiore.
-1. Scegliere il servizio ``Microsoft.Storage``.
+1. Scegliere il servizio ``Microsoft.Storage`` .
 1. Selezionare la subnet del cluster.
 1. Nella parte inferiore fare clic su **Aggiungi**.
 

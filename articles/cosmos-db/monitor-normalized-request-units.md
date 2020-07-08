@@ -2,22 +2,22 @@
 title: Monitorare le UR/sec normalizzate per un contenitore o un account di Azure Cosmos
 description: Informazioni su come monitorare l'utilizzo normalizzato delle unità richiesta di un'operazione in Azure Cosmos DB. I proprietari di un account Azure Cosmos DB possono comprendere quali operazioni utilizzano più unità richiesta.
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 author: kanshiG
 ms.author: govindk
-ms.date: 05/10/2020
-ms.openlocfilehash: 23001bdaab0732dbeb088ebadefa90a27e622b19
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/25/2020
+ms.openlocfilehash: 8709389208ba1320685b1834b20893f08ef33ed7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118867"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482905"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Come monitorare le UR/sec normalizzate per un contenitore o un account di Azure Cosmos
 
 Monitoraggio di Azure per Azure Cosmos DB fornisce una visualizzazione delle metriche per monitorare l'account e creare dashboard. Per impostazione predefinita, la metrica Azure Cosmos DB viene raccolta, per questa funzionalità non è necessario abilitare o configurare elementi in modo esplicito.
 
-La metrica consumo unità richiesta **normalizzata** viene usata per verificare il livello di saturazione delle repliche WRT per le unità di richiesta a consumo negli intervalli di chiavi di partizione. Azure Cosmos DB distribuisce equamente la velocità effettiva tra tutte le partizioni fisiche. Questa metrica offre una visualizzazione al secondo dell'utilizzo massimo della velocità effettiva in un set di repliche. Utilizzando questa metrica, se viene visualizzata una percentuale elevata di utilizzo delle unità richiesta, è necessario aumentare la velocità effettiva per soddisfare le esigenze del carico di lavoro.
+La metrica di utilizzo delle unità richiesta **normalizzata** viene usata per verificare il livello di saturazione delle repliche rispetto al consumo delle unità richiesta negli intervalli di chiavi di partizione. Azure Cosmos DB distribuisce equamente la velocità effettiva tra tutte le partizioni fisiche. Questa metrica offre una visualizzazione al secondo dell'utilizzo massimo della velocità effettiva in un set di repliche. Usare questa metrica per calcolare l'utilizzo di Ur/s tra le partizioni per il contenitore specificato. Utilizzando questa metrica, se viene visualizzata una percentuale elevata di utilizzo delle unità richiesta, è necessario aumentare la velocità effettiva per soddisfare le esigenze del carico di lavoro.
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Cosa aspettarsi e quando le UR/sec normalizzate sono più elevate
 
@@ -35,29 +35,29 @@ La metrica di **consumo ur normalizzata** viene usata anche per vedere quale int
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare **monitoraggio** nella barra di spostamento a sinistra e selezionare **metrica**.
+2. Nel menu di spostamento a sinistra selezionare **Monitoraggio** e quindi selezionare **Metriche**.
 
-   ![Riquadro metriche in monitoraggio di Azure](./media/monitor-normalized-request-units/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Riquadro Metriche in Monitoraggio di Azure":::
 
-3. Dal riquadro **metriche** > **selezionare una risorsa** > scegliere la **sottoscrizione**e il **gruppo di risorse**richiesti. Per il **tipo di risorsa**selezionare **account Azure Cosmos DB**, scegliere uno degli account Azure Cosmos esistenti e selezionare **applica**.
+3. Nel riquadro **Metriche** > **Selezionare una risorsa** > scegliere la **sottoscrizione** e il **gruppo di risorse** richiesti. Per **Tipo di risorsa** selezionare **Account Azure Cosmos DB**, scegliere uno degli account Azure Cosmos esistenti e selezionare **Applica**.
 
-   ![Scegliere un account Azure Cosmos per visualizzare le metriche](./media/monitor-normalized-request-units/select-cosmos-db-account.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Scegliere un account Azure Cosmos per visualizzare le metriche":::
 
-4. È quindi possibile selezionare una metrica dall'elenco delle metriche disponibili. È possibile selezionare metriche specifiche per unità richiesta, archiviazione, latenza, disponibilità, Cassandra e altre. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [metriche per categoria](monitor-cosmos-db-reference.md) . In questo esempio, selezionare metrica **consumo ur normalizzato** e **Max** come valore di aggregazione.
+4. È quindi possibile selezionare una metrica dall'elenco delle metriche disponibili. È possibile selezionare metriche specifiche per unità richiesta, archiviazione, latenza, disponibilità, Cassandra e altre. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [Metriche per categoria](monitor-cosmos-db-reference.md). In questo esempio, selezionare metrica **consumo ur normalizzato** e **Max** come valore di aggregazione.
 
-   Oltre a questi dettagli, è anche possibile selezionare l' **intervallo di tempo** e la **granularità temporale** delle metriche. Al massimo, è possibile visualizzare le metriche negli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico in base al filtro.
+   Oltre a questi dettagli, è anche possibile selezionare l'**Intervallo di tempo** e la **Granularità temporale** delle metriche. Al massimo, è possibile visualizzare le metriche degli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico in base al filtro.
 
-   ![Scegliere una metrica dalla portale di Azure](./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Scegliere una metrica dal portale di Azure":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtri per il consumo di unità richiesta normalizzate
 
 È anche possibile filtrare le metriche e il grafico visualizzato da uno specifico **CollectionName**, **DatabaseName**, **PartitionKeyRangeID**e **Region**. Per filtrare le metriche, selezionare **Aggiungi filtro** e scegliere la proprietà obbligatoria, ad esempio **CollectionName** e il valore corrispondente a cui si è interessati. Il grafico Visualizza quindi le unità di consumo ur normalizzate utilizzate per il contenitore per il periodo selezionato.  
 
-È possibile raggruppare le metriche usando l'opzione **applica suddivisione** .  
+È possibile raggruppare le metriche usando l'opzione **Applicare separazione**.  
 
 La metrica di utilizzo delle unità richiesta normalizzata per ogni contenitore viene visualizzata come illustrato nell'immagine seguente:
 
-![Applicare i filtri alla metrica di utilizzo delle unità richiesta normalizzate](./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png)
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Applicare i filtri alla metrica di utilizzo delle unità richiesta normalizzate":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: cfe450972acda3affbea6cbe3d262bc4b1956dc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b60162800695be67c742554881b296c3d8bb9dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504373"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Trasferimento dei dati per set di dati di grandi dimensioni con larghezza di banda da rete da moderata a elevata
  
@@ -67,7 +67,7 @@ Se si usa il trasferimento dei dati offline, usare la tabella seguente per conos
 |    Dimensioni dei dati                        |    Fino a 35 TB                 |    Fino a 80 TB per dispositivo                       |    Fino a 800 TB per dispositivo               |    Variabile                            |
 |    Tipo di dati                        |    BLOB di Azure                  |    BLOB di Azure<br>File di Azure                    |    BLOB di Azure<br>File di Azure            |    BLOB di Azure<br>File di Azure          |
 |    Fattore di forma                      |    5 unità SSD per ordine             |    1 dispositivo desktop da 23 kg per ordine    |    1 dispositivo di grandi dimensioni da circa 230 kg per ordine    |    Fino a 10 HDD/unità SSD per ordine        |
-|    Tempo di configurazione iniziale               |    Basso <br>(15 min)            |    Da basso a moderato <br> (<30 min)               |    Moderata<br>(1-2 ore)               |    Da moderato a elevato<br>(variabile) |
+|    Tempo di configurazione iniziale               |    Basso <br>(15 min)            |    Da basso a moderato <br> (<30 min)               |    Moderato<br>(1-2 ore)               |    Da moderato a elevato<br>(variabile) |
 |    Inviare dati ad Azure               |    Sì                          |    Sì                                           |    Sì                                   |    Sì                                 |
 |    Esportare dati da Azure           |    No                           |    No                                            |    No                                    |    Sì                                 |
 |    Crittografia                       |    AES a 128 bit                  |    AES a 256 bit                                   |    AES a 256 bit                           |    AES a 128 bit                         |
@@ -83,14 +83,14 @@ Se si usa il trasferimento dei dati online, usare la tabella nella sezione segue
 
 ### <a name="high-network-bandwidth"></a>Larghezza di banda di rete elevata
 
-|                                     |    Strumenti AzCopy, <br>Azure PowerShell, <br>Interfaccia della riga di comando di Azure             |    API REST, SDK di Archiviazione di Azure                   |    Data Box Gateway o Data Box Edge          |    Data factory di Azure                                            |
+|                                     |    Strumenti AzCopy, <br>Azure PowerShell, <br>Interfaccia della riga di comando di Azure             |    API REST, SDK di Archiviazione di Azure                   |    Data Box Gateway o Data Box Edge          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Tipo di dati                  |    BLOB di Azure, file di Azure, tabelle di Azure    |    BLOB di Azure, file di Azure, tabelle di Azure    |    BLOB di Azure, file di Azure                           |   Supporta più di 70 connettori dati per archivi e formati dati    |
 |    Fattore di forma                |    Strumenti da riga di comando                        |    Interfaccia programmatica                    |    Microsoft fornisce un dispositivo <br>fisico o virtuale     |    Servizio nel portale di Azure                                            |
-|    Configurazione singola iniziale     |    Semplice               |    Moderata                       |    Da semplice (<30 minuti) a moderata (1-2 ore)            |    Estesa                                                          |
+|    Configurazione singola iniziale     |    Semplice               |    Moderato                       |    Da semplice (<30 minuti) a moderata (1-2 ore)            |    Estesa                                                          |
 |    Pre-elaborazione dei dati              |    No                                        |    No                                        |    Sì (con calcolo Edge)                               |    Sì                                                                |
 |    Trasferimento da altri cloud       |    No                                        |    No                                        |    No                                                    |    Sì                                                                |
-|    Tipo di utente                        |    Professionisti IT o sviluppatori                                       |    Sviluppo                                       |    Professionisti IT                                                |    Professionisti IT                                                             |
+|    Tipo di utente                        |    Professionisti IT o sviluppatori                                       |    Sviluppo                                       |    Professionista IT                                                |    Professionista IT                                                             |
 |    Prezzi                          |    Gratuiti, si applicano le tariffe per dati in uscita         |    Gratuiti, si applicano le tariffe per dati in uscita         |    [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Prezzi](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
 ## <a name="next-steps"></a>Passaggi successivi

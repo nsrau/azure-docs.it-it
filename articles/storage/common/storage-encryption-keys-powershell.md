@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: bfc2e256396904456a7ee0fd8b6173c00a5f53d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81456397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506200"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurare chiavi gestite dal cliente con Azure Key Vault tramite PowerShell
 
@@ -74,7 +74,7 @@ Successivamente, creare una nuova chiave nell'insieme di credenziali delle chiav
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
 ```
 
-Con la crittografia di archiviazione di Azure sono supportate solo le chiavi RSA e RSA-HSM a 2048 bit. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+La crittografia di archiviazione di Azure supporta chiavi RSA e RSA-HSM di dimensioni 2048, 3072 e 4096. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurare la crittografia con chiavi gestite dal cliente
 
@@ -110,7 +110,7 @@ Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
 
 ## <a name="disable-customer-managed-keys"></a>Disabilitare le chiavi gestite dal cliente
 
-Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene nuovamente crittografato con le chiavi gestite da Microsoft. Per disabilitare le chiavi gestite dal cliente, chiamare [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) con `-StorageEncryption` l'opzione, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
+Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene nuovamente crittografato con le chiavi gestite da Microsoft. Per disabilitare le chiavi gestite dal cliente, chiamare [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) con l' `-StorageEncryption` opzione, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -120,5 +120,5 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
 - [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

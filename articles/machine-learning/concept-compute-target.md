@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/30/2020
-ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/26/2020
+ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483279"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -52,23 +52,25 @@ Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning.
 * Azure Machine Learning Studio
 * Portale di Azure
 * Classi [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AMLCOMPUTE](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) per Python SDK
-* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (anteprima)
 * Modello di Resource Manager
-
-È anche possibile creare cluster di calcolo usando l' [estensione di machine learning per l'interfaccia della riga di comando di Azure](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
+* [Estensione di machine learning per l'interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md#resource-management).  
 
 Quando vengono create, queste risorse di calcolo fanno automaticamente parte dell'area di lavoro, a differenza di altri tipi di destinazioni di calcolo.
 
-### <a name="compute-clusters"></a>Cluster di elaborazione
 
-È possibile usare Azure Machine Learning cluster di calcolo per il training e l'inferenza in batch (anteprima).  Con questa risorsa di calcolo sono disponibili:
+|Funzionalità  |Cluster di calcolo  |Istanza di calcolo  |
+|---------|---------|---------|
+|Cluster a nodo singolo o a più nodi     |    **&check;**       |         |
+|Scalabilità automatica ogni volta che si invia un'esecuzione     |     **&check;**      |         |
+|Gestione automatica dei cluster e pianificazione dei processi     |   **&check;**        |     **&check;**      |
+|Include il supporto per le risorse di CPU e GPU     |  **&check;**         |    **&check;**       |
 
-* Cluster a nodo singolo o a più nodi
-* Ridimensionamento automatico ogni volta che si invia un'esecuzione 
-* Gestione automatica dei cluster e pianificazione dei processi 
-* Include il supporto per le risorse di CPU e GPU
 
-### <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni delle VM supportate
+> [!NOTE]
+> Quando un cluster di calcolo è inattivo, viene ridimensionato automaticamente a 0 nodi, quindi non si paga se non è in uso.  Un' *istanza*di calcolo, tuttavia, è sempre attiva e non esegue la scalabilità automatica.  È necessario [arrestare l'istanza di calcolo](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quando non viene usata per evitare costi aggiuntivi.
+
+### <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni di macchine virtuali supportate
 
 Quando si selezionano le dimensioni di un nodo per una risorsa di calcolo gestita in Azure Machine Learning, è possibile scegliere tra le dimensioni di VM selezionate disponibili in Azure. Azure offre una gamma di dimensioni per Linux e Windows per carichi di lavoro diversi. Vedere qui per altre informazioni sui diversi [tipi di VM e dimensioni](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
@@ -80,17 +82,17 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | Nessuno |
-| Dv2 | Nessuno |  
-| DSv2 | Nessuno |  
-| FSv2 | Nessuno |  
+| D | nessuno |
+| Dv2 | nessuno |  
+| DSv2 | nessuno |  
+| FSv2 | nessuno |  
 | M | Richiede approvazione |
-| NC | Nessuno |    
+| NC | nessuno |    
 | NCsv2 | Richiede approvazione |
 | NCsv3 | Richiede approvazione |  
 | NDs | Richiede approvazione |
 | NDv2 | Richiede approvazione |
-| NV | Nessuno |
+| NV | nessuno |
 | NVv3 | Richiede approvazione | 
 
 

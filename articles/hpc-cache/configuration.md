@@ -3,15 +3,15 @@ title: Configurare le impostazioni della cache HPC di Azure
 description: Viene illustrato come configurare impostazioni aggiuntive per la cache, ad esempio MTU e no-root-squash, e come accedere agli snapshot rapidi dalle destinazioni di archiviazione BLOB di Azure.
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 88aea7e58aacd9a630771948c6dbc6ed5712a674
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871423"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505308"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurare altre impostazioni della cache HPC di Azure
 
@@ -22,6 +22,9 @@ Questo articolo descrive anche come usare la funzionalità snapshot per le desti
 Per visualizzare le impostazioni, aprire la pagina di **configurazione** della cache nel portale di Azure.
 
 ![screenshot della pagina di configurazione in portale di Azure](media/configuration.png)
+
+> [!TIP]
+> Il [video sulla gestione della cache HPC di Azure](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) Mostra la pagina di configurazione e le relative impostazioni.
 
 ## <a name="adjust-mtu-value"></a>Regolazione del valore MTU
 <!-- linked from troubleshoot-nas article -->
@@ -73,4 +76,4 @@ Cache HPC di Azure archivia snapshot giornalieri, settimanali e mensili fino a q
 * fino a 8 snapshot settimanali
 * fino a 3 snapshot mensili
 
-Accedere agli snapshot dalla `.snapshot` directory nello spazio dei nomi della destinazione di archiviazione BLOB.
+Accedere agli snapshot dalla `.snapshot` Directory nello spazio dei nomi della destinazione di archiviazione BLOB.

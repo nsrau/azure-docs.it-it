@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
-ms.date: 04/30/2020
+ms.subservice: sql-dw
+ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653037"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482854"
 ---
 # <a name="synapse-sql-recommendations"></a>Raccomandazioni di Synapse SQL
 
@@ -70,3 +70,7 @@ Quando il working set è di grandi dimensioni, la percentuale di riscontri nella
 ## <a name="tempdb-contention"></a>Conflitto di tempdb
 
 Quando si verifica un conflitto di tempdb significativo, le prestazioni delle query possono peggiorare.  Un conflitto di tempdb può verificarsi per via delle tabelle temporanee definite dall'utente o nel caso in cui venga spostato un grande quantitativo di dati. In questo tipo di scenario è possibile eseguire un ridimensionamento per aumentare l'allocazione di tempdb e [configurare le classi di risorse e la gestione del carico di lavoro](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) in modo da rendere disponibile più memoria per le query. 
+
+## <a name="data-loading-misconfiguration"></a>Configurazione errata del caricamento dei dati
+
+È necessario caricare sempre i dati da un account di archiviazione nella stessa area del pool SQL per ridurre al minimo la latenza. Usare l' [istruzione Copy per l'inserimento di dati con velocità effettiva elevata](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e suddividere i file di gestione temporanea nell'account di archiviazione per ottimizzare la velocità effettiva. Se non è possibile usare l'istruzione COPY, è possibile usare l'API SqlBulkCopy o BCP con una dimensione di batch elevata per una migliore velocità effettiva. Per informazioni aggiuntive sul caricamento dei dati, vedere la [documentazione](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)seguente. 

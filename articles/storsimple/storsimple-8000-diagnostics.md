@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298755"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504458"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Usare lo strumento di diagnostica StorSimple per risolvere i problemi dei dispositivi della serie 8000
 
@@ -417,7 +417,7 @@ La tabella riportata di seguito illustra il mapping dei vari parametri di Window
 | Parametro di PowerShell    | Descrizione  |
 |-------------------------|------------------|
 | ID istanza             | Ogni controller è associato a un identificatore univoco o un GUID.|
-| Name                    | Nome descrittivo del dispositivo configurato tramite il portale di Azure durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo. |
+| Nome                    | Nome descrittivo del dispositivo configurato tramite il portale di Azure durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo. |
 | Modello                   | Modello del dispositivo StorSimple serie 8000. Il modello può essere 8100 o 8600.|
 | SerialNumber            | Numero di serie di 15 caratteri assegnato in fase di produzione. Ad esempio, 8600-SHX0991003G44HT indica quanto segue:<br> 8600: modello del dispositivo.<br>SHX: sito di produzione.<br> 0991003: prodotto specifico. <br> G44HT: ultime cinque cifre incrementate per creare numeri di serie univoci. Questo potrebbe non essere un insieme sequenziale.|
 | TimeZone                | Fuso orario del dispositivo configurato nel portale di Azure durante la distribuzione del dispositivo.|
@@ -434,7 +434,7 @@ La tabella riportata di seguito illustra il mapping dei vari parametri di Window
 | CisAgentVersion         | Versione dell'agente CiS in esecuzione nel dispositivo StorSimple. Questo agente consente di comunicare con il servizio StorSimple Manager in esecuzione in Azure.|
 | MdsAgentVersion         | Versione corrispondente all'agente MDS in esecuzione nel dispositivo StorSimple. Questo agente sposta i dati verso il servizio di monitoraggio e diagnostica (MDS).|
 | Lsisas2Version          | Versione corrispondente ai driver LSI nel dispositivo StorSimple.|
-| Capacity                | Capacità totale del dispositivo espressa in byte.|
+| Capacità                | Capacità totale del dispositivo espressa in byte.|
 | RemoteManagementMode    | Indica se il dispositivo può essere gestito in remoto tramite la relativa interfaccia di Windows PowerShell. |
 | FipsMode                | Indica se la modalità FIPS (Federal Information Processing Standard per gli Stati Uniti) è abilitata nel dispositivo. Lo standard FIPS 140 definisce gli algoritmi di crittografia approvati per l'uso da parte dei sistemi del governo federale degli Stati Uniti per la protezione dei dati sensibili. Per i dispositivi che eseguono l'aggiornamento 4 o versione successiva, la modalità FIPS è abilitata per impostazione predefinita. |
 

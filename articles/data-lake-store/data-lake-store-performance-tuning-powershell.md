@@ -3,15 +3,15 @@ title: Ottimizzazione delle prestazioni Azure Data Lake Storage Gen1-PowerShell
 description: Suggerimenti su come migliorare le prestazioni quando si usa Azure PowerShell con Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73904570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504696"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Storage Gen1
 

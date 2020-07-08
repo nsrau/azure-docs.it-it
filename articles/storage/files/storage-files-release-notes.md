@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/19/2020
+ms.date: 6/26/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 8e62d00deed2310437b231bf68ccd9f0cca2fe57
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 54a7f3f50de27747ab15f6895ebfb4f65faf5fdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85484061"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -25,14 +25,15 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
+| Versione 10.1- [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 giugno 2020 | Supporto per il volo |
 | Aggiornamento cumulativo di maggio 2020 - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 maggio 2020 | Supportato |
 | Versione 10 - [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 aprile 2020 | Supportato |
 | Aggiornamento cumulativo di dicembre 2019 - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 dicembre 2019 | Supportato |
 | Versione 9 - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 dicembre 2019 | Supportato |
 | Versione 8 - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 ottobre 2019 | Supportato |
-| Aggiornamento cumulativo di luglio 2019 - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 luglio 2019 | Supportato: la versione dell'agente scadrà il 1° settembre 2020 |
-| Aggiornamento cumulativo di luglio 2019 - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 luglio 2019 | Supportato: la versione dell'agente scadrà il 1° settembre 2020 |
-| Versione 7 - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 giugno 2019 | Supportato: la versione dell'agente scadrà il 1° settembre 2020 |
+| Aggiornamento cumulativo di luglio 2019 - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 luglio 2019 | Supportato-la versione dell'agente scadrà il 1 ° settembre 2020 |
+| Aggiornamento cumulativo di luglio 2019 - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 luglio 2019 | Supportato-la versione dell'agente scadrà il 1 ° settembre 2020 |
+| Versione 7 - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 giugno 2019 | Supportato-la versione dell'agente scadrà il 1 ° settembre 2020 |
 | Versione 6 | 6.0.0.0 - 6.3.0.0 | N/D | Non supportato: la versione dell'agente è scaduta il 21 aprile 2020 |
 | Versione 5 | 5.0.2.0 - 5.2.0.0 | N/D | Non supportato: la versione dell'agente è scaduta il 18 marzo 2020 |
 | Versione v4 | 4.0.1.0 - 4.3.0.0 | N/D | Non supportato: la versione dell'agente è scaduta il 6 novembre 2019 |
@@ -41,6 +42,16 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-10100"></a>Versione dell'agente 10.1.0.0
+Le note sulla versione seguenti sono relative alla versione 10.1.0.0 dell'agente Sincronizzazione file di Azure rilasciato il 5 giugno 2020. Queste note si aggiungono alle note sulla versione elencate per la versione 10.0.0.0 e 10.0.2.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Miglioramenti e problemi risolti
+
+- Supporto per endpoint privati di Azure
+    - È ora possibile inviare il traffico di sincronizzazione al servizio di sincronizzazione archiviazione a un endpoint privato. Questo consente il tunneling su una connessione VPN o ExpressRoute. Per altre informazioni, vedere [Configuring sincronizzazione file di Azure Network Endpoints](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints).
+- Metrica file sincronizzati ora visualizzerà lo stato di avanzamento mentre è in esecuzione una sincronizzazione di grandi dimensioni, anziché alla fine.
+- Vari miglioramenti dell'affidabilità per l'installazione dell'agente, la suddivisione in livelli cloud, la sincronizzazione e la telemetria
 
 ## <a name="agent-version-10020"></a>Versione dell'agente 10.0.2.0
 Le note sulla versione seguenti si riferiscono alla versione 10.0.2.0 dell'agente di Sincronizzazione file di Azure (data di rilascio 19 maggio 2020). Queste note si aggiungono a quelle elencate per la versione 10.0.0.0.
@@ -119,7 +130,7 @@ Gli elementi seguenti non vengono sincronizzati, ma il resto del sistema continu
 
 ### <a name="cloud-endpoint"></a>Endpoint cloud
 - Sincronizzazione file di Azure supporta la modifica diretta della condivisione file di Azure. Qualsiasi modifica apportata alla condivisione file di Azure, tuttavia, deve prima essere individuata dal processo di rilevamento modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una volta ogni 24 ore. Per sincronizzare immediatamente i file modificati nella condivisione file di Azure, è possibile usare il cmdlet di PowerShell [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection), in modo da avviare manualmente il rilevamento delle modifiche nella condivisione file di Azure. Le modifiche apportate a una condivisione file di Azure tramite il protocollo REST, poi, non aggiornano l'ora dell'ultima modifica di SMB e non vengono considerate come modifica dalla procedura di sincronizzazione.
-- È possibile spostare il servizio di sincronizzazione archiviazione e/o l'account di archiviazione in un gruppo di risorse o in una sottoscrizione diversa all'interno del tenant esistente di Azure AD. Se l'account di archiviazione viene spostato, è necessario concedere l'accesso al servizio Sincronizzazione file ibrida nell'account di archiviazione (vedere [Garantire che Sincronizzazione file di Azure possa accedere all'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+- Il servizio di sincronizzazione archiviazione e/o l'account di archiviazione possono essere spostati in un gruppo di risorse, una sottoscrizione o un tenant di Azure AD diversi. Dopo lo spostamento dell'account di archiviazione o del servizio di sincronizzazione archiviazione, è necessario concedere all'applicazione Microsoft. StorageSync l'accesso all'account di archiviazione (vedere [verificare che sincronizzazione file di Azure abbia accesso all'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Quando si crea l'endpoint cloud, il servizio di sincronizzazione archiviazione e l'account di archiviazione devono trovarsi nello stesso tenant di Azure AD. Dopo aver creato l'endpoint cloud, il servizio di sincronizzazione archiviazione e l'account di archiviazione possono essere spostati in tenant di Azure AD diversi.

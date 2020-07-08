@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4a08035b03c104555c39311bfb812218cca44b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482548"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Eseguire il backup e il ripristino nel pool SQL sinapsi di Azure
 
@@ -30,7 +30,7 @@ Un *ripristino del data warehouse* consiste in un nuovo data warehouse che viene
 
 ## <a name="automatic-restore-points"></a>Punti di ripristino automatici
 
-Gli snapshot sono una funzionalità incorporata del servizio che crea punti di ripristino. Non è necessario abilitare questa funzionalità. Tuttavia, il pool SQL deve essere in uno stato attivo per la creazione del punto di ripristino. Se il pool SQL viene sospeso di frequente, i punti di ripristino automatici potrebbero non essere creati, quindi assicurarsi di creare un punto di ripristino definito dall'utente prima di sospendere il pool SQL. I punti di ripristino automatici attualmente non possono essere eliminati dagli utenti perché il servizio utilizza questi punti di ripristino per mantenere i contratti di servizio per il ripristino.
+Gli snapshot sono una funzionalità incorporata che consente di creare punti di ripristino. Non è necessario abilitare questa funzionalità. Tuttavia, il pool SQL deve essere in uno stato attivo per la creazione del punto di ripristino. Se il pool SQL viene sospeso di frequente, i punti di ripristino automatici potrebbero non essere creati, quindi assicurarsi di creare un punto di ripristino definito dall'utente prima di sospendere il pool SQL. I punti di ripristino automatici attualmente non possono essere eliminati dagli utenti perché il servizio utilizza questi punti di ripristino per mantenere i contratti di servizio per il ripristino.
 
 Gli snapshot del data warehouse vengono eseguiti durante la giornata creando punti di ripristino disponibili per sette giorni. Questo periodo di conservazione non può essere modificato. Il pool SQL supporta un obiettivo del punto di ripristino (RPO) di otto ore. È possibile ripristinare il data warehouse nell'area primaria da uno qualsiasi degli snapshot acquisiti negli ultimi sette giorni.
 
@@ -65,7 +65,7 @@ Di seguito sono elencati i dettagli relativi ai periodi di conservazione dei pun
 Quando si rilascia un pool SQL, viene creato e salvato uno snapshot finale per sette giorni. È possibile ripristinare il pool SQL al punto di ripristino finale creato in fase di eliminazione. Se il pool SQL viene eliminato in uno stato di sospensione, non viene eseguita alcuna snapshot. In questo scenario, assicurarsi di creare un punto di ripristino definito dall'utente prima di eliminare il pool SQL.
 
 > [!IMPORTANT]
-> Se si elimina un'istanza logica del server SQL, vengono eliminati anche tutti i database appartenenti all'istanza e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato.
+> Se si elimina il server che ospita un pool SQL, anche tutti i database appartenenti al server vengono eliminati e non possono essere recuperati. Non è possibile ripristinare un server eliminato.
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Backup geografico e ripristino di emergenza
 
@@ -96,7 +96,7 @@ Per ripristinare un data warehouse eliminato o sospeso, è possibile [creare un 
 
 ## <a name="cross-subscription-restore"></a>Ripristino tra sottoscrizioni
 
-Se è necessario eseguire il ripristino direttamente tra le sottoscrizioni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Ripristinare un server logico diverso e [' spostare '](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) il server tra le sottoscrizioni per eseguire un ripristino tra sottoscrizioni.
+Se è necessario eseguire il ripristino direttamente tra le sottoscrizioni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Ripristinare un server diverso e [' spostare '](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) il server tra le sottoscrizioni per eseguire un ripristino tra sottoscrizioni.
 
 ## <a name="geo-redundant-restore"></a>Ripristino con ridondanza geografica
 
@@ -107,4 +107,4 @@ Se è necessario eseguire il ripristino direttamente tra le sottoscrizioni, vota
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla pianificazione del ripristino di emergenza, vedere [Panoramica sulla continuità aziendale](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Per ulteriori informazioni sui punti di ripristino, vedere [punti di ripristino definiti dall'utente](sql-data-warehouse-restore-points.md)

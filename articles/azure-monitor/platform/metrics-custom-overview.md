@@ -5,14 +5,14 @@ author: ancav
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506974"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in monitoraggio di Azure (anteprima)
 
@@ -28,11 +28,11 @@ Le metriche personalizzate di monitoraggio di Azure sono attualmente disponibili
 - Instrumentare l'applicazione usando Azure Application Insights SDK e inviare i dati di telemetria personalizzati a Monitoraggio di Azure. 
 - Installare l'estensione Diagnostica di Azure per Windows (WAD) nella [macchina virtuale di Azure](collect-custom-metrics-guestos-resource-manager-vm.md), nel [set di scalabilità di macchine virtuali](collect-custom-metrics-guestos-resource-manager-vmss.md), nella [macchina virtuale classica](collect-custom-metrics-guestos-vm-classic.md) o nel [servizio cloud classico](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e inviare i contatori delle prestazioni a Monitoraggio di Azure. 
 - Installare l'[agente InfluxDB Telegraf](collect-custom-metrics-linux-telegraf.md) nella macchina virtuale Linux di Azure e inviare le metriche tramite il plug-in di output di Monitoraggio di Azure.
-- Inviare metriche personalizzate [direttamente all'API REST di monitoraggio di Azure](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Inviare metriche personalizzate [direttamente all'API REST di monitoraggio di Azure](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
-## <a name="pricing-model-and-rentention"></a>Modello di determinazione prezzi e al conservazione
+## <a name="pricing-model-and-retention"></a>Modello di determinazione dei prezzi e conservazione
 
-Vedere la [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate su quando verrà abilitata la fatturazione per le query metriche e metriche personalizzate. In questa pagina sono disponibili dettagli specifici sui prezzi per tutte le metriche, incluse le metriche personalizzate e le query sulle metriche. In breve, non è previsto alcun costo per l'inserimento di metriche standard (metriche della piattaforma) nell'archivio delle metriche di monitoraggio di Azure, ma le metriche personalizzate avranno costi inutilizzati per la disponibilità generale. Le query dell'API metrica eseguono costi incorrenti.
+Vedere la [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate su quando verrà abilitata la fatturazione per le query metriche e metriche personalizzate. In questa pagina sono disponibili dettagli specifici sui prezzi per tutte le metriche, incluse le metriche personalizzate e le query sulle metriche. In breve, non è previsto alcun costo per inserire metriche standard (metriche della piattaforma) nell'archivio delle metriche di monitoraggio di Azure, ma le metriche personalizzate comportano costi quando entrano nella disponibilità generale. Le query dell'API metrica sono soggette a costi.
 
 Le metriche personalizzate vengono mantenute per la [stessa quantità di tempo delle metriche della piattaforma](data-platform-metrics.md#retention-of-metrics). 
 
@@ -47,13 +47,13 @@ Quando si inviano le metriche personalizzate a Monitoraggio di Azure, ogni punto
 ### <a name="authentication"></a>Authentication
 Per inviare le metriche personalizzate a Monitoraggio di Azure, l'entità a cui inviare la metrica deve disporre di un token di Azure Active Directory (Azure AD) valido nell'intestazione **Bearer** della richiesta. Sono supportati alcuni modi per acquisire un token di connessione valido:
 1. [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Assegna un'identità a una risorsa di Azure, ad esempio una macchina virtuale. Identità del servizio gestita (MSI) è progettata per fornire alle risorse le autorizzazioni per eseguire determinate operazioni. Ad esempio può consentire a una risorsa di generare metriche su se stessa. Una risorsa o la relativa identità del servizio gestita possono ricevere autorizzazioni di **Autore delle metriche di monitoraggio** su di un'altra risorsa. Con questa autorizzazione, l'identità del servizio gestita può generare metriche anche per le altre risorse.
-2. [Entità servizio di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
+2. [Azure ad entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
 Per autenticare la richiesta, Monitoraggio di Azure convalida il token dell'applicazione usando le chiavi pubbliche di Azure AD. Il ruolo di **autore delle metriche di monitoraggio** dispone già di tale autorizzazione. È disponibile nel portale di Azure. All'entità servizio, in base alle risorse per cui genera le metriche personalizzate, può essere assegnato il ruolo di **autore delle metriche di monitoraggio** nell'ambito richiesto. Esempi possono essere una sottoscrizione, un gruppo di risorse o una risorsa specifica.
 
 > [!TIP]  
 > Quando si richiede che un token di Azure AD generi metriche personalizzate, assicurarsi che il destinatario o la risorsa per cui è richiesto il token sia `https://monitoring.azure.com/`. Assicurarsi di includere la barra finale (/).
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Oggetto
 Questa proprietà consente di acquisire l'ID risorsa di Azure per cui viene indicata la metrica personalizzata. L'informazione viene codificata nell'URL della chiamata API eseguita. Ogni API può inviare solo i valori delle metriche per una singola risorsa di Azure.
 
 > [!NOTE]  
@@ -78,7 +78,7 @@ Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usa
 **Nome** è il nome della metrica che viene segnalata. In genere, il nome è sufficientemente descrittivo per aiutare a identificare l'elemento misurato. Un esempio è una metrica che misura il numero di byte di memoria utilizzati su una determinata macchina virtuale. Potrebbe avere un nome di metrica come ad esempio **Byte di memoria In uso**.
 
 ### <a name="dimension-keys"></a>Chiavi di dimensione
-Una dimensione è una coppia chiave o valore che consente di descrivere caratteristiche aggiuntive sulla metrica raccolta. Usando le caratteristiche aggiuntive, è possibile raccogliere altri dati sulla metrica, così da ottenere informazioni più dettagliate. Alla metrica **Byte di memoria in uso**, ad esempio, può essere associata una chiave di dimensione denominata **Processo** che acquisisce il numero di byte di memoria usati da ogni processo in una macchina virtuale. Usando tale chiave, è possibile filtrare la metrica per visualizzare la quantità di memoria usata da processi specifici o per identificare i primi 5 processi per uso della memoria.
+Una dimensione è una coppia chiave o valore che consente di descrivere caratteristiche aggiuntive sulla metrica raccolta. Usando le caratteristiche aggiuntive, è possibile raccogliere altri dati sulla metrica, così da ottenere informazioni più dettagliate. Alla metrica **Byte di memoria in uso**, ad esempio, può essere associata una chiave di dimensione denominata **Processo** che acquisisce il numero di byte di memoria usati da ogni processo in una macchina virtuale. Utilizzando questa chiave, è possibile filtrare la metrica per verificare la quantità di processi specifici della memoria utilizzata o per identificare i primi cinque processi in base all'utilizzo della memoria.
 Le dimensioni sono facoltative e non tutte le metriche possono avere dimensioni. Una metrica personalizzata può avere fino a 10 dimensioni.
 
 ### <a name="dimension-values"></a>Valori di dimensione
@@ -189,38 +189,39 @@ Nella versione di anteprima pubblica la possibilità di pubblicare metriche pers
 |Area di Azure |Prefisso di endpoint a livello di area|
 |---|---|
 | **Stati Uniti e Canada** | |
-|Stati Uniti centro-occidentali | https:\//westcentralus.Monitoring.Azure.com/ |
-|Stati Uniti occidentali 2       | https:\//westus2.Monitoring.Azure.com/ |
-|Stati Uniti centro-settentrionali | https:\//northcentralus.Monitoring.Azure.com
-|Stati Uniti centro-meridionali| https:\//southcentralus.Monitoring.Azure.com/ |
-|Stati Uniti centrali      | https:\//centralus.Monitoring.Azure.com |
-|Canada centrale | https:\//canadacentral.Monitoring.Azure.comc
-|Stati Uniti orientali| https:\//eastus.Monitoring.Azure.com/ |
+|Stati Uniti centro-occidentali | https: \/ /westcentralus.Monitoring.Azure.com |
+|Stati Uniti occidentali 2       | https: \/ /westus2.Monitoring.Azure.com |
+|Stati Uniti centro-settentrionali | https: \/ /northcentralus.Monitoring.Azure.com
+|Stati Uniti centro-meridionali| https: \/ /southcentralus.Monitoring.Azure.com |
+|Stati Uniti centrali      | https: \/ /centralus.Monitoring.Azure.com |
+|Canada centrale | https: \/ /canadacentral.Monitoring.Azure.com |
+|Stati Uniti orientali| https: \/ /eastus.Monitoring.Azure.com |
+|Stati Uniti orientali 2 | https: \/ /eastus2.Monitoring.Azure.com |
 | **Europa** | |
-|Europa settentrionale    | https:\//northeurope.Monitoring.Azure.com/ |
-|Europa occidentale     | https:\//westeurope.Monitoring.Azure.com/ |
-|Regno Unito meridionale | https:\//uksouth.Monitoring.Azure.com
-|Francia centrale | https:\//francecentral.Monitoring.Azure.com |
+|Europa settentrionale    | https: \/ /northeurope.Monitoring.Azure.com |
+|Europa occidentale     | https: \/ /westeurope.Monitoring.Azure.com |
+|Regno Unito meridionale | https: \/ /uksouth.Monitoring.Azure.com
+|Francia centrale | https: \/ /francecentral.Monitoring.Azure.com |
 | **Africa** | |
-|Sudafrica settentrionale | https:\//southafricanorth.Monitoring.Azure.com
+|Sudafrica settentrionale | https: \/ /southafricanorth.Monitoring.Azure.com |
 | **Asia** | |
-|India centrale | https:\//centralindia.Monitoring.Azure.com
-|Australia orientale | https:\//australiaeast.Monitoring.Azure.com
-|Giappone orientale | https:\//japaneast.Monitoring.Azure.com
-|Asia sud-orientale  | https:\//SouthEastAsia.Monitoring.Azure.com |
-|Asia orientale | https:\//eastasia.Monitoring.Azure.com
-|Corea centrale   | https:\//koreacentral.Monitoring.Azure.com
+|India centrale | https: \/ /centralindia.Monitoring.Azure.com |
+|Australia orientale | https: \/ /australiaeast.Monitoring.Azure.com |
+|Giappone orientale | https: \/ /japaneast.Monitoring.Azure.com |
+|Asia sud-orientale  | https: \/ /SouthEastAsia.Monitoring.Azure.com |
+|Asia orientale | https: \/ /eastasia.Monitoring.Azure.com |
+|Corea centrale   | https: \/ /koreacentral.Monitoring.Azure.com |
 
 ## <a name="latency-and-storage-retention"></a>Latenza e conservazione dell'archiviazione
 
-L'aggiunta di una nuova metrica o di una nuova dimensione da aggiungere a una metrica potrebbe richiedere fino a 2-3 minuti. Una volta nel sistema, i dati devono essere visualizzateti in meno di 30 secondi il 99% del tempo. 
+L'aggiunta di una nuova metrica o di una nuova dimensione da aggiungere a una metrica potrebbe richiedere fino a 2-3 minuti. Una volta nel sistema, i dati dovrebbero essere visualizzati in meno di 30 secondi il 99% del tempo. 
 
 Se si elimina una metrica o si rimuove una dimensione, la modifica può richiedere una settimana al mese per essere eliminata dal sistema.
 
 ## <a name="quotas-and-limits"></a>Quote e limiti
 Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle metriche personalizzate:
 
-|Categoria|Limite|
+|Category|Limite|
 |---|---|
 |Serie temporale attiva/sottoscrizioni/area|50.000|
 |Chiavi di dimensione per metrica|10|

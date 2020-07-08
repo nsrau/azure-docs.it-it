@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67357033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504339"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluzioni per il trasferimento dei dati periodico
  
@@ -45,17 +45,17 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Funzionalità                  | AzCopy                                 | API REST di Archiviazione di Azure       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Fattore di forma                 | Strumento da riga di comando di Microsoft       | I clienti sviluppano nelle API REST di <br> Archiviazione usando le librerie client di Azure |
-| Configurazione singola iniziale     | Minime                                | Moderata, lavoro richiesto per lo sviluppo variabile    |
+| Configurazione singola iniziale     | Minimal                                | Moderata, lavoro richiesto per lo sviluppo variabile    |
 | Formato dati                 | BLOB di Azure, file di Azure, tabelle di Azure | BLOB di Azure, file di Azure, tabelle di Azure   |
 | Prestazioni                 | Già ottimizzate                      | Ottimizzazione durante lo sviluppo                  |
 | Prezzi                     | Gratuiti, si applicano le tariffe per dati in uscita      | Gratuiti, si applicano le tariffe per dati in uscita        |
 
 ### <a name="continuous-data-ingestion-over-network"></a>Inserimento dati continuo in rete
 
-| Funzionalità                                       | Data Box Gateway | Data Box Edge   | Data factory di Azure        |
+| Funzionalità                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fattore di forma                                   | Dispositivo virtuale             | Dispositivo fisico          | Servizio nel portale di Azure, agente in locale                                                            |
-| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | N/D                                                            |
+| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | ND                                                            |
 | Lavoro richiesto per la configurazione iniziale                          | Basso (<30 min.)            | Moderato (~due ore) | Elevato (alcuni giorni)                                                 |
 | Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Pre-elaborazione dei dati                           | No                         | Sì, tramite il calcolo Edge    | Sì                                                           |

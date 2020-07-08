@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9a291971ce0edead9ca28a47f7ad0689b0f65547
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ff4781109b2572d5555ec0a03c65359ef5a89d8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482514"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Procedure di sviluppo consigliate per SQL Synapse
 Questo articolo descrive le procedure consigliate e linee guida quando si sviluppa una soluzione di data warehouse. 
@@ -106,7 +106,7 @@ Poiché l'elevata qualità dei segmenti columnstore è importante, è consigliab
 Poiché le tabelle columnstore in genere non eseguono il push dei dati in un segmento columnstore compresso fino a quando non sono presenti più di 1 milione di righe per tabella e ogni tabella di pool SQL è suddivisa in 60 tabelle, le tabelle columnstore non risultano vantaggiose per una query a meno che non contengano più di 60 milioni di righe.  
 
 > [!TIP]
-> Per le tabelle con meno di 60 milioni righe, la presenza di un indice columnstore potrebbe non essere la soluzione ottimale.  
+> Per le tabelle con meno di 60 milioni di righe, la presenza di un indice columnstore potrebbe non essere la soluzione ottimale.  
 
 Inoltre, se si partizionano i dati, tenere presente che ogni partizione dovrà contenere 1 milione di righe per trarre vantaggio da un indice columnstore cluster.  Se una tabella è divisa in 100 partizioni, per poter sfruttare i vantaggi di un archivio colonne cluster deve contenere almeno 6 miliardi di righe, ovvero 60 distribuzioni *100 partizioni* 1 milione di righe.  
 
@@ -150,7 +150,7 @@ Se possibile, preparare i file per migliorare le prestazioni:
 
 I dati sono spesso organizzati in partizioni. È possibile indicare a SQL su richiesta di eseguire query su cartelle e file specifici. Questo ridurrà il numero di file e la quantità di dati che la query deve leggere ed elaborare. 
 
-Di conseguenza, si otterranno prestazioni migliori. Per altre informazioni, vedere le funzioni [filename](develop-storage-files-overview.md#filename-function) e [filepath](develop-storage-files-overview.md#filepath-function), oltre ad esempi su come [eseguire query su file specifici](query-specific-files.md).
+Di conseguenza, si otterranno prestazioni migliori. Per altre informazioni, vedere le funzioni [filename](query-data-storage.md#filename-function) e [filepath](query-data-storage.md#filepath-function), oltre ad esempi su come [eseguire query su file specifici](query-specific-files.md).
 
 Se i dati nell'archivio non sono partizionati, provare a partizionarli per poter usare queste funzioni e ottimizzare le query destinate a tali file.
 

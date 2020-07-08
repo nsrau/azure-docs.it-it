@@ -3,15 +3,15 @@ title: Distribuire Avere vFXT per Azure
 description: Procedura per la distribuzione del cluster Avere vFXT in Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c42abdbfaf5c867a9d8d4cbc6b4519a86adaac0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505648"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
@@ -87,7 +87,7 @@ La seconda pagina del modello di distribuzione consente di configurare le dimens
 
 * Il conteggio dei nodi del **cluster vFXT** : scegliere il numero di nodi nel cluster. Il valore minimo è tre nodi, quello massimo dodici nodi.
 
-* **Cluster administration password** (Password di amministrazione del cluster): creare la password per l'amministrazione del cluster. Questa password viene usata con il nome ```admin``` utente per accedere al pannello di controllo del cluster, in cui è possibile monitorare il cluster e configurare le impostazioni del cluster.
+* **Cluster administration password** (Password di amministrazione del cluster): creare la password per l'amministrazione del cluster. Questa password viene usata con il nome utente ```admin``` per accedere al pannello di controllo del cluster, in cui è possibile monitorare il cluster e configurare le impostazioni del cluster.
 
 * **Avere vFXT cluster name** (Nome del cluster Avere vFXT): assegnare al cluster un nome univoco.
 

@@ -1,6 +1,6 @@
 ---
-title: Copiare dati da origini ODBC utilizzando Azure Data Factory
-description: Informazioni su come copiare dati da origini OData in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
+title: Copiare i dati da e verso archivi dati ODBC con Azure Data Factory
+description: Informazioni su come copiare dati da e in archivi dati ODBC usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 71b05d8607c174dbe9298a1c02f4927ed2218374
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: c92428666f0766f78475be16416027cdc6e71f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506532"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiare i dati da e verso archivi dati ODBC con Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -30,7 +30,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore ODBC è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare i dati da un'origine ODBC in qualsiasi archivio dati sink supportato o da qualsiasi archivio dati di origine supportato in un sink di ODBC. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -57,10 +57,10 @@ Per il servizio collegato ODBC sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **ODBC** | Sì |
-| connectionString | Stringa di connessione ad esclusione della parte relativa alle credenziali. È possibile specificare la stringa di connessione con un modello come `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, o usare il sistema DSN, ovvero il nome dell'origine dati, configurato nel computer Integration Runtime con `"DSN=<name of the DSN on IR machine>;"`. È necessario comunque specificare la parte delle credenziali nel servizio collegato in base alle esigenze.<br>È anche possibile inserire una password in Azure Key Vault ed estrarre la `password` configurazione dalla stringa di connessione.Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) .| Sì |
+| connectionString | Stringa di connessione ad esclusione della parte relativa alle credenziali. È possibile specificare la stringa di connessione con un modello come `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, o usare il sistema DSN, ovvero il nome dell'origine dati, configurato nel computer Integration Runtime con `"DSN=<name of the DSN on IR machine>;"`. È necessario comunque specificare la parte delle credenziali nel servizio collegato in base alle esigenze.<br>È anche possibile inserire una password in Azure Key Vault ed estrarre la  `password`   configurazione dalla stringa di connessione.Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md)   .| Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi all'archivio dati ODBC.<br/>I valori consentiti sono **Base** e **Anonimo**. | Sì |
 | userName | Specificare il nome utente se si usa l'autenticazione di base. | No |
-| password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credenziali | La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Esempio: `"RefreshToken=<secret refresh token>;"`. Contrassegnare questo campo come SecureString. | No |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
@@ -141,7 +141,7 @@ Per copiare dati da/in un archivio dati compatibile con ODBC, sono supportate le
 }
 ```
 
-Se si usa `RelationalTable` un set di dati tipizzato, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+Il set di dati tipizzato `RelationalTable` è ancora supportato senza modifiche, ma è consigliato l'uso del nuovo per il futuro.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
@@ -188,7 +188,7 @@ Per copiare dati da un archivio dati compatibile con ODBC, nella sezione **origi
 ]
 ```
 
-Se si usa `RelationalSource` l'origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+L'origine tipizzata `RelationalSource` è ancora supportata senza modifiche, ma è consigliato l'uso della nuova per il futuro.
 
 ### <a name="odbc-as-sink"></a>ODBC come sink
 
@@ -236,11 +236,11 @@ Per copiare i dati nell'archivio dati compatibile con ODBC, impostare il tipo di
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
-## <a name="troubleshoot-connectivity-issues"></a>Risoluzione dei problemi di connettività
+## <a name="troubleshoot-connectivity-issues"></a>Risolvere i problemi di connettività
 
 Per risolvere i problemi di connessione, usare la scheda **Diagnostica** di **Gestione configurazione di Runtime di integrazione**.
 

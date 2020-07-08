@@ -1,29 +1,29 @@
 ---
 title: Copiare o spostare dati in archiviazione di Azure tramite AzCopy V10 | Microsoft Docs
-description: AzCopy è un'utilità da riga di comando che è possibile usare per copiare i dati in, da o tra account di archiviazione. Questo articolo consente di scaricare AzCopy, connettersi all'account di archiviazione e quindi trasferire i file.
+description: AzCopy è un'utilità da riga di comando che è possibile usare per copiare i dati in, da o tra account di archiviazione. Questo articolo consente di scaricare AzCopy, connettersi all'account di archiviazione e di trasferire i file.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780879"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504475"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
-AzCopy è un'utilità da riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione. Questo articolo consente di scaricare AzCopy, connettersi all'account di archiviazione e quindi trasferire i file.
+AzCopy è un'utilità della riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione. Questo articolo consente di scaricare AzCopy, connettersi all'account di archiviazione e di trasferire i file.
 
 > [!NOTE]
 > AzCopy **V10** è la versione attualmente supportata di AzCopy.
 >
 > Se è necessario usare una versione precedente di AzCopy, vedere la sezione [usare la versione precedente di AzCopy](#previous-version) di questo articolo.
 
-<a id="download-and-install-azcopy" />
+<a id="download-and-install-azcopy"></a>
 
 ## <a name="download-azcopy"></a>Scaricare AzCopy
 
@@ -40,15 +40,15 @@ Questi file vengono compressi come file zip (Windows e Mac) o file con estension
 > Se si vogliono copiare dati da e verso il servizio di [archiviazione tabelle di Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) , installare [AzCopy versione 7,3](https://aka.ms/downloadazcopynet).
 
 
-## <a name="run-azcopy"></a>Esegui AzCopy
+## <a name="run-azcopy"></a>Eseguire Azcopy
 
-Per praticità, è consigliabile aggiungere il percorso della directory del file eseguibile AzCopy al percorso di sistema per facilitarne l'uso. In questo modo è possibile `azcopy` Digitare da qualsiasi directory nel sistema.
+Per praticità, è consigliabile aggiungere il percorso della directory del file eseguibile di AzCopy al percorso di sistema per facilitarne l'uso. In questo modo è possibile digitare `azcopy` da qualsiasi directory nel sistema.
 
 Se si sceglie di non aggiungere la directory AzCopy al percorso, sarà necessario modificare le directory nel percorso del file eseguibile di AzCopy e digitare `azcopy` o `.\azcopy` nei prompt dei comandi di Windows PowerShell.
 
 Per visualizzare un elenco di comandi, digitare `azcopy -h` e premere il tasto INVIO.
 
-Per informazioni su un comando specifico, è sufficiente includere il nome del comando (ad esempio: `azcopy list -h`).
+Per informazioni su un comando specifico, è sufficiente includere il nome del comando (ad esempio: `azcopy list -h` ).
 
 ![Guida inline](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
@@ -125,7 +125,7 @@ Questo comando restituisce un codice di autenticazione e l'URL di un sito Web. A
 
 Verrà visualizzata una finestra di accesso. In tale finestra accedere al proprio account Azure usando le relative credenziali. Dopo aver completato l'accesso, è possibile chiudere la finestra del browser e iniziare a usare AzCopy.
 
-<a id="service-principal" />
+<a id="service-principal"></a>
 
 #### <a name="authenticate-a-service-principal"></a>Autenticare un'entità servizio
 
@@ -141,7 +141,7 @@ Per ulteriori informazioni sulle entità servizio in generale, vedere [oggetti a
 
 ##### <a name="using-a-client-secret"></a>Uso di un segreto client
 
-Per iniziare, impostare `AZCOPY_SPA_CLIENT_SECRET` la variabile di ambiente sul segreto client della registrazione dell'app dell'entità servizio.
+Per iniziare, impostare la `AZCOPY_SPA_CLIENT_SECRET` variabile di ambiente sul segreto client della registrazione dell'app dell'entità servizio.
 
 > [!NOTE]
 > Assicurarsi di impostare questo valore dal prompt dei comandi e non nelle impostazioni delle variabili di ambiente del sistema operativo. In questo modo, il valore è disponibile solo per la sessione corrente.
@@ -158,7 +158,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 Digitare quindi il comando seguente e premere il tasto INVIO.
 
 ```azcopy
-azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
+azcopy login --service-principal --certificate-path path-to-certificate-file --application-id application-id --tenant-id=tenant-id
 ```
 
 Sostituire il `<application-id>` segnaposto con l'ID applicazione della registrazione dell'app dell'entità servizio. Sostituire il `<tenant-id>` segnaposto con l'ID tenant dell'organizzazione a cui appartiene l'account di archiviazione. Per trovare l'ID tenant, selezionare **Azure Active Directory > proprietà > ID directory** nella portale di Azure. 
@@ -191,7 +191,7 @@ Sostituire il `<path-to-certificate-file>` segnaposto con il percorso relativo o
 > [!NOTE]
 > Prendere in considerazione l'uso di un prompt, come illustrato in questo esempio. In questo modo, la password non verrà visualizzata nella cronologia dei comandi della console. 
 
-<a id="managed-identity" />
+<a id="managed-identity"></a>
 
 #### <a name="authenticate-a-managed-identity"></a>Autenticare un'identità gestita
 
@@ -277,7 +277,7 @@ Per ottenere il collegamento, eseguire il comando seguente:
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
-> Per Linux, `--strip-components=1` il `tar` comando rimuove la cartella di primo livello che contiene il nome della versione e estrae il file binario direttamente nella cartella corrente. Questo consente di aggiornare lo script con una nuova versione di `azcopy` aggiornando solo l' `wget` URL.
+> Per Linux, il `--strip-components=1` `tar` comando rimuove la cartella di primo livello che contiene il nome della versione e estrae il file binario direttamente nella cartella corrente. Questo consente di aggiornare lo script con una nuova versione di `azcopy` aggiornando solo l' `wget` URL.
 
 L'URL viene visualizzato nell'output di questo comando. Lo script può quindi scaricare AzCopy usando tale URL.
 
@@ -288,7 +288,7 @@ L'URL viene visualizzato nell'output di questo comando. Lo script può quindi sc
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Escape di caratteri speciali nei token SAS
 
-Nei file batch con `.cmd` estensione è necessario eseguire l'escape dei `%` caratteri visualizzati nei token SAS. È possibile eseguire questa operazione aggiungendo un carattere `%` aggiuntivo accanto ai caratteri `%` esistenti nella stringa del token SAS.
+Nei file batch con `.cmd` estensione è necessario eseguire l'escape dei `%` caratteri visualizzati nei token SAS. È possibile eseguire questa operazione aggiungendo un `%` carattere aggiuntivo accanto ai `%` caratteri esistenti nella stringa del token SAS.
 
 ### <a name="run-scripts-by-using-jenkins"></a>Eseguire script con Jenkins
 
@@ -304,7 +304,7 @@ Se si prevede di usare [Jenkins](https://jenkins.io/) per eseguire gli script, a
 
 Storage Explorer usa la chiave dell'account per eseguire operazioni, quindi, dopo l'accesso Storage Explorer, non è necessario fornire credenziali di autorizzazione aggiuntive.
 
-<a id="previous-version" />
+<a id="previous-version"></a>
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Usare la versione precedente di AzCopy
 

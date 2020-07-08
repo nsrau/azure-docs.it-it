@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26376c6b20816d2e7302403c8391195e16092fa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504321"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Risolvere i problemi del server di configurazione
 
@@ -52,6 +52,8 @@ Il computer di origine esegue la registrazione con il server di configurazione q
     b. Aprire il file Installation_Directory/Vx/bin/uninstall.sh e commentare la chiamata alla funzione **stop_services**.
     c. Aprire il file Installation_Directory/Fx/uninstall e commentare la sezione completa che prova a fermare il servizio Fx.
     d. [Disinstallare](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) l'agente di mobilità. Al termine della disinstallazione, riavviare il sistema e provare nuovamente a installare l'agente.
+
+8. Assicurarsi che la funzionalità autenticazione a più fattori non sia abilitata per l'account utente. Azure Site Recovery non supporta attualmente l'autenticazione a più fattori per l'account utente. Registrare il server di configurazione senza account utente abilitato per l'autenticazione a più fattori.  
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Errore di installazione: non è stato possibile caricare gli account
 
@@ -191,7 +193,7 @@ Usando il modello [OVA (Open Virtualization Application)](vmware-azure-deploy-co
 Per risolvere il problema, accedere al portale di Azure ed eseguire una delle operazioni seguenti:
 
 - Richiedere il ruolo Sviluppatore applicazioni in AAD. Per altre informazioni sul ruolo Sviluppatore applicazioni, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Verificare che il flag **Gli utenti possono registrare applicazioni** sia impostato su *Sì* in AAD. Per altre informazioni, vedere [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Verificare che il flag **Gli utenti possono registrare applicazioni** sia impostato su *Sì* in AAD. Per altre informazioni, vedere [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>I server di elaborazione/destinazione master non riescono a comunicare con il server di configurazione 
 
@@ -203,7 +205,7 @@ In genere questo è dovuto a un errore con la porta 443. Usare la procedura segu
 
 Per verificare che l'agente del server di destinazione master possa creare una sessione TCP per l'IP del server di configurazione, cercare una traccia simile alla seguente nei log dell'agente del server di destinazione master:
 
-TCP \<sostituire IP con cs ip qui>:52739 \<sostituire IP con cs ip qui>:443 SYN_SENT 
+TCP \<Replace IP with CS IP here>:52739 \<Replace IP with CS IP here>:443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Qui sostituire IP con l'IP del server di configurazione
 

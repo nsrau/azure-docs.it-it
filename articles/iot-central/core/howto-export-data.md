@@ -4,16 +4,16 @@ description: Come esportare i dati dall'applicazione IoT Central di Azure in hub
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/07/2020
+ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: c83c97aab43b6978922202cc96ff92e1e046a7e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811637"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483925"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Esportare i dati delle cose nelle destinazioni in Azure
 
@@ -66,7 +66,7 @@ Se non si ha un account di archiviazione di Azure esistente da esportare, seguir
     |-|-|
     |Standard|per utilizzo generico V2|
     |Standard|per utilizzo generico V1|
-    |Standard|Archiviazione - BLOB|
+    |Standard|Archiviazione BLOB|
     |Premium|Archiviazione BLOB in blocchi|
 
 2. Creare un contenitore nell'account di archiviazione. Passare all'account di archiviazione. In **Servizio BLOB** selezionare **Esplora BLOB**. Selezionare **+ Contenitore** in alto per creare un nuovo contenitore.
@@ -82,27 +82,31 @@ Ora che si dispone di una destinazione in cui esportare i dati, attenersi alla p
     > [!Tip]
     > Se non viene visualizzata l' **esportazione dei dati** nel riquadro sinistro, non si dispone delle autorizzazioni per configurare l'esportazione dei dati nell'app. Chiedere a un amministratore di configurare l'esportazione dei dati.
 
-3. Selezionare il pulsante **+ nuovo** in alto a destra. Scegliere uno degli **Hub eventi**di Azure, il **bus di servizio**di Azure o l' **Archivio BLOB di Azure** come destinazione dell'esportazione. Il numero massimo di esportazioni per ogni applicazione è cinque.
+3. Selezionare il pulsante **+New**. Scegliere una risorsa di **archiviazione BLOB**di Azure, **Hub eventi**di Azure, **coda del bus di servizio**di Azure o un argomento del bus di servizio di **Azure** come destinazione dell'esportazione. Il numero massimo di esportazioni per ogni applicazione è cinque.
 
-    ![Crea nuova esportazione dati](media/howto-export-data/new-export-definition.png)
+4. Immettere un nome per l'esportazione. Nella casella di riepilogo a discesa selezionare lo **spazio dei nomi**oppure **immettere una stringa di connessione**.
 
-4. Nella casella di riepilogo a discesa selezionare lo spazio dei nomi di **Hub eventi**, lo spazio dei nomi del **bus di servizio**, **lo spazio dei nomi dell'account di archiviazione**oppure **immettere una stringa di connessione**.
-
-    - Nella stessa sottoscrizione dell'applicazione IoT Central vengono visualizzati solo gli account di archiviazione, gli spazi dei nomi di hub eventi e gli spazi dei nomi del bus di servizio. Se si desidera esportare in una destinazione esterna a questa sottoscrizione, scegliere **immettere una stringa di connessione** e vedere il passaggio successivo.
+    - Nella stessa sottoscrizione dell'applicazione IoT Central vengono visualizzati solo gli account di archiviazione, gli spazi dei nomi di hub eventi e gli spazi dei nomi del bus di servizio. Se si desidera esportare in una destinazione esterna a questa sottoscrizione, scegliere **immettere una stringa di connessione** e vedere il passaggio 6.
     - Per le app create con il piano tariffario gratuito, l'unico modo per configurare l'esportazione dei dati consiste nell'usare una stringa di connessione. Alle app del piano tariffario gratuito non è associata una sottoscrizione di Azure.
 
     ![Crea nuovo hub eventi](media/howto-export-data/export-event-hub.png)
 
-5. (Facoltativo) Se si è selezionata l'opzione **Immettere una stringa di connessione**, viene visualizzata una nuova casella in cui incollare la stringa di connessione. Per ottenere la stringa di connessione per:
-    - Hub eventi o bus di servizio, passare allo spazio dei nomi nel portale di Azure:
-        - In **Impostazioni**selezionare **criteri di accesso condiviso**
-        - Scegliere il valore predefinito **RootManageSharedAccessKey** oppure crearne uno nuovo
-        - Copiare la stringa di connessione primaria o secondaria.
-    - Account di archiviazione, passare all'account di archiviazione nel portale di Azure:
-        - In **Impostazioni**selezionare **chiavi di accesso**
-        - Copiare la stringa di connessione Key1 o la stringa di connessione Key2
+5. Nella casella di riepilogo a discesa scegliere un hub eventi, una coda, un argomento o un contenitore.
 
-6. Nella casella di riepilogo a discesa scegliere un hub eventi, una coda, un argomento o un contenitore.
+6. (Facoltativo) Se si è selezionata l'opzione **Immettere una stringa di connessione**, viene visualizzata una nuova casella in cui incollare la stringa di connessione. Per ottenere la stringa di connessione per:
+
+    - Hub eventi o bus di servizio, passare allo spazio dei nomi nel portale di Azure:
+        - Per utilizzare una stringa di connessione per l'intero spazio dei nomi:
+            1. In **Impostazioni**selezionare **criteri di accesso condiviso**
+            2. Creare una nuova chiave o scegliere una chiave esistente con autorizzazioni di **invio** .
+            3. Copiare la stringa di connessione primaria o secondaria.
+        - Per usare la stringa di connessione per un'istanza specifica di hub eventi o per una coda o un argomento del bus di servizio, passare a **entità > Hub eventi** o **entità > code** o **entità > argomenti**. Scegliere un'istanza specifica e seguire la stessa procedura descritta in precedenza per ottenere una stringa di connessione.
+    - Account di archiviazione, passare all'account di archiviazione nel portale di Azure:
+        - Sono supportate solo le stringhe di connessione per l'intero account di archiviazione. Non sono supportate le stringhe di connessione con ambito a un singolo contenitore.
+          1. In **Impostazioni**selezionare **chiavi di accesso**
+          2. Copiare la stringa di connessione Key1 o la stringa di connessione Key2
+
+    Incollare la stringa di connessione. Digitare il nome dell'istanza o del **contenitore**. tenere presente che questa distinzione tra maiuscole e minuscole.
 
 7. In **dati da esportare**scegliere i tipi di dati da esportare impostando il tipo **su on**.
 
@@ -131,7 +135,7 @@ Per gli hub eventi e il bus di servizio, IoT Central Esporta rapidamente un nuov
 Per l'archiviazione BLOB, i messaggi vengono inviati in batch ed esportati una volta al minuto. I file esportati utilizzano lo stesso formato dei file di messaggio esportati dal [routing dei messaggi dell'hub](../../iot-hub/tutorial-routing.md) Internet all'archiviazione BLOB.
 
 > [!NOTE]
-> Per l' `contentType: application/JSON` archiviazione BLOB, assicurarsi che i dispositivi inviino messaggi con e `contentEncoding:utf-8` (o `utf-16` `utf-32`). Per un esempio, vedere la [documentazione sull'hub](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) .
+> Per l'archiviazione BLOB, assicurarsi che i dispositivi inviino messaggi `contentType: application/JSON` con e `contentEncoding:utf-8` (o `utf-16` `utf-32` ). Per un esempio, vedere la [documentazione sull'hub](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) .
 
 Il dispositivo che ha inviato i dati di telemetria è rappresentato dall'ID del dispositivo (vedere le sezioni seguenti). Per ottenere i nomi dei dispositivi, esportare i dati del dispositivo e correlare ogni messaggio usando il **connectionDeviceId** corrispondente alla **DeviceID** del messaggio del dispositivo.
 
@@ -297,7 +301,7 @@ Ogni record di messaggio o snapshot rappresenta una o più modifiche a un modell
 
 - `id`del modello di dispositivo che corrisponde `instanceOf` a del flusso di dispositivi sopra
 - `displayName` del modello del dispositivo
-- Il dispositivo `capabilityModel` include `interfaces`le definizioni di dati di telemetria, proprietà e comandi
+- Il dispositivo include le definizioni di dati di `capabilityModel` `interfaces` telemetria, proprietà e comandi
 - `cloudProperties`definizioni
 - Esegue l'override di e i valori iniziali, inline con`capabilityModel`
 
@@ -553,7 +557,7 @@ Se si ha un'esportazione dei dati esistente nell'applicazione di anteprima con i
 A partire dal 3 febbraio 2020, tutte le nuove esportazioni nelle applicazioni con i dispositivi e i modelli di dispositivo abilitati avranno il formato dati descritto in precedenza. Tutte le esportazioni create prima di tale data rimarranno nel formato dati precedente fino al 30 giugno 2020, a quel punto verrà eseguita la migrazione automatica di queste esportazioni al nuovo formato dati. Il nuovo formato dati corrisponde al [dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devices/get), alla proprietà del [dispositivo, alla](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties)proprietà del [cloud del dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties)e agli oggetti [modello di dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) nell'API IOT Central Public.
 
 Per i **dispositivi**, le differenze rilevanti tra il formato dati precedente e il nuovo formato dati includono:
-- `@id`per il dispositivo è stato `deviceId` rimosso, viene rinominato in`id` 
+- `@id`per il dispositivo è stato rimosso, `deviceId` viene rinominato in`id` 
 - `provisioned`viene aggiunto il flag per descrivere lo stato del provisioning del dispositivo
 - `approved`viene aggiunto il flag per descrivere lo stato di approvazione del dispositivo
 - `properties`incluse le proprietà del dispositivo e del cloud, corrisponde alle entità nell'API pubblica
@@ -561,7 +565,7 @@ Per i **dispositivi**, le differenze rilevanti tra il formato dati precedente e 
 Per i **modelli di dispositivo**, le differenze rilevanti tra il formato dati precedente e il nuovo formato dati includono:
 
 - `@id`per il modello di dispositivo è stato rinominato in`id`
-- `@type`per il modello di dispositivo viene rinominato in `types`e ora è una matrice
+- `@type`per il modello di dispositivo viene rinominato in `types` e ora è una matrice
 
 ### <a name="devices-format-deprecated-as-of-3-february-2020"></a>Dispositivi (formato deprecato a partire da 3 febbraio 2020)
 
@@ -748,4 +752,4 @@ Per i **modelli di dispositivo**, le differenze rilevanti tra il formato dati pr
 Ora che si è appreso come esportare i dati in hub eventi di Azure, nel bus di servizio di Azure e nell'archivio BLOB di Azure, continuare con il passaggio successivo:
 
 > [!div class="nextstepaction"]
-> [Come creare webhook](./howto-create-webhooks.md)
+> [Come eseguire analisi personalizzate con databricks](./howto-create-custom-analytics.md)

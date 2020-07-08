@@ -5,17 +5,17 @@ description: Informazioni su come modificare le chiavi di accesso per l'account 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
-ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/19/2020
+ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80296924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483313"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,11 +24,14 @@ Informazioni su come modificare le chiavi di accesso per gli account di archivia
 
 Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di accesso per un account di archiviazione di Azure. Quando si rigenera la chiave di accesso, è necessario aggiornare Azure Machine Learning per l'uso della nuova chiave. Azure Machine Learning possibile che utilizzino l'account di archiviazione sia per l'archiviazione del modello sia come archivio dati.
 
+> [!IMPORTANT]
+> Le credenziali registrate con gli archivi dati vengono salvate nel Azure Key Vault associato all'area di lavoro. Se l' [eliminazione](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) temporanea è abilitata per l'Key Vault, assicurarsi di seguire questo articolo per l'aggiornamento delle credenziali. L'annullamento della registrazione dell'archivio dati e la nuova registrazione con lo stesso nome avranno esito negativo.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
 
-* [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 * [Estensione dell'interfaccia](reference-azure-machine-learning-cli.md)della riga di comando Azure Machine Learning.
 
@@ -85,7 +88,7 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
 
 1. Rigenerare la chiave. Per informazioni sulla rigenerazione di una chiave di accesso, vedere [gestire le chiavi di accesso all'account di archiviazione](../storage/common/storage-account-keys-manage.md). Salvare la nuova chiave.
 
-1. Per aggiornare l'area di lavoro in modo da usare la nuova chiave, seguire questa procedura:
+1. L'area di lavoro Azure Machine Learning sincronizza automaticamente la nuova chiave e inizia a usarla dopo un'ora. Per forzare immediatamente la sincronizzazione dell'area di lavoro con la nuova chiave, attenersi alla procedura seguente:
 
     1. Per accedere alla sottoscrizione di Azure che contiene l'area di lavoro usando il comando dell'interfaccia della riga di comando di Azure seguente:
 
@@ -95,7 +98,7 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
 
         [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
-    1. Per aggiornare l'area di lavoro per l'utilizzo della nuova chiave, utilizzare il comando seguente. Sostituire `myworkspace` con il nome dell'area di lavoro Azure Machine Learning `myresourcegroup` e sostituire con il nome del gruppo di risorse di Azure che contiene l'area di lavoro.
+    1. Per aggiornare l'area di lavoro per l'utilizzo della nuova chiave, utilizzare il comando seguente. Sostituire `myworkspace` con il nome dell'area di lavoro Azure Machine Learning e sostituire `myresourcegroup` con il nome del gruppo di risorse di Azure che contiene l'area di lavoro.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
@@ -105,28 +108,36 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
 
         Questo comando Sincronizza automaticamente le nuove chiavi per l'account di archiviazione di Azure usato dall'area di lavoro.
 
-1. Per registrare di nuovo gli archivi dati che usano l'account di archiviazione, usare i valori della sezione [elementi che devono essere aggiornati](#whattoupdate) e la chiave del passaggio 1 con il codice seguente:
-
-    ```python
-    # Re-register the blob container
-    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+1. È possibile registrare nuovamente gli archivi dati che usano l'account di archiviazione tramite l'SDK o [il Azure Machine Learning Studio](https://ml.azure.com).
+    1. **Per registrare di nuovo gli archivi dati tramite Python SDK**, usare i valori della sezione [elementi che devono essere aggiornati](#whattoupdate) e la chiave del passaggio 1 con il codice seguente. 
+    
+        Poiché `overwrite=True` è specificato, questo codice sovrascrive la registrazione esistente e la Aggiorna per l'uso della nuova chiave.
+    
+        ```python
+        # Re-register the blob container
+        ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                                  datastore_name='your datastore name',
+                                                  container_name='your container name',
+                                                  account_name='your storage account name',
+                                                  account_key='new storage account key',
+                                                  overwrite=True)
+        # Re-register file shares
+        ds_file = Datastore.register_azure_file_share(workspace=ws,
                                               datastore_name='your datastore name',
-                                              container_name='your container name',
+                                              file_share_name='your container name',
                                               account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
-    # Re-register file shares
-    ds_file = Datastore.register_azure_file_share(workspace=ws,
-                                          datastore_name='your datastore name',
-                                          file_share_name='your container name',
-                                          account_name='your storage account name',
-                                          account_key='new storage account key',
-                                          overwrite=True)
+        
+        ```
     
-    ```
-
-    Poiché `overwrite=True` è specificato, questo codice sovrascrive la registrazione esistente e la Aggiorna per l'uso della nuova chiave.
+    1. **Per registrare di nuovo gli archivi dati tramite lo studio**, selezionare **archivi dati** dal riquadro sinistro di studio. 
+        1. Selezionare l'archivio dati che si desidera aggiornare.
+        1. Selezionare il pulsante **Aggiorna credenziali** in alto a sinistra. 
+        1. Usare la nuova chiave di accesso del passaggio 1 per popolare il modulo e fare clic su **Salva**.
+        
+            Se si aggiornano le credenziali per l' **archivio dati predefinito**, completare questo passaggio e ripetere il passaggio 2b per risincronizzare la nuova chiave con l'archivio dati predefinito dell'area di lavoro. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla registrazione di archivi dati, vedere il riferimento [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) alla classe.
+Per ulteriori informazioni sulla registrazione di archivi dati, vedere il [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) riferimento alla classe.

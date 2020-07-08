@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60397278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504305"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Trasferimento dei dati per set di dati di piccole dimensioni con larghezza di banda di rete da bassa a moderata
  
@@ -54,9 +54,9 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Disponibilità | Download e installazione <br>Strumento autonomo | Strumenti di esplorazione basati sul Web nel portale di Azure | Strumento da riga di comando |Interfacce programmabili in .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
 | Interfaccia grafica | Sì | Sì | No | No |
 | Piattaforme supportate | Windows, Mac, Linux | Basate sul Web |Windows, Mac, Linux |Tutte le piattaforme |
-| Operazioni di archiviazione BLOB consentite<br>per BLOB e cartelle | Caricamento<br>Download<br>Gestione | Caricamento<br>Download<br>Gestione |Caricamento<br>Download<br>Gestione | Sì, personalizzabili |
-| Operazioni di archiviazione di Data Lake Gen1<br>consentite per file e cartelle | Caricamento<br>Download<br>Gestione | No |Caricamento<br>Download<br>Gestione                   | No |
-| Operazioni di archiviazione file consentite<br>per file e directory | Caricamento<br>Download<br>Gestione | Caricamento<br>Download<br>Gestione   |Caricamento<br>Download<br>Gestione | Sì, personalizzabili |
+| Operazioni di archiviazione BLOB consentite<br>per BLOB e cartelle | Caricamento<br>Scarica<br>Gestione | Caricamento<br>Scarica<br>Gestione |Caricamento<br>Scarica<br>Gestione | Sì, personalizzabili |
+| Operazioni di archiviazione di Data Lake Gen1<br>consentite per file e cartelle | Caricamento<br>Scarica<br>Gestione | No |Caricamento<br>Scarica<br>Gestione                   | No |
+| Operazioni di archiviazione file consentite<br>per file e directory | Caricamento<br>Scarica<br>Gestione | Caricamento<br>Scarica<br>Gestione   |Caricamento<br>Scarica<br>Gestione | Sì, personalizzabili |
 | Operazioni di archiviazione tabelle consentite<br>per le tabelle |Gestione | No |Supporto delle tabelle in AzCopy v7 |Sì, personalizzabili|
 | Archiviazione code consentita | Gestione | No  |No | Sì, personalizzabile|
 
