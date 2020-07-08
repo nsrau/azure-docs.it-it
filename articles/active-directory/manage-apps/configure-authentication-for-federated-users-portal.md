@@ -3,24 +3,23 @@ title: Configurare l'accelerazione automatica dell'accesso usando l'individuazio
 description: Informazioni su come configurare i criteri di individuazione dell'area di autenticazione principale per l'autenticazione Azure Active Directory per gli utenti federati, inclusi l'accelerazione automatica e gli hint di dominio.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763585"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
@@ -81,8 +80,8 @@ Per altre informazioni sull'accelerazione automatica mediante gli hint di domini
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Criteri di individuazione dell'area di autenticazione principale per l'accelerazione automatica
 Alcune applicazioni non forniscono un modo per configurare la richiesta di autenticazione che generano. In questi casi, non è possibile usare gli hint di dominio per controllare l'accelerazione automaticamente. L'accelerazione automatica può essere configurata tramite criterio per ottenere lo stesso comportamento.  
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>Abilitare l'autenticazione diretta per le applicazioni legacy
-Per le applicazioni, è consigliabile usare le librerie di Azure AD e l'accesso interattivo per autenticare gli utenti. Le librerie si occupano dei flussi dell'utente federato.  Le applicazioni legacy in alcuni casi non vengono scritte per comprendere la federazione. Queste non eseguono l'individuazione dell'area di autenticazione e non interagiscono con il corretto endpoint federato per autenticare un utente. Se si desidera, è possibile usare criteri HRD per attivare applicazioni legacy specifiche che consentono di inviare le credenziali di nome utente/password per l'autenticazione diretta con Azure Active Directory. La sincronizzazione degli hash delle password deve essere abilitata. 
+## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Abilitare l'autenticazione ROPC diretta degli utenti federati per le applicazioni legacy
+Per le applicazioni, è consigliabile usare le librerie di Azure AD e l'accesso interattivo per autenticare gli utenti. Le librerie si occupano dei flussi dell'utente federato.  Talvolta le applicazioni legacy, in particolare quelle che usano ROPC concede, inviano il nome utente e la password direttamente a Azure AD e non vengono scritte per comprendere la Federazione. Queste non eseguono l'individuazione dell'area di autenticazione e non interagiscono con il corretto endpoint federato per autenticare un utente. Se si sceglie di, è possibile usare i criteri HRD per abilitare applicazioni legacy specifiche che inviano credenziali di nome utente/password usando la concessione ROPC per eseguire l'autenticazione direttamente con Azure Active Directory. La sincronizzazione degli hash delle password deve essere abilitata. 
 
 > [!IMPORTANT]
 > Abilitare l'autenticazione diretta solo se è stata attivata la sincronizzazione degli hash password e se è nota la possibilità di eseguire l'autenticazione di questa applicazione senza eventuali criteri implementati dal provider di identità in locale. Se si disattiva la sincronizzazione degli hash password o si disattiva la sincronizzazione della directory con Active Directory Connect per qualsiasi motivo, è necessario rimuovere questo criterio per impedire l'insorgere di autenticazione diretta usando un hash della password non aggiornata.
@@ -110,7 +109,7 @@ Di seguito è riportato un esempio di definizione di criteri HRD:
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":true
+    "AllowCloudPasswordValidation":false
     }
    }
 ```

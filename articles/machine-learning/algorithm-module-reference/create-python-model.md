@@ -8,24 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.openlocfilehash: 59a335e41116818e41579488cc6931ed1534c9ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984895"
 ---
 # <a name="create-python-model-module"></a>Creare il modulo del modello Python
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Informazioni su come usare il modulo Crea modello Python per creare un modello non sottoposto a training da uno script Python. È possibile basare il modello su qualsiasi strumento di apprendimento incluso in un pacchetto python nell'ambiente Azure Machine Learning Designer. 
 
 Dopo aver creato il modello, è possibile utilizzare [Train Model](train-model.md) per eseguire il training del modello su un set di dati, come qualsiasi altro discente in Azure Machine Learning. Il modello sottoposto a training può essere passato al [modello di Punteggio](score-model.md) per eseguire stime. È quindi possibile salvare il modello sottoposto a training e pubblicare il flusso di lavoro di assegnazione dei punteggi come servizio Web.
 
 > [!WARNING]
-> Attualmente, non è possibile passare i risultati con punteggio di un modello Python per valutare il [modello](evaluate-model.md). Se è necessario valutare un modello, è possibile scrivere uno script Python personalizzato ed eseguirlo usando il modulo [Execute Python script](execute-python-script.md) .  
+> Attualmente, non è possibile connettere questo modulo per ottimizzare il modulo degli **iperparametri del modello** o passare i risultati con punteggio di un modello Python per [valutare il modello](evaluate-model.md). Se è necessario ottimizzare gli iperparametri o valutare un modello, è possibile scrivere uno script Python personalizzato usando il modulo [Execute Python script](execute-python-script.md) .
 
 
 ## <a name="configure-the-module"></a>Configurare il modulo

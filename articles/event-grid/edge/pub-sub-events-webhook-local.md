@@ -10,11 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281002"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710865"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Esercitazione: pubblicare, sottoscrivere gli eventi in locale
 
@@ -43,7 +42,7 @@ Esistono diversi modi per distribuire i moduli in un dispositivo IoT Edge e tutt
 1. Passare all'hub IoT.
 1. Selezionare **IOT Edge** dal menu nella sezione **gestione automatica dei dispositivi** . 
 1. Fare clic sull'ID del dispositivo di destinazione dall'elenco di dispositivi
-1. Selezionare **Set Modules** (Configura i moduli). Mantieni aperta la pagina. Si procederà con la procedura descritta nella sezione successiva.
+1. Selezionare **imposta moduli**. Mantieni aperta la pagina. Si procederà con la procedura descritta nella sezione successiva.
 
 ### <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
@@ -118,7 +117,7 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
 
 Come server di pubblicazione di un evento, è necessario creare un argomento di griglia di eventi. In griglia di eventi di Azure un argomento si riferisce a un endpoint in cui i publisher possono inviare eventi a.
 
-1. Creare Topic. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md).
+1. Creare topic.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md).
 
     ```json
         {
@@ -129,7 +128,7 @@ Come server di pubblicazione di un evento, è necessario creare un argomento di 
         }
     ```
 
-1. Eseguire il comando seguente per creare un argomento di griglia di eventi. Verificare che sia `200 OK`visualizzato il codice di stato http.
+1. Eseguire il comando seguente per creare un argomento di griglia di eventi. Verificare che sia visualizzato il codice di stato HTTP `200 OK` .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -163,7 +162,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Creare Subscription. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md)
+1. Creare subscription.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md)
 
     ```json
         {
@@ -180,7 +179,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
 
     >[!NOTE]
     > La proprietà **EndpointType** specifica che il Sottoscrittore è un **webhook**.  **EndpointUrl** specifica l'URL in cui il Sottoscrittore è in ascolto di eventi. Questo URL corrisponde all'esempio di Sottoscrittore di Azure distribuito in precedenza.
-2. Eseguire il comando seguente per creare una sottoscrizione per l'argomento. Verificare che sia `200 OK`visualizzato il codice di stato http.
+2. Eseguire il comando seguente per creare una sottoscrizione per l'argomento. Verificare che sia visualizzato il codice di stato HTTP `200 OK` .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
@@ -212,7 +211,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
 
 ## <a name="publish-an-event"></a>Pubblicare un evento
 
-1. Creare event. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md).
+1. Creare event.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md).
 
     ```json
         [
@@ -271,7 +270,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
             }
     ```
 
-## <a name="cleanup-resources"></a>Pulire le risorse
+## <a name="cleanup-resources"></a>Risorse di pulizia
 
 * Eseguire il comando seguente per eliminare l'argomento e tutte le relative sottoscrizioni.
 

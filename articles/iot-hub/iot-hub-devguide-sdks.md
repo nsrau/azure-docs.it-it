@@ -9,12 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.custom: mqtt
-ms.openlocfilehash: 68186e777051e77deca7b6e5891eb392cac23260
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 71ef7a8da6e575e995696ebaf14b265babf9aecf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984922"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendere e usare gli SDK per l'hub IoT di Azure
 
@@ -25,6 +24,7 @@ Esistono due categorie di Software Development Kit (SDK) per l'uso con l'hub IoT
 * Gli **SDK del servizio Hub** Internet di base consentono di creare applicazioni back-end per gestire l'hub Internet e, facoltativamente, inviare messaggi, pianificare processi, richiamare metodi diretti o inviare aggiornamenti delle proprietà desiderati ai dispositivi o ai moduli Internet.
 
 Verrà inoltre fornito un set di SDK per l'uso del [servizio Device Provisioning](../iot-dps/about-iot-dps.md).
+
 * Gli **SDK per i dispositivi di provisioning** consentono di creare app eseguibili nei dispositivi IoT per comunicare con il servizio Device Provisioning.
 
 * Gli **SDK per il servizio di provisioning** consentono di creare applicazioni back-end per gestire le registrazioni nel servizio Device Provisioning.
@@ -33,8 +33,7 @@ Altre informazioni sui [ vantaggi offerti dallo sviluppo con gli SDK di Azure Io
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-
-### <a name="os-platform-and-hardware-compatibility"></a>Compatibilità delle piattaforme del sistema operativo e hardware
+## <a name="os-platform-and-hardware-compatibility"></a>Compatibilità delle piattaforme del sistema operativo e hardware
 
 È possibile trovare le piattaforme supportate per gli SDK in [Supporto della piattaforma Azure IoT SDK](iot-hub-device-sdk-platform-support.md).
 
@@ -48,41 +47,41 @@ Azure IoT Hub SDK per dispositivi per .NET:
 
 * Scaricare da [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  Lo spazio dei nomi è Microsoft.Azure.Devices.Clients, che contiene i client per dispositivi hub IoT (DeviceClient, ModuleClient).
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-csharp)
-* [API (riferimento)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
-* [Informazioni di riferimento sui moduli](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
+* [Riferimento al modulo](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
 Azure IoT Hub SDK per dispositivi per C (ANSI C - C99):
 
 * Installare da [apt-get, MBED, IDE Arduino o iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-c)
 * [Compilare l'SDK per dispositivi C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
-* [API (riferimento)](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-* [Informazioni di riferimento sui moduli](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+* [Riferimento al modulo](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
 * [Porting dell'SDK per C in altre piattaforme](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * [Documentazione per sviluppatori](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc) per informazioni su compilazione incrociata, introduzione alle diverse piattaforme e così via.
 * [Informazioni sull'utilizzo delle risorse dell'hub Azure per Azure](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
-Azure IoT Hub SDK per dispositivi per Java: 
+Azure IoT Hub SDK per dispositivi per Java:
 
 * Aggiungere al progetto [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-java)
-* [API (riferimento)](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
-* [Informazioni di riferimento sui moduli](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
+* [Riferimento al modulo](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)
 
-Azure IoT Hub SDK per dispositivi per Node.js: 
+Azure IoT Hub SDK per dispositivi per Node.js:
 
 * Installare da [npm](https://www.npmjs.com/package/azure-iot-device)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-node)
-* [API (riferimento)](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest)
-* [Informazioni di riferimento sui moduli](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest)
+* [Riferimento al modulo](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
 
-Azure IoT Hub SDK per dispositivi per Python: 
+Azure IoT Hub SDK per dispositivi per Python:
 
 * Installare da [pip](https://pypi.org/project/azure-iot-device/)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-python)
-* [API (riferimento)](https://docs.microsoft.com/python/api/azure-iot-device)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/python/api/azure-iot-device)
 
-Azure IoT Hub SDK per dispositivi per iOS: 
+Azure IoT Hub SDK per dispositivi per iOS:
 
 * Installare da [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
 * [Esempi](https://github.com/Azure-Samples/azure-iot-samples-ios)
@@ -96,31 +95,37 @@ Azure IoT Hub SDK per servizi per .NET:
 
 * Scaricare da [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices/).  Lo spazio dei nomi è Microsoft.Azure.Devices, che contiene i client per il servizio hub IoT (RegistryManager, ServiceClients).
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-csharp)
-* [API (riferimento)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
 
-Azure IoT Hub SDK per servizi per Java: 
+Azure IoT Hub SDK per servizi per Java:
 
 * Aggiungere al progetto [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-java)
-* [API (riferimento)](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service)
 
-Azure IoT Hub SDK per servizi per Node.js: 
+Azure IoT Hub SDK per servizi per Node.js:
 
 * Scaricare da [npm](https://www.npmjs.com/package/azure-iothub)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-node)
-* [API (riferimento)](https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-iot-typescript-latest)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-iot-typescript-latest)
 
-Azure IoT Hub SDK per servizi per Python: 
+Azure IoT Hub SDK per servizi per Python:
 
 * Scaricare da [pip](https://pypi.python.org/pypi/azure-iot-hub/)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-python/tree/master)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/python/api/azure-iot-hub)
 
-Azure IoT Hub SDK per servizi per C: 
+Azure IoT Hub SDK per servizi per C:
+
+L'SDK del servizio Azure per la distribuzione di Azure per C non è più in fase di sviluppo attivo.
+Si continuerà a correggere i bug critici, ad esempio arresti anomali, danneggiamento dei dati e vulnerabilità della sicurezza. Tuttavia, non verrà aggiunta alcuna nuova funzionalità o verranno risolti i bug non critici.
+
+Il supporto dell'SDK del servizio Azure è disponibile in linguaggi di livello superiore ([C#](https://github.com/Azure/azure-iot-sdk-csharp), [Java](https://github.com/Azure/azure-iot-sdk-java), [node](https://github.com/Azure/azure-iot-sdk-node), [Python](https://github.com/Azure/azure-iot-sdk-python)).
 
 * Download da [apt-get, mbed, IDE Arduino o NuGet](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-c)
 
-Azure IoT Hub SDK per servizi per iOS: 
+Azure IoT Hub SDK per servizi per iOS:
 
 * Installare da [CocoaPod](https://cocoapods.org/pods/AzureIoTHubServiceClient)
 * [Esempi](https://github.com/Azure-Samples/azure-iot-samples-ios)
@@ -136,24 +141,24 @@ SDK dei dispositivi di provisioning e di servizio di Azure per C#:
 
 * Scaricare l'[SDK per dispositivi](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) e l'[SDK per il servizio](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) da NuGet.
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-csharp/)
-* [API (riferimento)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet)
 
 SDK dei dispositivi di provisioning e di servizio di Azure per C:
 
 * Installare da [apt-get, MBED, IDE Arduino o iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
-* [API (riferimento)](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 SDK dei dispositivi di provisioning e di servizio di Azure per Java:
 
 * Aggiungere al progetto [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning)
-* [API (riferimento)](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable)
 
 SDK dei dispositivi di provisioning e di servizio di Azure per Node.js:
 
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning)
-* [API (riferimento)](https://docs.microsoft.com/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest)
 * Scaricare l'[SDK per dispositivi](https://badge.fury.io/js/azure-iot-provisioning-device) e l'[SDK per il servizio](https://badge.fury.io/js/azure-iot-provisioning-service) da npm
 
 SDK dei dispositivi di provisioning e di servizio di Azure per Python:
@@ -164,14 +169,15 @@ SDK dei dispositivi di provisioning e di servizio di Azure per Python:
 ## <a name="next-steps"></a>Passaggi successivi
 
 La piattaforma di Azure IoT SDK fornisce anche un set di strumenti per facilitare lo sviluppo:
+
 * [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): uno strumento multipiattaforma da riga di comando che consente di diagnosticare i problemi relativi alla connessione all'hub IoT.
 * [Azure-Internet Explorer](https://github.com/Azure/azure-iot-explorer): un'applicazione desktop multipiattaforma per connettersi all'hub Internet e aggiungere/gestire/comunicare con i dispositivi Internet.
 
 Documentazione pertinente relativa allo sviluppo tramite gli SDK IoT di Azure:
+
 * Informazioni su [come gestire le funzionalità di connettività e messaggistica affidabile](iot-hub-reliability-features-in-sdks.md) con gli SDK per l'hub IoT.
 * Informazioni su come [sviluppare per piattaforme per dispositivi mobili](iot-hub-how-to-develop-for-mobile-devices.md) come iOS e Android.
 * [Supporto della piattaforma di Azure IoT SDK](iot-hub-device-sdk-platform-support.md)
-
 
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 

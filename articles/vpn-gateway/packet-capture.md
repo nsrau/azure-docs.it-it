@@ -4,15 +4,14 @@ description: Informazioni sulle funzionalità di acquisizione di pacchetti che �
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6edfe0228ce4cbe21ad4ae0eb8b7316a92f1da31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75353510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987152"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configurare le acquisizioni di pacchetti per i gateway VPN
 
@@ -60,7 +59,7 @@ Parametro facoltativo **-FilterData** può essere usato per applicare il filtro.
 Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName" -SasUrl "YourSASURL"
 ```
 
-## <a name="key-considerations"></a>Considerazioni sulle chiavi
+## <a name="key-considerations"></a>Considerazioni essenziali
 
 - L'esecuzione di acquisizioni di pacchetti può influire sulle prestazioni. Ricordarsi di arrestare l'acquisizione di pacchetti quando non è necessaria.
 - La durata di acquisizione pacchetti minima suggerita è di 600 secondi. La durata dell'acquisizione di pacchetti più breve potrebbe non fornire dati completi a causa della sincronizzazione di problemi tra più componenti del percorso.

@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213092"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Domande frequenti sulle diverse API in Azure Cosmos DB
 
@@ -152,7 +151,7 @@ Sì. L'API SQL supporta le transazioni tra documenti espresse come trigger e sto
 
 Un contenitore è un gruppo di documenti con la logica dell'applicazione JavaScript associata. Un contenitore è un'entità fatturabile, in cui il [costo](performance-levels.md) è determinato dalla velocità effettiva e dallo spazio di archiviazione utilizzato. I contenitori possono estendersi su una o più partizioni o server e possono essere ridimensionati per gestire volumi praticamente illimitati di archiviazione o velocità effettiva.
 
-* Per l'API SQL viene eseguito il mapping di un contenitore a un contenitore.
+* Per l'API SQL, la risorsa viene chiamata contenitore.
 * Per gli account dell'API Cosmos DB per MongoDB viene eseguito il mapping di un contenitore a una raccolta.
 * Per gli account dell'API Tabella e Cassandra viene eseguito il mapping di un contenitore a una tabella.
 * Per gli account dell'API Gremlin viene eseguito il mapping di un contenitore a un grafico.

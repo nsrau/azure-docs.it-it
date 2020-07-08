@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 968cc9ed9d938bb04d1243102855c134147ddf3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7464a9d13e1ffccbc3fab3256fe6c7ab1cb10495
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81269874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84321497"
 ---
 # <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 <a name="network-security-groups"></a>
 
 È possibile usare il gruppo di sicurezza di rete di Azure per filtrare il traffico di rete da e verso le risorse di Azure in una rete virtuale di Azure. Un gruppo di sicurezza di rete contiene [regole di sicurezza](#security-rules) che consentono o negano il traffico di rete in ingresso o il traffico di rete in uscita da, diversi tipi di risorse di Azure. Per ogni regola è possibile specificare l'origine e la destinazione, la porta e il protocollo.
+
 Questo articolo descrive le proprietà di una regola del gruppo di sicurezza di rete, le [regole di sicurezza predefinite](#default-security-rules) applicate e le proprietà delle regole che è possibile modificare per creare una [regola di sicurezza aumentata](#augmented-security-rules).
 
 ## <a name="security-rules"></a><a name="security-rules"></a>Regole di sicurezza
@@ -32,11 +32,11 @@ Un gruppo di sicurezza di rete può contenere zero regole o il numero di regole 
 
 |Proprietà  |Spiegazione  |
 |---------|---------|
-|Name|Nome univoco all'interno del gruppo di sicurezza di rete.|
+|Nome|Nome univoco all'interno del gruppo di sicurezza di rete.|
 |Priorità | Numero compreso tra 100 e 4096. Le regole vengono elaborate in ordine di priorità. I numeri più bassi vengono elaborati prima di quelli più elevati perché hanno priorità più alta. Quando il traffico corrisponde a una regola, l'elaborazione viene interrotta. Di conseguenza, le regole con priorità più bassa (numeri più elevati) che hanno gli stessi attributi di regole con priorità più elevata non vengono elaborate.|
-|Origine o destinazione| Qualsiasi indirizzo IP, blocco CIDR (Classless Inter-Domain Routing), ad esempio 10.0.0.0/24, [tag di servizio](service-tags-overview.md) o [gruppo di sicurezza delle applicazioni](#application-security-groups). Se si specifica un indirizzo per una risorsa di Azure, specificare l'indirizzo IP privato assegnato alla risorsa. I gruppi di sicurezza della rete vengono elaborati dopo che Azure ha convertito un indirizzo IP pubblico in un indirizzo IP privato per il traffico in ingresso e prima che Azure converta un indirizzo IP privato in un indirizzo IP pubblico per il traffico in uscita. Vedere altre informazioni sugli [indirizzi IP](virtual-network-ip-addresses-overview-arm.md) di Azure. Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza. La possibilità di specificare più intervalli e indirizzi IP singoli (non è possibile specificare più tag di servizio o gruppi di applicazioni) in una regola è indicata come [regole di sicurezza aumentata](#augmented-security-rules). È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più indirizzi IP e intervalli di indirizzi IP nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica. Altre informazioni sui [modelli di distribuzione di Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|Origine o destinazione| Qualsiasi indirizzo IP, blocco CIDR (Classless Inter-Domain Routing), ad esempio 10.0.0.0/24, tag di servizio o gruppo di sicurezza delle applicazioni. Se si specifica un indirizzo per una risorsa di Azure, specificare l'indirizzo IP privato assegnato alla risorsa. I gruppi di sicurezza della rete vengono elaborati dopo che Azure ha convertito un indirizzo IP pubblico in un indirizzo IP privato per il traffico in ingresso e prima che Azure converta un indirizzo IP privato in un indirizzo IP pubblico per il traffico in uscita. . Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza. La possibilità di specificare più intervalli e indirizzi IP singoli (non è possibile specificare più tag di servizio o gruppi di applicazioni) in una regola è indicata come [regole di sicurezza aumentata](#augmented-security-rules). È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più indirizzi IP e intervalli di indirizzi IP nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica.|
 |Protocollo     | TCP, UDP, ICMP o any.|
-|Direction| Definisce se la regola si applica al traffico in ingresso o in uscita.|
+|Direzione| Definisce se la regola si applica al traffico in ingresso o in uscita.|
 |Intervallo di porte     |È possibile specificare una singola porta o un intervallo di porte. Ad esempio, è possibile specificare 80 oppure 10000-10005. Specificando intervalli è possibile creare un minor numero di regole di sicurezza. È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più porte o intervalli di porte nella stessa regola di sicurezza nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica.   |
 |Action     | Consentire o impedire.        |
 
@@ -53,19 +53,19 @@ Azure crea le regole predefinite seguenti in ogni gruppo di sicurezza di rete cr
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priorità|Source (Sorgente)|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
+|Priorità|Source (Sorgente)|Porte di origine|Destination|Porte di destinazione|Protocollo|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Qualsiasi|Allow|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Qualsiasi|Consenti|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priorità|Source (Sorgente)|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
+|Priorità|Source (Sorgente)|Porte di origine|Destination|Porte di destinazione|Protocollo|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Qualsiasi|Allow|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Qualsiasi|Consenti|
 
 ##### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priorità|Source (Sorgente)|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
+|Priorità|Source (Sorgente)|Porte di origine|Destination|Porte di destinazione|Protocollo|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Qualsiasi|Nega|
 
@@ -73,19 +73,19 @@ Azure crea le regole predefinite seguenti in ogni gruppo di sicurezza di rete cr
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
+|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Qualsiasi | Allow |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Qualsiasi | Consenti |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
+|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Qualsiasi | Allow |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Qualsiasi | Consenti |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
+|Priorità|Source (Sorgente)|Porte di origine| Destination | Porte di destinazione | Protocollo | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Qualsiasi | Nega |
 
@@ -99,7 +99,7 @@ Le regole di sicurezza ottimizzate semplificano la definizione della sicurezza p
 
 #### <a name="service-tags"></a>Tag di servizio
 
-Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Consente di ridurre al minimo la complessità degli aggiornamenti frequenti sulle regole di sicurezza di rete.
+Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Consente di ridurre al minimo la complessità degli aggiornamenti frequenti sulle regole di sicurezza di rete.
 
 Per altre informazioni, vedere [tag dei servizi di Azure](service-tags-overview.md). Per un esempio su come usare il tag del servizio di archiviazione per limitare l'accesso alla rete, vedere [limitare l'accesso di rete alle risorse PaaS](tutorial-restrict-network-access-to-resources.md).
 
@@ -148,7 +148,7 @@ Le regole di aggregazione applicate a un'interfaccia di rete possono essere veri
 > I gruppi di sicurezza di rete sono associati a subnet o a macchine virtuali e servizi cloud distribuiti nel modello di distribuzione classica e a subnet o interfacce di rete nel modello di distribuzione Gestione risorse. Per altre informazioni in proposito, vedere le [informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!TIP]
-> A meno che non ci siano motivi specifici, è consigliabile associare un gruppo di sicurezza di rete a una subnet o a un'interfaccia di rete, ma non a entrambe. Dato che le regole di un gruppo di sicurezza di rete associato a una subnet possono entrare in conflitto con quelle di un gruppo di sicurezza di rete associato a un'interfaccia di rete, è possibile che si verifichino problemi di comunicazione imprevisti che devono essere risolti.
+> A meno che non esista un motivo specifico per, è consigliabile associare un gruppo di sicurezza di rete a una subnet o un'interfaccia di rete, ma non entrambi. Dato che le regole di un gruppo di sicurezza di rete associato a una subnet possono entrare in conflitto con quelle di un gruppo di sicurezza di rete associato a un'interfaccia di rete, è possibile che si verifichino problemi di comunicazione imprevisti che devono essere risolti.
 
 ## <a name="azure-platform-considerations"></a>Considerazioni sulla piattaforma Azure
 

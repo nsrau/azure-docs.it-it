@@ -8,17 +8,16 @@ manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: e6eda3b522a5b46cd82ef29ae493891a624d3272
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459288"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764010"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creare e condividere dashboard nel portale di Azure
 
@@ -58,7 +57,7 @@ A questo punto, modificare il dashboard per aggiungere, ridimensionare e disporr
 
 Per aggiungere riquadri a un dashboard, attenersi alla procedura seguente:
 
-1. Selezionare ![modifica icona](./media/azure-portal-dashboards/dashboard-edit-icon.png) **modifica** dall'intestazione di pagina.
+1. Selezionare ![ modifica icona ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **modifica** dall'intestazione di pagina.
 
     ![Screenshot dell'evidenziazione della modifica del dashboard](./media/azure-portal-dashboards/dashboard-edit.png)
 
@@ -79,7 +78,7 @@ Esiste un modo alternativo per aggiungere riquadri al dashboard. Molte pagine de
 
 Per modificare le dimensioni di un riquadro o per ridisporre i riquadri in un dashboard, attenersi alla procedura seguente:
 
-1. Selezionare ![modifica icona](./media/azure-portal-dashboards/dashboard-edit-icon.png) **modifica** dall'intestazione di pagina.
+1. Selezionare ![ modifica icona ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **modifica** dall'intestazione di pagina.
 
 1. Selezionare il menu di scelta rapida nell'angolo superiore destro di un riquadro. Quindi, scegliere le dimensioni del riquadro. I riquadri che supportano qualsiasi dimensione includono anche un "handle" nell'angolo in basso a destra che consente di trascinare il riquadro fino alle dimensioni desiderate.
 
@@ -106,7 +105,7 @@ Tutti i riquadri che devono essere impostati visualizzano un banner di **configu
 
 I dati nel dashboard mostrano automaticamente le attività per le ultime 24 ore. Per visualizzare un intervallo di tempo diverso solo per questo riquadro, attenersi alla seguente procedura:
 
-1. Selezionare **personalizzare i dati del riquadro** dal menu di scelta ![rapida o](./media/azure-portal-dashboards/dashboard-filter.png) dal filtro dell'icona del filtro nell'angolo superiore sinistro del riquadro.
+1. Selezionare **personalizzare i dati del riquadro** dal menu di scelta rapida o dal ![ filtro dell'icona del filtro nell' ](./media/azure-portal-dashboards/dashboard-filter.png) angolo superiore sinistro del riquadro.
 
     ![Screenshot del menu di scelta rapida del riquadro](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -126,7 +125,7 @@ Per rimuovere un riquadro da un dashboard, attenersi alla procedura seguente:
 
 * Selezionare il menu di scelta rapida nell'angolo superiore destro del riquadro, quindi selezionare **Rimuovi dal dashboard**. Oppure
 
-* Selezionare ![modifica icona](./media/azure-portal-dashboards/dashboard-edit-icon.png) **modifica** per attivare la modalità di personalizzazione. Passare il puntatore del mouse nell'angolo superiore destro del riquadro, quindi ![selezionare l'](./media/azure-portal-dashboards/dashboard-delete-icon.png) icona Elimina icona Elimina per rimuovere il riquadro dal dashboard.
+* Selezionare ![ modifica icona ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **modifica** per attivare la modalità di personalizzazione. Passare il puntatore del mouse nell'angolo superiore destro del riquadro, quindi selezionare l' ![ icona Elimina icona ](./media/azure-portal-dashboards/dashboard-delete-icon.png) Elimina per rimuovere il riquadro dal dashboard.
 
    ![Screenshot che illustra come rimuovere il riquadro dal dashboard](./media/azure-portal-dashboards/dashboard-delete-tile.png)
 
@@ -136,7 +135,7 @@ Per usare un dashboard esistente come modello per un nuovo dashboard, seguire qu
 
 1. Assicurarsi che la visualizzazione Dashboard mostri il dashboard che si vuole copiare.
 
-1. Nell'intestazione di pagina selezionare ![clone Icon](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**.
+1. Nell'intestazione di pagina selezionare ![ Clone Icon ](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**.
 
 1. Una copia del dashboard denominata **clone del nome del** *Dashboard* viene aperta in modalità di modifica. Usare i passaggi precedenti di questo articolo per rinominare e personalizzare il dashboard.
 
@@ -170,7 +169,7 @@ Per eliminare definitivamente un dashboard privato o condiviso, attenersi alla p
 
 1. Selezionare il dashboard che si vuole eliminare dall'elenco accanto al nome del dashboard.
 
-1. Selezionare ![Delete Icon](./media/azure-portal-dashboards/dashboard-delete-icon.png) **Delete** dall'intestazione di pagina.
+1. Selezionare ![ Delete Icon ](./media/azure-portal-dashboards/dashboard-delete-icon.png) **Delete** dall'intestazione di pagina.
 
 1. Per un dashboard privato, fare clic su **OK** nella finestra di dialogo di conferma per rimuovere il dashboard. Per un dashboard condiviso, nella finestra di dialogo di conferma selezionare la casella di controllo per confermare che il dashboard pubblicato non sarà più visualizzabile da altri. Quindi selezionare **OK**.
 
@@ -179,4 +178,4 @@ Per eliminare definitivamente un dashboard privato o condiviso, attenersi alla p
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Condividere i dashboard di Azure tramite il Controllo degli accessi in base al ruolo](azure-portal-dashboard-share-access.md)
-* [Creare dashboard di Azure a livello di codice](azure-portal-dashboards-create-programmatically.md)
+* [Creare i dashboard di Azure a livello di codice](azure-portal-dashboards-create-programmatically.md)

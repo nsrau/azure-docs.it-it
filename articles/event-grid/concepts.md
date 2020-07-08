@@ -7,18 +7,17 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a1464acf2b4a620bf0e2dc91f362cc1739737176
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659183"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concetti di Griglia di eventi di Azure
 
 Questo articolo illustra i concetti principali di Griglia di eventi di Azure.
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 
 Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema. Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco. Ogni evento ha anche informazioni specifiche rilevanti solo per il tipo di evento specifico. Un evento di creazione di un nuovo file in Archiviazione di Azure, ad esempio, contiene i dettagli sul file, quale il valore `lastTimeModified`. In alternativa, un evento di Hub eventi include l'URL del file di acquisizione. 
 
@@ -41,9 +40,9 @@ Per informazioni sull'implementazione di una delle origini di Griglia di eventi 
 
 L'argomento di Griglia di eventi include un endpoint a cui l'origine invia gli eventi. L'editore crea l'argomento di Griglia di eventi e decide se un'origine evento necessita di uno o più argomenti. L'argomento viene usato per una raccolta di eventi correlati. Per rispondere a determinati tipi di eventi, i sottoscrittori scelgono gli argomenti da sottoscrivere.
 
-Gli argomenti di sistema sono argomenti predefiniti forniti dai servizi di Azure. Non verranno visualizzati argomenti di sistema nella sottoscrizione di Azure perché l'editore dispone degli argomenti, ma è possibile sottoscriversi a essi. Per eseguire la sottoscrizione, inserire le informazioni sulla risorsa da cui si desidera ricevere gli eventi. È possibile sottoscrivere gli eventi di una risorsa se si ha accesso alla risorsa.
+Gli argomenti di sistema sono argomenti predefiniti forniti da servizi di Azure, ad esempio archiviazione di Azure, Hub eventi di Azure e il bus di servizio di Azure. È possibile creare argomenti di sistema nella sottoscrizione di Azure e sottoscriverli. Per ulteriori informazioni, vedere [Cenni preliminari sugli argomenti di sistema](system-topics.md). 
 
-Gli argomenti personalizzati sono argomenti di applicazioni e di terze parti. Quando l'utente crea o gli viene assegnato l'accesso a un argomento personalizzato, tale argomento personalizzato viene visualizzato nella sottoscrizione.
+Gli argomenti personalizzati sono argomenti di applicazioni e di terze parti. Quando l'utente crea o gli viene assegnato l'accesso a un argomento personalizzato, tale argomento personalizzato viene visualizzato nella sottoscrizione. Per ulteriori informazioni, vedere [argomenti personalizzati](custom-topics.md).
 
 Quando si progetta l'applicazione, è possibile decidere il numero di argomenti da creare. Per soluzioni di grandi dimensioni, creare un argomento personalizzato per ogni categoria di eventi correlati. Ad esempio, si consideri un'applicazione che invia gli eventi correlati alla modifica di account utente e all'elaborazione degli ordini. È improbabile che un gestore eventi richieda entrambe le categorie di eventi. Creare due argomenti personalizzati e consentire ai gestori di eventi di sottoscrivere all'argomento di interesse. Per le soluzioni di dimensioni ridotte, è preferibile inviare tutti gli eventi a un singolo argomento. I sottoscrittori di eventi possono filtrare in base ai tipi di eventi desiderati.
 

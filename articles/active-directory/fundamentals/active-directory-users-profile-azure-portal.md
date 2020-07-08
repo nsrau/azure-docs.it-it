@@ -7,17 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ba51b0ad7f314058f34092dff4e26411020086a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 277f4c7016849fbdbac4b5070c2a4db681cc66a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75422887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604013"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Aggiungere o aggiornare informazioni di un profilo utente con Azure Active Directory
 Aggiungere informazioni sul profilo utente, inclusi un'immagine del profilo, informazioni lavorative specifiche e alcune impostazioni con Azure Active Directory (Azure AD). Per altre informazioni su come aggiungere nuovi utenti, vedere [Procedura: Aggiungere o eliminare utenti in Azure Active Directory](add-users-azure-active-directory.md).
@@ -46,7 +45,7 @@ Come si vedrà, le informazioni disponibili in un profilo utente sono molte di p
 
     - **Impostazioni.** Decidere se l'utente può accedere al tenant di Azure Active Directory. È anche possibile specificare la posizione globale dell'utente.
 
-    - **Informazioni contatto.** Aggiungere le informazioni di contatto rilevanti per l'utente, ad eccezione delle informazioni di contatto telefoniche o mobili dell'utente (solo un amministratore globale può aggiornare per gli utenti nei ruoli di amministratore).
+    - **Informazioni di contatto.** Aggiungere le informazioni di contatto rilevanti per l'utente, ad eccezione delle informazioni di contatto telefoniche o mobili dell'utente (solo un amministratore globale può aggiornare per gli utenti nei ruoli di amministratore).
 
     - **Informazioni di contatto per l'autenticazione.** Verificare le informazioni per assicurarsi che vi sia un indirizzo di posta elettronica e numero di telefono attivi per l'utente. Queste informazioni sono usate da Azure Active Directory per accertarsi dell'identità dell'utente durante l'accesso. Le informazioni di contatto per l'autenticazione possono essere aggiornate solo da un amministratore globale.
 

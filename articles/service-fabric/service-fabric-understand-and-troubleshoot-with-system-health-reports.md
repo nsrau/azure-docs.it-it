@@ -1,16 +1,15 @@
 ---
 title: Risolvere i problemi relativi ai report sull'integrità del sistema
 description: Descrive i report di integrità inviati dai componenti di Azure Service Fabric e il relativo utilizzo per la risoluzione dei problemi del cluster o delle applicazioni
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392574"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
 I componenti di Azure Service Fabric forniscono report sull'integrità del sistema in tutte le entità del cluster per impostazione predefinita. L' [archivio integrità](service-fabric-health-introduction.md#health-store) crea ed elimina le entità in base ai report di sistema. Le organizza anche in una gerarchia che acquisisce le interazioni delle entità.
@@ -48,7 +47,7 @@ Il report specifica il timeout di lease globale come durata (TTL). Il report vie
 * **Property**: inizia con **Neighborhood** e include informazioni sul nodo.
 * **Passaggi successivi**: analizzare i motivi per cui si verifica la perdita di nodi vicini. Ad esempio, controllare la comunicazione tra i nodi del cluster.
 
-### <a name="rebuild"></a>Ricompila
+### <a name="rebuild"></a>Ricompilazione
 
 Il servizio Gestione failover (FM) gestisce le informazioni relative ai nodi del cluster. In caso di perdita dei dati, il servizio Gestione failover non è in grado di garantire la disponibilità delle informazioni più aggiornate sui nodi del cluster. In questo caso, il sistema esegue una ricompilazione e l'evento System.FM raccoglie i dati da tutti i nodi nel cluster per ricompilare il proprio stato. In alcuni casi, a causa di problemi a livello di nodo o rete, è possibile che la ricompilazione si blocchi. Lo stesso problema può verificarsi con il servizio Failover Manager Master (FMM). FMM è un servizio di sistema senza stato che tiene traccia della posizione in cui si trovano tutte le istanze del servizio FM nel cluster. Il servizio FMM principale corrisponde sempre al nodo con l'ID più prossimo allo zero. In caso di rilascio del nodo, viene attivata una ricompilazione.
 Quando si verifica una delle condizioni precedenti, **System.FM** o **System.FMM** contrassegna tale condizione tramite un report degli errori. La ricompilazione può rimanere bloccata in una delle due fasi seguenti:
@@ -639,30 +638,30 @@ HealthEvents          :
 
 La proprietà e il testo indicano quale API è rimasta bloccata. I passaggi successivi da eseguire per le diverse API bloccate variano. Qualsiasi API in *IStatefulServiceReplica* o *IStatelessServiceInstance* è in genere un bug nel codice del servizio. Nella sezione seguente vengono descritte le modalità di conversione nel [modello di Reliable Services](service-fabric-reliable-services-lifecycle.md):
 
-- **IStatefulServiceReplica. Open**: questo avviso indica che una chiamata a `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`o, se sottoposta `OnOpenAsync` a override, è bloccata.
+- **IStatefulServiceReplica. Open**: questo avviso indica che una chiamata a `CreateServiceInstanceListeners` , `ICommunicationListener.OpenAsync` o, se sottoposta a override, `OnOpenAsync` è bloccata.
 
 - **IStatefulServiceReplica.Close** e **IStatefulServiceReplica.Abort**: il caso più comune è un servizio che non rispetta il token di annullamento passato a `RunAsync`. È anche possibile che `ICommunicationListener.CloseAsync` o, se ignorato, `OnCloseAsync` sia bloccato.
 
 - **IStatefulServiceReplica.ChangeRole(S)** e **IStatefulServiceReplica.ChangeRole(N)**: il caso più comune è un servizio che non rispetta il token di annullamento passato a `RunAsync`. In questo scenario, la soluzione migliore consiste nel riavviare la replica.
 
-- **IStatefulServiceReplica. ChangeRole (P)**: il caso più comune è che il servizio non ha restituito un'attività da `RunAsync`.
+- **IStatefulServiceReplica. ChangeRole (P)**: il caso più comune è che il servizio non ha restituito un'attività da `RunAsync` .
 
 Altre chiamate API che possono rimanere bloccate si trovano nell'interfaccia **IReplicator** . Ad esempio:
 
 - **IReplicator.CatchupReplicaSet**: questo avviso indica una di due situazioni. Le repliche attive sono insufficienti. Per appurare se questo è il caso, esaminare lo stato delle repliche nella partizione o il rapporto di stato di System.FM per una riconfigurazione bloccata. oppure le repliche non riconoscono le operazioni. È possibile usare il cmdlet `Get-ServiceFabricDeployedReplicaDetail` di PowerShell per determinare lo stato di tutte le repliche. Il problema è relativo alle repliche il cui valore `LastAppliedReplicationSequenceNumber` è successivo al valore `CommittedSequenceNumber` della replica primaria.
 
-- **IReplicator. BuildReplica (\<Remote replicaId>)**: questo avviso indica un problema nel processo di compilazione. Per altre informazioni, vedere [Ciclo di vita della replica](service-fabric-concepts-replica-lifecycle.md). La causa del problema potrebbe essere un'errata configurazione dell'indirizzo del replicatore. Per altre informazioni, vedere [Configurazione di servizi Reliable Services con stato](service-fabric-reliable-services-configuration.md) e [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md). Potrebbe anche trattarsi di un problema del nodo remoto.
+- **IReplicator.BuildReplica(\<Remote ReplicaId>)**: questo avviso indica un problema nel processo di compilazione. Per altre informazioni, vedere [Ciclo di vita della replica](service-fabric-concepts-replica-lifecycle.md). La causa del problema potrebbe essere un'errata configurazione dell'indirizzo del replicatore. Per altre informazioni, vedere [Configurazione di servizi Reliable Services con stato](service-fabric-reliable-services-configuration.md) e [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md). Potrebbe anche trattarsi di un problema del nodo remoto.
 
 ### <a name="replicator-system-health-reports"></a>Report sull'integrità del sistema replicatore
-**Coda di replica completa:**
-**System. Replicator** segnala un avviso quando la coda di replica è piena. Nel server primario la coda di replica in genere si riempie perché una o più repliche secondarie sono lente nel riconoscere le operazioni. Nel server secondario ciò si verifica di solito quando il servizio è lento nell'applicare le operazioni. La condizione di avviso viene cancellata quando la coda non è più piena.
+**Coda di replica piena:** 
+ **System. Replicator** segnala un avviso quando la coda di replica è piena. Nel server primario la coda di replica in genere si riempie perché una o più repliche secondarie sono lente nel riconoscere le operazioni. Nel server secondario ciò si verifica di solito quando il servizio è lento nell'applicare le operazioni. La condizione di avviso viene cancellata quando la coda non è più piena.
 
 * **SourceId**: System.Replicator
 * **Proprietà**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo della replica.
 * **Passaggi successivi**: se il report è nel server primario, controllare la connessione tra i nodi del cluster. Se tutte le connessioni sono integre, potrebbe esserci almeno una replica secondaria lenta con una latenza del disco elevata nell'applicare le operazioni. Se il report è nella replica secondaria, verificare innanzitutto l'utilizzo del disco e le prestazioni nel nodo. Controllare quindi la connessione in uscita dal nodo lento alla replica primaria.
 
-**RemoteReplicatorConnectionStatus:**
-**System. Replicator** nella replica primaria segnala un avviso quando la connessione a un replicatore secondario (remoto) non è integra. L'indirizzo del replicatore remoto viene visualizzato nel messaggio del report, rendendo più semplice rilevare se è stata passata una configurazione errata o se sono presenti problemi di rete tra i replicatori.
+**RemoteReplicatorConnectionStatus:** 
+ **System. Replicator** sulla replica primaria segnala un avviso quando la connessione a un replicatore secondario (remoto) non è integra. L'indirizzo del replicatore remoto viene visualizzato nel messaggio del report, rendendo più semplice rilevare se è stata passata una configurazione errata o se sono presenti problemi di rete tra i replicatori.
 
 * **SourceId**: System.Replicator
 * **Property**: **RemoteReplicatorConnectionStatus**.
@@ -738,7 +737,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>Report sull'integrità del sistema DeployedApplication
 **System.Hosting** è l'autorità per le entità distribuite.
 
-### <a name="activation"></a>Attivazione
+### <a name="activation"></a>Activation
 System.Hosting restituisce OK quando un'applicazione viene attivata correttamente nel nodo. In caso contrario, restituisce un errore.
 
 * **SourceId**: System.Hosting
@@ -773,7 +772,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Download
+### <a name="download"></a>Scarica
 System.Hosting segnala un errore se il download del pacchetto dell'applicazione non è riuscito.
 
 * **SourceId**: System.Hosting
@@ -851,7 +850,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Download
+### <a name="download"></a>Scarica
 System.Hosting segnala un errore se il download del pacchetto servizio non è riuscito.
 
 * **SourceId**: System.Hosting

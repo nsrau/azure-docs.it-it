@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710678"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
 
@@ -119,7 +118,7 @@ Preparare un server DNS per il failover di test come segue:
 
 Questa procedura descrive come eseguire un failover di test per un piano di ripristino. In alternativa, è possibile eseguire il failover per una singola macchina virtuale nella scheda **macchine virtuali** .
 
-1. Selezionare i **piani** > di ripristino*recoveryplan_name*.  > Fare **clic su failover di****test**failover.
+1. Selezionare i **piani di ripristino**  >  *recoveryplan_name*. Fare **clic su failover di**  >  **test**failover.
 2. Nel pannello **Failover di test** specificare come le macchine virtuali di replica devono essere connesse alle reti dopo il failover di test.
 3. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi** .
 4. Dopo il completamento del failover verificare che le macchine virtuali vengano avviate correttamente.

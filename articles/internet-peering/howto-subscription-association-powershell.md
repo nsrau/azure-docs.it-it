@@ -5,19 +5,18 @@ description: Associare l'ASN peer alla sottoscrizione di Azure tramite PowerShel
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c0ad9ae885a458da5df8975d5d13018fd92bbdaf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75908993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710780"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associare l'ASN peer alla sottoscrizione di Azure tramite PowerShell
 
-Prima di inviare una richiesta di peering, è necessario associare l'ASN alla sottoscrizione di Azure seguendo questa procedura.
+Prima di inviare una richiesta di peering, è necessario associare l'ASN alla sottoscrizione di Azure seguendo la procedura descritta.
 
 Se si preferisce, è possibile completare questa guida usando il [portale](howto-subscription-association-portal.md).
 
@@ -29,7 +28,7 @@ Se si preferisce, è possibile completare questa guida usando il [portale](howto
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Accedere al proprio account Azure e selezionare la sottoscrizione
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="register-for-peering-resource-provider"></a>Registra per provider di risorse di peering
+### <a name="register-for-peering-resource-provider"></a>Eseguire la registrazione per il provider di risorse di peering
 Eseguire la registrazione per il provider di risorse di peering nella sottoscrizione usando il comando seguente. Se non si esegue questa operazione, le risorse di Azure necessarie per configurare il peering non sono accessibili.
 
 ```powershell
@@ -86,9 +85,9 @@ Type            : Microsoft.Peering/peerAsns
 ```
 
 > [!IMPORTANT]
-> Attendere che il ValidationState "Approved" prima di inviare una richiesta di peering. L'approvazione può richiedere fino a 12 ore.
+> Attendere che lo stato di convalida sia "Approvato" prima di inviare una richiesta di peering. L'approvazione può richiedere fino a 12 ore.
 
-## <a name="modify-peerasn"></a>Modificare Peerasn sugli
+## <a name="modify-peerasn"></a>Modificare l'oggetto PeerAsn
 È possibile modificare le informazioni di contatto del NOC in qualsiasi momento.
 
 Di seguito è riportato un esempio:
@@ -97,7 +96,7 @@ Di seguito è riportato un esempio:
 Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
-## <a name="delete-peerasn"></a>Elimina Peerasn sugli
+## <a name="delete-peerasn"></a>Eliminare un oggetto PeerAsn
 L'eliminazione di un Peerasn sugli non è attualmente supportata. Se è necessario eliminare Peerasn sugli, contattare il [peering Microsoft](mailto:peering@microsoft.com).
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -109,4 +108,4 @@ L'eliminazione di un Peerasn sugli non è attualmente supportata. Se è necessar
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-Per altre informazioni, vedere [domande frequenti sul peering Internet](faqs.md)
+Per altre informazioni, vedere [Domande frequenti sul peering Internet](faqs.md)

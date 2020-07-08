@@ -6,20 +6,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 06/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: e7351e2f39c7e4eed84f4a47e3eeb2214a062a94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e92b0679111a6d5c6173da04c5061c95956125b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322953"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configurare cluster HDInsight con un database Ambari personalizzato
 
 Apache Ambari semplifica la gestione e il monitoraggio di un cluster Apache Hadoop. Ambari offre un'interfaccia utente Web e un'API REST di facile utilizzo. Ambari è incluso nei cluster HDInsight e viene usato per monitorare il cluster e apportare modifiche alla configurazione.
 
-Nella normale creazione del cluster, come descritto in altri articoli come la [configurazione di cluster in HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari viene distribuito in un [database SQL di Azure S0](../sql-database/sql-database-dtu-resource-limits-single-databases.md#standard-service-tier) gestito da HDInsight e non è accessibile agli utenti.
+Nella normale creazione del cluster, come descritto in altri articoli come la [configurazione di cluster in HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari viene distribuito in un [database SQL di Azure S0](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) gestito da HDInsight e non è accessibile agli utenti.
 
 La funzionalità Custom Ambari DB consente di distribuire un nuovo cluster e di configurare Ambari in un database esterno gestito. La distribuzione viene eseguita con un modello di Azure Resource Manager. Questa funzionalità offre i vantaggi seguenti:
 
@@ -38,16 +37,17 @@ Nella parte restante di questo articolo vengono illustrati gli aspetti seguenti:
 
 Il database Ambari personalizzato presenta gli altri requisiti seguenti:
 
+- Il nome del database non può contenere trattini o spazi
 - È necessario disporre di un server e un database SQL di Azure esistenti.
 - Il database specificato per l'installazione di Ambari deve essere vuoto. Nello schema dbo predefinito non devono essere presenti tabelle.
 - L'utente utilizzato per la connessione al database deve disporre di autorizzazioni SELECT, CREATE TABLE e INSERT per il database.
-- Attivare l'opzione per [consentire l'accesso ai servizi di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#azure-portal-steps) nel server SQL di Azure in cui si ospiterà Ambari.
-- Gli indirizzi IP di gestione del servizio HDInsight devono essere consentiti nella SQL Server. Per un elenco degli indirizzi IP che devono essere aggiunti al firewall di SQL Server, vedere [indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md) .
+- Attivare l'opzione per [consentire l'accesso ai servizi di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#azure-portal-steps) nel server in cui sarà ospitato Ambari.
+- Gli indirizzi IP di gestione del servizio HDInsight devono essere consentiti nella regola del firewall. Per un elenco degli indirizzi IP che devono essere aggiunti alla regola del firewall a livello di server, vedere [indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md) .
 
 Quando si ospita il database Apache Ambari in un database esterno, tenere presente quanto segue:
 
 - L'utente è responsabile per i costi aggiuntivi del database SQL di Azure che include Ambari.
-- Eseguire periodicamente il backup del database Ambari personalizzato. Il database SQL di Azure genera automaticamente i backup, ma il periodo di conservazione dei backup varia. Per altre informazioni, vedere [Informazioni sui backup automatici del database SQL](../sql-database/sql-database-automated-backups.md).
+- Eseguire periodicamente il backup del database Ambari personalizzato. Il database SQL di Azure genera automaticamente i backup, ma il periodo di conservazione dei backup varia. Per altre informazioni, vedere [Informazioni sui backup automatici del database SQL](../azure-sql/database/automated-backups-overview.md).
 
 ## <a name="deploy-clusters-with-a-custom-ambari-db"></a>Distribuire i cluster con un database Ambari personalizzato
 

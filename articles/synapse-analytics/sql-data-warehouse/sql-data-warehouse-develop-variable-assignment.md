@@ -6,17 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0cbadc10fb817c70bd259397c840aae68abc2d54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213330"
 ---
 # <a name="assign-variables-in-synapse-sql-pool"></a>Assegnare variabili nel pool SQL sinapsi
 
@@ -24,7 +23,7 @@ In questo articolo sono disponibili suggerimenti essenziali per l'assegnazione d
 
 ## <a name="set-variables-with-declare"></a>Imposta variabili con dichiara
 
-Le variabili nel pool SQL vengono impostate tramite `DECLARE` l'istruzione o `SET` l'istruzione. L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore di variabile nel pool SQL.
+Le variabili nel pool SQL vengono impostate tramite l' `DECLARE` istruzione o l' `SET` istruzione. L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore di variabile nel pool SQL.
 
 ```sql
 DECLARE @v  int = 0

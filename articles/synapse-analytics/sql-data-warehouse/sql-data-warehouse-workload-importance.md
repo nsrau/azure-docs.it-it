@@ -6,23 +6,22 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43ee14784b6049e9b5c1a78e733e72bbc45f915d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212344"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importanza del carico di lavoro di analisi sinapsi di Azure
 
 Questo articolo illustra in che modo l'importanza del carico di lavoro può influenzare l'ordine di esecuzione per le richieste del pool SQL sinapsi in sinapsi di Azure.
 
-## <a name="importance"></a>priorità
+## <a name="importance"></a>Importanza
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
@@ -63,7 +62,7 @@ Poiché Q5 è mediumrc, richiede due slot di concorrenza. Q5 deve attendere il c
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per ulteriori informazioni sulla creazione di un classificatore, vedere la pagina relativa alla creazione di un [classificatore del carico di lavoro (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
-- Per ulteriori informazioni sulla classificazione del carico di lavoro, vedere [classificazione dei carichi di lavoro](sql-data-warehouse-workload-classification.md).  
+- Per altre informazioni sulla classificazione del carico di lavoro, vedere [Classificazione del carico di lavoro](sql-data-warehouse-workload-classification.md).  
 - Per informazioni su come creare un classificatore del carico di lavoro, vedere la Guida introduttiva [creare un classificatore](quickstart-create-a-workload-classifier-tsql.md) .
 - Vedere gli articoli sulle procedure per [configurare la priorità del carico di lavoro](sql-data-warehouse-how-to-configure-workload-importance.md) e per [gestire e monitorare la priorità del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per visualizzare le query e la loro priorità.

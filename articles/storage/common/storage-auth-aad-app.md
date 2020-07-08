@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: ddb079051414168b125ce2e42e8badd55580f0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201081"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212625"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
 
@@ -38,7 +37,7 @@ Per registrare l'applicazione di archiviazione di Azure, seguire i passaggi illu
 ![Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
 > [!NOTE]
-> Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido come **URI di reindirizzamento**. Per le applicazioni native, questo valore non deve essere un URL reale. Per le applicazioni Web, l'URI di reindirizzamento deve essere un URI valido perché specifica l'URL a cui vengono forniti i token.
+> Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido per l' **URI di reindirizzamento**. Per le applicazioni native, questo valore non deve essere un URL reale. Per le applicazioni Web, l'URI di reindirizzamento deve essere un URI valido perché specifica l'URL a cui vengono forniti i token.
 
 Al termine della registrazione dell'applicazione, verrà visualizzato l'ID applicazione (o ID client) in **Impostazioni**:
 
@@ -58,7 +57,7 @@ Successivamente, concedere all'applicazione le autorizzazioni per chiamare le AP
 
     ![Screenshot che mostra le autorizzazioni per l'archiviazione](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-Il riquadro **autorizzazioni API** Mostra ora che l'applicazione Azure ad registrata ha accesso sia al Microsoft Graph che all'archiviazione di Azure. Le autorizzazioni vengono concesse per Microsoft Graph automaticamente alla prima registrazione dell'app con Azure AD.
+Il riquadro **autorizzazioni API** Mostra ora che l'applicazione Azure ad registrata ha accesso alle API di archiviazione di Azure e Microsoft Graph. Le autorizzazioni vengono automaticamente concesse a Microsoft Graph quando si registra l'app per la prima volta in Azure AD.
 
 ![Screenshot che mostra le autorizzazioni dell'app register](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
@@ -213,7 +212,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that MSAL.NET needs for the token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
     properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
                                                  scopes.Union(additionalBuildInScopes).ToList());
@@ -245,7 +244,7 @@ Per eseguire l'applicazione di esempio, clonarla o scaricarla da [GitHub](https:
 
 ### <a name="provide-values-in-the-settings-file"></a>Specificare i valori nel file di impostazioni
 
-Aggiornare quindi il file *appSettings. JSON* con i propri valori, come indicato di seguito:
+Aggiornare quindi il *appsettings.jssu* file con i propri valori, come indicato di seguito:
 
 ```json
 {
@@ -281,11 +280,11 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>Abilita flusso di concessione implicita
 
-Per eseguire l'esempio, potrebbe essere necessario configurare il flusso di concessione implicita per la registrazione dell'app. A tale scopo, seguire questa procedura:
+Per eseguire l'esempio, potrebbe essere necessario configurare il flusso di concessione implicita per la registrazione dell'app. Attenersi ai passaggi descritti di seguito.
 
 1. Passare alla registrazione dell'app nel portale di Azure.
-1. Nella sezione Gestisci selezionare l'impostazione di **autenticazione** .
-1. In **Impostazioni avanzate**, nella sezione **concessione implicita** Selezionare le caselle di controllo per abilitare i token di accesso e i token ID, come illustrato nell'immagine seguente:
+1. Nella sezione **Gestisci** selezionare l'impostazione di **autenticazione** .
+1. Nella sezione **Grant implicite** selezionare la casella di controllo per abilitare i token ID, come illustrato nell'immagine seguente:
 
     ![Screenshot che illustra come abilitare le impostazioni per il flusso di concessione implicito](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
 
@@ -294,13 +293,13 @@ Per eseguire l'esempio, potrebbe essere necessario configurare il flusso di conc
 Quando si esegue l'esempio, potrebbe essere necessario aggiornare l'URI di reindirizzamento specificato nella registrazione dell'app per usare la porta *localhost* assegnata in fase di esecuzione. Per aggiornare l'URI di reindirizzamento per l'utilizzo della porta assegnata, attenersi alla seguente procedura:
 
 1. Passare alla registrazione dell'app nel portale di Azure.
-1. Nella sezione Gestisci selezionare l'impostazione di **autenticazione** .
+1. Nella sezione **Gestisci** selezionare l'impostazione di **autenticazione** .
 1. In **URI di reindirizzamento**modificare la porta in modo che corrisponda a quella usata dall'applicazione di esempio, come illustrato nell'immagine seguente:
 
     ![Screenshot che Mostra gli URI di reindirizzamento per la registrazione dell'app](media/storage-auth-aad-app/redirect-uri.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni sulla piattaforma di identità Microsoft, vedere la pagina relativa alla [piattaforma delle identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
-- Per altre informazioni sui ruoli RBAC per archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
-- Per informazioni sull'uso delle identità gestite per le risorse di Azure con archiviazione di Azure, vedere [autenticare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md).
+- [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Gestione dei diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md)
+- [Autenticare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md)

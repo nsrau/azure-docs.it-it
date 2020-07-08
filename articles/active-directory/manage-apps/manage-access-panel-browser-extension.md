@@ -3,25 +3,23 @@ title: Risolvere i problemi relativi all'estensione del pannello di accesso di A
 description: Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0269c87572e2a9242a54491103ae0fcc3637518
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 16abfbeacd972ee8b0ab55f09945e687c95f0093
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67723914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763262"
 ---
 # <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Risolvere i problemi relativi all'estensione del pannello di accesso per Internet Explorer
 
@@ -40,7 +38,7 @@ Per scaricare e installare lo strumento di diagnostica:
 
 1. [Selezionare questo collegamento per scaricare lo strumento di diagnostica.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 1. Aprire il file ed estrarre il contenuto nel computer.
-1. Per eseguire lo strumento, fare clic con il pulsante destro del mouse sul file denominato *AccessPanelExtensionDiagnosticTool. js* e scegliere **Apri con** > l'**host di script basato su Microsoft Windows**.
+1. Per eseguire lo strumento, fare clic con il pulsante destro del mouse sul file denominato *AccessPanelExtensionDiagnosticTool.js* e scegliere **Apri con**  >  **Windows script host basato su Microsoft Windows**.
 
     ![Apri con > Microsoft Windows Based Script Host](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
 

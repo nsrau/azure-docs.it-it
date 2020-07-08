@@ -5,17 +5,16 @@ description: Informazioni su come usare un modello di Azure Resource Manager per
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 05/19/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: eae10b7ae8cd14fd120e969c39c05a8ba2525003
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 39c694f4e2afbf5d781a8fde43a7db9c4a255466
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392668"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -65,7 +64,7 @@ Il modello di esempio ha due parametri:
 > [!TIP]
 > Sebbene il modello associato a questo documento crei un nuovo Registro Container di Azure, è possibile creare una nuova area di lavoro anche senza creare il registro contenitori. Ne verrà creato uno quando si eseguirà un'operazione che lo richiederà, ad esempio quando si addestrerà o si distribuirà un modello.
 >
-> È anche possibile fare riferimento a un registro contenitori o a un account di archiviazione esistente nel modello di Azure Resource Manager, invece di crearne uno nuovo.
+> È anche possibile fare riferimento a un registro contenitori o a un account di archiviazione esistente nel modello di Azure Resource Manager, invece di crearne uno nuovo. Tuttavia, nel registro contenitori usato deve essere abilitato l' __account amministratore__ . Per informazioni sull'abilitazione dell'account amministratore, vedere [account amministratore](/azure/container-registry/container-registry-authentication#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 

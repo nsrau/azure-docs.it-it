@@ -3,25 +3,24 @@ title: Disabilitare gli accessi utente per un'app aziendale in Azure AD
 description: Come disabilitare un'applicazione aziendale in modo che gli utenti non possano accedervi in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10553898376c4b9236ee62718fffccd45b12d70b
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 4c6fc9a4716f1427257b3bbf18e5fa653567e141
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763381"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory
 
@@ -31,10 +30,10 @@ ms.locfileid: "74274098"
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale per la directory.
 1. Selezionare **tutti i servizi**, immettere **Azure Active Directory** nella casella di testo e quindi premere **invio**.
-1. Nel riquadro **Azure Active Directory** -  ***DirectoryName*** , ovvero il riquadro Azure ad per la directory che si sta gestendo, selezionare **applicazioni aziendali**.
+1. Nel riquadro **Azure Active Directory**  -   ***DirectoryName*** , ovvero il riquadro Azure ad per la directory che si sta gestendo, selezionare **applicazioni aziendali**.
 1. Nel riquadro **applicazioni aziendali-tutte le applicazioni** viene visualizzato un elenco delle app che è possibile gestire. Selezionare un'app.
 1. Nel riquadro ***nomeapp***, vale a dire il riquadro con il nome dell'app selezionata nel titolo, selezionare **Proprietà**.
-1. Nel riquadro ***appname*** - **proprietà** AppName selezionare **No** per **abilitata per l'accesso degli utenti?**.
+1. Nel riquadro ***appname***  -  **proprietà** AppName selezionare **No** per **abilitata per l'accesso degli utenti?**.
 1. Selezionare il comando **Salva** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Usare Azure AD PowerShell per disabilitare un'app non in elenco

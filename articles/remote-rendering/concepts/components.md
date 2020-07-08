@@ -5,18 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 42efc1395fee28a3854420f15c2ad08b301cc1f7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: bd2a6e16d34bf6c5b59ce7fa5c99975d44947770
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021671"
 ---
 # <a name="components"></a>Componenti
 
 Il rendering remoto di Azure usa il modello di [Sistema componente entità](https://en.wikipedia.org/wiki/Entity_component_system). Mentre le [entità](entities.md) rappresentano la posizione e la composizione gerarchica degli oggetti, i componenti sono responsabili dell'implementazione del comportamento.
 
-I tipi di componenti usati più di frequente sono i [componenti mesh](meshes.md), che aggiungono mesh alla pipeline di rendering. Analogamente, vengono usati [componenti luminosi](../overview/features/lights.md) per aggiungere un'illuminazione e [componenti del piano di taglio](../overview/features/cut-planes.md), per tagliare le mesh aperte.
+I tipi di componenti usati più di frequente sono [:::no-loc text="mesh components":::](meshes.md) , che aggiungono mesh alla pipeline di rendering. Analogamente, vengono usati [componenti luminosi](../overview/features/lights.md) per aggiungere un'illuminazione e [componenti del piano di taglio](../overview/features/cut-planes.md), per tagliare le mesh aperte.
 
 Tutti questi componenti usano come punto di riferimento la trasformazione (posizione, rotazione, scala) dell'entità a cui sono collegati.
 

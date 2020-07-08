@@ -3,21 +3,20 @@ title: Associare l'ASN peer alla sottoscrizione di Azure con il portale
 titleSuffix: Azure
 description: Associare l'ASN peer alla sottoscrizione di Azure con il portale
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
-ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 5/18/2020
+ms.author: derekol
+ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710848"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associare l'ASN peer alla sottoscrizione di Azure con il portale
 
-Prima di inviare una richiesta di peering, è necessario associare l'ASN alla sottoscrizione di Azure seguendo la procedura descritta.
+In qualità di provider di servizi Internet o provider di Internet Exchange, prima di inviare una richiesta di peering, è necessario associare l'ASN a una sottoscrizione di Azure seguendo questa procedura.
 
 Se si preferisce, è possibile completare questa guida usando [PowerShell](howto-subscription-association-powershell.md).
 
@@ -55,8 +54,7 @@ Eseguire la registrazione per il provider di risorse di peering nella sottoscriz
     > ![Registrazione completata](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Creare un oggetto PeerAsn
-Un provider di servizi Internet o un provider Internet Exchange può creare una nuova risorsa PeerAsn per associare un ASN (Autonomous System Number, Numero sistema autonomo) a una sottoscrizione di Azure. È possibile associare più ASN a una sottoscrizione passando alla [pagina di associazione di un oggetto PeerASN](https://go.microsoft.com/fwlink/?linkid=2129592) per ogni ASN da associare.
-
+In qualità di provider di servizi Internet o provider di Internet Exchange, è possibile creare una nuova risorsa Peerasn sugli per l'associazione di un numero di sistema autonomo (ASN) con la sottoscrizione di Azure nella [pagina associare un ASN peer](https://go.microsoft.com/fwlink/?linkid=2129592) . È possibile associare più ASN a una sottoscrizione creando un **peerasn sugli** per ogni ASN che è necessario associare.
 
 1. Nella pagina **Associate a Peer ASN** (Associa un ASN peer), nella scheda **Informazioni di base** compilare i campi come illustrato di seguito.
 

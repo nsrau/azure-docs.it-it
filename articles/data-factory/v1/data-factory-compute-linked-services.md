@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281548"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022011"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 > [!NOTE]
@@ -30,8 +29,8 @@ La tabella seguente presenta un elenco degli ambienti di calcolo supportati da D
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight di Azure on demand](#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |
-| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Data Lake Analytics.](#azure-data-lake-analytics-linked-service) | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Attività stored procedure](data-factory-stored-proc-activity.md) |
 
 ## <a name="hdinsight-versions-supported-in-data-factory"></a><a name="supported-hdinsight-versions-in-azure-data-factory"></a>Versioni di HDInsight supportate in Data Factory
@@ -49,7 +48,7 @@ Microsoft aggiorna l'elenco delle versioni di HDInsight supportate con i compone
 Dopo il 15 dicembre 2017:
 
 - Non è più possibile creare cluster HDInsight versione 3.3 (o versioni precedenti) per Linux usando un servizio collegato HDInsight on demand di Data Factory versione 1. 
-- Se le proprietà [**osType** e **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) non vengono specificate esplicitamente nella definizione JSON per un servizio collegato HDInsight esistente su richiesta di Data Factory versione 1, il valore predefinito viene modificato da **Version=3.1, osType=Windows** in **Version=\<ultima versione HDI predefinita\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType=Linux**.
+- Se le [proprietà **OsType** e **Version** ](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) non vengono specificate in modo esplicito nella definizione JSON per un servizio collegato HDInsight on demand esistente data factory versione 1, il valore predefinito viene modificato da **Version = 3.1, osType = Windows** a **version = \<latest HDI default version\> ( https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) , osType = Linux**.
 
 Dopo il 31 luglio 2018:
 
@@ -213,7 +212,7 @@ Per creare nodi head e nodi del ruolo di lavoro di dimensioni D4, specificare **
 
 Se si imposta un valore non corretto per queste proprietà, è possibile che venga visualizzato il messaggio seguente:
 
-  Non è stato possibile creare il cluster. Eccezione: impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Nello stato del cluster è apparso il messaggio 'Errore'. Messaggio: ’PreClusterCreationValidationFailure’. 
+  Non è stato possibile creare il cluster. Eccezione: Impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Il cluster ha restituito lo stato: "Errore". Messaggio: "PreClusterCreationValidationFailure". 
   
 Se questo messaggio viene visualizzato, assicurarsi di usare i nomi di cmdlet e API indicati nella tabella in [Dimensioni delle macchine virtuali](../../virtual-machines/linux/sizes.md).  
 
@@ -259,7 +258,7 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Impostare la proprietà type su **HDInsight**. | Sì      |
 | clusterUri        | L'URI del cluster HDInsight.        | Sì      |
-| nomeutente          | Nome dell'account utente da usare per connettersi a un cluster HDInsight esistente. | Sì      |
+| username          | Nome dell'account utente da usare per connettersi a un cluster HDInsight esistente. | Sì      |
 | password          | La password per l'account utente.   | Sì      |
 | linkedServiceName | Nome del servizio collegato di archiviazione che fa riferimento all'archivio BLOB usato dal cluster HDInsight. <p>Attualmente non è possibile specificare un servizio collegato Data Lake Store per questa proprietà. Se il cluster HDInsight ha accesso a Data Lake Store, è possibile accedere ai dati in Data Lake Store da script Hive o Pig. </p> | Sì      |
 
@@ -268,7 +267,7 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 
 Se non si ha familiarità con l'uso del servizio Batch:
 
-* Vedere [Informazioni su Azure Batch](../../batch/batch-technical-overview.md).
+* Vedere [Informazioni su Azure Batch](../../azure-sql/database/sql-database-paas-overview.md).
 * Vedere le informazioni sul cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Usare questo cmdlet per creare un account Batch oppure creare l'account Batch usando il [portale di Azure](../../batch/batch-account-create-portal.md). Per informazioni dettagliate sull'uso del cmdlet, vedere [Using PowerShell to manage a Batch account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) (Uso di PowerShell per gestire un account Batch).
 * Vedere le informazioni sul cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx). Usare questo cmdlet per creare un pool di Batch.
 
@@ -289,7 +288,7 @@ Se non si ha familiarità con l'uso del servizio Batch:
 }
 ```
 
-Per la proprietà **accountName**, aggiungere **.\<nome area\>** al nome dell'account Batch. Ad esempio:
+Per la proprietà **AccountName** , aggiungere **. \<region name\> ** al nome dell'account batch. Ad esempio:
 
 ```json
 "accountName": "mybatchaccount.eastus"
@@ -366,7 +365,7 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 | servicePrincipalKey | Chiave dell'applicazione.           | Sì      |
 | tenant              | Informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Per ottenere queste informazioni, passare il puntatore del mouse sull'angolo superiore destro del portale di Azure. | Sì      |
 
-**Esempio: autenticazione basata su entità servizio**
+**Esempio: autenticazione di un'entità servizio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",

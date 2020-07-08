@@ -11,12 +11,11 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0feab5c4c03ddce6fb4df2395316484bf35bae81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336863"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -98,7 +97,7 @@ Di seguito è riportata una guida per la configurazione di una versione di Azure
 
     ![Visualizzazione dei passaggi](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Creare una nuova attività. Cercare **Distribuzione gruppo di risorse di Azure** e selezionare **Aggiungi**.
+    b.  Creare una nuova attività. Cercare la **distribuzione del modello ARM**e quindi selezionare **Aggiungi**.
 
     c.  Nell'attività Distribuzione scegliere la sottoscrizione, il gruppo di risorse e la posizione per la data factory di destinazione. Fornire le credenziali, se necessario.
 
@@ -361,6 +360,14 @@ Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se
                         "value": "-::secureString"
                     },
                     "resourceId": "="
+                },
+                "computeProperties": {
+                    "dataFlowProperties": {
+                        "externalComputeInfo": [{
+                                "accessToken": "-::secureString"
+                            }
+                        ]
+                    }
                 }
             }
         }
@@ -395,6 +402,7 @@ Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se
                     "accessKeyId": "=",
                     "servicePrincipalId": "=",
                     "userId": "=",
+                    "host": "=",
                     "clientId": "=",
                     "clusterUserName": "=",
                     "clusterSshUserName": "=",
@@ -413,7 +421,11 @@ Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
+                    "environmentUrl": "=",
                     "aadResourceId": "=",
+                    "sasUri": "|:-sasUri:secureString",
+                    "sasToken": "|",
                     "connectionString": "|:-connectionString:secureString"
                 }
             }
@@ -570,27 +582,7 @@ Ricordarsi di aggiungere gli script di Data Factory nella pipeline CI/CD prima e
 
 Se Git non è stato configurato, è possibile accedere ai modelli collegati tramite **Esporta modello ARM** nell'elenco **Modello ARM**.
 
-## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Escludere i runtime di integrazione SSIS di Azure da CI/CD
-
-Se la factory di sviluppo dispone di Azure-SSIS Integration Runtime, è possibile escludere tutti i runtime di integrazione SSIS di Azure dal processo CI/CD nello scenario seguente:
-
-- L'infrastruttura di Azure-SSIS IR è complessa e varia in ogni ambiente.  
-- Azure-SSIS IR viene configurato manualmente per ogni ambiente con lo stesso nome. In caso contrario, la pubblicazione avrà esito negativo se sono presenti attività che dipendono da Azure-SSIS IR.
-
-Per escludere Azure-SSIS Integration Runtime:
-
-1. Aggiungere un file publish_config.json alla cartella radice nel ramo di collaborazione, se non è presente.
-1. Aggiungere l'impostazione seguente a publish_config.json: 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-Quando si esegue la pubblicazione dal ramo di collaborazione, i runtime di integrazione SSIS di Azure verranno esclusi dal modello di Resource Manager generato.
-
-## <a name="hotfix-production-branch"></a>Hotfix del ramo di produzione
+## <a name="hotfix-production-environment"></a>Ambiente di produzione hotfix
 
 Se si distribuisce una factory in produzione e si nota che è presente un bug che deve essere corretto immediatamente, ma non è possibile distribuire il ramo di collaborazione corrente, potrebbe essere necessario distribuire un hotfix. Questo approccio è noto come QFE (Quick Fix Engineering).
 
@@ -631,7 +623,7 @@ Se si usa l'integrazione di Git con la data factory e si dispone di una pipeline
 - Per progettazione, Data Factory non consente il cherry-pick di commit o la pubblicazione selettiva delle risorse. Le pubblicazioni includeranno tutte le modifiche apportate nella data factory.
 
     - Le entità della data factory dipendono l'una dall'altra. Ad esempio, i trigger dipendono dalle pipeline, le pipeline dipendono dai set di dati e da altre pipeline. La pubblicazione selettiva di un subset di risorse può causare comportamenti imprevisti ed errori.
-    - Nei rari casi in cui è necessaria la pubblicazione selettiva, provare a usare un hotfix. Per altre informazioni, vedere [Ramo di produzione hotfix](#hotfix-production-branch).
+    - Nei rari casi in cui è necessaria la pubblicazione selettiva, provare a usare un hotfix. Per ulteriori informazioni, vedere [ambiente di produzione hotfix](#hotfix-production-environment).
 
 -   Non è possibile pubblicare da rami privati.
 
@@ -734,8 +726,10 @@ function triggerSortUtil {
         return;
     }
     $visited[$trigger.Name] = $true;
-    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
-        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    if ($trigger.Properties.DependsOn) {
+        $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+            triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+        }
     }
     $sortedList.Push($trigger)
 }

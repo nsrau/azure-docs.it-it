@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ms.openlocfilehash: 5ae9190213f753f8b9440ced52e4d04626af13f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732989"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for Eclipse per creare applicazioni Apache Spark per un cluster HDInsight
@@ -45,21 +44,21 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
 
 ### <a name="confirm-plug-ins"></a>Conferma plug-in
 
-1. Passare a **Help** > **Eclipse Marketplace...**.
+1. Passare a **Help**  >  **Eclipse Marketplace...**.
 
 1. Selezionare la scheda **Installati**.
 
 1. Dovrebbe essere visualizzato almeno:
-    * Azure Toolkit for Eclipse \<versione>.
-    * Versione IDE \<scala>.
+    * Azure Toolkit for Eclipse \<version> .
+    * IDE scala \<version> .
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure.
 
 1. Avviare l'IDE di Eclipse.
 
-1. Passa a **finestra** >  **Mostra** > **altro...**  >  **Accedi..**.
+1. Passa a **finestra**  >   **Mostra**  >  **altro...**  >  **Accedi..**.
 
-1. Nella finestra di dialogo **Mostra visualizzazione** passare ad **Azure** > **Azure Explorer**e quindi selezionare **Apri**.
+1. Nella finestra di dialogo **Mostra visualizzazione** passare ad **Azure**  >  **Azure Explorer**e quindi selezionare **Apri**.
 
    ![Visualizzazione di Apache Spark Eclipse](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
 
@@ -73,7 +72,7 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
 
    ![Finestra di dialogo Selezionare le sottoscrizioni](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 
-1. Da **Azure Explorer**passare ad **Azure** >  **HDInsight** per visualizzare i cluster HDInsight Spark nella sottoscrizione.
+1. Da **Azure Explorer**passare ad **Azure**  >   **HDInsight** per visualizzare i cluster HDInsight Spark nella sottoscrizione.
 
    ![Cluster HDInsight Spark in Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer3.png)
 
@@ -109,9 +108,9 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Configurare un progetto Spark in Scala per un cluster HDInsight Spark
 
-1. Dall'area di lavoro IDE di Eclipse selezionare **file** > **nuovo** > **progetto.**
+1. Dall'area di lavoro IDE di Eclipse selezionare **file**  >  **nuovo**  >  **progetto.**
 
-1. Nella creazione guidata **nuovo progetto** selezionare **progetto** > HDInsight**Spark in HDInsight (scala)**. Selezionare quindi **Avanti**.
+1. Nella creazione guidata **nuovo progetto** selezionare **progetto HDInsight**  >  **Spark in HDInsight (scala)**. Selezionare quindi **Avanti**.
 
    ![Selezione del progetto Spark on HDInsight (Scala)](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 
@@ -126,9 +125,9 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
 
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>Creare un'applicazione Scala per un cluster HDInsight Spark
 
-1. Da **Esplora pacchetti**espandere il progetto creato in precedenza. Fare clic con il pulsante destro del mouse su **src**, scegliere **nuovo** > **altro...**.
+1. Da **Esplora pacchetti**espandere il progetto creato in precedenza. Fare clic con il pulsante destro del mouse su **src**, scegliere **nuovo**  >  **altro...**.
 
-1. Nella finestra di dialogo **Seleziona una procedura** guidata selezionare > **oggetto scala** **creazioni guidate scala**. Selezionare quindi **Avanti**.
+1. Nella finestra di dialogo **Seleziona una procedura** guidata selezionare oggetto scala **creazioni guidate scala**  >  **Scala Object**. Selezionare quindi **Avanti**.
 
    ![Selezionare una procedura guidata creare un oggetto scala](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 
@@ -242,13 +241,13 @@ Per impostazione predefinita, gli strumenti di HDInsight in Azure Toolkit for Ec
 
 Quando si esegue l'applicazione Spark scala locale in un computer Windows, è possibile che venga generata un'eccezione, come spiegato in [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). che si verifica a causa di un file **WinUtils.exe** mancante in Windows.
 
-Per correggere l'errore, è necessario [file winutils. exe](https://github.com/steveloughran/winutils) in un percorso come **C:\WinUtils\bin**, quindi aggiungere la variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
+Per correggere l'errore, è necessario [Winutils.exe](https://github.com/steveloughran/winutils) in un percorso come **C:\WinUtils\bin**, quindi aggiungere la variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Eseguire un'applicazione Spark in Scala locale
 
 1. Avviare Eclipse e creare un progetto. Nella finestra di dialogo **New Project** (Nuovo progetto) selezionare le opzioni seguenti e quindi fare clic su **Next** (Avanti).
 
-1. Nella creazione guidata **nuovo progetto** selezionare **HDInsight Project** > **Spark in HDInsight local Run Sample (scala)**. Selezionare quindi **Avanti**.
+1. Nella creazione guidata **nuovo progetto** selezionare **HDInsight Project**  >  **Spark in HDInsight local Run Sample (scala)**. Selezionare quindi **Avanti**.
 
    ![Nuovo progetto seleziona una finestra di dialogo della procedura guidata](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 
@@ -258,7 +257,7 @@ Per correggere l'errore, è necessario [file winutils. exe](https://github.com/s
 
    ![Percorso dell'applicazione scala locale LogQuery](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
 
-1. Fare clic con il pulsante destro del mouse su **logquery. scala** e scegliere **Esegui come** > **1 applicazione scala**. Un output come questo viene mostrato nella scheda **Console**:
+1. Fare clic con il pulsante destro del mouse su **logquery. scala** e scegliere **Esegui come**  >  **1 applicazione scala**. Un output come questo viene mostrato nella scheda **Console**:
 
    ![Risultato dell'esecuzione locale dell'applicazione Spark](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
@@ -329,7 +328,7 @@ Esistono due modalità per inviare i processi. Se vengono fornite le credenziali
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
 

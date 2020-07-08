@@ -2,22 +2,21 @@
 title: Esperienza dell'utente finale per le applicazioni-Azure Active Directory
 description: Azure Active Directory (Azure AD) fornisce diverse soluzioni personalizzabili per distribuire le applicazioni agli utenti finali all'interno dell'organizzazione.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5c2ec85af2c954c2189f0df1b407a2c40967f096
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763398"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Esperienze per gli utenti finali per le applicazioni in Azure Active Directory
 
@@ -44,7 +43,7 @@ Per altre informazioni sul riquadro di accesso di Azure AD, vedere [Introduzione
 
 ## <a name="office-365-application-launcher"></a>Applicazione di avvio di Office 365
 
-Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnate agli utenti tramite Azure AD verranno visualizzate anche nel portale di Office [https://portal.office.com/myapps](https://portal.office.com/myapps)365 all'indirizzo. Questo rende facile e comodo per gli utenti all’interno di un'organizzazione avviare le proprie applicazioni senza dover utilizzare un secondo portale ed è la soluzione di avvio delle applicazioni consigliata per le organizzazioni che utilizzano Office 365.
+Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnate agli utenti tramite Azure AD verranno visualizzate anche nel portale di Office 365 all'indirizzo [https://portal.office.com/myapps](https://portal.office.com/myapps) . Questo rende facile e comodo per gli utenti all’interno di un'organizzazione avviare le proprie applicazioni senza dover utilizzare un secondo portale ed è la soluzione di avvio delle applicazioni consigliata per le organizzazioni che utilizzano Office 365.
 
 ![Screenshot che mostra il portale di Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
@@ -60,7 +59,7 @@ La maggior parte delle applicazioni federate che supportano OpenID Connect, WS-F
 
 Azure AD supporta anche collegamenti diretti Single Sign-On alle singole applicazioni che supportano Single Sign-On basato su password, Single Sign-On collegato e qualunque forma di Single Sign-On federato.
 
-Questi collegamenti sono URL realizzati appositamente che inviano un utente attraverso la procedura di accesso di Azure AD per un'applicazione specifica senza richiedere che la avvii dal pannello di accesso di Azure AD o Office 365. Questi **URL di accesso utente** si trovano nelle proprietà delle applicazioni aziendali disponibili. Nella portale di Azure selezionare **Azure Active Directory** > **applicazioni aziendali**. Selezionare l'applicazione, quindi selezionare **Proprietà**.
+Questi collegamenti sono URL realizzati appositamente che inviano un utente attraverso la procedura di accesso di Azure AD per un'applicazione specifica senza richiedere che la avvii dal pannello di accesso di Azure AD o Office 365. Questi **URL di accesso utente** si trovano nelle proprietà delle applicazioni aziendali disponibili. Nel portale di Azure selezionare **Azure Active Directory** > **Applicazioni aziendali**. Selezionare l'applicazione, quindi selezionare **Proprietà**.
 
 ![Esempio di URL di accesso utente nelle proprietà di Twitter](media/end-user-experiences/direct-sign-on-link.png)
 

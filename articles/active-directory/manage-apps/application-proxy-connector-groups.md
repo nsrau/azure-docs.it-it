@@ -2,8 +2,8 @@
 title: Pubblicare app in reti separate tramite i gruppi di connettori-Azure AD
 description: Illustra come creare e gestire i gruppi di connettori nel proxy di applicazione di Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,15 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: be3e99ca57957e1975313fed8609533f4a65b102
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764724"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 
@@ -41,7 +40,7 @@ Per raggruppare i connettori è necessario assicurarsi di avere [installato più
 Usare questi passaggi per creare il numero di gruppi di connettori desiderato.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare **Azure Active Directory** > **applicazioni** > aziendali**proxy di applicazione**.
+1. Selezionare **Azure Active Directory**  >  **applicazioni aziendali**  >  **proxy di applicazione**.
 1. Selezionare **Nuovo gruppo di connettori**. Viene visualizzato il pannello New Connector Group (Nuovo gruppo di connettori).
 
    ![Mostra la schermata per selezionare un nuovo gruppo di connettori](./media/application-proxy-connector-groups/new-group.png)
@@ -53,7 +52,7 @@ Usare questi passaggi per creare il numero di gruppi di connettori desiderato.
 
 Usare questi passaggi per ogni applicazione pubblicata con il proxy di applicazione. È possibile assegnare un'applicazione a un gruppo di connettori quando l'applicazione viene pubblicata per la prima volta oppure è possibile usare questi passaggi per modificare l'assegnazione ogni volta che è necessario.
 
-1. Dal dashboard di gestione per la directory, selezionare **applicazioni** > aziendali**tutte le applicazioni** > l'applicazione da assegnare a un gruppo di connettori > **proxy di applicazione**.
+1. Dal dashboard di gestione per la directory, selezionare **applicazioni aziendali**  >  **tutte le applicazioni** > l'applicazione da assegnare a un gruppo di connettori > **proxy di applicazione**.
 1. Usare il menu a discesa **Gruppo di connettori** per selezionare il gruppo che dovrà essere usato dall'applicazione.
 1. Fare clic su **Salva** per salvare la modifica.
 
@@ -128,5 +127,5 @@ Nell'esempio seguente l'azienda ha due data center, A e B, con due connettori ch
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sui connettori del proxy di applicazione Azure AD](application-proxy-connectors.md)
+* [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
 * [Abilitare l'accesso Single Sign-On](what-is-single-sign-on.md)

@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 40857e83457222365e61a224ead19bd1d1d31ae7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021331"
 ---
 # <a name="hierarchical-state-override"></a>Override dello stato gerarchico
 
@@ -27,23 +26,23 @@ Nel caso del modello di un'automobile, ad esempio, è possibile rendere l’inte
 
 Il set fisso di stati di cui è possibile eseguire l'override sono:
 
-* **Hidden**: Le rispettive mesh nel grafo della scena sono nascoste o visualizzate.
-* **Tint color**: Un oggetto di cui è stato eseguito il rendering può essere colorato con un colore e uno spessore della tinta specifici. L'immagine seguente mostra la colorazione del cerchione di una ruota.
+* **`Hidden`**: Le maglie corrispondenti nel grafico della scena sono nascoste o visualizzate.
+* **`Tint color`**: Un oggetto di cui è stato eseguito il rendering può essere colorato con il colore della tinta e il peso della tinta singoli. L'immagine seguente mostra la colorazione del cerchione di una ruota.
   
   ![Tinta del colore](./media/color-tint.png)
 
-* **See-through**: Il rendering della geometria viene eseguito in modo semitrasparente, ad esempio per rivelare le parti interne di un oggetto. Nell'immagine seguente viene mostrata l'intera automobile sottoposta a rendering in modalità trasparente, ad eccezione della pinza del freno rossa:
+* **`See-through`**: La geometria viene sottoposta a rendering in modo semi trasparente, ad esempio per rivelare le parti interne di un oggetto. Nell'immagine seguente viene mostrata l'intera automobile sottoposta a rendering in modalità trasparente, ad eccezione della pinza del freno rossa:
 
   ![Trasparente](./media/see-through.png)
 
   > [!IMPORTANT]
   > L'effetto trasparente funziona solo quando viene usata la [modalità di rendering](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
-* **Selected**: Viene eseguito il rendering della geometria con una [struttura di selezione](outlines.md).
+* **`Selected`**: La geometria viene sottoposta a rendering con una [struttura di selezione](outlines.md).
 
   ![Struttura di selezione](./media/selection-outline.png)
 
-* **DisableCollision**: La geometria è esente da [query spaziali](spatial-queries.md). Il flag **Hidden** non disattiva le collisioni, quindi questi due flag vengono spesso impostati insieme.
+* **`DisableCollision`**: La geometria è esentata dalle [query spaziali](spatial-queries.md). Il **`Hidden`** flag non influisce sul flag di stato di collisione, quindi questi due flag vengono spesso impostati insieme.
 
 ## <a name="hierarchical-overrides"></a>Override gerarchici
 
@@ -87,7 +86,7 @@ component->SetState(
 
 ### <a name="tint-color"></a>Colore tinta
 
-L'override tint color è particolare in quanto sono disponibili uno stato on/off/inherit e una proprietà per il colore tinta. La parte alfa del colore tinta definisce lo spessore dell'effetto di colorazione: se è impostato su 0,0, non è visibile nessun colore tinta, mentre se è impostato su 1,0 verrà eseguito il rendering dell'oggetto con il colore tinta puro. Per i valori intermedi, il colore finale verrà combinato con il colore tinta. Il colore tinta può essere modificato per i singoli frame per ottenere un'animazione di colori.
+L' `tint color` override è leggermente speciale in quanto è disponibile uno stato on/off/inherit e una proprietà Color tinta. La parte alfa del colore tinta definisce lo spessore dell'effetto di colorazione: se è impostato su 0,0, non è visibile nessun colore tinta, mentre se è impostato su 1,0 verrà eseguito il rendering dell'oggetto con il colore tinta puro. Per i valori intermedi, il colore finale verrà combinato con il colore tinta. Il colore tinta può essere modificato per i singoli frame per ottenere un'animazione di colori.
 
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 

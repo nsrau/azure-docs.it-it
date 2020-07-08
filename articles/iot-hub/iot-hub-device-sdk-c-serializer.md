@@ -10,10 +10,9 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81767022"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT SDK per dispositivi C: altre informazioni sul serializzatore
@@ -316,7 +315,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-In questo caso, sono state eliminate le macro **Declare\_struct** e vengono semplicemente definiti gli elementi di dati del nostro scenario usando tipi semplici dal linguaggio di modellazione.
+In questo caso, sono state eliminate le macro **Declare \_ struct** e vengono semplicemente definiti gli elementi di dati del nostro scenario usando tipi semplici dal linguaggio di modellazione.
 
 Per il momento si ignorerà l'evento **Time**. A parte questo, ecco il codice per la **temperatura**in ingresso:
 
@@ -538,7 +537,7 @@ Questo descrive tutto ciò che è necessario sapere quando si inviano eventi e s
 
 Se si sta usando la libreria **serializer** , una parte importante dell'SDK da tenere presente è disponibile nella libreria Azure-c-Shared-Utility.
 
-Se è stato clonato il repository Azure-cose-SDK-c da GitHub ed è stato `git submodule update --init` emesso il comando, la libreria Shared utility sarà disponibile qui:
+Se è stato clonato il repository Azure-cose-SDK-c da GitHub ed è stato emesso il `git submodule update --init` comando, la libreria Shared utility sarà disponibile qui:
 
 ```C
 .\\c-utility
@@ -556,9 +555,9 @@ Questa cartella contiene una soluzione di Visual Studio chiamata **macro\_utils\
 
   ![Screenshot della soluzione maco_utils_h_generator di Visual Studio](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.png)
 
-Il programma in questa soluzione genera il file **macro\_utils.h**. Con l'SDK è incluso\_un file macro utils. h predefinito. Questa soluzione consente tuttavia di modificare alcuni parametri e quindi di ricreare il file di intestazione in base a questi parametri.
+Il programma in questa soluzione genera il file **macro\_utils.h**. \_Con l'SDK è incluso un file macro utils. h predefinito. Questa soluzione consente tuttavia di modificare alcuni parametri e quindi di ricreare il file di intestazione in base a questi parametri.
 
-I due parametri chiave da considerare sono **nArithmetic** e **nMacroParameters**, definiti in queste due righe disponibili nella macro\_utils.TT:
+I due parametri chiave da considerare sono **nArithmetic** e **nMacroParameters**, definiti in queste due righe disponibili nella macro \_ utils.TT:
 
 ```C
 <#int nArithmetic=1024;#>
@@ -654,7 +653,7 @@ serializer_init(NULL);
 
 Questa operazione viene eseguita subito prima di chiamare **IoTHubClient\_CreateFromConnectionString**.
 
-Analogamente, quando si lavora con la libreria, l'ultima chiamata che verrà effettuata consiste nel **serializzatore\_deinit**:
+Analogamente, quando si lavora con la libreria, l'ultima chiamata che verrà effettuata consiste nel **serializzatore \_ deinit**:
 
 ```C
 serializer_deinit();

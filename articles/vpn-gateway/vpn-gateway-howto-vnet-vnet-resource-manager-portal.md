@@ -4,15 +4,14 @@ description: Creare una connessione gateway VPN tra reti virtuali con Resource M
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5abf79d23ca2de661383cc002dac9d7f9e4dc5bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78674171"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84985578"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurare una connessione gateway VPN da rete virtuale a rete virtuale con il portale di Azure
 
@@ -75,7 +74,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
 
 - **Impostazioni della rete virtuale**
     - **Nome**: VNet1
-    - **Spazio di indirizzi**: 10.1.0.0/16
+    - **Spazio degli indirizzi**: 10.1.0.0/16
     - **Sottoscrizione**: selezionare la sottoscrizione che si vuole usare.
     - **Gruppo di risorse**: TestRG1
     - **Località**: Stati Uniti orientali
@@ -92,7 +91,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
     - **Tipo VPN**: selezionare **Basato su route**.
     - **SKU**: selezionare lo SKU del gateway che si vuole usare.
     - **Nome dell'indirizzo IP pubblico**: VNet1GWpip
-    - **Connessione**
+    - **Connection**
        - **Nome**: VNet1toVNet4
        - **Chiave condivisa**: è possibile creare manualmente la chiave condivisa. Quando si crea la connessione tra le reti virtuali, i valori devono corrispondere. Per questo esercizio, usare abc123.
 
@@ -117,7 +116,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
     - **Tipo VPN**: selezionare **Basato su route**.
     - **SKU**: selezionare lo SKU del gateway che si vuole usare.
     - **Nome dell'indirizzo IP pubblico**: VNet4GWpip
-    - **Connessione** 
+    - **Connection** 
        - **Nome**: VNet4toVNet1
        - **Chiave condivisa**: è possibile creare manualmente la chiave condivisa. Quando si crea la connessione tra le reti virtuali, i valori devono corrispondere. Per questo esercizio, usare abc123.
 
@@ -178,7 +177,7 @@ Successivamente, creare una connessione da VNet4 a VNet1. Nel portale individuar
    ![Verificare le connessioni](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png "Verificare le connessioni")
 3. Nella colonna **nome** selezionare una delle connessioni per visualizzare altre informazioni. Quando inizia il flusso dei dati, vengono visualizzati valori per **Dati in entrata** e **Dati in uscita**.
 
-   ![Stato](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Stato")
+   ![Status](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Stato")
 
 ## <a name="add-additional-connections"></a>Aggiungere altre connessioni
 

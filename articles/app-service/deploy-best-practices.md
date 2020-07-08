@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770663"
 ---
 # <a name="deployment-best-practices"></a>Procedure consigliate per la distribuzione
@@ -119,7 +118,7 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --sdk-auth
 ```
 
-Nello script accedere usando `az login --service-principal`, fornendo le informazioni dell'entità. È quindi possibile usare `az webapp config container set` per impostare il nome del contenitore, il tag, l'URL del registro di sistema e la password del registro di sistema. Di seguito sono riportati alcuni collegamenti utili per costruire il processo di integrazione continua del contenitore.
+Nello script accedere usando `az login --service-principal` , fornendo le informazioni dell'entità. È quindi possibile usare `az webapp config container set` per impostare il nome del contenitore, il tag, l'URL del registro di sistema e la password del registro di sistema. Di seguito sono riportati alcuni collegamenti utili per costruire il processo di integrazione continua del contenitore.
 
 - [Come accedere all'interfaccia della riga di comando di Azure in Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
 
@@ -127,15 +126,15 @@ Nello script accedere usando `az login --service-principal`, fornendo le informa
 
 ### <a name="java"></a>Java
 
-Usare l'API Kudu [zipdeploy/](deploy-zip.md) per la distribuzione di applicazioni jar e [wardeploy/](deploy-zip.md#deploy-war-file) per le app War. Se si usa Jenkins, è possibile usare tali API direttamente nella fase di distribuzione. Per altre informazioni, vedere [questo articolo](../jenkins/execute-cli-jenkins-pipeline.md).
+Usare l'API Kudu [zipdeploy/](deploy-zip.md) per la distribuzione di applicazioni jar e [wardeploy/](deploy-zip.md#deploy-war-file) per le app War. Se si usa Jenkins, è possibile usare tali API direttamente nella fase di distribuzione. Per altre informazioni, vedi [questo articolo](../jenkins/execute-cli-jenkins-pipeline.md).
 
 ### <a name="node"></a>Nodo
 
-Per impostazione predefinita, Kudu esegue i passaggi di compilazione per l'applicazione Node`npm install`(). Se si usa un servizio di compilazione come Azure DevOps, la compilazione Kudu non è necessaria. Per disabilitare la compilazione Kudu, creare un'impostazione dell' `SCM_DO_BUILD_DURING_DEPLOYMENT` `false`app,, con il valore.
+Per impostazione predefinita, Kudu esegue i passaggi di compilazione per l'applicazione Node ( `npm install` ). Se si usa un servizio di compilazione come Azure DevOps, la compilazione Kudu non è necessaria. Per disabilitare la compilazione Kudu, creare un'impostazione dell'app, `SCM_DO_BUILD_DURING_DEPLOYMENT` , con il valore `false` .
 
 ### <a name="net"></a>.NET 
 
-Per impostazione predefinita, Kudu esegue i passaggi di compilazione per l'applicazione .NET`dotnet build`(). Se si usa un servizio di compilazione come Azure DevOps, la compilazione Kudu non è necessaria. Per disabilitare la compilazione Kudu, creare un'impostazione dell' `SCM_DO_BUILD_DURING_DEPLOYMENT` `false`app,, con il valore.
+Per impostazione predefinita, Kudu esegue i passaggi di compilazione per l'applicazione .NET ( `dotnet build` ). Se si usa un servizio di compilazione come Azure DevOps, la compilazione Kudu non è necessaria. Per disabilitare la compilazione Kudu, creare un'impostazione dell'app, `SCM_DO_BUILD_DURING_DEPLOYMENT` , con il valore `false` .
 
 ## <a name="other-deployment-considerations"></a>Altre considerazioni sulla distribuzione
 
@@ -156,4 +155,4 @@ Per altre informazioni sulle procedure consigliate, vedere la pagina relativa al
 - Scegliere riquadro **Best Practices** Homepage.
 - Fare clic su procedure consigliate **per la disponibilità & le prestazioni** o le procedure consigliate **per la configurazione ottimale** per visualizzare lo stato corrente dell'app per quanto riguarda queste procedure consigliate.
 
-È anche possibile usare questo collegamento per aprire direttamente la diagnostica del servizio app per la `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`risorsa:.
+È anche possibile usare questo collegamento per aprire direttamente la diagnostica del servizio app per la risorsa: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot` .

@@ -3,12 +3,11 @@ title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: faf7abf23d196b389531803c519368b5d474aeb3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84655617"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -101,14 +100,14 @@ Backup di Azure supporta la crittografia per i dati in movimento e inattivi.
 
 - Il traffico di backup dai server all'insieme di credenziali di Servizi di ripristino viene crittografato usando Advanced Encryption Standard 256.
 - I dati di backup vengono inviati tramite un collegamento HTTPS sicuro.
+
+### <a name="data-security"></a>Sicurezza dei dati
+
 - I dati di backup vengono archiviati nell'insieme di credenziali di Servizi di ripristino in formato crittografato.
 - Solo il cliente ha la passphrase per sbloccare questi dati. Microsoft non può decrittografare i dati di backup in nessun caso.
 
     > [!WARNING]
     > Dopo aver configurato l'insieme di credenziali, solo il cliente ha accesso alla chiave di crittografia. Microsoft non conserva mai una copia e non ha accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
-
-### <a name="data-security"></a>Sicurezza dei dati
-
 - Per il backup delle VM di Azure, è necessario configurare la crittografia *all'interno* della macchina virtuale.
 - Backup di Azure supporta Crittografia dischi di Azure, che usa BitLocker su macchine virtuali Windows e **dm-crypt** su macchine virtuali Linux.
 - Nel back-end Backup di Azure usa [Crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md), che protegge i dati inattivi.

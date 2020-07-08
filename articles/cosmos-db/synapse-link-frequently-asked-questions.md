@@ -6,12 +6,11 @@ ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 36be05f72597ae9864eff812862589cafb1f5b0d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921201"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 
@@ -29,6 +28,9 @@ Quando si pianifica la configurazione di un account Azure Cosmos in più aree co
 
 ### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>È possibile scegliere di abilitare Collegamento a Synapse solo per una specifica area e non per tutte quelle incluse nella configurazione di un account in più aree?
 Nella versione di anteprima, se Collegamento a Synapse è abilitato per un account in più aree, l'archivio analitico viene creato in tutte le aree. I dati sottostanti sono ottimizzati per la velocità effettiva e per la coerenza transazionale nell'archivio transazionale.
+
+### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>Il backup e il ripristino sono supportati per gli account abilitati per il collegamento sinapsi?
+In anteprima, per gli account di database abilitati per il collegamento sinapsi, il backup e il ripristino di contenitori non sono supportati. Se si dispone di carichi di lavoro di produzione che richiedono funzionalità di backup e ripristino, è consigliabile non abilitare il collegamento sinapsi per gli account di database. 
 
 ### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>È possibile disabilitare la funzionalità Collegamento a Synapse per un account Azure Cosmos?
 Attualmente, dopo aver abilitato la funzionalità Collegamento a Synapse a livello di account, non è possibile disabilitarla.  Per disattivare la funzionalità, è necessari eliminare l'account Azure Cosmos e crearne uno nuovo.
@@ -104,10 +106,10 @@ L'autenticazione con l'archivio analitico è identica a quella di un archivio tr
 |Runtime di Synapse |Supporto corrente |
 |---------|---------|
 |Pool di Synapse Spark | Lettura, scrittura (tramite archivio transazionale), tabella, visualizzazione temporanea |
-|Synapse SQL serverless    | Lettura, visualizzazione (anteprima controllata)  |
+|Server SQL sinapsi    | Lettura, visualizzazione (anteprima controllata)  |
 |Synapse SQL con provisioning   |  Non disponibile |
 
-### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Le tabelle di Synapse Spark vengono sincronizzate con le tabelle di Synapse SQL serverless allo stesso modo che con Azure Data Lake?
+### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Le tabelle sinapsi Spark vengono sincronizzate con le tabelle SQL senza server sinapsi nello stesso modo in cui funzionano con Azure Data Lake?
 Questa funzionalità non è attualmente disponibile.
 
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>È possibile eseguire Structured Streaming di Spark dall'archivio analitico?
@@ -118,11 +120,11 @@ Attualmente il supporto di Structured Streaming di Spark per Azure Cosmos DB vie
 ### <a name="in-the-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>In Synapse Studio come si riconosce se si è connessi a un contenitore Azure Cosmos DB con l'archivio analitico abilitato?
 Un contenitore Azure Cosmos DB abilitato con l'archivio analitico presenta l'icona seguente:
 
-![Icona del contenitore Azure Cosmos DB abilitato con l'archivio analitico](./media/synapse-link-frequently-asked-questions/analytical-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/analytical-store-icon.png" alt-text="Icona del contenitore Azure Cosmos DB abilitato con l'archivio analitico":::
 
 Un contenitore dell'archivio transazione sarà rappresentato dall'icona seguente:
 
-![Icona del contenitore Azure Cosmos DB abilitato con l'archivio transazionale](./media/synapse-link-frequently-asked-questions/transactional-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Icona del contenitore Azure Cosmos DB abilitato con l'archivio transazionale":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Come si passano le credenziali di Azure Cosmos DB da Synapse Studio?
 Attualmente, le credenziali di Azure Cosmos DB vengono passate durante la creazione del servizio collegato dall'utente che ha accesso ai database Azure Cosmos DB. L'accesso a tale archivio è disponibile per altri utenti che hanno accesso all'area di lavoro.

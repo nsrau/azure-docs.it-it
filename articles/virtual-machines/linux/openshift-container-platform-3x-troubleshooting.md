@@ -11,10 +11,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 90fd3680cfdc4ecd1dcb0ce33b63f8d76dd8bfae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759478"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure
@@ -37,9 +36,9 @@ Stabilire una connessione SSH all'host del playbook di Ansible. Per il modello O
 
 ## <a name="log-files"></a>File di registro
 
-I file di log (stderr e stdout) per gli script di preparazione host si `/var/lib/waagent/custom-script/download/0` trovano in in tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
+I file di log (stderr e stdout) per gli script di preparazione host si trovano in in `/var/lib/waagent/custom-script/download/0` tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
 
-Se gli script di preparazione sono stati eseguiti correttamente, sarà necessario esaminare `/var/lib/waagent/custom-script/download/1` i file di log nella directory dell'host Ansible PlayBook. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
+Se gli script di preparazione sono stati eseguiti correttamente, sarà necessario esaminare i file di log nella `/var/lib/waagent/custom-script/download/1` directory dell'host Ansible PlayBook. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
 
 Output di esempio
 
@@ -114,5 +113,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Per alcuni errori, è anche possibile usare i comandi seguenti per ottenere ulteriori informazioni:
 
-1. > del \<servizio di stato systemctl
+1. stato systemctl \<service>
 2. journalctl -xe

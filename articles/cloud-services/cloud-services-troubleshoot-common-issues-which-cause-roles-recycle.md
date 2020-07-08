@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a644e211cc933ca686f0bd6a13b0d2ba8ae20162
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 61f555dc8f24ce303934187d36ee994b25b31920
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920085"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemi comuni che comportano il riciclo dei ruoli
 Questo articolo illustra alcune delle cause comuni dei problemi di distribuzione e fornisce suggerimenti per consentirne la risoluzione. La presenza di un problema con un'applicazione viene evidenziata se l'istanza del ruolo non si avvia o se lo stato passa ciclicamente da inizializzazione a occupato e arresto.
@@ -53,7 +52,9 @@ Per assicurarsi che l'impostazione `DiagnosticsConnectionString` sia corretta, p
   Per impostazione predefinita, questa impostazione punta all'account di archiviazione emulato, pertanto è necessario modificarla in modo esplicito prima di distribuire il pacchetto dell'applicazione. Se non si modifica questa impostazione, viene generata un'eccezione quando l'istanza del ruolo tenta di avviare il monitoraggio di diagnostica. Ciò potrebbe comportare il riciclo illimitato dell'istanza del ruolo.
 * La stringa di connessione viene specificata nel [formato](../storage/common/storage-configure-connection-string.md)seguente. Il protocollo deve essere specificato come HTTPS. Sostituire *AccountName* con il nome dell'account di archiviazione e *myAccountKey* con la chiave di accesso:    
 
-        DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
+```console
+DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
+```
 
   Se l'applicazione viene sviluppata usando Strumenti di Azure per Microsoft Visual Studio, è possibile usare le pagine delle proprietà per impostare questo valore.
 
@@ -68,4 +69,4 @@ Per altri scenari di riciclo dei ruoli, vedere la [serie di blog di Kevin Willia
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Correre]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[Esegui]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx

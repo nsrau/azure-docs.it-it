@@ -5,15 +5,14 @@ description: Creare e installare i file di configurazione del client VPN in Wind
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: cherylmc
-ms.openlocfilehash: d15efee635e131d658cd650b7f80eb9e670a0dea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d917bc1d52cc2a43e87affcc9c5e3c2ab533da07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279416"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984869"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -78,7 +77,7 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
 
  È necessario configurare manualmente il client VPN IKEv2 nativo in ogni Mac che si connetterà ad Azure. Azure non fornisce il file mobileconfig per l'autenticazione del certificato di Azure nativo. **Generic** contiene tutte le informazioni che occorrono per la configurazione. Se la cartella Generic non viene visualizzata nel download, è probabile che non sia stato selezionato IKEv2 come tipo di tunnel. Si noti che lo SKU Basic del gateway VPN non supporta IKEv2. Dopo la selezione di IKEv2, generare di nuovo il file con estensione zip per recuperare la cartella Generic.<br>La cartella Generic contiene i file seguenti:
 
-* **File vpnsettings. XML**, che contiene impostazioni importanti come l'indirizzo del server e il tipo di tunnel. 
+* **VpnSettings.xml**, che contiene impostazioni importanti come l'indirizzo del server e il tipo di tunnel. 
 * **VpnServerRoot. cer**, che contiene il certificato radice necessario per convalidare il gateway VPN di Azure durante la configurazione della connessione P2S.
 
 Usare questa procedura per configurare il client VPN nativo in Mac per l'autenticazione del certificato. È necessario eseguire questi passaggi in ogni Mac che si connetterà ad Azure:
@@ -96,7 +95,7 @@ Usare questa procedura per configurare il client VPN nativo in Mac per l'autenti
 
    Il valore di **Interface** (Interfaccia) è "VPN" e quello di **Tipo VPN** è "IKEv2". Specificare un nome per il profilo nel campo **Nome servizio** e quindi fare clic su **Crea** per creare il profilo di connessione del client VPN.
 
-   ![Rete](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![network](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. Nella cartella **Generic** copiare il valore del tag **VpnServer** dal file **VpnSettings.xml**. Incollare tale valore nei campi **Server Address** (Indirizzo server) e **Remote ID** (ID remoto) del profilo.
 
    ![Informazioni sul server](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -143,7 +142,7 @@ In Ubuntu 18.0.4 sono state create le istruzioni seguenti. Ubuntu 16.0.10 non su
 2. Selezionare **Impostazioni**, quindi fare clic su **rete**.
 
    ![Modificare le connessioni](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Fare clic **+** sul pulsante per creare una nuova connessione.
+3. Fare clic sul **+** pulsante per creare una nuova connessione.
 
    ![Aggiungere una connessione](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
 4. Selezionare **IPSec/IKEv2 (strongSwan)** dal menu e fare doppio clic su. In questo passaggio è possibile assegnare un nome alla connessione.

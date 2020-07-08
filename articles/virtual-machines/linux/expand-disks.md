@@ -3,16 +3,15 @@ title: Espandere i dischi rigidi virtuali in una macchina virtuale Linux
 description: Informazioni su come espandere i dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 1295c5276f0f342323acf8d86eaaf9f785af3e9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 27c9a7c2e526a33875402827e2eee2c63943e058
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659734"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Espandere dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
@@ -133,7 +132,7 @@ Per usare il disco espanso, espandere la partizione e il file system sottostanti
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Per verificare che il disco dati sia stato ridimensionato, usare `df -h`. L'output di esempio seguente mostra che l'unità dati */dev/sdc1* è ora di 200 GB:
+1. Per verificare che il disco dati sia stato ridimensionato, usare `df -h` . L'output di esempio seguente mostra che l'unità dati */dev/sdc1* è ora di 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

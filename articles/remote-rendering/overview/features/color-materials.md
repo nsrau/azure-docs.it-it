@@ -5,12 +5,11 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 7cbcaefcc087c9f1c7c09668a27fbdef9a4802d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: af33a777d2d6ef53965c2168ac0abee00f59bc50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021382"
 ---
 # <a name="color-materials"></a>Materiali a colori
 
@@ -22,7 +21,7 @@ I materiali colori sono più efficienti per il rendering rispetto ai [materiali 
 
 Queste proprietà sono comuni a tutti i materiali:
 
-* **albedoColor:** Questo colore viene moltiplicato con altri colori, ad esempio i colori di *albedoMap* o *vertici*. Se la *trasparenza* è abilitata su un materiale, il canale alfa viene usato per modificare l'opacità, con `1` un `0` significato completamente opaco e un significato completamente trasparente. Il valore predefinito è bianco.
+* **albedoColor:** Questo colore viene moltiplicato con altri colori, ad esempio *albedoMap* o * :::no-loc text="vertex"::: colori*. Se la *trasparenza* è abilitata su un materiale, il canale alfa viene usato per modificare l'opacità, con un `1` significato completamente opaco e un `0` significato completamente trasparente. Il valore predefinito è bianco.
 
   > [!NOTE]
   > Poiché i materiali dei colori non riflettono l'ambiente, un materiale colorato completamente trasparente diventa invisibile. Questa operazione è diversa per i [materiali PBR](pbr-materials.md).
@@ -33,15 +32,15 @@ Queste proprietà sono comuni a tutti i materiali:
 
 * **textureCoordinateScale** e **textureCoordinateOffset:** la scala viene moltiplicata per le coordinate di trama UV, a cui viene aggiunto l'offset. Può essere usato per estendere e spostare le trame. La scala predefinita è (1,1) e offset è (0, 0).
 
-* **useVertexColor:** Se la mesh contiene colori dei vertici e questa opzione è abilitata, i colori dei vertici delle maglie vengono moltiplicati in *albedoColor* e *albedoMap*. Per impostazione predefinita i colori dei vertici sono disabilitati.
+* **useVertexColor:** Se la mesh contiene :::no-loc text="vertex"::: colori e questa opzione è abilitata, il colore dei mesh :::no-loc text="vertex"::: viene moltiplicato in *albedoColor* e *albedoMap*. Per impostazione predefinita, *useVertexColor* è disabilitato.
 
-* **isDoubleSided:** Se la doppia facciata è impostata su true, il rendering dei triangoli con questo materiale viene eseguito anche se la fotocamera esamina i visi posteriori. Per impostazione predefinita, questa opzione è disabilitata. Vedere anche [rendering a lato singolo](single-sided-rendering.md).
+* **isDoubleSided:** Se la doppia facciata è impostata su true, il rendering dei triangoli con questo materiale viene eseguito anche se la fotocamera esamina i visi posteriori. Per impostazione predefinita, questa opzione è disabilitata. Vedere anche [ :::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
 
 ## <a name="color-material-properties"></a>Proprietà del materiale colori
 
 Le proprietà seguenti sono specifiche dei materiali colori:
 
-* **vertexMix:** Questo valore tra `0` e `1` specifica il modo in cui il colore del vertice in una [mesh](../../concepts/meshes.md) contribuisce al colore finale. Il valore predefinito è 1, il colore del vertice viene moltiplicato per il colore dell'albedo completamente. Con un valore pari a 0, i colori dei vertici vengono ignorati interamente.
+* **vertexMix:** Questo valore tra `0` e `1` specifica il modo :::no-loc text="vertex"::: in cui il colore in una [mesh](../../concepts/meshes.md) contribuisce al colore finale. Il valore predefinito è 1, il :::no-loc text="vertex"::: colore viene moltiplicato per il colore di albedo completamente. Con un valore pari a 0, i :::no-loc text="vertex"::: colori vengono ignorati interamente.
 
 * **transparencyMode:** Contrariamente ai [materiali di PBR](pbr-materials.md), i materiali dei colori si distinguono tra modalità di trasparenza diverse:
 

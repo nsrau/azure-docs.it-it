@@ -5,15 +5,14 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e93bae91827b2807ef577d7659924a5d37454fa4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987122"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurare una connessione gateway VPN tra reti virtuali usando l'interfaccia della riga di comando di Azure
 
@@ -292,7 +291,7 @@ Quando si creano connessioni aggiuntive, è importante verificare che lo spazio 
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Passaggio 7: Creare e configurare TestVNet5
 
-Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione, la sottoscrizione 5. Questa parte può essere eseguita dall'amministratore in un'altra organizzazione che possiede la sottoscrizione. Per spostarsi tra le sottoscrizioni, usare `az account list --all` per elencare le sottoscrizioni disponibili per `az account set --subscription <subscriptionID>` l'account, quindi usare per passare alla sottoscrizione che si vuole usare.
+Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione, la sottoscrizione 5. Questa parte può essere eseguita dall'amministratore in un'altra organizzazione che possiede la sottoscrizione. Per spostarsi tra le sottoscrizioni `az account list --all` , usare per elencare le sottoscrizioni disponibili per l'account, quindi usare `az account set --subscription <subscriptionID>` per passare alla sottoscrizione che si vuole usare.
 
 1. Verificare di essere connessi alla sottoscrizione 5, quindi creare un gruppo di risorse.
 
@@ -331,7 +330,7 @@ Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione, l
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Passaggio 8: Creare le connessioni
 
-Questo passaggio è suddiviso in due sessioni dell'interfaccia della riga di comando, contrassegnate come **[Sottoscrizione 1]** e **[Sottoscrizione 5]**, perché i gateway si trovano in sottoscrizioni diverse. Per spostarsi tra le sottoscrizioni, usare `az account list --all` per elencare le sottoscrizioni disponibili per `az account set --subscription <subscriptionID>` l'account, quindi usare per passare alla sottoscrizione che si vuole usare.
+Questo passaggio è suddiviso in due sessioni dell'interfaccia della riga di comando, contrassegnate come **[Sottoscrizione 1]** e **[Sottoscrizione 5]**, perché i gateway si trovano in sottoscrizioni diverse. Per spostarsi tra le sottoscrizioni `az account list --all` , usare per elencare le sottoscrizioni disponibili per l'account, quindi usare `az account set --subscription <subscriptionID>` per passare alla sottoscrizione che si vuole usare.
 
 1. **[Sottoscrizione 1]** Eseguire l'accesso e connettersi alla sottoscrizione 1. Usare il comando seguente per ottenere il nome e l'ID del gateway dall'output:
 

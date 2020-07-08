@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: 3cef3c2179019f6d84de5596e61abaf8d7d3182c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920368"
 ---
 # <a name="responsible-machine-learning-ml"></a>Machine Learning (ML) responsabile
 
@@ -36,7 +35,7 @@ Con la crescente integrazione dell'intelligenza artificiale e dei sistemi autono
 
 ## <a name="interpret-and-explain-model-behavior"></a>Interpretazione e spiegazione del comportamento dei modelli
 
-Sistemi complessi da spiegare o black box possono essere problematici in quanto rendono difficoltosa per le parti interessate, tra cui sviluppatori di sistemi, legislatori, utenti e responsabili delle decisioni aziendali, la comprensione dei motivi per cui tali sistemi prendono determinate decisioni. Alcuni sistemi di intelligenza artificiale sono più facilmente spiegabili di altri e talvolta è necessario accettare compromessi tra un sistema con accuratezza maggiore e uno più interpretabile.
+I sistemi difficili da spiegare o opaco possono essere problematici perché rendono difficile per gli stakeholder come sviluppatori di sistemi, legislatori, utenti e decision maker aziendali comprendere il motivo per cui i sistemi prendono determinate decisioni. Alcuni sistemi di intelligenza artificiale sono più facilmente spiegabili di altri e talvolta è necessario accettare compromessi tra un sistema con accuratezza maggiore e uno più interpretabile.
 
 Per creare sistemi di intelligenza artificiale interpretabili, è possibile usare [InterpretML](https://github.com/interpretml/interpret), un pacchetto open source realizzato da Microsoft. [InterpretML può essere usato all'interno di Azure Machine Learning](how-to-machine-learning-interpretability.md) per [interpretare e spiegare i modelli di Machine Learning](how-to-machine-learning-interpretability-aml.md), inclusi i [modelli di Machine Learning automatizzati](how-to-machine-learning-interpretability-automl.md).
 
@@ -61,11 +60,14 @@ Negli scenari tradizionali i dati non elaborati vengono archiviati in file e dat
 
 L'implementazione di sistemi di privacy differenziale presenta alcune difficoltà. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) è un progetto open source che contiene diversi componenti per la creazione di sistemi privati globali in modo differenziale. Per altre informazioni sulla privacy differenziale e sul progetto WhiteNoise, vedere l'articolo sul [mantenimento della privacy dei dati tramite privacy differenziale e WhiteNoise](./concept-differential-privacy.md).
 
+> [!NOTE]
+> Si noti che il Toolkit viene rinominato e verrà introdotto il nuovo nome nelle prossime settimane. 
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Documentazione del ciclo di vita di Machine Learning con fogli dati
 
 La documentazione delle informazioni pertinenti nel processo di Machine Learning è un aspetto chiave per prendere decisioni responsabili in ogni fase. I fogli dati sono uno strumento per documentare gli asset di Machine Learning usati e creati come parte del ciclo di vita di Machine Learning.
 
-I modelli tendono a essere considerati "black box" e spesso sono disponibili poche informazioni su di essi. Poiché i sistemi di Machine Learning stanno diventando più pervasivi e vengono usati per il processo decisionale, l'uso di fogli dati è un passo avanti verso lo sviluppo di sistemi di Machine Learning più responsabili.
+I modelli tendono a essere considerati come "caselle opache" e spesso sono disponibili poche informazioni su di essi. Poiché i sistemi di Machine Learning stanno diventando più pervasivi e vengono usati per il processo decisionale, l'uso di fogli dati è un passo avanti verso lo sviluppo di sistemi di Machine Learning più responsabili.
 
 Alcune informazioni sui modelli che può essere utile documentare come parte di un foglio dati:
 
@@ -80,4 +82,5 @@ Vedere l'esempio seguente per informazioni su come usare Azure Machine Learning 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
+- Usare la crittografia omomorfe per [distribuire un servizio Web di inferenza crittografato](how-to-homomorphic-encryption-seal.md).
 - Altre informazioni sul set di linee guida [ABOUT ML](https://www.partnershiponai.org/about-ml/) per la documentazione dei sistemi di Machine Learning.

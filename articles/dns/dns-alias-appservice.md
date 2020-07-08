@@ -4,23 +4,22 @@ description: Usare un record alias del DNS di Azure per ospitare app Web con car
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710542"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Ospitare app Web di Azure con carico bilanciato nel dominio radice
 
-Il protocollo DNS impedisce l'assegnazione di qualsiasi elemento eccetto un record A/AAAA nel dominio radice, Un esempio di dominio radice è contoso.com. Questa restrizione presenta un problema per i proprietari delle applicazioni che dispongono di applicazioni con carico bilanciato dietro Gestione traffico. Non è possibile puntare al profilo di Gestione traffico dal record di dominio radice. I proprietari delle applicazioni devono quindi usare una soluzione alternativa. Un reindirizzamento al livello applicazione deve reindirizzare dal dominio radice a un altro dominio. Un esempio è un Reindirizzamento da contoso.com a www\.contoso.com. Questo approccio presenta un singolo punto di guasto in termini di funzionalità di reindirizzamento.
+Il protocollo DNS impedisce l'assegnazione di qualsiasi elemento eccetto un record A/AAAA nel dominio radice, Un esempio di dominio radice è contoso.com. Questa restrizione presenta un problema per i proprietari delle applicazioni che dispongono di applicazioni con carico bilanciato dietro Gestione traffico. Non è possibile puntare al profilo di Gestione traffico dal record di dominio radice. I proprietari delle applicazioni devono quindi usare una soluzione alternativa. Un reindirizzamento al livello applicazione deve reindirizzare dal dominio radice a un altro dominio. Un esempio è un Reindirizzamento da contoso.com a www \. contoso.com. Questo approccio presenta un singolo punto di guasto in termini di funzionalità di reindirizzamento.
 
 Con i record di alias, questo problema non esiste più. I proprietari delle applicazioni possono ora indirizzare i record del dominio radice a un profilo di Gestione traffico con endpoint esterni. I proprietari delle applicazioni possono puntare allo stesso profilo di Gestione traffico che viene usato per qualsiasi altro dominio all'interno della zona DNS.
 
-Ad esempio, contoso.com e www\.contoso.com possono puntare allo stesso profilo di gestione traffico. Ciò avviene fintanto che nel profilo di Gestione traffico sono configurati solo endpoint esterni.
+Ad esempio, contoso.com e www \. contoso.com possono puntare allo stesso profilo di gestione traffico. Ciò avviene fintanto che nel profilo di Gestione traffico sono configurati solo endpoint esterni.
 
 Questo articolo descrive come creare un record alias per il dominio radice e configurare il profilo di Gestione traffico per le app Web.
 
@@ -43,7 +42,7 @@ Creare un gruppo di risorse per contenere le risorse utilizzate in questo artico
 Creare due piani di servizio app Web nel gruppo di risorse usando la tabella seguente per le informazioni di configurazione. Per altre informazioni sulla creazione di un piano di servizio app, vedere [Gestire un piano di servizio app in Azure](../app-service/app-service-plan-manage.md).
 
 
-|Name  |Sistema operativo  |Percorso  |Piano tariffario  |
+|Nome  |Sistema operativo  |Location  |Piano tariffario  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|Stati Uniti orientali|Sviluppo/test D1-Shared|
 |ASP-02     |Windows|Stati Uniti centrali|Sviluppo/test D1-Shared|
@@ -58,7 +57,7 @@ Creare due app Web, una in ciascun piano di servizio app.
 4. Selezionare **Crea**.
 5. Accettare le impostazioni predefinite e usare la tabella seguente per configurare le due app Web:
 
-   |Name<br>(deve essere univoco all'interno di .azurewebsites.net)|Gruppo di risorse |Stack di runtime|Region|Piano di servizio app/Località
+   |Nome<br>(deve essere univoco all'interno di .azurewebsites.net)|Gruppo di risorse |Stack di runtime|Region|Piano di servizio app/Località
    |---------|---------|-|-|-------|
    |App-01|Usa esistente<br>Selezionare un gruppo di risorse|.NET Core 2.2|Stati Uniti orientali|ASP-01 (D1)|
    |App-02|Usa esistente<br>Selezionare un gruppo di risorse|.NET Core 2.2|Stati Uniti centrali|ASP-02 (D1)|
@@ -87,10 +86,10 @@ Ora è possibile creare gli endpoint per le due app Web.
 3. Selezionare **Aggiungi**.
 4. Usare la tabella seguente per configurare gli endpoint:
 
-   |Tipo  |Name  |Destinazione  |Percorso  |Impostazioni intestazione personalizzata|
+   |Type  |Nome  |Destinazione  |Location  |Impostazioni intestazione personalizzata|
    |---------|---------|---------|---------|---------|
-   |Endpoint esterno     |End-01|Indirizzo IP registrato per App-01|Stati Uniti orientali|host:\<URL registrato per App-01\><br>Esempio: **host:app-01.azurewebsites.net**|
-   |Endpoint esterno     |End-02|Indirizzo IP registrato per App-02|Stati Uniti centrali|host:\<URL registrato per App-02\><br>Esempio: **host:app-02.azurewebsites.net**
+   |Endpoint esterno     |End-01|Indirizzo IP registrato per App-01|Stati Uniti orientali|host\<the URL you recorded for App-01\><br>Esempio: **host:app-01.azurewebsites.net**|
+   |Endpoint esterno     |End-02|Indirizzo IP registrato per App-02|Stati Uniti centrali|host\<the URL you recorded for App-02\><br>Esempio: **host:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Creare una zona DNS
 

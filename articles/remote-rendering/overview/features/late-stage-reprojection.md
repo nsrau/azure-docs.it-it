@@ -5,12 +5,11 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022181"
 ---
 # <a name="late-stage-reprojection"></a>Riproiezione con ritardo della fase
 
@@ -24,7 +23,7 @@ Entrambe le modalità LSR migliorano la stabilità dell'ologramma, anche se pres
 
 ## <a name="choose-lsr-mode-in-unity"></a>Scegliere la modalità LSR in Unity
 
-Nell'editor di Unity passare a *File > impostazioni di compilazione*. Selezionare le *impostazioni del lettore* in basso a sinistra, quindi controllare in *Player > XR Settings > Virtual reality SDK > Windows realtà mista* se è selezionata l'opzione Abilita la condivisione del buffer di **profondità** :
+Nell'editor di Unity passare a *:::no-loc text="File > Build Settings":::* . Selezionare *:::no-loc text="Player Settings":::* in basso a sinistra, quindi controllare *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* se **:::no-loc text="Enable Depth Buffer Sharing":::** è selezionato:
 
 ![Flag di abilitazione condivisione buffer di profondità](./media/unity-depth-buffer-sharing-enabled.png)
 
@@ -44,7 +43,7 @@ LSR planare riproietta gli oggetti più vicini al piano fornito. Maggiore è il 
 
 ### <a name="configure-planar-lsr-in-unity"></a>Configurare LSR planari in Unity
 
-I parametri del piano sono derivati da un cosiddetto *punto di messa a fuoco*, che è `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`necessario fornire a ogni frame. Per informazioni dettagliate, vedere l' [API del punto di interesse di Unity](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) . Se non si imposta un punto di attivazione, verrà scelto un fallback. Tuttavia, il fallback automatico spesso genera risultati non ottimali.
+I parametri del piano sono derivati da un cosiddetto *punto di messa a fuoco*, che è necessario fornire a ogni frame `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Per informazioni dettagliate, vedere l' [API del punto di interesse di Unity](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) . Se non si imposta un punto di attivazione, verrà scelto un fallback. Tuttavia, il fallback automatico spesso genera risultati non ottimali.
 
 È possibile calcolare il punto di messa a fuoco autonomamente, anche se potrebbe essere opportuno basarlo su quello calcolato dall'host di rendering remoto. Chiamare `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` per ottenere questo. Viene richiesto di fornire un frame di coordinate in cui esprimere il punto di interesse. Nella maggior parte dei casi, è sufficiente fornire il risultato da `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` qui.
 

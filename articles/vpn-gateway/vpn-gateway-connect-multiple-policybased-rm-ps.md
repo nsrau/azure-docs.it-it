@@ -4,15 +4,14 @@ description: Configurare un gateway VPN basato su route di Azure per più dispos
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: 687c33e50a986cf8af08d0201fe0159a79cf02a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80123329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984626"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connettere i gateway VPN di Azure a più dispositivi VPN basati su criteri locali usando PowerShell
 

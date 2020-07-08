@@ -6,12 +6,11 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697557"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391843"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -117,7 +116,7 @@ Non sono previste restrizioni per i payload dell'elemento come il numero di prop
 
 ## <a name="per-request-limits"></a>Limiti per richiesta
 
-Azure Cosmos DB supporta [operazioni di query e CRUD](https://docs.microsoft.com/rest/api/cosmos-db/) su risorse quali contenitori, elementi e database. Supporta inoltre [richieste batch transazionali](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) rispetto a più elementi con la stessa chiave di partizione in un contenitore.
+Azure Cosmos DB supporta [operazioni di query e CRUD](/rest/api/cosmos-db/) su risorse quali contenitori, elementi e database. Supporta inoltre [richieste batch transazionali](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) rispetto a più elementi con la stessa chiave di partizione in un contenitore.
 
 | Risorsa | Limite predefinito |
 | --- | --- |

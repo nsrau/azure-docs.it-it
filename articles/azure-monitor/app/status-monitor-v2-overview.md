@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770954"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuire l'agente di Application Insights di monitoraggio di Azure per i server locali
@@ -22,11 +21,11 @@ Sostituisce [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/
 I dati di telemetria vengono inviati all'portale di Azure, in cui è possibile [monitorare](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) l'app.
 
 > [!NOTE]
-> Il modulo supporta attualmente solo la strumentazione senza codice delle app Web .NET ospitate con IIS. Usare un SDK per instrumentare applicazioni ASP.NET Core, Java e node. js.
+> Il modulo supporta attualmente solo la strumentazione senza codice delle app Web .NET ospitate con IIS. Usare un SDK per instrumentare ASP.NET Core, Java e Node.js applicazioni.
 
 ## <a name="powershell-gallery"></a>PowerShell Gallery
 
-Application Insights Agent è disponibile qui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights Agent è disponibile qui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor .
 
 ![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -54,7 +53,7 @@ Application Insights Agent è disponibile qui: https://www.powershellgallery.com
 
 - Application Insights agente supporta le installazioni proxy?
 
-  *Sì*. Sono disponibili diversi modi per scaricare Application Insights Agent. Se il computer dispone di accesso a Internet, è possibile eseguire l'onboarding `-Proxy` nel PowerShell Gallery usando i parametri.
+  *Sì*. Sono disponibili diversi modi per scaricare Application Insights Agent. Se il computer dispone di accesso a Internet, è possibile eseguire l'onboarding nel PowerShell Gallery usando i `-Proxy` parametri.
 È anche possibile scaricare manualmente il modulo e installarlo nel computer o usarlo direttamente.
 Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md).
 

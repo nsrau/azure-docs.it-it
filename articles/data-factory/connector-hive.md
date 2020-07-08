@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3720d917d71fa4e8c5a14bb60fdc7c405be4bfdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 587cdd54f09be2761026c25ccd80fb67d3eb6bb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410445"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987042"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiare dati da Hive usando Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +26,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore hive è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Hive a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -38,7 +37,7 @@ Azure Data Factory offre un driver predefinito per consentire la connettività, 
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,19 +54,19 @@ Per il servizio collegato Hive sono supportate le proprietà seguenti:
 | port | Porta TCP che il server Hive usa per l'ascolto delle connessioni client. Se ci si connette a Azure HDInsights, specificare la porta come 443. | Sì |
 | serverType | Tipo di server Hive. <br/>I valori consentiti sono: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | No |
 | thriftTransportProtocol | Protocollo di trasporto da usare nel livello Thrift. <br/>I valori consentiti sono **Binary**, **SASL**, **HTTP** | No |
-| authenticationType | Metodo di autenticazione usato per accedere al server Hive. <br/>I valori consentiti sono **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sì |
+| authenticationType | Metodo di autenticazione usato per accedere al server Hive. <br/>I valori consentiti sono: **Anonymous**, **username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. L'autenticazione Kerberos non è attualmente supportata. | Sì |
 | serviceDiscoveryMode | true per indicare l'uso del servizio ZooKeeper; in caso contrario, false.  | No |
 | zooKeeperNameSpace | Spazio dei nomi in ZooKeeper nel quale vengono aggiunti i nodi del server Hive 2.  | No |
 | useNativeQuery | Specifica se il driver usa query HiveQL native o li converte in un formato equivalente in HiveQL.  | No |
-| nomeutente | Nome utente usato per accedere al server Hive.  | No |
-| password | Password corrispondente all'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| username | Nome utente usato per accedere al server Hive.  | No |
+| password | Password corrispondente all'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | URL parziale corrispondente al server Hive.  | No |
 | enableSsl | Specifica se le connessioni al server sono crittografate con TLS. Il valore predefinito è false.  | No |
 | trustedCertPath | Percorso completo del file con estensione PEM contenente i certificati CA attendibili per la verifica del server durante la connessione tramite TLS. Questa proprietà può essere impostata solo quando si usa TLS sul runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
 | useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è false.  | No |
 | allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato TLS/SSL emesso dall'autorità di certificazione corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è false.  | No |
 | allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è false.  | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -101,7 +100,7 @@ Per copiare dati da Hive, impostare la proprietà type del set di dati su **Hive
 | type | La proprietà Type del set di dati deve essere impostata su: **HiveObject** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | tabella | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
-| tableName | Nome della tabella che include la parte dello schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di `schema` lavoro `table`, utilizzare e. | No (se nell'origine dell'attività è specificato "query") |
+| tableName | Nome della tabella che include la parte dello schema. Questa proprietà è supportata per garantire la compatibilità con le versioni precedenti. Per i nuovi carichi di lavoro, usare `schema` e `table`. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -165,9 +164,9 @@ Per copiare dati da Hive, impostare il tipo di origine nell'attività di copia s
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

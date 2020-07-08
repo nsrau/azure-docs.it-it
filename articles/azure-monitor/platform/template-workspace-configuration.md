@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
 ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768124"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager
@@ -40,7 +39,7 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 | Risorsa | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
-| Cerca      | savedSearches | 2015-03-20 |
+| Ricerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
 | Soluzione    | solutions     | 2015-11-01-preview |
 
@@ -51,7 +50,7 @@ Nell'esempio seguente viene creata un'area di lavoro usando un modello dal compu
 > [!WARNING]
 > Il modello seguente consente di creare un'area di lavoro di Log Analytics e di configurare la raccolta dei dati. Questo può modificare le impostazioni di fatturazione. Vedere [gestire l'utilizzo e i costi con i log di monitoraggio di Azure](manage-cost-storage.md) per comprendere la fatturazione per i dati raccolti in un'area di lavoro di log Analytics prima di applicarli nell'ambiente Azure.
 
-Per la prenotazione della capacità, si definisce una prenotazione di capacità selezionata per l'inserimento dei dati `CapacityReservation` specificando lo SKU e un valore in `capacityReservationLevel`GB per la proprietà. Nell'elenco seguente vengono illustrati i valori e il comportamento supportati per la configurazione.
+Per la prenotazione della capacità, si definisce una prenotazione di capacità selezionata per l'inserimento dei dati specificando lo SKU `CapacityReservation` e un valore in GB per la proprietà `capacityReservationLevel` . Nell'elenco seguente vengono illustrati i valori e il comportamento supportati per la configurazione.
 
 - Dopo aver impostato il limite di prenotazione, non è possibile passare a uno SKU diverso entro 31 giorni.
 
@@ -153,7 +152,7 @@ Per la prenotazione della capacità, si definisce una prenotazione di capacità 
    >* "Name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Modificare il modello in base alle esigenze. Provare a creare un [file di parametri di gestione risorse](../../azure-resource-manager/templates/parameter-files.md) anziché passare i parametri come valori inline. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) per informazioni sulle proprietà e sui valori supportati. 
+2. Modificare il modello in base alle esigenze. Valutare la possibilità di creare un [file di parametri di Resource Manager](../../azure-resource-manager/templates/parameter-files.md) anziché passare i parametri come valori inline. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.
 

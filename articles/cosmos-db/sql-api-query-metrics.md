@@ -4,15 +4,14 @@ description: Informazioni su come instrumentare ed eseguire il debug delle prest
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69614831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392132"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 
@@ -131,7 +130,7 @@ Di seguito sono elencate le principali intestazioni di risposta restituite dalla
 | `x-ms-documentdb-query-metrics` | Le statistiche della query per l'esecuzione. Si tratta di una stringa delimitata contenente le statistiche relative al tempo impiegato nelle varie fasi di esecuzione della query. Viene restituita se `x-ms-documentdb-populatequerymetrics` è impostato su `True`. | 
 | `x-ms-request-charge` | Il numero di [unità richiesta](request-units.md) usate dalla query. | 
 
-Per informazioni dettagliate sulle intestazioni e le opzioni delle richieste API REST, vedere [Querying resources using the DocumentDB REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api) (Esecuzione di query su risorse con l'API REST).
+Per informazioni dettagliate sulle intestazioni e le opzioni delle richieste API REST, vedere [Querying resources using the DocumentDB REST API](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api) (Esecuzione di query su risorse con l'API REST).
 
 ## <a name="best-practices-for-query-performance"></a>Procedure consigliate per le prestazioni delle query
 Di seguito sono indicati i fattori più comuni che influiscono sulle prestazioni delle query di Azure Cosmos DB. In questo articolo verrà esaminato in modo approfondito ognuno di questi argomenti.
