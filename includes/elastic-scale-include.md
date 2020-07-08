@@ -6,7 +6,7 @@ ms.date: 11/25/2018
 ms.author: sstein
 ms.openlocfilehash: 1462f0dbeb45edeed964c24585b1fbc948f74233
 ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "84013244"

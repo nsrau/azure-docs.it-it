@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67180009"
 ---
 Ogni computer client che viene connesso a una rete virtuale con la connessione Da punto a sito deve avere un certificato client installato. Il certificato viene generato dal certificato radice e viene installato in ogni computer client. Se non si installa un certificato client valido, l'autenticazione avrà esito negativo quando il client prova a connettersi alla rete virtuale.
@@ -22,7 +22,7 @@ Ogni computer client che viene connesso a una rete virtuale con la connessione D
 
 - **Certificato Enterprise:**
 
-  - Se si usa una soluzione Enterprise certificate, generare un certificato client con il *nome\@* comune nome formato valore yourdomain.com. Usare questo formato anziché il formato *nome dominio\nome utente*.
+  - Se si usa una soluzione Enterprise certificate, generare un certificato client con il nome comune nome formato *valore \@ yourdomain.com*. Usare questo formato anziché il formato *nome dominio\nome utente*.
   - Verificare che il certificato client sia basato sul modello di certificato utente con *Autenticazione client* riportato come primo elemento nell'elenco d'uso. Controllare il certificato facendo doppio clic sul certificato client e aprendo **Utilizzo chiavi avanzato** nella scheda **Dettagli**.
 
 - **Certificato radice autofirmato:** Seguire i passaggi in uno degli articoli seguenti del certificato P2S in modo che i certificati client creati siano compatibili con le connessioni di P2S. I passaggi negli articoli indicati generano un certificato compatibile: 

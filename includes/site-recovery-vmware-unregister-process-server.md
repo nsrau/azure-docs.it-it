@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67180675"
 ---
 Attenersi alla procedura per le circostanze specifiche.
@@ -26,7 +26,7 @@ Attenersi alla procedura per le circostanze specifiche.
 Usare questa procedura solo se non è possibile ripristinare il computer in cui è installato il server di elaborazione.
 
 1. Accedere al server di configurazione come amministratore.
-2. Aprire un prompt dei comandi amministrativo e passare a `%ProgramData%\ASR\home\svsystems\bin`.
+2. Aprire un prompt dei comandi amministrativo e passare a `%ProgramData%\ASR\home\svsystems\bin` .
 3. Eseguire questo comando per ottenere un elenco di uno o più server di elaborazione.
 
     ```

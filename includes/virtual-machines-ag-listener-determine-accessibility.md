@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67180100"
 ---
 È importante tenere presente che esistono due modi per configurare un listener del gruppo di disponibilità in Azure. Questi metodi differiscono nel tipo di servizio di bilanciamento del carico di Azure usato quando si crea il listener. Nella tabella seguente sono descritte le differenze:
 
-| Tipo di servizio di bilanciamento del carico | Implementazione | Usare questo tipo nei seguenti casi: |
+| Tipo di servizio di bilanciamento del carico | Implementazione | Utilizzare quando: |
 | --- | --- | --- |
 | **Esterno** |Usa l'*indirizzo IP virtuale pubblico* del servizio cloud che ospita le macchine virtuali. |È necessario accedere al listener dall'esterno della rete virtuale, ad esempio da Internet. |
 | **Interno** |Usa un *servizio di bilanciamento del carico interno* con un indirizzo privato per il listener. |È possibile accedere al listener solo dall'interno della stessa rete virtuale. Questa modalità di accesso include la VPN da sito a sito in scenari ibridi. |

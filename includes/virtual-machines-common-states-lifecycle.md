@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: shandilvarun
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67180086"
 ---
 Per Macchine virtuali di Azure (VM) sono previsti vari stati che possono essere categorizzati come stati di *provisioning* e di *alimentazione*. Lo scopo di questo articolo è descrivere questi stati e sottolineare in particolare quando viene addebitato l'utilizzo delle istanze ai clienti. 
@@ -58,7 +58,7 @@ Fatturazione dell'utilizzo dell'istanza
 </tr>
 <tr>
 <td>
-<p><b>In esecuzione</b></p>
+<p><b>Running</b></p>
 </td>
 <td>
 <p>Stato di funzionamento normale per una macchina virtuale</p>
@@ -210,7 +210,7 @@ Di seguito sono indicati gli stati operativi transitori dopo che la piattaforma 
 </tr>
 <tr>
 <td width="162">
-<p><b>Eliminazione</b></p>
+<p><b>Deleting</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
