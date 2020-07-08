@@ -4,10 +4,9 @@ description: Informazioni sulla serializzazione degli oggetti di Azure Service F
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639548"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializzazione di un oggetto Reliable Collections in Azure Service Fabric
@@ -29,7 +28,7 @@ Reliable State Manager dispone di un serializzatore predefinito per i tipi segue
 - sbyte
 - byte[]
 - char
-- stringa
+- string
 - decimal
 - double
 - float
@@ -44,7 +43,7 @@ Reliable State Manager dispone di un serializzatore predefinito per i tipi segue
 
 I serializzatori personalizzati vengono comunemente usati per migliorare le prestazioni o per crittografare i dati in rete e su disco. Tra le altre ragioni, i serializzatori personalizzati sono in genere più efficienti dei serializzatori generici poiché questi non devono serializzare le informazioni sul tipo. 
 
-[IReliableStateManager. TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) viene usato per registrare un serializzatore personalizzato per il tipo specificato t. Questa registrazione dovrebbe verificarsi nella costruzione di StatefulServiceBase per garantire che prima dell'avvio del ripristino, tutte le raccolte Reliable Collections abbiano accesso al serializzatore pertinente per leggere i dati salvati in modo permanente.
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) viene usato per registrare un serializzatore personalizzato per un tipo T specificato. Questa registrazione deve avvenire durante la costruzione di StatefulServiceBase per assicurare che, prima dell'avvio del ripristino, tutte le raccolte Reliable Collections abbiano accesso al serializzatore pertinente per leggere i dati resi persistenti.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -62,10 +61,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Come implementare un serializzatore personalizzato
 
-Un serializzatore personalizzato deve implementare l' [interfaccia\<IStateSerializer T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
+Un serializzatore personalizzato deve implementare l'interfaccia [IStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1).
 
 > [!NOTE]
-> IStateSerializer\<t> include un overload per la scrittura e la lettura che accetta un valore di base t aggiuntivo denominato. Questa API è per la serializzazione differenziale. Attualmente la funzionalità di serializzazione differenziale non è esposta. Di conseguenza, questi due overload non vengono chiamati fino a quando la serializzazione differenziale non è esposta e abilitata.
+> IStateSerializer\<T> include un overload per Write e Read che accetta un T aggiuntivo chiamato valore di base. Questa API è per la serializzazione differenziale. Attualmente la funzionalità di serializzazione differenziale non è esposta. Di conseguenza, questi due overload non vengono chiamati fino a quando la serializzazione differenziale non è esposta e abilitata.
 
 Di seguito è riportato un esempio di un tipo personalizzato denominato OrderKey che contiene quattro proprietà
 
@@ -85,7 +84,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Di seguito è riportato un esempio di\<implementazione di IStateSerializer OrderKey>.
+Di seguito è riportato un esempio di implementazione di IStateSerializer\<OrderKey>.
 Si noti che gli overload Write e Read che accettano baseValue chiamano il rispettivo overload per la compatibilità di inoltro.
 
 ```csharp

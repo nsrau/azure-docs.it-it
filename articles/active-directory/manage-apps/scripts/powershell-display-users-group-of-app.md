@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aab5ac5d4712dd9e72fc0b9665d740859b5a6775
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75483388"
 ---
-# <a name="display-users-and-groups-assigned-to-an-application-proxy-application"></a>Visualizzare gli utenti e i gruppi assegnati a un'applicazione proxy di applicazione
+# <a name="display-users-and-groups-assigned-to-an-application-proxy-application"></a>Visualizzare utenti e gruppi assegnati a un'applicazione di Application Proxy
 
 Questo esempio di script di PowerShell elenca gli utenti e i gruppi assegnati a un'applicazione del proxy di applicazione Azure Active Directory (Azure AD) specifica.
 

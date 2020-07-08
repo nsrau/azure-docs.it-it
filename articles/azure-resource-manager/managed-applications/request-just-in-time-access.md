@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651384"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Abilitare e richiedere l'accesso just-in-time per le applicazioni gestite di Azure
 
 I consumer dell'applicazione gestita potrebbero essere riluttanti a concedere l'accesso permanente al gruppo di risorse gestite. Come server di pubblicazione di un'applicazione di gestione, è preferibile che gli utenti conoscano esattamente quando è necessario accedere alle risorse gestite. Per offrire agli utenti un maggiore controllo sulla concessione dell'accesso alle risorse gestite, le applicazioni gestite di Azure forniscono una funzionalità denominata accesso JIT (just-in-Time), attualmente in anteprima.
 
-L'accesso JIT consente di richiedere l'accesso con privilegi elevati alle risorse di un'applicazione gestita per la risoluzione dei problemi o la manutenzione. Si ha sempre accesso in sola lettura alle risorse, ma per un periodo di tempo specifico è possibile avere un accesso maggiore.
+L'accesso JIT consente di richiedere l'accesso con privilegi elevati alle risorse di un'applicazione gestita per la risoluzione dei problemi o la manutenzione. L'accesso alle risorse è sempre in sola lettura, ma per un periodo di tempo specifico è possibile richiedere un accesso di livello maggiore.
 
 Il flusso di lavoro per la concessione dell'accesso è:
 
@@ -34,9 +33,9 @@ Questo articolo è incentrato sulle azioni eseguite dai Publisher per abilitare 
 
 ## <a name="add-jit-access-step-to-ui"></a>Aggiungere il passaggio di accesso JIT all'interfaccia utente
 
-Il file CreateUiDefinition. JSON è esattamente come il file dell'interfaccia utente creato per l'accesso permanente, ad eccezione del fatto che è necessario includere un passaggio che consenta agli utenti di abilitare l'accesso JIT. Per altre informazioni sulla pubblicazione della prima offerta di applicazioni gestite in Azure Marketplace, vedere [applicazioni gestite di Azure nel Marketplace](publish-marketplace-app.md).
+Il CreateUiDefinition.jsnel file è esattamente come il file dell'interfaccia utente creato per l'accesso permanente, ad eccezione del fatto che è necessario includere un passaggio che consenta agli utenti di abilitare l'accesso JIT. Per altre informazioni sulla pubblicazione della prima offerta di applicazioni gestite in Azure Marketplace, vedere [applicazioni gestite di Azure nel Marketplace](publish-marketplace-app.md).
 
-Per supportare la funzionalità JIT per l'offerta, aggiungere il contenuto seguente al file CreateUiDefinition. JSON:
+Per supportare la funzionalità JIT per l'offerta, aggiungere il seguente contenuto al CreateUiDefinition.jsnel file:
 
 In "Steps":
 

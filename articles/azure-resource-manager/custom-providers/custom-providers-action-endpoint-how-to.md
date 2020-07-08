@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650396"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Aggiunta di azioni personalizzate all'API REST di Azure
@@ -18,7 +17,7 @@ In questo articolo verranno illustrati i requisiti e le procedure consigliate pe
 
 ## <a name="how-to-define-an-action-endpoint"></a>Come definire un endpoint azione
 
-Un **endpoint** è un URL che punta a un servizio che implementa il contratto sottostante tra l'IT e Azure. L'endpoint è definito nel provider di risorse personalizzato e può essere qualsiasi URL accessibile pubblicamente. Nell'esempio seguente è presente **action** un'azione `myCustomAction` denominata implementata da `endpointURL`.
+Un **endpoint** è un URL che punta a un servizio che implementa il contratto sottostante tra l'IT e Azure. L'endpoint è definito nel provider di risorse personalizzato e può essere qualsiasi URL accessibile pubblicamente. Nell'esempio seguente è presente un' **azione** denominata `myCustomAction` implementata da `endpointURL` .
 
 **ResourceProvider**di esempio:
 
@@ -42,7 +41,7 @@ Un **endpoint** è un URL che punta a un servizio che implementa il contratto so
 
 ## <a name="building-an-action-endpoint"></a>Compilazione di un endpoint azione
 
-Un **endpoint** che implementa un' **azione** deve gestire la richiesta e la risposta per la nuova API in Azure. Quando viene creato un provider di risorse personalizzato con un' **azione** , verrà generato un nuovo set di API in Azure. In questo caso, l'azione genererà una nuova API di azione di `POST` Azure per le chiamate:
+Un **endpoint** che implementa un' **azione** deve gestire la richiesta e la risposta per la nuova API in Azure. Quando viene creato un provider di risorse personalizzato con un' **azione** , verrà generato un nuovo set di API in Azure. In questo caso, l'azione genererà una nuova API di azione di Azure per le `POST` chiamate:
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction

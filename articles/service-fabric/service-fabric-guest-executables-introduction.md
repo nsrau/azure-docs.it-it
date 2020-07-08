@@ -4,10 +4,9 @@ description: Informazioni su come creare il pacchetto di un'applicazione esisten
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457823"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuire un eseguibile esistente in Service Fabric
@@ -54,7 +53,7 @@ Per distribuire un'applicazione in Service Fabric, l'applicazione deve seguire u
 ApplicationPackageRoot contiene il file ApplicationManifest.xml che definisce l'applicazione. Per contenere tutti gli elementi necessari per il servizio viene usata una sottodirectory per ogni servizio incluso nell'applicazione. Tali sottodirectory sono ServiceManifest.xml e, in genere, la seguente:
 
 * *Codice*. Contiene il codice del servizio.
-* *Configurazione*. Questa directory contiene un file Settings. XML (e altri file, se necessario) a cui il servizio può accedere in fase di esecuzione per recuperare impostazioni di configurazione specifiche.
+* *Configurazione*. Questa directory contiene un file di Settings.xml (e altri file, se necessario) a cui il servizio può accedere in fase di esecuzione per recuperare impostazioni di configurazione specifiche.
 * *Dati*. Un'altra directory in cui archiviare dati locali aggiuntivi che potrebbero essere necessari al servizio. I dati devono essere usati per archiviare solo dati temporanei. Service Fabric non copia o replica le modifiche alla directory dei dati se il servizio deve essere trasferito, ad esempio durante il failover.
 
 > [!NOTE]

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 4a3604a3256fb2d3f4253891bbc28c7685748cd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651020"
 ---
 # <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Configurare e approvare l'accesso just-in-time per le applicazioni gestite di Azure
@@ -37,7 +36,7 @@ Questo articolo è incentrato sulle azioni intraprese dagli utenti per abilitare
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Trovare una voce del Marketplace per un'applicazione gestita con JIT abilitato. Selezionare **Create** (Crea).
+1. Trovare una voce del Marketplace per un'applicazione gestita con JIT abilitato. Selezionare **Crea**.
 
 1. Quando si specificano valori per la nuova applicazione gestita, il passaggio di **configurazione JIT** consente di abilitare o disabilitare l'accesso JIT per l'applicazione gestita. Selezionare **Sì** per **abilitare l'accesso JIT**. Questa opzione è selezionata per impostazione predefinita per le applicazioni gestite che definiscono con JIT abilitato nel Marketplace.
 

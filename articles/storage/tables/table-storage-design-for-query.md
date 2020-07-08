@@ -9,10 +9,9 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457635"
 ---
 # <a name="design-for-querying"></a>Progettazione per le query
@@ -98,7 +97,7 @@ In molte applicazioni è necessario usare i dati ordinandoli in modo diverso, ad
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Modelli di progettazione tabella](table-storage-design-patterns.md)
+- [Modelli di progettazione tabelle](table-storage-design-patterns.md)
 - [Modellazione di relazioni](table-storage-design-modeling.md)
-- [Crittografia dei dati delle tabelle](table-storage-design-encrypt-data.md)
+- [Crittografare i dati delle tabelle](table-storage-design-encrypt-data.md)
 - [Progettazione per la modifica dei dati](table-storage-design-for-modification.md)

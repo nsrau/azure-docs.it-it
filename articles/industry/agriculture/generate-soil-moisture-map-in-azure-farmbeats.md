@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482569"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Genera mappa termica di umidità del suolo
@@ -51,7 +50,7 @@ Dopo aver immesso le credenziali e selezionato **Invia** nell'applicazione partn
 Dopo aver collegato l'account del sensore in Azure FarmBeats, è necessario assegnare i sensori di umidità del suolo alla farm di interesse.
 
 1.  Nella home page selezionare **Farm** dal menu. viene visualizzata la pagina dell'elenco **Farm** .
-2.  Selezionare **Farm** > **Aggiungi dispositivi**.
+2.  Selezionare **Farm**  >  **Aggiungi dispositivi**.
 3.  Viene visualizzata la finestra **Aggiungi dispositivi** . Selezionare un dispositivo collegato ai sensori di umidità del suolo per la farm.
 
     ![Progetto FarmBeats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
@@ -81,7 +80,7 @@ Questo passaggio consente di creare un processo o un'operazione a esecuzione pro
 
 ### <a name="download-the-soil-moisture-heatmap"></a>Scaricare la mappa termica di umidità del suolo
 
-Eseguire la procedura descritta di seguito:
+Eseguire i passaggi seguenti:
 
 1. Nella pagina **processi** controllare lo stato del **processo** creato nell'ultima procedura.
 2. Quando lo stato del processo è indicato **succeeded**, selezionare **Maps** nel menu.

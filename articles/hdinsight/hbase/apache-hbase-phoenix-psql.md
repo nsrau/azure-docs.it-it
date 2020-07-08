@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 845c4a62aee04a8acdc645ba4c41f1f5496537c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552611"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Caricamento bulk di dati in Apache Phoenix tramite psql
@@ -27,13 +26,13 @@ Esistono diversi modi per caricare i dati in HBase, tra cui l'uso di API client,
 
 Il caricamento bulk con MapReduce viene usato per volumi di dati maggiori, in genere negli scenari di produzione, in quanto MapReduce usa più thread.
 
-Prima di avviare il caricamento dei dati, verificare che Phoenix sia abilitato e che le impostazioni di timeout delle query siano quelle previste.  Accedere al dashboard [Apache Ambari](https://ambari.apache.org/) del cluster HDInsight, selezionare HBase e quindi la scheda configurazione.  Scorrere verso il basso per verificare che Apache Phoenix sia `enabled` impostato su come illustrato:
+Prima di avviare il caricamento dei dati, verificare che Phoenix sia abilitato e che le impostazioni di timeout delle query siano quelle previste.  Accedere al dashboard [Apache Ambari](https://ambari.apache.org/) del cluster HDInsight, selezionare HBase e quindi la scheda configurazione.  Scorrere verso il basso per verificare che Apache Phoenix sia impostato su `enabled` come illustrato:
 
 ![Impostazioni del cluster HDInsight di Apache Phoenix](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
 ### <a name="use-psql-to-bulk-load-tables"></a>Usare `psql` per il caricamento bulk delle tabelle
 
-1. Creare un file denominato `createCustomersTable.sql`e copiare il codice seguente nel file. Salvare quindi il file e chiuderlo.
+1. Creare un file denominato `createCustomersTable.sql` e copiare il codice seguente nel file. Salvare quindi il file e chiuderlo.
 
     ```sql
     CREATE TABLE Customers (
@@ -44,13 +43,13 @@ Prima di avviare il caricamento dei dati, verificare che Phoenix sia abilitato e
         Country varchar);
     ```
 
-1. Creare un file denominato `listCustomers.sql`e copiare il codice seguente nel file. Salvare quindi il file e chiuderlo.
+1. Creare un file denominato `listCustomers.sql` e copiare il codice seguente nel file. Salvare quindi il file e chiuderlo.
 
     ```sql
     SELECT * from Customers;
     ```
 
-1. Creare un file denominato `customers.csv`e copiare il codice seguente nel file. Salvare quindi il file e chiuderlo.
+1. Creare un file denominato `customers.csv` e copiare il codice seguente nel file. Salvare quindi il file e chiuderlo.
 
     ```txt
     1,Samantha,260000.0,18,US
@@ -58,7 +57,7 @@ Prima di avviare il caricamento dei dati, verificare che Phoenix sia abilitato e
     3,Anton,550150.0,42,Norway
     ```
 
-1. Creare un file denominato `customers2.csv`e copiare il codice seguente nel file. Salvare quindi il file e chiuderlo.
+1. Creare un file denominato `customers2.csv` e copiare il codice seguente nel file. Salvare quindi il file e chiuderlo.
 
     ```txt
     4,Nicolle,180000.0,22,US
@@ -72,7 +71,7 @@ Prima di avviare il caricamento dei dati, verificare che Phoenix sia abilitato e
     scp customers.csv customers2.csv createCustomersTable.sql listCustomers.sql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/tmp
     ```
 
-1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster in uso e quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -90,7 +89,7 @@ Prima di avviare il caricamento dei dati, verificare che Phoenix sia abilitato e
     python psql.py /tmp/createCustomersTable.sql /tmp/customers.csv
     ```
 
-    Al termine `psql` dell'operazione, verrà visualizzato un messaggio simile al seguente:
+    Al termine dell' `psql` operazione, verrà visualizzato un messaggio simile al seguente:
 
     ```output
     csv columns from database.
@@ -116,7 +115,7 @@ Prima di avviare il caricamento dei dati, verificare che Phoenix sia abilitato e
 
 Per un caricamento con velocità effettiva più elevata distribuito nel cluster, usare lo strumento di caricamento di MapReduce. Questo caricatore innanzitutto converte tutti i dati in HFiles e quindi fornisce i HFiles creati a HBase.
 
-1. Questa sezione continua con la sessione SSH e gli oggetti creati in precedenza. Creare la tabella **Customers** e il file **Customers. csv** in base alle esigenze seguendo la procedura descritta sopra. Se necessario, ristabilire la connessione SSH.
+1. Questa sezione continua con la sessione SSH e gli oggetti creati in precedenza. Creare la tabella **Customers** e **customers.csv** file in base alle esigenze seguendo la procedura descritta sopra. Se necessario, ristabilire la connessione SSH.
 
 1. Troncare il contenuto della tabella **Customers** . Dalla sessione ssh aperta, eseguire i comandi seguenti:
 
@@ -167,7 +166,7 @@ Per un caricamento con velocità effettiva più elevata distribuito nel cluster,
 
 1. Per eseguire una query e visualizzare i dati, è possibile usare **PSQL** come descritto in precedenza. È anche possibile usare [HBase Shell](./query-hbase-with-hbase-shell.md)o [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md).
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Consigli
 
 * Usare lo stesso supporto di archiviazione per le cartelle di input e di output: Archiviazione di Azure (WASB) o Azure Data Lake Storage (ADL). Per trasferire i dati da Archiviazione di Azure ad Azure Data Lake Storage, è possibile usare il comando `distcp`:
 

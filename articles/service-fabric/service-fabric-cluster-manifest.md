@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458369"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
@@ -19,9 +18,9 @@ Quando si [scarica il pacchetto di Service Fabric autonomo](service-fabric-clust
 
 * ClusterConfig.Unsecure.DevCluster.json e ClusterConfig.Unsecure.MultiMachine.json mostrano rispettivamente come creare cluster senza protezione per test e produzione.
 
-* ClusterConfig. Windows. DevCluster. JSON e ClusterConfig. Windows. MultiMachine. JSON mostrano come creare cluster di test o produzione protetti tramite la [sicurezza di Windows](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.jssu e ClusterConfig.Windows.MultiMachine.jsin Mostra come creare cluster di test o di produzione protetti tramite la sicurezza di [Windows](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig. X509. DevCluster. JSON e ClusterConfig. X509. MultiMachine. JSON mostrano come creare cluster di test o produzione protetti tramite la [sicurezza basata su certificati X509](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.jssu e ClusterConfig.X509.MultiMachine.jsin Mostra come creare cluster di test o di produzione protetti tramite la [sicurezza basata sui certificati X509](service-fabric-windows-cluster-x509-security.md).
 
 Verranno esaminate ora le diverse sezioni di un file ClusterConfig.json.
 
@@ -199,7 +198,7 @@ Tutte le funzionalità del componente aggiuntivo disponibili possono essere visu
 Per abilitare il supporto dei contenitori sia per i contenitori di Windows Server che per i contenitori di Hyper-V per i cluster autonomi, deve essere attivata la funzionalità aggiuntiva DnsService.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver configurato un file *ClusterConfig. JSON* completo in base alla configurazione del cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
+Dopo aver configurato unClusterConfig.jscompleto per il file *in* base alla configurazione del cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
 
 Se si dispone di un cluster autonomo distribuito, è anche possibile [aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 

@@ -8,10 +8,9 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552118"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Panoramica della funzione Threat Modeling Tool
@@ -150,9 +149,9 @@ Quando si apre o crea un nuovo modello, viene aperta la visualizzazione **Proget
 
 ![Prima](./media/threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>After
+#### <a name="after"></a>Dopo
 
-![After](./media/threat-modeling-tool-feature-overview/properties2.png)
+![Dopo](./media/threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Messaggi
 
@@ -194,7 +193,7 @@ Come illustrato nella figura precedente, è possibile modificare le informazioni
 
 ## <a name="reports"></a>Report
 
-Dopo aver completato la modifica delle priorità e aggiornato lo stato di ogni minaccia generata, sarà possibile salvare il file e/o stampare un report. Passare a **report** > **Crea report completo**. Denominare il report. Verrà visualizzata una schermata simile all'immagine seguente:
+Dopo aver completato la modifica delle priorità e aggiornato lo stato di ogni minaccia generata, sarà possibile salvare il file e/o stampare un report. Passare a **report**  >  **Crea report completo**. Denominare il report. Verrà visualizzata una schermata simile all'immagine seguente:
 
 ![Report](./media/threat-modeling-tool-feature-overview/report.png)
 

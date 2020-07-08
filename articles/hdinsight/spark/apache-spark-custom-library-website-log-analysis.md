@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: c6bf26d8f3a73db6ee69b2aa0de73872911893bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552713"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analizzare i log del sito Web usando una libreria Python personalizzata con cluster Apache Spark in HDInsight
@@ -46,7 +45,7 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
     from pyspark.sql.types import *
     ```
 
-1. Creare un RDD con i dati di log di esempio già disponibili nel cluster. È possibile accedere ai dati nell'account di archiviazione predefinito associato al cluster all'indirizzo `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`. Eseguire questo codice:
+1. Creare un RDD con i dati di log di esempio già disponibili nel cluster. È possibile accedere ai dati nell'account di archiviazione predefinito associato al cluster all'indirizzo `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log` . Eseguire questo codice:
 
     ```pyspark
     logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
@@ -70,9 +69,9 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>Analizzare i dati di log usando una libreria personalizzata di Python
 
-1. Nell'output precedente, le prime due righe includono le informazioni di intestazione e ogni riga rimanente corrisponde allo schema descritto nell'intestazione. L'analisi di tali log potrebbe essere complessa. Quindi, viene usata una libreria personalizzata di Python (**iislogparser.py**) che semplifica notevolmente l'analisi di tali log. Per impostazione predefinita, questa libreria è inclusa nel cluster Spark in HDInsight all' `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`indirizzo.
+1. Nell'output precedente, le prime due righe includono le informazioni di intestazione e ogni riga rimanente corrisponde allo schema descritto nell'intestazione. L'analisi di tali log potrebbe essere complessa. Quindi, viene usata una libreria personalizzata di Python (**iislogparser.py**) che semplifica notevolmente l'analisi di tali log. Per impostazione predefinita, questa libreria è inclusa nel cluster Spark in HDInsight all'indirizzo `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py` .
 
-    Tuttavia, questa libreria non è disponibile `PYTHONPATH` in, pertanto non è possibile utilizzarla utilizzando un'istruzione `import iislogparser`Import come. Per usare questa libreria è necessario distribuirla a tutti i nodi di lavoro. Eseguire il frammento di codice seguente.
+    Tuttavia, questa libreria non è disponibile in, `PYTHONPATH` pertanto non è possibile utilizzarla utilizzando un'istruzione Import come `import iislogparser` . Per usare questa libreria è necessario distribuirla a tutti i nodi di lavoro. Eseguire il frammento di codice seguente.
 
     ```pyspark
     sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -110,7 +109,7 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
     errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
     ```
 
-    L'output deve essere `There are 30 errors and 646 log entries`stato.
+    L'output deve essere stato `There are 30 errors and 646 log entries` .
 
 1. È anche possibile usare **Matplotlib** per costruire una visualizzazione dei dati. Ad esempio, se si vuole isolare la causa delle richieste in esecuzione da molto tempo si potrebbero trovare i file che mediamente richiedono più tempo per servire una richiesta. Il frammento di codice seguente recupera le 25 risorse principali che hanno impiegato più tempo per servire una richiesta.
 
@@ -202,6 +201,6 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
 
 Esaminare gli articoli seguenti:
 
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)

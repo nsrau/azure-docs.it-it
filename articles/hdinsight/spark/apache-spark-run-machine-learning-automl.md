@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: 6fc0d4cfe29e0fb189c44b307576bd08d2da8a31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75638885"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Eseguire carichi di lavoro Azure Machine Learning con Machine Learning automatizzato in Apache Spark in HDInsight
@@ -71,7 +70,7 @@ dataflow_with_token = dprep.read_csv(
 
 ## <a name="experiment-submission"></a>Invio di esperimento
 
-Nella [configurazione di Machine Learning automatizzata](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig), la `spark_context` proprietà deve essere impostata per l'esecuzione del pacchetto in modalità distribuita. La proprietà `concurrent_iterations`, che corrisponde al numero massimo di iterazioni eseguite in parallelo, deve essere impostata su un numero inferiore rispetto ai core executor per l'app Spark.
+Nella [configurazione di Machine Learning automatizzata](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig), la proprietà `spark_context` deve essere impostata per l'esecuzione del pacchetto in modalità distribuita. La proprietà `concurrent_iterations`, che corrisponde al numero massimo di iterazioni eseguite in parallelo, deve essere impostata su un numero inferiore rispetto ai core executor per l'app Spark.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
 ms.openlocfilehash: 5989692aeb59c7394299b4cb2474b244818895b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75500076"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Uso combinato di ScaleR e SparkR in HDInsight
@@ -29,7 +28,7 @@ I passaggi in questo documento presuppongono un livello intermedio di conoscenza
 
 ## <a name="the-airline-and-weather-datasets"></a>Set di dati relativi alle compagnie aeree e alle previsioni meteo
 
-I dati di volo sono disponibili negli [archivi del governo statunitense](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). È disponibile anche come file zip da [AirOnTimeCSV. zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+I dati di volo sono disponibili negli [archivi del governo statunitense](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). È disponibile anche come file zip da [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
 I dati meteo suddivisi per mese possono essere scaricati come file ZIP in formato non elaborato dal [repository della National Oceanic and Atmospheric Administration](https://www.ncdc.noaa.gov/orders/qclcd/). Per questo esempio, scaricare i dati per maggio 2007 - dicembre 2012. Usare i file dei dati orari e il file `YYYYMMMstation.txt` all'interno di ognuno degli ZIP.
 

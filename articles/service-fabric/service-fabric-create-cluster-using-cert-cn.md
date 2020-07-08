@@ -4,10 +4,9 @@ description: Informazioni su come creare un cluster di Service Fabric usando il 
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614554"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuire un cluster di Service Fabric che usa il nome comune dei certificati anziché l'identificazione personale
@@ -120,7 +119,7 @@ Aprire quindi il file *azuredeploy.json* in un editor di testo e apportare tre a
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile**->**extensionProfile**->**Extensions**->**settings****certificate****properties**properties Settings->certificate->, Aggiungi 
+3. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile** -> **extensionProfile** -> **Extensions** -> **Properties** -> **Settings** -> **Certificate**, Aggiungi 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"

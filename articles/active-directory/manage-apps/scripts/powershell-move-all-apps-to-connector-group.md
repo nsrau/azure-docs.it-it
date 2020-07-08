@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6dccdaa96dadb061b168bbdf6148ed4d759776c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75481984"
 ---
-# <a name="move-all-apps-assigned-to-a-connector-group-to-another-connector-group"></a>Spostare tutte le app assegnate a un gruppo di connettori a un altro gruppo di connettori
+# <a name="move-all-apps-assigned-to-a-connector-group-to-another-connector-group"></a>Spostare tutte le app assegnate a un gruppo di connettori in un altro gruppo di connettori
 
 Questo esempio di script di PowerShell sposta tutte le applicazioni proxy di applicazione Azure Active Directory (Azure AD) attualmente assegnate a un gruppo di connettori a un gruppo di connettori diverso.
 

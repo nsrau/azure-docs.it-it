@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: e1b8c44f020d18066423eed236018308fe88b607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650383"
 ---
 # <a name="custom-resource-cache-reference"></a>Riferimento alla cache delle risorse personalizzate
@@ -42,11 +41,11 @@ Provider di risorse personalizzato di esempio:
 
 ## <a name="building-proxy-resource-endpoint"></a>Compilazione dell'endpoint della risorsa proxy
 
-Un **endpoint** che implementa un **endpoint** della risorsa "proxy, cache" deve gestire la richiesta e la risposta per la nuova API in Azure. In questo caso, il **ResourceType** genererà una nuova API risorse di Azure `PUT`per `GET`, e `DELETE` per eseguire CRUD su una singola risorsa, oltre che `GET` per recuperare tutte le risorse esistenti:
+Un **endpoint** che implementa un **endpoint** della risorsa "proxy, cache" deve gestire la richiesta e la risposta per la nuova API in Azure. In questo caso, il **ResourceType** genererà una nuova API risorse di Azure per `PUT` , `GET` e `DELETE` per eseguire CRUD su una singola risorsa, oltre che `GET` per recuperare tutte le risorse esistenti:
 
 > [!NOTE]
-> L'API di Azure genererà i metodi `PUT`di `GET`richiesta, `DELETE`e, ma l' **endpoint** della cache deve solo `PUT` gestire `DELETE`e.
-> Si consiglia inoltre di **endpoint** implementare `GET`l'endpoint.
+> L'API di Azure genererà i metodi `PUT` di richiesta, `GET` e `DELETE` , ma l' **endpoint** della cache deve solo gestire `PUT` e `DELETE` .
+> Si consiglia inoltre di **endpoint** implementare l'endpoint `GET` .
 
 ### <a name="create-a-custom-resource"></a>Creare una risorsa personalizzata
 
@@ -88,8 +87,8 @@ Analogamente, la risposta dall' **endpoint** viene quindi reinviata al cliente. 
 
 - Documento oggetto JSON valido. Tutte le matrici e le stringhe devono essere annidate in un oggetto top.
 - L' `Content-Type` intestazione deve essere impostata su "Application/JSON; charset = UTF-8 ".
-- Il provider di risorse personalizzato `name`sovrascriverà `type`i campi `id` , e per la richiesta.
-- Il provider di risorse personalizzato restituirà solo i `properties` campi nell'oggetto per un endpoint della cache.
+- Il provider di risorse personalizzato sovrascriverà i `name` `type` campi, e `id` per la richiesta.
+- Il provider di risorse personalizzato restituirà solo i campi nell' `properties` oggetto per un endpoint della cache.
 
 **Endpoint** di Risposta
 
@@ -107,7 +106,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-I `name`campi `id`, e `type` verranno generati automaticamente per la risorsa personalizzata dal provider di risorse personalizzato.
+I `name` `id` campi, e `type` verranno generati automaticamente per la risorsa personalizzata dal provider di risorse personalizzato.
 
 Risposta del provider di risorse personalizzato di Azure:
 

@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650526"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Aggiunta di risorse personalizzate all'API REST di Azure
@@ -18,7 +17,7 @@ Questo articolo illustra i requisiti e le procedure consigliate per la creazione
 
 ## <a name="how-to-define-a-resource-endpoint"></a>Come definire un endpoint di risorsa
 
-Un **endpoint** è un URL che punta a un servizio che implementa il contratto sottostante tra l'IT e Azure. L'endpoint è definito nel provider di risorse personalizzato e può essere qualsiasi URL accessibile pubblicamente. Nell'esempio seguente è presente **resourceType** un oggetto `myCustomResource` ResourceType chiamato `endpointURL`implementato da.
+Un **endpoint** è un URL che punta a un servizio che implementa il contratto sottostante tra l'IT e Azure. L'endpoint è definito nel provider di risorse personalizzato e può essere qualsiasi URL accessibile pubblicamente. Nell'esempio seguente è presente un oggetto **ResourceType** chiamato `myCustomResource` implementato da `endpointURL` .
 
 **ResourceProvider**di esempio:
 
@@ -42,39 +41,39 @@ Un **endpoint** è un URL che punta a un servizio che implementa il contratto so
 
 ## <a name="building-a-resource-endpoint"></a>Compilazione di un endpoint di risorsa
 
-Un **endpoint** che implementa un oggetto **ResourceType** deve gestire la richiesta e la risposta per la nuova API in Azure. Quando viene creato un provider di risorse personalizzato con un oggetto **ResourceType** , viene generato un nuovo set di API in Azure. In questo caso, il **ResourceType** genererà una nuova API risorse di Azure `PUT`per `GET`, e `DELETE` per eseguire CRUD su una singola risorsa, oltre che `GET` per recuperare tutte le risorse esistenti:
+Un **endpoint** che implementa un oggetto **ResourceType** deve gestire la richiesta e la risposta per la nuova API in Azure. Quando viene creato un provider di risorse personalizzato con un oggetto **ResourceType** , viene generato un nuovo set di API in Azure. In questo caso, il **ResourceType** genererà una nuova API risorse di Azure per `PUT` , `GET` e `DELETE` per eseguire CRUD su una singola risorsa, oltre che `GET` per recuperare tutte le risorse esistenti:
 
-Modificare una singola risorsa`PUT`( `GET`, e `DELETE`):
+Modificare una singola risorsa ( `PUT` , `GET` e `DELETE` ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource/{myCustomResourceName}
 ```
 
-Recupera tutte le risorse`GET`():
+Recupera tutte le risorse ( `GET` ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
 ```
 
-Per le risorse personalizzate, i provider di risorse personalizzati offrono **routingTypes**due tipi di`Proxy`routingTypes: "`Proxy, Cache`" e "".
+Per le risorse personalizzate, i provider di risorse personalizzati offrono due tipi di **routingTypes**: " `Proxy` " e " `Proxy, Cache` ".
 
 ### <a name="proxy-routing-type"></a>tipo di routing proxy
 
-"`Proxy`" **RoutingType** proxy tutti i metodi di richiesta all' **endpoint** specificato nel provider di risorse personalizzato. Quando usare "`Proxy`":
+" `Proxy` " **RoutingType** proxy tutti i metodi di richiesta all' **endpoint** specificato nel provider di risorse personalizzato. Quando usare " `Proxy` ":
 
 - Il controllo completo sulla risposta è necessario.
 - Integrazione dei sistemi con le risorse esistenti.
 
-Per ulteriori informazioni sulle risorse`Proxy`"", vedere [il riferimento al proxy di risorsa personalizzato](proxy-resource-endpoint-reference.md) .
+Per ulteriori informazioni sulle `Proxy` risorse "", vedere [il riferimento al proxy di risorsa personalizzato](proxy-resource-endpoint-reference.md) .
 
 ### <a name="proxy-cache-routing-type"></a>tipo di routing della cache proxy
 
-"`Proxy, Cache`" **RoutingType** solo `PUT` proxy e `DELETE` metodi di richiesta all' **endpoint** specificato nel provider di risorse personalizzato. Il provider di risorse personalizzato restituirà `GET` automaticamente le richieste in base al contenuto archiviato nella cache. Se una risorsa personalizzata è contrassegnata con la cache, anche il provider di risorse personalizzato aggiunge/sovrascrive i campi nella risposta per rendere le API conformi ad Azure. Quando usare "`Proxy, Cache`":
+" `Proxy, Cache` " **RoutingType** solo proxy `PUT` e `DELETE` metodi di richiesta all' **endpoint** specificato nel provider di risorse personalizzato. Il provider di risorse personalizzato restituirà automaticamente `GET` le richieste in base al contenuto archiviato nella cache. Se una risorsa personalizzata è contrassegnata con la cache, anche il provider di risorse personalizzato aggiunge/sovrascrive i campi nella risposta per rendere le API conformi ad Azure. Quando usare " `Proxy, Cache` ":
 
 - Creazione di un nuovo sistema privo di risorse esistenti.
 - Usare l'ecosistema di Azure esistente.
 
-Per ulteriori informazioni sulle risorse`Proxy, Cache`"", vedere [il riferimento alla cache delle risorse personalizzate](proxy-cache-resource-endpoint-reference.md) .
+Per ulteriori informazioni sulle `Proxy, Cache` risorse "", vedere [il riferimento alla cache delle risorse personalizzate](proxy-cache-resource-endpoint-reference.md) .
 
 ## <a name="creating-a-custom-resource"></a>Creazione di una risorsa personalizzata
 
@@ -131,9 +130,9 @@ id | *Sì* | ID della risorsa personalizzata. Questo dovrebbe esistere all'ester
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
 > [!NOTE]
-> Per le risorse è necessario che la risposta `id`contenga un oggetto appropriato, `name`e `type` dall' **endpoint**.
+> Per le risorse è necessario che la risposta contenga un oggetto appropriato `id` , `name` e `type` dall' **endpoint**.
 
-Azure Resource Manager modelli richiedono che `id`, `name`e `type` siano restituiti correttamente dall'endpoint downstream. Una risposta di risorsa restituita deve essere nel formato seguente:
+Azure Resource Manager modelli richiedono che `id` , `name` e `type` siano restituiti correttamente dall'endpoint downstream. Una risposta di risorsa restituita deve essere nel formato seguente:
 
 Risposta dell' **endpoint** di esempio:
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614401"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Eseguire query sulle API di EventStore per eventi del cluster
@@ -169,7 +168,7 @@ Di seguito è riportato un altro esempio che esegue una query per l'integrità d
 
 Di seguito sono riportati alcuni esempi di come è possibile chiamare le API REST di EventStore per conoscere lo stato del cluster.
 
-*Aggiornamenti del cluster*
+*Aggiornamenti cluster:*
 
 Per verificare quando è stato completato o tentato un aggiornamento del cluster nell'ultima settimana, è possibile eseguire una query sulle API per gli aggiornamenti del cluster completati di recente, con una query per gli eventi "ClusterUpgradeComplete" in EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
 

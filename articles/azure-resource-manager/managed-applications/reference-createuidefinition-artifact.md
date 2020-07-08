@@ -1,24 +1,23 @@
 ---
 title: Artefatto CreateUiDefinition
-description: Viene illustrato come creare l'elemento createUiDefinition per un'applicazione gestita di Azure. Il file è denominato createUiDefinition. JSON.
+description: Viene illustrato come creare l'elemento createUiDefinition per un'applicazione gestita di Azure. Il nome del file è createUiDefinition.json.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 9be1cb02c419314a33b9487bf183ef3659b2b549
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651488"
 ---
 # <a name="reference-user-interface-elements-artifact"></a>Riferimento: artefatto degli elementi dell'interfaccia utente
 
-Questo articolo è un riferimento per un elemento *createUiDefinition. JSON* nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione di elementi dell'interfaccia utente, vedere [creare elementi dell'interfaccia utente](create-uidefinition-elements.md).
+Questo articolo è un riferimento per un *createUiDefinition.jssull'* artefatto nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione di elementi dell'interfaccia utente, vedere [creare elementi dell'interfaccia utente](create-uidefinition-elements.md).
 
 ## <a name="user-interface-elements"></a>Elementi dell'interfaccia utente
 
-Il codice JSON seguente mostra un esempio di file *createUiDefinition. JSON* per le applicazioni gestite di Azure:
+Il codice JSON seguente mostra un esempio di *createUiDefinition.jssu* file per le applicazioni gestite di Azure:
 
 ```json
 {

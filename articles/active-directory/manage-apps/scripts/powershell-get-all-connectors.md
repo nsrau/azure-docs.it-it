@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53af7f3f9049edc23ed4226f43e7fe67398c29f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482114"
 ---
-# <a name="get-all-connector-groups-and-connectors-in-the-directory"></a>Ottenere tutti i connettori e i gruppi del connettore nella directory
+# <a name="get-all-connector-groups-and-connectors-in-the-directory"></a>Ottenere tutti i gruppi di connettori e i connettori nella directory
 
 Questo esempio di script di PowerShell elenca tutti i connettori e i gruppi di connettori del proxy di applicazione Azure Active Directory (Azure AD) nella directory.
 

@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75494917"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Ottimizzazione delle prestazioni per i cluster Apache Kafka HDInsight
@@ -40,17 +39,17 @@ Le sezioni seguenti evidenziano alcune delle proprietà di configurazione più i
 
 ### <a name="batch-size"></a>Dimensioni dei batch
 
-Apache Kafka produttori assemblano gruppi di messaggi, detti batch, che vengono inviati come unità da archiviare in una singola partizione di archiviazione. Dimensioni batch indica il numero di byte che devono essere presenti prima che il gruppo venga trasmesso. L'aumento `batch.size` del parametro può aumentare la velocità effettiva, perché riduce l'overhead di elaborazione dalle richieste di rete e di i/o. Con il caricamento leggero, le dimensioni del batch aumentate potrebbero aumentare la latenza di invio Kafka quando il produttore attende che un batch sia pronto. In condizioni di carico elevato, è consigliabile aumentare le dimensioni del batch per migliorare la velocità effettiva e la latenza.
+Apache Kafka produttori assemblano gruppi di messaggi, detti batch, che vengono inviati come unità da archiviare in una singola partizione di archiviazione. Dimensioni batch indica il numero di byte che devono essere presenti prima che il gruppo venga trasmesso. L'aumento del `batch.size` parametro può aumentare la velocità effettiva, perché riduce l'overhead di elaborazione dalle richieste di rete e di i/o. Con il caricamento leggero, le dimensioni del batch aumentate potrebbero aumentare la latenza di invio Kafka quando il produttore attende che un batch sia pronto. In condizioni di carico elevato, è consigliabile aumentare le dimensioni del batch per migliorare la velocità effettiva e la latenza.
 
 ### <a name="producer-required-acknowledgments"></a>Riconoscimenti richiesti dal produttore
 
-La configurazione richiesta `acks` dal Producer determina il numero di riconoscimenti richiesti dal responsabile della partizione prima che una richiesta di scrittura venga considerata completata. Questa impostazione influiscono sull'affidabilità dei dati e accetta `0`i `1`valori di `-1`, o. Il valore di `-1` indica che un riconoscimento deve essere ricevuto da tutte le repliche prima del completamento della scrittura. L' `acks = -1` impostazione garantisce una maggiore protezione dalla perdita di dati, ma comporta anche una latenza più elevata e una velocità effettiva inferiore. Se i requisiti dell'applicazione richiedono una velocità effettiva superiore `acks = 0` , `acks = 1`provare a impostare o. Tenere presente che il mancato riconoscimento di tutte le repliche può ridurre l'affidabilità dei dati.
+La configurazione richiesta dal Producer `acks` determina il numero di riconoscimenti richiesti dal responsabile della partizione prima che una richiesta di scrittura venga considerata completata. Questa impostazione influiscono sull'affidabilità dei dati e accetta i valori di `0` , `1` o `-1` . Il valore di `-1` indica che un riconoscimento deve essere ricevuto da tutte le repliche prima del completamento della scrittura. L'impostazione garantisce una `acks = -1` maggiore protezione dalla perdita di dati, ma comporta anche una latenza più elevata e una velocità effettiva inferiore. Se i requisiti dell'applicazione richiedono una velocità effettiva superiore, provare a impostare `acks = 0` o `acks = 1` . Tenere presente che il mancato riconoscimento di tutte le repliche può ridurre l'affidabilità dei dati.
 
 ### <a name="compression"></a>Compressione
 
 Un Producer Kafka può essere configurato per comprimere i messaggi prima di inviarli ai broker. L' `compression.type` impostazione specifica il codec di compressione da usare. I codec di compressione supportati sono "gzip", "snapper" e "LZ4". La compressione è vantaggiosa e deve essere considerata se esiste una limitazione sulla capacità del disco.
 
-Tra i due codec di compressione di uso comune `gzip` , `snappy`e `gzip` , ha un rapporto di compressione più elevato, che comporta un minore utilizzo del disco al costo di un carico superiore della CPU. Il `snappy` codec offre una minore compressione con minore sovraccarico della CPU. È possibile decidere quale codec utilizzare in base alle limitazioni del disco broker o della CPU del Producer. `gzip`consente di `snappy`comprimere i dati a una velocità cinque volte superiore a.
+Tra i due codec di compressione di uso comune, `gzip` e `snappy` , `gzip` ha un rapporto di compressione più elevato, che comporta un minore utilizzo del disco al costo di un carico superiore della CPU. Il `snappy` codec offre una minore compressione con minore sovraccarico della CPU. È possibile decidere quale codec utilizzare in base alle limitazioni del disco broker o della CPU del Producer. `gzip`consente di comprimere i dati a una velocità cinque volte superiore a `snappy` .
 
 L'utilizzo della compressione dei dati aumenterà il numero di record che possono essere archiviati su un disco. Può anche aumentare il sovraccarico della CPU nei casi in cui non vi sia una corrispondenza tra i formati di compressione usati dal Producer e dal broker. Poiché i dati devono essere compressi prima dell'invio e quindi decompressi prima dell'elaborazione.
 

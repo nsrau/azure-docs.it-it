@@ -9,10 +9,9 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457554"
 ---
 # <a name="modeling-relationships"></a>Modellazione di relazioni
@@ -100,7 +99,7 @@ I modelli di dominio possono includere relazioni uno a uno tra le entità. Se è
 
 Esistono anche alcune considerazioni sull'implementazione che potrebbero far decidere di implementare le relazioni uno a uno nel servizio tabelle:  
 
-* Gestione di entità di grandi dimensioni (per altre informazioni, vedere [Modello di entità di grandi dimensioni](table-storage-design-patterns.md#large-entities-pattern)).  
+* Gestione di entità di grandi dimensioni (per altre informazioni, vedere [modello di entità di grandi dimensioni](table-storage-design-patterns.md#large-entities-pattern)).  
 * Implementazione di controlli di accesso. Per altre informazioni, vedere Controllo dell'accesso con le firme di accesso condiviso.  
 
 ## <a name="join-in-the-client"></a>Join nel client
@@ -122,7 +121,7 @@ Per altre informazioni sull'uso di più tipi di entità nella stessa tabella nel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Modelli di progettazione tabella](table-storage-design-patterns.md)
+- [Modelli di progettazione tabelle](table-storage-design-patterns.md)
 - [Progettazione per le query](table-storage-design-for-query.md)
-- [Crittografia dei dati delle tabelle](table-storage-design-encrypt-data.md)
+- [Crittografare i dati delle tabelle](table-storage-design-encrypt-data.md)
 - [Progettazione per la modifica dei dati](table-storage-design-for-modification.md)

@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9722178011c3c0411f2e0e888dd9ab5962b933b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482049"
 ---
-# <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>Ottenere tutte le app proxy di applicazione usando domini personalizzati e informazioni sui certificati
+# <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>Ottenere tutte le app di Application Proxy che usano domini personalizzati e le informazioni sul certificato
 
 Questo esempio di script di PowerShell elenca tutte le applicazioni proxy di applicazione Azure Active Directory (Azure AD) che usano domini personalizzati ed elenca le informazioni sul certificato associate ai domini personalizzati.
 

@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614350"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Usare Visual Studio per creare e pubblicare applicazioni .NET Core destinate a un cluster Linux Service Fabric remoto
@@ -26,7 +25,7 @@ Con gli strumenti di Visual Studio è possibile sviluppare e pubblicare Service 
 ![Crea applicazione]
 4. Assegnare un nome all'applicazione e fare clic su **OK**.
 5. Nella pagina **nuovo servizio Service Fabric** selezionare il tipo di servizio che si desidera creare nella **sezione .NET Core**.
-![Crea-servizio]
+![Creazione del servizio]
 
 ## <a name="deploy-to-a-remote-linux-cluster"></a>Eseguire la distribuzione in un cluster Linux remoto
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sull'applicazione e selezionare **Compila**.
@@ -38,7 +37,7 @@ Con gli strumenti di Visual Studio è possibile sviluppare e pubblicare Service 
     <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
 ```
 > [!Note]
-> Se si imposta UpdateServiceFabricManifestEnabled su false, gli aggiornamenti di ServiceManifest. XML vengono disabilitati durante una compilazione. Eventuali modifiche, ad esempio aggiungere, rimuovere o rinominare il servizio, non verranno riflesse in ServiceManifest. XML. Se vengono apportate modifiche, è necessario aggiornare manualmente il ServiceManifest o impostare temporaneamente UpdateServiceFabricManifestEnabled su true e compilare il servizio che aggiornerà ServiceManifest. XML e quindi ripristinarlo di nuovo su false.
+> Se si imposta UpdateServiceFabricManifestEnabled su false, gli aggiornamenti al ServiceManifest.xml durante una compilazione vengono disabilitati. Eventuali modifiche, ad esempio aggiungere, rimuovere o rinominare il servizio, non verranno riflesse nella ServiceManifest.xml. Se vengono apportate modifiche, è necessario aggiornare manualmente il ServiceManifest o impostare temporaneamente UpdateServiceFabricManifestEnabled su true e compilare il servizio che aggiornerà il ServiceManifest.xml e quindi ripristinarlo di nuovo su false.
 >
 
 4. Aggiornare RuntimeIndetifier da Win7-x64 alla piattaforma di destinazione nel progetto di servizio.
@@ -59,7 +58,7 @@ Con gli strumenti di Visual Studio è possibile sviluppare e pubblicare Service 
 
 <!--Image references-->
 [Crea applicazione]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-application-remote-linux.png
-[Crea-servizio]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
+[Creazione del servizio]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
 [compilazione-applicazione]:./media/service-fabric-how-to-vs-remote-linux-cluster/build-application-remote-linux.png
 [Edit-csproj]:./media/service-fabric-how-to-vs-remote-linux-cluster/edit-csproj-remote-linux.png
 [pubblica-applicazione]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png

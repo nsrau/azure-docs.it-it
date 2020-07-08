@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75497864"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover e failback dei server fisici replicati in Azure
@@ -95,7 +94,7 @@ Dopo il failover in Azure, è necessario riproteggere le macchine virtuali di Az
 
 Questa procedura presuppone che la macchina virtuale locale non sia disponibile.
 
-1. Nell'insieme di credenziali > **Impostazioni** > **elementi replicati**fare clic con il pulsante destro del mouse sul computer di cui è stato eseguito il failover > **riproteggere**.
+1. Nell'insieme di credenziali > **Impostazioni**  >  **elementi replicati**fare clic con il pulsante destro del mouse sul computer di cui è stato eseguito il failover > **riproteggere**.
 2. In **Riproteggi** verificare che **Da Azure a locale** sia selezionato.
 3. Specificare il server di destinazione master locale e il server di elaborazione.
 4. In **Archivio dati** selezionare l'archivio dati del server di destinazione master in cui ripristinare i dischi in locale.

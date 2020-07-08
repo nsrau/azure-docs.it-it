@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 1d3be958a0649ed3e80df2d63adbdf0b91831dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639599"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo di vita di Reliable Services
@@ -115,7 +114,7 @@ I servizi che non gestiscono correttamente l'annullamento possono essere soggett
 
 Trattandosi di servizi con stato, è anche probabile che i servizi usino [raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, quando un servizio primario viene abbassato di livello, una delle prime cose che accade è che viene revocato l'accesso in scrittura allo stato sottostante. Ciò comporta una seconda serie di problemi che potrebbero influire sul ciclo di vita del servizio. Le raccolte restituiscono eccezioni in base alla tempistica e al fatto che la replica venga spostata o arrestata. È importante gestire queste eccezioni correttamente. 
 
-Le eccezioni generate da Service Fabric sono permanenti [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) o temporanee [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception). Le eccezioni permanenti dovrebbero essere registrate e generate, mentre quelle temporanee possono essere ripetute in base a una logica di ripetizione.
+Le eccezioni generate da Service Fabric sono permanenti [( `FabricException` )](https://docs.microsoft.com/java/api/system.fabric.exception) o temporanee [( `FabricTransientException` )](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception). Le eccezioni permanenti dovrebbero essere registrate e generate, mentre quelle temporanee possono essere ripetute in base a una logica di ripetizione.
 
 Una parte importante del test e della convalida di Reliable Services consiste nella gestione delle eccezioni che derivano dall'uso di `ReliableCollections` in combinazione con gli eventi del ciclo di vita del servizio. Si consiglia sempre di eseguire il servizio in condizioni di carico. È inoltre opportuno eseguire aggiornamenti e [test CHAOS](service-fabric-controlled-chaos.md) prima della distribuzione nell'ambiente di produzione. Questi passaggi di base contribuiscono ad assicurare che il servizio sia implementato correttamente e che gestisca gli eventi del ciclo di vita nel modo giusto.
 

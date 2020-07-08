@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639565"
 ---
 # <a name="reliable-services-notifications"></a>Notifiche di Reliable Services
@@ -28,7 +27,7 @@ Reliable State Manager prevede notifiche per gli eventi seguenti:
 * Transazione
   * Commit
 * State Manager
-  * Ricompila
+  * Ricompilazione
   * Aggiunta di uno stato affidabile
   * Rimozione di uno stato affidabile
 
@@ -193,7 +192,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Consigli
 * *Completare* gli eventi di notifica nel più breve tempo possibile.
 * *Non eseguire* operazioni dispendiose (ad esempio, operazioni di I/O) nell'ambito di eventi sincroni.
 * *Controllare* il tipo di azione prima di elaborare l'evento. In futuro potrebbero essere aggiunti nuovi tipi di azione.

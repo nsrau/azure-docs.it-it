@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458430"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Backup su richiesta in Azure Service Fabric
 
 È possibile eseguire il backup dei dati dei servizi Reliable con stato e Reliable Actors per far fronte a situazioni di emergenza o di perdita di dati.
 
-Service Fabric offre funzionalità per il [backup periodico dei dati](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e il backup dei dati in base alle necessità. Il backup su richiesta è utile perché protegge dal_danneggiamento dei dati_ di _perdita_/dei dati a causa di modifiche pianificate nel servizio sottostante o nel relativo ambiente.
+Service Fabric offre funzionalità per il [backup periodico dei dati](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e il backup dei dati in base alle necessità. Il backup su richiesta è utile perché protegge dal _data loss_ / _danneggiamento dei dati_ di perdita dei dati a causa di modifiche pianificate nel servizio sottostante o nel relativo ambiente.
 
 Le funzionalità di backup su richiesta sono utili per acquisire lo stato dei servizi prima di attivare manualmente un'operazione relativa a un servizio o a un ambiente di servizio. Se ad esempio si modificano i file binari di un servizio durante l'aggiornamento o il downgrade, il backup su richiesta può contribuire a proteggere i dati dal danneggiamento a causa di bug nel codice dell'applicazione.
 ## <a name="prerequisites"></a>Prerequisiti

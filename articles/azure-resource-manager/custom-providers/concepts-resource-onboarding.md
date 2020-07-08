@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650409"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Panoramica sull'onboarding delle risorse del provider personalizzato di Azure
@@ -54,7 +53,7 @@ Ecco un provider personalizzato di Azure di esempio:
 }
 ```
 
-Proprietà | Obbligatorio? | Descrizione
+Proprietà | Necessaria? | Descrizione
 ---|---|---
 name | Sì | Nome della definizione dell'endpoint. Per l'onboarding delle risorse, il nome deve essere "Associations".
 routingType | Sì | Determina il tipo di contratto con l'endpoint. Per l'onboarding delle risorse, i **routingTypes** validi sono "proxy, cache, estensione" e "webhook, cache, estensione".
@@ -76,7 +75,7 @@ Esempio di associazione di provider personalizzati di Azure:
 }
 ```
 
-Proprietà | Obbligatorio? | Descrizione
+Proprietà | Necessaria? | Descrizione
 ---|---|---
 targetResourceId | Sì | ID risorsa di Microsoft. CustomProviders/resourceProviders o Microsoft. Solutions/Applications.
 

@@ -1,24 +1,23 @@
 ---
 title: Informazioni di riferimento sugli elementi della definizione di visualizzazione
-description: Viene fornito un esempio di elemento della definizione della vista per le applicazioni gestite di Azure. Il nome del file è viewDefinition. JSON.
+description: Viene fornito un esempio di elemento della definizione della vista per le applicazioni gestite di Azure. Il nome del file è viewDefinition.js.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651202"
 ---
 # <a name="reference-view-definition-artifact"></a>Riferimento: elemento della definizione della visualizzazione
 
-Questo articolo è un riferimento per un elemento *viewDefinition. JSON* nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione della configurazione delle visualizzazioni, vedere l' [elemento della definizione della vista](concepts-view-definition.md).
+Questo articolo è un riferimento per un *viewDefinition.jssull'* artefatto nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione della configurazione delle visualizzazioni, vedere l' [elemento della definizione della vista](concepts-view-definition.md).
 
 ## <a name="view-definition"></a>Visualizzare la definizione
 
-Il codice JSON seguente mostra un esempio di file *viewDefinition. JSON* per le applicazioni gestite di Azure:
+Il codice JSON seguente mostra un esempio di *viewDefinition.jssu* file per le applicazioni gestite di Azure:
 
 ```json
 {

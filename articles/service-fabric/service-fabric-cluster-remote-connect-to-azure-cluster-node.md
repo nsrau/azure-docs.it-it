@@ -4,10 +4,9 @@ description: Informazioni su come connettersi in remoto a un'istanza di set di s
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458323"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
@@ -19,7 +18,7 @@ Per trovare un indirizzo IP e una porta da usare per connettersi in remoto a un'
 
     In genere, ogni tipo di nodo definito nel cluster ha il proprio indirizzo IP virtuale e un bilanciamento del carico dedicato. Per impostazione predefinita, il bilanciamento del carico per un tipo di nodo è denominato in base al formato seguente: *LB-{nome-cluster}-{tipo-di-nodo}*, ad esempio *LB-mycluster-FrontEnd*. 
     
-    Nella pagina del servizio di bilanciamento del carico in portale di Azure selezionare **Impostazioni** > **regole NAT in ingresso**: 
+    Nella pagina del servizio di bilanciamento del carico in portale di Azure selezionare **Impostazioni**  >  **regole NAT in ingresso**: 
 
     ![Regole NAT in ingresso di bilanciamento del carico](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 

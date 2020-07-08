@@ -4,10 +4,9 @@ description: Informazioni sugli unit test in Azure Service Fabric per i servizi 
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639837"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Creare unit test per i servizi con stato
@@ -22,8 +21,8 @@ Questo articolo si presuppone che [Unit test di servizi con stato in Service Fab
 ## <a name="the-servicefabricmocks-library"></a>La libreria ServiceFabric.Mocks
 A partire dalla versione 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fornisce un'API per il comportamento fittizio sia a livello dell'orchestrazione delle repliche sia a livello della gestione dello stato. Verrà usato negli esempi.
 
-[Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[GitHub](https://github.com/loekd/ServiceFabric.Mocks) di NuGet
+[NuGet](https://www.nuget.org/packages/ServiceFabric.Mocks/) 
+ [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric. Mocks non è di proprietà o è gestito da Microsoft. Tuttavia, si tratta attualmente della libreria consigliata da Microsoft per i servizi con stato unit test.*
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.author: mayg
 ms.date: 11/12/2019
 ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75498129"
 ---
 # <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
@@ -32,7 +31,7 @@ Prima di iniziare tenere presente quanto segue:
 
 - **Replica**: per impostazione predefinita, vengono replicati tutti i dischi in un computer.
 - **Tipo di disco**:
-    - È possibile escludere dalla replica i dischi di base.
+    - È possibile escludere dalla replica dischi di base.
     - Non è possibile escludere dischi del sistema operativo
     - e non è consigliabile escludere dischi dinamici. Site Recovery non è in grado di identificare quale VHD è di base o dinamico nella macchina virtuale guest.  Se non si escludono tutti i dischi del volume dinamici dipendenti, il disco dinamico protetto diventa un disco danneggiato in una macchina virtuale di cui è stato eseguito il failover e i dati su tale disco non sono accessibili.
 - **Aggiungi/Rimuovi/Escludi dischi**: dopo aver abilitato la replica, non è possibile aggiungere/rimuovere/escludere dischi per la replica. Se si vuole aggiungere o rimuovere o escludere un disco, è necessario disabilitare la protezione per la macchina virtuale e riabilitarla.
@@ -41,7 +40,7 @@ Prima di iniziare tenere presente quanto segue:
 
 ## <a name="exclude-disks"></a>Escludere dischi
 
-1. Per escludere i dischi quando si [Abilita la replica](site-recovery-hyper-v-site-to-azure.md) per una macchina virtuale Hyper-V, dopo aver selezionato le macchine virtuali da replicare, nella pagina **Abilita** > **Proprietà** > di replica**Configura proprietà** verificare la colonna **dischi da replicare** . Per impostazione predefinita, tutti i dischi sono selezionati per la replica.
+1. Per escludere i dischi quando si [Abilita la replica](site-recovery-hyper-v-site-to-azure.md) per una macchina virtuale Hyper-V, dopo aver selezionato le macchine virtuali da replicare, nella pagina Abilita proprietà di **replica**  >  **Properties**  >  **Configura proprietà** verificare la colonna **dischi da replicare** . Per impostazione predefinita, tutti i dischi sono selezionati per la replica.
 2. Se non si vuole replicare un disco specifico, in **dischi per replicare** deselezionare la selezione per tutti i dischi che si desidera escludere. 
 
     ![Escludere dischi dalla replica](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)

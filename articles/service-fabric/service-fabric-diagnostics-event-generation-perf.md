@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464708"
 ---
 # <a name="performance-metrics"></a>Metriche delle prestazioni
@@ -22,16 +21,16 @@ Per i computer presenti nel cluster è opportuno raccogliere i contatori delle p
 
 | Categoria contatore | Nome contatore |
 | --- | --- |
-| Logical Disk | Spazio disponibile su disco logico |
+| Disco logico | Spazio disponibile su disco logico |
 | PhysicalDisk(per Disk) | Lunghezza media coda lettura disco |
 | PhysicalDisk(per Disk) | Lunghezza media coda di scrittura su disco |
-| PhysicalDisk(per Disk) | Media letture disco/sec |
-| PhysicalDisk(per Disk) | Media scritture disco/sec |
-| PhysicalDisk(per Disk) | Letture disco/sec  |
-| PhysicalDisk(per Disk) | Byte letti da disco/sec  |
+| PhysicalDisk(per Disk) | Avg. Disk sec/Read |
+| PhysicalDisk(per Disk) | Avg. Disk sec/Write |
+| PhysicalDisk(per Disk) | Letture disco/sec |
+| PhysicalDisk(per Disk) | Byte letti da disco/sec |
 | PhysicalDisk(per Disk) | Scritture disco/sec |
 | PhysicalDisk(per Disk) | Byte scritti su disco/sec |
-| Memoria | MByte disponibili |
+| Memory | MByte disponibili |
 | PagingFile | % Usage |
 | Processor(Total) | % di tempo processore |
 | Process (per service) | % di tempo processore |

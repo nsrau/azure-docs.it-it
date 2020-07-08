@@ -4,10 +4,9 @@ description: Usare un cluster di Azure Service Fabric per ospitare un'applicazio
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614843"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Ospitare un'applicazione Node.js in Azure Service Fabric
@@ -43,10 +42,10 @@ Assegnare al servizio il nome **MyGuestService** e impostare le opzioni a destra
 
 | Impostazione                   | valore |
 | ------------------------- | ------ |
-| Cartella del pacchetto di codice       | _&lt;la cartella con l'app node. js&gt;_ |
+| Cartella del pacchetto di codice       | _&lt;la cartella con l'app Node.js&gt;_ |
 | Comportamento del pacchetto di codice     | Copia il contenuto della cartella nel progetto |
 | Programma                   | node.exe |
-| Argomenti                 | server.js |
+| Arguments                 | server.js |
 | Cartella di lavoro            | CodePackage |
 
 Fare clic su **OK**.
@@ -97,13 +96,13 @@ Selezionare il profilo di destinazione **PublishProfiles\Cloud.xml**.
 
 Se questa operazione non è stata eseguita in precedenza, scegliere un account Azure in cui effettuare la distribuzione. Se non si ha ancora un account, è possibile [iscriversi per ottenerne uno][create-account].
 
-In **Endpoint connessione** selezionare il cluster di Service Fabric in cui eseguire la distribuzione. Se non si dispone di un, selezionare ** &lt;Crea nuovo cluster... &gt; ** verrà visualizzata la finestra del Web browser per la portale di Azure. Per altre informazioni, vedere [Creare un cluster nel portale](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+In **Endpoint connessione** selezionare il cluster di Service Fabric in cui eseguire la distribuzione. Se non è disponibile, selezionare ** &lt; Crea nuovo cluster. &gt; ** verrà visualizzata la finestra del browser Web per la portale di Azure. Per altre informazioni, vedere [Creare un cluster nel portale](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Quando si crea il cluster di Service Fabric, assicurarsi di impostare **Endpoint personalizzati** su **80**.
 
 ![Configurazione del tipo di nodo di Service Fabric con endpoint personalizzato][custom-endpoint]
 
-Il completamento della creazione di un nuovo cluster di Service Fabric richiede tempo. Una volta creata, tornare alla finestra di dialogo pubblica e selezionare ** &lt;Aggiorna&gt;**. Il nuovo cluster sarà incluso nella casella di riepilogo a discesa. Selezionare il cluster.
+Il completamento della creazione di un nuovo cluster di Service Fabric richiede tempo. Una volta creata, tornare alla finestra di dialogo pubblica e selezionare ** &lt; Aggiorna &gt; **. Il nuovo cluster sarà incluso nella casella di riepilogo a discesa. Selezionare il cluster.
 
 Fare clic su **Pubblica** e attendere il completamento della distribuzione.
 

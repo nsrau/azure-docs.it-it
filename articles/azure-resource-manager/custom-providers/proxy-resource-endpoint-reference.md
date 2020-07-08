@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650461"
 ---
 # <a name="custom-resource-proxy-reference"></a>Riferimento al proxy di risorsa personalizzato
@@ -42,10 +41,10 @@ Provider di risorse personalizzato di esempio:
 
 ## <a name="building-proxy-resource-endpoint"></a>Compilazione dell'endpoint della risorsa proxy
 
-Un **endpoint** che implementa un **endpoint** di risorsa "proxy" deve gestire la richiesta e la risposta per la nuova API in Azure. In questo caso, il **ResourceType** genererà una nuova API risorse di Azure `PUT`per `GET`, e `DELETE` per eseguire CRUD su una singola risorsa, oltre che `GET` per recuperare tutte le risorse esistenti.
+Un **endpoint** che implementa un **endpoint** di risorsa "proxy" deve gestire la richiesta e la risposta per la nuova API in Azure. In questo caso, il **ResourceType** genererà una nuova API risorse di Azure per `PUT` , `GET` e `DELETE` per eseguire CRUD su una singola risorsa, oltre che `GET` per recuperare tutte le risorse esistenti.
 
 > [!NOTE]
-> I `id`campi `name`, e `type` non sono obbligatori, ma sono necessari per integrare la risorsa personalizzata con l'ecosistema di Azure esistente.
+> I `id` `name` campi, e `type` non sono obbligatori, ma sono necessari per integrare la risorsa personalizzata con l'ecosistema di Azure esistente.
 
 Risorsa di esempio:
 
@@ -68,7 +67,7 @@ Riferimento ai parametri:
 Proprietà | Esempio | Descrizione
 ---|---|---
 name | '{myCustomResourceName}' | Il nome della risorsa personalizzata.
-type | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | Lo spazio dei nomi del tipo di risorsa.
+tipo | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | Lo spazio dei nomi del tipo di risorsa.
 id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | L'ID della risorsa.
 
 ### <a name="create-a-custom-resource"></a>Creare una risorsa personalizzata
@@ -270,7 +269,7 @@ Analogamente, la risposta dall' **endpoint** viene quindi reinviata al cliente. 
 
 - Documento oggetto JSON valido. Tutte le matrici e le stringhe devono essere annidate in un oggetto top.
 - L' `Content-Type` intestazione deve essere impostata su "Application/JSON; charset = UTF-8 ".
-- L'elenco di risorse deve essere inserito sotto la proprietà di primo `value` livello.
+- L'elenco di risorse deve essere inserito sotto la proprietà di primo livello `value` .
 
 **Endpoint** di Risposta
 

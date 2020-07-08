@@ -9,10 +9,9 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75454201"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Usare il servizio di gestione certificati dell'insieme di credenziali OPC
@@ -36,7 +35,7 @@ Se non è ancora stato fatto, creare il certificato CA dell'autorità emittente.
 > [!IMPORTANT]
 > Il ruolo writer è necessario per registrare un'applicazione.
 
-1. Aprire il servizio certificati all' `https://myResourceGroup-app.azurewebsites.net`indirizzo ed accedere.
+1. Aprire il servizio certificati all'indirizzo `https://myResourceGroup-app.azurewebsites.net` ed accedere.
 2. Passare a **Registra nuovo**. Per la registrazione di un'applicazione, un utente deve avere almeno il ruolo di writer assegnato.
 2. Il modulo di immissione segue le convenzioni di denominazione in OPC UA. Nello screenshot seguente, ad esempio, vengono visualizzate le impostazioni per l'esempio [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) nello stack opc UA .NET standard:
 
@@ -71,7 +70,7 @@ Proteggere l'applicazione OPC UA emettendo un certificato firmato in base a una 
 8. Dopo aver scaricato e archiviato la chiave privata in modo sicuro, è possibile selezionare **Elimina chiave privata**. Il certificato con la chiave pubblica rimane disponibile per un uso futuro.
 9. A causa dell'utilizzo di un certificato firmato da un'autorità di certificazione, è necessario scaricare anche il certificato CA e l'elenco di revoche di certificati (CRL).
 
-A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di chiavi. In genere, il certificato CA e il CRL vengono copiati in una `trusted` cartella, mentre le chiavi pubbliche e private del certificato dell'applicazione vengono `own` applicate a una cartella nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
+A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di chiavi. In genere, il certificato CA e il CRL vengono copiati in una `trusted` cartella, mentre le chiavi pubbliche e private del certificato dell'applicazione vengono applicate a una `own` cartella nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
 
 #### <a name="request-a-new-certificate-with-a-csr"></a>Richiedere un nuovo certificato con CSR 
 
@@ -96,7 +95,7 @@ A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di
 10. Dopo che il certificato è stato scaricato e archiviato in modo sicuro, è possibile selezionare **Elimina certificato**.
 11. A causa dell'utilizzo di un certificato firmato da un'autorità di certificazione, è necessario scaricare anche il certificato CA e il CRL.
 
-A questo punto, dipende dal dispositivo OPC UA come applicare il nuovo certificato. In genere, il certificato CA e il CRL vengono copiati in una `trusted` cartella, mentre il certificato dell'applicazione `own` viene applicato a una cartella nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
+A questo punto, dipende dal dispositivo OPC UA come applicare il nuovo certificato. In genere, il certificato CA e il CRL vengono copiati in una `trusted` cartella, mentre il certificato dell'applicazione viene applicato a una `own` cartella nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
 
 ### <a name="step-3-device-secured"></a>Passaggio 3: dispositivo protetto
 

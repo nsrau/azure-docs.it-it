@@ -7,10 +7,9 @@ ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75498152"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
@@ -43,14 +42,14 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 L'ambiente mesh espone alcune metriche che indicano il modo in cui i contenitori vengono eseguiti. Le metriche seguenti sono disponibili tramite l'interfaccia della riga di comando portale di Azure e monitoraggio di Azure:
 
-| Metrica | Descrizione | Units|
+| Metrica | Descrizione | Unità|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu come percentuale | % |
 | MemoryUtilization | ActualMem/AllocatedMem come percentuale | % |
 | AllocatedCpu | CPU allocata in base al modello di Azure Resource Manager | Millicore |
 | AllocatedMemory | Memoria allocata in base al modello di Azure Resource Manager | MB |
 | ActualCpu | Utilizzo della CPU | Millicore |
-| ActualMemory | Utilizzo della memoria | MB |
+| ActualMemory | Utilizzo memoria | MB |
 | ContainerStatus | 0-non valido: lo stato del contenitore è sconosciuto <br> 1-in sospeso: il contenitore ha pianificato l'avvio <br> 2-avvio: il contenitore è in fase di avvio <br> 3-avviato: il contenitore è stato avviato correttamente <br> 4-arresto: il contenitore viene arrestato <br> 5-arrestato: il contenitore è stato arrestato correttamente | N/D |
 | ApplicationStatus | 0-sconosciuto: lo stato non è recuperabile <br> 1-pronto: l'applicazione viene eseguita correttamente <br> 2-aggiornamento: è in corso un aggiornamento <br> 3-creazione: è in corso la creazione dell'applicazione <br> 4-Eliminazione: è in corso l'eliminazione dell'applicazione <br> 5-non riuscito: non è stato possibile distribuire l'applicazione | N/D |
 | ServiceStatus | 0-non valido: il servizio attualmente non dispone di uno stato di integrità <br> 1-OK: il servizio è integro  <br> 2-avviso: è possibile che si verifichi un errore durante l'analisi <br> 3-errore: si è verificato un problema che richiede un'analisi <br> 4-sconosciuto: lo stato non è recuperabile | N/D |

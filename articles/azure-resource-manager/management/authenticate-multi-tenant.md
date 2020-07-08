@@ -4,10 +4,9 @@ description: Descrive il modo in cui Azure Resource Manager gestisce le richiest
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75478825"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Eseguire l'autenticazione delle richieste su più tenant
@@ -21,7 +20,7 @@ La richiesta include i valori di intestazione di autenticazione seguenti:
 | Nome intestazione | Descrizione | Valore di esempio |
 | ----------- | ----------- | ------------ |
 | Autorizzazione | Token primario | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | Token ausiliari | Bearer &lt;ausiliario-&gt;token1, &lt;EncryptedBearer ausiliario&gt;-token2, &lt;portar ausiliario-token3&gt; |
+| x-ms-authorization-auxiliary | Token ausiliari | Bearer &lt; ausiliario-token1 &gt; , EncryptedBearer &lt; ausiliario-token2 &gt; , portar &lt; ausiliario-token3&gt; |
 
 L'intestazione ausiliaria può contenere fino a tre token ausiliari. 
 

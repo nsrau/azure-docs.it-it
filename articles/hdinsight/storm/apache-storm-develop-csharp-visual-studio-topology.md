@@ -9,10 +9,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.openlocfilehash: 1903c2faab865152d1f3666f3c9dadd745058b56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75612292"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
@@ -21,7 +20,7 @@ Informazioni su come creare una topologia Apache Storm C# usando gli strumenti A
 
 Viene anche spiegato come creare topologie ibride che usano componenti C# e Java.
 
-Le topologie C# usano .NET 4,5 e usano mono per l'esecuzione nel cluster HDInsight. Per informazioni sulle potenziali incompatibilità, vedere [compatibilità mono](https://www.mono-project.com/docs/about-mono/compatibility/). Per usare una topologia C#, è necessario aggiornare `Microsoft.SCP.Net.SDK` il pacchetto NuGet usato dal progetto alla versione 0.10.0.6 o successiva. La versione del pacchetto deve anche corrispondere alla versione principale di Storm installata in HDInsight.
+Le topologie C# usano .NET 4,5 e usano mono per l'esecuzione nel cluster HDInsight. Per informazioni sulle potenziali incompatibilità, vedere [compatibilità mono](https://www.mono-project.com/docs/about-mono/compatibility/). Per usare una topologia C#, è necessario aggiornare il `Microsoft.SCP.Net.SDK` pacchetto NuGet usato dal progetto alla versione 0.10.0.6 o successiva. La versione del pacchetto deve anche corrispondere alla versione principale di Storm installata in HDInsight.
 
 | Versione HDInsight | Versione di Apache Storm | Versione di SCP.NET | Versione Mono predefinita |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
@@ -49,7 +48,7 @@ Quando si invia una topologia Storm da Visual Studio, SCP.NET genera un file con
 
 2. Impostare la `JAVA_HOME` variabile di ambiente sulla directory che contiene Java.
 
-3. Impostare la `PATH` variabile di ambiente in modo `%JAVA_HOME%\bin` che includa la directory.
+3. Impostare la `PATH` variabile di ambiente in modo che includa la `%JAVA_HOME%\bin` Directory.
 
 È possibile compilare ed eseguire l'applicazione console C# seguente per verificare che Java e JDK siano installati correttamente:
 
@@ -152,7 +151,7 @@ Aggiungere quindi il codice per il beccuccio, che viene usato per leggere i dati
 
    * `Ack`(solo topologia transazionale): gestisce i riconoscimenti avviati da altri componenti della topologia per le tuple inviate dal beccuccio. Il riconoscimento di una tupla consente allo spout di sapere che tale tupla è stata elaborata correttamente dai componenti downstream.
 
-   * `Fail`(solo topologia transazionale): gestisce le tuple che non elaborano altri componenti nella topologia. L'implementazione `Fail` di un metodo consente di riemettere la tupla in modo che possa essere nuovamente elaborata.
+   * `Fail`(solo topologia transazionale): gestisce le tuple che non elaborano altri componenti nella topologia. L'implementazione di un `Fail` metodo consente di riemettere la tupla in modo che possa essere nuovamente elaborata.
 
 2. Sostituire il contenuto della `Spout` classe con il testo seguente:
 
@@ -220,7 +219,7 @@ A questo punto, creare due Bolt Storm in questo esempio:
 
 1. Eliminare dal progetto il file *Bolt.cs* esistente.
 
-2. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi** > **nuovo elemento**. Selezionare **Storm Bolt** dall'elenco e immettere *Splitter.cs* come nome. Nel codice del nuovo file modificare il nome dello spazio dei nomi `WordCount`in. Ripetere quindi questo processo per creare un secondo Bolt denominato *Counter.cs*.
+2. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi**  >  **nuovo elemento**. Selezionare **Storm Bolt** dall'elenco e immettere *Splitter.cs* come nome. Nel codice del nuovo file modificare il nome dello spazio dei nomi in `WordCount` . Ripetere quindi questo processo per creare un secondo Bolt denominato *Counter.cs*.
 
    * *Splitter.cs*: implementa un Bolt che divide le frasi in singole parole e genera un nuovo flusso di parole.
 
@@ -229,7 +228,7 @@ A questo punto, creare due Bolt Storm in questo esempio:
      > [!NOTE]  
      > I bolt sopra descritti eseguono operazioni di lettura e scrittura nei flussi. È tuttavia possibile usare un bolt per comunicare con origini quali un database o un servizio.
 
-3. Aprire *Splitter.cs*. Dispone solo di un metodo per impostazione predefinita `Execute`:. Il `Execute` metodo viene chiamato quando il Bolt riceve una tupla per l'elaborazione. È possibile leggere ed elaborare tuple in ingresso e generare tuple in uscita.
+3. Aprire *Splitter.cs*. Dispone solo di un metodo per impostazione predefinita: `Execute` . Il `Execute` metodo viene chiamato quando il Bolt riceve una tupla per l'elaborazione. È possibile leggere ed elaborare tuple in ingresso e generare tuple in uscita.
 
 4. Sostituire il contenuto della classe `Splitter` con il codice seguente:
 
@@ -341,7 +340,7 @@ Il beccuccio emette le frasi distribuite a istanze del Bolt Splitter. Il bolt Sp
 
 Poiché l'istanza del contatore include il conteggio delle parole in locale, è necessario assicurarsi che le parole specifiche vengano propagate alla stessa istanza del Bolt del contatore. Ogni istanza tiene traccia di una parola specifica. Poiché il bolt Splitter non gestisce lo stato, non è importante stabilire quale istanza dello splitter riceve quale frase.
 
-Aprire *Program.cs*. Il metodo importante è `GetTopologyBuilder`, che viene usato per definire la topologia inviata a Storm. Sostituire il contenuto di `GetTopologyBuilder` con il codice seguente per implementare la topologia descritta in precedenza:
+Aprire *Program.cs*. Il metodo importante è `GetTopologyBuilder` , che viene usato per definire la topologia inviata a Storm. Sostituire il contenuto di `GetTopologyBuilder` con il codice seguente per implementare la topologia descritta in precedenza:
 
 ```csharp
 // Create a new topology named 'WordCount'
@@ -405,7 +404,7 @@ return topologyBuilder;
 
 A questo punto si è pronti per inviare la topologia al cluster HDInsight.
 
-1. Passare a **Visualizza** > **Esplora server**.
+1. Passare a **Visualizza**  >  **Esplora server**.
 
 1. Fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
@@ -418,7 +417,7 @@ A questo punto si è pronti per inviare la topologia al cluster HDInsight.
     ![Finestra visualizzazione topologia Storm, cluster HDInsight, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
 
     > [!NOTE]  
-    > È inoltre possibile visualizzare le **topologie Storm ** da **Esplora Server**. Espandere **Azure** > **HDInsight**, fare clic con il pulsante destro del mouse su un cluster Storm in HDInsight e scegliere **Visualizza topologie Storm**.
+    > È inoltre possibile visualizzare le **topologie Storm ** da **Esplora Server**. Espandere **Azure**  >  **HDInsight**, fare clic con il pulsante destro del mouse su un cluster Storm in HDInsight e scegliere **Visualizza topologie Storm**.
 
     Per visualizzare informazioni sui componenti della topologia, selezionare un componente nel diagramma.
 
@@ -435,15 +434,15 @@ Le topologie transazionali implementano le operazioni seguenti per supportare la
 
 * **Memorizzazione dei metadati nella cache**: lo spout deve memorizzare i metadati relativi ai dati generati, in modo che, in caso di errore, questi ultimi possano essere recuperati e generati nuovamente. Poiché l'esempio genera una quantità limitata di dati, i dati non elaborati di ogni tupla vengono archiviati in un dizionario per la ripetizione.
 
-* **Ack**: ogni bolt della topologia può chiamare `this.ctx.Ack(tuple)` per confermare che ha elaborato correttamente la tupla. Quando tutti i Bolt hanno riconosciuto la tupla, viene `Ack` richiamato il metodo del beccuccio. Il metodo `Ack` consente allo spout di rimuovere i dati memorizzati nella cache per la ripetizione.
+* **Ack**: ogni bolt della topologia può chiamare `this.ctx.Ack(tuple)` per confermare che ha elaborato correttamente la tupla. Quando tutti i Bolt hanno riconosciuto la tupla, `Ack` viene richiamato il metodo del beccuccio. Il metodo `Ack` consente allo spout di rimuovere i dati memorizzati nella cache per la ripetizione.
 
 * **Errore**: ciascun bolt può chiamare `this.ctx.Fail(tuple)` per indicare che l'elaborazione di una tupla non è riuscita. L'errore viene propagato al metodo `Fail` dello spout, dove la tupla può essere ripetuta usando i metadati memorizzati nella cache.
 
-* **ID sequenza**: quando si genera una tupla, è possibile specificare un ID sequenza univoco. Questo valore identifica la tupla per l'elaborazione`Ack` di `Fail`riproduzione (e). Ad esempio, il beccuccio nel progetto **Storm Sample** usa la chiamata al metodo seguente per la creazione di dati:
+* **ID sequenza**: quando si genera una tupla, è possibile specificare un ID sequenza univoco. Questo valore identifica la tupla per l'elaborazione di riproduzione ( `Ack` e `Fail` ). Ad esempio, il beccuccio nel progetto **Storm Sample** usa la chiamata al metodo seguente per la creazione di dati:
 
   `this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);`
 
-  Questo codice genera una tupla contenente una frase nel flusso predefinito, con il valore di ID sequenza contenuto in `lastSeqId`. Per questo esempio, `lastSeqId` viene incrementato per ogni tupla generata.
+  Questo codice genera una tupla contenente una frase nel flusso predefinito, con il valore di ID sequenza contenuto in `lastSeqId` . Per questo esempio, `lastSeqId` viene incrementato per ogni tupla generata.
 
 Come dimostrato nel progetto **Storm Sample**, è possibile specificare in fase di esecuzione, in base alla configurazione, se un componente è transazionale o meno.
 
@@ -538,7 +537,7 @@ Le versioni recenti di SCP.NET supportano l'aggiornamento del pacchetto tramite 
 > Se il progetto è stato creato con una versione precedente di SCP.NET che non usa NuGet, è necessario seguire questa procedura per effettuare l'aggiornamento a una nuova versione:
 >
 > 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
-> 2. Usando il **Search** campo `Microsoft.SCP.Net.SDK` di ricerca, cercare e quindi aggiungere al progetto.
+> 2. Usando il campo di **ricerca** , cercare e quindi aggiungere `Microsoft.SCP.Net.SDK` al progetto.
 
 ## <a name="troubleshoot-common-issues-with-topologies"></a>Risoluzione di problemi comuni con le topologie
 
@@ -663,7 +662,7 @@ Sebbene sia facile distribuire una topologia in un cluster, in alcuni casi potre
 
     Leggere con attenzione i commenti del codice. Questo codice usa `LocalContext` per eseguire i componenti nell'ambiente di sviluppo. Il flusso di dati viene reso permanente tra i componenti in file di testo nell'unità locale.
 
-1. Aprire *Program.cs*e aggiungere il codice seguente al `Main` metodo:
+1. Aprire *Program.cs*e aggiungere il codice seguente al `Main` Metodo:
 
     ```csharp
     Console.WriteLine("Starting tests");
@@ -684,12 +683,12 @@ Sebbene sia facile distribuire una topologia in un cluster, in alcuni casi potre
     Console.ReadKey();
     ```
 
-1. Salvare le modifiche e quindi premere **F5** oppure scegliere **debug** > **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando `Tests finished` viene visualizzato, selezionare un tasto qualsiasi per chiudere la finestra.
+1. Salvare le modifiche e quindi premere **F5** oppure scegliere **debug**  >  **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando `Tests finished` viene visualizzato, selezionare un tasto qualsiasi per chiudere la finestra.
 
-1. Usare **Esplora risorse** per individuare la directory contenente il progetto. Ad esempio: *\\C: Users\\\<your_user_name>\\repository\\\\di origine\\WordCount WordCount*.) Quindi, in questa directory aprire *bin*, quindi selezionare *debug*. Verranno visualizzati i file di testo prodotti durante l'esecuzione dei test: *Frases. txt*, *Counter. txt*e *splitter. txt*. Aprire ogni file di testo e verificare i dati.
+1. Usare **Esplora risorse** per individuare la directory contenente il progetto. Ad esempio: *C: \\ utenti repository di \\ \<your_user_name> \\ origine \\ \\ WordCount \\ WordCount*. Quindi, in questa directory aprire *bin*, quindi selezionare *debug*. Verranno visualizzati i file di testo prodotti durante l'esecuzione dei test: *sentences.txt*, *counter.txt*e *splitter.txt*. Aprire ogni file di testo e verificare i dati.
 
    > [!NOTE]  
-   > In questi file i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio, `[[97,103,111]]` nel file **splitter. txt** rappresenta *la parola.*
+   > In questi file i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio, `[[97,103,111]]` nel file **splitter.txt** rappresenta la parola. *ago*
 
 > [!NOTE]  
 > Assicurarsi di impostare di nuovo il **tipo di progetto** su libreria di **classi** nelle proprietà del progetto prima della distribuzione in un cluster Storm in HDInsight.
@@ -734,7 +733,7 @@ Gli invii possono non riuscire per diversi motivi:
 * Le dipendenze non sono compatibili.
 * I nomi delle topologie sono duplicati.
 
-Se il file di log *HDInsight-scpwebapi. out* contiene `FileNotFoundException`un, l'eccezione potrebbe essere causata dalle condizioni seguenti:
+Se il file di log *HDInsight-scpwebapi. out* contiene un `FileNotFoundException` , l'eccezione potrebbe essere causata dalle condizioni seguenti:
 
 * Il pacchetto JDK non si trovi nel percorso dell'ambiente di sviluppo. Verificare che il pacchetto JDK sia installato nell'ambiente di sviluppo e che `%JAVA_HOME%/bin` sia presente nel percorso.
 * Manca una dipendenza Java. Assicurarsi di includere tutti i file con estensione jar necessari come parte dell'invio.

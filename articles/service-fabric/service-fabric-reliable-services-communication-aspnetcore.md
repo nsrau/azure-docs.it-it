@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 0d432bd19d0689ef508fca0bf24eed4406929f82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639633"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core in Azure Service Fabric Reliable Services
@@ -45,20 +44,20 @@ Le applicazioni ASP.NET Core con self-hosting creano in genere un WebHost in un 
 
 Tuttavia, il punto di ingresso dell'applicazione non è il posto giusto per creare un provider in un servizio Reliable Services. Questo perché il punto di ingresso dell'applicazione viene usato solo per registrare un tipo di servizio con il runtime di Service Fabric, in modo che possa creare istanze del tipo di servizio. Il provider deve essere creato in un servizio Reliable Services. All'interno del processo host del servizio, le istanze del servizio e/o le repliche possono passare attraverso più cicli di vita. 
 
-Un'istanza di Reliable Services è rappresentata dalla classe del servizio derivante da `StatelessService` o `StatefulService`. Lo stack di comunicazione di un servizio è contenuto in un'implementazione `ICommunicationListener` nella classe del servizio. I `Microsoft.ServiceFabric.AspNetCore.*` pacchetti NuGet contengono implementazioni di `ICommunicationListener` che avviano e gestiscono il provider di ASP.NET Core per gheppio o http. sys in un servizio Reliable Services.
+Un'istanza di Reliable Services è rappresentata dalla classe del servizio derivante da `StatelessService` o `StatefulService`. Lo stack di comunicazione di un servizio è contenuto in un'implementazione `ICommunicationListener` nella classe del servizio. I `Microsoft.ServiceFabric.AspNetCore.*` pacchetti NuGet contengono implementazioni di `ICommunicationListener` che avviano e gestiscono il provider di ASP.NET Core per gheppio o HTTP.sys in un servizio Reliable Services.
 
 ![Diagramma per l'hosting di ASP.NET Core in un servizio Reliable Services][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ICommunicationListeners ASP.NET Core
-Le `ICommunicationListener` implementazioni per gheppio e http. sys nei pacchetti `Microsoft.ServiceFabric.AspNetCore.*` NuGet hanno modelli di utilizzo simili. Ma eseguono azioni leggermente diverse specifiche per ogni server Web. 
+Le `ICommunicationListener` implementazioni per gheppio e HTTP.sys nei `Microsoft.ServiceFabric.AspNetCore.*` pacchetti NuGet hanno modelli di utilizzo simili. Ma eseguono azioni leggermente diverse specifiche per ogni server Web. 
 
 Entrambi i listener di comunicazione forniscono un costruttore che accetta gli argomenti seguenti:
  - **`ServiceContext serviceContext`**: `ServiceContext` Oggetto che contiene informazioni sul servizio in esecuzione.
- - **`string endpointName`**: Nome di una `Endpoint` configurazione in ServiceManifest. XML. Si tratta principalmente dei due listener di comunicazione diversi. HTTP. sys *richiede* una `Endpoint` configurazione, mentre il gheppio non lo fa.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: Espressione lambda implementata, in cui è possibile creare e restituire un oggetto `IWebHost`. Consente di configurare `IWebHost` il modo in cui si farebbe normalmente in un'applicazione ASP.NET Core. L'espressione lambda fornisce un URL generato automaticamente, a seconda delle opzioni di integrazione Service Fabric usate e della `Endpoint` configurazione fornita. È quindi possibile modificare o utilizzare tale URL per avviare il server Web.
+ - **`string endpointName`**: Nome di una `Endpoint` configurazione in ServiceManifest.xml. Si tratta principalmente dei due listener di comunicazione diversi. HTTP.sys *richiede* una `Endpoint` configurazione, mentre gheppio non lo è.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: Espressione lambda implementata, in cui è possibile creare e restituire un oggetto `IWebHost` . Consente di configurare `IWebHost` il modo in cui si farebbe normalmente in un'applicazione ASP.NET Core. L'espressione lambda fornisce un URL generato automaticamente, a seconda delle opzioni di integrazione Service Fabric usate e della `Endpoint` configurazione fornita. È quindi possibile modificare o utilizzare tale URL per avviare il server Web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware di integrazione di Service Fabric
-Il `Microsoft.ServiceFabric.AspNetCore` pacchetto NuGet include il `UseServiceFabricIntegration` metodo di estensione `IWebHostBuilder` su che aggiunge un middleware compatibile con Service Fabric. Questo middleware configura il gheppio o HTTP. sys `ICommunicationListener` per registrare un URL di servizio univoco con il Service Fabric Naming Service. Convalida quindi le richieste client per assicurarsi che i client si connettano al servizio corretto. 
+Il `Microsoft.ServiceFabric.AspNetCore` pacchetto NuGet include il `UseServiceFabricIntegration` metodo di estensione su `IWebHostBuilder` che aggiunge un middleware compatibile con Service Fabric. Questo middleware configura il gheppio o HTTP.sys `ICommunicationListener` per la registrazione di un URL di servizio univoco con il Naming Service di Service Fabric. Convalida quindi le richieste client per assicurarsi che i client si connettano al servizio corretto. 
 
 Questo passaggio è necessario per evitare che i client si connettano erroneamente al servizio errato. Ciò è dovuto al fatto che in un ambiente host condiviso, ad esempio Service Fabric, più applicazioni Web possono essere eseguite nella stessa macchina virtuale o fisica, ma non utilizzano nomi host univoci. Questo scenario è descritto più dettagliatamente nella sezione successiva.
 
@@ -87,23 +86,23 @@ Il diagramma seguente illustra il flusso della richiesta con il middleware abili
 
 ![Integrazione ASP.NET Core di Service Fabric][2]
 
-Entrambe le implementazioni di Gheppio `ICommunicationListener` e http. sys utilizzano questo meccanismo esattamente allo stesso modo. Sebbene HTTP. sys possa differenziare internamente le richieste in base a percorsi URL univoci usando la funzionalità di condivisione delle porte **http. sys** sottostante, questa funzionalità *non* viene usata `ICommunicationListener` dall'implementazione di http. sys. Questo perché restituisce i codici di stato di errore HTTP 503 e HTTP 404 nello scenario descritto in precedenza. Che a sua volta rende difficile per i client determinare lo scopo dell'errore, in quanto HTTP 503 e HTTP 404 vengono comunemente usati per indicare altri errori. 
+`ICommunicationListener`Le implementazioni di gheppio e HTTP.sys usano questo meccanismo esattamente allo stesso modo. Sebbene HTTP.sys possibile differenziare internamente le richieste in base a percorsi URL univoci usando la funzionalità di condivisione delle porte **HTTP.sys** sottostante, tale funzionalità *non* viene usata dall'implementazione di HTTP.sys `ICommunicationListener` . Questo perché restituisce i codici di stato di errore HTTP 503 e HTTP 404 nello scenario descritto in precedenza. Che a sua volta rende difficile per i client determinare lo scopo dell'errore, in quanto HTTP 503 e HTTP 404 vengono comunemente usati per indicare altri errori. 
 
-Pertanto, le `UseServiceFabricIntegration` implementazioni di gheppio e `ICommunicationListener` http. sys standardizzano il middleware fornito dal metodo di estensione. Pertanto, i client devono solo eseguire un'azione di ririsoluzione dell'endpoint del servizio sulle risposte HTTP 410.
+In questo modo, entrambe `ICommunicationListener` le implementazioni di gheppio e HTTP.sys standardizzano il middleware fornito dal `UseServiceFabricIntegration` metodo di estensione. Pertanto, i client devono solo eseguire un'azione di ririsoluzione dell'endpoint del servizio sulle risposte HTTP 410.
 
-## <a name="httpsys-in-reliable-services"></a>HTTP. sys in Reliable Services
-È possibile usare HTTP. sys in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. HttpSys** . Questo pacchetto contiene `HttpSysCommunicationListener`, un'implementazione di `ICommunicationListener`. `HttpSysCommunicationListener`consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando HTTP. sys come server Web.
+## <a name="httpsys-in-reliable-services"></a>HTTP.sys in Reliable Services
+È possibile usare HTTP.sys in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. HttpSys** . Questo pacchetto contiene `HttpSysCommunicationListener` , un'implementazione di `ICommunicationListener` . `HttpSysCommunicationListener`consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando HTTP.sys come server Web.
 
-HTTP. sys è basato sull' [API server http di Windows](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). Questa API usa il driver del kernel **http. sys** per elaborare le richieste HTTP e instradarle ai processi che eseguono applicazioni Web. Questo consente a più processi nella stessa macchina virtuale o fisica di ospitare applicazioni Web sulla stessa porta, ambiguità in base a un percorso URL univoco o a un nome host. Queste funzionalità sono utili in Service Fabric per ospitare più siti Web nello stesso cluster.
+HTTP.sys si basa sull' [API server http di Windows](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). Questa API usa il driver del kernel **HTTP.sys** per elaborare le richieste HTTP e instradarle ai processi che eseguono applicazioni Web. Questo consente a più processi nella stessa macchina virtuale o fisica di ospitare applicazioni Web sulla stessa porta, ambiguità in base a un percorso URL univoco o a un nome host. Queste funzionalità sono utili in Service Fabric per ospitare più siti Web nello stesso cluster.
 
 >[!NOTE]
->L'implementazione di HTTP. sys funziona solo sulla piattaforma Windows.
+>HTTP.sys implementazione funziona solo sulla piattaforma Windows.
 
-Il diagramma seguente illustra come HTTP. sys usa il driver del kernel **http. sys** in Windows per la condivisione delle porte:
+Il diagramma seguente illustra il modo in cui HTTP.sys usa il driver del kernel **HTTP.sys** in Windows per la condivisione delle porte:
 
-![Diagramma HTTP. sys][3]
+![Diagramma HTTP.sys][3]
 
-### <a name="httpsys-in-a-stateless-service"></a>HTTP. sys in un servizio senza stato
+### <a name="httpsys-in-a-stateless-service"></a>HTTP.sys in un servizio senza stato
 Per usare `HttpSys` in un servizio senza stato, eseguire l'override del metodo `CreateServiceInstanceListeners` e restituire un'istanza `HttpSysCommunicationListener`:
 
 ```csharp
@@ -127,17 +126,17 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-### <a name="httpsys-in-a-stateful-service"></a>HTTP. sys in un servizio con stato
+### <a name="httpsys-in-a-stateful-service"></a>HTTP.sys in un servizio con stato
 
-`HttpSysCommunicationListener`non è attualmente progettato per l'uso nei servizi con stato a causa di complicazioni con la funzionalità di condivisione delle porte **http. sys** sottostante. Per ulteriori informazioni, vedere la sezione seguente sull'allocazione dinamica delle porte con HTTP. sys. Per i servizi con stato, gheppio è il server Web consigliato.
+`HttpSysCommunicationListener`non è attualmente progettato per l'uso nei servizi con stato a causa di complicazioni con la funzionalità di condivisione delle porte **HTTP.sys** sottostante. Per ulteriori informazioni, vedere la sezione seguente sull'allocazione dinamica delle porte con HTTP.sys. Per i servizi con stato, gheppio è il server Web consigliato.
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
 
-È `Endpoint` necessaria una configurazione per i server Web che usano l'API server http di Windows, incluso http. sys. I server Web che usano l'API di Windows HTTP Server devono innanzitutto riservare il proprio URL con HTTP. sys. questa operazione viene in genere eseguita con lo strumento [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) . 
+`Endpoint`È necessaria una configurazione per i server Web che usano l'API server http di Windows, tra cui HTTP.sys. I server Web che usano l'API del server HTTP di Windows devono innanzitutto riservare il proprio URL con HTTP.sys (questa operazione viene in genere eseguita con lo strumento [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) ). 
 
-Questa azione richiede privilegi elevati che i servizi non hanno per impostazione predefinita. Le opzioni "http" o "https" per la `Protocol` proprietà della `Endpoint` configurazione in ServiceManifest. XML vengono usate in modo specifico per indicare al runtime di Service fabric di registrare un URL con http. sys per conto dell'utente. A tale scopo, viene utilizzato il prefisso URL con [*carattere jolly*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) complesso.
+Questa azione richiede privilegi elevati che i servizi non hanno per impostazione predefinita. Le opzioni "http" o "https" per la `Protocol` proprietà della `Endpoint` configurazione in ServiceManifest.xml vengono usate in modo specifico per indicare al Runtime Service fabric di registrare un URL con HTTP.sys per conto dell'utente. A tale scopo, viene utilizzato il prefisso URL con [*carattere jolly*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) complesso.
 
-Per riservare `http://+:80` per un servizio, ad esempio, usare la configurazione seguente in ServiceManifest. XML:
+Ad esempio, per riservare `http://+:80` un servizio, usare la configurazione seguente in ServiceManifest.xml:
 
 ```xml
 <ServiceManifest ... >
@@ -164,8 +163,8 @@ Il nome dell'endpoint deve essere passato al costruttore `HttpSysCommunicationLi
  })
 ```
 
-#### <a name="use-httpsys-with-a-static-port"></a>Utilizzare HTTP. sys con una porta statica
-Per usare una porta statica con HTTP. sys, specificare il numero di porta nella `Endpoint` configurazione:
+#### <a name="use-httpsys-with-a-static-port"></a>Usare HTTP.sys con una porta statica
+Per usare una porta statica con HTTP.sys, specificare il numero di porta nella `Endpoint` configurazione:
 
 ```xml
   <Resources>
@@ -175,8 +174,8 @@ Per usare una porta statica con HTTP. sys, specificare il numero di porta nella 
   </Resources>
 ```
 
-#### <a name="use-httpsys-with-a-dynamic-port"></a>Usare HTTP. sys con una porta dinamica
-Per usare una porta assegnata dinamicamente con HTTP. sys, omettere la `Port` proprietà `Endpoint` nella configurazione:
+#### <a name="use-httpsys-with-a-dynamic-port"></a>Usare HTTP.sys con una porta dinamica
+Per usare una porta assegnata dinamicamente con HTTP.sys, omettere la `Port` proprietà nella `Endpoint` configurazione:
 
 ```xml
   <Resources>
@@ -186,12 +185,12 @@ Per usare una porta assegnata dinamicamente con HTTP. sys, omettere la `Port` pr
   </Resources>
 ```
 
-Una porta dinamica allocata da `Endpoint` una configurazione fornisce solo una porta *per ogni processo host*. Il modello di hosting Service Fabric corrente consente l'hosting di più istanze e/o repliche del servizio nello stesso processo. Ciò significa che ognuno condivide la stessa porta quando viene allocata tramite `Endpoint` la configurazione. Più istanze **http. sys** possono condividere una porta usando la funzionalità di condivisione delle porte **http. sys** sottostante. Ma non è supportato da `HttpSysCommunicationListener` a causa delle complicazioni introdotte per le richieste dei client. Per l'utilizzo della porta dinamica, gheppio è il server Web consigliato.
+Una porta dinamica allocata da una `Endpoint` configurazione fornisce solo una porta *per ogni processo host*. Il modello di hosting Service Fabric corrente consente l'hosting di più istanze e/o repliche del servizio nello stesso processo. Ciò significa che ognuno condivide la stessa porta quando viene allocata tramite la `Endpoint` configurazione. Più istanze di **HTTP.sys** possono condividere una porta usando la funzionalità di condivisione delle porte **HTTP.sys** sottostante. Ma non è supportato da a `HttpSysCommunicationListener` causa delle complicazioni introdotte per le richieste dei client. Per l'utilizzo della porta dinamica, gheppio è il server Web consigliato.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel in Reliable Services
-È possibile usare gheppio in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. gheppio** . Questo pacchetto contiene `KestrelCommunicationListener`, un'implementazione di `ICommunicationListener`. `KestrelCommunicationListener`consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando gheppio come server Web.
+È possibile usare gheppio in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. gheppio** . Questo pacchetto contiene `KestrelCommunicationListener` , un'implementazione di `ICommunicationListener` . `KestrelCommunicationListener`consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando gheppio come server Web.
 
-Kestrel è un server Web per ASP.NET Core multipiattaforma. Diversamente da HTTP. sys, gheppio non usa una gestione centralizzata degli endpoint. Diversamente da HTTP. sys, gheppio non supporta la condivisione delle porte tra più processi. Ogni istanza di Kestrel deve usare una porta univoca. Per altre informazioni su gheppio, vedere i [Dettagli di implementazione](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
+Kestrel è un server Web per ASP.NET Core multipiattaforma. A differenza di HTTP.sys, gheppio non usa una gestione endpoint centralizzata. Inoltre, a differenza HTTP.sys, gheppio non supporta la condivisione delle porte tra più processi. Ogni istanza di Kestrel deve usare una porta univoca. Per altre informazioni su gheppio, vedere i [Dettagli di implementazione](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
 
 ![Diagramma gheppio][4]
 
@@ -251,7 +250,7 @@ In questo esempio viene fornita un'istanza singleton di `IReliableStateManager` 
 *Non* viene fornito un nome di configurazione `Endpoint` a `KestrelCommunicationListener` in un servizio con stato, come spiegato più dettagliatamente nella sezione seguente.
 
 ### <a name="configure-kestrel-to-use-https"></a>Configurare Kestrel per l'uso di HTTPS
-Quando si Abilita HTTPS con gheppio nel servizio, è necessario impostare diverse opzioni di ascolto. Aggiornare per `ServiceInstanceListener` usare un endpoint *EndpointHttps* e restare in ascolto su una porta specifica, ad esempio la porta 443. Quando si configura l'host Web per l'utilizzo del server Web gheppio, è necessario configurare gheppio per l'ascolto degli indirizzi IPv6 su tutte le interfacce di rete: 
+Quando si Abilita HTTPS con gheppio nel servizio, è necessario impostare diverse opzioni di ascolto. Aggiornare `ServiceInstanceListener` per usare un endpoint *EndpointHttps* e restare in ascolto su una porta specifica, ad esempio la porta 443. Quando si configura l'host Web per l'utilizzo del server Web gheppio, è necessario configurare gheppio per l'ascolto degli indirizzi IPv6 su tutte le interfacce di rete: 
 
 ```csharp
 new ServiceInstanceListener(
@@ -295,12 +294,12 @@ Per un esempio completo in un'esercitazione, vedere [configurare gheppio per l'u
 
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
-Non `Endpoint` è necessaria una configurazione per usare gheppio. 
+`Endpoint`Non è necessaria una configurazione per usare gheppio. 
 
-Gheppio è un semplice server Web autonomo. Diversamente da HTTP. sys (o HttpListener), non è necessaria una `Endpoint` configurazione in ServiceManifest. XML perché non richiede la registrazione dell'URL prima dell'avvio. 
+Gheppio è un semplice server Web autonomo. A differenza di HTTP.sys (o HttpListener), non è necessaria una `Endpoint` configurazione in ServiceManifest.xml perché non richiede la registrazione dell'URL prima dell'avvio. 
 
 #### <a name="use-kestrel-with-a-static-port"></a>Usare Kestrel con una porta statica
-È possibile configurare una porta statica nella configurazione `Endpoint` di ServiceManifest. XML per l'uso con gheppio. Sebbene non sia strettamente necessario, offre due vantaggi potenziali:
+È possibile configurare una porta statica nella `Endpoint` configurazione di ServiceManifest.xml per l'uso con gheppio. Sebbene non sia strettamente necessario, offre due vantaggi potenziali:
  - Se la porta non rientra nell'intervallo di porte dell'applicazione, viene aperta tramite il firewall del sistema operativo Service Fabric.
  - L'URL fornito all'utente tramite `KestrelCommunicationListener` userà questa porta.
 
@@ -318,12 +317,12 @@ Se è configurato un `Endpoint`, il nome deve essere passato al costruttore `Kes
 new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) => ...
 ```
 
-Se ServiceManifest. XML non usa una `Endpoint` configurazione, omettere il nome nel `KestrelCommunicationListener` costruttore. In questo caso, utilizzerà una porta dinamica. Per ulteriori informazioni, vedere la sezione successiva.
+Se ServiceManifest.xml non usa una `Endpoint` configurazione, omettere il nome nel `KestrelCommunicationListener` costruttore. In questo caso, utilizzerà una porta dinamica. Per ulteriori informazioni, vedere la sezione successiva.
 
 #### <a name="use-kestrel-with-a-dynamic-port"></a>Usare Kestrel con una porta dinamica
-Il gheppio non può usare l'assegnazione automatica delle `Endpoint` porte dalla configurazione in ServiceManifest. XML. Questo perché l'assegnazione automatica delle porte da `Endpoint` una configurazione assegna una porta univoca per ogni *processo host*e un singolo processo host può contenere più istanze di gheppio. Questa operazione non funziona con gheppio perché non supporta la condivisione delle porte. Ogni istanza di Gheppio deve pertanto essere aperta su una porta univoca.
+Il gheppio non può usare l'assegnazione automatica delle porte dalla `Endpoint` configurazione in ServiceManifest.xml. Questo perché l'assegnazione automatica delle porte da una `Endpoint` configurazione assegna una porta univoca per ogni *processo host*e un singolo processo host può contenere più istanze di gheppio. Questa operazione non funziona con gheppio perché non supporta la condivisione delle porte. Ogni istanza di Gheppio deve pertanto essere aperta su una porta univoca.
 
-Per usare l'assegnazione dinamica delle porte con gheppio, `Endpoint` omettere la configurazione in ServiceManifest. XML completamente e non passare il `KestrelCommunicationListener` nome di un endpoint al costruttore, come indicato di seguito:
+Per usare l'assegnazione dinamica delle porte con gheppio, omettere la `Endpoint` configurazione nel ServiceManifest.xml completamente e non passare il nome di un endpoint al `KestrelCommunicationListener` costruttore, come indicato di seguito:
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...
@@ -331,16 +330,16 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 
 In questa configurazione, `KestrelCommunicationListener` selezionerà automaticamente una porta non usata dall'intervallo di porte dell'applicazione.
 
-Per HTTPS, deve avere l'endpoint configurato con il protocollo HTTPS senza una porta specificata in ServiceManifest. XML e passare il nome dell'endpoint al costruttore KestrelCommunicationListener.
+Per HTTPS, deve avere l'endpoint configurato con il protocollo HTTPS senza una porta specificata in ServiceManifest.xml e passare il nome dell'endpoint al costruttore KestrelCommunicationListener.
 
 
 ## <a name="service-fabric-configuration-provider"></a>Provider di configurazione Service Fabric
 La configurazione dell'app in ASP.NET Core si basa sulle coppie chiave-valore stabilite dal provider di configurazione. Per ulteriori informazioni sul supporto della configurazione ASP.NET Core generale, vedere la pagina relativa alla [configurazione ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) .
 
-Questa sezione descrive il modo in cui il provider di configurazione Service Fabric si integra con la `Microsoft.ServiceFabric.AspNetCore.Configuration` configurazione ASP.NET Core importando il pacchetto NuGet.
+Questa sezione descrive il modo in cui il provider di configurazione Service Fabric si integra con la configurazione ASP.NET Core importando il `Microsoft.ServiceFabric.AspNetCore.Configuration` pacchetto NuGet.
 
 ### <a name="addservicefabricconfiguration-startup-extensions"></a>Estensioni di avvio AddServiceFabricConfiguration
-Dopo aver importato il `Microsoft.ServiceFabric.AspNetCore.Configuration` pacchetto NuGet, è necessario registrare l'origine di configurazione Service Fabric con ASP.NET Core API di configurazione. A tale scopo, controllare **AddServiceFabricConfiguration** le `Microsoft.ServiceFabric.AspNetCore.Configuration` estensioni AddServiceFabricConfiguration nello spazio dei `IConfigurationBuilder`nomi rispetto a.
+Dopo aver importato il `Microsoft.ServiceFabric.AspNetCore.Configuration` pacchetto NuGet, è necessario registrare l'origine di configurazione Service fabric con ASP.NET Core API di configurazione. A tale scopo, controllare le estensioni **AddServiceFabricConfiguration** nello `Microsoft.ServiceFabric.AspNetCore.Configuration` spazio dei nomi rispetto a `IConfigurationBuilder` .
 
 ```csharp
 using Microsoft.ServiceFabric.AspNetCore.Configuration;
@@ -374,7 +373,7 @@ Per impostazione predefinita, il provider di configurazione Service Fabric inclu
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```
 
-Se, ad esempio, si dispone di un pacchetto `MyConfigPackage` di configurazione denominato con il contenuto seguente, il valore di configurazione sarà disponibile `IConfiguration` in ASP.NET Core tramite *MyConfigPackage: MyConfigSection: parametro*.
+Se, ad esempio, si dispone di un pacchetto `MyConfigPackage` di configurazione denominato con il contenuto seguente, il valore di configurazione sarà disponibile in ASP.NET Core `IConfiguration` tramite *MyConfigPackage: MyConfigSection: parametro*.
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
@@ -384,10 +383,10 @@ Se, ad esempio, si dispone di un pacchetto `MyConfigPackage` di configurazione d
 </Settings>
 ```
 ### <a name="service-fabric-configuration-options"></a>Opzioni di configurazione Service Fabric
-Il provider di configurazione Service Fabric supporta `ServiceFabricConfigurationOptions` anche per modificare il comportamento predefinito del mapping delle chiavi.
+Il provider di configurazione Service Fabric supporta anche `ServiceFabricConfigurationOptions` per modificare il comportamento predefinito del mapping delle chiavi.
 
 #### <a name="encrypted-settings"></a>Impostazioni crittografate
-Service Fabric supporta le impostazioni crittografate, così come il provider di configurazione Service Fabric. Le impostazioni crittografate non vengono decrittografate ASP.NET Core `IConfiguration` per impostazione predefinita. Sono invece archiviati i valori crittografati. Tuttavia, se si desidera decrittografare il valore da archiviare in ASP.NET Core IConfiguration, è possibile impostare il flag *DecryptValue* su false `AddServiceFabricConfiguration` nell'estensione, come indicato di seguito:
+Service Fabric supporta le impostazioni crittografate, così come il provider di configurazione Service Fabric. Le impostazioni crittografate non vengono decrittografate ASP.NET Core per `IConfiguration` impostazione predefinita. Sono invece archiviati i valori crittografati. Tuttavia, se si desidera decrittografare il valore da archiviare in ASP.NET Core IConfiguration, è possibile impostare il flag *DecryptValue* su false nell' `AddServiceFabricConfiguration` estensione, come indicato di seguito:
 
 ```csharp
 public Startup()
@@ -411,7 +410,7 @@ public Startup()
 }
 ```
 #### <a name="custom-key-mapping-value-extraction-and-data-population"></a>Mapping di chiavi personalizzate, estrazione di valori e popolamento dei dati
-Il provider di configurazione Service Fabric supporta anche scenari più avanzati per personalizzare il mapping delle `ExtractKeyFunc` chiavi con ed estrarre in modo personalizzato `ExtractValueFunc`i valori con. È anche possibile modificare l'intero processo di popolamento dei dati dalla configurazione Service Fabric alla configurazione ASP.NET Core tramite `ConfigAction`.
+Il provider di configurazione Service Fabric supporta anche scenari più avanzati per personalizzare il mapping delle chiavi con `ExtractKeyFunc` ed estrarre in modo personalizzato i valori con `ExtractValueFunc` . È anche possibile modificare l'intero processo di popolamento dei dati dalla configurazione Service Fabric alla configurazione ASP.NET Core tramite `ConfigAction` .
 
 Negli esempi seguenti viene illustrato come utilizzare `ConfigAction` per personalizzare il popolamento dei dati:
 ```csharp
@@ -448,7 +447,7 @@ public Startup()
 ```
 
 ### <a name="configuration-updates"></a>Aggiornamenti della configurazione
-Il provider di configurazione Service Fabric supporta anche gli aggiornamenti della configurazione. È possibile usare ASP.NET Core `IOptionsMonitor` per ricevere le notifiche di modifica e quindi `IOptionsSnapshot` usare per ricaricare i dati di configurazione. Per ulteriori informazioni, vedere [opzioni ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+Il provider di configurazione Service Fabric supporta anche gli aggiornamenti della configurazione. È possibile usare ASP.NET Core `IOptionsMonitor` per ricevere le notifiche di modifica e quindi usare `IOptionsSnapshot` per ricaricare i dati di configurazione. Per ulteriori informazioni, vedere [opzioni ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
 
 Queste opzioni sono supportate per impostazione predefinita. Per abilitare gli aggiornamenti della configurazione non è necessaria alcuna ulteriore codifica.
 
@@ -466,7 +465,7 @@ Un servizio **solo interno** è un servizio il cui endpoint viene chiamato solo 
 > Gli endpoint del servizio con stato in genere non devono essere esposti a Internet. I cluster dietro i servizi di bilanciamento del carico che non sono a conoscenza di Service Fabric risoluzione del servizio, ad esempio Azure Load Balancer, non saranno in grado di esporre i servizi con stato. Questo perché il servizio di bilanciamento del carico non sarà in grado di individuare e instradare il traffico alla replica del servizio con stato appropriato. 
 
 ### <a name="externally-exposed-aspnet-core-stateless-services"></a>Servizi ASP.NET Core senza stato esposti all'esterno
-Gheppio è il server Web consigliato per i servizi front-end che espongono endpoint HTTP esterni con connessione Internet. In Windows, HTTP. sys può fornire funzionalità di condivisione delle porte, che consente di ospitare più servizi Web sullo stesso set di nodi tramite la stessa porta. In questo scenario, i servizi Web si differenziano in base al nome host o al percorso, senza basarsi su un proxy o gateway front-end per fornire il routing HTTP.
+Gheppio è il server Web consigliato per i servizi front-end che espongono endpoint HTTP esterni con connessione Internet. In Windows HTTP.sys possibile fornire funzionalità di condivisione delle porte, che consente di ospitare più servizi Web sullo stesso set di nodi tramite la stessa porta. In questo scenario, i servizi Web si differenziano in base al nome host o al percorso, senza basarsi su un proxy o gateway front-end per fornire il routing HTTP.
  
 Se esposti a Internet, un servizio senza stato deve usare un endpoint noto e stabile raggiungibile tramite un servizio di bilanciamento del carico. Questo URL verrà fornito agli utenti dell'applicazione. È consigliabile la configurazione seguente:
 
@@ -477,7 +476,7 @@ Se esposti a Internet, un servizio senza stato deve usare un endpoint noto e sta
 | ServiceFabricIntegrationOptions | nessuno | Usare l' `ServiceFabricIntegrationOptions.None` opzione quando si configura Service Fabric middleware di integrazione, in modo che il servizio non tenti di convalidare le richieste in ingresso per un identificatore univoco. Gli utenti esterni dell'applicazione non saranno in grado di riconoscere le informazioni di identificazione univoche utilizzate dal middleware. |
 | Conteggio istanze | -1 | Nei casi d'uso tipici, l'impostazione del numero di istanze deve essere impostata su *-1*. Questa operazione viene eseguita in modo che un'istanza sia disponibile in tutti i nodi che ricevono traffico da un servizio di bilanciamento del carico. |
 
-Se più servizi esposti esternamente condividono lo stesso set di nodi, è possibile usare HTTP. sys con un percorso URL univoco ma stabile. A tale scopo, è possibile modificare l'URL fornito durante la configurazione di IWebHost. Si noti che questo vale solo per HTTP. sys.
+Se più servizi esposti esternamente condividono lo stesso set di nodi, è possibile usare HTTP.sys con un percorso URL univoco ma stabile. A tale scopo, è possibile modificare l'URL fornito durante la configurazione di IWebHost. Si noti che questo vale solo per HTTP.sys.
 
  ```csharp
  new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
@@ -497,7 +496,7 @@ I servizi senza stato che vengono chiamati solo dall'interno del cluster devono 
 
 |  |  | **Note** |
 | --- | --- | --- |
-| Server Web | Kestrel | Sebbene sia possibile utilizzare HTTP. sys per i servizi senza stato interno, gheppio è il server migliore per consentire a più istanze del servizio di condividere un host.  |
+| Server Web | Kestrel | Sebbene sia possibile utilizzare HTTP.sys per i servizi interni senza stato, gheppio è il server migliore per consentire a più istanze del servizio di condividere un host.  |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con l'assegnazione dinamica delle porte, questa impostazione evita il problema di errata identificazione descritto in precedenza. |
 | InstanceCount | any | Il numero di istanze può essere impostato su qualsiasi valore necessario per il funzionamento del servizio. |
@@ -507,7 +506,7 @@ I servizi con stato che vengono chiamati solo dall'interno del cluster devono us
 
 |  |  | **Note** |
 | --- | --- | --- |
-| Server Web | Kestrel | Non `HttpSysCommunicationListener` è progettato per l'uso da parte di servizi con stato in cui le repliche condividono un processo host. |
+| Server Web | Kestrel | `HttpSysCommunicationListener`Non è progettato per l'uso da parte di servizi con stato in cui le repliche condividono un processo host. |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con l'assegnazione dinamica delle porte, questa impostazione evita il problema di errata identificazione descritto in precedenza. |
 

@@ -6,19 +6,18 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 2bc0017d71e159ac490041494bcf37db035ef421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651462"
 ---
 # <a name="reference-deployment-template-artifact"></a>Riferimento: artefatto modello di distribuzione
 
-Questo articolo è un riferimento per un elemento *mainTemplate. JSON* nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione di un modello di distribuzione, vedere [Azure Resource Manager Templates](../templates/template-syntax.md).
+Questo articolo è un riferimento per un *mainTemplate.jssull'* artefatto nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione di un modello di distribuzione, vedere [Azure Resource Manager Templates](../templates/template-syntax.md).
 
 ## <a name="deployment-template"></a>Modello di distribuzione
 
-Il codice JSON seguente mostra un esempio di file *mainTemplate. JSON* per le applicazioni gestite di Azure:
+Il codice JSON seguente mostra un esempio di *mainTemplate.jssu* file per le applicazioni gestite di Azure:
 
 ```json
 {

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75453949"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
@@ -456,7 +455,7 @@ Questa sezione si riferisce a una workstation basata su Windows. Per un esempio 
 
 ## <a name="simulate-the-devices"></a>Simulare i dispositivi
 
-In questa sezione viene aggiornato un esempio di provisioning denominato **prov\_dev\_client\_Sample** presente nell'SDK di Azure per le cose che è stato configurato in precedenza.
+In questa sezione viene aggiornato un esempio di provisioning denominato **prov \_ dev \_ client \_ Sample** presente nell'SDK di Azure per le cose che è stato configurato in precedenza.
 
 Questo codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio riconoscerà il dispositivo toaster e lo assegnerà all'hub IoT usando i criteri di allocazione personalizzati.
 

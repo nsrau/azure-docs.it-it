@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614524"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Sviluppare applicazioni C# di Service Fabric con Visual Studio Code
@@ -61,18 +60,18 @@ Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale
 
    ![Comando per la distribuzione dell'applicazione in Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Al termine della distribuzione, avviare un browser e aprire Service Fabric Explorer: http:\//localhost: 19080/Explorer. Si noterà che l'applicazione è in esecuzione. Questa operazione potrebbe richiedere tempo. 
+4. Al termine della distribuzione, avviare un browser e aprire Service Fabric Explorer: http: \/ /localhost: 19080/Explorer. Si noterà che l'applicazione è in esecuzione. Questa operazione potrebbe richiedere tempo. 
 
    ![Applicazione CounterService in Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Dopo aver verificato che l'applicazione è in esecuzione, avviare un browser e aprire la pagina: http\/:/localhost: 31002. Questo è il front-end Web dell'applicazione. Aggiornare la pagina per visualizzare il valore corrente del contatore mentre viene incrementato automaticamente.
+4. Dopo aver verificato che l'applicazione è in esecuzione, avviare un browser e aprire la pagina: http: \/ /localhost: 31002. Questo è il front-end Web dell'applicazione. Aggiornare la pagina per visualizzare il valore corrente del contatore mentre viene incrementato automaticamente.
 
    ![Applicazione CounterService nel browser](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
 ## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Pubblicare l'applicazione in un cluster di Service Fabric di Azure
 Con la distribuzione dell'applicazione nel cluster locale è anche possibile pubblicare l'applicazione in un cluster remoto di Service Fabric di Azure. 
 
-1. Assicurarsi che l'applicazione sia stata compilata seguendo le istruzioni riportate sopra. Aggiornare il file `Cloud.json` di configurazione generato con i dettagli del cluster remoto in cui si vuole eseguire la pubblicazione.
+1. Assicurarsi che l'applicazione sia stata compilata seguendo le istruzioni riportate sopra. Aggiornare il file di configurazione generato `Cloud.json` con i dettagli del cluster remoto in cui si vuole eseguire la pubblicazione.
 
 2. Dal **riquadro comandi**selezionare il **comando Service Fabric: Publish Application**. L'output del processo di installazione viene inviato al terminale integrato.
 
@@ -93,7 +92,7 @@ Per impostare un punto di interruzione ed eseguire il debug, seguire questa proc
 
    ![Icona di debug nell'area di lavoro di Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Aprire Service Fabric Explorer in un browser: http:\//localhost: 19080/Explorer. Fare clic su **Applicazioni** ed eseguire il drill down per determinare il nodo primario in cui è in esecuzione CounterService. Nell'immagine seguente il nodo primario per CounterService è il nodo 0.
+3. Aprire Service Fabric Explorer in un browser: http: \/ /localhost: 19080/Explorer. Fare clic su **Applicazioni** ed eseguire il drill down per determinare il nodo primario in cui è in esecuzione CounterService. Nell'immagine seguente il nodo primario per CounterService è il nodo 0.
 
    ![Nodo primario per CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 
