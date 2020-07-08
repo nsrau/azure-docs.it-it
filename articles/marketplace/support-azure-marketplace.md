@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: bd973a859ce1fa6a9ce5566b1403331988630960
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 8615a853ea218c0598f33d87d39c9ead15709cc0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828101"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955455"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Supporto del Marketplace commerciale di Microsoft
 
@@ -43,10 +42,9 @@ Aprire un ticket per il [supporto per la pubblicazione nel Marketplace](https://
 | E-mail: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Supporto per informazioni sui vantaggi e sul programma Go-To-Market. | Basato sull'orario di ufficio nel fuso orario del Pacifico. |  
 | E-mail: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Supporto per informazioni sull'utilizzo del marchio e dei logo di Azure. |  |  
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visitare la [pagina della guida alla pubblicazione nel Marketplace commerciale](https://docs.microsoft.com/azure/marketplace/).
-* Altre informazioni sul [supporto per il programma del Marketplace commerciale nel Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Visitare la [pagina della guida alla pubblicazione nel Marketplace commerciale](index.yml).
+* Altre informazioni sul [supporto per il programma del Marketplace commerciale nel Centro per i partner](partner-center-portal/support.md).
 
 ---

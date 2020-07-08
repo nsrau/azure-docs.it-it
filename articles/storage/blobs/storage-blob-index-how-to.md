@@ -5,15 +5,14 @@ author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
 ms.service: storage
-ms.subservice: common
-ms.topic: conceptual
+ms.subservice: blobs
+ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: cc82b6578b06323d8cf9a09644d50043dba8e554
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: 6e3ce99211da35105fd9e118a850110dfd48ece1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774321"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84986286"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utilizzare i tag indice BLOB (anteprima) per gestire e trovare i dati nell'archiviazione BLOB di Azure
 
@@ -22,7 +21,7 @@ I tag indice BLOB categorizzano i dati nell'account di archiviazione utilizzando
 Per altre informazioni sull'indice BLOB, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Francia centrale** e **Francia meridionale**. Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
+> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Canada centrale**, **Canada orientale**, **Francia centrale** e **Francia meridionale** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 # <a name="portal"></a>[Portale](#tab/azure-portal)

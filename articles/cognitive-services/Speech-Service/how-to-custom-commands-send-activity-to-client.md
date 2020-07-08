@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0a3e3455615006c0e93cf32eebcdaedac9960a79
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
-ms.translationtype: MT
+ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307737"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027614"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Invia attività comandi personalizzati all'applicazione client
 
@@ -28,7 +27,7 @@ Completare le attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) o versione successiva. Questa guida USA Visual Studio 2019
 > * Una chiave di sottoscrizione di Azure per il servizio di riconoscimento vocale: [ottenerne una gratuita](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com)
 > * [App comandi personalizzati creata](quickstart-custom-commands-application.md) in precedenza
 > * App client abilitata per l'SDK vocale: [procedura: eseguire l'integrazione con un'applicazione client tramite Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
@@ -46,7 +45,7 @@ Completare le attività seguenti:
      "device": "{SubjectDevice}"
    }
    ```
-1. Fare clic su **Salva** per creare una nuova regola con un'azione Invia attività
+1. Fare clic su **Salva** per creare una nuova regola con un'azione Invia attività, eseguire il **Training** e **pubblicare** la modifica
 
    > [!div class="mx-imgBorder"]
    > ![Regola di completamento dell'attività di invio](media/custom-commands/send-activity-to-client-completion-rules.png)
@@ -55,9 +54,12 @@ Completare le attività seguenti:
 
 In [procedura: configurare l'applicazione client con Speech SDK (anteprima)](./how-to-custom-commands-setup-speech-sdk.md)è stata creata un'applicazione client UWP con l'SDK di riconoscimento vocale che gestiva i comandi, ad esempio `turn on the tv` , `turn off the fan` . Con alcuni oggetti visivi aggiunti, è possibile visualizzare il risultato di tali comandi.
 
-Aggiungere caselle con etichetta con testo che indica **on** o **off** usando il codice XML seguente aggiunto a`MainPage.xaml`
+Per aggiungere caselle con etichetta con testo che indica **on** o **off**, aggiungere il seguente blocco XML di StackPanel a `MainPage.xaml` .
 
 ```xml
+<StackPanel Orientation="Vertical" H......>
+......
+</StackPanel>
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
     <Grid x:Name="Grid_TV" Margin="50, 0" Width="100" Height="100" Background="LightBlue">
         <StackPanel>
@@ -72,6 +74,7 @@ Aggiungere caselle con etichetta con testo che indica **on** o **off** usando il
         </StackPanel>
     </Grid>
 </StackPanel>
+<MediaElement ....../>
 ```
 
 ### <a name="add-reference-libraries"></a>Aggiungi librerie di riferimento
@@ -79,15 +82,21 @@ Aggiungere caselle con etichetta con testo che indica **on** o **off** usando il
 Poiché è stato creato un payload JSON, è necessario aggiungere un riferimento alla libreria [JSON.NET](https://www.newtonsoft.com/json) per gestire la deserializzazione.
 
 1. Right-client la soluzione.
-1. Scegliere **Gestisci pacchetti NuGet per la soluzione**, selezionare **Installa** 
-1. Cercare **Newtonsoft.js** nell'elenco di aggiornamento, aggiornare **Microsoft. NETCore. UniversalWindowsPlatform** alla versione più recente
+1. Scegliere **Gestisci pacchetti NuGet per la soluzione**, selezionare **Sfoglia** 
+1. Se è già stato installato **Newtonsoft.json**, assicurarsi che la versione sia almeno 12.0.3. In caso contrario, passare a **Gestisci pacchetti NuGet per la soluzione-aggiornamenti**, cercare **Newtonsoft.jssu** per aggiornarlo. Questa guida usa la versione 12.0.3.
 
-> [!div class="mx-imgBorder"]
-> ![Payload dell'attività Send](media/custom-commands/send-activity-to-client-json-nuget.png)
+    > [!div class="mx-imgBorder"]
+    > ![Payload dell'attività Send](media/custom-commands/send-activity-to-client-json-nuget.png)
+
+1. Assicurarsi inoltre che il pacchetto NuGet **Microsoft. NETCore. UniversalWindowsPlatform** sia almeno 6.2.10. Questa guida usa la versione 6.2.10.
 
 In ' MainPage. XAML. cs ' aggiungere
-- `using Newtonsoft.Json;` 
-- `using Windows.ApplicationModel.Core;`
+
+```C#
+using Newtonsoft.Json; 
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+```
 
 ### <a name="handle-the-received-payload"></a>Gestire il payload ricevuto
 

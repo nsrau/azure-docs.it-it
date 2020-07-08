@@ -5,16 +5,15 @@ author: roygara
 manager: twooley
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f2d905d041198bd35c4657052bf18d981904dc44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758383"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659958"
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot 
 
@@ -65,7 +64,7 @@ az snapshot list \
 5. Selezionare un gruppo di risorse esistente o specificare il nome di un nuovo gruppo. 
 7. Per **Disco di origine**, selezionare il disco gestito di cui creare lo snapshot.
 8. Selezionare il **tipo di account** da usare per archiviare lo snapshot. Usare il tipo **Standard HDD** a meno che non sia necessario archiviare lo snapshot su un'unità SSD a prestazioni elevate.
-9. Scegliere **Crea**.
+9. Fare clic su **Crea**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

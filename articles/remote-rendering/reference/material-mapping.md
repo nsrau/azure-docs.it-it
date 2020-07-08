@@ -5,12 +5,11 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: ce287ed94066aac4b900d2ddb02579a54b8550f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680388"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783011"
 ---
 # <a name="material-mapping-for-model-formats"></a>Mapping del materiale per i formati di modello
 
@@ -47,14 +46,13 @@ Ogni trama in glTF può avere un `texCoord` valore, che è anche supportato nei 
 
 ### <a name="embedded-textures"></a>Trame incorporate
 
-Sono supportate le trame incorporate nei * \*file. bin* o * \*. glb* .
+Sono supportate le trame incorporate nei file * \* . bin* o * \* . glb* .
 
 ### <a name="supported-gltf-extension"></a>Estensione glTF supportata
 
 Inoltre, per il set di funzionalità di base, il rendering remoto di Azure supporta le estensioni glTF seguenti:
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
-* [MSFT_texture_dds](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_texture_dds/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): corrisponde ai [materiali colori](../overview/features/color-materials.md). Per i materiali *emissivo* , è consigliabile usare questa estensione.
 * [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): è possibile creare trame lucentezza, invece delle trame di rugosità metallizzata. L'implementazione del rendering remoto di Azure segue direttamente le formule di conversione dall'estensione.
 
@@ -102,10 +100,10 @@ Il mapping precedente è la parte più complessa della conversione del materiale
 Alcune definizioni usate di seguito:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. ∗ Rosso 0,2125 + `Specular`. ∗ Verde 0,7154 + `Specular`. Blu ∗ 0,0721
-* `DiffuseBrightness`= 0,299 * `Diffuse`. Rosso<sup>2</sup> + 0,587 * `Diffuse`. Verde<sup>2</sup> + 0,114 * `Diffuse`. Blu<sup>2</sup>
-* `SpecularBrightness`= 0,299 * `Specular`. Rosso<sup>2</sup> + 0,587 * `Specular`. Verde<sup>2</sup> + 0,114 * `Specular`. Blu<sup>2</sup>
-* `SpecularStrength`= Max (`Specular`. Rosso, `Specular` Verde, `Specular`. Blu
+* `SpecularIntensity` = `Specular`. ∗ Rosso 0,2125 + `Specular` . ∗ Verde 0,7154 + `Specular` . Blu ∗ 0,0721
+* `DiffuseBrightness`= 0,299 * `Diffuse` . Rosso<sup>2</sup> + 0,587 * `Diffuse` . Verde<sup>2</sup> + 0,114 * `Diffuse` . Blu<sup>2</sup>
+* `SpecularBrightness`= 0,299 * `Specular` . Rosso<sup>2</sup> + 0,587 * `Specular` . Verde<sup>2</sup> + 0,114 * `Specular` . Blu<sup>2</sup>
+* `SpecularStrength`= Max ( `Specular` . Rosso, `Specular` Verde, `Specular` . Blu
 
 La formula SpecularIntensity è ottenuta da [qui](https://en.wikipedia.org/wiki/Luma_(video)).
 La formula della luminosità è descritta in questa [specifica](http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf).
@@ -139,10 +137,10 @@ Metalness = clamp(value, 0.0, 1.0);
 
 ### <a name="albedo"></a>Albedo
 
-`Albedo`viene calcolato da `Diffuse`, `Specular`e. `Metalness`
+`Albedo`viene calcolato da `Diffuse` , `Specular` e `Metalness` .
 
 Come descritto nella sezione metality, le superfici dielettriche riflettono circa il 4% della luce.  
-L'idea è di eseguire un'interpolazione lineare `Dielectric` tra `Metal` e i `Metalness` colori usando il valore come fattore. Se la metallurgia `0.0`è, a seconda del tipo speculare sarà un colore scuro (se speculare è alta) o la diffusione non verrà modificata (se non è presente alcun oggetto speculare). Se la metallurgia è un valore elevato, il colore diffuso scomparirà a favore del colore speculare.
+L'idea è di eseguire un'interpolazione lineare tra `Dielectric` e `Metal` i colori usando il `Metalness` valore come fattore. Se la metallurgia è `0.0` , a seconda del tipo speculare sarà un colore scuro (se speculare è alta) o la diffusione non verrà modificata (se non è presente alcun oggetto speculare). Se la metallurgia è un valore elevato, il colore diffuso scomparirà a favore del colore speculare.
 
 ```Cpp
 dielectricSpecularReflectance = 0.04
@@ -156,22 +154,22 @@ AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 
 `AlbedoRGB`è stato calcolato dalla formula precedente, ma il canale alfa richiede calcoli aggiuntivi. Il formato FBX è vago sulla trasparenza e può essere definito in molti modi. Diversi strumenti di contenuto usano metodi diversi. L'idea è di unificarle in un'unica formula. In questo modo, alcuni asset vengono erroneamente visualizzati come trasparenti, tuttavia, se non vengono creati in modo comune.
 
-Questa operazione viene calcolata `TransparentColor`da `TransparencyFactor`, `Opacity`,:
+Questa operazione viene calcolata da `TransparentColor` , `TransparencyFactor` , `Opacity` :
 
 Se `Opacity` è definito, usarlo direttamente: `AlbedoAlpha`  =  `Opacity` else  
-Se `TransparencyColor` è definito, quindi `AlbedoAlpha` = 1,0-(`TransparentColor`. Rosso + `TransparentColor`. Verde + `TransparentColor`. Blu)/3,0) else  
-Se `TransparencyFactor`, quindi `AlbedoAlpha` = 1,0-`TransparencyFactor`
+Se `TransparencyColor` è definito, quindi `AlbedoAlpha` = 1,0-( `TransparentColor` . Rosso + `TransparentColor` . Verde + `TransparentColor` . Blu)/3,0) else  
+Se `TransparencyFactor` , quindi `AlbedoAlpha` = 1,0-`TransparencyFactor`
 
-Il colore `Albedo` finale ha quattro canali, combinando `AlbedoRGB` con `AlbedoAlpha`.
+Il `Albedo` colore finale ha quattro canali, combinando `AlbedoRGB` con `AlbedoAlpha` .
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
-Per riepilogare qui, `Albedo` sarà molto vicino all'originale `Diffuse`, se `Specular` è vicino a zero. In caso contrario, la superficie apparirà come una superficie metallica e perderà il colore diffuso. L'aspetto della superficie sarà più lucido e riflettente se `ShininessExponent` è sufficientemente `Specular` grande ed è chiaro. In caso contrario, la superficie apparirà approssimativa e rispecchierà a malapena l'ambiente.
+Per riepilogare qui, `Albedo` sarà molto vicino all'originale `Diffuse` , se `Specular` è vicino a zero. In caso contrario, la superficie apparirà come una superficie metallica e perderà il colore diffuso. L'aspetto della superficie sarà più lucido e riflettente se `ShininessExponent` è sufficientemente grande ed `Specular` è chiaro. In caso contrario, la superficie apparirà approssimativa e rispecchierà a malapena l'ambiente.
 
 ### <a name="known-issues"></a>Problemi noti
 
 * La formula corrente non funziona correttamente per la geometria colorata semplice. Se `Specular` è sufficientemente chiaro, tutte le geometrie diventano superfici metallizzate riflettenti senza alcun colore. La soluzione alternativa consiste nel ridurre `Specular` al 30% dall'originale o usare l'impostazione di conversione [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
-* I materiali PBR sono stati recentemente `Maya` aggiunti `3DS Max` agli strumenti e alla creazione del contenuto. Usano proprietà personalizzate della casella nera definite dall'utente per passarle a FBX. Il rendering remoto di Azure non legge tali proprietà aggiuntive perché non sono documentate e il formato è closed-source.
+* I materiali PBR sono stati recentemente aggiunti agli `Maya` strumenti e alla `3DS Max` creazione del contenuto. Usano proprietà personalizzate della casella nera definite dall'utente per passarle a FBX. Il rendering remoto di Azure non legge tali proprietà aggiuntive perché non sono documentate e il formato è closed-source.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

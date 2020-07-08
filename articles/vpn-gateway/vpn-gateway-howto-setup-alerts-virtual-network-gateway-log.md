@@ -4,15 +4,14 @@ description: Procedura per configurare gli avvisi sugli eventi del log delle ris
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 95c55242baf2ceb3620ed71026af2bad0195c22d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3417d2b6e105626bceb992db088a4d0113aa798f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983088"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurare gli avvisi per gli eventi del log delle risorse dal gateway VPN
 
@@ -35,7 +34,7 @@ La procedura di esempio seguente crea un avviso per un evento di disconnessione 
 
 1. Nella portale di Azure cercare **log Analytics** in **tutti i servizi** e selezionare aree di **lavoro log Analytics**.
 
-   ![Selezioni per passare ad aree di lavoro Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Creazione")
+   ![Selezioni per passare ad aree di lavoro Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Create")
 
 2. Selezionare **Crea** nella pagina **log Analytics** .
 
@@ -45,7 +44,7 @@ La procedura di esempio seguente crea un avviso per un evento di disconnessione 
 
    ![Dettagli per la creazione di un'area di lavoro Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Select")
 
-4. Trovare il gateway VPN nel pannello **monitora** > **impostazioni di diagnostica** .
+4. Trovare il gateway VPN nel pannello **monitora**  >  **impostazioni di diagnostica** .
 
    ![Selezioni per la ricerca del gateway VPN nelle impostazioni di diagnostica](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Select")
 

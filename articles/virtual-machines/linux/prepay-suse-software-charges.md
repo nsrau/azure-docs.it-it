@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
 ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759278"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pagare in anticipo i piani software di Azure
@@ -70,8 +69,8 @@ Per informazioni su come gestire una prenotazione, vedere [gestire le prenotazio
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Che cosa sono le prenotazioni di Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Gestisci prenotazioni in Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Informazioni sulle prenotazioni di Azure](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Gestire le prenotazioni in Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [Understand how the SUSE reservation discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md) (Informazioni su come viene applicato lo sconto sulla prenotazione SUSE)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

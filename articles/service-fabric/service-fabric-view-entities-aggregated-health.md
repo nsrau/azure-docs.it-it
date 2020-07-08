@@ -1,16 +1,15 @@
 ---
 title: Come visualizzare l'integrità aggregata delle entità Service Fabric di Azure
 description: Descrive come eseguire una query dell'integrità aggregata delle entità di Azure Service Fabric, come visualizzarla e come valutarla con query di integrità e query generali.
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 4688664fea29cc07f5895e33ebfff541d61070d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75464123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392744"
 ---
 # <a name="view-service-fabric-health-reports"></a>Come visualizzare i report sull'integrità di Service Fabric
 Azure Service Fabric introduce un [modello di integrità](service-fabric-health-introduction.md) con entità di integrità per le quali i componenti di sistema e i watchdog possono creare report sulle condizioni locali sottoposte a monitoraggio. L' [archivio integrità](service-fabric-health-introduction.md#health-store) aggrega tutti i dati di integrità per determinare se le entità sono integre.
@@ -1044,7 +1043,7 @@ Di seguito sono elencate le query che contengono **HealthState** per le entità:
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Alcune query restituiscono risultati di paging. La restituzione di queste query è un elenco derivato [da\<PagedList T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se questi risultati non corrispondono a un messaggio, viene restituita solo una pagina e un ContinuationToken che tiene traccia del punto in cui l'enumerazione è stata arrestata. Continuare a chiamare la stessa query e passare il token di continuazione dalla query precedente per ottenere i risultati successivi.
+> Alcune query restituiscono risultati di paging. Queste query restituiscono un elenco derivato da [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se questi risultati non corrispondono a un messaggio, viene restituita solo una pagina e un ContinuationToken che tiene traccia del punto in cui l'enumerazione è stata arrestata. Continuare a chiamare la stessa query e passare il token di continuazione dalla query precedente per ottenere i risultati successivi.
 
 ### <a name="examples"></a>Esempi
 Il codice seguente permette di ottenere le applicazioni non integre nel cluster:

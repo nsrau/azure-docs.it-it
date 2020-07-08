@@ -13,19 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783215"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Domande frequenti-domande generali sul centro sicurezza di Azure
 
 ## <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 Il Centro sicurezza di Azure consente di prevenire, rilevare e rispondere alle minacce con maggiore visibilità e controllo sulla sicurezza delle risorse. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
-Il Centro sicurezza usa l'agente di Log Analytics per raccogliere e archiviare i dati. Per informazioni dettagliate, vedere [raccolta dati nel centro sicurezza di Azure](security-center-enable-data-collection.md).
+Per raccogliere e archiviare i dati, il Centro sicurezza usa l'agente di Log Analytics. Per informazioni dettagliate, vedere [raccolta dati nel centro sicurezza di Azure](security-center-enable-data-collection.md).
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>In che modo è possibile accedere al Centro sicurezza di Azure?
@@ -36,15 +35,9 @@ Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft 
 Il Centro sicurezza di Azure monitora le risorse di Azure seguenti:
 
 * Macchine virtuali (VM) (inclusi i [servizi cloud](../cloud-services/cloud-services-choose-me.md))
-* Set di scalabilità di macchine virtuali
-* Reti virtuali di Azure
-* Contenitori
-* Servizio di SQL Azure
-* Account di archiviazione di Azure
-* App Web di Azure in un [ambiente del servizio app](../app-service/environment/intro.md)
+* set di scalabilità di macchine virtuali
 * Soluzioni partner integrate con la sottoscrizione di Azure, ad esempio un Web application firewall, nelle VM e nell'ambiente del servizio app
-
-Inoltre, i computer non Azure (inclusi quelli locali) possono essere monitorati anche dal centro sicurezza di Azure. Sono supportati sia computer [Windows](./quick-onboard-windows-computer.md) che [computer Linux](./quick-onboard-linux-computer.md) .
+* [Molti servizi PaaS di Azure elencati nella panoramica del prodotto](features-paas.md)
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Come è possibile visualizzare lo stato di sicurezza corrente delle risorse Azure?
@@ -59,7 +52,7 @@ I criteri di sicurezza abilitati nel Centro sicurezza di Azure determinano il mo
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Chi può modificare i criteri di sicurezza?
-Per modificare i criteri di sicurezza, è necessario essere un amministratore della sicurezza o un proprietario o un collaboratore di tale sottoscrizione.
+Per modificare i criteri di sicurezza, è necessario essere un **amministratore della sicurezza** o un **proprietario** di tale sottoscrizione.
 
 Per informazioni su come configurare i criteri di sicurezza, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md).
 
@@ -87,7 +80,7 @@ Il Centro sicurezza di Azure raccoglie, analizza e unisce automaticamente i dati
 
 
 ## <a name="why-did-secure-score-values-change"></a>Perché sono stati modificati i valori di Punteggio sicuro? <a name="secure-score-faq"></a>
-A partire da febbraio 2019, il Centro sicurezza ha regolato il Punteggio di alcune raccomandazioni, in modo da adattarsi meglio alla loro gravità. In seguito a questa modifica, è possibile che vengano apportate modifiche ai valori di Punteggio sicuro complessivi.  Per altre informazioni sul punteggio sicuro, vedere [calcolo del Punteggio sicuro](security-center-secure-score.md).
+A partire da febbraio 2019, il Centro sicurezza ha regolato il Punteggio di alcune raccomandazioni, in modo da adattarsi meglio alla loro gravità. In seguito a questa modifica, è possibile che vengano apportate modifiche ai valori di Punteggio sicuro complessivi.  Per altre informazioni sul punteggio sicuro, vedere [Punteggio sicuro migliorato nel centro sicurezza di Azure](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Qual è la differenza tra le minacce rilevate e le minacce segnalate da Microsoft Security Response Center e dal Centro sicurezza di Azure?

@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759528"
 ---
 # <a name="post-deployment-tasks"></a>Attività di post-distribuzione
@@ -34,9 +33,9 @@ Per usare Azure Active Directory per l'autenticazione, è necessario creare prim
 Si userà l'interfaccia della riga di comando di Azure per creare la registrazione dell'app e l'interfaccia utente grafica (portale) per impostare le autorizzazioni. Per creare la registrazione dell'app, saranno necessarie le cinque informazioni seguenti:
 
 - Nome visualizzato: nome di registrazione dell'app, ad esempio OCPAzureAD
-- Home page: URL della console OpenShift (ad esempio `https://masterdns343khhde.westus.cloudapp.azure.com/console`,)
-- URI dell'identificatore: URL della console OpenShift (ad `https://masterdns343khhde.westus.cloudapp.azure.com/console`esempio,)
-- URL di risposta: URL pubblico master e nome della registrazione dell'app (ad `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`esempio,)
+- Home page: URL della console OpenShift (ad esempio, `https://masterdns343khhde.westus.cloudapp.azure.com/console` )
+- URI dell'identificatore: URL della console OpenShift (ad esempio, `https://masterdns343khhde.westus.cloudapp.azure.com/console` )
+- URL di risposta: URL pubblico master e nome della registrazione dell'app (ad esempio, `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD` )
 - Password: password sicura. Usare una password complessa
 
 L'esempio seguente crea una registrazione dell'app usando le informazioni indicate sopra:
@@ -69,7 +68,7 @@ Prendere nota della proprietà appId restituita dal comando per un passaggio suc
 
 Nel portale di Azure:
 
-1. Selezionare **Azure Active Directory** > **registrazione dell'app**.
+1. Selezionare **Azure Active Directory**  >  **registrazione dell'app**.
 2. Cercare la registrazione dell'app, ad esempio OCPAzureAD.
 3. Nei risultati fare clic sulla registrazione dell'app.
 4. Nel pannello **Impostazioni** selezionare **Autorizzazioni necessarie**.
@@ -85,7 +84,7 @@ Nel portale di Azure:
 
    ![Accesso alla registrazione dell'app](media/openshift-post-deployment/app-registration-access.png)
 
-8. Seleziona **Chiudi**.
+8. Selezionare **Operazione completata**.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configurare OpenShift per l'autenticazione di Azure AD
 

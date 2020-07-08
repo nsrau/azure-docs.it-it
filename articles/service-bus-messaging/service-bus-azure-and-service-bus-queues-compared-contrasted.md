@@ -1,25 +1,13 @@
 ---
-title: Confrontare le code di archiviazione di Azure e le code del bus di servizio
+title: Confronto tra code di Archiviazione di Azure e code di Bus di servizio
 description: Analizza i punti in comune e le differenze tra i due tipi di code offerti da Azure.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 09/04/2019
-ms.author: aschhab
-ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414523"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337649"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le differenze e le analogie presenti tra i due tipi di code offerte attualmente da Microsoft Azure: code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
@@ -133,7 +121,7 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
 | Dimensioni massime della coda |**500 TB**<br/><br/>(limitate alla capacità di un [singolo account di archiviazione](../storage/common/storage-introduction.md#queue-storage)) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
-| Dimensioni massime del messaggio |**64 kB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
+| Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
 | Durata TTL massima del messaggio |**Infinito** (a partire da api-version 2017-07-27) |**TimeSpan.Max** |
 | Numero massimo di code |**Illimitato** |**10,000**<br/><br/>(per spazio dei nomi del servizio) |
 | Numero massimo di client concorrenti |**Illimitato** |**Illimitato**<br/><br/>(limite di 100 connessioni simultanee applicato solo alla comunicazione basata su protocollo TCP) |
@@ -175,7 +163,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
-| Autenticazione |**Chiave simmetrica** |**Chiave simmetrica** |
+| Authentication |**Chiave simmetrica** |**Chiave simmetrica** |
 | Modello di protezione |Accesso delegato tramite token di firma di accesso condiviso. |SAS |
 | Federazione del provider di identità |**No** |**Sì** |
 

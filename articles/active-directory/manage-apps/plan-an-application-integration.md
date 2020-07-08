@@ -3,8 +3,8 @@ title: Introduzione all'integrazione di Azure AD con le app | Documentazione Mic
 description: Questo articolo è una guida introduttiva per l'integrazione di Azure Active Directory (AD) con applicazioni locali e applicazioni cloud.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0d49c23e5968b0fe1b2d4838978fe1b23931e5e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763092"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
 
@@ -96,6 +95,6 @@ Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di
 Per scaricare un piano di distribuzione dal portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **applicazioni** | **aziendali scegliere un piano di distribuzione dell'app** | **Deployment Plan**.
+2. Selezionare **applicazioni aziendali**  |  **scegliere un piano di distribuzione dell'app**  |  **Deployment Plan**.
 
 Fornire commenti e suggerimenti sui piani di distribuzione grazie all'uso di [Sondaggio piano di distribuzione](https://aka.ms/DeploymentPlanFeedback).

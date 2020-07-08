@@ -2,21 +2,20 @@
 title: Non è in corso il provisioning degli utenti nell'applicazione
 description: Come risolvere i problemi comuni riscontrati quando in un'applicazione della raccolta di Azure AD non vengono visualizzati utenti configurati per il provisioning utenti con Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fa47fbba7632077c83dc1d594c7c58c59c869bf7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782280"
 ---
 # <a name="no-users-are-being-provisioned"></a>Nessun utente è sottoposto a provisioning 
 >[!NOTE]
@@ -31,7 +30,7 @@ Dopo aver configurato il provisioning automatico per un'applicazione (e dopo ave
   
 Se si osserva che non viene eseguito il provisioning degli utenti, consultare i [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure ad. Cercare un utente specifico nelle voci dei log.
 
-È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; **log di provisioning** di **app** &gt; aziendali (anteprima) nella sezione **attività** . È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; log di provisioning di **app aziendali** &gt; **(anteprima)** nella sezione **attività** . È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 I log di provisioning registrano tutte le operazioni eseguite dal servizio di provisioning, inclusa l'esecuzione di query Azure AD per gli utenti assegnati che rientrano nell'ambito del provisioning, l'esecuzione di query sull'app di destinazione per l'esistenza di tali utenti, il confronto degli oggetti utente tra il sistema. e quindi l'aggiunta, l'aggiornamento o la disabilitazione dell'account utente nel sistema di destinazione in base al confronto.
 

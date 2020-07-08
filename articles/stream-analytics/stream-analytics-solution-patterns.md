@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79535783"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037512"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modelli di soluzioni di Analisi di flusso di Azure
 
@@ -30,13 +29,13 @@ Questo modello di soluzione offre la latenza più bassa dall'origine evento al d
 
 ## <a name="use-sql-for-dashboard"></a>Usare SQL per Dashboard
 
-Il dashboard Power BI offre bassa latenza, ma non può essere usato per produrre report completi Power BI. Un modello di report comune è quello di inviare prima i dati a un database SQL. Usare quindi il connettore SQL di Power BI per eseguire query su SQL per i dati più recenti.
+Il dashboard Power BI offre bassa latenza, ma non può essere usato per produrre report completi Power BI. Un modello di report comune è quello di inviare prima i dati al database SQL. Usare quindi il connettore SQL di Power BI per eseguire query su SQL per i dati più recenti.
 
 ![Dashboard SQL di ASA](media/stream-analytics-solution-patterns/sqldashboard.png)
 
 L'uso del database SQL offre una maggiore flessibilità, ma a scapito di una latenza leggermente più elevata. Questa soluzione è ottimale per i processi con requisiti di latenza maggiori di un secondo. Con questo metodo è possibile ottimizzare le funzionalità di Power BI per suddividere ulteriormente i dati per i report, nonché altre opzioni di visualizzazione. Si ottiene anche la flessibilità di usare altre soluzioni dashboard, ad esempio tableau.
 
-SQL non è un archivio dati a velocità effettiva elevata. La velocità effettiva massima per un database SQL da analisi di flusso di Azure è attualmente di circa 24 MB/s. Se le origini eventi nella soluzione producono dati a una velocità più elevata, è necessario usare la logica di elaborazione in analisi di flusso per ridurre la velocità di output a SQL. È possibile utilizzare tecniche quali filtro, aggregazioni finestra, criteri di ricerca con join temporali e funzioni analitiche. La velocità di output per SQL può essere ulteriormente ottimizzata usando le tecniche descritte nell' [output di analisi di flusso di Azure nel database SQL di Azure](stream-analytics-sql-output-perf.md).
+SQL non è un archivio dati a velocità effettiva elevata. La velocità effettiva massima per il database SQL da analisi di flusso di Azure è attualmente di circa 24 MB/s. Se le origini eventi nella soluzione producono dati a una velocità più elevata, è necessario usare la logica di elaborazione in analisi di flusso per ridurre la velocità di output a SQL. È possibile utilizzare tecniche quali filtro, aggregazioni finestra, criteri di ricerca con join temporali e funzioni analitiche. La velocità di output per SQL può essere ulteriormente ottimizzata usando le tecniche descritte nell' [output di analisi di flusso di Azure nel database SQL di Azure](stream-analytics-sql-output-perf.md).
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Incorporare informazioni dettagliate in tempo reale sull'applicazione con la messaggistica degli eventi
 
@@ -72,7 +71,7 @@ Questo modello migliora la resilienza e la gestibilità del sistema. Tuttavia, a
 
 ## <a name="use-reference-data-for-application-customization"></a>Usare i dati di riferimento per la personalizzazione dell'applicazione
 
-La funzionalità dati di riferimento di analisi di flusso di Azure è stata progettata in modo specifico per la personalizzazione degli utenti finali, ad esempio soglia di avviso, regole di elaborazione e [georecinzioni](geospatial-scenarios.md). Il livello dell'applicazione può accettare le modifiche dei parametri e archiviarle in un database SQL. Il processo di analisi di flusso esegue periodicamente query per le modifiche dal database e rende accessibili i parametri di personalizzazione tramite un join dei dati di riferimento. Per altre informazioni su come usare i dati di riferimento per la personalizzazione dell'applicazione, vedere dati di riferimento [SQL](sql-reference-data.md) e [join di dati di riferimento](/stream-analytics-query/reference-data-join-azure-stream-analytics).
+La funzionalità dati di riferimento di analisi di flusso di Azure è stata progettata in modo specifico per la personalizzazione degli utenti finali, ad esempio soglia di avviso, regole di elaborazione e [georecinzioni](geospatial-scenarios.md). Il livello dell'applicazione può accettare le modifiche dei parametri e archiviarle nel database SQL. Il processo di analisi di flusso esegue periodicamente query per le modifiche dal database e rende accessibili i parametri di personalizzazione tramite un join dei dati di riferimento. Per altre informazioni su come usare i dati di riferimento per la personalizzazione dell'applicazione, vedere dati di riferimento [SQL](sql-reference-data.md) e [join di dati di riferimento](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
 Questo modello può essere usato anche per implementare un motore regole in cui le soglie delle regole sono definite dai dati di riferimento. Per altre informazioni sulle regole, vedere [elaborare regole basate su soglie configurabili in analisi di flusso di Azure](stream-analytics-threshold-based-rules.md).
 

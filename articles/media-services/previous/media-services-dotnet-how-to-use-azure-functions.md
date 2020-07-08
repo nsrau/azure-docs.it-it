@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712497"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
 
@@ -70,7 +69,7 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
     ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Scegliere **Crea**. 
+4. Fare clic su **Crea**. 
 
 ## <a name="files"></a>File
 
@@ -348,6 +347,6 @@ Per altri dettagli ed esempi o soluzioni complete di uso di Funzioni di Azure e 
 
 Vedere anche [Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

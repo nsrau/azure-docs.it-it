@@ -12,10 +12,9 @@ ms.date: 12/18/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 295891afbb0136e0b05bcd49f4045e0e8bcff6e5
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: HT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763041"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-app-delivery-controllers-and-networks"></a>Accesso ibrido sicuro: Proteggere le app legacy con reti e controller di distribuzione delle app

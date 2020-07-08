@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: 4b402975a151d26e8f335c07930274c156ac52fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709267"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Eseguire la migrazione di soluzioni .NET per HDInsight basato su Windows a HDInsight basato su Linux
 
@@ -34,15 +33,15 @@ Per altre informazioni sulla compatibilità tra Mono e .NET, vedere il documento
 
 1. Installare [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Durante l'istallazione, selezionare la versione di Visual Studio da usare.
 
-2. Da Visual Studio 2015 selezionare __analizza__ > __Portability Analyzer Settings__e assicurarsi che __4,5__ sia selezionato nella sezione __mono__ .
+2. Da Visual Studio 2015 selezionare __analizza__  >  __Portability Analyzer Settings__e assicurarsi che __4,5__ sia selezionato nella sezione __mono__ .
 
     ![4.5 selezionato nella sezione Mono per le impostazioni di analisi](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
     Selezionare __OK__ per salvare la configurazione.
 
-3. Selezionare __analizza__ > la__portabilità dell'assembly__Analyze. Selezionare l'assembly che contiene la soluzione e quindi selezionare __Apri__ per iniziare l'analisi.
+3. Selezionare __analizza__la  >  __portabilità dell'assembly__Analyze. Selezionare l'assembly che contiene la soluzione e quindi selezionare __Apri__ per iniziare l'analisi.
 
-4. Una volta completata l'analisi, selezionare __analizza__ > __Visualizza report di analisi__. In __Portability Analysis Results__ (Risultati analisi di portabilità) selezionare __Open report__ (Apri rapporto) per aprire un rapporto.
+4. Una volta completata l'analisi, selezionare __analizza__  >  __Visualizza report di analisi__. In __Portability Analysis Results__ (Risultati analisi di portabilità) selezionare __Open report__ (Apri rapporto) per aprire un rapporto.
 
     ![Finestra di dialogo dei risultati dell'analizzatore di portabilità](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 

@@ -9,7 +9,6 @@ ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 91968a9701c46114d56b30ec6e3a93cfa76bf023
 ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "84022164"

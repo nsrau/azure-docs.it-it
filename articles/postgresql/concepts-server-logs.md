@@ -5,13 +5,12 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 70520b464bcb26ff8f1ea10f87bbf30537dc58a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/25/2020
+ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392812"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Log nel database di Azure per PostgreSQL-server singolo
 
@@ -21,7 +20,7 @@ La registrazione di controllo viene resa disponibile tramite un'estensione Postg
 
 
 ## <a name="configure-logging"></a>Configurare la registrazione 
-È possibile configurare la registrazione standard Postgres nel server usando i parametri del server di registrazione. In ogni database di Azure per il server `log_checkpoints` PostgreSQL `log_connections` e sono attivati per impostazione predefinita. Esistono anche parametri aggiuntivi che è possibile modificare in base alle esigenze di registrazione: 
+È possibile configurare la registrazione standard Postgres nel server usando i parametri del server di registrazione. In ogni database di Azure per il server PostgreSQL `log_checkpoints` e `log_connections` sono attivati per impostazione predefinita. Esistono anche parametri aggiuntivi che è possibile modificare in base alle esigenze di registrazione: 
 
 ![Database di Azure per PostgreSQL - Parametri di registrazione](./media/concepts-server-logs/log-parameters.png)
 
@@ -41,7 +40,7 @@ Il formato di log predefinito nel database di Azure per PostgreSQL è. log. Una 
 
 Database di Azure per PostgreSQL fornisce un percorso di archiviazione a breve termine per i file con estensione log. Un nuovo file inizia ogni 1 ora o 100 MB, A seconda del valore che viene raggiunto per primo. I log vengono aggiunti al file corrente perché vengono emessi da postgres.  
 
-È possibile impostare il periodo di conservazione per questo archivio di log a breve termine `log_retention_period` utilizzando il parametro. Il valore predefinito è 3 giorni e il valore massimo è 7 giorni. Il percorso di archiviazione a breve termine può ospitare fino a 1 GB di file di log. Dopo 1 GB, i file meno recenti, indipendentemente dal periodo di memorizzazione, verranno eliminati per fare spazio ai nuovi log. 
+È possibile impostare il periodo di conservazione per questo archivio di log a breve termine utilizzando il `log_retention_period` parametro. Il valore predefinito è 3 giorni e il valore massimo è 7 giorni. Il percorso di archiviazione a breve termine può ospitare fino a 1 GB di file di log. Dopo 1 GB, i file meno recenti, indipendentemente dal periodo di memorizzazione, verranno eliminati per fare spazio ai nuovi log. 
 
 Per la conservazione a lungo termine dei log e dell'analisi dei log, è possibile scaricare i file con estensione log e spostarli in un servizio di terze parti. È possibile scaricare i file usando l'interfaccia della riga di comando di [Azure](howto-configure-server-logs-using-cli.md) [portale di Azure](howto-configure-server-logs-in-portal.md). In alternativa, è possibile configurare le impostazioni di diagnostica di monitoraggio di Azure che emettono automaticamente i log (in formato JSON) a percorsi a lungo termine. Per altre informazioni su questa opzione, vedere la sezione seguente. 
 
@@ -82,6 +81,7 @@ Cerca tutti i log Postgres per un determinato server nell'ultimo giorno
 ```
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
+| where Category == "PostgreSQLLogs"
 | where TimeGenerated > ago(1d) 
 ```
 
@@ -102,7 +102,7 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 | TenantId | ID del tenant. |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
-| Tipo | Tipo di log. Sempre `AzureDiagnostics` |
+| Type | Tipo di log. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID per la sottoscrizione a cui appartiene il server. |
 | ResourceGroup | Nome del gruppo di risorse a cui appartiene il server. |
 | ResourceProvider | Nome del provider di risorse. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
@@ -112,7 +112,7 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Livello di registrazione, ad esempio: LOG, ERROR, NOTICE |
-| Messaggio | Messaggio di log primario | 
+| Message | Messaggio di log primario | 
 | Dominio | Versione del server, ad esempio: postgres-10 |
 | Dettagli | Messaggio di log secondario (se applicabile) |
 | ColumnName | Nome della colonna (se applicabile) |

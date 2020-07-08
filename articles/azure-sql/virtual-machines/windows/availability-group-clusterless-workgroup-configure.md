@@ -1,6 +1,6 @@
 ---
 title: Configurare un gruppo di disponibilità del gruppo di lavoro indipendente dal dominio
-description: Informazioni su come configurare un gruppo di disponibilità Always On del gruppo di lavoro indipendente dal dominio di Active Directory in una macchina virtuale SQL Server in Azure.
+description: Informazioni su come configurare un gruppo di disponibilità Active Directory gruppo di lavoro indipendente dal dominio Always On in una macchina virtuale SQL Server in Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 36c4a141acf38d83ff925bafaa75c294847a7d74
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037232"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955506"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurare un gruppo di disponibilità del gruppo di lavoro 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,13 +45,13 @@ Per riferimento, in questo articolo vengono usati i parametri seguenti, ma è po
 | **Nome gruppo di lavoro** | AGWorkgroup | 
 | &nbsp; | &nbsp; |
 
-## <a name="set-dns-suffix"></a>Impostare il suffisso DNS 
+## <a name="set-a-dns-suffix"></a>Impostare un suffisso DNS 
 
 In questo passaggio, configurare il suffisso DNS per entrambi i server. Ad esempio: `ag.wgcluster.example.com`. Questo consente di usare il nome dell'oggetto a cui si desidera connettersi come indirizzo completo all'interno della rete, ad esempio `AGNode1.ag.wgcluster.example.com`. 
 
 Seguire questa procedura per configurare il suffisso DNS:
 
-1. RDP nel primo nodo e aprire Server Manager. 
+1. Connettersi tramite RDP al primo nodo e aprire Server Manager. 
 1. Selezionare **Server locale** quindi selezionare il nome della macchina virtuale in **Nome computer**. 
 1. Selezionare **Modifica...** in **Per rinominare il computer...** . 
 1. Modificare il nome del gruppo di lavoro in modo che sia significativo, ad esempio `AGWORKGROUP`: 
@@ -71,13 +70,13 @@ Seguire questa procedura per configurare il suffisso DNS:
 1. Riavviare il server quando richiesto. 
 1. Ripetere questi passaggi in tutti gli altri nodi da usare per il gruppo di disponibilità. 
 
-## <a name="edit-host-file"></a>Modificare il file host
+## <a name="edit-a-host-file"></a>Modificare un file host
 
 Poiché non esiste alcuna Active Directory, non è possibile autenticare le connessioni di Windows. Di conseguenza, assegnare l'attendibilità modificando il file host con un editor di testo. 
 
 Per modificare il file host, attenersi alla procedura seguente:
 
-1. RDP nella macchina virtuale. 
+1. Connettersi tramite RDP alla macchina virtuale. 
 1. Usare **Esplora file** per andare a `c:\windows\system32\drivers\etc`. 
 1. Fare clic con il pulsante destro del mouse sul file **host** e aprire il file con **Blocco note** (o qualsiasi altro editor di testo).
 1. Alla fine del file, aggiungere una voce per ogni nodo, il gruppo di disponibilità e il listener nel formato `IP Address, DNS Suffix #comment`, ad esempio: 
@@ -104,7 +103,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-the-failover-cluster"></a>Creare il cluster di failover
 
-In questo passaggio si creerà il cluster di failover. Se non si ha familiarità con questi passaggi, è possibile seguirli dall'[esercitazione sul cluster di failover](failover-cluster-instance-storage-spaces-direct-manually-configure.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+In questo passaggio si creerà il cluster di failover. Se non si ha familiarità con questi passaggi, è possibile seguirli dall'[esercitazione sul cluster di failover](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 Differenze rilevanti tra l'esercitazione e le operazioni da eseguire per un cluster di gruppi di lavoro:
 - Deselezionare **Archiviazione** e **Spazi di archiviazione diretta** quando si esegue la convalida del cluster. 
@@ -130,13 +129,13 @@ Una volta creato il cluster, assegnare un indirizzo IP del cluster statico. A qu
 
 ## <a name="create-a-cloud-witness"></a>Creare un cloud di controllo 
 
-In questo passaggio, configurare un controllo della condivisione cloud. Se non si ha familiarità con i passaggi, vedere l'[esercitazione sul cluster di failover](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
+In questo passaggio, configurare un controllo della condivisione cloud. Se non si ha familiarità con i passaggi, vedere [distribuire un cloud di controllo per un cluster di failover](/windows-server/failover-clustering/deploy-cloud-witness). 
 
-## <a name="enable-availability-group-feature"></a>Abilitare la funzionalità gruppo di disponibilità 
+## <a name="enable-the-availability-group-feature"></a>Abilitare la funzionalità gruppo di disponibilità 
 
 In questo passaggio, abilitare la funzionalità del gruppo di disponibilità. Se non si ha familiarità con i passaggi, vedere l'[esercitazione sul cluster di failover](availability-group-manually-configure-tutorial.md#enable-availability-groups). 
 
-## <a name="create-keys-and-certificate"></a>Creare le chiavi e il certificato
+## <a name="create-keys-and-certificates"></a>Creazione di chiavi e certificati
 
 In questo passaggio, creare i certificati usati da un account di accesso SQL sull'endpoint crittografato. Creare una cartella in ogni nodo per conservare i backup dei certificati, ad esempio `c:\certs`. 
 
@@ -277,16 +276,16 @@ GO
 
 Se sono presenti altri nodi nel cluster, ripetere questi passaggi anche in questo caso, modificando i rispettivi nomi di certificato e utente. 
 
-## <a name="configure-availability-group"></a>Configurare un gruppo di disponibilità
+## <a name="configure-an-availability-group"></a>Configurare un gruppo di disponibilità
 
 In questo passaggio, configurare il gruppo di disponibilità e aggiungervi i database. Non creare un listener in questo momento. Se non si ha familiarità con i passaggi, vedere l'[esercitazione sul gruppo di disponibilità](availability-group-manually-configure-tutorial.md#create-the-availability-group). Assicurarsi di avviare un failover e un failback per verificare che tutto funzioni come dovrebbe. 
 
    > [!NOTE]
    > Se si verifica un errore durante il processo di sincronizzazione, potrebbe essere necessario concedere diritti di amministratore di sistema `NT AUTHORITY\SYSTEM` per creare risorse cluster sul primo nodo, ad esempio `AGNode1` temporaneamente. 
 
-## <a name="configure-load-balancer"></a>Configurare il bilanciamento del carico
+## <a name="configure-a-load-balancer"></a>Configurare un servizio di bilanciamento del carico
 
-In questo passaggio finale configurare il bilanciamento del carico usando il [portale di Azure](availability-group-load-balancer-portal-configure.md) o [PowerShell](availability-group-listener-powershell-configure.md)
+In questo passaggio finale configurare il servizio di bilanciamento del carico usando il [portale di Azure](availability-group-load-balancer-portal-configure.md) o [PowerShell](availability-group-listener-powershell-configure.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

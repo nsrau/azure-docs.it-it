@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e5cc6bbe363e111f5c39147010d6a3d00cb45c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604608"
 ---
 # <a name="what-are-baseline-policies"></a>Che cosa sono i criteri di base?
 
@@ -25,7 +24,7 @@ I criteri di base sono un set di criteri predefiniti che consentono di protegger
 Per la gestione dei criteri di accesso condizionale personalizzati è necessaria una licenza Azure AD Premium.
 
 > [!IMPORTANT]
-> I criteri di base saranno deprecati. Per ulteriori informazioni, vedere [novità di Azure Active Directory](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) .
+> I criteri di base saranno deprecati. Per ulteriori informazioni, vedere [l'archivio per le novità di Azure Active Directory?](../fundamentals/whats-new-archive.md#replacement-of-baseline-policies-with-security-defaults) .
 
 ## <a name="baseline-policies"></a>Criteri di base
 
@@ -52,14 +51,14 @@ Richiedi autenticazione a più fattori per gli amministratori (anteprima) è un 
 
 * Amministratore globale
 * Amministratore di SharePoint
-* Amministratori di Exchange
+* Amministratore di Exchange
 * Amministratore di accesso condizionale
 * Amministratore della protezione
 * Amministratore helpdesk/amministratore password
 * Amministratore fatturazione
-* Amministratore degli utenti
+* Amministratore utenti
 
-Se l'organizzazione dispone di questi account in uso negli script o nel codice, è consigliabile sostituirli con [identità gestite](../managed-identities-azure-resources/overview.md).
+Se l'organizzazione usa questi account negli script o nel codice, è consigliabile sostituirli con [identità gestite](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Protezione dell'utente finale (anteprima)
 
@@ -80,7 +79,7 @@ I criteri di base **blocca autenticazione legacy (anteprima)** bloccano le richi
 
 ### <a name="require-mfa-for-service-management-preview"></a>Richiedi autenticazione a più fattori per la gestione dei servizi (anteprima)
 
-Le organizzazioni usano un'ampia gamma di servizi di Azure e li gestiscono da strumenti Azure Resource Manager basati su, ad esempio:
+Le organizzazioni usano un'ampia gamma di servizi di Azure e li gestiscono da strumenti basati su Azure Resource Manager come:
 
 * Portale di Azure
 * Azure PowerShell
@@ -92,8 +91,8 @@ Per proteggere le azioni con privilegi, è necessario che l'autenticazione a pi�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
-* [Abilitazione delle impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md)
-* [Criteri di accesso condizionale comuni](concept-conditional-access-policy-common.md)
+* [Abilitazione delle impostazioni predefinite per la sicurezza](../fundamentals/concept-fundamentals-security-defaults.md)
+* [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
 * [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/fundamentals/steps-secure-identity.md)

@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6141d48d67dd44c348961c6e09acf4e2531a61e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660752"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di Azure
 
@@ -115,15 +114,15 @@ Sono disponibili diversi strumenti per la copia di file da Microsoft e da altri.
 
 La tabella seguente classifica gli strumenti Microsoft e la relativa idoneità corrente per le condivisioni file di Azure:
 
-| Consigliato | Strumento | Supporto per le condivisioni file di Azure | Conservazione della fedeltà dei file |
+| Implementazione consigliata | Strumento | Supporto per le condivisioni file di Azure | Conservazione della fedeltà dei file |
 | :-: | :-- | :---- | :---- |
-|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supportato. Le condivisioni file di Azure possono essere montate come unità di rete. | Fedeltà completa * |
+|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supportata. Le condivisioni file di Azure possono essere montate come unità di rete. | Fedeltà completa * |
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronizzazione file di Azure | Integrato in modo nativo nelle condivisioni file di Azure. | Fedeltà completa * |
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Servizio di migrazione della risorsa di archiviazione | Supportato indirettamente. Le condivisioni file di Azure possono essere montate come unità di rete nei server di destinazione SMS. | Fedeltà completa * |
-|![Non completamente consigliato](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Supportato. | Non copia i metadati. [Data Box può essere utilizzato con sincronizzazione file di Azure](storage-sync-offline-data-transfer.md). |
-|![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | Supportato. | Non copia i metadati. |
-|![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| Esplora archivi Azure | Supportato. | Non copia i metadati. |
-|![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| Data factory di Azure | Supportato. | Non copia i metadati. |
+|![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, versione 10,4 o successiva| Supportata. | Fedeltà completa * |
+|![Non completamente consigliato](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Supportata. | Non copia i metadati. [Data Box può essere utilizzato con sincronizzazione file di Azure](storage-sync-offline-data-transfer.md). |
+|![Non completamente consigliato](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer, versione 1,14 | Supportata. | Non copia gli ACL. Supporta i timestamp.  |
+|![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supportata. | Non copia i metadati. |
 |||||
 
 *\*Fedeltà completa: soddisfa o supera le funzionalità di condivisione file di Azure.*

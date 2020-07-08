@@ -7,16 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa8a020dc4a7e9d4e7de0671b566755e413caeb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aa8f2d14124e7cfc5db0025c295f9b38d96bf56c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921847"
 ---
 # <a name="choose-the-right-consistency-level"></a>Scegliere il livello di coerenza appropriato 
 
-I database distribuiti che di basano sulla replica per gestire la disponibilità elevata, la bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio chiede agli sviluppatori di scegliere tra i due modelli di coerenza *estremi: coerenza assoluta e coerenza* *finale* . Azure Cosmos DB consente agli sviluppatori di scegliere tra i cinque modelli di coerenza ben definiti: forte, *con*decadimento *ristretto*, *sessione*, *prefisso coerente* e *finale*. Ognuno di questi modelli di coerenza è ben definito, intuitivo e può essere usato per scenari reali specifici. Ognuno dei cinque modelli di coerenza fornisce un [compromesso preciso di disponibilità e prestazioni](consistency-levels-tradeoffs.md) ed è supportato da contratti di contratto completi. Le seguenti semplici osservazioni consentiranno all'utente di fare la scelta giusta in molti scenari comuni.
+I database distribuiti che di basano sulla replica per gestire la disponibilità elevata, la bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio chiede agli sviluppatori di scegliere tra i due modelli di coerenza *estremi: coerenza assoluta e coerenza* *finale* . Azure Cosmos DB consente agli sviluppatori di scegliere tra i cinque modelli di coerenza ben definiti: forte, *con*decadimento *ristretto*, *sessione*, *prefisso coerente* e *finale*. Ognuno di questi modelli di coerenza è ben definito, intuitivo e può essere usato per scenari reali specifici. Ognuno dei cinque modelli di coerenza fornisce un [compromesso preciso di disponibilità e prestazioni](consistency-levels-tradeoffs.md) ed è supportato da contratti di contratto completi. È possibile configurare una coerenza predefinita a livello di account e sostituirla [a livello di richiesta](how-to-manage-consistency.md#override-the-default-consistency-level). Le seguenti semplici osservazioni consentiranno all'utente di fare la scelta giusta in molti scenari comuni.
 
 ## <a name="sql-api-and-table-api"></a>API SQL e API Tabella
 

@@ -2,21 +2,20 @@
 title: Problemi di configurazione del provisioning utenti in un'app della raccolta Azure AD
 description: Come risolvere i problemi comuni riscontrati durante la configurazione del provisioning utenti per un'applicazione già elencata nella raccolta di Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: e6fb5fbecc9b2917f4fde2d1ccb76d6962a0af18
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782127"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD
 
@@ -28,9 +27,9 @@ Per configurare il [provisioning utenti automatico](user-provisioning.md) per un
 
 Dopo aver configurato il servizio, sarà possibile ricavare la maggior parte delle informazioni dettagliate sul funzionamento del servizio in due posizioni:
 
--   **Log di provisioning (anteprima)** : i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registrano tutte le operazioni eseguite dal servizio di provisioning, inclusa l'esecuzione di query Azure ad per gli utenti assegnati che rientrano nell'ambito del provisioning. l'esecuzione nell'app di destinazione di query per l'esistenza di tali utenti, il confronto degli oggetti utente tra i sistemi e quindi l'aggiunta, l'aggiornamento o la disabilitazione dell'account utente nel sistema di destinazione in base al confronto. È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; **log di provisioning** di **app** &gt; aziendali (anteprima) nella sezione **attività** .
+-   **Log di provisioning (anteprima)** : i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registrano tutte le operazioni eseguite dal servizio di provisioning, inclusa l'esecuzione di query Azure ad per gli utenti assegnati che rientrano nell'ambito del provisioning. l'esecuzione nell'app di destinazione di query per l'esistenza di tali utenti, il confronto degli oggetti utente tra i sistemi e quindi l'aggiunta, l'aggiornamento o la disabilitazione dell'account utente nel sistema di destinazione in base al confronto. È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; log di provisioning di **app aziendali** &gt; **(anteprima)** nella sezione **attività** .
 
--   **Stato corrente:** Un riepilogo dell'ultimo esecuzione del provisioning per una determinata app può essere visualizzato nella sezione relativa al **provisioning\] &gt;dell'applicazione Azure Active Directory &gt; app &gt; \[aziendali** , nella parte inferiore della schermata sotto le impostazioni del servizio. La sezione stato corrente indica se un ciclo di provisioning ha avviato il provisioning degli account utente. È possibile controllare lo stato di avanzamento del ciclo, vedere il numero di utenti e gruppi di cui è stato effettuato il provisioning e verificare il numero di ruoli creati. Se sono presenti errori, è possibile trovare i dettagli nel [log di provisioning (.. /Reports-Monitoring/Concept-provisioning-logs.MD? context = Azure/Active-Directory/Manage-Apps/context/Manage-Apps-context).
+-   **Stato corrente:** Un riepilogo dell'ultimo esecuzione del provisioning per una determinata app può essere visualizzato nella sezione relativa al ** &gt; &gt; \[ \] &gt; provisioning dell'applicazione Azure Active Directory app aziendali** , nella parte inferiore della schermata sotto le impostazioni del servizio. La sezione stato corrente indica se un ciclo di provisioning ha avviato il provisioning degli account utente. È possibile controllare lo stato di avanzamento del ciclo, vedere il numero di utenti e gruppi di cui è stato effettuato il provisioning e verificare il numero di ruoli creati. Se sono presenti errori, è possibile trovare i dettagli nel [log di provisioning (.. /Reports-Monitoring/Concept-provisioning-logs.MD? context = Azure/Active-Directory/Manage-Apps/context/Manage-Apps-context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Aree problematiche generali con provisioning da considerare
 

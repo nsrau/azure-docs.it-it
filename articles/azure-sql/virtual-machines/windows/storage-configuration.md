@@ -1,10 +1,9 @@
 ---
 title: Configurazione dell'archiviazione per le VM di SQL Server | Documentazione Microsoft
-description: Questo argomento descrive come viene configurata l'archiviazione da Azure per le VM di SQL Server durante il provisioning (modello di distribuzione di Resource Manager). Viene inoltre spiegato come è possibile configurare l'archiviazione per le VM di SQL Server esistenti.
+description: Questo argomento descrive in che modo Azure configura l'archiviazione per le macchine virtuali SQL Server durante il provisioning (Azure Resource Manager modello di distribuzione). Viene inoltre spiegato come è possibile configurare l'archiviazione per le VM di SQL Server esistenti.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -13,17 +12,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: f5f71f342152a1f7d524053f1a2f82937784dbd1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030002"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667370"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Quando si configura un'immagine di macchina virtuale di SQL Server in Azure, il portale consente di automatizzare la configurazione dell'archiviazione, ovvero collegare l'archiviazione alla VM, renderla disponibile per SQL Server e ottimizzarla in base alle specifiche esigenze a livello di prestazioni.
+Quando si configura un SQL Server immagine di macchina virtuale (VM) in Azure, il portale di Azure consente di automatizzare la configurazione dell'archiviazione. ovvero collegare l'archiviazione alla VM, renderla disponibile per SQL Server e ottimizzarla in base alle specifiche esigenze a livello di prestazioni.
 
 Questo argomento illustra come viene configurata l'archiviazione da Azure per le VM di SQL Server, sia durante il provisioning che per le VM esistenti. Questa configurazione è basata sulle [procedure consigliate per le prestazioni](performance-guidelines-best-practices.md) per le VM virtuali di Azure che eseguono SQL Server.
 
@@ -57,7 +55,7 @@ Inoltre, è possibile impostare la memorizzazione nella cache per i dischi. Le m
 
 La memorizzazione nella cache del disco per SSD Premium può essere *ReadOnly*, *ReadWrite* o *None*. 
 
-- La memorizzazione nella cache *ReadOnly* è molto utile per i file di dati di SQL Server archiviati in Archiviazione Premium. Il tipo *ReadOnly* implica una bassa latenza di lettura e valori elevati per le operazioni di I/O al secondo e la velocità effettiva di lettura, poiché le letture vengono eseguite dalla cache, che si trova all'interno della memoria della VM e dell'unità SSD locale. Queste letture sono molto più veloci delle letture dal disco dati, ovvero dalla risorsa di archiviazione BLOB di Azure. L'archiviazione Premium non include le operazioni di lettura servite dalla cache nel calcolo dei valori di operazioni di I/O al secondo e velocità effettiva del disco. Si è quindi in grado di ottenere valori totali di operazioni di I/O al secondo e velocità effettiva più elevati. 
+- La memorizzazione nella cache *ReadOnly* è molto utile per i file di dati di SQL Server archiviati in Archiviazione Premium. Il tipo *ReadOnly* implica una bassa latenza di lettura e valori elevati per le operazioni di I/O al secondo e la velocità effettiva di lettura, poiché le letture vengono eseguite dalla cache, che si trova all'interno della memoria della VM e dell'unità SSD locale. Queste letture sono molto più veloci delle letture dal disco dati, ovvero dall'archiviazione BLOB di Azure. L'archiviazione Premium non include le operazioni di lettura servite dalla cache nel calcolo dei valori di operazioni di I/O al secondo e velocità effettiva del disco. Si è quindi in grado di ottenere valori totali di operazioni di I/O al secondo e velocità effettiva più elevati. 
 - La configurazione della cache *None* deve essere usata per i dischi che ospitano il file di log di SQL Server, poiché tale file viene scritto in sequenza e non sfrutta la memorizzazione nella cache di tipo *ReadOnly*. 
 - La memorizzazione nella cache *ReadWrite* non deve essere usata per ospitare i file di SQL Server perché SQL Server non supporta la coerenza dei dati con la cache *ReadWrite*. Le scritture sprecano la capacità della cache BLOB *ReadOnly* e le latenze aumentano leggermente se le scritture passano attraverso i livelli della cache BLOB *ReadOnly*. 
 
@@ -76,7 +74,7 @@ A seconda delle scelte effettuate, Azure esegue le seguenti attività di configu
 
 Per ulteriori dettagli su come vengono configurate le impostazioni dell'archiviazione da Azure, vedere la [sezione Configurazione dell'archiviazione](#storage-configuration). Per istruzioni complete su come creare una VM di SQL Server nel portale di Azure, vedere l'[esercitazione sul provisioning](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-### <a name="resource-manage-templates"></a>Modelli di Resource Manager
+### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
 Se si usano i modelli di Resource Manager seguenti, vengono collegati per impostazione predefinita due dischi dati Premium, senza configurare un pool di archiviazione. È comunque possibile personalizzare questi modelli per modificare il numero di dischi di dati Premium collegati alla macchina virtuale.
 
@@ -113,7 +111,7 @@ Per modificare le impostazioni di archiviazione, selezionare **Configura** in **
 
 ## <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
-In questa sezione sono disponibili informazioni di riferimento sulle modifiche della configurazione dell'archiviazione eseguite automaticamente da Azure durante il provisioning o la configurazione di VM SQL nel portale di Azure.
+Questa sezione fornisce un riferimento per le modifiche di configurazione dell'archiviazione eseguite automaticamente da Azure durante SQL Server provisioning o configurazione della macchina virtuale nel portale di Azure.
 
 * Azure configura un pool di archiviazione dallo spazio di archiviazione selezionato dalla VM. La sezione successiva di questo argomento contiene informazioni dettagliate sulla configurazione del pool di archiviazione.
 * Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 [SSD Premium](../../../virtual-machines/windows/disks-types.md). Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
@@ -148,7 +146,7 @@ La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di
 | **Data warehousing** |Ottimizza l'archiviazione per i carichi di lavoro di analisi e creazione di report |Flag di traccia 610<br/>Flag di traccia 1117 |
 
 > [!NOTE]
-> È possibile specificare il tipo di carico di lavoro solo quando si esegue il provisioning di una macchina virtuale di SQL Serer, selezionandolo nel passaggio di configurazione dell'archiviazione.
+> È possibile specificare il tipo di carico di lavoro solo quando si effettua il provisioning di una macchina virtuale SQL Server selezionandolo nel passaggio configurazione archiviazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

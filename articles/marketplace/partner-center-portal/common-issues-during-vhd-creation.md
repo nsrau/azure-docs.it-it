@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/09/2020
-ms.openlocfilehash: addf85f3ed966f45472fec6ee15272574a0f840e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: e96118e3c570faaaffb4cc7ef64e6d2d0e075e47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724718"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954177"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problemi comuni che si verificano durante la creazione di dischi rigidi virtuali
 
@@ -20,7 +19,7 @@ Queste domande frequenti riguardano problemi comuni che possono verificarsi dura
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Ricerca per categorie: creare una macchina virtuale dal portale di Azure usando un disco rigido virtuale in archiviazione Premium
 
-Azure Marketplace non supporta attualmente la creazione di offerte di macchine virtuali da immagini nell'archiviazione gestita o da Archiviazione Premium di Azure. Per informazioni dettagliate, vedere [Panoramica di Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+Azure Marketplace non supporta attualmente la creazione di offerte di macchine virtuali da immagini nell'archiviazione gestita o da Archiviazione Premium di Azure. Per informazioni dettagliate, vedere [Panoramica di Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>È possibile usare macchine virtuali di generazione 2 per le offerte?
 
@@ -45,9 +44,9 @@ La generazione di certificati è illustrata nella [certificazione delle immagini
 
 Se si usa il modello di distribuzione Azure Resource Manager, sono disponibili tre opzioni:
 
-* [Creare un gateway VPN basato su route usando il portale di Azure](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-* [Creare un gateway VPN basato su route usando Azure PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-* [Creare un gateway VPN basato su route usando l'interfaccia della riga di comando](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+* [Creare un gateway VPN basato su route usando il portale di Azure](../../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+* [Creare un gateway VPN basato su route usando Azure PowerShell](../../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
+* [Creare un gateway VPN basato su route usando l'interfaccia della riga di comando](../../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
 ## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Quali sono i criteri di supporto Microsoft per l'esecuzione di software server Microsoft in macchine virtuali basate su Azure?
 
@@ -75,4 +74,4 @@ Per altre informazioni, vedere questi articoli:
 
 Ogni volta che si tenta di creare un'immagine dai dischi rigidi virtuali, in Azure PowerShell viene visualizzato l'errore "Il disco rigido virtuale è già registrato con l'archivio immagini come risorsa". Non è stato creato alcun tipo di risorsa in precedenza, né è stata trovata alcuna immagine con questo nome in Azure. Come posso risolvere il problema?
 
-Questo problema si verifica in genere se l'utente ha creato una macchina virtuale da un disco rigido virtuale con un blocco. Accertarsi che da questo disco rigido virtuale non sia allocata alcuna macchina virtuale, quindi ripetere l'operazione. Se il problema persiste, aprire un ticket di supporto. Vedere [Supporto per il Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Questo problema si verifica in genere se l'utente ha creato una macchina virtuale da un disco rigido virtuale con un blocco. Accertarsi che da questo disco rigido virtuale non sia allocata alcuna macchina virtuale, quindi ripetere l'operazione. Se il problema persiste, aprire un ticket di supporto. Vedere [Supporto per il Centro per i partner](support.md).

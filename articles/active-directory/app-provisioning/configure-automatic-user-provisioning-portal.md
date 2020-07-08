@@ -3,21 +3,20 @@ title: Gestione del provisioning degli utenti per le app aziendali in Azure AD
 description: Informazioni su come gestire il provisioning degli account utente per le app aziendali usando Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 02f3198a9c3d35a0031fdd65ceefbb72b0f8bb31
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: HT
+ms.openlocfilehash: 7e7f8ded24e71fec8ed6bfbc78f9057ddb98dacc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593812"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781991"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 

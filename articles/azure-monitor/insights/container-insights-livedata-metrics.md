@@ -3,41 +3,38 @@ title: Visualizzare le metriche in tempo reale con monitoraggio di Azure per i c
 description: Questo articolo descrive la visualizzazione in tempo reale delle metriche senza usare kubectl con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338029"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Come visualizzare le metriche in tempo reale
 
-Il monitoraggio di Azure per i contenitori Live Data (anteprima) funzionalità consente di visualizzare le metriche sullo stato del nodo e del pod in un cluster in tempo reale. Emula l'accesso diretto ai comandi `kubectl top nodes`, `kubectl get pods –all-namespaces`e `kubectl get nodes` per chiamare, analizzare e visualizzare i dati nei grafici delle prestazioni inclusi in questa analisi. 
+Il monitoraggio di Azure per i contenitori Live Data (anteprima) funzionalità consente di visualizzare le metriche sullo stato del nodo e del pod in un cluster in tempo reale. Emula l'accesso diretto ai `kubectl top nodes` `kubectl get pods –all-namespaces` comandi, e `kubectl get nodes` per chiamare, analizzare e visualizzare i dati nei grafici delle prestazioni inclusi in questa analisi.
 
-Questo articolo fornisce una panoramica dettagliata e consente di comprendere come usare questa funzionalità.  
-
->[!NOTE]
->I cluster AKS abilitati come [cluster privati](https://azure.microsoft.com/updates/aks-private-cluster/) non sono supportati con questa funzionalità. Questa funzionalità si basa sull'accesso diretto all'API Kubernetes tramite un server proxy dal browser. L'abilitazione della sicurezza di rete per bloccare l'API Kubernetes da questo proxy bloccherà il traffico. 
+Questo articolo fornisce una panoramica dettagliata e consente di comprendere come usare questa funzionalità.
 
 >[!NOTE]
->Questa funzionalità è disponibile in tutte le aree di Azure, tra cui Azure Cina. Attualmente non è disponibile in Azure per enti pubblici statunitensi.
+>I cluster AKS abilitati come [cluster privati](https://azure.microsoft.com/updates/aks-private-cluster/) non sono supportati con questa funzionalità. Questa funzionalità si basa sull'accesso diretto all'API Kubernetes tramite un server proxy dal browser. L'abilitazione della sicurezza di rete per bloccare l'API Kubernetes da questo proxy bloccherà il traffico.
 
 Per informazioni sull'impostazione o la risoluzione dei problemi relativi alla funzionalità dati in tempo reale (anteprima), vedere la [Guida all'installazione](container-insights-livedata-setup.md).
 
-## <a name="how-it-works"></a>Funzionamento 
+## <a name="how-it-works"></a>Funzionamento
 
-La funzionalità dati in tempo reale (anteprima) consente di accedere direttamente all'API Kubernetes e altre informazioni sul modello di autenticazione sono disponibili [qui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+La funzionalità dati in tempo reale (anteprima) consente di accedere direttamente all'API Kubernetes e altre informazioni sul modello di autenticazione sono disponibili [qui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Questa funzionalità consente di eseguire un'operazione di polling sugli endpoint di metrica ( `/api/v1/nodes`inclusi `/apis/metrics.k8s.io/v1beta1/nodes`, e `/api/v1/pods`), che è ogni cinque secondi per impostazione predefinita. Questi dati vengono memorizzati nella cache del browser e grafici nei quattro grafici delle prestazioni inclusi in monitoraggio di Azure per i contenitori nella scheda **cluster** selezionando **Go Live (anteprima)**. Ogni polling successivo viene tracciato in una finestra di visualizzazione di cinque minuti in sequenza. 
+Questa funzionalità consente di eseguire un'operazione di polling sugli endpoint di metrica (inclusi `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` e `/api/v1/pods` ), che è ogni cinque secondi per impostazione predefinita. Questi dati vengono memorizzati nella cache del browser e grafici nei quattro grafici delle prestazioni inclusi in monitoraggio di Azure per i contenitori nella scheda **cluster** selezionando **Go Live (anteprima)**. Ogni polling successivo viene tracciato in una finestra di visualizzazione di cinque minuti in sequenza.
 
 ![Opzione Go Live nella visualizzazione cluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
-L'intervallo di polling viene configurato dall'elenco a discesa **Imposta intervallo** , che consente di impostare il polling per i nuovi dati ogni 1, 5, 15 e 30 secondi. 
+L'intervallo di polling viene configurato dall'elenco a discesa **Imposta intervallo** , che consente di impostare il polling per i nuovi dati ogni 1, 5, 15 e 30 secondi.
 
 ![Intervallo di polling a discesa Go Live](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
->È consigliabile impostare l'intervallo di polling su un secondo durante la risoluzione di un problema per un breve periodo di tempo. Queste richieste possono influisca sulla disponibilità e sulla limitazione dell'API Kubernetes nel cluster. Successivamente, riconfigurare in un intervallo di polling più lungo. 
+>È consigliabile impostare l'intervallo di polling su un secondo durante la risoluzione di un problema per un breve periodo di tempo. Queste richieste possono influisca sulla disponibilità e sulla limitazione dell'API Kubernetes nel cluster. Successivamente, riconfigurare in un intervallo di polling più lungo.
 
 >[!IMPORTANT]
 >Nessun dato viene archiviato in modo permanente durante il funzionamento di questa funzionalità. Tutte le informazioni acquisite durante questa sessione vengono eliminate immediatamente quando si chiude il browser o si esce dalla funzionalità. I dati rimangono presenti solo per la visualizzazione all'interno della finestra di cinque minuti; anche le metriche precedenti a cinque minuti vengono eliminate definitivamente.
@@ -46,9 +43,9 @@ Questi grafici non possono essere aggiunti all'ultimo dashboard di Azure visuali
 
 ## <a name="metrics-captured"></a>Metriche acquisite
 
-### <a name="node-cpu-utilization---node-memory-utilization-"></a>% Di utilizzo CPU nodo%/percentuale utilizzo memoria nodo 
+### <a name="node-cpu-utilization---node-memory-utilization-"></a>% Di utilizzo CPU nodo%/percentuale utilizzo memoria nodo
 
-Questi due grafici delle prestazioni vengono mappati a un equivalente `kubectl top nodes` di richiamare e acquisire i risultati delle colonne **% CPU** e **memoria%** nel rispettivo grafico. 
+Questi due grafici delle prestazioni vengono mappati a un equivalente di richiamare `kubectl top nodes` e acquisire i risultati delle colonne **% CPU** e **memoria%** nel rispettivo grafico.
 
 ![Risultati di esempio di Kubectl Top nodes](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 
@@ -62,7 +59,7 @@ Questo consente anche di comprendere quali nodi vengono spostati ai limiti e se 
 
 ### <a name="node-count"></a>Numero di nodi
 
-Questo grafico delle prestazioni viene mappato a un equivalente `kubectl get nodes` di richiamo e mapping della colonna **stato** a un grafico raggruppato per tipi di stato.
+Questo grafico delle prestazioni viene mappato a un equivalente di richiamo `kubectl get nodes` e mapping della colonna **stato** a un grafico raggruppato per tipi di stato.
 
 ![Risultati di esempio di Kubectl Get nodes](./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png)
 
@@ -73,14 +70,14 @@ Ad esempio, per comprendere se i nodi sono in stato di errore. Utilizzando l'agg
 
 ### <a name="active-pod-count"></a>Numero di Pod attivi
 
-Questo grafico delle prestazioni viene mappato a un equivalente `kubectl get pods –all-namespaces` di richiamo e mapping della colonna di **stato** del grafico raggruppato in base ai tipi di stato.
+Questo grafico delle prestazioni viene mappato a un equivalente di richiamo `kubectl get pods –all-namespaces` e mapping della colonna di **stato** del grafico raggruppato in base ai tipi di stato.
 
 ![Risultati di esempio di Kubectl Get Pod](./media/container-insights-livedata-metrics/kubectl-get-pods-example.png)
 
 ![Grafico conteggio Pod nodi](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
 
 >[!NOTE]
->Il nome dello stato interpretato da `kubectl` potrebbe non corrispondere esattamente al grafico. 
+>Il nome dello stato interpretato da `kubectl` potrebbe non corrispondere esattamente al grafico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

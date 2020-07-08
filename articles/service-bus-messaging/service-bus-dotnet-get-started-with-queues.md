@@ -1,25 +1,14 @@
 ---
 title: Introduzione alle code del bus di servizio di Azure | Microsoft Docs
 description: In questa esercitazione vengono create applicazioni console .NET Core per l'invio e la ricezione di messaggi da una coda del bus di servizio.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 5718106aee0e60d111398efdb839945c2c7a8a06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 477d9d5a23e50d9b303d560b5530cbc22104c5cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337554"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -72,9 +61,9 @@ Avviare Visual Studio e creare un nuovo progetto di **app console (.NET Core)** 
     static IQueueClient queueClient;
     ```
 
-    Immettere la stringa di connessione per lo spazio dei `ServiceBusConnectionString` nomi come variabile. Immettere il nome della coda.
+    Immettere la stringa di connessione per lo spazio dei nomi come `ServiceBusConnectionString` variabile. Immettere il nome della coda.
 
-1. Sostituire il `Main()` metodo con il seguente metodo **asincrono** `Main` . Viene chiamato il `SendMessagesAsync()` metodo che verrà aggiunto nel passaggio successivo per inviare messaggi alla coda. 
+1. Sostituire il `Main()` metodo con il seguente **async** `Main` metodo asincrono. Viene chiamato il `SendMessagesAsync()` metodo che verrà aggiunto nel passaggio successivo per inviare messaggi alla coda. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -219,7 +208,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Co
     static IQueueClient queueClient;
     ```
 
-    Immettere la stringa di connessione per lo spazio dei `ServiceBusConnectionString` nomi come variabile. Immettere il nome della coda.
+    Immettere la stringa di connessione per lo spazio dei nomi come `ServiceBusConnectionString` variabile. Immettere il nome della coda.
 
 1. Sostituire il metodo `Main()` con il codice seguente:
 

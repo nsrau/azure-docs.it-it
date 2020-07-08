@@ -9,11 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79256809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711902"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurare il ripristino di emergenza di macchine virtuali VMware locali o server fisici in un sito secondario
 
@@ -48,12 +47,12 @@ o Per i computer fisici, seguire questa [esercitazione](./physical-azure-disaste
 
 **Funzionalità** | **Replica in Azure** |**Replica tra data center VMware**
 --|--|--
-**Componenti necessari** |Servizio Mobility nei computer replicati. Server di configurazione in locale, server di elaborazione, server master di destinazione. Server di elaborazione temporaneo in Azure per il failback.|Servizio Mobility, server di elaborazione, server di configurazione e server di destinazione master
+**Componenti richiesti** |Servizio Mobility nei computer replicati. Server di configurazione in locale, server di elaborazione, server master di destinazione. Server di elaborazione temporaneo in Azure per il failback.|Servizio Mobility, server di elaborazione, server di configurazione e server di destinazione master
 **Configurazione e orchestrazione** |Insieme di credenziali di Servizi di ripristino nel portale di Azure | Con vContinuum 
 **Replicata** |Disco (Windows e Linux) |Volume-Windows<br> Disco-Linux
-**Cluster di dischi condivisi** |Non supportate|Supportato
+**Cluster di dischi condivisi** |Non supportato|Supportato
 **Limiti di varianza dei dati (media)** |10 MB/s di dati per disco<br> 25 MB/s di dati per VM<br> [Altre informazioni](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s di dati per disco  <br> > 25 MB/s di dati per VM
-**Monitoraggio** |Dal portale di Azure|Da CX (server di configurazione)
+**Monitoring** |Dal portale di Azure|Da CX (server di configurazione)
 **Matrice di supporto** | [Fare clic qui per i dettagli](./vmware-physical-azure-support-matrix.md)|[Scarica la matrice di compatibilità di Azure Site Recovery Scout](https://aka.ms/asr-scout-cm)
 
 
@@ -119,12 +118,12 @@ Scaricare il file ZIP di [aggiornamento](https://aka.ms/asr-scout-update7) e i f
 - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
   1. Estrarre i file ZIP.
   2. **Server RX**: copiare **RX_8.0.7.0_GA_Update_7_2965621_28Dec18. tar. gz** nel server RX ed estrarlo. Nella cartella estratta eseguire **/Install**.
-  3. **Server di configurazione e server di elaborazione**: copiare **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18. exe** nel server di configurazione e nel server di elaborazione. Fare doppio clic per eseguirlo.<br>
-  4. **Server di destinazione master Windows**: per aggiornare l'agente unificato, copiare **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release. exe** nel server. Fare doppio clic per eseguirlo. Lo stesso file può essere usato anche per una nuova installazione. Lo stesso aggiornamento dell'agente unificato è applicabile anche per il server di origine.
+  3. **Server di configurazione e server di elaborazione**: copiare **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** nel server di configurazione e nel server di elaborazione. Fare doppio clic per eseguirlo.<br>
+  4. **Server di destinazione master Windows**: per aggiornare l'agente unificato, copiare **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** nel server. Fare doppio clic per eseguirlo. Lo stesso file può essere usato anche per una nuova installazione. Lo stesso aggiornamento dell'agente unificato è applicabile anche per il server di origine.
   Non è necessario che l'aggiornamento venga applicato al server di destinazione master preparato con **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**, perché questo è un programma di installazione disponibile a livello generale che include tutte le modifiche più recenti.
-  5. **Server vContinuum**: copiare **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release. exe** nel server.  Assicurarsi che la procedura guidata vContinuum sia stata chiusa. Fare doppio clic sul file per eseguirlo.
+  5. **Server vContinuum**: copiare **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** nel server.  Assicurarsi che la procedura guidata vContinuum sia stata chiusa. Fare doppio clic sul file per eseguirlo.
   6. **Server di destinazione master Linux**: per aggiornare l'agente unificato, copiare **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** nel server di destinazione master Linux ed estrarlo. Nella cartella estratta eseguire **/Install**.
-  7. **Server di origine Windows**: per aggiornare l'agente unificato, copiare **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release. exe** nel server di origine. Fare doppio clic sul file per eseguirlo. 
+  7. **Server di origine Windows**: per aggiornare l'agente unificato, copiare **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** nel server di origine. Fare doppio clic sul file per eseguirlo. 
   8. **Server di origine Linux**: per aggiornare l'agente unificato, copiare la versione corrispondente del file dell'agente unificato nel server Linux ed estrarlo. Nella cartella estratta eseguire **/Install**.  Esempio: per il server RHEL 6,7 64-bit, copiare **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** nel server ed estrarlo. Nella cartella estratta eseguire **/Install**.
   9. Dopo l'aggiornamento del server di configurazione, il server di elaborazione e il server RX con i programmi di installazione menzionati in precedenza, le librerie PHP e MySQL devono essere aggiornate manualmente con la procedura descritta nella sezione 7.4 della [guida all'installazione rapida](https://aka.ms/asr-scout-quick-install-guide).
 
@@ -188,14 +187,14 @@ Scaricare il file ZIP dell'[aggiornamento](https://aka.ms/asr-scout-update6). Il
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- UA Update 4 bits per RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz
+- Bit per update4 dell'agente utente per RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   1. Estrarre i file ZIP.
   2. **Server RX**: copiare **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** nel server RX ed estrarlo. Nella cartella estratta eseguire **/Install**.
   3. **Server di configurazione e server di elaborazione**: copiare **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** nel server di configurazione e in quello di elaborazione. Fare doppio clic per eseguirlo.<br>
-  4. **Server di destinazione master Windows**: per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17. exe** nel server. Fare doppio clic per eseguirlo. Lo stesso aggiornamento dell'agente unificato è applicabile anche per il server di origine. Se l'origine non è stata aggiornata alla versione Update 4, è consigliabile aggiornare l'agente unificato.
+  4. **Server di destinazione master Windows**: per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server. Fare doppio clic per eseguirlo. Lo stesso aggiornamento dell'agente unificato è applicabile anche per il server di origine. Se l'origine non è stata aggiornata alla versione Update 4, è consigliabile aggiornare l'agente unificato.
   Non è necessario che l'aggiornamento venga applicato al server di destinazione master preparato con **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**, perché questo è un programma di installazione disponibile a livello generale che include tutte le modifiche più recenti.
   5. **Server vContinuum**: copiare **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** nel server.  Assicurarsi che la procedura guidata vContinuum sia stata chiusa. Fare doppio clic sul file per eseguirlo.
-  Non è necessario applicare l'aggiornamento alla destinazione master preparata con **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release. exe** , poiché si tratta del nuovo programma di installazione di GA con tutte le modifiche più recenti.
+  Non è necessario applicare l'aggiornamento alla destinazione master preparata con **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** perché si tratta del nuovo programma di installazione di GA con tutte le modifiche più recenti.
   6. **Server di destinazione master Linux**: per aggiornare l'agente unificato, copiare **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** nel server di destinazione master ed estrarlo. Nella cartella estratta eseguire **/Install**.
   7. **Server di origine Windows**: per aggiornare l'agente unificato, copiare **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** nel server di origine. Fare doppio clic sul file per eseguirlo. 
   Non è necessario installare l'agente della versione Update 5 nel server di origine se è già stato aggiornato a Update 4 o se l'agente di origine è stato installato con il programma di installazione di base più recente **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.

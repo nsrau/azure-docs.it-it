@@ -1,16 +1,15 @@
 ---
 title: Monitoraggio dello stato in Service Fabric
 description: Introduzione al modello di monitoraggio dell'integrità di Azure Service Fabric, che offre il monitoraggio del cluster e dei relativi servizi e applicazioni.
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 82e61b2bf127ba86d06aba3110a000ed28a79833
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392761"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
 Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. Il modello include il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo consente di ottenere facilmente informazioni relative all'integrità e correggere i potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.
@@ -187,7 +186,7 @@ I [report sull'integrità](https://docs.microsoft.com/dotnet/api/system.fabric.h
 * **SourceID**. Stringa che identifica in modo univoco il generatore di report per l'evento di integrità.
 * **Entity identifier**. Identifica l'entità a cui viene applicato il report. Varia in base al [tipo di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. Nessuno.
+  * Cluster. No.
   * Node. Nome del nodo (stringa).
   * Application. Nome dell'applicazione (URI). Rappresenta il nome dell'istanza di applicazione distribuita nel cluster.
   * Service. Nome del servizio (URI). Rappresenta il nome dell'istanza di servizio distribuita nel cluster.

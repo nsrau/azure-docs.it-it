@@ -4,7 +4,6 @@ description: Per estendere il supporto per SQL Server 2008 e SQL Server 2008 R2,
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.topic: conceptual
@@ -14,12 +13,11 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62ed33b8344d0d5a79cd956274c5f7ddd62a714a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668747"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estendere il supporto per SQL Server 2008 e SQL Server 2008 R2 con Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +59,7 @@ SQL Server richiede snapshot di Azure Site Recovery coerenti con l'app per garan
 
 ### <a name="database-migration-service"></a>Servizio Migrazione del database
 
-Il [servizio Migrazione del database](/azure/dms/dms-overview) è un'opzione per i clienti che eseguono la migrazione da locale a una macchina virtuale di Azure aggiornando SQL Server alla versione 2012 o successiva.
+Il [servizio migrazione del database di Azure](/azure/dms/dms-overview) è un'opzione per i clienti che eseguono la migrazione dall'ambiente locale a una macchina virtuale di Azure aggiornando SQL Server alla versione 2012 o successiva.
 
 ## <a name="disaster-recovery"></a>Ripristino di emergenza
 
@@ -74,7 +72,7 @@ Le soluzioni di ripristino di emergenza per la versione EOS di SQL Server in una
 ## <a name="security-patching"></a>Patch di sicurezza
 Gli aggiornamenti della sicurezza estesi per le macchine virtuali di SQL Server vengono distribuiti attraverso i canali Microsoft Update dopo che la VM di SQL Server viene registrata con il [provider di risorse](sql-vm-resource-provider-register.md) per VM SQL. Le patch possono essere scaricate manualmente o automaticamente.
 
-*Automated patching* è abilitata per impostazione predefinita. Questa opzione consente ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo. È possibile specificare un giorno della settimana, l'ora e la durata di una finestra di manutenzione se è installata l'estensione SQL Server IaaS. Durante la finestra di manutenzione Azure esegue l'applicazione delle patch. La pianificazione dell'ora, la finestra di manutenzione usa le impostazioni locali della macchina virtuale.  Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (Resource Manager)](automated-patching.md).
+*Automated patching* è abilitata per impostazione predefinita. Questa opzione consente ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo. È possibile specificare un giorno della settimana, l'ora e la durata di una finestra di manutenzione se è installata l'estensione SQL Server IaaS. Durante la finestra di manutenzione Azure esegue l'applicazione delle patch. La pianificazione dell'ora, la finestra di manutenzione usa le impostazioni locali della macchina virtuale. Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (Resource Manager)](automated-patching.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

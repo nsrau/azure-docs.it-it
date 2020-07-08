@@ -7,12 +7,11 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 566347414ffe707b1d68a61b00ba21d19ff2b1eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c96fa4c453911c4ca4b8cf6d8f74647b4532109f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711545"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Modificare il disco del sistema operativo usato da una macchina virtuale di Azure usando PowerShell
 
@@ -23,6 +22,7 @@ Se è disponibile una macchina virtuale esistente, ma si vuole scambiare il disc
 La macchina virtuale deve essere arrestata\deallocata, quindi l'ID risorsa del disco gestito può essere sostituito con l'ID risorsa di un altro disco gestito.
 
 Assicurarsi che il tipo di archiviazione e le dimensioni della macchina virtuale siano compatibili con il disco che si intende collegare. Ad esempio, se il disco che si vuole usare si trova in Archiviazione Premium, la macchina virtuale deve essere idonea per Archiviazione Premium (ad esempio con le dimensioni della serie DS). Entrambi i dischi devono avere anche le stesse dimensioni.
+E assicurarsi che non si stia combinando una macchina virtuale non crittografata con un disco del sistema operativo crittografato, questa operazione non è supportata. Se la macchina virtuale non usa crittografia dischi di Azure, il disco del sistema operativo in fase di scambio non deve usare crittografia dischi di Azure.
 
 Ottenere un elenco di dischi in un gruppo di risorse usando [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
 
