@@ -10,18 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 11/01/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99de022b7259b33baab3aa825673a8f85e932bff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0d4de2ac3ee74d60eb532bd469b20523fa937db0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078568"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Verificare l'accesso di un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -47,7 +46,7 @@ Per trovare e aprire la verifica di accesso, attenersi alla procedura seguente:
 
 1. Fare clic sul collegamento **Verifica accesso utente** per aprire la verifica di accesso. 
 
-1. Se non si dispone del messaggio di posta elettronica, è possibile trovare le verifiche di accesso in sospeso passando https://myaccess.microsoft.comdirettamente a.  Per il governo degli Stati Uniti `https://myaccess.microsoft.us` , usare invece.
+1. Se non si dispone del messaggio di posta elettronica, è possibile trovare le verifiche di accesso in sospeso passando direttamente a https://myaccess.microsoft.com .  Per il governo degli Stati Uniti, usare `https://myaccess.microsoft.us` invece.
 
 1. Fare clic su verifiche di **accesso** sulla barra di spostamento a sinistra per visualizzare un elenco delle verifiche di accesso in sospeso assegnate all'utente.
     

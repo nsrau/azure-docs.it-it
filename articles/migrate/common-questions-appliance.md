@@ -2,13 +2,12 @@
 title: Domande frequenti sull'appliance Azure Migrate
 description: Risposte alle domande più comuni sull'appliance Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81529689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078977"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate: domande comuni
 
@@ -37,7 +36,7 @@ L'appliance può essere distribuita come indicato di seguito:
 
 - Uso di un modello per macchine virtuali VMware e macchine virtuali Hyper-V (modello OVA per VMware o VHD per Hyper-V).
 - Se non si vuole usare un modello o si è in Azure per enti pubblici, è possibile distribuire l'appliance per VMware o Hyper-V usando uno script di PowerShell.
-- Per i server fisici, è sempre necessario distribuire l'appliance usando uno script.
+- Per i server fisici, l'appliance viene distribuita sempre usando uno script.
 
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>In che modo l'appliance si connette ad Azure?
@@ -107,7 +106,7 @@ Sì. È possibile aggiungere il dispositivo Azure Migrate (usato per la valutazi
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quante VM o server è possibile individuare con un'appliance?
 
-È possibile individuare fino a 10.000 VM VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 250 server fisici con un'unica appliance. Se si dispone di più computer nell'ambiente locale, vedere la pagina relativa alla [scalabilità di una valutazione di Hyper-V](scale-hyper-v-assessment.md), alla [scalabilità di una valutazione VMware](scale-vmware-assessment.md)e alla [scalabilità di una valutazione del server fisico](scale-physical-assessment.md).
+È possibile individuare fino a 10.000 VM VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 1000 server fisici con un'unica appliance. Se si dispone di più computer nell'ambiente locale, vedere la pagina relativa alla [scalabilità di una valutazione di Hyper-V](scale-hyper-v-assessment.md), alla [scalabilità di una valutazione VMware](scale-vmware-assessment.md)e alla [scalabilità di una valutazione del server fisico](scale-physical-assessment.md).
 
 ## <a name="can-i-delete-an-appliance"></a>È possibile eliminare un appliance?
 

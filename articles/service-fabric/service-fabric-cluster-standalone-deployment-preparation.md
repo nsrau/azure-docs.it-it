@@ -5,12 +5,11 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 6a00b7d1b72d594c08021982b2448de6275414c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75610064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079350"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster autonomo di Service Fabric
 
@@ -51,7 +50,7 @@ Nei cluster di test che eseguono carichi di lavoro con stato è consigliabile co
 
 ## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Preparare i computer che fungono da nodi
 
-Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluster:
+Di seguito sono riportate le specifiche consigliate per i computer in un cluster Service Fabric:
 
 * Un minimo di 16 GB di RAM
 * Un minimo di 40 GB di spazio disponibile su disco
@@ -61,9 +60,11 @@ Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluste
 * [.NET Framework 4.5.1 o versione successiva](https://www.microsoft.com/download/details.aspx?id=40773), installazione completa
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
 * Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere in esecuzione in tutti i computer
-* Service Fabric unità di installazione deve essere un file system NTFS
+* **Service Fabric unità di installazione deve essere un file system NTFS**
+* ** [È necessario abilitare](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))i *registri delle prestazioni* dei servizi Windows & gli avvisi e il *registro eventi di Windows* **.
 
-L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
+> [!IMPORTANT]
+> L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Scaricare il pacchetto autonomo Service Fabric per Windows Server
 [Collegamento per il download - Pacchetto autonomo di Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690); decomprimere il pacchetto in un computer di distribuzione non appartenente al cluster o in uno dei computer che faranno parte del cluster.

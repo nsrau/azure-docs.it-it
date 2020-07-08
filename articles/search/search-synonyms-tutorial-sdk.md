@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8cc085fd27004928babd7df305a4452d1b068f6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794247"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079438"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Esempio: aggiungere sinonimi per ricerca cognitiva di Azure in C #
 
@@ -38,7 +37,7 @@ I requisiti per l'esercitazione includono i seguenti:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Servizio ricerca cognitiva di Azure](search-create-service-portal.md)
-* [Libreria Microsoft.Azure.Search .NET](https://aka.ms/search-sdk)
+* [Libreria Microsoft.Azure.Search .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 * [Come usare ricerca cognitiva di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Panoramica
@@ -128,7 +127,7 @@ L'abilitazione dei sinonimi è un processo in due passaggi. Vengono prima di tut
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
    ```
-   Una mappa di sinonimi deve essere conforme al formato `solr` dello standard open source. Il formato è illustrato in [sinonimi in Azure ricerca cognitiva](search-synonyms.md) nella sezione `Apache Solr synonym format`.
+   Una mappa di sinonimi deve essere conforme al formato `solr` dello standard open source. Il formato è illustrato in [sinonimi in Azure ricerca cognitiva](search-synonyms.md) nella sezione `Apache Solr synonym format` .
 
 2. Configurare i campi disponibili per la ricerca per l'uso della mappa di sinonimi nella definizione dell'indice. In `EnableSynonymsInHotelsIndex` vengono abilitati i sinonimi in due campi, `category` e `tags`, tramite l'impostazione della proprietà `synonymMaps` sul nome della mappa di sinonimi appena caricata.
    ```csharp

@@ -1,19 +1,18 @@
 ---
 title: Filtri di sicurezza per tagliare i risultati usando Active Directory
 titleSuffix: Azure Cognitive Search
-description: Il controllo di accesso in Azure ricerca cognitiva il contenuto usando i filtri di sicurezza e le identità di Azure Active Directory (AAD).
+description: Privilegi di sicurezza a livello di documento per i risultati di ricerca di Azure ricerca cognitiva, usando i filtri di sicurezza e le identità di Azure Active Directory (AAD).
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/04/2020
+ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794311"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080491"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtri di sicurezza per tagliare i risultati di ricerca cognitiva di Azure usando Active Directory identità
 
@@ -28,7 +27,7 @@ Questo articolo illustra le attività seguenti:
 > - Emettere una richiesta di ricerca con il filtro degli identificatori di gruppo
 > 
 > [!NOTE]
-> I frammenti di codice di esempio in questo articolo sono scritti in C#. Il codice sorgente completo è disponibile [in GitHub](https://aka.ms/search-dotnet-howto). 
+> I frammenti di codice di esempio in questo articolo sono scritti in C#. Il codice sorgente completo è disponibile [in GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,11 +41,11 @@ Anche l'applicazione in uso deve essere registrata con AAD, come descritto nella
 
 Questo passaggio integra l'applicazione in uso con AAD allo scopo di accettare gli accessi di account di gruppi e utenti. Se non si è un amministratore AAD all'interno dell'organizzazione, potrebbe essere necessario [creare un nuovo tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) per eseguire la procedura seguente.
 
-1. Passare al [**portale**](https://apps.dev.microsoft.com) >  di registrazione delle applicazioni > **app Converged****Aggiungi un'app**.
+1. Passare al [**portale di registrazione delle applicazioni**](https://apps.dev.microsoft.com)  >   **app Converged**  >  **Aggiungi un'app**.
 2. Immettere un nome per l'applicazione e quindi fare clic su **Crea**. 
 3. Selezionare l'applicazione appena registrata nella pagina Applicazioni personali.
-4. Nella pagina di registrazione dell'applicazione > **piattaforme** > **Aggiungi piattaforma**, scegliere **API Web**.
-5. Sempre nella pagina di registrazione dell'applicazione passare a > **Microsoft Graph autorizzazioni** > **Aggiungi**.
+4. Nella pagina di registrazione dell'applicazione > **piattaforme**  >  **Aggiungi piattaforma**, scegliere **API Web**.
+5. Sempre nella pagina di registrazione dell'applicazione passare a > **Microsoft Graph autorizzazioni**  >  **Aggiungi**.
 6. In Selezionare le autorizzazioni aggiungere le autorizzazioni delegate seguenti e quindi fare clic su **OK**:
 
    + **Directory.ReadWrite.All**

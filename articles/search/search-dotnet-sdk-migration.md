@@ -9,12 +9,11 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fcad05749892e3a652e110a7e351450bffaca6f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 548cd488bc811ad16cd84950ce3819f2e1f3ddbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72792973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080709"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Eseguire l'aggiornamento ad Azure search .NET SDK versione 3
 
@@ -25,7 +24,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-Se si usa la versione 2.0 di anteprima o precedente di [Azure Search .NET SDK](https://aka.ms/search-sdk), questo articolo include informazioni utili per aggiornare l'applicazione per l'uso della versione 3.
+Se si usa la versione 2.0 di anteprima o precedente di [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), questo articolo include informazioni utili per aggiornare l'applicazione per l'uso della versione 3.
 
 Per una procedura dettagliata più generale relativa all'SDK, inclusi gli esempi, vedere [Come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md).
 
@@ -41,7 +40,7 @@ La versione 3 di Azure Search .NET SDK contiene alcune modifiche rispetto alle v
 ## <a name="whats-new-in-version-3"></a>Novità della versione 3
 La versione 3 di Azure Search .NET SDK ha come destinazione la versione più recente disponibile a livello generale dell'API REST di Ricerca di Azure, in particolare la versione 2016-09-01. Questo rende possibile usare molte nuove funzionalità di Ricerca di Azure da un'applicazione .NET, incluse le seguenti:
 
-* [Analizzatori personalizzati](https://aka.ms/customanalyzers)
+* [Analizzatori personalizzati](index-add-custom-analyzers.md)
 * Supporto per gli indicizzatori di [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md) e [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 * Personalizzazione dell'indicizzatore tramite [mapping dei campi](search-indexer-field-mappings.md)
 * Supporto di eTag per consentire l'aggiornamento simultaneo sicuro di definizioni di indice, indicizzatori e origini dati

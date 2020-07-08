@@ -6,38 +6,37 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 69686cad20bc4ce70bff2a92a216c9430522c301
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dfb760477fc528575212d79d929661c2276effbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278844"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079071"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Come amministrare Cache Redis di Azure
 Questo argomento descrive come eseguire attività di amministrazione, ad esempio il [riavvio](#reboot) e la [pianificazione degli aggiornamenti](#schedule-updates) per le istanze di Cache Redis di Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reboot"></a>Riavvio
+## <a name="reboot"></a>Reboot
 Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. La funzionalità di riavvio consente di testare la resilienza dell'applicazione in presenza di un errore di un nodo della cache.
 
-![Riavvio](./media/cache-administration/redis-cache-administration-reboot.png)
+![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Selezionare i nodi per il riavvio e fare clic su **Riavvia**.
 
-![Riavvio](./media/cache-administration/redis-cache-reboot.png)
+![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
-![Riavvio](./media/cache-administration/redis-cache-reboot-cluster.png)
+![Reboot](./media/cache-administration/redis-cache-reboot-cluster.png)
 
 Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot**(Riavvia). Se si dispone di una cache Premium con clustering abilitato, selezionare le partizioni desiderate per riavviare il computer e quindi fare clic su **Reboot**(Riavvia). Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
 L'impatto sulle applicazioni client varia a seconda dei nodi che si riavviano.
 
 * **Principale**: quando il nodo principale viene riavviato, Cache Redis di Azure esegue il failover del nodo della replica, che diventa principale. Durante il failover potrebbe verificarsi un breve intervallo in cui le connessioni alla cache potrebbero avere esito negativo.
-* **Slave** : il riavvio del nodo slave in genere non comporta alcun impatto sui client della cache.
-* **Principale e slave** : al riavvio di entrambi i nodi della cache, tutti i dati della cache vengono persi e le connessioni alla cache hanno esito negativo fino a quando il nodo primario non torna online. Se è stato configurato il [salvataggio permanente dei dati](cache-how-to-premium-persistence.md), il backup più recente viene ripristinato quando la cache ritorna in linea, ma tutte le scritture nella cache che si sono verificate dopo l'ultimo backup andranno perse.
+* **Replica** : quando il nodo di replica viene riavviato, non vi sono in genere effetti sui client della cache.
+* **Master e replica** : quando vengono riavviati entrambi i nodi della cache, tutti i dati vengono persi nella cache e le connessioni alla cache hanno esito negativo fino a quando il nodo primario non torna online. Se è stato configurato il [salvataggio permanente dei dati](cache-how-to-premium-persistence.md), il backup più recente viene ripristinato quando la cache ritorna in linea, ma tutte le scritture nella cache che si sono verificate dopo l'ultimo backup andranno perse.
 * **Nodi di una cache Premium con clustering abilitato**: quando si riavviano uno o più nodi di una cache Premium con clustering abilitato, il comportamento per i nodi selezionati è analogo a quello che si ottiene quando si riavviano il nodo o i nodi corrispondenti di una cache non cluster.
 
 ## <a name="reboot-faq"></a>Domande frequenti sulla funzionalità di riavvio
@@ -47,7 +46,7 @@ L'impatto sulle applicazioni client varia a seconda dei nodi che si riavviano.
 * [È possibile riavviare la cache usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
 
 ### <a name="which-node-should-i-reboot-to-test-my-application"></a>Quale nodo si deve riavviare per testare l'applicazione?
-Per testare la resilienza dell'applicazione in caso di errore del nodo principale della cache, riavviare il nodo **Principale** . Per testare la resilienza dell'applicazione in caso di errore del nodo secondario, riavviare il nodo **Slave** . Per testare la resilienza dell'applicazione in caso di errore completo della cache, riavviare **Entrambi** i nodi.
+Per testare la resilienza dell'applicazione in caso di errore del nodo principale della cache, riavviare il nodo **Principale** . Per testare la resilienza dell'applicazione in caso di errore del nodo secondario, riavviare il nodo **replica** . Per testare la resilienza dell'applicazione in caso di errore completo della cache, riavviare **Entrambi** i nodi.
 
 ### <a name="can-i-reboot-the-cache-to-clear-client-connections"></a>È possibile riavviare la cache per annullare le connessioni al client?
 Sì, se si riavvia la cache tutte le connessioni client vengono annullate. Il riavvio può risultare utile nel caso in cui tutte le connessioni client si interrompano a causa di un errore logico o di un bug nell'applicazione client. Ogni piano tariffario presenta diversi [limiti di connessione al client](cache-configure.md#default-redis-server-configuration) per le diverse dimensioni e, una volta raggiunti questi limiti, non vengono accettate altre connessioni al client. Il riavvio della cache consente di annullare tutte le connessioni al client.
@@ -58,7 +57,7 @@ Sì, se si riavvia la cache tutte le connessioni client vengono annullate. Il ri
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Con il riavvio i dati nella cache andranno persi?
-Se si riavviano i nodi **Master** e **slave** , tutti i dati nella cache (o in tale partizione se si usa una cache Premium con il clustering abilitato) potrebbero andare perduti, ma ciò non è garantito. Se è stato configurato il [salvataggio permanente dei dati](cache-how-to-premium-persistence.md), il backup più recente viene ripristinato quando la cache ritorna in linea, ma tutte le scritture nella cache che si sono verificate dopo l'esecuzione del backup andranno perse.
+Se si riavvia sia il nodo **Master** che quello di **replica** , tutti i dati nella cache (o in tale partizione se si usa una cache Premium con il clustering abilitato) potrebbero andare perduti, ma ciò non è garantito. Se è stato configurato il [salvataggio permanente dei dati](cache-how-to-premium-persistence.md), il backup più recente viene ripristinato quando la cache ritorna in linea, ma tutte le scritture nella cache che si sono verificate dopo l'esecuzione del backup andranno perse.
 
 Se si riavvia solo uno dei nodi, in genere i dati non vengono persi, ma è comunque possibile. Per esempio, se il nodo principale viene riavviato durante la scrittura della cache, i dati della scrittura andranno persi. Un altro scenario in cui avviene una perdita di dati si verifica se si riavvia un nodo e l'altro nodo diventa contemporaneamente inattivo basso a causa di un errore. Per altre informazioni sulle possibili cause di una perdita di dati, vedere [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)(Cosa è accaduto ai dati in Redis)
 
@@ -66,7 +65,7 @@ Se si riavvia solo uno dei nodi, in genere i dati non vengono persi, ma è comun
 Sì, per istruzioni relative a PowerShell vedere [Riavviare una Cache Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ## <a name="schedule-updates"></a>Pianificare gli aggiornamenti
-Il pannello **Pianifica aggiornamenti** consente di definire una finestra di manutenzione per l'istanza della cache. Quando viene specificato l'intervallo di manutenzione, tutti gli aggiornamenti del server Redis vengono eseguiti durante questo intervallo. 
+Il pannello **Pianifica aggiornamenti** consente di definire una finestra di manutenzione per l'istanza della cache. Una finestra di manutenzione consente di controllare i giorni e le ore di una settimana durante i quali è possibile aggiornare le macchine virtuali che ospitano la cache. Cache di Azure per Redis effettuerà il massimo sforzo per avviare e completare l'aggiornamento del software server Redis entro l'intervallo di tempo specificato definito.
 
 > [!NOTE] 
 > Si noti che l'intervallo di manutenzione è applicabile solo agli aggiornamenti del server Redis e non a tutti gli aggiornamenti di Azure o del sistema operativo delle macchine virtuali che ospitano la cache.

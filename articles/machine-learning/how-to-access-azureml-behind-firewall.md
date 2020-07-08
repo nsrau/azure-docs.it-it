@@ -5,30 +5,30 @@ description: Controllare l'accesso alle aree di lavoro Azure Machine Learning co
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080240"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro il firewall di Azure per Azure Machine Learning
 
 Questo articolo illustra come configurare il firewall di Azure per l'uso con un'area di lavoro Azure Machine Learning.
 
-Il firewall di Azure può essere usato per controllare l'accesso all'area di lavoro Azure Machine Learning e alla rete Internet pubblica. Se non è configurato correttamente, il firewall può causare problemi usando l'area di lavoro.
+Il firewall di Azure può essere usato per controllare l'accesso all'area di lavoro Azure Machine Learning e alla rete Internet pubblica. Se non è configurato correttamente, il firewall può causare problemi usando l'area di lavoro. Sono disponibili diversi nomi host usati entrambi dall'area di lavoro Azure Machine Learning, descritti in questo articolo.
 
 ## <a name="network-rules"></a>Regole di rete
 
 Nel firewall creare una regola di rete che consenta il traffico da e verso gli indirizzi di questo articolo.
 
 > [!TIP]
-> Quando si aggiunge la regola di rete, impostare il __protocollo__ su Any e le porte `*`su.
+> Quando si aggiunge la regola di rete, impostare il __protocollo__ su Any e le porte su `*` .
 >
 > Per altre informazioni sulla configurazione del firewall di Azure, vedere [distribuire e configurare il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
 
@@ -40,16 +40,18 @@ Gli host in questa sezione sono di proprietà di Microsoft e forniscono i serviz
 | ---- | ---- |
 | **\*. batchai.core.windows.net** | Cluster di training |
 | **ml.azure.com** | Azure Machine Learning Studio |
+| **default.exp-tas.com** | Usato da Azure Machine Learning Studio |
 | **\*. azureml.ms** | Usato dalle API Azure Machine Learning |
-| **\*. experiments.azureml.net** | Usato da esperimenti eseguiti in Azure Machine Learning|
+| **\*. experiments.azureml.net** | Usato da esperimenti eseguiti in Azure Machine Learning |
 | **\*. modelmanagement.azureml.net** | Usato per registrare e distribuire i modelli|
 | **mlworkspace.azure.ai** | Utilizzato dal portale di Azure durante la visualizzazione di un'area di lavoro |
 | **\*. aether.ms** | Usato durante l'esecuzione di pipeline di Azure Machine Learning |
 | **\*. instances.azureml.net** | Azure Machine Learning istanze di calcolo |
+| **\*. instances.azureml.ms** | Azure Machine Learning istanze di calcolo quando l'area di lavoro dispone di collegamento privato abilitato |
 | **windows.net** | Archiviazione BLOB di Azure |
 | **vault.azure.net** | Insieme di credenziali chiave di Azure |
-| **microsoft.com** | Immagini Docker di base |
 | **azurecr.io** | Registro Azure Container |
+| **mcr.microsoft.com** | Microsoft Container Registry per le immagini Docker di base |
 
 ## <a name="python-hosts"></a>Host Python
 

@@ -5,12 +5,11 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6abe6fca77251a16bcb7663a5192f46fef3476b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75465636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080667"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Panoramica dei cluster di Service Fabric autonomi
 
@@ -21,9 +20,16 @@ Un tipo di nodo definisce le dimensioni, il numero e le proprietà di un set di 
 Il processo di creazione di un cluster di Service Fabric locale è simile al processo di creazione di un cluster in qualsiasi ambiente cloud con un set di macchine virtuali. I passaggi iniziali per effettuare il provisioning delle macchine virtuali saranno controllati dal provider cloud o dall'ambiente locale corrente. Dopo aver ottenuto un set di macchine virtuali con connettività di rete abilitata, i passaggi successivi per configurare il pacchetto di Service Fabric, modificare le impostazioni del cluster ed eseguire gli script di creazione e gestione del cluster risulteranno identici. In questo modo, l'esperienza e le conoscenze relative all'uso e alla gestione dei cluster di Service Fabric potranno essere usate anche quando si scelgono nuovi ambienti host.
 
 ## <a name="cluster-security"></a>Sicurezza del cluster
+
 Un cluster di Service Fabric è una risorsa di cui si è proprietari.  È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster.
 
+> [!NOTE]
+> L'autenticazione di Windows è basata su Kerberos. NTLM non è supportato come tipo di autenticazione.
+>
+> Quando possibile, usare l'autenticazione del certificato X. 509 per i cluster Service Fabric.
+
 ### <a name="node-to-node-security"></a>Sicurezza da nodo a nodo
+
 La sicurezza da nodo a nodo protegge le comunicazioni tra le macchine virtuali o i computer di un cluster. Questo scenario di sicurezza assicura che solo i computer autorizzati a connettersi al cluster possano partecipare all'hosting di applicazioni e servizi nel cluster. Service Fabric usa certificati X.509 per proteggere un cluster e fornire le funzionalità di sicurezza dell'applicazione.  Un certificato cluster è necessario per proteggere il traffico del cluster e fornire l'autenticazione per il cluster e il server.  I certificati autofirmati possono essere usati per i cluster di test, ma per proteggere i cluster di produzione occorre usare un certificato di un'Autorità di certificazione attendibile.
 
 Per i cluster Windows autonomi è possibile abilitare anche la sicurezza di Windows. Se sono presenti Windows Server 2012 R2 e Active Directory, è consigliabile usare la sicurezza di Windows con account del servizio gestito del gruppo. In caso contrario, usare la sicurezza di Windows con account di Windows.
@@ -31,6 +37,7 @@ Per i cluster Windows autonomi è possibile abilitare anche la sicurezza di Wind
 Per altre informazioni, vedere [Sicurezza da nodo a nodo](service-fabric-cluster-security.md#node-to-node-security)
 
 ### <a name="client-to-node-security"></a>Sicurezza da client a nodo
+
 La sicurezza da client a nodo autentica i client e aiuta a proteggere la comunicazione tra un client e i singoli nodi del cluster. Questo tipo di sicurezza aiuta a garantire che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite nel cluster. I client vengono identificati in modo univoco tramite le credenziali di sicurezza del relativo certificato X.509. È possibile usare un numero qualsiasi di certificati client facoltativi per autenticare i client di amministrazione o utente con il cluster.
 
 Oltre ai certificati client, è possibile configurare Azure Active Directory anche per autenticare i client con il cluster.
@@ -55,13 +62,15 @@ Un cluster autonomo è una risorsa che si possiede interamente. Perciò si è re
 Per altre informazioni, vedere [Aggiornamento dei cluster autonomi](service-fabric-cluster-upgrade-standalone.md).
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
+
 È possibile creare cluster in macchine virtuali o in computer che eseguono questi sistemi operativi (Linux non è ancora supportato):
 
-* Windows Server 2012 R2
+* R2 per Windows Server 2012
 * Windows Server 2016 
 * Windows Server 2019
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Leggere altre informazioni sulla [sicurezza](service-fabric-cluster-security.md), il [ridimensionamento](service-fabric-cluster-scaling-standalone.md) e l'[aggiornamento](service-fabric-cluster-upgrade-standalone.md) dei cluster autonomi.
 
 Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md).
