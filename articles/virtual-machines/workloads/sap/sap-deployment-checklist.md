@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b8c1b0bcc74d73f1f869972488ba7c5dfe610d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba229025608d183b886a17346a725bc64dc6b60e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84556668"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -63,7 +63,7 @@ Durante questa fase si pianifica la migrazione del carico di lavoro SAP alla pia
         - In base a RTO e RPO, è necessario definire l'aspetto dell'architettura di disponibilità elevata e ripristino di emergenza.
         - Per una disponibilità elevata all'interno di una zona, controllare il sistema DBMS da offrire in Azure. La maggior parte dei pacchetti DBMS offre metodi sincroni di una hot standby sincrona, consigliata per i sistemi di produzione. Vedere anche la documentazione relativa a SAP per database diversi, a partire dalle [considerazioni per la distribuzione DBMS di macchine virtuali di Azure per carichi di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e documenti correlati.
            L'uso di Windows Server failover clustering con una configurazione di dischi condivisi per il livello DBMS come, ad esempio, [descritto per SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), non è supportato. Usare invece soluzioni come:
-           - [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
+           - [SQL Server Always On](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
            - [Replica di sistema HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - Per il ripristino di emergenza tra aree di Azure, esaminare le soluzioni offerte dai diversi fornitori di sistemi DBMS. La maggior parte di essi supporta la replica asincrona o log shipping.
@@ -86,7 +86,7 @@ Durante questa fase si pianifica la migrazione del carico di lavoro SAP alla pia
     - [Installazione SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Definire una normale cadenza di revisione della progettazione e della distribuzione tra il cliente, l'integratore di sistemi, Microsoft e altre parti coinvolte.
 
- 
+
 ## <a name="pilot-phase-strongly-recommended"></a>Fase pilota (scelta consigliata)
  
 È possibile eseguire un progetto pilota prima o durante la pianificazione e la preparazione del progetto. È anche possibile usare la fase pilota per testare gli approcci e le progettazioni effettuate durante la fase di pianificazione e preparazione. Ed è possibile espandere la fase pilota per renderlo un modello di prova reale.
@@ -213,7 +213,7 @@ Durante questa fase, in genere si distribuiscono sistemi di sviluppo, sistemi di
 14. Ottimizza e perfeziona l'accesso, le autorizzazioni e i processi in base al ruolo di Azure del team per assicurarti la separazione dei compiti. Allo stesso tempo, assicurarsi che tutti i team possano eseguire le attività nell'infrastruttura di Azure.
 15. Procedure di esercitazione, test e ripristino di emergenza a disponibilità elevata per consentire al personale di eseguire queste attività. Identifica le carenze e adatta le nuove funzionalità di Azure che stai integrando nelle tue distribuzioni.
 
- 
+
 ## <a name="production-preparation-phase"></a>Fase di preparazione produzione 
 In questa fase, raccogliere le informazioni acquisite e apprese durante le distribuzioni non di produzione e applicarle alle distribuzioni di produzione future. È anche necessario preparare il lavoro del trasferimento dei dati tra il percorso di hosting corrente e Azure.
 
@@ -295,9 +295,9 @@ Questa fase riguarda il monitoraggio, il funzionamento e l'amministrazione del s
 
 
 ## <a name="next-steps"></a>Passaggi successivi
- Vedere i seguenti articoli:
+Vedere i seguenti articoli:
 
-- [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+- [Guida alla pianificazione e all'implementazione di Macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [Distribuzione di Macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
 - [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per carichi di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 

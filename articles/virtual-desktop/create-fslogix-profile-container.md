@@ -4,18 +4,18 @@ description: Come creare un contenitore di profili FSLogix usando Azure NetApp F
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 04/13/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 294a59ed94344ecf590eb9b34f991deaaa10db69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362986"
 ---
-# <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creare un contenitore di profili FSLogix per un pool host usando Azure NetApp Files
+# <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Creare un contenitore di profili con Azure NetApp Files e servizi di dominio Active Directory
 
 È consigliabile usare i contenitori di profili FSLogix come soluzione di profilo utente per il [servizio desktop virtuale di Windows](overview.md). I contenitori di profili FSLogix archiviano un profilo utente completo in un singolo contenitore e sono progettati per eseguire il roaming dei profili in ambienti di elaborazione remota non permanenti come desktop virtuale di Windows. Quando si accede, il contenitore si connette dinamicamente all'ambiente di elaborazione usando un disco rigido virtuale (VHD) e un disco rigido virtuale Hyper-V supportati localmente (VHDX). Queste tecnologie avanzate di driver di filtro consentono al profilo utente di essere immediatamente disponibili e vengono visualizzate nel sistema esattamente come un profilo utente locale. Per altre informazioni sui contenitori di profili FSLogix, vedere [contenitori di profili FSLogix e file di Azure](fslogix-containers-azure-files.md).
 
@@ -53,7 +53,8 @@ Per iniziare, è necessario configurare un account Azure NetApp Files.
 
 4. Se è la prima volta che si usa Azure Cloud Shell, creare un account di archiviazione nella stessa sottoscrizione in cui si mantiene la Azure NetApp Files e il desktop virtuale di Windows.
 
-   ![La finestra dell'account di archiviazione con il pulsante Crea archiviazione nella parte inferiore della finestra evidenziata in rosso.](media/create-storage-button.png)
+   > [!div class="mx-imgBorder"]
+   > ![La finestra dell'account di archiviazione con il pulsante Crea archiviazione nella parte inferiore della finestra evidenziata in rosso.](media/create-storage-button.png)
 
 5. Una volta Azure Cloud Shell carica, eseguire i due cmdlet seguenti.
 
@@ -67,12 +68,13 @@ Per iniziare, è necessario configurare un account Azure NetApp Files.
 
 6. Sul lato sinistro della finestra selezionare **tutti i servizi**. Immettere **Azure NetApp files** nella casella di ricerca visualizzata nella parte superiore del menu.
 
-   ![Screenshot di un utente che immette "Azure NetApp Files" nella casella di ricerca tutti i servizi. I risultati della ricerca mostrano la risorsa Azure NetApp Files.](media/azure-netapp-files-search-box.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot di un utente che immette "Azure NetApp Files" nella casella di ricerca tutti i servizi. I risultati della ricerca mostrano la risorsa Azure NetApp Files.](media/azure-netapp-files-search-box.png)
 
 
 7. Selezionare **Azure NetApp files** nei risultati della ricerca e quindi selezionare **Crea**.
 
-8. Selezionare il pulsante **Aggiungi** .
+8. Fare clic sul pulsante **Aggiungi**.
 9. Quando viene visualizzata la scheda **nuovo account NetApp** , immettere i valori seguenti:
 
     - Per **nome**immettere il nome dell'account NetApp.
@@ -87,7 +89,7 @@ Per iniziare, è necessario configurare un account Azure NetApp Files.
 
 ## <a name="create-a-capacity-pool"></a>Creare un pool di capacità
 
-Successivamente, creare un nuovo pool di capacità: 
+Successivamente, creare un nuovo pool di capacità:
 
 1. Passare al menu Azure NetApp Files e selezionare il nuovo account.
 2. Nel menu account selezionare pool di **capacità** in servizio di archiviazione.
@@ -108,7 +110,8 @@ Successivamente, è necessario partecipare a una connessione Active Directory.
 
 1. Selezionare **Active Directory connessioni** nel menu sul lato sinistro della pagina, quindi selezionare il pulsante **Unisci** per aprire la pagina **Active Directory join** .
 
-   ![Screenshot del menu join Active Directory Connections.](media/active-directory-connections-menu.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot del menu join Active Directory Connections.](media/active-directory-connections-menu.png)
 
 2. Immettere i valori seguenti nella pagina **aggiungi Active Directory** per partecipare a una connessione:
 
@@ -132,7 +135,7 @@ Sarà quindi necessario creare un nuovo volume.
     - In **rete virtuale**selezionare una rete virtuale esistente con connettività al controller di dominio dal menu a discesa.
     - In **subnet**selezionare **Crea nuovo**. Tenere presente che questa subnet verrà delegata a Azure NetApp Files.
 
-3.  Selezionare **Avanti: protocollo \> ** per aprire la scheda protocollo e configurare i parametri di accesso al volume.
+3.  Selezionare **Avanti: protocollo \> \> ** per aprire la scheda protocollo e configurare i parametri di accesso al volume.
 
 ## <a name="configure-volume-access-parameters"></a>Configurare i parametri di accesso al volume
 
@@ -142,13 +145,14 @@ Dopo aver creato il volume, configurare i parametri di accesso al volume.
 2.  In configurazione nel menu a discesa **Active Directory** selezionare la stessa directory in cui è stata originariamente stabilita [una connessione Active Directory](create-fslogix-profile-container.md#join-an-active-directory-connection). Tenere presente che è previsto un limite di una Active Directory per ogni sottoscrizione.
 3.  Nella casella di testo **nome condivisione** immettere il nome della condivisione utilizzata dal pool di host della sessione e dai relativi utenti.
 
-4.  Selezionare **Verifica + crea** nella parte inferiore della pagina. Verrà visualizzata la pagina convalida. Dopo che il volume è stato convalidato correttamente, selezionare **Crea**.
+4.  Selezionare **Rivedi e crea** nella parte inferiore della pagina. Verrà visualizzata la pagina convalida. Dopo che il volume è stato convalidato correttamente, selezionare **Crea**.
 
 5.  A questo punto, il nuovo volume inizierà a essere distribuito. Una volta completata la distribuzione, è possibile usare la condivisione Azure NetApp Files.
 
 6.  Per visualizzare il percorso di montaggio, selezionare **Vai alla risorsa** e cercarlo nella scheda Panoramica.
 
-    ![Screenshot della schermata di panoramica con una freccia rossa che punta al percorso di montaggio.](media/overview-mount-path.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della schermata di panoramica con una freccia rossa che punta al percorso di montaggio.](media/overview-mount-path.png)
 
 ## <a name="configure-fslogix-on-session-host-virtual-machines-vms"></a>Configurare FSLogix nelle macchine virtuali (VM) host sessione
 
@@ -158,7 +162,7 @@ Questa sezione è basata sulla [creazione di un contenitore di profili per un po
 
 2. Decomprimere il file scaricato.
 
-3. Nel file passare a **x64** > **releases** ed eseguire **FSLogixAppsSetup. exe**. Viene visualizzato il menu installazione.
+3. Nel file passare a **x64**  >  **releases** ed Run **FSLogixAppsSetup.exe**. Viene visualizzato il menu installazione.
 
 4.  Se si dispone di un codice Product Key, immetterlo nella casella di testo Product Key.
 
@@ -166,11 +170,11 @@ Questa sezione è basata sulla [creazione di un contenitore di profili per un po
 
 6. Selezionare **Installa**.
 
-7. Passare a **C:\\programmi\\\\FSLogix app** per verificare che l'agente sia installato.
+7. Passare a **C: \\ programmi \\ FSLogix \\ app** per verificare che l'agente sia installato.
 
 8. Dal menu Start eseguire **Regedit** come amministratore.
 
-9. Passare a **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+9. Passare a **Computer \\ HKEY_LOCAL_MACHINE \\ software \\ FSLogix**.
 
 10. Creare una chiave denominata **profili**.
 
@@ -210,7 +214,7 @@ Questa sezione è basata sulla [creazione di un contenitore di profili per un po
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Assicurarsi che gli utenti possano accedere alla condivisione file di Azure NetApp
 
-1. Aprire il browser Internet e passare a <https://rdweb.wvd.microsoft.com/arm/webclient>.
+1. Aprire il browser Internet e passare a <https://rdweb.wvd.microsoft.com/arm/webclient> .
 
 2. Accedere con le credenziali di un utente assegnato al gruppo di Desktop remoto.
 
@@ -218,16 +222,20 @@ Questa sezione è basata sulla [creazione di un contenitore di profili per un po
 
 4. Aprire **Azure NetApp files**, selezionare l'account Azure NetApp files, quindi selezionare **volumi**. Quando si apre il menu volumi, selezionare il volume corrispondente.
 
-   ![Una schermata dell'account NetApp configurato in precedenza nel portale di Azure con il pulsante volumi selezionati.](media/netapp-account.png)
+   > [!div class="mx-imgBorder"]
+   > ![Una schermata dell'account NetApp configurato in precedenza nel portale di Azure con il pulsante volumi selezionati.](media/netapp-account.png)
 
 5. Passare alla scheda **Panoramica** e verificare che il contenitore del profilo FSLogix stia usando lo spazio.
 
-6. Connettersi direttamente a qualsiasi parte della macchina virtuale del pool host usando Desktop remoto e aprire **Esplora file.** Passare quindi al **percorso di montaggio** (nell'esempio seguente il percorso di montaggio \\ \\è ANF-SMB-3863.gt1107.onmicrosoft.com\\e-vol).
+6. Connettersi direttamente a qualsiasi parte della macchina virtuale del pool host usando Desktop remoto e aprire **Esplora file.** Passare quindi al **percorso di montaggio** (nell'esempio seguente il percorso di montaggio è \\ \\ ANF-SMB-3863.gt1107.onmicrosoft.com \\ e-vol).
 
    All'interno di questa cartella deve essere presente un file VHD (o VHDX) del profilo come quello nell'esempio seguente.
 
-   ![Screenshot del contenuto della cartella nel percorso di montaggio. All'interno di un singolo file VHD denominato "Profile_ssbb".](media/mount-path-folder.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot del contenuto della cartella nel percorso di montaggio. All'interno di un singolo file VHD denominato "Profile_ssbb".](media/mount-path-folder.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile usare i contenitori del profilo FSLogix per configurare una condivisione del profilo utente. Per informazioni su come creare condivisioni di profili utente con i nuovi contenitori, vedere [creare un contenitore di profili per un pool host usando una condivisione file](create-host-pools-user-profile.md).
+
+È anche possibile creare una condivisione file File di Azure per archiviare il profilo FSLogix in. Per altre informazioni, vedere [creare una file di Azure condivisione file con un controller di dominio](create-file-share.md).

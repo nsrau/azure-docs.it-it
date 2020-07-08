@@ -1,14 +1,14 @@
 ---
 title: Anteprima - Informazioni su Criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale. Questa è una funzionalità in anteprima.
-ms.date: 05/20/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373625"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendere i criteri di Azure per i cluster Kubernetes (anteprima)
 
@@ -25,7 +25,7 @@ Il servizio Criteri di Azure per Kubernetes supporta gli ambienti cluster seguen
 - [Motore del servizio Azure Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Criteri di Azure per Kubernetes è in anteprima e supporta solo i pool di nodi Linux e le definizioni dei criteri predefinite. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri in anteprima limitata con l'effetto **EnforceRegoPolicy** e la categoria **Servizio Kubernetes** sono _deprecate_. Usare l'effetto aggiornato [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
+> Criteri di Azure per Kubernetes è in anteprima e supporta solo i pool di nodi Linux e le definizioni dei criteri predefinite. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri di anteprima limitati con effetto **EnforceOPAConstraint** e **EnforceRegoPolicy** e la categoria del **servizio Kubernetes** correlata sono _deprecate_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Panoramica
 
@@ -35,6 +35,9 @@ Per abilitare e usare Criteri di Azure con il cluster Kubernetes, eseguire le op
    - [Servizio Azure Kubernetes](#install-azure-policy-add-on-for-aks)
    - [Kubernetes con abilitazione di Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [Motore del servizio Azure Kubernetes](#install-azure-policy-add-on-for-aks-engine)
+
+   > [!NOTE]
+   > Per problemi comuni relativi all'installazione, vedere [risoluzione dei problemi-componente aggiuntivo criteri di Azure](../troubleshoot/general.md#add-on-installation-errors).
 
 1. [Familiarizzare con il linguaggio di Criteri di Azure per Kubernetes](#policy-language)
 
@@ -49,9 +52,6 @@ Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le 
 1. L'interfaccia della riga di comando di Azure 2.0.62 o versioni successive deve essere installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 1. Registrare i provider di risorse e le funzionalità di anteprima.
-
-   > [!CAUTION]
-   > Dopo aver registrato una funzionalità in una sottoscrizione, non è possibile annullarne la registrazione. Dopo aver abilitato alcune funzionalità di anteprima, è possibile usare le impostazioni predefinite per tutti i cluster del servizio Azure Kubernetes successivamente creati nella sottoscrizione. Non abilitare alcuna funzionalità di anteprima in una sottoscrizione di produzione. Usare una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere feedback.
 
    - Portale di Azure:
 
@@ -367,7 +367,7 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="policy-language"></a>Linguaggio dei criteri
 
-La struttura del linguaggio di Criteri di Azure per la gestione di Kubernetes segue quella delle definizioni dei criteri esistenti. L'effetto _EnforceOPAConstraint_ viene usato per gestire i cluster Kubernetes e accetta proprietà details specificamente intese per l'uso di [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) e Gatekeeper v3. Per informazioni dettagliate ed esempi, vedere l'effetto [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
+La struttura del linguaggio di Criteri di Azure per la gestione di Kubernetes segue quella delle definizioni dei criteri esistenti. Con la [modalità del provider di risorse](./definition-structure.md#resource-provider-modes) `Microsoft.Kubernetes.Data` , vengono usati gli effetti [Audit](./effects.md#audit) e [Deny](./effects.md#deny) per gestire i cluster Kubernetes. _Audit_ e _Deny_ devono fornire **informazioni dettagliate** sulle proprietà specifiche per l'uso del [Framework di vincolo OPA](https://github.com/open-policy-agent/frameworks/tree/master/constraint) e di Gatekeeper V3.
 
 Come parte delle proprietà _details.constraintTemplate_ e _details.constraint_ nella definizione dei criteri, Criteri di Azure passa gli URI di queste [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) al componente aggiuntivo. Rego è il linguaggio supportato da OPA e Gatekeeper per convalidare una richiesta al cluster Kubernetes. Grazie al supporto di uno standard esistente per la gestione di Kubernetes, Criteri di Azure consente di riutilizzare le regole esistenti e di associarle a Criteri di Azure per un'esperienza di creazione di report di conformità cloud unificata. Per altre informazioni, vedere [Informazioni su Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
@@ -535,7 +535,7 @@ Le informazioni raccolte dal componente aggiuntivo non sono dati personali. Attu
 - Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md).
 - Vedere [Struttura delle definizioni di criteri di Azure](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
-- Informazioni su come [creare criteri a livello di programmazione](../how-to/programmatically-create.md).
-- Informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
+- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
+- Leggere le informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 - Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

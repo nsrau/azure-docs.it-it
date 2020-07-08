@@ -10,6 +10,7 @@ ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84792040"

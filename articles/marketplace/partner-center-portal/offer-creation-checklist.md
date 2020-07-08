@@ -1,33 +1,36 @@
 ---
-title: Elenco di controllo per la creazione di offerte SaaS - Marketplace commerciale per Azure
-description: Dettagli che è possibile fornire nel processo di creazione di offerte SaaS. - Marketplace commerciale per Azure
+title: Elenco di controllo per la creazione di un'offerta SaaS in Microsoft Commercial Marketplace
+description: I dettagli che è possibile fornire nel processo di creazione dell'offerta SaaS sono disponibili nel centro per i partner.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 05/08/2020
+ms.openlocfilehash: b30afd4ef69b9b4ecb49b99f4455bf136a6e6eb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374407"
 ---
-# <a name="saas-offer-creation-checklist"></a>Elenco di controllo per la creazione di offerte SaaS
+# <a name="saas-offer-creation-checklist-in-partner-center"></a>Elenco di controllo per la creazione di un'offerta SaaS nel centro
 
-Il processo di creazione di offerte SaaS si estende in più pagine. Di seguito sono illustrati i dettagli che è possibile fornire in ogni pagina, con collegamenti per ottenere maggiori informazioni su ogni elemento.
+Il processo di creazione di offerte SaaS si estende in più pagine.  Di seguito sono illustrati i dettagli che è possibile fornire in ogni pagina, con collegamenti per ottenere maggiori informazioni su ogni elemento.
 
-Di seguito sono indicati gli elementi che è obbligatorio fornire o specificare. Alcune aree sono facoltative o prevedono valori predefiniti che è possibile modificare come si desidera. Non è necessario esaminare le sezioni nell'ordine indicato.
+Di seguito sono indicati gli elementi che è obbligatorio fornire o specificare.  Alcune aree sono facoltative o prevedono valori predefiniti che è possibile modificare come si desidera.  Non è necessario esaminare le sezioni nell'ordine indicato.
+
+>[!Note]
+>Per creare un'offerta SaaS transazionale, assicurarsi di implementare l'integrazione con le [API di evasione Saas](./pc-saas-fulfillment-apis.md).  L'integrazione con le API è l'unico modo per garantire il corretto funzionamento della transazione nel Marketplace.
 
 | **Elemento**    | **Scopo**  |
 | :---------- | :-------------------|
 | [**Finestra modale Nuova offerta**](#new-offer-modal) | Raccoglie le informazioni relative all'identità dell'offerta.  |
 | [Pagina Configurazione dell'offerta](#offer-setup-page) | Consente di acconsentire esplicitamente all'uso delle funzionalità chiave e di scegliere come vendere l'offerta tramite Microsoft.  |
 | [Pagina Proprietà](#properties-page) | Consente di definire le categorie e i settori usati per raggruppare l'offerta nei marketplace, i contratti legali che supportano l'offerta e la versione dell'app. |
-| [Pagina Presentazione dell'offerta](#offer-listing-page) | Consente di definire i dettagli dell'offerta da visualizzare nel marketplace, tra cui le descrizioni dell'offerta e gli asset di marketing. |
-| [Pagina Anteprima](#preview-page) | Consente di definire un numero di destinatari limitato per l'anteprima per il rilascio dell'offerta prima di pubblicarla e renderla disponibile a un pubblico del marketplace più ampio. |
-| [Pagina Configurazione tecnica per l'offerta](#technical-configuration-page)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft. Consente di definire i dettagli tecnici (percorso URL, webhook, ID tenant e ID app) usati per connettersi all'offerta. |
+| [Pagina Presentazione dell'offerta](#offer-listing-page) | Consente di definire i dettagli dell'offerta da visualizzare nel marketplace, tra cui le descrizioni dell'offerta e gli asset di marketing.|
+| [Pagina Anteprima](#preview-page) | Consente di definire un numero di destinatari limitato per l'anteprima per il rilascio dell'offerta prima di pubblicarla e renderla disponibile a un pubblico del marketplace più ampio.|
+| [Pagina Configurazione tecnica per l'offerta](#technical-configuration-page)  |  Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft.  Definire i dettagli tecnici (URL della pagina di destinazione, URL del webhook di connessione, ID tenant Azure AD e ID app Azure AD) usati da Marketplace per connettersi all'offerta.  Questi parametri sono necessari per integrarsi correttamente con l'evasione SaaS e le API per la fatturazione a consumo del Marketplace.|
 | [**Finestra modale Nuovo piano**](#plan-identity-modal) | Raccoglie le informazioni relative all'identità del piano.  |
 | [Pagina Elenco piani](#plan-listing-page)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft. Consente di definire i dettagli usati per la presentazione del piano nel marketplace.  |
 | [Pagina Plan Pricing & Availability](#plan-pricing--availability-page) (Disponibilità e prezzi del piano)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft.  Raccoglie le caratteristiche di business (modello di determinazione prezzi), i destinatari e la disponibilità di mercato per ogni piano (versione) dell'offerta.  |
@@ -89,7 +92,7 @@ Nella pagina di presentazione dell'offerta è possibile fornire il testo e le im
 | Collegamenti utili (titolo + URL)  | Facoltativa. |
 | Documenti di supporto (titolo + file)  | Obbligatorio, minimo 1 e massimo 3. Il formato di file deve essere PDF. |
 | Screenshots (Schermate)  | Obbligatorio, minimo 1 screenshot e massimo 5, consigliati quattro o più. Il formato deve essere PNG con dimensioni 1280 x 720. |
-| Logo per lo Store (Piccolo, Medio, Grande, Largo, Banner)  | I logo Piccolo (48 x 48) e Grande (216 x 216) sono obbligatori, le altre dimensioni sono facoltative ma consigliate: Medio (90 x 90), Largo (255 x 115), Banner (815 x 290). Il formato deve essere PNG. |
+| Logo dello Store (piccolo, medio, grande, largo)  | Small (48 X 48) e Large (216 X 216) obbligatorio; altre dimensioni facoltative ma consigliate: media (90 x 90), Wide (255 x 115). Deve essere in. Formato PNG. |
 | Video (nome + URL + anteprima)  | Facoltativo, consigliato, massimo 4 video. L'anteprima deve essere in formato PNG con dimensioni 1280 x 720. Il video deve essere ospitato in YouTube o Vimeo. |
 | Contatti (programma CSP, tecnico, supporto)  | Contatti tecnico e di supporto obbligatori (nome, indirizzo di posta elettronica e numero di telefono), contatto del programma CSP facoltativo ma consigliato. |
 | URL del supporto  | Obbligatorio. |

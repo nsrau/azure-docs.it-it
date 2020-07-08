@@ -10,6 +10,7 @@ ms.date: 01/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 3a17b56d3abed30ccb495fd9111ff1299165175c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988081"
@@ -66,7 +67,7 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 
 In questa sezione si accede e si dichiarano i valori usati per la configurazione. I valori dichiarati saranno usati negli script di esempio. È possibile modificare i valori in base all'ambiente personalizzato. In alternativa, è possibile usare i valori dichiarati e seguire la procedura come un esercizio.
 
-### <a name="sign-in"></a>Accesso
+### <a name="sign-in"></a>Accedi
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 

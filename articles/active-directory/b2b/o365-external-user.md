@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/24/2017
+ms.date: 06/24/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d70aed6fbe0f09ea6284f913c88186ecf94e297
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcb407735cff5a0c43d3a584ff37a0eabc178381
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367445"
 ---
-# <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Condivisione esterna di Office 365 e Collaborazione B2B di Azure Active Directory
+# <a name="office-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Condivisione esterna di Office 365 e Azure Active Directory (Azure AD) collaborazione B2B
 
-La condivisione esterna in Office 365, con OneDrive, SharePoint Online, gruppi unificati e così via, e quella tramite Collaborazione B2B di Azure Active Directory (Azure AD) tecnicamente si equivalgono. Tutti i tipi di condivisione esterna, ad eccezione di OneDrive/SharePoint Online, inclusi gli utenti guest nei gruppi di Office 365, fanno già uso delle API di invito di Collaborazione B2B di Azure AD per la condivisione.
+Sia in Azure AD collaborazione B2B che nella condivisione esterna di Office 365 (OneDrive, SharePoint Online, gruppi unificati e così via), gli utenti esterni vengono autenticati con Azure AD B2B.
 
 ## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Qual è la differenza tra Azure AD B2B e la condivisione esterna in SharePoint Online?
 
@@ -45,8 +45,8 @@ Dopo aver abilitato la condivisione esterna, la possibilità di cercare gli uten
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è Azure AD collaborazione B2B?](what-is-b2b.md)
+* [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 * [Aggiunta di un utente di Collaborazione B2B a un ruolo](add-guest-to-role.md)
 * [Delegare gli inviti a Collaborazione B2B](delegate-invitations.md)
 * [Gruppi dinamici e Collaborazione B2B](use-dynamic-groups.md)
-* [Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory](troubleshoot.md)
+* [Risoluzione dei problemi di Azure Active Directory collaborazione B2B](troubleshoot.md)

@@ -3,25 +3,25 @@ title: Applicazioni con carattere jolly nel proxy di applicazione Azure AD
 description: Informazioni su come usare le applicazioni con carattere jolly in Azure Active Directory Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770292"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367734"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy
 
@@ -43,7 +43,7 @@ Questo articolo offre le informazioni necessarie per configurare la pubblicazion
 
 È possibile pubblicare applicazioni con caratteri jolly se il formato degli URL sia interni che esterni è il seguente:
 
-> http(s)://*.\<domain\>
+> http (s)://*.\<domain\>
 
 Ad esempio: `http(s)://*.adventure-works.com`.
 
@@ -62,7 +62,7 @@ Mentre i [domini personalizzati](application-proxy-configure-custom-domain.md) s
 1. Creare un dominio verificato in Azure.
 1. Caricare un certificato TLS/SSL nel formato PFX nel proxy di applicazione.
 
-Può essere opportuno usare un certificato con carattere jolly corrispondente all'applicazione che si intende creare. In alternativa, è anche possibile usare un certificato contenente un elenco di applicazioni specifiche. In questo caso, solo le applicazioni elencate nel certificato saranno accessibili tramite l'applicazione con carattere jolly.
+Può essere opportuno usare un certificato con carattere jolly corrispondente all'applicazione che si intende creare. 
 
 Per motivi di sicurezza, questo requisito è obbligatorio e non saranno supportati caratteri jolly per le applicazioni che non possono usare un dominio personalizzato per l'URL esterno.
 

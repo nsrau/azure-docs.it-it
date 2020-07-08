@@ -2,17 +2,15 @@
 title: 'Anteprima: aggiungere un pool di nodi spot a un cluster di Azure Kubernetes Service (AKS)'
 description: Informazioni su come aggiungere un pool di nodi spot a un cluster di Azure Kubernetes Service (AKS).
 services: container-service
-author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: zarhoads
-ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77622053"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374611"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Anteprima: aggiungere un pool di nodi spot a un cluster di Azure Kubernetes Service (AKS)
 
@@ -37,15 +35,12 @@ Quando si crea un cluster per l'uso di un pool di nodi spot, il cluster deve usa
 > [!IMPORTANT]
 > Le funzionalità di anteprima di AKS sono self-service e acconsentino esplicitamente. Sono disponibili per raccogliere commenti e suggerimenti e bug dalla community. In anteprima, queste funzionalità non sono destinate all'uso in produzione. Le funzionalità nella versione di anteprima pubblica rientrano nel supporto "Best Effort". L'assistenza dei team di supporto tecnico AKS è disponibile solo durante l'orario di ufficio Pacific TimeZone (PST). Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
 >
-> * [Criteri di supporto AKS][aks-support-policies]
+> * [Criteri di supporto del servizio Azure Kubernetes][aks-support-policies]
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Registrare la funzionalità di anteprima di spotpoolpreview
 
 Per creare un cluster AKS che usa un pool di nodi spot, è necessario abilitare il flag della funzionalità *spotpoolpreview* per la sottoscrizione. Questa funzionalità offre il set più recente di miglioramenti del servizio durante la configurazione di un cluster.
-
-> [!CAUTION]
-> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione di tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, è possibile usare i valori predefiniti per tutti i cluster AKS, quindi creati nella sottoscrizione. Non abilitare le funzionalità di anteprima nelle sottoscrizioni di produzione. Usare una sottoscrizione separata per testare le funzionalità di anteprima e raccogliere commenti e suggerimenti.
 
 Registrare il flag della funzionalità *spotpoolpreview* usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
@@ -67,7 +62,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-Per creare un cluster AKS che usa un pool di nodi spot, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* versione 0.4.32 o successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] , quindi verificare la disponibilità di eventuali aggiornamenti tramite il comando [AZ Extension Update][az-extension-update] :
+Per creare un cluster AKS che usa un pool di nodi spot, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* versione 0.4.32 o successiva. Installare l'estensione *aks-preview* dell'interfaccia della riga di comando di Azure usando il comando [az extension add][az-extension-add], quindi verificare la disponibilità di eventuali aggiornamenti usando il comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -111,7 +106,7 @@ az aks nodepool add \
 
 Per impostazione predefinita, si crea un pool di nodi con una *priorità* *regolare* nel cluster AKS quando si crea un cluster con più pool di nodi. Il comando precedente aggiunge un pool di nodi ausiliario a un cluster AKS esistente con una *priorità* di *spot*. La *priorità* di *spot* rende il pool di nodi un pool di nodi spot. Il parametro del *criterio di rimozione* è impostato su *Delete* nell'esempio precedente, che corrisponde al valore predefinito. Quando si impostano i [criteri di rimozione][eviction-policy] per l' *eliminazione*, i nodi nel set di scalabilità sottostante del pool di nodi vengono eliminati quando vengono rimossi. È anche possibile impostare i criteri di rimozione per *deallocare*. Quando si impostano i criteri di rimozione su *deallocate*, i nodi nel set di scalabilità sottostante vengono impostati sullo stato arrestato-deallocato al momento della rimozione. I nodi del conteggio dello stato arrestato-deallocato rispetto alla quota di calcolo e possono causare problemi con il ridimensionamento o l'aggiornamento del cluster. I valori dei *criteri di rimozione* e *priorità* possono essere impostati solo durante la creazione del pool di nodi. Questi valori non possono essere aggiornati in un secondo momento.
 
-Il comando Abilita anche il [ridimensionamento][cluster-autoscaler]automatico del cluster, consigliato per l'uso con i pool di nodi spot. In base ai carichi di lavoro in esecuzione nel cluster, la scalabilità automatica del cluster aumenta e riduce il numero di nodi nel pool di nodi. Per i pool di nodi spot, il ridimensionamento automatico del cluster aumenterà il numero di nodi dopo un'eliminazione se sono ancora necessari altri nodi. Se si modifica il numero massimo di nodi che può avere un pool di nodi, è necessario modificare anche `maxCount` il valore associato al ridimensionamento automatico del cluster. Se non si usa un servizio di scalabilità automatica del cluster, al momento della rimozione, il pool di punti verrà ridotto a zero e sarà necessaria un'operazione manuale per ricevere eventuali nodi spot aggiuntivi.
+Il comando Abilita anche il [ridimensionamento][cluster-autoscaler]automatico del cluster, consigliato per l'uso con i pool di nodi spot. In base ai carichi di lavoro in esecuzione nel cluster, la scalabilità automatica del cluster aumenta e riduce il numero di nodi nel pool di nodi. Per i pool di nodi spot, il ridimensionamento automatico del cluster aumenterà il numero di nodi dopo un'eliminazione se sono ancora necessari altri nodi. Se si modifica il numero massimo di nodi che può avere un pool di nodi, è necessario modificare anche il `maxCount` valore associato al ridimensionamento automatico del cluster. Se non si usa un servizio di scalabilità automatica del cluster, al momento della rimozione, il pool di punti verrà ridotto a zero e sarà necessaria un'operazione manuale per ricevere eventuali nodi spot aggiuntivi.
 
 > [!Important]
 > Pianificare solo i carichi di lavoro nei pool di nodi spot in grado di gestire le interruzioni, ad esempio processi di elaborazione batch e ambienti di test. È consigliabile configurare i [guasti e le tolleranze][taints-tolerations] nel pool di nodi spot per garantire che solo i carichi di lavoro in grado di gestire le eliminazioni di nodi siano pianificati in un pool di nodi spot. Ad esempio, il comando precedente NY default aggiunge una macchia di *kubernetes.Azure.com/scalesetpriority=spot:NoSchedule* in modo che in questo nodo siano pianificati solo i pod con una tolleranza corrispondente.
@@ -145,7 +140,7 @@ Quando viene distribuito un pod con questa tolleranza, Kubernetes può pianifica
 ## <a name="max-price-for-a-spot-pool"></a>Prezzo massimo per un pool di spot
 [I prezzi per le istanze di spot sono variabili][pricing-spot]in base all'area e allo SKU. Per altre informazioni, vedere prezzi per [Linux][pricing-linux] e [Windows][pricing-windows].
 
-Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari statunitensi (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore *0,98765* sarà un prezzo massimo di $0,98765 USD all'ora. Se si imposta il prezzo massimo su *-1*, l'istanza non verrà rimossa in base al prezzo. Il prezzo per l'istanza sarà il prezzo corrente per spot o il prezzo di un'istanza standard, a seconda del valore minore, a condizione che siano disponibili capacità e quota.
+Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari statunitensi (USD), usando al massimo 5 cifre decimali. Ad esempio, il valore *0,98765* sarà un prezzo massimo di $0,98765 USD all'ora. Se si imposta il prezzo massimo su *-1*, l'istanza non verrà rimossa in base al prezzo. Il prezzo per l'istanza sarà il prezzo corrente per spot o il prezzo di un'istanza standard, a seconda del valore minore, a condizione che siano disponibili capacità e quota.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

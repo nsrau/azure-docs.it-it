@@ -3,24 +3,24 @@ title: Problemi di accesso all'app locale con Azure AD proxy app | Microsoft Doc
 description: Risoluzione dei problemi comuni riscontrati quando non si è in grado di accedere a un'applicazione locale integrata con Azure AD tramite il proxy di applicazione di Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91a00e243032fd9702e8b549c75363f1a3e1c87f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74232334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367717"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemi durante l'accesso a un'applicazione locale tramite il proxy di applicazione di Azure AD
 
@@ -36,7 +36,7 @@ I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>Si è verificato un problema di connettività dell'applicazione
   I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni in questa categoria.
-  * [I don't know what ports to open for my application](application-proxy-connectivity-ports-how-to.md) (Quali porte aprire per l'applicazione)
+  * [I don't know what ports to open for my application](application-proxy-add-on-premises-application.md) (Quali porte aprire per l'applicazione)
   * [I encountered a problem because there was no working connector in a connector group for my application](application-proxy-connectivity-no-working-connector.md) (Un gruppo di connettori non contiene alcun connettore funzionante per l'applicazione)
 
 ## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Si è verificato un problema di configurazione del proxy di applicazione di Azure AD nel portale di amministrazione

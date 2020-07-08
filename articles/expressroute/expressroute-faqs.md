@@ -9,6 +9,7 @@ ms.date: 12/13/2019
 ms.author: jaredro
 ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987311"

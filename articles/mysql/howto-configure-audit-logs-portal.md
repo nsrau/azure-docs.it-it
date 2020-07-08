@@ -5,28 +5,28 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: fcd436f87b24d8cdc246d2f1d33a49311e72d46b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 1c48c16666305e9b9c342869e52aa04cfd4dac07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362969"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configurare e accedere ai log di controllo per database di Azure per MySQL nel portale di Azure
 
 È possibile configurare i log di controllo e le impostazioni di diagnostica del [database di Azure per MySQL](concepts-audit-logs.md) dal portale di Azure.
 
-> [!IMPORTANT]
-> La funzionalità del log di controllo è attualmente in anteprima.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per proseguire con questa guida, si richiedono:
 
-- [Server del Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Server di Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Configurare la registrazione di controllo
+
+>[!IMPORTANT]
+> Si consiglia di registrare solo i tipi di evento e gli utenti necessari a scopo di controllo, in modo da garantire che le prestazioni del server non siano fortemente interessate.
 
 Abilitare e configurare la registrazione di controllo.
 
@@ -53,7 +53,7 @@ Abilitare e configurare la registrazione di controllo.
 
 1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**.
 
-1. Fare clic su "+ Aggiungi impostazione di ![diagnostica" Aggiungi impostazione di diagnostica](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Fare clic su "+ Aggiungi impostazione di diagnostica" ![ Aggiungi impostazione di diagnostica](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Specificare un nome per l'impostazione di diagnostica.
 

@@ -4,21 +4,21 @@ description: Come personalizzare il feed per gli utenti di desktop virtuali Wind
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a93aa35353940cfdbded1634448d4f6d2865c365
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 58f05b2f9f15166e161b31578b47cf06afcb13a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614837"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362578"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalizzare il feed per gli utenti di Desktop virtuale Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali Windows introdotti nell'aggiornamento di Spring 2020, vedere [questo articolo](../customize-feed-for-virtual-desktop-users.md).
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../customize-feed-for-virtual-desktop-users.md).
 
 È possibile personalizzare il feed in modo che le risorse RemoteApp e desktop remoto vengano visualizzate in modo riconoscibile per gli utenti.
 
@@ -37,14 +37,18 @@ Per recuperare un elenco di RemoteApp pubblicati per un gruppo di app, eseguire 
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato.](../media/get-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato.](../media/get-rdsremoteapp.png)
 
 Per assegnare un nome descrittivo a un RemoteApp, eseguire il cmdlet PowerShell seguente:
 
 ```powershell
 Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
 ```
-![Screenshot del cmdlet di PowerShell set-RDSRemoteApp con nome e nuovo FriendlyName evidenziato.](../media/set-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot del cmdlet di PowerShell set-RDSRemoteApp con nome e nuovo FriendlyName evidenziato.](../media/set-rdsremoteapp.png)
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Personalizzare il nome visualizzato per un Desktop remoto
 
@@ -55,18 +59,22 @@ Per recuperare la risorsa Desktop remoto, eseguire il cmdlet PowerShell seguente
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato.](../media/get-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato.](../media/get-rdsremotedesktop.png)
 
 Per assegnare un nome descrittivo alla risorsa Desktop remoto, eseguire il cmdlet PowerShell seguente:
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
-![Screenshot del cmdlet di PowerShell set-RDSRemoteApp con nome e nuovo FriendlyName evidenziato.](../media/set-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot del cmdlet di PowerShell set-RDSRemoteApp con nome e nuovo FriendlyName evidenziato.](../media/set-rdsremotedesktop.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che è stato personalizzato il feed per gli utenti, è possibile accedere a un client desktop virtuale di Windows per testarlo. A tale scopo, continuare con le procedure per connettersi a desktop virtuali Windows:
-    
+
  * [Connettersi da Windows 10 o Windows 7](../connect-windows-7-and-10.md)
- * [Connettersi da un Web browser](connect-web-2019.md) 
+ * [Connettersi da un Web browser](connect-web-2019.md)

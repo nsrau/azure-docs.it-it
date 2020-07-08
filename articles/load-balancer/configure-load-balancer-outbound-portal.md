@@ -5,15 +5,15 @@ description: Questo articolo illustra come configurare il bilanciamento del cari
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77590013"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367394"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configurare il bilanciamento del carico e le regole in uscita in Load Balancer Standard usando il portale di Azure
 
@@ -35,7 +35,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 In questa sezione viene creato un servizio di bilanciamento del carico per il bilanciamento del carico delle macchine virtuali. È possibile creare un servizio di bilanciamento del carico pubblico o un servizio di bilanciamento del carico interno. Quando si crea un servizio di bilanciamento del carico pubblico, si crea un nuovo indirizzo IP pubblico configurato come front-end per il servizio di bilanciamento del carico. Il front-end verrà denominato **LoadBalancerFrontEnd** per impostazione predefinita.
 
-1. Nella parte superiore sinistra della schermata selezionare **Crea una risorsa** > **rete** > **Load Balancer**.
+1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
 2. Nella scheda **nozioni di base** della pagina Crea servizio di **bilanciamento del carico** immettere o selezionare le informazioni seguenti:
 
     | Impostazione                 | valore                                              |
@@ -45,7 +45,7 @@ In questa sezione viene creato un servizio di bilanciamento del carico per il bi
     | Nome                   | **myLoadBalancer**                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
-    | SKU           | Selezionare **Standard** o **Basic**. Microsoft consiglia di scegliere Standard per i carichi di lavoro di produzione. |
+    | SKU           | Selezionare **Standard**. |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**. Se si vuole usare un indirizzo IP pubblico esistente, selezionare **Usa esistente**.  L'IP pubblico esistente deve essere uno SKU **standard** .  Gli indirizzi IP pubblici di base non sono compatibili con il servizio di bilanciamento del carico SKU **standard** .  |
     | Nome dell'indirizzo IP pubblico              | Digitare **myPublicIP** nella casella di testo.|
     | Zona di disponibilità | Selezionare con **ridondanza della zona** per creare un Load Balancer resiliente. Per creare una risorsa Load Balancer di zona, selezionare una zona specifica tra 1, 2 o 3 |
@@ -158,7 +158,7 @@ Le regole in uscita del servizio di bilanciamento del carico configurano SNAT in
     | Nome | Immettere **myOutboundRule**. |
     | Indirizzo IP front-end | Selezionare **LoadBalancerFrontEndOutbound**. |
     | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su * * 15 minuti.|
-    | Ripristino TCP | Seleziona **Attivata**.|
+    | Ripristino TCP | Selezionare **Abilitato**.|
     | Pool back-end | Seleziona **myBackendPoolOutbound** |
     | Allocazione porte-allocazione porta > | Selezionare **Scegli manualmente il numero di porte in uscita** |
     | Porte in uscita-> scegliere | Selezionare le **porte per istanza** |
@@ -166,7 +166,7 @@ Le regole in uscita del servizio di bilanciamento del carico configurano SNAT in
 
 4. Selezionare **Aggiungi**.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessari, eliminare il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate. Selezionare il gruppo di risorse **myResourceGroupSLB** che contiene il servizio di bilanciamento del carico e quindi selezionare **Elimina**.
 

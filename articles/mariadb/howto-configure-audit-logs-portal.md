@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: f05f26c54d9f3ea62180c598aada59d405c3c805
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362680"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurare e accedere ai log di controllo nel portale di Azure
 
 È possibile configurare i log di controllo e le impostazioni di diagnostica del [database di Azure per MariaDB](concepts-audit-logs.md) dalla portale di Azure.
-
-> [!IMPORTANT]
-> La funzionalità del log di controllo è attualmente in anteprima.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,6 +24,9 @@ Per proseguire con questa guida, si richiedono:
 - [Database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Configurare la registrazione di controllo
+
+>[!IMPORTANT]
+> Si consiglia di registrare solo i tipi di evento e gli utenti necessari a scopo di controllo, in modo da garantire che le prestazioni del server non siano fortemente interessate.
 
 Abilitare e configurare la registrazione di controllo.
 
@@ -53,7 +53,7 @@ Abilitare e configurare la registrazione di controllo.
 
 1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**.
 
-1. Fare clic su "+ Aggiungi impostazione di ![diagnostica" Aggiungi impostazione di diagnostica](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Fare clic su "+ Aggiungi impostazione di diagnostica" ![ Aggiungi impostazione di diagnostica](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Specificare un nome per l'impostazione di diagnostica.
 

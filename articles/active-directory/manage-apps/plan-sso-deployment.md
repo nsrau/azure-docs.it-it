@@ -2,23 +2,23 @@
 title: Pianificare una distribuzione di Azure Active Directory Single Sign-On
 description: Guida per la pianificazione, la distribuzione e la gestione dell'accesso SSO nell'organizzazione.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 06/10/2020
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197861"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374442"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di Single Sign-On
 
@@ -32,7 +32,7 @@ Molte organizzazioni si basano su applicazioni SaaS (Software as a Service), ad 
 
 Azure Marketplace ha più di 3000 applicazioni con connessioni SSO pre-integrate, semplificando l'integrazione nel tenant.
 
-## <a name="licensing"></a>Gestione licenze
+## <a name="licensing"></a>Gestione delle licenze
 
 - **Azure ad Licensing** -SSO per le applicazioni SaaS pre-integrate è gratuito. Tuttavia, il numero di oggetti nella directory e le funzionalità che si desidera distribuire potrebbero richiedere licenze aggiuntive. Per un elenco completo dei requisiti di licenza, vedere [Azure Active Directory prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenze** per le applicazioni: per soddisfare le esigenze aziendali è necessario disporre delle licenze appropriate per le applicazioni SaaS. Collaborare con il proprietario dell'applicazione per determinare se gli utenti assegnati all'applicazione hanno le licenze appropriate per i rispettivi ruoli all'interno dell'applicazione. Se Azure AD gestisce il provisioning automatico basato sui ruoli, i ruoli assegnati in Azure AD devono essere allineati con il numero di licenze possedute nell'applicazione. Il numero di licenze non corrette di proprietà dell'applicazione può causare errori durante il provisioning o l'aggiornamento di un utente.
@@ -163,7 +163,7 @@ Per tutte le app SaaS pre-integrate, Microsoft fornisce un'esercitazione e non �
 
 ### <a name="attribute-requirements"></a>Requisiti per gli attributi
 
-Esiste un set preconfigurato di attributi e mapping di attributi tra Azure AD oggetti utente e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, ad esempio i gruppi. Pianificare il mapping degli attributi utente da Azure AD all'applicazione e [personalizzare i mapping](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) degli attributi predefiniti in base alle esigenze aziendali.
+Esiste un set preconfigurato di attributi e mapping degli attributi tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, ad esempio i gruppi. Pianificare il mapping degli attributi utente da Azure AD all'applicazione e [personalizzare i mapping](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) degli attributi predefiniti in base alle esigenze aziendali.
 
 ### <a name="certificate-requirements"></a>Requisiti del certificato
 
@@ -194,8 +194,6 @@ Usare le fasi seguenti per pianificare e distribuire la soluzione nell'organizza
    Se non è possibile individuare l'applicazione, vedere la [documentazione dell'applicazione personalizzata](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Verrà illustrato come aggiungere un'applicazione che non si trova nella raccolta di Azure AD.
 
    Facoltativamente, è possibile usare le attestazioni rilasciate nel token SAML per l'applicazione aziendale usando la [documentazione di Microsoft](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Assicurarsi che questo sia mappato a ciò che si prevede di ricevere nella risposta SAML per l'applicazione. Se si verificano problemi durante la configurazione, attenersi alle indicazioni su [come eseguire il debug dell'integrazione SSO](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
-
-Il caricamento dell'applicazione personalizzata è una funzionalità di licenze Azure AD Premium P1 o P2.
 
 ### <a name="provide-sso-change-communications-to-end-users"></a>Fornire le comunicazioni di modifica SSO agli utenti finali
 
@@ -237,11 +235,11 @@ Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseg
 
 | Utente tipo| Ruoli | Ruolo Azure AD (se necessario) |
 |--------|-------|-----------------------------|
-| Amministratore del supporto tecnico | Supporto di livello 1 | Nessuno |
+| Amministratore del supporto tecnico | Supporto di livello 1 | nessuno |
 | Amministratore identità | Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD | Amministratore globale |
-| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
+| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
 | Amministratori dell'infrastruttura | Proprietario del rollover del certificato | Amministratore globale |
-| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
+| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
 
 È consigliabile usare [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 

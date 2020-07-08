@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36aa0a4a87e439c128c5247b6850100a7f2e826e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: 66ad9c27ca69df230d9ce1d2282e734420fa14f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373667"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configurare le impostazioni dell'applicazione per App Web statiche di Azure (anteprima)
 
@@ -105,9 +105,11 @@ Il portale di Azure fornisce un'interfaccia per la creazione, l'aggiornamento e 
 
     :::image type="content" source="media/application-settings/configuration.png" alt-text="Visualizzazione di configurazione delle app Web statiche di Azure":::
 
-1. Specificare le informazioni per **Nome** e **Valore**
+1. Immettere un **nome** e un **valore**.
 
 1. Fare clic su **OK**.
+
+1. Fare clic su **Salva**.
 
 ### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
 
@@ -156,7 +158,7 @@ Il comando dell'interfaccia della riga di comando di Azure richiede diversi valo
 
 È possibile visualizzare le impostazioni dell'applicazione tramite l'interfaccia della riga di comando di Azure.
 
-1. Da un terminale o da una riga di comando, eseguire il comando seguente. Assicurarsi di sostituire i segnaposto `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>` e `<YOUR_STATIC_SITE_NAME>` con i valori effettivi.
+- Da un terminale o da una riga di comando, eseguire il comando seguente. Assicurarsi di sostituire i segnaposto `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>` e `<YOUR_STATIC_SITE_NAME>` con i valori effettivi.
 
    ```bash
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"

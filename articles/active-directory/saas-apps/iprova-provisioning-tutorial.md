@@ -15,44 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: bb730bad2837616aee0ebfa2da04015542782d9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b914292e03078021c02d777505543a537b50260f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77057502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367615"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Esercitazione: configurare iProva per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire in iProva e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in iProva.
+Questa esercitazione descrive i passaggi da eseguire in iProva e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in [iProva](https://www.iProva.com/). Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 > [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
->
 > Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Microsoft Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+## <a name="capabilities-supported"></a>Funzionalità supportate
+> [!div class="checklist"]
+> * Creare utenti in iProva
+> * Rimuovere gli utenti in iProva quando non richiedono più l'accesso
+> * Mantieni gli attributi utente sincronizzati tra Azure AD e iProva
+> * Effettuare il provisioning di gruppi e appartenenze a gruppi in iProva
+> * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial) per iProva (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* Un tenant di Azure AD
-* [Tenant di iProva](https://www.iProva.com/)
+* [Tenant Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
+* [Tenant di iProva](https://www.iProva.com/).
 * Un account utente in iProva con autorizzazioni di amministratore.
 
-## <a name="assigning-users-to-iprova"></a>Assegnazione di utenti a iProva
+## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
+1. Vedere le informazioni su [come funziona il servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determinare quali dati eseguire il [mapping tra Azure ad e iProva](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
-
-Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a iProva. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a iProva seguendo le istruzioni riportate qui:
-* [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
-
-## <a name="important-tips-for-assigning-users-to-iprova"></a>Suggerimenti importanti per l'assegnazione di utenti a iProva
-
-* È consigliabile assegnare un singolo Azure AD utente a iProva per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
-
-* Quando si assegna un utente a iProva, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di **accesso predefinito** vengono esclusi dal provisioning.
-
-## <a name="set-up-iprova-for-provisioning"></a>Configurare iProva per il provisioning
+## <a name="step-2-configure-iprova-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare iProva per supportare il provisioning con Azure AD
 
 1. Accedere a [IProva Admin Console](https://www.iProva.com/). Passare a **> gestione applicazioni**.
 
@@ -72,38 +72,25 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
     ![iProva creare token](media/iprova-provisioning-tutorial/token.png)
 
-## <a name="add-iprova-from-the-gallery"></a>Aggiungere iProva dalla raccolta
+## <a name="step-3-add-iprova-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere iProva dalla raccolta di applicazioni Azure AD
 
-Prima di configurare iProva per il provisioning utenti automatico con Azure AD, è necessario aggiungere iProva dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
+Aggiungere iProva dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in iProva. Se in precedenza è stato configurato iProva per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-**Per aggiungere iProva dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+* Quando si assegnano utenti e gruppi a iProva, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
 
-2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+* Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
-
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
-
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
-
-4. Nella casella di ricerca immettere **iProva**, selezionare **iProva** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
-
-    ![iProva nell'elenco risultati](common/search-new-app.png)
-
-## <a name="configuring-automatic-user-provisioning-to-iprova"></a>Configurazione del provisioning utenti automatico in iProva 
+## <a name="step-5-configure-automatic-user-provisioning-to-iprova"></a>Passaggio 5. Configurare il provisioning utenti automatico in iProva 
 
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in iProva in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
-> [!TIP]
-> È anche possibile scegliere di abilitare Single Sign-On basate su SAML per iProva seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iProva-tutorial). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
-
 ### <a name="to-configure-automatic-user-provisioning-for-iprova-in-azure-ad"></a>Per configurare il provisioning utenti automatico per iProva in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -111,15 +98,15 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Collegamento iProva nell'elenco Applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **provisioning** .
+3. Selezionare la scheda **Provisioning**.
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare la **modalità di provisioning** su **automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://identitymanagement.services.iProva.nl/scim` in **URL tenant**. Immettere il valore del **token permanente** recuperato in precedenza nel **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a iProva. Se la connessione non riesce, verificare che l'account iProva disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere l'URL di **base scim 2,0 e i valori dei token permanenti** recuperati in precedenza rispettivamente nei campi **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a iProva. Se la connessione non riesce, verificare che l'account iProva disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -131,21 +118,51 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a iProva**.
 
-    ![Mapping utente iProva](media/iprova-provisioning-tutorial/usermappings.png)
-
 9. Esaminare gli attributi utente sincronizzati da Azure AD a iProva nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in iProva per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente di iProva](media/iprova-provisioning-tutorial/userattributes.png)
+   |Attributo|Type|
+   |---|---|
+   |active|Boolean|
+   |displayName|string|
+   |title|string|
+   |emails[type eq "work"].value|string|
+   |preferredLanguage|string|
+   |userName|string|
+   |addresses[type eq "work"].country|string|
+   |addresses[type eq "work"].locality|string|
+   |addresses[type eq "work"].postalCode|string|
+   |addresses[type eq "work"].formatted|string|
+   |addresses[type eq "work"].region|string|
+   |addresses[type eq "work"].streetAddress|string|
+   |indirizzi [tipo EQ "other"]. formattato|string|
+   |name.givenName|string|
+   |name.familyName|string|
+   |name.formatted|string|
+   |phoneNumbers[type eq "fax"].value|string|
+   |phoneNumbers[type eq "mobile"].value|string|
+   |phoneNumbers[type eq "work"].value|string|
+   |externalId|string|
+   |ruoli [Primary EQ "true"]. display|string|
+   |ruoli [Primary EQ "true"]. Type|string|
+   |ruoli [Primary EQ "true"]. Value|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
+
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to iProva**.
 
-    ![Mapping del gruppo iProva](media/iprova-provisioning-tutorial/groupmappings.png)
-
 11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a iProva nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in iProva per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi del gruppo iProva](media/iprova-provisioning-tutorial/groupattributes.png)
+      |Attributo|Type|
+      |---|---|
+      |displayName|string|
+      |Membri di|Informazioni di riferimento|
 
-12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Per abilitare il servizio di provisioning Azure AD per iProva, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
@@ -159,13 +176,23 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su iProva.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. 
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
+
+## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
+Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
+
+1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+## <a name="change-log"></a>Registro delle modifiche
+
+* 06/17/2020-l'attributo "Manager" dell'estensione Enterprise è stato rimosso.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

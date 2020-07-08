@@ -3,12 +3,12 @@ title: Lavorare con le raccolte Reliable Collections
 description: Informazioni sulle procedure consigliate per l'uso di Reliable Collections all'interno di un'applicazione Service Fabric di Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374696"
 ---
 # <a name="working-with-reliable-collections"></a>Lavorare con le raccolte Reliable Collections
 Service Fabric offre un modello di programmazione con stato disponibile per gli sviluppatori .NET tramite Reliable Collections. In particolare, Service Fabric offre classi ReliableDictionary e ReliableQueue. Quando si usano queste classi, lo stato è partizionato (per la scalabilità), replicato (per la disponibilità) e le transazioni vengono eseguite all'interno di una partizione (per la semantica ACID). Verrà ora esaminato un utilizzo tipico di un oggetto Reliable Dictionary e ne verrà verificata la realtà.
@@ -42,9 +42,14 @@ Tutte le operazioni sugli oggetti ReliableDictionary (ad eccezione di ClearAsync
 
 Nel codice precedente, l'oggetto ITransaction viene passato al metodo AddAsync di un dizionario reliable. Internamente, i metodi di dizionario che accettano una chiave acquisiscono un blocco di lettura/scrittura associato alla chiave. Se il metodo modifica il valore della chiave, il metodo accetta un blocco di scrittura sulla chiave e se il metodo legge solo dal valore della chiave, viene preso un blocco di lettura sulla chiave. Poiché AddAsync modifica il valore della chiave nel nuovo valore passato, viene assunto il blocco di scrittura della chiave. Pertanto, se due (o più) thread tentano di aggiungere i valori alla stessa chiave nello stesso momento, un thread acquisirà il blocco di scrittura e gli altri verranno bloccati. Per impostazione predefinita, i metodi si interrompono fino a 4 secondi per acquisire il blocco; dopo 4 secondi, i metodi generano un'eccezione TimeoutException. Gli overload dei metodi sono disponibili per consentire il passaggio di un valore di timeout esplicito, se si preferisce.
 
-In genere, si scrive il codice per reagire a un'eccezione TimeoutException rilevandola e tentando di effettuare nuovamente l'intera operazione (come illustrato nel codice precedente). Nel mio semplice codice, sto semplicemente chiamando Task. delay che supera 100 millisecondi ogni volta. In realtà, potrebbe essere più opportuno usare un tipo di ritardo backoff esponenziale.
+In genere, si scrive il codice per reagire a un'eccezione TimeoutException rilevandola e tentando di effettuare nuovamente l'intera operazione (come illustrato nel codice precedente). In questo semplice codice, si sta semplicemente chiamando Task. delay che passa 100 millisecondi ogni volta. In realtà, potrebbe essere più opportuno usare un tipo di ritardo backoff esponenziale.
 
-Una volta acquisito il blocco, AddAsync aggiunge i riferimenti dell'oggetto valore e chiave a un dizionario interno temporaneo associato all'oggetto ITransaction. Questa operazione viene eseguita per fornire la semantica di autolettura delle proprie scritture. Vale a dire che, dopo aver chiamato AddAsync, una chiamata successiva a TryGetValueAsync (usando lo stesso oggetto ITransaction) restituirà il valore anche se non si è eseguito il commit della transazione. Successivamente, AddAsync serializza gli oggetti di chiave e valore in array di byte e aggiunge gli array a un file di log sul nodo locale. Infine, AddAsync invia gli array di byte di tutte le repliche secondarie in modo che abbiano le stesse informazioni chiave/valore. Anche se le informazioni chiave/valore sono stato scritte in un file di log, le informazioni non vengono considerate parte del dizionario fino a quando non è stato eseguito il commit della transazione a cui sono associate.
+Una volta acquisito il blocco, AddAsync aggiunge i riferimenti dell'oggetto valore e chiave a un dizionario interno temporaneo associato all'oggetto ITransaction. Questa operazione viene eseguita per fornire la semantica di autolettura delle proprie scritture. Ovvero, dopo avere chiamato AddAsync, una chiamata successiva a TryGetValueAsync usando lo stesso oggetto ITransaction restituirà il valore anche se non è stata ancora eseguito il commit della transazione.
+
+> [!NOTE]
+> Se si chiama TryGetValueAsync con una nuova transazione, viene restituito un riferimento all'ultimo valore di cui è stato eseguito il commit. Non modificare direttamente il riferimento, in quanto ignora il meccanismo per salvare in modo permanente e replicare le modifiche. Si consiglia di rendere i valori di sola lettura in modo che l'unico modo per modificare il valore di una chiave sia tramite le API Reliable Dictionary.
+
+Successivamente, AddAsync serializza gli oggetti di chiave e valore in array di byte e aggiunge gli array a un file di log sul nodo locale. Infine, AddAsync invia gli array di byte di tutte le repliche secondarie in modo che abbiano le stesse informazioni chiave/valore. Anche se le informazioni chiave/valore sono stato scritte in un file di log, le informazioni non vengono considerate parte del dizionario fino a quando non è stato eseguito il commit della transazione a cui sono associate.
 
 Nel codice precedente, la chiamata a CommitAsync consente di eseguire il commit di tutte le operazioni della transazione. In particolare, aggiunge informazioni di commit al file di log sul nodo locale e invia anche il record di commit a tutte le repliche secondarie. Una volta ricevuta la risposta da un quorum (maggioranza) delle repliche, tutte le modifiche ai dati vengono considerate permanenti e i blocchi associati alle chiavi modificate tramite l'oggetto ITransaction vengono rilasciati in modo che altri thread/transazioni possano modificare le stesse chiavi e i relativi valori.
 
@@ -55,13 +60,13 @@ In alcuni carichi di lavoro, come una cache replicata, ad esempio, può essere t
 
 Attualmente, il supporto volatile è disponibile solo per i dizionari affidabili e le code affidabili e non per ReliableConcurrentQueues. Vedere l'elenco delle [avvertenze](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) per indicare se usare le raccolte volatili.
 
-Per abilitare il supporto volatile nel servizio, impostare il ```HasPersistedState``` flag nella dichiarazione del tipo di ```false```servizio su, come segue:
+Per abilitare il supporto volatile nel servizio, impostare il ```HasPersistedState``` flag nella dichiarazione del tipo di servizio su ```false``` , come segue:
 ```xml
 <StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
 ```
 
 >[!NOTE]
->I servizi mantenuti esistenti non possono essere resi volatili e viceversa. Se si desidera eseguire questa operazione, sarà necessario eliminare il servizio esistente e quindi distribuire il servizio con il flag aggiornato. Ciò significa che è necessario essere disposti a comportare una perdita di dati completa se si ```HasPersistedState``` desidera modificare il flag. 
+>I servizi mantenuti esistenti non possono essere resi volatili e viceversa. Se si desidera eseguire questa operazione, sarà necessario eliminare il servizio esistente e quindi distribuire il servizio con il flag aggiornato. Ciò significa che è necessario essere disposti a comportare una perdita di dati completa se si desidera modificare il ```HasPersistedState``` flag. 
 
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>Inconvenienti comuni e come evitarli
 Ora che si è appreso come funzionano internamente le raccolte Reliable Collections, verranno esaminate alcune applicazioni comuni. Osserviamo il seguente codice:
@@ -145,7 +150,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definire tipi di dati non modificabili per evitare errori del programmatore
-Idealmente, si vuole che il compilatore segnali gli errori quando si genera accidentalmente codice che modifica lo stato di un oggetto che si dovrebbe considerare non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). È anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione possono spesso influire negativamente sulle prestazioni. Tuttavia, se si desidera utilizzare le proprietà della raccolta, è consigliabile utilizzare. Libreria di raccolte non modificabili di NET ([System. Collections. Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Questa libreria è disponibile per il download https://nuget.orgda. È inoltre consigliabile bloccare le classi e rendere i campi di sola lettura quando possibile.
+Idealmente, si vuole che il compilatore segnali gli errori quando si genera accidentalmente codice che modifica lo stato di un oggetto che si dovrebbe considerare non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). È anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione possono spesso influire negativamente sulle prestazioni. Tuttavia, se si desidera utilizzare le proprietà della raccolta, è consigliabile utilizzare. Libreria di raccolte non modificabili di NET ([System. Collections. Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Questa libreria è disponibile per il download da https://nuget.org . È inoltre consigliabile bloccare le classi e rendere i campi di sola lettura quando possibile.
 
 Il tipo UserInfo riportato di seguito mostra come definire un tipo non modificabile sfruttando i consigli indicati in precedenza.
 

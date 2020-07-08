@@ -4,16 +4,16 @@ description: Come dimensionare automaticamente gli host di sessioni di Desktop v
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: f94852a99f0bc430ac193b9951de607cdd7fa933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362544"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Dimensionare gli host di sessioni con Automazione di Azure
 
@@ -33,7 +33,7 @@ Le segnalazioni di problemi relativi allo strumento di dimensionamento vengono a
 Lo strumento di dimensionamento offre un'opzione di automazione a basso costo per i clienti che vogliono ottimizzare i costi delle VM host di sessioni.
 
 È possibile usare lo strumento per:
- 
+
 - Pianificare l'avvio e l'arresto delle VM in base agli orari di ufficio di punta e non di punta.
 - Aumentare le VM in base al numero di sessioni per core di CPU.
 - Ridurre le VM nelle ore non di punta, lasciando in esecuzione il numero minimo di VM host di sessioni.
@@ -67,7 +67,7 @@ Prima di iniziare la configurazione dello strumento di dimensionamento, assicura
 - VM del pool di host di sessioni configurate e registrate con il servizio Desktop virtuale Windows
 - Un utente con [accesso di Collaboratore](../../role-based-access-control/role-assignments-portal.md) nella sottoscrizione di Azure
 
-Il computer da usare per distribuire lo strumento deve avere: 
+Il computer da usare per distribuire lo strumento deve avere:
 
 - Windows PowerShell 5.1 o versione successiva
 - Il modulo Microsoft Az di PowerShell
@@ -106,7 +106,8 @@ Per prima cosa, è necessario un account di Automazione di Azure per eseguire il
 
 6. Dopo aver configurato l'account di Automazione di Azure, accedere alla sottoscrizione di Azure e verificare che l'account di Automazione di Azure e il runbook pertinente vengano visualizzati nel gruppo di risorse specificato, come illustrato nell'immagine seguente:
 
-![Immagine della pagina di panoramica di Azure che mostra l'account di automazione e il runbook appena creati.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![Immagine della pagina di panoramica di Azure che mostra l'account di automazione e il runbook appena creati.](../media/automation-account.png)
 
   Per verificare se il webhook si trova dove previsto, selezionare il nome del runbook. Passare quindi alla sezione Risorse del runbook e selezionare **Webhook**.
 
@@ -180,21 +181,21 @@ Infine, è necessario creare l'app per la logica di Azure e configurare una pian
 
      ```powershell
      $aadTenantId = (Get-AzContext).Tenant.Id
-     
+
      $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
      Select-AzSubscription -Subscription $azureSubscription.Id
      $subscriptionId = $azureSubscription.Id
-     
+
      $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
      $resourceGroupName = $resourceGroup.ResourceGroupName
      $location = $resourceGroup.Location
-     
+
      $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
      $tenantName = $wvdTenant.TenantName
-     
+
      $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
      $hostPoolName = $wvdHostpool.HostPoolName
-     
+
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
@@ -204,12 +205,12 @@ Infine, è necessario creare l'app per la logica di Azure e configurare una pian
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-     
+
      $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
      $automationAccountName = $automationAccount.AutomationAccountName
      $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
      $connectionAssetName = $automationAccountConnection.Name
-     
+
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
@@ -236,11 +237,13 @@ Infine, è necessario creare l'app per la logica di Azure e configurare una pian
 
      Dopo aver eseguito lo script, l'app per la logica verrà visualizzata in un gruppo di risorse, come illustrato nell'immagine seguente.
 
-     ![Immagine della pagina di panoramica con un esempio di app per la logica di Azure.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![Immagine della pagina di panoramica con un esempio di app per la logica di Azure.](../media/logic-app.png)
 
 Per apportare modifiche alla pianificazione dell'esecuzione, ad esempio per cambiare l'intervallo di ricorrenza o il fuso orario, passare all'utilità di pianificazione per la scalabilità automatica e selezionare **Modifica** per aprire la finestra di progettazione di App per la logica.
 
-![Immagine della finestra di progettazione di App per la logica. I menu Ricorrenza e Webhook che consentono di modificare i tempi di ricorrenza e il file webhook sono aperti.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![Immagine della finestra di progettazione di App per la logica. I menu Ricorrenza e Webhook che consentono di modificare i tempi di ricorrenza e il file webhook sono aperti.](../media/logic-apps-designer.png)
 
 ## <a name="manage-your-scaling-tool"></a>Gestire lo strumento di dimensionamento
 
@@ -252,7 +255,8 @@ Nel portale di Azure è possibile visualizzare uno stato riepilogativo di tutti 
 
 A destra dell'account di Automazione selezionato, in "Statistiche processi", è possibile visualizzare un elenco di riepiloghi di tutti i processi del runbook. Aprendo la pagina **Processi** sul lato sinistro della finestra vengono visualizzati gli stati dei processi correnti, l'ora di inizio e l'ora di completamento.
 
-![Screenshot della pagina di stati dei processi.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot della pagina di stati dei processi.](../media/jobs-status.png)
 
 ### <a name="view-logs-and-scaling-tool-output"></a>Visualizzare i log e l'output dello strumento di dimensionamento
 
@@ -260,5 +264,6 @@ A destra dell'account di Automazione selezionato, in "Statistiche processi", è 
 
 Passare al runbook (il nome predefinito è WVDAutoScaleRunbook) nel gruppo di risorse che ospita l'account di Automazione di Azure e selezionare **Panoramica**. Nella pagina di panoramica selezionare un processo in Processi recenti e visualizzare il relativo output dello strumento di dimensionamento, come illustrato nell'immagine seguente.
 
-![Immagine della finestra di output dello strumento di dimensionamento.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![Immagine della finestra di output dello strumento di dimensionamento.](../media/tool-output.png)
 

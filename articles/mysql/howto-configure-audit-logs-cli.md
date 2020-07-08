@@ -5,26 +5,23 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: d532e1990586d80d675a8ccb247c0c9f7908bb6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 813e86e8446932d1618fff1853cee8972570f43f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85363020"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurare e accedere ai log di controllo nell'interfaccia della riga di comando di Azure
 
 È possibile configurare i [log di controllo del database di Azure per MySQL](concepts-audit-logs.md) dall'interfaccia della riga di comando di Azure.
 
-> [!IMPORTANT]
-> La funzionalità del log di controllo è attualmente in anteprima.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per proseguire con questa guida, si richiedono:
 
-- [Server del Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Server di Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,6 +29,9 @@ Per proseguire con questa guida, si richiedono:
 > Questa guida dettagliata richiede l'uso dell'interfaccia della riga di comando di Azure 2.0 o versioni successive. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per installare o eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="configure-audit-logging"></a>Configurare la registrazione di controllo
+
+>[!IMPORTANT]
+> Si consiglia di registrare solo i tipi di evento e gli utenti necessari a scopo di controllo, in modo da garantire che le prestazioni del server non siano fortemente interessate.
 
 Abilitare e configurare la registrazione di controllo usando la procedura seguente:
 

@@ -4,20 +4,18 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 5efa8b845952c8ab5b66b781fb534c3754239b4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677432"
 ---
 ## <a name="attack-scenario"></a>Scenario di attacco
 
 Gli attacchi di forza bruta generalmente prendono di mira le porte di gestione per tentare di ottenere l'accesso a una macchina virtuale. Se l'attacco ha esito positivo, un utente malintenzionato può assumere il controllo della macchina virtuale e penetrare nell'ambiente.
 
 Un modo per ridurre l'esposizione agli attacchi di forza bruta consiste nel limitare la quantità di tempo per cui la porta è aperta. Non è necessario aprire le porte di gestione in qualsiasi momento. Devono essere aperti solo quando si è connessi alla macchina virtuale, ad esempio per eseguire attività di gestione o manutenzione. Quando è abilitata l'opzione JIT, il Centro sicurezza usa il [gruppo di sicurezza di rete](../articles/virtual-network/security-overview.md#security-rules) (NSG) e le regole del firewall di Azure, che limitano l'accesso alle porte di gestione in modo che non possano essere usate dagli utenti malintenzionati.
-
-![Scenario JIT](../articles/security-center/media/security-center-just-in-time/just-in-time-scenario.png)
 
 ## <a name="how-does-jit-access-work"></a>Come funziona l'accesso JIT?
 
