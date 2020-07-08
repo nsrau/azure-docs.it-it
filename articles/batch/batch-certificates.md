@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 4da5fad63b148fa054eefb7f13424b46dc43bf29
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 96a3ada98bb41ea007eaaae2a40983d2448b38c2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83764320"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960827"
 ---
 # <a name="using-certificates-with-batch"></a>Uso dei certificati con Batch
 
@@ -39,6 +39,6 @@ A questo punto, quando si crea un pool di Batch, è possibile accedere a Certifi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Batch ha un'API del certificato, [AZ batch certificate create](https://docs.microsoft.com/cli/azure/batch/certificate?view=azure-cli-latest#az-batch-certificate-create)
+Batch ha un'API del certificato, [AZ batch certificate create](/cli/azure/batch/certificate?view=azure-cli-latest#az-batch-certificate-create)
 
 Per informazioni sull'uso di Key Vault, vedere [Accedere in modo sicuro a Key Vault con Batch](credential-access-key-vault.md).

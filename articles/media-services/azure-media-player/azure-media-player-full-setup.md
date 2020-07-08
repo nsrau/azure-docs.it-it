@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: d4c2dc58ca341db7ba17dbaf6a5ce7c009983379
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62d4e26d5a0d3d86cc58421dab4167d5d9d2562d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727242"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961780"
 ---
 # <a name="azure-media-player-full-setup"></a>Configurazione completa di Azure Media Player #
 
@@ -20,20 +20,23 @@ Azure Media Player è semplice da configurare. Sono necessari pochi istanti per 
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Passaggio 1: includere i file CSS e JavaScript all'inizio della pagina ##
 
-Con Azure Media Player, è possibile accedere agli script dalla versione ospitata della rete CDN. È spesso consigliabile inserire JavaScript prima del tag `<body>` Body finale anziché `<head>`, ma Azure Media Player include un'HTML5 Shiv ', che deve essere in testa per le versioni precedenti di IE per rispettare il tag video come elemento valido.
+Con Azure Media Player, è possibile accedere agli script dalla versione ospitata della rete CDN. È spesso consigliabile inserire JavaScript prima del tag body finale `<body>` anziché `<head>` , ma Azure Media Player include un'HTML5 Shiv ', che deve essere in testa per le versioni precedenti di IE per rispettare il tag video come elemento valido.
 
 > [!NOTE]
-> Se si usa già un oggetto Shiv HTML5 come [modernizzator](http://modernizr.com/) , è possibile includere il Azure Media Player JavaScript in qualsiasi posizione. Assicurarsi tuttavia che la versione di modernizzatore includa Shiv per video.
+> Se si usa già un oggetto Shiv HTML5 come [modernizzator](https://modernizr.com/) , è possibile includere il Azure Media Player JavaScript in qualsiasi posizione. Assicurarsi tuttavia che la versione di modernizzatore includa Shiv per video.
 
 ### <a name="cdn-version"></a>Versione della rete CDN ###
+
+```html
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+```
 
 > [!IMPORTANT]
 > **NON** usare la versione `latest` nell'ambiente di produzione, perché è soggetta a modifiche su richiesta. Sostituire `latest` con una versione di Azure Media Player. Ad esempio, sostituire `latest` con `2.1.1`. È possibile eseguire query sulle versioni di Azure Media Player [qui](azure-media-player-changelog.md).
 
 > [!NOTE]
-> Dal `1.2.0` rilascio, non è più necessario includere il percorso per le tecnologie di fallback (il percorso verrà automaticamente rilevato dal percorso relativo del file azuremediaplayer. min. js). È possibile modificare il percorso dei tecnici di fallback aggiungendo lo script seguente nel `<head>` dopo gli script precedenti.
+> Dal `1.2.0` rilascio, non è più necessario includere il percorso per le tecnologie di fallback (il percorso verrà automaticamente rilevato dal percorso relativo del file di azuremediaplayer.min.js). È possibile modificare il percorso dei tecnici di fallback aggiungendo lo script seguente nel `<head>` dopo gli script precedenti.
 
 > [!NOTE]
 > A causa della natura dei plug-in Flash e Silverlight, i file SWF e XAP devono essere ospitati in un dominio senza informazioni o dati sensibili. questa operazione viene eseguita automaticamente con la versione ospitata della rete CDN di Azure.
@@ -54,10 +57,10 @@ Con Azure Media Player, è possibile usare un tag video HTML5 per incorporare un
 1. L' `class` attributo contiene due classi:
     - `azuremediaplayer`applica gli stili necessari per Azure Media Player funzionalità dell'interfaccia utente
     - `amp-default-skin`applica l'interfaccia predefinita ai controlli HTML5
-1. `<source>` Include due attributi obbligatori
+1. `<source>`Include due attributi obbligatori
     - `src`l'attributo può includere un file **. ISM/manifest* da servizi multimediali di Azure aggiunto, Azure Media Player aggiunge automaticamente gli URL per Dash, Smooth e HLS al lettore
     - `type`attribute è il tipo MIME necessario del flusso. Il tipo MIME associato a *". ISM/manifest"* è *"application/vnd. ms-SSTR + XML"*
-1. L'attributo *facoltativo* `<data-setup>` nell' `<source>` indica Azure Media Player se sono presenti criteri di recapito univoci per il flusso da servizi multimediali di Azure, tra cui il tipo di crittografia (AES o PlayReady, Widevine o Fairplay) e il token.
+1. L'attributo *facoltativo* nell' `<data-setup>` `<source>` indica Azure Media Player se sono presenti criteri di recapito univoci per il flusso da servizi multimediali di Azure, tra cui il tipo di crittografia (AES o PlayReady, Widevine o Fairplay) e il token.
 
 Includere/escludere attributi, impostazioni, origini e tracce esattamente come per i video HTML5.
 
@@ -70,7 +73,7 @@ Includere/escludere attributi, impostazioni, origini e tracce esattamente come p
     </video>
 ```
 
-Per impostazione predefinita, il pulsante di riproduzione grande si trova nell'angolo superiore sinistro, quindi non copre le parti interessanti del poster. Se si preferisce centrare il pulsante Play di grandi dimensioni, è possibile aggiungere un `amp-big-play-centered` `class` `<video>` elemento aggiuntivo all'elemento.
+Per impostazione predefinita, il pulsante di riproduzione grande si trova nell'angolo superiore sinistro, quindi non copre le parti interessanti del poster. Se si preferisce centrare il pulsante Play di grandi dimensioni, è possibile aggiungere un `amp-big-play-centered` `class` elemento aggiuntivo all' `<video>` elemento.
 
 ### <a name="alternative-setup-for-dynamically-loaded-html"></a>Installazione alternativa per HTML caricato dinamicamente ###
 

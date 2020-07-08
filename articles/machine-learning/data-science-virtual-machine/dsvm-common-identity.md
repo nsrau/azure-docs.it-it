@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 44f1f7ae3b290e1dbf01877f3881e1d95a238446
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70208151"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959144"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Configurare un'identità comune in un Data Science Virtual Machine
 
@@ -41,9 +41,9 @@ Active Directory Domain Services semplifica la gestione delle identità, fornend
     
    1. In **utenti e gruppi**selezionare **tutti gli utenti**e quindi selezionare **nuovo utente**.
    
-           The **User** pane opens:
+        Viene visualizzato il riquadro **utente** :
       
-      ![Riquadro "Utente"](./media/add-user.png)
+        ![Riquadro "Utente"](./media/add-user.png)
     
    1. Immettere dettagli per gli utenti, ad esempio **nome** e **nome utente**. La parte del nome di dominio del nome utente deve essere il nome di dominio "[nome dominio]" del nome di dominio predefinito iniziale o un [nome di dominio personalizzato](../../active-directory/add-custom-domain.md) verificato, non federato, ad esempio "contoso.com".
     

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21654a3b325e8b8f0a3e49ee64b7624c8540d0d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77461080"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957179"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Associazioni di griglia di eventi di Azure per funzioni di Azure
 
@@ -23,7 +23,7 @@ I *gestori* di eventi ricevono ed elaborano gli eventi. Funzioni di Azure è uno
 
 Se si preferisce, è possibile usare un trigger HTTP per gestire gli eventi di griglia di eventi. vedere [ricevere eventi in un endpoint HTTP](../event-grid/receive-events.md). Attualmente, non è possibile usare un trigger di griglia di eventi per un'app funzioni di Azure quando l'evento viene recapitato nello [schema CloudEvents](../event-grid/cloudevents-schema.md#azure-functions). È necessario usare invece un trigger HTTP.
 
-| Action | Tipo |
+| Action | Type |
 |---------|---------|
 | Eseguire una funzione quando viene inviato un evento di griglia di eventi | [Trigger](./functions-bindings-event-grid-trigger.md) |
 | Invia un evento di griglia di eventi |[Binding di output](./functions-bindings-event-grid-output.md) |
@@ -32,13 +32,13 @@ Per impostazione predefinita, il codice in questo riferimento è la sintassi di 
 
 ## <a name="add-to-your-functions-app"></a>Aggiungi all'app funzioni
 
-### <a name="functions-2x-and-higher"></a>Funzioni 2. x e versioni successive
+### <a name="functions-2x-and-higher"></a>Funzioni 2.x e versioni successive
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
 | Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installazione del [pacchetto NuGet]versione 3. x | |
+| C#                                              | Installazione del [pacchetto NuGet]versione 2. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) è consigliata per l'uso con Visual Studio Code. |
 | Script C# (solo online in portale di Azure)         | Aggiunta di un'associazione                            | Per aggiornare le estensioni di binding esistenti senza dover ripubblicare l'app per le funzioni, vedere [aggiornare le estensioni]. |
 
@@ -54,4 +54,4 @@ Le app di funzioni 1. x hanno automaticamente un riferimento al pacchetto NuGet 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire una funzione quando viene inviato un evento di griglia di eventi](./functions-bindings-event-grid-trigger.md)
-* [Inviare un evento di griglia di eventi](./functions-bindings-event-grid-trigger.md)
+* [Inviare un evento di Griglia di eventi](./functions-bindings-event-grid-trigger.md)

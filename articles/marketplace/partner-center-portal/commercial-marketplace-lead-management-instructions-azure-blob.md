@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 471675de58161fc0c0110e2968089da062c6da87
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845791"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960563"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Usare Archiviazione BLOB di Azure per gestire i clienti potenziali del marketplace commerciale
 
@@ -33,11 +33,11 @@ ms.locfileid: "83845791"
 3. Nel portale di Azure creare un account di archiviazione seguendo questa procedura.  
     1. Selezionare **+Crea una risorsa** nella barra del menu a sinistra.  Il riquadro (pannello) **Nuovo** verrà visualizzato a destra.
     2. Selezionare **Archiviazione** nel riquadro **Nuovo**.  Verrà visualizzato l'elenco **In primo piano** a destra.
-    3. Selezionare **Account di archiviazione** per iniziare la creazione dell'account.  Seguire le istruzioni riportate nell'articolo [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    3. Selezionare **Account di archiviazione** per iniziare la creazione dell'account.  Seguire le istruzioni riportate nell'articolo [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
     ![Procedura di creazione di un account di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    Per altre informazioni sugli account di archiviazione, vedere [Esercitazione di avvio rapido](https://docs.microsoft.com/azure/storage/).  Altre informazioni sui prezzi delle risorse di archiviazione sono disponibili [qui](https://azure.microsoft.com/pricing/details/storage/).
+    Per altre informazioni sugli account di archiviazione, vedere questa [Guida introduttiva](../../storage/blobs/storage-quickstart-blobs-portal.md).  Altre informazioni sui prezzi delle risorse di archiviazione sono disponibili [qui](https://azure.microsoft.com/pricing/details/storage/).
 
 4. Attendere fino a quando non viene eseguito il provisioning dell'account di archiviazione, procedura che in genere richiede alcuni minuti.  Accedere quindi all'account di archiviazione dalla pagina **Home** del portale di Azure selezionando **Visualizzare tutte le risorse** oppure **Tutte le risorse** dalla barra del menu di spostamento a sinistra del portale di Azure.
 

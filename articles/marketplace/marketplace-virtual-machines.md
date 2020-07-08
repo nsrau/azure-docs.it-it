@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: a01c8658ff4929d07cd185dcea45393cfe3b2a17
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e0f0f0fdb75961f3ea9ed90e1684ff5ecd2a792d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858303"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961541"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guida alla pubblicazione per le offerte di macchine virtuali
 
@@ -54,16 +54,16 @@ Usare il tipo di offerta della *macchina virtuale* quando si distribuisce un'app
 | Requisito | Dettagli |  
 |:--- |:--- | 
 | Fatturazione e misurazione | La macchina virtuale deve supportare una fatturazione mensile con pagamento in base al consumo o BYOL. |  
-| Disco rigido virtuale (VHD) compatibile con Azure | Le macchine virtuali devono essere compilate in Windows o Linux. Per ulteriori informazioni sulla creazione di un disco rigido virtuale, vedere: <ul> <li>[Distribuzioni Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (per dischi rigidi virtuali Linux).</li> <li>[Creare un VHD compatibile con Azure](./partner-center-portal/azure-vm-create-offer.md) (per i dischi rigidi virtuali Windows).</li> </ul> |  
+| Disco rigido virtuale (VHD) compatibile con Azure | Le macchine virtuali devono essere compilate in Windows o Linux. Per ulteriori informazioni sulla creazione di un disco rigido virtuale, vedere: <ul> <li>[Distribuzioni Linux approvate in Azure](../virtual-machines/linux/endorsed-distros.md) (per dischi rigidi virtuali Linux).</li> <li>[Creare un VHD compatibile con Azure](./partner-center-portal/azure-vm-create-offer.md) (per i dischi rigidi virtuali Windows).</li> </ul> |  
 
 >[!Note]
 >Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile. Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [Cloud Solution Provider](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, Scopri come [espandere il tuo business cloud con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+Se non è già stato fatto, scoprire come [Aumentare il business sul cloud con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 
-Per eseguire la registrazione e iniziare a usare il centro per i partner:
+Per eseguire la registrazione e iniziare a usare il Centro per i partner:
 
-- [Accedere al centro](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per i partner per creare o completare l'offerta.
+- [Accedere al Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare l'offerta.
 - Per ulteriori informazioni, vedere [creare un'offerta di macchina virtuale](./partner-center-portal/azure-vm-create-offer.md) .

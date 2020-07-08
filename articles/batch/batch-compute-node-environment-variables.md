@@ -3,22 +3,22 @@ title: Variabili di ambiente del runtime attività
 description: Linee guida alle variabili di ambiente del runtime attività e informazioni di riferimento per le analisi di Azure Batch.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 0b3f00bcae50b0913432b122c85a3725a489679a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 6b8ade312146802ede6e12181a082a8fcd3842fe
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745339"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960912"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabili di ambiente del runtime attività di Azure Batch
 
 Il [servizio Azure Batch](https://azure.microsoft.com/services/batch/) imposta le variabili di ambiente seguenti sui nodi di calcolo. È possibile fare riferimento a queste variabili di ambiente nelle righe di comando delle attività e nei programmi e negli script eseguiti dalle righe di comando.
 
-Per altre informazioni sull'uso delle variabili di ambiente con Batch, vedere [Impostazioni di ambiente per le attività](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
+Per altre informazioni sull'uso delle variabili di ambiente con Batch, vedere [Impostazioni di ambiente per le attività](./jobs-and-tasks.md#environment-settings-for-tasks).
 
 ## <a name="environment-variable-visibility"></a>Visibilità delle variabili di ambiente
 
-Queste variabili di ambiente sono visibili solo nel contesto dell'**utente dell'attività**, ovvero l'account utente nel nodo in cui viene eseguita un'attività. *Non* verranno visualizzate se ci si [connette in modalità remota](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) a un nodo di calcolo tramite Remote Desktop Protocol (RDP) o Secure Shell (SSH) e si elencano le variabili di ambiente. L'account utente usato per la connessione remota non corrisponde infatti all'account usato dall'attività.
+Queste variabili di ambiente sono visibili solo nel contesto dell'**utente dell'attività**, ovvero l'account utente nel nodo in cui viene eseguita un'attività. *Non* verranno visualizzate se ci si [connette in modalità remota](./error-handling.md#connect-to-compute-nodes) a un nodo di calcolo tramite Remote Desktop Protocol (RDP) o Secure Shell (SSH) e si elencano le variabili di ambiente. L'account utente usato per la connessione remota non corrisponde infatti all'account usato dall'attività.
 
 Per ottenere il valore corrente di una variabile di ambiente, avviare `cmd.exe` in un nodo di calcolo di Windows o `/bin/sh` in un nodo Linux:
 
@@ -40,8 +40,8 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nome dell'account Batch a cui appartiene l'attività.                  | Tutte le attività.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | URL dell'account Batch. | Tutte le attività. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | Prefisso di tutte le variabili di ambiente del pacchetto dell'app. Se, ad esempio, l'applicazione "FOO" versione "1" viene installata in un pool, la variabile di ambiente è AZ_BATCH_APP_PACKAGE_FOO_1 (in Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (in Windows). AZ_BATCH_APP_PACKAGE_FOO_1 punta al percorso in cui è stato scaricato il pacchetto (una cartella). Quando si usa la versione predefinita del pacchetto dell'app, usare la variabile di ambiente AZ_BATCH_APP_PACKAGE senza i numeri di versione. In Linux, se il nome del pacchetto dell'applicazione è "Agent-Linux-x64" e la versione è "1.1.46.0", il nome effettivo dell'ambiente è: AZ_BATCH_APP_PACKAGE_agent_linux_x64_1_1_46_0, con caratteri di sottolineatura e lettere minuscole. Per altri dettagli, vedere [qui](https://docs.microsoft.com/azure/batch/batch-application-packages#execute-the-installed-applications). | Qualsiasi attività è cui è associato un pacchetto dell'app. Disponibile anche per tutte le attività se il nodo stesso dispone di pacchetti dell'applicazione. | AZ_BATCH_APP_PACKAGE_FOO_1 (Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (Windows) |
-| AZ_BATCH_AUTHENTICATION_TOKEN   | Token di autenticazione che concede l'accesso a un set limitato di operazioni del servizio Batch. Questa variabile di ambiente è presente solo se la definizione [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) è impostata quando l'[attività viene aggiunta](/rest/api/batchservice/task/add#request-body). Il valore del token viene usato nelle API Batch come credenziale per creare un client Batch, ad esempio nell'[API .NET BatchClient.Open()](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Tutte le attività. | Token di accesso OAuth2 |
+| AZ_BATCH_APP_PACKAGE            | Prefisso di tutte le variabili di ambiente del pacchetto dell'app. Se, ad esempio, l'applicazione "FOO" versione "1" viene installata in un pool, la variabile di ambiente è AZ_BATCH_APP_PACKAGE_FOO_1 (in Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (in Windows). AZ_BATCH_APP_PACKAGE_FOO_1 punta al percorso in cui è stato scaricato il pacchetto (una cartella). Quando si usa la versione predefinita del pacchetto dell'app, usare la variabile di ambiente AZ_BATCH_APP_PACKAGE senza i numeri di versione. In Linux, se il nome del pacchetto dell'applicazione è "Agent-Linux-x64" e la versione è "1.1.46.0", il nome effettivo dell'ambiente è: AZ_BATCH_APP_PACKAGE_agent_linux_x64_1_1_46_0, con caratteri di sottolineatura e lettere minuscole. Per altri dettagli, vedere [qui](./batch-application-packages.md#execute-the-installed-applications). | Qualsiasi attività è cui è associato un pacchetto dell'app. Disponibile anche per tutte le attività se il nodo stesso dispone di pacchetti dell'applicazione. | AZ_BATCH_APP_PACKAGE_FOO_1 (Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (Windows) |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | Token di autenticazione che concede l'accesso a un set limitato di operazioni del servizio Batch. Questa variabile di ambiente è presente solo se la definizione [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) è impostata quando l'[attività viene aggiunta](/rest/api/batchservice/task/add#request-body). Il valore del token viene usato nelle API Batch come credenziale per creare un client Batch, ad esempio nell'[API .NET BatchClient.Open()](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Tutte le attività. | Token di accesso OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Directory all'interno della [directory di lavoro dell'attività][files_dirs] in cui sono archiviati i certificati per i nodi di calcolo Linux. Questa variabile di ambiente non è applicabile a nodi di calcolo Windows.                                                  | Tutte le attività.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | Elenco dei nodi allocati a un'[attività a istanze multiple][multi_instance] nel formato `nodeIP,nodeIP`. | Principale multi-istanza e sottoattività. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Specifica se il nodo corrente è il nodo master per un'[attività a istanze multiple][multi_instance]. I valori possibili sono `true` e `false`.| Principale multi-istanza e sottoattività. | `true` |
@@ -63,7 +63,7 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 | AZ_BATCH_TASK_WORKING_DIR       | Percorso completo della [directory di lavoro delle attività][files_dirs] nel nodo. L'attività attualmente in esecuzione ha accesso in lettura/scrittura per questa directory. | Tutte le attività. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | Elenco dei nodi e numero di core per nodo allocati a un'[attività a istanze multiple][multi_instance]. I nodi e i core sono elencati nel formato`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, dove il numero di nodi è seguito da uno o più indirizzi IP di nodo e dal numero di core per ognuno. |  Principale multi-istanza e sottoattività. |`2 10.0.0.4 1 10.0.0.5 1` |
 
-[files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
-[multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/
-[coord_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#coordination-command
-[app_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#application-command
+[files_dirs]: ./files-and-directories.md
+[multi_instance]: ./batch-mpi.md
+[coord_cmd]: ./batch-mpi.md#coordination-command
+[app_cmd]: ./batch-mpi.md#application-command

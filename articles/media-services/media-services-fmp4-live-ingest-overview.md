@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ff356ef67630429b72208107541b1696e4eceac
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74888054"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958566"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure 
 
@@ -56,7 +56,7 @@ L'elenco seguente descrive le definizioni di formato speciali applicabili all'in
 ## <a name="4-protocol-format--http"></a>4. formato del protocollo: HTTP
 L'inserimento live basato sul formato ISO MP4 frammentato per Servizi multimediali usa una richiesta HTTP POST standard a esecuzione prolungata per trasmettere al servizio dati multimediali codificati in formato MP4 frammentato. Ogni richiesta HTTP POST invia un flusso di bit MP4 frammentato completo ("flusso"), iniziando con le caselle di intestazione (caselle **ftyp**, **Live Server Manifest Box** e **moov**) e continuando con una sequenza di frammenti (caselle **moof** e **mdat**). Per la sintassi dell'URL per la richiesta HTTP POST, vedere la sezione 9.2 di [1]. Un esempio di URL POST è: 
 
-    http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+`http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 
 ### <a name="requirements"></a>Requisiti
 Di seguito sono elencati i requisiti dettagliati:
@@ -193,7 +193,7 @@ Di seguito è riportata l'implementazione consigliata per le tracce audio ridond
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

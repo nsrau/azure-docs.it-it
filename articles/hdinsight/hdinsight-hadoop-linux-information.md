@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 252467a22ba37352cee4c3e7bffcf1ff910c86ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 55ffd563ea0a99d32608bd90bd53d7dc88eb4cf2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835445"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961813"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
@@ -40,13 +40,17 @@ Il nome di dominio completo (FQDN) da usare per la connessione al cluster da Int
 
 Internamente, ogni nodo del cluster ha un nome assegnato durante la configurazione del cluster. Per individuare i nomi del cluster, vedere la pagina **Host** nell'interfaccia utente Web Ambari. È anche possibile usare il codice seguente per restituire un elenco di host dall'API REST Ambari:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```
 
 Sostituire `CLUSTERNAME` con il nome del cluster. Quando richiesto, immettere la password per l'account amministratore. Questo comando restituisce un documento JSON che contiene un elenco degli host nel cluster. [jq](https://stedolan.github.io/jq/) viene usato per estrarre il valore dell'elemento `host_name` per ogni host.
 
 Se è necessario trovare il nome del nodo per un servizio specifico, è possibile eseguire una query in Ambari per tale componente. Ad esempio, per trovare gli host per il nodo con nome HDFS, usare il comando seguente:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```
 
 Questo comando restituisce un documento JSON che descrive il servizio e quindi [jq](https://stedolan.github.io/jq/) estrae solo il valore `host_name` per gli host.
 
@@ -107,7 +111,9 @@ Per altre informazioni, vedere [Understanding blobs](https://docs.microsoft.com/
 
 Quando si usa Archiviazione di Azure o Data Lake Storage, non è necessario eseguire alcuna operazione particolare da HDInsight per accedere ai dati. Ad esempio, il comando seguente elenca i file presenti in `/example/data` indipendentemente dal fatto che la cartella sia disponibile in Archiviazione di Azure o in Data Lake Storage:
 
-    hdfs dfs -ls /example/data
+```console
+hdfs dfs -ls /example/data
+```
 
 In HDInsight le risorse di archiviazione dati (Archiviazione BLOB di Azure e Azure Data Lake Storage) sono separate dalle risorse di calcolo. È possibile creare cluster HDInsight per eseguire il calcolo necessario e in seguito eliminare il cluster al termine del lavoro. Nel frattempo, mantenere i file di dati salvati in modo permanente nell'archiviazione cloud per il tempo necessario.
 

@@ -5,32 +5,32 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: c859176857f64559b9a2994c9cfc2d4ec5f61e57
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691086"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961201"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
 Questo articolo illustra come usare PowerShell per creare e gestire directory, file e autorizzazioni negli account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico (HNS). 
 
-[Il mapping](#gen1-gen2-map) | da Gen1 a Gen2[fornisce commenti e suggerimenti](https://github.com/Azure/azure-powershell/issues)
+[Mapping da Gen1 a Gen2 ](#gen1-gen2-map) | [Fornire commenti e suggerimenti](https://github.com/Azure/azure-powershell/issues)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!div class="checklist"]
 > * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Un account di archiviazione con spazio dei nomi gerarchico (HNS) abilitato. Seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni per crearne uno.
+> * Un account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico. Per crearne uno, seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni.
 > * .NET Framework è installato 4.7.2 o versione successiva. Vedere [scaricare .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
-> * Versione `5.1` di PowerShell o successiva.
+> * Versione di PowerShell `5.1` o successiva.
 
-## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
+## <a name="install-the-powershell-module"></a>Installare il modulo PowerShell
 
 1. Verificare che la versione di PowerShell installata sia `5.1` o superiore usando il comando seguente.    
 
@@ -48,7 +48,7 @@ Questo articolo illustra come usare PowerShell per creare e gestire directory, f
 
    Per altre informazioni su come installare i moduli di PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
 
-## <a name="connect-to-the-account"></a>Connettersi all'account
+## <a name="connect-to-the-account"></a>Effettuare la connessione all'account
 
 Aprire una finestra di comando di Windows PowerShell e accedere alla sottoscrizione di Azure con il `Connect-AzAccount` comando e seguire le istruzioni visualizzate.
 
@@ -83,20 +83,20 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-file-system"></a>Creare un file system
 
-Un file system funge da contenitore per i file. È possibile crearne uno usando il `New-AzDatalakeGen2FileSystem` cmdlet. 
+Un file system agisce in qualità di contenitore per i file. È possibile crearne uno usando il `New-AzStorageContainer` cmdlet. 
 
-In questo esempio viene creata una `my-file-system`file System denominata.
+Questo esempio illustra come creare un file system denominato `my-file-system`.
 
 ```powershell
 $filesystemName = "my-file-system"
-New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
+New-AzStorageContainer -Context $ctx -Name $filesystemName
 ```
 
 ## <a name="create-a-directory"></a>Creare una directory
 
 Creare un riferimento alla directory usando il `New-AzDataLakeGen2Item` cmdlet. 
 
-In questo esempio viene aggiunta una `my-directory` directory denominata a una file System.
+In questo esempio viene aggiunta una directory denominata `my-directory` a una file System.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -110,9 +110,9 @@ Questo esempio aggiunge la stessa directory, ma imposta anche le autorizzazioni,
 $dir = New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Directory -Permission rwxrwxrwx -Umask ---rwx---  -Property @{"ContentEncoding" = "UDF8"; "CacheControl" = "READ"} -Metadata  @{"tag1" = "value1"; "tag2" = "value2" }
 ```
 
-## <a name="show-directory-properties"></a>Mostra proprietà Directory
+## <a name="show-directory-properties"></a>Mostrare le proprietà della directory
 
-In questo esempio viene ottenuta una directory `Get-AzDataLakeGen2Item` utilizzando il cmdlet, quindi i valori delle proprietà vengono stampati nella console.
+In questo esempio viene ottenuta una directory utilizzando il `Get-AzDataLakeGen2Item` cmdlet, quindi i valori delle proprietà vengono stampati nella console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -130,7 +130,7 @@ $dir.Properties.Metadata
 
 Rinominare o spostare una directory utilizzando il `Move-AzDataLakeGen2Item` cmdlet.
 
-Questo esempio rinomina una directory dal nome `my-directory` con il nome. `my-new-directory`
+Questo esempio rinomina una directory dal nome `my-directory` con il nome `my-new-directory` .
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -142,7 +142,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 > [!NOTE]
 > Utilizzare il `-Force` parametro se si desidera sovrascrivere senza prompt.
 
-In questo esempio viene spostata `my-directory` una directory denominata in una `my-directory-2` sottodirectory di denominata `my-subdirectory`. 
+In questo esempio viene spostata una directory denominata `my-directory` in una sottodirectory di `my-directory-2` denominata `my-subdirectory` . 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -155,7 +155,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 
 Eliminare una directory utilizzando il `Remove-AzDataLakeGen2Item` cmdlet.
 
-In questo esempio viene eliminata `my-directory`una directory denominata. 
+Questo esempio illustra come eliminare una directory denominata `my-directory`. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -165,11 +165,11 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $dirn
 
 È possibile usare il `-Force` parametro per rimuovere il file senza una richiesta.
 
-## <a name="download-from-a-directory"></a>Scarica da una directory
+## <a name="download-from-a-directory"></a>Scaricare da una directory
 
 Scaricare un file da una directory utilizzando il `Get-AzDataLakeGen2ItemContent` cmdlet.
 
-In questo esempio viene scaricato un `upload.txt` file denominato da una `my-directory`directory denominata. 
+Questo esempio illustra come scaricare un file denominato `upload.txt` da una directory denominata `my-directory`. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -180,9 +180,9 @@ Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $f
 
 ## <a name="list-directory-contents"></a>Elencare il contenuto della directory
 
-Elencare il contenuto di una directory utilizzando il `Get-AzDataLakeGen2ChildItem` cmdlet. È possibile usare il parametro `-OutputUserPrincipalName` facoltativo per ottenere il nome, anziché l'ID oggetto, degli utenti.
+Elencare il contenuto di una directory utilizzando il `Get-AzDataLakeGen2ChildItem` cmdlet. È possibile usare il parametro facoltativo `-OutputUserPrincipalName` per ottenere il nome, anziché l'ID oggetto, degli utenti.
 
-Questo esempio elenca il contenuto di una directory denominata `my-directory`.
+Questo esempio elenca il contenuto di una directory denominata `my-directory` .
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -190,7 +190,7 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -OutputUserPrincipalName
 ```
 
-Nell'esempio seguente vengono elencate `ACL`le `Permissions`proprietà `Group`,, `Owner` e di ogni elemento nella directory. Il `-FetchProperty` parametro è necessario per ottenere i valori per `ACL` la proprietà. 
+Nell'esempio seguente vengono elencate `ACL` le `Permissions` proprietà,, `Group` e `Owner` di ogni elemento nella directory. Il `-FetchProperty` parametro è necessario per ottenere i valori per la `ACL` Proprietà. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -208,7 +208,7 @@ Per elencare il contenuto di un file system, omettere il `-Path` parametro dal c
 
 Caricare un file in una directory utilizzando il `New-AzDataLakeGen2Item` cmdlet.
 
-In questo esempio viene caricato un file denominato `upload.txt` in una directory denominata `my-directory`. 
+Questo esempio illustra come caricare un file denominato `upload.txt` in una directory denominata `my-directory`. 
 
 ```powershell
 $localSrcFile =  "upload.txt"
@@ -228,9 +228,9 @@ $file1.Properties.Metadata
 
 ```
 
-## <a name="show-file-properties"></a>Mostra proprietà file
+## <a name="show-file-properties"></a>Mostrare le proprietà file
 
-Questo esempio Mostra come ottenere un file usando `Get-AzDataLakeGen2Item` il cmdlet, quindi i valori delle proprietà vengono stampati nella console.
+Questo esempio Mostra come ottenere un file usando il `Get-AzDataLakeGen2Item` cmdlet, quindi i valori delle proprietà vengono stampati nella console.
 
 ```powershell
 $filepath =  "my-directory/upload.txt"
@@ -249,7 +249,7 @@ $file.Properties.Metadata
 
 Eliminare un file usando il `Remove-AzDataLakeGen2Item` cmdlet.
 
-In questo esempio viene eliminato un `upload.txt`file denominato. 
+In questo esempio viene eliminato un file denominato `upload.txt` . 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -261,16 +261,16 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $file
 
 ## <a name="manage-access-permissions"></a>Gestire le autorizzazioni di accesso
 
-È possibile ottenere, impostare e aggiornare le autorizzazioni di accesso di file System, directory e file. Queste autorizzazioni vengono acquisite in elenchi di controllo di accesso (ACL).
+È possibile ottenere, impostare e aggiornare le autorizzazioni di accesso di file e directory. Queste autorizzazioni vengono acquisite in elenchi di controllo di accesso (ACL).
 
 > [!NOTE]
-> Se si usa Azure Active Directory (Azure AD) per autorizzare i comandi, assicurarsi che all'entità di sicurezza sia stato assegnato il [ruolo proprietario dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Per ulteriori informazioni sull'applicazione delle autorizzazioni ACL e sugli effetti della modifica, vedere [controllo di accesso in Azure Data Lake storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Se si usa Azure Active Directory per autorizzare i comandi, assicurarsi che all'entità di sicurezza sia stato assegnato il [ruolo proprietario del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Per altre informazioni sull'applicazione delle autorizzazioni ACL e sugli effetti della modifica, vedere [Controllo di accesso in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-### <a name="get-an-acl"></a>Ottenere un ACL
+### <a name="get-an-acl"></a>Recuperare un ACL
 
-Ottenere l'ACL di una directory o di un file usando `Get-AzDataLakeGen2Item`il cmdlet.
+Ottenere l'ACL di una directory o di un file usando il `Get-AzDataLakeGen2Item` cmdlet.
 
-Questo esempio Mostra come ottenere l'ACL di un **file System** e quindi stampare l'ACL nella console.
+Questo esempio Mostra come ottenere l'ACL della directory radice di un **file System** e quindi l'ACL sulla console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -295,17 +295,17 @@ $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $
 $file.ACL
 ```
 
-Nell'immagine seguente viene illustrato l'output dopo aver ricevuto l'ACL di una directory.
+Nell'immagine seguente illustra l'output dopo aver recuperato l'ACL di una directory.
 
-![Ottieni output ACL](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
+![Recuperare l'output di un ACL](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
 
-In questo esempio, l'utente proprietario dispone delle autorizzazioni di lettura, scrittura ed esecuzione. Il gruppo proprietario dispone solo delle autorizzazioni di lettura ed esecuzione. Per altre informazioni sugli elenchi di controllo di accesso, vedere [controllo di accesso in Azure Data Lake storage Gen2](data-lake-storage-access-control.md).
+In questo esempio, l'utente proprietario è provvisto delle autorizzazioni di lettura, scrittura ed esecuzione. Il gruppo proprietario è provvisto delle sole autorizzazioni di lettura ed esecuzione. Per altre informazioni sugli elenchi di controllo di accesso, vedere [Controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="set-an-acl"></a>Imposta un ACL
+### <a name="set-an-acl"></a>Impostare un ACL
 
 Usare il `set-AzDataLakeGen2ItemAclObject` cmdlet per creare un ACL per l'utente proprietario, il gruppo proprietario o altri utenti. Usare quindi il `Update-AzDataLakeGen2Item` cmdlet per eseguire il commit dell'ACL.
 
-Questo esempio imposta l'ACL in un **file System** per l'utente proprietario, il gruppo proprietario o altri utenti, quindi stampa l'ACL nella console.
+Questo esempio imposta l'ACL nella directory radice di un **file System** per l'utente proprietario, il gruppo proprietario o altri utenti, quindi stampa l'ACL nella console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -342,16 +342,16 @@ $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $
 $file.ACL
 ```
 
-Nell'immagine seguente viene illustrato l'output dopo l'impostazione dell'ACL di un file.
+Nell'immagine seguente illustra l'output dopo aver impostato l'ACL di un file.
 
-![Ottieni output ACL](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
+![Recuperare l'output di un ACL](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
 
-In questo esempio, l'utente proprietario e il gruppo proprietario hanno solo le autorizzazioni di lettura e scrittura. Tutti gli altri utenti dispongono di autorizzazioni di scrittura ed esecuzione. Per altre informazioni sugli elenchi di controllo di accesso, vedere [controllo di accesso in Azure Data Lake storage Gen2](data-lake-storage-access-control.md).
+In questo esempio, l'utente proprietario e il gruppo proprietario sono provvisti delle sole autorizzazioni di lettura e scrittura. Tutti gli altri utenti sono provvisti di autorizzazioni di scrittura ed esecuzione. Per altre informazioni sugli elenchi di controllo di accesso, vedere [Controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 
 ### <a name="set-acls-on-all-items-in-a-file-system"></a>Impostare gli ACL per tutti gli elementi di un file system
 
-È possibile utilizzare il `Get-AzDataLakeGen2Item` `-Recurse` parametro e il parametro insieme al `Update-AzDataLakeGen2Item` cmdlet per impostare in modo ricorsivo l'ACL per le directory e i file in un file System. 
+È possibile utilizzare il `Get-AzDataLakeGen2Item` parametro e il `-Recurse` parametro insieme al `Update-AzDataLakeGen2Item` cmdlet per impostare in modo ricorsivo l'ACL per le directory e i file in un file System. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -363,7 +363,7 @@ $Token = $Null
 do
 {
      $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
-     if($items.Length -le 0) { Break;}
+     if($items.Count -le 0) { Break;}
      $items | Update-AzDataLakeGen2Item -Acl $acl
      $Token = $items[$items.Count -1].ContinuationToken;
 }
@@ -405,7 +405,7 @@ foreach ($a in $aclnew)
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
 ```
 
-<a id="gen1-gen2-map" />
+<a id="gen1-gen2-map"></a>
 
 ## <a name="gen1-to-gen2-mapping"></a>Mapping tra Gen1 e Gen2
 
