@@ -8,7 +8,6 @@ ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
 ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/22/2020
 ms.locfileid: "83797690"

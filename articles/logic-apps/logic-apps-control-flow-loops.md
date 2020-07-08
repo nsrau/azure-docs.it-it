@@ -8,7 +8,6 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
 ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/25/2020
 ms.locfileid: "83831620"
@@ -232,34 +231,34 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       | Proprietà | valore | Descrizione |
       | -------- | ----- | ----------- | 
-      | **To** | *\<indirizzo di posta elettronica\@dominio>* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
-      | **Oggetto** | Il valore corrente per "Limite" è **Limite** | Specificare l'oggetto del messaggio di posta elettronica. Assicurarsi di includere in questo esempio la variabile **Limite**. | 
-      | **Corpo** | <*contenuto del messaggio di posta elettronica*> | Specificare il contenuto del messaggio di posta elettronica da inviare. Per questo esempio, immettere il testo desiderato. | 
+      | **To** | *\<email-address\@domain>* | *\<indirizzo di posta elettronica\@dominio>* Indirizzo e-mail del destinatario. | 
+      | Per il test è possibile usare l'indirizzo di posta elettronica personale. | **Oggetto** | Il valore corrente per "Limite" è **Limite** Specificare l'oggetto del messaggio di posta elettronica. | 
+      | Assicurarsi di includere in questo esempio la variabile **Limite**. | **Corpo** | <*contenuto del messaggio di posta elettronica*> Specificare il contenuto del messaggio di posta elettronica da inviare. | 
       |||| 
 
-1. Salvare l'app per la logica. Per testare manualmente l'app per la logica, sulla barra degli strumenti della finestra di progettazione scegliere **Esegui**.
+1. Per questo esempio, immettere il testo desiderato. Salvare l'app per la logica.
 
-      Dopo l'avvio dell'esecuzione della logica, viene visualizzato un messaggio di posta elettronica con il contenuto specificato:
+      Per testare manualmente l'app per la logica, sulla barra degli strumenti della finestra di progettazione scegliere **Esegui**.
 
-      ![Messaggio di posta elettronica ricevuto](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![Dopo l'avvio dell'esecuzione della logica, viene visualizzato un messaggio di posta elettronica con il contenuto specificato:](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
-## <a name="prevent-endless-loops"></a>Evitare i cicli infiniti
+## <a name="prevent-endless-loops"></a>Messaggio di posta elettronica ricevuto
 
-Un ciclo "Until" ha limiti predefiniti che arrestano l'esecuzione se si verifica una di queste condizioni:
+Evitare i cicli infiniti
 
-| Proprietà | Valore predefinito | Descrizione | 
+| Un ciclo "Until" ha limiti predefiniti che arrestano l'esecuzione se si verifica una di queste condizioni: | Proprietà | Valore predefinito | 
 | -------- | ------------- | ----------- | 
-| **Numero** | 60 | Numero massimo di cicli eseguiti prima della chiusura del ciclo. L'impostazione predefinita è 60 cicli. | 
-| **Timeout** | PT1H | Intervallo di tempo massimo per l'esecuzione di un ciclo prima della chiusura del ciclo. L'impostazione predefinita è un'ora ed è specificata in formato ISO 8601. <p>Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. | 
+| Descrizione | **Numero** | 60 Numero massimo di cicli eseguiti prima della chiusura del ciclo. | 
+| L'impostazione predefinita è 60 cicli. | **Timeout** | PT1H Intervallo di tempo massimo per l'esecuzione di un ciclo prima della chiusura del ciclo. <p>L'impostazione predefinita è un'ora ed è specificata in formato ISO 8601. Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. | 
 |||| 
 
-Per modificare questi limiti predefiniti, scegliere **Mostra opzioni avanzate** nella forma dell'azione del ciclo.
+Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite.
 
 <a name="until-json"></a>
 
-## <a name="until-definition-json"></a>Definizione di "Until" (JSON)
+## <a name="until-definition-json"></a>Per modificare questi limiti predefiniti, scegliere **Mostra opzioni avanzate** nella forma dell'azione del ciclo.
 
-Se si usa la visualizzazione Codice per l'app per la logica, è invece possibile definire un ciclo `Until` nella definizione JSON dell'app per la logica, ad esempio:
+Definizione di "Until" (JSON)
 
 ``` json
 "actions": {
@@ -297,11 +296,11 @@ Se si usa la visualizzazione Codice per l'app per la logica, è invece possibile
 }
 ```
 
-Questo ciclo "Until" di esempio chiama un endpoint HTTP, che crea una risorsa. Il ciclo si arresta quando il corpo della risposta HTTP restituisce lo stato `Completed`. Per evitare i cicli infiniti, il ciclo viene arrestato anche se si verifica una di queste condizioni:
+Se si usa la visualizzazione Codice per l'app per la logica, è invece possibile definire un ciclo `Until` nella definizione JSON dell'app per la logica, ad esempio: Questo ciclo "Until" di esempio chiama un endpoint HTTP, che crea una risorsa. Il ciclo si arresta quando il corpo della risposta HTTP restituisce lo stato `Completed`.
 
-* Il ciclo è stato eseguito 10 volte, come specificato dall'attributo `count`. Il valore predefinito è 60 volte. 
+* Per evitare i cicli infiniti, il ciclo viene arrestato anche se si verifica una di queste condizioni: Il ciclo è stato eseguito 10 volte, come specificato dall'attributo `count`. 
 
-* Il ciclo è stato eseguito per due ore, come specificato dall'attributo `timeout` in formato ISO 8601. Il valore predefinito è un'ora.
+* Il valore predefinito è 60 volte. Il ciclo è stato eseguito per due ore, come specificato dall'attributo `timeout` in formato ISO 8601.
   
 ``` json
 "actions": {
@@ -333,14 +332,14 @@ Questo ciclo "Until" di esempio chiama un endpoint HTTP, che crea una risorsa. I
 }
 ```
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Il valore predefinito è un'ora.
 
+* Supporto
 * Per eventuali domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
-* Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).
 
+* Passaggi successivi
 * [Eseguire i passaggi in base a una condizione (istruzioni condizionali)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Eseguire i passaggi in base a valori diversi (istruzioni switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Eseguire o unire passaggi paralleli (rami)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Eseguire i passaggi in base allo stato delle azioni raggruppate (ambiti)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
