@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ba190f40d3b9451aec6e86ea69b7d0fe6e66aa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807852"
 ---
 # <a name="durable-functions-versions-overview"></a>Panoramica sulle versioni di Durable Functions
 
@@ -50,19 +50,19 @@ Installare la versione 2. x dell' [estensione Durable Functions bindings](https:
 
 Durable Functions 2. x introduce diverse modifiche di rilievo. Le applicazioni Durable Functions 1. x non sono compatibili con Durable Functions 2. x senza modifiche al codice. In questa sezione sono elencate alcune delle modifiche che è necessario apportare durante l'aggiornamento delle funzioni versione 1. x a 2. x.
 
-#### <a name="hostjson-schema"></a>Schema host. JSON
+#### <a name="hostjson-schema"></a>Host.jsnello schema
 
-Durable Functions 2. x usa un nuovo schema host. JSON. Di seguito sono riportate le modifiche principali da 1. x:
+Durable Functions 2. x utilizza un nuovo host.jsnello schema. Di seguito sono riportate le modifiche principali da 1. x:
 
 * `"storageProvider"`(e la `"azureStorage"` sottosezione) per la configurazione specifica dell'archiviazione.
 * `"tracing"`per la configurazione della traccia e della registrazione.
 * `"notifications"`(e la `"eventGrid"` sottosezione) per la configurazione delle notifiche di griglia di eventi.
 
-Per informazioni dettagliate, vedere la [documentazione di riferimento di Durable Functions host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .
+Per informazioni dettagliate, vedere la [Durable Functions host.jsnella documentazione di riferimento](durable-functions-bindings.md#durable-functions-2-0-host-json) .
 
 #### <a name="default-taskhub-name-changes"></a>Modifiche al nome predefinito di taskhub
 
-Nella versione 1. x, se non è stato specificato il nome di un hub attività in host. JSON, il valore predefinito è "DurableFunctionsHub". Nella versione 2. x, il nome predefinito dell'hub attività è ora derivato dal nome dell'app per le funzioni. Per questo motivo, se non è stato specificato un nome di hub attività quando si esegue l'aggiornamento a 2. x, il codice funzionerà con un nuovo hub attività e tutte le orchestrazioni in corso non avranno più l'elaborazione di un'applicazione. Per risolvere il problema, è possibile impostare in modo esplicito il nome dell'hub attività sul valore predefinito V1. x di "DurableFunctionsHub" oppure è possibile seguire le linee guida per la distribuzione con tempo di [inattività zero](durable-functions-zero-downtime-deployment.md) per informazioni dettagliate su come gestire le modifiche di rilievo per le orchestrazioni in corso.
+Nella versione 1. x, se il nome di un hub attività non è stato specificato in host.json, il valore predefinito è "DurableFunctionsHub". Nella versione 2. x, il nome predefinito dell'hub attività è ora derivato dal nome dell'app per le funzioni. Per questo motivo, se non è stato specificato un nome di hub attività quando si esegue l'aggiornamento a 2. x, il codice funzionerà con un nuovo hub attività e tutte le orchestrazioni in corso non avranno più l'elaborazione di un'applicazione. Per risolvere il problema, è possibile impostare in modo esplicito il nome dell'hub attività sul valore predefinito V1. x di "DurableFunctionsHub" oppure è possibile seguire le linee guida per la distribuzione con tempo di [inattività zero](durable-functions-zero-downtime-deployment.md) per informazioni dettagliate su come gestire le modifiche di rilievo per le orchestrazioni in corso.
 
 #### <a name="public-interface-changes-net-only"></a>Modifiche all'interfaccia pubblica (solo .NET)
 
@@ -77,8 +77,12 @@ La tabella seguente rappresenta le modifiche principali:
 | `DurableActivityContext` o `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-Nel caso in cui una classe base astratta contenesse metodi virtuali, questi metodi virtuali sono stati sostituiti dai metodi `DurableContextExtensions`di estensione definiti in.
+Nel caso in cui una classe base astratta contenesse metodi virtuali, questi metodi virtuali sono stati sostituiti dai metodi di estensione definiti in `DurableContextExtensions` .
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>modifiche di Function. JSON (script JavaScript e C#)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>function.jsmodifiche (script JavaScript e C#)
 
-In Durable Functions 1. x, l'associazione del client di orchestrazione utilizza un `type` di `orchestrationClient`. La versione 2. x `durableClient` usa invece.
+In Durable Functions 1. x, l'associazione del client di orchestrazione utilizza un `type` di `orchestrationClient` . La versione 2. x usa `durableClient` invece.
+
+#### <a name="raise-event-changes"></a>Genera modifiche evento
+
+In Durable Functions 1. x, la chiamata dell'API dell' [evento raise](durable-functions-external-events.md#send-events) e la specifica di un'istanza che non esisteva hanno causato un errore invisibile all'utente. A partire da 2. x, la generazione di un evento in un'orchestrazione inesistente comporta un'eccezione.

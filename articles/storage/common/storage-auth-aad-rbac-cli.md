@@ -8,20 +8,20 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: abe35f3193e2d7ff9a949ca7cd330cb58da2b78c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25a38fc6f9607ef878ad3c5bf7074f5b63d5c121
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74891969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808871"
 ---
 # <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo RBAC per l'accesso ai dati BLOB e Queue
 
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Archiviazione di Azure definisce un set di ruoli RBAC predefiniti che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati di BLOB o di Accodamento.
 
-Quando un ruolo RBAC viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Quando un ruolo di controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza di Azure AD, Azure concede l'accesso a tali risorse per quell'entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per elencare i ruoli RBAC predefiniti e assegnarli agli utenti. Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure, vedere [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
 
@@ -93,7 +93,7 @@ az role assignment create \
 
 ### <a name="storage-account-scope"></a>Ambito dell'account di archiviazione
 
-Per assegnare un ruolo nell'ambito dell'account di archiviazione, specificare l'ambito della risorsa dell'account di archiviazione per `--scope` il parametro. L'ambito di un account di archiviazione è nel formato seguente:
+Per assegnare un ruolo nell'ambito dell'account di archiviazione, specificare l'ambito della risorsa dell'account di archiviazione per il `--scope` parametro. L'ambito di un account di archiviazione è nel formato seguente:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -110,7 +110,7 @@ az role assignment create \
 
 ### <a name="resource-group-scope"></a>Ambito del gruppo di risorse
 
-Per assegnare un ruolo con ambito al gruppo di risorse, specificare il nome o l'ID del gruppo di `--resource-group` risorse per il parametro. L'esempio seguente assegna il ruolo di **lettore dati della coda di archiviazione** a un utente a livello del gruppo di risorse. Assicurarsi di sostituire i valori di esempio e i segnaposto tra parentesi con valori personalizzati:
+Per assegnare un ruolo con ambito al gruppo di risorse, specificare il nome o l'ID del gruppo di risorse per il `--resource-group` parametro. L'esempio seguente assegna il ruolo di **lettore dati della coda di archiviazione** a un utente a livello del gruppo di risorse. Assicurarsi di sostituire i valori di esempio e i segnaposto tra parentesi con valori personalizzati:
 
 ```azurecli-interactive
 az role assignment create \

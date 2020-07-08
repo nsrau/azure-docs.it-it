@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4bb315991846b115070854b6e81caf16232fef6b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3dfa5d6bc5707679bbe5dada9f28046202e7aae5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808523"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opzioni di archiviazione per i contenitori del profilo FSLogix in desktop virtuale di Windows
 
-Azure offre più soluzioni di archiviazione che è possibile usare per archiviare il contenitore del profilo FSLogix. Questo articolo confronta le soluzioni di archiviazione offerte da Azure per i contenitori di profili utente FSLogix per desktop virtuale di Windows.
+Azure offre più soluzioni di archiviazione che è possibile usare per archiviare il contenitore del profilo FSLogix. Questo articolo confronta le soluzioni di archiviazione offerte da Azure per i contenitori di profili utente FSLogix per desktop virtuale di Windows. Per la maggior parte dei clienti, è consigliabile archiviare i contenitori del profilo FSLogix in File di Azure. 
 
-Desktop virtuale di Windows offre i contenitori del profilo FSLogix come soluzione di profilo utente consigliata. FSLogix è progettato per eseguire il roaming dei profili in ambienti di elaborazione remota, ad esempio desktop virtuale di Windows. Al momento dell'accesso, questo contenitore viene collegato dinamicamente all'ambiente di elaborazione usando un disco rigido virtuale (VHD) supportato in modo nativo e un disco rigido virtuale Hyper-V (VHDX). Il profilo utente è immediatamente disponibile e viene visualizzato nel sistema esattamente come un profilo utente nativo.
+Desktop virtuale di Windows offre i contenitori del profilo FSLogix come soluzione di profilo utente consigliata. FSLogix è progettato per eseguire il roaming dei profili in ambienti di elaborazione remoti, ad esempio Desktop virtuale Windows. Al momento dell'accesso, questo contenitore viene collegato dinamicamente all'ambiente di elaborazione usando un disco rigido virtuale (VHD) supportato in modo nativo e un disco rigido virtuale Hyper-V (VHDX). Il profilo utente è immediatamente disponibile e viene visualizzato nel sistema esattamente come un profilo utente nativo.
 
 Le tabelle seguenti confrontano le soluzioni di archiviazione offerte da archiviazione di Azure per i profili utente del contenitore del profilo FSLogix di desktop virtuali Windows.
 
@@ -32,7 +32,7 @@ Le tabelle seguenti confrontano le soluzioni di archiviazione offerte da archivi
 |Disponibilità a livello di area|Tutte le aree|[Selezionare le aree](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Tutte le aree|
 |Ridondanza|Ridondanza locale/con ridondanza della zona/con ridondanza geografica|Con ridondanza locale|Ridondanza locale/con ridondanza della zona/con ridondanza geografica|
 |Livelli e prestazioni|Standard<br>Premium<br>Fino a un massimo di 100.000 IOPS per condivisione con 5 GBps per condivisione a circa 3 ms di latenza|Standard<br>Premium<br>Ultra<br>Fino a 320K (16K) IOPS con 4,5 GBps per volume a circa 1 ms di latenza|HDD Standard: fino a 500 IOPS per disco<br>SDD Standard: limiti fino a 4K IOPS per disco<br>SSD Premium: fino a 20.000 IOPS per disco<br>È consigliabile usare dischi Premium per Spazi di archiviazione diretta|
-|Capacity|100 TiB per condivisione|100 TiB per volume, fino a 12,5 PiB per sottoscrizione|Massimo 32 TiB per disco|
+|Capacità|100 TiB per condivisione|100 TiB per volume, fino a 12,5 PiB per sottoscrizione|Massimo 32 TiB per disco|
 |Infrastruttura necessaria|Dimensioni minime condivisione 1 GiB|Pool di capacità minimo 4 TiB, dimensione minima del volume 100 GiB|Due macchine virtuali in Azure IaaS (+ cloud Witness) o almeno tre VM senza e i costi per i dischi|
 |Protocolli|SMB 2.1/3. e REST|NFSv3, NFSv 4.1 (anteprima), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
 
@@ -40,7 +40,7 @@ Le tabelle seguenti confrontano le soluzioni di archiviazione offerte da archivi
 
 |Funzionalità|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
 |--------|-----------|------------------|---------------------|
-|Accesso|Cloud, locale e ibrido (sincronizzazione file di Azure)|Cloud, locale (tramite ExpressRoute)|Cloud, locale|
+|Access|Cloud, locale e ibrido (sincronizzazione file di Azure)|Cloud, locale (tramite ExpressRoute)|Cloud, locale|
 |Backup|Integrazione di snapshot di backup di Azure|Snapshot Azure NetApp Files|Integrazione di snapshot di backup di Azure|
 |Sicurezza e conformità|[Tutti i certificati supportati di Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO completato|[Tutti i certificati supportati di Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Integrazione di Azure Active Directory|[Active Directory e Azure Active Directory Domain Services nativi](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Active Directory nativo o solo supporto Azure Active Directory Domain Services|

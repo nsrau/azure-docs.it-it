@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276478"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807768"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -31,7 +31,7 @@ Il glossario di Microsoft Azure è un breve dizionario di terminologia cloud per
 
 ## <a name="account"></a>account
 Account usato per accedere alla sottoscrizione di Azure e gestirla. Viene spesso definito account Azure anche se un account può essere un account Microsoft aziendale, dell'istituto di istruzione o personale esistente oppure un nome utente e una password di Office 365. È anche possibile creare un account per gestire una sottoscrizione di Azure quando ci si iscrive alla [versione di valutazione gratuita](https://azure.microsoft.com).  
-Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365](cost-management-billing/manage/office-365-account-for-azure-subscription.md) e [Account che si possono usare per l'accesso](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+Vedere [iscriversi a una sottoscrizione di Azure con l'account Microsoft 365 e gli](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) [account che è possibile usare per accedere](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>App per le API
 Un altro nome per l' [app del servizio app](#app-service-app).
@@ -94,7 +94,7 @@ Portale Web sicuro usato per la distribuzione e la gestione dei servizi di Azure
 Area all'interno di un'area geografica che non supera i confini nazionali e include uno o più data center. I prezzi, i servizi regionali e i tipi di offerta sono resi disponibili a livello di area. Un'area viene in genere associata a un'altra area, che può trovarsi a centinaia di chilometri di distanza. Le coppie di aree possono essere usate come meccanismo per il ripristino di emergenza e gli scenari a disponibilità elevata. Chiamata anche genericamente *posizione*.  
 Vedere [Aree di Azure](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>risorse
+## <a name="resource"></a>Risorsa
 Elemento incluso nella soluzione Azure. Ogni servizio di Azure consente di distribuire diversi tipi di risorse, ad esempio database o macchine virtuali.   
 Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/overview.md)
 
@@ -118,12 +118,12 @@ Vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](role-based-
 Contratto di servizio che definisce gli impegni di Microsoft in merito a tempi di attività e connettività. Ogni servizio di Azure ha un contratto di servizio specifico.  
 Vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/)
 
-## <a name="shared-access-signature-sas"></a><a name="sas"></a>firma di accesso condiviso
+## <a name="shared-access-signature-sas"></a><a name="sas"></a>firma di accesso condiviso (SAS)
 Firma che consente di concedere accesso limitato a una risorsa, senza esporre la chiave dell'account. Ad esempio, [Archiviazione di Azure usa firme di accesso condiviso](storage/common/storage-dotnet-shared-access-signature-part-1.md) per concedere l'accesso client a oggetti come i BLOB. L'[hub IoT usa firme di accesso condiviso](iot-hub/iot-hub-devguide-security.md#security-tokens) per concedere ai dispositivi l'autorizzazione necessaria per inviare dati di telemetria.
 
 ## <a name="storage-account"></a>archiviazione di Azure
 Account che consente di accedere a servizi BLOB, di accodamento, tabelle e file in Archiviazione di Azure. Il nome dell'account di archiviazione definisce uno spazio dei nomi univoco per gli oggetti dati di Archiviazione di Azure.  
-Vedere [Informazioni sugli account di archiviazione di Azure](storage/common/storage-create-storage-account.md)
+Vedere [informazioni sugli account di archiviazione di Azure](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>sottoscrizione
 Contratto tra il cliente e Microsoft che consente di ricevere i servizi di Azure. Le tariffe della sottoscrizione e i relativi termini dipendono dall'offerta scelta per la sottoscrizione.

@@ -3,15 +3,15 @@ title: Spostare un servizio di bilanciamento del carico esterno di Azure in un'a
 description: Usare un modello di Azure Resource Manager per spostare un servizio di bilanciamento del carico esterno da un'area di Azure a un'altra usando il portale di Azure.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5cd5ce2635ce05c4d5962f12ddc3945342897ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638528"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808719"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Spostare un servizio di bilanciamento del carico esterno in un'altra area usando il portale di Azure
 
@@ -34,7 +34,7 @@ In senso letterale, non è possibile spostare un servizio di bilanciamento del c
 
 - Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta dei bilanciamenti del carico. Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
-## <a name="prepare-and-move"></a>Preparare e spostare
+## <a name="prepare-and-move"></a>Preparazione e spostamento
 Le procedure seguenti illustrano come preparare il servizio di bilanciamento del carico esterno per lo spostamento usando un modello di Gestione risorse e spostare la configurazione del servizio di bilanciamento del carico esterno nell'area di destinazione usando il portale di Azure. È necessario prima esportare la configurazione IP pubblico del servizio di bilanciamento del carico esterno.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -43,9 +43,9 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
 2. Individuare il gruppo di risorse che contiene l'indirizzo IP pubblico di origine e selezionarlo.
-3. Selezionare **Impostazioni** > **Esporta modello**.
+3. Selezionare **Impostazioni**  >  **Esporta modello**.
 4. Selezionare **Distribuisci** in **Esporta modello**.
-5. Selezionare **modello** > **modifica parametri** per aprire il file Parameters. JSON nell'editor online.
+5. Selezionare **modello**  >  **modifica parametri** per aprire il parameters.jsnel file nell'editor online.
 8. Per modificare il parametro del nome IP pubblico, modificare la proprietà **value** in **Parameters** dal nome IP pubblico di origine al nome dell'indirizzo IP pubblico di destinazione. Racchiudere il nome tra virgolette.
 
     ```json
@@ -63,7 +63,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
     Selezionare **Save (Salva** ) nell'editor.
 
-9.  Selezionare **modello** > **modifica modello** per aprire il file template. JSON nell'editor online.
+9.  Selezionare **modello**  >  **modifica modello** per aprire il template.jsnel file nell'editor online.
 
 10. Per modificare l'area di destinazione in cui verrà spostato l'IP pubblico, modificare la proprietà **location** in **Resources**:
 
@@ -95,7 +95,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
     
 12. È anche possibile modificare altri parametri nel modello, se si vuole o necessario, a seconda dei requisiti:
 
-    * **SKU**. È possibile modificare lo SKU dell'indirizzo IP pubblico nella configurazione da standard a Basic o da Basic a standard modificando la proprietà **Name** in **SKU** nel file template. JSON:
+    * **SKU**. È possibile modificare lo SKU dell'indirizzo IP pubblico nella configurazione da standard a Basic o da Basic a standard modificando la proprietà **Name** in **SKU** nella template.jssu file:
 
         ```json
           "resources": [
@@ -141,11 +141,11 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
  
 13. Selezionare **Save (Salva** ) nell'editor online.
 
-14. Selezionare **BASICS** > **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuito l'IP pubblico di destinazione.
+14. Selezionare **BASICS**  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuito l'IP pubblico di destinazione.
 
-15. Selezionare**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito l'IP pubblico di destinazione. È possibile selezionare **Crea nuovo** per creare un nuovo gruppo di risorse per l'indirizzo IP pubblico di destinazione. Verificare che il nome non sia uguale al gruppo di risorse di origine dell'IP pubblico di origine esistente.
+15. Selezionare **BASICS**  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito l'IP pubblico di destinazione. È possibile selezionare **Crea nuovo** per creare un nuovo gruppo di risorse per l'indirizzo IP pubblico di destinazione. Verificare che il nome non sia uguale al gruppo di risorse di origine dell'IP pubblico di origine esistente.
 
-16. Verificare che il**percorso** di **base** > sia impostato sul percorso di destinazione in cui si vuole distribuire l'indirizzo IP pubblico.
+16. Verificare che **BASICS**il  >  **percorso** di base sia impostato sul percorso di destinazione in cui si vuole distribuire l'indirizzo IP pubblico.
 
 17. In **Impostazioni**, verificare che il nome corrisponda al nome immesso in precedenza nell'editor dei parametri.
 
@@ -159,9 +159,9 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
 2. Individuare il gruppo di risorse che contiene il servizio di bilanciamento del carico esterno di origine e selezionarlo.
-3. Selezionare **Impostazioni** > **Esporta modello**.
+3. Selezionare **Impostazioni**  >  **Esporta modello**.
 4. Selezionare **Distribuisci** in **Esporta modello**.
-5. Selezionare **modello** > **modifica parametri** per aprire il file Parameters. JSON nell'editor online.
+5. Selezionare **modello**  >  **modifica parametri** per aprire il parameters.jsnel file nell'editor online.
 
 5. Per modificare il parametro del nome del servizio di bilanciamento del carico esterno, modificare la proprietà **value** del nome del servizio di bilanciamento del carico esterno di origine con il nome del servizio di bilanciamento del carico esterno di destinazione. Racchiudere il nome tra virgolette.
 
@@ -178,11 +178,11 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
     ```
 
-6.  Per modificare il valore dell'indirizzo IP pubblico di destinazione spostato nei passaggi precedenti, è necessario prima ottenere l'ID risorsa e incollarlo nel file Parameters. JSON. Per ottenere l'ID:
+6.  Per modificare il valore dell'indirizzo IP pubblico di destinazione spostato nei passaggi precedenti, è necessario prima ottenere l'ID risorsa e incollarlo nel file parameters.js. Per ottenere l'ID:
 
     1. In un'altra scheda o finestra del browser accedere alla [portale di Azure](https://portal.azure.com) e selezionare **gruppi di risorse**.
-    2. Individuare il gruppo di risorse di destinazione che contiene l'indirizzo IP pubblico che è stato spostato nei passaggi precedenti. Selezionarlo.
-    3. Selezionare **Settings** > **proprietà**impostazioni.
+    2. Individuare il gruppo di risorse di destinazione che contiene l'indirizzo IP pubblico che è stato spostato nei passaggi precedenti. Selezionarla.
+    3. Selezionare **Settings**  >  **proprietà**impostazioni.
     4. Nel pannello a destra evidenziare l' **ID risorsa** e copiarlo negli Appunti. In alternativa, è possibile selezionare **copia negli Appunti** a destra del percorso dell' **ID risorsa** .
     5. Incollare l'ID risorsa nella proprietà **value** nell'editor **modifica parametri** aperto nell'altra finestra o scheda del browser:
 
@@ -202,7 +202,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
     6. Selezionare **Save (Salva** ) nell'editor online.
 
 
-7.  Se sono state configurate le regole NAT in uscita e in uscita per il servizio di bilanciamento del carico, verrà visualizzata una terza voce in questo file per l'ID esterno dell'IP pubblico in uscita. Ripetere i passaggi precedenti nell' **area di destinazione** per ottenere l'ID per l'indirizzo IP pubblico in uscita. Incollare l'ID nel file Parameters. JSON:
+7.  Se sono state configurate le regole NAT in uscita e in uscita per il servizio di bilanciamento del carico, verrà visualizzata una terza voce in questo file per l'ID esterno dell'IP pubblico in uscita. Ripetere i passaggi precedenti nell' **area di destinazione** per ottenere l'ID per l'indirizzo IP pubblico in uscita. Incollare l'ID nell'parameters.jsnel file:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -223,8 +223,8 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
         },
     ```
 
-8.  Selezionare **modello** > **modifica modello** per aprire il file template. JSON nell'editor online.
-9.  Per modificare l'area di destinazione in cui verrà spostata la configurazione del servizio di bilanciamento del carico esterno, modificare la proprietà **location** in **Resources** nel file template. JSON:
+8.  Selezionare **modello**  >  **modifica modello** per aprire il template.jsnel file nell'editor online.
+9.  Per modificare l'area di destinazione in cui verrà spostata la configurazione del servizio di bilanciamento del carico esterno, modificare la proprietà **location** in **Resources** nella template.jssu file:
 
     ```json
         "resources": [
@@ -243,7 +243,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
 11. È anche possibile modificare altri parametri nel modello, se si vuole o necessario, a seconda dei requisiti:
 
-    * **SKU**. È possibile modificare lo SKU del servizio di bilanciamento del carico esterno nella configurazione da standard a Basic o da Basic a standard modificando la proprietà **Name** in **SKU** nel file template. JSON:
+    * **SKU**. È possibile modificare lo SKU del servizio di bilanciamento del carico esterno nella configurazione da standard a Basic o da Basic a standard modificando la proprietà **Name** in **SKU** nella template.jssu file:
 
         ```json
         "resources": [
@@ -259,7 +259,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
         ```
       Per informazioni sulle differenze tra i bilanciamenti del carico SKU Basic e standard, vedere [Panoramica di Azure Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
-    * **Regole di bilanciamento del carico**. È possibile aggiungere o rimuovere le regole di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **loadBalancingRules** del file template. JSON:
+    * **Regole di bilanciamento del carico**. È possibile aggiungere o rimuovere le regole di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **loadBalancingRules** del template.jssu file:
 
         ```json
         "loadBalancingRules": [
@@ -291,7 +291,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
         ```
        Per informazioni sulle regole di bilanciamento del carico, vedere [che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 
-    * **Probe**. È possibile aggiungere o rimuovere un probe per il servizio di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **Probe** del file template. JSON:
+    * **Probe**. È possibile aggiungere o rimuovere un probe per il servizio di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **Probe** del template.jssu file:
 
         ```json
         "probes": [
@@ -311,7 +311,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
         ```
        Per altre informazioni, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-    * **Regole NAT in ingresso**. È possibile aggiungere o rimuovere le regole NAT in ingresso per il servizio di bilanciamento del carico aggiungendo o rimuovendo le voci nella sezione **inboundNatRules** del file template. JSON:
+    * **Regole NAT in ingresso**. È possibile aggiungere o rimuovere le regole NAT in ingresso per il servizio di bilanciamento del carico aggiungendo o rimuovendo le voci nella sezione **inboundNatRules** del template.jssu file:
 
         ```json
         "inboundNatRules": [
@@ -333,7 +333,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
                     }
                 ]
         ```
-        Per completare l'aggiunta o la rimozione di una regola NAT in ingresso, è necessario che la regola sia presente o rimossa come proprietà del **tipo** alla fine del file template. JSON:
+        Per completare l'aggiunta o la rimozione di una regola NAT in ingresso, è necessario che la regola sia presente o rimossa come proprietà del **tipo** alla fine del template.jsnel file:
 
         ```json
         {
@@ -359,7 +359,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
         ```
         Per informazioni sulle regole NAT in ingresso, vedere [che cos'è Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 
-    * **Regole in uscita**. È possibile aggiungere o rimuovere regole in uscita nella configurazione modificando la proprietà **outboundRules** nel file template. JSON:
+    * **Regole in uscita**. È possibile aggiungere o rimuovere regole in uscita nella configurazione modificando la proprietà **outboundRules** nel file template.js:
 
         ```json
         "outboundRules": [
@@ -389,11 +389,11 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
 12. Selezionare **Save (Salva** ) nell'editor online.
 
-13. Selezionare **BASICS** > **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuito il servizio di bilanciamento del carico esterno di destinazione.
+13. Selezionare **BASICS**  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuito il servizio di bilanciamento del carico esterno di destinazione.
 
-15. Selezionare**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione. È possibile selezionare **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico esterno di destinazione. In alternativa, è possibile scegliere il gruppo di risorse esistente creato in precedenza per l'indirizzo IP pubblico. Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico esterno di origine esistente.
+15. Selezionare **BASICS**  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione. È possibile selezionare **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico esterno di destinazione. In alternativa, è possibile scegliere il gruppo di risorse esistente creato in precedenza per l'indirizzo IP pubblico. Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico esterno di origine esistente.
 
-16. Verificare che il**percorso** di **base** > sia impostato sul percorso di destinazione in cui si desidera distribuire il servizio di bilanciamento del carico esterno.
+16. Verificare che **BASICS**  >  il**percorso** di base sia impostato sul percorso di destinazione in cui si desidera distribuire il servizio di bilanciamento del carico esterno.
 
 17. In **Impostazioni**verificare che il nome corrisponda al nome immesso in precedenza nell'editor dei parametri. Verificare che gli ID risorsa siano popolati per tutti gli indirizzi IP pubblici nella configurazione.
 

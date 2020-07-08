@@ -5,16 +5,16 @@ description: Informazioni su come usare la portale di Azure per creare un gatewa
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 6f86f32e64bbbe79ea5a403d04f7d6c29ee6b980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808026"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurare TLS end-to-end usando il gateway applicazione con il portale
 

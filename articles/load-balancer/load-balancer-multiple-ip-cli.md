@@ -8,17 +8,17 @@ author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 69d324647af014a5122c404929c104a9077d5f13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e9a74690108c0e089e99f9cd7f0f62e7a7d1778
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74225297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809152"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Bilanciamento del carico in più configurazioni IP tramite l'interfaccia della riga di comando di Azure
 

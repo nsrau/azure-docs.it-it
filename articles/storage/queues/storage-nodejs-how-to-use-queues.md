@@ -1,28 +1,31 @@
 ---
-title: Usare l'archiviazione code di Azure da node. js-archiviazione di Azure
+title: Usare l'archiviazione code di Azure da Node.js-archiviazione di Azure
 description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
+ms.topic: how-to
+ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b8f15831c02a74bbba85ca4327369af6a4dbb2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060930"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808800"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Usare il servizio di Accodamento di Azure per creare ed eliminare code da node. js
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Usare il servizio di Accodamento di Azure per creare ed eliminare code da Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Panoramica
 In questa guida viene illustrato come eseguire scenari comuni del Servizio di accodamento di Microsoft Azure. Gli esempi sono scritti usando l'API Node.js. Gli scenari illustrati includono **inserimento**, **visualizzazione**, **recupero** ed **eliminazione** dei messaggi in coda, oltre alla **creazione ed eliminazione di code**.
+
+> [!IMPORTANT]
+> Questo articolo si riferisce alla versione legacy della libreria client di archiviazione di Azure per JavaScript. Per iniziare a usare la versione più recente, vedere [Guida introduttiva: libreria client di archiviazione code di Azure per JavaScript](storage-quickstart-queues-nodejs.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -51,7 +54,7 @@ Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK pe
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
     ```
 
-3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **\_node Modules** . All'interno di questa cartella si trova il pacchetto **azure-storage** , che contiene le librerie necessarie per accedere all'archiviazione.
+3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node\_modules**. All'interno di questa cartella si trova il pacchetto **azure-storage** , che contiene le librerie necessarie per accedere all'archiviazione.
 
 ### <a name="import-the-package"></a>Importare il pacchetto
 Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione dove si intende utilizzare l'archiviazione:
@@ -83,7 +86,7 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 Se la coda viene creata, `result.created` è true. Se la coda esiste già, `result.created` è false.
 
 ### <a name="filters"></a>Filtri
-Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **QueueService**. Le operazioni di filtro possono includere la registrazione, un nuovo tentativo automatico e così via. I filtri sono oggetti che implementano un metodo con la firma:
+Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **QueueService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automatica dei tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
 ```javascript
 function handle (requestOptions, next)

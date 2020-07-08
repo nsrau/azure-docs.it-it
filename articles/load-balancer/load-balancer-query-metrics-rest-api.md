@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: load-balancer
 ms.custom: REST, seodec18
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74225248"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808382"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Ottenere Load Balancer metriche di utilizzo usando l'API REST
 
@@ -49,10 +49,10 @@ Gli argomenti seguenti sono obbligatori:
 | loadBalancerName | Nome di Azure Load Balancer. |
 | nomi delle metriche | Elenco delimitato da virgole delle [metriche di Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics) valide. |
 | api-version | Versione dell'API da usare per la richiesta.<br /><br /> Questo documento illustra la versione api-version `2018-01-01`, inclusa nell'URL precedente.  |
-| Intervallo di tempo | Intervallo di tempo della query. Si tratta di una stringa con il formato `startDateTime_ISO/endDateTime_ISO`seguente. Questo parametro facoltativo è impostato per restituire, nell'esempio, i dati relativi a un singolo giorno. |
+| timespan | Intervallo di tempo della query. Si tratta di una stringa con il formato seguente `startDateTime_ISO/endDateTime_ISO` . Questo parametro facoltativo è impostato per restituire, nell'esempio, i dati relativi a un singolo giorno. |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Testo della richiesta
+### <a name="request-body"></a>Corpo della richiesta
 
 Per questa operazione non è necessario alcun corpo della richiesta.
 

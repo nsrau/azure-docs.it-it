@@ -4,16 +4,16 @@ description: Informazioni su come usare il portale di Azure per configurare un g
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: b90736b3ed1c1f69488fde4a386cf215d751c362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74012849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807906"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Riscrivere le intestazioni di richiesta e risposta HTTP con applicazione Azure gateway-portale di Azure
 
@@ -99,7 +99,7 @@ In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'int
 
    - Nell'elenco **operatore** selezionare uguale a **(=)**.
 
-   - Immettere un modello di espressione regolare. In questo esempio verrà usato il modello `(https?):\/\/.*azurewebsites\.net(.*)$`.
+   - Immettere un modello di espressione regolare. In questo esempio verrà usato il modello `(https?):\/\/.*azurewebsites\.net(.*)$` .
 
    - Selezionare **OK**.
 

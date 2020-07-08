@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: fa0754505d887b77cc3d11ebde9c246d4a00eb59
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: d5e8f5e3939ade4e5344ef586a62b6a19082e34e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809033"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con .NET
 
@@ -35,7 +35,7 @@ Per altre informazioni su come eseguire l'autenticazione con la libreria client 
 
 ## <a name="add-using-directives"></a>Aggiungere le direttive using
 
-Aggiungere le direttive seguenti `using` al codice per usare le librerie di identità di Azure e client di archiviazione di Azure.
+Aggiungere le `using` direttive seguenti al codice per usare le librerie di identità di Azure e client di archiviazione di Azure.
 
 ```csharp
 using System;

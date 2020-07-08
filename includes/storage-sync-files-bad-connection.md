@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 07/08/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b2ff542d2782293e89b66e5d25cb67a9bcde6da8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75773031"
 ---
 Questo errore può verificarsi quando il servizio Sincronizzazione file di Azure non è accessibile dal server. È possibile risolvere questo errore eseguendo questa procedura:
@@ -31,6 +31,6 @@ Questo errore può verificarsi quando il servizio Sincronizzazione file di Azure
     Import-Module "$agentPath\StorageSync.Management.ServerCmdlets.dll"
     Get-StorageSyncProxyConfiguration
     ```
-4. Usare il cmdlet test-StorageSyncNetworkConnectivity per verificare la connettività di rete agli endpoint del servizio. Per altre informazioni, vedere [testare la connettività di rete agli endpoint di servizio](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).    
+4. Usare il cmdlet Test-StorageSyncNetworkConnectivity per verificare la connettività di rete agli endpoint del servizio. Per altre informazioni, vedere [Testare la connettività di rete agli endpoint di servizio](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).    
 
 5. Per assistenza nella risoluzione dei problemi di connettività di rete, contattare l'amministratore di rete.

@@ -4,18 +4,18 @@ description: 'Informazioni su come risolvere i problemi del server gateway appli
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808149"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Iniziare</a></span><span class="has-padding-small">a risolvere rapidamente il problema usando l'agente virtuale per eseguire la <b>diagnostica automatica.</b> </span> Informativa <sub>sulla privacy</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
+
 Informazioni su come risolvere gli errori di gateway non valido (502) ricevuti quando si usa applicazione Azure gateway.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -111,7 +111,7 @@ Vengono aggiunte le proprietà aggiuntive seguenti:
 | Nome |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
 | Protocollo |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
 | Host |Nome host per inviare il probe. Applicabile solo quando il multisito è configurato nel gateway applicazione. Questo nome è diverso dal nome host della macchina virtuale. |
-| Path |Percorso relativo del probe. Il percorso valido inizia da "/". Il probe viene inviato a \<protocollo\>://\<host\>:\<porta\>\<percorso\> |
+| Path |Percorso relativo del probe. Il percorso valido inizia da "/". Il probe viene inviato a \<protocol\> :// \<host\> :\<port\>\<path\> |
 | Interval |Intervallo di probe in secondi. Si tratta dell'intervallo di tempo tra due probe consecutivi. |
 | Timeout |Timeout del probe in secondi. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito. |
 | Soglia non integra |Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
@@ -121,8 +121,8 @@ Vengono aggiunte le proprietà aggiuntive seguenti:
 Verificare che il probe di integrità personalizzato sia configurato correttamente in base alla tabella precedente. In aggiunta alle procedure di risoluzione dei problemi precedenti, verificare anche quanto segue:
 
 * Verificare che il probe sia specificato correttamente secondo le istruzioni della [guida](application-gateway-create-probe-ps.md).
-* Se il gateway applicazione è configurato per un singolo sito, per impostazione predefinita il nome host deve essere specificato `127.0.0.1`come, salvo diversamente configurato in Probe personalizzato.
-* Verificare che la chiamata a http://\<host\>:\<porta\>\<percorso\> restituisca un codice risultato HTTP di 200.
+* Se il gateway applicazione è configurato per un singolo sito, per impostazione predefinita il nome host deve essere specificato come `127.0.0.1` , salvo diversamente configurato in Probe personalizzato.
+* Verificare che una chiamata a http:// \<host\> : \<port\> \<path\> restituisca un codice di risultato HTTP 200.
 * Verificare che Interval, timeout e UnhealtyThreshold siano compresi negli intervalli accettabili.
 * Se si usa un probe HTTPS, assicurarsi che il server back-end non richieda SNI configurando un certificato di fallback nello stesso server back-end.
 

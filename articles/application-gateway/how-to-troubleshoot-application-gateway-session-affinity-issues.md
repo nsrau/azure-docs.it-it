@@ -5,15 +5,15 @@ description: Questo articolo fornisce informazioni su come risolvere i problemi 
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f5f5c16f3d6aa1d7115e99cbae0dbd6cd926b25a
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 5acf4ac1ec75d5cec057e4b66e3c6cbd8a463271
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808025"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Risolvere i problemi di affinità di sessione del gateway applicazione Azure
 
@@ -75,7 +75,7 @@ Se l'applicazione non è in grado di gestire l'affinità basata su cookie, è ne
 
 #### <a name="symptom"></a>Sintomo
 
-È stata abilitata l'impostazione di affinità basata su cookie, quando si accede al gateway applicazione usando un URL con nome breve in Internet Explorer, ad `http://website` esempio:, la richiesta sta ancora rimbalzando tra i server back-end.
+È stata abilitata l'impostazione di affinità basata su cookie, quando si accede al gateway applicazione usando un URL con nome breve in Internet Explorer, ad esempio: `http://website` , la richiesta sta ancora rimbalzando tra i server back-end.
 
 Per identificare questo problema, seguire le istruzioni:
 
@@ -161,7 +161,7 @@ Gli strumenti di debug Web come Fiddler consentono di eseguire il debug delle ap
 
 Usare il debugger Web di propria scelta. In questo esempio verrà usato Fiddler per acquisire e analizzare il traffico http o HTTPS, seguire le istruzioni:
 
-1. Scaricare lo strumento Fiddler all' <https://www.telerik.com/download/fiddler>indirizzo.
+1. Scaricare lo strumento Fiddler all'indirizzo <https://www.telerik.com/download/fiddler> .
 
     > [!NOTE]
     > Scegliere Fiddler4 se nel computer di acquisizione è installato .NET 4. In caso contrario, scegliere fiddler2.
@@ -174,7 +174,7 @@ Usare il debugger Web di propria scelta. In questo esempio verrà usato Fiddler 
 
     ![risoluzione dei problemi-Session-Affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. È probabile che si sia interessati al traffico HTTPS decrittografato ed è possibile abilitare la decrittografia HTTPS selezionando **strumenti** > **Opzioni Fiddler**e selezionando la casella " **decrittografare il traffico HTTPS**".
+4. È probabile che si sia interessati al traffico HTTPS decrittografato ed è possibile abilitare la decrittografia HTTPS selezionando **strumenti**  >  **Opzioni Fiddler**e selezionando la casella " **decrittografare il traffico HTTPS**".
 
     ![risoluzione dei problemi-Session-Affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
@@ -182,7 +182,7 @@ Usare il debugger Web di propria scelta. In questo esempio verrà usato Fiddler 
 
     ![risoluzione dei problemi-Session-Affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
-6. Dopo aver riprodotto il problema, salvare il file per verificarlo selezionando **file** > **Salva** > **tutte le sessioni..**. 
+6. Dopo aver riprodotto il problema, salvare il file per verificarlo selezionando **file**  >  **Salva**  >  **tutte le sessioni..**. 
 
     ![risoluzione dei problemi-Session-Affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 

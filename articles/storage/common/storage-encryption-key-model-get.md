@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0df0ba4ce76d249bcb4738b41c94677e061f14ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f16902a779fdb7c86fb7506711d2bce77ca9d05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809232"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinare quale modello della chiave di crittografia di archiviazione di Azure è in uso per l'account di archiviazione
 
@@ -57,7 +57,7 @@ $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
 $account.Encryption.KeySource
 ```
 
-Se il valore della proprietà **KeySource** della chiave di origine `Microsoft.Storage`è, l'account viene crittografato con le chiavi gestite da Microsoft. Se il valore della proprietà chiave **source** è `Microsoft.Keyvault`, l'account viene crittografato con le chiavi gestite dal cliente.
+Se il valore della proprietà della chiave di **origine** è `Microsoft.Storage` , l'account viene crittografato con le chiavi gestite da Microsoft. Se il valore della proprietà chiave **source** è `Microsoft.Keyvault` , l'account viene crittografato con le chiavi gestite dal cliente.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/cli)
 
@@ -71,11 +71,11 @@ key_source=$(az storage account show \
     --output tsv)
 ```
 
-Se il valore della proprietà **keySource** della chiave di origine `Microsoft.Storage`è, l'account viene crittografato con le chiavi gestite da Microsoft. Se il valore della proprietà chiave **source** è `Microsoft.Keyvault`, l'account viene crittografato con le chiavi gestite dal cliente.
+Se il valore della proprietà della chiave di **origine** è `Microsoft.Storage` , l'account viene crittografato con le chiavi gestite da Microsoft. Se il valore della proprietà chiave **source** è `Microsoft.Keyvault` , l'account viene crittografato con le chiavi gestite dal cliente.
 
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
 - [Usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di archiviazione di Azure](encryption-customer-managed-keys.md)

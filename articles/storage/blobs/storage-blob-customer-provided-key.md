@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 11/26/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: ea8254f108aed9d40e6970a27409035b1e10ab41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6f4978ef2b6ddc487f60e6a1193164ec07e5548
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74807001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809113"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Specificare una chiave fornita dal cliente per una richiesta all'archivio BLOB con .NET
 
@@ -74,5 +74,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia di archiviazione di Azure per dati inattivi](../common/storage-service-encryption.md)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](../common/storage-service-encryption.md)
 - [Autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](../common/storage-auth-aad-msi.md)

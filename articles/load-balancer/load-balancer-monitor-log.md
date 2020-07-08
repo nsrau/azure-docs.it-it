@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7563eb4d22048021886925f6864e3616bed83a75
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858771"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809183"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Log di Monitoraggio di Azure per Load Balancer Basic pubblico
 
@@ -38,14 +38,14 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 Accedere al [portale di Azure](https://portal.azure.com). Prima di procedere, [creare un servizio di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) , se non se ne ha già uno.
 
 1. Nel portale fare clic su **gruppi di risorse**.
-2. Selezionare ** \<Resource-Group-Name>** in cui si trova il servizio di bilanciamento del carico.
+2. Selezionare **\<resource-group-name>** la posizione in cui si trova il servizio di bilanciamento del carico.
 3. Selezionare il servizio di bilanciamento del carico.
-4. Selezionare **monitoraggio** > **impostazioni di diagnostica**.
+4. Selezionare **monitoraggio**  >  **impostazioni di diagnostica**.
 5. Nel riquadro **Impostazioni** di diagnostica, in **impostazioni di diagnostica**, selezionare **+ Aggiungi impostazione di diagnostica**.
 6. Nel riquadro di creazione **impostazioni di diagnostica** immettere **MyLBDiagnostics** nel campo **nome** .
 7. Sono disponibili tre opzioni per le **impostazioni di diagnostica**.  È possibile scegliere uno, due o tutti e tre e configurare ognuno per i requisiti:
    * **Archivia in un account di archiviazione**
-   * **Trasmettere a un hub eventi**
+   * **Streaming in un hub eventi**
    * **Invia a Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>Archivia in un account di archiviazione

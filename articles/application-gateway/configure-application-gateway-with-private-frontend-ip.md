@@ -5,15 +5,15 @@ description: Questo articolo fornisce informazioni su come configurare un gatewa
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808121"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurare un gateway applicazione con un endpoint del servizio di bilanciamento del carico interno (ILB)
 
@@ -74,7 +74,7 @@ Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtu
 25. Accettare le impostazioni predefinite rimanenti e selezionare **Aggiungi**.
 26. Nella pagina **Aggiungi una regola di routing** selezionare **Aggiungi**.
 27. Selezionare **Avanti: Tag**.
-28. Selezionare **Avanti: verifica + crea**.
+28. Selezionare **Avanti: Rivedi e crea**.
 29. Rivedere le impostazioni nella pagina Riepilogo e quindi selezionare **Crea** per creare le risorse di rete e il gateway applicazione. La creazione del gateway applicazione può richiedere diversi minuti. Attendere fino al termine della distribuzione prima di passare alla sezione successiva.
 
 ## <a name="add-backend-pool"></a>Aggiungere un pool back-end

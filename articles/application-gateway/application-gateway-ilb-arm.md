@@ -4,15 +4,15 @@ description: Questa pagina fornisce istruzioni per la creazione, la configurazio
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 406dcdb419dba2e8044a173f4c05028abbaba3da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 439523fe55f231548ebc80ebc5d3b53c2f0d6e2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808132"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creare un gateway applicazione con un servizio di bilanciamento del carico interno
 
@@ -92,7 +92,7 @@ Nell'esempio precedente è stato creato un gruppo di risorse denominato "appgw-r
 
 L'esempio seguente illustra come creare una rete virtuale usando Gestione risorse:
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 ```powershell
 $subnetconfig = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
@@ -118,7 +118,7 @@ Questo passaggio assegna l'oggetto subnet alla variabile $subnet per i passaggi 
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Creare un oggetto di configurazione gateway applicazione
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 ```powershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -203,7 +203,7 @@ Per eliminare un gateway applicazione sarà necessario eseguire questi passaggi 
 2. Usare il cmdlet `Remove-AzApplicationGateway` per rimuovere il gateway.
 3. Assicurarsi che il gateway sia stato rimosso usando il cmdlet `Get-AzureApplicationGateway`.
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 Ottenere l'oggetto gateway applicazione e associarlo a una variabile "$getgw".
 

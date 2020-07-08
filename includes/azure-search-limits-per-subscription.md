@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 author: HeidiSteen
 ms.service: cognitive-search
 ms.topic: include
@@ -8,10 +8,10 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: ee430241173a6c19e2a32e176f28411631d9cb19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80272631"
 ---
 È possibile creare più servizi all'interno di una sottoscrizione. Ognuno di essi può essere sottoposti a provisioning a un livello specifico. L'utente è limitato solo dal numero di servizi consentiti a ogni livello. Ad esempio, è possibile creare fino a 12 servizi a livello Basic e altri 12 servizi a livello S1 nella stessa sottoscrizione. Per altre informazioni sui livelli, vedere [scegliere uno SKU o un livello per ricerca cognitiva di Azure](../articles/search/search-sku-tier.md).

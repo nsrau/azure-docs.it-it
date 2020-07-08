@@ -5,21 +5,21 @@ description: Questo articolo fornisce indicazioni su come configurare app Azure 
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74075170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808099"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurare il servizio app con il gateway applicazione
 
 Poiché il servizio app è un servizio multi-tenant anziché una distribuzione dedicata, usa l'intestazione host nella richiesta in ingresso per risolvere la richiesta all'endpoint corretto del servizio app. In genere, il nome DNS dell'applicazione, che a sua volta è il nome DNS associato al gateway applicazione che precede il servizio app, è diverso dal nome di dominio del servizio app back-end. Pertanto, l'intestazione host nella richiesta originale ricevuta dal gateway applicazione non corrisponde al nome host del servizio back-end. Per questo motivo, a meno che l'intestazione host nella richiesta dal gateway applicazione al back-end non venga modificata nel nome host del servizio back-end, i back-end multi-tenant non sono in grado di risolvere la richiesta nell'endpoint corretto.
 
-Il gateway applicazione fornisce un'opzione `Pick host name from backend address` denominata che sostituisce l'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end. Questa funzionalità consente il supporto per back-end multi-tenant, ad esempio servizio app di Azure e gestione API. 
+Il gateway applicazione fornisce un'opzione denominata `Pick host name from backend address` che sostituisce l'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end. Questa funzionalità consente il supporto per back-end multi-tenant, ad esempio servizio app di Azure e gestione API. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -59,11 +59,11 @@ In questo articolo vengono illustrate le operazioni seguenti:
 3. Scegliere il protocollo come HTTP o HTTPS in base al caso d'uso. 
 
    > [!NOTE]
-   > Se si seleziona HTTPS, non è necessario caricare un certificato di autenticazione o un certificato radice trusted nell'elenco elementi consentiti del back-end del servizio app perché il servizio app è un servizio di Azure attendibile.
+   > Se si seleziona HTTPS, non è necessario caricare un certificato di autenticazione o un certificato radice trusted per consentire il back-end del servizio app perché il servizio app è un servizio di Azure attendibile.
 
-4. Selezionare la casella da **usare per il servizio app** . Si noti che le `Create a probe with pick host name from backend address` opzioni `Pick host name from backend address` e vengono abilitate automaticamente.`Pick host name from backend address` eseguirà l'override dell'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end.  
+4. Selezionare la casella da **usare per il servizio app** . Si noti che le opzioni `Create a probe with pick host name from backend address` e vengono `Pick host name from backend address` abilitate automaticamente.`Pick host name from backend address` eseguirà l'override dell'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end.  
 
-   `Create a probe with pick host name from backend address`creerà automaticamente un probe di integrità e lo associerà a questa impostazione HTTP. Non è necessario creare altri Probe di integrità per questa impostazione HTTP. È possibile verificare che sia stato aggiunto un nuovo probe con il nome <HTTP Setting name> <Unique GUID> nell'elenco di probe di integrità e che sia già presente `Pick host name from backend http settings enabled`l'opzione.
+   `Create a probe with pick host name from backend address`creerà automaticamente un probe di integrità e lo associerà a questa impostazione HTTP. Non è necessario creare altri Probe di integrità per questa impostazione HTTP. È possibile verificare che sia stato aggiunto un nuovo probe con il nome <HTTP Setting name> <Unique GUID> nell'elenco di probe di integrità e che sia già presente l'opzione `Pick host name from backend http settings enabled` .
 
    Se si dispone già di una o più impostazioni HTTP che vengono usate per il servizio app e se le impostazioni HTTP usano lo stesso protocollo che si sta usando in quello che si sta creando, anziché l' `Create a probe with pick host name from backend address` opzione, si otterrà un elenco a discesa per selezionare uno dei probe personalizzati. Questo perché poiché esiste già un'impostazione HTTP con il servizio app, è necessario che esista anche un probe di integrità con l'opzione `Pick host name from backend http settings enabled` . Scegliere il probe personalizzato dall'elenco a discesa.
 

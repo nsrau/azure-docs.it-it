@@ -4,15 +4,15 @@ description: Questo articolo descrive come configurare TLS end-to-end con un gat
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 4/8/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648429"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808207"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configurare TLS end-to-end usando un gateway applicazione con PowerShell
 
@@ -176,7 +176,7 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    ```
 
    > [!NOTE]
-   > Il certificato fornito al passaggio precedente deve essere la chiave pubblica del certificato PFX presente nel back-end. Esportare il certificato (non il certificato radice) installato nel server back-end in formato CER e usarlo in questo passaggio. Questo passaggio mostra come aggiungere il back-end all'elenco elementi consentiti con il gateway applicazione.
+   > Il certificato fornito al passaggio precedente deve essere la chiave pubblica del certificato PFX presente nel back-end. Esportare il certificato (non il certificato radice) installato nel server back-end in formato CER e usarlo in questo passaggio. Questo passaggio consente il back-end con il gateway applicazione.
 
    Se si usa lo SKU v2 di gateway applicazione, creare un certificato radice attendibile anziché un certificato di autenticazione. Per altre informazioni, vedere [Panoramica di TLS end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-tls-with-the-v2-sku):
 

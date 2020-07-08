@@ -5,15 +5,15 @@ description: Questo articolo fornisce le istruzioni per configurare i criteri TL
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 3804059fdd818f10663d14bde72da2c6773fa53f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3109ada2c905a9f11169a462284d22b9e9604494
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312686"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808231"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare le versioni dei criteri TLS e i pacchetti di crittografia nel gateway applicazione
 

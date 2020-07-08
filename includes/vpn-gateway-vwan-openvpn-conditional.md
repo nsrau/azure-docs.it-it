@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 410570302eec418f1e4bcb75d6413936a96b5171
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471535"
 ---
 L'accesso condizionale consente il controllo di accesso con granularità fine in base alle singole applicazioni. Per usare l'accesso condizionale, è necessario che siano state applicate Azure AD Premium 1 o più licenze agli utenti che saranno soggette alle regole di accesso condizionale.
@@ -39,7 +39,7 @@ L'accesso condizionale consente il controllo di accesso con granularità fine in
    ![Concedi accesso-autenticazione a più fattori](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
 4. Nella sezione **abilitare i criteri** :
 
-   - Selezionare **on**.
+   - Selezionare **Attivato**.
    - Fare clic su **Crea**.
 
    ![Abilita criteri](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)

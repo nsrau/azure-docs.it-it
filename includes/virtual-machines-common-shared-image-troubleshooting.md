@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75772918"
 ---
 Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l'opzione **-debug** con l'interfaccia della riga di comando e l'opzione **-debug** con PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
@@ -52,7 +52,7 @@ Possibili cause:
 
 *Il nome della versione dell'immagine non è valido.*
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *VersionePrincipale.VersioneSecondaria.Patch*. Modificare il nome della versione dell'immagine e riprovare.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion. MinorVersion. patch*. Modificare il nome della versione dell'immagine e riprovare.
 
 *Non è possibile trovare l'immagine gestita di origine da cui viene creata la versione dell'immagine.* 
 

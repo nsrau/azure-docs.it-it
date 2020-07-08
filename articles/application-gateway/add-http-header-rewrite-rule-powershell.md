@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni su come riscrivere le intesta
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 47fe6a5247622e3ad3b3720955068580e0329913
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f205b3a604aa38854969f6f62cbce44f46fa7d25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "64947199"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808263"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Riscrivere le intestazioni di richiesta e risposta HTTP con applicazione Azure gateway-Azure PowerShell
 
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Specificare la configurazione della regola di riscrittura dell'intestazione HTTP
 
-In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'intestazione Location nella risposta HTTP ogni volta che l'intestazione Location contiene un riferimento a azurewebsites.net. A tale scopo, verrà aggiunta una condizione per valutare se l'intestazione Location nella risposta contiene azurewebsites.net. Verrà usato il modello `(https?):\/\/.*azurewebsites\.net(.*)$`. E utilizzeremo `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` come valore di intestazione. Questo valore sostituirà *azurewebsites.NET* con *contoso.com* nell'intestazione Location.
+In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'intestazione Location nella risposta HTTP ogni volta che l'intestazione Location contiene un riferimento a azurewebsites.net. A tale scopo, verrà aggiunta una condizione per valutare se l'intestazione Location nella risposta contiene azurewebsites.net. Verrà usato il modello `(https?):\/\/.*azurewebsites\.net(.*)$` . E utilizzeremo `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` come valore di intestazione. Questo valore sostituirà *azurewebsites.NET* con *contoso.com* nell'intestazione Location.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

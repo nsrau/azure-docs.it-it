@@ -6,18 +6,27 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 06/17/2020
 tags: connectors
-ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927446"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807738"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
-Per automatizzare le attività che monitorano, creano, inviano e ricevono file in un server [SFTP (Secure File Transfer Protocol)](https://www.ssh.com/ssh/sftp/) usando il protocollo [SSH (Secure Shell)](https://www.ssh.com/ssh/protocol/), è possibile creare e automatizzare i flussi di lavoro di integrazione usando App per la logica di Azure e il connettore SFTP-SSH. SFTP è un protocollo di rete che fornisce l'accesso ai file, il trasferimento di file e la gestione di file su qualsiasi flusso di dati affidabile. Ecco alcuni esempi di attività che è possibile automatizzare:
+Per automatizzare le attività che monitorano, creano, inviano e ricevono file in un server [SFTP (Secure File Transfer Protocol)](https://www.ssh.com/ssh/sftp/) usando il protocollo [SSH (Secure Shell)](https://www.ssh.com/ssh/protocol/), è possibile creare e automatizzare i flussi di lavoro di integrazione usando App per la logica di Azure e il connettore SFTP-SSH. SFTP è un protocollo di rete che fornisce l'accesso ai file, il trasferimento di file e la gestione di file su qualsiasi flusso di dati affidabile.
+
+> [!NOTE]
+> Il connettore SFTP-SSH attualmente non supporta questi server SFTP:
+> 
+> * IBM DataPower
+> * OpenText Secure MFT
+> * Serie GXS OpenText
+
+Ecco alcuni esempi di attività che è possibile automatizzare:
 
 * Monitorare quando i file vengono aggiunti o modificati.
 * Ottenere, creare, copiare, rinominare, aggiornare, creare elenchi ed eliminare file.
@@ -40,7 +49,7 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
 
   Le dimensioni del blocco sono associate a una connessione, il che significa che è possibile usare la stessa connessione per le azioni che supportano la suddivisione in blocchi e quindi per le azioni che non supportano la suddivisione in blocchi. In questo caso, le dimensioni del blocco per le azioni che non supportano la suddivisione in blocchi variano da 5 MB a 50 MB. Questa tabella mostra le azioni SFTP-SSH che supportano la suddivisione in blocchi:
 
-  | Azione | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
+  | Action | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
   |--------|------------------|-----------------------------|
   | **Copia file** | No | Non applicabile |
   | **Crea file** | Sì | Sì |
@@ -95,18 +104,18 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
   > Dopo aver aggiunto il trigger SFTP-SSH o l'azione desiderata per l'app per la logica, è necessario fornire le informazioni di connessione per il server SFTP. Quando si specifica la chiave privata SSH per questa connessione, ***non immettere o modificare manualmente la chiave***, il che potrebbe causare l'esito negativo della connessione. Al contrario, assicurarsi di ***copiare la chiave*** dal file di chiave privata SSH e ***incollare*** la chiave nei dettagli della connessione. 
   > Per altre informazioni, vedere la sezione [connettersi a SFTP con SSH](#connect) più avanti in questo articolo.
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger SFTP-SSH, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione SFTP-SSH, avviare l'app per la logica con un altro trigger, ad esempio il trigger **Ricorrenza**.
 
-## <a name="how-sftp-ssh-triggers-work"></a>Funzionamento del trigger SFTP-SSH
+## <a name="how-sftp-ssh-triggers-work"></a>Funzionamento dei trigger SFTP-SSH
 
 I trigger SFTP-SSH funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
-| Client SFTP | Azione |
+| Client SFTP | Action |
 |-------------|--------|
-| Winscp | Vai a **Opzioni** > **Preferenze** > **trasferimento** > **Edit**modifica > **Mantieni**timestamp > **Disabilita** |
-| FileZilla | Vai al **trasferimento** > **Mantieni i timestamp dei file** > trasferiti**Disabilita** |
+| Winscp | Vai a **Opzioni**  >  **Preferenze**  >  **trasferimento**  >  **modifica**  >  **Mantieni timestamp**  >  **Disabilita** |
+| FileZilla | Vai al **trasferimento**  >  **Mantieni i timestamp dei file trasferiti**  >  **Disabilita** |
 |||
 
 Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger.
@@ -133,7 +142,7 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
 ### <a name="windows-os"></a>Sistema operativo Windows
 
-1. Se non è già stato fatto, [scaricare lo strumento più recente del generatore PuTTY (puttygen. exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), quindi avviare lo strumento.
+1. Se non è già stato fatto, [scaricare lo strumento del generatore PuTTY (puttygen.exe) più recente](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)e quindi avviare lo strumento.
 
 1. In questa schermata selezionare **carica**.
 
@@ -145,7 +154,7 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
    ![Selezionare "Esporta chiave OpenSSH"](./media/connectors-sftp-ssh/export-openssh-key.png)
 
-1. Salvare il file di chiave privata con `.pem` l'estensione del nome file.
+1. Salvare il file di chiave privata con l' `.pem` estensione del nome file.
 
 ## <a name="considerations"></a>Considerazioni
 
@@ -155,7 +164,7 @@ Questa sezione descrive le considerazioni da considerare per i trigger e le azio
 
 ### <a name="create-file"></a>Crea file
 
-Per creare un file nel server SFTP, è possibile usare l'azione di **creazione file** SFTP-SSH. Quando questa azione crea il file, il servizio app per la logica chiama automaticamente anche il server SFTP per ottenere i metadati del file. Tuttavia, se si sposta il file appena creato prima che il servizio app per la logica possa effettuare la chiamata per ottenere i metadati, `404` viene ricevuto un `'A reference was made to a file or folder which does not exist'`messaggio di errore. Per ignorare la lettura dei metadati del file dopo la creazione del file, seguire i passaggi per [aggiungere e impostare la proprietà **Ottieni tutti i metadati del file** su **No**](#file-does-not-exist).
+Per creare un file nel server SFTP, è possibile usare l'azione di **creazione file** SFTP-SSH. Quando questa azione crea il file, il servizio app per la logica chiama automaticamente anche il server SFTP per ottenere i metadati del file. Tuttavia, se si sposta il file appena creato prima che il servizio app per la logica possa effettuare la chiamata per ottenere i metadati, viene ricevuto un `404` messaggio di errore `'A reference was made to a file or folder which does not exist'` . Per ignorare la lettura dei metadati del file dopo la creazione del file, seguire i passaggi per [aggiungere e impostare la proprietà **Ottieni tutti i metadati del file** su **No**](#file-does-not-exist).
 
 <a name="connect"></a>
 
@@ -165,13 +174,13 @@ Per creare un file nel server SFTP, è possibile usare l'azione di **creazione f
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Per le app per la logica vuote, nella casella di `sftp ssh` ricerca immettere come filtro. Nell'elenco dei trigger selezionare il trigger desiderato.
+1. Per le app per la logica vuote, nella casella di ricerca immettere `sftp ssh` come filtro. Nell'elenco dei trigger selezionare il trigger desiderato.
 
    -oppure-
 
    Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione selezionare **nuovo passaggio**. Nella casella di ricerca immettere `sftp ssh` come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
 1. Specificare le informazioni necessarie per la connessione.
 
@@ -185,7 +194,7 @@ Per creare un file nel server SFTP, è possibile usare l'azione di **creazione f
 
    1. Scegliere **Seleziona tutto**dal menu **modifica** del blocco note.
 
-   1. Selezionare **modifica** > **copia**.
+   1. Selezionare **modifica**  >  **copia**.
 
    1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare manualmente la chiave***.
 
@@ -203,7 +212,7 @@ Per eseguire l'override del comportamento adattivo predefinito usato per la sudd
 
    ![Aprire SFTP-impostazioni SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. In **trasferimento contenuto**, nella proprietà **dimensioni blocco** , immettere un valore intero compreso tra `5` e `50`, ad esempio: 
+1. In **trasferimento contenuto**, nella proprietà **dimensioni blocco** , immettere un valore intero compreso tra `5` e `50` , ad esempio: 
 
    ![Specificare le dimensioni del blocco da usare](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
@@ -235,7 +244,7 @@ In questa sezione vengono descritte le possibili soluzioni per errori o problemi
 
 ### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 errore: "è stato fatto riferimento a un file o a una cartella che non esiste"
 
-Questo errore può verificarsi quando l'app per la logica crea un nuovo file nel server SFTP tramite l'azione di **creazione file** SFTP-SSH, ma il file appena creato viene spostato immediatamente prima che il servizio app per la logica possa ottenere i metadati del file. Quando l'app per la logica esegue l'azione **Crea file** , il servizio app per la logica chiama automaticamente anche il server SFTP per ottenere i metadati del file. Tuttavia, se il file viene spostato, il servizio app per la logica non è più in grado di trovare il `404` file in modo da ottenere il messaggio di errore.
+Questo errore può verificarsi quando l'app per la logica crea un nuovo file nel server SFTP tramite l'azione di **creazione file** SFTP-SSH, ma il file appena creato viene spostato immediatamente prima che il servizio app per la logica possa ottenere i metadati del file. Quando l'app per la logica esegue l'azione **Crea file** , il servizio app per la logica chiama automaticamente anche il server SFTP per ottenere i metadati del file. Tuttavia, se il file viene spostato, il servizio app per la logica non è più in grado di trovare il file in modo da ottenere il `404` messaggio di errore.
 
 Se non è possibile evitare o ritardare lo spostamento del file, è possibile ignorare la lettura dei metadati del file dopo la creazione del file attenendosi alla procedura seguente:
 

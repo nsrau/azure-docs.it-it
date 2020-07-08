@@ -2,13 +2,13 @@
 title: Versioni cluster supportate in Azure Service Fabric
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
-ms.date: 05/06/2020
-ms.openlocfilehash: dd5844fb88234a5bdf5470a484f26cb08f719107
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/15/2020
+ms.openlocfilehash: 88c91558360f6be8343c955f8e6185366cd3279a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808924"
 ---
 # <a name="supported-service-fabric-versions"></a>Versioni di Service Fabric supportate
 
@@ -42,6 +42,7 @@ Nella tabella seguente sono elencate le versioni di Service Fabric e le date di 
 | 7.0.470.* | 7.0.466.* |Minore o uguale alla versione 4,0 |1 agosto 2020  |
 | 7.0.472.* | 7.0.466.* |Minore o uguale alla versione 4,0 |1 agosto 2020  |
 | 7.1.409.* | 7.0.466.* |Minore o uguale alla versione 4,0 |Versione corrente, quindi nessuna data di fine |
+| 7.1.417.* | 7.0.466.* |Minore o uguale alla versione 4,0 |Versione corrente, quindi nessuna data di fine |
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -49,7 +50,7 @@ Nella tabella seguente sono elencati i sistemi operativi supportati per le versi
 
 | Sistema operativo | Versione Service Fabric supportata più recente |
 | --- | --- |
-| Windows Server 2012 R2 | Tutte le versioni |
+| R2 per Windows Server 2012 | Tutte le versioni |
 | Windows Server 2016 | Tutte le versioni |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
@@ -64,26 +65,26 @@ Nella tabella seguente sono elencati i nomi delle versioni di Service Fabric e i
 
 | Nome della versione | Numero di versione di Windows | Numero di versione di Linux |
 | --- | --- | --- |
-| 5,3 RTO | 5.3.121.9494 | N/D |
-| 5,3 CU1 | 5.3.204.9494 | N/D |
-| 5,3 CU2 | 5.3.301.9590 | N/D |
-| 5,3 CU3 | 5.3.311.9590 | N/D |
-| 5,4 CU2 | 5.4.164.9494 | N/D |
-| 5,5 CU1 | 5.5.216.0    | N/D |
-| 5,5 CU2 | 5.5.219.0    | N/D |
-| 5,5 CU3 | 5.5.227.0    | N/D |
-| 5,5 CU4 | 5.5.232.0    | N/D |
-| 5,6 RTO | 5.6.204.9494 | N/D |
-| 5,6 CU2 | 5.6.210.9494 | N/D |
-| 5,6 CU3 | 5.6.220.9494 | N/D |
-| 5,7 RTO | 5.7.198.9494 | N/D |
-| 5,7 CU4 | 5.7.221.9494 | N/D |
+| 5,3 RTO | 5.3.121.9494 | ND |
+| 5,3 CU1 | 5.3.204.9494 | ND |
+| 5,3 CU2 | 5.3.301.9590 | ND |
+| 5,3 CU3 | 5.3.311.9590 | ND |
+| 5,4 CU2 | 5.4.164.9494 | ND |
+| 5,5 CU1 | 5.5.216.0    | ND |
+| 5,5 CU2 | 5.5.219.0    | ND |
+| 5,5 CU3 | 5.5.227.0    | ND |
+| 5,5 CU4 | 5.5.232.0    | ND |
+| 5,6 RTO | 5.6.204.9494 | ND |
+| 5,6 CU2 | 5.6.210.9494 | ND |
+| 5,6 CU3 | 5.6.220.9494 | ND |
+| 5,7 RTO | 5.7.198.9494 | ND |
+| 5,7 CU4 | 5.7.221.9494 | ND |
 | 6,0 RTO | 6.0.211.9494 | 6.0.120.1 |
 | 6,0 CU1 | 6.0.219.9494 | 6.0.127.1 |
 | 6,0 CU2 | 6.0.232.9494 | 6.0.133.1 |
 | 6,1 CU1 | 6.1.456.9494 | 6.1.183.1 |
 | 6,1 CU2 | 6.1.467.9494 | 6.1.185.1 |
-| 6,1 CU3 | 6.1.472.9494 | N/D |
+| 6,1 CU3 | 6.1.472.9494 | ND |
 | 6,1 CU4 | 6.1.480.9494 | 6.1.187.1 |
 | 6,2 RTO | 6.2.269.9494 | 6.2.184.1 | 
 | 6,2 CU1 | 6.2.274.9494 | 6.2.191.1 |
@@ -93,13 +94,13 @@ Nella tabella seguente sono elencati i nomi delle versioni di Service Fabric e i
 | 6,3 CU1 | 6.3.176.9494 | 6.3.124.1 |
 | 6,3 CU1 | 6.3.187.9494 | 6.3.129.1 |
 | 6,4 RTO | 6.4.617.9590 | 6.4.625.1 |
-| 6,4 CU2 | 6.4.622.9590 | N/D |
+| 6,4 CU2 | 6.4.622.9590 | ND |
 | 6,4 CU3 | 6.4.637.9590 | 6.4.634.1 |
 | 6,4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6,4 CU5 | 6.4.654.9590 | 6.4.649.1 |
-| 6,4 CU6 | 6.4.658.9590 | N/D |
+| 6,4 CU6 | 6.4.658.9590 | ND |
 | 6,4 CU7 | 6.4.664.9590 | 6.4.661.1 |
-| 6,4 CU8 | 6.4.670.9590 | N/D |
+| 6,4 CU8 | 6.4.670.9590 | ND |
 | 6,5 RTO | 6.5.639.9590 | 6.5.435.1 |
 | 6,5 CU1 | 6.5.641.9590 | 6.5.454.1 |
 | 6,5 CU2 | 6.5.658.9590 | 6.5.460.1 |
@@ -111,3 +112,4 @@ Nella tabella seguente sono elencati i nomi delle versioni di Service Fabric e i
 | 7,0 CU4 | 7.0.470.9590 | 7.0.469.1 |
 | 7,0 CU6 | 7.0.472.9590 | 7.0.471.1 |
 | 7,1 RTO | 7.1.409.9590 | 7.1.410.1 |
+| 7,1 CU1 | 7.1.417.9590 | 7.1.418.1 |

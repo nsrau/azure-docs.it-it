@@ -4,15 +4,15 @@ description: Descrive come risolvere i problemi di integrità del back-end per i
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
-ms.date: 08/30/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648434"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808183"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità del back-end nel gateway applicazione
 ==================================================
@@ -81,7 +81,7 @@ Se si riceve lo stato Non integro per un server back-end per tutti i server in u
 Il messaggio visualizzato nella colonna **Dettagli** fornisce informazioni più dettagliate sul problema, in base alle quali è possibile iniziare a risolverlo.
 
 > [!NOTE]
-> La richiesta di probe predefinita viene inviata nel formato \<protocollo\>://127.0.0.1:\<porta\>/. Ad esempio, http://127.0.0.1:80 per un probe HTTP sulla porta 80. Solo i codici di stato HTTP da 200 a 399 vengono considerati integri. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione verifichi tramite probe un altro protocollo, nome host o percorso e riconosca un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
+> La richiesta di probe predefinita viene inviata nel formato \<protocol\> ://127.0.0.1: \<port\> /. Ad esempio, http://127.0.0.1:80 per un probe HTTP sulla porta 80. Solo i codici di stato HTTP da 200 a 399 vengono considerati integri. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione verifichi tramite probe un altro protocollo, nome host o percorso e riconosca un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
 
 <a name="error-messages"></a>Messaggi di errore
 ------------------------
@@ -170,7 +170,7 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 **Messaggio:** Status code of the backend\'s HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1} (Il codice di stato della risposta HHTP del back-end non corrisponde all'impostazione del probe. Previsto: {HTTPStatusCode0} Ricevuto: {HTTPStatusCode1}).
 
-**Causa:** una volta stabilita la connessione TCP e al termine di un handshake TLS (se TLS è abilitato), il gateway applicazione invierà il probe come richiesta HTTP GET al server back-end. Come descritto in precedenza, il probe predefinito si troverà in \<protocollo\>://127.0.0.1:\<porta\>/ e considera i codici di stato di risposta nell'intervallo 200-399 come integri. Se il server restituisce qualsiasi altro codice di stato, verrà contrassegnato come non integro con questo messaggio.
+**Causa:** una volta stabilita la connessione TCP e al termine di un handshake TLS (se TLS è abilitato), il gateway applicazione invierà il probe come richiesta HTTP GET al server back-end. Come descritto in precedenza, il probe predefinito corrisponde a \<protocol\> ://127.0.0.1: \<port\> /e considera i codici di stato della risposta da Rage 200 a 399 come integri. Se il server restituisce qualsiasi altro codice di stato, verrà contrassegnato come non integro con questo messaggio.
 
 **Soluzione:** a seconda del codice di risposta del server back-end, è possibile completare i passaggi seguenti. Di seguito sono elencati alcuni codici di stato comuni:
 
@@ -209,7 +209,7 @@ Per altre informazioni, vedere [Corrispondenza del probe del gateway applicazion
 
 #### <a name="backend-server-certificate-invalid-ca"></a>Autorità di certificazione del server back-end non valida
 
-**Messaggio:** The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Whitelist the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend (Il certificato del server usato dal back-end non è firmato da un'autorità di certificazione, CA, nota. Aggiungere il back-end all'elenco elementi consentiti nel gateway applicazione caricando il certificato radice del certificato del server usato dal back-end).
+**Messaggio:** The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Consentire il back-end nel gateway applicazione caricando il certificato radice del certificato del server usato dal back-end.
 
 **Causa:** SSL end-to-end con il gateway applicazione V2 richiede che il certificato del server back-end sia verificato per considerare integro il server.
 Affinché un certificato TLS/SSL venga considerato attendibile, tale certificato del server back-end deve essere stato emesso da un'autorità di certificazione inclusa nell'archivio attendibile del gateway applicazione. Se il certificato non è stato emesso da un'autorità di certificazione attendibile, ad esempio se è stato usato un certificato autofirmato, gli utenti devono caricare il certificato dell'autorità emittente nel gateway applicazione.

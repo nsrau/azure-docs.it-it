@@ -6,25 +6,23 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: 7658b8541e7a79a5e547a6649b35681446e34b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: a0c94f3c9af9220bb3cf6476c50799d1f3313ffc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809237"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Come usare l'archiviazione di accodamento da Java
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
-
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari descritti includono **inserimento**, **visualizzazione**, **recupero**ed **eliminazione** dei messaggi in coda, nonché **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
 
-> [!NOTE]
-> per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK for Android].
+> [!IMPORTANT]
+> Questo articolo si riferisce alla versione legacy della libreria client di archiviazione di Azure per Java. Per iniziare a usare la versione più recente, vedere [Guida introduttiva: libreria client di archiviazione code di Azure per Java](storage-quickstart-queues-java.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -391,13 +389,18 @@ catch (Exception e)
 }
 ```
 
+[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+
+> [!NOTE]
+> per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK for Android].
+
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 * [Azure Storage SDK per Java][Azure Storage SDK for Java]
 * [Riferimento all'SDK del client di archiviazione di Azure][Azure Storage Client SDK Reference]
 * [API REST dei servizi di archiviazione di Azure][Azure Storage Services REST API]
-* [Blog del team di archiviazione di Azure][Azure Storage Team Blog]
+* [Blog del team di Archiviazione di Azure][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

@@ -7,13 +7,13 @@ ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.reviewer: cbrooks
-ms.openlocfilehash: d9c666fd6fcf020908b6fc5bdd639261853ad9c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: dineshm
+ms.openlocfilehash: 8f51b6f94ae8a245471757d256a923570582bb12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809065"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -29,7 +29,7 @@ Per provare gli eventi di archiviazione BLOB, vedere gli articoli introduttivi s
 
 |Se si desidera utilizzare questo strumento:    |Vedere questo articolo: |
 |--|-|
-|Portale di Azure    |[Guida introduttiva: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web con il portale di Azure](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Portale di Azure    |[Avvio rapido: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web con il portale di Azure](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |PowerShell    |[Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Interfaccia della riga di comando di Azure    |[Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con l'interfaccia della riga](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
@@ -39,7 +39,7 @@ Per visualizzare esempi dettagliati di reagire agli eventi di archiviazione BLOB
 - [Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)**, **BlockBlobStorage**e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con Griglia di eventi.
+> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)**, **BlockBlobStorage**e **BlobStorage** supportano l'integrazione degli eventi. **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con griglia di eventi.
 
 ## <a name="the-event-model"></a>Modello di eventi
 
@@ -60,7 +60,7 @@ Vedere l'articolo [dello schema degli eventi di archiviazione BLOB](../../event-
 
 [Gli eventi BLOB possono essere filtrati](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) in base al tipo di evento, al nome del contenitore o al nome dell'oggetto che è stato creato/eliminato. I filtri in griglia di eventi corrispondono all'inizio o alla fine dell'oggetto in modo che gli eventi con un oggetto corrispondente vadano al Sottoscrittore.
 
-Per altre informazioni su come applicare i filtri, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+Per altre informazioni su come applicare i filtri, vedere [Filtrare gli eventi per Griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 L'oggetto di eventi di archiviazione BLOB usa il formato:
 
@@ -102,7 +102,7 @@ Per le applicazioni che gestiscono gli eventi di archiviazione BLOB è consiglia
 > * Usare il campo blobType per capire il tipo di operazioni consentite sul BLOB e quali tipi di librerie client è consigliabile usare per accedere al BLOB. I valori validi sono `BlockBlob` o `PageBlob`. 
 > * Usare il campo URL con i costruttori `CloudBlockBlob` e `CloudAppendBlob` per accedere al BLOB.
 > * Ignorare i campi che non si conoscono. Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.
-> * Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per le `CopyBlob`chiamate `PutBlob`all' `PutBlockList` API `FlushWithClose` Rest, o. Queste chiamate API attivano l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> * Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per le `CopyBlob` `PutBlob` chiamate all' `PutBlockList` `FlushWithClose` API REST, o. Queste chiamate API attivano l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,19 +8,19 @@ author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: d3d836ddea8d07a25ad09e6f19d9f17a680decd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68714053ac92faf8550a3e5f83a526afa1222971
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294398"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808472"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer con reset TCP attivo
+# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer con TCP Reset per inattività
 
 È possibile usare [Load Balancer Standard](load-balancer-standard-overview.md) per creare un comportamento delle applicazioni più prevedibile per gli scenari abilitando TCP Reset per timeout di inattività per una determinata regola. Il comportamento predefinito di Load Balancer prevede l'eliminazione trasparente dei flussi quando viene raggiunto il timeout di inattività di un flusso.  Se si abilita questa funzionalità, Load Balancer invierà TCP Reset bidirezionali (pacchetto RST TCP) in caso di timeout per inattività.  In questo modo gli endpoint dell'applicazione verranno informati che si è verificato il timeout della connessione e quest'ultima non è più utilizzabile.  Gli endpoint possono stabilire immediatamente una nuova connessione, se necessario.
 

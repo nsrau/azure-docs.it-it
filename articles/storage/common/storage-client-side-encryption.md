@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c07167a9f3a9194b7c45932ac749324429943ea9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93a142ddca360b3d85519a0531a221794ad3a892
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808811"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -61,7 +61,7 @@ Durante la crittografia, la libreria client genererà un vettore di inizializzaz
 > 
 > 
 
-Il download di un BLOB crittografato comporta il recupero del contenuto dell'intero blob usando i metodi pratici**BlobReadStream** di **DownloadTo**/. La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
+Il download di un BLOB crittografato comporta il recupero del contenuto dell'intero blob **DownloadTo**usando i / metodi pratici**BlobReadStream** di DownloadTo. La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
 
 Il download di un intervallo arbitrario (metodi**Metodi downloadrange** ) nel BLOB crittografato implica la regolazione dell'intervallo fornito dagli utenti per ottenere una piccola quantità di dati aggiuntivi che possono essere usati per decrittografare correttamente l'intervallo richiesto.
 
