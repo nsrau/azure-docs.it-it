@@ -114,7 +114,7 @@ Un oggetto già memorizzato nella cache della rete CDN di Azure rimane nella cac
 
 Nei passaggi precedenti sono stati creati un profilo e un endpoint della rete CDN in un gruppo di risorse. Salvare queste risorse se si vuole continuare con i [passaggi successivi](#next-steps) e ottenere informazioni su come aggiungere un dominio personalizzato all'endpoint. Se tuttavia non si prevede di usare queste risorse in futuro, è possibile eliminarle eliminando il gruppo di risorse, evitando così costi aggiuntivi:
 
-1. Dal menu a sinistra del portale di Azure scegliere **Gruppi di risorse** e quindi selezionare *CDNQuickstart-rg**.
+1. Dal menu a sinistra del portale di Azure scegliere **Gruppi di risorse** e quindi selezionare *CDNQuickstart-rg*\*.
 
 2. Nella pagina **Gruppo di risorse** selezionare **Elimina gruppo di risorse**, immettere *CDNQuickstart-rg* nella casella di testo e quindi selezionare **Elimina**.
 
