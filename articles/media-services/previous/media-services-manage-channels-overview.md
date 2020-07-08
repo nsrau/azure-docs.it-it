@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f875b4a5c4f1322f4a992dc3738ab1ce6431149d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641132"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Panoramica dello streaming live con Servizi multimediali
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Panoramica
 
@@ -77,7 +76,7 @@ Nella tabella seguente vengono confrontati i due tipi di canale supportati in Se
 | Input a bitrate singolo codificato in bitrate multipli nel cloud |No |Sì |
 | Risoluzione massima, numero di livelli |1080p, 8 livelli, oltre 60 fps |720p, 6 livelli, 30 fps |
 | Protocolli di input |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
-| Price |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live" |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) |
+| Prezzo |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live" |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo di esecuzione massimo |24 x 7 |8 ore |
 | Supporto per l'inserimento di slate |No |Sì |
 | Supporto per annunci pubblicitari |No |Sì |
@@ -104,7 +103,7 @@ Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della c
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Descrizione di un canale e dei relativi componenti
 
-### <a name="channel"></a>Canale
+### <a name="channel"></a>Channel
 
 In Servizi multimediali le entità [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità Channel, o canale, fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al transcodificatore live. Un'entità Channel riceve flussi di input live dal trascodificatore live e li rende disponibili per lo streaming mediante uno o più StreamingEndpoints. I canali forniscono anche un endpoint di anteprima(URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito.
 
@@ -144,7 +143,7 @@ Si tratta dello stato attuale del canale. I valori possibili sono:
 * **Avvio**in corso. È in corso l'avvio del canale. In questo stato non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato Interrotto.
 * **In esecuzione**. Il canale è in grado di elaborare flussi live. La fatturazione è ora attiva. È necessario interrompere il canale per sospendere la fatturazione.
 * **Arresto**in corso. È in corso l'interruzione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
-* **Eliminazione in corso**. È in corso l'eliminazione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
+* **Eliminazione**in corso. È in corso l'eliminazione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
 
 La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione.
 
@@ -158,7 +157,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati

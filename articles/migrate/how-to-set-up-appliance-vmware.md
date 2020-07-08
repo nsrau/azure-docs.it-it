@@ -4,10 +4,9 @@ description: Informazioni su come configurare un appliance Azure Migrate per la 
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538257"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
@@ -55,7 +54,7 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 
 Importare il file scaricato e creare una macchina virtuale.
 
-1. Nella console di vSphere client fare clic su **file** > **Distribuisci modello OVF**.
+1. Nella console di vSphere client fare clic su **file**  >  **Distribuisci modello OVF**.
 ![Comando di menu per la distribuzione di un modello OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. Nella procedura guidata Distribuire il modello OVF > **Origine** specificare il percorso del file con estensione ova.
@@ -124,7 +123,7 @@ Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dip
 2. Selezionare il **sistema operativo**.
 3. Specificare un nome descrittivo per le credenziali.
 4. In **nome utente** e **password**specificare un account che disponga almeno dell'accesso guest nelle macchine virtuali.
-5. Fare clic su **Aggiungi**.
+5. Scegliere **Aggiungi**.
 
 Dopo aver specificato le credenziali server vCenter e VM (facoltativo), fare clic su **Salva e avvia individuazione** per avviare l'individuazione dell'ambiente locale.
 

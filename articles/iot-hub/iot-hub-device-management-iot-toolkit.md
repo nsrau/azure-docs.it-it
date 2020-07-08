@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81688088"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Usare Azure IoT Tools per Visual Studio Code per la gestione dei dispositivi dell'hub IoT di Azure
@@ -48,7 +47,7 @@ Eseguire Azure IoT Tools per Visual Studio Code con varie opzioni di gestione.
 * Una sottoscrizione di Azure attiva.
 * Un hub IoT di Azure nella sottoscrizione.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Strumenti di Azure per la vs code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o copiare questo URL e incollarlo in una finestra del`vscode:extension/vsciot-vscode.azure-iot-tools`browser:.
+* [Strumenti di Azure per la vs code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o copiare questo URL e incollarlo in una finestra del browser: `vscode:extension/vsciot-vscode.azure-iot-tools` .
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Eseguire l'accesso all'hub IoT
 
@@ -71,7 +70,7 @@ Eseguire Azure IoT Tools per Visual Studio Code con varie opzioni di gestione.
 
 2. Immettere il nome e il payload del metodo nella casella di input.
 
-3. I risultati verranno visualizzati nella vista **output** > **Hub Azure** .
+3. I risultati verranno visualizzati nella vista **output**  >  **Hub Azure** .
 
 ## <a name="read-device-twin"></a>Lettura dispositivo gemello
 
@@ -95,7 +94,7 @@ Per inviare un messaggio dall'hub IoT al dispositivo, seguire questi passaggi:
 
 2. Immettere il messaggio nella casella di input.
 
-3. I risultati verranno visualizzati nella vista **output** > **Hub Azure** .
+3. I risultati verranno visualizzati nella vista **output**  >  **Hub Azure** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

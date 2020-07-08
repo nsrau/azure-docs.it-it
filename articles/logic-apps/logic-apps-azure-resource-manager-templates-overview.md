@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641821"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
@@ -69,7 +68,7 @@ Per un modello di app per la logica, è possibile usare principalmente questi og
 
 Il modello di app per la logica usa questo formato di nome file:
 
-**<*Logic-app-name*>. JSON**
+**<*Logic-app-name* # C0.json**
 
 > [!IMPORTANT]
 > La sintassi del modello fa distinzione tra maiuscole e minuscole, quindi assicurarsi di usare un involucro coerente. 
@@ -78,13 +77,13 @@ Il modello di app per la logica usa questo formato di nome file:
 
 ## <a name="template-parameters"></a>Parametri di modelli
 
-Un modello di app per la `parameters` logica include più oggetti che esistono a livelli diversi ed eseguono funzioni diverse. Ad esempio, al livello principale, è possibile dichiarare [parametri di modello](../azure-resource-manager/templates/template-syntax.md#parameters) per i valori da accettare e usare durante la distribuzione durante la creazione e la distribuzione di risorse in Azure, ad esempio:
+Un modello di app per la logica include più `parameters` oggetti che esistono a livelli diversi ed eseguono funzioni diverse. Ad esempio, al livello principale, è possibile dichiarare [parametri di modello](../azure-resource-manager/templates/template-syntax.md#parameters) per i valori da accettare e usare durante la distribuzione durante la creazione e la distribuzione di risorse in Azure, ad esempio:
 
 * App per la logica
 * Connessioni utilizzate dalla logica per accedere ad altri servizi e sistemi tramite [connettori gestiti](../connectors/apis-list.md)
 * Altre risorse necessarie per la distribuzione dell'app per la logica
 
-  Ad esempio, se l'app per la logica usa un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) per gli scenari business-to-business (B2B), l'oggetto `parameters` di primo livello del modello dichiara il parametro che accetta l'ID risorsa per l'account di integrazione.
+  Ad esempio, se l'app per la logica usa un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) per gli scenari business-to-business (B2B), l'oggetto di primo livello del modello `parameters` dichiara il parametro che accetta l'ID risorsa per l'account di integrazione.
 
 Di seguito è riportata la struttura e la sintassi generali per una definizione di parametro, descritta in modo completo dai [parametri, gestione risorse struttura del modello e la sintassi](../azure-resource-manager/templates/template-syntax.md#parameters):
 
@@ -155,7 +154,7 @@ Altri oggetti modello spesso fanno riferimento a parametri di modello in modo ch
 
 * L' [oggetto risorse del modello](#template-resources), descritto più avanti in questo argomento, definisce ogni risorsa in Azure che si vuole creare e distribuire, ad esempio la [definizione di risorsa dell'app](#logic-app-resource-definition)per la logica. Queste risorse usano spesso valori di parametri di modello, ad esempio il nome e il percorso dell'app per la logica e le informazioni di connessione.
 
-* A un livello più profondo nella definizione di risorsa dell'app per la logica, l' [oggetto parametri della definizione del flusso di lavoro](#workflow-definition-parameters) dichiara i parametri per i valori da usare nel runtime dell'app per la logica. È ad esempio possibile dichiarare i parametri di definizione del flusso di lavoro per il nome utente e la password utilizzati da un trigger HTTP per l'autenticazione. Per specificare i valori per i parametri di definizione del flusso `parameters` di lavoro, usare l'oggetto *esterno* alla definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica. In questo oggetto `parameters` esterno è possibile fare riferimento ai parametri di modello dichiarati in precedenza, che possono accettare valori in fase di distribuzione da un file di parametri.
+* A un livello più profondo nella definizione di risorsa dell'app per la logica, l' [oggetto parametri della definizione del flusso di lavoro](#workflow-definition-parameters) dichiara i parametri per i valori da usare nel runtime dell'app per la logica. È ad esempio possibile dichiarare i parametri di definizione del flusso di lavoro per il nome utente e la password utilizzati da un trigger HTTP per l'autenticazione. Per specificare i valori per i parametri di definizione del flusso di lavoro, usare l' `parameters` oggetto *esterno* alla definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica. In questo `parameters` oggetto esterno è possibile fare riferimento ai parametri di modello dichiarati in precedenza, che possono accettare valori in fase di distribuzione da un file di parametri.
 
 Quando si fa riferimento a parametri, le espressioni e le funzioni del modello utilizzano una sintassi diversa e si comportano in modo diverso dalle espressioni e dalle funzioni Per ulteriori informazioni su queste differenze, vedere [riferimenti ai parametri](#parameter-references) più avanti in questo argomento.
 
@@ -185,8 +184,8 @@ Per altre procedure consigliate sui modelli, vedere procedure consigliate [per i
 
 Per specificare i valori per i parametri del modello, archiviare i valori in un [file di parametri](../azure-resource-manager/templates/parameter-files.md). In questo modo, è possibile usare file di parametri diversi in base alle esigenze di distribuzione. Di seguito è riportato il formato del nome file da utilizzare:
 
-* Nome file modello app per la logica: ** <nome *-app-logica*>. JSON**
-* Nome file dei parametri: ** < *nome-app-logica*>. Parameters. JSON**
+* Nome file modello app per la logica: nome ** < *-app-logica* # C0.json**
+* Nome file dei parametri: ** < *Logic-app-name* # C0.parameters.json**
 
 Di seguito è illustrata la struttura all'interno del file dei parametri, che include un riferimento a Key Vault per [passare un valore di parametro protetto con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
@@ -274,12 +273,12 @@ Per informazioni generali sulle risorse modello e sui relativi attributi, vedere
 
 ### <a name="logic-app-resource-definition"></a>Definizione di risorsa dell'app per la logica
 
-La definizione di risorsa dell'app per la logica `properties` inizia con l'oggetto, che include le informazioni seguenti:
+La definizione di risorsa dell'app per la logica inizia con l' `properties` oggetto, che include le informazioni seguenti:
 
 * Stato dell'app per la logica in fase di distribuzione
 * ID per qualsiasi account di integrazione usato dall'app per la logica
 * Definizione del flusso di lavoro dell'app per la logica
-* `parameters` Oggetto che imposta i valori da utilizzare in fase di esecuzione
+* `parameters`Oggetto che imposta i valori da utilizzare in fase di esecuzione
 * Altre informazioni sulle risorse sull'app per la logica, ad esempio nome, tipo, posizione e così via
 
 ```json
@@ -319,12 +318,12 @@ La definizione di risorsa dell'app per la logica `properties` inizia con l'ogget
 
 Ecco gli attributi specifici della definizione di risorsa dell'app per la logica:
 
-| Attributo | Obbligatoria | Type | Descrizione |
+| Attributo | Obbligatoria | Type | Description |
 |-----------|----------|------|-------------|
-| `state` | Sì | string | Lo stato dell'app per la logica in `Enabled` fase di distribuzione, dove indica che `Disabled` l'app per la logica è Live e indica che l'app per la logica è inattiva. Se, ad esempio, non si è pronti per l'app per la logica, ma si vuole distribuire una versione bozza, è possibile usare `Disabled` l'opzione. |
-| `integrationAccount` | No | Oggetto | Se l'app per la logica usa un account di integrazione che archivia gli artefatti per gli scenari business-to-business (B2B), `id` questo oggetto include l'attributo, che specifica l'ID dell'account di integrazione. |
-| `definition` | Sì | Oggetto | La definizione del flusso di lavoro sottostante dell'app per la logica, che è lo stesso oggetto visualizzato nella visualizzazione codice ed è descritta completamente nell'argomento [riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) . In questa definizione del flusso di `parameters` lavoro, l'oggetto dichiara i parametri per i valori da usare in fase di esecuzione dell'app per la logica. Per altre informazioni, vedere [definizione del flusso di lavoro e parametri](#workflow-definition-parameters). <p><p>Per visualizzare gli attributi nella definizione del flusso di lavoro dell'app per la logica, passare dalla "visualizzazione progettazione" alla "visualizzazione codice" nel portale di Azure o in Visual Studio oppure usando uno strumento come [Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | No | Oggetto | [Valori dei parametri di definizione del flusso di lavoro](#workflow-definition-parameters) da usare in fase di esecuzione Le definizioni dei parametri per questi valori vengono visualizzate all'interno dell' [oggetto parametri della definizione del flusso di lavoro](#workflow-definition-parameters). Inoltre, se l'app per la logica USA [connettori gestiti](../connectors/apis-list.md) per accedere ad altri servizi e sistemi, questo oggetto `$connections` include un oggetto che imposta i valori di connessione da usare in fase di esecuzione. |
+| `state` | Sì | string | Lo stato dell'app per la logica in fase di distribuzione `Enabled` , dove indica che l'app per la logica è Live e `Disabled` indica che l'app per la logica è inattiva. Se, ad esempio, non si è pronti per l'app per la logica, ma si vuole distribuire una versione bozza, è possibile usare l' `Disabled` opzione. |
+| `integrationAccount` | No | Oggetto | Se l'app per la logica usa un account di integrazione che archivia gli artefatti per gli scenari business-to-business (B2B), questo oggetto include l' `id` attributo, che specifica l'ID dell'account di integrazione. |
+| `definition` | Sì | Oggetto | La definizione del flusso di lavoro sottostante dell'app per la logica, che è lo stesso oggetto visualizzato nella visualizzazione codice ed è descritta completamente nell'argomento [riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) . In questa definizione del flusso di lavoro, l' `parameters` oggetto dichiara i parametri per i valori da usare in fase di esecuzione dell'app per la logica. Per altre informazioni, vedere [definizione del flusso di lavoro e parametri](#workflow-definition-parameters). <p><p>Per visualizzare gli attributi nella definizione del flusso di lavoro dell'app per la logica, passare dalla "visualizzazione progettazione" alla "visualizzazione codice" nel portale di Azure o in Visual Studio oppure usando uno strumento come [Azure Resource Explorer](https://resources.azure.com). |
+| `parameters` | No | Oggetto | [Valori dei parametri di definizione del flusso di lavoro](#workflow-definition-parameters) da usare in fase di esecuzione Le definizioni dei parametri per questi valori vengono visualizzate all'interno dell' [oggetto parametri della definizione del flusso di lavoro](#workflow-definition-parameters). Inoltre, se l'app per la logica USA [connettori gestiti](../connectors/apis-list.md) per accedere ad altri servizi e sistemi, questo oggetto include un `$connections` oggetto che imposta i valori di connessione da usare in fase di esecuzione. |
 | `accessControl` | No | Oggetto | Per specificare gli attributi di sicurezza per l'app per la logica, ad esempio per limitare l'accesso IP ai trigger di richiesta o gli input e gli output della cronologia di esecuzione. Per altre informazioni, vedere [proteggere l'accesso alle app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
@@ -334,13 +333,13 @@ Per informazioni sulle risorse del modello specifiche per le app per la logica, 
 
 ## <a name="workflow-definition-and-parameters"></a>Definizione del flusso di lavoro e parametri
 
-La definizione del flusso di lavoro dell'app per `definition` la logica viene visualizzata nell'oggetto `properties` , che viene visualizzato nell'oggetto all'interno della definizione di risorsa dell'app per la logica. Questo `definition` oggetto è lo stesso oggetto visualizzato nella visualizzazione codice ed è descritto completamente nell'argomento [riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) . La definizione del flusso di lavoro `parameters` include un oggetto dichiarazione interna in cui è possibile definire nuovi parametri esistenti o modificarli per i valori usati dalla definizione del flusso di lavoro in fase di esecuzione. È quindi possibile fare riferimento a questi parametri all'interno del trigger o delle azioni nel flusso di lavoro. Per impostazione predefinita, `parameters` questo oggetto è vuoto, a meno che l'app per la logica non crei connessioni ad altri servizi e sistemi tramite [connettori gestiti](../connectors/apis-list.md).
+La definizione del flusso di lavoro dell'app per la logica viene visualizzata nell' `definition` oggetto, che viene visualizzato nell' `properties` oggetto all'interno della definizione di risorsa dell'app per la logica. Questo `definition` oggetto è lo stesso oggetto visualizzato nella visualizzazione codice ed è descritto completamente nell'argomento [riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) . La definizione del flusso di lavoro include un `parameters` oggetto dichiarazione interna in cui è possibile definire nuovi parametri esistenti o modificarli per i valori usati dalla definizione del flusso di lavoro in fase di esecuzione. È quindi possibile fare riferimento a questi parametri all'interno del trigger o delle azioni nel flusso di lavoro. Per impostazione predefinita, questo `parameters` oggetto è vuoto, a meno che l'app per la logica non crei connessioni ad altri servizi e sistemi tramite [connettori gestiti](../connectors/apis-list.md).
 
-Per impostare i valori per i parametri di definizione del flusso `parameters` di lavoro, usare l'oggetto *esterno* alla definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica. In questo oggetto `parameters` esterno è quindi possibile fare riferimento ai parametri di modello dichiarati in precedenza, che possono accettare valori in fase di distribuzione da un file di parametri.
+Per impostare i valori per i parametri di definizione del flusso di lavoro, usare l' `parameters` oggetto *esterno* alla definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica. In questo `parameters` oggetto esterno è quindi possibile fare riferimento ai parametri di modello dichiarati in precedenza, che possono accettare valori in fase di distribuzione da un file di parametri.
 
 > [!TIP]
 >
-> Come procedura consigliata, non fare riferimento direttamente ai parametri di modello, che vengono valutati in fase di distribuzione, dall'interno della definizione del flusso di lavoro. Dichiarare invece un parametro di definizione del flusso di lavoro, che è quindi possibile `parameters` impostare nell'oggetto che si trova al di *fuori* della definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica. Per ulteriori informazioni, vedere [riferimenti ai parametri](#parameter-references).
+> Come procedura consigliata, non fare riferimento direttamente ai parametri di modello, che vengono valutati in fase di distribuzione, dall'interno della definizione del flusso di lavoro. Dichiarare invece un parametro di definizione del flusso di lavoro, che è quindi possibile impostare nell' `parameters` oggetto che si trova al di *fuori* della definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica. Per ulteriori informazioni, vedere [riferimenti ai parametri](#parameter-references).
 
 Questa sintassi Mostra la posizione in cui è possibile dichiarare parametri sia a livello di modello che di definizione del flusso di lavoro insieme alla posizione in cui è possibile impostare i valori dei parametri facendo riferimento ai parametri di definizione del flusso di lavoro e del modello
 
@@ -409,9 +408,9 @@ Questa sintassi Mostra la posizione in cui è possibile dichiarare parametri sia
 
 ### <a name="secure-workflow-definition-parameters"></a>Parametri di definizione del flusso di lavoro sicuro
 
-Per un parametro di definizione del flusso di lavoro che gestisce informazioni riservate, password, chiavi di accesso o segreti in fase di esecuzione, dichiarare `securestring` o `secureobject` modificare il parametro per usare il tipo di parametro o. È possibile fare riferimento a questo parametro in tutta la definizione del flusso di lavoro. Al livello principale del modello, dichiarare un parametro con lo stesso tipo per gestire queste informazioni in fase di distribuzione.
+Per un parametro di definizione del flusso di lavoro che gestisce informazioni riservate, password, chiavi di accesso o segreti in fase di esecuzione, dichiarare o modificare il parametro per usare il `securestring` `secureobject` tipo di parametro o. È possibile fare riferimento a questo parametro in tutta la definizione del flusso di lavoro. Al livello principale del modello, dichiarare un parametro con lo stesso tipo per gestire queste informazioni in fase di distribuzione.
 
-Per impostare il valore per il parametro di definizione del flusso di `parameters` lavoro, usare l'oggetto *esterno* alla definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica per fare riferimento al parametro di modello. Infine, per passare il valore al parametro di modello in fase di distribuzione, archiviare tale valore in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) e fare riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione.
+Per impostare il valore per il parametro di definizione del flusso di lavoro, usare l' `parameters` oggetto *esterno* alla definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica per fare riferimento al parametro di modello. Infine, per passare il valore al parametro di modello in fase di distribuzione, archiviare tale valore in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) e fare riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione.
 
 Questo modello di esempio Mostra come è possibile completare queste attività definendo parametri protetti quando necessario, in modo da poter archiviare i valori in Azure Key Vault:
 
@@ -568,7 +567,7 @@ Per ulteriori informazioni sui parametri di definizione del flusso di lavoro, ve
 
 ## <a name="connection-resource-definitions"></a>Definizioni delle risorse di connessione
 
-Quando l'app per la logica crea e usa le connessioni ad altri servizi e sistemi usando i [connettori gestiti](../connectors/apis-list.md), `resources` l'oggetto del modello contiene le definizioni delle risorse per tali connessioni.
+Quando l'app per la logica crea e usa le connessioni ad altri servizi e sistemi usando i [connettori gestiti](../connectors/apis-list.md), l'oggetto del modello `resources` contiene le definizioni delle risorse per tali connessioni.
 
 ```json
 {
@@ -650,13 +649,13 @@ Di seguito è riportato un esempio di definizione di risorsa per una connessione
 
 La definizione di risorsa dell'app per la logica funziona anche con le definizioni delle risorse di connessione nei modi seguenti:
 
-* All'interno della definizione del flusso `parameters` di lavoro, l' `$connections` oggetto dichiara un parametro per i valori di connessione da usare in fase di esecuzione dell'app per la logica. Inoltre, il trigger o l'azione che crea una connessione utilizza i valori corrispondenti che passano tramite `$connections` questo parametro.
+* All'interno della definizione del flusso di lavoro, l' `parameters` oggetto dichiara un `$connections` parametro per i valori di connessione da usare in fase di esecuzione dell'app per la logica. Inoltre, il trigger o l'azione che crea una connessione utilizza i valori corrispondenti che passano tramite questo `$connections` parametro.
 
-* Al di *fuori* della definizione del flusso di lavoro ma ancora *all'interno* della definizione `parameters` di risorsa dell'app per la logica, un altro `$connections` oggetto imposta i valori da usare in fase di esecuzione per il parametro facendo riferimento ai parametri di modello corrispondenti. Questi valori usano le espressioni di modello per fare riferimento a risorse che archiviano in modo sicuro i metadati per le connessioni nell'app per la logica.
+* Al di *fuori* della definizione del flusso di lavoro ma ancora *all'interno* della definizione di risorsa dell'app per la logica, un altro `parameters` oggetto imposta i valori da usare in fase di esecuzione per il `$connections` parametro facendo riferimento ai parametri di modello corrispondenti. Questi valori usano le espressioni di modello per fare riferimento a risorse che archiviano in modo sicuro i metadati per le connessioni nell'app per la logica.
 
   I metadati, ad esempio, possono includere stringhe di connessione e token di accesso, che è possibile archiviare in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Per passare questi valori ai parametri del modello, si fa riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione. Per ulteriori informazioni sulle differenze nei parametri di riferimento, vedere [riferimenti ai parametri](#parameter-references) più avanti in questo argomento.
 
-  Quando si apre la definizione del flusso di lavoro dell'app per la logica nella visualizzazione codice tramite il portale di Azure `$connections` o Visual Studio, l'oggetto viene visualizzato al di fuori della definizione del flusso di lavoro, ma allo stesso livello. Questo ordinamento nella visualizzazione codice rende più semplice fare riferimento a questi parametri quando si aggiorna manualmente la definizione del flusso di lavoro:
+  Quando si apre la definizione del flusso di lavoro dell'app per la logica nella visualizzazione codice tramite il portale di Azure o Visual Studio, l' `$connections` oggetto viene visualizzato al di fuori della definizione del flusso di lavoro, ma allo stesso livello. Questo ordinamento nella visualizzazione codice rende più semplice fare riferimento a questi parametri quando si aggiorna manualmente la definizione del flusso di lavoro:
 
   ```json
   {
@@ -665,9 +664,9 @@ La definizione di risorsa dell'app per la logica funziona anche con le definizio
   }
   ```
 
-* La definizione di risorsa dell'app per la `dependsOn` logica contiene un oggetto che specifica le dipendenze dalle connessioni usate dall'app per la logica.
+* La definizione di risorsa dell'app per la logica contiene un `dependsOn` oggetto che specifica le dipendenze dalle connessioni usate dall'app per la logica.
 
-Ogni connessione creata ha un nome univoco in Azure. Quando si creano più connessioni allo stesso servizio o sistema, a ogni nome di connessione viene aggiunto un numero che viene incrementato a ogni nuova connessione creata, ad esempio `office365` `office365-1`,, e così via.
+Ogni connessione creata ha un nome univoco in Azure. Quando si creano più connessioni allo stesso servizio o sistema, a ogni nome di connessione viene aggiunto un numero che viene incrementato a ogni nuova connessione creata, ad esempio,, `office365` `office365-1` e così via.
 
 Questo esempio mostra le interazioni tra la definizione di risorsa dell'app per la logica e una definizione di risorsa di connessione per Office 365 Outlook:
 
@@ -746,7 +745,7 @@ Questo esempio mostra le interazioni tra la definizione di risorsa dell'app per 
 
 ### <a name="secure-connection-parameters"></a>Parametri di connessione protetti
 
-Per un parametro di connessione che gestisce informazioni riservate, password, chiavi di accesso o segreti, la definizione di risorsa della `parameterValues` connessione include un oggetto che specifica questi valori nel formato della coppia nome-valore. Per nascondere queste informazioni, è possibile dichiarare o modificare i parametri del modello per questi valori usando i `securestring` tipi `secureobject` di parametro o. È quindi possibile archiviare tali informazioni in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Per passare questi valori ai parametri del modello, si fa riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione.
+Per un parametro di connessione che gestisce informazioni riservate, password, chiavi di accesso o segreti, la definizione di risorsa della connessione include un `parameterValues` oggetto che specifica questi valori nel formato della coppia nome-valore. Per nascondere queste informazioni, è possibile dichiarare o modificare i parametri del modello per questi valori usando i `securestring` `secureobject` tipi di parametro o. È quindi possibile archiviare tali informazioni in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Per passare questi valori ai parametri del modello, si fa riferimento all'insieme di credenziali delle chiavi nel [file dei parametri](#template-parameter-files) usato dal modello in fase di distribuzione.
 
 Di seguito è riportato un esempio che fornisce il nome dell'account e la chiave di accesso per una connessione all'archivio BLOB di Azure:
 
@@ -943,12 +942,12 @@ Alcune connessioni supportano l'uso di un' [entità servizio](../active-director
 | `token:clientId` | L'applicazione o l'ID client associato all'entità servizio |
 | `token:clientSecret` | Valore della chiave associato all'entità servizio |
 | `token:TenantId` | ID directory per il tenant di Azure AD |
-| `token:grantType` | Tipo di concessione richiesto, che deve essere `client_credentials`. Per altre informazioni, vedere [piattaforma Microsoft Identity e il flusso di credenziali client OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
+| `token:grantType` | Tipo di concessione richiesto, che deve essere `client_credentials` . Per altre informazioni, vedere [piattaforma Microsoft Identity e il flusso di credenziali client OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
 |||
 
 **Definizioni dei parametri di modello**
 
-L'oggetto di primo livello `parameters` del modello dichiara questi parametri per la connessione di esempio:
+L'oggetto di primo livello del modello `parameters` dichiara questi parametri per la connessione di esempio:
 
 ```json
 {
@@ -1017,7 +1016,7 @@ Per fare riferimento ai parametri di modello, è possibile usare espressioni di 
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 
-Per fare riferimento ai parametri della definizione del flusso di lavoro, è possibile utilizzare [espressioni e funzioni del linguaggio di definizione del flusso di lavoro](../logic-apps/workflow-definition-language-functions-reference.md), che vengono valutate È possibile notare che alcune funzioni modello e funzioni di definizione del flusso di lavoro hanno lo stesso nome. Le espressioni di definizione del flusso di lavoro iniziano con il**@** simbolo "chiocciola" ():
+Per fare riferimento ai parametri della definizione del flusso di lavoro, è possibile utilizzare [espressioni e funzioni del linguaggio di definizione del flusso di lavoro](../logic-apps/workflow-definition-language-functions-reference.md), che vengono valutate È possibile notare che alcune funzioni modello e funzioni di definizione del flusso di lavoro hanno lo stesso nome. Le espressioni di definizione del flusso di lavoro iniziano con il simbolo "chiocciola" ( **@** ):
 
 `"<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"`
 

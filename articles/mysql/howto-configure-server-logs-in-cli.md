@@ -8,10 +8,9 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: 87db1a2af0bfdc854c909ef4221a3d97f9bf10d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81270673"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurare e accedere ai log di query lente usando l'interfaccia della riga di comando di Azure
@@ -19,13 +18,13 @@ ms.locfileid: "81270673"
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
-- [Server del Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Server di Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - L'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o Azure Cloud Shell nel browser
 
 ## <a name="configure-logging"></a>Configurare la registrazione
 Per configurare il server per l'accesso al log delle query lente di MySQL, seguire questa procedura:
-1. Attivare la registrazione lenta delle query impostando **il\_parametro\_Slow query log** su on.
-2. Selezionare la posizione in cui restituire i log usando l' **output del log\_**. Per inviare i log ai log di diagnostica di monitoraggio di Azure e di archiviazione locale, selezionare **file**. Per inviare i log solo ai log di monitoraggio di Azure, selezionare **nessuno**
+1. Attivare la registrazione lenta delle query impostando il parametro **Slow \_ query \_ log** su on.
+2. Selezionare la posizione in cui restituire i log usando l' ** \_ output del log**. Per inviare i log ai log di diagnostica di monitoraggio di Azure e di archiviazione locale, selezionare **file**. Per inviare i log solo ai log di monitoraggio di Azure, selezionare **nessuno**
 3. Regolare gli altri parametri, ad esempio **long\_query\_time** e **log\_slow\_admin\_statements**.
 
 Per informazioni su come impostare il valore di questi parametri tramite l'interfaccia della riga di comando di Azure, vedere [Personalizzare i parametri di configurazione server usando l'interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).

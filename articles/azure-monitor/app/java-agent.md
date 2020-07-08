@@ -4,10 +4,9 @@ description: Estendere il monitoraggio di prestazioni e utilizzo del sito Web Ja
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537543"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorare le dipendenze, le eccezioni intercettate e i tempi di esecuzione del metodo nelle app Web Java
@@ -26,8 +25,8 @@ Se l'[app Web Java è stata instrumentata con Application Insights][java], sarà
   * **Logback**
 
 * **Denominazione delle operazioni migliore:** (usata per l'aggregazione di richieste nel portale)
-  * **Spring** in base a `@RequestMapping`.
-  * **JAX-RS** in base a `@Path`. 
+  * **Spring** in base a `@RequestMapping` .
+  * **JAX-RS** in base a `@Path` . 
 
 Per usare l'agente Java, installarlo nel server. Le app Web devono essere instrumentate con [Application Insights Java SDK][java]. 
 
@@ -89,7 +88,7 @@ Chiave: `JAVA_OPTS` valore:`-javaagent:D:/home/site/wwwroot/applicationinsights-
 Per la versione più recente dell'agente Java, vedere [qui](https://github.com/Microsoft/ApplicationInsights-Java/releases
 )le versioni. 
 
-L'agente deve essere incluso nel pacchetto come risorsa nel progetto, in modo che finisca nella directory D:/Home/site/wwwroot/. È possibile verificare che l'agente si trovi nella directory del servizio app corretta passando a **strumenti** > di sviluppo**avanzati strumenti** > **console di debug** ed esaminando il contenuto della directory del sito.    
+L'agente deve essere incluso nel pacchetto come risorsa nel progetto, in modo che finisca nella directory D:/Home/site/wwwroot/. È possibile verificare che l'agente si trovi nella directory del servizio app corretta passando a **strumenti di sviluppo**  >  **avanzati strumenti**  >  **console di debug** ed esaminando il contenuto della directory del sito.    
 
 * Salvare le impostazioni scegliendo Salva e quindi fare clic su Riavvia per riavviare l'app. Questi passaggi si applicano solo ai servizi app in esecuzione in Windows.
 

@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676416"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Registrazione degli eventi e di rilevamento per il Azure Data Box e Azure Data Box Heavy
@@ -26,7 +25,7 @@ Nella tabella seguente viene illustrato un riepilogo dei passaggi per l'ordine d
 | Creare un ordine               | [Configurare il controllo di accesso nell'ordine tramite RBAC](#set-up-access-control-on-the-order)                                                    |
 | Ordine elaborato            | [Tenere traccia dell'ordine](#track-the-order) <ul><li> Portale di Azure </li><li> Sito Web del vettore di spedizione </li><li>Notifiche di posta elettronica</ul> |
 | Configurare il dispositivo              | Credenziali del dispositivo accesso ai [log attività](#query-activity-logs-during-setup) registrate                                              |
-| Copia dei dati nel dispositivo        | [Visualizzare i file *Error. XML* ](#view-error-log-during-data-copy) per la copia dei dati                                                             |
+| Copia dei dati nel dispositivo        | [Visualizzare i file di *error.xml* ](#view-error-log-during-data-copy) per la copia dei dati                                                             |
 | Preparare per la spedizione            | [Esaminare i file DBA](#inspect-bom-during-prepare-to-ship) o i file manifesto nel dispositivo                                      |
 | Caricamento dei dati in Azure       | [Esaminare i log di copia](#review-copy-log-during-upload-to-azure) per individuare eventuali errori durante il caricamento dei dati nel Data Center di Azure                         |
 | Cancellazione dei dati dal dispositivo   | [Visualizza la catena dei log di custodia](#get-chain-of-custody-logs-after-data-erasure) , inclusi i log di controllo e la cronologia degli ordini                |
@@ -64,7 +63,7 @@ Per altre informazioni sull'uso di RBAC suggerito, vedere [procedure consigliate
 
 - Il Data Box arriva in locale in uno stato bloccato. È possibile usare le credenziali del dispositivo disponibili nell'portale di Azure per l'ordine.  
 
-    Quando viene configurata una Data Box, potrebbe essere necessario conoscere l'utente che ha eseguito l'accesso alle credenziali del dispositivo. Per determinare chi ha eseguito l'accesso al pannello delle **credenziali del dispositivo** , è possibile eseguire una query sui log attività.  Qualsiasi azione che prevede l'accesso ai **Dettagli del dispositivo > pannello credenziali** viene registrato nei log attività `ListCredentials` come azione.
+    Quando viene configurata una Data Box, potrebbe essere necessario conoscere l'utente che ha eseguito l'accesso alle credenziali del dispositivo. Per determinare chi ha eseguito l'accesso al pannello delle **credenziali del dispositivo** , è possibile eseguire una query sui log attività.  Qualsiasi azione che prevede l'accesso ai **Dettagli del dispositivo > pannello credenziali** viene registrato nei log attività come `ListCredentials` azione.
 
     ![Eseguire query sui log attività](media/data-box-logs/query-activity-log-1.png)
 
@@ -74,14 +73,14 @@ Per altre informazioni sull'uso di RBAC suggerito, vedere [procedure consigliate
 
 Durante la copia dei dati in Data Box o Data Box Heavy, viene generato un file di errore se si verificano problemi con i dati copiati.
 
-### <a name="errorxml-file"></a>Errore. XML (file)
+### <a name="errorxml-file"></a>File Error.xml
 
 Verificare che i processi di copia siano finiti senza errori. Se si verificano errori durante il processo di copia, scaricare i log dalla pagina **Connetti e copia**.
 
 - Se è stato copiato un file che non è di 512 byte allineato a una cartella del disco gestito nel Data Box, il file non viene caricato come BLOB di pagine nell'account di archiviazione di staging. Verrà visualizzato un errore nei log. Rimuovere il file e copiare un file allineato su 512 byte.
 - Se è stato copiato un VHDX o un disco rigido virtuale dinamico o un disco rigido virtuale differenze (questi file non sono supportati), verrà visualizzato un errore nei log.
 
-Di seguito è riportato un esempio di *Error. XML* per diversi errori durante la copia nei dischi gestiti.
+Di seguito è riportato un esempio di *error.xml* per errori diversi durante la copia nei dischi gestiti.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -90,7 +89,7 @@ Di seguito è riportato un esempio di *Error. XML* per diversi errori durante la
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-Di seguito è riportato un esempio di *Error. XML* per diversi errori durante la copia nei BLOB di pagine.
+Di seguito è riportato un esempio di *error.xml* per errori diversi durante la copia nei BLOB di pagine.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -101,7 +100,7 @@ Di seguito è riportato un esempio di *Error. XML* per diversi errori durante la
 ```
 
 
-Di seguito è riportato un esempio di *Error. XML* per diversi errori durante la copia in BLOB in blocchi.
+Di seguito è riportato un esempio di *error.xml* per errori diversi durante la copia in BLOB in blocchi.
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -129,7 +128,7 @@ Di seguito è riportato un esempio di *Error. XML* per diversi errori durante la
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-Di seguito è riportato un esempio di *Error. XML* per diversi errori durante la copia in file di Azure.
+Di seguito è riportato un esempio di *error.xml* per errori diversi durante la copia in file di Azure.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
@@ -257,7 +256,7 @@ Il caricamento in Azure viene completato con avvisi se i dati contengono nomi di
 
 Di seguito è riportato un esempio di un log di copia in cui i contenitori che non sono conformi alle convenzioni di denominazione di Azure sono stati rinominati durante il caricamento dei dati in Azure.
 
-I nuovi nomi univoci per i contenitori sono nel `DataBox-GUID` formato e i dati per il contenitore vengono inseriti nel nuovo contenitore rinominato. Il log di copia specifica il vecchio e il nuovo nome del contenitore per il contenitore.
+I nuovi nomi univoci per i contenitori sono nel formato `DataBox-GUID` e i dati per il contenitore vengono inseriti nel nuovo contenitore rinominato. Il log di copia specifica il vecchio e il nuovo nome del contenitore per il contenitore.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -270,7 +269,7 @@ I nuovi nomi univoci per i contenitori sono nel `DataBox-GUID` formato e i dati 
 
 Di seguito è riportato un esempio di un log di copia in cui i BLOB o i file che non sono conformi alle convenzioni di denominazione di Azure sono stati rinominati durante il caricamento dei dati in Azure. I nuovi nomi di BLOB o file vengono convertiti in SHA256 digest del percorso relativo del contenitore e caricati nel percorso in base al tipo di destinazione. La destinazione può essere costituita da BLOB in blocchi, BLOB di pagine o File di Azure.
 
-`copylog` Specifica il vecchio e il nuovo BLOB o nome file e il percorso in Azure.
+`copylog`Specifica il vecchio e il nuovo BLOB o nome file e il percorso in Azure.
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">

@@ -14,10 +14,9 @@ ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: borisb
 ms.openlocfilehash: 70556cbbfefd6ad22ef96ee16065209031ea456c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683764"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurare un'interconnessione diretta tra Azure e l'infrastruttura cloud Oracle  
@@ -25,12 +24,12 @@ ms.locfileid: "81683764"
 Per creare un' [esperienza multicloud integrata](oracle-oci-overview.md), Microsoft e Oracle offrono l'interconnessione diretta tra Azure e Oracle Cloud Infrastructure (OCI) tramite [ExpressRoute](../../../expressroute/expressroute-introduction.md) e [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Attraverso l'interconnessione ExpressRoute e FastConnect, i clienti possono riscontrare bassa latenza, velocità effettiva elevata e connettività diretta privata tra i due cloud.
 
 > [!IMPORTANT]
-> Oracle certifica queste applicazioni per l'esecuzione in Azure quando si usa la soluzione di interconnessione Cloud Azure/Oracle entro il 2020 maggio.
+> Oracle certifica queste applicazioni entro maggio 2020 per l'esecuzione in Azure quando si usa la soluzione di interconnessione Azure/Oracle Cloud.
 > * E-Business Suite
 > * JD Edwards EnterpriseOne
 > * PeopleSoft
 > * Applicazioni Oracle Retail
-> * Gestione finanziaria Oracle Hyperion
+> * Oracle Hyperion Financial Management
 
 Nell'immagine seguente viene illustrata una panoramica di alto livello dell'interconnessione:
 
@@ -66,7 +65,7 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
     * Nella **chiave del servizio del provider**incollare la chiave del servizio ExpressRoute.
     * Usare il primo/30 spazio di indirizzi IP privati suddiviso in un passaggio precedente per l' **indirizzo IP BGP primario** e il secondo/30 spazio di indirizzi IP privato per l'indirizzo **IP BGP secondario** .
         * Assegnare il primo indirizzo utilizzabile dei due intervalli per l'indirizzo IP BGP Oracle (primario e secondario) e il secondo indirizzo all'indirizzo IP BGP del cliente (dal punto di vista della FastConnect). Il primo indirizzo IP utilizzabile è il secondo indirizzo IP nello spazio degli indirizzi/30 (il primo indirizzo IP è riservato da Microsoft).
-    * Scegliere **Crea**.
+    * Fare clic su **Crea**.
 1. Completare il collegamento di FastConnect alla rete cloud virtuale nel tenant Oracle tramite il gateway di routing dinamico, usando la tabella di route.
 1. Passare ad Azure e assicurarsi che lo **stato del provider** per il circuito ExpressRoute sia stato modificato in **provisioning** eseguito e che sia stato effettuato il provisioning di un peering di tipo **privato di Azure** . Questo è un prerequisito per i passaggi seguenti.
 

@@ -11,16 +11,15 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
 ms.openlocfilehash: fdb10894ab9d1c6b805b8b43c90e54126d67b8dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606622"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
 
 > [!div class="op_single_selector"]
-> * [Mapping del flusso di dati](data-flow-create.md)
+> * [Flusso di dati per mapping](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Maiale](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  

@@ -7,13 +7,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: e26215115b4c4484e5e05a2fd94a4d2c6680a4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727164"
 ---
-# <a name="options"></a>Options #
+# <a name="options"></a>Opzioni #
 
 ## <a name="setting-options"></a>Opzioni di impostazione ##
 
@@ -30,7 +29,7 @@ Infine, se non si usa l'attributo di installazione dati per attivare la configur
 `amp("vid1", { "controls": true, "autoplay": false });`
 
 > [!NOTE]
-> Le opzioni nel costruttore vengono impostate solo alla prima inizializzazione prima dell'impostazione dell'origine.  Se si desidera modificare le opzioni nello stesso elemento Azure Media Player inizializzato, è necessario aggiornare le opzioni prima di modificare l'origine. È possibile aggiornare le opzioni in JavaScript usando `myPlayer.options({/*updated options*/});`. Si noti che saranno interessate solo le opzioni modificate, tutte le altre opzioni impostate in precedenza verranno mantenute.
+> Le opzioni nel costruttore vengono impostate solo alla prima inizializzazione prima dell'impostazione dell'origine.  Se si desidera modificare le opzioni nello stesso elemento Azure Media Player inizializzato, è necessario aggiornare le opzioni prima di modificare l'origine. È possibile aggiornare le opzioni in JavaScript usando `myPlayer.options({/*updated options*/});` . Si noti che saranno interessate solo le opzioni modificate, tutte le altre opzioni impostate in precedenza verranno mantenute.
 
 ## <a name="individual-options"></a>Singole opzioni ##
 
@@ -92,7 +91,7 @@ Se si imposta questa opzione su true, l'elemento video avrà la larghezza totale
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`l'opzione sostituisce `width` le `height` impostazioni e esplicite. Questa opzione è disponibile solo nella versione `2.0.0` Azure Media Player e versioni successive.
+`fluid`l'opzione sostituisce `width` le impostazioni e esplicite `height` . Questa opzione è disponibile solo nella versione Azure Media Player `2.0.0` e versioni successive.
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 

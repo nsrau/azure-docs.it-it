@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687336"
 ---
 # <a name="workbook-text-parameters"></a>Parametri di testo cartella di lavoro
@@ -60,7 +59,7 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
     ![Immagine che mostra un parametro di testo a cui si fa riferimento in KQL](./media/workbooks-text/text-reference.png)
 
 > [!NOTE]
-> Nell'esempio precedente, `{SlowRequestThreshold}` rappresenta un valore integer. Se è stata eseguita una query per una stringa `{ComputerName}` come se fosse necessario modificare la query kusto per aggiungere virgolette `"{ComputerName}"` in modo che il campo del parametro sia un input Accept senza virgolette.
+> Nell'esempio precedente, `{SlowRequestThreshold}` rappresenta un valore integer. Se è stata eseguita una query per una stringa come se fosse `{ComputerName}` necessario modificare la query kusto per aggiungere virgolette `"{ComputerName}"` in modo che il campo del parametro sia un input Accept senza virgolette.
 
 ## <a name="setting-default-values"></a>Impostazione dei valori predefiniti
 1. Iniziare con una cartella di lavoro vuota in modalità di modifica.

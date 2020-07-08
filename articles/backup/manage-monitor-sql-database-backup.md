@@ -4,10 +4,9 @@ description: Questo articolo descrive come gestire e monitorare SQL Server datab
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537305"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
@@ -18,7 +17,7 @@ Se non sono ancora stati configurati backup per i database di SQL Server, vedere
 
 ## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorare i processi di backup manuali nel portale
 
-Backup di Azure Mostra tutti i processi attivati manualmente nel portale dei **processi di backup** . I processi visualizzati in questo portale includono l'individuazione e la registrazione del database, nonché le operazioni di backup e ripristino.
+Backup di Azure Mostra tutti i processi attivati manualmente nel portale dei **processi di backup** . I processi visualizzati in questo portale includono l'individuazione e la registrazione dei database, nonché le operazioni di backup e ripristino.
 
 ![Portale dei processi di backup](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -32,9 +31,9 @@ Per informazioni dettagliate sugli scenari di monitoraggio, vedere [monitoraggio
 
 Con i backup del log eseguiti ogni 15 minuti, monitorare i processi di backup può essere faticoso. Backup di Azure semplifica il monitoraggio inviando avvisi di posta elettronica. Gli avvisi di posta elettronica sono:
 
-- Attivato per tutti gli errori di backup.
-- Consolidato a livello di database in base al codice di errore.
-- Inviato solo per il primo errore di backup di un database.
+- Attivati per tutti gli errori di backup.
+- Consolidati a livello di database in base al codice di errore.
+- Inviati solo per il primo errore di backup di un database.
 
 Per monitorare gli avvisi di backup del database:
 
@@ -58,12 +57,12 @@ Per monitorare gli avvisi di backup del database:
 Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quanto segue:
 
 - Tutti i punti di ripristino rimarranno invariati per sempre, tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
-- Verranno addebitati l'istanza protetta e l'archiviazione utilizzata. Per altre informazioni, vedere [prezzi di backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
+- Verranno addebitati i costi per l'istanza protetta e lo spazio di archiviazione usato. Per altre informazioni, vedere [Prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 - Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo. I punti di ripristino precedenti scadranno in base ai criteri, ma un ultimo punto di ripristino verrà sempre mantenuto fino a quando non si arrestano i backup ed eliminano i dati.
 
 Per interrompere la protezione per un database:
 
-1. Nel dashboard dell'insieme di credenziali selezionare **elementi di backup**.
+1. Nel dashboard dell'insieme di credenziali, selezionare **Elementi di backup**.
 
 2. In **tipo di gestione di backup**selezionare **SQL in macchina virtuale di Azure**.
 
@@ -77,11 +76,11 @@ Per interrompere la protezione per un database:
 
     ![Selezionare Interrompi backup](./media/backup-azure-sql-database/stop-db-button.png)
 
-5. Scegliere se mantenere o eliminare i dati dal menu **Interrompi backup** . Se lo si desidera, specificare un motivo e un commento.
+5. Nel menu **Interrompi Backup**, scegliere se mantenere o eliminare i dati. L'aggiunta di un motivo e commento è facoltativa.
 
     ![Mantenere o eliminare dati dal menu Interrompi backup](./media/backup-azure-sql-database/stop-backup-button.png)
 
-6. Selezionare **Arresta backup**.
+6. Selezionare **Interrompi backup**.
 
 > [!NOTE]
 >
@@ -121,7 +120,7 @@ Per ulteriori informazioni, vedere [SQL Server tipi di backup](backup-architectu
 
 Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la protezione ma prima di eliminare l'insieme di credenziali:
 
-1. Nel dashboard dell'insieme di credenziali, in **Gestisci**, selezionare **infrastruttura di backup**.  
+1. Nel dashboard dell'insieme di credenziali, in **Gestisci**, selezionare **Infrastruttura di backup**.  
 
    ![Selezionare Infrastruttura di backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
@@ -142,17 +141,17 @@ Modificare i criteri per modificare la frequenza di backup o il periodo di mante
 > [!NOTE]
 > Eventuali modifiche apportate al periodo di conservazione verranno applicate in modo retrospettivo a tutti i punti di ripristino meno recenti oltre a quelli nuovi.
 
-Nel dashboard dell'insieme di credenziali passare a **Gestisci** > **criteri di backup** e scegliere il criterio che si vuole modificare.
+Nel dashboard dell'insieme di credenziali passare a **Gestisci**  >  **criteri di backup** e scegliere il criterio che si vuole modificare.
 
   ![Gestire i criteri di backup](./media/backup-azure-sql-database/modify-backup-policy.png)
 
   ![Modificare i criteri di backup](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-La modifica dei criteri avrà un effetto su tutti gli elementi di backup associati e sul trigger corrispondenti processi di **configurazione della protezione** .
+La modifica dei criteri ha effetto su tutti gli elementi di backup associati e attiva processi **Configura protezione** corrispondenti.
 
 ### <a name="inconsistent-policy"></a>Criteri non coerenti
 
-In alcuni casi, un'operazione di modifica dei criteri può causare una versione non **coerente** dei criteri per alcuni elementi di backup. Ciò si verifica quando il processo di **configurazione della protezione** corrispondente non riesce per l'elemento di backup dopo l'attivazione di un'operazione di modifica dei criteri. Viene visualizzato come segue nella visualizzazione dell'elemento di backup:
+In alcuni casi, un'operazione di modifica dei criteri può causare una versione non **coerente** dei criteri per alcuni elementi di backup. Ciò si verifica quando il criterio **Configura protezione** corrispondente ha esito negativo per l'elemento di backup dopo l'attivazione di un'operazione di modifica dei criteri. Nella vista dell'elemento di backup viene visualizzato quanto segue:
 
   ![Criteri non coerenti](./media/backup-azure-sql-database/inconsistent-policy.png)
 
@@ -162,7 +161,7 @@ In alcuni casi, un'operazione di modifica dei criteri può causare una versione 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Ripetere la registrazione dell'estensione nella macchina virtuale SQL Server
 
-In alcuni casi, l'estensione del carico di lavoro nella macchina virtuale può essere interessata per un motivo o l'altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno ad avere esito negativo. Potrebbe quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. L'operazione di **ripetizione della registrazione** reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale affinché le operazioni continuino.
+In alcuni casi, l'estensione del carico di lavoro nella macchina virtuale può essere interessata per un motivo o l'altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno ad avere esito negativo. Potrà quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. L'operazione di **ripetizione della registrazione** reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale affinché le operazioni continuino.
 
 Usare questa opzione con cautela. Quando viene attivato in una macchina virtuale con un'estensione già integra, questa operazione causerà il riavvio dell'estensione. Ciò può comportare l'esito negativo di tutti i processi in corso. Assicurarsi di verificare la presenza di uno o più [sintomi](backup-sql-server-azure-troubleshoot.md#re-registration-failures) prima di attivare l'operazione di ripetizione della registrazione.
 

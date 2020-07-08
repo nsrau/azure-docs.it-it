@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
 ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272696"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
@@ -37,8 +36,8 @@ Le varie configurazioni Load Balancer Standard forniscono le seguenti metriche:
 
 | Metrica | Tipo di risorsa | Descrizione | Aggregazione consigliata |
 | --- | --- | --- | --- |
-| Disponibilità percorso dati | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.| Media |
-| Stato Probe integrità | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni endpoint dell'istanza nel pool di Load Balancer. In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità. |  Media |
+| Disponibilità del percorso dati | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.| Media |
+| Stato del probe di integrità | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni endpoint dell'istanza nel pool di Load Balancer. In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità. |  Media |
 | Pacchetti SYN (sincronizzazione) | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard non termina le connessioni TCP (Transmission Control Protocol), né interagisce con i flussi di pacchetti TCP o UDP. I flussi e i relativi handshake sono sempre tra l'origine e l'istanza VM. Per risolvere meglio i problemi degli scenari del protocollo TCP, è possibile usare contatori di pacchetti SYN per determinare quanti tentativi di connessione TCP vengono eseguiti. La metrica indica il numero di pacchetti SYN TCP ricevuti.| Media |
 | Connessioni SNAT | Bilanciamento del carico pubblico |Load Balancer Standard segnala il numero di flussi in uscita mascherati per il front-end dell'indirizzo IP pubblico. Le porte Source Network Address Translation (SNAT) sono una risorsa esauribile. Questa metrica può indicare l'uso che l'applicazione fa di SNAT per i flussi originati in uscita. Vengono segnalati i contatori per i flussi SNAT con esito positivo e negativo, che è possibile usare per risolvere i problemi e comprendere l'integrità dei flussi in uscita.| Media |
 | Porte SNAT allocate | Bilanciamento del carico pubblico | Load Balancer Standard segnala il numero di porte SNAT allocate per ogni istanza di back-end | Media. |
@@ -231,7 +230,7 @@ Il grafico consente al cliente di risolvere i problemi della distribuzione in mo
 Lo stato di integrità per le risorse di Load Balancer Standard viene esposto tramite **Integrità risorse** in **Monitoraggio > Integrità dei servizi**.
 
 Per visualizzare l'integrità delle risorse della configurazione pubblica di Load Balancer Standard:
-1. Selezionare **monitoraggio** > **integrità del servizio**.
+1. Selezionare **monitoraggio**  >  **integrità del servizio**.
 
    ![Pagina Monitoraggio](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
@@ -254,7 +253,7 @@ La tabella seguente elenca i diversi stati di integrità delle risorse e le rela
 | Stato di integrità delle risorse | Descrizione |
 | --- | --- |
 | Disponibile | Il servizio di bilanciamento del carico standard è integro e disponibile. |
-| Non disponibile | La risorsa di Load Balancer standard non è integra. Diagnosticare l'integrità selezionando le**metriche**di **monitoraggio** > di Azure.<br>Lo stato non*disponibile* potrebbe anche indicare che la risorsa non è connessa al servizio di bilanciamento del carico standard. |
+| Non disponibile | La risorsa di Load Balancer standard non è integra. Diagnosticare l'integrità selezionando le metriche di **monitoraggio di Azure**  >  **Metrics**.<br>Lo stato non*disponibile* potrebbe anche indicare che la risorsa non è connessa al servizio di bilanciamento del carico standard. |
 | Sconosciuto | Lo stato di integrità delle risorse per la risorsa Load Balancer standard non è ancora stato aggiornato.<br>Lo stato*sconosciuto* potrebbe anche indicare che la risorsa non è connessa al servizio di bilanciamento del carico standard.  |
 
 ## <a name="next-steps"></a>Passaggi successivi

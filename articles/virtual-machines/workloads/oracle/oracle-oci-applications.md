@@ -14,10 +14,9 @@ ms.date: 07/18/2019
 ms.author: borisb
 ms.custom: ''
 ms.openlocfilehash: f36dfe0092e3447053871ee0e5b4d659bb443779
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687475"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Architetture per la distribuzione di applicazioni Oracle in Azure
@@ -79,7 +78,7 @@ Questo livello ospita il database Oracle ed è suddiviso in una propria subnet. 
 Microsoft e Oracle consigliano una configurazione a disponibilità elevata. È possibile ottenere la disponibilità elevata in Azure impostando due database Oracle in due zone di disponibilità con Oracle Data Guard oppure usando Oracle Database servizio cloud Exadata in OCI. Quando si usa Oracle Database servizio cloud Exadata, il database viene distribuito in due subnet. È anche possibile configurare Oracle Database in macchine virtuali in OCI in due domini di disponibilità con Oracle Data Guard.
 
 
-### <a name="identity-tier"></a>Livello di identità
+### <a name="identity-tier"></a>Livello identità
 
 Il livello Identity contiene la VM dell'asserzione EBS. L'asserzione EBS consente di sincronizzare le identità da Oracle Identity Cloud Service (IDC) e Azure AD. L'asserzione EBS è necessaria perché EBS non supporta protocolli Single Sign-On come SAML 2,0 o OpenID Connect. L'asserzione EBS usa il token OpenID Connect (generato da IDC), lo convalida e quindi crea una sessione per l'utente in EBS. 
 
@@ -193,4 +192,4 @@ Il client PeopleTools viene usato per eseguire attività amministrative, ad esem
 
 Usare gli [script di bonifica](https://github.com/microsoft/azure-oracle) per configurare le app Oracle in Azure e stabilire la connettività tra cloud con OCI.
 
-Per ulteriori informazioni e white paper su OCI, vedere la documentazione sul [cloud Oracle](https://docs.cloud.oracle.com/iaas/Content/home.htm) .
+Per altre informazioni e white paper su OCI, vedere la documentazione di [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm).

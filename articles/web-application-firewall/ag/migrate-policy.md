@@ -8,10 +8,9 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536625"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Eseguire la migrazione dei criteri del Web Application Firewall usando Azure PowerShell

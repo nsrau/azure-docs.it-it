@@ -11,17 +11,16 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: 524e47e5be142b720687ad48ee9407da23284bd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605058"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurazione della conservazione in Time Series Insights
 
 Questo articolo descrive come configurare il **periodo di conservazione dei dati** e il **comportamento limite di archiviazione superato** in Azure Time Series Insights.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Ogni ambiente Azure Time Series Insights dispone di un'impostazione per configurare il **periodo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata della conservazione, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
 

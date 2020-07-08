@@ -4,10 +4,9 @@ description: Informazioni su come configurare un appliance Azure Migrate per la 
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538291"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurare un'appliance per le VM Hyper-V
@@ -65,7 +64,7 @@ Importare il file scaricato e creare la VM.
     ![Distribuire il disco rigido virtuale](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. Nella procedura guidata Importa macchina virtuale selezionare **Prima di iniziare**, quindi fare clic su **Avanti**.
-3. In **Individua cartella**specificare la cartella contenente il disco rigido virtuale estratto. Quindi fare clic su **Next**.
+3. In **Individua cartella**specificare la cartella contenente il disco rigido virtuale estratto. Fare quindi clic su **Avanti**.
 1. In **Selezione macchina virtuale** fare clic su **Avanti**.
 2. In **Scegliere il tipo di importazione** fare clic su **Copia macchina virtuale (crea nuovo ID univoco)** . Quindi fare clic su **Next**.
 3. In **Selezione destinazione** lasciare l'impostazione predefinita. Fare clic su **Avanti**.

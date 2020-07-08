@@ -16,10 +16,9 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273206"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
@@ -61,7 +60,7 @@ La dimensione della pagina è in genere 2048 KB. Per informazioni dettagliate, v
 
 SAP ASE per le applicazioni SAP NetWeaver è supportato in qualsiasi tipo di macchina virtuale elencato nella [Nota del supporto sap #1928533](https://launchpad.support.sap.com/#/notes/1928533) tipi di VM tipici usati per i server di database SAP ASE di medie dimensioni includono Esv3.  I database con più terabyte di grandi dimensioni possono sfruttare i tipi di VM serie M. Le prestazioni di scrittura del disco del log delle transazioni di SAP ASE possono essere migliorate abilitando la serie M acceleratore di scrittura. Acceleratore di scrittura deve essere testato con cautela con SAP ASE a causa del modo in cui SAP ASE esegue le Scritture del log.  Esaminare la [Nota di supporto SAP #2816580](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) e prendere in considerazione l'esecuzione di un test delle prestazioni.  
 Acceleratore di scrittura è progettato solo per il disco del log delle transazioni. La cache a livello di disco deve essere impostata su NONE. Non sorprendere se Azure acceleratore di scrittura non Mostra miglioramenti simili a quelli di altri sistemi DBMS. A seconda del modo in cui SAP ASE scrive nel log delle transazioni, è possibile che non si verifichi alcuna accelerazione da parte di Azure acceleratore di scrittura.
-Per i dispositivi e i dispositivi di log è consigliabile usare dischi separati.  I database di sistema sybsecurity `saptools` e non richiedono dischi dedicati e possono essere inseriti sui dischi contenenti i dati del database SAP e i dispositivi di log 
+Per i dispositivi e i dispositivi di log è consigliabile usare dischi separati.  I database di sistema sybsecurity e `saptools` non richiedono dischi dedicati e possono essere inseriti sui dischi contenenti i dati del database SAP e i dispositivi di log 
 
 ![Configurazione dell'archiviazione per SAP ASE](./media/dbms-guide-sap-ase/sap-ase-disk-structure.png)
 
@@ -221,7 +220,7 @@ SAP software Provisioning Manager (SWPM) offre un'opzione per crittografare il d
 ## <a name="using-dbacockpit-to-monitor-database-instances"></a>Utilizzo di DBACockpit per monitorare le istanze di database
 Per i sistemi SAP che usano SAP ASE come piattaforma di database, DBACockpit è accessibile come finestra del browser incorporata nella transazione DBACockpit o come Webdynpro. Tuttavia, la funzionalità completa per il monitoraggio e l'amministrazione del database è disponibile solo nell'implementazione WebDynpro del DBACockpit.
 
-Come per i sistemi locali, sono necessari diversi passaggi per abilitare tutte le funzionalità di SAP NetWeaver usate dall'implementazione Webdynpro di DBACockpit. Seguire la [Nota di supporto SAP #1245200](https://launchpad.support.sap.com/#/notes/1245200) per abilitare l'uso di WebDynpro e generare quelli necessari. Quando si seguono le istruzioni riportate nelle note precedenti, si configura anche Internet Communication`ICM`Manager () insieme alle porte da utilizzare per le connessioni HTTP e HTTPS. L'impostazione predefinita per HTTP è simile alla seguente:
+Come per i sistemi locali, sono necessari diversi passaggi per abilitare tutte le funzionalità di SAP NetWeaver usate dall'implementazione Webdynpro di DBACockpit. Seguire la [Nota di supporto SAP #1245200](https://launchpad.support.sap.com/#/notes/1245200) per abilitare l'uso di WebDynpro e generare quelli necessari. Quando si seguono le istruzioni riportate nelle note precedenti, si configura anche Internet Communication Manager ( `ICM` ) insieme alle porte da utilizzare per le connessioni HTTP e HTTPS. L'impostazione predefinita per HTTP è simile alla seguente:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
@@ -231,15 +230,15 @@ Come per i sistemi locali, sono necessari diversi passaggi per abilitare tutte l
 
 I collegamenti generati nella transazione DBACockpit sono simili ai seguenti:
 
-> https:\//\<fullyqualifiedhostname>:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
+> https: \/ / \<fullyqualifiedhostname> : 44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname>:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
+> http: \/ / \<fullyqualifiedhostname> : 8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
 > 
 
 A seconda del modo in cui la macchina virtuale di Azure ospitante il sistema SAP è connessa ad Active Directory e DNS, è necessario verificare che ICM usi un nome host completo che può essere risolto nel computer da cui si sta aprendo DBACockpit. Vedere la [Nota sul supporto SAP #773830](https://launchpad.support.sap.com/#/notes/773830) per comprendere in che modo ICM determina il nome host completo in base ai parametri del profilo e impostare il parametro icm/host_name_full in modo esplicito, se necessario.
 
-Se la macchina virtuale è stata distribuita in uno scenario solo cloud senza connettività cross-premise tra l'istanza locale e Azure, è necessario definire un indirizzo IP pubblico `domainlabel`e un. Il formato del nome DNS pubblico della VM si presenta come segue:
+Se la macchina virtuale è stata distribuita in uno scenario solo cloud senza connettività cross-premise tra l'istanza locale e Azure, è necessario definire un indirizzo IP pubblico e un `domainlabel` . Il formato del nome DNS pubblico della VM si presenta come segue:
 
 > `<custom domainlabel`&gt;.`<azure region`&gt;.cloudapp.azure.com
 > 
@@ -249,9 +248,9 @@ Per altri dettagli relativi al nome DNS, vedere [qui] [Virtual-Machines-azurerm-
 
 Impostando il parametro del profilo SAP icm/host_name_full sul nome DNS della VM di Azure, il collegamento sarà simile a:
 
-> https:\//mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
+> https: \/ /mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
+> http: \/ /mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 
 In questo caso è necessario assicurarsi di:
 

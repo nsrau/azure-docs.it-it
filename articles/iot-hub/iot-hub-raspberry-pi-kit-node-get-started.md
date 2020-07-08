@@ -1,5 +1,5 @@
 ---
-title: Connettere Raspberry Pi all'hub delle cose di Azure nel cloud (node. js)
+title: Connettere Raspberry Pi all'hub delle cose di Azure nel cloud (Node.js)
 description: Informazioni su come configurare e connettere Raspberry Pi all'hub Azure per l'invio di dati alla piattaforma cloud di Azure in questa esercitazione.
 author: wesmc7777
 manager: eliotgra
@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
 ms.openlocfilehash: 3175956e35603cc4ad3a938f3d316c0af8f2d227
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81640521"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connettere Raspberry Pi ad Azure IoT Hub (Node. js)
@@ -118,7 +117,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 2. Avviare pi e accedere a Raspbian usando `pi` come nome utente e `raspberry` come password.
 
-3. Fare clic sull'icona Raspberry > la configurazione **Preferenze** > **Raspberry Pi**.
+3. Fare clic sull'icona Raspberry > la configurazione **Preferenze**  >  **Raspberry Pi**.
 
    ![Il menu Preferenze di Raspbian](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -192,7 +191,7 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
    node -v
    ```
 
-   Se la versione è inferiore a 10. x o se non è presente node. js in pi, installare la versione più recente.
+   Se la versione è inferiore a 10. x o se non è presente alcun Node.js nel dispositivo pi, installare la versione più recente.
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
 ms.openlocfilehash: 03f9d58cab725335b0f4090ac1a7289c32c0af7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81640541"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connettere Raspberry Pi ad Azure IoT Hub (C)
@@ -119,7 +118,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 1. Connettere pi al monitor, alla tastiera e al mouse, avviare pi e accedere a Raspbian usando `pi` come nome utente e `raspberry` come password.
  
-2. Fare clic sull'icona Raspberry > la configurazione **Preferenze** > **Raspberry Pi**.
+2. Fare clic sull'icona Raspberry > la configurazione **Preferenze**  >  **Raspberry Pi**.
 
    ![Il menu Preferenze di Raspbian](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 

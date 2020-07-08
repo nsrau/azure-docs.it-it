@@ -7,15 +7,14 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727255"
 ---
 # <a name="error-codes"></a>Codici di errore #
 
-Quando la riproduzione non può essere avviata o arrestata, viene generato un evento `error()` di errore e la funzione restituisce un codice e un messaggio facoltativo per aiutare gli sviluppatori di app a ottenere maggiori dettagli. `error().message`il messaggio non viene visualizzato all'utente.  Il messaggio visualizzato per l'utente si basa su `error().code` bits 27-20, vedere la tabella seguente.
+Quando la riproduzione non può essere avviata o arrestata, viene generato un evento di errore e la `error()` funzione restituisce un codice e un messaggio facoltativo per aiutare gli sviluppatori di app a ottenere maggiori dettagli. `error().message`il messaggio non viene visualizzato all'utente.  Il messaggio visualizzato per l'utente si basa su `error().code` bits 27-20, vedere la tabella seguente.
 
 ```javascript
 
@@ -49,7 +48,7 @@ Descrivere i dettagli dell'errore. bits 27-20 fornisce un livello elevato, i bit
 | **Intervallo di errori MEDIA_ERR_ABORTED (0x0100000-0x01FFFFF)** | | |
 | abortedErrUnknown | 0x0100000 | Errore di interruzione generica |
 | abortedErrNotImplemented | 0x0100001 | Errore di interruzione, non implementato |
-| abortedErrHttpMixedContentBlocked | 0x0100002 | Errore di interruzione, contenuto misto bloccato: in genere si verifica `http://` durante il caricamento `https://` di un flusso da una pagina |
+| abortedErrHttpMixedContentBlocked | 0x0100002 | Errore di interruzione, contenuto misto bloccato: in genere si verifica durante il caricamento `http://` di un flusso da una `https://` pagina |
 | **Valore iniziale errori MEDIA_ERR_NETWORK (0x0200000-0x02FFFFF)** | | |
 | networkErrUnknown | 0x0200000 | Errore di rete generico |
 | networkErrHttpBadUrlFormat | 0x0200190 | Risposta di errore HTTP 400 |

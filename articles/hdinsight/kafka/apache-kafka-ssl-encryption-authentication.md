@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
 ms.openlocfilehash: 02b64d77a4fb1af25e1022de3ac8e4775f916d9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261772"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurare la crittografia e l'autenticazione TLS per Apache Kafka in Azure HDInsight
@@ -20,7 +19,7 @@ ms.locfileid: "81261772"
 Questo articolo illustra come configurare la crittografia Transport Layer Security (TLS), nota in precedenza come crittografia Secure Sockets Layer (SSL) tra client Apache Kafka e broker Apache Kafka. Viene inoltre illustrato come configurare l'autenticazione dei client (talvolta definita TLS bidirezionale).
 
 > [!Important]
-> Sono disponibili due client che è possibile usare per le applicazioni Kafka: un client Java e un client console. Solo il client `ProducerConsumer.java` Java può usare TLS per la produzione e l'utilizzo. Il client `console-producer.sh` Producer console non funziona con TLS.
+> Sono disponibili due client che è possibile usare per le applicazioni Kafka: un client Java e un client console. Solo il client Java `ProducerConsumer.java` può usare TLS per la produzione e l'utilizzo. Il client Producer console non `console-producer.sh` funziona con TLS.
 
 > [!Note]
 > Il producer console Kafka HDInsight con versione 1,1 non supporta SSL.
@@ -323,13 +322,13 @@ Eseguire questi passaggi nel computer client.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1. Avviare Producer console e specificare il percorso `client-ssl-auth.properties` di come file di configurazione per il producer.
+1. Avviare Producer console e specificare il percorso di `client-ssl-auth.properties` come file di configurazione per il producer.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9093 --topic topic1 --producer.config ~/ssl/client-ssl-auth.properties
     ```
 
-1. Aprire un'altra connessione SSH al computer client e avviare l'utente della console e fornire `client-ssl-auth.properties` il percorso di come file di configurazione per il consumer.
+1. Aprire un'altra connessione SSH al computer client e avviare l'utente della console e fornire il percorso di `client-ssl-auth.properties` come file di configurazione per il consumer.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
@@ -349,7 +348,7 @@ Eseguire questi passaggi nel computer client.
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
     ```
 
-1. Aprire un'altra connessione SSH al computer client e avviare l'utente della console e fornire `client-ssl-auth.properties` il percorso di come file di configurazione per il consumer.
+1. Aprire un'altra connessione SSH al computer client e avviare l'utente della console e fornire il percorso di `client-ssl-auth.properties` come file di configurazione per il consumer.
 
     ```bash
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning

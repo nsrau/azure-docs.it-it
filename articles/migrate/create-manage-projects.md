@@ -4,10 +4,9 @@ description: Trovare, creare, gestire ed eliminare progetti in Azure Migrate.
 ms.topic: how-to
 ms.date: 04/19/2020
 ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676387"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Creare e gestire i progetto di Azure Migrate
@@ -78,8 +77,8 @@ Tenere presente quanto segue:
 
 1. Passare all'area di lavoro Log Analytics collegata al progetto.
 
-    - Se il progetto Azure migrate non è stato eliminato, è possibile trovare il collegamento all'area di lavoro in **Essentials** > **Server Assessment**.
-       ![Area di](./media/create-manage-projects/loganalytics-workspace.png)lavoro.
+    - Se il progetto Azure migrate non è stato eliminato, è possibile trovare il collegamento all'area di lavoro in **Essentials**  >  **Server Assessment**.
+       ![Area di lavoro ](./media/create-manage-projects/loganalytics-workspace.png) .
        
     - Se il progetto Azure Migrate è già stato eliminato, selezionare **gruppi di risorse** nel riquadro sinistro della portale di Azure e individuare l'area di lavoro.
        

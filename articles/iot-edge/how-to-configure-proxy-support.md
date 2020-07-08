@@ -9,10 +9,9 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
 ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687191"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurare un dispositivo IoT Edge per comunicare tramite un server proxy
@@ -53,7 +52,7 @@ Gli URL proxy hanno il formato seguente: **protocollo**://**host_proxy**:**porta
 
 * Il **protocollo** è HTTP o HTTPS. Il daemon Docker può usare uno dei due protocolli, a seconda delle impostazioni del registro contenitori, ma il daemon IoT Edge e i contenitori di runtime devono sempre usare HTTP per connettersi al proxy.
 
-* L'**host_proxy** è un indirizzo per il server proxy. Se il server proxy richiede l'autenticazione, è possibile fornire le credenziali come parte dell'host proxy con il formato seguente: **User**:**password**\@**proxy_host**.
+* L'**host_proxy** è un indirizzo per il server proxy. Se il server proxy richiede l'autenticazione, è possibile fornire le credenziali come parte dell'host proxy con il formato seguente: **User**:**password** \@ **proxy_host**.
 
 * La **porta_proxy** è la porta di rete a cui il proxy risponde al traffico di rete.
 
@@ -69,7 +68,7 @@ Se si installa il runtime IoT Edge in un dispositivo Linux, configurare la gesti
 
 Se si sta installando il runtime di IoT Edge in un dispositivo Windows, è necessario eseguire due volte il server proxy. La prima connessione Scarica il file di script del programma di installazione e la seconda connessione durante l'installazione per scaricare i componenti necessari. È possibile configurare le informazioni sul proxy nelle impostazioni di Windows o includere le informazioni del proxy direttamente nei comandi di PowerShell.
 
-Nei passaggi seguenti viene illustrato un esempio di installazione di Windows tramite `-proxy` l'argomento:
+Nei passaggi seguenti viene illustrato un esempio di installazione di Windows tramite l' `-proxy` argomento:
 
 1. Il comando Invoke-WebRequest richiede informazioni sul proxy per accedere allo script del programma di installazione. Quindi, il comando deploy-IoTEdge richiede le informazioni sul proxy per scaricare i file di installazione.
 
@@ -122,7 +121,7 @@ Aprire un editor nel terminale per configurare il daemon IoT Edge.
 sudo systemctl edit iotedge
 ```
 
-Immettere il testo seguente, sostituendo ** \<l'URL del proxy>** con l'indirizzo e la porta del server proxy. Quindi, salvare e chiudere.
+Immettere il testo seguente, sostituendo **\<proxy URL>** con l'indirizzo e la porta del server proxy. Quindi, salvare e chiudere.
 
 ```ini
 [Service]
@@ -149,7 +148,7 @@ systemctl show --property=Environment iotedge
 
 #### <a name="windows"></a>Windows
 
-Aprire una finestra di PowerShell come amministratore ed eseguire il comando seguente per modificare il registro con la nuova variabile di ambiente. Sostituire ** \<l'URL del proxy>** con l'indirizzo e la porta del server proxy.
+Aprire una finestra di PowerShell come amministratore ed eseguire il comando seguente per modificare il registro con la nuova variabile di ambiente. Sostituire **\<proxy url>** con l'indirizzo e la porta del server proxy.
 
 ```powershell
 reg add HKLM\SYSTEM\CurrentControlSet\Services\iotedge /v Environment /t REG_MULTI_SZ /d https_proxy=<proxy URL>

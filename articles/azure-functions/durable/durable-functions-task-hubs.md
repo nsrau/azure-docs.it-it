@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81604603"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hub attività in Funzioni permanenti (Funzioni di Azure)
@@ -41,9 +40,9 @@ Gli hub attività sono identificati da un nome conforme alle regole seguenti:
 * Inizia con una lettera
 * Ha una lunghezza minima di 3 caratteri, lunghezza massima di 45 caratteri
 
-Il nome dell'hub attività viene dichiarato nel file *host. JSON* , come illustrato nell'esempio seguente:
+Il nome dell'hub attività viene dichiarato nella *host.jssu* file, come illustrato nell'esempio seguente:
 
-### <a name="hostjson-functions-20"></a>host. JSON (funzioni 2,0)
+### <a name="hostjson-functions-20"></a>host.json (funzioni 2,0)
 
 ```json
 {
@@ -66,9 +65,9 @@ Il nome dell'hub attività viene dichiarato nel file *host. JSON* , come illustr
 }
 ```
 
-Gli hub attività possono anche essere configurati usando le impostazioni dell'app, `host.json` come illustrato nel file di esempio seguente:
+Gli hub attività possono anche essere configurati usando le impostazioni dell'app, come illustrato nel `host.json` file di esempio seguente:
 
-### <a name="hostjson-functions-10"></a>host. JSON (funzioni 1,0)
+### <a name="hostjson-functions-10"></a>host.json (funzioni 1,0)
 
 ```json
 {
@@ -78,7 +77,7 @@ Gli hub attività possono anche essere configurati usando le impostazioni dell'a
 }
 ```
 
-### <a name="hostjson-functions-20"></a>host. JSON (funzioni 2,0)
+### <a name="hostjson-functions-20"></a>host.json (funzioni 2,0)
 
 ```json
 {
@@ -125,7 +124,7 @@ public static async Task<HttpResponseMessage> Run(
 ```
 
 > [!NOTE]
-> L'esempio C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> L'esempio C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -146,13 +145,13 @@ I nomi degli hub attività devono iniziare con una lettera e contenere solo lett
 
 | Versione durevole dell'estensione | Nome dell'hub attività predefinito |
 | - | - |
-| 2.x | Quando viene distribuito in Azure, il nome dell'hub attività viene derivato dal nome dell' _app_per le funzioni. Quando viene eseguito all'esterno di Azure, il nome dell'hub `TestHubName`attività predefinito è. |
-| 1.x | Il nome predefinito dell'hub attività per tutti gli `DurableFunctionsHub`ambienti è. |
+| 2.x | Quando viene distribuito in Azure, il nome dell'hub attività viene derivato dal nome dell' _app_per le funzioni. Quando viene eseguito all'esterno di Azure, il nome dell'hub attività predefinito è `TestHubName` . |
+| 1.x | Il nome predefinito dell'hub attività per tutti gli ambienti è `DurableFunctionsHub` . |
 
 Per ulteriori informazioni sulle differenze tra le versioni delle estensioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 > [!NOTE]
-> Il nome è ciò che distingue un hub attività da un altro quando sono presenti più hub attività in un account di archiviazione condiviso. Se si dispone di più app per le funzioni che condividono lo stesso account di archiviazione condiviso, è necessario configurare in modo esplicito nomi diversi per ogni hub attività nei file *host.json*. In caso contrario, le app per più funzioni competono tra loro per i messaggi, che potrebbero causare un comportamento indefinito, incluse le orchestrazioni che si bloccano in modo imprevisto nello stato `Pending` o `Running` .
+> Il nome è ciò che distingue un hub attività da un altro quando sono presenti più hub attività in un account di archiviazione condiviso. Se si dispone di più app per le funzioni che condividono lo stesso account di archiviazione condiviso, è necessario configurare in modo esplicito nomi diversi per ogni hub attività nei file *host.json*. In caso contrario, le app per più funzioni competono tra loro per i messaggi, che potrebbero causare un comportamento indefinito, incluse le orchestrazioni che si bloccano in modo imprevisto nello `Pending` `Running` stato o.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

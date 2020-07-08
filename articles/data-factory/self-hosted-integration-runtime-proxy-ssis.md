@@ -13,10 +13,9 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ms.openlocfilehash: 4cb5b84f3889dcf4e0f28d525afb42cfeac5b54c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605502"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurare un runtime di integrazione self-hosted come proxy per un Azure-SSIS IR in Azure Data Factory
@@ -58,7 +57,7 @@ Se non è già stato fatto, creare un servizio collegato di archiviazione BLOB d
 - In **metodo di autenticazione**selezionare **chiave account**, **URI SAS**o **entità servizio**.  
 
     >[!TIP]
-    >Se si seleziona il metodo dell' **entità servizio** , concedere all'entità servizio almeno un ruolo di  *collaboratore dati BLOB di archiviazione*. Per altre informazioni, vedere [connettore di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties).
+    >Se si seleziona il metodo dell' **entità servizio** , concedere all'entità servizio almeno un ruolo di *collaboratore dati BLOB di archiviazione*   . Per altre informazioni, vedere [connettore di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties).
 
 ![Preparare il servizio collegato di archiviazione BLOB di Azure per la gestione temporanea](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -78,7 +77,7 @@ Dopo aver preparato il runtime di integrazione self-hosted e il servizio collega
 
    1. Nella casella **percorso di gestione temporanea** specificare un contenitore BLOB nell'account di archiviazione BLOB di Azure selezionato o lasciarlo vuoto per utilizzarne uno predefinito per la gestione temporanea.
 
-   1. Seleziona **Continua**.
+   1. Selezionare **Continua**.
 
    ![Impostazioni avanzate con un runtime di integrazione self-hosted](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
@@ -118,7 +117,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>Abilitare la connessione dei pacchetti SSIS per proxy
 
-Utilizzando la versione più recente di SSDT con estensione progetti SSIS per Visual Studio o un programma di installazione autonomo, è `ConnectByProxy` possibile trovare una nuova proprietà aggiunta nelle gestioni connessioni file flat o OLEDB.
+Utilizzando la versione più recente di SSDT con estensione progetti SSIS per Visual Studio o un programma di installazione autonomo, è possibile trovare una nuova `ConnectByProxy` proprietà aggiunta nelle gestioni connessioni file flat o OLEDB.
 * [Scaricare l'estensione SSDT con i progetti SSIS per Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 * [Scaricare il programma di installazione autonomo](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
 
@@ -135,11 +134,11 @@ Quando si progettano nuovi pacchetti che contengono attività flusso di dati con
   
   ![Abilita property3 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- **Opzione B:** Ridistribuire il progetto contenente i pacchetti da eseguire sul runtime di integrazione SSIS. È quindi possibile abilitare la proprietà specificando il `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`percorso della proprietà e impostando il valore su *true* come override della proprietà nella scheda **Avanzate** della finestra popup **Esegui pacchetto** quando si eseguono pacchetti da SSMS.
+- **Opzione B:** Ridistribuire il progetto contenente i pacchetti da eseguire sul runtime di integrazione SSIS. È quindi possibile abilitare la proprietà specificando il percorso della proprietà `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` e impostando il valore su *true* come override della proprietà nella scheda **Avanzate** della finestra popup **Esegui pacchetto** quando si eseguono pacchetti da SSMS.
 
   ![Abilita Property4 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  È anche possibile abilitare la proprietà specificando il `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`percorso della proprietà e impostando il valore su *true* come override della proprietà nella scheda **override proprietà** dell' [attività Esegui pacchetto SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando si eseguono pacchetti in data factory pipeline.
+  È anche possibile abilitare la proprietà specificando il percorso della proprietà `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` e impostando il valore su *true* come override della proprietà nella scheda **override proprietà** dell' [attività Esegui pacchetto SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando si eseguono pacchetti in data factory pipeline.
   
   ![Abilita property5 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
@@ -153,7 +152,7 @@ Nel runtime di integrazione self-hosted è possibile trovare i log di runtime ne
 
 Se le attività di gestione temporanea sul runtime di integrazione self-hosted richiedono l'autenticazione di Windows, [configurare i pacchetti SSIS in modo da usare la stessa autenticazione di Windows](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
 
-Le attività di gestione temporanea verranno richiamate con l'account del servizio IR self-hosted (*NT SERVICE\DIAHostService*, per impostazione predefinita) e gli archivi dati saranno accessibili con l'account di autenticazione di Windows. Per entrambi gli account è necessario assegnare determinati criteri di sicurezza. Nel computer IR indipendente, passare a **criteri** > **Local Policies** > di sicurezza locali**assegnazione diritti utente**e quindi eseguire le operazioni seguenti:
+Le attività di gestione temporanea verranno richiamate con l'account del servizio IR self-hosted (*NT SERVICE\DIAHostService*, per impostazione predefinita) e gli archivi dati saranno accessibili con l'account di autenticazione di Windows. Per entrambi gli account è necessario assegnare determinati criteri di sicurezza. Nel computer IR indipendente, passare a **criteri di sicurezza**  >  **locali**  >  **assegnazione diritti utente**e quindi eseguire le operazioni seguenti:
 
 1. Assegnare i criteri di *regolazione delle quote di memoria per un processo* e sostituire i criteri del *token a livello di processo* con l'account del servizio IR self-hosted. Questa operazione deve essere eseguita automaticamente quando si installa il runtime di integrazione self-hosted con l'account del servizio predefinito. In caso contrario, assegnare questi criteri manualmente. Se si utilizza un account del servizio diverso, assegnare gli stessi criteri.
 

@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 96528dc34305e77602634110a0153f7623a15c96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676758"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementare Oracle Data Guard su una macchina virtuale Linux di Azure 
@@ -282,7 +281,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Attivare il flashback, che semplifica notevolmente il ripristino, e impostare la gestione\_dei\_file di standby su auto. Uscire da SQL * Plus.
+Attivare il flashback, che semplifica notevolmente il ripristino, e impostare la \_ \_ gestione dei file di standby su auto. Uscire da SQL * Plus.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;

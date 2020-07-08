@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687800"
 ---
 # <a name="front-door-routing-methods"></a>Metodi di routing di Frontdoor
@@ -80,7 +79,7 @@ La durata del cookie corrisponde a quella della sessione utente, perché Frontdo
 > [!NOTE]
 > I proxy pubblici possono interferire con l'affinità di sessione, perché per stabilire una sessione è necessario che Frontdoor aggiunga un cookie di affinità di sessione nella risposta, operazione che non può essere eseguita se la risposta è memorizzabile nella cache, in quanto potrebbe compromettere i cookie di altri client che richiedono la stessa risorsa. Per proteggersi da questa situazione, l'affinità di sessione **non** verrà stabilita se il back-end invia una risposta memorizzabile nella cache quando si tenta di eseguire questa operazione. Se la sessione è già stata stabilita, non importa se la risposta dal back-end è memorizzabile nella cache.
 > L'affinità di sessione verrà stabilita nelle circostanze seguenti, **a meno che** la risposta non abbia un codice di stato HTTP 304:
-> - Per la risposta sono stati impostati valori specifici ```Cache-Control``` per l'intestazione che impedisce la memorizzazione nella cache, ad esempio "privato" o nessun archivio ".
+> - Per la risposta sono stati impostati valori specifici per l' ```Cache-Control``` intestazione che impedisce la memorizzazione nella cache, ad esempio "privato" o nessun archivio ".
 > - La risposta contiene un'intestazione ```Authorization``` non scaduta.
 > - La risposta contiene un codice di stato HTTP 302.
 

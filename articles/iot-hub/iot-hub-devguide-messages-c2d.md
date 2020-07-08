@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730005"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Inviare messaggi da cloud a dispositivo da un hub Internet delle cose
@@ -76,7 +75,7 @@ Quando si invia un messaggio da cloud a dispositivo, il servizio può richiedere
 
 | Valore della proprietà ACK | Comportamento |
 | ------------ | -------- |
-| none     | L'hub Internet delle cose non genera un messaggio di feedback (comportamento predefinito). |
+| Nessuno     | L'hub Internet delle cose non genera un messaggio di feedback (comportamento predefinito). |
 | positivo | Se il messaggio da cloud a dispositivo raggiunge lo stato *completato* , l'hub Internet genera un messaggio di feedback. |
 | negativo | Se il messaggio da cloud a dispositivo raggiunge lo stato non *recapitabile* , l'hub Internet genera un messaggio di feedback. |
 | completi     | In entrambi i casi l'hub Internet genera un messaggio di feedback. |
@@ -97,9 +96,9 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Timestamp che indica quando si è verificato il risultato del messaggio (ad esempio, l'hub ha ricevuto il messaggio di feedback o il messaggio originale è scaduto) |
 | OriginalMessageId  | *MessageID* del messaggio da cloud a dispositivo a cui si riferiscono le informazioni sul feedback |
-| StatusCode         | Una stringa obbligatoria, usata nei messaggi di feedback generati dall'hub Internet delle cose: <br/> *Operazione completata* <br/> *Scaduto* <br/> *DeliveryCountExceeded* <br/> *Rifiutato* <br/> *Eliminati* |
+| StatusCode         | Una stringa obbligatoria, usata nei messaggi di feedback generati dall'hub Internet delle cose: <br/> *Success* <br/> *Scaduta* <br/> *DeliveryCountExceeded* <br/> *Rifiutato* <br/> *Eliminati* |
 | Descrizione        | Valori stringa per *statusCode* |
-| DeviceId           | *DeviceID* del dispositivo di destinazione del messaggio da cloud a dispositivo a cui si riferisce questa parte del feedback |
+| deviceId           | *DeviceID* del dispositivo di destinazione del messaggio da cloud a dispositivo a cui si riferisce questa parte del feedback |
 | DeviceGenerationId | *DeviceGenerationId* del dispositivo di destinazione del messaggio da cloud a dispositivo a cui si riferisce questa parte del feedback |
 
 Affinché il messaggio da cloud a dispositivo metta in correlazione il feedback con il messaggio originale, è necessario che il servizio specifichi un *MessageID*.

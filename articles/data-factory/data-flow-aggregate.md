@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606529"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione aggregazione nel flusso di dati di mapping
@@ -45,18 +44,18 @@ Ogni espressione di aggregazione deve contenere almeno una funzione di aggregazi
 
 Le trasformazioni di aggregazione sono simili alle query SELECT di aggregazione SQL. Le colonne che non sono incluse nella clausola Group by o funzioni di aggregazione non passano attraverso l'output della trasformazione aggregazione. Se si desidera includere altre colonne nell'output aggregato, effettuare uno dei seguenti metodi:
 
-* Utilizzare una funzione di aggregazione `last()` , `first()` ad esempio o, per includere la colonna aggiuntiva.
+* Utilizzare una funzione di aggregazione, ad esempio `last()` o, `first()` per includere la colonna aggiuntiva.
 * Aggiungere nuovamente le colonne al flusso di output usando il [modello self join](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
 ## <a name="removing-duplicate-rows"></a>Rimozione di righe duplicate
 
-Un utilizzo comune della trasformazione aggregazione consiste nella rimozione o nell'identificazione di voci duplicate nei dati di origine. Questo processo è noto come deduplicazione. In base a un set di chiavi Group by, usare l'euristica scelta per determinare la riga duplicata da contenere. Le euristiche comuni `first()`sono `last()`, `max()`, e `min()`. Usare i [criteri di colonna](concepts-data-flow-column-pattern.md) per applicare la regola a ogni colonna, ad eccezione delle colonne Group by.
+Un utilizzo comune della trasformazione aggregazione consiste nella rimozione o nell'identificazione di voci duplicate nei dati di origine. Questo processo è noto come deduplicazione. In base a un set di chiavi Group by, usare l'euristica scelta per determinare la riga duplicata da contenere. Le euristiche comuni sono `first()` ,, `last()` `max()` e `min()` . Usare i [criteri di colonna](concepts-data-flow-column-pattern.md) per applicare la regola a ogni colonna, ad eccezione delle colonne Group by.
 
 ![Deduplicazione](media/data-flow/agg-dedupe.png "Deduplicazione")
 
-Nell'esempio precedente le colonne `ProductID` e `Name` vengono utilizzate per il raggruppamento. Se due righe hanno gli stessi valori per queste due colonne, sono considerate duplicati. In questa trasformazione aggregazione i valori della prima riga corrispondente verranno mantenuti e tutti gli altri verranno eliminati. Utilizzando la sintassi del criterio di colonna, tutte le `ProductID` colonne `Name` i cui nomi non sono e vengono mappate al nome della colonna esistente e in base al valore delle prime righe corrispondenti. Lo schema di output corrisponde allo schema di input.
+Nell'esempio precedente le colonne `ProductID` e `Name` vengono utilizzate per il raggruppamento. Se due righe hanno gli stessi valori per queste due colonne, sono considerate duplicati. In questa trasformazione aggregazione i valori della prima riga corrispondente verranno mantenuti e tutti gli altri verranno eliminati. Utilizzando la sintassi del criterio di colonna, tutte le colonne i cui nomi non sono `ProductID` e `Name` vengono mappate al nome della colonna esistente e in base al valore delle prime righe corrispondenti. Lo schema di output corrisponde allo schema di input.
 
-Per gli scenari di convalida dei `count()` dati, la funzione può essere utilizzata per contare il numero di duplicati.
+Per gli scenari di convalida dei dati, la `count()` funzione può essere utilizzata per contare il numero di duplicati.
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 
@@ -81,7 +80,7 @@ Per gli scenari di convalida dei `count()` dati, la funzione può essere utilizz
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente accetta un flusso `MoviesYear` in ingresso e raggruppa le righe per `year`colonna. La trasformazione crea una colonna `avgrating` di aggregazione che restituisce la media della colonna `Rating`. Questa trasformazione aggregata è `AvgComedyRatingsByYear`denominata.
+L'esempio seguente accetta un flusso in ingresso `MoviesYear` e raggruppa le righe per colonna `year` . La trasformazione crea una colonna di aggregazione `avgrating` che restituisce la media della colonna `Rating` . Questa trasformazione aggregata è denominata `AvgComedyRatingsByYear` .
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 
@@ -100,7 +99,7 @@ MoviesYear aggregate(
 
 ![Script del flusso di dati aggregato](media/data-flow/aggdfs1.png "Script del flusso di dati aggregato")
 
-```MoviesYear```: Colonna derivata che definisce le colonne ```AvgComedyRatingByYear```anno e titolo: trasformazione aggregazione per la valutazione media delle Comedie raggruppate per anno ```avgrating```: nome della nuova colonna da creare per conservare il valore aggregato
+```MoviesYear```: Colonna derivata che definisce le colonne anno e titolo ```AvgComedyRatingByYear``` : trasformazione aggregazione per la valutazione media delle Comedie raggruppate per anno ```avgrating``` : nome della nuova colonna da creare per conservare il valore aggregato
 
 ```
 MoviesYear aggregate(groupBy(year),

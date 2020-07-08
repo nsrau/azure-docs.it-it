@@ -13,20 +13,19 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 5dd09988d37982c41b761688492bd2dc3642b2db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81728989"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Raccomandazioni sulla sicurezza per la distribuzione di Azure Internet delle cose
 
-Questo articolo contiene raccomandazioni per la sicurezza. L'implementazione di questi consigli consentirà di soddisfare gli obblighi di sicurezza come descritto nel modello di responsabilità condivisa. Per ulteriori informazioni sulle attività svolte da Microsoft per soddisfare le responsabilità del provider di servizi, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Questo articolo contiene raccomandazioni per la sicurezza. Implementando queste raccomandazioni sarà possibile adeguarsi gli obblighi di sicurezza descritti nel modello di responsabilità condivisa. Per altre informazioni sulle iniziative intraprese da Microsoft per assolvere alle responsabilità dei provider di servizi, vedere [Responsabilità condivise per il cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
-Alcuni consigli inclusi in questo articolo possono essere monitorati automaticamente dal centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per la protezione delle risorse in Azure. Analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Fornisce quindi suggerimenti su come risolverli.
+Alcune raccomandazioni presenti in questo articolo possono essere monitorate automaticamente dal Centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per la protezione delle risorse di Azure: analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare potenziali vulnerabilità di sicurezza e fornisce raccomandazioni per affrontarle in modo efficace.
 
-- Per altre informazioni sulle raccomandazioni del Centro sicurezza di Azure, vedere [raccomandazioni per la sicurezza nel centro sicurezza di Azure](../security-center/security-center-recommendations.md).
-- Per informazioni sul centro sicurezza di Azure, vedere [che cos'è il Centro sicurezza di Azure?](../security-center/security-center-intro.md)
+- Per altre informazioni sulle raccomandazioni del Centro di sicurezza di Azure, vedere [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-recommendations.md).
+- Per informazioni sul Centro sicurezza di Azure, vedere [Che cos'è il Centro sicurezza di Azure?](../security-center/security-center-intro.md)
 
 ## <a name="general"></a>Generale
 
@@ -43,7 +42,7 @@ Alcuni consigli inclusi in questo articolo possono essere monitorati automaticam
 | Definire il controllo di accesso per l'hub | [Comprendere e definire il tipo di accesso](iot-security-deployment.md#securing-the-cloud) che ogni componente avrà nella soluzione hub Internet, in base alle funzionalità. Le autorizzazioni consentite sono il *Registro di sistema read*, *RegistryReadWrite*, *ServiceConnect*e *DeviceConnect*. I [criteri di accesso condiviso predefiniti nell'hub Internet](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#access-control-and-permissions) possono anche definire le autorizzazioni per ogni componente in base al ruolo. | - |
 | Definire il controllo di accesso per i servizi back-end | I dati inseriti dalla soluzione hub Internet possono essere usati da altri servizi di Azure, ad [esempio Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/), [analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/), [servizio app](https://docs.microsoft.com/azure/app-service/), app per la [logica](https://docs.microsoft.com/azure/logic-apps/)e [archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Assicurarsi di comprendere e consentire le autorizzazioni di accesso appropriate, come documentato per questi servizi. | - |
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 | Recommendation | Commenti | Supportato da ASC |
 |-|----|--|

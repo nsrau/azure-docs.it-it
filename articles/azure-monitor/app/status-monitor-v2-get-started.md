@@ -6,21 +6,20 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 4cfa136585611e81a4060c5544d5dc464b32f12c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537441"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Introduzione a monitoraggio di Azure Application Insights Agent per i server locali
 
 Questo articolo contiene i comandi di avvio rapido che dovrebbero funzionare per la maggior parte degli ambienti.
 Le istruzioni dipendono dalla PowerShell Gallery per la distribuzione degli aggiornamenti.
-Questi comandi supportano il parametro `-Proxy` di PowerShell.
+Questi comandi supportano il parametro di PowerShell `-Proxy` .
 
 Per una spiegazione di questi comandi, istruzioni di personalizzazione e informazioni sulla risoluzione dei problemi, vedere le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="download-and-install-via-powershell-gallery"></a>Scaricare e installare tramite PowerShell Gallery
 

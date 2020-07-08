@@ -6,10 +6,9 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
 ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537509"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guida introduttiva: Introduzione a Application Insights in un progetto Web Java
@@ -38,7 +37,7 @@ Application Insights è un servizio di analisi estendibile per gli sviluppatori 
 
 # <a name="maven"></a>[Maven](#tab/maven)
 
-Se il progetto è già configurato per usare Maven per la compilazione, unire il codice seguente al file *POM. XML* .
+Se il progetto è già configurato per usare Maven per la compilazione, unire il codice seguente al file di *pom.xml* .
 
 Aggiornare quindi le dipendenze progetto per fare in modo che i file binari vengano scaricati.
 
@@ -75,7 +74,7 @@ Scaricare la [versione più recente](https://github.com/Microsoft/ApplicationIns
 ---
 
 ### <a name="questions"></a>Domande
-* *Qual è la relazione tra i `-web-auto`componenti `-web` , `-core` e?*
+* *Qual è la relazione tra i `-web-auto` `-web` componenti, e `-core` ?*
   * `applicationinsights-web-auto`fornisce metriche che tengono traccia dei conteggi delle richieste di servlet HTTP e dei tempi di risposta, registrando automaticamente il filtro Application Insights servlet in fase di esecuzione.
   * `applicationinsights-web`fornisce anche metriche che tengono traccia dei conteggi delle richieste di servlet HTTP e dei tempi di risposta, ma richiede la registrazione manuale del filtro Application Insights servlet nell'applicazione.
   * `applicationinsights-core`fornisce solo l'API bare, ad esempio se l'applicazione non è basata su servlet.
@@ -86,8 +85,8 @@ Scaricare la [versione più recente](https://github.com/Microsoft/ApplicationIns
   * Se le dipendenze vengono gestite manualmente...
     * Scaricare la versione più recente di [Application Insights SDK per Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) e sostituire le versioni precedenti. Le modifiche sono descritte nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-## <a name="add-an-applicationinsightsxml-file"></a>Aggiungere un file *ApplicationInsights. XML*
-Aggiungere *ApplicationInsights. XML* alla cartella Resources nel progetto o assicurarsi che venga aggiunto al percorso della classe di distribuzione del progetto. Copiarvi il seguente file XML.
+## <a name="add-an-applicationinsightsxml-file"></a>Aggiungere un file di *ApplicationInsights.xml*
+Aggiungere *ApplicationInsights.xml* alla cartella risorse nel progetto o assicurarsi che sia aggiunto al percorso della classe di distribuzione del progetto. Copiarvi il seguente file XML.
 
 Sostituire la chiave di strumentazione con quella ottenuta dal portale di Azure.
 
@@ -118,7 +117,7 @@ Sostituire la chiave di strumentazione con quella ottenuta dal portale di Azure.
 </ApplicationInsights>
 ```
 
-Facoltativamente, il file di configurazione può trovarsi in qualsiasi posizione accessibile all'applicazione.  La proprietà `-Dapplicationinsights.configurationDirectory` di sistema specifica la directory che contiene *ApplicationInsights. XML*. Ad esempio, un file di configurazione con percorso `E:\myconfigs\appinsights\ApplicationInsights.xml` verrà configurato con la proprietà `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
+Facoltativamente, il file di configurazione può trovarsi in qualsiasi posizione accessibile all'applicazione.  La proprietà `-Dapplicationinsights.configurationDirectory` di sistema specifica la directory che contiene *ApplicationInsights.xml*. Ad esempio, un file di configurazione con percorso `E:\myconfigs\appinsights\ApplicationInsights.xml` verrà configurato con la proprietà `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * La chiave di strumentazione viene inviata insieme a tutti gli elementi di dati di telemetria e indica ad Application Insights di visualizzarla nella risorsa.
 * Il componente delle richieste HTTP è facoltativo. Invia automaticamente i dati di telemetria sulle richieste e tempi di risposta al portale.
@@ -129,7 +128,7 @@ Application Insights SDK cerca la chiave nell'ordine seguente.
 
 1. Proprietà di sistema:-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
 2. Variabile di ambiente: APPINSIGHTS_INSTRUMENTATIONKEY
-3. File di configurazione: *ApplicationInsights. XML*
+3. File di configurazione: *ApplicationInsights.xml*
 
 È anche possibile eseguirne l' [impostazione nel codice](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
@@ -194,7 +193,7 @@ A questo punto è possibile pubblicare l'applicazione nel server, permettere agl
 
 ## <a name="azure-app-service-config-spring-boot"></a>Configurazione del servizio app Azure (Spring boot)
 
-Le app Spring boot eseguite in Windows richiedono una configurazione aggiuntiva per l'esecuzione nei servizi app Azure. Modificare **Web. config** e aggiungere la configurazione seguente:
+Le app Spring boot eseguite in Windows richiedono una configurazione aggiuntiva per l'esecuzione nei servizi app Azure. Modificare **web.config** e aggiungere la configurazione seguente:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -233,7 +232,7 @@ Aprire **esamina**, **metriche**, per visualizzare un intervallo di contatori de
 ![Screenshot del riquadro metriche con i byte privati di processo selezionati](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Personalizzare la raccolta del contatore delle prestazioni
-Per disabilitare la raccolta del set standard di contatori delle prestazioni, aggiungere il codice seguente nel nodo radice del file *ApplicationInsights. XML* :
+Per disabilitare la raccolta del set standard di contatori delle prestazioni, aggiungere il codice seguente nel nodo radice del file di *ApplicationInsights.xml* :
 
 ```XML
     <PerformanceCounters>

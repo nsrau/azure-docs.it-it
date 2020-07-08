@@ -10,10 +10,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680715"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
@@ -28,9 +27,9 @@ ms.locfileid: "81680715"
 
 Informazioni su come creare un'app per la logica che connette l'hub IoT e la cassetta postale per il monitoraggio della temperatura e le notifiche.
 
-Il codice client in esecuzione nel dispositivo imposta una proprietà dell'applicazione `temperatureAlert`,, a ogni messaggio di telemetria inviato all'hub Internet. Quando il codice client rileva una temperatura superiore a 30 C, imposta questa proprietà su `true`; in caso contrario, la proprietà viene `false`impostata su.
+Il codice client in esecuzione nel dispositivo imposta una proprietà dell'applicazione, `temperatureAlert` , a ogni messaggio di telemetria inviato all'hub Internet. Quando il codice client rileva una temperatura superiore a 30 C, imposta la proprietà su `true` . in caso contrario, imposta la proprietà su `false` .
 
-I messaggi in arrivo nell'hub Internet sono simili ai seguenti, con i dati di telemetria contenuti nel corpo e `temperatureAlert` la proprietà contenuta nelle proprietà dell'applicazione (le proprietà di sistema non vengono visualizzate):
+I messaggi in arrivo nell'hub Internet sono simili ai seguenti, con i dati di telemetria contenuti nel corpo e la `temperatureAlert` proprietà contenuta nelle proprietà dell'applicazione (le proprietà di sistema non vengono visualizzate):
 
 ```json
 {
@@ -58,7 +57,7 @@ In questo argomento viene configurato il routing nell'hub Internet per l'invio d
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-* Completare l'esercitazione del [simulatore online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o una delle esercitazioni sui dispositivi; ad esempio, [Raspberry Pi con node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Questi requisiti coprono i requisiti seguenti:
+* Completare l'esercitazione del [simulatore online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o una delle esercitazioni sui dispositivi; ad esempio, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Sono previsti i requisiti seguenti:
 
   * Una sottoscrizione di Azure attiva.
   * Un hub IoT di Azure nella sottoscrizione.
@@ -70,7 +69,7 @@ Creare uno spazio dei nomi del bus di servizio e una coda Più avanti in questo 
 
 ### <a name="create-a-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
 
-1. Nella [portale di Azure](https://portal.azure.com/)selezionare **+ Crea una risorsa** > **Integration** > **bus di servizio**.
+1. Nella [portale di Azure](https://portal.azure.com/)selezionare **+ Crea una risorsa**  >  **Integration**  >  **bus di servizio**.
 
 1. Nel riquadro **Crea spazio dei nomi** specificare le informazioni seguenti:
 
@@ -78,7 +77,7 @@ Creare uno spazio dei nomi del bus di servizio e una coda Più avanti in questo 
 
    Piano **tariffario**: selezionare **Basic** nell'elenco a discesa. Il livello Base è sufficiente per questa esercitazione.
 
-   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato da hub IoT.
+   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato dall'hub IoT.
 
    **Posizione**: usare la stessa posizione che usa l'hub IoT.
 
@@ -96,7 +95,7 @@ Creare uno spazio dei nomi del bus di servizio e una coda Più avanti in questo 
 
    ![Aggiungere una coda del bus di servizio nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. Tornare al riquadro **spazio dei nomi del bus di servizio** , in **entità**, selezionare **Code**. Aprire la coda del bus di servizio dall'elenco e quindi selezionare **criteri** > di accesso condiviso **+ Aggiungi**.
+1. Tornare al riquadro **spazio dei nomi del bus di servizio** , in **entità**, selezionare **Code**. Aprire la coda del bus di servizio dall'elenco e quindi selezionare **criteri di accesso condiviso**  >  **+ Aggiungi**.
 
 1. Immettere un nome per il criterio, selezionare **Gestisci**e quindi selezionare **Crea**.
 
@@ -104,7 +103,7 @@ Creare uno spazio dei nomi del bus di servizio e una coda Più avanti in questo 
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Aggiungere un endpoint personalizzato e una regola di routing all'hub Internet delle cose
 
-Aggiungere un endpoint personalizzato per la coda del bus di servizio all'hub Internet e creare una regola di routing dei messaggi per indirizzare i messaggi che contengono un avviso di temperatura a tale endpoint, dove verranno prelevati dall'app per la logica. La regola di routing utilizza una query di `temperatureAlert = "true"`routing,, per inviare i messaggi in base al `temperatureAlert` valore della proprietà dell'applicazione impostata dal codice client in esecuzione nel dispositivo. Per altre informazioni, vedere [query di routing messaggi basata sulle proprietà del messaggio](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Aggiungere un endpoint personalizzato per la coda del bus di servizio all'hub Internet e creare una regola di routing dei messaggi per indirizzare i messaggi che contengono un avviso di temperatura a tale endpoint, dove verranno prelevati dall'app per la logica. La regola di routing utilizza una query di routing, `temperatureAlert = "true"` , per inviare i messaggi in base al valore della `temperatureAlert` proprietà dell'applicazione impostata dal codice client in esecuzione nel dispositivo. Per altre informazioni, vedere [query di routing messaggi basata sulle proprietà del messaggio](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Aggiungere un endpoint personalizzato
 
@@ -138,7 +137,7 @@ Aggiungere un endpoint personalizzato per la coda del bus di servizio all'hub In
 
    **Origine dati**: selezionare **i messaggi di telemetria del dispositivo**.
 
-   **Query di routing**: `temperatureAlert = "true"`immettere.
+   **Query di routing**: immettere `temperatureAlert = "true"` .
 
    ![Aggiungere una regola di routing nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
@@ -150,13 +149,13 @@ Nella sezione precedente si configura l'hub delle cose per indirizzare i messagg
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 
-1. Selezionare **Crea una risorsa** > **integrazione** > **app**per la logica.
+1. Selezionare **Crea una risorsa**  >  **integrazione**  >  **app**per la logica.
 
-1. Immettere le informazioni seguenti:
+1. Immettere le seguenti informazioni:
 
    **Nome**: il nome dell'app per la logica.
 
-   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato da hub IoT.
+   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato dall'hub IoT.
 
    **Posizione**: usare la stessa posizione che usa l'hub IoT.
 
@@ -199,7 +198,7 @@ Nella sezione precedente si configura l'hub delle cose per indirizzare i messagg
 
 1. Creare una connessione del servizio SMTP.
 
-   1. Selezionare **nuovo passaggio**. In **scegliere un'azione**selezionare la scheda **tutti** .
+   1. Selezionare **Nuovo passaggio**. In **scegliere un'azione**selezionare la scheda **tutti** .
 
    1. Digitare `smtp` nella casella di ricerca, selezionare il servizio **SMTP** nei risultati della ricerca e quindi selezionare **Invia messaggio di posta elettronica**.
 

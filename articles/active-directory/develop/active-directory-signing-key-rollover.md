@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537237"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover della chiave di firma in Azure Active Directory
@@ -273,7 +272,7 @@ Dopo aver eseguito questi passaggi, il file Web.config dell'applicazione verrà 
 
 Seguire questa procedura per verificare che la logica di rollover della chiave funzioni.
 
-1. Dopo aver verificato che l'applicazione usa il codice precedente, aprire il file **Web. config** e passare al blocco ** \<>IssuerNameRegistry** , cercando in modo specifico le righe seguenti:
+1. Dopo aver verificato che l'applicazione usi il codice indicato in precedenza, aprire il file **Web.config** e passare al blocco **\<issuerNameRegistry>**, verificando in particolare le righe seguenti:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -281,7 +280,7 @@ Seguire questa procedura per verificare che la logica di rollover della chiave f
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. Nell'impostazione ** \<Aggiungi identificazione digitale = "" >** modificare il valore di identificazione personale sostituendo qualsiasi carattere con uno diverso. Salvare il file **Web.config**.
+2. Nell' **\<add thumbprint="">** impostazione, modificare il valore di identificazione personale sostituendo qualsiasi carattere con uno diverso. Salvare il file **Web.config**.
 3. Compilare l'applicazione ed eseguirla. Se è possibile completare il processo di accesso, l'applicazione aggiorna in modo corretto la chiave scaricando le informazioni necessarie dal documento di metadati della federazione della directory. In caso di problemi di accesso verificare che le modifiche nell'applicazione siano corrette leggendo l'articolo [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) (Aggiunta del processo di accesso nell'applicazione Web tramite Azure AD) oppure scaricando ed esaminando l'esempio di codice seguente: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Applicazione cloud multi-tenant per Azure Active Directory).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2008 o 2010 o con Windows Identity Foundation (WIF) v1.0 per .NET 3.5

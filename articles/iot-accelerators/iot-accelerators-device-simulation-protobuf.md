@@ -12,10 +12,9 @@ ms.custom:
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683998"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializzare i dati di telemetria con i Protocol Buffers
@@ -65,7 +64,7 @@ Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://g
 
 Aprire la cartella **remote-monitoring-services-dotnet-master\storage-adapter** in Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **. VSCODE/Launch. JSON** e assegnare la stringa di connessione Cosmos DB alla variabile di ambiente **PC\_STORAGEADAPTER\_DOCUMENTDB\_connString** .
+Aprire il file **con estensione VSCODE/launch.js** e assegnare la stringa di connessione Cosmos DB alla variabile di ambiente **PC \_ STORAGEADAPTER \_ DOCUMENTDB \_ connString** .
 
 > [!NOTE]
 > Quando si esegue localmente il microservizio nel computer, il suo funzionamento richiede comunque un'istanza di Cosmos DB in Azure.
@@ -202,7 +201,7 @@ Aprire il file **WebService/Properties/launchSettings.json** e assegnare quanto 
 * Stringa di connessione dell'account di archiviazione alla variabile di ambiente **PCS\_AZURE\_STORAGE\_ACCOUNT**.
 * Stringa di connessione di Cosmos DB alla variabile di ambiente **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING**.
 
-Aprire il file **WebService\appsettings.ini** e modificare le impostazioni come segue:
+Aprire il file di **WebService\appsettings.ini** e modificare le impostazioni come segue:
 
 #### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Configurare la soluzione in modo da includere i nuovi file del modello di dispositivo
 
@@ -251,7 +250,7 @@ Per configurare Postman
 
 1. Fare clic su **File \> Importa**. Fare clic su **Scegli file**.
 
-1. Selezionare **Azure le soluzioni\_** per la simulazione dei dispositivi di Azure e l'acceleratore di soluzione per la simulazione dei dispositivi di Azure. **postazione\_** e fare clic su **Apri**.
+1. Selezionare **Azure le soluzioni \_ per la simulazione dei dispositivi di Azure** e l'acceleratore di soluzione per la **simulazione dei dispositivi di Azure. postazione \_ ** e fare clic su **Apri**.
 
 1. Espandere **Azure IoT Device Simulation solution accelerator** (Acceleratore soluzione di simulazione dispositivi IoT Azure) per visualizzare le richieste che è possibile inviare.
 
@@ -267,7 +266,7 @@ Per configurare ed eseguire la simulazione
 
 Per arrestare la simulazione, selezionare la richiesta **Stop simulation** (Arresta simulazione) in Postman e quindi fare clic su **Send** (Invia).
 
-### <a name="clean-up-resources"></a>Pulizia delle risorse
+### <a name="clean-up-resources"></a>Pulire le risorse
 
 È possibile arrestare i due microservizi in esecuzione in locale nelle istanze di Visual Studio Code (**Debug \> Arresta debug**).
 

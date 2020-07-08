@@ -8,10 +8,9 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536439"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
@@ -77,7 +76,7 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 | Configurazione del sistema |  |
 |-|-|
 | CPU | 64 core virtuali con cache L3 da 64 MiB |
-| Memoria | 128 GiB |
+| Memory | 128 GiB |
 | Disco | Dischi SAS con RAID 10 con cache supportata da batteria |
 | Rete | Rete a 1 Gbps |
 | Carico di lavoro | File server per utilizzo generico|
@@ -112,5 +111,5 @@ Come indicazione generale per la distribuzione, è necessario tenere presenti al
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md)
+- [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

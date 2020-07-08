@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 04/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 63a708f80ad18309269e37c354b047c304a260d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641302"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Formato JSON per ottimizzare le prestazioni delle query
@@ -98,7 +97,7 @@ Si consideri il payload JSON seguente inviato all'ambiente Time Series Insights 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
    | FXXX | LINE\_DATA | EU |
-   | FYYY | LINE\_DATA | Stati Uniti |
+   | FYYY | LINE\_DATA | US |
 
 * Time Series Insights tabella eventi, dopo l'appiattimento:
 
@@ -106,7 +105,7 @@ Si consideri il payload JSON seguente inviato all'ambiente Time Series Insights 
    | --- | --- | --- | --- | --- | --- |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-   | FYYY | LINE\_DATA | Stati Uniti | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
+   | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 > [!NOTE]
 > - La colonna **deviceId** viene usata come intestazione di colonna per i diversi dispositivi nell'insieme. Impostando il valore di **DeviceID** , il nome della proprietà limita i dispositivi totali a 595 (per gli ambienti S1) o 795 (per gli ambienti S2) con le altre cinque colonne.
@@ -165,23 +164,23 @@ Payload JSON di esempio:
 
 * Tabella dati di riferimento con le proprietà chiave **DeviceID** e **Series. TagId**:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | unit |
+   | deviceId | series.tagId | messageId | deviceLocation | tipo | unit |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Velocità del flusso | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi |
-   | FYYY | pumpRate | LINE\_DATA | Stati Uniti | Velocità del flusso | ft3/s |
-   | FYYY | oilPressure | LINE\_DATA | Stati Uniti | Pressione dell'olio del motore | psi |
+   | FYYY | pumpRate | LINE\_DATA | US | Velocità del flusso | ft3/s |
+   | FYYY | oilPressure | LINE\_DATA | US | Pressione dell'olio del motore | psi |
 
 * Time Series Insights tabella eventi, dopo l'appiattimento:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
+   | deviceId | series.tagId | messageId | deviceLocation | tipo | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Velocità del flusso | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi | 2018-01-17T01:17:00Z | 34.7 |
    | FXXX | pumpRate | LINE\_DATA | EU | Velocità del flusso | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Pressione dell'olio del motore | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | LINE\_DATA | Stati Uniti | Velocità del flusso | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINE\_DATA | Stati Uniti | Pressione dell'olio del motore | psi | 2018-01-17T01:18:00Z | 22.2 |
+   | FYYY | pumpRate | LINE\_DATA | US | Velocità del flusso | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINE\_DATA | US | Pressione dell'olio del motore | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 > [!NOTE]
 > - Le colonne **DeviceID** e **Series. TagId** vengono utilizzate come intestazioni di colonna per i vari dispositivi e tag in una flotta. L'uso di ogni attributo come rispettivo attributo limita la query a 594 (per gli ambienti S1) o 794 (per gli ambienti S2) il totale dei dispositivi con le altre sei colonne.

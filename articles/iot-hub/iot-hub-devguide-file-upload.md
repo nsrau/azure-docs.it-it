@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.custom: mqtt
 ms.openlocfilehash: 35337a99706f25d62964e08a5b16cd8e81f315c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730288"
 ---
 # <a name="upload-files-with-iot-hub"></a>Caricare file con l'hub IoT
@@ -101,7 +100,7 @@ Come illustrato nella sezione [Endpoint](iot-hub-devguide-endpoints.md), l'hub I
 | Proprietà | Descrizione |
 | --- | --- |
 | EnqueuedTimeUtc |Timestamp che indica quando è stata creata la notifica. |
-| DeviceId |**DeviceId** del dispositivo che ha caricato il file. |
+| deviceId |**DeviceId** del dispositivo che ha caricato il file. |
 | BlobUri |URI del file caricato. |
 | BlobName |Nome del file caricato. |
 | LastUpdatedTime |Timestamp che indica quando è stato eseguito l'ultimo aggiornamento del file. |

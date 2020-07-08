@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680194"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Metodi di autenticazione utilizzo & Insights (anteprima)
@@ -28,7 +27,7 @@ I ruoli seguenti possono accedere all'utilizzo e alle informazioni dettagliate:
 
 - Amministratore globale
 - Ruolo con autorizzazioni di lettura per la sicurezza
-- Amministratore della sicurezza
+- Amministratore della protezione
 - Lettore di report
 
 Non è necessaria alcuna licenza aggiuntiva per accedere all'utilizzo e alle informazioni dettagliate. Le informazioni sulle licenze per la reimpostazione della password self-service (SSPR) e Multi-Factor Authentication di Azure sono reperibili nel [sito dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -38,12 +37,12 @@ Non è necessaria alcuna licenza aggiuntiva per accedere all'utilizzo e alle inf
 Per accedere all'utilizzo del metodo di autenticazione e alle informazioni dettagliate:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory** > uso della**reimpostazione** > della password **& Insights**.
+1. Passare a **Azure Active Directory**  >  uso della**reimpostazione della password**  >  **& Insights**.
 1. Dalle panoramiche sulla **registrazione** o **sull'utilizzo** , è possibile scegliere di aprire i report pre-filtrati per filtrare in base alle esigenze.
 
 ![Panoramica sull'utilizzo di & Insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-Per accedere direttamente all'utilizzo & Insights, passare a [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). Questo collegamento consente di visualizzare la panoramica della registrazione.
+Per accedere direttamente all'utilizzo & Insights, passare a [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) . Questo collegamento consente di visualizzare la panoramica della registrazione.
 
 I riquadri utenti registrati, utenti abilitati e in grado di supportare gli utenti mostrano i dati di registrazione seguenti per gli utenti:
 
@@ -65,7 +64,7 @@ Se si fa clic sugli **utenti registrati**, **gli utenti abilitati**o i riquadri 
 
 Il report Dettagli registrazione Mostra le informazioni seguenti per ogni utente:
 
-- Name
+- Nome
 - Nome utente
 - Stato della registrazione (tutti, registrato, non registrato)
 - Stato abilitato (tutti, abilitato, non abilitato)
@@ -80,7 +79,7 @@ Se si fa clic sulle registrazioni o si reimpostano i grafici, è possibile visua
 
 Il report dettagli Reset Mostra gli eventi di registrazione e reimpostazione degli ultimi 30 giorni, tra cui:
 
-- Name
+- Nome
 - Nome utente
 - Funzionalità (tutti, registrazione, reimpostazione)
 - Metodo di autenticazione (notifica dell'app, codice dell'app, telefonata, telefonata, SMS, posta elettronica, domande di sicurezza)

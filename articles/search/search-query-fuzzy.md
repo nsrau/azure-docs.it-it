@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81262435"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Ricerca fuzzy per correggere errori di ortografia e digitazioni
@@ -58,13 +57,13 @@ Tuttavia, se le query di test non producono le corrispondenze attese, è possibi
 
 Le query fuzzy vengono create usando la sintassi di query Lucene completa, richiamando il [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-1. Impostare il parser Lucene completo nella query (`queryType=full`).
+1. Impostare il parser Lucene completo nella query ( `queryType=full` ).
 
-1. Facoltativamente, definire l'ambito della richiesta a campi specifici utilizzando questo parametro`searchFields=<field1,field2>`(). 
+1. Facoltativamente, definire l'ambito della richiesta a campi specifici utilizzando questo parametro ( `searchFields=<field1,field2>` ). 
 
-1. Aggiungere l'operatore tilde`~`() alla fine del termine intero (`search=<string>~`).
+1. Aggiungere l'operatore tilde ( `~` ) alla fine del termine intero ( `search=<string>~` ).
 
-   Includere un parametro facoltativo, un numero compreso tra 0 e 2 (impostazione predefinita) se si desidera specificare la distanza di modifica`~1`(). Ad esempio, "blue~" o "blue~1" restituirà "blue", "blues" e "glue".
+   Includere un parametro facoltativo, un numero compreso tra 0 e 2 (impostazione predefinita) se si desidera specificare la distanza di modifica ( `~1` ). Ad esempio, "blue~" o "blue~1" restituirà "blue", "blues" e "glue".
 
 In ricerca cognitiva di Azure, oltre al termine e alla distanza (massimo 2), non sono presenti parametri aggiuntivi da impostare per la query.
 
@@ -82,7 +81,7 @@ Quando i risultati sono ambigui, l' [evidenziazione dei riscontri](search-pagina
 
 ### <a name="example-1-fuzzy-search-with-the-exact-term"></a>Esempio 1: ricerca fuzzy con il termine esatto
 
-Si supponga che la stringa seguente sia `"Description"` presente in un campo di un documento di ricerca:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
+Si supponga che la stringa seguente sia presente in un `"Description"` campo di un documento di ricerca:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 Iniziare con una ricerca fuzzy su "Special" e aggiungere l'evidenziazione dei risultati al campo Description:
 

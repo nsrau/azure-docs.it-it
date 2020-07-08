@@ -11,10 +11,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730746"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicare con l'hub Internet delle cose usando il protocollo AMQP
@@ -32,9 +31,9 @@ Per il client del servizio sono necessarie le informazioni seguenti:
 | Informazioni | valore |
 |-------------|--------------|
 | Nome host dell'hub Internet | `<iot-hub-name>.azure-devices.net` |
-| Nome chiave | `service` |
+| Nome della chiave | `service` |
 | Chiave di accesso | Chiave primaria o secondaria associata al servizio |
-| Firma di accesso condiviso | Una firma di accesso condiviso di breve durata nel formato seguente: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Per ottenere il codice per la generazione della firma, vedere [controllare l'accesso all'hub](./iot-hub-devguide-security.md#security-token-structure)Internet.
+| Firma di accesso condiviso | Una firma di accesso condiviso di breve durata nel formato seguente: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}` . Per ottenere il codice per la generazione della firma, vedere [controllare l'accesso all'hub](./iot-hub-devguide-security.md#security-token-structure)Internet.
 
 Il frammento di codice seguente usa la [libreria uAMQP in Python](https://github.com/Azure/azure-uamqp-python) per connettersi a un hub Internet delle cose tramite un collegamento al mittente.
 
@@ -70,7 +69,7 @@ Per informazioni sullo scambio di messaggi da cloud a dispositivo tra il servizi
 
 | Creato da | Tipo collegamento | Percorso collegamento | Descrizione |
 |------------|-----------|-----------|-------------|
-| Servizio | Collegamento al mittente | `/messages/devicebound` | I messaggi da cloud a dispositivo destinati ai dispositivi vengono inviati al collegamento dal servizio. I messaggi inviati tramite questo collegamento hanno `To` la proprietà impostata sul percorso di collegamento del ricevitore del dispositivo `/devices/<deviceID>/messages/devicebound`di destinazione,. |
+| Servizio | Collegamento al mittente | `/messages/devicebound` | I messaggi da cloud a dispositivo destinati ai dispositivi vengono inviati al collegamento dal servizio. I messaggi inviati tramite questo collegamento hanno la `To` proprietà impostata sul percorso di collegamento del ricevitore del dispositivo di destinazione, `/devices/<deviceID>/messages/devicebound` . |
 | Servizio | Collegamento ricevitore | `/messages/serviceBound/feedback` | Messaggi di feedback di completamento, rifiuto e abbandono che provengono da dispositivi ricevuti su questo collegamento dal servizio. Per altre informazioni sui messaggi di feedback, vedere [inviare messaggi da cloud a dispositivo da un hub](./iot-hub-devguide-messages-c2d.md#message-feedback)Internet. |
 
 Il frammento di codice seguente illustra come creare un messaggio da cloud a dispositivo e come inviarlo a un dispositivo usando la [libreria uAMQP in Python](https://github.com/Azure/azure-uamqp-python).
@@ -129,13 +128,13 @@ for msg in batch:
         print('unknown message:', msg.properties.content_type)
 ```
 
-Come illustrato nel codice precedente, un messaggio di feedback da cloud a dispositivo ha un tipo di contenuto *Application/vnd. Microsoft. iothub. feedback. JSON*. È possibile usare le proprietà nel corpo JSON del messaggio per dedurre lo stato di recapito del messaggio originale:
+Come illustrato nel codice precedente, un messaggio di feedback da cloud a dispositivo ha un tipo di contenuto *Application/vnd.microsoft.iothub.feedback.json*. È possibile usare le proprietà nel corpo JSON del messaggio per dedurre lo stato di recapito del messaggio originale:
 
-* La `statusCode` chiave nel corpo del feedback ha uno dei valori seguenti: *Success*, *expired*, *DeliveryCountExceeded*, *rejected*o *decancellata*.
+* La chiave `statusCode` nel corpo del feedback ha uno dei valori seguenti: *Success*, *expired*, *DeliveryCountExceeded*, *rejected*o *decancellata*.
 
-* La `deviceId` chiave nel corpo del feedback ha l'ID del dispositivo di destinazione.
+* La chiave `deviceId` nel corpo del feedback ha l'ID del dispositivo di destinazione.
 
-* La `originalMessageId` chiave nel corpo del feedback ha l'ID del messaggio da cloud a dispositivo originale inviato dal servizio. È possibile usare questo stato di recapito per correlare i feedback ai messaggi da cloud a dispositivo.
+* La chiave `originalMessageId` nel corpo del feedback ha l'ID del messaggio da cloud a dispositivo originale inviato dal servizio. È possibile usare questo stato di recapito per correlare i feedback ai messaggi da cloud a dispositivo.
 
 ### <a name="receive-telemetry-messages-service-client"></a>Ricevere messaggi di telemetria (client del servizio)
 
@@ -147,7 +146,7 @@ In ogni passaggio il client deve presentare le seguenti informazioni:
 
 * Credenziali del servizio valide (token di firma di accesso condiviso del servizio).
 
-* Percorso ben formattato della partizione del gruppo di consumer da cui intende recuperare i messaggi. Per un gruppo di consumer e un ID di partizione specificati, il percorso ha `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` il formato seguente: (il `$Default`gruppo di consumer predefinito è).
+* Percorso ben formattato della partizione del gruppo di consumer da cui intende recuperare i messaggi. Per un gruppo di consumer e un ID di partizione specificati, il percorso ha il formato seguente: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (il gruppo di consumer predefinito è `$Default` ).
 
 * Predicato di filtro facoltativo per designare un punto iniziale nella partizione. Questo predicato può essere sotto forma di numero di sequenza, offset o timestamp accodato.
 
@@ -229,7 +228,7 @@ Per il client del dispositivo sono necessarie le informazioni seguenti:
 |-------------|--------------|
 | Nome host dell'hub Internet | `<iot-hub-name>.azure-devices.net` |
 | Chiave di accesso | Chiave primaria o secondaria associata al dispositivo |
-| Firma di accesso condiviso | Una firma di accesso condiviso di breve durata nel formato seguente: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Per ottenere il codice per la generazione della firma, vedere [controllare l'accesso all'hub](./iot-hub-devguide-security.md#security-token-structure)Internet.
+| Firma di accesso condiviso | Una firma di accesso condiviso di breve durata nel formato seguente: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}` . Per ottenere il codice per la generazione della firma, vedere [controllare l'accesso all'hub](./iot-hub-devguide-security.md#security-token-structure)Internet.
 
 Il frammento di codice seguente usa la [libreria uAMQP in Python](https://github.com/Azure/azure-uamqp-python) per connettersi a un hub Internet delle cose tramite un collegamento al mittente.
 

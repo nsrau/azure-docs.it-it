@@ -13,10 +13,9 @@ ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81263387"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorare e ridurre la limitazione per evitare la latenza in Azure Time Series Insights
@@ -46,7 +45,7 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza che si 
 
    [![Aggiungere un avviso all'ambiente di Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
-1. Selezionare **+ Nuova regola di avviso**. Verrà quindi visualizzato il pannello **Crea regola** . Selezionare **Aggiungi** in **condizione**.
+1. Fare clic su **+ Nuova regola di avviso**. Verrà quindi visualizzato il pannello **Crea regola** . Selezionare **Aggiungi** in **condizione**.
 
    [![Aggiungi riquadro avvisi](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
@@ -66,7 +65,7 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza che si 
    |**Ingress Received Message Time Lag (Tempo di ritardo messaggi ricevuti in ingresso) **    |  Differenza in secondi tra l'ora in cui il messaggio viene accodato nell'origine eventi e l'ora di elaborazione in ingresso.      |
    |**Ingress Received Message Count Lag (Ritardo numero di messaggi ricevuti in ingresso) **    |  Differenza tra il numero di sequenza dell'ultimo messaggio accodato nella partizione di origine eventi e il numero di sequenza del messaggio elaborato in ingresso.      |
 
-   Seleziona **Chiudi**.
+   Selezionare **Operazione completata**.
 
 1. Dopo aver configurato la logica del segnale desiderata, esaminare visivamente la regola di avviso scelta.
 

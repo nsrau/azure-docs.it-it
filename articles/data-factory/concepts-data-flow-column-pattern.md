@@ -8,10 +8,9 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606129"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilizzo di modelli di colonna nel flusso di dati di mapping
@@ -31,7 +30,7 @@ Per aggiungere un modello di colonna in una colonna derivata o nella scheda Aggr
 
 ![modelli di colonna](media/data-flow/columnpattern.png "Criteri delle colonne")
 
-Utilizzare il [Generatore di espressioni](concepts-data-flow-expression-builder.md) per immettere la condizione di corrispondenza. Creare un'espressione booleana che corrisponda alle colonne `name`basate `type`su `stream`,, `position` e della colonna. Il criterio influirà su qualsiasi colonna, a cui viene applicata la deviazione o definita, in cui la condizione restituisce true.
+Utilizzare il [Generatore di espressioni](concepts-data-flow-expression-builder.md) per immettere la condizione di corrispondenza. Creare un'espressione booleana che corrisponda alle colonne basate su `name` , `type` , `stream` e `position` della colonna. Il criterio influirà su qualsiasi colonna, a cui viene applicata la deviazione o definita, in cui la condizione restituisce true.
 
 Le due caselle di espressione sotto la condizione di corrispondenza specificano i nuovi nomi e i nuovi valori delle colonne interessate. Usare `$$` per fare riferimento al valore esistente del campo corrispondente. Nella casella espressione a sinistra viene definito il nome e la casella espressione a destra definisce il valore.
 
@@ -45,7 +44,7 @@ Per verificare che la condizione di corrispondenza sia corretta, è possibile co
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapping basato su regole in Select e sink
 
-Quando si esegue il mapping delle colonne nell'origine e si selezionano le trasformazioni, è possibile aggiungere mapping fissi o basati su regole. Corrispondenza basata sulle colonne `name`, `type`, `stream`e `position` . È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. Per impostazione predefinita, tutte le proiezioni con colonne maggiori di 50 vengono predefinite in un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome inputted. 
+Quando si esegue il mapping delle colonne nell'origine e si selezionano le trasformazioni, è possibile aggiungere mapping fissi o basati su regole. Corrispondenza basata sulle `name` colonne, `type` , `stream` e `position` . È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. Per impostazione predefinita, tutte le proiezioni con colonne maggiori di 50 vengono predefinite in un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome inputted. 
 
 Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **mapping basato su regole**.
 
@@ -55,7 +54,7 @@ Ogni mapping basato su regole richiede due input, ovvero la condizione su cui tr
 
 ![mapping basato su regole](media/data-flow/rule-based-mapping.png "mapping basato su regole")
 
-Utilizzare `$$` la sintassi per fare riferimento al nome di input di una colonna corrispondente. Utilizzando come esempio l'immagine precedente, si desidera che un utente desideri trovare la corrispondenza con tutte le colonne di stringa i cui nomi sono inferiori a sei caratteri. Se una colonna in ingresso è stata `test`denominata, l' `$$ + '_short'` espressione Rinomina la colonna `test_short`. Se è l'unico mapping esistente, tutte le colonne che non soddisfano la condizione verranno eliminate dai dati restituiti.
+Utilizzare `$$` la sintassi per fare riferimento al nome di input di una colonna corrispondente. Utilizzando come esempio l'immagine precedente, si desidera che un utente desideri trovare la corrispondenza con tutte le colonne di stringa i cui nomi sono inferiori a sei caratteri. Se una colonna in ingresso è stata denominata `test` , l'espressione `$$ + '_short'` Rinomina la colonna `test_short` . Se è l'unico mapping esistente, tutte le colonne che non soddisfano la condizione verranno eliminate dai dati restituiti.
 
 I modelli corrispondono alle colonne derivate e definite. Per visualizzare le colonne definite di cui è stato eseguito il mapping in base a una regola, fare clic sull'icona degli occhiali accanto alla regola. Verificare l'output usando l'anteprima dei dati.
 
@@ -65,7 +64,7 @@ Se si fa clic sull'icona con la freccia di espansione verso il basso, è possibi
 
 ![mapping basato su regole](media/data-flow/regex-matching.png "mapping basato su regole")
 
-L'esempio precedente corrisponde a un criterio `(r)` Regex o a qualsiasi nome di colonna che contiene un r minuscolo. Analogamente al mapping basato su regole standard, tutte le colonne corrispondenti vengono modificate dalla condizione a destra usando `$$` la sintassi.
+L'esempio precedente corrisponde a un criterio Regex `(r)` o a qualsiasi nome di colonna che contiene un r minuscolo. Analogamente al mapping basato su regole standard, tutte le colonne corrispondenti vengono modificate dalla condizione a destra usando la `$$` sintassi.
 
 ### <a name="rule-based-hierarchies"></a>Gerarchie basate su regole
 
@@ -73,7 +72,7 @@ Se la proiezione definita dispone di una gerarchia, è possibile utilizzare il m
 
 ![mapping basato su regole](media/data-flow/rule-based-hierarchy.png "mapping basato su regole")
 
-L'esempio precedente corrisponde a tutte le sottocolonne della colonna `a`complessa. `a`contiene due sottocolonne `b` e `c`. Lo schema di output includerà due `b` colonne `c` e la condizione ' name As ' sarà `$$`.
+L'esempio precedente corrisponde a tutte le sottocolonne della colonna complessa `a` . `a`contiene due sottocolonne `b` e `c` . Lo schema di output includerà due colonne `b` e `c` la condizione ' name As ' sarà `$$` .
 
 ## <a name="pattern-matching-expression-values"></a>Criteri di ricerca dei valori di espressione.
 

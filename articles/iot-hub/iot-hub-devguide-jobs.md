@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730100"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Pianificare processi in più dispositivi
@@ -122,7 +121,7 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> Per la proprietà *updateTwin* è richiesta una corrispondenza ETag valida. ad esempio, `etag="*"`.
+> Per la proprietà *updateTwin* è richiesta una corrispondenza ETag valida. ad esempio, `etag="*"` .
 
 Il frammento di codice seguente mostra la richiesta e la risposta di un processo pianificato per aggiornare le proprietà del dispositivo gemello per test-device in Contoso-hub-1:
 

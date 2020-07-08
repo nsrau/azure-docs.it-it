@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727268"
 ---
 # <a name="api"></a>API #
@@ -19,7 +18,7 @@ L'API Azure Media Player consente di interagire con il video tramite JavaScript,
 
 ## <a name="referencing-the-player"></a>Riferimento al lettore ##
 
-Per usare le funzioni API, è necessario accedere all'oggetto Player. Fortunatamente è facile da ottenere. È sufficiente assicurarsi che il tag video abbia un ID. Il codice di incorporamento di `vid1`esempio ha un ID. Se in una pagina sono presenti più video, assicurarsi che ogni tag video abbia un ID univoco.
+Per usare le funzioni API, è necessario accedere all'oggetto Player. Fortunatamente è facile da ottenere. È sufficiente assicurarsi che il tag video abbia un ID. Il codice di incorporamento di esempio ha un ID `vid1` . Se in una pagina sono presenti più video, assicurarsi che ogni tag video abbia un ID univoco.
 
 `var myPlayer = amp('vid1');`
 
@@ -39,7 +38,7 @@ Il tempo necessario Azure Media Player per configurare il video e l'API variano 
     });
 ```
 
-OR
+OPPURE
 
 ```javacript
     var myPlayer = amp("vid_1", myOptions, function(){

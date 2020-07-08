@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81686948"
 ---
 # <a name="run-opc-publisher"></a>Eseguire OPC Publisher
@@ -372,7 +371,7 @@ OPC Publisher è pronto per l'uso come modulo [Azure IoT Edge](https://docs.micr
 Per aggiungere OPC Publisher come modulo alla distribuzione di IoT Edge, passare alle impostazioni dell'hub IoT nel portale di Azure e completare la procedura seguente:
 
 1. Passare a **IoT Edge** e creare o selezionare il dispositivo IoT Edge.
-1. Selezionare **Set Modules** (Configura i moduli).
+1. Selezionare **imposta moduli**.
 1. Selezionare **Aggiungi** in **Moduli di distribuzione** e quindi **Modulo IoT Edge**.
 1. Nel campo **Nome** immettere **publisher**.
 1. Nel campo **URI immagine** immettere `mcr.microsoft.com/iotedge/opc-publisher:<tag>`.

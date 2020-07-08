@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81686916"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Riproduzione di contenuti con i lettori esistenti
@@ -56,7 +55,7 @@ Usare il [lettore multimediale di Azure](https://aka.ms/azuremediaplayer) per ri
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 Per testare gli URL HLS è inoltre possibile usare:
 
 * **Safari** in un dispositivo iOS o
@@ -65,7 +64,7 @@ Per testare gli URL HLS è inoltre possibile usare:
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png

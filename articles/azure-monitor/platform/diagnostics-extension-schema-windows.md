@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676422"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schema dell'estensione di diagnostica Windows
@@ -46,7 +45,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
 |**PublicConfig**|Obbligatorio. Vedere la descrizione altrove in questa pagina.|  
-|**PrivateConfig**|Facoltativo. Vedere la descrizione altrove in questa pagina.|  
+|**PrivateConfig**|Facoltativa. Vedere la descrizione altrove in questa pagina.|  
 |**IsEnabled**|Proprietà di tipo Boolean. Vedere la descrizione altrove in questa pagina.|  
 
 ## <a name="publicconfig-element"></a>Elemento PublicConfig  
@@ -58,7 +57,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |--------------------|-----------------|  
 |**WadCfg**|Obbligatorio. Vedere la descrizione altrove in questa pagina.|  
 |**StorageAccount**|Nome dell'account di archiviazione di Azure in cui archiviare i dati. Può anche essere specificato come parametro quando si esegue il cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**Tipo di archiviazione**|Può essere *Table*, *Blob* o *TableAndBlob*. Table è il valore predefinito. Quando si sceglie TableAndBlob, i dati di diagnostica vengono scritti due volte, una volta per ogni tipo.|  
+|**StorageType**|Può essere *Table*, *Blob* o *TableAndBlob*. Table è il valore predefinito. Quando si sceglie TableAndBlob, i dati di diagnostica vengono scritti due volte, una volta per ogni tipo.|  
 |**LocalResourceDirectory**|Directory nella macchina virtuale in cui l'agente di monitoraggio archivia i dati degli eventi. Se non impostata, verrà usata la directory predefinita:<br /><br /> Per un ruolo di lavoro/Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Per una macchina virtuale: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gli attributi obbligatori sono i seguenti:<br /><br /> - **path**: directory nel sistema che dovrà essere usata da Diagnostica di Azure.<br /><br /> - **expandEnvironment**: definisce se le variabili di ambiente vengono espanse nel nome del percorso.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
@@ -70,13 +69,13 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 ## <a name="diagnosticmonitorconfiguration-element"></a>Elemento DiagnosticMonitorConfiguration
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- Obbligatoria
+ Necessario
 
 |Attributes|Descrizione|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Spazio massimo sul disco locale che può essere usato dai vari tipi di dati di diagnostica raccolti da Diagnostica di Azure. L'impostazione predefinita è 4096 MB.<br />
 |**useProxyServer** | Configurare Diagnostica di Azure per l'uso delle impostazioni del server proxy definite nelle impostazioni di Internet Explorer.|
-|**affonda** | Aggiunto nella versione 1.5. Facoltativo. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
+|**sinks** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
 
 
 <br /> <br />
@@ -101,9 +100,9 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Attributes|Descrizione|  
 |----------------|-----------------|  
-|**containerName**|Facoltativo. Nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.|  
-|**crashDumpType**|Facoltativo.  Configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.|  
-|**directoryQuotaPercentage**|Facoltativo.  Configura la percentuale di **overallQuotaInMB** da riservare per i dump di arresto anomalo del sistema nella macchina virtuale.|  
+|**containerName**|Facoltativa. Nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.|  
+|**crashDumpType**|Facoltativa.  Configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.|  
+|**directoryQuotaPercentage**|Facoltativa.  Configura la percentuale di **overallQuotaInMB** da riservare per i dump di arresto anomalo del sistema nella macchina virtuale.|  
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
@@ -145,7 +144,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
-|**Absolute**|Percorso assoluto della directory da monitorare. Gli attributi seguenti sono obbligatori:<br /><br /> - **Path**: percorso assoluto della directory da monitorare.<br /><br /> - **expandEnvironment**: definisce se le variabili di ambiente vengono espanse in Path.|  
+|**Assoluto**|Percorso assoluto della directory da monitorare. Gli attributi seguenti sono obbligatori:<br /><br /> - **Path**: percorso assoluto della directory da monitorare.<br /><br /> - **expandEnvironment**: definisce se le variabili di ambiente vengono espanse in Path.|  
 |**LocalResource**|Percorso relativo di una risorsa locale da monitorare. Gli attributi obbligatori sono i seguenti:<br /><br /> - **Name**: nome della risorsa locale che contiene la directory da monitorare<br /><br /> - **relativePath**: percorso relativo del nome che contiene la directory da monitorare|  
 
 
@@ -189,7 +188,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Consente di generare una tabella di contatori delle prestazioni ottimizzata per le query veloci. Ogni contatore delle prestazioni definito nell'elemento **PerformanceCounters** viene archiviato nella tabella delle metriche oltre che nella tabella dei contatori delle prestazioni.  
 
- L'attributo **resourceId** è obbligatorio.  L'ID risorsa della macchina virtuale o del set di scalabilità di macchine virtuali in cui si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Sfoglia** -> **gruppi**  ->  di risorse **<\>nome**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.  
+ L'attributo **resourceId** è obbligatorio.  L'ID risorsa della macchina virtuale o del set di scalabilità di macchine virtuali in cui si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Sfoglia**  ->  **gruppi di risorse**  ->  **<\> nome**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.  
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
@@ -209,7 +208,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Elemento figlio|Descrizione|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Gli attributi seguenti sono obbligatori:<br /><br /> - **counterSpecifier**: nome del contatore delle prestazioni. Ad esempio: `\Processor(_Total)\% Processor Time`. Per ottenere un elenco di contatori delle prestazioni nell'host eseguire il comando `typeperf`.<br /><br /> - **sampleRate**: frequenza di campionamento del contatore.<br /><br /> Attributo facoltativo:<br /><br /> **unit**: unità di misura del contatore. I valori sono disponibili nella [classe UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
-|**affonda** | Aggiunto nella versione 1.5. Facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, Ad esempio, Monitoraggio di Azure o Hub eventi.|    
+|**sinks** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per l'invio di dati di diagnostica, Ad esempio, Monitoraggio di Azure o Hub eventi.|    
 
 
 
@@ -224,7 +223,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Elemento figlio|Descrizione|  
 |-------------------|-----------------|  
 |**DataSource**|Log eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*" |
-|**affonda** | Aggiunto nella versione 1.5. Facoltativo. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
+|**sinks** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
 
 
 ## <a name="logs-element"></a>Elemento Logs  
@@ -236,10 +235,10 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Attributo|Type|Descrizione|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferLogLevelFilter**|**string**|Facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**scheduledTransferPeriod**|**duration**|Facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
-|**affonda** |**string**| Aggiunto nella versione 1.5. Facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
+|**bufferQuotaInMB**|**unsignedInt**|Facoltativa. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
+|**scheduledTransferLogLevelFilter**|**string**|Facoltativa. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**scheduledTransferPeriod**|**duration**|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
+|**sinks** |**string**| Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -272,8 +271,8 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elemento|Type|Descrizione|  
 |-------------|----------|-----------------|  
-|**Application Insights**|stringa|Usato solo per inviare dati ad Application Insights. Contiene la chiave di strumentazione per un account di Application Insights attivo a cui è possibile accedere.|  
-|**Channels**|stringa|Uno per ogni filtro aggiuntivo per i flussi|  
+|**Application Insights**|string|Usato solo per inviare dati ad Application Insights. Contiene la chiave di strumentazione per un account di Application Insights attivo a cui è possibile accedere.|  
+|**Channels**|string|Uno per ogni filtro aggiuntivo per i flussi|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -284,7 +283,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elemento|Type|Descrizione|  
 |-------------|----------|-----------------|  
-|**Canale**|stringa|Vedere la descrizione altrove in questa pagina.|  
+|**Channel**|string|Vedere la descrizione altrove in questa pagina.|  
 
 ## <a name="channel-element"></a>Elemento Channel
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -296,7 +295,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Attributes|Type|Descrizione|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**name**|**string**|Nome univoco per fare riferimento al canale|  
+|**nome**|**string**|Nome univoco per fare riferimento al canale|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig

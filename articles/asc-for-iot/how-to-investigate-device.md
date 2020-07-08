@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311041"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto
@@ -41,7 +40,7 @@ Per individuare l'area di lavoro Log Analytics per l'archiviazione dei dati:
 1. Aprire l'hub IoT.
 1. In **sicurezza**fare clic su **Panoramica**e quindi selezionare **Impostazioni**.
 1. Modificare i dettagli di configurazione dell'area di lavoro Log Analytics.
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 In seguito alla configurazione, eseguire le operazioni seguenti per accedere ai dati archiviati nell'area di lavoro Log Analytics:
 

@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
 ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687130"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificazione automatica della lingua parlata con il modello di identificazione della lingua
@@ -27,7 +26,7 @@ Assicurarsi di esaminare le [linee guida e le limitazioni](#guidelines-and-limit
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Scelta dell'identificazione della lingua automatica nell'indicizzazione
 
-Durante l'indicizzazione o la [reindicizzazione](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) di un video tramite l'API `auto detect` , scegliere l' `sourceLanguage` opzione nel parametro.
+Durante l'indicizzazione o la [reindicizzazione](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) di un video tramite l'API, scegliere l' `auto detect` opzione nel `sourceLanguage` parametro.
 
 Quando si usa il portale, accedere ai **video dell'account** nella [video Indexer](https://www.videoindexer.ai/) Home page e passare il puntatore del mouse sul nome del video che si vuole indicizzare nuovamente. Nell'angolo in basso a destra fare clic sul pulsante re-index. Nella finestra di dialogo **re-index video** scegliere *rilevamento automatico* dalla casella di riepilogo a discesa **lingua di origine video** .
 
@@ -35,9 +34,9 @@ Quando si usa il portale, accedere ai **video dell'account** nella [video Indexe
 
 ## <a name="model-output"></a>Output del modello
 
-Video Indexer Trascriva il video in base alla lingua più probabile se la confidenza di tale lingua è `> 0.6`. Se la lingua non può essere identificata in tutta sicurezza, presuppone che la lingua parlata sia l'inglese. 
+Video Indexer Trascriva il video in base alla lingua più probabile se la confidenza di tale lingua è `> 0.6` . Se la lingua non può essere identificata in tutta sicurezza, presuppone che la lingua parlata sia l'inglese. 
 
-Il linguaggio dominante del modello è disponibile nel file JSON di Insights `sourceLanguage` come attributo (in root/video/Insights). Un punteggio di confidenza corrispondente è disponibile anche `sourceLanguageConfidence` nell'attributo.
+Il linguaggio dominante del modello è disponibile nel file JSON di Insights come `sourceLanguage` attributo (in root/video/Insights). Un punteggio di confidenza corrispondente è disponibile anche nell' `sourceLanguageConfidence` attributo.
 
 ```json
 "insights": {
@@ -58,7 +57,7 @@ Il linguaggio dominante del modello è disponibile nel file JSON di Insights `so
     Inglese, spagnolo, francese, tedesco, italiano, mandarino Mentos, giapponese, russo e portoghese (brasiliano).
 * Anche se Video Indexer supporta l'arabo (standard moderno e levantina), Hindi e coreano, questi linguaggi non sono supportati nel coperchio.
 * Se l'audio contiene lingue diverse dall'elenco supportato, il risultato è imprevisto.
-* Se Video Indexer non è in grado di identificare la lingua con una`>0.6`confidenza sufficientemente elevata (), la lingua di fallback è l'inglese.
+* Se Video Indexer non è in grado di identificare la lingua con una confidenza sufficientemente elevata ( `>0.6` ), la lingua di fallback è l'inglese.
 * Non è disponibile alcun supporto corrente per file con audio in lingue miste. Se l'audio contiene lingue miste, il risultato è imprevisto. 
 * L'audio di bassa qualità può influito sui risultati del modello.
 * Il modello richiede almeno un minuto di riconoscimento vocale nell'audio.

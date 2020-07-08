@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bf69786f56f52874bd9358ae44a6b88b466e77f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81677466"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
@@ -48,7 +47,7 @@ I dati relativi alle corse dei taxi di New York sono costituiti da circa 20 GB d
 La chiave univoca per creare un join di trip\_data e trip\_fare è costituita da questi campi: medallion, hack\_licence e pickup\_datetime. Per ottenere tutti i dettagli relativi a una corsa specifica, è sufficiente creare un join con queste tre sottochiavi.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Esempi di attività di stima
-Determinare il tipo di stime che si vuole eseguire in base all'analisi dei dati per chiarire le attività di elaborazione richieste. Di seguito sono riportati tre esempi di problemi di stima che verranno affrontati in questa procedura dettagliata, tutti basati sull' *importo del suggerimento\_*:
+Determinare il tipo di stime che si vuole eseguire in base all'analisi dei dati per chiarire le attività di elaborazione richieste. Di seguito sono riportati tre esempi di problemi di stima che verranno affrontati in questa procedura dettagliata, tutti basati sull' * \_ importo del suggerimento*:
 
 - **Classificazione binaria**: permette di stimare se per la corsa è stata lasciata o meno una mancia. Se *tip\_amount* è maggiore di $ 0, si tratta di un esempio positivo, mentre se *tip\_amount* è uguale a $ 0, si tratta di un esempio negativo.
    
@@ -88,11 +87,11 @@ Per copiare il set di dati delle [corse dei taxi di New York](https://www.andres
 
 Qui viene descritto come usare AzCopy per trasferire i file contenenti i dati. Per scaricare e installare AzCopy, seguire le istruzioni riportate in [Introduzione all'utilità della riga di comando AzCopy](../../storage/common/storage-use-azcopy.md).
 
-1. Da una finestra del prompt dei comandi eseguire i comandi AzCopy seguenti, sostituendo * \<path_to_data_folder>* con la destinazione desiderata:
+1. Da una finestra del prompt dei comandi eseguire i comandi AzCopy seguenti, sostituendo *\<path_to_data_folder>* con la destinazione desiderata:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Al termine dell'operazione di copia, nella cartella dati scelta sarà presente un totale di 24 file compressi. Decomprimere i file scaricati nella stessa directory del computer locale. Prendere nota della cartella in cui si trovano i dati non compressi. Questa cartella è denominata * \<\_percorso dei file\_\_\> unzipped_data* in quanto segue.
+1. Al termine dell'operazione di copia, nella cartella dati scelta sarà presente un totale di 24 file compressi. Decomprimere i file scaricati nella stessa directory del computer locale. Prendere nota della cartella in cui si trovano i dati non compressi. Questa cartella viene definita *\<path\_to\_unzipped_data\_files\>* in quanto segue.
 
 ## <a name="upload-the-data-to-the-default-container-of-the-hdinsight-hadoop-cluster"></a><a name="upload"></a>Caricare i dati nel contenitore predefinito del cluster Hadoop di HDInsight
 > [!NOTE]
@@ -102,10 +101,10 @@ Qui viene descritto come usare AzCopy per trasferire i file contenenti i dati. P
 
 Nei seguenti comandi AzCopy, sostituire i parametri seguenti con i valori effettivi specificati durante la creazione del cluster Hadoop e decomprimere i file di dati.
 
-* *** \<path_to_data_folder>*** La directory (insieme al percorso) nel computer che contiene i file di dati decompressi.  
-* ***nome dell'account di archiviazione del cluster Hadoop>\<*** L'account di archiviazione associato al cluster HDInsight.
-* ***contenitore predefinito del cluster Hadoop>\<*** Il contenitore predefinito usato dal cluster. Il nome del contenitore predefinito è in genere lo stesso nome del cluster stesso. Ad esempio, se il nome del cluster è "abc123.azurehdinsight.net", quello del contenitore predefinito sarà abc123.
-* >della chiave dell'account di archiviazione *** \<*** Chiave per l'account di archiviazione usato dal cluster.
+* ***\<path_to_data_folder>*** La directory (insieme al percorso) nel computer che contiene i file di dati decompressi.  
+* ***\<storage account name of Hadoop cluster>*** L'account di archiviazione associato al cluster HDInsight.
+* ***\<default container of Hadoop cluster>*** Il contenitore predefinito usato dal cluster. Il nome del contenitore predefinito è in genere lo stesso nome del cluster stesso. Ad esempio, se il nome del cluster è "abc123.azurehdinsight.net", quello del contenitore predefinito sarà abc123.
+* ***\<storage account key>*** Chiave per l'account di archiviazione usato dal cluster.
 
 Da un prompt dei comandi o una finestra di Windows PowerShell eseguire i due comandi AzCopy seguenti.
 
@@ -157,7 +156,7 @@ Dal prompt della directory hive eseguire il comando seguente nella riga di coman
 
     hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Di seguito è riportato il contenuto **del\_file\_hive\_create\_DB\_e Tables. HQL di file c:\Temp\sample** che crea il database hive **nyctaxidb**e la corsa e la **Tariffa** **delle tabelle.**
+Di seguito è riportato il contenuto del file ** \_ hive \_ Create \_ DB \_ e \_ Tables. HQL di file c:\Temp\sample** che crea il database hive **nyctaxidb**e la corsa e la **Tariffa** **delle tabelle.**
 
     create database if not exists nyctaxidb;
 
@@ -215,7 +214,7 @@ Il set di dati sui taxi di New York presenta un partizionamento naturale per mes
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-Il **file\_di\_esempio\_hive\_Load\_data by partitions. HQL** contiene i comandi **Load** seguenti:
+Il **file \_ di esempio hive \_ Load \_ Data by partitions \_ \_ . HQL** contiene i comandi **Load** seguenti:
 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
@@ -382,7 +381,7 @@ Il numero totale di record in entrambe le tabelle è anche lo stesso, fornendo u
 > 
 > 
 
-Questo esempio identifica le licenze (numeri di taxi) che hanno eseguito più di 100 corse in un determinato periodo. La query trae vantaggio dall'accesso alla tabella partizionata, perché è condizionata dalla variabile di partizione **month**. I risultati della query vengono scritti in un file locale, **QueryOutput. TSV**, `C:\temp` in nel nodo head.
+Questo esempio identifica le licenze (numeri di taxi) che hanno eseguito più di 100 corse in un determinato periodo. La query trae vantaggio dall'accesso alla tabella partizionata, perché è condizionata dalla variabile di partizione **month**. I risultati della query vengono scritti in un file locale, **QueryOutput. TSV**, in nel `C:\temp` nodo head.
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
@@ -470,7 +469,7 @@ Per il problema di classificazione binaria descritto nella sezione [Esempi di at
 * Mancia lasciata (classe 1, tip\_amount > $ 0)  
 * Nessuna mancia (classe 0, tip\_amount = $ 0)
 
-Il file **di\_esempio\_seguente per\_le frequenze con Tipping hive. HQL** Mostra il comando da eseguire:
+Il file di esempio seguente per le ** \_ frequenze con \_ Tipping hive \_ . HQL** Mostra il comando da eseguire:
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -574,11 +573,11 @@ Uno dei vantaggi principali del fatto che i dati si trovano in un BLOB di Azure 
 Dopo la fase di analisi esplorativa dei dati, è ora possibile sottocampionare i dati per la creazione di modelli in Machine Learning. In questa sezione viene mostrato come usare una query Hive per sottocampionare i dati. Machine Learning accede quindi ai dati dal modulo [Import Data][import-data] (Importa dati).
 
 ### <a name="down-sampling-the-data"></a>Sottocampionamento dei dati
-Questa procedura si articola in due passaggi. Prima di tutto, è necessario unire in join le tabelle **nyctaxidb. Trip** e **nyctaxidb. tariffari** su tre chiavi presenti in tutti i record, ovvero **medagliere**, **hack\_License**e **\_pickup DateTime**. Vengono quindi generate un'etichetta di classificazione binaria chiamata **tipped** e un'etichetta di classificazione multiclasse chiamata **tip\_class**.
+Questa procedura si articola in due passaggi. Prima di tutto, è necessario unire in join le tabelle **nyctaxidb. Trip** e **nyctaxidb. tariffari** su tre chiavi presenti in tutti i record, ovvero **medagliere**, **hack \_ License**e **pickup \_ DateTime**. Vengono quindi generate un'etichetta di classificazione binaria chiamata **tipped** e un'etichetta di classificazione multiclasse chiamata **tip\_class**.
 
 Per poter usare i dati sottocampionati dal modulo [Import Data][import-data] (Importa dati) in Machine Learning, è necessario archiviare i risultati della query precedente in una tabella Hive interna. Nella sezione seguente verrà creata una tabella Hive interna, in cui verranno immessi i dati sottoposti a join e sottocampionati.
 
-La query applica direttamente le funzioni standard di hive per generare i parametri temporali seguenti dal campo **pickup\_DateTime** :
+La query applica direttamente le funzioni standard di hive per generare i parametri temporali seguenti dal campo **pickup \_ DateTime** :
 - Ora del giorno
 - Settimana dell'anno
 - il giorno della settimana (' 1' sta per lunedì è 7' corrisponde a domenica)
@@ -721,7 +720,7 @@ Per inviare query Hive nel modulo [Import Data][import-data] (Importa dati) di M
 
 Ecco alcuni dettagli sul modulo [Import Data][import-data] (Importa dati) e sui parametri da immettere:
 
-**URI del server HCatalog**: se il nome del cluster è **abc123**, usare: https\/:/abc123.azurehdinsight.NET.
+**URI del server HCatalog**: se il nome del cluster è **abc123**, usare: https: \/ /abc123.azurehdinsight.NET.
 
 **Nome dell'account utente Hadoop**: il nome utente scelto per il cluster (non il nome utente di accesso remoto).
 
@@ -761,7 +760,7 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 
   **Strumento di apprendimento usato:** regressione logistica a due classi
 
-  a. Per questo problema, l'etichetta (o classe) di destinazione è **tipped**. Il set di dati sottocampionato originale contiene alcune colonne che indicano le perdite di destinazione per questo esperimento di classificazione. In particolare, **Tip\_Class**, **Tip\_amount**e **\_Total Amount** rivelano informazioni sull'etichetta di destinazione non disponibile in fase di test. È possibile rimuovere queste colonne dalla valutazione tramite il modulo [Seleziona colonne in set di dati][select-columns].
+  a. Per questo problema, l'etichetta (o classe) di destinazione è **tipped**. Il set di dati sottocampionato originale contiene alcune colonne che indicano le perdite di destinazione per questo esperimento di classificazione. In particolare, **Tip \_ Class**, **Tip \_ Amount**e **Total \_ Amount** rivelano informazioni sull'etichetta di destinazione non disponibile in fase di test. È possibile rimuovere queste colonne dalla valutazione tramite il modulo [Seleziona colonne in set di dati][select-columns].
 
   Il diagramma seguente mostra l'esperimento per stimare se per una corsa specifica è stata o meno lasciata una mancia:
 
@@ -781,7 +780,7 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 
   **Strumento di apprendimento usato:** regressione logistica multiclasse
 
-  a. Per questo problema, l'etichetta (o classe) di destinazione è la **classe Tip\_**, che può assumere uno dei cinque valori (0, 1, 2, 3, 4). Come nel caso della classificazione binaria, sono presenti alcune colonne che indicano le perdite di destinazione per questo esperimento. In particolare, **tipped**, **tip\_amount** e **total\_amount** rivelano informazioni sull'etichetta di destinazione che non sono disponibili in fase di test. È possibile rimuovere queste colonne tramite il modulo [Seleziona colonne in set di dati][select-columns].
+  a. Per questo problema, l'etichetta (o classe) di destinazione è la ** \_ classe Tip**, che può assumere uno dei cinque valori (0, 1, 2, 3, 4). Come nel caso della classificazione binaria, sono presenti alcune colonne che indicano le perdite di destinazione per questo esperimento. In particolare, **tipped**, **tip\_amount** e **total\_amount** rivelano informazioni sull'etichetta di destinazione che non sono disponibili in fase di test. È possibile rimuovere queste colonne tramite il modulo [Seleziona colonne in set di dati][select-columns].
 
   Il diagramma seguente mostra l'esperimento per stimare in quale bin è probabilmente inclusa una mancia. I bin sono: classe 0: tip = $ 0, classe 1: tip > $ 0 e tip <= $ 5, classe 2: tip > $ 5 e tip <= $ 10, classe 3: tip > $ 10 e tip <= $ 20 e classe 4: tip > $ 20.
 
@@ -819,7 +818,7 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 > 
 
 ## <a name="license-information"></a>Informazioni sulla licenza
-Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con licenza MIT. Per ulteriori informazioni, vedere il file **License. txt** nella directory del codice di esempio in GitHub.
+Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con licenza MIT. Per ulteriori informazioni, vedere il file **LICENSE.txt** nella directory del codice di esempio in GitHub.
 
 ## <a name="references"></a>Riferimenti
 •    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](https://www.andresmh.com/nyctaxitrips/)  

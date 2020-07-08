@@ -16,10 +16,9 @@ ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81603834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Esercitazione: integrazione di Azure Active Directory con Amazon Web Services (AWS) (esercitazione legacy)
@@ -68,12 +67,12 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Amazon Web Services (AWS) supporta SSO avviato da **SP e IDP**
+* Amazon Web Services (AWS) supporta l'accesso SSO avviato da **SP e IDP**
 * Dopo aver configurato Amazon Web Services (AWS), è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Aggiunta di Amazon Web Service (AWS) dalla raccolta
 
-Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è necessario aggiungere Amazon Web Service (AWS) dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è necessario aggiungere Amazon Web Service (AWS) dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -212,7 +211,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **chiave** immettere il nome della chiave per esempio: Azureadtest.
 
-    b. Nella casella di testo **valore (facoltativo)** immettere il valore della chiave usando il formato `accountname-aws-admin`seguente. Il nome dell'account deve essere in lettere minuscole.
+    b. Nella casella di testo **valore (facoltativo)** immettere il valore della chiave usando il formato seguente `accountname-aws-admin` . Il nome dell'account deve essere in lettere minuscole.
 
     c. Fare clic su **Avanti: Revisione**.
 
@@ -220,7 +219,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Riepilogo della configurazione dell'accesso Single Sign-On][34]
 
-    a. Nella casella di testo **role name (nome ruolo** ) immettere il valore `accountname-aws-admin`nel modello seguente.
+    a. Nella casella di testo **role name (nome ruolo** ) immettere il valore nel modello seguente `accountname-aws-admin` .
 
     b. Nella casella di testo **Role Description (Descrizione ruolo** ) immettere lo stesso valore usato per il nome del ruolo.
 

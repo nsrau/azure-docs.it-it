@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81271982"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente nel database di Azure per MySQL
@@ -27,11 +26,11 @@ Altri parametri che è possibile modificare includono:
 - **log_slow_admin_statements**: se è ON include le istruzioni a livello amministrativo come ALTER_TABLE e ANALYZE_TABLE nelle istruzioni scritte in slow_query_log.
 - **log_queries_not_using_indexes**: determina se le query che non usano gli indici vengono registrate in slow_query_log
 - **log_throttle_queries_not_using_indexes**: questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
-- **log_output**: se "file", consente la scrittura del log di query lente sia nella risorsa di archiviazione del server locale che nei log di diagnostica di monitoraggio di Azure. Se "None", il log di query lente verrà scritto solo nei log di diagnostica di monitoraggio di Azure. 
+- **log_output**: se "file", consente la scrittura del log di query lente sia nella risorsa di archiviazione del server locale che nei log di diagnostica di monitoraggio di Azure. Se è "Nessuna", il log di query lente verrà scritto solo nei log di diagnostica di Monitoraggio di Azure. 
 
 > [!IMPORTANT]
 > Se le tabelle non sono indicizzate, l'impostazione `log_queries_not_using_indexes` dei `log_throttle_queries_not_using_indexes` parametri e su on può influire sulle prestazioni di MySQL perché tutte le query in esecuzione in queste tabelle non indicizzate verranno scritte nel log di query lente.<br><br>
-> Se si prevede di registrare query lente per un periodo di tempo prolungato, è consigliabile impostare `log_output` su "None". Se impostato su "file", questi log vengono scritti nell'archivio locale del server e possono influenzare le prestazioni di MySQL. 
+> Se si prevede di registrare query lente per un periodo di tempo prolungato, è consigliabile impostare su `log_output` "None". Se impostato su "file", questi log vengono scritti nell'archivio locale del server e possono influenzare le prestazioni di MySQL. 
 
 Per una descrizione completa dei parametri per il log di query lente, vedere la [documentazione sul log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) per MySQL.
 
@@ -84,7 +83,7 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `\_ResourceId` | URI della risorsa |
 
 > [!Note]
-> Per `sql_text`, log verrà troncato se supera i 2048 caratteri.
+> Per `sql_text` , log verrà troncato se supera i 2048 caratteri.
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Analizzare i log nei log di monitoraggio di Azure
 

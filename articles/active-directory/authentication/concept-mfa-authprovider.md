@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf50a8f58978a010fe3d8228ace8579fcf52eb38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81309908"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando usare un provider di Azure Multi-Factor Authentication
@@ -48,11 +47,11 @@ Se il provider di Multi-Factor Authentication non è collegato a un tenant di Az
 > [!CAUTION]
 > Non viene confermata l'eliminazione di un provider di autenticazione. La selezione di **Delete** è un processo permanente.
 
-I**provider di** > autenticazione sono disponibili nella **portale di Azure** > **Azure Active Directory** > **provider**di autenticazione a più fattori di**sicurezza** > . Fare clic su provider elencati per visualizzare i dettagli e le configurazioni associate a tale provider.
+I provider di autenticazione sono disponibili nella **portale di Azure**  >  **Azure Active Directory**  >  **Security**  >  **MFA**  >  **provider**di autenticazione a più fattori di sicurezza. Fare clic su provider elencati per visualizzare i dettagli e le configurazioni associate a tale provider.
 
 Prima di rimuovere un provider di autenticazione, prendere nota delle impostazioni personalizzate configurate nel provider. Decidere quali impostazioni devono essere migrate alle impostazioni di autenticazione a più fattori generali dal provider e completare la migrazione di tali impostazioni. 
 
-I**Security** > **server di** > autenticazione a più fattori di Azure collegati ai provider dovranno essere riattivati usando le credenziali generate in **portale di Azure** > **Azure Active Directory** > **impostazioni del server**multi-factor authentication. Prima di riattivare, i file seguenti devono essere eliminati `\Program Files\Multi-Factor Authentication Server\Data\` dalla directory nei server di autenticazione a più fattori di Azure nell'ambiente in uso:
+I server di autenticazione a più fattori di Azure collegati ai provider dovranno essere riattivati usando le credenziali generate in **portale di Azure**  >  **Azure Active Directory**  >  **Security**  >  **MFA**  >  **impostazioni del server**multi-factor authentication. Prima di riattivare, i file seguenti devono essere eliminati dalla `\Program Files\Multi-Factor Authentication Server\Data\` Directory nei server di autenticazione a più fattori di Azure nell'ambiente in uso:
 
 - caCert
 - cert
@@ -64,7 +63,7 @@ I**Security** > **server di** > autenticazione a più fattori di Azure collegati
 
 ![Eliminare un provider di autenticazione dal portale di Azure](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-**MFA** > Dopo aver verificato che sia stata eseguita la migrazione di tutte le impostazioni, è possibile passare al **portale di Azure** > **Azure Active Directory** > **provider** di autenticazione a più fattori di**sicurezza** > e selezionare i puntini di **sospensione e selezionare** **Elimina**.
+Dopo aver verificato che sia stata eseguita la migrazione di tutte le impostazioni, è possibile passare al **portale di Azure**Azure Active Directory provider di autenticazione a più fattori di  >  **Azure Active Directory**  >  **sicurezza**  >  **MFA**  >  **Providers** e selezionare i **...** **Delete**puntini di sospensione e selezionare Elimina.
 
 > [!WARNING]
 > L'eliminazione di un provider di autenticazione eliminerà eventuali informazioni di report associate a tale provider. È possibile salvare i report attività prima di eliminare il provider.

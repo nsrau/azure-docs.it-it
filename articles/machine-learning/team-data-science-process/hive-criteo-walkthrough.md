@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1198d3cc7ccc0013e7c894488027d8e162470247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81677597"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Azure HDInsight Hadoop in un set di dati da 1 TB
@@ -75,7 +74,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creaz
 
 Fare clic su **Continue to Download** (Continuare per il download) per leggere altre informazioni sul set di dati e sulla relativa disponibilità.
 
-I dati si trovano in un percorso di [archiviazione BLOB](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) di Azure wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/:. La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure.
+I dati si trovano in un percorso di [archiviazione BLOB di Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure.
 
 1. I dati in questo archivio BLOB di Azure sono costituiti da tre sottocartelle di dati non compressi.
 
@@ -97,7 +96,7 @@ A sinistra è presente la "riga di comando di Hadoop", usata per l'esplorazione 
 
 Ora che la configurazione è stata completata, è possibile iniziare la prima parte della procedura dettagliata, ovvero l'esplorazione dei dati tramite Hive e la loro preparazione per Azure Machine Learning.
 
-## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Creare il database e le tabelle Hive
+## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a>Creare database e tabelle hive
 Per creare le tabelle Hive per il set di dati Criteo, aprire la ***riga di comando di Hadoop*** sul desktop del nodo head e specificare la directory Hive immettendo il comando
 
     cd %hive_home%\bin
@@ -424,7 +423,7 @@ Il processo di creazione di un modello in Azure Machine Learning prevede i passa
 È ora possibile creare modelli in Azure Machine Learning Studio. I dati sottocampionati vengono salvati come tabelle Hive nel cluster. Per leggere i dati viene usato il modulo **Import data** di Azure Machine Learning. Le credenziali per accedere all'account di archiviazione del cluster sono indicate di seguito.
 
 ### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a> Passaggio 1: Ottenere i dati dalle tabelle Hive in Azure Machine Learning usando il modulo Import Data e selezionarli per un esperimento di Machine Learning
-Per iniziare, selezionare un esperimento **+ nuovo** -> **esperimento** -> **vuoto**. Quindi, nella casella **Search** (Ricerca) in alto a sinistra cercare "Import Data". Trascinare il modulo **Import Data** sull'area di disegno degli esperimenti (la parte centrale della schermata) per usare il modulo per l'accesso ai dati.
+Per iniziare, selezionare un esperimento **+ nuovo**  ->  **esperimento**  ->  **vuoto**. Quindi, nella casella **Search** (Ricerca) in alto a sinistra cercare "Import Data". Trascinare il modulo **Import Data** sull'area di disegno degli esperimenti (la parte centrale della schermata) per usare il modulo per l'accesso ai dati.
 
 Ecco l'aspetto del modulo **Import Data** durante il recupero dei dati dalla tabella Hive:
 
@@ -434,7 +433,7 @@ Per il modulo **Import Data** i valori dei parametri forniti nel grafico sono so
 
 1. In **Data Source**
 2. Nella casella **Hive database query** (Query di database Hive) è sufficiente specificare l'istruzione SELECT * FROM <nome\_del\_database.nome\_della\_tabella>.
-3. **URI del server Hcatalog**: se il cluster è "ABC", questo è semplicemente: https:\//ABC.azurehdinsight.NET
+3. **URI del server Hcatalog**: se il cluster è "ABC", questo è semplicemente: https: \/ /ABC.azurehdinsight.NET
 4. **Hadoop user account name** (Nome dell'account utente Hadoop): nome utente scelto al momento dell'autorizzazione del cluster (NON il nome utente di accesso remoto).
 5. **Hadoop user account password** (Password dell'account utente Hadoop): password per il nome utente scelta al momento dell'autorizzazione del cluster (NON la password di accesso remoto).
 6. **Location of output data**: scegliere "Azure".

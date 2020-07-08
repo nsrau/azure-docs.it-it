@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: aa65b789d02c60ef6042aa62e1c138c0e1bd7224
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676907"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM su una macchina virtuale Linux in Azure  
@@ -246,7 +245,7 @@ Per questa esercitazione, l'utente predefinito è *grid* mentre il gruppo predef
    Syncing disks.
    ```
 
-4. Ripetere il comando `fdisk` precedente per `/dev/sdd`, `/dev/sde`e `/dev/sdf`.
+4. Ripetere il `fdisk` comando precedente per `/dev/sdd` , `/dev/sde` e `/dev/sdf` .
 
 5. Controllare la configurazione del disco:
 
@@ -427,7 +426,7 @@ La configurazione di Oracle ASM richiede un'interfaccia grafica per completare l
    > La chiave deve contenere la stringa `ssh-rsa`. In aggiunta, il contenuto della chiave deve essere una singola riga di testo.
    >  
 
-6. Nel sistema client, avviare PuTTY. Nel riquadro **categoria** passare a **connessione** > **SSH** > **AUTH**. Nella casella **file di chiave privata per l'autenticazione** passare alla chiave generata in precedenza.
+6. Nel sistema client, avviare PuTTY. Nel riquadro **categoria** passare a **connessione**  >  **SSH**  >  **AUTH**. Nella casella **file di chiave privata per l'autenticazione** passare alla chiave generata in precedenza.
 
    ![Screenshot delle opzioni di autenticazione SSH](./media/oracle-asm/setprivatekey.png)
 

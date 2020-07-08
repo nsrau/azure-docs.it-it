@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ad446180b3bd864c5b6df808e6e4efac7d6c1c65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687529"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
@@ -46,14 +45,14 @@ La tabella seguente elenca alcune differenze tra un'implementazione locale e un'
 > 
 > |  | **Implementazione locale** | **Implementazione in Azure** |
 > | --- | --- | --- |
-> | **Funzionalità di rete** |LAN/WAN  |SDN (Software Defined Networking)|
+> | **Rete** |LAN/WAN  |SDN (Software Defined Networking)|
 > | **Gruppo di sicurezza** |Strumenti di restrizione per indirizzi IP/porte |[Gruppo di sicurezza di rete (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 > | **Resilienza** |MTBF (tempo medio tra gli errori) |MTTR (tempo medio per il ripristino)|
 > | **Manutenzione pianificata** |Applicazione di patch/aggiornamenti|[Set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (applicazione di patch/aggiornamenti gestita da Azure) |
-> | **Risorsa** |Dedicated  |Condivisa con altri client|
-> | **Regioni** |Data center |[Coppie di aree](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Archiviazione** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Ridimensionare** |Scalabilità verticale |Scalabilità orizzontale|
+> | **Risorsa** |Dedicato  |Condivisa con altri client|
+> | **Aree** |Data center |[Coppie di aree](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
+> | **Storage** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Ridimensionamento** |Scalabilità verticale |Scalabilità orizzontale|
 
 
 ### <a name="requirements"></a>Requisiti
@@ -146,7 +145,7 @@ In base ai requisiti di larghezza di banda della rete, sono disponibili diversi 
 - Usare macchine virtuali con [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) per migliorare le prestazioni di rete.
 - Per alcuni distrubutions Linux, è consigliabile abilitare il [supporto per Trim/annullare](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Installare [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) in una macchina virtuale separata.
-- Per impostazione predefinita, le pagine di grandi dimensioni non sono abilitate in Linux. Prendere in considerazione l'abilitazione `use_large_pages = ONLY` di pagine di grandi dimensioni e impostare sul Oracle DB. Questo può contribuire a migliorare le prestazioni. Altre informazioni sono disponibili [qui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Per impostazione predefinita, le pagine di grandi dimensioni non sono abilitate in Linux. Prendere in considerazione l'abilitazione di pagine di grandi dimensioni e impostare `use_large_pages = ONLY` sul Oracle DB. Questo può contribuire a migliorare le prestazioni. Altre informazioni sono disponibili [qui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Tipi di disco e configurazioni
 

@@ -14,20 +14,19 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682036"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 L'API di Servizi multimediali di Azure è di tipo RESTful. È possibile usarla per eseguire operazioni sulle risorse multimediali tramite un'API REST o tramite gli SDK client disponibili. Servizi multimediali di Azure offre un SDK client di Servizi multimediali per Microsoft .NET. Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. 
 
-Servizi multimediali supporta l'[autenticazione basata su Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Il servizio REST di Servizi multimediali di Azure richiede che l'utente o l'applicazione che invia le richieste all'API REST abbia almeno il ruolo di **Collaboratore** o **Proprietario** per poter accedere alle risorse. Per altre informazioni, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md).  
+Servizi multimediali supporta [l'autenticazione basata su Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md). Il servizio REST di Servizi multimediali di Azure richiede che l'utente o l'applicazione che invia le richieste all'API REST abbia almeno il ruolo di **Collaboratore** o **Proprietario** per poter accedere alle risorse. Per altre informazioni, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md).  
 
 Questo documento offre una panoramica su come accedere all'API di Servizi multimediali tramite l'API REST o .NET.
 
@@ -79,7 +78,7 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
        Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
    * URI di risorsa per Servizi multimediali. 
 
-       Questo URI è lo stesso per gli account di servizi multimediali presenti nello stesso ambiente Azure (ad esempio, https:\//Rest.Media.Azure.NET).
+       Questo URI è lo stesso per gli account di servizi multimediali presenti nello stesso ambiente Azure (ad esempio, https: \/ /Rest.Media.Azure.NET).
 
    * ID client dell'applicazione Servizi multimediali (nativa).
    * URI di reindirizzamento dell'applicazione Servizi multimediali (nativa).
@@ -121,7 +120,7 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
        Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
    * URI di risorsa per Servizi multimediali. 
 
-       Questo URI è identico per gli account di servizi multimediali che si trovano nello stesso ambiente Azure, ad esempio https:\//Rest.Media.Azure.NET.
+       Questo URI è identico per gli account di servizi multimediali che si trovano nello stesso ambiente Azure, ad esempio https: \/ /Rest.Media.Azure.NET.
 
    * URI di risorsa per Servizi multimediali REST.
 

@@ -16,10 +16,9 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641111"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
@@ -64,7 +63,7 @@ Si tratta dello stato attuale del canale. I valori possibili sono:
 * **Avvio**in corso. È in corso l'avvio del canale. In questo stato non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato Interrotto.
 * **In esecuzione**. Il canale è in grado di elaborare flussi live. La fatturazione è ora attiva. È necessario interrompere il canale per sospendere la fatturazione. 
 * **Arresto**in corso. È in corso l'interruzione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
-* **Eliminazione in corso**. È in corso l'eliminazione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
+* **Eliminazione**in corso. È in corso l'eliminazione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
 
 La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione. 
 
@@ -111,7 +110,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 6. Pubblicare l'asset associato al programma.   
 
     >[!NOTE]
-    >Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account nello stato **interrotto** . L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+    >Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
 
 7. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
 8. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
@@ -167,7 +166,7 @@ Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'ut
 
 È possibile ottenere gli URL di inserimento dopo aver creato un canale. Per ottenere questi URL, non è necessario che il canale sia nello stato **In esecuzione** . Quando si è pronti per avviare l'esecuzione del push dei dati nel canale, questo dovrà essere nello stato **In esecuzione** . Una volta avviato l'inserimento di dati nel canale, è possibile visualizzare in anteprima il flusso tramite l'URL di anteprima.
 
-È possibile inserire un flusso Live MP4 frammentato (Smooth Streaming) su una connessione TLS. Per eseguire l'inserimento su TLS, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente, AMS non supporta TLS con domini personalizzati.  
+È possibile inserire un flusso Live MP4 frammentato (Smooth Streaming) su una connessione TLS. Per l'inserimento tramite TLS, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente, AMS non supporta TLS con domini personalizzati.  
 
 ### <a name="allowed-ip-addresses"></a>Indirizzi IP consentiti
 È possibile definire gli indirizzi IP autorizzati a pubblicare video in questo canale. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo di indirizzi IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo di indirizzi IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').
@@ -219,12 +218,12 @@ Con **Default720p** il video sarà codificato nei 6 livelli seguenti.
 
 | Velocità in bit | Larghezza | Altezza: | MaxFPS | Profilo | Nome del flusso di output |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Flusso audio di output
 
@@ -247,7 +246,7 @@ Durata dell'interruzione pubblicitaria in secondi. Per avviare l'interruzione pu
 ID univoco dell'interruzione pubblicitaria che dovrà essere usato dall'applicazione downstream per eseguire le operazioni necessarie. Deve essere un intero positivo. È possibile impostare questo valore su qualsiasi intero positivo casuale oppure usare un sistema upstream per tenere traccia degli ID battuta. Assicurarsi di normalizzare tutti gli ID in interi positivi prima dell'invio tramite l'API.
 
 ### <a name="show-slate"></a>Visualizza slate
-Facoltativo. Segnala al codificatore live di passare all'immagine dello [slate predefinito](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**. 
+Facoltativa. Segnala al codificatore live di passare all'immagine dello [slate predefinito](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**. 
 
 L'immagine usata sarà quella specificata tramite la proprietà ID asset dello slate predefinito al momento della creazione del canale. Lo slate verrà esteso per adattarsi alle dimensioni dell'immagine visualizzata. 
 
@@ -264,7 +263,7 @@ Quando è impostata su true, questa opzione configura il codificatore live in mo
 
 ### <a name="default-slate-asset-id"></a><a id="default_slate"></a>ID asset dello slate predefinito
 
-Facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
+Facoltativa. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
 
 
 > [!NOTE] 
@@ -306,7 +305,7 @@ Si tratta dello stato attuale del canale. I valori possibili sono:
 * **Avvio**in corso. È in corso l'avvio del canale. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato Interrotto.
 * **In esecuzione**. Il canale è in grado di elaborare flussi live.
 * **Arresto**in corso. È in corso l'interruzione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
-* **Eliminazione in corso**. È in corso l'eliminazione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
+* **Eliminazione**in corso. È in corso l'eliminazione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
 
 La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione. 
 
@@ -340,9 +339,9 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 * Le immagini dello slate devono essere conformi alle limitazioni descritte [qui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se si tenta di creare un canale con uno slate predefinito con una risoluzione superiore a 1920x1080, la richiesta genererà un errore.
 * Ancora una volta... per evitare il proseguimento della fatturazione.
 
-## <a name="need-help"></a>Serve assistenza?
+## <a name="need-help"></a>Richiesta di assistenza
 
-È possibile aprire un ticket di supporto passando alla [nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-step"></a>Passaggio successivo
 
@@ -350,7 +349,7 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati

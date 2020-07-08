@@ -10,10 +10,9 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt
 ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81681999"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Creare e testare un nuovo dispositivo simulato
@@ -54,7 +53,7 @@ La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso
 
 La tabella seguente mostra le azioni supportate dal nuovo dispositivo:
 
-| Name        |
+| Nome        |
 | ----------- |
 | Switch on (Accendi)   |
 | Switch off (Spegni)  |
@@ -108,7 +107,7 @@ Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://g
 
 Aprire la cartella **remote-monitoring-services-dotnet-master\storage-adapter** in Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **storage-Adapter/WebService/appSettings. ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentDBConnectionString** .
+Aprire il file **storage-Adapter/WebService/appsettings.ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentDBConnectionString** .
 
 Per eseguire il microservizio in locale, fare clic su **Debug > Avvia debug**.
 
@@ -425,7 +424,7 @@ In questa sezione vengono testati i tipi di dispositivi creati in locale nelle s
 
 Aprire la cartella **device-simulation-dotnet-master** scaricata da GitHub in una nuova istanza di Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **WebService/appSettings. ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentdb_connstring** e modificare anche le impostazioni come segue:
+Aprire il file **WebService/appsettings.ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentdb_connstring** e modificare anche le impostazioni come segue:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -493,7 +492,7 @@ Per configurare ed eseguire la simulazione
 
 Per arrestare la simulazione, selezionare la richiesta **Stop simulation** (Arresta simulazione) in Postman e quindi fare clic su **Send** (Invia).
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 È possibile arrestare i due microservizi in esecuzione in locale nelle istanze di Visual Studio Code (**Debug > Arresta debug**).
 

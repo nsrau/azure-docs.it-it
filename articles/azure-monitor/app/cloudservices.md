@@ -4,10 +4,9 @@ description: Monitorare i ruoli Web e di lavoro in modo efficace con Application
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537594"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
@@ -82,7 +81,7 @@ Ogni risorsa viene identificata da una chiave di strumentazione che potrebbe ess
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurare Diagnostica di Azure per ogni ruolo
 Impostare questa opzione per monitorare l'app con Application Insights. Per i ruoli Web, questa opzione offre monitoraggio delle prestazioni, avvisi, diagnostica e analisi dell'utilizzo. Per gli altri ruoli, è possibile cercare e monitorare i dati di Diagnostica di Azure, ad esempio riavvio, contatori delle prestazioni e chiamate a System.Diagnostics.Trace. 
 
-1. In Visual Studio Esplora soluzioni, in ** \<serviziocloud>**  >  **roles**, aprire le proprietà di ogni ruolo.
+1. In Visual Studio Esplora soluzioni, in **\<YourCloudService>**  >  **ruoli**, aprire le proprietà di ogni ruolo.
 
 1. In **Configurazione** selezionare la casella di controllo **Invia i dati di diagnostica ad Application Insights** e selezionare la risorsa di Application Insights creata in precedenza.
 
@@ -124,7 +123,7 @@ In Visual Studio configurare Application Insights SDK per ogni progetto di app c
     * [Ruolo di lavoro](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [Per le pagine Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. Impostare il file *ApplicationInsights. config* da copiare sempre nella directory di output.
+1. Impostare il file di *ApplicationInsights.config* da copiare sempre nella directory di output.
 
    Un messaggio nel file *CONFIG* chiede di inserire la chiave di strumentazione. Tuttavia, per le app cloud è preferibile che venga impostata dal file *CSCFG*. Questo approccio assicura che il ruolo venga identificato correttamente nel portale.
 
@@ -147,7 +146,7 @@ Questo passaggio è necessario solo se si desidera acquisire query SQL complete 
     </Startup>
     ```
     
-2. Scaricare [InstallAgent. bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent. ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)e inserirli nella `AppInsightsAgent` cartella in ogni progetto di ruolo. Assicurarsi di copiarli nella directory di output tramite le proprietà dei file di Visual Studio o gli script di compilazione.
+2. Scaricare [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), inserirli nella `AppInsightsAgent` cartella in ogni progetto di ruolo. Assicurarsi di copiarli nella directory di output tramite le proprietà dei file di Visual Studio o gli script di compilazione.
 
 3. In tutti i ruoli di lavoro aggiungere le variabili di ambiente: 
 

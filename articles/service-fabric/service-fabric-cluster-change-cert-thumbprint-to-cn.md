@@ -4,10 +4,9 @@ description: Informazioni su come passare dall'uso di identificazioni personali 
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272628"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster
@@ -118,7 +117,7 @@ Aprire quindi il file di modello in un editor di testo e apportare tre aggiornam
 
     Prendere in considerazione anche la rimozione del *CertificateThumbprint*, a cui potrebbe non essere più fatto riferimento nel modello di gestione risorse.
 
-2. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile**->**extensionProfile**->**Extensions**->**settings** `"commonNames": ["[parameters('certificateCommonName')]"],` `"thumbprint": "[parameters('certificateThumbprint')]",`**properties**properties Settings->**Certificate**, Add e->Remove.
+2. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile** -> **extensionProfile** -> **Extensions** -> **Properties** -> **Settings** -> **Certificate**, Add `"commonNames": ["[parameters('certificateCommonName')]"],` e Remove `"thumbprint": "[parameters('certificateThumbprint')]",` .
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {

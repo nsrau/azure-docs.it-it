@@ -11,10 +11,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 213fc3412a2dfad77946e52a355a30774d6860c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680683"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunicare con il DPS usando il protocollo MQTT
@@ -36,19 +35,19 @@ Tutte le comunicazioni dei dispositivi con DPS devono essere protette tramite TL
 Un dispositivo può usare il protocollo MQTT per connettersi a un DPS usando una delle opzioni seguenti.
 
 * Librerie negli [SDK di provisioning di Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#microsoft-azure-provisioning-sdks).
-* Il protocollo MQTT direttamente.
+* Direttamente il protocollo MQTT.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Uso diretto del protocollo MQTT (come dispositivo)
 
-Se un dispositivo non può usare gli SDK per dispositivi, può comunque connettersi agli endpoint pubblici del dispositivo tramite il protocollo MQTT sulla porta 8883. Nel pacchetto di **connessione** il dispositivo deve usare i valori seguenti:
+Se un dispositivo non può usare gli SDK per dispositivi, può comunque connettersi agli endpoint pubblici del dispositivo tramite il protocollo MQTT sulla porta 8883. Nel pacchetto **CONNECT** il dispositivo deve usare i valori seguenti:
 
 * Per il campo **ClientID** , usare **RegistrationId**.
 
-* Per il campo **username** usare `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, dove `{idScope}` è il [idScope](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) di DPS.
+* Per il campo **username** usare `{idScope}/registrations/{registration_id}/api-version=2019-03-31` , dove `{idScope}` è il [idScope](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) di DPS.
 
 * Per il campo **Password** usare un token di firma di accesso condiviso. Il formato del token di firma di accesso condiviso è identico a quello per i protocolli HTTPS e AMQP:
 
-  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`Il formato `{idScope}/registrations/{registration_id}`di resourceUri deve essere. Il nome del criterio deve `registration`essere.
+  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`Il formato di resourceURI deve essere `{idScope}/registrations/{registration_id}` . Il nome del criterio deve essere `registration` .
 
   > [!NOTE]
   > Le password di token SAS non sono obbligatorie se si usa l'autenticazione dei certificati X.509.
@@ -68,17 +67,17 @@ Per usare direttamente il protocollo MQTT, il client *deve* connettersi tramite 
 
 ## <a name="registering-a-device"></a>Registrazione di un dispositivo
 
-Per registrare un dispositivo tramite DPS, un dispositivo deve effettuare la `$dps/registrations/res/#` sottoscrizione usando come filtro per gli **argomenti**. Il carattere jolly a più livelli `#` nel filtro argomento viene usato solo per consentire al dispositivo di ricevere proprietà aggiuntive nel nome dell'argomento. DPS non consente l'utilizzo dei caratteri jolly `#` o `?` per il filtro di argomenti secondari. Poiché DPS non è un broker di messaggistica di pubblicazione-sottoscrizione di uso generico, supporta solo i nomi di argomento e i filtri di argomento documentati.
+Per registrare un dispositivo tramite DPS, un dispositivo deve effettuare la sottoscrizione usando `$dps/registrations/res/#` come filtro per gli **argomenti**. Il carattere jolly a più livelli `#` nel filtro argomento viene usato solo per consentire al dispositivo di ricevere proprietà aggiuntive nel nome dell'argomento. DPS non consente l'utilizzo dei `#` `?` caratteri jolly o per il filtro di argomenti secondari. Poiché DPS non è un broker di messaggistica di pubblicazione-sottoscrizione di uso generico, supporta solo i nomi di argomento e i filtri di argomento documentati.
 
-Il dispositivo deve pubblicare un messaggio di registro in DPS `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` usando come **nome di argomento**. Il payload deve contenere l'oggetto di [registrazione del dispositivo](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) in formato JSON.
+Il dispositivo deve pubblicare un messaggio di registro in DPS usando `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` come **nome di argomento**. Il payload deve contenere l'oggetto di [registrazione del dispositivo](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) in formato JSON.
 In uno scenario di successo, il dispositivo riceverà una risposta sul `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` nome dell'argomento, dove x è il valore Retry-After in secondi. Il payload della risposta conterrà l'oggetto [RegistrationOperationStatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) in formato JSON.
 
 ## <a name="polling-for-registration-operation-status"></a>Polling dello stato dell'operazione di registrazione
 
-Il dispositivo deve eseguire periodicamente il polling del servizio per ricevere il risultato dell'operazione di registrazione del dispositivo. Supponendo che il dispositivo abbia già sottoscritto l' `$dps/registrations/res/#` argomento come indicato in precedenza, è possibile pubblicare un messaggio Get OperationStatus nel `$dps/registrations/GET/iotdps-get-operationstatus/?$rid={request_id}&operationId={operationId}` nome dell'argomento. L'ID operazione in questo messaggio deve corrispondere al valore ricevuto nel messaggio di risposta RegistrationOperationStatus nel passaggio precedente. In caso di esito positivo, il servizio risponderà `$dps/registrations/res/200/?$rid={request_id}` sull'argomento. Il payload della risposta conterrà l'oggetto RegistrationOperationStatus. Il dispositivo deve continuare a eseguire il polling del servizio se il codice di risposta è 202 dopo un ritardo uguale al periodo di ripetizione del tentativo. L'operazione di registrazione del dispositivo ha esito positivo se il servizio restituisce un codice di stato 200.
+Il dispositivo deve eseguire periodicamente il polling del servizio per ricevere il risultato dell'operazione di registrazione del dispositivo. Supponendo che il dispositivo abbia già sottoscritto l' `$dps/registrations/res/#` argomento come indicato in precedenza, è possibile pubblicare un messaggio Get OperationStatus nel `$dps/registrations/GET/iotdps-get-operationstatus/?$rid={request_id}&operationId={operationId}` nome dell'argomento. L'ID operazione in questo messaggio deve corrispondere al valore ricevuto nel messaggio di risposta RegistrationOperationStatus nel passaggio precedente. In caso di esito positivo, il servizio risponderà sull' `$dps/registrations/res/200/?$rid={request_id}` argomento. Il payload della risposta conterrà l'oggetto RegistrationOperationStatus. Il dispositivo deve continuare a eseguire il polling del servizio se il codice di risposta è 202 dopo un ritardo uguale al periodo di ripetizione del tentativo. L'operazione di registrazione del dispositivo ha esito positivo se il servizio restituisce un codice di stato 200.
 
 ## <a name="connecting-over-websocket"></a>Connessione tramite WebSocket
-Quando si esegue la connessione tramite WebSocket, specificare il `mqtt`sottoprotocollo come. Seguire la [RFC 6455](https://tools.ietf.org/html/rfc6455).
+Quando si esegue la connessione tramite WebSocket, specificare il sottoprotocollo come `mqtt` . Seguire la [RFC 6455](https://tools.ietf.org/html/rfc6455).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
