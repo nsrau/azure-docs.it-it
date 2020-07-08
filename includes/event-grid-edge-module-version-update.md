@@ -1,19 +1,19 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: include
 ms.date: 01/16/2020
-ms.author: babanisa
+ms.author: femila
 ms.custom: include file
-ms.openlocfilehash: cca628a54d9ac84fbb8a798168f72adbaa24aa48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16272ffceea6db5ced839d3ed957d11aec580a91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844548"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84562331"
 ---
 >[!NOTE]
-> Controllare sempre la versione dell'immagine per assicurarsi che abbia il feautures richiesto. Se è già stata eseguito il pull di una versione precedente dell'immagine del contenitore nel computer, è necessario specificare il tag di versione desiderato oppure eliminare l'immagine esistente prima di ritirarla con `:latest` il tag. Per altre informazioni sulle versioni e sui tag delle immagini, vedere [Note sulla versione](../articles/event-grid/edge/release-notes.md).
+> Controllare sempre la versione dell'immagine per assicurarsi che abbia il feautures richiesto. Se è già stata eseguito il pull di una versione precedente dell'immagine del contenitore nel computer, è necessario specificare il tag di versione desiderato oppure eliminare l'immagine esistente prima di ritirarla con il `:latest` tag. Per altre informazioni sulle versioni e sui tag delle immagini, vedere [Note sulla versione](../articles/event-grid/edge/release-notes.md).

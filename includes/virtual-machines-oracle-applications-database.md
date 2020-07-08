@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 07/10/2019
+ms.date: 06/01/2020
 ms.author: danlep
-ms.openlocfilehash: 8106b1a77f11874b1b13f41bfc9e62ea800afc98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b9e275cbdaf264df3d0a40f032693fd93553e520
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68361531"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84317623"
 ---
 ### <a name="database-tier"></a>Livello database
 
@@ -17,7 +17,7 @@ Il livello database contiene le istanze di database per l'applicazione. Il datab
 
 Se si sceglie di usare Oracle DB, l'istanza del database può essere distribuita in Azure tramite le immagini Oracle DB disponibili in Azure Marketplace. In alternativa, è possibile usare l'interconnessione tra Azure e OCI per distribuire il Oracle DB in un modello PaaS in OCI.
 
-Per Oracle RAC è possibile distribuire Oracle RAC in Azure CloudSimple nel modello IaaS o in OCI nel modello PaaS. Si consiglia di utilizzare un sistema RAC a due nodi. 
+Per Oracle RAC, è possibile usare OCI nel modello PaaS. Si consiglia di utilizzare un sistema RAC a due nodi. Sebbene sia possibile distribuire Oracle RAC in Azure CloudSimple nel modello IaaS, non è una configurazione supportata da Oracle. Fare riferimento ai [Programmi Oracle idonei per gli ambienti cloud autorizzati](http://www.oracle.com/us/corporate/pricing/authorized-cloud-environments-3493562.pdf).
 
 Infine, per i sistemi Exadata, usare l'interconnessione OCI e distribuire il sistema Exadata in OCI. Il diagramma dell'architettura precedente mostra un sistema Exadata distribuito in OCI tra due subnet.
 

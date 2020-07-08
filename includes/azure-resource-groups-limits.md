@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: c883383d3c870689bb95f808f6f60c5185c165c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33a63280f6973d2c5e29db29f7a6f3fc68c57c77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424740"
 ---
 | Risorsa | Limite |
 | --- | --- |
@@ -22,7 +22,7 @@ ms.locfileid: "80334945"
 | Lunghezza della chiave dei tag |512 |
 | Lunghezza del valore dei tag |256 |
 
-<sup>1</sup> Se si raggiunge il limite di 800 distribuzioni per gruppo di risorse, eliminare le distribuzioni dalla cronologia che non sono più necessarie. L'eliminazione di una voce dalla cronologia di distribuzione non influisce sulle risorse distribuite. Per altre informazioni, vedere [risolvere un errore quando il numero di distribuzioni supera 800](../articles/azure-resource-manager/templates/deployment-quota-exceeded.md).
+<sup>1</sup> A partire da giugno 2020, le distribuzioni verranno eliminate automaticamente dalla cronologia quando si è prossimi al limite. L'eliminazione di una voce dalla cronologia di distribuzione non influisce sulle risorse distribuite. Per altre informazioni, vedere [eliminazioni automatiche dalla cronologia di distribuzione](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### <a name="template-limits"></a>Limiti del modello
 
@@ -35,6 +35,6 @@ ms.locfileid: "80334945"
 | Espressione del modello |24.576 caratteri |
 | Risorse in modelli esportati |200 |
 | Dimensione del modello |4 MB |
-| Dimensione del file di parametri |64 kB |
+| Dimensione del file di parametri |64 KB |
 
 È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [usare i modelli collegati quando si distribuiscono risorse di Azure](../articles/azure-resource-manager/templates/linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).

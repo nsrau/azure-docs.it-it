@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 32d978ee766f6dbe95bd7158b8060a0302ef8206
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738635"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizzare i modelli di traffico di rete da e verso le macchine virtuali usando strumenti open source
 
@@ -84,7 +84,7 @@ CapAnalysis offre varie opzioni di visualizzazione dell'acquisizione pacchetti, 
 
     ![filters][11]
 
-    Per [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) altre informazioni su tutte le funzionalità di CapAnalysis, vedere.
+    [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about)Per altre informazioni su tutte le funzionalità di CapAnalysis, vedere.
 
 ## <a name="conclusion"></a>Conclusioni
 

@@ -4,15 +4,15 @@ description: Informazioni di riferimento sulla risoluzione dei problemi dell'ana
 services: internet-analyzer
 author: diego-perez-botero
 ms.service: internet-analyzer
-ms.topic: guide
+ms.topic: troubleshooting
 ms.date: 12/04/2019
 ms.author: dibotero
-ms.openlocfilehash: 0c9e203d7e8be7b24c711f73e2152a7745a57dac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: fe173ec4d4f28444d43739ea2ed51e43021916b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744358"
 ---
 # <a name="azure-internet-analyzer-troubleshooting"></a>Risoluzione dei problemi dell'analizzatore Internet di Azure
 
@@ -20,7 +20,7 @@ Questo articolo contiene i passaggi per la risoluzione dei problemi comuni dell'
 
 ## <a name="things-to-keep-in-mind"></a>Aspetti da considerare
 - Lo script client deve essere incorporato in un sito Web **HTTPS**. Le misure non verranno raccolte se lo script viene eseguito in un sito Web di testo non crittografato (**http://** ) o locale (**file://** ).
-- I dati di misura verranno raccolti solo se lo script client del profilo dell'analizzatore Internet è stato incorporato in un'applicazione che riceve traffico utente reale. Il traffico sintetico (ad esempio i test delle prestazioni dell'app Web di Azure) in genere non esegue codice JavaScript incorporato, quindi nessuna misura verrà generata da tale tipo di traffico.
+- I dati di misura verranno raccolti solo se lo script client del profilo dell'analizzatore Internet è stato incorporato in un'applicazione che riceve traffico utente reale. Il traffico sintetico, ad esempio i test delle prestazioni di Azure WebApp, in genere non esegue codice JavaScript incorporato, quindi nessuna misura verrà generata da tale tipo di traffico.
 
 ## <a name="azure-portal"></a>Portale di Azure
 **"Non è stata generata una scorecard per la combinazione di filtri selezionata" nella sezione Scorecard**

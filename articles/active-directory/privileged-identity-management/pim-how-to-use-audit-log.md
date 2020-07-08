@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b8aef68e0f61e6ca995fc2bb362d59aba73ead2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742267"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Visualizzare la cronologia di controllo per i ruoli di Azure AD in Privileged Identity Management
 
@@ -92,10 +92,10 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
     | --- | --- |
     | Tempo | Quando si è verificata l'azione. |
     | Richiedente | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
-    | Azione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
+    | Action | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
     | Membro | Utente che sta attivando o assegnata a un ruolo. |
     | Ruolo | Ruolo assegnato o attivato dall'utente. |
-    | Ragionamento | Testo immesso nel campo motivo durante l'attivazione. |
+    | Motivo | Testo immesso nel campo motivo durante l'attivazione. |
     | Scadenza | Quando un ruolo attivato scade. Si applica solo alle assegnazioni di ruolo idonee. |
 
 1. Per ordinare la cronologia di controllo, fare clic sui pulsanti **ora**, **azione**e **ruolo** .
@@ -117,7 +117,7 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Ottieni motivo, responsabile approvazione e numero di ticket per gli eventi di approvazione
 
 1. Accedere al [portale di Azure](https://aad.portal.azure.com) con le autorizzazioni del ruolo amministratore del ruolo con privilegi e aprire Azure ad.
-1. Selezionare **log di controllo**.
+1. Selezionare **Log di controllo**.
 1. Usare il filtro del **servizio** per visualizzare solo gli eventi di controllo per il servizio Privileged Identity Management. Nella pagina **log di controllo** è possibile:
 
     - Vedere la causa di un evento di controllo nella colonna **motivo dello stato** .

@@ -4,12 +4,12 @@ description: Configurare un'azione GitHub che consente di automatizzare i passag
 ms.topic: article
 ms.date: 03/18/2020
 ms.custom: ''
-ms.openlocfilehash: 13397cee8197afc65b93c587ae1505e59cfdebc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80258040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744001"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurare un'azione GitHub per creare un'istanza di contenitore
 
@@ -45,7 +45,7 @@ Questo articolo illustra due modi per configurare il flusso di lavoro:
 
   ![Screenshot del pulsante Fork (evidenziato) in GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Assicurarsi che le azioni siano abilitate per il repository. Passare al repository con fork e selezionare **Impostazioni** > **azioni**. In **azioni autorizzazioni**verificare che sia selezionata l'opzione **Abilita azioni locali e di terze parti per questo repository** .
+* Assicurarsi che le azioni siano abilitate per il repository. Passare al repository con fork e selezionare **Impostazioni**  >  **azioni**. In **azioni autorizzazioni**verificare che sia selezionata l'opzione **Abilita azioni locali e di terze parti per questo repository** .
 
 ## <a name="configure-github-workflow"></a>Configurare il flusso di lavoro GitHub
 
@@ -53,7 +53,7 @@ Questo articolo illustra due modi per configurare il flusso di lavoro:
 
 Nel flusso di lavoro GitHub è necessario specificare le credenziali di Azure per l'autenticazione nell'interfaccia della riga di comando di Azure. L'esempio seguente crea un'entità servizio con il ruolo Collaboratore nell'ambito del gruppo di risorse del registro contenitori.
 
-Per prima cosa, ottenere l'ID risorsa del gruppo di risorse. Sostituire il nome del gruppo con il comando [AZ Group Show][az-acr-show] seguente:
+Per prima cosa, ottenere l'ID risorsa del gruppo di risorse. Sostituire il nome del gruppo con il comando [AZ Group Show][az-group-show] seguente:
 
 ```azurecli
 groupId=$(az group show \
@@ -87,7 +87,7 @@ L'output è simile a:
 }
 ```
 
-Salvare l'output JSON perché verrà usato in un passaggio successivo. Prendere nota anche di `clientId`, che è necessario aggiornare l'entità servizio nella sezione successiva.
+Salvare l'output JSON perché verrà usato in un passaggio successivo. Prendere nota anche di `clientId` , che è necessario aggiornare l'entità servizio nella sezione successiva.
 
 ### <a name="update-service-principal-for-registry-authentication"></a>Aggiornare l'entità servizio per l'autenticazione del registro di sistema
 
@@ -112,7 +112,7 @@ az role assignment create \
 
 ### <a name="save-credentials-to-github-repo"></a>Salva le credenziali nel repository GitHub
 
-1. Nell'interfaccia utente di GitHub passare al repository con fork e selezionare **Impostazioni** > **segreti**. 
+1. Nell'interfaccia utente di GitHub passare al repository con fork e selezionare **Impostazioni**  >  **segreti**. 
 
 1. Selezionare **Aggiungi un nuovo segreto** per aggiungere i segreti seguenti:
 
@@ -120,15 +120,15 @@ az role assignment create \
 |---------|---------|
 |`AZURE_CREDENTIALS`     | L'intero output JSON dalla creazione dell'entità servizio |
 |`REGISTRY_LOGIN_SERVER`   | Nome del server di accesso del registro di sistema (tutto in lettere minuscole). Esempio: *MyRegistry.Azure.CR.io*        |
-|`REGISTRY_USERNAME`     |  `clientId` Dall'output JSON della creazione dell'entità servizio       |
-|`REGISTRY_PASSWORD`     |  `clientSecret` Dall'output JSON della creazione dell'entità servizio |
+|`REGISTRY_USERNAME`     |  `clientId`Dall'output JSON della creazione dell'entità servizio       |
+|`REGISTRY_PASSWORD`     |  `clientSecret`Dall'output JSON della creazione dell'entità servizio |
 | `RESOURCE_GROUP` | Nome del gruppo di risorse usato per definire l'ambito dell'entità servizio |
 
 ### <a name="create-workflow-file"></a>Crea file del flusso di lavoro
 
-1. Nell'interfaccia utente di GitHub selezionare **azioni** > **nuovo flusso di lavoro**.
+1. Nell'interfaccia utente di GitHub selezionare **azioni**  >  **nuovo flusso di lavoro**.
 1. Selezionare **configura un flusso di lavoro**.
-1. In **modifica nuovo file**incollare il contenuto YAML seguente per sovrascrivere il codice di esempio. Accettare il nome file `main.yml`predefinito o specificare un nome file scelto.
+1. In **modifica nuovo file**incollare il contenuto YAML seguente per sovrascrivere il codice di esempio. Accettare il nome file predefinito `main.yml` o specificare un nome file scelto.
 1. Selezionare **Avvia commit**, facoltativamente fornire descrizioni brevi ed estese del commit e selezionare **commit nuovo file**.
 
 ```yml
@@ -173,7 +173,7 @@ jobs:
 
 ### <a name="validate-workflow"></a>Convalida flusso di lavoro
 
-Dopo aver eseguito il commit del file del flusso di lavoro, viene attivato il flusso di lavoro. Per esaminare lo stato del flusso di lavoro, passare a **azioni** > **flussi di lavoro**. 
+Dopo aver eseguito il commit del file del flusso di lavoro, viene attivato il flusso di lavoro. Per esaminare lo stato del flusso di lavoro, passare a **azioni**  >  **flussi di lavoro**. 
 
 ![Visualizza lo stato del flusso di lavoro](./media/container-instances-github-action/github-action-progress.png)
 

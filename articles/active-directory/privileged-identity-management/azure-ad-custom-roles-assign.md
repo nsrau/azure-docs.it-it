@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0303d37ef5bbbf266feb5456b0bc224ce272ee13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80a75664b977c7f37808de7ca68b332363886a4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499241"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742982"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Assegnare un ruolo personalizzato di Azure AD in Privileged Identity Management
 
@@ -74,7 +74,7 @@ Privileged Identity Management può gestire i ruoli personalizzati creati in Ges
 1. Se la casella di controllo **Permanente** è presente e disponibile, a seconda delle impostazioni del ruolo, è possibile specificare se l'assegnazione è permanente. Selezionare la casella di controllo per rendere l'assegnazione con idoneità permanente o con assegnazione permanente. Deselezionare la casella di controllo per specificare una durata per l'assegnazione.
 1. Per creare la nuova assegnazione di ruolo, fare clic su **Salva** e quindi su **Aggiungi**. Verrà visualizzata una notifica di stato per il processo di assegnazione.
 
-Per verificare l'assegnazione di ruolo, in un ruolo aperto selezionare **assegnazioni** > **assegna** e verificare che l'assegnazione di ruolo sia identificata correttamente come idonea o attiva.
+Per verificare l'assegnazione di ruolo, in un ruolo aperto selezionare **assegnazioni**  >  **assegna** e verificare che l'assegnazione di ruolo sia identificata correttamente come idonea o attiva.
 
  ![Controllare se l'assegnazione di ruolo è visibile come idonea o attiva](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 

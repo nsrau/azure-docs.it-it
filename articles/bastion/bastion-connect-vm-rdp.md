@@ -4,15 +4,15 @@ description: Questo articolo illustra come connettersi a una macchina virtuale d
 services: bastion
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6ec60dc313c8a4374637adf38ea0e5a7d4ed964b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79eb09a005f62846fc2f7e3e7b493d5e366edabc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77597346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744324"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Connettersi a una macchina virtuale Windows con Azure Bastion
 
@@ -38,7 +38,7 @@ Per connettersi alla macchina virtuale Windows, è necessario che le porte segue
 
 * Porte in ingresso: RDP (3389)
 
-## <a name="connect"></a><a name="rdp"></a>Connessione
+## <a name="connect"></a><a name="rdp"></a>Connettersi
 
 1. Aprire il [portale di Azure](https://portal.azure.com). Passare alla macchina virtuale a cui si vuole connettersi, quindi fare clic su **Connetti** e selezionare **Bastion** nell'elenco a discesa.
 
@@ -46,7 +46,7 @@ Per connettersi alla macchina virtuale Windows, è necessario che le porte segue
 1. Dopo aver fatto clic su Bastion, viene visualizzata una barra laterale con tre schede: RDP, SSH e Bastion. Se è stato effettuato il provisioning di Bastion per la rete virtuale, la scheda Bastion è attiva per impostazione predefinita. Se non è stato effettuato il provisioning di Bastion per la rete virtuale, è possibile fare clic sul collegamento per configurare Bastion. Per istruzioni sulla configurazione, vedere [Configure Bastion](bastion-create-host-portal.md).
 
    ![scheda Bastion](./media/bastion-connect-vm-rdp/bastion.png)
-1. Nella scheda Bastion immettere il nome utente e la password per la macchina virtuale, quindi fare clic su **Connetti**. La connessione RDP a questa macchina virtuale tramite Bastion verrà aperta direttamente nella portale di Azure (su HTML5) usando la porta 443 e il servizio Bastion.
+1. Nella scheda Bastion immettere il nome utente e la password per la macchina virtuale, quindi fare clic su **Connetti**. La connessione RDP a questa macchina virtuale tramite Bastion verrà aperta direttamente nel portale di Azure (tramite HTML5) usando la porta 443 e il servizio Bastion.
 
    ![Connessione RDP](./media/bastion-connect-vm-rdp/443rdp.png)
  

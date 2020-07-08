@@ -8,17 +8,17 @@ author: damendo
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 835b3a69e779b536961110b674ae67f4e8c13ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76845062"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738754"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite i gateway VPN
 
@@ -106,7 +106,7 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 | ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected". |No|
 | ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
 | ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Autenticazione | Mancata corrispondenza della chiave precondivisa. | Sì|
+| Authentication | Mancata corrispondenza della chiave precondivisa. | Sì|
 | PeerReachability | Il gateway peer non è raggiungibile. | Sì|
 | IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
 | WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|

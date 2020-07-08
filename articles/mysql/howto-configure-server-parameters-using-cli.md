@@ -6,20 +6,20 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 4/1/2020
-ms.openlocfilehash: ca5f80e57f90e4dd26ac2e4a175998ff3de2c102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/11/2020
+ms.openlocfilehash: f5c18c346fe40a07a23cf2933d42d17dae6616c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546429"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738773"
 ---
-# <a name="customize-server-parameters-by-using-azure-cli"></a>Personalizzare i parametri del server usando l'interfaccia della riga di comando
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-cli"></a>Configurare i parametri del server nel database di Azure per MySQL usando l'interfaccia della riga di comando
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un'istanza di Database di Azure per il server MySQL usando l'utility dell'interfaccia della riga di comando di Azure. Un subset delle configurazioni del motore viene esposto a livello di server e può essere modificato. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
-- [Un'istanza di Database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Un database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - L'utilità della riga di comando dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). In alternativa, è possibile usare Azure Cloud Shell nel browser.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Elencare i parametri di configurazione del server per Database di Azure per il server MySQL
@@ -51,6 +51,14 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 ```
 In questo modo il parametro di configurazione **slow\_query\_log** viene reimpostato sul valore predefinito **OFF**. 
 
+## <a name="setting-parameters-not-listed"></a>Impostazione dei parametri non elencati
+Se il parametro Server che si desidera aggiornare non è elencato nella portale di Azure, è possibile impostare facoltativamente il parametro a livello di connessione utilizzando `init_connect` . In questo modo vengono impostati i parametri del server per ogni client che si connette al server. 
+
+Aggiornare il parametro di configurazione del server **init \_ Connect** del server **mydemoserver.MySQL.database.Azure.com** nel gruppo di risorse **myresourcegroup** per impostare i valori, ad esempio il set di caratteri.
+```azurecli-interactive
+az mysql server configuration set --name init_connect --resource-group myresourcegroup --server mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
+```
+
 ## <a name="working-with-the-time-zone-parameter"></a>Uso del parametro di fuso orario
 
 ### <a name="populating-the-time-zone-tables"></a>Popolare le tabelle di fuso orario
@@ -65,7 +73,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l' [interfaccia](howto-restart-server-cli.md)della riga di comando.
+> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l'[interfaccia della riga di comando](howto-restart-server-cli.md).
 
 Per visualizzare i valori di fuso orario disponibili, eseguire questo comando:
 

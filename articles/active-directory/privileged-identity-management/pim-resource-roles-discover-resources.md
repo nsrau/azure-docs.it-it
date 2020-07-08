@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87da43100c7494937ddc842e0f903ba3a360959e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4852f841fc9ac8ebea586d5e24967a1db20b8044
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74022882"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743712"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Individuare le risorse di Azure da gestire in Privileged Identity Management
 
@@ -33,7 +33,7 @@ Quando si configurano per la prima volta Privileged Identity Management per le r
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **Risorse di Azure**.
+1. Selezionare **risorse di Azure**.
 
     Se è la prima volta che si usa Privileged Identity Management per le risorse di Azure, verrà visualizzata una pagina **Discover Resources** .
 

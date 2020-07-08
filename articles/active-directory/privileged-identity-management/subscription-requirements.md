@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42d931206e99516e0320d0cbedd0812389ee41aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75932328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742165"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisiti di licenza per usare Privileged Identity Management
 
@@ -34,7 +34,7 @@ Per usare Azure Active Directory (Azure AD) e Privileged Identity Management (PI
 
 ## <a name="how-many-licenses-must-you-have"></a>Quante licenze è necessario avere?
 
-Assicurarsi che la directory includa almeno il numero di licenze Azure AD Premium P2 disponibili per i dipendenti che eseguiranno le attività seguenti:
+Assicurarsi che la directory includa un numero di licenze Azure AD Premium P2 almeno uguale al numero di dipendenti che eseguiranno le attività seguenti:
 
 - Utenti assegnati come idonei ai ruoli di Azure AD gestiti mediante PIM
 - Utenti in grado di approvare o rifiutare le richieste di attivazione in PIM
@@ -42,15 +42,15 @@ Assicurarsi che la directory includa almeno il numero di licenze Azure AD Premiu
 - Utenti assegnati a una verifica di accesso
 - Utenti che eseguono verifiche di accesso
 
-Le licenze Azure AD Premium P2 **non** sono necessarie per le attività seguenti:
+Le licenze di Azure AD Premium P2 **non** sono necessarie per le attività seguenti:
 
 - Non sono necessarie licenze per gli utenti con ruoli di amministratore globale o amministratore del ruolo con privilegi che configurano PIM, configurano criteri, ricevono avvisi e configurano le verifiche di accesso.
 
-Per altre informazioni sulle licenze, vedere [assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
+Per altre informazioni sulle licenze, vedere [Assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
 
-## <a name="example-license-scenarios"></a>Scenari di licenza di esempio
+## <a name="example-license-scenarios"></a>Scenari di licenze di esempio
 
-Di seguito sono riportati alcuni scenari di licenza di esempio che consentono di determinare il numero di licenze che è necessario avere.
+Ecco alcuni esempi di scenari che consentono di determinare il numero di licenze necessarie.
 
 | Scenario | Calcolo | Numero di licenze |
 | --- | --- | --- |

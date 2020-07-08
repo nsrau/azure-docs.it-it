@@ -4,15 +4,15 @@ description: Questo articolo illustra come copiare e incollare da e verso una ma
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 8580b7e28c8a4860739efa0763ebb7c20a80585e
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 4e818617b70e874153e026bcf40b6dfee8a8e04e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780284"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744239"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiare e incollare in una macchina virtuale: Azure Bastion
 

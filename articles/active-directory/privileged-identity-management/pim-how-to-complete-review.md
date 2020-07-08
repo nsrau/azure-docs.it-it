@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2d85d605b9ee418a5709ddcdb448c56be1d918
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa7e8089fbbf2ee653100a05383fdbdc877ffda4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74022271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742217"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Completare una verifica di accesso dei ruoli Azure AD in Privileged Identity Management
 
@@ -53,7 +53,7 @@ Al termine di una verifica di accesso in corrispondenza della data di fine o in 
 
 Per applicare manualmente i risultati della verifica di accesso, è possibile esportare la verifica. Il pulsante **Esporta** avvia il download di un file con estensione csv. È possibile gestire i risultati in Excel o in altri programmi in grado di aprire i file con estensione csv.
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Elimina
 
 Se la verifica non è più necessaria, eliminarla. Il pulsante **Elimina** rimuove la revisione dal servizio Privileged Identity Management.
 

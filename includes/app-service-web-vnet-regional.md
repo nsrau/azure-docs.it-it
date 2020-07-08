@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604866"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488792"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -56,11 +56,7 @@ Per ogni istanza del piano viene usato un indirizzo. Se si ridimensiona l'app a 
 
 Se si vuole che le app in un altro piano raggiungano un VNet già connesso da app in un altro piano, selezionare una subnet diversa da quella usata dall'integrazione VNet preesistente.
 
-La funzionalità è in anteprima per Linux. Il formato Linux della funzionalità supporta solo l'esecuzione di chiamate a indirizzi RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
-
-### <a name="web-or-function-app-for-containers"></a>Web o app per le funzioni per i contenitori
-
-Se l'app viene ospitata in Linux con le immagini predefinite, l'integrazione VNet a livello di area funziona senza modifiche aggiuntive. Se si usa Web o app per le funzioni per i contenitori, è necessario modificare l'immagine Docker in modo da usare l'integrazione VNet. Nell'immagine Docker usare la variabile di ambiente PORT come porta di ascolto del server Web principale, anziché usare un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma al momento dell'avvio del contenitore. Se si usa SSH, il daemon SSH deve essere configurato in modo da restare in ascolto sul numero di porta specificato dalla variabile di ambiente SSH_PORT quando si usa l'integrazione VNet a livello di area. Non è disponibile alcun supporto per l'integrazione VNet necessaria per il gateway in Linux.
+La funzionalità è completamente supportata per le app Web Windows e Linux. Tutti i comportamenti funzionano allo stesso modo tra app di Windows e app Linux.
 
 ### <a name="service-endpoints"></a>Endpoint di servizio
 

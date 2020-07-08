@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6a053b94813145f9ccd69158d18edb728d5dad61
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 95c553d26a3e79b53106b933c629c5884c3e004c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74795637"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466878"
 ---
 | Risorsa | Destinazione | Limite rigido |
 |----------|--------------|------------|
-| Servizi di sincronizzazione archiviazione per area | 20 servizi di sincronizzazione archiviazione | Sì |
-| Gruppi di sincronizzazione per servizio di sincronizzazione archiviazione | 100 gruppi di sincronizzazione | Sì |
+| Servizi di sincronizzazione archiviazione per area | 100 servizi di sincronizzazione archiviazione | Sì |
+| Gruppi di sincronizzazione per servizio di sincronizzazione archiviazione | 200 gruppi di sincronizzazione | Sì |
 | Server registrati per servizio di sincronizzazione archiviazione | 99 server | Sì |
 | Endpoint cloud per gruppo di sincronizzazione | 1 endpoint cloud | Sì |
 | Endpoint server per gruppo di sincronizzazione | 50 endpoint server | No |

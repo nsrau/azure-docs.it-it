@@ -4,15 +4,15 @@ description: Questo articolo illustra come connettersi a un set di scalabilità 
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 290a20fcd827841c24983f3bdd54b6db8e154462
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3dc7ce36e773b5a615b1abf4f50406fcb07826b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619336"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744307"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Connettersi a un set di scalabilità di macchine virtuali con Azure Bastion
 
@@ -26,7 +26,7 @@ Assicurarsi di aver configurato un host Bastion di Azure per la rete virtuale in
 
 1. Aprire il [portale di Azure](https://portal.azure.com). Passare al set di scalabilità di macchine virtuali a cui si vuole connettersi.
 
-   ![navigate](./media/bastion-connect-vm-scale-set/1.png)
+   ![esplorazione](./media/bastion-connect-vm-scale-set/1.png)
 2. Passare all'istanza del set di scalabilità di macchine virtuali a cui si vuole connettersi, quindi selezionare **Connetti**. Quando si usa una connessione RDP, il set di scalabilità di macchine virtuali deve essere un set di scalabilità di macchine virtuali Windows.
 
    ![set di scalabilità di macchine virtuali](./media/bastion-connect-vm-scale-set/2.png)
@@ -35,8 +35,8 @@ Assicurarsi di aver configurato un host Bastion di Azure per la rete virtuale in
    ![Scheda Bastion](./media/bastion-connect-vm-scale-set/3.png)
 4. Nella scheda Bastion immettere il nome utente e la password per il set di scalabilità di macchine virtuali, quindi selezionare **Connetti**.
 
-   ![connect](./media/bastion-connect-vm-scale-set/4.png)
-5. La connessione RDP a questa macchina virtuale tramite Bastion verrà aperta direttamente nella portale di Azure (su HTML5) usando la porta 443 e il servizio Bastion.
+   ![connessione](./media/bastion-connect-vm-scale-set/4.png)
+5. La connessione RDP a questa macchina virtuale tramite Bastion verrà aperta direttamente nel portale di Azure (tramite HTML5) usando la porta 443 e il servizio Bastion.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

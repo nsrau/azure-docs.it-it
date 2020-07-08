@@ -7,7 +7,7 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e779f633efccf7b594c193e165a584d22b1d653b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 096da0547806680f62b569f7c7809a7bbb04cb86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74021977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742080"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-privileged-identity-management"></a>Approva o rifiuta le richieste per i ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -50,7 +50,7 @@ In qualità di responsabile approvazione con delega si riceverà una notifica di
 
 1. Immettere la giustificazione aziendale nella casella **giustificazione** .
 
-1. Selezionare **approva**. Si riceverà una notifica di Azure relativa all'approvazione.
+1. Selezionare **Approva**. Si riceverà una notifica di Azure relativa all'approvazione.
 
     ![Approva notifica che indica che la richiesta è stata approvata](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 

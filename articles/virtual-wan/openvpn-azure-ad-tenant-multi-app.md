@@ -4,24 +4,24 @@ description: È possibile usare la VPN P2S per connettersi alla VNet usando l'au
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: af5ff5817ee9ae7e6d7432fe281ecb440bf25b9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1471226bcc22373904e65f95d0c07c2d5041f55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749826"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory per le connessioni del protocollo OpenVPN P2S
+# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant Azure Active Directory per le connessioni del protocollo OpenVPN da punto a sito
 
 Quando ci si connette alla VNet, è possibile usare l'autenticazione basata su certificati o l'autenticazione RADIUS. Tuttavia, quando si usa il protocollo VPN aperto, è anche possibile usare l'autenticazione Azure Active Directory. Se si vuole che un diverso set di utenti sia in grado di connettersi a Gateway diversi, è possibile registrare più app in Active Directory e collegarle a diversi gateway.
 
 Questo articolo illustra come configurare un tenant di Azure AD per l'autenticazione di P2S OpenVPN e come creare e registrare più app in Azure AD per consentire l'accesso a diversi utenti e gruppi.
 
 > [!NOTE]
-> Azure AD autenticazione è supportata solo per le&reg; connessioni di protocollo OpenVPN.
+> Azure AD autenticazione è supportata solo per le &reg; connessioni di protocollo OpenVPN.
 >
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
@@ -63,7 +63,7 @@ Una configurazione da punto a sito definisce i parametri per la connessione di c
 
 5. Immettere il **Pool di indirizzi** da cui gli indirizzi IP verranno assegnati ai client VPN.
 
-6. Fare clic su **conferma**.
+6. Fare clic su **Conferma**.
 
 7. Il completamento dell'operazione può richiedere fino a 30 minuti.
 
@@ -83,14 +83,14 @@ Usare il profilo VPN per configurare i client.
 
 6. Passare alla cartella "AzureVPN" decompressa.
 
-7. Prendere nota della posizione del file "azurevpnconfig. xml". Azurevpnconfig. XML contiene l'impostazione per la connessione VPN e può essere importato direttamente nell'applicazione client VPN di Azure. È anche possibile distribuire questo file a tutti gli utenti che devono connettersi tramite posta elettronica o altri mezzi. Per la corretta connessione, l'utente dovrà disporre di credenziali Azure AD valide.
+7. Prendere nota della posizione del file "azurevpnconfig.xml". Il azurevpnconfig.xml contiene l'impostazione per la connessione VPN e può essere importato direttamente nell'applicazione client VPN di Azure. È anche possibile distribuire questo file a tutti gli utenti che devono connettersi tramite posta elettronica o altri mezzi. Per la corretta connessione, l'utente dovrà disporre di credenziali Azure AD valide.
 
 ## <a name="9-configure-user-vpn-clients"></a>9. Configurare client VPN utente
 
 Per connettersi, è necessario scaricare il client VPN di Azure e importare il profilo client VPN scaricato nei passaggi precedenti in ogni computer che dovrà connettersi alla rete virtuale.
 
 > [!NOTE]
-> Azure AD autenticazione è supportata solo per le&reg; connessioni di protocollo OpenVPN.
+> Azure AD autenticazione è supportata solo per le &reg; connessioni di protocollo OpenVPN.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Per scaricare il client VPN di Azure
@@ -101,33 +101,33 @@ Usare questo [collegamento](https://go.microsoft.com/fwlink/?linkid=2117554) per
 
 1. Nella pagina selezionare **Importa**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
+    ![importazione](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
 
 2. Individuare il file XML del profilo e selezionarlo. Con il file selezionato, selezionare **Apri**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
+    ![importazione](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
 
 3. Specificare il nome del profilo e selezionare **Salva**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
+    ![importazione](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
 
 4. Selezionare **Connetti** per connettersi alla VPN.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
+    ![importazione](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
 
 5. Una volta stabilita la connessione, l'icona diventerà verde mostrerà lo stato **Connesso**.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
+    ![importazione](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Per eliminare un profilo client
 
 1. Selezionare i puntini di sospensione (...) accanto al profilo client da eliminare. Selezionare quindi **Rimuovi**.
 
-    ![Elimina](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![eliminare](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![Elimina](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![eliminare](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Per diagnosticare i problemi di connessione
 

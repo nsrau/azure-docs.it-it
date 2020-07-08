@@ -5,23 +5,24 @@ description: Monitorare i servizi Web distribuiti con Azure Machine Learning usa
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 03/12/2020
-ms.openlocfilehash: 464ec1fcf0986dc04bd92bbe9e31b5675e5822d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.custom: tracking-python
+ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136194"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743510"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere dati da endpoint servizio Web di ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come raccogliere e monitorare i modelli distribuiti negli endpoint dei servizi Web in Azure Kubernetes Service (AKS) o nelle istanze di contenitore di Azure (ACI) abilitando applicazione Azure Insights tramite 
-* [SDK Azure Machine Learning Python](#python)
+* [Python SDK di Azure Machine Learning](#python)
 * [Azure Machine Learning Studio](#studio) allehttps://ml.azure.com
 
 Oltre a raccogliere i dati di output e la risposta di un endpoint, è possibile monitorare:
@@ -43,10 +44,12 @@ Oltre a raccogliere i dati di output e la risposta di un endpoint, è possibile 
 
 ## <a name="web-service-metadata-and-response-data"></a>Metadati del servizio Web e dati di risposta
 
->[!Important]
-> Applicazione Azure Insights registra solo i payload fino a 64KB. Se viene raggiunto questo limite, vengono registrati solo gli output più recenti del modello. 
+> [!IMPORTANT]
+> Applicazione Azure Insights registra solo i payload fino a 64KB. Se viene raggiunto questo limite, è possibile che vengano visualizzati errori, ad esempio memoria insufficiente, oppure che non vengano registrate informazioni.
 
-I metadati e la risposta al servizio, corrispondenti ai metadati del servizio Web e alle stime del modello, vengono registrati nelle tracce di applicazione Azure Insights sotto il messaggio `"model_data_collection"`. È possibile eseguire query direttamente in applicazione Azure Insights per accedere a questi dati oppure configurare un' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) in un account di archiviazione per un periodo di conservazione più lungo o un'ulteriore elaborazione. È quindi possibile usare i dati del modello nella Azure Machine Learning per configurare l'assegnazione di etichette, la ripetizione del training, la spiegazione, l'analisi dei dati o altro uso. 
+Per registrare le informazioni per una richiesta al servizio Web, aggiungere `print` istruzioni al file score.py. Ogni `print` istruzione restituisce una voce della tabella di traccia in Application Insights, sotto il messaggio `STDOUT` . Il contenuto dell' `print` istruzione sarà contenuto in `customDimensions` , quindi `Contents` nella tabella di traccia. Se si stampa una stringa JSON, viene prodotta una struttura di dati gerarchica nell'output di traccia in `Contents` .
+
+È possibile eseguire query direttamente in applicazione Azure Insights per accedere a questi dati oppure configurare un' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) in un account di archiviazione per un periodo di conservazione più lungo o un'ulteriore elaborazione. È quindi possibile usare i dati del modello nella Azure Machine Learning per configurare l'assegnazione di etichette, la ripetizione del training, la spiegazione, l'analisi dei dati o altro uso. 
 
 <a name="python"></a>
 
@@ -70,10 +73,51 @@ I metadati e la risposta al servizio, corrispondenti ai metadati del servizio We
 
 Per registrare tracce personalizzate, seguire il processo di distribuzione standard per il servizio Azure Kubernetes o il servizio Istanze di Azure Container, descritto nel documento [Distribuire modelli con il servizio di Azure Machine Learning](how-to-deploy-and-where.md). Seguire quindi questa procedura:
 
-1. Aggiornare il file di assegnazione dei punteggi aggiungendo istruzioni Print
+1. Per inviare dati a Application Insights durante l'inferenza, aggiornare il file di assegnazione dei punteggi aggiungendo istruzioni Print. Per registrare informazioni più complesse, ad esempio i dati della richiesta e la risposta, usa una struttura JSON. Il file score.py di esempio seguente registra l'ora di inizializzazione del modello, l'input e l'output durante l'inferenza e l'ora in cui si verificano gli errori:
+
+    > [!IMPORTANT]
+    > Applicazione Azure Insights registra solo i payload fino a 64KB. Se viene raggiunto questo limite, è possibile che vengano visualizzati errori, ad esempio memoria insufficiente, oppure che non vengano registrate informazioni. Se i dati da registrare sono di dimensioni maggiori 64KB, è invece consigliabile archiviarli nell'archiviazione BLOB usando le informazioni in [raccogliere dati per i modelli in produzione](how-to-enable-data-collection.md).
     
     ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
+    import pickle
+    import json
+    import numpy 
+    from sklearn.externals import joblib
+    from sklearn.linear_model import Ridge
+    from azureml.core.model import Model
+    import time
+
+    def init():
+        global model
+        #Print statement for appinsights custom traces:
+        print ("model initialized" + time.strftime("%H:%M:%S"))
+        
+        # note here "sklearn_regression_model.pkl" is the name of the model registered under the workspace
+        # this call should return the path to the model.pkl file on the local disk.
+        model_path = Model.get_model_path(model_name = 'sklearn_regression_model.pkl')
+        
+        # deserialize the model file back into a sklearn model
+        model = joblib.load(model_path)
+    
+
+    # note you can pass in multiple rows for scoring
+    def run(raw_data):
+        try:
+            data = json.loads(raw_data)['data']
+            data = numpy.array(data)
+            result = model.predict(data)
+            # Log the input and output data to appinsights:
+            info = {
+                "input": raw_data,
+                "output": result.tolist()
+                }
+            print(json.dumps(info))
+            # you can return any datatype as long as it is JSON-serializable
+            return result.tolist()
+        except Exception as e:
+            error = str(e)
+            print (error + time.strftime("%H:%M:%S"))
+            return error
     ```
 
 2. Aggiornare la configurazione del servizio
@@ -117,19 +161,19 @@ Per visualizzarli:
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
-1. Selezionare la scheda **Panoramica** per visualizzare un set di metriche di base per il servizio
+1. Nella scheda **Panoramica** o nella sezione __monitoraggio__ nell'elenco a sinistra selezionare __log__.
 
-   [![Panoramica](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
+    [![Scheda Panoramica del monitoraggio](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. Per esaminare i metadati e la risposta della richiesta del servizio Web, selezionare la tabella **requests (richieste** ) nella sezione **logs (Analytics)** e selezionare **Run (Esegui** ) per visualizzare le richieste
+1. Per visualizzare le informazioni registrate dal file score.py, esaminare la tabella __TRACES__ . La query seguente cerca i log in cui è stato registrato il valore di __input__ :
 
-   [![Modellare i dati](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+    ```kusto
+    traces
+    | where customDimensions contains "input"
+    | limit 10
+    ```
 
-
-3. Per esaminare le tracce personalizzate, selezionare **Analytics**
-4. Nella sezione dello schema selezionare **Tracce**. Quindi selezionare **Esegui** per eseguire la query. I dati devono essere visualizzati in formato tabella ed essere mappati alle chiamate personalizzate nel file di assegnazione dei punteggi
-
-   [![Tracce personalizzate](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
+   [![dati di traccia](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 Per altre informazioni su come usare applicazione Azure Insights, vedere [che cos'è Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
@@ -138,7 +182,7 @@ Per altre informazioni su come usare applicazione Azure Insights, vedere [che co
 >[!Important]
 > Applicazione Azure Insights supporta solo le esportazioni nell'archivio BLOB. I limiti aggiuntivi di questa funzionalità di esportazione sono elencati in esportare i dati di [telemetria da Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-È possibile usare l' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) di applicazione Azure Insights per inviare messaggi a un account di archiviazione supportato, in cui è possibile impostare un periodo di conservazione più lungo. I `"model_data_collection"` messaggi vengono archiviati in formato JSON e possono essere facilmente analizzati per estrarre i dati del modello. 
+È possibile usare l' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) di applicazione Azure Insights per inviare messaggi a un account di archiviazione supportato, in cui è possibile impostare un periodo di conservazione più lungo. I dati vengono archiviati in formato JSON e possono essere facilmente analizzati per estrarre i dati del modello. 
 
 Azure Data Factory, le pipeline di Azure ML o altri strumenti di elaborazione dati possono essere usati per trasformare i dati in base alle esigenze. Dopo aver trasformato i dati, è possibile registrarli con l'area di lavoro Azure Machine Learning come set di dati. A tale scopo, vedere [How to create and register DataSets](how-to-create-register-datasets.md).
 

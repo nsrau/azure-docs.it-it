@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 334f239ea8382a67add9655d4a25f98d254567d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78205025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743950"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -44,7 +44,7 @@ Per aprire le impostazioni per un ruolo di Azure AD seguire questa procedura.
 
 1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente nel ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 gt
-1. Aprire **Azure ad Privileged Identity Management** &gt; &gt; **impostazioni del ruolo** **ruoli Azure ad** .
+1. Aprire **Azure ad Privileged Identity Management** &gt; impostazioni del ruolo **ruoli Azure ad** &gt; **Role settings**.
 
     ![Pagina impostazioni ruolo che elenca Azure AD ruoli](./media/pim-how-to-change-default-settings/role-settings.png)
 
@@ -167,10 +167,10 @@ Usare l' **opzione** per richiedere agli amministratori idonei di includere un n
 
 Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere agli utenti di verificare la propria identità con MFA prima di attivare i ruoli. È necessario verificarne l'identità una sola volta per ogni sessione, non ogni volta che viene attivato un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
 
-- Gli utenti che dispongono di account Microsoft per gli indirizzi di @outlook.composta elettronica (in genere, ma non sempre) non possono registrarsi per multi-factor authentication di Azure. Se si desidera assegnare ruoli agli utenti con account Microsoft, è necessario renderli amministratori permanenti o disabilitare l'autenticazione a più fattori per quel ruolo.
+- Gli utenti che dispongono di account Microsoft per gli indirizzi di posta elettronica (in genere @outlook.com , ma non sempre) non possono registrarsi per multi-factor authentication di Azure. Se si desidera assegnare ruoli agli utenti con account Microsoft, è necessario renderli amministratori permanenti o disabilitare l'autenticazione a più fattori per quel ruolo.
 - Non è possibile disabilitare Multi-Factor Authentication di Azure per i ruoli con privilegi elevati per Azure AD e Office 365. Questa funzionalità di sicurezza consente di proteggere i ruoli seguenti:  
   
-  - Amministratore Azure Information Protection
+  - Amministratore di Azure Information Protection
   - Amministratore fatturazione
   - Amministratore di applicazioni cloud
   - Amministratore di conformità
@@ -181,12 +181,12 @@ Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere ag
   - Amministratori di Exchange
   - Amministratore globale
   - Amministratore di Intune
-  - Amministratore Power BI
+  - Amministratore di Power BI
   - Amministratore dei ruoli con privilegi
   - Amministratore della protezione
   - Amministratore di SharePoint
   - Amministratore di Skype for Business
-  - Amministratore degli utenti
+  - Amministratore utenti
 
 Per altre informazioni, vedere [Autenticazione a più fattori e Privileged Identity Management](pim-how-to-require-mfa.md).
 

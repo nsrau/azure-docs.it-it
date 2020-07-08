@@ -4,20 +4,20 @@ description: Informazioni su come caricare un dominio radice o Apex in un sporte
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743593"
 ---
-# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Onboarding di un dominio radice o apice nella porta anteriore
+# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Eseguire l'onboarding di un dominio radice o apex nella frontdoor
 Il front-end di Azure usa record CNAME per convalidare la proprietà del dominio per l'onboarding di domini personalizzati. Inoltre, la porta anteriore non espone l'indirizzo IP front-end associato al profilo della porta anteriore e pertanto non è possibile eseguire il mapping del dominio Apex a un indirizzo IP, se lo scopo è quello di eseguire l'onboarding in Azure front door.
 
-Il protocollo DNS impedisce l'assegnazione di record CNAME al dominio radice. Ad esempio, se il dominio è `contoso.com`; è possibile creare record CNAME per `somelabel.contoso.com`; Tuttavia, non è possibile creare `contoso.com` CNAME per se stesso. Questa restrizione presenta un problema per i proprietari di applicazioni che hanno applicazioni con carico bilanciato dietro Azure front door. Poiché l'uso di un profilo di porta anteriore richiede la creazione di un record CNAME, non è possibile puntare al profilo della porta anteriore dal vertice della zona.
+Il protocollo DNS impedisce l'assegnazione di record CNAME al dominio radice. Ad esempio, se il dominio è `contoso.com` ; è possibile creare record CNAME per `somelabel.contoso.com` , ma non è possibile creare CNAME per `contoso.com` se stesso. Questa restrizione presenta un problema per i proprietari di applicazioni che hanno applicazioni con carico bilanciato dietro Azure front door. Poiché l'uso di un profilo di porta anteriore richiede la creazione di un record CNAME, non è possibile puntare al profilo della porta anteriore dal vertice della zona.
 
 Questo problema viene risolto usando i record alias nel servizio DNS di Azure. A differenza dei record CNAME, i record di alias vengono creati nel vertice della zona e i proprietari dell'applicazione possono usarli per puntare il record Apex della zona a un profilo di porta anteriore con endpoint pubblici. I proprietari dell'applicazione puntano allo stesso profilo di porta anteriore usato per qualsiasi altro dominio nella zona DNS. Ad esempio, `contoso.com` e `www.contoso.com` possono puntare allo stesso profilo di porta anteriore. 
 
@@ -48,12 +48,12 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
     ![Record alias per l'apice della zona](./media/front-door-apex-domain/front-door-apex-alias-record.png)
 
-6. Il passaggio precedente creerà un record di apice della zona che punta alla risorsa front-end e anche un mapping di record CNAME ' afdverify ' `afdverify.contosonews.com`(example `afdverify.<name>.azurefd.net` -) a cui verrà usato per l'onboarding del dominio nel profilo della porta anteriore.
+6. Il passaggio precedente creerà un record di apice della zona che punta alla risorsa front-end e anche un mapping di record CNAME ' afdverify ' (example- `afdverify.contosonews.com` ) a `afdverify.<name>.azurefd.net` cui verrà usato per l'onboarding del dominio nel profilo della porta anteriore.
 
 ## <a name="onboard-the-custom-domain-on-your-front-door"></a>Onboarding del dominio personalizzato nella porta anteriore
 
 1. Nella scheda Progettazione porta anteriore fare clic sull'icona "+" nella sezione host front-end per aggiungere un nuovo dominio personalizzato.
-2. Immettere il nome di dominio radice o apice nel campo nome host personalizzato, ad `contosonews.com`esempio.
+2. Immettere il nome di dominio radice o apice nel campo nome host personalizzato, ad esempio `contosonews.com` .
 3. Dopo aver convalidato il mapping CNAME dal dominio alla porta anteriore, fare clic su **Aggiungi** per aggiungere il dominio personalizzato.
 4. Fare clic su **Salva** per inviare le modifiche.
 

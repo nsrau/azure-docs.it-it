@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f12b2b31da4c7fe67eef9674d96b517d4e2bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1cc7aed1cc79a8c08a7ff11382a1c7a51455d5c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81867744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743661"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Azure AD guidata sicurezza ruoli in Privileged Identity Management
 

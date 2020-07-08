@@ -11,18 +11,18 @@ Customer intent: I need to diagnose virtual machine (VM) network routing problem
 ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: b5a636471eab188dc8648761afedd81694331953
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 362157f023f7ed4d2da81962acd32e2da968193e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76834706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738788"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticare un problema di routing di rete di una macchina virtuale - Azure PowerShell
 
@@ -133,7 +133,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
 
 Come si può osservare nell'output precedente, la route con **AddressPrefix****0.0.0.0/0** instrada tutto il traffico non destinato agli indirizzi all'interno dei prefissi degli indirizzi dell'altra route con hop successivo **Internet**. Come si può notare sempre nell'output, nonostante vi sia una route predefinita per il prefisso 172.16.0.0/12, che include l'indirizzo 172.31.0.100, il valore di **nextHopType** è **None**. Azure crea una route predefinita per 172.16.0.0/12, ma non specifica alcun tipo di hop successivo fino a quando non c'è un motivo per farlo. Se, ad esempio, è stato aggiunto l'intervallo di indirizzi 172.16.0.0/12 allo spazio di indirizzi della rete virtuale, Azure modifica **nextHopType** in **Rete virtuale** per la route. Il segno di spunta indica **Rete virtuale** come **nextHopType**.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuoverli:
 

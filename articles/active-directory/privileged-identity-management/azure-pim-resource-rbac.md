@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743151"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -34,7 +34,7 @@ Se è necessario verificare quali azioni sono state effettuate da un utente spec
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **Risorse di Azure**.
+1. Selezionare **risorse di Azure**.
 
 1. Selezionare la risorsa per cui si desidera visualizzare le attività e le attivazioni.
 
@@ -56,7 +56,7 @@ Potrebbe essere previsto un requisito di conformità in base al quale è necessa
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **Risorse di Azure**.
+1. Selezionare **risorse di Azure**.
 
 1. Selezionare la risorsa per cui si desidera esportare le assegnazioni di ruolo, ad esempio una sottoscrizione.
 
@@ -76,7 +76,7 @@ L'opzione Controllo delle risorse fornisce una visualizzazione di tutte le attiv
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **Risorse di Azure**.
+1. Selezionare **risorse di Azure**.
 
 1. Selezionare la risorsa per cui si vuole visualizzare la cronologia di controllo.
 
@@ -88,7 +88,7 @@ L'opzione Controllo delle risorse fornisce una visualizzazione di tutte le attiv
 
 1. Per **Tipo di controllo**, selezionare **Attiva (assegnato + attivato)**.
 
-    [![Elenco di controllo delle risorse filtrato attivando](media/azure-pim-resource-rbac/rbac-audit-activity.png "Elenco di controllo delle risorse filtrato per attivazione")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![l'elenco di controllo delle risorse del tipo di controllo filtrato in base al tipo di controllo](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    [![Elenco di controllo delle risorse filtrato in base al tipo](media/azure-pim-resource-rbac/rbac-audit-activity.png "Elenco di controllo delle risorse filtrato per attivazione")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![ di controllo Activate Elenco di controllo delle risorse filtrato in base al tipo di controllo Activate](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. In **Azione** fare clic su **(attività)** per un utente per visualizzare il dettaglio dell'attività di tale utente nelle risorse di Azure.
 
@@ -100,7 +100,7 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **Risorse di Azure**.
+1. Selezionare **risorse di Azure**.
 
 1. Selezionare la risorsa per cui si vuole visualizzare la cronologia di controllo.
 
@@ -116,7 +116,7 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Ottieni motivo, responsabile approvazione e numero di ticket per gli eventi di approvazione
 
 1. Accedere al [portale di Azure](https://aad.portal.azure.com) con le autorizzazioni del ruolo amministratore del ruolo con privilegi e aprire Azure ad.
-1. Selezionare **log di controllo**.
+1. Selezionare **Log di controllo**.
 1. Usare il filtro del **servizio** per visualizzare solo gli eventi di controllo per il servizio Privileged Identity Management. Nella pagina **log di controllo** è possibile:
 
     - Vedere la causa di un evento di controllo nella colonna **motivo dello stato** .

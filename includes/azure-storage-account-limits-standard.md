@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/20/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 72afa8ebea4cb9bf07cb3ce56583cbdf1849be9e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: e2540bceab17e6f37fd94b28df3814ccffa1c81e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466929"
 ---
 La tabella seguente descrive i limiti predefiniti per Azure per gli account di archiviazione di Azure per utilizzo generico V1, V2, archiviazione BLOB e archiviazione BLOB in blocchi. Il limite *in ingresso* indica tutti i dati inviati a un account di archiviazione. Il limite *in uscita* indica tutti i dati ricevuti da un account di archiviazione.
 
@@ -23,7 +23,7 @@ La tabella seguente descrive i limiti predefiniti per Azure per gli account di a
 | Capacità massima dell'account di archiviazione | 5 PiB <sup>1</sup>|
 | Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione | Nessun limite |
 | Frequenza massima delle richieste<sup>1</sup> per account di archiviazione | 20.000 richieste al secondo |
-| Traffico in ingresso massimo<sup>1</sup> per account di archiviazione (per le aree Stati Uniti ed Europa) | 25 Gbps |
+| Traffico in ingresso massimo<sup>1</sup> per account di archiviazione (per le aree Stati Uniti ed Europa) | 10 Gbps |
 | Traffico in ingresso massimo<sup>1</sup> per account di archiviazione (per le aree diverse da Stati Uniti ed Europa) | 5 Gbps se è abilitata l'archiviazione RA-GRS/GRS, 10 Gbps per LRS/ZRS<sup>2</sup> |
 | Traffico in uscita massimo per gli account di archiviazione per utilizzo generico v2 e BLOB (per tutte le aree) | 50 Gbps |
 | Traffico in uscita massimo per gli account di archiviazione per utilizzo generico v1 (per le aree degli Stati Uniti) | 20 Gbps se è abilitata l'archiviazione RA-GRS/GRS, 30 Gbps per LRS/ZRS<sup>2</sup> |

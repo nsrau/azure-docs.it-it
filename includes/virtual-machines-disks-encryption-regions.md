@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: rogarana
-ms.custom: include file
-ms.openlocfilehash: ef961fe37b9906d3b7be44a8ee99876394104455
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.custom: include file, references_regions
+ms.openlocfilehash: 59df8bef902d5068ceafaf90c530e8b636b40af9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84346152"
 ---
 Per i dischi SSD Premium, SSD standard e HDD standard, solo le aree seguenti supportano attualmente le chiavi gestite dal cliente:
 
