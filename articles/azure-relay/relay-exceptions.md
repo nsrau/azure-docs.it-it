@@ -1,25 +1,14 @@
 ---
 title: Eccezioni del servizio di inoltro di Azure e relativa risoluzione | Microsoft Docs
 description: Elenco di eccezioni del servizio di inoltro di Azure e azioni consigliate per la risoluzione.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2017
-ms.author: spelluru
-ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0bc8a399173331525d62b25929f65ad189ed219b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210869"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316877"
 ---
 # <a name="azure-relay-exceptions"></a>Eccezioni del servizio di inoltro di Azure
 

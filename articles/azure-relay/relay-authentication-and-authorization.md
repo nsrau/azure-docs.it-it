@@ -1,25 +1,14 @@
 ---
 title: Autenticazione e autorizzazione di Inoltro di Azure | Documentazione Microsoft
 description: Questo articolo fornisce una panoramica dell'autenticazione con firma di accesso condiviso (SAS) con il servizio di inoltro di Azure.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: aac5c973a99b13d5918a0162feb7f1ede443463b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 63e075bc9bf75005a92866f9fa0f90ddaba2f016
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210567"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316937"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticazione e autorizzazione di Inoltro di Azure
 

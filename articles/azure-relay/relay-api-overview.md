@@ -1,25 +1,14 @@
 ---
 title: Panoramica delle API di Inoltro di Azure | Documentazione Microsoft
-description: Questo articolo fornisce una panoramica delle API di inoltro di Azure disponibili (.NET Standard, .NET Framework, node. js e così via)
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: fdaa1d2b-bd80-4e75-abb9-0c3d0773af2d
-ms.service: service-bus-relay
-ms.devlang: na
+description: Questo articolo fornisce una panoramica delle API di inoltro di Azure disponibili (.NET Standard, .NET Framework, Node.js e così via)
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: ad7226b5c5badfddf9f436a1229a48f729485821
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 15e13ccac9b05e6e1b0730b38b372dec20c69dda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210593"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316957"
 ---
 # <a name="available-relay-apis"></a>API di Inoltro disponibili
 
@@ -29,7 +18,7 @@ La tabella seguente elenca tutti i client di runtime di Inoltro attualmente disp
 
 La sezione [Informazioni aggiuntive](#additional-information) contiene altre informazioni sullo stato di ogni libreria di runtime.
 
-| Linguaggio/Piattaforma | Funzionalità disponibile | Pacchetto client | Repository |
+| Linguaggio/Piattaforma | Funzionalità disponibile | Pacchetto client | Archivio |
 | --- | --- | --- | --- |
 | .NET Standard | connessioni ibride | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | Inoltro WCF | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/D |
@@ -49,7 +38,7 @@ La libreria .NET Standard è basata sulla definizione del protocollo aperto per 
 
 I moduli di Connessioni ibride elencati nella tabella precedente sostituiscono o modificano i moduli Node.js esistenti, con implementazioni alternative in ascolto sul servizio Inoltro di Azure anziché nello stack di rete locale.
 
-Il `hyco-https` modulo modifica e sostituisce parzialmente i moduli Node. js di base `http` e `https` fornisce un'implementazione del listener HTTPS compatibile con molti moduli Node. js esistenti e applicazioni che si basano su questi moduli di base.
+Il `hyco-https` modulo modifica e sostituisce parzialmente i moduli Node.js principali `http` e `https` fornisce un'implementazione del listener HTTPS compatibile con molti moduli di Node.js esistenti e applicazioni che si basano su questi moduli di base.
 
 I moduli `hyco-ws` e `hyco-websocket` modificano gli ormai diffusi moduli `ws` e `websocket` per Node.js, fornendo implementazioni del listener alternative che consentono a moduli e applicazioni basati su uno dei moduli di funzionare dietro l'inoltro di Connessioni ibride.
 
