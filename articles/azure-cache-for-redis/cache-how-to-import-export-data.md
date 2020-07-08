@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 29ad5ca6c9058b88a539c7a3bb8ace4d9a65083a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84abbe8d9958bf41768f3706a700ae0ecad6b44f
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278090"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856996"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importare ed esportare dati in Cache Redis di Azure
 L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati nella Cache Redis di Azure importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB in un account di archiviazione di Azure.
@@ -61,7 +61,7 @@ L'importazione può essere usata per spostare i file RDB compatibili con Redis d
 
     ![Stato dell'importazione](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
-## <a name="export"></a>Export
+## <a name="export"></a>Esportazione
 L'esportazione consente di esportare i dati archiviati in Cache Redis in file RDB compatibili con Redis. È possibile usare questa funzionalità per spostare i dati da un'istanza di Cache Redis di Azure a un'altra o su un altro server Redis. Durante il processo di esportazione viene creato un file temporaneo nella macchina virtuale che ospita l'istanza del server Cache Redis di Azure e il file viene caricato nell'account di archiviazione designato. Quando l'operazione di esportazione viene completata con esito positivo o negativo, il file temporaneo viene eliminato.
 
 1. Per esportare il contenuto corrente della cache nell'archiviazione, [passare alla cache](cache-configure.md#configure-azure-cache-for-redis-settings) nel portale di Azure e fare clic su **Esporta dati** dal **menu della risorsa**.
@@ -79,7 +79,7 @@ L'esportazione consente di esportare i dati archiviati in Cache Redis in file RD
     ![Scegliere il contenitore di archiviazione](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. Digitare un valore in **Prefisso nome BLOB** e fare clic su **Esporta** per avviare il processo di esportazione. Il prefisso del nome BLOB viene usato per i nomi dei file generati da questa operazione di esportazione.
 
-    ![Export](./media/cache-how-to-import-export-data/cache-export-data.png)
+    ![Esportazione](./media/cache-how-to-import-export-data/cache-export-data.png)
 
     È possibile controllare lo stato dell'operazione di esportazione seguendo le notifiche del portale di Azure oppure visualizzando gli eventi nel [log di controllo](../azure-resource-manager/management/view-activity-logs.md).
 
@@ -142,7 +142,9 @@ Sì, per le istruzioni su PowerShell, vedere [Come importare un'istanza di Cache
 ### <a name="i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean"></a>Durante l'operazione di Importazione/Esportazione è stato ricevuto un errore di timeout. Da cosa dipende il problema?
 Se il pannello **Importa dati** o **Esporta dati** rimane aperto per più di 15 minuti prima che l'operazione venga avviata, verrà visualizzato un errore contenente un messaggio simile al seguente:
 
-    The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```output
+The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```
 
 Per risolvere il problema, avviare l'operazione di importazione o esportazione prima che scadano i 15 minuti.
 

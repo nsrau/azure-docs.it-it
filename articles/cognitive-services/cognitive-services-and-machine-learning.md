@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 42717b1e9b4ba12c2fe42dbd13ef44223ef2ba43
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856735"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
@@ -73,7 +73,7 @@ I servizi cognitivi, come un gruppo di servizi, possono richiedere nessuno, alcu
 
 ### <a name="no-additional-training-data-required"></a>Non sono necessari dati di training aggiuntivi
 
-I servizi che forniscono un modello completamente sottoposto a training possono essere considerati come _Black Box_. Non è necessario conoscere il modo in cui funzionano o i dati usati per eseguirne il training. È possibile importare i dati in un modello completamente sottoposto a training per ottenere una stima. 
+I servizi che forniscono un modello completamente sottoposto a training possono essere considerati come una _casella opaca_. Non è necessario conoscere il modo in cui funzionano o i dati usati per eseguirne il training. È possibile importare i dati in un modello completamente sottoposto a training per ottenere una stima. 
 
 ### <a name="some-or-all-training-data-required"></a>Sono necessari alcuni o tutti i dati di training
 

@@ -3,12 +3,12 @@ title: Aggiornamenti di immagini di base-attività
 description: Informazioni sulle immagini di base per le immagini del contenitore di applicazioni e sul modo in cui un aggiornamento di un'immagine di base può attivare un'attività di Container Registry di Azure.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918499"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Informazioni sugli aggiornamenti delle immagini di base per le attività ACR
 
@@ -39,6 +39,13 @@ Per la creazione di immagini da un documento Dockerfile, un'attività di Registr
 
 Se l'immagine di base specificata nell' `FROM` istruzione risiede in uno di questi percorsi, l'attività ACR aggiunge un hook per assicurarsi che l'immagine venga ricompilata ogni volta che viene aggiornata la base.
 
+## <a name="base-image-notifications"></a>Notifiche di base sulle immagini
+
+Il tempo che intercorre tra l'aggiornamento di un'immagine di base e l'attivazione dell'attività dipendente dipende dalla posizione dell'immagine di base:
+
+* **Immagini di base di un repository pubblico nell'hub Docker o** per le immagini di base in repository pubblici, un'attività ACR controlla la presenza di aggiornamenti delle immagini a un intervallo casuale compreso tra 10 e 60 minuti. Le attività dipendenti vengono eseguite di conseguenza.
+* **Immagini di base di un registro contenitori di Azure** : per le immagini di base nei registri contenitori di Azure, un'attività ACR attiva immediatamente un'esecuzione quando viene aggiornata l'immagine di base. L'immagine di base può trovarsi nello stesso record di verifica di stato in cui viene eseguita l'attività o in un altro ACR in qualsiasi area.
+
 ## <a name="additional-considerations"></a>Altre considerazioni
 
 * **Immagini di base per le immagini dell'applicazione** : attualmente, un'attività ACR tiene traccia solo degli aggiornamenti delle immagini di base per le immagini dell'applicazione (*Runtime*). Non tiene traccia degli aggiornamenti delle immagini di base per le immagini intermedie (*buildtime*) usate in Dockerfile in più fasi.  
@@ -51,7 +58,7 @@ Se l'immagine di base specificata nell' `FROM` istruzione risiede in uno di ques
 
 * **Trigger per tenere traccia delle dipendenze** : per consentire a un'attività ACR di determinare e tenere traccia delle dipendenze di un'immagine del contenitore, tra cui l'immagine di base, è necessario innanzitutto attivare l'attività per compilare l'immagine almeno **una volta**. Attivare ad esempio l'attività manualmente usando il comando [az acr task run][az-acr-task-run].
 
-* **Tag stabile per l'immagine di base** : per attivare un'attività nell'aggiornamento di un'immagine di base, è necessario che l'immagine di `node:9-alpine`base disponga di un tag *stabile* , ad esempio. Questo tag è tipico per un'immagine di base che viene aggiornata con le patch di sistema operativo e framework all'ultima versione stabile. Se l'immagine di base viene aggiornata con un nuovo tag di versione, l'attività non viene attivata. Per altre informazioni sull'uso di tag per le immagini, vedere le [procedure consigliate](container-registry-image-tag-version.md). 
+* **Tag stabile per l'immagine di base** : per attivare un'attività nell'aggiornamento di un'immagine di base, è necessario che l'immagine di base disponga di un tag *stabile* , ad esempio `node:9-alpine` . Questo tag è tipico per un'immagine di base che viene aggiornata con le patch di sistema operativo e framework all'ultima versione stabile. Se l'immagine di base viene aggiornata con un nuovo tag di versione, l'attività non viene attivata. Per altre informazioni sull'uso di tag per le immagini, vedere le [procedure consigliate](container-registry-image-tag-version.md). 
 
 * **Altri trigger di attività** : in un'attività attivata dagli aggiornamenti di un'immagine di base, è anche possibile abilitare i trigger in base al [commit del codice sorgente](container-registry-tutorial-build-task.md) o [a una pianificazione](container-registry-tasks-scheduled.md). Un aggiornamento di un'immagine di base può inoltre attivare un'attività in più [passaggi](container-registry-tasks-multi-step.md).
 

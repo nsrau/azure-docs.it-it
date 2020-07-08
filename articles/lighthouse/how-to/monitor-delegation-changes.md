@@ -2,13 +2,13 @@
 title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
 ms.date: 03/30/2020
-ms.topic: conceptual
-ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458812"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919129"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
@@ -44,7 +44,7 @@ Poiché si tratta di un ampio livello di accesso, è consigliabile assegnare que
 
 - [Creare un nuovo account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md) da usare solo per questa funzione, invece di assegnare questo ruolo a un'entità servizio esistente usata per l'automazione.
 - Assicurarsi che questa entità servizio non disponga dell'accesso alle risorse dei clienti Delegate.
-- [Usare un certificato per autenticare](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e [archiviarlo in modo sicuro in Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Usare un certificato per autenticare](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) e [archiviarlo in modo sicuro in Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limitare gli utenti che dispongono dell'accesso per agire per conto dell'entità servizio.
 
 Usare uno dei metodi seguenti per effettuare le assegnazioni dell'ambito radice.
@@ -73,7 +73,7 @@ Dopo aver creato l'account dell'entità servizio e assegnato il ruolo di lettore
 
 Dopo aver creato un nuovo account dell'entità servizio con il monitoraggio dell'accesso del lettore all'ambito radice del tenant di gestione, è possibile usarlo per eseguire query e creare report sulle attività di delega nel tenant. 
 
-[Questo script di Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) può essere usato per eseguire una query dell'ultimo giorno di attività e per i report sulle deleghe aggiunte o rimosse o sui tentativi non riusciti. Esegue una query sui dati del [log attività del tenant](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) , quindi costruisce i valori seguenti per generare report sulle deleghe aggiunte o rimosse:
+[Questo script di Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) può essere usato per eseguire una query dell'ultimo giorno di attività e per i report sulle deleghe aggiunte o rimosse o sui tentativi non riusciti. Esegue una query sui dati del [log attività del tenant](/rest/api/monitor/TenantActivityLogs/List) , quindi costruisce i valori seguenti per generare report sulle deleghe aggiunte o rimosse:
 
 - **DelegatedResourceId**: ID della sottoscrizione o del gruppo di risorse delegato
 - **CustomerTenantId**: ID tenant del cliente

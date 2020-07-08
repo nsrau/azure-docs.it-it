@@ -1,24 +1,52 @@
 ---
 title: Distribuire un ruolo di lavoro ibrido per runbook di Linux in Automazione di Azure
-description: Questo articolo descrive come installare un ruolo di lavoro ibrido per runbook di Automazione di Azure per eseguire i runbook nei computer Linux del data center locale o dell'ambiente cloud.
+description: Questo articolo descrive come installare un ruolo di lavoro ibrido per Runbook di automazione di Azure per eseguire manuali operativi in computer basati su Linux nel Data Center locale o nell'ambiente cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/02/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: a6cf348142d694a03da24f32793fc72325701931
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 0fc7951411f1c8956b4816f9031a8b7c26594b42
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856128"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
-È possibile usare la funzionalità Ruolo di lavoro ibrido per runbook di Automazione di Azure per eseguire runbook direttamente nel computer che ospita il ruolo e su risorse nell'ambiente per gestire tali risorse locali. Il ruolo di lavoro ibrido per runbook di Linux esegue i runbook come un utente speciale a cui possono essere garantiti privilegi elevati per eseguire i comandi che richiedono l'elevazione. I runbook vengono infatti archiviati e gestiti in Automazione di Azure e quindi distribuiti a uno o più computer designati.
+È possibile usare la funzionalità Hybrid Runbook Worker di automazione di Azure per eseguire manuali operativi direttamente sul computer che ospita il ruolo e sulle risorse nell'ambiente per gestire tali risorse locali. Il ruolo di lavoro ibrido per runbook di Linux esegue i runbook come un utente speciale a cui possono essere garantiti privilegi elevati per eseguire i comandi che richiedono l'elevazione. Automazione di Azure archivia e gestisce manuali operativi e li recapita a uno o più computer designati. Questo articolo descrive come installare il ruolo di lavoro ibrido per runbook in un computer Linux, come rimuovere il ruolo di lavoro e come rimuovere un gruppo di ruoli di lavoro ibridi per runbook.
 
-Questo articolo descrive come installare il ruolo di lavoro ibrido per runbook in un computer Linux, come rimuovere il ruolo di lavoro e come rimuovere un gruppo di ruoli di lavoro ibridi per runbook.
+Dopo avere distribuito correttamente un ruolo di lavoro per runbook, esaminare [Esecuzione dei runbook per Hybrid Runbook Worker](automation-hrw-run-runbooks.md) per informazioni su come configurare i runbook per automatizzare i processi nel data center locale o un altro ambiente cloud.
 
-## <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
+## <a name="prerequisites"></a>Prerequisiti
+
+Prima di iniziare, verificare di disporre degli elementi seguenti:
+
+### <a name="a-log-analytics-workspace"></a>Area di lavoro Log Analytics
+
+Il ruolo di lavoro ibrido per Runbook dipende da un'area di lavoro di monitoraggio di Azure Log Analytics per installare e configurare il ruolo. È possibile crearlo tramite [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), tramite [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)o nel [portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
+
+Se non si dispone di un'area di lavoro Log Analytics di monitoraggio di Azure, vedere le [indicazioni sulla progettazione dei log di monitoraggio di Azure](../azure-monitor/platform/design-logs-deployment.md) prima di creare l'area di lavoro
+
+Se si dispone di un'area di lavoro, ma non è collegata all'account di automazione, l'abilitazione di una funzionalità di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si abilita una delle funzionalità di automazione di Azure nell'area di lavoro Log Analytics, in particolare [Gestione aggiornamenti](automation-update-management.md) o [rilevamento modifiche e l'inventario](change-tracking.md), i componenti del ruolo di lavoro vengono inseriti automaticamente nel computer agente.
+
+Per aggiungere la funzionalità Gestione aggiornamenti all'area di lavoro, eseguire il cmdlet PowerShell seguente:
+
+```powershell-interactive
+    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
+```
+
+Per aggiungere la funzionalità di Rilevamento modifiche e inventario all'area di lavoro, eseguire il cmdlet di PowerShell seguente:
+
+```powershell-interactive
+    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
+```
+
+### <a name="log-analytics-agent"></a>Agente di Log Analytics
+
+Il ruolo di lavoro ibrido per Runbook richiede l' [agente di log Analytics](../azure-monitor/platform/log-analytics-agent.md) per il sistema operativo Linux supportato.
+
+### <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
 
 La funzionalità ruolo di lavoro ibrido per runbook supporta le distribuzioni seguenti:
 
@@ -30,33 +58,13 @@ La funzionalità ruolo di lavoro ibrido per runbook supporta le distribuzioni se
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS e 18.04 (x86/x64)
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
-## <a name="supported-runbook-types"></a>Tipi di runbook supportati
-
-I ruoli di lavoro ibridi per runbook di Linux non supportano il set completo di tipi di runbook in Automazione di Azure.
-
-I tipi di runbook seguenti possono essere usati in un ruolo di lavoro ibrido di Linux:
-
-* Python 2
-* PowerShell
-
-  > [!NOTE]
-  > I runbook di PowerShell richiedono che PowerShell Core sia installato nel computer Linux. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.
-
-I tipi di runbook seguenti non possono essere usati in un ruolo di lavoro ibrido di Linux:
-
-* Flusso di lavoro PowerShell
-* Grafico
-* Grafico del flusso di lavoro di PowerShell
-
-## <a name="deployment-requirements"></a>Requisiti di distribuzione
+### <a name="minimum-requirements"></a>Requisiti minimi
 
 I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seguenti:
 
 * Due core
 * 4 GB di RAM
 * Porta 443 (in uscita)
-
-### <a name="package-requirements"></a>Requisiti dei pacchetti
 
 | **Pacchetto obbligatorio** | **Descrizione** | **Versione minima**|
 |--------------------- | --------------------- | -------------------|
@@ -66,54 +74,84 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seg
 |Python-ctypes | Python 2.x è obbligatorio |
 |PAM | Moduli di autenticazione modulare|
 | **Pacchetto facoltativo** | **Descrizione** | **Versione minima**|
-| PowerShell Core | Per eseguire i runbook di PowerShell, PowerShell deve essere installato. Vedere [installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.  | 6.0.0 |
+| PowerShell Core | Per eseguire PowerShell manuali operativi, è necessario installare PowerShell core. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo. | 6.0.0 |
+
+## <a name="supported-runbook-types"></a>Tipi di runbook supportati
+
+I ruoli di lavoro ibridi per Runbook di Linux supportano un set limitato di tipi Runbook in automazione di Azure, descritti nella tabella seguente.
+
+|Tipo Runbook | Supportato |
+|-------------|-----------|
+|Python 2 |Sì |
+|PowerShell |Sì<sup>1</sup> |
+|Flusso di lavoro PowerShell |No |
+|Grafico |No |
+|Grafico del flusso di lavoro di PowerShell |No |
+
+<sup>1</sup> PowerShell manuali operativi richiede l'installazione di PowerShell core nel computer Linux. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.
 
 ## <a name="install-a-linux-hybrid-runbook-worker"></a>Installare un ruolo di lavoro ibrido per runbook di Linux
 
-Per installare e configurare un ruolo di lavoro ibrido per runbook nel computer Linux, seguire una procedura manuale semplice. È necessario abilitare la soluzione Ruolo di lavoro ibrido per runbook nell'area di lavoro Log Analytics di Azure e quindi eseguire un set di comandi per registrare il computer come ruolo di lavoro e aggiungerlo a un gruppo.
+Per installare e configurare un ruolo di lavoro ibrido per Runbook di Linux, seguire questa procedura.
 
-Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è collegato l'account di Automazione. Prendere anche nota della chiave primaria per l'account di Automazione. È possibile trovare entrambi nel portale di Azure, selezionando l'account di Automazione, **Area di lavoro** per l'ID dell'area di lavoro e selezionando **Chiavi** per la chiave primaria. Per informazioni sulle porte e sugli indirizzi necessari per il ruolo di lavoro ibrido per runbook, vedere [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
+1. Distribuire l'agente di Log Analytics nel computer di destinazione.
 
->[!NOTE]
-> L'[account nxautomation](automation-runbook-execution.md#log-analytics-agent-for-linux) deve essere presente con le autorizzazioni sudo corrispondenti durante l'installazione di un ruolo di lavoro ibrido per runbook di Linux. Se si prova a installare il ruolo di lavoro e l'account non è presente o non ha le autorizzazioni appropriate, l'installazione non riesce.
+    * Per le macchine virtuali di Azure, installare l'agente Log Analytics per Linux usando l' [estensione della macchina virtuale per Linux](../virtual-machines/extensions/oms-linux.md). L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro di Log Analytics esistente usando un modello di Azure Resource Manager o l'interfaccia della riga di comando di Azure. Dopo che l'agente è installato, la macchina virtuale può essere aggiunta a un gruppo di ruoli di lavoro ibridi per runbook nell'account di automazione.
 
-1. Abilitare il ruolo di lavoro ibrido per runbook in Azure usando uno dei metodi seguenti:
+    * Per le macchine virtuali non di Azure, installare l'agente di Log Analytics per Linux usando le opzioni di distribuzione descritte nell'articolo [connettere computer Linux a monitoraggio di Azure](../azure-monitor/platform/agent-linux.md) . È possibile ripetere questo processo per più computer per aggiungere più ruoli di lavoro all'ambiente. Una volta installato l'agente, è possibile aggiungere le macchine virtuali a un gruppo di ruolo di lavoro ibrido per Runbook nell'account di automazione.
 
-   * Aggiungere il ruolo di lavoro ibrido per runbook alla sottoscrizione usando la procedura descritta in [Aggiungere i log di Monitoraggio di Azure all'area di lavoro](../log-analytics/log-analytics-add-solutions.md).
-   * Eseguire il cmdlet seguente:
+    > [!NOTE]
+    > Per gestire la configurazione dei computer che supportano il ruolo di lavoro ibrido per runbook con desired state Configuration (DSC), è necessario aggiungere i computer come nodi DSC.
 
-        ```azurepowershell-interactive
-         Set-AzOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
-        ```
+    > [!NOTE]
+    > L'[account nxautomation](automation-runbook-execution.md#log-analytics-agent-for-linux) deve essere presente con le autorizzazioni sudo corrispondenti durante l'installazione di un ruolo di lavoro ibrido per runbook di Linux. Se si prova a installare il ruolo di lavoro e l'account non è presente o non ha le autorizzazioni appropriate, l'installazione non riesce.
 
-1. Installare l'agente di Log Analytics per Linux usando il comando seguente. Sostituire \<WorkspaceID\> e \<WorkspaceKey\> con i valori appropriati dall'area di lavoro.
+2. Verificare che l'agente stia segnalando l'area di lavoro.
 
-   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+    L'agente di Log Analytics per Linux connette i computer a un'area di lavoro Log Analytics di monitoraggio di Azure. Quando si installa l'agente nel computer e lo si connette all'area di lavoro, vengono scaricati automaticamente i componenti necessari per il ruolo di lavoro ibrido per Runbook.
+
+    Quando l'agente si è connesso correttamente all'area di lavoro Log Analytics dopo alcuni minuti, è possibile eseguire la query seguente per verificare che invii dati di heartbeat all'area di lavoro.
+
+    ```kusto
+    Heartbeat 
+    | where Category == "Direct Agent"
+    | where TimeGenerated > ago(30m)
+    ```
+
+    Nei risultati della ricerca verranno visualizzati i record heartbeat per il computer, a indicare che sono connessi e segnalati al servizio. Per impostazione predefinita, ogni agente trasmette un record di heartbeat all'area di lavoro assegnata.
+
+3. Eseguire il comando seguente per aggiungere il computer a un gruppo di ruolo di lavoro ibrido per Runbook, specificando i valori per i parametri `-w` ,, `-k` `-g` e `-e` .
+
+    È possibile ottenere le informazioni necessarie per i parametri `-k` e `-e` dalla pagina **chiavi** nell'account di automazione. Selezionare **chiavi** nella sezione **Impostazioni account** nella parte sinistra della pagina.
+
+    ![Pagina Gestisci chiavi](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+
+    * Per il `-e` parametro, copiare il valore di **URL**.
+
+    * Per il `-k` parametro, copiare il valore della **chiave di accesso primaria**.
+
+    * Per il `-g` parametro, specificare il nome del gruppo di lavoro ibrido per Runbook a cui deve essere aggiunto il nuovo ruolo di lavoro ibrido per Runbook di Linux. Se questo gruppo è già presente nell'account di automazione, viene aggiunto al computer corrente. Se il gruppo non esiste, viene creato con tale nome.
+
+    * Per il `-w` parametro, specificare l'ID dell'area di lavoro log Analytics.
 
    ```bash
-   wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
+   sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <logAnalyticsworkspaceId> -k <automationSharedKey> -g <hybridGroupName> -e <automationEndpoint>
    ```
 
-1. Eseguire il comando seguente modificando i valori per i parametri *-w*, *-k*, *-g* e *-e*. Per il parametro *-g* sostituire il valore con il nome del gruppo del ruolo di lavoro ibrido per runbook a cui deve essere aggiunto il nuovo ruolo di lavoro ibrido per runbook di Linux. Se il nome non esiste già nell'account di Automazione, viene eseguito un nuovo ruolo di lavoro ibrido per runbook con lo stesso nome.
+4. Al termine del comando, nella pagina gruppi di lavoro ibridi dell'account di automazione vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo nell'elenco della pagina Gruppi di ruoli di lavoro ibridi e selezionare il riquadro **Ruoli di lavoro ibridi**. Nella pagina Ruoli di lavoro ibridi sono elencati i membri del gruppo.
 
-   ```bash
-   sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
-   ```
-
-1. Dopo il completamento del comando, nella pagina Gruppi di ruoli di lavoro ibridi nel portale di Azure vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo nell'elenco della pagina Gruppi di ruoli di lavoro ibridi e selezionare il riquadro **Ruoli di lavoro ibridi**. Nella pagina Ruoli di lavoro ibridi sono elencati i membri del gruppo.
-
-> [!NOTE]
-> Se si usa l'estensione della macchina virtuale di Monitoraggio di Azure per Linux per una macchina virtuale di Azure, è consigliabile impostare `autoUpgradeMinorVersion` su false perché l'aggiornamento automatico delle versioni può causare problemi al ruolo di lavoro ibrido per runbook. Per informazioni su come aggiornare manualmente l'estensione, vedere [Distribuzione dell'interfaccia della riga di comando di Azure](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+    > [!NOTE]
+    > Se si usa l'estensione della macchina virtuale Log Analytics per Linux per una macchina virtuale di Azure, è consigliabile impostare `autoUpgradeMinorVersion` su `false` come le versioni di aggiornamento automatico possono causare problemi con il ruolo di lavoro ibrido per Runbook. Per informazioni su come aggiornare manualmente l'estensione, vedere [Distribuzione dell'interfaccia della riga di comando di Azure](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turn-off-signature-validation"></a>Disattivare la convalida della firma
 
 Per impostazione predefinita, i ruoli di lavoro ibridi per runbook di Linux richiedono la convalida della firma. Se si esegue un runbook senza firma in un ruolo di lavoro, viene visualizzato un errore `Signature validation failed`. Per disattivare la convalida della firma, eseguire il comando seguente. Sostituire il secondo parametro con l'ID dell'area di lavoro Log Analytics.
 
  ```bash
- sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
+ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <logAnalyticsworkspaceId>
  ```
 
-## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-linux-computer"></a><a name="remove-linux-hybrid-runbook-worker"></a>Rimuovere il ruolo di lavoro ibrido per runbook da un computer Linux locale
+## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-linux-machine"></a><a name="remove-linux-hybrid-runbook-worker"></a>Rimuovere il ruolo di lavoro ibrido per Runbook da un computer Linux locale
 
 È possibile usare il comando `ls /var/opt/microsoft/omsagent` nel ruolo di lavoro ibrido per runbook per ottenere l'ID dell'area di lavoro. Viene creata una cartella denominata con l'ID dell'area di lavoro.
 
@@ -122,13 +160,14 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ```
 
 > [!NOTE]
-> Questo codice non rimuove l'agente Log Analytics per Linux dal computer. Rimuove solo la funzionalità e la configurazione del ruolo di lavoro ibrido per runbook.
+> Questo script non rimuove l'agente di Log Analytics per Linux dal computer. Rimuove solo la funzionalità e la configurazione del ruolo di lavoro ibrido per runbook.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Rimuovere un gruppo di ruoli di lavoro ibridi
 
-Per rimuovere un gruppo di ruoli di lavoro ibridi per runbook in computer Linux, usare gli stessi passaggi di un gruppo di lavoro ibrido di Windows. Vedere [Rimuovere un gruppo di ruoli di lavoro ibridi](automation-windows-hrw-install.md#remove-a-hybrid-worker-group).
+Per rimuovere un gruppo di computer Linux ibrido per Runbook, è possibile usare gli stessi passaggi di un gruppo di lavoro ibrido di Windows. Vedere [Rimuovere un gruppo di ruoli di lavoro ibridi](automation-windows-hrw-install.md#remove-a-hybrid-worker-group).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su come configurare i runbook per automatizzare i processi nel centro dati locale o un altro ambiente cloud, vedere [Eseguire runbook in un ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md).
+
 * Per informazioni su come risolvere i problemi dei ruoli di lavoro ibridi per runbook, vedere [Risolvere i problemi dei ruoli di lavoro ibridi per runbook - Linux](troubleshoot/hybrid-runbook-worker.md#linux).

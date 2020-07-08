@@ -3,15 +3,15 @@ title: Ottimizzazione delle prestazioni-hive in Azure Data Lake Storage Gen1
 description: Linee guida per l'ottimizzazione delle prestazioni di hive in HdInsight e Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 2e44332ddab9387c05a45d15101ccd2bdec3ada4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c49388d50b79b037b0a0923f2c5e9ac72105c54e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855769"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Hive in HDInsight e Azure Data Lake Storage Gen1
 
@@ -20,7 +20,7 @@ Le impostazioni predefinite sono state impostate per fornire buone prestazioni p
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account data Lake storage Gen1**. Per istruzioni su come crearne uno, vedere [Introduzione a Azure Data Lake storage Gen1](data-lake-store-get-started-portal.md)
+* **Un account Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Introduzione a Azure Data Lake storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
 * **Esecuzione di Hive in HDInsight**.  Per informazioni sull'esecuzione di processi Hive in HDInsight, vedere [Usare Hive in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**.  Per i concetti generali relativi alle prestazioni, vedere [Data Lake storage Gen1 linee guida per l'ottimizzazione delle prestazioni](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
@@ -55,17 +55,15 @@ I carichi di lavoro con numerose operazioni di I/O possono trarre vantaggi da un
 
 Il numero di attività simultanee in esecuzione o il parallelismo verrà ristretto dalla memoria totale di YARN.  Il numero di contenitori YARN determinerà il numero di attività che è possibile eseguire contemporaneamente.  Per trovare la memoria YARN per ogni nodo è possibile passare ad Ambari.  Passare a YARN e visualizzare la scheda configs (configurazioni).  La memoria YARN viene visualizzata in questa finestra.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+> Memoria totale YARN = nodi * memoria YARN per nodo numero di contenitori YARN = totale memoria YARN/dimensioni del contenitore Tez
+
 La chiave per migliorare le prestazioni usando Data Lake Storage Gen1 consiste nell'aumentare il più possibile la concorrenza.  Tez calcola automaticamente il numero di attività da creare, in modo che non debba essere impostato manualmente.   
 
 ## <a name="example-calculation"></a>Calcolo di esempio
 
 Si supponga di disporre di un cluster D14 a 8 nodi.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+> Memoria totale YARN = nodi * memoria YARN per nodo memoria totale YARN = 8 nodi * 96 GB = 768GB numero di contenitori YARN = 768GB/3072MB = 256
 
 ## <a name="limitations"></a>Limitazioni
 

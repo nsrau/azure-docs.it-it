@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usare GitOps per la configurazione di cluster abilitata per Azure Arc (anteprima)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 954c77503e8adacc4cd27b25b68b50cac1f80458
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 890b35aac33a6fa207a71d76143997a1b93116bf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856982"
 ---
 # <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Usare GitOps per la configurazione abilitata per Azure Arc (anteprima)
 
@@ -167,7 +167,7 @@ Si noti che la risorsa `sourceControlConfiguration` viene aggiornata con lo stat
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 {
   "complianceStatus": {
-    "complianceState": "Compliant",
+    "complianceState": "Installed",
     "lastConfigApplied": "2019-12-05T05:34:41.481000",
     "message": "...",
     "messageLevel": "3"
@@ -201,8 +201,8 @@ Quando viene creato `sourceControlConfiguration`, si verificano alcuni aspetti d
 Durante il processo di provisioning, `sourceControlConfiguration` scorrerà alcune modifiche di stato. Monitorare lo stato di avanzamento con il comando `az k8sconfiguration show ...` precedente:
 
 1. `complianceStatus` -> `Pending`: rappresenta gli stati iniziali e in corso
-1. `complianceStatus` -> `Compliant`: `config-agent` è stato in grado di configurare correttamente il cluster e distribuire `flux` senza errori
-1. `complianceStatus` -> `Noncompliant`: `config-agent` ha riscontrato un errore durante la distribuzione di `flux`; i dettagli sono disponibili nel corpo della risposta `complianceStatus.message`
+1. `complianceStatus` -> `Installed`: `config-agent` è stato in grado di configurare correttamente il cluster e distribuire `flux` senza errori
+1. `complianceStatus` -> `Failed`: `config-agent` ha riscontrato un errore durante la distribuzione di `flux`; i dettagli sono disponibili nel corpo della risposta `complianceStatus.message`
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Applicare la configurazione da un repository Git privato
 

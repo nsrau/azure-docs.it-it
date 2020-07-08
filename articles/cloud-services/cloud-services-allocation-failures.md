@@ -14,15 +14,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab6cc71478e80bc3ff9d81a3a91ce90fbb09adb3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921597"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Risoluzione dei problemi relativi ad errori di allocazione quando si distribuiscono servizi Cloud in Azure
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Quando si distribuiscono istanze a un servizio Cloud o si aggiungono nuove istanze del ruolo di lavoro o web, Microsoft Azure alloca le risorse di calcolo. In alcuni casi possono verificarsi errori quando si eseguono queste operazioni anche prima di raggiungere i limiti della sottoscrizione di Azure. Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce una possibile correzione. Queste informazioni potrebbero risultare utili anche quando si pianifica la distribuzione dei servizi.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -41,7 +41,7 @@ Quando una richiesta di allocazione è bloccata su un cluster, la probabilità d
 ### <a name="error-message"></a>Messaggio di errore
 Se viene visualizzato il messaggio di errore seguente:
 
-    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+> "Operazione di Azure ' {ID operazione}' non riuscita con codice COMPUTE. ConstrainedAllocationFailed. Dettagli: allocazione non riuscita. non è possibile soddisfare i vincoli nella richiesta. La nuova distribuzione richiesta del servizio è legata a un gruppo di affinità o ha come destinazione una rete virtuale, oppure è presente una distribuzione esistente in questo servizio ospitato. Una di queste condizioni vincola la nuova distribuzione a risorse Azure specifiche. Riprovare più tardi o provare a ridurre le dimensioni della macchina virtuale o il numero di istanze del ruolo. In alternativa, è possibile rimuovere i vincoli sopra indicati o tentare di distribuire in un'area diversa".
 
 ### <a name="common-issues"></a>Problemi comuni
 Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione bloccata a un solo cluster.

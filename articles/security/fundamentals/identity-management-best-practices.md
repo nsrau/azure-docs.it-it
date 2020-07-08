@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855901"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -167,7 +167,7 @@ Di seguito sono indicati i vantaggi e le opzioni per l'abilitazione della verifi
 * Richiedere la verifica con autenticazione MFA tramite Microsoft Authenticator per tutti gli utenti
 * Bloccare i protocolli di autenticazione legacy
 
-Questo metodo è disponibile per tutti i livelli di licenza, ma non può essere combinato con criteri di accesso condizionale esistenti. Altre informazioni sono disponibili nelle impostazioni predefinite per la sicurezza Azure AD
+Questo metodo è disponibile per tutti i livelli di licenza, ma non può essere combinato con criteri di accesso condizionale esistenti. Altre informazioni sono disponibili in [Azure ad impostazioni predefinite di sicurezza](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
 
 **Opzione 2**: [abilitare l'autenticazione a più fattori modificando lo stato utente](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Vantaggio**: questo è il metodo tradizionale per richiedere la verifica in due passaggi. Funziona sia con [Azure Multi-Factor Authentication nel cloud e Server Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-whichversion). Con questo metodo gli utenti devono eseguire la verifica in due passaggi ogni volta che eseguono l'accesso e viene eseguito l'override dei criteri di accesso condizionale.
@@ -189,7 +189,7 @@ Questo rappresenta il mezzo più flessibile per abilitare la verifica in due pas
 Questo metodo usa la valutazione del rischio di Azure AD Identity Protection per determinare se la verifica in due passaggi è necessaria in funzione del rischio per l'utente e l'accesso per tutte le applicazioni cloud. Questo metodo richiede una licenza di Azure Active Directory P2. Per altre informazioni su questo metodo, vedere [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> L'opzione 1, ovvero l'abilitazione dell'autenticazione MFA modificando lo stato utente, esegue l'override dei criteri di accesso condizionale. Dal momento che usano criteri di accesso condizionale, le opzioni 2 e 3 non sono compatibili con l'opzione 1.
+> Opzione 2, abilitazione di Multi-Factor Authentication modificando lo stato utente, esegue l'override dei criteri di accesso condizionale. Poiché le opzioni 3 e 4 usano i criteri di accesso condizionale, non è possibile usare l'opzione 2 con essi.
 
 Le organizzazioni che non aggiungono livelli supplementari di protezione delle identità, come la verifica in due passaggi, sono più vulnerabili agli attacchi con furto di credenziali. Un attacco con furto di credenziali comporta il rischio di compromissione dei dati.
 

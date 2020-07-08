@@ -3,15 +3,15 @@ title: Creare cluster HDInsight di Azure con Data Lake Storage Gen1-Portal
 description: Usare il portale di Azure per creare e usare cluster HDInsight con Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856808"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -30,7 +30,7 @@ Informazioni su come usare il portale di Azure per creare un cluster HDInsight c
 Prima di iniziare, verificare di aver soddisfatto i requisiti seguenti:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account data Lake storage Gen1**. Seguire le istruzioni fornite in [Introduzione all'uso di Azure Data Lake Storage Gen1 tramite il portale di Azure](data-lake-store-get-started-portal.md). È anche necessario creare una cartella radice nell'account.  In questo articolo viene usata una cartella radice denominata __/Clusters__ .
+* **Un account Data Lake Storage Gen1**. Seguire le istruzioni fornite in [Introduzione all'uso di Azure Data Lake Storage Gen1 tramite il portale di Azure](data-lake-store-get-started-portal.md). È anche necessario creare una cartella radice nell'account.  In questo articolo viene usata una cartella radice denominata __/Clusters__ .
 * **Un'entità servizio di Azure Active Directory**. Questa guida alle procedure fornisce istruzioni su come creare un'entità servizio in Azure Active Directory (Azure AD). Tuttavia, per creare un'entità servizio è necessario essere un amministratore di Azure AD. Se si è un amministratore, è possibile ignorare questo prerequisito e continuare.
 
 >[!NOTE]
@@ -130,7 +130,7 @@ Per assegnare l'autorizzazione a livello di radice dell'account Data Lake Storag
 
 1. Fare clic su **Seleziona** nella parte inferiore della pagina.
 1. Selezionare **Esegui** per assegnare l'autorizzazione.
-1. Seleziona **Chiudi**.
+1. Selezionare **Operazione completata**.
 
 Per assegnare l'autorizzazione a livello di radice del cluster HDInsight:
 
@@ -140,7 +140,7 @@ Per assegnare l'autorizzazione a livello di radice del cluster HDInsight:
 1. Impostare le autorizzazioni per la cartella.  Per impostazione predefinita, sono selezionate lettura, scrittura ed esecuzione.
 1. Fare clic su **Seleziona** nella parte inferiore della pagina.
 1. Selezionare **Run** (Esegui).
-1. Seleziona **Chiudi**.
+1. Selezionare **Operazione completata**.
 
 Se si usa Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva, è necessario assegnare autorizzazioni solo per le cartella a cui si vuole accedere dal cluster HDInsight. Ad esempio, nella schermata seguente si garantisce l'accesso solo alla cartella **mynewfolder** in un account Data Lake Storage Gen1.
 
@@ -170,7 +170,9 @@ Quando si usano dati in un account Data Lake Storage Gen1, è necessario modific
 
 Ad esempio, se si usa il cluster creato con Data Lake Storage Gen1 come risorsa di archiviazione primaria, il percorso dei dati è: *adl://<nome_account_data_lake_storage_gen1>/azuredatalakestore.net/path/to/file*. Una query Hive per creare una tabella dai dati di esempio archiviati nell'account Data Lake Storage Gen1 avrà un aspetto simile all'istruzione seguente:
 
-    CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```console
+CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```
 
 Descrizioni:
 

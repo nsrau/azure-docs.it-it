@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 54410e1e70a2ec0d3a9e2f853dc9556cd05996ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70d48ba9519c627addf58939866633cdcc43049e
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79297255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919832"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Creare ruoli Web e di lavoro PHP
 
@@ -40,7 +40,9 @@ Il primo passaggio nella creazione di un ruolo Web o di lavoro PHP consiste nel 
 
 Per creare un nuovo progetto di servizio di Azure, eseguire Azure PowerShell come amministratore e avviare il comando seguente:
 
-    PS C:\>New-AzureServiceProject myProject
+```powershell
+PS C:\>New-AzureServiceProject myProject
+```
 
 Questo comando permette di creare una nuova directory (`myProject`) a cui è possibile aggiungere ruoli Web e di lavoro.
 
@@ -48,11 +50,15 @@ Questo comando permette di creare una nuova directory (`myProject`) a cui è pos
 
 Per aggiungere un ruolo Web PHP a un progetto, avviare il comando seguente dalla directory radice del progetto:
 
-    PS C:\myProject> Add-AzurePHPWebRole roleName
+```powershell
+PS C:\myProject> Add-AzurePHPWebRole roleName
+```
 
 Per un ruolo di lavoro, utilizzare il comando seguente:
 
-    PS C:\myProject> Add-AzurePHPWorkerRole roleName
+```powershell
+PS C:\myProject> Add-AzurePHPWorkerRole roleName
+```
 
 > [!NOTE]
 > `roleName` è facoltativo. se omesso, il nome del ruolo verrà generato automaticamente. Il primo ruolo Web creato sarà `WebRole1`, il secondo sarà `WebRole2` e così via. Il primo ruolo di lavoro creato sarà `WorkerRole1`, il secondo sarà `WorkerRole2` e così via.
@@ -71,7 +77,10 @@ Per configurare un ruolo Web per l'uso di un runtime PHP fornito dall'utente, se
 2. Creare una cartella `php` nella cartella `bin` che si trova nella directory radice del proprio ruolo Web e quindi aggiungere nella cartella `php` il proprio runtime PHP (tutti i file binari, i file di configurazione, le sottocartelle e così via).
 3. (FACOLTATIVO) Se il runtime PHP usa i [driver Microsoft per PHP per SQL Server][sqlsrv drivers], sarà necessario configurare il ruolo Web per installare [SQL Server Native Client 2012][sql native client] quando viene effettuato il provisioning. A tale scopo, aggiungere il [programma di installazione sqlncli.msi x64] nella cartella `bin` nella directory radice del ruolo Web. Lo script di avvio descritto nel passaggio successivo eseguirà il programma di installazione senza avvisi quando viene eseguito il provisioning del ruolo. Se il proprio runtime PHP non usa i Driver Microsoft per PHP per SQL Server è possibile rimuovere la seguente riga dallo script illustrato nel passaggio successivo:
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```console
+   msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```
+
 4. Definire un'attività di avvio per configurare [Internet Information Services (IIS)][iis.net] per l'uso del runtime PHP nella gestione delle richieste di pagine `.php`. A tale scopo, aprire il file `setup_web.cmd` (nel file `bin` della directory radice del proprio ruolo Web) in un editor di testo e sostituirne il contenuto con lo script seguente:
 
     ```cmd
@@ -107,7 +116,10 @@ Per configurare un ruolo di lavoro per l'uso di un runtime PHP fornito dall'uten
 2. Creare una cartella `php` nella directory radice del proprio ruolo di lavoro e quindi aggiungere il proprio runtime PHP nella cartella `php` (tutti i file binari, i file di configurazione, le sottocartelle e così via).
 3. (FACOLTATIVO) Se il runtime PHP usa i [driver Microsoft per PHP per SQL Server][sqlsrv drivers], sarà necessario configurare il ruolo di lavoro per installare [SQL Server Native Client 2012][sql native client] quando viene effettuato il provisioning. A tale scopo, aggiungere il [programma di installazione sqlncli.msi x64] nella directory radice del proprio ruolo di lavoro. Lo script di avvio descritto nel passaggio successivo eseguirà il programma di installazione senza avvisi quando viene eseguito il provisioning del ruolo. Se il proprio runtime PHP non usa i Driver Microsoft per PHP per SQL Server è possibile rimuovere la seguente riga dallo script illustrato nel passaggio successivo:
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```console
+   msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```
+
 4. Definire un'attività di avvio per l'aggiunta dell'eseguibile `php.exe` alla variabile di ambiente PATH del ruolo di lavoro durante il provisioning del ruolo. A tale scopo, aprire il file `setup_worker.cmd` (nella directory radice del proprio ruolo di lavoro) in un editor di testo e sostituirne il contenuto con lo script seguente:
 
     ```cmd
@@ -147,20 +159,26 @@ Si noti che per usare l'emulatore di calcolo è necessario aver installato PHP i
 
 Per eseguire il progetto negli emulatori, avviare il comando seguente dalla directory radice del progetto:
 
-    PS C:\MyProject> Start-AzureEmulator
+```powershell
+PS C:\MyProject> Start-AzureEmulator
+```
 
 L'output sarà simile al seguente:
 
-    Creating local package...
-    Starting Emulator...
-    Role is running at http://127.0.0.1:81
-    Started
+```output
+Creating local package...
+Starting Emulator...
+Role is running at http://127.0.0.1:81
+Started
+```
 
 Per visualizzare l'applicazione in esecuzione nell'emulatore, aprire un Web browser e immettere l'indirizzo locale indicato nell'output (`http://127.0.0.1:81` nell'output di esempio sopra riportato).
 
 Per arrestare gli emulatori, eseguire il comando seguente:
 
-    PS C:\MyProject> Stop-AzureEmulator
+```powershell
+PS C:\MyProject> Stop-AzureEmulator
+```
 
 ## <a name="publish-your-application"></a>Pubblicare l'applicazione
 

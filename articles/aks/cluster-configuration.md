@@ -3,13 +3,15 @@ title: Configurazione del cluster nei servizi Azure Kubernetes (AKS)
 description: Informazioni su come configurare un cluster nel servizio Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: fe5ce13d9db8f2bc2231f87de7e602e63d239bfa
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 07/02/2020
+ms.author: jpalma
+author: palma21
+ms.openlocfilehash: 3c8d374935c777548d1dc0d43ccd131fe21fd509
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856087"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
@@ -19,9 +21,14 @@ Per creare un cluster AKS, potrebbe essere necessario personalizzare la configur
 
 AKS supporta ora Ubuntu 18.04 come sistema operativo dei nodi nell'anteprima. Durante il periodo di anteprima sono disponibili sia Ubuntu 16.04 sia Ubuntu 18.04.
 
+> [!IMPORTANT]
+> I pool di nodi creati in Kubernetes v 1.18 o versioni successive vengono predefiniti a un' `AKS Ubuntu 18.04` immagine del nodo richiesta. I pool di nodi in una versione Kubernetes supportata inferiore a 1,18 ricevono `AKS Ubuntu 16.04` come immagine del nodo, ma verranno aggiornati a `AKS Ubuntu 18.04` una volta che la versione Kubernetes del pool di nodi verrà aggiornata a v 1.18 o successiva.
+> 
+> Si consiglia vivamente di testare i carichi di lavoro nei pool di nodi AKS Ubuntu 18,04 prima di usare i cluster in 1,18 o versione successiva. Leggere le informazioni su come [testare i pool di nodi Ubuntu 18,04](#use-aks-ubuntu-1804-existing-clusters-preview).
+
 Devono essere installate le risorse seguenti:
 
-- Interfaccia della riga di comando di Azure, versione 2.2.0 o successiva
+- [Interfaccia della][azure-cli-install]riga di comando di Azure, versione 2.2.0 o successiva
 - Estensione aks-preview 0.4.35
 
 Per installare l'estensione aks-preview 0.4.35 o una versione successiva, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
@@ -49,26 +56,182 @@ Quando lo stato diventa Registrato, aggiornare la registrazione del provider di 
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### <a name="new-clusters"></a>Nuovi cluster
+### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>Usare AKS Ubuntu 18,04 nei nuovi cluster (anteprima)
 
 Configurare il cluster per l'uso di Ubuntu 18.04 quando viene creato il cluster. Usare il flag `--aks-custom-headers` per impostare Ubuntu 18.04 come sistema operativo predefinito.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
 ```
 
-Se si vuole creare un normale cluster Ubuntu 16.04, è possibile omettere il tag `--aks-custom-headers` personalizzato.
+Per creare cluster con l'immagine AKS Ubuntu 16,04, è possibile omettere il `--aks-custom-headers` tag personalizzato.
 
-### <a name="existing-clusters"></a>Cluster esistenti
+### <a name="use-aks-ubuntu-1804-existing-clusters-preview"></a>Usare i cluster esistenti AKS Ubuntu 18,04 (anteprima)
 
 Configurare un nuovo pool di nodi per usare Ubuntu 18.04. Usare il flag `--aks-custom-headers` per impostare Ubuntu 18.04 come sistema operativo predefinito per il pool di nodi.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
 ```
 
-Se si vuole creare un normale pool di nodi Ubuntu 16.04, è possibile omettere il tag `--aks-custom-headers` personalizzato.
+Se si desidera creare pool di nodi con l'immagine AKS Ubuntu 16,04, è possibile omettere il `--aks-custom-headers` tag personalizzato.
 
+
+## <a name="container-runtime-configuration-preview"></a>Configurazione del runtime del contenitore (anteprima)
+
+Un runtime contenitore è un software che esegue contenitori e gestisce le immagini del contenitore in un nodo. Il runtime consente di astrarre la funzionalità sys-calls o del sistema operativo (OS) specifica per l'esecuzione di contenitori in Linux o Windows. Attualmente AKS USA [Moby](https://mobyproject.org/) (upstream Docker) come runtime del contenitore. 
+    
+![CRI di Docker](media/cluster-configuration/docker-cri.png)
+
+[`Containerd`](https://containerd.io/)è un runtime del contenitore principale conforme a [OCI](https://opencontainers.org/) (Open Container Initiative) che fornisce il set minimo di funzionalità necessarie per l'esecuzione di contenitori e la gestione delle immagini in un nodo. È stata [donata](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) al cloud native Compute Foundation (CNCF) a marzo 2017. La versione corrente di Moby usata attualmente da AKS usa già e si basa su `containerd` , come illustrato in precedenza. 
+
+Con un nodo basato su contenitori e i pool di nodi, anziché comunicare con `dockershim` , il kubelet parlerà direttamente con il plug-in dell' `containerd` interfaccia di runtime del contenitore, rimuovendo gli hop aggiuntivi nel flusso rispetto all'implementazione di IRC di Docker. Di conseguenza, si noterà una migliore latenza di avvio del Pod e un minor utilizzo di risorse (CPU e memoria).
+
+Usando `containerd` per i nodi AKS, la latenza di avvio del Pod migliora e l'utilizzo delle risorse del nodo da parte del runtime del contenitore diminuisce. Questi miglioramenti sono abilitati da questa nuova architettura, in cui kubelet comunica direttamente con `containerd` il plug-in di cri, mentre nell'architettura di Moby/Docker kubelet comunicherà con il `dockershim` motore Docker e prima di raggiungere `containerd` , ottenendo hop aggiuntivi nel flusso.
+
+![CRI di Docker](media/cluster-configuration/containerd-cri.png)
+
+`Containerd`funziona a ogni versione GA di kubernetes in AKS e in ogni versione upstream di kubernetes precedente alla versione 1.10 e supporta tutte le funzionalità kubernetes e AKS.
+
+> [!IMPORTANT]
+> Una volta che `containerd` diventa disponibile a livello generale in AKS, sarà l'opzione predefinita e unica disponibile per il runtime del contenitore nei nuovi cluster. È comunque possibile usare Moby nodepools e i cluster nelle versioni precedenti supportate fino a quando non sono supportati. 
+> 
+> È consigliabile testare i carichi di lavoro nei `containerd` pool di nodi prima di aggiornare o creare nuovi cluster con questo runtime del contenitore.
+
+### <a name="use-containerd-as-your-container-runtime-preview"></a>Usare `containerd` come runtime del contenitore (anteprima)
+
+È necessario disporre dei prerequisiti seguenti:
+
+- [Interfaccia della][azure-cli-install]riga di comando di Azure, versione 2.8.0 o successiva installata
+- L'estensione AKS-Preview versione 0.4.53 o successiva
+- `UseCustomizedContainerRuntime`Flag funzionalità registrato
+- `UseCustomizedUbuntuPreview`Flag funzionalità registrato
+
+Per installare l'estensione AKS-Preview 0.4.53 o versione successiva, usare i seguenti comandi dell'interfaccia della riga di comando di Azure:
+
+```azurecli
+az extension add --name aks-preview
+az extension list
+```
+
+Registrare le `UseCustomizedContainerRuntime` `UseCustomizedUbuntuPreview` funzionalità e:
+
+```azurecli
+az feature register --name UseCustomizedContainerRuntime --namespace Microsoft.ContainerService
+az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
+
+```
+
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
+```
+
+Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```  
+
+### <a name="use-containerd-on-new-clusters-preview"></a>Usare `containerd` nei nuovi cluster (anteprima)
+
+Configurare il cluster da usare `containerd` durante la creazione del cluster. Usare il `--aks-custom-headers` flag per impostare `containerd` come runtime del contenitore.
+
+> [!NOTE]
+> Il `containerd` Runtime è supportato solo nei nodi e nei pool di nodi usando l'immagine AKS Ubuntu 18,04.
+
+```azurecli
+az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
+```
+
+Per creare cluster con il runtime Moby (Docker), è possibile omettere il `--aks-custom-headers` tag personalizzato.
+
+### <a name="use-containerd-on-existing-clusters-preview"></a>Usare `containerd` nei cluster esistenti (anteprima)
+
+Configurare un nuovo pool di nodi da usare `containerd` . Usare il `--aks-custom-headers` flag per impostare `containerd` come runtime per il pool di nodi.
+
+```azurecli
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
+```
+
+Se si desidera creare pool di nodi con il runtime Moby (Docker), è possibile omettere il `--aks-custom-headers` tag personalizzato.
+
+
+### <a name="containerd-limitationsdifferences"></a>`Containerd`limitazioni/differenze
+
+* Per usare `containerd` come runtime del contenitore è necessario usare AKS Ubuntu 18,04 come immagine del sistema operativo di base.
+* Mentre il set di strumenti Docker è ancora presente nei nodi, Kubernetes USA `containerd` come runtime del contenitore. Quindi, poiché Moby/Docker non gestisce i contenitori creati da Kubernetes nei nodi, non è possibile visualizzare o interagire con i contenitori usando i comandi di Docker (ad esempio `docker ps` ) o l'API docker.
+* Per `containerd` , è consigliabile usare [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) come interfaccia della riga di comando sostitutiva anziché l'interfaccia della riga di comando di Docker per la **risoluzione dei problemi relativi** a Pod, contenitori e immagini contenitore nei nodi Kubernetes (ad esempio, `crictl ps` ). 
+   * Non fornisce la funzionalità completa dell'interfaccia della riga di comando di Docker. È progettato solo per la risoluzione dei problemi.
+   * `crictl`offre una visualizzazione più intuitiva dei contenitori, con concetti quali pod e così via.
+* `Containerd`imposta la registrazione usando il formato di registrazione standardizzato, `cri` che è diverso da quello attualmente ottenuto dal driver JSON di Docker. La soluzione di registrazione deve supportare il `cri` formato di registrazione, ad esempio [monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-enable-new-cluster.md).
+* Non è più possibile accedere al motore Docker, `/var/run/docker.sock` o usare Docker-in-Docker (DinD).
+  * Se al momento si estraggono i registri applicazioni o i dati di monitoraggio dal motore Docker, usare invece un elemento come [monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-enable-new-cluster.md) . Inoltre, AKS non supporta l'esecuzione di comandi fuori banda sui nodi dell'agente che potrebbero causare instabilità.
+  * Anche quando si usa Moby/Docker, la creazione di immagini e la possibilità di sfruttare direttamente il motore Docker con i metodi precedenti sono fortemente sconsigliate. Kubernetes non è in grado di riconoscere le risorse [usate e questi](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)approcci presentano molti problemi descritti [qui](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) , ad esempio.
+* Creazione di immagini: l'approccio consigliato per la creazione di immagini consiste nell'usare le [attività ACR](../container-registry/container-registry-quickstart-task-cli.md). Un approccio alternativo consiste nell'usare opzioni in cluster più sicure, ad esempio [Docker buildx](https://github.com/docker/buildx).
+
+## <a name="generation-2-virtual-machines-preview"></a>Macchine virtuali di seconda generazione (anteprima)
+
+Azure supporta [macchine virtuali (Gen2) di seconda generazione](../virtual-machines/windows/generation-2.md). Le macchine virtuali di seconda generazione supportano le funzionalità principali che non sono supportate nelle macchine virtuali di prima generazione (Gen1). Queste funzionalità includono una maggior quantità di memoria, Intel Software Guard Extensions (Intel SGX) e la memoria persistente virtuale (vPMEM).
+
+Le macchine virtuali di seconda generazione usano la nuova architettura di avvio basata su UEFI anziché l'architettura basata su BIOS usata dalle macchine virtuali di prima generazione.
+Solo SKU e dimensioni specifiche supportano le VM Gen2. Controllare l' [elenco delle dimensioni supportate](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes)per verificare se lo SKU supporta o richiede Gen2.
+
+Inoltre, non tutte le immagini di macchina virtuale supportano Gen2, nelle macchine virtuali AKS Gen2 utilizzeranno la nuova [immagine AKS Ubuntu 18,04](#os-configuration-preview). Questa immagine supporta tutti gli SKU e le dimensioni di Gen2.
+
+Per usare le macchine virtuali Gen2 durante la fase di anteprima, è necessario:
+- Estensione dell'interfaccia della riga di comando `aks-preview` installata.
+- `Gen2VMPreview`Flag funzionalità registrato.
+
+Registrare la funzionalità `Gen2VMPreview`:
+
+```azurecli
+az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
+```
+
+Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
+```
+
+Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Per installare l'estensione dell'interfaccia della riga di comando AKS-Preview, usare i seguenti comandi dell'interfaccia della riga di comando
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Per aggiornare l'estensione della CLI AKS-Preview, usare i comandi dell'interfaccia della riga di comando di Azure seguenti:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-gen2-vms-on-new-clusters-preview"></a>Usare macchine virtuali Gen2 in nuovi cluster (anteprima)
+Configurare il cluster per l'uso di macchine virtuali Gen2 per lo SKU selezionato quando viene creato il cluster. Usare il `--aks-custom-headers` flag per impostare Gen2 come generazione di VM in un nuovo cluster.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
+```
+
+Se si vuole creare un cluster normale usando macchine virtuali di generazione 1 (Gen1), è possibile omettere il `--aks-custom-headers` tag personalizzato. È anche possibile scegliere di aggiungere altre macchine virtuali Gen1 o Gen2 come indicato di seguito.
+
+### <a name="use-gen2-vms-on-existing-clusters-preview"></a>Usare macchine virtuali Gen2 in cluster esistenti (anteprima)
+Configurare un nuovo pool di nodi per l'uso di macchine virtuali Gen2. Usare il `--aks-custom-headers` flag per impostare Gen2 come generazione di VM per il pool di nodi.
+
+```azure-cli
+az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
+```
+
+Se si desidera creare pool di nodi Gen1 normali, è possibile omettere il `--aks-custom-headers` tag personalizzato.
 
 ## <a name="custom-resource-group-name"></a>Nome del gruppo di risorse personalizzato
 
@@ -85,8 +248,8 @@ Il gruppo di risorse secondario viene creato automaticamente dal provider di ris
 Quando si lavora con il gruppo di risorse del nodo, tenere presente che non è possibile:
 
 - Specificare un gruppo di risorse esistente come gruppo di risorse del nodo.
-- Specificare una sottoscrizione diversa come gruppo di risorse del nodo.
-- Modificare il nome del gruppo di risorse del nodo dopo la creazione del cluster.
+- Specificare una sottoscrizione diversa per il gruppo di risorse nodo.
+- Cambiare il nome del gruppo di risorse nodo dopo la creazione del cluster.
 - Specificare i nomi delle risorse gestite nel gruppo di risorse del nodo.
 - Modificare o eliminare i tag creati da Azure delle risorse gestite all'interno del gruppo di risorse del nodo.
 
@@ -94,4 +257,17 @@ Quando si lavora con il gruppo di risorse del nodo, tenere presente che non è p
 
 - Informazioni su come usare `Kured` per [applicare gli aggiornamenti di sicurezza e del kernel ai nodi Linux](node-updates-kured.md) nel cluster.
 - Per informazioni su come aggiornare il cluster alla versione più recente di Kubernetes, vedere [Aggiornare un cluster del servizio Azure Kubernetes](upgrade-cluster.md).
+- Scopri di più su [ `containerd` e Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Per trovare le risposte ad alcune domande comuni su AKS, vedere l'elenco delle [domande frequenti su AKS](faq.md).
+
+
+<!-- LINKS - internal -->
+[azure-cli-install]: /cli/azure/install-azure-cli
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

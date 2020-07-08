@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 18dbcbf93947306334ccc2c156d9266884198e19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c83323ff7b951892b96d49f3173c022592aac331
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67594142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920169"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introduzione allo sviluppo della rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -44,7 +44,9 @@ Ora che abbiamo creato un gruppo di risorse per i profili di rete CDN e assegnat
 
 Creare una cartella in cui archiviare l'applicazione.  Da una console con gli strumenti Node.js nel percorso corrente, posizionarsi sulla nuova cartella e inizializzare il progetto eseguendo:
 
-    npm init
+```console
+npm init
+```
 
 Verrà quindi visualizzata una serie di domande per inizializzare il progetto.  Come **punto di ingresso**questa esercitazione usa *app.js*.  È possibile visualizzare le altre scelte nell'esempio seguente.
 
@@ -52,8 +54,10 @@ Verrà quindi visualizzata una serie di domande per inizializzare il progetto.  
 
 A questo punto il progetto viene inizializzato con un file *packages.json* .  Il progetto userà alcune librerie di Azure contenute in pacchetti NPM.  Verranno usati il runtime del client di Azure per Node.js (ms-rest-azure) e la libreria client della rete CDN di Azure per Node.js (azure-arm-cd).  Aggiungere tali elementi al progetto come dipendenze.
 
-    npm install --save ms-rest-azure
-    npm install --save azure-arm-cdn
+```console
+npm install --save ms-rest-azure
+npm install --save azure-arm-cdn
+```
 
 Al termine dell'installazione dei pacchetti, il file *package.json* dovrebbe avere un aspetto simile a questo esempio, anche se i numeri di versione possono variare:
 
@@ -86,7 +90,7 @@ Aprire *app.js* nell'editor e scrivere la struttura di base del programma.
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. È necessario definire alcune costanti che i metodi useranno.  Aggiungere il codice seguente.  Assicurarsi di sostituire i segnaposto, comprese le ** &lt;parentesi&gt;angolari**, con i valori personalizzati in base alle esigenze.
+2. È necessario definire alcune costanti che i metodi useranno.  Aggiungere il codice seguente.  Sostituire i segnaposto, incluse le **&lt;parentesi acute&gt;** , con i valori necessari.
    
     ``` javascript
     //Tenant app constants
@@ -119,7 +123,7 @@ Aprire *app.js* nell'editor e scrivere la struttura di base del programma.
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Assicurarsi di sostituire gli elementi tra ** &lt;parentesi&gt; angolari** con le informazioni corrette.  Sostituire `<redirect URI>`con l'URI di reindirizzamento immesso al momento della registrazione dell'applicazione in Azure AD.
+    Assicurarsi di sostituire gli elementi tra ** &lt; parentesi &gt; angolari** con le informazioni corrette.  Sostituire `<redirect URI>`con l'URI di reindirizzamento immesso al momento della registrazione dell'applicazione in Azure AD.
 4. L'applicazione console Node.js necessita di alcuni parametri della riga di comando.  Verificare che venga passato almeno un parametro.
    
    ```javascript
@@ -358,7 +362,7 @@ Aggiungere un endpoint.
 
 Infine, eliminare il profilo.
 
-![Eliminare il profilo](./media/cdn-app-dev-node/cdn-delete-profile.png)
+![Elimina profilo](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per vedere il progetto completato di questa procedura dettagliata, [scaricare l'esempio](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).

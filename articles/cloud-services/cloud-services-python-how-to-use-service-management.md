@@ -14,12 +14,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: tagore
-ms.openlocfilehash: 135dd92f7af4397f2053ea0bdc15d98dfad93914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 311d882814c45b3b001fde2a4f3f9027e879f29c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253357"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919876"
 ---
 # <a name="use-service-management-from-python"></a>Usare la gestione dei servizi da Python
 La guida descrive come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](https://github.com/Azure/azure-sdk-for-python) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure][management-portal]. È possibile usare questa funzionalità per creare, aggiornare ed eliminare servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali. Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
@@ -32,7 +33,7 @@ Per usare l'API Gestione dei servizi, è necessario [creare un account Azure](ht
 ## <a name="concepts"></a><a name="Concepts"> </a>Concetti
 Azure SDK per Python include l'[API Gestione dei servizi][svc-mgmt-rest-api], ovvero un'API REST. Tutte le operazioni dell'API vengono eseguite su TLS e autenticate reciprocamente usando i certificati X. 509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure. È anche possibile accedervi direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
 
-## <a name="installation"></a><a name="Installation"> </a>Installazione di
+## <a name="installation"></a><a name="Installation"> </a>Installazione
 Tutte le funzionalità descritte in questo articolo sono disponibili nel pacchetto `azure-servicemanagement-legacy` che è possibile installare tramite pip. Per altre informazioni sull'installazione, ad esempio se non si ha familiarità con Python, vedere [Installazione di Python e dell'SDK](/azure/developer/python/azure-sdk-install).
 
 ## <a name="connect-to-service-management"></a><a name="Connect"> </a>Connettersi alla gestione dei servizi
@@ -46,32 +47,40 @@ Per connettersi all'endpoint di gestione dei servizi, sono necessari un ID sotto
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificati di gestione in Windows/Mac/Linux (OpenSSL)
 Per creare il certificato di gestione, è possibile utilizzare [OpenSSL](https://www.openssl.org/) . È necessario creare due certificati, uno per il server (un file `.cer`) e uno per il client (un file `.pem`). Per creare il file `.pem` , eseguire:
 
-    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+```console
+openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+```
 
 Per creare il certificato `.cer` , eseguire:
 
-    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
+```console
+openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
+```
 
-Per altre informazioni sui certificati di Azure, vedere [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md) (Panoramica sui certificati per Servizi cloud di Azure). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione all' [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html)indirizzo.
+Per altre informazioni sui certificati di Azure, vedere [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md) (Panoramica sui certificati per Servizi cloud di Azure). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione all'indirizzo [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html) .
 
 Dopo avere creato questi file, caricare il file `.cer` in Azure. Nel [portale di Azure][management-portal] nella scheda **impostazioni** selezionare **Carica**. Prendere nota del percorso in cui è stato salvato il file `.pem`.
 
 Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere caricato il file `.cer` in Azure, connettersi all'endpoint di gestione di Azure. Eseguire la connessione passando l'ID sottoscrizione e il percorso del file `.pem` a **ServiceManagementService**.
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    subscription_id = '<your_subscription_id>'
-    certificate_path = '<path_to_.pem_certificate>'
+subscription_id = '<your_subscription_id>'
+certificate_path = '<path_to_.pem_certificate>'
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
+```
 
 Nell'esempio precedente `sms` è un oggetto **ServiceManagementService** . La classe **ServiceManagementService** è la classe principale usata per gestire i servizi di Azure.
 
 ### <a name="management-certificates-on-windows-makecert"></a>Certificati di gestione in Windows (MakeCert)
 È possibile creare un certificato di gestione autofirmato nel computer usando `makecert.exe`. Aprire un **prompt dei comandi di Visual Studio** come **amministratore** e usare il comando seguente, sostituendo *AzureCertificate* con il nome del certificato da usare:
 
-    makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
+```console
+makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
+```
 
 Il comando consente di creare il file `.cer` e di installarlo nell'archivio certificati **Personale**. Per altre informazioni, vedere [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md) (Panoramica sui certificati per Servizi cloud di Azure).
 
@@ -79,27 +88,31 @@ Dopo avere creato il certificato, caricare il file `.cer` in Azure. Nel [portale
 
 Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere caricato il file `.cer` in Azure, connettersi all'endpoint di gestione di Azure. Eseguire la connessione passando l'ID sottoscrizione e il percorso del certificato nell'archivio certificati **Personale** a **ServiceManagementService** (anche in questo caso sostituire *AzureCertificate* con il nome del certificato).
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    subscription_id = '<your_subscription_id>'
-    certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
+subscription_id = '<your_subscription_id>'
+certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
+```
 
 Nell'esempio precedente `sms` è un oggetto **ServiceManagementService** . La classe **ServiceManagementService** è la classe principale usata per gestire i servizi di Azure.
 
 ## <a name="list-available-locations"></a><a name="ListAvailableLocations"> </a>Creare un elenco delle località disponibili
 Per elencare le località disponibili per i servizi di hosting, usare il metodo **list\_locations**.
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    result = sms.list_locations()
-    for location in result:
-        print(location.name)
+result = sms.list_locations()
+for location in result:
+    print(location.name)
+```
 
 Quando si crea un servizio cloud o un servizio di archiviazione, è necessario fornire una località valida. Il metodo **list\_locations** restituisce sempre un elenco aggiornato delle località attualmente disponibili. Al momento della stesura di questo articolo, le località disponibili sono le seguenti:
 
@@ -119,281 +132,319 @@ Quando si crea un servizio cloud o un servizio di archiviazione, è necessario f
 * Australia sud-orientale
 
 ## <a name="create-a-cloud-service"></a><a name="CreateCloudService"> </a>Creare un servizio cloud
-Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud][cloud service] di Azure (Noto come *servizio ospitato* nelle versioni precedenti di Azure). Per creare un nuovo servizio ospitato, è possibile usare il metodo **Create\_Hosted\_Service** . Creare il servizio specificando un nome di servizio ospitato univoco in Azure, un'etichetta con codifica base64 automatica, una descrizione e una località.
+Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud][cloud service] di Azure (Noto come *servizio ospitato* nelle versioni precedenti di Azure). Per creare un nuovo servizio ospitato, è possibile usare il metodo **Create \_ Hosted \_ Service** . Creare il servizio specificando un nome di servizio ospitato univoco in Azure, un'etichetta con codifica base64 automatica, una descrizione e una località.
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    name = 'myhostedservice'
-    label = 'myhostedservice'
-    desc = 'my hosted service'
-    location = 'West US'
+name = 'myhostedservice'
+label = 'myhostedservice'
+desc = 'my hosted service'
+location = 'West US'
 
-    sms.create_hosted_service(name, label, desc, location)
+sms.create_hosted_service(name, label, desc, location)
+```
 
-È possibile elencare tutti i servizi ospitati per la sottoscrizione con il metodo **List\_Hosted\_Services** .
+È possibile elencare tutti i servizi ospitati per la sottoscrizione con il metodo **List \_ Hosted \_ Services** .
 
-    result = sms.list_hosted_services()
+```python
+result = sms.list_hosted_services()
 
-    for hosted_service in result:
-        print('Service name: ' + hosted_service.service_name)
-        print('Management URL: ' + hosted_service.url)
-        print('Location: ' + hosted_service.hosted_service_properties.location)
-        print('')
-
-Per ottenere informazioni su un particolare servizio ospitato, passare il nome del servizio ospitato al metodo **get\_hosted\_service\_properties**.
-
-    hosted_service = sms.get_hosted_service_properties('myhostedservice')
-
+for hosted_service in result:
     print('Service name: ' + hosted_service.service_name)
     print('Management URL: ' + hosted_service.url)
     print('Location: ' + hosted_service.hosted_service_properties.location)
+    print('')
+```
+
+Per ottenere informazioni su un particolare servizio ospitato, passare il nome del servizio ospitato al metodo **get\_hosted\_service\_properties**.
+
+```python
+hosted_service = sms.get_hosted_service_properties('myhostedservice')
+
+print('Service name: ' + hosted_service.service_name)
+print('Management URL: ' + hosted_service.url)
+print('Location: ' + hosted_service.hosted_service_properties.location)
+```
 
 Dopo avere creato un servizio cloud, distribuire il codice al servizio con il metodo **create\_deployment**.
 
 ## <a name="delete-a-cloud-service"></a><a name="DeleteCloudService"> </a>Eliminare un servizio cloud
-È possibile eliminare un servizio cloud passando il nome del servizio al metodo **Delete\_Hosted\_Service** .
+È possibile eliminare un servizio cloud passando il nome del servizio al metodo **Delete \_ Hosted \_ Service** .
 
-    sms.delete_hosted_service('myhostedservice')
+```python
+sms.delete_hosted_service('myhostedservice')
+```
 
 Prima di eliminare un servizio è necessario eliminare tutte le distribuzioni del servizio. Per altre informazioni, vedere [Eliminare una distribuzione](#DeleteDeployment).
 
 ## <a name="delete-a-deployment"></a><a name="DeleteDeployment"> </a>Eliminare una distribuzione
 Per eliminare una distribuzione, usare il metodo **delete\_deployment**. L'esempio seguente mostra come eliminare una distribuzione denominata `v1`:
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    sms.delete_deployment('myhostedservice', 'v1')
+sms.delete_deployment('myhostedservice', 'v1')
+```
 
 ## <a name="create-a-storage-service"></a><a name="CreateStorageService"> </a>Creare un servizio di archiviazione
 Un [servizio di archiviazione](../storage/common/storage-create-storage-account.md) consente di accedere a [BLOB](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tabelle](../cosmos-db/table-storage-how-to-use-python.md)e [Code](../storage/queues/storage-python-how-to-use-queue-storage.md)di Azure. Per creare un servizio di archiviazione, è necessario un nome per il servizio, compreso tra 3 e 24 caratteri minuscoli e univoco in Azure. Sono inoltre richieste una descrizione, un'etichetta fino a 100 caratteri con codifica base64 automatica e una località. Nell'esempio seguente viene illustrato come creare un servizio di archiviazione specificando una località:
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    name = 'mystorageaccount'
-    label = 'mystorageaccount'
-    location = 'West US'
-    desc = 'My storage account description.'
+name = 'mystorageaccount'
+label = 'mystorageaccount'
+location = 'West US'
+desc = 'My storage account description.'
 
-    result = sms.create_storage_account(name, desc, label, location=location)
+result = sms.create_storage_account(name, desc, label, location=location)
 
-    operation_result = sms.get_operation_status(result.request_id)
-    print('Operation status: ' + operation_result.status)
+operation_result = sms.get_operation_status(result.request_id)
+print('Operation status: ' + operation_result.status)
+```
 
 Nell'esempio precedente lo stato dell'operazione **create\_storage\_account** può essere recuperato passando il risultato restituito da **create\_storage\_account** al metodo **get\_operation\_status**. 
 
-È possibile elencare gli account di archiviazione e le relative proprietà con il metodo **List\_\_Storage Accounts** .
+È possibile elencare gli account di archiviazione e le relative proprietà con il metodo **List \_ storage \_ accounts** .
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    result = sms.list_storage_accounts()
-    for account in result:
-        print('Service name: ' + account.service_name)
-        print('Location: ' + account.storage_service_properties.location)
-        print('')
+result = sms.list_storage_accounts()
+for account in result:
+    print('Service name: ' + account.service_name)
+    print('Location: ' + account.storage_service_properties.location)
+    print('')
+```
 
 ## <a name="delete-a-storage-service"></a><a name="DeleteStorageService"> </a>Eliminare un servizio di archiviazione
 Per eliminare un servizio di archiviazione, passare il relativo nome al metodo **delete\_storage\_account**. L'eliminazione di un servizio di archiviazione comporta l'eliminazione di tutti i dati archiviati nel servizio: BLOB, tabelle e code.
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    sms.delete_storage_account('mystorageaccount')
+sms.delete_storage_account('mystorageaccount')
+```
 
 ## <a name="list-available-operating-systems"></a><a name="ListOperatingSystems"> </a>Elencare i sistemi operativi disponibili
-Per elencare i sistemi operativi disponibili per i servizi di hosting, usare **il\_metodo\_list Operating Systems** .
+Per elencare i sistemi operativi disponibili per i servizi di hosting, usare il metodo **List \_ Operating \_ Systems** .
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    result = sms.list_operating_systems()
+result = sms.list_operating_systems()
 
-    for os in result:
-        print('OS: ' + os.label)
-        print('Family: ' + os.family_label)
-        print('Active: ' + str(os.is_active))
+for os in result:
+    print('OS: ' + os.label)
+    print('Family: ' + os.family_label)
+    print('Active: ' + str(os.is_active))
+```
 
-In alternativa, è possibile usare il **metodo\_List\_Operating System\_families** , che raggruppa i sistemi operativi in base alla famiglia.
+In alternativa, è possibile usare il metodo **List \_ Operating \_ System \_ families** , che raggruppa i sistemi operativi in base alla famiglia.
 
-    result = sms.list_operating_system_families()
+```python
+result = sms.list_operating_system_families()
 
-    for family in result:
-        print('Family: ' + family.label)
-        for os in family.operating_systems:
-            if os.is_active:
-                print('OS: ' + os.label)
-                print('Version: ' + os.version)
-        print('')
+for family in result:
+    print('Family: ' + family.label)
+    for os in family.operating_systems:
+        if os.is_active:
+            print('OS: ' + os.label)
+            print('Version: ' + os.version)
+    print('')
+```
 
 ## <a name="create-an-operating-system-image"></a><a name="CreateVMImage"> </a>Creare un'immagine del sistema operativo
-Per aggiungere un'immagine del sistema operativo all'archivio di immagini, usare **il\_metodo\_Aggiungi immagine** del sistema operativo.
+Per aggiungere un'immagine del sistema operativo all'archivio di immagini, usare il metodo **Aggiungi \_ \_ immagine** del sistema operativo.
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    name = 'mycentos'
-    label = 'mycentos'
-    os = 'Linux' # Linux or Windows
-    media_link = 'url_to_storage_blob_for_source_image_vhd'
+name = 'mycentos'
+label = 'mycentos'
+os = 'Linux' # Linux or Windows
+media_link = 'url_to_storage_blob_for_source_image_vhd'
 
-    result = sms.add_os_image(label, media_link, name, os)
+result = sms.add_os_image(label, media_link, name, os)
 
-    operation_result = sms.get_operation_status(result.request_id)
-    print('Operation status: ' + operation_result.status)
+operation_result = sms.get_operation_status(result.request_id)
+print('Operation status: ' + operation_result.status)
+```
 
 Per elencare le immagini del sistema operativo disponibili, usare il metodo **list\_os\_images**. Sono incluse tutte le immagini di piattaforma e utente.
 
-    result = sms.list_os_images()
+```python
+result = sms.list_os_images()
 
-    for image in result:
-        print('Name: ' + image.name)
-        print('Label: ' + image.label)
-        print('OS: ' + image.os)
-        print('Category: ' + image.category)
-        print('Description: ' + image.description)
-        print('Location: ' + image.location)
-        print('Media link: ' + image.media_link)
-        print('')
+for image in result:
+    print('Name: ' + image.name)
+    print('Label: ' + image.label)
+    print('OS: ' + image.os)
+    print('Category: ' + image.category)
+    print('Description: ' + image.description)
+    print('Location: ' + image.location)
+    print('Media link: ' + image.media_link)
+    print('')
+```
 
 ## <a name="delete-an-operating-system-image"></a><a name="DeleteVMImage"> </a>Eliminare un'immagine del sistema operativo
-Per eliminare un'immagine utente, usare il **metodo\_Delete\_OS Image** .
+Per eliminare un'immagine utente, usare il metodo **Delete \_ OS \_ Image** .
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    result = sms.delete_os_image('mycentos')
+result = sms.delete_os_image('mycentos')
 
-    operation_result = sms.get_operation_status(result.request_id)
-    print('Operation status: ' + operation_result.status)
+operation_result = sms.get_operation_status(result.request_id)
+print('Operation status: ' + operation_result.status)
+```
 
 ## <a name="create-a-virtual-machine"></a><a name="CreateVM"> </a>Creare una macchina virtuale
 Per creare una macchina virtuale, è necessario creare un [servizio cloud](#CreateCloudService) prima di creare la distribuzione della macchina virtuale tramite il metodo **create\_virtual\_machine\_deployment**.
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    name = 'myvm'
-    location = 'West US'
+name = 'myvm'
+location = 'West US'
 
-    #Set the location
-    sms.create_hosted_service(service_name=name,
-        label=name,
-        location=location)
+#Set the location
+sms.create_hosted_service(service_name=name,
+    label=name,
+    location=location)
 
-    # Name of an os image as returned by list_os_images
-    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
+# Name of an os image as returned by list_os_images
+image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
 
-    # Destination storage account container/blob where the VM disk
-    # will be created
-    media_link = 'url_to_target_storage_blob_for_vm_hd'
+# Destination storage account container/blob where the VM disk
+# will be created
+media_link = 'url_to_target_storage_blob_for_vm_hd'
 
-    # Linux VM configuration, you can use WindowsConfigurationSet
-    # for a Windows VM instead
-    linux_config = LinuxConfigurationSet('myhostname', 'myuser', 'mypassword', True)
+# Linux VM configuration, you can use WindowsConfigurationSet
+# for a Windows VM instead
+linux_config = LinuxConfigurationSet('myhostname', 'myuser', 'mypassword', True)
 
-    os_hd = OSVirtualHardDisk(image_name, media_link)
+os_hd = OSVirtualHardDisk(image_name, media_link)
 
-    sms.create_virtual_machine_deployment(service_name=name,
-        deployment_name=name,
-        deployment_slot='production',
-        label=name,
-        role_name=name,
-        system_config=linux_config,
-        os_virtual_hard_disk=os_hd,
-        role_size='Small')
+sms.create_virtual_machine_deployment(service_name=name,
+    deployment_name=name,
+    deployment_slot='production',
+    label=name,
+    role_name=name,
+    system_config=linux_config,
+    os_virtual_hard_disk=os_hd,
+    role_size='Small')
+```
 
 ## <a name="delete-a-virtual-machine"></a><a name="DeleteVM"> </a>Eliminare una macchina virtuale
 Per eliminare una macchina virtuale, è prima necessario eliminare la distribuzione tramite il metodo **delete\_deployment**.
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    sms.delete_deployment(service_name='myvm',
-        deployment_name='myvm')
+sms.delete_deployment(service_name='myvm',
+    deployment_name='myvm')
+```
 
 Sarà quindi possibile eliminare il servizio cloud usando il metodo **delete\_hosted\_service**.
 
-    sms.delete_hosted_service(service_name='myvm')
+```python
+sms.delete_hosted_service(service_name='myvm')
+```
 
 ## <a name="create-a-virtual-machine-from-a-captured-virtual-machine-image"></a>Creare una macchina virtuale da un'immagine di macchina virtuale acquisita
-Per acquisire un'immagine di macchina virtuale, chiamare prima **il\_metodo\_Capture VM Image** .
+Per acquisire un'immagine di macchina virtuale, chiamare prima il metodo **Capture \_ VM \_ Image** .
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    # replace the below three parameters with actual values
-    hosted_service_name = 'hs1'
-    deployment_name = 'dep1'
-    vm_name = 'vm1'
+# replace the below three parameters with actual values
+hosted_service_name = 'hs1'
+deployment_name = 'dep1'
+vm_name = 'vm1'
 
-    image_name = vm_name + 'image'
-    image = CaptureRoleAsVMImage    ('Specialized',
-        image_name,
-        image_name + 'label',
-        image_name + 'description',
-        'english',
-        'mygroup')
+image_name = vm_name + 'image'
+image = CaptureRoleAsVMImage    ('Specialized',
+    image_name,
+    image_name + 'label',
+    image_name + 'description',
+    'english',
+    'mygroup')
 
-    result = sms.capture_vm_image(
-            hosted_service_name,
-            deployment_name,
-            vm_name,
-            image
-        )
+result = sms.capture_vm_image(
+        hosted_service_name,
+        deployment_name,
+        vm_name,
+        image
+    )
+```
 
 Per verificare di avere acquisito l'immagine correttamente, usare l'API **list\_vm\_images** e assicurarsi che l'immagine venga visualizzata nei risultati.
 
-    images = sms.list_vm_images()
+```python
+images = sms.list_vm_images()
+```
 
 Infine, per creare la macchina virtuale con l'immagine acquisita, usare il metodo **create\_virtual\_machine\_deployment** come fatto in precedenza, ma questa volta passare vm_image_name.
 
-    from azure import *
-    from azure.servicemanagement import *
+```python
+from azure import *
+from azure.servicemanagement import *
 
-    sms = ServiceManagementService(subscription_id, certificate_path)
+sms = ServiceManagementService(subscription_id, certificate_path)
 
-    name = 'myvm'
-    location = 'West US'
+name = 'myvm'
+location = 'West US'
 
-    #Set the location
-    sms.create_hosted_service(service_name=name,
-        label=name,
-        location=location)
+#Set the location
+sms.create_hosted_service(service_name=name,
+    label=name,
+    location=location)
 
-    sms.create_virtual_machine_deployment(service_name=name,
-        deployment_name=name,
-        deployment_slot='production',
-        label=name,
-        role_name=name,
-        system_config=linux_config,
-        os_virtual_hard_disk=None,
-        role_size='Small',
-        vm_image_name = image_name)
+sms.create_virtual_machine_deployment(service_name=name,
+    deployment_name=name,
+    deployment_slot='production',
+    label=name,
+    role_name=name,
+    system_config=linux_config,
+    os_virtual_hard_disk=None,
+    role_size='Small',
+    vm_image_name = image_name)
+```
 
 Per altre informazioni su come acquisire una macchina virtuale Linux nel modello di distribuzione classica, vedere [Acquisire una macchina virtuale Linux](../virtual-machines/linux/classic/capture-image-classic.md).
 

@@ -2,13 +2,13 @@
 title: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
 ms.date: 05/26/2020
-ms.topic: conceptual
-ms.openlocfilehash: a6cdfea7e0520aa704e70a12784f7a7ba5d6aa6d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.topic: how-to
+ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920917"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 
@@ -189,7 +189,7 @@ L'esempio seguente illustra un file **delegatedResourceManagement.parameters.jso
 }
 ```
 
-L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con il ruolo Amministratore Accesso utenti (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Quando si assegna questo ruolo, è necessario includere la proprietà **delegatedRoleDefinitionIds** e uno o più ruoli predefiniti. L'utente creato in questa autorizzazione potrà assegnare questi ruoli predefiniti alle [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente, operazione necessaria per [distribuire i criteri che possono essere corretti](deploy-policy-remediation.md). Nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.
+L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con il ruolo Amministratore Accesso utenti (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Quando si assegna questo ruolo, è necessario includere la proprietà **delegatedRoleDefinitionIds** e uno o più ruoli predefiniti. L'utente creato in questa autorizzazione potrà assegnare questi ruoli predefiniti alle [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente, operazione necessaria per [distribuire i criteri che possono essere corretti](deploy-policy-remediation.md).  L'utente è inoltre in grado di creare interventi di supporto.  Nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuire i modelli di Azure Resource Manager
 
@@ -198,9 +198,9 @@ Dopo aver aggiornato il file dei parametri, un utente del tenant del cliente dev
 Trattandosi di una distribuzione a livello di sottoscrizione, non è possibile avviarla nel portale di Azure. È possibile eseguire la distribuzione tramite PowerShell o l'interfaccia della riga di comando di Azure, come illustrato di seguito.
 
 > [!IMPORTANT]
-> Questa distribuzione a livello di sottoscrizione deve essere eseguita da un account non guest nel tenant del cliente con il [ruolo predefinito Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) per la sottoscrizione di cui eseguire l'onboarding (o che contiene i gruppi di risorse di cui eseguire l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Questa distribuzione a livello di sottoscrizione deve essere eseguita da un account non guest nel tenant del cliente con il [ruolo predefinito Proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione di cui eseguire l'onboarding (o che contiene i gruppi di risorse di cui eseguire l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
-> Se la sottoscrizione è stata creata usando il [programma Cloud Solution Provider (CSP)](../concepts/cloud-solution-provider.md), tutti gli utenti con il ruolo [Agente amministratore](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) nel tenant del provider di servizi possono eseguire la distribuzione.
+> Se la sottoscrizione è stata creata usando il [programma Cloud Solution Provider (CSP)](../concepts/cloud-solution-provider.md), tutti gli utenti con il ruolo [Agente amministratore](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) nel tenant del provider di servizi possono eseguire la distribuzione.
 
 ### <a name="powershell"></a>PowerShell
 

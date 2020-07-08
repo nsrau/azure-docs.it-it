@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926851"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857214"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
@@ -271,7 +271,7 @@ In questa sezione vengono eseguite le attività seguenti:
 Per informazioni su come creare i log applicazioni nei processi Web, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK - Come scrivere i log](https://github.com/Azure/azure-webjobs-sdk/wiki). Le seguenti istruzioni per visualizzare i log e controllare come vengono archiviati in Azure si applicano anche ai log delle applicazioni creati dai processi Web.
 
 ### <a name="add-tracing-statements-to-the-application"></a>Aggiungere istruzioni di traccia all'applicazione
-1. Aprire *Controllers\HomeController.cs* `Index`e sostituire i metodi, `About`e `Contact` con il codice seguente per `Trace` aggiungere istruzioni e un' `using` istruzione per: `System.Diagnostics`
+1. Aprire *Controllers\HomeController.cs*e sostituire i `Index` metodi, `About` e `Contact` con il codice seguente per aggiungere `Trace` istruzioni e un' `using` istruzione per `System.Diagnostics` :
 
     ```csharp
     public ActionResult Index()
@@ -337,7 +337,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
     ```
 
 1. Premere CTRL+F5 per eseguire l'applicazione.
-1. Nella barra degli indirizzi della finestra del browser aggiungere *Trace. axd* all'URL, quindi premere INVIO (l'URL è simile a `http://localhost:53370/trace.axd`).
+1. Nella barra degli indirizzi della finestra del browser aggiungere *Trace. axd* all'URL, quindi premere INVIO (l'URL è simile a `http://localhost:53370/trace.axd` ).
 1. Nella pagina **Application Trace** fare clic su **View Details** nella prima riga (non la riga BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -348,7 +348,9 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 
     Per impostazione predefinita, `trace.axd` è disponibile solo in locale. Se si vuole renderlo disponibile da un'app remota, è possibile aggiungere `localOnly="false"` all'elemento `trace` nel file *Web.config*, come illustrato nell'esempio seguente:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```
 
     Tuttavia, l'attivazione di `trace.axd` in un'app di produzione non è consigliata per motivi di sicurezza. Le sezioni seguenti mostrano un modo più semplice per leggere i log di traccia in un'app del Servizio app.
 

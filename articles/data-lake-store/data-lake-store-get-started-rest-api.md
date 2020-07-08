@@ -3,15 +3,15 @@ title: Gestire un account Azure Data Lake Storage Gen1 con REST
 description: Usare l'API REST WebHDFS per eseguire operazioni di gestione degli account in un account Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8a106b55fb90f320b90c81216a205dd10a9bf934
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: fc3f3fb0b6bb67239d6c1952d3e128076ce45aaf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692084"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857197"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operazioni di gestione di account in Azure Data Lake Storage Gen1 con API REST
 > [!div class="op_single_selector"]
@@ -38,32 +38,40 @@ Questo articolo descrive come eseguire operazioni di gestione di account in Azur
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Creare un account Data Lake Storage Gen1
 Questa operazione si basa sulla chiamata API REST definita [qui](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
 
-Usare il comando cURL seguente. Sostituire ** \<yourstoragegen1name>** con il nome del data Lake storage Gen1.
+Usare il comando cURL seguente. Sostituire **\<yourstoragegen1name>** con il nome del data Lake storage Gen1.
 
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+```console
+curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+```
 
 Nel comando sopra sostituire \<`REDACTED`\> con il token di autorizzazione recuperato in precedenza. Il payload della richiesta per questo comando è contenuto nel file **input.json** fornito per il parametro `-d` precedente. Il contenuto del file input.json è simile al frammento di codice seguente:
 
-    {
-    "location": "eastus2",
-    "tags": {
-        "department": "finance"
-        },
-    "properties": {}
-    }    
+```json
+{
+"location": "eastus2",
+"tags": {
+    "department": "finance"
+    },
+"properties": {}
+}
+```
 
 ## <a name="delete-a-data-lake-storage-gen1-account"></a>Eliminare un account Data Lake Storage Gen1
 Questa operazione si basa sulla chiamata API REST definita [qui](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
 
-Usare il comando cURL seguente per eliminare un account Data Lake Storage Gen1. Sostituire ** \<yourstoragegen1name>** con il nome dell'account di data Lake storage Gen1.
+Usare il comando cURL seguente per eliminare un account Data Lake Storage Gen1. Sostituire **\<yourstoragegen1name>** con il nome dell'account data Lake storage Gen1.
 
-    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview
+```console
+curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview
+```
 
 Dovrebbe venire visualizzato un output simile al frammento di codice seguente:
 
-    HTTP/1.1 200 OK
-    ...
-    ...
+```output
+HTTP/1.1 200 OK
+...
+...
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Operazioni del file system in Data Lake Storage Gen1 con l'API REST](data-lake-store-data-operations-rest-api.md).

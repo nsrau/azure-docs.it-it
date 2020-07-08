@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 2521700e0f07691541ee6cbbf085a8be72f08129
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 51716bdd6ab7f5b5102ccba3e6d57855dee5df33
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73904615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855906"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Ottimizzazione Azure Data Lake Storage Gen1 per le prestazioni
 
@@ -46,7 +46,7 @@ Una volta risolti i colli di bottiglia relativi all'hardware e alla connettivit�
 | PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Collegamento](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
 | AdlCopy    | Unità Azure Data Lake Analytics | [Collegamento](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mapper) | [Collegamento](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
-| Data factory di Azure| parallelCopies | [Collegamento](../data-factory/copy-activity-performance.md)                          |
+| Azure Data Factory| parallelCopies | [Collegamento](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper) | [Collegamento](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Strutturare il set di dati
@@ -65,15 +65,11 @@ In alcuni casi, le pipeline di dati hanno un controllo limitato sui dati non ela
 
 Per i carichi di lavoro hive e Anna, l'eliminazione di partizioni di dati di serie temporali può aiutare alcune query a leggere solo un subset dei dati, migliorando le prestazioni.
 
-Queste pipeline che inseriscono dati di serie temporali spesso inseriscono i file con un nome strutturato per file e cartelle. Di seguito è riportato un esempio comune per i dati strutturati per data:
-
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+Queste pipeline che inseriscono dati di serie temporali spesso inseriscono i file con un nome strutturato per file e cartelle. Di seguito è riportato un esempio comune per i dati strutturati per data: *\dataset\yyyy\mm\dd\ datafile_YYYY_MM_DD. TSV*.
 
 Si noti che le informazioni di data/ora vengono visualizzate sia come cartelle sia nel nome del file.
 
-Per la data e l'ora, di seguito è riportato un modello comune
-
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+Per data e ora, di seguito è riportato un modello comune: *\dataset\yyyy\mm\dd\hh\mm\ datafile_YYYY_MM_DD_HH_mm. TSV*.
 
 Anche in questo caso, la scelta relativa all'organizzazione di file e cartelle deve prevedere una gestione ottimizzata dei file di maggiori dimensioni e l'inclusione di un numero ragionevole di file in ogni cartella.
 

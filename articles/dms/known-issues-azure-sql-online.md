@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: e7efdb7244e2c7e4651a4507b538123f8d320c1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da0c00f0b4a8f2c49996fbcb9b34ee4a1ab65273
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856638"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Problemi noti/limitazioni della migrazione con migrazioni online al database SQL di Azure
 
@@ -40,7 +40,7 @@ Se il database di origine è costituito da una o più tabelle temporali, si veri
 
 **Soluzione alternativa**
 
-Seguire questa procedura.
+Segui questa procedura.
 
 1. Trovare le tabelle temporali nello schema di origine usando la query seguente.
 
@@ -66,7 +66,7 @@ Può verificarsi un'eccezione SQL in cui è indicato che "ntext non è compatibi
 
 **Soluzione alternativa**
 
-Seguire questa procedura.
+Segui questa procedura.
 
 1. Trovare le tabelle utente che includono colonne con tipo di dati hierarchyid usando la query seguente.
 
@@ -82,7 +82,7 @@ Seguire questa procedura.
 
 **Soluzione alternativa**
 
-Seguire questa procedura.
+Segui questa procedura.
 
 1. Trovare i trigger che sono attualmente attivi nel database di origine usando la query seguente:
 
@@ -142,7 +142,9 @@ Per ottenere dettagli specifici sull'errore, attenersi alla procedura riportata 
 
 La migrazione ha esito negativo con un messaggio di errore contenente il testo seguente:
 
-     “** encountered a fatal error”, "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode."
+```output
+"** encountered a fatal error", "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode.
+```
 
 **Soluzione alternativa**
 
@@ -154,7 +156,9 @@ Sebbene il servizio migrazione del database di Azure supporti il tipo di dati ge
 
 La migrazione ha esito negativo con un messaggio di errore contenente il testo seguente:
 
-    Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
+```output
+Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
+```
 
 **Soluzione alternativa**
 

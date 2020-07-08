@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629053"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856828"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Valutare l'accuratezza di Riconoscimento vocale personalizzato
 
@@ -23,7 +23,7 @@ In questo documento si apprenderà come misurare quantitativamente la qualità d
 
 ## <a name="what-is-word-error-rate-wer"></a>Che cos'è la frequenza degli errori di parola?
 
-Lo standard di settore per misurare l'accuratezza del modello è la *frequenza degli errori di Word* (WER). WER conta il numero di parole non corrette identificate durante il riconoscimento, quindi divide in base al numero totale di parole fornite nella trascrizione con etichetta umana. Infine, tale numero viene moltiplicato per il 100% per calcolare il WER.
+Lo standard di settore per misurare l'accuratezza del modello è la *frequenza degli errori di Word* (WER). WER conta il numero di parole non corrette identificate durante il riconoscimento, quindi divide in base al numero totale di parole fornite nella trascrizione con etichetta umana (mostrata di seguito come N). Infine, tale numero viene moltiplicato per il 100% per calcolare il WER.
 
 ![Formula WER](./media/custom-speech/custom-speech-wer-formula.png)
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 53cfb983579c8a02ed6c1d80ff4821efa5950298
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848212"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856899"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informazioni di riferimento su algoritmi e moduli della finestra di progettazione di Azure Machine Learning (anteprima)
 
@@ -34,7 +34,7 @@ Per assistenza nella scelta degli algoritmi, vedere:
 
 | Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
-| Dati di input e di output | Spostano i dati da origini cloud nella pipeline. Scrivono i risultati o i dati intermedi in Archiviazione di Azure, in un database SQL o in Hive durante l'esecuzione di una pipeline oppure usano l'archiviazione cloud per consentire lo scambio di dati tra pipeline.  | [Enter Data Manually](enter-data-manually.md) (Immissione manuale dei dati) <br/> [Esportazione dei dati](export-data.md) <br/> [Importazione dei dati](import-data.md) |
+| Dati di input e di output | Spostano i dati da origini cloud nella pipeline. Scrivere i risultati o i dati intermedi in archiviazione di Azure, nel database SQL o in hive, durante l'esecuzione di una pipeline o usare l'archiviazione cloud per scambiare dati tra pipeline.  | [Enter Data Manually](enter-data-manually.md) (Immissione manuale dei dati) <br/> [Esportazione dei dati](export-data.md) <br/> [Importazione dei dati](import-data.md) |
 | Trasformazioni dei dati | Operazioni su dati specifici per l'apprendimento automatico, ad esempio la normalizzazione o il binning dei dati, la riduzione della dimensionalità e la conversione dei dati tra vari formati di file.| [Aggiungi colonne](add-columns.md) <br/> [Add Rows](add-rows.md) (Aggiungi righe) <br/> [Apply Math Operation](apply-math-operation.md) (Applica operazione matematica) <br/> [Apply SQL Transformation](apply-sql-transformation.md) (Applica trasformazione SQL) <br/> [Clean Missing Data](clean-missing-data.md) (Pulisci dati mancanti) <br/> [Clip Values](clip-values.md) (Ritaglia valori) <br/> [Convert to CSV](convert-to-csv.md) (Converti in CSV) <br/> [Convert to Dataset](convert-to-dataset.md) (Converti in set di dati) <br/> [Convert to Indicator Values](convert-to-indicator-values.md) (Converti in valori indicatore) <br/> [Edit Metadata](edit-metadata.md) (Modifica metadati) <br/> [Group Data into Bins](group-data-into-bins.md) (Raggruppa dati in contenitori) <br/> [Join Data](join-data.md) (Unisci dati) <br/> [Normalize Data](normalize-data.md) (Normalizza dati) <br/> [Partition and Sample](partition-and-sample.md) (Crea partizioni ed esegui campionamenti)  <br/> [Remove Duplicate Rows](remove-duplicate-rows.md) (Rimuovi righe duplicate) <br/> [SMOTE](smote.md) <br/> [Select Columns Transform](select-columns-transform.md) (Seleziona trasformazione colonne) <br/> [Select Columns in Dataset](select-columns-in-dataset.md) (Seleziona colonne nel set di dati) <br/> [Dividere dati](split-data.md) |
 | Selezione caratteristiche | Selezionano un subset di funzionalità utili e pertinenti da usare per la creazione di un modello di analisi. | [Filter Based Feature Selection](filter-based-feature-selection.md) (Selezione caratteristiche basata su filtro) <br/> [Permutation Feature Importance](permutation-feature-importance.md) (Importanza caratteristica permutazione) |
 | Funzioni di statistiche | Offrono un'ampia gamma di metodi statistici correlati al data science. | [Summarize Data](summarize-data.md) (Riepiloga dati)|
@@ -51,12 +51,13 @@ Per assistenza nella scelta degli algoritmi, vedere:
 
 | Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
-| Training del modello | Eseguono i dati tramite l'algoritmo. |  [Train Clustering Model](train-clustering-model.md) (Training del modello di clustering) <br/> [Eseguire il training del modello](train-model.md)  <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Ottimizza iperparametri del modello) |
-| Valutazione e assegnazione di punteggi al modello | Misurano l'accuratezza del modello sottoposto a training. | [Applica trasformazione](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) (Assegna dati ai cluster) <br/> [Cross Validate Model](cross-validate-model.md) (Convalida incrociata modello) <br/> [Evaluate Model](evaluate-model.md) (Valuta modello) <br/> [Score Model](score-model.md) (Punteggio modello) |
+| Training del modello | Eseguono i dati tramite l'algoritmo. |  [Train Clustering Model](train-clustering-model.md) (Training del modello di clustering) <br/> [Eseguire il training del modello](train-model.md) <br/> [Train Pytorch Model](train-pytorch-model.md) <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Ottimizza iperparametri del modello) |
+| Valutazione e assegnazione di punteggi al modello | Misurano l'accuratezza del modello sottoposto a training. | [Applica trasformazione](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) (Assegna dati ai cluster) <br/> [Cross Validate Model](cross-validate-model.md) (Convalida incrociata modello) <br/> [Evaluate Model](evaluate-model.md) (Valuta modello) <br/> [Score Image Model](score-image-model.md) <br/> [Score Model](score-model.md) (Punteggio modello) |
 | Linguaggio di Python | Scrivono codice e lo incorporano in un modulo per integrare Python con la pipeline. | [Create Python Model](create-python-model.md) (Crea modello Python) <br/> [Execute Python Script](execute-python-script.md) (Esegui script Python) |
 | Linguaggio di R | Scrivono codice e lo incorporano in un modulo per integrare R con la pipeline. | [Execute R Script](execute-r-script.md) (Esegui script R) |
-| Text Analytics | Forniscono strumenti di calcolo specializzati per usare testo strutturato e non strutturato. |  [Convert Word to Vector](convert-word-to-vector.md) (Converti parola in vettore) <br/> [Extract N Gram Features from Text](extract-n-gram-features-from-text.md) (Estrai caratteristiche n-gramma da testo) <br/> [Hashing di funzioni](feature-hashing.md) <br/> [Preprocess Text](preprocess-text.md) (Preelabora il testo) <br/> [Latent Dirichlet Allocation](latent-dirichlet-allocation.md) (Allocazione Dirichlet latente) |
-| Recommendation | Creano modelli di raccomandazione. | [Evaluate Recommender](evaluate-recommender.md) (Valuta modelo di raccomandazione) <br/> [Score SVD Recommender](score-svd-recommender.md) (Punteggio modulo di raccomandazione SVD) <br/> [Train SVD Recommender](train-SVD-recommender.md) (Training modulo di raccomandazione SVD) |
+| Text Analytics | Forniscono strumenti di calcolo specializzati per usare testo strutturato e non strutturato. |  [Convert Word to Vector](convert-word-to-vector.md) (Converti parola in vettore) <br/> [Extract N Gram Features from Text](extract-n-gram-features-from-text.md) (Estrai caratteristiche n-gramma da testo) <br/> [Hashing di funzioni](feature-hashing.md) <br/> [Preprocess Text](preprocess-text.md) (Preelabora il testo) <br/> [Latent Dirichlet Allocation](latent-dirichlet-allocation.md) (Allocazione Dirichlet latente) <br/> [Assegnare punteggi al modello Vowpal Wabbit](score-vowpal-wabbit-model.md) <br/> [Eseguire il training del modello Vowpal Wabbit](train-vowpal-wabbit-model.md)|
+| Visione artificiale | Moduli correlati alla pre-elaborazione dei dati di immagini e al riconoscimento delle immagini. |  [Apply Image Transformation](apply-image-transformation.md) <br/> [Convert to Image Directory](convert-to-image-directory.md) <br/> [Init Image Transformation](init-image-transformation.md) <br/> [Split Image Directory](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| Recommendation | Creano modelli di raccomandazione. | [Evaluate Recommender](evaluate-recommender.md) (Valuta modelo di raccomandazione) <br/> [Score SVD Recommender](score-svd-recommender.md) (Punteggio modulo di raccomandazione SVD) <br/> [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md)<br/> [Train SVD Recommender](train-SVD-recommender.md) (Training modulo di raccomandazione SVD) <br/> [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md)|
 | Anomaly Detection | Creano modelli di rilevamento delle anomalie. | [PCA-Based Anomaly Detection](pca-based-anomaly-detection.md) (Rilevamento anomalie basato su PCA) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) (Training modello di rilevamento anomalie) |
 
 

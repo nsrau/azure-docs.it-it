@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: 0b83a35d912c97ae25bc2d69d076e8eae8ca490f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77523605"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856673"
 ---
 # <a name="keys-and-values"></a>Chiavi e valori
 
@@ -25,19 +25,23 @@ Di seguito sono riportati due esempi di nomi chiave strutturati in una gerarchia
 
 * In base ai servizi dei componenti
 
+```aspx
         AppName:Service1:ApiEndpoint
         AppName:Service2:ApiEndpoint
+```
 
 * In base alle aree di distribuzione
 
+```aspx
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
+```
 
-L'uso di dati di configurazione all'interno di Framework applicazione può determinare schemi di denominazione specifici per i valori di chiave. Ad esempio, il framework Spring cloud di Java `Environment` definisce le risorse che forniscono le impostazioni a un'applicazione Spring.  Sono parametrizzate da variabili che includono il nome e *il profilo* *dell'applicazione* . Le chiavi per Spring Cloud relative ai dati di configurazione iniziano in genere con questi due elementi, separati da un delimitatore.
+L'uso di dati di configurazione all'interno di Framework applicazione può determinare schemi di denominazione specifici per i valori di chiave. Ad esempio, il framework Spring cloud di Java definisce `Environment` le risorse che forniscono le impostazioni a un'applicazione Spring.  Sono parametrizzate da variabili che includono il nome e *il profilo* *dell'applicazione* . Le chiavi per Spring Cloud relative ai dati di configurazione iniziano in genere con questi due elementi, separati da un delimitatore.
 
 Le chiavi archiviate in Configurazione sono stringhe basate su Unicode con distinzione tra maiuscole e minuscole. Le chiavi *app1* e *App1* sono distinte in un archivio di Configurazione app. Tenere presente questo aspetto quando si usano le impostazioni di configurazione all'interno di un'applicazione, perché alcuni framework gestiscono le chiavi di configurazione senza fare distinzione tra maiuscole e minuscole. Non è consigliabile usare case per distinguere le chiavi.
 
-È possibile utilizzare qualsiasi carattere Unicode nei nomi delle chiavi, `*`ad `,`eccezione di `\`, e.  Se è necessario includere uno di questi caratteri riservati, eseguire l'escape usando `\{Reserved Character}`. 
+È possibile utilizzare qualsiasi carattere Unicode nei nomi delle chiavi, ad eccezione di `*` , `,` e `\` .  Se è necessario includere uno di questi caratteri riservati, eseguire l'escape usando `\{Reserved Character}` . 
 
 Una coppia chiave-valore prevede un limite di dimensioni combinate di 10 KB. Questo limite include tutti i caratteri della chiave, il relativo valore e tutti gli attributi facoltativi associati. Entro questo limite è possibile avere molti livelli gerarchici per le chiavi.
 
@@ -53,13 +57,15 @@ Per assegnare i nomi alle chiavi usate per i dati di configurazione sono disponi
 
 ### <a name="label-keys"></a>Chiavi di etichetta
 
-Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di Configurazione app. Per impostazione predefinita, un valore di chiave non dispone di un'etichetta. Per fare riferimento in modo esplicito a un valore di chiave `\0` senza etichetta, usare (URL `%00`codificato come).
+Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di Configurazione app. Per impostazione predefinita, un valore di chiave non dispone di un'etichetta. Per fare riferimento in modo esplicito a un valore di chiave senza etichetta, usare `\0` (URL codificato come `%00` ).
 
 L'etichetta fornisce un modo pratico per creare varianti di una chiave. Un uso comune delle etichette consiste nello specificare più ambienti per la stessa chiave:
 
+```aspx
     Key = AppName:DbEndpoint & Label = Test
     Key = AppName:DbEndpoint & Label = Staging
     Key = AppName:DbEndpoint & Label = Production
+```
 
 ### <a name="version-key-values"></a>Creare versioni di coppie chiave-valore
 

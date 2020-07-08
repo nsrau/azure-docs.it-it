@@ -6,15 +6,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: faq
-ms.date: 05/24/2019
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cf58b62001ce5d193e3a06973215d82138ad4b59
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855592"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -234,7 +234,7 @@ Per un esempio, vedere il [modello di avvio rapido 101-vm-sshkey di GitHub](http
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando si esegue `Update-AzVmss` dopo avere aggiunto più di un certificato dallo stesso insieme di credenziali delle chiavi, viene visualizzato il messaggio seguente:
 
->Update-AzVmss: l'elenco Secret contiene istanze ripetute di/subscriptions/ \< My-subscription-id>/ResourceGroups/Internal-RG-dev/Providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, che non è consentito.
+>Update-AzVmss: l'elenco Secret contiene istanze ripetute di/subscriptions/ \<my-subscription-id> /resourceGroups/Internal-RG-dev/Providers/Microsoft.KeyVault/Vaults/Internal-keyvault-dev, che non è consentito.
 
 Questo problema si può verificare se si prova ad aggiungere di nuovo lo stesso insieme di credenziali invece di usare un nuovo certificato dell'insieme di credenziali per l'insieme di credenziali di origine esistente. Il comando `Add-AzVmssSecret` non funziona correttamente se si aggiungono altri segreti.
 
@@ -332,7 +332,7 @@ I set di scalabilità di macchine virtuali sono un sottile livello API disponibi
 
 Dal punto di vista della conformità, i set di scalabilità di macchine virtuali sono una parte essenziale della piattaforma di calcolo di Azure. Condividono un team, strumenti, processi, metodologia di distribuzione, controlli di sicurezza, compilazione Just-In-Time (JIT), monitoraggio, avvisi e così via con il provider di risorse di calcolo. I set di scalabilità di macchine virtuali sono compatibili con PCI (Payment Card Industry) perché il provider di risorse di calcolo è parte dell'attestazione PCI Data Security Standard (DSS) corrente.
 
-Per altre informazioni, vedere il [Centro protezione Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
+Per ulteriori informazioni, vedere [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>Le [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funzionano con i set di scalabilità di macchine virtuali?
 
@@ -523,7 +523,7 @@ Per distribuire un set di scalabilità di macchine virtuali in una rete virtuale
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>È possibile usare i set di scalabilità con la rete accelerata?
 
-Sì. Per usare la rete accelerata, impostare enableAcceleratedNetworking su true nelle impostazioni networkInterfaceConfigurations del set di scalabilità. Ad esempio:
+Sì. Per usare la rete accelerata, impostare enableAcceleratedNetworking su true nelle impostazioni networkInterfaceConfigurations del set di scalabilità. Ad esempio
 
 ```json
 "networkProfile": {
