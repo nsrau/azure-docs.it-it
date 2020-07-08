@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: ed061234da27716bfcdaf1cc065568908108f90a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77597823"
 ---
 Tutti i dati archiviati in File di Azure vengono crittografati a riposo usando la crittografia del servizio di archiviazione di Azure (SSE). La crittografia del servizio di archiviazione funziona in modo analogo a BitLocker per Windows: i dati vengono crittografati sotto il livello file system. Poiché i dati vengono crittografati sotto la file system della condivisione file di Azure, perché sono codificati su disco, non è necessario avere accesso alla chiave sottostante sul client per leggere o scrivere nella condivisione file di Azure.

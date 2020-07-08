@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: iot-accelerators
 author: avneet723
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67180580"
 ---
 ## <a name="download-the-source-code"></a>Scaricare il codice sorgente
@@ -62,7 +62,7 @@ Se non sono ancora state create le risorse di Azure necessarie, seguire questa p
      Lo script aggiunge anche un set di variabili di ambiente con un prefisso **PCS** nel computer locale. Queste variabili di ambiente forniscono i dettagli per il monitoraggio remoto per poter leggere da una risorsa Azure Key Vault. Questa risorsa Key Vault è il punto in cui il monitoraggio remoto leggerà i valori di configurazione da.
 
      > [!TIP]
-     > Quando lo script viene completato, salva anche le variabili di ambiente in un file denominato ** \<cartella\>\\Home. PC\\\<\>soluzione nome. env**. Sarà possibile usarle per distribuzioni future di acceleratori di soluzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+     > Al termine dello script, salva anche le variabili di ambiente in un file denominato ** \<your home folder\> \\ . PCS \\ \<solution name\> . env**. Sarà possibile usarle per distribuzioni future di acceleratori di soluzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
 1. Uscire dall'ambiente della riga di comando.
 
@@ -74,6 +74,6 @@ Impostare le variabili di ambiente per gli elementi seguenti:
 * **PCS_AAD_APPID** : ID dell'applicazione AAD
 * **PCS_AAD_APPSECRET** : segreto dell'applicazione AAD
 
-I valori di configurazione verranno letti da questa risorsa Azure Key Vault. Queste variabili di ambiente possono essere salvate nel file con ** \<estensione\>\\ENV della\\\<soluzione\>Home Folder. PCS** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+I valori di configurazione verranno letti da questa risorsa Azure Key Vault. Queste variabili di ambiente possono essere salvate nel file con ** \<your home folder\> \\ estensione PCS \\ \<solution name\> . env** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
 Parte della configurazione richiesta dal microservizio è archiviata in un'istanza di **Key Vault** creata durante la distribuzione iniziale. Le variabili corrispondenti nell'insieme di credenziali delle credenziali devono essere modificate in base alle esigenze.

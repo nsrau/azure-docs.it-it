@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 03/18/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 10c2b447a3f174afe93f56084827756d24d982cc
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792191"
 ---
 ## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini 
@@ -35,7 +35,7 @@ $gallery = New-AzGallery `
 
 ## <a name="share-the-gallery"></a>Condividere la raccolta
 
-Si consiglia di condividere l'accesso a livello di raccolta immagini. Usare un indirizzo di posta elettronica e il cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) per ottenere l'ID oggetto per l'utente e quindi usare [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) per concedere loro l'accesso alla raccolta. Sostituire l'indirizzo di posta alinne_montes@contoso.com elettronica di esempio, in questo esempio, con le proprie informazioni.
+È consigliabile condividere l'accesso a livello di raccolta immagini. Usare un indirizzo di posta elettronica e il cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) per ottenere l'ID oggetto per l'utente e quindi usare [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) per concedere l'accesso alla raccolta. Sostituire l'indirizzo di posta elettronica di esempio (in questo esempio alinne_montes@contoso.com) con quello personalizzato.
 
 ```azurepowershell-interactive
 # Get the object ID for the user

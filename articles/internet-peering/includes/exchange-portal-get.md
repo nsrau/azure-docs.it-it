@@ -1,7 +1,7 @@
 ---
 title: includere il file
 titleSuffix: Azure
-description: File di inclusione
+description: includere file
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 000971878e24c46892aaef1fa0c65237a4219883
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81678557"
 ---
 Una volta distribuita correttamente la risorsa di **peering** , è possibile visualizzarla attenendosi alla procedura seguente.

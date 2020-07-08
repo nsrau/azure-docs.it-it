@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
 ms.openlocfilehash: b4234acb2ce32980a268e389cb31de9a57ed18e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82132269"
 ---
 Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Alcuni elementi di configurazione seguono il contenuto in uno scambio (non specifico dello slot), mentre altri elementi di configurazione si mantengono nello stesso slot dopo uno scambio (specifico dello slot). Negli elenchi seguenti sono riportate le impostazioni che vengono modificate durante lo scambio degli slot.
@@ -41,5 +41,5 @@ Le funzionalità contrassegnate con un asterisco (*) sono pianificate per lo sca
 * Condivisione di risorse tra le origini (CORS)
 
 > [!NOTE]
-> Anche alcune impostazioni di app che si applicano alle impostazioni non scambiate non vengono scambiate. Ad esempio, poiché le impostazioni di diagnostica non vengono scambiate, le impostazioni `WEBSITE_HTTPLOGGING_RETENTION_DAYS` dell' `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` app correlate come e non vengono scambiate anche se non vengono visualizzate come impostazioni degli slot.
+> Anche alcune impostazioni di app che si applicano alle impostazioni non scambiate non vengono scambiate. Ad esempio, poiché le impostazioni di diagnostica non vengono scambiate, le impostazioni dell'app correlate come `WEBSITE_HTTPLOGGING_RETENTION_DAYS` e `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` non vengono scambiate anche se non vengono visualizzate come impostazioni degli slot.
 >

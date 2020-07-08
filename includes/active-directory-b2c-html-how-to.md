@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
 ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80116856"
 ---
 ## <a name="use-custom-page-content"></a>USA contenuto pagina personalizzata
 
 Con la funzionalità di personalizzazione dell'interfaccia utente della pagina, è possibile definire l'aspetto di qualsiasi criterio personalizzato. È anche possibile mantenere la coerenza visiva e del marchio tra l'applicazione e Azure AD B2C.
 
-### <a name="how-it-works"></a>Funzionamento
+### <a name="how-it-works"></a>Come funziona
 
 Azure AD B2C esegue il codice nel browser del cliente usando la [condivisione di risorse tra le origini (CORS)](https://www.w3.org/TR/cors/). In fase di esecuzione, il contenuto viene caricato da un URL specificato nel flusso utente o in un criterio personalizzato. Ogni pagina nell'esperienza utente carica il proprio contenuto dall'URL specificato per la pagina. Dopo che il contenuto è stato caricato dall'URL, viene unito a un frammento HTML inserito da Azure AD B2C, quindi la pagina viene visualizzata per il cliente.
 
@@ -24,9 +24,9 @@ Azure AD B2C esegue il codice nel browser del cliente usando la [condivisione di
 
 ## <a name="custom-html-page-content"></a>Contenuto pagina HTML personalizzato
 
-Creare una pagina HTML con una personalizzazione personalizzata per gestire il contenuto della pagina personalizzata. Questa pagina può essere una pagina `*.html` statica o una pagina dinamica, ad esempio .NET, node. js o php.
+Creare una pagina HTML con una personalizzazione personalizzata per gestire il contenuto della pagina personalizzata. Questa pagina può essere una pagina statica `*.html` o una pagina dinamica, ad esempio .NET, Node.js o php.
 
-Il contenuto della pagina personalizzata può contenere qualsiasi elemento HTML, incluso CSS e JavaScript, ma non può includere elementi non protetti come gli iframe. L'unico elemento obbligatorio è un elemento div con `id` impostato su `api`, ad esempio questo `<div id="api"></div>` nella pagina HTML.
+Il contenuto della pagina personalizzata può contenere qualsiasi elemento HTML, incluso CSS e JavaScript, ma non può includere elementi non protetti come gli iframe. L'unico elemento obbligatorio è un elemento div con `id` impostato su `api` , ad esempio questo `<div id="api"></div>` nella pagina HTML.
 
 ```html
 <!DOCTYPE html>
@@ -48,9 +48,9 @@ Nella tabella seguente sono elencati i contenuti di pagina predefiniti forniti d
 
 | Pagina predefinita | Descrizione | ID definizione del contenuto<br/>(solo criteri personalizzati) |
 |:-----------------------|:--------|-------------|
-| [Exception. html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. | *api.error* |
+| [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Pagina autocertificata**. Usare questo file come contenuto di pagina personalizzata per una pagina di iscrizione dell'account di social networking, una pagina di iscrizione dell'account locale, una pagina di accesso dell'account locale, la reimpostazione della password e altro ancora. Il modulo può contenere diversi controlli di input, ad esempio una casella per l'immissione di testo e una per l'immissione della password, un pulsante di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla. | API *. localaccountsignin*, *API. localaccountsignin*, *API. localaccountpasswordreset*, *API. selfasserted* |
-| [Multifactor-1.0.0. html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Pagina dell'autenticazione a più fattori**. In questa pagina gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. | *api.phonefactor* |
+| [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Pagina dell'autenticazione a più fattori**. In questa pagina gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. | *api.phonefactor* |
 | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Pagina di aggiornamento del profilo**. Questa pagina contiene un modulo a cui gli utenti possono accedere per aggiornare il profilo. Questa pagina è simile alla pagina di iscrizione dell'account di social networking, a eccezione dei campi di immissione della password. | *api.selfasserted.profileupdate* |
 | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Pagina unificata per l'iscrizione o l'accesso**. Questa pagina gestisce il processo di iscrizione e quello di accesso degli utenti. Gli utenti possono usare provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook o Google +, o account locali. | *api.signuporsignin* |
 
@@ -61,7 +61,7 @@ Quando si usano i propri file HTML e CSS per personalizzare l'interfaccia utente
 ## <a name="guidelines-for-using-custom-page-content"></a>Linee guida per l'utilizzo del contenuto della pagina personalizzata
 
 - Usare un URL assoluto quando si includono risorse esterne come file multimediali, CSS e JavaScript nel file HTML.
-- Usando il [layout di pagina](../articles/active-directory-b2c/page-layout.md) 1.2.0 e versioni successive, è possibile `data-preload="true"` aggiungere l'attributo nei tag HTML per controllare l'ordine di caricamento per CSS e JavaScript. Con `data-preload=true`, la pagina viene costruita prima di essere visualizzata all'utente. Questo attributo consente di impedire che la pagina venga "sfarfallio" precaricando il file CSS, senza che venga visualizzato un codice HTML non in stile. Il frammento di codice HTML seguente mostra l'uso `data-preload` del tag.
+- Usando il [layout di pagina](../articles/active-directory-b2c/page-layout.md) 1.2.0 e versioni successive, è possibile aggiungere l' `data-preload="true"` attributo nei tag HTML per controllare l'ordine di caricamento per CSS e JavaScript. Con `data-preload=true` , la pagina viene costruita prima di essere visualizzata all'utente. Questo attributo consente di impedire che la pagina venga "sfarfallio" precaricando il file CSS, senza che venga visualizzato un codice HTML non in stile. Il frammento di codice HTML seguente mostra l'uso del `data-preload` tag.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -73,14 +73,14 @@ Quando si usano i propri file HTML e CSS per personalizzare l'interfaccia utente
   - Google Chrome 42.0 e versioni successive
   - Mozilla Firefox 38.0 e versioni successive
   - Safari per iOS e macOS, versione 12 e successive
-- A causa delle restrizioni di sicurezza, Azure ad B2C `frame`non `iframe`supporta gli `form` elementi HTML, o.
+- A causa delle restrizioni di sicurezza, Azure AD B2C non supporta `frame` `iframe` `form` gli elementi HTML, o.
 
 ## <a name="custom-page-content-walkthrough"></a>Procedura dettagliata contenuto pagina personalizzata
 
 Ecco una panoramica del processo:
 
 1. Preparare un percorso per ospitare il contenuto della pagina personalizzata (un endpoint HTTPS accessibile pubblicamente e abilitato per CORS).
-1. Scaricare e personalizzare un file di contenuto di pagina predefinito, `unified.html`ad esempio.
+1. Scaricare e personalizzare un file di contenuto di pagina predefinito, ad esempio `unified.html` .
 1. Pubblicare il contenuto della pagina personalizzata dell'endpoint HTTPS disponibile pubblicamente.
 1. Impostare la condivisione di risorse tra le origini (CORS) per l'app Web.
 1. Puntare i criteri all'URI del contenuto dei criteri personalizzato.
@@ -89,7 +89,7 @@ Ecco una panoramica del processo:
 
 Creare un contenuto di pagina personalizzato con il nome del marchio del prodotto nel titolo.
 
-1. Copiare il frammento di codice HTML seguente. Si tratta di un HTML5 ben formato con un elemento vuoto denominato * \<div id = "API\>\<"\> /div* che si trova all'interno dei * \<tag body\> * . Questo elemento indica il punto in cui deve essere inserito il contenuto di Azure AD B2C.
+1. Copiare il frammento di codice HTML seguente. Si tratta di un HTML5 ben formato con un elemento vuoto denominato che *\<div id="api"\>\</div\>* si trova all'interno dei *\<body\>* tag. Questo elemento indica il punto in cui deve essere inserito il contenuto di Azure AD B2C.
 
    ```html
    <!DOCTYPE html>
@@ -142,10 +142,10 @@ Per creare un contenitore pubblico nell'archivio BLOB, seguire questa procedura:
 
 1. Selezionare **Carica**.
 1. Selezionare l'icona della cartella accanto a **selezionare un file**.
-1. Passare a e selezionare **Customize-UI. html**, creato in precedenza nella sezione relativa alla personalizzazione dell'interfaccia utente della pagina.
+1. Passare a e selezionare **customize-ui.html**, creato in precedenza nella sezione relativa alla personalizzazione dell'interfaccia utente della pagina.
 1. Se si desidera caricare in una sottocartella, espandere **Avanzate** e immettere un nome di cartella in **carica in cartella**.
 1. Selezionare **Carica**.
-1. Selezionare il BLOB **Customize-UI. html** caricato.
+1. Selezionare il BLOB di **customize-ui.html** caricato.
 1. A destra della casella di testo **URL** selezionare l'icona **copia negli Appunti** per copiare l'URL negli Appunti.
 1. Nel Web browser passare all'URL copiato per verificare che il BLOB caricato sia accessibile. Se è inaccessibile, ad esempio se si verifica un `ResourceNotFound` errore, verificare che il tipo di accesso del contenitore sia impostato su **BLOB**.
 
@@ -167,7 +167,7 @@ Verificare che l'utente sia pronto attenendosi alla procedura seguente:
 
 1. Ripetere il passaggio Configure CORS. Per le **origini consentite**, immettere`https://www.test-cors.org`
 1. Passare a [www.test-CORS.org](https://www.test-cors.org/) 
-1. Per la casella **URL remoto** incollare l'URL del file HTML. Ad esempio, usare `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
+1. Per la casella **URL remoto** incollare l'URL del file HTML. Ad esempio: `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
 1. Selezionare **Invia richiesta**.
-    Il risultato deve essere `XHR status: 200`. 
+    Il risultato deve essere `XHR status: 200` . 
     Se si riceve un messaggio d'errore, verificare che le impostazioni CORS siano corrette. Potrebbe anche essere necessario cancellare la cache del browser o aprire una sessione di esplorazione anonima premendo Ctrl+Maiusc+P.

@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
 ms.openlocfilehash: 5fc106bfd97e8decd47ac7d43383907dcbbbda9c
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792981"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 assegnare le autorizzazioni di accesso a un'identità
@@ -39,7 +39,7 @@ L'indicazione generale prevede l'uso dell'autorizzazione a livello di condivisio
 Per assegnare un ruolo controllo degli accessi in base al ruolo a un'identità Azure AD, usando il [portale di Azure](https://portal.azure.com), attenersi alla procedura seguente:
 
 1. Nella portale di Azure passare alla condivisione file o [creare una condivisione file](../articles/storage/files/storage-how-to-create-file-share.md).
-2. Selezionare **Controllo di accesso (IAM)**.
+2. Selezionare **Controllo di accesso (IAM)** .
 3. Selezionare **Aggiungi un'assegnazione di ruolo**
 4. Nel pannello **Aggiungi assegnazione ruolo** selezionare il ruolo predefinito appropriato (Storage file data SMB Share Reader, storage file data SMB condivisione Contributor) dall'elenco dei **ruoli** . Lasciare **assegna accesso a** con l'impostazione predefinita: **Azure ad utente, gruppo o entità servizio**. Selezionare la destinazione Azure AD identità in base al nome o all'indirizzo di posta elettronica.
 5. Selezionare **Salva** per completare l'operazione di assegnazione di ruolo.

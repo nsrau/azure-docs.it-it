@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a67ad4c5010cf93ff55123013a35c697ce5971f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77597826"
 ---
 Le condivisioni file di Azure vengono distribuite in *account di archiviazione*, ovvero oggetti di livello superiore che rappresentano un pool condiviso di archiviazione. Questo pool di archiviazione può essere usato per distribuire più condivisioni file, oltre ad altre risorse di archiviazione, ad esempio contenitori BLOB, code o tabelle. Tutte le risorse di archiviazione distribuite in un account di archiviazione condividono i limiti che si applicano a tale account di archiviazione. Per visualizzare i limiti correnti per un account di archiviazione, vedere [obiettivi di scalabilità e prestazioni file di Azure](../articles/storage/files/storage-files-scale-targets.md).

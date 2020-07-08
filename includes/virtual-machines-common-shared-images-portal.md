@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82788995"
 ---
 ## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini
@@ -35,7 +35,7 @@ L'esempio seguente crea una raccolta denominata *myGallery* nel gruppo di risors
 
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine 
 
-Le definizioni di immagine creano un raggruppamento logico per le immagini. Vengono utilizzati per gestire le informazioni sulle versioni delle immagini create al suo interno. I nomi delle definizioni di immagine possono essere costituiti da lettere maiuscole o minuscole, cifre, punti, trattini e punti. Per ulteriori informazioni sui valori che è possibile specificare per la definizione di un'immagine, vedere [definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Le definizioni di immagini creano un raggruppamento logico per le immagini. Vengono usate per gestire le informazioni sulle versioni di immagini create al loro interno. I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
 Creare la definizione dell'immagine della raccolta all'interno della raccolta. In questo esempio l'immagine della raccolta è denominata *myImageDefinition*.
 
@@ -57,7 +57,7 @@ Creare la definizione dell'immagine della raccolta all'interno della raccolta. I
 
 Creare una versione dell'immagine da un'immagine gestita. In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei datacenter degli *Stati Uniti centro-occidentali* e degli *Stati Uniti centro-meridionali*. Quando si scelgono le aree di destinazione per la replica, tenere presente che è necessario includere anche l'area di *origine* come destinazione per la replica.
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 I passaggi per la creazione di una versione di immagine sono leggermente diversi, a seconda che l'origine sia un'immagine generalizzata o uno snapshot di una macchina virtuale specializzata. 
 
@@ -74,7 +74,7 @@ I passaggi per la creazione di una versione di immagine sono leggermente diversi
 1. Quando la versione dell'immagine supera la convalida, selezionare **Crea**.
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 
-La replica dell'immagine in tutte le aree di destinazione può richiedere del tempo.
+La replica dell'immagine in tutte le aree di destinazione può richiedere tempo.
 
 ### <a name="option-specialized"></a>Opzione: specializzata
 
@@ -91,7 +91,7 @@ La replica dell'immagine in tutte le aree di destinazione può richiedere del te
 
 ## <a name="share-the-gallery"></a>Condividere la raccolta
 
-Si consiglia di condividere l'accesso a livello di raccolta immagini. Di seguito viene illustrata la condivisione della raccolta appena creata.
+È consigliabile condividere l'accesso a livello di raccolta immagini. Di seguito viene illustrata la condivisione della raccolta appena creata.
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 1. Nel menu a sinistra selezionare **gruppi di risorse**. 

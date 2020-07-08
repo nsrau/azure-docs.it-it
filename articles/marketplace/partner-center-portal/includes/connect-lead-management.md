@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
 ms.service: marketplace
@@ -10,17 +10,17 @@ ms.date: 08/16/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: cf6a5730f92eba8f0a4e63bf40a4d2b50f76eb3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131110"
 ---
 Quando si pubblica l'offerta nel Marketplace tramite il centro per i partner, è necessario connettere l'offerta al sistema CRM. In questo modo, è possibile ricevere le informazioni di contatto del cliente immediatamente dopo che un cliente esprime interesse o distribuisce il prodotto.
 
 1. Selezionare la destinazione a cui si desidera che vengano inviati i lead. Sono supportati i sistemi CRM seguenti:
 
-    * [Dynamics 365](../commercial-marketplace-lead-management-instructions-dynamics.md) per il coinvolgimento dei clienti
+    * [Dynamics 365](../commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
     * [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md)
     * [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md)
 

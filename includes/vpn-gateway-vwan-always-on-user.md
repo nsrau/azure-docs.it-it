@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79500190"
 ---
 1. Installare i certificati client nel client Windows 10, come illustrato in questo articolo del [client VPN da punto a sito](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Il certificato deve trovarsi nell'archivio utente corrente.
@@ -23,7 +23,7 @@ ms.locfileid: "79500190"
 
 Dopo aver configurato il gateway di rete virtuale e installato il certificato client nell'archivio del computer locale nel client Windows 10, configurare un tunnel del dispositivo client usando gli esempi seguenti:
 
-1. Copiare il testo seguente e salvarlo come *userCert. ps1*:
+1. Copiare il testo seguente e salvarlo come *usercert.ps1*:
 
    ```
    Param(
@@ -75,7 +75,7 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copiare il testo seguente e salvarlo come *la. XML* nella stessa cartella di *userCert. ps1*. Modificare il testo seguente in modo che corrisponda all'ambiente:
+1. Copiare il testo seguente e salvarlo come *VPNProfile.xml* nella stessa cartella *usercert.ps1*. Modificare il testo seguente in modo che corrisponda all'ambiente:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -121,7 +121,7 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    ```
 1. Eseguire PowerShell come amministratore.
 
-1. In PowerShell passare alla cartella in cui si trovano *userCert. ps1* e *la. XML* ed eseguire il comando seguente:
+1. In PowerShell passare alla cartella in cui si trovano *usercert.ps1* e *VPNProfile.xml* ed eseguire il comando seguente:
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest

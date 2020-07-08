@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,20 +9,20 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d16412e4e35714c840516670f520f77daed1676d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80059929"
 ---
 Quando viene generato un certificato client, viene automaticamente installato nel computer che è stato usato per generarlo. Se si vuole installare un certificato client in un altro computer client, è necessario esportare il certificato client generato.
 
 1. Per esportare un certificato client, aprire **Gestire i certificati utente**. Per impostazione predefinita, i certificati client generati si trovano in "Certificati-Utente corrente\Personale\Certificati". Fare clic con il pulsante destro del mouse sul certificato client che si desidera esportare, scegliere **tutte le attività**, quindi fare clic su **Esporta** per aprire **esportazione guidata certificati**.
 
-   ![Export](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
+   ![Esportazione](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
 2. In Esportazione guidata certificati fare clic su **Avanti** per continuare.
 
-   ![Avanti](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
+   ![Prossima](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
 3. Selezionare **Sì, esporta la chiave privata** e quindi fare clic su **Avanti**.
 
    ![esporta la chiave privata](./media/vpn-gateway-certificates-export-client-cert-include/privatekeyexport.png)

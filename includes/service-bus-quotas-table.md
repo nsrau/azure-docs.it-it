@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -9,10 +9,10 @@ ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b19dc7a85fafa1a4d875c84db9bbefabb3cd5a7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77651629"
 ---
 La tabella seguente elenca le informazioni sulle quote specifiche per la messaggistica del bus di servizio di Azure. Per informazioni sui prezzi e altre quote per il bus di servizio, vedere [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -22,7 +22,7 @@ La tabella seguente elenca le informazioni sulle quote specifiche per la messagg
 | Numero massimo di spazi dei nomi Basic o standard per ogni sottoscrizione di Azure |Spazio dei nomi |Le richieste successive per gli spazi dei nomi di base o standard aggiuntivi vengono rifiutate dal portale di Azure. |100|
 | Numero massimo di spazi dei nomi premium per sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Premium vengono rifiutate dal portale. |100 |
 | Dimensione coda o argomento |Entità |Definito al momento della creazione della coda o dell'argomento. <br/><br/> I messaggi in arrivo successivi vengono rifiutati e viene ricevuta un'eccezione dal codice chiamante. |1, 2, 3, 4 GB o 5 GB.<br /><br />Nello SKU Premium e lo SKU standard con il [partizionamento](/azure/service-bus-messaging/service-bus-partitioning) abilitato, le dimensioni massime della coda o dell'argomento sono di 80 GB. |
-| Numero di connessioni simultanee per uno spazio dei nomi |Spazio dei nomi |Le successive richieste di connessioni aggiuntive verranno rifiutate e il codice chiamante riceverà un'eccezione. Le operazioni REST non vengono conteggiate per le connessioni TCP simultanee. |NetMessaging: 1.000.<br /><br />AMQP: 5.000. |
+| Numero di connessioni simultanee per uno spazio dei nomi |Spazio dei nomi |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. Le operazioni REST non vengono conteggiate per le connessioni TCP simultanee. |NetMessaging: 1.000.<br /><br />AMQP: 5.000. |
 | Numero di richieste di ricezione simultanee per una coda, un argomento o un'entità di sottoscrizione |Entità |Le richieste di ricezione successive vengono rifiutate e il codice chiamante riceve un'eccezione. Questa quota si applica al numero combinato di operazioni di ricezione simultanee per tutte le sottoscrizioni relative a un argomento. |5\.000 |
 | Numero di argomenti o code per spazio dei nomi |Spazio dei nomi |Le successive richieste di creazione di un nuovo argomento o di una nuova coda nello spazio dei nomi vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il [portale di Azure][Azure portal], viene generato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione dal codice chiamante. |10.000 per il livello Basic o standard. Il numero totale degli argomenti e delle code in uno spazio dei nomi deve essere minore o uguale a 10.000. <br/><br/>Per il livello Premium, 1.000 per unità di messaggistica (MU). Il limite massimo è 4.000. |
 | Numero di [code o argomenti partizionati](/azure/service-bus-messaging/service-bus-partitioning) per spazio dei nomi |Spazio dei nomi |Le successive richieste di creazione di una nuova coda o un nuovo argomento partizionato nello spazio dei nomi vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il [portale di Azure][Azure portal], viene generato un messaggio di errore. Se viene chiamato dall'API di gestione, l'eccezione **QuotaExceededException** viene ricevuta dal codice chiamante. |Livelli Basic e standard: 100.<br/><br/>Le entità partizionate non sono supportate nel livello [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md) .<br/><br />Ogni coda o argomento partizionato viene conteggiato verso la quota di 1.000 entità per spazio dei nomi. |

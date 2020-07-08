@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 83c391c0d92f8d4a0ed4b44bc3a90273db51b412
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81539392"
 ---
 Gli snapshot incrementali sono backup temporizzati per i dischi gestiti che, quando vengono eseguiti, sono costituiti solo da tutte le modifiche apportate dopo l'ultimo snapshot. Quando si tenta di scaricare o utilizzare in altro modo uno snapshot incrementale, viene utilizzato il VHD completo. Questa nuova funzionalità per gli snapshot dei dischi gestiti può potenzialmente essere più conveniente, dal momento che, a meno che non si scelga di, non è necessario archiviare l'intero disco con ogni singolo snapshot. Analogamente agli snapshot regolari, è possibile usare gli snapshot incrementali per creare un disco gestito completo o per eseguire uno snapshot regolare.

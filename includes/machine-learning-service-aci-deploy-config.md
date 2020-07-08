@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 4f13c171c5fafb13875f5f87d4eb3d6013f0ff30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79486106"
 ---
 Le voci nel `deploymentconfig.json` documento vengono mappate ai parametri per [AciWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
 | Entità JSON | Parametro del metodo | Descrizione |
 | ----- | ----- | ----- |
-| `computeType` | N/D | La destinazione di calcolo. Per ACI, il valore deve essere `ACI`. |
-| `containerResourceRequirements` | N/D | Contenitore per le entità CPU e memoria. |
+| `computeType` | ND | La destinazione di calcolo. Per ACI, il valore deve essere `ACI` . |
+| `containerResourceRequirements` | ND | Contenitore per le entità CPU e memoria. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | Numero di core CPU da allocare. Impostazioni predefinite`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Quantità di memoria (in GB) da allocare per questo servizio Web. Predefinita`0.5` |
 | `location` | `location` | Area di Azure in cui distribuire il servizio Web. Se non è specificato, verrà usato il percorso dell'area di lavoro. Per altre informazioni sulle aree disponibili, vedere le [aree ACI](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |

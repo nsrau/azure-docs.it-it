@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: networking
 author: anavinahar
 ms.service: networking
@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 511354633b9f88f3d6cd2e2170ce3b7ca1f4ecdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82095978"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limiti di rete-Azure Resource Manager
@@ -72,7 +72,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Regole per NIC (in tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300                           |
 | Configurazioni IP front-end              | 600                           |
 | Dimensioni del pool back-end                       | 1.000 configurazioni IP, rete virtuale singola |
-| Risorse back-end <sup>per Load Balancer 1<sup> | 150                   |
+| Risorse back-end per Load Balancer <sup> 1<sup> | 150                   |
 | Porte a disponibilità elevata                 | 1 per front-end interno       |
 | Regole in uscita per Load Balancer        | 600                           |
 | [Timeout di inattività TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minuti/30 minuti          |
@@ -97,7 +97,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Reti virtuali |100 |100 |
 | Siti di rete locale |20 |50 |
 | Server DNS per ogni rete virtuale |20 |20 |
-| Indirizzo IP privati per ogni rete virtuale |4.096 |4.096 |
+| Indirizzo IP privati per ogni rete virtuale |4\.096 |4\.096 |
 | Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500.000, fino a 1 milione per due o più schede di rete. |500.000, fino a 1 milione per due o più schede di rete. |
 | Gruppi di sicurezza di rete (NGS) |200 |200 |
 | Regole NSG per NSG |1\.000 |1\.000 |
@@ -105,6 +105,6 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Route definite dall'utente per ogni tabella di route |400 |400 |
 | Indirizzi IP pubblici (dinamici) |500 |500 |
 | Indirizzi IP pubblici riservati. |500 |500 |
-| VIP pubblico per ogni distribuzione |5 |Contattare il supporto tecnico |
+| VIP pubblico per ogni distribuzione |5 |Rivolgersi al Supporto Tecnico |
 | VIP privato (bilanciamento del carico interno) per distribuzione |1 |1 |
 | Elenchi di controllo di accesso (ACL) endpoint |50 |50 |

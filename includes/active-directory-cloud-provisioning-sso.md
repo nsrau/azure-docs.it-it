@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79504386"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Passaggi per abilitare l'accesso Single Sign-on
@@ -37,10 +37,10 @@ Il provisioning Cloud funziona con Single Sign-on.  Attualmente non è disponibi
 1. Chiamare `Enable-AzureADSSOForest`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
 
    > [!NOTE]
-   >Il nome utente delle credenziali di amministratore di dominio deve essere specificato nel formato del nome dell'account SAM (CONTOSO\johndoe o contoso. com\johndoe). Viene utilizzata la parte di dominio del nome utente per individuare il controller di dominio dell'amministratore di dominio tramite DNS.
+   >Il nome utente delle credenziali di amministratore di dominio deve essere specificato nel formato del nome dell'account SAM (CONTOSO\johndoe oppure contoso.com\johndoe). Usare la parte del dominio del nome utente per individuare il controller di dominio dell'amministratore di dominio usando DNS.
 
    >[!NOTE]
-   >L'account amministratore di dominio utilizzato non deve essere un membro del gruppo utenti protetti. In tal caso, l'operazione avrà esito negativo.
+   >L'account amministratore di dominio usato non deve essere un membro del gruppo Utenti protetti, in caso contrario l'operazione non riesce.
 
 2. Ripetere la procedura precedente per ogni foresta di Active Directory in cui si desidera configurare la funzionalità.
 
