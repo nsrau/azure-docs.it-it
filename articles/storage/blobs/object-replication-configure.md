@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89a4c934a0245c39f6015a43d9de16db800691d8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888124"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurare la replica di oggetti per i BLOB in blocchi (anteprima)
 
@@ -28,7 +28,9 @@ Questo articolo descrive come configurare la replica di oggetti per l'account di
 
 Prima di configurare la replica di oggetti, creare gli account di archiviazione di origine e di destinazione, se non esistono già. Entrambi gli account devono essere account di archiviazione v2 per uso generico. Per altre informazioni, vedere [Creare un account di archiviazione di Azure](../common/storage-account-create.md).
 
-Verificare anche di aver eseguito la registrazione per le anteprime delle funzionalità seguenti:
+Un account di archiviazione può fungere da account di origine per un massimo di due account di destinazione. E un account di destinazione non può avere più di due account di origine. Gli account di origine e di destinazione possono trovarsi in aree diverse. È possibile configurare criteri di replica distinti per replicare i dati in ogni account di destinazione.
+
+Prima di iniziare, assicurarsi di aver effettuato la registrazione per le anteprime delle funzionalità seguenti:
 
 - [Replica di oggetti (anteprima)](object-replication-overview.md)
 - [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
@@ -41,7 +43,7 @@ Prima di configurare la replica di oggetti nel portale di Azure, creare i conten
 Per creare un criterio di replica nel portale di Azure, seguire questa procedura:
 
 1. Passare all'account di archiviazione di origine nel portale di Azure.
-1. In **Impostazioni** selezionare **Replica di oggetti**.
+1. In **servizio BLOB**selezionare **replica oggetti**.
 1. Selezionare **Configurare la replica**.
 1. Selezionare la sottoscrizione di destinazione e l'account di archiviazione.
 1. Nella sezione **Container pairs** (Coppie di contenitori) selezionare un contenitore di origine nell'account di origine e un contenitore di destinazione nell'account di destinazione. È possibile creare fino a 10 coppie di contenitori per ogni criterio di replica.

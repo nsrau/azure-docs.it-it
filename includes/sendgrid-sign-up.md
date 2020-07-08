@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463472"
 ---
 I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 di messaggi di posta elettronica mensili gratuiti ti consentono di accedere a report avanzati e analisi e a [tutte le API][all APIs] (Web, SMTP, Event, Parse e altro ancora). Per informazioni sui servizi aggiuntivi offerti da SendGrid, vedere la pagina delle [soluzioni di SendGrid][SendGrid Solutions].
@@ -26,7 +26,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
     ![creazione di SendGrid][sendgrid-create]
 5. Immettere un **nome** per identificare il proprio servizio SendGrid nelle impostazioni di Azure. I nomi devono essere composti da un numero di caratteri compreso tra 1 e 100 e possono includere solo caratteri alfanumerici, trattini, punti e caratteri di sottolineatura. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
 6. Immettere e confermare la **password**.
-7. Scegliere la **sottoscrizione**.
+7. Scegliere la propria **sottoscrizione**.
 8. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente.
 9. Nella sezione **Piano tariffario** selezionare il piano di SendGrid a cui si desidera iscriversi.
 
@@ -46,7 +46,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
     Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto di SendGrid, fare clic sul nome del servizio SendGrid per aprire il dashboard del Marketplace di SendGrid.
 
-    ![Scheda Impostazioni][settings]
+    ![impostazioni][settings]
 
     Per inviare un'email tramite SendGrid, è necessario specificare la chiave API.
 

@@ -2,16 +2,14 @@
 title: Ruotare i certificati in Azure Kubernetes Service (AKS)
 description: Informazioni su come ruotare i certificati in un cluster Azure Kubernetes Service (AKS).
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: zarhoads
-ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 715771c7a1704e0d39f790d018980c4b39ba351b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817454"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati in Azure Kubernetes Service (AKS)
 
@@ -37,20 +35,19 @@ AKS genera e usa i certificati, le autorità di certificazione e gli account di 
 * Il `kubectl` client dispone di un certificato per comunicare con il cluster AKS.
 
 > [!NOTE]
-> I cluster AKS creati prima del 2019 marzo hanno certificati che scadono dopo due anni. Tutti i cluster creati dopo il 2019 marzo o qualsiasi cluster con i relativi certificati ruotati hanno certificati della CA del cluster che scadono dopo 30 anni. Tutti gli altri certificati scadono dopo due anni. Per verificare quando è stato creato il cluster, `kubectl get nodes` usare per visualizzare l' *età* dei pool di nodi.
+> I cluster AKS creati prima del 2019 marzo hanno certificati che scadono dopo due anni. Tutti i cluster creati dopo il 2019 marzo o qualsiasi cluster con i relativi certificati ruotati hanno certificati della CA del cluster che scadono dopo 30 anni. Tutti gli altri certificati scadono dopo due anni. Per verificare quando è stato creato il cluster, usare `kubectl get nodes` per visualizzare l' *età* dei pool di nodi.
 > 
 > Inoltre, è possibile controllare la data di scadenza del certificato del cluster. Ad esempio, il comando seguente Visualizza i dettagli del certificato per il cluster *myAKSCluster* .
 > ```console
-> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d > my-cert.crt
-> openssl x509 -in my-cert.crt -text
+> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
 
 ## <a name="rotate-your-cluster-certificates"></a>Ruotare i certificati del cluster
 
 > [!WARNING]
-> La rotazione dei certificati `az aks rotate-certs` con può causare fino a 30 minuti di inattività per il cluster AKS.
+> La rotazione dei certificati con `az aks rotate-certs` può causare fino a 30 minuti di inattività per il cluster AKS.
 
-Usare [AZ AKS Get-credentials][az-aks-get-credentials] per accedere al cluster AKS. Questo comando consente inoltre di scaricare e configurare `kubectl` il certificato client nel computer locale.
+Usare [AZ AKS Get-credentials][az-aks-get-credentials] per accedere al cluster AKS. Questo comando consente inoltre di scaricare e configurare il `kubectl` certificato client nel computer locale.
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
@@ -63,16 +60,16 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 > [!IMPORTANT]
-> Il completamento dell' `az aks rotate-certs` operazione potrebbe richiedere fino a 30 minuti. Se il comando ha esito negativo prima `az aks show` del completamento, usare per verificare che lo stato del cluster sia la *rotazione del certificato*. Se il cluster si trova in uno stato di errore `az aks rotate-certs` , eseguire di nuovo per ruotare nuovamente i certificati.
+> Il completamento dell'operazione potrebbe richiedere fino a 30 minuti `az aks rotate-certs` . Se il comando ha esito negativo prima del completamento, usare `az aks show` per verificare che lo stato del cluster sia la *rotazione del certificato*. Se il cluster si trova in uno stato di errore, eseguire `az aks rotate-certs` di nuovo per ruotare nuovamente i certificati.
 
-Verificare che i certificati precedenti non siano più validi eseguendo un `kubectl` comando. Poiché non sono stati aggiornati i certificati utilizzati da `kubectl`, verrà visualizzato un errore.  Ad esempio:
+Verificare che i certificati precedenti non siano più validi eseguendo un `kubectl` comando. Poiché non sono stati aggiornati i certificati utilizzati da `kubectl` , verrà visualizzato un errore.  Ad esempio:
 
 ```console
 $ kubectl get no
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
 ```
 
-Aggiornare il certificato utilizzato da `kubectl` eseguendo `az aks get-credentials`.
+Aggiornare il certificato utilizzato da eseguendo `kubectl` `az aks get-credentials` .
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing

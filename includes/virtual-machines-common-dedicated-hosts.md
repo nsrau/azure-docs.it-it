@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84902505"
 ---
 ## <a name="limitations"></a>Limitazioni
 
@@ -32,7 +32,7 @@ Per riservare l'intero host sono disponibili i vantaggi seguenti:
 
 ![Visualizzazione delle nuove risorse per gli host dedicati.](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts2.png)
 
-Un **gruppo host** è una risorsa che rappresenta una raccolta di host dedicati. È possibile creare un gruppo host in un'area e una zona di disponibilità e aggiungervi host.
+Un **gruppo host** è una risorsa che rappresenta una raccolta di host dedicati. È necessario creare un gruppo host in un'area e in una zona di disponibilità e aggiungervi gli host.
 
 Un **host** è una risorsa, mappata a un server fisico in un Data Center di Azure. Il server fisico viene allocato quando viene creato l'host. Un host viene creato all'interno di un gruppo host. Un host dispone di uno SKU che descrive le dimensioni della macchina virtuale che è possibile creare. Ogni host può ospitare più macchine virtuali di dimensioni diverse, purché provengano dalla stessa serie di dimensioni.
 
@@ -45,7 +45,7 @@ Per la disponibilità elevata, è consigliabile distribuire più macchine virtua
 
 ### <a name="use-availability-zones-for-fault-isolation"></a>USA zone di disponibilità per l'isolamento degli errori
 
-Le zone di disponibilità sono posizioni fisiche univoche all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Un gruppo host viene creato in una singola zona di disponibilità. Una volta creati, tutti gli host saranno posizionati all'interno di tale area. Per ottenere una disponibilità elevata tra le zone, è necessario creare più gruppi host (uno per zona) e distribuire gli host di conseguenza.
+Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Un gruppo host viene creato in una singola zona di disponibilità. Una volta creati, tutti gli host saranno posizionati all'interno di tale area. Per ottenere una disponibilità elevata tra le zone, è necessario creare più gruppi host (uno per zona) e distribuire gli host di conseguenza.
 
 Se si assegna un gruppo host a una zona di disponibilità, tutte le macchine virtuali create in tale host devono essere create nella stessa zona.
 
@@ -71,8 +71,7 @@ L'infrastruttura che supporta le macchine virtuali può essere occasionalmente a
 
 Il **controllo di manutenzione** offre ai clienti un'opzione che consente di ignorare gli aggiornamenti regolari della piattaforma pianificati sui rispettivi host dedicati, quindi di applicarli al momento desiderato entro una finestra in sequenza di 35 giorni.
 
-> [!NOTE]
->  Il controllo della manutenzione è attualmente disponibile in anteprima pubblica. Per altre informazioni, vedere **controllare gli aggiornamenti con il controllo di manutenzione con l' [interfaccia](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) della riga di comando o [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)**.
+Per ulteriori informazioni, vedere [gestione degli aggiornamenti della piattaforma con il controllo di manutenzione](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
 
 ## <a name="capacity-considerations"></a>Considerazioni sulla capacità
 
@@ -106,7 +105,7 @@ Uno SKU viene definito per un host e rappresenta la serie di dimensioni e il tip
 
 Il *tipo* è la generazione dell'hardware. Tipi di hardware diversi per la stessa serie di VM proverranno da diversi fornitori di CPU e con diverse generazioni di CPU e numero di core. 
 
-Le dimensioni e i tipi di hardware variano in base all'area. Per altre informazioni, vedere la pagina relativa ai [prezzi](https://aka.ms/ADHPricing) per gli host.
+Le dimensioni e i tipi di hardware variano in base all'area. Per ulteriori informazioni, fare riferimento alla [pagina dei prezzi](https://aka.ms/ADHPricing) dell'host.
 
 
 ## <a name="host-life-cycle"></a>Ciclo di vita dell'host

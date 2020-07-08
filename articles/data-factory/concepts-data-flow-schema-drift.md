@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886636"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Spostamento dello schema nel flusso di dati del mapping
 
@@ -37,7 +37,7 @@ Questo video offre un'introduzione ad alcune delle soluzioni complesse che è po
 
 ## <a name="schema-drift-in-source"></a>Spostamento dello schema nell'origine
 
-Le colonne che entrano nel flusso di dati dalla definizione di origine sono definite come "spostate" quando non sono presenti nella proiezione di origine. È possibile visualizzare la proiezione di origine dalla scheda proiezione nella trasformazione origine. Quando si seleziona un set di dati per l'origine, ADF prenderà automaticamente lo schema dal set di dati e creerà un progetto da tale definizione dello schema del set di dati.
+Le colonne che entrano nel flusso di dati dalla definizione di origine sono definite come "spostate" quando non sono presenti nella proiezione di origine. È possibile visualizzare la proiezione di origine dalla scheda proiezione nella trasformazione origine. Quando si seleziona un set di dati per l'origine, ADF prende automaticamente lo schema dal set di dati e crea una proiezione dalla definizione dello schema del set di dati.
 
 In una trasformazione origine la deriva dello schema è definita come la lettura di colonne che non sono definite nello schema del set di dati. Per abilitare la deriva dello schema, selezionare **Consenti Drift schema** nella trasformazione origine.
 
@@ -59,7 +59,7 @@ Se la deriva dello schema è abilitata, assicurarsi che il dispositivo di scorri
 
 Quando nel flusso di dati sono presenti colonne spostate, è possibile accedervi nelle trasformazioni con i metodi seguenti:
 
-* Usare le `byPosition` espressioni `byName` e per fare riferimento in modo esplicito a una colonna in base al nome o al numero di posizione.
+* Usare le `byPosition` `byName` espressioni e per fare riferimento in modo esplicito a una colonna in base al nome o al numero di posizione.
 * Aggiungere un modello di colonna in una colonna derivata o una trasformazione aggregazione in modo che corrisponda a qualsiasi combinazione di nome, flusso, posizione o tipo
 * Aggiunta di un mapping basato su regole in una trasformazione SELECT o sink per la corrispondenza tra colonne spostate e alias di colonne tramite un modello
 

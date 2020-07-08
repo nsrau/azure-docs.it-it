@@ -10,16 +10,16 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0a130a433c68d0d5cc8c26eae4b81ff264eb0ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887718"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creare un endpoint della rete CDN di Azure
 Questo articolo descrive tutte le impostazioni per la creazione di un endpoint della [rete per la distribuzione di contenuti (CDN) di Azure](cdn-overview.md) in un profilo della rete CDN esistente. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti. Per informazioni introduttive sulla creazione di un profilo e di un endpoint, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
@@ -36,7 +36,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
    
     Verrà visualizzato il riquadro del profilo di rete CDN.
 
-2. Selezionare **Endpoint**.
+2. Selezionare **endpoint**.
    
     ![Selezionare l'endpoint della rete CDN](./media/cdn-create-endpoint-how-to/cdn-select-endpoint.png)
    
@@ -44,7 +44,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
    
     ![Pagina Aggiungi endpoint](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. In **Nome** immettere un nome univoco per il nuovo endpoint di rete CDN. Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio _ \<EndpointName>_. azureedge.NET.
+3. In **Nome** immettere un nome univoco per il nuovo endpoint di rete CDN. Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio _\<endpointname>_ . azureedge.NET.
 
 4. Per **Tipo di origine** scegliere uno dei tipi di origine seguenti: 
    - **Archiviazione** per Archiviazione di Azure
@@ -62,7 +62,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
    > Per alcuni tipi di origini, ad esempio Archiviazione di Azure e App Web, è necessario che l'intestazione host corrisponda al dominio dell'origine. A meno che non si abbia un'origine che richiede un'intestazione host diversa dal dominio, è consigliabile lasciare il valore predefinito.
    > 
     
-8. Per **Protocollo** e **Porta dell'origine** specificare i protocolli e le porte da usare per accedere alle risorse nel server di origine. È necessario selezionare almeno un protocollo (HTTP o HTTPS). Usare il dominio fornito dalla rete CDN (_\<EndpointName>_. azureedge.NET) per accedere al contenuto HTTPS. 
+8. Per **Protocollo** e **Porta dell'origine** specificare i protocolli e le porte da usare per accedere alle risorse nel server di origine. È necessario selezionare almeno un protocollo (HTTP o HTTPS). Usare il dominio fornito dalla rete CDN ( _\<endpointname>_ con estensione azureedge.NET) per accedere al contenuto HTTPS. 
    
    > [!NOTE]
    > Il valore di **Porta dell'origine** determina solo la porta usata dall'endpoint per recuperare informazioni dal server di origine. L'endpoint stesso è disponibile per i client finali solo sulle porte HTTP e HTTPS predefinite (80 e 443), indipendentemente dal valore in **Porta dell'origine**.  
@@ -101,7 +101,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
    
     Se si prova a usare il nome di dominio della rete CDN prima che la configurazione dell'endpoint sia stata propagata ai server POP (Point-Of-Presence), si potrebbe ricevere lo stato di risposta HTTP 404. Se sono trascorse diverse ore da quando è stato creato l'endpoint e si riceve ancora uno stato di risposta 404, vedere [Risoluzione dei problemi degli endpoint della rete CDN di Azure che restituiscono un codice stato 404](cdn-troubleshoot-endpoint.md).
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 Per eliminare un endpoint quando non è più necessario, selezionarlo e quindi selezionare **Elimina**. 
 
 ## <a name="next-steps"></a>Passaggi successivi

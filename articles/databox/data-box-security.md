@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77911728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817724"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Sicurezza e protezione dei dati di Azure Data Box
 
@@ -45,7 +45,6 @@ Data Box offre una soluzione sicura per la protezione dei dati, garantendo che s
 Il dispositivo Data Box è protetto dalle funzionalità seguenti:
 
 - Un involucro per dispositivi robusto che resiste a urti, trasporti difficili e condizioni ambientali. 
-- Sigilli antimanomissione per indicare qualsiasi manomissione del dispositivo durante il transito.
 - Rilevamento di manomissione dell'hardware e del software che impedisce altre operazioni del dispositivo.
 - Esecuzione solo del software specifico di Data Box.
 - Avvio in stato bloccato.
@@ -57,7 +56,7 @@ Il dispositivo Data Box è protetto dalle funzionalità seguenti:
 I dati in ingresso e in uscita da Data Box sono protetti dalle funzionalità seguenti:
 
 - Crittografia AES a 256 bit dei dati inattivi.
-- Per i dati in movimento è possibile usare i protocolli crittografati.
+- Per i dati in movimento è possibile usare i protocolli crittografati. Si consiglia di usare SMB 3,0 con la crittografia per proteggere i dati quando lo si copia dai server dati.
 - Cancellazione sicura dei dati dal dispositivo dopo il completamento del caricamento dei dati in Azure. La cancellazione dei dati è conforme alle linee guida indicate nell'[Appendice A per le unità disco rigido ATA negli standard NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). L'evento di cancellazione dei dati viene registrato nella [cronologia ordini](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Protezione del servizio Data Box
@@ -78,7 +77,7 @@ Azure Data Box raccoglie e visualizza informazioni personali nei principali casi
 
 - **Dettagli dell'ordine** - Dopo aver creato l'ordine, l'indirizzo di spedizione, l'indirizzo di posta elettronica e le informazioni di contatto degli utenti vengono archiviate nel portale di Azure. Le informazioni salvate includono:
 
-  - Nome del contatto
+  - Nome contatto
   - Numero di telefono
   - Posta elettronica
   - Indirizzo

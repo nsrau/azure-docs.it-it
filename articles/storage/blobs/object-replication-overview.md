@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800757"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888059"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replica di oggetti per i BLOB in blocchi (anteprima)
 
@@ -44,7 +44,7 @@ Dopo aver configurato la replica di oggetti, Archiviazione di Azure controlla pe
 
 Quando si configura la replica di oggetti, viene creato un criterio di replica sia nell'account di origine che nell'account di destinazione tramite il provider di risorse di Archiviazione di Azure. Il criterio di replica è identificato da un ID criterio. Il criterio negli account di origine e di destinazione deve avere lo stesso ID criterio per poter eseguire la replica.
 
-Un account di archiviazione può fungere da account di origine per un massimo di due account di destinazione. Gli account di origine e di destinazione possono trovarsi in aree diverse. È possibile configurare criteri di replica distinti per replicare i dati in ogni account di destinazione.
+Un account di archiviazione può fungere da account di origine per un massimo di due account di destinazione. E un account di destinazione non può avere più di due account di origine. Gli account di origine e di destinazione possono trovarsi in aree diverse. È possibile configurare criteri di replica distinti per replicare i dati in ogni account di destinazione.
 
 ### <a name="replication-rules"></a>Regole di replica
 
@@ -54,7 +54,7 @@ Quando si crea una regola di replica, per impostazione predefinita vengono copia
 
 È anche possibile specificare uno o più filtri come parte di una regola di replica per filtrare i BLOB in blocchi per prefisso. Quando si specifica un prefisso, solo i BLOB corrispondenti al prefisso nel contenitore di origine verranno copiati nel contenitore di destinazione.
 
-Devono esistere sia i contenitori di origine che di destinazione prima di poterli specificare in una regola. Dopo aver creato i criteri di replica, il contenitore di destinazione diventa di sola lettura. Qualsiasi tentativo di scrittura nel contenitore di destinazione non riesce e viene restituito il codice errore 409 (conflitto). Sarà tuttavia possibile chiamare l'operazione [Imposta livello BLOB](/rest/api/storageservices/set-blob-tier) su un BLOB nel contenitore di destinazione per poterlo spostare in un livello di accesso diverso. Ad esempio, è possibile spostare i BLOB nel contenitore di destinazione nel livello archivio per ridurre i costi.
+Devono esistere sia i contenitori di origine che di destinazione prima di poterli specificare in una regola. Dopo aver creato i criteri di replica, il contenitore di destinazione diventa di sola lettura. Qualsiasi tentativo di scrittura nel contenitore di destinazione non riesce e viene restituito il codice errore 409 (conflitto). Tuttavia, è possibile chiamare l'operazione di [impostazione del livello BLOB](/rest/api/storageservices/set-blob-tier) su un BLOB nel contenitore di destinazione per spostarla nel livello archivio. Per altre informazioni sul livello archivio, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 
@@ -73,7 +73,9 @@ Durante l'anteprima, non sono previsti costi aggiuntivi associati alla replica d
 
 ### <a name="prerequisites-for-object-replication"></a>Prerequisiti per la replica di oggetti
 
-Per la replica di oggetti è necessario che siano abilitate le funzionalità di Archiviazione di Azure seguenti:
+Per la replica di oggetti è necessario che siano abilitate le funzionalità di Archiviazione di Azure seguenti: 
+- [Feed delle modifiche](storage-blob-change-feed.md)
+- [Controllo delle versioni](versioning-overview.md)
 
 Prima di configurare la replica di oggetti, abilitare i relativi prerequisiti. Il feed di modifiche deve essere abilitato nell'account di origine e il controllo delle versioni dei BLOB deve essere abilitato sia nell'account di origine che in quello di destinazione. Per altre informazioni su come abilitare queste funzionalità, vedere gli articoli seguenti:
 
@@ -157,3 +159,5 @@ Per porre domande sull'anteprima della replica di oggetti o per inviare commenti
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Configurare la replica di oggetti (anteprima)](object-replication-configure.md)
+- [Supporto del feed di modifiche in Archiviazione BLOB di Azure (anteprima)](storage-blob-change-feed.md)
+- [Abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md)

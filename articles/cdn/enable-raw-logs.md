@@ -7,15 +7,15 @@ manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: a2522eba17574246ab99a0d47a42f128d5f61ace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747306"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888646"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Log non elaborati HTTP della rete CDN di Azure
 I log non elaborati offrono informazioni dettagliate sulle operazioni e sugli errori importanti per il controllo e la risoluzione dei problemi. I log non elaborati differiscono dai log attività. I log attività offrono visibilità sulle operazioni eseguite sulle risorse di Azure. I log non elaborati forniscono un record delle operazioni della risorsa.
@@ -33,7 +33,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 Per configurare i log non elaborati per la rete CDN di Azure dal Microsoft: 
 
-1. Dal menu del portale di Azure selezionare **Tutte le risorse** >>  **\<profilo-rete-CDN**.
+1. Scegliere **tutte le risorse**dal menu portale di Azure  >>  **\<your-CDN-profile>** .
 
 2. In **Monitoraggio** selezionare **Impostazioni di diagnostica**.
 

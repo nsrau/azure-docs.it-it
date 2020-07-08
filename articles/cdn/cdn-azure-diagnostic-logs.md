@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: 35d028a38e6ac19f270abcc8708a532b3749eb39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c432b28250dca382f69a992de73d633b5ea45b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84883981"
 ---
 # <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
@@ -27,7 +27,7 @@ Con i log di diagnostica di Azure è possibile visualizzare le principali analis
 
  - Account di archiviazione di Azure
  - Hub eventi di Azure
- - [Area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Questa funzionalità è disponibile negli endpoint di rete CDN per tutti i piani tariffari. 
 
@@ -87,7 +87,7 @@ Per usare un account di archiviazione per archiviare i log, seguire questa proce
 
 5. Dopo aver completato le impostazioni dei log di diagnostica, selezionare **Salva**.
 
-### <a name="logging-with-azure-monitor"></a>Registrazione con monitoraggio di Azure
+### <a name="logging-with-azure-monitor"></a>Registrazione con Monitoraggio di Azure
 
 Per usare monitoraggio di Azure per archiviare i log, seguire questa procedura:
 

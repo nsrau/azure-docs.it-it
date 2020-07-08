@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 0d8f6069193607d19e10c013f3d9cb1cf00a7de6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84816729"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Questo articolo fornisce anche suggerimenti sull'utilizzo aggiuntivi per gli str
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md). Un'area di lavoro è sufficiente per iniziare a usare il proprio [Server notebook basato sul cloud](#compute-instance), un [DSVM](#dsvm)o [Azure Databricks](#aml-databricks).
+Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md). Un'area di lavoro è sufficiente per iniziare a usare il proprio [Server notebook basato sul cloud](#compute-instance), un [DSVM](#dsvm)o [Azure Databricks](#aml-databricks).
 
 Per installare l'ambiente SDK per il [computer locale](#local), [Jupyter Notebook server](#jupyter) o [Visual Studio Code](#vscode) sono necessari anche:
 
@@ -59,7 +59,7 @@ L' [istanza di calcolo Azure Machine Learning (anteprima)](concept-compute-insta
 
 Non sono presenti elementi da installare o configurare per un'istanza di calcolo.  Crearne uno in qualsiasi momento dall'area di lavoro Azure Machine Learning. Fornire un solo nome e specificare un tipo di macchina virtuale di Azure. Provare ora con questa [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
 
-Altre informazioni sulle [istanze di calcolo](concept-compute-instance.md).
+Per altre informazioni sulle istanze di calcolo, inclusa la modalità di installazione dei pacchetti, vedere [istanze di calcolo](concept-compute-instance.md).
 
 Per arrestare i costi di calcolo, [arrestare l'istanza di calcolo](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
@@ -83,7 +83,7 @@ Per usare DSVM come ambiente di sviluppo:
 
         * [Creare una Data Science Virtual Machine Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
-        * [Creare una macchina virtuale data science Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+        * [Creare una Data Science Virtual Machine Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
 
     * L'interfaccia della riga di comando di Azure:
 
@@ -145,7 +145,7 @@ Quando si usa un computer locale (che potrebbe anche essere una macchina virtual
     Eseguire il comando seguente per creare l'ambiente.
 
     ```bash
-    conda create -n myenv python=3.6.5
+    conda create -n myenv python=3.7.7
     ```
 
     Quindi attivare l'ambiente.
@@ -154,7 +154,7 @@ Quando si usa un computer locale (che potrebbe anche essere una macchina virtual
     conda activate myenv
     ```
 
-    Questo esempio crea un ambiente con Python 3.6.5, ma è possibile scegliere eventuali sottoversioni specifiche. È possibile che la compatibilità con SDK non sia garantita con alcune versioni principali (sono consigliate 3.5 +) ed è consigliabile provare una versione/Subversion diversa nell'ambiente Anaconda se si verificano errori. Per creare l'ambiente possono essere necessari diversi minuti mentre vengono scaricati componenti e pacchetti.
+    Questo esempio crea un ambiente con Python 3.7.7, ma è possibile scegliere eventuali sottoversioni specifiche. È possibile che la compatibilità con SDK non sia garantita con alcune versioni principali (sono consigliate 3.5 +) ed è consigliabile provare una versione/Subversion diversa nell'ambiente Anaconda se si verificano errori. Per creare l'ambiente possono essere necessari diversi minuti mentre vengono scaricati componenti e pacchetti.
 
 1. Eseguire i comandi seguenti nel nuovo ambiente per abilitare i kernel IPython specifici dell'ambiente. In questo modo si garantisce il comportamento previsto per l'importazione di kernel e pacchetti quando si usano notebook Jupyter negli ambienti Anaconda:
 
@@ -170,7 +170,7 @@ Quando si usa un computer locale (che potrebbe anche essere una macchina virtual
 
 1. Usare i comandi seguenti per installare i pacchetti:
 
-    Questo comando installa il Azure Machine Learning SDK di base con notebook `automl` e funzionalità aggiuntive. Il `automl` supplemento è un'installazione di grandi dimensioni e può essere rimosso dalle parentesi quadre se non si intende eseguire esperimenti automatici di machine learning. Il `automl` supplemento include anche l'SDK di preparazione dei dati Azure Machine Learning per impostazione predefinita come dipendenza.
+    Questo comando installa il Azure Machine Learning SDK di base con notebook e `automl` funzionalità aggiuntive. Il `automl` supplemento è un'installazione di grandi dimensioni e può essere rimosso dalle parentesi quadre se non si intende eseguire esperimenti automatici di machine learning. Il `automl` supplemento include anche l'SDK di preparazione dei dati Azure Machine Learning per impostazione predefinita come dipendenza.
 
     ```bash
     pip install azureml-sdk[notebooks,automl]
@@ -189,13 +189,13 @@ Quando si usa un computer locale (che potrebbe anche essere una macchina virtual
 
 1. Installare altri pacchetti per la sperimentazione di machine learning.
 
-    Usare uno dei comandi seguenti e sostituire * \<New Package>* con il pacchetto che si vuole installare. Per l'installazione `conda install` di pacchetti tramite è necessario che il pacchetto faccia parte dei canali correnti. i nuovi canali possono essere aggiunti nel cloud Anaconda.
+    Usare uno dei comandi seguenti e sostituire *\<new package>* con il pacchetto che si vuole installare. Per l'installazione `conda install` di pacchetti tramite è necessario che il pacchetto faccia parte dei canali correnti. i nuovi canali possono essere aggiunti nel cloud Anaconda.
 
     ```bash
     conda install <new package>
     ```
 
-    In alternativa, è possibile installare i pacchetti `pip`tramite.
+    In alternativa, è possibile installare i pacchetti tramite `pip` .
 
     ```bash
     pip install <new package>
@@ -234,7 +234,7 @@ Per abilitare questi componenti nell'ambiente Jupyter Notebook:
     azureml.core.VERSION
     ```
 
-1. Se si verificano problemi durante l'importazione di `ModuleNotFoundError`moduli e la ricezione di un, assicurarsi che il kernel Jupyter sia connesso al percorso corretto per l'ambiente eseguendo il codice seguente in una cella del notebook.
+1. Se si verificano problemi durante l'importazione di moduli e la ricezione di un `ModuleNotFoundError` , assicurarsi che il kernel Jupyter sia connesso al percorso corretto per l'ambiente eseguendo il codice seguente in una cella del notebook.
 
     ```python
     import sys
@@ -285,7 +285,7 @@ Creare un [cluster databricks](https://docs.microsoft.com/azure/azure-databricks
 
 Usare queste impostazioni:
 
-| Impostazione |Si applica a| valore |
+| Impostazione |Si applica a| Valore |
 |----|---|---|
 | Nome cluster |always| nomecluster |
 | Databricks Runtime |always|Runtime non ML 6,5 (scala 2,11, Spark 2.4.3) |
@@ -299,11 +299,11 @@ Attendere che il cluster sia in esecuzione prima di proseguire.
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Installare l'SDK corretto in una libreria databricks
 Quando il cluster è in esecuzione, [creare una libreria](https://docs.databricks.com/user-guide/libraries.html#create-a-library) per alleghi il pacchetto SDK Azure Machine Learning appropriato al cluster.
 
-1. Fare clic con il pulsante destro del mouse sulla cartella dell'area di lavoro corrente in cui si desidera archiviare la libreria. Selezionare **Crea** > **libreria**.
+1. Fare clic con il pulsante destro del mouse sulla cartella dell'area di lavoro corrente in cui si desidera archiviare la libreria. Selezionare **Crea**  >  **libreria**.
 
 1. Scegliere **una sola** opzione (non sono supportate altre installazioni SDK)
 
-   |Funzionalità&nbsp;aggiuntive&nbsp;del pacchetto SDK|Source (Sorgente)|Nome&nbsp;pypi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |&nbsp;Funzionalità aggiuntive del pacchetto SDK &nbsp;|Source (Sorgente)|&nbsp;Nome pypi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Per databricks| Caricare Python Egg o PyPI | azureml-sdk[databricks]|
    |Per databricks-con-<br> funzionalità di Machine Learning automatiche| Caricare Python Egg o PyPI | azureml-SDK [automl]|
@@ -329,17 +329,17 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
 
 Se l'installazione ha avuto esito positivo, la libreria importata avrà un aspetto simile al seguente:
 
-SDK per databricks **_senza_** automazione Azure Machine Learning SDK ![per machine learning per databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+SDK per databricks **_senza_** automazione ![ Azure Machine Learning SDK per machine learning per databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK per databricks **con** l'SDK di ![Machine Learning automatizzato con Machine Learning automatico installato in databricks](./media/how-to-configure-environment/automlonadb.png)
+SDK per databricks **con** l'SDK di Machine Learning automatizzato ![ con Machine Learning automatico installato in databricks](./media/how-to-configure-environment/automlonadb.png)
 
 ### <a name="start-exploring"></a>Inizia a esplorare
 
 Per provarlo:
 + Sebbene siano disponibili molti notebook di esempio, **solo [questi notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funzionano con Azure Databricks.**
 
-+ Importare questi esempi direttamente dall'area di lavoro. Vedere di seguito ![: selezionare](./media/how-to-configure-environment/azure-db-screenshot.png)
-![importa pannello di importazione](./media/how-to-configure-environment/azure-db-import.png)
++ Importare questi esempi direttamente dall'area di lavoro. Vedere di seguito: ![ selezionare Importa ](./media/how-to-configure-environment/azure-db-screenshot.png)
+ ![ Pannello di importazione](./media/how-to-configure-environment/azure-db-import.png)
 
 + Informazioni su come [creare una pipeline con databricks come calcolo di training](how-to-create-your-first-pipeline.md).
 
@@ -361,9 +361,9 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
 
 È possibile creare il file di configurazione in tre modi:
 
-* **Usare [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: per scrivere un file *config. JSON* . che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
+* **Usare [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: per scrivere un *config.jssul* file. che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
 
-* **Scaricare il file**: nella [portale di Azure](https://ms.portal.azure.com)Selezionare **Scarica config. JSON** dalla sezione **Panoramica** dell'area di lavoro.
+* **Scaricare il file**: nella [portale di Azure](https://ms.portal.azure.com)Selezionare **Scarica config.js** da nella sezione **Panoramica** dell'area di lavoro.
 
      ![Portale di Azure](./media/how-to-configure-environment/configure.png)
 
@@ -384,7 +384,7 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
         print('Workspace not found')
     ```
 
-    Questo codice scrive il file di configurazione nel file con *estensione azureml/config. JSON* .
+    Questo codice scrive il file di configurazione nel file con *estensione azureml/config.js* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

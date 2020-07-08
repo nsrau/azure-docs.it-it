@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,15 +15,15 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: e52433cfae1e889f07818f582fc3aef0752932ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74482503"
 ---
 Prima di leggere questo articolo, è necessario avere familiarità con i concetti seguenti:
 
-- [Panoramica della piattaforma di identità Microsoft](../articles/active-directory/develop/v2-overview.md)
+- [Panoramica di Microsoft Identity Platform](../articles/active-directory/develop/v2-overview.md)
 - [Nozioni di base sull'autenticazione](../articles/active-directory/develop/authentication-scenarios.md)
 - [Destinatari](../articles/active-directory/develop/v2-supported-account-types.md)
 - [Entità servizio e applicazione](../articles/active-directory/develop/app-objects-and-service-principals.md)

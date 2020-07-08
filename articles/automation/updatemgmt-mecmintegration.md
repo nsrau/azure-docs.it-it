@@ -5,20 +5,23 @@ services: automation
 ms.subservice: update-management
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/11/2019
+ms.date: 06/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 2bcf2518ab7f4e5a3648b508e42868fd5bb1a863
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013198"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817214"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integrare Gestione aggiornamenti con Windows Endpoint Configuration Manager
 
 I clienti che hanno investito in Microsoft Endpoint Configuration Manager per gestire PC, server e dispositivi mobili si affidano alle caratteristiche potenti e avanzate di questa soluzione anche per gestire gli aggiornamenti software come parte del loro ciclo di gestione degli aggiornamenti software.
 
 È possibile creare report e aggiornare i server Windows gestiti tramite la creazione e il pre-staging di distribuzioni di aggiornamenti software in Windows Endpoint Configuration Manager, nonché ottenere lo stato dettagliato delle distribuzioni di aggiornamenti completate usando [Gestione aggiornamenti](automation-update-management.md). Se si usa Windows Endpoint Configuration Manager per creare report di conformità degli aggiornamenti, ma non per la gestione delle distribuzioni di aggiornamenti con i server Windows, è possibile continuare a creare report in Configuration Manager, mentre gli aggiornamenti di sicurezza vengono gestiti con Gestione aggiornamenti di Automazione di Azure.
+
+>[!NOTE]
+>Mentre Gestione aggiornamenti supporta la valutazione degli aggiornamenti e l'applicazione di patch di Windows Server 2008 R2, non supporta i client gestiti dall'endpoint Configuration Manager l'esecuzione di questo sistema operativo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

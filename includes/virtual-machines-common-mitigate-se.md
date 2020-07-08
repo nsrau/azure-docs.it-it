@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73935898"
 ---
 **Ultimo aggiornamento del documento**: 12 novembre 2019 10:00 PST.
@@ -101,17 +101,17 @@ Windows OS support for MDS mitigation is enabled: True
 Windows OS support for TAA mitigation is enabled: True
 ```
 
-Se l'output viene `MDS mitigation is enabled: False`visualizzato, [contattare il supporto tecnico di Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) per le opzioni di mitigazione disponibili.
+Se l'output viene visualizzato `MDS mitigation is enabled: False` , [contattare il supporto tecnico di Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) per le opzioni di mitigazione disponibili.
 
 
 
-**Passaggio 3**: per abilitare la funzionalità di shadowing degli indirizzi virtuali kernel (kvas) e il supporto del sistema operativo di injection target Injection [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) (ITV), seguire le istruzioni `Session Manager` in KB4072698 per abilitare le protezioni usando le chiavi del registro di sistema. È necessario riavviare.
+**Passaggio 3**: per abilitare la funzionalità di shadowing degli indirizzi virtuali kernel (kvas) e il supporto del sistema operativo di injection target Injection (ITV), seguire le istruzioni in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) per abilitare le protezioni usando le `Session Manager` chiavi del registro di sistema. È necessario riavviare.
 
 
 **Passaggio 4**: per le distribuzioni che usano la [virtualizzazione nidificata](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (solo D3 e E3): queste istruzioni si applicano all'interno della VM usata come host Hyper-V.
 
 1.  Seguire le istruzioni in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) per abilitare le protezioni usando le `MinVmVersionForCpuBasedMitigations` chiavi del registro di sistema.
-2.  Impostare il tipo di utilità di pianificazione `Core` hypervisor su seguendo le istruzioni riportate [qui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+2.  Impostare il tipo di utilità di pianificazione hypervisor su `Core` seguendo le istruzioni riportate [qui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
@@ -119,11 +119,11 @@ Se l'output viene `MDS mitigation is enabled: False`visualizzato, [contattare il
 <a name="linux"></a>Per abilitare il set di funzionalità di sicurezza aggiuntive all'interno è necessario che il sistema operativo di destinazione sia completamente aggiornato. Alcune soluzioni di mitigazione verranno abilitate per impostazione predefinita. La sezione seguente descrive le funzionalità che sono disattivate per impostazione predefinita e/o fanno affidamento su supporto hardware (microcodice). L'abilitazione di queste funzionalità può causare un impatto sulle prestazioni. Fare riferimento alla documentazione del provider del sistema operativo per altre istruzioni
 
 
-**Passaggio 1: disabilitare l'Hyper-Threading nella** macchina virtuale. i clienti che eseguono codice non attendibile in una VM con Hyper-Threading dovranno disabilitare l'Hyper-Threading o passare a una macchina virtuale non con hyperthreading.  Fare riferimento a [questo documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) per un elenco delle dimensioni delle VM con Hyper-Threading (dove il rapporto tra vCPU e Core è 2:1). Per verificare se si esegue una macchina virtuale con Hyper-Threading, eseguire `lscpu` il comando nella VM Linux. 
+**Passaggio 1: disabilitare l'Hyper-Threading nella** macchina virtuale. i clienti che eseguono codice non attendibile in una VM con Hyper-Threading dovranno disabilitare l'Hyper-Threading o passare a una macchina virtuale non con hyperthreading.  Fare riferimento a [questo documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) per un elenco delle dimensioni delle VM con Hyper-Threading (dove il rapporto tra vCPU e Core è 2:1). Per verificare se si esegue una macchina virtuale con Hyper-Threading, eseguire il `lscpu` comando nella VM Linux. 
 
-Se `Thread(s) per core = 2`, la tecnologia Hyper-Threading è stata abilitata. 
+Se `Thread(s) per core = 2` , la tecnologia Hyper-Threading è stata abilitata. 
 
-Se `Thread(s) per core = 1`, la tecnologia Hyper-Threading è stata disabilitata. 
+Se `Thread(s) per core = 1` , la tecnologia Hyper-Threading è stata disabilitata. 
 
  
 Esempio di output per una macchina virtuale con Hyper-Threading abilitato: 

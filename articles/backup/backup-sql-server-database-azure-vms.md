@@ -1,15 +1,14 @@
 ---
 title: Eseguire il backup di database SQL Server in macchine virtuali di Azure
 description: Questo articolo illustra come eseguire il backup di database di SQL Server in macchine virtuali di Azure con Backup di Azure.
-ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3fd94dc6332d96f875c164dfeadff3a8ab2cad4e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817540"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -34,9 +33,10 @@ In questo articolo si apprenderà come:
 Prima di eseguire il backup di un database di SQL Server, verificare i criteri seguenti:
 
 1. Identificare o creare un [insieme di credenziali di Servizi di ripristino](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) nella stessa area e nella stessa sottoscrizione della macchina virtuale che ospita l'istanza di SQL Server.
-2. Verificare che la macchina virtuale abbia [connettività di rete](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-3. Assicurarsi che i database di SQL Server seguano le [linee guida per la denominazione dei database per Backup di Azure](#database-naming-guidelines-for-azure-backup).
-4. Verificare che non siano abilitate altre soluzioni di backup per il database. Disabilitare tutti gli altri backup di SQL Server prima di effettuare il backup del database.
+1. Verificare che la macchina virtuale abbia [connettività di rete](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Assicurarsi che i database di SQL Server seguano le [linee guida per la denominazione dei database per Backup di Azure](#database-naming-guidelines-for-azure-backup).
+1. Verificare che la lunghezza combinata del nome della macchina virtuale SQL Server e il nome del gruppo di risorse non superi 84 caratteri per le VM Azure Resource Manager (ARM) (o i caratteri 77 per le macchine virtuali classiche). Questa limitazione è dovuta al fatto che alcuni caratteri sono riservati dal servizio.
+1. Verificare che non siano abilitate altre soluzioni di backup per il database. Disabilitare tutti gli altri backup di SQL Server prima di effettuare il backup del database.
 
 > [!NOTE]
 > È possibile abilitare Backup di Azure per una VM di Azure e per un database SQL Server in esecuzione nella VM senza conflitto.
@@ -264,7 +264,7 @@ Per creare un criterio di backup:
 
 È possibile abilitare la protezione automatica per eseguire automaticamente il backup di tutti i database esistenti e futuri a un'istanza autonoma di SQL Server o a un gruppo di disponibilità Always On.
 
-* Non c'è limite al numero di database che si possono selezionare contemporaneamente per la protezione automatica.
+* Non esiste alcun limite al numero di database che è possibile selezionare per la protezione automatica alla volta. L'individuazione viene in genere eseguita ogni otto ore. Tuttavia, è possibile individuare e proteggere immediatamente i nuovi database se si esegue manualmente un'individuazione selezionando l'opzione **riindividua i DB** .
 * Non è possibile proteggere o escludere in modo selettivo i database dalla protezione in un'istanza nel momento in cui si abilita la protezione automatica.
 * Se l'istanza include già alcuni database protetti, questi rimarranno protetti in base ai rispettivi criteri anche dopo l'attivazione della protezione automatica. Tutti i database non protetti aggiunti in un secondo momento avranno un solo criterio definito al momento dell'abilitazione della protezione automatica, elencati in **Configura backup**. Tuttavia, è possibile modificare in un secondo momento il criterio associato a un database protetto automaticamente.  
 

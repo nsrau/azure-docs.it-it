@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/19/2018
 ms.author: allensu
-ms.openlocfilehash: 7ae7224efdaa281106dfbe2118ab0092c8284c6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fba1f0b1f8160dece41c312b61cbc8ae9571436d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887024"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Limitare il contenuto della rete CDN di Azure per paese/area geografica
 
@@ -59,8 +59,8 @@ Nell'elenco **Azione** selezionare **Consenti** o **Blocca**:
 - **Blocco**: agli utenti dei paesi specificati viene negato l'accesso agli asset richiesti dal percorso ricorsivo. Se non sono state configurate altre opzioni di filtro per paese/area geografica per tale percorso, a tutti gli altri utenti verrà consentito l'accesso.
 
 Ad esempio, una regola di filtro geografico per bloccare il percorso */Foto/Strasburgo/* filtra i file seguenti:     
-*http\<:\//endpoint>. azureedge.NET/Photos/Strasbourg/1000.jpg*
-*http:\//\<endpoint>. azureedge.NET/Photos/Strasbourg/Cathedral/1000.jpg*
+*http: \/ / \<endpoint> . azureedge.NET/Photos/Strasbourg/1000.jpg* 
+ *http: \/ / \<endpoint> . azureedge.NET/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>Definire i paesi/aree geografiche
 Dall'elenco dei **codici paese** selezionare i paesi o le aree geografiche che si desidera bloccare o consentire per il percorso. 
@@ -69,7 +69,7 @@ Al termine della selezione dei paesi/aree geografiche, selezionare **Salva** per
 
 ![Regole di filtro geografico](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
-### <a name="clean-up-resources"></a>Pulizia delle risorse
+### <a name="clean-up-resources"></a>Pulire le risorse
 Per eliminare una regola, selezionarla nell'elenco nella pagina **Filtro geografico** e quindi scegliere **Elimina**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Profili della rete CDN Premium di Azure fornita da Verizon
@@ -95,7 +95,7 @@ Per i profili della **rete CDN Premium di Azure fornita da Verizon**, l'interfac
 
     ![Regole di filtro geografico](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
-### <a name="clean-up-resources"></a>Pulizia delle risorse
+### <a name="clean-up-resources"></a>Pulire le risorse
 Nella tabella delle regole di filtro per paese/area geografica selezionare l'icona di eliminazione accanto a una regola per eliminarla o l'icona di modifica per modificarla.
 
 ## <a name="considerations"></a>Considerazioni

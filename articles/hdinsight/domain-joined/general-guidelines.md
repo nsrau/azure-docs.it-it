@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be6c1fdc5deb6d541656c198469822dae0a5f7c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77463206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887902"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informazioni generali e linee guida per la sicurezza aziendale in Azure HDInsight
 
@@ -20,7 +20,7 @@ Quando si distribuisce un cluster HDInsight sicuro, sono disponibili alcune proc
 
 ## <a name="use-of-secure-cluster"></a>Uso del cluster sicuro
 
-### <a name="recommended"></a>Consigliato
+### <a name="recommended"></a>Implementazione consigliata
 
 * Il cluster verrà usato da più utenti nello stesso momento.
 * Gli utenti hanno diversi livelli di accesso agli stessi dati.
@@ -43,9 +43,9 @@ Quando si distribuisce un cluster HDInsight sicuro, sono disponibili alcune proc
 
 * Quando l'accesso ai dati viene eseguito tramite un servizio in cui è abilitata l'autorizzazione:
   * Il plug-in di autorizzazione Ranger viene richiamato e dato il contesto della richiesta.
-  * Ranger applica i criteri configurati per il servizio. Se i criteri del Ranger hanno esito negativo, il controllo di accesso viene rinviato al file system. Alcuni servizi come MapReduce controllano solo se il file o la cartella di proprietà dello stesso utente che invia la richiesta. Servizi come hive, verificano la corrispondenza di proprietà o le autorizzazioni del`rwx`file System appropriate ().
+  * Ranger applica i criteri configurati per il servizio. Se i criteri del Ranger hanno esito negativo, il controllo di accesso viene rinviato al file system. Alcuni servizi come MapReduce controllano solo se il file o la cartella di proprietà dello stesso utente che invia la richiesta. Servizi come hive, verificano la corrispondenza di proprietà o le autorizzazioni del file System appropriate ( `rwx` ).
 
-* Per hive, oltre a disporre delle autorizzazioni per eseguire le autorizzazioni di creazione/aggiornamento/eliminazione, l'utente deve `rwx`disporre delle autorizzazioni per la directory di archiviazione e per tutte le sottodirectory.
+* Per hive, oltre a disporre delle autorizzazioni per eseguire le autorizzazioni di creazione/aggiornamento/eliminazione, l'utente deve disporre `rwx` delle autorizzazioni per la directory di archiviazione e per tutte le sottodirectory.
 
 * I criteri possono essere applicati a gruppi (preferibili) anziché a singoli utenti.
 
@@ -66,14 +66,14 @@ Quando lo spazio del nome gerarchico in non è abilitato:
 
 ### <a name="default-hdfs-permissions"></a>Autorizzazioni HDFS predefinite
 
-* Per impostazione predefinita, gli utenti non hanno accesso **/** alla cartella in HDFS (è necessario che il ruolo proprietario del BLOB di archiviazione per l'accesso abbia esito positivo).
-* Per la directory di gestione temporanea per MapReduce e altre, viene creata una directory specifica dell'utente `sticky _wx` e vengono fornite le autorizzazioni. Gli utenti possono creare file e cartelle sottostanti, ma non possono esaminare altri elementi.
+* Per impostazione predefinita, gli utenti non hanno accesso alla **/** cartella in HDFS (è necessario che il ruolo proprietario del BLOB di archiviazione per l'accesso abbia esito positivo).
+* Per la directory di gestione temporanea per MapReduce e altre, viene creata una directory specifica dell'utente e vengono fornite le `sticky _wx` autorizzazioni. Gli utenti possono creare file e cartelle sottostanti, ma non possono esaminare altri elementi.
 
 ### <a name="url-auth"></a>Autenticazione URL
 
 Se è abilitata l'autenticazione URL:
 
-* Il file di configurazione conterrà i prefissi inclusi nell'autenticazione dell'URL ( `adl://`ad esempio).
+* Il file di configurazione conterrà i prefissi inclusi nell'autenticazione dell'URL (ad esempio `adl://` ).
 * Se l'accesso è per questo URL, Ranger verificherà se l'utente è presente nell'elenco Consenti.
 * Ranger non verificherà nessuno dei criteri con granularità fine.
 
@@ -119,7 +119,7 @@ HDInsight non può dipendere da controller di dominio locali o controller di dom
 
 ### <a name="azure-ad-ds-instance"></a>Istanza di Azure AD DS
 
-* Creare l'istanza di con `.onmicrosoft.com domain`. In questo modo, non saranno presenti più server DNS che fanno parte del dominio.
+* Creare l'istanza di con `.onmicrosoft.com domain` . In questo modo, non saranno presenti più server DNS che fanno parte del dominio.
 * Creare un certificato autofirmato per LDAPs e caricarlo in Azure AD DS.
 * Usare una rete virtuale con peering per la distribuzione di cluster (quando si dispone di un numero di team che distribuiscono cluster HDInsight ESP, questo sarà utile). In questo modo non è necessario aprire le porte (gruppi) nella rete virtuale con il controller di dominio.
 * Configurare il DNS per la rete virtuale correttamente (il nome di dominio Azure AD DS deve risolversi senza alcuna voce di file host).
@@ -159,6 +159,17 @@ Motivi più comuni:
 * Gruppi sono troppo restrittive, impedendo l'aggiunta a un dominio.
 * L'identità gestita non dispone di autorizzazioni sufficienti.
 * Il nome del cluster non è univoco nei primi sei caratteri (con un altro cluster attivo o con un cluster eliminato).
+
+## <a name="authentication-setup-and-configuration"></a>Configurazione e configurazione dell'autenticazione
+
+### <a name="user-principal-name-upn"></a>Nome dell'entità utente (UPN)
+
+* Usare lettere minuscole per tutti i servizi. i UPN non fanno distinzione tra maiuscole e minuscole nei cluster ESP, ma
+* Il prefisso UPN deve corrispondere sia a SAMAccountName in Azure AD-DS. La corrispondenza con il campo mail non è obbligatoria.
+
+### <a name="ldap-properties-in-ambari-configuration"></a>Proprietà LDAP nella configurazione di Ambari
+
+Per un elenco completo delle proprietà di Ambari che interessano la configurazione del cluster HDInsight, vedere la pagina relativa alla configurazione dell' [autenticazione LDAP di Ambari](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6aa40d0914237a28c7bbd32b15bf0d8d02140192
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: cb939d223d0aa91b6da62d3045ccad919f1bd277
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887933"
 ---
-# <a name="payout-policy-details"></a>Dettagli dei criteri di pagamento
+# <a name="payout-policy-details"></a>Dettagli dei criteri dei proventi
 
 Questo articolo illustra il processo di pagamento di Microsoft, la pianificazione dei pagamenti, la posizione in cui trovare lo stato di un pagamento e i criteri di recupero.
 
@@ -25,9 +25,9 @@ In centro per i partner selezionare **pagamento** in alto a destra nel portale:
 ![Viene illustrata l'icona di pagamento in alto a destra nel portale del centro per i partner.](./media/payout-overview.png)
 
 > [!TIP]
-> Non tutti i ruoli account hanno accesso alle informazioni sui pagamenti. Per informazioni dettagliate, vedere [ruoli e autorizzazioni per accedere al report dei pagamenti](./payout-summary.md).
+> Non tutti i ruoli account hanno accesso alle informazioni sui pagamenti. Per informazioni dettagliate, vedere [ruoli e autorizzazioni per accedere al report dei pagamenti](./payout-summary-overview.md#roles-and-permissions).
 
-## <a name="payment-schedules"></a>Pianificazioni di pagamento
+## <a name="payment-schedules"></a>Pianificazioni dei pagamenti
 
 Le sezioni seguenti descrivono il processo di pagamento.
 
@@ -101,13 +101,13 @@ Di seguito è riportato un esempio di pianificazione:
 | --- | --- | --- |
 | Data di pagamento di esempio | 10/15/2020 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione pagamenti nel dashboard dei pagamenti |
 | <font color="red">Se il cliente non paga Microsoft</font> | 12/2/2020 – 12/5/2020 | Nessuna modifica, come sopra |
-| Il cliente riceve il primo messaggio di posta elettronica in ritardo | 12/6/2020 | Nessuno |
-| Il cliente riceve messaggi di posta elettronica regolari con urgenza crescente | 12/7/2020 – 1/31/2020 | Nessuno |
-| È probabile che il server di pubblicazione riceva una notifica di scrittura | 1/7/2020 | Notifica tramite posta elettronica inviata al server di pubblicazione a cui il cliente non ha ancora inviato il pagamento. Sono inclusi ID transazione e importo in dollari. |
-| Il cliente riceve l'avviso di terminazione | 2/1/2020 | Nessuno |
-| Il processo di raccolta termina/Funds viene scritto | 2/15/2020 | Notifica tramite posta elettronica inviata al server di pubblicazione. i fondi sono stati scritti. Sono inclusi ID transazione e importo in dollari. |
-| Il pagamento viene sottratto | 3/1/2020 | Il server di pubblicazione visualizzerà una transazione negativa nell'istruzione per il pagamento del partner Center |
-| Il pagamento è stato trattenuto | 3/15/2020 | I pagamenti futuri verranno visualizzati nell'istruzione per il pagamento del centro per i partner. Il server di pubblicazione non riceverà alcun pagamento finché il saldo non sarà più negativo.  |
+| Il cliente riceve il primo messaggio di posta elettronica in ritardo | 12/6/2020 | nessuno |
+| Il cliente riceve messaggi di posta elettronica regolari con urgenza crescente | 12/7/2020 – 1/31/2021 | nessuno |
+| È probabile che il server di pubblicazione riceva una notifica di scrittura | 1/7/2021 | Notifica tramite posta elettronica inviata al server di pubblicazione a cui il cliente non ha ancora inviato il pagamento. Sono inclusi ID transazione e importo in dollari. |
+| Il cliente riceve l'avviso di terminazione | 2/1/2021 | nessuno |
+| Il processo di raccolta termina/Funds viene scritto | 2/15/2021 | Notifica tramite posta elettronica inviata al server di pubblicazione. i fondi sono stati scritti. Sono inclusi ID transazione e importo in dollari. |
+| Il pagamento viene sottratto | 3/1/2021 | Il server di pubblicazione visualizzerà una transazione negativa nell'istruzione per il pagamento del partner Center |
+| Il pagamento è stato trattenuto | 3/15/2021 | I pagamenti futuri verranno visualizzati nell'istruzione per il pagamento del centro per i partner. Il server di pubblicazione non riceverà alcun pagamento finché il saldo non sarà più negativo.  |
 |||
 
 ## <a name="next-step"></a>passaggio successivo

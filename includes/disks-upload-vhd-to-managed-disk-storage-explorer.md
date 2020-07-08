@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74013792"
 ---
 Storage Explorer 1.10.0 consente agli utenti di caricare, scaricare e copiare dischi gestiti, nonché creare snapshot. A causa di queste funzionalità aggiuntive, è possibile usare Storage Explorer per eseguire la migrazione dei dati dall'ambiente locale ad Azure ed eseguire la migrazione dei dati tra le aree di Azure.
@@ -120,7 +120,7 @@ Con Storage Explorer è possibile copiare un disco gestito all'interno o tra pi�
 
     ![Creare uno snapshot](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button.png)
 
-1. In **Crea snapshot**specificare il nome dello snapshot e il gruppo di risorse in cui si vuole crearlo. Selezionare quindi **Crea**.
+1. In **Crea snapshot**specificare il nome dello snapshot e il gruppo di risorse in cui si vuole crearlo. Quindi selezionare **Crea**
 
     ![Finestra di dialogo Crea snapshot](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
 
