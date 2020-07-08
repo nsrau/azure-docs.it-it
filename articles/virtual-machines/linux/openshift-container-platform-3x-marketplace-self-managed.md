@@ -11,10 +11,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759568"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
@@ -65,7 +64,7 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 | Chiave pubblica SSH per l'utente amministratore | Chiave pubblica SSH usata per accedere alla macchina virtuale: non deve avere una passphrase |
 | Subscription | Sottoscrizione di Azure in cui distribuire il cluster |
 | Gruppo di risorse | Creare un nuovo gruppo di risorse o selezionare un gruppo di risorse vuoto esistente per le risorse cluster |
-| Percorso | Area di Azure in cui distribuire il cluster |
+| Location | Area di Azure in cui distribuire il cluster |
 
    ![Pannello nozioni di base sull'offerta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -191,7 +190,7 @@ Al termine della distribuzione, recuperare la connessione dalla sezione di outpu
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non servono più, è possibile rimuovere il gruppo di risorse, il cluster OpenShift e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group).
 

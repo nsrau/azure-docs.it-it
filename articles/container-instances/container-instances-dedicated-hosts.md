@@ -6,10 +6,9 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82025034"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Eseguire la distribuzione in host dedicati
@@ -28,7 +27,7 @@ Lo SKU dedicato è adatto per i carichi di lavoro del contenitore che richiedono
 > L'uso dello SKU dedicato è disponibile solo nella versione più recente dell'API (2019-12-01) attualmente in fase di implementazione. Specificare questa versione dell'API nel modello di distribuzione.
 >
 
-A partire dall'API versione 2019-12-01, è presente `sku` una proprietà nella sezione delle proprietà del gruppo di contenitori di un modello di distribuzione, che è necessario per una distribuzione di ACI. Attualmente, è possibile usare questa proprietà come parte di un modello di distribuzione Azure Resource Manager per ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello [, vedere l'esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+A partire dall'API versione 2019-12-01, è presente una `sku` proprietà nella sezione delle proprietà del gruppo di contenitori di un modello di distribuzione, che è necessario per una distribuzione di ACI. Attualmente, è possibile usare questa proprietà come parte di un modello di distribuzione Azure Resource Manager per ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello [, vedere l'esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
 La `sku` proprietà può avere uno dei valori seguenti:
 * `Standard`-la scelta di distribuzione ACI standard, che garantisce comunque la sicurezza a livello di hypervisor 
@@ -37,8 +36,8 @@ La `sku` proprietà può avere uno dei valori seguenti:
 ## <a name="modify-your-json-deployment-template"></a>Modificare il modello di distribuzione JSON
 
 Nel modello di distribuzione modificare o aggiungere le proprietà seguenti:
-* In `resources`, impostare `apiVersion` su `2019-12-01`.
-* In Proprietà gruppo di contenitori aggiungere una `sku` proprietà con valore. `Dedicated`
+* In `resources` , impostare `apiVersion` su `2019-12-01` .
+* In Proprietà gruppo di contenitori aggiungere una `sku` proprietà con valore `Dedicated` .
 
 Ecco un frammento di esempio per la sezione Resources di un modello di distribuzione del gruppo di contenitori che usa lo SKU dedicato:
 

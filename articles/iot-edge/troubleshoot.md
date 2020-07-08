@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9b6265bed138960a3839091ed1593413fc85710a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858589"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Risolvere i problemi del dispositivo IoT Edge
@@ -21,12 +20,12 @@ Se si verificano problemi durante l'esecuzione di Azure IoT Edge nell'ambiente i
 
 ## <a name="run-the-check-command"></a>Eseguire il comando ' check '
 
-Il primo passaggio per la risoluzione dei problemi di IoT Edge deve essere `check` quello di usare il comando, che esegue una raccolta di test di configurazione e connettività per i problemi comuni. Il `check` comando è disponibile in [Release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) e versioni successive.
+Il primo passaggio per la risoluzione dei problemi di IoT Edge deve essere quello di usare il `check` comando, che esegue una raccolta di test di configurazione e connettività per i problemi comuni. Il `check` comando è disponibile in [Release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) e versioni successive.
 
 >[!NOTE]
 >Lo strumento per la risoluzione dei problemi non può eseguire controlli di connettività se il dispositivo IoT Edge è dietro a un server proxy.
 
-È possibile eseguire il `check` comando come indicato di seguito o includere `--help` il flag per visualizzare un elenco completo delle opzioni:
+È possibile eseguire il `check` comando come indicato di seguito o includere il `--help` flag per visualizzare un elenco completo delle opzioni:
 
 In Linux:
 
@@ -50,7 +49,7 @@ Per informazioni su ognuno dei controlli diagnostici eseguiti da questo strument
 
 ## <a name="gather-debug-information-with-support-bundle-command"></a>Raccogliere le informazioni di debug con il comando ' support-bundle '
 
-Quando è necessario raccogliere i log da un dispositivo IoT Edge, il modo più pratico consiste nell'usare il `support-bundle` comando. Per impostazione predefinita, questo comando raccoglie il modulo IoT Edge Security Manager e i log del motore `iotedge check` del contenitore, l'output JSON e altre informazioni di debug utili. Li comprime in un singolo file per semplificare la condivisione. Il `support-bundle` comando è disponibile in [Release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) e versioni successive.
+Quando è necessario raccogliere i log da un dispositivo IoT Edge, il modo più pratico consiste nell'usare il `support-bundle` comando. Per impostazione predefinita, questo comando raccoglie il modulo IoT Edge Security Manager e i log del motore del contenitore, l' `iotedge check` output JSON e altre informazioni di debug utili. Li comprime in un singolo file per semplificare la condivisione. Il `support-bundle` comando è disponibile in [Release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) e versioni successive.
 
 Eseguire il `support-bundle` comando con il `--since` flag per specificare per quanto tempo dal passato si desidera ottenere i log. Ad esempio `6h` , otterrà i log dalle ultime sei ore, `6d` dagli ultimi sei giorni, `6m` dagli ultimi sei minuti e così via. Includere il `--help` flag per visualizzare un elenco completo delle opzioni.
 
@@ -67,11 +66,11 @@ iotedge support-bundle --since 6h
 ```
 
 > [!WARNING]
-> L' `support-bundle` output del comando può contenere nomi host, dispositivi e moduli, informazioni registrate dai moduli e così via. Tenere presente questo problema se si condivide l'output in un forum pubblico.
+> L'output del `support-bundle` comando può contenere nomi host, dispositivi e moduli, informazioni registrate dai moduli e così via. Tenere presente questo problema se si condivide l'output in un forum pubblico.
 
 ## <a name="check-your-iot-edge-version"></a>Controllare la versione di IoT Edge
 
-Se si sta eseguendo una versione precedente di IoT Edge, l'aggiornamento può risolvere il problema. Lo `iotedge check` strumento verifica che il daemon di sicurezza IoT Edge sia la versione più recente, ma non controlla le versioni dei moduli dell'hub IOT Edge e dell'agente. Per verificare la versione dei moduli di runtime nel dispositivo, usare i comandi `iotedge logs edgeAgent` e. `iotedge logs edgeHub` Il numero di versione viene dichiarato nei log all'avvio del modulo.
+Se si sta eseguendo una versione precedente di IoT Edge, l'aggiornamento può risolvere il problema. Lo `iotedge check` strumento verifica che il daemon di sicurezza IoT Edge sia la versione più recente, ma non controlla le versioni dei moduli dell'hub IOT Edge e dell'agente. Per verificare la versione dei moduli di runtime nel dispositivo, usare i comandi `iotedge logs edgeAgent` e `iotedge logs edgeHub` . Il numero di versione viene dichiarato nei log all'avvio del modulo.
 
 Per istruzioni su come aggiornare il dispositivo, vedere [aggiornare il daemon di sicurezza di IOT Edge e il runtime](how-to-update-iot-edge.md).
 

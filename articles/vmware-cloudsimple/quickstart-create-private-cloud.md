@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81867970"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva-configurare un ambiente cloud privato
@@ -58,7 +57,7 @@ I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio
 
 11. Fare clic su **Avanti: esaminare e creare**.
 12. Esaminare le impostazioni. Se è necessario modificare le impostazioni, fare clic su **indietro**.
-13. Scegliere **Crea**.
+13. Fare clic su **Crea**.
 
 Viene avviato il processo di provisioning del cloud privato.  Il provisioning del cloud privato può richiedere fino a due ore.
 
@@ -209,6 +208,6 @@ Per creare un gruppo di porte distribuite in vSphere:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Utilizzare VM di VMware in Azure](quickstart-create-vmware-virtual-machine.md)
+* [Usare VM di VMware in Azure](quickstart-create-vmware-virtual-machine.md)
 * [Connettersi alla rete locale usando Azure ExpressRoute](on-premises-connection.md)
 * [Configurare una VPN da sito a sito da locale](vpn-gateway.md)

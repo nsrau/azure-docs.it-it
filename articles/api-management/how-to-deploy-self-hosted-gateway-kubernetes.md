@@ -10,10 +10,9 @@ ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
 ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82854101"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Distribuire un gateway self-hosted in Kubernetes
@@ -110,7 +109,7 @@ Per informazioni sulla risoluzione dei nomi in Kubernetes, vedere il [sito Web K
 ### <a name="configuration-backup"></a>Backup configurazione
 Per informazioni sul comportamento del gateway self-hosted in presenza di un'interruzione temporanea della connettività di Azure, vedere [Panoramica del gateway self-hosted](self-hosted-gateway-overview.md#connectivity-to-azure).
 
-Configurare un volume di archiviazione locale per il contenitore del gateway self-hosted, in modo che possa rendere permanente una copia di backup dell'ultima configurazione scaricata. Se la connettività è inattiva, il volume di archiviazione può utilizzare la copia di backup al riavvio. Il percorso di montaggio del volume <code>/apim/config</code>deve essere. Vedere un esempio su [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
+Configurare un volume di archiviazione locale per il contenitore del gateway self-hosted, in modo che possa rendere permanente una copia di backup dell'ultima configurazione scaricata. Se la connettività è inattiva, il volume di archiviazione può utilizzare la copia di backup al riavvio. Il percorso di montaggio del volume deve essere <code>/apim/config</code> . Vedere un esempio su [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
 Per informazioni sull'archiviazione in Kubernetes, vedere il [sito Web Kubernetes](https://kubernetes.io/docs/concepts/storage/volumes/).
 
 ### <a name="local-logs-and-metrics"></a>Metriche e log locali

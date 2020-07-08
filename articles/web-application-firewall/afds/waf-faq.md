@@ -9,21 +9,20 @@ ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
 ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82837635"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Domande frequenti sul servizio Web Application Firewall di Azure nel servizio front door di Azure
 
 Questo articolo risponde alle domande più comuni su Web Application Firewall (WAF) di Azure sulle funzionalità e sulle funzionalità del servizio front door di Azure. 
 
-## <a name="what-is-azure-waf"></a>Che cos'è Azure WAF?
+## <a name="what-is-azure-waf"></a>Cos'è il web application firewall di Azure?
 
-Azure WAF è un web application firewall che aiuta a proteggere le applicazioni Web da minacce comuni, ad esempio SQL injection, script intersito e altri exploit Web. È possibile definire un criterio WAF costituito da una combinazione di regole personalizzate e gestite per controllare l'accesso alle applicazioni Web.
+Il WAF di Azure è un web application firewall che consente di proteggere le applicazioni Web da minacce comuni, quali attacchi SQL injection, script da altri siti e altri exploit Web. L'utente può definire un criterio WAF costituito da una combinazione di regole personalizzate e gestite per controllare l'accesso alle applicazioni Web.
 
-È possibile applicare un criterio di Azure WAF alle applicazioni Web ospitate nel gateway applicazione o in Azure front doors.
+I criteri WAF di Azure possono essere applicati alle applicazioni Web ospitate nel gateway applicazione o in Frontdoor di Azure.
 
 ## <a name="what-is-waf-on-azure-front-door"></a>Che cos'è WAF in front door di Azure? 
 
@@ -76,5 +75,5 @@ Tuttavia, è possibile che le richieste provenienti dallo stesso client possano 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [Web Application Firewall di Azure](../overview.md).
-- Altre informazioni su [Azure front door](../../frontdoor/front-door-overview.md).
+- Informazioni sul [web application firewall di Azure](../overview.md).
+- Altre informazioni su [Frontdoor di Azure](../../frontdoor/front-door-overview.md).

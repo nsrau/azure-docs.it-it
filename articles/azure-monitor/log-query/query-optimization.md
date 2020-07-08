@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
 ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864250"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
@@ -180,7 +179,7 @@ Nei log di monitoraggio di Azure, la colonna **TimeGenerated** viene usata come 
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Evitare l'uso superfluo degli operatori di ricerca e Unione
 
-Un altro fattore che aumenta i dati elaborati è l'utilizzo di un numero elevato di tabelle. Questa situazione si verifica `search *` in `union *` genere quando si utilizzano i comandi e. Questi comandi forzano il sistema a valutare e analizzare i dati di tutte le tabelle nell'area di lavoro. In alcuni casi, potrebbero essere presenti centinaia di tabelle nell'area di lavoro. Provare a evitare il più possibile utilizzando "Search *" o qualsiasi ricerca senza l'ambito di una tabella specifica.
+Un altro fattore che aumenta i dati elaborati è l'utilizzo di un numero elevato di tabelle. Questa situazione si verifica in genere quando `search *` `union *` si utilizzano i comandi e. Questi comandi forzano il sistema a valutare e analizzare i dati di tutte le tabelle nell'area di lavoro. In alcuni casi, potrebbero essere presenti centinaia di tabelle nell'area di lavoro. Provare a evitare il più possibile utilizzando "Search *" o qualsiasi ricerca senza l'ambito di una tabella specifica.
 
 Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma l'ultimo è di gran lunga il più efficiente:
 
@@ -204,7 +203,7 @@ Perf
 
 ### <a name="add-early-filters-to-the-query"></a>Aggiungere i filtri iniziali alla query
 
-Un altro metodo per ridurre il volume di dati consiste nel disporre di condizioni [where](/azure/kusto/query/whereoperator) all'inizio della query. La piattaforma Azure Esplora dati include una cache che consente di individuare le partizioni che includono i dati rilevanti per una specifica condizione WHERE. Se, ad esempio, una query `where EventID == 4624` contiene, la query verrà distribuita solo ai nodi che gestiscono le partizioni con eventi corrispondenti.
+Un altro metodo per ridurre il volume di dati consiste nel disporre di condizioni [where](/azure/kusto/query/whereoperator) all'inizio della query. La piattaforma Azure Esplora dati include una cache che consente di individuare le partizioni che includono i dati rilevanti per una specifica condizione WHERE. Se, ad esempio, una query contiene, `where EventID == 4624` la query verrà distribuita solo ai nodi che gestiscono le partizioni con eventi corrispondenti.
 
 Le query di esempio seguenti producono esattamente lo stesso risultato, ma la seconda è più efficiente:
 

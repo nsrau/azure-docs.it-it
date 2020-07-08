@@ -11,15 +11,14 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871370"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
-Archiviazione di Azure archivia sempre più copie dei dati in modo che siano protette da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione e calamità naturali di grandi dimensioni. La ridondanza garantisce che l'account di archiviazione soddisfi il [contratto di servizio (SLA) per archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori.
+Archiviazione di Azure archivia sempre più copie dei dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione e forti calamità naturali. La ridondanza garantisce che l'account di archiviazione soddisfi il [Contratto di servizio per Archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori.
 
 Archiviazione di Azure offre i tipi di replica seguenti:
 
@@ -38,8 +37,8 @@ Nella tabella seguente viene fornita una panoramica su come passare da un tipo d
 
 | Commutazione | ... a con ridondanza locale | ... al GRS/RA-GRS | ... a ZRS | ... a GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... da con ridondanza locale</b> | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1</sup> | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Passa prima a GRS/RA-GRS e quindi Richiedi una migrazione in tempo reale<sup>1</sup> |
-| <b>... da GRS/RA-GRS</b> | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Passa prima a con ridondanza locale e quindi Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> Richiedi una migrazione in tempo reale |
+| <b>... da con ridondanza locale</b> | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1</sup> | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> OPPURE <br /><br /> Passa prima a GRS/RA-GRS e quindi Richiedi una migrazione in tempo reale<sup>1</sup> |
+| <b>... da GRS/RA-GRS</b> | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D | Eseguire una migrazione manuale <br /><br /> OPPURE <br /><br /> Passa prima a con ridondanza locale e quindi Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> Richiedi una migrazione in tempo reale |
 | <b>... da ZRS</b> | Eseguire una migrazione manuale | Eseguire una migrazione manuale | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1, 2</sup> |
 | <b>... da GZRS/RA-GZRS</b> | Eseguire una migrazione manuale | Eseguire una migrazione manuale | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D |
 
@@ -67,7 +66,7 @@ Per modificare l'opzione di ridondanza per l'account di archiviazione nell'porta
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per modificare l'opzione di ridondanza per l'account di archiviazione con PowerShell, chiamare il comando [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) e `-SkuName` specificare il parametro:
+Per modificare l'opzione di ridondanza per l'account di archiviazione con PowerShell, chiamare il comando [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) e specificare il `-SkuName` parametro:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -77,7 +76,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per modificare l'opzione di ridondanza per l'account di archiviazione con l'interfaccia della riga di comando di Azure, chiamare il `--sku` comando [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) e specificare il parametro:
+Per modificare l'opzione di ridondanza per l'account di archiviazione con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) e specificare il `--sku` parametro:
 
 ```azurecli-interactive
 az storage account update \
@@ -105,7 +104,7 @@ Con una migrazione manuale, i dati vengono copiati dall'account di archiviazione
 
 Se è necessario eseguire la migrazione dell'account di archiviazione da con ridondanza locale o GRS a ZRS nell'area primaria senza tempi di inattività dell'applicazione, è possibile richiedere una migrazione in tempo reale da Microsoft. Durante una migrazione in tempo reale, è possibile accedere ai dati nell'account di archiviazione e senza perdita di durabilità o disponibilità. Il contratto di contratto di archiviazione di Azure viene mantenuto durante il processo di migrazione. Non si verifica alcuna perdita di dati associata a una migrazione in tempo reale. Gli endpoint di servizio, le chiavi di accesso, le firme di accesso condiviso e altre opzioni dell'account rimangono invariati dopo la migrazione.
 
-ZRS supporta solo account di uso generico V2. Assicurarsi quindi di aggiornare l'account di archiviazione prima di inviare una richiesta di migrazione in tempo reale a ZRS. Per altre informazioni, vedere [eseguire l'aggiornamento a un account di archiviazione per utilizzo generico V2](storage-account-upgrade.md). Un account di archiviazione deve contenere dati di cui eseguire la migrazione tramite Live Migration.
+ZRS supporta solo account di uso generico V2. Assicurarsi quindi di aggiornare l'account di archiviazione prima di inviare una richiesta di migrazione in tempo reale a ZRS. Per altre informazioni, [Eseguire l'aggiornamento alla versione 2 di un account di archiviazione per uso generico](storage-account-upgrade.md). Un account di archiviazione deve contenere dati di cui eseguire la migrazione tramite Live Migration.
 
 La migrazione in tempo reale è supportata solo per gli account di archiviazione che usano la replica con l'archiviazione con ridondanza locale o l'archiviazione con ridondanza geografica. Se l'account usa l'archiviazione con ridondanza geografica e accesso in lettura, è necessario innanzitutto modificare il tipo di replica dell'account in archiviazione con ridondanza locale o archiviazione con ridondanza geografica prima di procedere. Questo passaggio intermedio rimuove, prima della migrazione, l'endpoint secondario di sola lettura fornito dall'archiviazione con ridondanza geografica e accesso in lettura.
 
@@ -131,7 +130,7 @@ Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo r
     - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell' \_ \_ area.
 5. Selezionare **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
 
@@ -194,6 +193,6 @@ Se si esegue la migrazione dell'account di archiviazione da GRS a con ridondanza
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Ridondanza di archiviazione di Azure](storage-redundancy.md)
-- [Controllare la proprietà ora ultima sincronizzazione per un account di archiviazione](last-sync-time-get.md)
+- [Azure Storage redundancy](storage-redundancy.md) (Ridondanza di Archiviazione di Azure)
+- [Controllare la proprietà Last Sync Time per un account di archiviazione](last-sync-time-get.md)
 - [Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata](geo-redundant-design.md)

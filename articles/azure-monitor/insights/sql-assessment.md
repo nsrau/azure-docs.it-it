@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871254"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente SQL con la soluzione controllo integrità SQL Server in monitoraggio di Azure
@@ -126,8 +125,8 @@ A ogni raccomandazione generata viene assegnato un valore di ponderazione che id
 Le ponderazioni sono valori aggregati che si basano su tre fattori chiave:
 
 * *Probabilità* che un problema identificato sia causa di problemi. Una probabilità più elevata equivale a un punteggio complessivamente maggiore per la raccomandazione.
-* *Impatto* del problema per l'organizzazione se è effettivamente causa di un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
-* *Lavoro richiesto* per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
+* L' *impatto* del problema per l'organizzazione se causa effettivamente un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
+* Il *lavoro* richiesto per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
 
 La ponderazione per ogni raccomandazione è espressa come percentuale del punteggio totale disponibile per ogni area di interesse. Ad esempio, se una raccomandazione nell'area di interesse relativa a sicurezza e conformità ha un punteggio pari al 5%, l'implementazione della raccomandazione aumenterà del 5% il punteggio complessivo di quell'area.
 
@@ -224,11 +223,11 @@ I risultati possono quindi essere esportati in Excel per analizzarli più attent
 
 * Se un server non invia dati per 3 settimane, verrà rimosso.
 
-*Qual è il nome del processo che esegue la raccolta dati?*
+*Qual è il nome del processo che esegue la raccolta di dati?*
 
 * AdvisorAssessment.exe
 
-*Quanto tempo è necessario per la raccolta dei dati?*
+*Quanto tempo occorre per la raccolta di dati?*
 
 * La raccolta di dati effettiva sul server richiede circa 1 ora. È possibile che sia necessario più tempo nei server in cui è presente un numero elevato di istanze o database SQL.
 
@@ -240,7 +239,7 @@ I risultati possono quindi essere esportati in Excel per analizzarli più attent
   * Contatori delle prestazioni
   * DMV (Dynamic Management View) di SQL.
 
-*È possibile configurare il momento in cui vengono raccolti i dati?*
+*È possibile definire l'orario per la raccolta di dati?*
 
 * Attualmente non è possibile.
 

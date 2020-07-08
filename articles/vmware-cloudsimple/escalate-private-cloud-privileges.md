@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870466"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalation dei privilegi di cloud privato nel portale di CloudSimple
@@ -39,7 +38,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
     ![Modificare il privilegio vSphere](media/escalate-private-cloud-privilege.png)
 
-4. Selezionare il tipo di utente vSphere.  È `CloudOwner@cloudsimple.local` possibile inoltrare solo l'utente locale.
+4. Selezionare il tipo di utente vSphere.  `CloudOwner@cloudsimple.local`È possibile inoltrare solo l'utente locale.
 
 5. Selezionare l'intervallo di tempo di escalation dall'elenco a discesa. Scegliere il periodo più breve che consentirà di completare l'attività.
 
@@ -63,7 +62,7 @@ L'escalation dei privilegi inizia e dura fino alla fine dell'intervallo selezion
 
 Se è necessario ulteriore tempo per completare le attività, è possibile estendere il periodo di escalation dei privilegi.  Scegliere l'intervallo di tempo di escalation aggiuntivo che consente di completare le attività amministrative.
 
-1. Nei**cloud privati** **delle risorse** > nel portale di CloudSimple selezionare il cloud privato per il quale si vuole estendere l'escalation dei privilegi.
+1. Nei **Resources**  >  **cloud privati** delle risorse nel portale di CloudSimple selezionare il cloud privato per il quale si vuole estendere l'escalation dei privilegi.
 
 2. Nella parte inferiore della scheda Riepilogo fare clic su **Estendi escalation dei privilegi**.
 
@@ -77,7 +76,7 @@ Se è necessario ulteriore tempo per completare le attività, è possibile esten
 
 Una volta completate le attività amministrative, è necessario annullare l'escalation dei privilegi.  
 
-1. Nei**cloud privati** **delle risorse** > nel portale di CloudSimple selezionare il cloud privato per il quale si desidera degenerare i privilegi.
+1. Nei **Resources**  >  **cloud privati** delle risorse nel portale di CloudSimple selezionare il cloud privato per il quale si desidera degenerare i privilegi.
 
 2. Fare clic su **de-escalation**.
 

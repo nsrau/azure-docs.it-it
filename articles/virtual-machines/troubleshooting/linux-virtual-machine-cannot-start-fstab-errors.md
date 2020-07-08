@@ -15,10 +15,9 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82883142"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori fstab
@@ -119,7 +118,7 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
    > [!Note]
    > * I campi di ogni riga sono separati da tabulazioni o spazi. Le righe vuote vengono ignorate. Le righe che dispongono di un segno di cancelletto (#) come primo carattere sono commenti. Le righe commentate possono rimanere nel file fstab, ma non verranno elaborate. Si consiglia di commentare le righe fstab che non si è sicuri di fare anziché rimuovere le righe.
    > * Per il ripristino e l'avvio della macchina virtuale, le partizioni file system devono essere le uniche partizioni necessarie. È possibile che la macchina virtuale riscontri errori dell'applicazione relativi a partizioni aggiuntive commentate. Tuttavia, la macchina virtuale verrà avviata senza le partizioni aggiuntive. In un secondo momento è possibile rimuovere il commento dalle righe commentate.
-   > * Si consiglia di montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione file system. Ad esempio, eseguire il comando seguente:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Si consiglia di montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione file system. Ad esempio, eseguire questo comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando blkid di Man.
    > * L'opzione nofail consente di verificare che la macchina virtuale venga avviata anche se il file system è danneggiato o se il file system non esiste all'avvio. Si consiglia di utilizzare l'opzione nofail nel file fstab per consentire l'avvio per continuare dopo che si sono verificati errori nelle partizioni non necessarie per l'avvio della macchina virtuale.
 
@@ -172,7 +171,7 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
    > [!Note]
    > * I campi di ogni riga sono separati da tabulazioni o spazi. Le righe vuote vengono ignorate. Le righe che dispongono di un segno di cancelletto (#) come primo carattere sono commenti. Le righe commentate possono rimanere nel file fstab, ma non verranno elaborate. Si consiglia di commentare le righe fstab che non si è sicuri di fare anziché rimuovere le righe.
    > * Per il ripristino e l'avvio della macchina virtuale, le partizioni file system devono essere le uniche partizioni necessarie. È possibile che la macchina virtuale riscontri errori dell'applicazione relativi a partizioni aggiuntive commentate. Tuttavia, la macchina virtuale verrà avviata senza le partizioni aggiuntive. In un secondo momento è possibile rimuovere il commento dalle righe commentate.
-   > * Si consiglia di montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione file system. Ad esempio, eseguire il comando seguente:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Si consiglia di montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione file system. Ad esempio, eseguire questo comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando blkid di Man.
    > * L'opzione nofail consente di verificare che la macchina virtuale venga avviata anche se il file system è danneggiato o se il file system non esiste all'avvio. Si consiglia di utilizzare l'opzione nofail nel file fstab per consentire l'avvio per continuare dopo che si sono verificati errori nelle partizioni non necessarie per l'avvio della macchina virtuale.
 
@@ -216,7 +215,7 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
    > [!Note]
    > * I campi di ogni riga sono separati da tabulazioni o spazi. Le righe vuote vengono ignorate. Le righe che dispongono di un segno di cancelletto (#) come primo carattere sono commenti. Le righe commentate possono rimanere nel file fstab, ma non verranno elaborate. Si consiglia di commentare le righe fstab che non si è sicuri di fare anziché rimuovere le righe.
    > * Per il ripristino e l'avvio della macchina virtuale, le partizioni file system devono essere le uniche partizioni necessarie. È possibile che la macchina virtuale riscontri errori dell'applicazione relativi a partizioni aggiuntive commentate. Tuttavia, la macchina virtuale verrà avviata senza le partizioni aggiuntive. In un secondo momento è possibile rimuovere il commento dalle righe commentate.
-   > * Si consiglia di montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione file system. Ad esempio, eseguire il comando seguente:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Si consiglia di montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione file system. Ad esempio, eseguire questo comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando blkid di Man. Si noti che il disco che si vuole ripristinare è ora montato in una nuova macchina virtuale. Sebbene gli UUID siano coerenti, gli ID di partizione del dispositivo (ad esempio, "/dev/sda1") sono diversi in questa macchina virtuale. Le partizioni file system della VM non riuscita originale che si trovano in un disco rigido virtuale non di sistema non sono disponibili per la VM di ripristino [usando i comandi dell'interfaccia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux)della riga di comando.
    > * L'opzione nofail consente di verificare che la macchina virtuale venga avviata anche se il file system è danneggiato o se il file system non esiste all'avvio. Si consiglia di utilizzare l'opzione nofail nel file fstab per consentire l'avvio per continuare dopo che si sono verificati errori nelle partizioni non necessarie per l'avvio della macchina virtuale.
 

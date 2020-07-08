@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.custom: seodec18~~~~
 ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838519"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Azure
@@ -64,9 +63,9 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. In ques
    - Incollare i dati nell'editor di testo. Quindi scegliere il pulsante **Analizza dati di riferimento**.
    - Selezionare il pulsante **Scegli file** per aggiungere i dati da un file di testo locale.
 
-   Ad esempio, incollare i dati CSV: [ ![dati CSV incollati](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
+   Ad esempio, incollare i dati CSV: [ ![ dati CSV incollati](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   Ad esempio, incollare i dati della matrice JSON: [ ![incollare i dati JSON](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
+   Ad esempio, incollare i dati della matrice JSON: [ ![ incollare i dati JSON](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
    In caso di errore di analisi dei valori dei dati, l'errore viene visualizzato in rosso in fondo alla pagina, ad esempio: `CSV parsing error, no rows extracted`.
 
@@ -74,7 +73,7 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. In ques
 
    [![Esaminare i dati di riferimento](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. Esaminare ogni colonna per comprendere il tipo di dati utilizzato e modificare il tipo di dati, se necessario.  Selezionare il simbolo del tipo di dati nell'intestazione di **#** colonna: per Double (dati numerici), **T | F** per un valore booleano o **ABC** per la stringa.
+1. Esaminare ogni colonna per comprendere il tipo di dati utilizzato e modificare il tipo di dati, se necessario.  Selezionare il simbolo del tipo di dati nell'intestazione di colonna: **#** per Double (dati numerici), **T | F** per un valore booleano o **ABC** per la stringa.
 
    [![Scegliere i tipi di dati nelle intestazioni di colonna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
 ms.openlocfilehash: a819c3a57efdc0ae87cf969fd7471818c51895f6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793160"
 ---
 # <a name="optimize-clusters-with-apache-ambari-in-azure-hdinsight"></a>Ottimizzare i cluster con Apache Ambari in Azure HDInsight
@@ -64,5 +63,5 @@ Per modificare le dimensioni dell'heap Java NameNode:
 * [Gestire i cluster HDInsight con l'interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Ottimizzare Apache HBase](./optimize-hbase-ambari.md)
-* [Ottimizza Apache Hive](./optimize-hive-ambari.md)
+* [Ottimizzare Apache Hive](./optimize-hive-ambari.md)
 * [Ottimizzare Apache Pig](./optimize-pig-ambari.md)

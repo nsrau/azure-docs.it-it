@@ -10,10 +10,9 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 454ed810f950924d3dd790a2442fe29816bf940d
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838468"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Anteprima: creare un'immagine da una macchina virtuale
@@ -38,7 +37,7 @@ Quando si lavora in questo articolo, sostituire i nomi delle risorse laddove nec
 
 ## <a name="get-the-gallery"></a>Ottenere la raccolta
 
-È possibile elencare tutte le raccolte e le definizioni di immagine in base al nome. I risultati sono nel formato `gallery\image definition\image version`.
+È possibile elencare tutte le raccolte e le definizioni di immagine in base al nome. I risultati sono nel formato `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -54,7 +53,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="get-the-vm"></a>Ottenere la macchina virtuale
 
-È possibile visualizzare un elenco di macchine virtuali disponibili in un gruppo di risorse usando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Quando si conosce il nome della macchina virtuale e il gruppo di risorse in cui si trova `Get-AzVM` , è possibile usare di nuovo per ottenere l'oggetto macchina virtuale e archiviarlo in una variabile da usare in un secondo momento. Questo esempio Mostra come ottenere una macchina virtuale denominata *sourceVM* dal gruppo di risorse "myResourceGroup" e assegnarla alla variabile *$sourceVm*. 
+Per visualizzare un elenco di macchine virtuali disponibili in un gruppo di risorse, usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Quando si conosce il nome della macchina virtuale e il gruppo di risorse in cui si trova, è possibile usare `Get-AzVM` di nuovo per ottenere l'oggetto macchina virtuale e archiviarlo in una variabile da usare in un secondo momento. Questo esempio Mostra come ottenere una macchina virtuale denominata *sourceVM* dal gruppo di risorse "myResourceGroup" e assegnarla alla variabile *$sourceVm*. 
 
 ```azurepowershell-interactive
 $sourceVm = Get-AzVM `
@@ -73,15 +72,15 @@ Stop-AzVM `
 
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine 
 
-Le definizioni di immagine creano un raggruppamento logico per le immagini. Vengono usati per gestire le informazioni sull'immagine. I nomi delle definizioni di immagine possono essere costituiti da lettere maiuscole o minuscole, cifre, punti, trattini e punti. 
+Le definizioni di immagini creano un raggruppamento logico per le immagini. Vengono usati per gestire le informazioni sull'immagine. I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. 
 
-Quando si crea la definizione dell'immagine, assicurarsi che disponga di tutte le informazioni corrette. Se la macchina virtuale è stata generalizzata (usando Sysprep per Windows o waagent-deprovision per Linux), è necessario creare una definizione di `-OsState generalized`immagine usando. Se la macchina virtuale non è stata generalizzata, creare una definizione `-OsState specialized`di immagine usando.
+Quando si crea la definizione dell'immagine, assicurarsi che disponga di tutte le informazioni corrette. Se la macchina virtuale è stata generalizzata (usando Sysprep per Windows o waagent-deprovision per Linux), è necessario creare una definizione di immagine usando `-OsState generalized` . Se la macchina virtuale non è stata generalizzata, creare una definizione di immagine usando `-OsState specialized` .
 
-Per ulteriori informazioni sui valori che è possibile specificare per la definizione di un'immagine, vedere [definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
-Creare la definizione dell'immagine usando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
-In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è destinata a una VM specializzata che esegue Windows. Per creare una definizione per le immagini con Linux, `-OsType Linux`usare. 
+In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è destinata a una VM specializzata che esegue Windows. Per creare una definizione per le immagini con Linux, usare `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -101,11 +100,11 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 Creare una versione dell'immagine usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei datacenter degli *Stati Uniti centro-occidentali* e degli *Stati Uniti centro-meridionali*. Quando si scelgono le aree di destinazione per la replica, tenere presente che è necessario includere anche l'area di *origine* come destinazione per la replica.
 
-Per creare una versione dell'immagine dalla macchina virtuale, `$vm.Id.ToString()` usare per `-Source`.
+Per creare una versione di immagine dalla macchina virtuale, usare `$vm.Id.ToString()` per `-Source`.
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -131,9 +130,9 @@ $job.State
 ```
 
 > [!NOTE]
-> È necessario attendere che la versione dell'immagine completi la compilazione e la replica prima di poter usare la stessa immagine gestita per creare un'altra versione dell'immagine.
+> È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> È anche possibile archiviare l'immagine nell'archiviazione Premiun mediante un'aggiunta `-StorageAccountType Premium_LRS`o l' [archiviazione con ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) della `-StorageAccountType Standard_ZRS` zona aggiungendo quando si crea la versione dell'immagine.
+> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `-StorageAccountType Premium_LRS`, oppure nell'[archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs), aggiungendo `-StorageAccountType Standard_ZRS`.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

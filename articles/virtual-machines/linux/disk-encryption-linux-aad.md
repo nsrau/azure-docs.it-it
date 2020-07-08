@@ -9,17 +9,16 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792599"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Abilitare crittografia dischi di Azure con Azure AD nelle macchine virtuali Linux (versione precedente)
 
 La nuova versione di crittografia dischi di Azure Elimina la necessità di fornire un parametro dell'applicazione Azure Active Directory (Azure AD) per abilitare la crittografia del disco della macchina virtuale. Con la nuova versione, non è più necessario specificare le credenziali di Azure AD durante il passaggio di abilitazione della crittografia. Tutte le nuove macchine virtuali devono essere crittografate senza i parametri dell'applicazione Azure AD usando la nuova versione. Per istruzioni su come abilitare la crittografia del disco della macchina virtuale usando la nuova versione, vedere [crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-linux.md). Le macchine virtuali che sono già state crittografate con i parametri dell'applicazione Azure AD sono ancora supportate e dovrebbero continuare a essere gestite con la sintassi di AAD.
 
-È possibile abilitare molti scenari di crittografia dei dischi e la procedura può variare in base allo scenario. Le sezioni seguenti illustrano in modo più dettagliato gli scenari per le macchine virtuali IaaS (Infrastructure as a Service) Linux. È possibile applicare la crittografia del disco solo alle macchine virtuali di [dimensioni e sistemi operativi supportati](disk-encryption-overview.md#supported-vms-and-operating-systems)per le VM. È inoltre necessario soddisfare i seguenti prerequisiti:
+È possibile abilitare molti scenari di crittografia dei dischi e la procedura può variare in base allo scenario. Le sezioni seguenti illustrano in modo più dettagliato gli scenari per le macchine virtuali IaaS (Infrastructure as a Service) Linux. È possibile applicare la crittografia del disco solo alle macchine virtuali con [dimensioni e sistemi operativi supportati](disk-encryption-overview.md#supported-vms-and-operating-systems). È anche necessario soddisfare i prerequisiti seguenti:
 
 - [Requisiti aggiuntivi per le macchine virtuali](disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Rete e Criteri di gruppo](disk-encryption-overview-aad.md#networking-and-group-policy)
@@ -79,9 +78,9 @@ Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryp
      ```
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-by-using-powershell"></a><a name="bkmk_RunningLinuxPSH"> </a> Abilitare la crittografia in una VM Linux esistente o in esecuzione usando PowerShell
-Usare il cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) per abilitare la crittografia in una macchina virtuale IaaS in esecuzione in Azure. Eseguire uno [snapshot](snapshot-copy-managed-disk.md) o eseguire un backup della macchina virtuale con [backup di Azure](../../backup/backup-azure-vms-encryption.md) prima di crittografare i dischi. Il parametro-skipVmBackup è già specificato negli script di PowerShell per crittografare una VM Linux in esecuzione.
+Usare il cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) per abilitare la crittografia in una macchina virtuale IaaS in esecuzione in Azure. Eseguire uno [snapshot](snapshot-copy-managed-disk.md) o eseguire un backup della macchina virtuale con [backup di Azure](../../backup/backup-azure-vms-encryption.md) prima di crittografare i dischi. Il parametro -skipVmBackup è già specificato negli script di PowerShell per crittografare una macchina virtuale Linux in esecuzione.
 
-- **Crittografare una macchina virtuale in esecuzione usando un segreto client:** Lo script seguente inizializza le variabili ed esegue il cmdlet Set-AzVMDiskEncryptionExtension. Il gruppo di risorse, la macchina virtuale, l'insieme di credenziali delle chiavi, l'app Azure AD e il segreto client devono essere già stati creati come prerequisiti. Sostituire MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e My-AAD-client-Secret con i valori. Modificare il parametro-VolumeType per specificare i dischi da crittografare.
+- **Crittografare una macchina virtuale in esecuzione usando un segreto client:** Lo script seguente inizializza le variabili ed esegue il cmdlet Set-AzVMDiskEncryptionExtension. Il gruppo di risorse, la macchina virtuale, l'insieme di credenziali delle chiavi, l'app Azure AD e il segreto client devono essere già stati creati come prerequisiti. Sostituire MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e My-AAD-client-Secret con i valori. Modificare il parametro -VolumeType per specificare i dischi da crittografare.
 
      ```azurepowershell
          $VMRGName = 'MyVirtualMachineResourceGroup';
@@ -97,7 +96,7 @@ Usare il cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/
     
          Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType '[All|OS|Data]' -SequenceVersion $sequenceVersion -skipVmBackup;
      ```
-- **Crittografare una macchina virtuale in esecuzione usando KEK per eseguire il wrapping del segreto client:** Crittografia dischi di Azure consente di specificare una chiave esistente nell'insieme di credenziali delle chiavi per eseguire il wrapping dei segreti di crittografia del disco generati durante l'abilitazione della crittografia. Quando si specifica una chiave di crittografia della chiave, crittografia dischi di Azure usa tale chiave per eseguire il wrapping dei segreti di crittografia prima di scrivere nell'insieme di credenziali delle chiavi. Modificare il parametro-VolumeType per specificare i dischi da crittografare. 
+- **Crittografare una macchina virtuale in esecuzione usando KEK per eseguire il wrapping del segreto client:** Crittografia dischi di Azure consente di specificare una chiave esistente nell'insieme di credenziali delle chiavi per eseguire il wrapping dei segreti di crittografia del disco generati durante l'abilitazione della crittografia. Quando si specifica una chiave di crittografia della chiave, crittografia dischi di Azure usa tale chiave per eseguire il wrapping dei segreti di crittografia prima di scrivere nell'insieme di credenziali delle chiavi. Modificare il parametro -VolumeType per specificare i dischi da crittografare. 
 
      ```azurepowershell
          $KVRGname = 'MyKeyVaultResourceGroup';
@@ -164,7 +163,7 @@ Il parametro EncryptFormatAll riduce la durata per la crittografia dei dischi da
 > EncryptFormatAll non deve essere usato quando sono presenti dati necessari nei volumi di dati di una macchina virtuale. È possibile escludere i dischi dalla crittografia smontando i dischi. Provare prima di tutto il parametro EncryptFormatAll in una macchina virtuale di test per comprendere il parametro della funzionalità e le relative implicazioni prima di provarlo nella macchina virtuale di produzione. L'opzione EncryptFormatAll formatta il disco dati, in modo che tutti i dati in esso contenuti andranno persi. Prima di procedere, verificare che tutti i dischi che si vuole escludere siano correttamente smontati. </br></br>
  >Se si imposta questo parametro durante l'aggiornamento delle impostazioni di crittografia, potrebbe verificarsi un riavvio prima della crittografia effettiva. In questo caso, si vuole anche rimuovere il disco che non si vuole formattare dal file fstab. Analogamente, è necessario aggiungere la partizione che si desidera crittografare nel file fstab prima di avviare l'operazione di crittografia. 
 
-### <a name="encryptformatall-criteria"></a><a name="bkmk_EFACriteria"> </a> Criteri EncryptFormatAll
+### <a name="encryptformatall-criteria"></a><a name="bkmk_EFACriteria"> </a> Criteri di EncryptFormatAll
 Il parametro passa attraverso tutte le partizioni e le crittografa fino a quando soddisfano *tutti* i criteri seguenti: 
 - Non è una partizione di avvio/del sistema operativo/radice
 - Non è già stata crittografata
@@ -185,7 +184,7 @@ Per usare l'opzione EncryptFormatAll, usare qualsiasi modello di Azure Resource 
 
 
 ### <a name="use-the-encryptformatall-parameter-with-a-powershell-cmdlet"></a><a name="bkmk_EFAPSH"> </a> Usare il parametro EncryptFormatAll con un cmdlet di PowerShell
-Usare il cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) con il parametro EncryptFormatAll.
+Usare il cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) con il parametro EncryptFormatAll.
 
 **Crittografare una macchina virtuale in esecuzione usando un segreto client e EncryptFormatAll:** Ad esempio, lo script seguente inizializza le variabili ed esegue il cmdlet Set-AzVMDiskEncryptionExtension con il parametro EncryptFormatAll. Il gruppo di risorse, la macchina virtuale, l'insieme di credenziali delle chiavi, l'app Azure AD e il segreto client devono essere già stati creati come prerequisiti. Sostituire MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e My-AAD-client-Secret con i valori.
   
@@ -245,7 +244,7 @@ Usare le istruzioni nell'appendice per la preparazione delle immagini pre-critto
 
 
 ### <a name="use-azure-powershell-to-encrypt-iaas-vms-with-pre-encrypted-vhds"></a><a name="bkmk_VHDprePSH"> </a> Usare Azure PowerShell per crittografare le macchine virtuali IaaS con dischi rigidi virtuali pre-crittografati 
-È possibile abilitare la crittografia dei dischi nel disco rigido virtuale crittografato usando il cmdlet di PowerShell [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). Nell'esempio seguente vengono riportati alcuni parametri comuni. 
+È possibile abilitare la crittografia del disco nel disco rigido virtuale crittografato usando il cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples) di PowerShell. Nell'esempio seguente vengono riportati alcuni parametri comuni. 
 
 ```powershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"

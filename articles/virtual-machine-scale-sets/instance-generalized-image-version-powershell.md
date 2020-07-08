@@ -10,10 +10,9 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: f61977c1c1be07ffe744608c1bf8ec5a8013f8d0
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797084"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image"></a>Creare un set di scalabilità da un'immagine generalizzata
@@ -22,7 +21,7 @@ Creare una macchina virtuale da una versione di immagine generalizzata archiviat
 
 Quando si dispone di un'immagine generalizzata, è possibile creare un set di scalabilità di macchine virtuali usando il cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss) . 
 
-In questo esempio viene usato l'ID di definizione dell'immagine per assicurarsi che la nuova macchina virtuale userà la versione più recente di un'immagine. È anche possibile usare una versione specifica usando l'ID versione dell'immagine per `-ImageReferenceId`. Ad esempio, per usare l'immagine versione *1.0.0* , `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`digitare:. 
+In questo esempio viene usato l'ID di definizione dell'immagine per assicurarsi che la nuova macchina virtuale userà la versione più recente di un'immagine. È anche possibile usare una versione specifica usando l'ID versione dell'immagine per `-ImageReferenceId` . Ad esempio, per usare l'immagine versione *1.0.0* , digitare: `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` . 
 
 Tenere presente che l'uso di una versione di immagine specifica indica che l'automazione potrebbe non riuscire se la versione di immagine specifica non è disponibile perché è stata eliminata o rimossa dall'area. È consigliabile usare l'ID di definizione dell'immagine per creare la nuova macchina virtuale, a meno che non sia necessaria una versione di immagine specifica.
 

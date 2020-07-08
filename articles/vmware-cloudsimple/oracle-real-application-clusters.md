@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793041"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Ottimizzare il cloud privato di CloudSimple per l'installazione di Oracle RAC
@@ -174,8 +173,8 @@ i criteri rete VSAN definiscono gli errori da tollerare e lo striping del disco 
 3. Nel menu a sinistra selezionare **criteri di archiviazione della macchina virtuale** e quindi selezionare **Crea criteri di archiviazione delle macchine virtuali**.
 4. Immettere un nome significativo per il criterio e fare clic su **Avanti**.
 5. Nella sezione **struttura dei criteri** selezionare **Abilita regole per l'archiviazione rete VSAN** e fare clic su **Avanti**.
-6. Nella sezione **vSAN** > **disponibilità** rete VSAN selezionare **nessuno** per la tolleranza di emergenza del sito. Per gli errori da tollerare, selezionare l'opzione di **mirroring RAID** per l'ITF desiderata.
-    ![impostazioni](media/oracle-rac-storage-wizard-vsan.png)rete VSAN.
+6. Nella sezione **vSAN**  >  **disponibilità** rete VSAN selezionare **nessuno** per la tolleranza di emergenza del sito. Per gli errori da tollerare, selezionare l'opzione di **mirroring RAID** per l'ITF desiderata.
+    ![Impostazioni rete VSAN ](media/oracle-rac-storage-wizard-vsan.png) .
 7. Nella sezione **Avanzate** selezionare il numero di striping del disco per oggetto. Per prenotazione spazio oggetto selezionare con **provisioning di spessore**. Selezionare **Disattiva checksum oggetti**. Fare clic su **Avanti**.
 8. Seguire le istruzioni visualizzate per visualizzare l'elenco di archivi dati rete VSAN compatibili, rivedere le impostazioni e completare la configurazione.
 

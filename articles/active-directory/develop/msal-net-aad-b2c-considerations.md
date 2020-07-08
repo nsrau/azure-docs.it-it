@@ -14,10 +14,9 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82883227"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
@@ -76,7 +75,7 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 Nel frammento di codice precedente:
 
-- `policy`stringa che contiene il nome del flusso utente Azure AD B2C o dei criteri personalizzati (ad esempio, `PolicySignUpSignIn`).
+- `policy`stringa che contiene il nome del flusso utente Azure AD B2C o dei criteri personalizzati (ad esempio, `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow`è necessario per Android (attività) ed è facoltativo per altre piattaforme che supportano un'interfaccia utente padre come Windows in Microsoft Windows e UIViewController in iOS. Per ulteriori informazioni sulla finestra di dialogo dell'interfaccia utente, vedere [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) sul wiki di MSAL.
 - `GetAccountByPolicy(IEnumerable<IAccount>, string)`è un metodo che trova un account per un determinato criterio. Ad esempio:
 
@@ -93,13 +92,13 @@ Nel frammento di codice precedente:
   }
   ```
 
-L'applicazione di un flusso utente o di un criterio personalizzato (ad esempio, per consentire all'utente di modificare il profilo o reimpostare la `AcquireTokenInteractive`password) viene eseguita chiamando. Per questi due criteri, non viene usato il risultato del token/autenticazione restituito.
+L'applicazione di un flusso utente o di un criterio personalizzato (ad esempio, per consentire all'utente di modificare il profilo o reimpostare la password) viene eseguita chiamando `AcquireTokenInteractive` . Per questi due criteri, non viene usato il risultato del token/autenticazione restituito.
 
 ## <a name="profile-edit-policies"></a>Criteri di modifica del profilo
 
 Per consentire agli utenti di accedere con un'identità di social networking e quindi di modificare il profilo, applicare i criteri del profilo di modifica Azure AD B2C.
 
-A tale scopo, `AcquireTokenInteractive` chiamare con l'autorità per quel criterio. Poiché l'utente ha già effettuato l'accesso e ha una sessione di cookie attiva `Prompt.NoPrompt` , usare per evitare la visualizzazione della finestra di dialogo di selezione dell'account.
+A tale scopo, chiamare `AcquireTokenInteractive` con l'autorità per quel criterio. Poiché l'utente ha già effettuato l'accesso e ha una sessione di cookie attiva, usare `Prompt.NoPrompt` per evitare la visualizzazione della finestra di dialogo di selezione dell'account.
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
@@ -136,7 +135,7 @@ Con il nome utente e la password in un flusso ROPC si sacrificano diversi elemen
 
 Nel tenant di Azure AD B2C creare un nuovo flusso utente e selezionare **Accedi con ROPC** per abilitare ROPC per il flusso utente. Per altre informazioni, vedere [configurare il flusso di credenziali password del proprietario della risorsa](/azure/active-directory-b2c/configure-ropc).
 
-`IPublicClientApplication`contiene il `AcquireTokenByUsernamePassword` metodo:
+`IPublicClientApplication`contiene il `AcquireTokenByUsernamePassword` Metodo:
 
 ```csharp
 AcquireTokenByUsernamePassword(
@@ -174,7 +173,7 @@ Attualmente, MSAL.NET richiede due attestazioni per compilare una chiave di cach
 
 Entrambe le attestazioni potrebbero mancare negli scenari Azure AD B2C perché non tutti i provider di identità basati su social network (Facebook, Google e altri) li restituiscono nei token che restituiscono Azure AD B2C.
 
-Un sintomo di tale scenario è che MSAL.NET restituisce `Missing from the token response` quando si accede al `preferred_username` valore dell'attestazione nei token emessi da Azure ad B2C. MSAL usa il `Missing from the token response` valore per `preferred_username` per mantenere la compatibilità incrociata della cache tra le librerie.
+Un sintomo di tale scenario è che MSAL.NET restituisce `Missing from the token response` quando si accede al `preferred_username` valore dell'attestazione nei token emessi da Azure ad B2C. MSAL usa il `Missing from the token response` valore per per `preferred_username` mantenere la compatibilità incrociata della cache tra le librerie.
 
 ### <a name="workarounds"></a>Soluzioni alternative
 
@@ -186,7 +185,7 @@ In alternativa, è possibile usare l' `tid` attestazione se si usano [criteri pe
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigazione per "missing from the token Response"
 
-Un'opzione consiste nell'usare l' `name` attestazione anziché `preferred_username`. Per includere l' `name` attestazione nei token ID emessi da Azure ad B2C, selezionare **nome visualizzato** quando si configura il flusso utente.
+Un'opzione consiste nell'usare l' `name` attestazione anziché `preferred_username` . Per includere l' `name` attestazione nei token ID emessi da Azure ad B2C, selezionare **nome visualizzato** quando si configura il flusso utente.
 
 Per altre informazioni su come specificare quali attestazioni vengono restituite dai flussi utente, vedere [esercitazione: creare flussi utente in Azure ad B2C](../../active-directory-b2c/tutorial-create-user-flows.md).
 

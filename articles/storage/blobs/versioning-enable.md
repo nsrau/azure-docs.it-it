@@ -10,10 +10,9 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 0e24bcb54fd26d4a3d983681b3348ef736b277cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82884345"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Abilitare e gestire il controllo delle versioni dei BLOB
@@ -37,7 +36,7 @@ Per abilitare il controllo delle versioni dei BLOB nel portale di Azure:
 Per abilitare il controllo delle versioni dei BLOB con un modello, creare un modello con la proprietà **IsVersioningEnabled** su **true**. Nei passaggi seguenti viene descritto come creare un modello nel portale di Azure.
 
 1. Nella portale di Azure scegliere **Crea una risorsa**.
-1. In **Cerca nel Marketplace** digitare **distribuzione modelli** e quindi premere **INVIO**.
+1. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
 1. Scegliere **distribuzione modelli**, fare clic su **Crea**e quindi scegliere **Compila modello personalizzato nell'editor**.
 1. Nell'editor dei modelli incollare il codice JSON seguente. Sostituire il segnaposto `<accountName>` con il nome del proprio account di archiviazione.
 1. Salvare il modello.

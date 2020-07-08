@@ -4,10 +4,9 @@ description: Informazioni su come archiviare i grafici Helm per le applicazioni 
 ms.topic: article
 ms.date: 03/20/2020
 ms.openlocfilehash: 04ba3aaf312188ab77c04a97ab960cf9b9af078f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857603"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Eseguire il push e il pull di grafici Helm in un registro contenitori di Azure
@@ -30,7 +29,7 @@ Per archiviare, gestire e installare i grafici Helm, è possibile usare un clien
 
 ### <a name="additional-information"></a>Informazioni aggiuntive
 
-* Per la maggior parte degli scenari, è consigliabile usare il flusso di `helm chart` lavoro Helm 3 con comandi nativi per gestire i grafici come elementi OCI.
+* Per la maggior parte degli scenari, è consigliabile usare il flusso di lavoro Helm 3 con `helm chart` comandi nativi per gestire i grafici come elementi OCI.
 * A partire da Helm 3, i comandi [AZ ACR Helm][az-acr-helm] sono supportati per la compatibilità con il client Helm 2 e il formato grafico. Lo sviluppo futuro di questi comandi non è attualmente pianificato. Vedere la [Roadmap sul prodotto](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
 * I grafici Helm 2 non possono essere visualizzati o gestiti usando il portale di Azure.
 
@@ -41,7 +40,7 @@ Per archiviare, gestire e installare i grafici Helm, è possibile usare un clien
 - **Un registro contenitori di Azure** nella sottoscrizione di Azure. Se necessario, creare un registro usando il [portale di Azure](container-registry-get-started-portal.md) o l' [interfaccia](container-registry-get-started-azure-cli.md)della riga di comando di Azure.
 - **Versione client Helm 3.1.0 o successiva** : eseguire `helm version` per trovare la versione corrente. Per altre informazioni su come installare e aggiornare Helm, vedere [Installing Helm][helm-install] (Installazione di Helm).
 - **Un cluster Kubernetes** in cui viene installato un grafico Helm. Se necessario, creare un [cluster del servizio Azure Kubernetes][aks-quickstart]. 
-- **Versione 2.0.71 o successiva dell'interfaccia** della riga `az --version` di comando di Azure: eseguire per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+- **Versione 2.0.71 o successiva dell'interfaccia** della riga di comando di Azure: eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ### <a name="high-level-workflow"></a>Flusso di lavoro di alto livello
 
@@ -49,7 +48,7 @@ Con **Helm 3** :
 
 * È possibile creare uno o più repository Helm in un registro contenitori di Azure
 * Archiviare i grafici Helm 3 in un registro di sistema come [artefatti OCI](container-registry-image-formats.md#oci-artifacts). Attualmente, il supporto Helm 3 per OCI è *sperimentale*.
-* Eseguire l'autenticazione con il registro usando `helm registry login` il comando.
+* Eseguire l'autenticazione con il registro usando il `helm registry login` comando.
 * Usare `helm chart` i comandi nell'interfaccia della riga di comando di Helm per eseguire il push, il pull e la gestione dei grafici Helm in un registro
 * Usare `helm install` per installare i grafici in un cluster Kubernetes da una cache del repository locale.
 
@@ -74,7 +73,7 @@ cd helmtest
 helm create hello-world
 ```
 
-Come esempio di base, sostituire la directory con `templates` la cartella ed eliminare prima il contenuto:
+Come esempio di base, sostituire la directory con la `templates` cartella ed eliminare prima il contenuto:
 
 ```console
 cd hello-world/templates
@@ -98,7 +97,7 @@ Per altre informazioni sulla creazione e sull'esecuzione di questo esempio, vede
 
 ### <a name="save-chart-to-local-registry-cache"></a>Salva il grafico nella cache del registro di sistema locale
 
-Modificare la `hello-world` directory nella sottodirectory. Eseguire `helm chart save` quindi per salvare una copia del grafico localmente e creare anche un alias con il nome completo del registro di sistema (tutti minuscoli) e il repository e il tag di destinazione. 
+Modificare la directory nella `hello-world` sottodirectory. Eseguire quindi `helm chart save` per salvare una copia del grafico localmente e creare anche un alias con il nome completo del registro di sistema (tutti minuscoli) e il repository e il tag di destinazione. 
 
 Nell'esempio seguente il nome del registro di sistema è *mycontainerregistry*, il repository di destinazione è *Hello-World*e il tag del grafico di destinazione è *V1*, ma sostituisce i valori per l'ambiente:
 
@@ -120,7 +119,7 @@ mycontainerregistry.azurecr.io/helm/hello-world:v1       hello-world       0.1.0
 
 Eseguire il `helm registry login` comando nell'interfaccia della riga di comando di Helm 3 per eseguire l' [autenticazione con il registro](container-registry-authentication.md) di sistema usando le credenziali appropriate per lo scenario.
 
-Ad esempio, creare un' [entità servizio Azure Active Directory con le autorizzazioni pull e push](container-registry-auth-service-principal.md#create-a-service-principal) (ruolo AcrPush) nel registro di sistema. Fornire quindi le credenziali dell'entità servizio `helm registry login`a. Nell'esempio seguente viene fornita la password tramite una variabile di ambiente:
+Ad esempio, creare un' [entità servizio Azure Active Directory con le autorizzazioni pull e push](container-registry-auth-service-principal.md#create-a-service-principal) (ruolo AcrPush) nel registro di sistema. Fornire quindi le credenziali dell'entità servizio a `helm registry login` . Nell'esempio seguente viene fornita la password tramite una variabile di ambiente:
 
 ```console
 echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
@@ -186,7 +185,7 @@ az acr repository show-manifests \
   --repository helm/hello-world --detail
 ```
 
-L'output, abbreviato in questo esempio, `configMediaType` Mostra `application/vnd.cncf.helm.config.v1+json`il valore di:
+L'output, abbreviato in questo esempio, Mostra il valore `configMediaType` di `application/vnd.cncf.helm.config.v1+json` :
 
 ```output
 [
@@ -205,7 +204,7 @@ L'output, abbreviato in questo esempio, `configMediaType` Mostra `application/vn
 
 ### <a name="pull-chart-to-local-cache"></a>Estrai il grafico nella cache locale
 
-Per installare un grafico Helm in Kubernetes, il grafico deve trovarsi nella cache locale. In questo esempio, eseguire `helm chart remove` prima di tutto per rimuovere il grafico locale `mycontainerregistry.azurecr.io/helm/hello-world:v1`esistente denominato:
+Per installare un grafico Helm in Kubernetes, il grafico deve trovarsi nella cache locale. In questo esempio, eseguire prima `helm chart remove` di tutto per rimuovere il grafico locale esistente denominato `mycontainerregistry.azurecr.io/helm/hello-world:v1` :
 
 ```console
 helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:v1
@@ -219,14 +218,14 @@ helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
 
 ### <a name="export-helm-chart"></a>Esporta grafico Helm
 
-Per lavorare ulteriormente con il grafico, esportarlo in una directory locale `helm chart export`usando. Ad esempio, esportare il grafico di cui è stato `install` effettuato il pull nella directory:
+Per lavorare ulteriormente con il grafico, esportarlo in una directory locale usando `helm chart export` . Ad esempio, esportare il grafico di cui è stato effettuato il pull nella `install` Directory:
 
 ```console
 helm chart export mycontainerregistry.azurecr.io/helm/hello-world:v1 \
   --destination ./install
 ```
 
-Per visualizzare le informazioni relative al grafico esportato nel repository, `helm show chart` eseguire il comando nella directory in cui è stato esportato il grafico.
+Per visualizzare le informazioni relative al grafico esportato nel repository, eseguire il `helm show chart` comando nella directory in cui è stato esportato il grafico.
 
 ```console
 cd install
@@ -246,7 +245,7 @@ version: 0.1.0
 
 ### <a name="install-helm-chart"></a>Installare il grafico Helm
 
-Eseguire `helm install` per installare il grafico Helm di cui è stato effettuato il pull nella cache locale ed esportato. Specificare un nome di versione, ad esempio *myhelmtest*, oppure `--generate-name` passare il parametro. Ad esempio:
+Eseguire `helm install` per installare il grafico Helm di cui è stato effettuato il pull nella cache locale ed esportato. Specificare un nome di versione, ad esempio *myhelmtest*, oppure passare il `--generate-name` parametro. Ad esempio:
 
 ```console
 helm install myhelmtest ./hello-world
@@ -263,7 +262,7 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-Per verificare l'installazione, eseguire il `helm get manifest` comando. Il comando restituisce i dati YAML nel file `configmap.yaml` modello.
+Per verificare l'installazione, eseguire il `helm get manifest` comando. Il comando restituisce i dati YAML nel `configmap.yaml` file modello.
 
 Eseguire `helm uninstall` per disinstallare la versione del grafico nel cluster:
 
@@ -366,7 +365,7 @@ az acr helm list --name mycontainerregistry
 
 ### <a name="show-information-for-a-helm-chart"></a>Visualizzare le informazioni per un grafico Helm
 
-Per visualizzare le informazioni relative a un grafico specifico nel repository, è possibile usare `helm inspect` il comando.
+Per visualizzare le informazioni relative a un grafico specifico nel repository, è possibile usare il `helm inspect` comando.
 
 ```console
 helm inspect mycontainerregistry/wordpress
@@ -441,7 +440,7 @@ az acr helm delete --name mycontainerregistry wordpress --version 8.1.0
 
 Se si intende eliminare tutte le versioni del grafico denominato, omettere il parametro `--version`.
 
-Il grafico continuerà a essere restituito quando si `helm search`esegue. Anche in questo caso il client Helm non aggiorna automaticamente l'elenco dei grafici disponibili in un repository. Per aggiornare l'indice del repository del client Helm, usare di nuovo il comando [az acr helm repo add][az-acr-helm-repo-add]:
+Il grafico continuerà a essere restituito quando si esegue `helm search` . Anche in questo caso il client Helm non aggiorna automaticamente l'elenco dei grafici disponibili in un repository. Per aggiornare l'indice del repository del client Helm, usare di nuovo il comando [az acr helm repo add][az-acr-helm-repo-add]:
 
 ```azurecli
 az acr helm repo add --name mycontainerregistry

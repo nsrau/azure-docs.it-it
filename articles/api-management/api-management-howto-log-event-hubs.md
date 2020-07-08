@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871267"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
@@ -46,7 +45,7 @@ Dopo la configurazione del logger in gestione API, è possibile configurare i cr
 6. Nella finestra Elaborazione in ingresso o Elaborazione in uscita fare clic sul triangolo (accanto alla matita).
 7. Selezionare l'editor di codice. Per altre informazioni, vedere [Come configurare o modificare i criteri](set-edit-policies.md).
 8. Posizionare il cursore nella sezione relativa ai criteri `inbound` o `outbound`.
-9. Nella finestra a destra selezionare **criteri** > avanzati**Accedi a EventHub**. In questo modo viene inserito il modello di istruzione del criterio `log-to-eventhub`.
+9. Nella finestra a destra selezionare **criteri avanzati**  >  **Accedi a EventHub**. In questo modo viene inserito il modello di istruzione del criterio `log-to-eventhub`.
 
 ```xml
 <log-to-eventhub logger-id="logger-id">

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1ffa116f6877b58d54c22f918b4e83574b85860c
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800720"
 ---
 # <a name="http-features"></a>Funzionalità HTTP
@@ -57,13 +56,13 @@ L' [associazione del client di orchestrazione](durable-functions-bindings.md#orc
 
 ---
 
-L'avvio di una funzione di orchestrazione tramite le funzioni trigger HTTP mostrate in precedenza può essere eseguito usando qualsiasi client HTTP. Il comando cURL seguente avvia una funzione dell'agente `DoWork`di orchestrazione denominata:
+L'avvio di una funzione di orchestrazione tramite le funzioni trigger HTTP mostrate in precedenza può essere eseguito usando qualsiasi client HTTP. Il comando cURL seguente avvia una funzione dell'agente di orchestrazione denominata `DoWork` :
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
 ```
 
-Di seguito è riportato un esempio di risposta per un' `abc123` orchestrazione con come ID. Alcuni dettagli sono stati rimossi per maggiore chiarezza.
+Di seguito è riportato un esempio di risposta per un'orchestrazione con `abc123` come ID. Alcuni dettagli sono stati rimossi per maggiore chiarezza.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -224,7 +223,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Nell'esempio precedente, il parametro `tokenSource` è configurato per acquisire i token di Azure AD per [Azure Resource Manager](../../azure-resource-manager/management/overview.md). I token sono identificati dall'URI `https://management.core.windows.net`della risorsa. Nell'esempio si presuppone che l'app per le funzioni corrente sia in esecuzione localmente o sia stata distribuita come app per le funzioni con un'identità gestita. Si presuppone che l'identità locale o l'identità gestita disponga di autorizzazioni per la gestione delle macchine virtuali nel `myRG`gruppo di risorse specificato.
+Nell'esempio precedente, il `tokenSource` parametro è configurato per acquisire i token di Azure ad per [Azure Resource Manager](../../azure-resource-manager/management/overview.md). I token sono identificati dall'URI della risorsa `https://management.core.windows.net` . Nell'esempio si presuppone che l'app per le funzioni corrente sia in esecuzione localmente o sia stata distribuita come app per le funzioni con un'identità gestita. Si presuppone che l'identità locale o l'identità gestita disponga di autorizzazioni per la gestione delle macchine virtuali nel gruppo di risorse specificato `myRG` .
 
 In fase di esecuzione, l'origine del token configurata restituisce automaticamente un token di accesso OAuth 2,0. L'origine aggiunge quindi il token come bearer token all'intestazione di autorizzazione della richiesta in uscita. Questo modello rappresenta un miglioramento rispetto all'aggiunta manuale di intestazioni di autorizzazione alle richieste HTTP per i motivi seguenti:
 

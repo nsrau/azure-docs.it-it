@@ -6,10 +6,9 @@ author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
 ms.openlocfilehash: c287a2315f2b2319a6873ce84ee0e4e48bec8444
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82836783"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
@@ -19,7 +18,7 @@ Quando si verifica un problema o un'interruzione di un sito Live, determinare ra
 Basandosi sulle potenzialità di [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), l'analisi delle modifiche fornisce informazioni approfondite sulle modifiche apportate alle applicazioni Azure per aumentare l'osservabilità e ridurre MTTR (tempo medio per il ripristino).
 
 > [!IMPORTANT]
-> L'analisi delle modifiche è attualmente in anteprima. Questa versione di anteprima viene fornita senza un contratto di servizio. Questa versione non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero avere funzionalità vincolate. Per ulteriori informazioni, vedere le [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> L'analisi delle modifiche è attualmente in anteprima. Questa versione di anteprima viene fornita senza un contratto di servizio. Questa versione non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero avere funzionalità vincolate. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview"></a>Panoramica
 
@@ -79,7 +78,7 @@ Fare clic su una risorsa per visualizzare tutte le modifiche apportate. Se neces
 
 ![Schermata dei dettagli delle modifiche](./media/change-analysis/change-details.png)
 
-Per commenti e suggerimenti, usare il pulsante Invia commenti e suggerimenti nel pannello changeanalysisteam@microsoft.como nel messaggio di posta elettronica.
+Per commenti e suggerimenti, usare il pulsante Invia commenti e suggerimenti nel pannello o nel messaggio di posta elettronica changeanalysisteam@microsoft.com .
 
 ![Screenshot del pulsante feedback nel pannello Change Analysis](./media/change-analysis/change-analysis-feedback.png)
 
@@ -109,7 +108,7 @@ L'analisi delle modifiche dell'applicazione è un detector autonomo negli strume
 
     ![Screenshot dell'interfaccia utente "Enable Change Analysis"](./media/change-analysis/change-analysis-on.png)
 
-5. Per accedere all'analisi delle modifiche, selezionare **diagnostica e Risolvi i problemi relativi** > a**disponibilità e prestazioni** > **anomali dell'applicazione**. Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche. Per impostazione predefinita, le modifiche apportate nelle ultime 24 ore vengono visualizzate per facilitare i problemi immediatamente.
+5. Per accedere all'analisi delle modifiche, selezionare **diagnostica e Risolvi i problemi relativi**a  >  **disponibilità e prestazioni**  >  **anomali dell'applicazione**. Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche. Per impostazione predefinita, le modifiche apportate nelle ultime 24 ore vengono visualizzate per facilitare i problemi immediatamente.
 
      ![Screenshot della visualizzazione delle differenze delle modifiche](./media/change-analysis/change-view.png)
 

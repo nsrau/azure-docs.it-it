@@ -4,10 +4,9 @@ description: Informazioni su come gestire le assegnazioni di progetto con il mod
 ms.date: 05/06/2020
 ms.topic: how-to
 ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82863978"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Come gestire le assegnazioni con PowerShell
@@ -49,9 +48,9 @@ Il modulo Blueprints di Azure per PowerShell è **AZ. Blueprint**.
 ## <a name="get-blueprint-definitions"></a>Ottenere le definizioni del progetto
 
 Il primo passaggio per l'utilizzo di un'assegnazione è spesso il recupero di un riferimento a una definizione di progetto.
-Tramite `Get-AzBlueprint` il cmdlet vengono ottenute una o più definizioni di progetto. Il cmdlet può ottenere le definizioni del progetto da un gruppo `-ManagementGroupId {mgId}` di gestione con o `-SubscriptionId {subId}`una sottoscrizione con. Il parametro **Name** ottiene una definizione di progetto, ma deve essere utilizzata con **managementgroupid nelle** o **SubscriptionId**. La **versione** può essere usata con il **nome** per essere più esplicita sulla definizione del progetto da restituire. Invece della **versione**, l'opzione `-LatestPublished` acquisisce la versione pubblicata più di recente.
+Tramite il `Get-AzBlueprint` cmdlet vengono ottenute una o più definizioni di progetto. Il cmdlet può ottenere le definizioni del progetto da un gruppo di gestione con `-ManagementGroupId {mgId}` o una sottoscrizione con `-SubscriptionId {subId}` . Il parametro **Name** ottiene una definizione di progetto, ma deve essere utilizzata con **managementgroupid nelle** o **SubscriptionId**. La **versione** può essere usata con il **nome** per essere più esplicita sulla definizione del progetto da restituire. Invece della **versione**, l'opzione `-LatestPublished` acquisisce la versione pubblicata più di recente.
 
-Nell'esempio seguente viene `Get-AzBlueprint` usato per ottenere tutte le versioni di una definizione di progetto denominata ' 101-Blueprints-Definition-Subscription ' da una `{subId}`sottoscrizione specifica rappresentata come:
+Nell'esempio seguente viene usato `Get-AzBlueprint` per ottenere tutte le versioni di una definizione di progetto denominata ' 101-Blueprints-Definition-Subscription ' da una sottoscrizione specifica rappresentata come `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -97,7 +96,7 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 
 Se l'assegnazione del progetto esiste già, è possibile ottenere un riferimento con il `Get-AzBlueprintAssignment` cmdlet. Il cmdlet accetta **SubscriptionId** e il **nome** come parametri facoltativi. Se **SubscriptionId** non è specificato, viene utilizzato il contesto della sottoscrizione corrente.
 
-Nell'esempio seguente viene `Get-AzBlueprintAssignment` usato per ottenere una singola assegnazione di progetto denominata ' assegnazione-blocco-Resource-Groups ' da una sottoscrizione `{subId}`specifica rappresentata come:
+Nell'esempio seguente viene usato `Get-AzBlueprintAssignment` per ottenere una singola assegnazione di progetto denominata ' assegnazione-blocco-Resource-Groups ' da una sottoscrizione specifica rappresentata come `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -125,7 +124,7 @@ ResourceGroups    : ResourceGroup
 
 ## <a name="create-blueprint-assignments"></a>Creare assegnazioni di progetto
 
-Se l'assegnazione del progetto non esiste ancora, è possibile crearla con `New-AzBlueprintAssignment` il cmdlet. Questo cmdlet usa i parametri seguenti:
+Se l'assegnazione del progetto non esiste ancora, è possibile crearla con il `New-AzBlueprintAssignment` cmdlet. Questo cmdlet usa i parametri seguenti:
 
 - **Nome** [obbligatorio]
   - Specifica il nome dell'assegnazione del progetto
@@ -168,7 +167,7 @@ Se l'assegnazione del progetto non esiste ancora, è possibile crearla con `New-
 
 ### <a name="example-1-provide-parameters"></a>Esempio 1: specificare i parametri
 
-Nell'esempio seguente viene creata una nuova assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata `Get-AzBlueprint`con, viene impostato il percorso dell'oggetto di assegnazione e dell'identità gestita su' westus2', vengono bloccate le risorse con _AllResourcesReadOnly_e vengono impostate le tabelle hash per il **parametro** e per **ResourceGroupParameter** in una sottoscrizione specifica rappresentata come `{subId}`:
+Nell'esempio seguente viene creata una nuova assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata con `Get-AzBlueprint` , viene impostato il percorso dell'oggetto di assegnazione e dell'identità gestita su' westus2', vengono bloccate le risorse con _AllResourcesReadOnly_e vengono impostate le tabelle hash per il **parametro** e per **ResourceGroupParameter** in una sottoscrizione specifica rappresentata come `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -250,7 +249,7 @@ Per un esempio del file di definizione dell'assegnazione JSON per un'identità g
 
 ## <a name="update-blueprint-assignments"></a>Aggiornare le assegnazioni di progetto
 
-A volte è necessario aggiornare un'assegnazione di progetto già creata. Tramite `Set-AzBlueprintAssignment` il cmdlet viene gestita questa azione. Il cmdlet accetta la maggior parte degli stessi parametri del `New-AzBlueprintAssignment` cmdlet, consentendo l'aggiornamento di qualsiasi elemento impostato sull'assegnazione. Le eccezioni sono il _nome_, il _progetto_e _SubscriptionId_. Vengono aggiornati solo i valori specificati.
+A volte è necessario aggiornare un'assegnazione di progetto già creata. Tramite il `Set-AzBlueprintAssignment` cmdlet viene gestita questa azione. Il cmdlet accetta la maggior parte degli stessi parametri del `New-AzBlueprintAssignment` cmdlet, consentendo l'aggiornamento di qualsiasi elemento impostato sull'assegnazione. Le eccezioni sono il _nome_, il _progetto_e _SubscriptionId_. Vengono aggiornati solo i valori specificati.
 
 Per comprendere cosa accade quando si aggiorna un'assegnazione di progetto, vedere [regole per l'aggiornamento delle assegnazioni](./update-existing-assignments.md#rules-for-updating-assignments).
 
@@ -291,7 +290,7 @@ Per comprendere cosa accade quando si aggiorna un'assegnazione di progetto, vede
   - Ogni segnaposto di elemento del gruppo di risorse contiene coppie chiave/valore per impostare in modo dinamico il **nome** e il **percorso** dell'artefatto del gruppo di risorse
   - Se non viene fornito un parametro del gruppo di risorse e non è presente alcun valore **DefaultValue**, il parametro del gruppo di risorse non è facoltativo
 
-Nell'esempio seguente viene aggiornata l'assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata `Get-AzBlueprint` con modificando la modalità di blocco:
+Nell'esempio seguente viene aggiornata l'assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata con `Get-AzBlueprint` modificando la modalità di blocco:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -322,7 +321,7 @@ ResourceGroups    : ResourceGroup
 
 Quando è il momento di rimuovere l'assegnazione di un progetto, il `Remove-AzBlueprintAssignment` cmdlet gestisce questa azione. Il cmdlet prende il **nome** o **InputObject** per specificare quale assegnazione di progetto rimuovere. **SubscriptionId** è _obbligatorio_ e deve essere specificato in tutti i casi.
 
-Nell'esempio seguente viene recuperata un'assegnazione di progetto `Get-AzBlueprintAssignment` esistente con e quindi viene rimossa dalla sottoscrizione specifica `{subId}`rappresentata come:
+Nell'esempio seguente viene recuperata un'assegnazione di progetto esistente con `Get-AzBlueprintAssignment` e quindi viene rimossa dalla sottoscrizione specifica rappresentata come `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -336,7 +335,7 @@ Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '
 
 ## <a name="code-example"></a>Esempio di codice
 
-Unendo tutti i passaggi, nell'esempio seguente viene ottenuta la definizione del progetto, quindi viene creata, aggiornata e rimossa un'assegnazione di progetto nella sottoscrizione `{subId}`specifica rappresentata come:
+Unendo tutti i passaggi, nell'esempio seguente viene ottenuta la definizione del progetto, quindi viene creata, aggiornata e rimossa un'assegnazione di progetto nella sottoscrizione specifica rappresentata come `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

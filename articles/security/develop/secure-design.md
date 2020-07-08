@@ -14,16 +14,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857167"
 ---
 # <a name="design-secure-applications-on-azure"></a>Progettare applicazioni sicure in Azure
 In questo articolo vengono presentate le attività e i controlli di sicurezza da prendere in considerazione quando si progettano applicazioni per il cloud. Vengono analizzate le risorse di formazione e le domande e i concetti di sicurezza da prendere in considerazione durante i requisiti e le fasi di progettazione di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per progettare un'applicazione più protetta.
 
-Le fasi SDL seguenti sono descritte in questo articolo:
+Questo articolo tratta le fasi di SDL seguenti:
 
 - Formazione
 - Requisiti
@@ -128,7 +127,7 @@ Assicurarsi di usare la versione più recente del Framework e tutte le funzional
 
 Microsoft offre un'ampia gamma di [linguaggi, Framework e strumenti](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) che è possibile usare per sviluppare applicazioni in Azure. Un esempio è [Azure per gli sviluppatori .NET e .NET Core](https://docs.microsoft.com/dotnet/azure/). Per ogni linguaggio e Framework offerto, sono disponibili guide introduttive, esercitazioni e informazioni di riferimento sulle API per iniziare rapidamente.
 
-Azure offre un'ampia gamma di servizi che è possibile usare per ospitare siti Web e applicazioni Web. Questi servizi consentono di sviluppare nel linguaggio preferito, sia .NET, .NET Core, Java, Ruby, node. js, PHP o Python.
+Azure offre un'ampia gamma di servizi che è possibile usare per ospitare siti Web e applicazioni Web. Questi servizi consentono di sviluppare nel linguaggio preferito, sia .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
 Il [servizio app Web di app Azure](../../app-service/overview.md) (app Web) è uno di questi servizi.
 
 App Web aggiunge la potenza di Microsoft Azure all'applicazione. Include sicurezza, bilanciamento del carico, scalabilità automatica e gestione automatizzata. Puoi anche sfruttare le funzionalità di DevOps nelle app Web, come la gestione dei pacchetti, gli ambienti di staging, i domini personalizzati, i certificati SSL/TLS e la distribuzione continua da Azure DevOps, GitHub, Docker Hub e altre origini.

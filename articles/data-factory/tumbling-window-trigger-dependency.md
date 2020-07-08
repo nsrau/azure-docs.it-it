@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
 ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82870043"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Creare una dipendenza del trigger di finestra a cascata
@@ -79,7 +78,7 @@ Un trigger di finestra a cascata con una dipendenza presenta le proprietà segue
 
 La tabella seguente fornisce l'elenco degli attributi necessari per definire una dipendenza in una finestra a cascata.
 
-| **Nome proprietà** | **Descrizione**  | **Tipo** | **Richiesto** |
+| **Nome proprietà** | **Descrizione**  | **Tipo** | **Obbligatorio** |
 |---|---|---|---|
 | type  | Tutti i trigger presenti in una finestra a cascata vengono visualizzati nell'elenco a tendina. Scegliere il trigger da cui dipendere.  | TumblingWindowTriggerDependencyReference o SelfDependencyTumblingWindowTriggerReference | Sì |
 | offset | Scostamento del trigger delle dipendenze. Fornire un valore nel formato di intervallo di tempo ed entrambi gli offset negativi e positivi sono consentiti. Questa proprietà è obbligatoria se il trigger dipende da se stesso e in tutti gli altri casi è facoltativo. L'auto-dipendenza deve avere sempre uno scostamento negativo. Se non viene specificato alcun valore, la finestra è uguale a quella del trigger. | TimeSpan<br/>(hh:mm:ss) | Dipendenza autonoma: Sì<br/>Altro: No |

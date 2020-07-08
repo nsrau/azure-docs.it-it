@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
 ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857638"
 ---
 # <a name="transformation-with-azure-databricks"></a>Trasformazione con Azure Databricks
@@ -36,7 +35,7 @@ Per semplicità, nel modello di questa esercitazione non viene creato un trigger
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account di archiviazione BLOB di Azure con un `sinkdata` contenitore denominato da usare come sink.
+- Un account di archiviazione BLOB di Azure con un contenitore denominato `sinkdata` da usare come sink.
 
   Prendere nota del nome dell'account di archiviazione, del nome del contenitore e della chiave di accesso. Questi valori saranno necessari in un secondo momento nel modello.
 
@@ -47,8 +46,8 @@ Per semplicità, nel modello di questa esercitazione non viene creato un trigger
 Per importare un notebook di **trasformazione** nell'area di lavoro di databricks:
 
 1. Accedere all'area di lavoro di Azure Databricks, quindi selezionare **Importa**.
-       ![Comando di menu per l'importazione](media/solution-template-Databricks-notebook/import-notebook.png) di un'area di lavoro il percorso dell'area di lavoro può essere diverso da quello visualizzato, ma ricordarlo per un momento successivo.
-1. Selezionare **Importa da: URL**. Nella casella di testo immettere `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`.
+       ![Comando di menu per l'importazione di un'area di lavoro ](media/solution-template-Databricks-notebook/import-notebook.png) il percorso dell'area di lavoro può essere diverso da quello visualizzato, ma ricordarlo per un momento successivo.
+1. Selezionare **Importa da: URL**. Nella casella di testo immettere `https://adflabstaging1.blob.core.windows.net/share/Transformations.html` .
 
    ![Selezioni per l'importazione di un notebook](media/solution-template-Databricks-notebook/import-from-url.png)
 
@@ -56,8 +55,8 @@ Per importare un notebook di **trasformazione** nell'area di lavoro di databrick
 
    Nel notebook importato passare al **comando 5** , come illustrato nel frammento di codice seguente.
 
-   - Sostituire `<storage name>`e `<access key>` con le informazioni di connessione di archiviazione.
-   - Usare l'account di archiviazione con `sinkdata` il contenitore.
+   - Sostituire `<storage name>` e `<access key>` con le informazioni di connessione di archiviazione.
+   - Usare l'account di archiviazione con il `sinkdata` contenitore.
 
     ```python
     # Supply storageName and accessKey values  
@@ -90,7 +89,7 @@ Per importare un notebook di **trasformazione** nell'area di lavoro di databrick
 
     ![Pulsante "genera"](media/solution-template-Databricks-notebook/generate-new-token.png)
 
-   *Salvare il token di accesso* per usarlo in seguito per la creazione di un servizio collegato databricks. Il token di accesso ha un `dapi32db32cbb4w6eee18b7d87e45exxxxxx`aspetto simile a.
+   *Salvare il token di accesso* per usarlo in seguito per la creazione di un servizio collegato databricks. Il token di accesso ha un aspetto simile a `dapi32db32cbb4w6eee18b7d87e45exxxxxx` .
 
 ## <a name="how-to-use-this-template"></a>Come usare questo modello
 
@@ -126,19 +125,19 @@ Per importare un notebook di **trasformazione** nell'area di lavoro di databrick
 
 Nella nuova pipeline la maggior parte delle impostazioni viene configurata automaticamente con i valori predefiniti. Esaminare le configurazioni della pipeline e apportare le modifiche necessarie.
 
-1. Nel **flag di disponibilità**dell'attività di **convalida** , verificare che il valore del set di `SourceAvailabilityDataset` **dati** di origine sia impostato su creato in precedenza.
+1. Nel **flag di disponibilità**dell'attività di **convalida** , verificare che il valore del **set di dati** di origine sia impostato su `SourceAvailabilityDataset` creato in precedenza.
 
    ![Valore del set di dati di origine](media/solution-template-Databricks-notebook/validation-settings.png)
 
 1. Nel **file di attività di** **copia dei dati** , selezionare le schede **origine** e **sink** . Se necessario, modificare le impostazioni.
 
-   - **Scheda origine scheda origine** ![](media/solution-template-Databricks-notebook/copy-source-settings.png)
+   - **Source** ![ Scheda origine scheda origine](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
    - **Scheda sink scheda sink** ![](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
 1. Nella **trasformazione**attività **notebook** esaminare e aggiornare i percorsi e le impostazioni in base alle esigenze.
 
-   Il **servizio collegato databricks** deve essere pre-popolato con il valore di un passaggio precedente, come ![illustrato: valore popolato per il servizio collegato databricks](media/solution-template-Databricks-notebook/notebook-activity.png)
+   Il **servizio collegato databricks** deve essere pre-popolato con il valore di un passaggio precedente, come illustrato: ![ valore popolato per il servizio collegato databricks](media/solution-template-Databricks-notebook/notebook-activity.png)
 
    Per verificare le impostazioni del **notebook** :
   
@@ -150,7 +149,7 @@ Nella nuova pipeline la maggior parte delle impostazioni viene configurata autom
 
        ![Parametri di base](media/solution-template-Databricks-notebook/base-parameters.png)
 
-1. Verificare che i **parametri della pipeline** corrispondano a quanto illustrato nello screenshot seguente ![: parametri della pipeline](media/solution-template-Databricks-notebook/pipeline-parameters.png)
+1. Verificare che i **parametri della pipeline** corrispondano a quanto illustrato nello screenshot seguente: ![ parametri della pipeline](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
 1. Connettersi ai set di impostazioni.
 
@@ -167,9 +166,9 @@ Nella nuova pipeline la maggior parte delle impostazioni viene configurata autom
 
    - **DestinationFilesDataset** : per copiare i dati nel percorso di destinazione del sink. Usare i valori seguenti:
 
-     - **Servizio collegato,** - creato in un passaggio`sinkBlob_LS`precedente.
+     - **Servizio collegato**  -  `sinkBlob_LS` , creato in un passaggio precedente.
 
-     - **File path** - Percorso`sinkdata/staged_sink`del file.
+     - **Percorso del file**  -  `sinkdata/staged_sink` .
 
        ![Selezioni per il servizio collegato e il percorso del file per DestinationFilesDataset](media/solution-template-Databricks-notebook/destination-dataset.png)
 
@@ -185,4 +184,4 @@ Nella nuova pipeline la maggior parte delle impostazioni viene configurata autom
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione a Data factory di Azure](introduction.md)
+- [Introduzione al servizio Azure Data Factory](introduction.md)

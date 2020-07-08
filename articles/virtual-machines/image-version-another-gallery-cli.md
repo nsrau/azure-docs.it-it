@@ -10,10 +10,9 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797058"
 ---
 # <a name="copy-an-image-from-another-gallery"></a>Copiare un'immagine da un'altra raccolta
@@ -131,11 +130,11 @@ az sig image-definition create \
 ```
 
 
-## <a name="create-the-image-version"></a>Creare la versione dell'immagine
+## <a name="create-the-image-version"></a>Creare la versione di immagine
 
 Creare versioni usando [AZ Image Gallery create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create). È necessario passare l'ID dell'immagine gestita da usare come baseline per creare la versione dell'immagine. È possibile usare [elenco di immagini di az](/cli/azure/image?view#az-image-list) per ottenere informazioni sulle immagini in un gruppo di risorse. 
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 In questo esempio, la versione dell'immagine è *1.0.0* e verrà creata 1 replica nell'area *Stati Uniti centro-meridionali* e 1 replica nell'area *Stati Uniti orientali* con archiviazione con ridondanza della zona.
 
@@ -152,9 +151,9 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> È necessario attendere che la versione dell'immagine completi la compilazione e la replica prima di poter usare la stessa immagine gestita per creare un'altra versione dell'immagine.
+> È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine.
 >
-> È anche possibile archiviare l'immagine nell'archiviazione Premiun mediante un'aggiunta `--storage-account-type  premium_lrs`o l' [archiviazione con ridondanza](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) della `--storage-account-type  standard_zrs` zona aggiungendo quando si crea la versione dell'immagine.
+> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `--storage-account-type  premium_lrs`, oppure nell'[archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs), aggiungendo `--storage-account-type  standard_zrs`.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

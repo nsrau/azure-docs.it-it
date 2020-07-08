@@ -5,10 +5,9 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800652"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
@@ -65,7 +64,7 @@ Sì. I backup vengono eseguiti quando una macchina virtuale è spenta. Il punto 
 
 Sì. È possibile annullare il processo di backup in uno stato **snapshot in corso** . Non è possibile annullare un processo se è in corso il trasferimento di dati dallo snapshot.
 
-### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>È stato abilitato un blocco sul gruppo di risorse creato dal servizio backup di Azure (ad `AzureBackupRG_<geo>_<number>`esempio,). I backup continueranno a funzionare?
+### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>È stato abilitato un blocco sul gruppo di risorse creato dal servizio backup di Azure (ad esempio, `AzureBackupRG_<geo>_<number>` ). I backup continueranno a funzionare?
 
 Se si blocca il gruppo di risorse creato dal servizio backup di Azure, i backup inizieranno ad avere esito negativo perché è previsto un limite massimo di 18 punti di ripristino.
 
@@ -99,11 +98,11 @@ Se si modifica il caso (in alto o in basso) della VM o del gruppo di risorse VM,
 
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>È possibile eseguire il backup o il ripristino di dischi selettivi collegati a una macchina virtuale?
 
-Backup di Azure supporta ora il backup e il ripristino dei dischi selettivi con la soluzione di backup della macchina virtuale di Azure.
+Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tramite la soluzione di backup delle macchine virtuali di Azure.
 
-Attualmente, backup di Azure supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale con la soluzione di backup della macchina virtuale. Con la funzionalità Escludi disco è possibile ottenere un'opzione per eseguire il backup di uno o più dischi dati in una macchina virtuale. Questo offre una soluzione efficiente ed economica per le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup, che consente di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
+Attualmente, backup di Azure supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale con la soluzione di backup della macchina virtuale. Con la funzionalità Escludi disco è possibile ottenere un'opzione per eseguire il backup di uno o più dischi dati in una macchina virtuale. Questa è una soluzione efficiente ed economica per soddisfare le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup. Questo consente anche di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
 
-Per iscriverti all'anteprima, scrivici all'indirizzoAskAzureBackupTeam@microsoft.com
+Per iscriversi all'anteprima, scrivere all'indirizzo AskAzureBackupTeam@microsoft.com
 
 ## <a name="restore"></a>Restore
 
@@ -166,9 +165,9 @@ Il backup della macchina virtuale viene eseguito usando le impostazioni di conse
 2. Per spostare le macchine virtuali configurate con backup di Azure, seguire questa procedura:
 
    1. Trovare il percorso della macchina virtuale.
-   2. Trovare un gruppo di risorse con il modello di denominazione `AzureBackupRG_<location of your VM>_1`seguente:. Ad esempio, *AzureBackupRG_westus2_1*
+   2. Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1` . Ad esempio, *AzureBackupRG_westus2_1*
    3. Nella portale di Azure selezionare **Mostra tipi nascosti**.
-   4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello `AzureBackup_<name of your VM that you're trying to move>_###########`di denominazione.
+   4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
    6. Al termine dell'operazione di eliminazione, è possibile spostare la macchina virtuale.
 

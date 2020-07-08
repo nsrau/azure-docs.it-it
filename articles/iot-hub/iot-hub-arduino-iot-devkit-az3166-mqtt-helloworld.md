@@ -11,10 +11,9 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733486"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Inviare messaggi a un server MQTT
@@ -91,4 +90,4 @@ In caso di problemi, vedere le [domande frequenti di IoT DevKit](https://microso
 Ora che si è appreso come configurare il dispositivo MXChip Iot DevKit come client MQTT e come usare la libreria client MQTT per inviare messaggi a un broker MQTT, ecco i passaggi successivi consigliati:
 
 * [Panoramica dell'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)

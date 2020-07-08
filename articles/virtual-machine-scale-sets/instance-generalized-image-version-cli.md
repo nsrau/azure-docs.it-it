@@ -10,19 +10,18 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 59e29be2aade993c8aeae64b4aa4918b36a26b26
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797136"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image"></a>Creare un set di scalabilità da un'immagine generalizzata
 
 Creare un set di scalabilità da una versione di immagine generalizzata archiviata in una [raccolta di immagini condivise](shared-image-galleries.md) usando l'interfaccia della riga di comando di Azure. Se si vuole creare un set di scalabilità usando una versione di immagine specializzata, vedere [creare istanze del set di scalabilità da un'immagine specializzata](instance-specialized-image-version-cli.md).
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.4.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.4.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
-Sostituire i nomi delle risorse in base alle esigenze in questo esempio. 
+Sostituire i nomi delle risorse di questo esempio secondo necessità. 
 
 Elencare le definizioni di immagine in una raccolta usando [AZ sig Image-Definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) per visualizzare il nome e l'ID delle definizioni.
 
@@ -36,9 +35,9 @@ az sig image-definition list \
    --output tsv
 ```
 
-Creare il set di scalabilità usando [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
+Creare il set di scalabilità usando [`az vmss create`](/cli/azure/vmss#az-vmss-create) . 
 
-Usare l'ID di definizione dell' `--image` immagine per per creare le istanze del set di scalabilità dalla versione più recente dell'immagine disponibile. È anche possibile creare le istanze del set di scalabilità da una versione specifica fornendo l'ID versione dell' `--image`immagine per. Tenere presente che l'uso di una versione di immagine specifica indica che l'automazione potrebbe non riuscire se la versione di immagine specifica non è disponibile perché è stata eliminata o rimossa dall'area. È consigliabile usare l'ID di definizione dell'immagine per creare la nuova macchina virtuale, a meno che non sia necessaria una versione di immagine specifica.
+Usare l'ID definizione immagine per `--image` per creare le istanze del set di scalabilità dalla versione più recente dell'immagine disponibile. È anche possibile creare le istanze del set di scalabilità da una versione specifica fornendo l'ID versione dell'immagine per `--image`. Tenere presente che l'uso di una versione di immagine specifica indica che l'automazione potrebbe non riuscire se la versione di immagine specifica non è disponibile perché è stata eliminata o rimossa dall'area. È consigliabile usare l'ID di definizione dell'immagine per creare la nuova macchina virtuale, a meno che non sia necessaria una versione di immagine specifica.
 
 In questo esempio vengono create istanze dalla versione più recente dell'immagine di *myImageDefinition* .
 

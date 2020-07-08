@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: e1eb105671883d88d8fe34b9741d402d311556a9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82859016"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata
@@ -45,7 +44,7 @@ Tenere presenti questi punti chiave durante la progettazione dell'applicazione p
 
 * È possibile usare la libreria client di archiviazione per leggere e scrivere i dati nell'area primaria o secondaria. È anche possibile reindirizzare automaticamente le richieste di lettura all'area secondaria in caso di timeout della richiesta di lettura per l'area primaria.
 
-* Se l'area primaria diventa non disponibile, è possibile avviare il failover di un account. Quando si effettua il failover all'area secondaria, le voci DNS che puntano all'area primaria vengono modificate in modo da puntare all'area secondaria. Dopo aver completato il failover, viene ripristinato l'accesso in scrittura per gli account con archiviazione con ridondanza geografica e RA-GRS. Per altre informazioni, vedere [ripristino di emergenza e failover dell'account di archiviazione](storage-disaster-recovery-guidance.md).
+* Se l'area primaria diventa non disponibile, è possibile avviare il failover di un account. Quando si effettua il failover all'area secondaria, le voci DNS che puntano all'area primaria vengono modificate in modo da puntare all'area secondaria. Dopo aver completato il failover, viene ripristinato l'accesso in scrittura per gli account con archiviazione con ridondanza geografica e RA-GRS. Per altre informazioni, vedere [Ripristino di emergenza e failover dell'account di archiviazione](storage-disaster-recovery-guidance.md).
 
 ### <a name="using-eventually-consistent-data"></a>Uso di dati con coerenza finale
 
@@ -192,7 +191,7 @@ Per il terzo scenario, quando il ping dell'endpoint di archiviazione primario ha
 
 ## <a name="handling-eventually-consistent-data"></a>Gestione di dati con coerenza finale
 
-L'archiviazione con ridondanza geografica funziona replicando le transazioni dall'area primaria a quella secondaria. Il processo di replica garantisce che i dati nell'area secondaria abbiano *coerenza finale*. Questo significa che tutte le transazioni nell'area primaria saranno alla fine presenti nell'area secondaria, ma potrebbe verificarsi un ritardo prima che vengano visualizzate e che non è possibile garantire che giungano nell'area secondaria nello stesso ordine in cui si trovavano originariamente nell'area primaria. Se le transazioni non giungono nell'area secondaria nell'ordine originario, è *possibile* che i dati nell'area secondaria siano incoerenti finché il servizio non si allinea.
+L'archiviazione con ridondanza geografica funziona replicando le transazioni dall'area primaria a quella secondaria. Questo processo di replica garantisce che i dati nell'area secondaria siano *coerenti*. Questo significa che tutte le transazioni nell'area primaria saranno alla fine presenti nell'area secondaria, ma potrebbe verificarsi un ritardo prima che vengano visualizzate e che non è possibile garantire che giungano nell'area secondaria nello stesso ordine in cui si trovavano originariamente nell'area primaria. Se le transazioni non giungono nell'area secondaria nell'ordine originario, è *possibile* che i dati nell'area secondaria siano incoerenti finché il servizio non si allinea.
 
 Nella tabella seguente viene illustrato un esempio di ciò che può verificarsi quando si aggiornano i dettagli di un dipendente per impostarli come membri del ruolo di *amministratore* . Ai fini di questo esempio è necessario aggiornare l'entità **employee** e aggiornare un'entità **administrator role** con un conteggio del numero totale di amministratori. Si noti il modo in cui gli aggiornamenti vengono applicati in un ordine diverso nell'area secondaria.
 

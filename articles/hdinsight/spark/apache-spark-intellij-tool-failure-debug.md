@@ -10,10 +10,9 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857427"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima)
@@ -58,7 +57,7 @@ Creare un progetto Spark 2.3.2 per continuare il debug degli errori, eseguire il
 
    d. Selezionare **Fine**.
 
-3. Selezionare **src** > **Main** > **scala** per aprire il codice nel progetto. In questo esempio viene usato lo script **AgeMean_Div ()** .
+3. Selezionare **src**  >  **Main**  >  **scala** per aprire il codice nel progetto. In questo esempio viene usato lo script **AgeMean_Div ()** .
 
 ## <a name="run-a-spark-scalajava-application-on-an-hdinsight-cluster"></a>Eseguire un'applicazione Spark scala/Java in un cluster HDInsight
 
@@ -90,7 +89,7 @@ Creare un'applicazione Spark scala/Java, quindi eseguire l'applicazione in un cl
 
 Se l'invio del processo ha esito negativo, è possibile scaricare il profilo del processo non riuscito nel computer locale per eseguire ulteriori operazioni di debug.
 
-1. Aprire **Microsoft Azure Storage Explorer**, individuare l'account HDInsight del cluster per il processo non riuscito, scaricare le risorse del processo non riuscite dal percorso corrispondente: **\\\hdp\spark2-Events. Spark\\\<-errore ID applicazione>** in una cartella locale. La finestra **attività** indicherà lo stato del download.
+1. Aprire **Microsoft Azure Storage Explorer**, individuare l'account HDInsight del cluster per il processo non riuscito, scaricare le risorse del processo non riuscite dal percorso corrispondente: **\hdp\spark2-Events \\ . Spark \\ \<application ID> -errori** in una cartella locale. La finestra **attività** indicherà lo stato del download.
 
    ![Errore di download Azure Storage Explorer](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 

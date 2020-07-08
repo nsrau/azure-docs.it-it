@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793075"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Aggiornare la configurazione di un cluster in Azure 
@@ -26,8 +25,8 @@ Questo articolo illustra come personalizzare le varie impostazioni dell'infrastr
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalizzare le impostazioni del cluster usando i modelli di Gestione risorse
 È possibile configurare i cluster di Azure tramite il modello di Resource Manager JSON. Per altre informazioni sulle diverse impostazioni, vedere [Impostazioni di configurazione per i cluster](service-fabric-cluster-fabric-settings.md). La procedura di esempio riportata di seguito illustra come aggiungere una nuova impostazione *MaxDiskQuotaInMB* alla sezione *Diagnostics* tramite Azure Resource Explorer.
 
-1. Passare a https://resources.azure.com
-2. Passare alla sottoscrizione espandendo **sottoscrizioni** -> **\<la sottoscrizione>**  ->  **resourceGroups** -> **\<il gruppo di risorse>**  ->  **provider** -> **Microsoft. ServiceFabric** -> **raggruppa** -> **\<il nome del cluster>**
+1. Passare a https://resources.azure.com.
+2. Passare alla sottoscrizione espandendo **sottoscrizioni**  ->  **\<Your Subscription>**  ->  **resourceGroups**  ->  **\<Your Resource Group>**  ->  **provider**  ->  **Microsoft. ServiceFabric**  ->  **cluster** -> **\<Your Cluster Name>**
 3. Nell'angolo in alto a destra selezionare **lettura/scrittura.**
 4. Selezionare **modifica** e aggiornare l' `fabricSettings` elemento JSON e aggiungere un nuovo elemento:
 

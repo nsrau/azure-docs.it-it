@@ -11,15 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: sharadag
 ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768312"
 ---
 # <a name="wildcard-domains"></a>Domini con caratteri jolly
 
-Oltre ai domini e ai sottodomini Apex, è possibile eseguire il mapping di un nome di dominio con caratteri jolly all'elenco di host front-end o di domini personalizzati nel profilo di porta anteriore di Azure. La presenza di domini con caratteri jolly nella configurazione di Azure front door semplifica il comportamento del routing del traffico per più sottodomini per un'API, un'applicazione o un sito Web dalla stessa regola di routing. Non è necessario modificare la configurazione per aggiungere o specificare separatamente ogni sottodominio. È ad esempio possibile definire il routing `customer1.contoso.com`per, `customer2.contoso.com`e `customerN.contoso.com` usando la stessa regola di routing e l'aggiunta del dominio `*.contoso.com`con caratteri jolly.
+Oltre ai domini e ai sottodomini Apex, è possibile eseguire il mapping di un nome di dominio con caratteri jolly all'elenco di host front-end o di domini personalizzati nel profilo di porta anteriore di Azure. La presenza di domini con caratteri jolly nella configurazione di Azure front door semplifica il comportamento del routing del traffico per più sottodomini per un'API, un'applicazione o un sito Web dalla stessa regola di routing. Non è necessario modificare la configurazione per aggiungere o specificare separatamente ogni sottodominio. È ad esempio possibile definire il routing per `customer1.contoso.com` , `customer2.contoso.com` e `customerN.contoso.com` usando la stessa regola di routing e l'aggiunta del dominio con caratteri jolly `*.contoso.com` .
 
 Gli scenari principali migliorati con il supporto per i domini con caratteri jolly includono:
 
@@ -31,7 +30,7 @@ Gli scenari principali migliorati con il supporto per i domini con caratteri jol
 
 ## <a name="adding-wildcard-domains"></a>Aggiunta di domini con caratteri jolly
 
-È possibile aggiungere un dominio con caratteri jolly nella sezione per gli host o i domini front-end. Analogamente ai sottodomini, Azure front door verifica che esista il mapping dei record CNAME per il dominio con caratteri jolly. Questo mapping DNS può essere un mapping di record CNAME diretto `*.contoso.com` come eseguito `contoso.azurefd.net`il mapping a. In alternativa, è possibile usare il mapping temporaneo afdverify. Ad esempio, `afdverify.contoso.com` mappato `afdverify.contoso.azurefd.net` a convalida la mappa dei record CNAME per il carattere jolly.
+È possibile aggiungere un dominio con caratteri jolly nella sezione per gli host o i domini front-end. Analogamente ai sottodomini, Azure front door verifica che esista il mapping dei record CNAME per il dominio con caratteri jolly. Questo mapping DNS può essere un mapping di record CNAME diretto come eseguito il mapping `*.contoso.com` a `contoso.azurefd.net` . In alternativa, è possibile usare il mapping temporaneo afdverify. Ad esempio, `afdverify.contoso.com` mappato a `afdverify.contoso.azurefd.net` convalida la mappa dei record CNAME per il carattere jolly.
 
 > [!NOTE]
 > DNS di Azure supporta record con caratteri jolly.
@@ -40,7 +39,7 @@ Gli scenari principali migliorati con il supporto per i domini con caratteri jol
 
 - Definizione di una route diversa per un sottodominio rispetto al resto dei domini (dal dominio con caratteri jolly).
 
-- Avere un criterio WAF diverso per un sottodominio specifico. Ad esempio, `*.contoso.com` consente di `foo.contoso.com` aggiungere senza dover dimostrare nuovamente la proprietà del dominio. Ma non consente `foo.bar.contoso.com` perché non è un sottodominio a livello singolo di `*.contoso.com`. Per aggiungere `foo.bar.contoso.com` senza ulteriore convalida della proprietà del `*.bar.contosonews.com` dominio, è necessario aggiungere.
+- Avere un criterio WAF diverso per un sottodominio specifico. Ad esempio, `*.contoso.com` consente di aggiungere `foo.contoso.com` senza dover dimostrare nuovamente la proprietà del dominio. Ma non consente perché non è `foo.bar.contoso.com` un sottodominio a livello singolo di `*.contoso.com` . Per aggiungere `foo.bar.contoso.com` senza ulteriore convalida della proprietà del dominio, `*.bar.contosonews.com` è necessario aggiungere.
 
 È possibile aggiungere i domini con caratteri jolly e i relativi sottodomini con determinate limitazioni:
 
@@ -72,7 +71,7 @@ Se non si vuole eseguire un criterio WAF per un sottodominio, è possibile crear
 Quando si configura una regola di routing, è possibile selezionare un dominio con caratteri jolly come host front-end. È anche possibile avere un comportamento di route diverso per i domini e i sottodomini con caratteri jolly. Come descritto nel modo in cui il front-end di [Azure esegue la corrispondenza delle route](front-door-route-matching.md), la corrispondenza più specifica per il dominio tra regole di routing diverse viene scelta in fase di esecuzione.
 
 > [!IMPORTANT]
-> È necessario disporre di modelli di percorso corrispondenti nelle regole di routing oppure i client visualizzeranno errori. Ad esempio, sono presenti due regole di routing come Route 1`*.foo.com/*` (con mapping al pool back-end a) e route`bar.foo.com/somePath/*` 2 (con mapping al pool back-end B). Viene quindi ricevuta una richiesta per `bar.foo.com/anotherPath/*`. Il front-end di Azure seleziona la Route 2 in base a una corrispondenza di dominio più specifica, ma non trova alcun modello di percorso corrispondente tra le route.
+> È necessario disporre di modelli di percorso corrispondenti nelle regole di routing oppure i client visualizzeranno errori. Ad esempio, sono presenti due regole di routing come Route 1 ( `*.foo.com/*` con mapping al pool back-end a) e Route 2 ( `bar.foo.com/somePath/*` con mapping al pool back-end B). Viene quindi ricevuta una richiesta per `bar.foo.com/anotherPath/*` . Il front-end di Azure seleziona la Route 2 in base a una corrispondenza di dominio più specifica, ma non trova alcun modello di percorso corrispondente tra le route.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,10 +5,9 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
 ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81769777"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
@@ -68,21 +67,21 @@ Nelle versioni precedenti, per le metriche di Monitoraggio di Azure, Application
 
 | **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** |
 |-------------|----------------|-------------|
-| Service Health | Log attività  | Non supportata. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Test di disponibilità Web | Non supportata. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
+| Service Health | Log attività  | Non supportato. Vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Test di disponibilità Web | Non supportato. Vedere [Avvisi di test Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibili in qualsiasi sito Web dotato delle funzionalità per l'invio di dati ad Application Insights. Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
 
-## <a name="manage-alerts"></a>Gestisci avvisi
+## <a name="manage-alerts"></a>Gestire gli avvisi
 È possibile impostare lo stato di un avviso per specificare dove i trova nel processo di risoluzione. Quando vengono soddisfatti i criteri specificati nella regola di avviso, viene creato o generato un avviso e il relativo stato è *nuovo*. È possibile modificare lo stato dell'avviso dopo averlo confermato e chiuso. Tutte le modifiche apportate allo stato vengono archiviate nella cronologia dell'avviso.
 
 Sono supportati i tipi di avviso seguenti.
 
 | State | Descrizione |
 |:---|:---|
-| Nuova | Il problema è stato appena rilevato e non è ancora stato esaminato. |
+| Nuovo | Il problema è stato appena rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
 | Chiuso | Il problema è stato risolto. Dopo che un avviso è stato chiuso, è possibile riaprirlo modificandone lo stato. |
 
-Lo *stato dell'avviso* è diverso ed è indipendente dalla *condizione del monitoraggio*. Lo stato dell'avviso viene impostato dall'utente, mentre la condizione del monitoraggio viene impostata dal sistema. Quando si attiva un avviso, la relativa condizione del monitoraggio viene impostata su *Attivato*. Quando la condizione sottostante che ha determinato l'attivazione dell'avviso viene cancellata, la condizione del monitoraggio viene impostata su *Risolto*. Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).
+Lo *stato dell'avviso* è diverso ed è indipendente dalla *condizione del monitoraggio*. Lo stato dell'avviso viene impostato dall'utente, mentre la condizione del monitoraggio viene impostata dal sistema. Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su *attivato*. Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su *risolto*. Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).
 
 ## <a name="smart-groups"></a>Gruppi intelligenti 
 
@@ -111,7 +110,7 @@ Non Mostra o tiene traccia degli avvisi classici. È possibile modificare le sot
 
 Selezionare i valori seguenti nella parte superiore della pagina degli avvisi per aprire un'altra pagina:
 
-| valore | Descrizione |
+| valore | Description |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.
@@ -172,13 +171,13 @@ Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
 | Sezione | Descrizione |
 |:---|:---|
-| Riepilogo | Mostra le proprietà e altre informazioni significative sull'avviso. |
+| Summary | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
 | Diagnostica | Informazioni sul gruppo intelligente in cui è incluso l'avviso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include altri avvisi nello stesso gruppo intelligente creati negli ultimi 30 giorni, indipendentemente dal filtro temporale nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controllo degli accessi in base al ruolo (RBAC) per le istanze di avviso
 
-Il consumo e la gestione delle istanze di avviso richiedono che l'utente disponga dei ruoli RBAC predefiniti di [monitoraggio collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) o [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso di monitoraggio collaboratore per la macchina `ContosoVM1`virtuale, tale utente potrà utilizzare e `ContosoVM1`gestire solo gli avvisi generati in.
+Il consumo e la gestione delle istanze di avviso richiedono che l'utente disponga dei ruoli RBAC predefiniti di [monitoraggio collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) o [lettore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulari a livello di risorsa. Se, ad esempio, un utente dispone solo dell'accesso di monitoraggio collaboratore per la macchina virtuale `ContosoVM1` , tale utente potrà utilizzare e gestire solo gli avvisi generati in `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gestire le istanze di avviso a livello di codice
 

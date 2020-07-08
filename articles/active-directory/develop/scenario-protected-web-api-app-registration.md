@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868836"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protetta: registrazione dell'app
@@ -56,7 +55,7 @@ Altre impostazioni specifiche delle API Web sono l'API esposta e gli ambiti espo
 
 ### <a name="application-id-uri-and-scopes"></a>URI e ambiti dell'ID applicazione
 
-Gli ambiti in genere hanno `resourceURI/scopeName`il formato. Per Microsoft Graph, gli ambiti dispongono di tasti di scelta rapida. Ad esempio, `User.Read` è un tasto di `https://graph.microsoft.com/user.read`scelta rapida per.
+Gli ambiti in genere hanno il formato `resourceURI/scopeName` . Per Microsoft Graph, gli ambiti dispongono di tasti di scelta rapida. Ad esempio, `User.Read` è un tasto di scelta rapida per `https://graph.microsoft.com/user.read` .
 
 Durante la registrazione dell'app, è necessario definire i parametri seguenti:
 
@@ -64,7 +63,7 @@ Durante la registrazione dell'app, è necessario definire i parametri seguenti:
 - Uno o più ambiti
 - Uno o più ruoli dell'app
 
-Per impostazione predefinita, il portale di registrazione delle applicazioni consiglia di usare l'URI `api://{clientId}`della risorsa. Questo URI è univoco ma non leggibile. Se si modifica l'URI, verificare che il nuovo valore sia univoco.
+Per impostazione predefinita, il portale di registrazione delle applicazioni consiglia di usare l'URI della risorsa `api://{clientId}` . Questo URI è univoco ma non leggibile. Se si modifica l'URI, verificare che il nuovo valore sia univoco.
 
 Per le applicazioni client, gli ambiti vengono visualizzati come autorizzazioni *delegate* e i ruoli app vengono visualizzati come *autorizzazioni dell'applicazione* per l'API Web.
 
@@ -77,7 +76,7 @@ Gli ambiti vengono visualizzati anche nella finestra di consenso presentata agli
 
 1. Selezionare **esporre un'API** nella registrazione dell'applicazione.
 1. Selezionare **Aggiungi un ambito**.
-1. Se richiesto, accettare l'URI dell'ID applicazione proposto`api://{clientId}`() selezionando **Salva e continua**.
+1. Se richiesto, accettare l'URI dell'ID applicazione proposto ( `api://{clientId}` ) selezionando **Salva e continua**.
 1. Specificare i valori seguenti:
     - Selezionare **nome ambito** e immettere **access_as_user**.
     - Selezionare **chi può** dare il consenso e assicurarsi che **gli amministratori e gli utenti** siano selezionati.
@@ -106,7 +105,7 @@ Per esporre le autorizzazioni dell'applicazione, è necessario modificare il man
 1. Assicurarsi `displayName` che `value` non contengano spazi.
 1. Salvare il manifesto.
 
-Nell'esempio seguente viene illustrato il contenuto `appRoles`di, in cui il `id` valore di può essere un GUID univoco.
+Nell'esempio seguente viene illustrato il contenuto di `appRoles` , in cui il valore di `id` può essere un GUID univoco.
 
 ```json
 "appRoles": [
@@ -141,11 +140,11 @@ Per aggiungere questa maggiore sicurezza:
 
    > [!IMPORTANT]
    >
-   > Se si imposta **assegnazione utente obbligatoria?** su **Sì**, Azure ad controlla le assegnazioni di ruolo dell'app di un client quando richiede un token di accesso all'API Web. Se il client non è assegnato ad alcun ruolo dell'app, Azure AD restituirà il messaggio di errore "invalid_client: \<AADSTS501051:\> il nome dell'applicazione dell'applicazione non è \<assegnato a\>un ruolo per l'API Web".
+   > Se si imposta **assegnazione utente obbligatoria?** su **Sì**, Azure ad controlla le assegnazioni di ruolo dell'app di un client quando richiede un token di accesso all'API Web. Se il client non è assegnato ad alcun ruolo app, Azure AD restituirà il messaggio di errore "invalid_client: AADSTS501051: l'applicazione \<application name\> non è assegnata a un ruolo per \<web API\> ".
    >
    > Se si mantiene l' **assegnazione utente obbligatoria?** impostare su **No**, Azure ad non verificherà le assegnazioni di ruolo dell'app quando un client richiede un token di accesso per l'API Web. Qualsiasi client daemon, ovvero qualsiasi client che usa il flusso di credenziali client, può ottenere un token di accesso per l'API semplicemente specificandone i destinatari. Qualsiasi applicazione può accedere all'API senza dover richiedere le autorizzazioni.
    >
-   > Tuttavia, come illustrato nella sezione precedente, l'API Web può sempre verificare che l'applicazione disponga del ruolo corretto, che è autorizzato dall'amministratore del tenant. L'API esegue questa verifica convalidando che il token di accesso disponga di un'attestazione Roles e che il valore di questa attestazione sia corretto. Nell'esempio JSON precedente, il valore è `access_as_application`.
+   > Tuttavia, come illustrato nella sezione precedente, l'API Web può sempre verificare che l'applicazione disponga del ruolo corretto, che è autorizzato dall'amministratore del tenant. L'API esegue questa verifica convalidando che il token di accesso disponga di un'attestazione Roles e che il valore di questa attestazione sia corretto. Nell'esempio JSON precedente, il valore è `access_as_application` .
 
 1. Selezionare **Salva**.
 

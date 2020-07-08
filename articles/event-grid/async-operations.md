@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: spelluru
 ms.openlocfilehash: fb3479271733ee218da8a842956f3a8996e07f61
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892017"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Tenere traccia delle operazioni asincrone

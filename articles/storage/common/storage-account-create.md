@@ -10,10 +10,9 @@ ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82853492"
 ---
 # <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
@@ -30,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Nessuno.
+No.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -59,7 +58,7 @@ Azure Cloud Shell è una shell Bash gratuita che è possibile eseguire direttame
 
 Il pulsante avvia una shell interattiva che è possibile usare per eseguire la procedura descritta in questo articolo:
 
-[![Screenshot che mostra la finestra Cloud Shell nel portale](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+[![Screenshot che mostra la finestra di Cloud Shell nel portale](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Installare l'interfaccia della riga di comando in locale
 
@@ -67,7 +66,7 @@ Il pulsante avvia una shell interattiva che è possibile usare per eseguire la p
 
 # <a name="template"></a>[Modello](#tab/template)
 
-Nessuno.
+No.
 
 ---
 
@@ -153,7 +152,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 |Archiviazione con ridondanza della zona geografica (GZRS)    |Standard_GZRS         |
-|Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS)    |Standard_RAGZRS         |
+|Archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -196,7 +195,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 |Archiviazione con ridondanza della zona geografica (GZRS)    |Standard_GZRS         |
-|Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS)    |Standard_RAGZRS         |
+|Archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[Modello](#tab/template)
 
@@ -220,7 +219,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 ```
 
 > [!NOTE]
-> Questo modello viene utilizzato solo come esempio. Sono presenti molte impostazioni dell'account di archiviazione che non sono configurate come parte di questo modello. Se ad esempio si desidera utilizzare [Azure Data Lake storage](https://azure.microsoft.com/services/storage/data-lake-storage/), è necessario modificare il modello impostando la `isHnsEnabledad` proprietà dell' `StorageAccountPropertiesCreateParameters` oggetto su. `true` 
+> Questo modello viene utilizzato solo come esempio. Sono presenti molte impostazioni dell'account di archiviazione che non sono configurate come parte di questo modello. Se ad esempio si desidera utilizzare [Azure Data Lake storage](https://azure.microsoft.com/services/storage/data-lake-storage/), è necessario modificare il modello impostando la `isHnsEnabledad` proprietà dell' `StorageAccountPropertiesCreateParameters` oggetto su `true` . 
 
 Per informazioni su come modificare il modello o crearne di nuovi, vedere:
 

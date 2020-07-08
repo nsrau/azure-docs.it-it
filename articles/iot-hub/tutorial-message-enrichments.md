@@ -9,10 +9,9 @@ ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 78aee7829e58feede3360f30f10260903713c52f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770072"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Esercitazione: usare gli arricchimenti di messaggi dell'hub Azure.
@@ -51,7 +50,7 @@ Ecco le attività da eseguire per completare questa esercitazione:
 Scaricare gli [esempi](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) relativi a C# da GitHub e decomprimerli. Questo repository contiene diversi modelli di applicazioni, script e Gestione risorse. Quelli da usare per questa esercitazione sono i seguenti:
 
 * Per il metodo manuale è disponibile uno script dell'interfaccia della riga di comando che viene usato per creare le risorse. Questo script è in/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli. azcli. Questo script crea le risorse e configura il routing dei messaggi. Dopo aver eseguito lo script, creare manualmente gli arricchimenti dei messaggi usando il [portale di Azure](https://portal.azure.com).
-* Per il metodo automatico è disponibile un modello di Azure Resource Manager. Il modello è in/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments. JSON. Questo modello consente di creare le risorse, configurare il routing dei messaggi e quindi configurare gli arricchimenti dei messaggi.
+* Per il metodo automatico è disponibile un modello di Azure Resource Manager. Il modello è in/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json. Questo modello consente di creare le risorse, configurare il routing dei messaggi e quindi configurare gli arricchimenti dei messaggi.
 * La terza applicazione usata è l'app per la simulazione dei dispositivi, che consente di inviare messaggi all'hub Internet e testare gli arricchimenti dei messaggi.
 
 ## <a name="manually-set-up-and-configure-by-using-the-azure-cli"></a>Configurare e configurare manualmente usando l'interfaccia della riga di comando di Azure
@@ -259,7 +258,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 
 2. Aggiungere questi valori all'elenco per l'endpoint ContosoStorageEndpointEnriched.
 
-   | Chiave | valore | Endpoint (elenco a discesa) |
+   | Chiave | Valore | Endpoint (elenco a discesa) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin. Tags. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -268,7 +267,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
    > [!NOTE]
    > Se il dispositivo non ha un gemello, il valore inserito qui verrà timbrato come stringa per il valore negli arricchimenti dei messaggi. Per visualizzare le informazioni sul dispositivo gemello, passare all'hub nel portale e selezionare **dispositivi**Internet. Selezionare il dispositivo e quindi selezionare **dispositivo gemello** nella parte superiore della pagina.
    >
-   > È possibile modificare le informazioni del dispositivo gemello per aggiungere tag, ad esempio location, e impostarlo su un valore specifico. Per altre informazioni, vedere [comprendere e usare dispositivi gemelli nell'hub](iot-hub-devguide-device-twins.md).
+   > È possibile modificare le informazioni del dispositivo gemello per aggiungere tag, ad esempio location, e impostarlo su un valore specifico. Per altre informazioni, vedere [Comprendere e usare dispositivi gemelli nell'hub IoT](iot-hub-devguide-device-twins.md).
 
 3. Al termine, il riquadro dovrebbe essere simile all'immagine seguente:
 
@@ -287,7 +286,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 
 1. Nel riquadro **distribuzione personalizzata** selezionare **Compila un modello personalizzato nell'editor**.
 
-1. Nel riquadro **modifica modello** selezionare **Carica file**. Verrà visualizzata la finestra Esplora risorse. Individuare il file **template_messageenrichments. JSON** nel file di repository decompresso in **/IOT-Hub/Tutorials/routing/SimulatedDevice/Resources**. 
+1. Nel riquadro **modifica modello** selezionare **Carica file**. Verrà visualizzata la finestra Esplora risorse. Individuare il **template_messageenrichments.js** nel file del repository decompresso in **/IOT-Hub/Tutorials/routing/SimulatedDevice/Resources**. 
 
    ![Seleziona modello dal computer locale](./media/tutorial-message-enrichments/template-select.png)
 
@@ -330,13 +329,13 @@ Per visualizzare gli arricchimenti dei messaggi, selezionare **gruppi di risorse
 
 Ora che gli arricchimenti dei messaggi sono configurati per l'endpoint, eseguire l'applicazione del dispositivo simulato per inviare i messaggi all'hub. L'hub è stato configurato con le impostazioni che eseguono le attività seguenti:
 
-* I messaggi indirizzati all'endpoint di archiviazione ContosoStorageEndpointOriginal non verranno arricchiti e verranno archiviati nel contenitore `original`di archiviazione.
+* I messaggi indirizzati all'endpoint di archiviazione ContosoStorageEndpointOriginal non verranno arricchiti e verranno archiviati nel contenitore di archiviazione `original` .
 
-* I messaggi indirizzati all'endpoint di archiviazione ContosoStorageEndpointEnriched verranno arricchiti e archiviati nel contenitore `enriched`di archiviazione.
+* I messaggi indirizzati all'endpoint di archiviazione ContosoStorageEndpointEnriched verranno arricchiti e archiviati nel contenitore di archiviazione `enriched` .
 
 L'applicazione del dispositivo simulato è una delle applicazioni nel download decompresso. L'applicazione invia messaggi per ognuno dei diversi metodi di routing del messaggio nell' [esercitazione di routing](tutorial-routing.md), che include archiviazione di Azure.
 
-Fare doppio clic sul file di soluzione **IoT_SimulatedDevice. sln** per aprire il codice in Visual Studio, quindi aprire **Program.cs**. Sostituire il nome dell'hub Internet per il `{your hub name}`marcatore. Il formato del nome host dell'hub Internet è **{nome dell'hub}. Azure-Devices.NET**. Per questa esercitazione, il nome host dell'hub è ContosoTestHubMsgEn.azure-devices.net. Sostituire quindi la chiave del dispositivo salvata in precedenza quando è stato eseguito lo script per creare le risorse per `{your device key}`il marcatore.
+Fare doppio clic sul file di soluzione **IoT_SimulatedDevice. sln** per aprire il codice in Visual Studio, quindi aprire **Program.cs**. Sostituire il nome dell'hub Internet per il marcatore `{your hub name}` . Il formato del nome host dell'hub Internet è **{nome dell'hub}. Azure-Devices.NET**. Per questa esercitazione, il nome host dell'hub è ContosoTestHubMsgEn.azure-devices.net. Sostituire quindi la chiave del dispositivo salvata in precedenza quando è stato eseguito lo script per creare le risorse per il marcatore `{your device key}` .
 
 Se non si ha la chiave del dispositivo, è possibile recuperarla dal portale. Dopo aver eseguito l'accesso, passare a **gruppi di risorse**, selezionare il gruppo di risorse e quindi selezionare l'hub. Esaminare i **dispositivi** per il dispositivo di test e selezionare il dispositivo. Selezionare l'icona di copia accanto a **chiave primaria** per copiarla negli Appunti.
 
@@ -352,7 +351,7 @@ Se non si ha la chiave del dispositivo, è possibile recuperarla dal portale. Do
 
 Eseguire l'applicazione console per alcuni minuti. I messaggi inviati vengono visualizzati nella schermata della console dell'applicazione.
 
-L'app invia un nuovo messaggio da dispositivo a cloud all'hub IoT ogni secondo. Il messaggio contiene un oggetto serializzato JSON con l'ID del dispositivo, la temperatura, l'umidità e il livello del messaggio, che per impostazione predefinita è `normal`. Assegna in modo casuale un livello di `critical` o `storage`, che fa sì che il messaggio venga indirizzato all'account di archiviazione o all'endpoint predefinito. I messaggi inviati al contenitore **arricchito** nell'account di archiviazione verranno arricchiti.
+L'app invia un nuovo messaggio da dispositivo a cloud all'hub IoT ogni secondo. Il messaggio contiene un oggetto serializzato JSON con l'ID del dispositivo, la temperatura, l'umidità e il livello del messaggio, che per impostazione predefinita è `normal`. Assegna in modo casuale un livello di `critical` o `storage` , che fa sì che il messaggio venga indirizzato all'account di archiviazione o all'endpoint predefinito. I messaggi inviati al contenitore **arricchito** nell'account di archiviazione verranno arricchiti.
 
 Dopo l'invio di diversi messaggi di archiviazione, visualizzare i dati.
 
@@ -380,7 +379,7 @@ Ecco un messaggio non arricchito. Si noti che il "mio hub cose", "devicelocation
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per rimuovere tutte le risorse create in questa esercitazione, eliminare il gruppo di risorse. Questa azione elimina tutte le risorse contenute all'interno del gruppo. In questo caso, verranno rimossi l'hub IoT, l'account di archiviazione e il gruppo di risorse stesso.
 

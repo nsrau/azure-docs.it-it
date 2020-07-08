@@ -14,17 +14,16 @@ ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
 ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758065"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
 
 ## <a name="integrated-azure-security-solutions"></a>Soluzioni di sicurezza di Azure integrate
-Il Centro sicurezza semplifica l'abilitazione di soluzioni di sicurezza integrate in Azure. I vantaggi includono:
+Il Centro sicurezza semplifica l'abilitazione di soluzioni di sicurezza integrate in Azure. Questa caratteristica offre i vantaggi seguenti:
 
 - **Distribuzione semplificata**: il Centro sicurezza offre provisioning semplificato delle soluzioni dei partner integrate. Per soluzioni come antimalware e valutazione della vulnerabilità, il Centro sicurezza può effettuare il provisioning dell'agente nelle macchine virtuali. Per le appliance firewall, il Centro sicurezza può gestire la maggior parte delle configurazioni di rete necessarie.
 - **Rilevamenti integrati**: gli eventi di sicurezza delle soluzioni dei partner vengono raccolti, aggregati e visualizzati automaticamente come parte degli avvisi e degli eventi imprevisti del Centro sicurezza. Questi eventi vengono anche combinati con i rilevamenti di altre origini per offrire funzionalità avanzate di rilevamento delle minacce.
@@ -40,9 +39,9 @@ Per ulteriori informazioni sull'integrazione degli strumenti di analisi delle vu
 - [Scanner di vulnerabilità integrato per le macchine virtuali](built-in-vulnerability-assessment.md).
 - [Distribuzione di una soluzione di analisi delle vulnerabilità dei partner](partner-vulnerability-assessment.md).
 
-Il Centro sicurezza offre anche l'analisi delle vulnerabilità per il:
+Il Centro sicurezza offre anche l'analisi delle vulnerabilità per:
 
-* Database SQL: vedere [esaminare i report di valutazione della vulnerabilità nel dashboard di valutazione della vulnerabilità](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
+* Database SQL: vedere [Esplorare i report di valutazione della vulnerabilità nel dashboard di valutazione della vulnerabilità](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
 * Immagini del Container Registry di Azure: vedere [integrazione di azure container Registry con il Centro sicurezza (anteprima)](azure-container-registry-integration.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Modalità di integrazione delle soluzioni di sicurezza

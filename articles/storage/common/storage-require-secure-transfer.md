@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870523"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Richiedi trasferimento sicuro per garantire connessioni sicure
@@ -125,4 +124,4 @@ az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Raccomandazioni sulla sicurezza per l'archiviazione BLOB](../blobs/security-recommendations.md)
+[Raccomandazioni sulla sicurezza per archiviazione BLOB](../blobs/security-recommendations.md)

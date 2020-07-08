@@ -12,19 +12,18 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868989"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App daemon che chiama le API Web-Acquisisci un token
 
-Dopo aver creato un'applicazione client riservata, è possibile acquisire un token per l'app chiamando `AcquireTokenForClient`, passando l'ambito ed eventualmente forzando un aggiornamento del token.
+Dopo aver creato un'applicazione client riservata, è possibile acquisire un token per l'app chiamando `AcquireTokenForClient` , passando l'ambito ed eventualmente forzando un aggiornamento del token.
 
 ## <a name="scopes-to-request"></a>Ambiti da richiedere
 
-L'ambito da richiedere per un flusso di credenziali client è il nome della risorsa seguita da `/.default`. Questa notazione indica Azure Active Directory (Azure AD) di utilizzare le *autorizzazioni a livello di applicazione* dichiarate in modo statico durante la registrazione dell'applicazione. Inoltre, queste autorizzazioni API devono essere concesse da un amministratore tenant.
+L'ambito da richiedere per un flusso di credenziali client è il nome della risorsa seguita da `/.default` . Questa notazione indica Azure Active Directory (Azure AD) di utilizzare le *autorizzazioni a livello di applicazione* dichiarate in modo statico durante la registrazione dell'applicazione. Inoltre, queste autorizzazioni API devono essere concesse da un amministratore tenant.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -53,11 +52,11 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ### <a name="azure-ad-v10-resources"></a>Risorse Azure AD (v 1.0)
 
-L'ambito usato per le credenziali client deve essere sempre l'ID della risorsa `/.default`seguito da.
+L'ambito usato per le credenziali client deve essere sempre l'ID della risorsa seguito da `/.default` .
 
 > [!IMPORTANT]
 > Quando MSAL richiede un token di accesso per una risorsa che accetta un token di accesso versione 1,0, Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutti gli elementi prima dell'ultima barra e usandola come identificatore di risorsa.
-> Se, ad esempio, il database SQL di Azure (**https:\//database.Windows.NET**), la risorsa si aspetta un pubblico che termina con una barra (per il `https://database.windows.net/`database SQL di Azure), è necessario richiedere un `https://database.windows.net//.default`ambito. Prendere nota della barra doppia. Vedere anche problema MSAL.NET [#747: la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Se, ad esempio, il database SQL di Azure (**https: \/ /database.Windows.NET**), la risorsa si aspetta un pubblico che termina con una barra (per il database SQL di Azure `https://database.windows.net/` ), è necessario richiedere un ambito `https://database.windows.net//.default` . Prendere nota della barra doppia. Vedere anche problema MSAL.NET [#747: la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
@@ -202,13 +201,13 @@ Per altre informazioni, vedere la documentazione del protocollo: [Microsoft Iden
 
 ## <a name="application-token-cache"></a>Cache del token dell'applicazione
 
-In MSAL.NET `AcquireTokenForClient` utilizza la cache del token dell'applicazione. Tutti gli altri metodi AcquireToken*XX* utilizzano la cache dei token utente. Non chiamare `AcquireTokenSilent` prima di chiamare `AcquireTokenForClient`, perché `AcquireTokenSilent` usa la cache del token *utente* . `AcquireTokenForClient`Controlla la cache del token *dell'applicazione* e la Aggiorna.
+In MSAL.NET `AcquireTokenForClient` utilizza la cache del token dell'applicazione. Tutti gli altri metodi AcquireToken*XX* utilizzano la cache dei token utente. Non chiamare `AcquireTokenSilent` prima di chiamare `AcquireTokenForClient` , perché `AcquireTokenSilent` Usa la cache del token *utente* . `AcquireTokenForClient`Controlla la cache del token *dell'applicazione* e la Aggiorna.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Si è usato l'ambito Resource/. default?
 
-Se viene restituito un messaggio di errore che informa che è stato utilizzato un ambito non valido, probabilmente non `resource/.default` è stato utilizzato l'ambito.
+Se viene restituito un messaggio di errore che informa che è stato utilizzato un ambito non valido, probabilmente non è stato utilizzato l' `resource/.default` ambito.
 
 ### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Si è omesso di fornire il consenso dell'amministratore? Le app daemon ti servono!
 

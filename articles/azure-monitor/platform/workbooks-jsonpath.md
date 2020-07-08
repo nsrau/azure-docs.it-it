@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892212"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Come usare JSONPath per trasformare i dati JSON nelle cartelle di lavoro
@@ -26,8 +25,8 @@ Utilizzando la trasformazione JSONPath, gli autori di cartelle di lavoro sono in
 
 ## <a name="using-jsonpath"></a>Uso di JSONPath
 
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti *modifica* .
-2. Utilizzare il collegamento *Aggiungi* > *query* per aggiungere un controllo query alla cartella di lavoro.
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce *Modifica* sulla barra degli strumenti.
+2. Utilizzare il collegamento *Aggiungi*  >  *query* per aggiungere un controllo query alla cartella di lavoro.
 3. Selezionare l'origine dati come *JSON*.
 4. Usare l'editor JSON per inserire il frammento di codice JSON seguente
     ```json
@@ -69,13 +68,13 @@ Si supponga che l'oggetto JSON riportato sopra venga considerato come una rappre
 1. Selezionare la scheda *impostazioni risultato* e cambiare il formato del risultato in *JSON Path*.
 2. Applicare le impostazioni del percorso JSON seguenti:
 
-    Tabella percorso JSON: `$.store.books`. Questo campo rappresenta il percorso della radice della tabella. In questo caso, ci occupiamo dell'inventario del libro del negozio. Il percorso della tabella filtra il codice JSON per le informazioni sul libro.
+    Tabella percorso JSON: `$.store.books` . Questo campo rappresenta il percorso della radice della tabella. In questo caso, ci occupiamo dell'inventario del libro del negozio. Il percorso della tabella filtra il codice JSON per le informazioni sul libro.
 
    | ID colonna | Percorso JSON della colonna |
    |:-----------|:-----------------|
    | Titolo      | `$.title`        |
    | Autore     | `$.author`       |
-   | Price      | `$.price`        |
+   | Prezzo      | `$.price`        |
 
     Gli ID di colonna saranno le intestazioni di colonna. I campi dei percorsi JSON della colonna rappresentano il percorso dalla radice della tabella al valore della colonna.
 

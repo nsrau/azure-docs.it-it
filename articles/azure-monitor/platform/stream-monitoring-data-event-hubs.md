@@ -8,10 +8,9 @@ ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82854611"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi
@@ -34,7 +33,7 @@ Le [origini dei dati di monitoraggio per monitoraggio di Azure](data-sources.md)
 
 | Livello | Data | Metodo |
 |:---|:---|:---|
-| [Tenant di Azure](data-sources.md#azure-tenant) | Log di controllo Azure Active Directory | Configurare un'impostazione di diagnostica del tenant nel tenant di AAD. Per informazioni dettagliate, vedere [esercitazione: trasmettere i log Azure Active Directory a un hub eventi di Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) . |
+| [Tenant di Azure](data-sources.md#azure-tenant) | Log di controllo di Azure Active Directory | Configurare un'impostazione di diagnostica del tenant nel tenant di AAD. Per informazioni dettagliate, vedere [esercitazione: trasmettere i log Azure Active Directory a un hub eventi di Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) . |
 | [Sottoscrizione di Azure](data-sources.md#azure-subscription) | Azure Activity Log | Creare un profilo di log per esportare gli eventi del log attività in hub eventi.  Per informazioni dettagliate, vedere [trasmettere i log della piattaforma Azure a hub eventi di Azure](resource-logs-stream-event-hubs.md) . |
 | [Risorse di Azure](data-sources.md#azure-resources) | Metriche della piattaforma<br> Log risorse |Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione di diagnostica delle risorse. Per informazioni dettagliate, vedere [trasmettere i log delle risorse di Azure a un hub eventi](resource-logs-stream-event-hubs.md) . |
 | [Sistema operativo (Guest)](data-sources.md#operating-system-guest) | Macchine virtuali di Azure | Installare l' [estensione diagnostica di Azure](diagnostics-extension-overview.md) in macchine virtuali Windows e Linux in Azure. Per informazioni dettagliate sulle macchine virtuali Windows e l' [uso dell'estensione di diagnostica Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) per i dettagli sulle macchine virtuali Linux, vedere [trasmettere i dati diagnostica di Azure nel percorso critico tramite hub eventi](diagnostics-extension-stream-event-hubs.md) . |

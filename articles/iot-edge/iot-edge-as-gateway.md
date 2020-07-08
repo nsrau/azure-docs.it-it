@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 916eeaa60bc054301af039164ce1c14e77ceb91a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733521"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Come usare un dispositivo Azure IoT Edge come gateway
@@ -64,5 +63,5 @@ Quando si usa un modello di gateway opaco (conversione di protocollo), tutti i d
 Informazioni su come configurare un gateway trasparente:
 
 * [Configurare un dispositivo IoT Edge come gateway trasparente](how-to-create-transparent-gateway.md)
-* [Autenticare un dispositivo downstream con l'hub IoT di Azure](how-to-authenticate-downstream-device.md)
+* [Autenticare un dispositivo downstream sull'hub IoT di Azure](how-to-authenticate-downstream-device.md)
 * [Connettere un dispositivo downstream a un gateway Azure IoT Edge](how-to-connect-downstream-device.md)

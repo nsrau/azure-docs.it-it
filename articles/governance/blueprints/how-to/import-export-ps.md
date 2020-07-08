@@ -4,10 +4,9 @@ description: Informazioni su come usare le definizioni di progetto come codice. 
 ms.date: 05/06/2020
 ms.topic: how-to
 ms.openlocfilehash: 7cc6bc241dc6b7b4baa669e64a0d5e43641a55b8
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864046"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importare ed esportare definizioni di progetto con PowerShell
@@ -40,7 +39,7 @@ Prima di esaminare l'esportazione e l'importazione di progetti, esaminiamo il mo
 > [!IMPORTANT]
 > Se non viene passato alcun valore al parametro **Name** del `Import-AzBlueprintWithArtifact` cmdlet, viene usato il nome della cartella in cui viene archiviata la definizione del progetto.
 
-Insieme alla definizione del progetto, che deve essere denominata `blueprint.json`, sono gli elementi in cui è costituita la definizione del progetto. Ogni artefatto deve trovarsi nella sottocartella `artifacts`denominata.
+Insieme alla definizione del progetto, che deve essere denominata `blueprint.json` , sono gli elementi in cui è costituita la definizione del progetto. Ogni artefatto deve trovarsi nella sottocartella denominata `artifacts` .
 Insieme, la struttura della definizione del progetto come file JSON nelle cartelle dovrebbe essere simile alla seguente:
 
 ```text
@@ -69,7 +68,7 @@ I passaggi per l'esportazione della definizione di progetto sono semplici. L'esp
 - **Versione** (facoltativa)
   - Specifica la versione da restituire se l'oggetto di riferimento del **progetto** contiene riferimenti a più di una versione.
 
-1. Ottenere un riferimento alla definizione del progetto da esportare dalla sottoscrizione rappresentata come `{subId}`:
+1. Ottenere un riferimento alla definizione del progetto da esportare dalla sottoscrizione rappresentata come `{subId}` :
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell

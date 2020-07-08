@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892082"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Come usare i gruppi nelle cartelle di lavoro
@@ -114,21 +113,21 @@ Quando il secondo modello viene caricato nel gruppo, i parametri duplicati verra
 Si consideri il modello di un gruppo che dispone di due parametri nella parte superiore.
 
 - `TimeRange`: parametro di intervallo di tempo.
-- `FilterB`-un parametro di testo. si noti che `Filter` non è simile al modello principale.
+- `FilterB`-un parametro di testo. si noti che non è `Filter` simile al modello principale.
 
 ![Modifica di un elemento di gruppo con il risultato dei parametri Uniti](./media/workbooks-groups/groups-wont-merge-away.png)
 
-Quando il modello item's del gruppo viene caricato, il `TimeRange` parametro viene unito al di fuori del gruppo. La cartella di lavoro avrà quindi il passaggio parametri iniziali `TimeRange` con `Filter`e e il passaggio del parametro del gruppo includerà solo`FilterB`
+Quando il modello item's del gruppo viene caricato, il `TimeRange` parametro viene unito al di fuori del gruppo. La cartella di lavoro avrà quindi il passaggio parametri iniziali con `TimeRange` e e `Filter` il passaggio del parametro del gruppo includerà solo`FilterB`
 
 ![risultato dei parametri che non si unirà](./media/workbooks-groups/groups-wont-merge-away-result.png)
 
-Se il modello caricato contiene `TimeRange` e `Filter` (anziché), `FilterB`la cartella di lavoro risultante avrà un passaggio Parameters e un gruppo con solo il passaggio del testo rimanente.
+Se il modello caricato contiene `TimeRange` e `Filter` (anziché `FilterB` ), la cartella di lavoro risultante avrà un passaggio Parameters e un gruppo con solo il passaggio del testo rimanente.
 
 ## <a name="how-to-split-a-large-template-into-many-templates"></a>Come suddividere un modello di grandi dimensioni in molti modelli
 
 Per migliorare le prestazioni, è opportuno suddividere un modello di grandi dimensioni in più modelli più piccoli che caricano un contenuto Lazy o on demand da parte dell'utente. In questo modo il caricamento iniziale risulta più veloce perché il modello di livello superiore può essere molto più piccolo.
 
-Quando si suddivide un modello in parti, sarà necessario suddividere il modello in molti modelli (modelli secondari) che funzionano singolarmente. Quindi, se il modello di livello superiore ha `TimeRange` un parametro usato da altri passaggi, anche il sottomodello dovrà avere un passaggio Parameters che definisce un parametro con il nome esatto. Questo consente ai sottomodelli di funzionare in modo indipendente e di caricarli all'interno di modelli più grandi nei gruppi.
+Quando si suddivide un modello in parti, sarà necessario suddividere il modello in molti modelli (modelli secondari) che funzionano singolarmente. Quindi, se il modello di livello superiore ha un `TimeRange` parametro usato da altri passaggi, anche il sottomodello dovrà avere un passaggio Parameters che definisce un parametro con il nome esatto. Questo consente ai sottomodelli di funzionare in modo indipendente e di caricarli all'interno di modelli più grandi nei gruppi.
 
 Per trasformare un modello più grande in più modelli secondari:
 

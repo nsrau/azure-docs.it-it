@@ -9,10 +9,9 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: 59541c568c1d5341375236f9f074b7f82e1a6f94
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858746"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteggere un file server usando Azure Site Recovery 
@@ -97,7 +96,7 @@ Se si configura e gestisce il ripristino di emergenza di file server ospitati in
 
 I passaggi seguenti descrivono brevemente come usare Sincronizzazione file:
 
-1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se è stata scelta l'archiviazione con ridondanza geografica per gli account di archiviazione, si ottiene l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, vedere [ripristino di emergenza e failover dell'account di archiviazione](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se è stata scelta l'archiviazione con ridondanza geografica per gli account di archiviazione, si ottiene l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, vedere [Ripristino di emergenza e failover dell'account di archiviazione](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Creare una condivisione file](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Avviare Sincronizzazione file](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) nel file server di Azure.
 4. Creare un gruppo di sincronizzazione. Gli endpoint all'interno di un gruppo di sincronizzazione vengono mantenuti sincronizzati tra loro. Un gruppo di sincronizzazione deve contenere almeno un endpoint cloud, che rappresenta una condivisione file di Azure. Un gruppo di sincronizzazione deve contenere anche un endpoint server, che rappresenta un percorso in un server Windows.

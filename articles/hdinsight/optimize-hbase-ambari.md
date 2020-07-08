@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: a7da6bc23d797e0e89b2338f446fc850b0fd0577
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797162"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Ottimizzare Apache HBase con Apache Ambari in Azure HDInsight
@@ -79,7 +78,7 @@ Maggiori sono le dimensioni del file di area, minore è il numero di suddivision
 
 * La proprietà `hbase.hregion.memstore.flush.size` definisce a quali dimensioni il memstore viene scaricato su disco. Le dimensioni predefinite sono pari a 128 MB.
 
-* Il moltiplicatore di blocco Region HBase è `hbase.hregion.memstore.block.multiplier`definito da. Il valore predefinito è 4. Il valore massimo consentito è 8.
+* Il moltiplicatore di blocco Region HBase è definito da `hbase.hregion.memstore.block.multiplier` . Il valore predefinito è 4. Il valore massimo consentito è 8.
 
 * HBase blocca gli aggiornamenti se il memstore è pari a (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) byte.
 
@@ -102,5 +101,5 @@ L'utilizzo del buffer di allocazione locale del memstore è determinato dalla pr
 * [Gestire i cluster HDInsight con l'interfaccia utente Web Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Ottimizzare i cluster](./hdinsight-changing-configs-via-ambari.md)
-* [Ottimizza Apache Hive](./optimize-hive-ambari.md)
+* [Ottimizzare Apache Hive](./optimize-hive-ambari.md)
 * [Ottimizzare Apache Pig](./optimize-pig-ambari.md)

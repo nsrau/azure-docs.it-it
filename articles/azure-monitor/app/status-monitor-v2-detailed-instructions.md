@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 8f6134e8f8fdb9af3f578afaf0670c32a3896e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81766870"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (denominato in precedenza Status Monitor v2): istruzioni dettagliate
@@ -32,7 +31,7 @@ PowerShell richiede autorizzazioni a livello di amministratore per apportare mod
 - Riferimento: [informazioni sui criteri di esecuzione](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) e [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 ).
-- Comando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
+- Comando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` .
 - Parametro facoltativo:
     - `-Force`. Ignora la richiesta di conferma.
 
@@ -82,7 +81,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
 2. Installare il provider di pacchetti NuGet.
     - Descrizione: è necessario che questo provider interagisca con i repository basati su NuGet come PowerShell Gallery.
     - Riferimento: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
-    - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
+    - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201` .
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
         - `-Force`. Ignora la richiesta di conferma.
@@ -100,7 +99,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
 3. Configurare PowerShell Gallery come repository attendibile.
     - Descrizione: per impostazione predefinita, PowerShell Gallery è un repository non attendibile.
     - Riferimento: [set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
-    - Comando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
+    - Comando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted` .
     - Parametro facoltativo:
         - `-Proxy`. Specifica un server proxy per la richiesta.
 
@@ -117,7 +116,7 @@ Questa procedura consente di preparare il server per scaricare i moduli da Power
 4. Installare la versione più recente di PowerShellGet.
     - Descrizione: questo modulo contiene gli strumenti usati per ottenere altri moduli da PowerShell Gallery. La versione 1.0.0.1 viene fornita con Windows 10 e Windows Server. È richiesta la versione 1.6.0 o successiva. Per determinare quale versione è installata, eseguire il `Get-Command -Module PowerShellGet` comando.
     - Informazioni di riferimento: [installazione di PowerShellGet](/powershell/scripting/gallery/installing-psget).
-    - Comando: `Install-Module -Name PowerShellGet`.
+    - Comando: `Install-Module -Name PowerShellGet` .
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
         - `-Force`. Ignora l'avviso "già installato" e installa la versione più recente.
@@ -141,7 +140,7 @@ Con questa procedura viene scaricato il modulo AZ. ApplicationMonitor da PowerSh
 2. Eseguire PowerShell come amministratore con criteri di esecuzione elevati.
 3. Installare il modulo AZ. ApplicationMonitor.
     - Riferimento: [install-module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
-    - Comando: `Install-Module -Name Az.ApplicationMonitor`.
+    - Comando: `Install-Module -Name Az.ApplicationMonitor` .
     - Parametri facoltativi:
         - `-Proxy`. Specifica un server proxy per la richiesta.
         - `-AllowPrerelease`. Consente l'installazione di versioni alfa e beta.
@@ -200,7 +199,7 @@ Se si sta installando il modulo in un'altra directory, importare manualmente il 
 > Archiviare il contenuto del pacchetto nella directory di runtime prevista e verificare che le autorizzazioni di accesso consentano la lettura, ma non la scrittura.
 
 1. Modificare l'estensione in ". zip" ed estrarre il contenuto del pacchetto nella directory di installazione desiderata.
-2. Trovare il percorso del file AZ. ApplicationMonitor. psd1.
+2. Trovare il percorso del file Az.ApplicationMonitor.psd1.
 3. Eseguire PowerShell come amministratore con criteri di esecuzione elevati.
 4. Caricare il modulo usando il `Import-Module Az.ApplicationMonitor.psd1` comando.
     
@@ -212,7 +211,7 @@ Quando si esegue il monitoraggio di un computer nella Intranet privata, è neces
 I comandi di PowerShell per scaricare e installare AZ. ApplicationMonitor dalla PowerShell Gallery supportano un `-Proxy` parametro.
 Esaminare le istruzioni precedenti quando si scrivono gli script di installazione.
 
-Il Application Insights SDK dovrà inviare i dati di telemetria dell'app a Microsoft. Si consiglia di configurare le impostazioni proxy per l'app nel file Web. config. Per altre informazioni, vedere [domande frequenti su Application Insights: Passthrough del proxy](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
+Il Application Insights SDK dovrà inviare i dati di telemetria dell'app a Microsoft. Si consiglia di configurare le impostazioni proxy per l'app nel file di web.config. Per altre informazioni, vedere [domande frequenti su Application Insights: Passthrough del proxy](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
 
 
 ## <a name="enable-monitoring"></a>Abilitare il monitoraggio

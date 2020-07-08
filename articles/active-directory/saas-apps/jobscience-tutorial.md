@@ -16,10 +16,9 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Esercitazione: Integrazione di Azure Active Directory con Jobscience
@@ -176,7 +175,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     h. Nella casella di testo **Identity Provider Logout URL** (URL disconnessione provider di identità) incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
 
-    i. Fare clic su **Save**.
+    i. Fare clic su **Salva**.
 
 1. Nella sezione **Administer** (Amministra) del riquadro di spostamento sinistro fare clic su **Domain Management** (Gestione dominio) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale) per aprire la pagina **My Domain** (Dominio personale). 
     
@@ -201,7 +200,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente di test di Azure AD
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 ![Creare un utente di Azure AD][100]
 
@@ -251,7 +250,7 @@ Per consentire agli utenti di Azure AD di accedere a Jobscience, è necessario e
    ![Utenti](./media/jobscience-tutorial/ic784369.png "Utenti")
 1. Fare clic su **New User**.
    
-   ![Tutti gli utenti](./media/jobscience-tutorial/ic784370.png "All Users")
+   ![Tutti gli utenti](./media/jobscience-tutorial/ic784370.png "Tutti gli utenti")
 1. Nella finestra di dialogo **Edit user** eseguire la procedura seguente:
    
    ![User Edit](./media/jobscience-tutorial/ic784371.png "User Edit")

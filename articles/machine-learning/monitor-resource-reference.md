@@ -11,10 +11,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
 ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82856027"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Azure Machine Learning
@@ -31,7 +30,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 |:--- |:---|
 | TimeGenerated | Ora di generazione della voce di log |
 | OperationName | Nome dell'operazione associata all'evento del log |
-| Categoria | Nome dell'evento del log, AmlComputeClusterNodeEvent |
+| Category | Nome dell'evento del log, AmlComputeClusterNodeEvent |
 | JobId | ID del processo inviato |
 | ExperimentId | ID dell'esperimento |
 | Experimentname | Nome dell'esperimento |
@@ -60,7 +59,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 |:--- |:--- |
 | TimeGenerated | Ora di generazione della voce di log |
 | OperationName | Nome dell'operazione associata all'evento del log |
-| Categoria | Nome dell'evento del log, AmlComputeClusterNodeEvent |
+| Category | Nome dell'evento del log, AmlComputeClusterNodeEvent |
 | ProvisioningState | Stato del provisioning del cluster |
 | ClusterName | Nome del cluster |
 | ClusterType | Tipo di cluster |
@@ -73,7 +72,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 | MinimumNodeCount | Numero minimo di nodi del cluster |
 | MaximumNodeCount | Numero massimo di nodi del cluster |
 | NodeDeallocationOption | Come deallocare il nodo |
-| Editore | Server di pubblicazione del tipo di cluster |
+| Publisher | Server di pubblicazione del tipo di cluster |
 | Offerta | Offerta con cui viene creato il cluster |
 | Sku | SKU del nodo/VM creato nel cluster |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
@@ -103,13 +102,13 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 |:--- |:--- |
 | TimeGenerated | Ora di generazione della voce di log |
 | OperationName | Nome dell'operazione associata all'evento del log |
-| Categoria | Nome dell'evento del log, AmlComputeClusterNodeEvent |
+| Category | Nome dell'evento del log, AmlComputeClusterNodeEvent |
 | ClusterName | Nome del cluster |
 | NodeId | ID del nodo del cluster creato |
 | VmSize | Dimensioni della macchina virtuale del nodo |
 | VmFamilyName | Famiglia di macchine virtuali a cui appartiene il nodo |
 | VmPriority | Priorità del nodo creato/LowPriority dedicato |
-| Editore | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
+| Publisher | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
 | Offerta | Offerta associata alla creazione della macchina virtuale |
 | Sku | SKU del nodo o della macchina virtuale creata |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
@@ -149,7 +148,7 @@ Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di cal
 | Uscita da Core | Conteggio | Numero di core in uscita. |
 | Uscita da nodi | Conteggio | Numero di nodi in uscita. |
 | Core con precedenza | Conteggio | Numero di core con precedenza. |
-| Nodi con precedenza | Conteggio | Numero di nodi con precedenza. |
+| Nodi interrotti | Conteggio | Numero di nodi con precedenza. |
 | Percentuale di utilizzo della quota | Percentuale | Percentuale di quota utilizzata. |
 | Totale core | Conteggio | Core totali. |
 | Totale nodi | Conteggio | Nodi totali. |
@@ -176,11 +175,11 @@ Di seguito sono riportate le dimensioni che possono essere usate per filtrare le
 | Dimension | Descrizione |
 | ----- | ----- |
 | CreatedTime | |
-| DeviceId | ID del dispositivo (GPU). Disponibile solo per GpuUtilization. |
+| deviceId | ID del dispositivo (GPU). Disponibile solo per GpuUtilization. |
 | NodeId | ID del nodo creato in cui è in esecuzione il processo. |
 | RunId | ID dell'esecuzione/processo. |
 
-**Correre**
+**Esegui**
 
 Informazioni sulle esecuzioni di training.
 
@@ -211,4 +210,4 @@ I valori validi per la dimensione RunType sono i seguenti:
 ## <a name="see-also"></a>Vedere anche
 
 - Per una descrizione del monitoraggio Azure Machine Learning, vedere [Azure Machine Learning di monitoraggio](monitor-azure-machine-learning.md) .
-- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [monitoraggio delle risorse di Azure con](/azure/azure-monitor/insights/monitor-azure-resource) monitoraggio di Azure.
+- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](/azure/azure-monitor/insights/monitor-azure-resource).

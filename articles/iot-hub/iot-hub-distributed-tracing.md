@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732568"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
@@ -181,7 +180,7 @@ Queste istruzioni sono relative alla compilazione dell'esempio in Windows. Per a
 
 Non è **semplice** visualizzare l'anteprima della funzionalità di traccia distribuita senza usare C SDK. Pertanto, questo approccio non è consigliato.
 
-Prima di tutto, è necessario implementare tutte le primitive di protocollo dell'hub Internet nei messaggi seguendo le istruzioni della Guida per sviluppatori [creare e leggere i messaggi dell'hub](iot-hub-devguide-messages-construct.md)Internet. Modificare quindi le proprietà del protocollo nei messaggi MQTT/AMQP da aggiungere `tracestate` come proprietà di **sistema**. ovvero:
+Prima di tutto, è necessario implementare tutte le primitive di protocollo dell'hub Internet nei messaggi seguendo le istruzioni della Guida per sviluppatori [creare e leggere i messaggi dell'hub](iot-hub-devguide-messages-construct.md)Internet. Modificare quindi le proprietà del protocollo nei messaggi MQTT/AMQP da aggiungere `tracestate` come **proprietà di sistema**. ovvero:
 
 * Per MQTT, aggiungere `%24.tracestate=timestamp%3d1539243209` all'argomento del messaggio, dove `1539243209` deve essere sostituito con l'ora di creazione del messaggio nel formato timestamp UNIX. Come esempio, fare riferimento all'implementazione [in C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) .
 * Per AMQP, aggiungere `key("tracestate")` e `value("timestamp=1539243209")` come annotazione del messaggio. Per un'implementazione di riferimento, vedere [qui](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
@@ -204,7 +203,7 @@ Per modificare la percentuale di messaggi da tracciare dal cloud, è necessario 
 
 1. Per **Velocità di campionamento** scegliere un valore compreso tra 0% e 100%.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 1. Attendere alcuni secondi e selezionare **Aggiorna**. In caso di riconoscimento da parte del dispositivo, verrà visualizzata un'icona di sincronizzazione con un segno di spunta.
 
@@ -311,8 +310,8 @@ Dopo l'abilitazione, il supporto della traccia distribuita per l'hub IoT seguir�
 1. Il dispositivo IoT invia il messaggio all'hub IoT.
 1. Il messaggio arriva al gateway dell'hub IoT.
 1. L'hub IoT cerca `tracestate` nelle proprietà dell'applicazione del messaggio e verifica che sia nel formato corretto.
-1. In tal caso, l'hub Internet genera un univoco `trace-id` globale per il messaggio, `span-id` un per il "hop" e li registra nei log di diagnostica di monitoraggio di Azure `DiagnosticIoTHubD2C`durante l'operazione.
-1. Al termine dell'elaborazione del messaggio, l'hub Internet genera `span-id` un altro e lo registra insieme a `trace-id` quello esistente sotto `DiagnosticIoTHubIngress`l'operazione.
+1. In tal caso, l'hub Internet genera un univoco globale `trace-id` per il messaggio, un `span-id` per il "hop" e li registra nei log di diagnostica di monitoraggio di Azure durante l'operazione `DiagnosticIoTHubD2C` .
+1. Al termine dell'elaborazione del messaggio, l'hub Internet genera un altro `span-id` e lo registra insieme a quello esistente `trace-id` sotto l'operazione `DiagnosticIoTHubIngress` .
 1. Se è abilitato il routing del messaggio, l'hub IoT lo scrive nell'endpoint personalizzato e registra un altro `span-id` con lo stesso `trace-id` nella categoria `DiagnosticIoTHubEgress`.
 1. I passaggi sopra descritti vengono ripetuti per ogni messaggio generato.
 

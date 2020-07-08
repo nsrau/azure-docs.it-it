@@ -14,10 +14,9 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82890568"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializzazione della cache dei token in MSAL.NET
@@ -124,7 +123,7 @@ $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\{A
  }
 ```
 
-Un serializzatore basato su file della cache del token di qualità del prodotto per le applicazioni client pubbliche (per le applicazioni desktop eseguite in Windows, Mac e Linux) è disponibile dalla libreria open source [Microsoft. Identity. client. Extensions. MSAL](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) . È possibile includerlo nelle applicazioni dal pacchetto NuGet seguente: [Microsoft. Identity. client. Extensions. MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+Un serializzatore basato su file della cache del token di qualità del prodotto per le applicazioni client pubbliche (per le applicazioni desktop eseguite in Windows, Mac e Linux) è disponibile dalla libreria open source [Microsoft. Identity. client. Extensions. MSAL](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) . È possibile includerla nelle applicazioni dal pacchetto NuGet seguente: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
 #### <a name="dual-token-cache-serialization-msal-unified-cache-and-adal-v3"></a>Serializzazione doppia della cache dei token (cache unificata MSAL e ADAL v3)
 
@@ -278,11 +277,11 @@ In app Web o API Web tenere una cache di token per ogni account.  Per le app Web
 [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web) Library fornisce un pacchetto NuGet di anteprima [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) che contiene la serializzazione della cache dei token:
 
 
-| Metodo di estensione | Spazio dei nomi Microsoft. Identity. Web | Description  |
+| Metodo di estensione | Spazio dei nomi Microsoft. Identity. Web | Descrizione  |
 | ---------------- | --------- | ------------ |
 | `AddInMemoryTokenCaches` | `TokenCacheProviders.InMemory` | Serializzazione della cache del token di memoria. Questa implementazione è ideale negli esempi. È anche utile nelle applicazioni di produzione a condizione che non si ricordi se la cache dei token viene persa quando l'app Web viene riavviata. `AddInMemoryTokenCaches`accetta un parametro facoltativo di tipo `MsalMemoryTokenCacheOptions` che consente di specificare la durata dopo la quale la voce della cache scadrà a meno che non venga usata.
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | La cache del token è associata alla sessione utente. Questa opzione non è ideale se il token ID contiene molte attestazioni perché il cookie diventa troppo grande.
-| `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | La cache dei token è un adapter per l' `IDistributedCache` implementazione di ASP.NET Core, consentendo quindi di scegliere tra una cache di memoria distribuita, una cache Redis, una NCache distribuita o una cache SQL Server. Per informazioni dettagliate sulle `IDistributedCache` implementazioni, vedere https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache.
+| `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | La cache dei token è un adapter per l' `IDistributedCache` implementazione di ASP.NET Core, consentendo quindi di scegliere tra una cache di memoria distribuita, una cache Redis, una NCache distribuita o una cache SQL Server. Per informazioni dettagliate sulle `IDistributedCache` implementazioni, vedere https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache .
 
 Caso semplice con la cache in memoria:
 

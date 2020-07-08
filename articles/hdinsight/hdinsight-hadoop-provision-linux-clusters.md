@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 04/30/2020
 ms.openlocfilehash: 4eaa9c4e3d200eedd57c468639c1af3830911d1d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82889253"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
@@ -26,7 +25,7 @@ Un cluster Hadoop è costituito da alcune macchine virtuali (nodi) che vengono u
 > [!IMPORTANT]  
 > La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si interrompe solo quando questo viene eliminato. La fatturazione avviene con tariffa oraria, perciò si deve sempre eliminare il cluster in uso quando non lo si usa più. Informazioni su come [eliminare un cluster](hdinsight-delete-cluster.md)
 
-Se si usano più cluster, sarà necessario creare una rete virtuale e, se si usa un cluster Spark, sarà anche possibile usare il connettore del warehouse di hive. Per altre informazioni, vedere [pianificare una rete virtuale per Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) e [integrare Apache Spark e Apache hive con il connettore del warehouse di hive](interactive-query/apache-hive-warehouse-connector.md).
+Se si usano più cluster, sarà necessario creare una rete virtuale e, se si usa un cluster Spark, è anche consigliabile usare Hive Warehouse Connector. Per altre informazioni, vedere [Pianificare una rete virtuale per Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) e [Integrare Apache Spark e Apache Hive con Hive Warehouse Connector](interactive-query/apache-hive-warehouse-connector.md).
 
 ## <a name="cluster-setup-methods"></a>Metodi di installazione del cluster
 
@@ -77,7 +76,7 @@ In Azure HDInsight sono attualmente disponibili i tipi di cluster seguenti, ognu
 | Tipo di cluster | Funzionalità |
 | --- | --- |
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |Query batch e analisi dei dati archiviati |
-| [hbase](hbase/apache-hbase-overview.md) |Elaborazione di grandi quantità di dati NoSQL senza schema |
+| [HBase](hbase/apache-hbase-overview.md) |Elaborazione di grandi quantità di dati NoSQL senza schema |
 | [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |Caching in memoria per query Hive interattive e più rapide |
 | [Kafka](kafka/apache-kafka-introduction.md) | Piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. |
 | [ML Services](r-server/r-server-overview.md) |Ampia gamma di statistiche di Big Data, modellazione predittiva e funzionalità di Machine Learning |
@@ -98,13 +97,13 @@ Con i cluster HDInsight è possibile configurare due account utente durante la c
 Il nome utente HTTP presenta le restrizioni seguenti:
 
 * Caratteri speciali consentiti: `_` e`@`
-* Caratteri non consentiti: #;. "\/',:'! *? ${}() [] <>|&--= +% ~ ^ spazio
+* Caratteri non consentiti: #;. "', \/ :'! *? $ () {} [] <>|&--= +% ~ ^ spazio
 * Lunghezza massima: 20
 
 Il nome utente SSH presenta le restrizioni seguenti:
 
-* Caratteri speciali consentiti:`_` e`@`
-* Caratteri non consentiti: #;. "\/',:'! *? ${}() [] <>|&--= +% ~ ^ spazio
+* Caratteri speciali consentiti: `_` e`@`
+* Caratteri non consentiti: #;. "', \/ :'! *? $ () {} [] <>|&--= +% ~ ^ spazio
 * Lunghezza massima: 64
 * Nomi riservati: Hadoop, Users, oozie, hive, mapred, Ambari-QA, Zookeeper, Tez, HDFS, Sqoop, Yarn, hcat, AMS, HBase, Storm, amministratore, amministratore, utente, User1, test, User2, test1, utente3, Admin1, 1, 123, a, ACTUser, ADM, Amministratore2, ASPNET, backup, console, David, Guest, John, proprietario, radice, server, SQL, supporto tecnico, support_388945a0, sys, test2, test3, User4, User5, Spark
 
@@ -186,7 +185,7 @@ Per un esempio dell'uso di due tipi di cluster in una rete virtuale di Azure, ve
 
 ### <a name="disk-encryption-setting"></a>Impostazione crittografia dischi
 
-Per ulteriori informazioni, vedere [crittografia del disco della chiave gestita dal cliente](./disk-encryption.md).
+Per altre informazioni, vedere [Crittografia dischi con chiavi gestite dal cliente](./disk-encryption.md).
 
 ### <a name="kafka-rest-proxy"></a>Proxy REST Kafka
 
@@ -245,7 +244,7 @@ Per scoprire quale valore usare per specificare le dimensioni di macchina virtua
 > [!IMPORTANT]  
 > Se sono necessari più di 32 nodi di lavoro in un cluster, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
-Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md). Per informazioni sui prezzi delle varie dimensioni, vedere [prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
+Per ulteriori informazioni, vedere [dimensioni per le macchine virtuali](../virtual-machines/windows/sizes.md). Per informazioni sui prezzi delle varie dimensioni, vedere [prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ### <a name="add-application"></a>Aggiunta di un'applicazione
 

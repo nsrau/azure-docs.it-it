@@ -7,17 +7,16 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857398"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Scrittura di plug-in per Azure Media Player #
 
 Un plug-in è scritto da JavaScript per estendere o migliorare il lettore. È possibile scrivere plug-in che modificano l'aspetto di Azure Media Player, la funzionalità o anche l'interfaccia it con altri servizi. Questa operazione può essere eseguita in due semplici passaggi:
 
-## <a name="step-1"></a>Passaggio 1 ##
+## <a name="step-1"></a>Step 1 ##
 
 Scrivere il codice JavaScript in una funzione come segue:
 
@@ -33,7 +32,7 @@ Scrivere il codice JavaScript in una funzione come segue:
     }).call(this);
 ```
 
-È possibile scrivere il codice direttamente nella pagina HTML all'interno `<script>` di tag o in un file JavaScript esterno. Se si esegue quest'ultimo, assicurarsi di includere il file JavaScript nel `<head>` della pagina HTML *dopo* lo script amp.
+È possibile scrivere il codice direttamente nella pagina HTML all'interno di `<script>` tag o in un file JavaScript esterno. Se si esegue quest'ultimo, assicurarsi di includere il file JavaScript nel `<head>` della pagina HTML *dopo* lo script amp.
 
 Esempio:
 

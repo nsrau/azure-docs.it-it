@@ -1,15 +1,14 @@
 ---
-title: OpenAPI metadata in Azure Functions
+title: Metadati OpenAPI in funzioni di Azure
 description: Panoramica del supporto OpenAPI in Funzioni di Azure
 author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: cbfd0e36307210851070c22e74acb0a858446ce1
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81866709"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Supporto per metadati OpenAPI 2.0 in Funzioni di Azure (anteprima)
@@ -50,9 +49,9 @@ La tabella seguente include le impostazioni del portale di Azure e i dati corris
 
 |Swagger.json|Interfaccia utente del portale|Function.json|
 |:----|:-----|:-----|
-|[Host](https://swagger.io/specification/#fixed-fields-15)|**Url di** > **panoramica** > delle**impostazioni** > del servizio app per le impostazioni dell'app**per** le funzioni|*Non presente*
-|[Percorsi](https://swagger.io/specification/#paths-object-29)|**Integra** > **metodi HTTP selezionati**|Associazioni: Route
-|[Elemento del percorso](https://swagger.io/specification/#path-item-object-32)|**Integrare il** > **modello di percorso**|Associazioni: Metodi
+|[Host](https://swagger.io/specification/#fixed-fields-15)|**Impostazioni dell'app per le funzioni**  >  Impostazioni del servizio **app**  >  **Panoramica**  >  di **URL** di|*Non presente*
+|[Percorsi](https://swagger.io/specification/#paths-object-29)|**Integra**  >  **Metodi http selezionati**|Associazioni: Route
+|[Elemento del percorso](https://swagger.io/specification/#path-item-object-32)|**Integra**  >  **Modello di route**|Associazioni: Metodi
 |[Sicurezza](https://swagger.io/specification/#security-scheme-object-112)|**Chiavi**|*Non presente*|
 |operationID*|**Route + verbi consentiti**|Route + verbi consentiti|
 
@@ -76,6 +75,6 @@ La tabella seguente include le impostazioni del portale di Azure e i dati corris
 A questo punto, le modifiche apportate al file swagger.json nell'archivio sono ospitate dall'app per le funzioni con l'URL di definizione dell'API e la chiave annotate nel passaggio 1.c.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Introduzione esercitazione](functions-api-definition-getting-started.md). Provare la procedura dettagliata per comprendere il funzionamento di una definizione OpenAPI.
-* [Archivio GitHub di Funzioni di Azure.](https://github.com/Azure/Azure-Functions/) Controllare l'archivio di Funzioni di Azure per inviare commenti e suggerimenti relativi all'anteprima del supporto della definizione dell'API. È anche possibile segnalare un problema di GitHub su eventuali aggiornamenti.
-* [Informazioni di riferimento per gli sviluppatori di Funzioni](functions-reference.md)di Azure. Informazioni sulla codifica delle funzioni e sulla definizione di trigger e associazioni.
+* [Esercitazione introduttiva](functions-api-definition-getting-started.md). Provare la procedura dettagliata per comprendere il funzionamento di una definizione OpenAPI.
+* [Repository GitHub di funzioni di Azure](https://github.com/Azure/Azure-Functions/). Controllare l'archivio di Funzioni di Azure per inviare commenti e suggerimenti relativi all'anteprima del supporto della definizione dell'API. È anche possibile segnalare un problema di GitHub su eventuali aggiornamenti.
+* Informazioni di riferimento per gli [sviluppatori di funzioni di Azure](functions-reference.md). Informazioni sulla codifica delle funzioni e sulla definizione di trigger e associazioni.

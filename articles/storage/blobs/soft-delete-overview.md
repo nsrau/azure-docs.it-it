@@ -10,17 +10,16 @@ ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: dd5d9c721c3e0204a66367b76654f9a917e26ba6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82884631"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Eliminazione temporanea per l'archiviazione BLOB
 
-L'eliminazione temporanea protegge i dati BLOB da modifiche accidentali o erroneamente o eliminati. Quando l'eliminazione temporanea è abilitata per un account di archiviazione, i BLOB, le versioni BLOB (anteprima) e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro il periodo di memorizzazione specificato.
+L'eliminazione temporanea protegge i dati BLOB da modifiche accidentali o erronee o eliminazioni. Quando l'eliminazione temporanea è abilitata per un account di archiviazione, i BLOB, le versioni BLOB (anteprima) e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro il periodo di conservazione specificato.
 
-Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, Microsoft consiglia di attivare l'eliminazione temporanea.
+Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, Microsoft consiglia di abilitare l'eliminazione temporanea.
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -83,7 +82,7 @@ L'eliminazione temporanea non salva i dati in caso di eliminazioni di contenitor
 
 La tabella seguente illustra il comportamento previsto quando l'eliminazione temporanea è abilitata:
 
-| Operazione API REST | Tipo di risorsa | Description | Modifica del comportamento |
+| Operazione API REST | Tipo di risorsa | Descrizione | Modifica del comportamento |
 |--------------------|---------------|-------------|--------------------|
 | [Eliminazione](/rest/api/storagerp/StorageAccounts/Delete) | Account | Elimina l'account di archiviazione, inclusi tutti i contenitori e i BLOB contenuti al suo interno.                           | Nessuna modifica. I contenitori e i BLOB contenuti nell'account eliminato non sono recuperabili. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contenitore | Elimina il contenitore, inclusi tutti i BLOB contenuti al suo interno. | Nessuna modifica. I BLOB contenuti nell'account eliminato non sono recuperabili. |
@@ -91,10 +90,10 @@ La tabella seguente illustra il comportamento previsto quando l'eliminazione tem
 | [Delete Blob](/rest/api/storageservices/delete-blob) | BLOB in blocchi, di Accodamento e di pagine | Contrassegna un BLOB o uno snapshot di BLOB per l'eliminazione. Il BLOB o lo snapshot verrà eliminato in seguito durante la Garbage Collection | Se usata per eliminare uno snapshot di BLOB, tale snapshot viene contrassegnato come eliminato temporaneamente. Se usata per eliminare un BLOB, tale BLOB viene contrassegnato come eliminato temporaneamente. |
 | [Copy Blob](/rest/api/storageservices/copy-blob) | BLOB in blocchi, di Accodamento e di pagine | Copia un BLOB di origine in un BLOB di destinazione nello stesso account di archiviazione o in un altro account di archiviazione. | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza solo se è stato sostituito da un BLOB dello stesso tipo (blocco, Accodamento o pagina). Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
 | [Put Block](/rest/api/storageservices/put-block) | BLOB in blocchi | Crea un nuovo blocco di cui eseguire il commit come parte di un BLOB in blocchi. | Se utilizzato per eseguire il commit di un blocco in un BLOB attivo, non viene apportata alcuna modifica. In caso di commit di un blocco in un BLOB eliminato temporaneamente, viene creato un nuovo BLOB e generato automaticamente uno snapshot per acquisire lo stato del BLOB eliminato temporaneamente. |
-| [Elenco Put Block](/rest/api/storageservices/put-block-list) | BLOB in blocchi | Esegue il commit di un BLOB specificando il set di ID dei blocchi che compongono il BLOB in blocchi. | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza se e solo se si tratta di un BLOB in blocchi. Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
+| [Put Block List](/rest/api/storageservices/put-block-list) | BLOB in blocchi | Esegue il commit di un BLOB specificando il set di ID dei blocchi che compongono il BLOB in blocchi. | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza se e solo se si tratta di un BLOB in blocchi. Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
 | [Put Page](/rest/api/storageservices/put-page) | BLOB di pagine | Scrive un intervallo di pagine in un BLOB di pagine. | Nessuna modifica. I dati BLOB di pagine sovrascritti o cancellati con questa operazione non vengono salvati e non sono recuperabili. |
 | [Append Block](/rest/api/storageservices/append-block) | BLOB di accodamento | Scrive un blocco di dati alla fine di un BLOB di accodamento | Nessuna modifica. |
-| [Impostare le proprietà BLOB](/rest/api/storageservices/set-blob-properties) | BLOB in blocchi, di Accodamento e di pagine | Imposta i valori delle proprietà di sistema definite per un BLOB. | Nessuna modifica. Le proprietà del BLOB sovrascritto non sono recuperabili. |
+| [Set Blob Properties](/rest/api/storageservices/set-blob-properties) | BLOB in blocchi, di Accodamento e di pagine | Imposta i valori delle proprietà di sistema definite per un BLOB. | Nessuna modifica. Le proprietà del BLOB sovrascritto non sono recuperabili. |
 | [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | BLOB in blocchi, di Accodamento e di pagine | Imposta i metadati definiti dall'utente per il BLOB specificato come una o più coppie nome-valore. | Nessuna modifica. I metadati del BLOB sovrascritto non sono recuperabili. |
 
 È importante notare che la chiamata di **Put Page** per sovrascrivere o cancellare gli intervalli di un BLOB di pagine non genererà automaticamente snapshot. I dischi delle macchine virtuali sono supportati da BLOB di pagine e usano la **pagina put** per scrivere i dati.
