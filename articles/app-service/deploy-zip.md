@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 716f6813e37aec086a7d496e001fe2ca0f4aab57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32fc57e720f9c23f6ef26f02b2cd4a82c4266984
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945163"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957036"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuire l'app in Servizio app di Azure con un file ZIP o WAR
 
@@ -27,6 +27,9 @@ La distribuzione tramite file ZIP utilizza lo stesso servizio Kudu usato per le 
 Per altre informazioni, vedere [Documentazione Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 La distribuzione del file WAR distribuisce il file [WAR](https://wikipedia.org/wiki/WAR_(file_format)) in Servizio app di Azure per l'esecuzione dell'app Web Java. Vedere [Distribuire il file WAR](#deploy-war-file).
+
+> [!NOTE]
+> Quando `ZipDeploy` si usa, i file vengono copiati solo se i timestamp non corrispondono a quanto già distribuito. La generazione di un file zip usando un processo di compilazione che memorizza nella cache gli output può comportare distribuzioni più veloci. Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione da un file zip o da un URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -63,9 +66,9 @@ Per altre informazioni, vedere [Documentazione Kudu](https://github.com/projectk
 
 ## <a name="deploy-war-file"></a>Distribuire il file WAR
 
-Per distribuire un file WAR nel servizio app, inviare una richiesta POST a `https://<app-name>.scm.azurewebsites.net/api/wardeploy`. La richiesta POST deve contenere il file WAR nel corpo del messaggio. Le credenziali di distribuzione per l'app vengono fornite nella richiesta usando l'autenticazione di base HTTP.
+Per distribuire un file WAR nel servizio app, inviare una richiesta POST a `https://<app-name>.scm.azurewebsites.net/api/wardeploy` . La richiesta POST deve contenere il file WAR nel corpo del messaggio. Le credenziali di distribuzione per l'app vengono fornite nella richiesta usando l'autenticazione di base HTTP.
 
-Usare `/api/wardeploy` sempre quando si distribuiscono file War. Questa API espanderà il file WAR e lo inserirà nell'unità file condivisa. l'uso di altre API di distribuzione può causare un comportamento incoerente. 
+Usare sempre `/api/wardeploy` quando si distribuiscono file War. Questa API espanderà il file WAR e lo inserirà nell'unità file condivisa. l'uso di altre API di distribuzione può causare un comportamento incoerente. 
 
 Per l'autenticazione HTTP di base sono necessarie le credenziali di distribuzione del servizio app. Per informazioni su come impostare le credenziali di distribuzione, vedere [Impostare e reimpostare le credenziali a livello di utente](deploy-configure-credentials.md#userscope).
 
