@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 2/23/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b8a42723a9b56665160e660c0ea1451253c3d185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a5417d20229356eb2a0574a35b8a5a884e50193
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807629"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code usando Azure Active Directory
 
@@ -37,15 +37,15 @@ Quando un'entità di sicurezza (un utente, un gruppo o un'applicazione) tenta di
 
 Il passaggio di autenticazione richiede che un'applicazione chieda un token di accesso OAuth 2,0 in fase di esecuzione. Se un'applicazione viene eseguita da un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app funzioni di Azure, può usare un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) per accedere a BLOB o code. Per informazioni su come autorizzare le richieste effettuate da un'identità gestita al BLOB o Servizio di accodamento di Azure, vedere [autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md).
 
-Il passaggio di autorizzazione richiede che uno o più ruoli RBAC siano assegnati all'entità di sicurezza. Archiviazione di Azure fornisce ruoli RBAC che includono set comuni di autorizzazioni per i dati di BLOB e di Accodamento. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli RBAC per archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
+Il passaggio di autorizzazione richiede che uno o più ruoli di controllo degli accessi in base al ruolo siano assegnati all'entità di sicurezza. Archiviazione di Azure fornisce ruoli RBAC che includono set comuni di autorizzazioni per i dati di BLOB e di Accodamento. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli RBAC per archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
 
 Le applicazioni native e le applicazioni Web che effettuano richieste al BLOB di Azure o a Servizio di accodamento possono anche autorizzare l'accesso con Azure AD. Per informazioni su come richiedere un token di accesso e usarlo per autorizzare le richieste di dati BLOB o di Accodamento, vedere [autorizzare l'accesso ad archiviazione di Azure con Azure ad da un'applicazione di archiviazione di Azure](storage-auth-aad-app.md).
 
-## <a name="assign-rbac-roles-for-access-rights"></a>Assegnare i ruoli RBAC per i diritti di accesso
+## <a name="assign-rbac-roles-for-access-rights"></a>Assegnare i ruoli di controllo degli accessi in base al ruolo per i diritti di accesso
 
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Archiviazione di Azure definisce un set di ruoli RBAC predefiniti che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati BLOB e di Accodamento. È anche possibile definire ruoli personalizzati per l'accesso ai dati BLOB e di Accodamento.
 
-Quando un ruolo RBAC viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Quando un ruolo di controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza di Azure AD, Azure concede l'accesso a tali risorse per quell'entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="built-in-rbac-roles-for-blobs-and-queues"></a>Ruoli RBAC predefiniti per BLOB e code
 
@@ -63,7 +63,7 @@ Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti per 
 
 Per informazioni dettagliate sulle autorizzazioni necessarie per chiamare operazioni BLOB o Servizio di accodamento specifiche, vedere [autorizzazioni per la chiamata di operazioni sui dati di BLOB e di Accodamento](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
-## <a name="resource-scope"></a>Ambito delle risorse
+## <a name="resource-scope"></a>Ambito risorsa
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 

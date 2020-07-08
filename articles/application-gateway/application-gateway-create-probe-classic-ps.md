@@ -4,15 +4,15 @@ description: Informazioni su come creare un probe personalizzato per il gateway 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312548"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807279"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
 
@@ -24,7 +24,7 @@ ms.locfileid: "81312548"
 Questo articolo illustra come aggiungere un probe personalizzato a un gateway applicazione esistente con PowerShell. I probe personalizzati sono utili per le applicazioni che dispongono di una pagina di controllo dell'integrità specifica o per quelle che non rispondono in modo corretto all'applicazione Web predefinita.
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e classica](../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come [eseguire questa procedura con il modello di Resource Manager](application-gateway-create-probe-ps.md).
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come [eseguire questa procedura con il modello di Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -136,7 +136,7 @@ L'esempio seguente mostra come usare un file di configurazione per impostare il 
 > [!IMPORTANT]
 > L'elemento del protocollo HTTP o HTTPS deve rispettare la distinzione tra maiuscole e minuscole.
 
-Viene aggiunto un nuovo elemento di configurazione \<Probe\> per configurare i probe personalizzati.
+Viene aggiunto un nuovo elemento \<Probe\> di configurazione per configurare Probe personalizzati.
 
 I parametri di configurazione sono:
 
@@ -144,12 +144,12 @@ I parametri di configurazione sono:
 |---|---|
 |**Nome** |Nome di riferimento del probe personalizzato. |
 | **Protocollo** | Protocollo usato. I valori possibili sono HTTP o HTTPS.|
-| **Host** e **Path** | Percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se, ad esempio, si dispone di un sito\/Web http:/contoso.com/, è possibile configurare il probe personalizzato per\/"http:/contoso.com/path/custompath.htm" per verificare che i controlli dei probe abbiano una risposta HTTP corretta.|
-| **Intervallo** | Configura i controlli dell'intervallo di probe, in secondi.|
+| **Host** e **Path** | Percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se, ad esempio, si dispone di un sito Web http: \/ /contoso.com/, è possibile configurare il probe personalizzato per "http: \/ /contoso.com/path/custompath.htm" per verificare che i controlli dei probe abbiano una risposta HTTP corretta.|
+| **Interval** | Configura i controlli dell'intervallo di probe, in secondi.|
 | **Timeout** | Definisce il timeout del probe per un controllo della risposta HTTP.|
 | **UnhealthyThreshold** | Numero di risposte HTTP non riuscite necessario per contrassegnare l'istanza back-end come *non integra*.|
 
-Nella configurazione \<BackendHttpSettings\> viene fatto riferimento al nome del probe per assegnare il pool back-end che userà le impostazioni del probe personalizzato.
+Si fa riferimento al nome del probe nella configurazione \<BackendHttpSettings\> per assegnare il pool back-end che usa le impostazioni di probe personalizzato.
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Aggiungere un probe personalizzato a un gateway applicazione esistente
 

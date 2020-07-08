@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni su come ottenere un certifica
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73957975"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807023"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Usare i certificati con LetsEncrypt.org nel gateway applicazione per i cluster AKS
 
@@ -58,9 +58,9 @@ Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cer
 
     Creare una `ClusterIssuer` risorsa. È richiesto da `cert-manager` per rappresentare l' `Lets Encrypt` autorità di certificazione in cui verranno ottenuti i certificati firmati.
 
-    Utilizzando la `ClusterIssuer` risorsa senza spazio dei nomi, Cert-Manager emetterà certificati che possono essere utilizzati da più spazi dei nomi. `Let’s Encrypt`Usa il protocollo ACME per verificare di avere controllato un determinato nome di dominio e di emettere un certificato. Altre informazioni sulla configurazione `ClusterIssuer` delle proprietà sono disponibili [qui](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`indicherà `cert-manager` a di emettere certificati usando `Lets Encrypt` l'ambiente di gestione temporanea usato per il test (il certificato radice non presente negli archivi di attendibilità del browser/client).
+    Utilizzando la risorsa senza spazio dei nomi `ClusterIssuer` , Cert-Manager emetterà certificati che possono essere utilizzati da più spazi dei nomi. `Let’s Encrypt`Usa il protocollo ACME per verificare di avere controllato un determinato nome di dominio e di emettere un certificato. Altre informazioni sulla configurazione delle proprietà sono disponibili `ClusterIssuer` [qui](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`indicherà `cert-manager` a di emettere certificati usando l' `Lets Encrypt` ambiente di gestione temporanea usato per il test (il certificato radice non presente negli archivi di attendibilità del browser/client).
 
-    Il tipo di richiesta di verifica predefinito nel YAML `http01`seguente è. Altre problematiche sono documentate sui [tipi letsencrypt.org-Challenge](https://letsencrypt.org/docs/challenge-types/)
+    Il tipo di richiesta di verifica predefinito nel YAML seguente è `http01` . Altre problematiche sono documentate sui [tipi letsencrypt.org-Challenge](https://letsencrypt.org/docs/challenge-types/)
 
     > [!IMPORTANT] 
     > Aggiornare `<YOUR.EMAIL@ADDRESS>` in YAML di seguito
@@ -97,8 +97,8 @@ Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cer
 
     Creare una risorsa di ingresso per esporre l' `guestbook` applicazione usando il gateway applicazione con il certificato consente di crittografare.
 
-    Verificare che il gateway applicazione disponga di una configurazione IP front-end pubblica con un nome DNS ( `azure.com` usando il dominio predefinito oppure `Azure DNS Zone` effettuare il provisioning di un servizio e assegnare il proprio dominio personalizzato).
-    Si noti l' `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`annotazione, che indica a Cert-Manager di elaborare la risorsa di ingresso con tag.
+    Verificare che il gateway applicazione disponga di una configurazione IP front-end pubblica con un nome DNS (usando il dominio predefinito oppure effettuare il `azure.com` provisioning di un `Azure DNS Zone` servizio e assegnare il proprio dominio personalizzato).
+    Si noti l'annotazione `certmanager.k8s.io/cluster-issuer: letsencrypt-staging` , che indica a Cert-Manager di elaborare la risorsa di ingresso con tag.
 
     > [!IMPORTANT] 
     > Aggiornare `<PLACEHOLDERS.COM>` in YAML di seguito con il proprio dominio (o il gateway applicazione, ad esempio ' KH-AKS-ingress.westeurope.cloudapp.Azure.com ')
@@ -127,14 +127,14 @@ Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cer
     EOF
     ```
 
-    Dopo alcuni secondi, è possibile accedere al `guestbook` servizio tramite l'URL HTTPS del gateway applicazione usando il certificato di **gestione temporanea** `Lets Encrypt` emesso automaticamente.
-    Il browser potrebbe avvertire l'utente di un'autorità di certificazione non valida. Il certificato di gestione temporanea viene `CN=Fake LE Intermediate X1`emesso da. Ciò indica che il sistema ha funzionato come previsto e che si è pronti per il certificato di produzione.
+    Dopo alcuni secondi, è possibile accedere al `guestbook` servizio tramite l'URL HTTPS del gateway applicazione usando il certificato di **gestione temporanea** emesso automaticamente `Lets Encrypt` .
+    Il browser potrebbe avvertire l'utente di un'autorità di certificazione non valida. Il certificato di gestione temporanea viene emesso da `CN=Fake LE Intermediate X1` . Ciò indica che il sistema ha funzionato come previsto e che si è pronti per il certificato di produzione.
 
 4. Certificato di produzione
 
     Quando il certificato di gestione temporanea è stato configurato correttamente, è possibile passare a un server ACME di produzione:
     1. Sostituire l'annotazione di gestione temporanea nella risorsa in ingresso con:`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Eliminare la gestione temporanea `ClusterIssuer` esistente creata nel passaggio precedente e crearne una nuova sostituendo il server Acme dal ClusterIssuer YAML precedente con`https://acme-v02.api.letsencrypt.org/directory`
+    1. Eliminare la gestione temporanea esistente `ClusterIssuer` creata nel passaggio precedente e crearne una nuova sostituendo il server Acme dal CLUSTERISSUER YAML precedente con`https://acme-v02.api.letsencrypt.org/directory`
 
 5. Scadenza e rinnovo del certificato
 

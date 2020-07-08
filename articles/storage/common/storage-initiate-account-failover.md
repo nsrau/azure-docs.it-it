@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 06/11/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2d07195e28c964a540eafdfba94a958e6c9f6981
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: cbdeb1c55af157a0bf5160d2420974fd014ea3b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807599"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Avviare un failover dell'account di archiviazione
 
@@ -35,7 +35,7 @@ Prima di poter eseguire un failover dell'account nell'account di archiviazione, 
 - Archiviazione con ridondanza geografica (GRS) o archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)
 - Archiviazione con ridondanza della zona geografica (GZRS) o archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS)
 
-Per altre informazioni sulla ridondanza di archiviazione di Azure, vedere [ridondanza di archiviazione di Azure](storage-redundancy.md).
+Per altre informazioni sulla ridondanza di Archiviazione di Azure, vedere [Ridondanza dell'archiviazione](storage-redundancy.md).
 
 ## <a name="initiate-the-failover"></a>Avviare il failover
 
@@ -44,16 +44,16 @@ Per altre informazioni sulla ridondanza di archiviazione di Azure, vedere [ridon
 Per avviare un failover dell'account dal portale di Azure, seguire questa procedura:
 
 1. Passare all'account di archiviazione.
-2. In **Impostazioni** selezionare **Replica geografica**. L'immagine seguente mostra la replica geografica e lo stato del failover di un account di archiviazione.
+1. In **Impostazioni** selezionare **Replica geografica**. L'immagine seguente mostra la replica geografica e lo stato del failover di un account di archiviazione.
 
-    ![Screenshot che mostra la replica geografica e lo stato del failover](media/storage-initiate-account-failover/portal-failover-prepare.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Screenshot che mostra la replica geografica e lo stato del failover":::
 
-3. Verificare che l'account di archiviazione sia configurato per l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura. In caso contrario, selezionare **Configurazione** in **Impostazioni** per aggiornare l'account in modo che sia abilitata la ridondanza geografica. 
-4. La proprietà **Ora ultima sincronizzazione** indica quanto tempo è passato tra la replica primaria e quella secondaria. **Ora ultima sincronizzazione** offre una stima della portata della perdita di dati che si verificherà al termine del failover.
-5. Selezionare **prepara per il failover**.
-6. Rivedere la finestra di conferma. Quando si è pronti, immettere **Sì** per confermare e avviare il failover.
+1. Verificare che l'account di archiviazione sia configurato per l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura. In caso contrario, selezionare **Configurazione** in **Impostazioni** per aggiornare l'account in modo che sia abilitata la ridondanza geografica.
+1. La proprietà **Ora ultima sincronizzazione** indica quanto tempo è passato tra la replica primaria e quella secondaria. **Ora ultima sincronizzazione** offre una stima della portata della perdita di dati che si verificherà al termine del failover. Per altre informazioni sul controllo della proprietà dell' **ora dell'ultima sincronizzazione** , vedere [controllare la proprietà dell'ora dell'ultima sincronizzazione per un account di archiviazione](last-sync-time-get.md).
+1. Selezionare **prepara per il failover**.
+1. Rivedere la finestra di conferma. Quando si è pronti, immettere **Sì** per confermare e avviare il failover.
 
-    ![Screenshot che mostra la finestra di dialogo di conferma per un failover dell'account](media/storage-initiate-account-failover/portal-failover-confirm.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot che mostra la finestra di dialogo di conferma per un failover dell'account":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -62,7 +62,7 @@ La funzionalità di failover degli account è disponibile a livello generale, ma
 1. Disinstallare eventuali installazioni precedenti di Azure PowerShell:
 
     - Rimuovere da Windows eventuali installazioni precedenti di Azure PowerShell usando l'impostazione **App e funzionalità** in **Impostazioni**.
-    - Rimuovere tutti **Azure** i moduli di `%Program Files%\WindowsPowerShell\Modules`Azure da.
+    - Rimuovere tutti i moduli di **Azure** da `%Program Files%\WindowsPowerShell\Modules` .
 
 1. Assicurarsi di avere la versione più recente di PowerShellGet installata. Aprire una finestra di Windows PowerShell ed eseguire i seguenti comandi per installare la versione più recente:
 
@@ -94,7 +94,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 Usare l'interfaccia della riga di comando di Azure per avviare un failover dell'account, usare i comandi seguenti:
 
-```azurecli
+```azurecli-interactive
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
@@ -105,7 +105,7 @@ az storage account failover \ --name accountName
 
 Quando si avvia un failover per l'account di archiviazione, vengono aggiornati i record DNS per l'endpoint secondario in modo che l'endpoint secondario diventi l'endpoint primario. Assicurarsi di aver compreso l'impatto potenziale sull'account di archiviazione prima di avviare un failover.
 
-Per valutare la portata della possibile perdita di dati prima di avviare un failover, controllare la proprietà **Ora ultima sincronizzazione** usando il cmdlet di PowerShell `Get-AzStorageAccount` e includere il parametro `-IncludeGeoReplicationStats`. Controllare quindi la proprietà `GeoReplicationStats` dell'account.
+Per stimare l'entità della probabile perdita di dati prima di avviare un failover, controllare la proprietà **ora ultima sincronizzazione** . Per altre informazioni sul controllo della proprietà dell' **ora dell'ultima sincronizzazione** , vedere [controllare la proprietà dell'ora dell'ultima sincronizzazione per un account di archiviazione](last-sync-time-get.md).
 
 Dopo il failover, il tipo di account di archiviazione viene convertito automaticamente in archiviazione con ridondanza locale nella nuova area primaria. È possibile abilitare nuovamente l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura per l'account. Tenere presente che la conversione da archiviazione con ridondanza locale ad archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura comporta un costo aggiuntivo. Per altre informazioni, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -114,5 +114,6 @@ Dopo avere nuovamente abilitato l'archiviazione con ridondanza geografica per l'
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Ripristino di emergenza e failover dell'account di archiviazione](storage-disaster-recovery-guidance.md)
+- [Controllare la proprietà Last Sync Time per un account di archiviazione](last-sync-time-get.md)
 - [Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata](geo-redundant-design.md)
-- [Esercitazione: creare un'applicazione a disponibilità elevata con archiviazione BLOB](../blobs/storage-create-geo-redundant-storage.md)
+- [Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB](../blobs/storage-create-geo-redundant-storage.md)

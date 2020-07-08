@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni su come distribuire un contro
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: b46c9f8b0cad74f3a4e9be8903270a60993c01f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807153"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Come installare un controller di ingresso del gateway applicazione (AGIC) usando un nuovo gateway applicazione
 
@@ -38,7 +38,7 @@ Il [Azure cloud Shell](https://shell.azure.com/) dispone già di tutti gli strum
 
 ## <a name="create-an-identity"></a>Creare un'identità
 
-Attenersi alla procedura seguente per creare un [oggetto entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)Azure Active Directory (AAD). Registrare i `appId`valori, `password`e, `objectId` che verranno usati nei passaggi seguenti.
+Attenersi alla procedura seguente per creare un [oggetto entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)Azure Active Directory (AAD). Registrare i `appId` valori, `password` e, che `objectId` verranno usati nei passaggi seguenti.
 
 1. Creare un'entità servizio Active Directory ([altre informazioni su RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)):
     ```azurecli
@@ -46,14 +46,14 @@ Attenersi alla procedura seguente per creare un [oggetto entità servizio](https
     appId=$(jq -r ".appId" auth.json)
     password=$(jq -r ".password" auth.json)
     ```
-    I `appId` valori `password` e dell'output JSON verranno usati nei passaggi seguenti
+    I `appId` valori e dell' `password` output JSON verranno usati nei passaggi seguenti
 
 
-1. Usare l' `appId` oggetto dell'output del comando precedente per ottenere la `objectId` della nuova entità servizio:
+1. Usare l'oggetto dell' `appId` output del comando precedente per ottenere la `objectId` della nuova entità servizio:
     ```azurecli
     objectId=$(az ad sp show --id $appId --query "objectId" -o tsv)
     ```
-    L'output di questo comando è `objectId`, che verrà usato nel modello di Azure Resource Manager seguente
+    L'output di questo comando è `objectId` , che verrà usato nel modello di Azure Resource Manager seguente
 
 1. Creare il file dei parametri che verrà usato nella distribuzione del modello di Azure Resource Manager in un secondo momento.
     ```bash
@@ -66,7 +66,7 @@ Attenersi alla procedura seguente per creare un [oggetto entità servizio](https
     }
     EOF
     ```
-    Per distribuire un cluster abilitato per **RBAC** , impostare `aksEnabledRBAC` il campo su`true`
+    Per distribuire un cluster abilitato per **RBAC** , impostare il `aksEnableRBAC` campo su`true`
 
 ## <a name="deploy-components"></a>Distribuisci componenti
 Questo passaggio consente di aggiungere alla sottoscrizione i componenti seguenti:
@@ -82,7 +82,7 @@ Questo passaggio consente di aggiungere alla sottoscrizione i componenti seguent
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/deploy/azuredeploy.json -O template.json
     ```
 
-1. Distribuire il modello di Azure Resource Manager `az cli`usando. Questa operazione può richiedere fino a 5 minuti.
+1. Distribuire il modello di Azure Resource Manager usando `az cli` . Questa operazione può richiedere fino a 5 minuti.
     ```azurecli
     resourceGroupName="MyResourceGroup"
     location="westus2"
@@ -99,7 +99,7 @@ Questo passaggio consente di aggiungere alla sottoscrizione i componenti seguent
             --parameters parameters.json
     ```
 
-1. Al termine della distribuzione, scaricare l'output della distribuzione in un file `deployment-outputs.json`denominato.
+1. Al termine della distribuzione, scaricare l'output della distribuzione in un file denominato `deployment-outputs.json` .
     ```azurecli
     az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
@@ -109,7 +109,7 @@ Questo passaggio consente di aggiungere alla sottoscrizione i componenti seguent
 Con le istruzioni riportate nella sezione precedente, abbiamo creato e configurato un nuovo cluster AKS e un gateway applicazione. A questo punto è possibile distribuire un'app di esempio e un controller di ingresso nella nuova infrastruttura di Kubernetes.
 
 ### <a name="setup-kubernetes-credentials"></a>Configurare le credenziali di Kubernetes
-Per la procedura seguente è necessario configurare il comando [kubectl](https://kubectl.docs.kubernetes.io/) , che verrà usato per connettersi al nuovo cluster Kubernetes. [Cloud Shell](https://shell.azure.com/) è `kubectl` già installato. Per ottenere le `az` credenziali per Kubernetes, si userà l'interfaccia della riga di comando.
+Per la procedura seguente è necessario configurare il comando [kubectl](https://kubectl.docs.kubernetes.io/) , che verrà usato per connettersi al nuovo cluster Kubernetes. [Cloud Shell](https://shell.azure.com/) è `kubectl` già installato. `az`Per ottenere le credenziali per Kubernetes, si userà l'interfaccia della riga di comando.
 
 Ottenere le credenziali per il AKS appena distribuito ([altre](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)informazioni):
 ```azurecli
@@ -124,7 +124,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
   Azure Active Directory identità Pod fornisce l'accesso basato su token ai [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
   L' [identità pod di AAD](https://github.com/Azure/aad-pod-identity) aggiungerà i componenti seguenti al cluster Kubernetes:
-   * Kubernetes [CRD](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`,`AzureIdentityBinding`
+   * Kubernetes [CRD](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity` , `AzureAssignedIdentity` ,`AzureIdentityBinding`
    * Componente [Controller identità gestita](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic)
    * Componente [Identità gestita del nodo](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi)
 
@@ -146,7 +146,7 @@ Per installare l'identità pod di AAD nel cluster:
 ### <a name="install-helm"></a>Installare Helm
 [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) è una gestione pacchetti per Kubernetes. Verrà usato per installare il `application-gateway-kubernetes-ingress` pacchetto:
 
-1. Installare [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) ed eseguire il comando seguente per `application-gateway-kubernetes-ingress` aggiungere il pacchetto Helm:
+1. Installare [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) ed eseguire il comando seguente per aggiungere il `application-gateway-kubernetes-ingress` pacchetto Helm:
 
     - *RBAC abilitato* Cluster AKS
 
@@ -237,7 +237,7 @@ Per installare l'identità pod di AAD nel cluster:
         apiServerAddress: <aks-api-server-address>
     ```
 
-1. Modificare il file Helm-config. YAML appena scaricato e compilare le sezioni `appgw` e `armAuth`.
+1. Modificare il file Helm-config. YAML appena scaricato e compilare le sezioni `appgw` e `armAuth` .
     ```bash
     sed -i "s|<subscriptionId>|${subscriptionId}|g" helm-config.yaml
     sed -i "s|<resourceGroupName>|${resourceGroupName}|g" helm-config.yaml
@@ -254,16 +254,16 @@ Per installare l'identità pod di AAD nel cluster:
      - `appgw.subscriptionId`: ID sottoscrizione di Azure in cui risiede il gateway applicazione. Esempio: `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: Nome del gruppo di risorse di Azure in cui è stato creato il gateway applicazione. Esempio: `app-gw-resource-group`
      - `appgw.name`: Nome del gateway applicazione. Esempio: `applicationgatewayd0f0`
-     - `appgw.shared`: Questo flag booleano deve essere impostato come `false`valore predefinito. Impostare su `true` se è necessario un [gateway applicazione condiviso](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+     - `appgw.shared`: Questo flag booleano deve essere impostato come valore predefinito `false` . Impostare su `true` se è necessario un [gateway applicazione condiviso](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
      - `kubernetes.watchNamespace`: Specificare lo spazio dei nomi che AGIC deve controllare. Potrebbe trattarsi di un valore stringa singolo o di un elenco delimitato da virgole di spazi dei nomi.
     - `armAuth.type`: può essere `aadPodIdentity` o`servicePrincipal`
     - `armAuth.identityResourceID`: ID risorsa dell'identità gestita di Azure
     - `armAuth.identityClientId`: ID client dell'identità. Vedere di seguito per altre informazioni sull'identità
-    - `armAuth.secretJSON`: Necessario solo quando si sceglie il tipo di segreto dell'entità `armAuth.type` servizio (quando è `servicePrincipal`stato impostato su) 
+    - `armAuth.secretJSON`: Necessario solo quando si sceglie il tipo di segreto dell'entità servizio (quando `armAuth.type` è stato impostato su `servicePrincipal` ) 
 
 
    > [!NOTE]
-   > E sono valori creati durante i passaggi di distribuzione dei componenti e possono essere ottenuti di nuovo usando il comando seguente: [Deploy Components](ingress-controller-install-new.md#deploy-components) `identityResourceID` `identityClientID`
+   > `identityResourceID`E `identityClientID` sono valori creati durante i passaggi di [distribuzione dei componenti](ingress-controller-install-new.md#deploy-components) e possono essere ottenuti di nuovo usando il comando seguente:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```

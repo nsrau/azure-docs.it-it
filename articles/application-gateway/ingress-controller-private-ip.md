@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni su come usare gli indirizzi I
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 570f28ce559ff1c1180ffaacb781b9120b1890a2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806790"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Usare IP privato per il routing interno per un endpoint in ingresso 
 
@@ -51,7 +51,7 @@ Per i gateway applicazione senza IP privato, le Ingres annotate con `appgw.ingre
 
 
 ## <a name="assign-globally"></a>Assegna a livello globale
-Nel caso in cui il requisito sia quello di limitare l'esposizione di tutti i file in ingresso tramite `appgw.usePrivateIP: true` IP `helm` privato, usare nella configurazione.
+Nel caso in cui il requisito sia quello di limitare l'esposizione di tutti i file in ingresso tramite IP privato, usare `appgw.usePrivateIP: true` nella `helm` configurazione.
 
 ### <a name="usage"></a>Utilizzo
 ```yaml
@@ -63,7 +63,7 @@ appgw:
 ```
 
 In questo modo il controller di ingresso filtra le configurazioni degli indirizzi IP per un indirizzo IP privato quando si configurano i listener front-end nel gateway applicazione.
-AGIC si agita e si arresta `usePrivateIP: true` in modo anomalo se non viene assegnato un indirizzo IP privato.
+AGIC si agita e si arresta in modo anomalo se `usePrivateIP: true` non viene assegnato un indirizzo IP privato.
 
 > [!NOTE]
-> Lo SKU del gateway applicazione V2 richiede un indirizzo IP pubblico. Se è necessario che il gateway applicazione sia privato, alleghi un alla subnet del gateway applicazione per limitare il [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) traffico.
+> Lo SKU del gateway applicazione V2 richiede un indirizzo IP pubblico. Se è necessario che il gateway applicazione sia privato, alleghi un [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) alla subnet del gateway applicazione per limitare il traffico.

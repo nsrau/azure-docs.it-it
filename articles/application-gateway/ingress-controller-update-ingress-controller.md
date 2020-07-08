@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni su come aggiornare il traffic
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 3903ccd1c15765d06cd1794a40567e2c70062538
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f20302a4993da1754255254ce6d69c000750d4ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806770"
 ---
 # <a name="how-to-upgrade-application-gateway-ingress-controller-using-helm"></a>Come aggiornare il controller di ingresso del gateway applicazione usando Helm 
 
@@ -42,7 +42,7 @@ Prima di iniziare la procedura di aggiornamento, verificare di aver aggiunto il 
     helm repo update
     ```
 
-1. Visualizzare le `application-gateway-kubernetes-ingress` versioni disponibili del grafico:
+1. Visualizzare le versioni disponibili del `application-gateway-kubernetes-ingress` grafico:
 
     ``` bash
     helm search -l application-gateway-kubernetes-ingress
@@ -71,7 +71,7 @@ Prima di iniziare la procedura di aggiornamento, verificare di aver aggiunto il 
     odd-billygoat   22              Fri Jun 21 15:56:06 2019        FAILED  ingress-azure-0.7.0-rc1 0.7.0-rc1       default
     ```
 
-    L'installazione del grafico Helm dalla risposta di esempio precedente è `odd-billygoat`denominata. Questo nome verrà usato per il resto dei comandi. Il nome effettivo della distribuzione è probabilmente diverso.
+    L'installazione del grafico Helm dalla risposta di esempio precedente è denominata `odd-billygoat` . Questo nome verrà usato per il resto dei comandi. Il nome effettivo della distribuzione è probabilmente diverso.
 
 1. Aggiornare la distribuzione Helm a una nuova versione:
 
@@ -100,7 +100,7 @@ Se la distribuzione Helm ha esito negativo, è possibile eseguire il rollback a 
     2               Fri Jun 21 15:56:06 2019        FAILED          ingress-azure-xx        xxxx
     ```
 
-    Dall'output di esempio del `helm history` comando è simile all'ultima distribuzione riuscita della revisione was `odd-billygoat``1`
+    Dall'output di esempio del `helm history` comando è simile all'ultima distribuzione riuscita della `odd-billygoat` Revisione was`1`
 
 1. Eseguire il rollback all'ultima revisione riuscita:
 
