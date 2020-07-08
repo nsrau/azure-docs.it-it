@@ -8,11 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710712"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Pianificare la capacità e la scalabilità per il ripristino di emergenza di VMware in Azure
 
@@ -124,7 +123,7 @@ Se si amplia la distribuzione a oltre 200 computer di origine oppure la varianza
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Eseguire la migrazione dei computer per usare il nuovo server di elaborazione
 
-1. Selezionare **Impostazioni** > **Site Recovery Server**. Selezionare il server di configurazione, quindi espandere **Server di elaborazione**.
+1. Selezionare **Impostazioni**  >  **Site Recovery Server**. Selezionare il server di configurazione, quindi espandere **Server di elaborazione**.
 
     ![Screenshot della finestra di dialogo Server di elaborazione](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. Fare clic con il pulsante destro del mouse sul server di elaborazione corrente e scegliere **Passa a**.
@@ -144,12 +143,12 @@ Per informazioni su come aggiungere un server di destinazione master per una mac
 
 Per aggiungere un nuovo server di destinazione master per una macchina virtuale basata su Windows:
 
-1. Passare a insieme di credenziali di **Servizi** > di ripristino**Site Recovery** > **server di configurazione**dell'infrastruttura.
+1. Passare a insieme di credenziali di **servizi di ripristino**  >  **Site Recovery**  >  **server di configurazione**dell'infrastruttura.
 2. Selezionare il server di configurazione necessario e quindi selezionare **Server di destinazione master**.
 
     ![Screenshot che mostra il pulsante Aggiungi Server di destinazione master](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. Scaricare il file di installazione unificata e quindi eseguire il file nella macchina virtuale per configurare il server di destinazione master.
-4. Selezionare **Install master target** > **Next**.
+4. Selezionare **Install master target**  >  **Next**.
 
     ![Screenshot che mostra la selezione dell'opzione Installare la destinazione master](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
 5. Selezionare il percorso di installazione predefinito e quindi selezionare **Installa**.
@@ -163,7 +162,7 @@ Per aggiungere un nuovo server di destinazione master per una macchina virtuale 
     ![Screenshot che mostra dove immettere l'indirizzo IP e la passphrase per il server di configurazione](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Selezionare **Registra**. Al termine della registrazione, selezionare **Fine**.
 
-Al termine della registrazione, il server viene elencato nella portale di Azure nell'insieme di credenziali di **Servizi** > di ripristino**Site Recovery** > **server di configurazione**dell'infrastruttura nei server di destinazione master del server di configurazione.
+Al termine della registrazione, il server viene elencato nella portale di Azure nell'insieme di credenziali di **servizi di ripristino**  >  **Site Recovery**  >  **server di configurazione**dell'infrastruttura nei server di destinazione master del server di configurazione.
 
  > [!NOTE]
  > Scaricare la versione più recente del [file di configurazione unificata del server di destinazione master per Windows](https://aka.ms/latestmobsvc).

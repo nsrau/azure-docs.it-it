@@ -9,20 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5540697e8e64586d73e34d253fb95e549fc0301
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c7970f321f301cc394732b1557d65974e7902574
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609028"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite dei modelli
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando i modelli
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -32,7 +31,7 @@ Questo articolo illustra, tramite il modello di distribuzione di Azure Resource 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con l'uso del modello di distribuzione di Azure Resource Manager, consultare la [sezione Panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Se non si ha familiarità con l'uso del modello di distribuzione di Azure Resource Manager, consultare la [sezione Panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 
 ## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
@@ -66,7 +65,7 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
 
 
 
-3. Al termine, le sezioni seguenti dovrebbero essere aggiunte alla sezione `resource` del modello e dovrebbero avere un aspetto simile a questo:
+3. Al termine, è necessario aggiungere le sezioni seguenti alla `resource` sezione del modello e dovrebbe essere simile alla seguente:
 
    ```JSON
    "resources": [
@@ -165,7 +164,7 @@ Per rimuovere l'identità gestita assegnata dal sistema da una macchina virtuale
 
    Se `apiVersion` è `2017-12-01` e la macchina virtuale ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme alla matrice `identityIds` delle identità gestite assegnate dall'utente.  
 
-L'esempio seguente illustra come si rimuove un'identità gestita assegnata dal sistema da una macchina virtuale senza identità gestite assegnate dall'utente:
+Nell'esempio seguente viene illustrato come rimuovere un'identità gestita assegnata dal sistema da una macchina virtuale senza identità gestite assegnate dall'utente:
 
  ```JSON
  {
@@ -230,7 +229,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    }
    ```
 
-3. Al termine, le sezioni seguenti dovrebbero essere aggiunte alla sezione `resource` del modello e dovrebbero avere un aspetto simile a questo:
+3. Al termine, è necessario aggiungere le sezioni seguenti alla `resource` sezione del modello e dovrebbe essere simile alla seguente:
 
    **Microsoft.Compute/virtualMachines versione API 2018-06-01**    
 
@@ -336,13 +335,13 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
 
    Per rimuovere da una macchina virtuale una singola identità gestita assegnata dall'utente, rimuoverla dal dizionario `useraAssignedIdentities`.
 
-   Se si dispone di un'identità gestita assegnata dal sistema, mantenerla nel valore `type` del valore `identity`.
+   Se si dispone di un'identità gestita assegnata dal sistema, conservarla nel `type` valore `identity` .
 
    **Microsoft.Compute/virtualMachines versione API 2017-12-01**
 
    Per rimuovere una singola identità gestita assegnata dall'utente da una macchina virtuale, rimuoverla dalla matrice `identityIds`.
 
-   Se si dispone di un'identità gestita assegnata dal sistema, mantenerla nel valore `type` del valore `identity`.
+   Se si dispone di un'identità gestita assegnata dal sistema, conservarla nel `type` valore `identity` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

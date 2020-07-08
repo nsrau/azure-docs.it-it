@@ -3,14 +3,13 @@ title: Eseguire il backup di computer Windows usando l'agente MARS
 description: Utilizzare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup dei computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 002f4cd2e0582fb87af622f721f286bd78920350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604846"
 ---
-# <a name="back-up-windows-machines-by-using-the-azure-backup-mars-agent"></a>Eseguire il backup di computer Windows con l'agente MARS di backup di Azure
+# <a name="back-up-windows-server-files-and-folders-to-azure"></a>Eseguire il backup di file e cartelle di Windows Server in Azure
 
 Questo articolo illustra come eseguire il backup di computer Windows usando il servizio [backup di Azure](backup-overview.md) e l'agente di servizi di ripristino di Microsoft Azure (Mars). MARS è anche noto come Azure Backup Agent.
 
@@ -43,7 +42,7 @@ Per creare un criterio di backup:
 1. In **azioni**selezionare **Pianifica backup**.
 
     ![Pianificare un backup di Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
-1. Nella pianificazione guidata backup selezionare **Guida introduttiva** > **Avanti**.
+1. Nella pianificazione guidata backup selezionare **Guida introduttiva**  >  **Avanti**.
 1. In **Seleziona elementi di cui eseguire il backup**selezionare **Aggiungi elementi**.
 
     ![Aggiungere elementi di cui eseguire il backup](./media/backup-azure-manage-mars/select-item-to-backup.png)
@@ -53,7 +52,7 @@ Per creare un criterio di backup:
     ![Seleziona elementi per backup](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. Nella pagina **selezionare gli elementi di cui eseguire il backup** selezionare **Avanti**.
-1. Nella pagina **specificare la pianificazione del backup** specificare quando eseguire i backup giornalieri o settimanali. Fare quindi clic su **Avanti**.
+1. Nella pagina **specificare la pianificazione del backup** specificare quando eseguire i backup giornalieri o settimanali. Selezionare quindi **Avanti**.
 
     * Quando viene creato un backup, viene creato un punto di ripristino.
     * Il numero di punti di ripristino creati nell'ambiente dipende dalla pianificazione del backup.
@@ -65,7 +64,7 @@ Per creare un criterio di backup:
 
         ![Configurare una pianificazione di backup settimanale](./media/backup-configure-vault/week-schedule.png)
 
-1. Nella pagina **Seleziona criteri di conservazione** specificare come archiviare le copie cronologiche dei dati. Fare quindi clic su **Avanti**.
+1. Nella pagina **Seleziona criteri di conservazione** specificare come archiviare le copie cronologiche dei dati. Selezionare quindi **Avanti**.
 
     * Le impostazioni di conservazione specificano i punti di ripristino da archiviare e la durata dell'archiviazione.
     * Per un'impostazione di conservazione giornaliera, si indica che al momento specificato per la conservazione giornaliera, il punto di ripristino più recente verrà mantenuto per il numero di giorni specificato. In alternativa, è possibile specificare un criterio di conservazione mensile per indicare che il punto di ripristino creato il 30 di ogni mese deve essere archiviato per 12 mesi.
@@ -79,7 +78,7 @@ Per creare un criterio di backup:
 
         ![Esempio di criteri di conservazione](./media/backup-configure-vault/retention-example.png)
 
-1. Nella pagina **scegliere il tipo di backup iniziale** decidere se si vuole eseguire il backup iniziale in rete o usare il backup offline. Per eseguire il backup iniziale sulla rete, selezionare **automaticamente in rete** > **Avanti**.
+1. Nella pagina **scegliere il tipo di backup iniziale** decidere se si vuole eseguire il backup iniziale in rete o usare il backup offline. Per eseguire il backup iniziale sulla rete, selezionare **automaticamente in rete**  >  **Avanti**.
 
     Per ulteriori informazioni sul backup offline, vedere [utilizzare Azure Data Box per il backup offline](offline-backup-azure-data-box.md).
 
@@ -151,7 +150,7 @@ Al termine del backup iniziale, lo stato del **processo completato** viene visua
 | Backup-pianificazione-opzione | Durata della conservazione dei dati
 | -- | --
 | Giorno | **Conservazione predefinita**: equivalente alla "conservazione in giorni per i backup giornalieri". <br/><br/> **Eccezione**: se un backup pianificato giornaliero impostato per la conservazione a lungo termine (settimane, mesi o anni) ha esito negativo, un backup su richiesta attivato subito dopo l'errore viene considerato per la conservazione a lungo termine. In caso contrario, il backup pianificato successivo viene considerato per la conservazione a lungo termine.<br/><br/> **Scenario di esempio**: il backup pianificato su giovedì alle 8:00 non è riuscito. Questo backup doveva essere considerato per la conservazione settimanale, mensile o annuale. Quindi, il primo backup su richiesta attivato prima del successivo backup pianificato il venerdì alle 8:00 AM viene automaticamente contrassegnato per la conservazione settimanale, mensile o annuale. Questo backup sostituisce il backup del giovedì 8:00.
-| Week | **Conservazione predefinita**: un giorno. I backup su richiesta che vengono eseguiti per un'origine dati con criteri di backup settimanali vengono eliminati il giorno successivo. Vengono eliminati anche se sono i backup più recenti per l'origine dati. <br/><br/> **Eccezione**: se un backup pianificato settimanale impostato per la conservazione a lungo termine (settimane, mesi o anni) ha esito negativo, un backup su richiesta attivato subito dopo l'errore viene considerato per la conservazione a lungo termine. In caso contrario, il backup pianificato successivo viene considerato per la conservazione a lungo termine. <br/><br/> **Scenario di esempio**: il backup pianificato su giovedì alle 8:00 non è riuscito. Questo backup doveva essere considerato per la conservazione mensile o annuale. Quindi, il primo backup su richiesta che viene attivato prima del successivo backup pianificato giovedì alle 8:00 AM viene automaticamente contrassegnato per la conservazione mensile o annuale. Questo backup sostituisce il backup del giovedì 8:00.
+| Settimana | **Conservazione predefinita**: un giorno. I backup su richiesta che vengono eseguiti per un'origine dati con criteri di backup settimanali vengono eliminati il giorno successivo. Vengono eliminati anche se sono i backup più recenti per l'origine dati. <br/><br/> **Eccezione**: se un backup pianificato settimanale impostato per la conservazione a lungo termine (settimane, mesi o anni) ha esito negativo, un backup su richiesta attivato subito dopo l'errore viene considerato per la conservazione a lungo termine. In caso contrario, il backup pianificato successivo viene considerato per la conservazione a lungo termine. <br/><br/> **Scenario di esempio**: il backup pianificato su giovedì alle 8:00 non è riuscito. Questo backup doveva essere considerato per la conservazione mensile o annuale. Quindi, il primo backup su richiesta che viene attivato prima del successivo backup pianificato giovedì alle 8:00 AM viene automaticamente contrassegnato per la conservazione mensile o annuale. Questo backup sostituisce il backup del giovedì 8:00.
 
 Per altre informazioni, vedere [creare un criterio di backup](#create-a-backup-policy).
 

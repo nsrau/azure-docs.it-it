@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d5e324ea20b2ea82fac5b5132893d3558bd3b41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5afb11a275275ac49178b30929d7896c8a082591
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77425562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609011"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurare le identità gestite per le risorse di Azure in una scala di macchine virtuali di Azure usando un modello
 
@@ -34,9 +33,9 @@ Questo articolo illustra come eseguire le seguenti operazioni di identità gesti
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le seguenti assegnazioni di controllo degli accessi in base al ruolo:
+- Per eseguire le operazioni di gestione in questo articolo, l'account richiede le seguenti assegnazioni di controllo degli accessi in base al ruolo di Azure:
 
     > [!NOTE]
     > Non sono necessarie altre assegnazioni di ruoli della directory di Azure AD.
@@ -72,7 +71,7 @@ In questa sezione si abiliterà e disabiliterà l'identità gestita assegnata da
    ```
 
 > [!NOTE]
-> Se lo si desidera, è possibile eseguire il provisioning delle identità gestite per le risorse di Azure estensione del `extensionProfile` set di scalabilità di macchine virtuali specificando tale estensione nell'elemento del modello. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Per altre informazioni, vedere [eseguire la migrazione dall'estensione della macchina virtuale ad Azure IMDS per l'autenticazione](howto-migrate-vm-extension.md).
+> Se lo si desidera, è possibile eseguire il provisioning delle identità gestite per le risorse di Azure estensione del set di scalabilità di macchine virtuali specificando tale estensione nell' `extensionProfile` elemento del modello. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Per altre informazioni, vedere [eseguire la migrazione dall'estensione della macchina virtuale ad Azure IMDS per l'autenticazione](howto-migrate-vm-extension.md).
 
 
 4. Al termine, le sezioni seguenti dovrebbero essere aggiunte alla sezione risorse del modello e dovrebbero avere un aspetto simile a questo:
@@ -196,7 +195,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
    }
    ```
 > [!NOTE]
-> Se lo si desidera, è possibile eseguire il provisioning delle identità gestite per le risorse di Azure estensione del `extensionProfile` set di scalabilità di macchine virtuali specificando tale estensione nell'elemento del modello. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Per altre informazioni, vedere [eseguire la migrazione dall'estensione della macchina virtuale ad Azure IMDS per l'autenticazione](howto-migrate-vm-extension.md).
+> Se lo si desidera, è possibile eseguire il provisioning delle identità gestite per le risorse di Azure estensione del set di scalabilità di macchine virtuali specificando tale estensione nell' `extensionProfile` elemento del modello. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Per altre informazioni, vedere [eseguire la migrazione dall'estensione della macchina virtuale ad Azure IMDS per l'autenticazione](howto-migrate-vm-extension.md).
 
 3. Al termine il modello dovrebbe essere simile al seguente:
 
@@ -293,7 +292,7 @@ Se è disponibile un set di scalabilità di macchine virtuali per cui non è pi�
 
 2. Caricare il modello in un [editor](#azure-resource-manager-templates) e individuare `Microsoft.Compute/virtualMachineScaleSets`la risorsa interessata`resources` all'interno della sezione. Se si dispone di un set di scalabilità di macchine virtuali con solo un'identità gestita assegnata dall'utente, è possibile disabilitarla modificando il tipo di identità e impostandolo su `None`.
 
-   L'esempio seguente illustra come rimuovere tutte le identità gestite assegnate dall'utente da una macchina virtuale senza identità gestite assegnate dal sistema:
+   Nell'esempio seguente viene illustrato come rimuovere tutte le identità gestite assegnate dall'utente da una macchina virtuale senza identità gestite assegnate dal sistema:
 
    ```json
    {
@@ -310,13 +309,13 @@ Se è disponibile un set di scalabilità di macchine virtuali per cui non è pi�
 
    Per rimuovere una singola identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali, rimuoverla dal dizionario `userAssignedIdentities`.
 
-   Se si dispone di un'identità assegnata dal sistema, mantenerla nel valore `type` del valore `identity`.
+   Se si dispone di un'identità assegnata dal sistema, conservarla nel `type` valore `identity` .
 
    **Microsoft.Compute/virtualMachineScaleSets versione API 2017-12-01**
 
    Per rimuovere una singola identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali, rimuoverla dalla matrice `identityIds`.
 
-   Se si dispone di un'identità gestita assegnata dal sistema, mantenerla nel valore `type` del valore `identity`.
+   Se si dispone di un'identità gestita assegnata dal sistema, conservarla nel `type` valore `identity` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

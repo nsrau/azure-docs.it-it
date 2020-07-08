@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759774"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
@@ -39,7 +38,7 @@ In questa esercitazione si apprenderà:
 
 * Visual Studio.
 
-* Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+* Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 ## <a name="create-a-hub"></a>Creare un hub
 
@@ -83,7 +82,7 @@ Per creare un'app che aggiorna le proprietà segnalate dal modulo gemello, atten
 
 Le funzionalità di identità del modulo e di modulo gemello sono disponibili in anteprima pubblica. È disponibile solo nella versione non definitiva degli SDK per dispositivi. Per installarlo, attenersi alla seguente procedura:
 
-1. In Visual Studio aprire **strumenti** > **gestione** > pacchetti NuGet**Gestisci pacchetti NuGet per la soluzione**.
+1. In Visual Studio aprire **strumenti**  >  **Gestione pacchetti NuGet**  >  **Gestisci pacchetti NuGet per la soluzione**.
 
 1. Selezionare **Sfoglia**, quindi selezionare **Includi versione preliminare**. Cercare *Microsoft. Azure. Devices. client*. Selezionare la versione più recente e installarla.
 
@@ -93,7 +92,7 @@ Le funzionalità di identità del modulo e di modulo gemello sono disponibili in
 
 ### <a name="get-your-module-connection-string"></a>Ottenere la stringa di connessione del modulo
 
-È necessaria la stringa di connessione del modulo per l'app console. A tale scopo, seguire questa procedura:
+È necessaria la stringa di connessione del modulo per l'app console. Attenersi ai passaggi descritti di seguito.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -107,7 +106,7 @@ Le funzionalità di identità del modulo e di modulo gemello sono disponibili in
 
 Per creare l'app, seguire questa procedura:
 
-1. Aggiungere le seguenti `using` istruzioni all'inizio del file **Program.cs** :
+1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
 
   ```csharp
   using Microsoft.Azure.Devices.Client;

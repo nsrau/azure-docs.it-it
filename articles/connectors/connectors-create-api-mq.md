@@ -9,12 +9,11 @@ ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652476"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609504"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Connettersi a un server IBM MQ da App per la logica di Azure
 
@@ -94,7 +93,7 @@ Quando l'app per la logica tenta la connessione al server MQ locale, è possibil
      > [!IMPORTANT]
      > Assicurarsi di installare il certificato nell'archivio **Certificati - Computer locale** > **Autorità di certificazione radice attendibili**.
 
-* Il server MQ richiede di definire la specifica di crittografia da usare per le connessioni SSL. Tuttavia, SsLStream in .NET non consente di specificare l'ordine per le specifiche di crittografia. Per ovviare a questa limitazione, è possibile cambiare la configurazione del server MQ in modo che corrisponda alla prima specifica di crittografia nel gruppo inviato dal connettore nella negoziazione SSL.
+* Il server MQ richiede la definizione della specifica di crittografia che si desidera utilizzare per le connessioni TLS/SSL. Tuttavia, SslStream in .NET non consente di specificare l'ordine per le specifiche di crittografia. Per ovviare a questa limitazione, è possibile modificare la configurazione del server MQ in modo che corrisponda alla prima specifica di crittografia nel gruppo inviato dal connettore nella negoziazione TLS/SSL.
 
   Quando si prova a stabilire la connessione, il server MQ registra un messaggio di evento che indica che la connessione non è riuscita perché l'altra estremità usa una specifica di crittografia non corretta. Il messaggio di evento contiene la specifica di crittografia visualizzata per prima nell'elenco. Aggiornare la specifica di crittografia nella configurazione del canale in modo che corrisponda a quella indicata nel messaggio di evento.
 

@@ -3,12 +3,11 @@ title: Copiare applicazioni e dati nei nodi del pool
 description: Informazioni su come copiare applicazioni e dati nei nodi del pool.
 ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: e21b8551fb62c4335910fd05bb9590eaf6f7e35a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726826"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954894"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copiare applicazioni e dati nei nodi del pool
 
@@ -19,13 +18,13 @@ Azure Batch supporta diversi metodi per ottenere i dati e le applicazioni nei no
 Esempi: 
 - Usare la riga di comando dell'attività iniziale per spostare o installare le applicazioni
 
-- Specificare un elenco di file o contenitori specifici in un account di archiviazione di Azure. Per altre informazioni, vedere [add#resourcefile nella documentazione REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#resourcefile)
+- Specificare un elenco di file o contenitori specifici in un account di archiviazione di Azure. Per altre informazioni, vedere [add#resourcefile nella documentazione REST](/rest/api/batchservice/pool/add#resourcefile)
 
-- Ogni processo in esecuzione nel pool esegue MyApplication.exe che deve prima essere installato con MyApplication.msi. Se si usa questo meccanismo, è necessario impostare la proprietà **Attendere il completamento dell'operazione** dell'attività iniziale su **true**. Per altre informazioni, vedere [add#starttask nella documentazione REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask).
+- Ogni processo in esecuzione nel pool esegue MyApplication.exe che deve prima essere installato con MyApplication.msi. Se si usa questo meccanismo, è necessario impostare la proprietà **Attendere il completamento dell'operazione** dell'attività iniziale su **true**. Per altre informazioni, vedere [add#starttask nella documentazione REST](/rest/api/batchservice/pool/add#starttask).
 
-- **Riferimenti ai pacchetti dell'applicazione** nel pool: per le applicazioni o i dati che devono essere installati in ogni nodo del pool. Sebbene non sia presente alcun comando di installazione associato a un pacchetto dell'applicazione, è possibile usare un'attività iniziale per eseguire qualsiasi comando di installazione. Se l'applicazione non richiede l'installazione o è costituita da un numero elevato di file, è possibile usare questo metodo. I pacchetti dell'applicazione sono particolarmente adatti per un numero elevato di file poiché combinano un numero elevato di riferimenti a file in un payload ridotto. Se si tenta di includere più di 100 file di risorse separati in un'unica attività, il servizio Batch potrebbe riscontrare limitazioni di sistema interne per una singola attività. Inoltre, usare i pacchetti dell'applicazione in presenza di requisiti di controllo delle versioni rigorosi in cui possono essere presenti molte versioni diverse della stessa applicazione ed è necessario effettuare una scelta. Per altre informazioni, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](https://docs.microsoft.com/azure/batch/batch-application-packages).
+- **Riferimenti ai pacchetti dell'applicazione** nel pool: per le applicazioni o i dati che devono essere installati in ogni nodo del pool. Sebbene non sia presente alcun comando di installazione associato a un pacchetto dell'applicazione, è possibile usare un'attività iniziale per eseguire qualsiasi comando di installazione. Se l'applicazione non richiede l'installazione o è costituita da un numero elevato di file, è possibile usare questo metodo. I pacchetti dell'applicazione sono particolarmente adatti per un numero elevato di file poiché combinano un numero elevato di riferimenti a file in un payload ridotto. Se si tenta di includere più di 100 file di risorse separati in un'unica attività, il servizio Batch potrebbe riscontrare limitazioni di sistema interne per una singola attività. Inoltre, usare i pacchetti dell'applicazione in presenza di requisiti di controllo delle versioni rigorosi in cui possono essere presenti molte versioni diverse della stessa applicazione ed è necessario effettuare una scelta. Per altre informazioni, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](./batch-application-packages.md).
 
-- **File di risorse dell'attività di preparazione del processo**: per le applicazioni o i dati che devono essere installati per l'esecuzione del processo, ma non devono essere installati nell'intero pool. Ad esempio, se il pool include molti tipi diversi di processi e solo un tipo di processo richiede l'esecuzione di MyApplication.msi, è opportuno inserire la fase di installazione in un'attività di preparazione del processo. Per altre informazioni sulle attività di preparazione del processo, vedere [Eseguire attività di preparazione e rilascio del processo in nodi di calcolo di Batch](https://azure.microsoft.com/documentation/articles/batch-job-prep-release/).
+- **File di risorse dell'attività di preparazione del processo**: per le applicazioni o i dati che devono essere installati per l'esecuzione del processo, ma non devono essere installati nell'intero pool. Ad esempio, se il pool include molti tipi diversi di processi e solo un tipo di processo richiede l'esecuzione di MyApplication.msi, è opportuno inserire la fase di installazione in un'attività di preparazione del processo. Per altre informazioni sulle attività di preparazione del processo, vedere [Eseguire attività di preparazione e rilascio del processo in nodi di calcolo di Batch](./batch-job-prep-release.md).
 
 - **File di risorse dell'attività**: per applicazioni o dati che riguardano solo una singola attività. Ad esempio: si supponga di avere cinque attività, ognuna delle quali elabora un file diverso e quindi scrive l'output nell'archiviazione BLOB.  In questo caso, è necessario specificare il file di input nella raccolta **file di risorse delle attività** perché ogni attività ha un proprio file di input.
 

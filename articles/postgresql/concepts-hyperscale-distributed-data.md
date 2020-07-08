@@ -8,18 +8,17 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243653"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710355"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Dati distribuiti nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
 Questo articolo descrive i tre tipi di tabella in database di Azure per PostgreSQL – iperscalabilità (CITUS).
 Mostra come vengono archiviate le tabelle distribuite come partizioni e come vengono inserite le partizioni nei nodi.
 
-## <a name="table-types"></a>Tipi di tabella
+## <a name="table-types"></a>Tipi table
 
 Esistono tre tipi di tabelle in un gruppo di server con iperscalabilità (CITUS), ognuno usato per scopi diversi.
 
@@ -64,13 +63,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Se il nodo coordinatore desidera determinare quale partizione include una riga `github_events`di, viene eseguito l'hashing del valore della colonna Distribution nella riga. Il nodo verifica quindi l'intervallo\'della partizione che contiene il valore con hash. Gli intervalli vengono definiti in modo che l'immagine della funzione hash sia la relativa unione non contigua.
+Se il nodo coordinatore desidera determinare quale partizione include una riga di `github_events` , viene eseguito l'hashing del valore della colonna Distribution nella riga. Il nodo verifica quindi l' \' intervallo della partizione che contiene il valore con hash. Gli intervalli vengono definiti in modo che l'immagine della funzione hash sia la relativa unione non contigua.
 
 ### <a name="shard-placements"></a>Posizionamenti della partizione
 
 Si supponga che la partizione 102027 sia associata alla riga in questione. La riga viene letta o scritta in una tabella denominata `github_events_102027` in uno dei ruoli di lavoro. Quale ruolo di lavoro? Questo è determinato interamente dalle tabelle di metadati. Il mapping della partizione al ruolo di lavoro è noto come posizionamento della partizione.
 
-Il nodo coordinatore riscrive le query in frammenti che fanno riferimento a tabelle specifiche `github_events_102027` come ed esegue tali frammenti sui ruoli di lavoro appropriati. Di seguito è riportato un esempio di esecuzione di una query dietro le quinte per individuare il nodo che contiene l'ID di partizione 102027.
+Il nodo coordinatore riscrive le query in frammenti che fanno riferimento a tabelle specifiche come `github_events_102027` ed esegue tali frammenti sui ruoli di lavoro appropriati. Di seguito è riportato un esempio di esecuzione di una query dietro le quinte per individuare il nodo che contiene l'ID di partizione 102027.
 
 ```sql
 SELECT

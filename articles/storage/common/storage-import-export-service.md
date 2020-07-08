@@ -4,16 +4,15 @@ description: Informazioni su come creare processi di importazione ed esportazion
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512437"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
@@ -129,7 +128,7 @@ Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e v
 |Stati Uniti centro-meridionali     | Giappone occidentale        |Corea centrale         | Germania centrale        |
 |Stati Uniti centro-occidentali     |  Giappone orientale       | US Gov Virginia        | Germania nord-orientale        |
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 I dati nell'unità vengono crittografati tramite Crittografia unità BitLocker AES a 256 bit. che protegge i dati mentre sono in transito.
 

@@ -11,19 +11,18 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6151bbd9f056ef95c0875b83c7b6fccb732aebfe
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: a56f7248d5782b63befc55c4215360e0f5cb52b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84338567"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active Directory
 
 > [!IMPORTANT]
 > Questo piano di distribuzione illustra le linee guida e le procedure consigliate per la distribuzione della reimpostazione della password self-service di Azure AD.
 >
-> **Se si è un utente finale e si vuole tornare al proprio account, passare a [https://aka.ms/sspr](https://aka.ms/sspr)** .
+> **Se si è un utente finale ed è necessario tornare al proprio account, passare a [https://aka.ms/sspr](https://aka.ms/sspr) **.
 
 La [reimpostazione della password self-service](https://www.youtube.com/watch?v=tnb2Qf4hTP8) è una funzionalità di Azure Active Directory (AD) che consente agli utenti di reimpostare le proprie password senza l'assistenza del personale IT. Gli utenti possono sbloccare l'account rapidamente e continuare a lavorare indipendentemente da dove si trovano o dall'ora del giorno. Consentendo ai dipendenti di sbloccare autonomamente l'account, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati legati ai problemi più comuni correlati alle password.
 

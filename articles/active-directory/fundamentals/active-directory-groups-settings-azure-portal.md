@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/27/2018
 ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 410570798e468244763c05b3275801427dc4b2fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68561871"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604234"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Modificare le informazioni del gruppo usando Azure Active Directory
 
@@ -45,7 +44,7 @@ Con Azure Active Directory (Azure AD) è possibile modificare le impostazioni di
 
     ![Impostazioni delle proprietà per un gruppo](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
 
-    - **Nome del gruppo.** Modificare il nome del gruppo esistente.
+    - **Nome gruppo.** Modificare il nome del gruppo esistente.
     
     - **Descrizione gruppo.** Modificare la descrizione del gruppo esistente.
 

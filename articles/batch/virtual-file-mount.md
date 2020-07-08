@@ -3,23 +3,22 @@ title: Montare un file system virtuale in un pool
 description: Informazioni su come montare un file system virtuale in un pool Batch.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 4e51e8a1f11d670515893a83398a0c6d7c6e9a46
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 80acf5df0cf5262249b2eac584152744a4224a35
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816030"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954673"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montare un file system virtuale in un pool Batch
 
 Azure Batch supporta ora il montaggio dell'archiviazione cloud o di un file system esterno nei nodi di calcolo Windows o Linux nei pool di Batch. Quando un nodo di calcolo viene aggiunto a un pool, il file system virtuale viene montato e considerato come un'unità locale in tale nodo. È possibile montare diversi tipi di file system, ad esempio File di Azure, archiviazione BLOB di Azure, NFS (Network File System) o anche una [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) o il servizio CIFS (Common Internet file System).
 
-In questo articolo si apprenderà come montare un file system virtuale in un pool di nodi di calcolo usando la [libreria di gestione Batch per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
+In questo articolo si apprenderà come montare un file system virtuale in un pool di nodi di calcolo usando la [libreria di gestione Batch per .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
 > [!NOTE]
 > Il montaggio di un file system virtuale è supportato nei pool Batch creati il 19 agosto 2019 o successivamente. I pool Batch creati prima del 19 agosto 2019 non supportano questa funzionalità.
 > 
-> Le API per il montaggio dei file system in un nodo di calcolo sono parte della raccolta [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
+> Le API per il montaggio dei file system in un nodo di calcolo sono parte della raccolta [Batch .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Vantaggi del montaggio in un pool
 
@@ -128,7 +127,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>CIFS (Common Internet File System)
 
-È anche possibile montare CIFS nei nodi del pool, in modo da consentire l'accesso ai file system tradizionali da parte dei nodi di Azure Batch. CIFS è un protocollo di condivisione file che offre un meccanismo aperto e multipiattaforma per la richiesta di file e servizi del server di rete. CIFS è basato sulla versione migliorata del protocollo SMB (Server Message Block) di Microsoft per la condivisione dei file su Internet e Intranet e viene usato per il montaggio dei file system esterni nei nodi Windows. Per altre informazioni su SMB, vedere l'articolo su [file server e SMB](https://docs.microsoft.com/windows-server/storage/file-server/file-server-smb-overview).
+È anche possibile montare CIFS nei nodi del pool, in modo da consentire l'accesso ai file system tradizionali da parte dei nodi di Azure Batch. CIFS è un protocollo di condivisione file che offre un meccanismo aperto e multipiattaforma per la richiesta di file e servizi del server di rete. CIFS è basato sulla versione migliorata del protocollo SMB (Server Message Block) di Microsoft per la condivisione dei file su Internet e Intranet e viene usato per il montaggio dei file system esterni nei nodi Windows. Per altre informazioni su SMB, vedere l'articolo su [file server e SMB](/windows-server/storage/file-server/file-server-smb-overview).
 
 ```csharp
 new PoolAddParameter
@@ -153,7 +152,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnosticare gli errori di montaggio
 
-Se una configurazione di montaggio non riesce, il nodo di calcolo nel pool avrà esito negativo e il nodo non potrà più essere usato. Per diagnosticare un errore di configurazione di montaggio, esaminare la proprietà [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) per informazioni dettagliate sull'errore.
+Se una configurazione di montaggio non riesce, il nodo di calcolo nel pool avrà esito negativo e il nodo non potrà più essere usato. Per diagnosticare un errore di configurazione di montaggio, esaminare la proprietà [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) per informazioni dettagliate sull'errore.
 
 Per recuperare i file di log per il debug, usare [OutputFiles](batch-task-output-files.md) per caricare i file di `*.log`. I file di `*.log` contengono informazioni sul montaggio del file system nella posizione `AZ_BATCH_NODE_MOUNTS_DIR`. Il formato dei file di log di montaggio è `<type>-<mountDirOrDrive>.log` per ogni montaggio. Ad esempio, un montaggio `cifs` in una directory di montaggio denominata `test` avrà un file di log di montaggio denominato `cifs-test.log`.
 
@@ -179,5 +178,5 @@ Per recuperare i file di log per il debug, usare [OutputFiles](batch-task-output
 
 - Altre informazioni sul montaggio di una condivisione di File di Azure con [Windows](../storage/files/storage-how-to-use-files-windows.md) o [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Informazioni sull'uso e sul montaggio di file system virtuali [blobfuse](https://github.com/Azure/azure-storage-fuse).
-- Per informazioni su NFS e sulle relative applicazioni, vedere [Panoramica di NFS (Network File System)](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview).
-- Per altre informazioni su CIFS, vedere [Protocollo SMB di Microsoft e panoramica del protocollo CIFS](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
+- Per informazioni su NFS e sulle relative applicazioni, vedere [Panoramica di NFS (Network File System)](/windows-server/storage/nfs/nfs-overview).
+- Per altre informazioni su CIFS, vedere [Protocollo SMB di Microsoft e panoramica del protocollo CIFS](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).

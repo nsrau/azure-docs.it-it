@@ -4,12 +4,11 @@ description: Informazioni sulla gestione dei certificati in un cluster Service F
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: ecdeb5c9e30c176e2f3525f8efeb861d9210b202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324743"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestione dei certificati nei cluster Service Fabric
 
@@ -69,20 +68,21 @@ Per i nostri scopi, i primi due passaggi nella sequenza precedente sono in gran 
 
 Questi passaggi sono illustrati di seguito. si notino le differenze nel provisioning tra i certificati dichiarati per identificazione personale e il nome comune, rispettivamente.
 
-*Figg. 1.* Emissione e provisioning del flusso di certificati dichiarati dall'identificazione personale.
+*Fig. 1.* Emissione e provisioning del flusso di certificati dichiarati dall'identificazione personale.
 ![Provisioning dei certificati dichiarati dall'identificazione personale][Image1]
 
 *Figg. 2.* Emissione e provisioning del flusso di certificati dichiarati dal nome comune del soggetto.
 ![Provisioning dei certificati dichiarati dal nome comune del soggetto][Image2]
 
-### <a name="certificate-enrollment"></a>Registrazione del certificato
+### <a name="certificate-enrollment"></a> Registrazione certificato
 Questo argomento è illustrato in dettaglio nella [documentazione](../key-vault/create-certificate.md)di Key Vault; qui viene inclusa una sintesi per la continuità e un riferimento più semplice. Continuando con Azure come contesto e usando Azure Key Vault come servizio di gestione dei segreti, un richiedente di certificati autorizzato deve avere almeno le autorizzazioni di gestione dei certificati per l'insieme di credenziali, concesso dal proprietario dell'insieme di credenziali; il richiedente esegue quindi la registrazione in un certificato come indicato di seguito:
     - Crea un criterio di certificato in Azure Key Vault (AKV), che specifica il dominio/oggetto del certificato, l'emittente desiderata, il tipo di chiave e la lunghezza, l'utilizzo della chiave previsto e altro ancora; per informazioni dettagliate, vedere [certificati in Azure Key Vault](../key-vault/certificate-scenarios.md) . 
     - Crea un certificato nello stesso insieme di credenziali con i criteri specificati in precedenza; questo, a sua volta, genera una coppia di chiavi come oggetti dell'insieme di credenziali, una richiesta di firma del certificato firmata con la chiave privata e che viene quindi inoltrata all'emittente designata per la firma
     - una volta che l'emittente (autorità di certificazione) risponde con il certificato firmato, il risultato viene unito nell'insieme di credenziali e il certificato è disponibile per le operazioni seguenti:
       - in {vaultUri}/Certificates/{Name}: certificato che include la chiave pubblica e i metadati
       - in {vaultUri}/Keys/{Name}: chiave privata del certificato, disponibile per le operazioni di crittografia (wrap/unwrap, Sign/Verify)
-      - in {vaultUri}/Secrets/{Name}: il certificato comprendente la relativa chiave privata, disponibile per il download come file pfx o PEM non protetto, ricorda che un certificato dell'insieme di credenziali è in realtà una linea cronologica di istanze di certificati, che condividono un criterio. Le versioni dei certificati verranno create in base agli attributi di durata e rinnovo del criterio. Si consiglia vivamente che i certificati dell'insieme di credenziali non condividano oggetti o domini/nomi DNS; il provisioning di istanze di certificati da diversi certificati dell'insieme di credenziali, con oggetti identici, ma sostanzialmente diversi altri attributi, ad esempio autorità emittenti, usi chiave e così via, può compromettere l'utilizzo di un cluster.
+      - in {vaultUri}/Secrets/{Name}: certificato inclusivo della relativa chiave privata, disponibile per il download come file pfx o PEM non protetto  
+    Tenere presente che un certificato dell'insieme di credenziali è in realtà una linea cronologica di istanze di certificato, che condivide un criterio. Le versioni dei certificati verranno create in base agli attributi di durata e rinnovo del criterio. Si consiglia vivamente che i certificati dell'insieme di credenziali non condividano oggetti o domini/nomi DNS; il provisioning di istanze di certificati da diversi certificati dell'insieme di credenziali, con oggetti identici, ma sostanzialmente diversi altri attributi, ad esempio autorità emittenti, usi chiave e così via, può compromettere l'utilizzo di un cluster.
 
 A questo punto, un certificato esiste nell'insieme di credenziali, pronto per l'utilizzo. In poi:
 
@@ -202,7 +202,7 @@ Di seguito è riportato un estratto JSON da un modello corrispondente a tale sta
   ]
 ```   
 
-Il precedente dice essenzialmente che il certificato con ```json [parameters('primaryClusterCertificateTP')] ``` identificazione personale e trovato nell'URI ```json [parameters('clusterCertificateUrlValue')] ``` dell'insieme di credenziali delle credenziali viene dichiarato come unico certificato del cluster, dall'identificazione personale. Quindi, verranno configurate le risorse aggiuntive necessarie per garantire il rollover del certificato.
+Il precedente dice essenzialmente che il certificato con identificazione personale ```json [parameters('primaryClusterCertificateTP')] ``` e trovato nell'URI dell'insieme di credenziali delle credenziali ```json [parameters('clusterCertificateUrlValue')] ``` viene dichiarato come unico certificato del cluster, dall'identificazione personale. Quindi, verranno configurate le risorse aggiuntive necessarie per garantire il rollover del certificato.
 
 ### <a name="setting-up-prerequisite-resources"></a>Impostazione delle risorse dei prerequisiti
 Come indicato in precedenza, un certificato di cui viene effettuato il provisioning come segreto del set di scalabilità di macchine virtuali viene recuperato dall'insieme di credenziali dal servizio del provider di risorse Microsoft. Compute, usando la relativa identità iniziale e per conto dell'operatore di distribuzione. Per l'autorollover, che cambierà, si passerà a usare un'identità gestita, assegnata al set di scalabilità di macchine virtuali e a cui vengono concesse le autorizzazioni per i segreti dell'insieme di credenziali.
@@ -414,7 +414,7 @@ A questo punto, è possibile eseguire gli aggiornamenti indicati in precedenza i
 Questa sezione è un catch-all per spiegare i passaggi descritti in precedenza, nonché per attirare l'attenzione sugli aspetti importanti.
 
 #### <a name="certificate-provisioning-explained"></a>Provisioning del certificato, illustrato
-L'estensione KVVM, come agente di provisioning, viene eseguita in modo continuo in una frequenza predeterminata. Quando non riesce a recuperare un certificato osservato, continuerà a trovarsi nella riga successiva, quindi verrà ibernato fino al ciclo successivo. L'estensione SFVM, come agente di bootstrap del cluster, richiederà i certificati dichiarati prima che il cluster possa essere formato. Questo, a sua volta, indica che l'estensione SFVM può essere eseguita solo dopo il recupero riuscito dei certificati del cluster, indicato qui dalla ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` clausola e dall' ```json "requireInitialSync": true``` impostazione dell'estensione KeyVaultVM. Ciò indica all'estensione KVVM che alla prima esecuzione (dopo la distribuzione o un riavvio) deve scorrere i relativi certificati osservati fino a quando tutti non vengono scaricati correttamente. Se si imposta questo parametro su false, associato a un errore di recupero dei certificati del cluster, si verificherà un errore nella distribuzione del cluster. Viceversa, la richiesta di una sincronizzazione iniziale con un elenco errato o non valido di certificati osservati provocherebbe un errore dell'estensione KVVM e, di conseguenza, un errore di distribuzione del cluster.  
+L'estensione KVVM, come agente di provisioning, viene eseguita in modo continuo in una frequenza predeterminata. Quando non riesce a recuperare un certificato osservato, continuerà a trovarsi nella riga successiva, quindi verrà ibernato fino al ciclo successivo. L'estensione SFVM, come agente di bootstrap del cluster, richiederà i certificati dichiarati prima che il cluster possa essere formato. Questo, a sua volta, indica che l'estensione SFVM può essere eseguita solo dopo il recupero riuscito dei certificati del cluster, indicato qui dalla ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` clausola e dall'impostazione dell'estensione KeyVaultVM ```json "requireInitialSync": true``` . Ciò indica all'estensione KVVM che alla prima esecuzione (dopo la distribuzione o un riavvio) deve scorrere i relativi certificati osservati fino a quando tutti non vengono scaricati correttamente. Se si imposta questo parametro su false, associato a un errore di recupero dei certificati del cluster, si verificherà un errore nella distribuzione del cluster. Viceversa, la richiesta di una sincronizzazione iniziale con un elenco errato o non valido di certificati osservati provocherebbe un errore dell'estensione KVVM e, di conseguenza, un errore di distribuzione del cluster.  
 
 #### <a name="certificate-linking-explained"></a>Collegamento al certificato, illustrato
 È possibile che sia stato notato il flag ' linkOnRenewal ' dell'estensione KVVM e il fatto che sia impostato su false. Qui viene illustrato in dettaglio il comportamento controllato da questo flag e le sue implicazioni sul funzionamento di un cluster. Si noti che questo comportamento è specifico di Windows.
@@ -441,7 +441,7 @@ In entrambi i casi, il trasporto ha esito negativo e il cluster può diventare i
 
 Per attenuare tali problemi, è consigliabile:
   - non combinare i SANs di diversi certificati dell'insieme di credenziali; ogni certificato dell'insieme di credenziali deve essere utilizzato in modo distinto e il soggetto e la SAN dovrebbero rifletterla con specificità
-  - includere il nome comune del soggetto nell'elenco SAN (letteralmente, "CN =<subject common name>")  
+  - includere il nome comune del soggetto nell'elenco SAN (letteralmente, "CN = <subject common name> ")  
   - in caso di dubbi, disabilitare il collegamento al rinnovo per i certificati di cui è stato effettuato il provisioning con l'estensione KVVM 
 
 #### <a name="why-use-a-user-assigned-managed-identity-what-are-the-implications-of-using-it"></a>Perché usare un'identità gestita assegnata dall'utente? Quali sono le implicazioni dell'utilizzo?

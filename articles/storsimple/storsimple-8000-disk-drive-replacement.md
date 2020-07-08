@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5a7a31c174271f963bb005f10b8376a59133d36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267911"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513132"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Sostituire un'unità disco del dispositivo StorSimple serie 8000
 
@@ -46,7 +45,7 @@ In questa procedura viene illustrato come i blocchi antimanomissione sul disposi
    
     **Figura 1** Blocco antimanomissione attivato
    
-   | Label | Descrizione |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |Apertura indicatore |
    | 2 |Blocco antimanomissione |
@@ -103,7 +102,7 @@ Dopo aver rimosso un'unità guasta nel dispositivo StorSimple, seguire questa pr
     **Figura 6** Scorrimento del supporto dell'unità nello chassis
 3. Con il supporto dell'unità inserito, chiudere il punto di manipolazione del supporto dell'unità continuando a spingere il supporto dell'unità nello chassis, fino a quando il punto di manipolazione del supporto dell'unità non si chiude a scatto in una posizione bloccata.
 4. Utilizzare la chiave di blocco fornita da Microsoft (cacciavite Torx a prova di manomissione) per fissare in posizione il punto di manipolazione del supporto girando la vite di blocco di un quarto in senso orario.
-5. Verificare che la sostituzione sia riuscita e che l'unità sia operativa. Accedere al portale di Azure e passare a **Impostazioni** > dispositivo**integrità hardware**. In **Componenti condivisi** o **Componenti condivisi EBOD **, lo stato dell'unità deve essere verde, ovvero integro.
+5. Verificare che la sostituzione sia riuscita e che l'unità sia operativa. Accedere al portale di Azure e passare a **Impostazioni dispositivo**  >  **integrità hardware**. In **Componenti condivisi** o **Componenti condivisi EBOD **, lo stato dell'unità deve essere verde, ovvero integro.
 
    
    > [!NOTE]

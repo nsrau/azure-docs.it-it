@@ -7,20 +7,19 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9a0dd56842174d89688c862397c373326ef50d1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eecfebc90c28b650af0cef4ee0e4ddc227af0e8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711494"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>Riserva il prefisso dell'indirizzo IPv6 pubblico
-IPv6 per rete virtuale di Azure (VNet) consente di ospitare le applicazioni in Azure con connettività IPv6 e IPv4 sia all'interno di una rete virtuale che da e verso Internet. Oltre a riservare i singoli indirizzi IPv6, è possibile riservare intervalli contigui di indirizzi IPv6 di Azure (noti come prefisso IP) per l'uso. Questo articolo descrive come creare indirizzi IP e intervalli di indirizzi IP pubblici IPv6 usando Azure PowerShell e l'interfaccia della riga di comando.
+IPv6 per la rete virtuale di Azure consente di ospitare le applicazioni in Azure con connettività IPv6 e IPv4 sia all'interno di una rete virtuale che da e verso Internet. Oltre a riservare i singoli indirizzi IPv6, è possibile riservare intervalli contigui di indirizzi IPv6 di Azure (noti come prefisso IP) per l'uso. Questo articolo descrive come creare indirizzi IP e intervalli di indirizzi IP pubblici IPv6 usando Azure PowerShell e l'interfaccia della riga di comando.
 
 
 ## <a name="create-a-single-reserved-ipv6-public-ip"></a>Creare un singolo IP pubblico IPv6 riservato
@@ -87,7 +86,7 @@ az network public-ip prefix create \
 
 ### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 
- Per creare un indirizzo IP pubblico IPv6 statico da un prefisso riservato, è `-PublicIpPrefix` necessario aggiungere l'argomento quando si crea l'indirizzo IP pubblico usando Azure PowerShell. Nell'esempio seguente si presuppone che sia stato creato un prefisso e che sia stato archiviato in una variabile di PowerShell denominata: *$MyOwnIPv 6prefix*.
+ Per creare un indirizzo IP pubblico IPv6 statico da un prefisso riservato, è necessario aggiungere l' `-PublicIpPrefix` argomento quando si crea l'indirizzo IP pubblico usando Azure PowerShell. Nell'esempio seguente si presuppone che sia stato creato un prefisso e che sia stato archiviato in una variabile di PowerShell denominata: *$MyOwnIPv 6prefix*.
 
 ```azurepowershell:  
  $MyIPv6PublicIPFromMyReservedPrefix = New-AzPublicIpAddress \

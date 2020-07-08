@@ -1,39 +1,43 @@
 ---
-title: Istanza del cluster di failover di SQL Server - Macchine virtuali di Azure| Documentazione Microsoft
-description: Questo articolo illustra come creare un'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure.
+title: Creare un'istanza FCI con Spazi di archiviazione diretta
+description: Usare Spazi di archiviazione diretta per creare un'istanza del cluster di failover (FCI) con SQL Server in macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
-manager: craigg
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
-ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/11/2018
-ms.author: mikeray
-ms.openlocfilehash: 75c25454451b733870f8a674b292cd131454f4d2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.date: 06/18/2020
+ms.author: mathoma
+ms.openlocfilehash: fb253845330a139b04fa79090a27a135f67cab46
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84032312"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954784"
 ---
-# <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare un'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
+# <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creare un'istanza FCI con Spazi di archiviazione diretta (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Questo articolo illustra come creare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure con il modello Azure Resource Manager. Questa soluzione usa la funzionalità [Spazi di archiviazione diretta di Windows Server 2016 Datacenter Edition](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) come SAN virtuale basata su software per la sincronizzazione delle risorse di archiviazione (dischi dati) tra i nodi (macchine virtuali di Azure) in un cluster Windows. Spazi di archiviazione diretta è stata una novità di Windows Server 2016.
+Questo articolo illustra come creare un'istanza del cluster di failover usando [spazi di archiviazione diretta](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) con SQL Server in macchine virtuali (VM) di Azure. Spazi di archiviazione diretta funge da rete di archiviazione virtuale (rete VSAN) basata su software che sincronizza l'archiviazione (dischi dati) tra i nodi (VM di Azure) in un cluster Windows. 
 
-Il diagramma seguente illustra la soluzione completa nelle macchine virtuali di Azure:
+Per altre informazioni, vedere Panoramica di [FCI con SQL Server nelle macchine virtuali di Azure](failover-cluster-instance-overview.md) e [procedure consigliate per cluster](hadr-cluster-best-practices.md). 
 
-![Soluzione completa](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/00-sql-fci-s2d-complete-solution.png)
 
-Questo diagramma mostra:
+## <a name="overview"></a>Panoramica 
 
-- Due macchine virtuali di Azure in Windows Server Failover Cluster. Una macchina virtuale in un cluster di failover è detta anche *nodo del cluster* o *nodo*.
+[Spazi di archiviazione diretta (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) supporta due tipi di architettura: convergente e iperconvergente. Un'infrastruttura iperconvergente posiziona l'archiviazione sugli stessi server che ospitano l'applicazione in cluster, in modo che l'archiviazione si trovi in ogni nodo dell'istanza del cluster di failover SQL Server. 
+
+Il diagramma seguente illustra la soluzione completa, che usa Spazi di archiviazione diretta iperconvergenti con SQL Server in macchine virtuali di Azure: 
+
+![Diagramma della soluzione completa, usando Spazi di archiviazione diretta iperconvergenti](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/00-sql-fci-s2d-complete-solution.png)
+
+Il diagramma precedente mostra le risorse seguenti nello stesso gruppo di risorse:
+
+- Due macchine virtuali in un cluster di failover di Windows Server. Una macchina virtuale in un cluster di failover è detta anche *nodo del cluster* o *nodo*.
 - Ogni macchina virtuale ha due o più dischi dati.
 - Spazi di archiviazione diretta sincronizza i dati nei dischi dati e presenta le risorse di archiviazione sincronizzate sotto forma di pool di archiviazione.
 - Il pool di archiviazione presenta un volume condiviso cluster per il cluster di failover.
@@ -41,205 +45,56 @@ Questo diagramma mostra:
 - Un servizio di bilanciamento del carico di Azure contiene l'indirizzo IP per l'istanza del cluster di failover di SQL Server.
 - Un set di disponibilità di Azure contiene tutte le risorse.
 
->[!NOTE]
->Tutte le risorse di Azure nel diagramma si trovano nello stesso gruppo di risorse.
+   > [!NOTE]
+   > È possibile creare questa intera soluzione in Azure da un modello. Un esempio di modello è disponibile nella pagina dei [modelli di avvio rapido di Azure](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad) in GitHub. Questo esempio non è progettato né testato per carichi di lavoro specifici. È possibile eseguire il modello per creare un'istanza del cluster di failover di SQL Server con risorse di archiviazione di Spazi di archiviazione diretta connesse al dominio. È possibile valutare il modello e modificarlo in base alle proprie esigenze.
 
-Per informazioni dettagliate su Spazi di archiviazione diretta, vedere [Spazi di archiviazione diretta in Windows Server 2016 Datacenter Edition](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
-Spazi di archiviazione diretta supporta due tipi di architettura: con convergenza e con iperconvergenza. L'architettura in questo documento è iperconvergente. In un'infrastruttura iperconvergente, l'archiviazione risiede negli stessi server che ospitano l'applicazione in cluster. In questa architettura, l'archiviazione risiede in ogni nodo dell'istanza del cluster di failover di SQL Server.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="licensing-and-pricing"></a>Licenze e prezzi
+Prima di completare le istruzioni riportate in questo articolo, è necessario avere già:
 
-Nelle macchine virtuali di Azure è possibile concedere in licenza SQL Server usando immagini di macchine virtuali con pagamento in base al consumo o Bring Your Own License (BYOL). I costi addebitati dipendono dal tipo di immagine scelto.
-
-Con le licenze con pagamento in base al consumo, un'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure comporta costi per tutti i nodi dell'istanza del cluster di failover, inclusi i nodi passivi. Per ulteriori informazioni, consultare le [tariffe delle Macchine virtuali SQL Server Enterprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
-
-Se si ha un Contratto Enterprise con Software Assurance, è possibile usare un nodo dell'istanza del cluster di failover passivo gratuito per ogni nodo attivo. Per sfruttarne i vantaggi in Azure, usare le immagini di macchine virtuali BYOL, quindi usare la stessa licenza in entrambi i nodi attivo e passivo dell'istanza del cluster di failover. Per altre informazioni, consultare il [Contratto Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
-
-Per confrontare le licenze con pagamento in base al consumo e BYOL per SQL Server nelle macchine virtuali di Azure, vedere [Introduzione alle macchine virtuali SQL](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms).
-
-Per informazioni complete sulle licenze SQL Server, consultare [Prezzi](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
-
-### <a name="example-azure-template"></a>Modello di Azure di esempio
-
-È possibile creare questa intera soluzione in Azure da un modello. Un esempio di modello è disponibile tra i [modelli di avvio rapido di Azure](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad) in GitHub. Questo esempio non è progettato né testato per carichi di lavoro specifici. È possibile eseguire il modello per creare un'istanza del cluster di failover di SQL Server con risorse di archiviazione di Spazi di archiviazione diretta connesse al dominio. È possibile valutare il modello e modificarlo in base alle proprie esigenze.
-
-## <a name="before-you-begin"></a>Prima di iniziare
-
-Prima di iniziare, è necessario tenere presente quanto segue.
-
-### <a name="what-to-know"></a>Conoscenze necessarie
-È necessario avere una conoscenza pratica di queste tecnologie:
-
-- [Tecnologie cluster di Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [Istanze del cluster di failover di SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-
-Tenere presente che in un cluster di failover guest di macchine virtuali IaaS di Azure è consigliabile usare una singola scheda di interfaccia di rete per ogni server (nodo del cluster) e una singola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Il report di convalida del cluster informa che i nodi sono raggiungibili solo in una singola rete. È possibile ignorare questo avviso nei cluster di failover guest di macchine virtuali IaaS di Azure.
-
-È anche consigliabile avere una conoscenza generale di queste tecnologie:
-
-- [Soluzione iperconvergente che usa Spazi di archiviazione diretta in Windows Server 2016](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Gruppi di risorse di Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
-
-> [!IMPORTANT]
-> A questo punto, le istanze del cluster di failover di SQL Server nelle macchine virtuali di Azure sono supportate solo con la [modalità di gestione leggera](sql-vm-resource-provider-register.md#management-modes) dell'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Per passare dalla modalità di estensione completa a quella leggera, eliminare la risorsa **Macchina virtuale SQL** per le macchine virtuali corrispondenti e quindi registrarle con il provider di risorse di macchine virtuali SQL in modalità leggera. Per eliminare la risorsa **Macchina virtuale SQL** con il portale di Azure, **deselezionare la casella di controllo accanto alla macchina virtuale corretta**. L'estensione completa supporta funzionalità quali backup automatizzato, applicazione di patch e gestione avanzata del portale. Queste funzionalità non saranno disponibili per le macchine virtuali SQL dopo la reinstallazione dell'agente in modalità di gestione leggera.
-
-### <a name="what-to-have"></a>Elementi necessari
-
-Per poter completare la procedura descritta in questo articolo, sono necessari:
-
-- Una sottoscrizione di Microsoft Azure.
-- Un dominio Windows in macchine virtuali di Azure.
+- Una sottoscrizione di Azure. Inizia subito [gratuitamente](https://azure.microsoft.com/free/). 
+- [Due o più macchine virtuali di Windows Azure predisposte](failover-cluster-instance-prepare-vm.md) in un [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 - Un account con autorizzazioni per creare oggetti sia nelle macchine virtuali di Azure che in Active Directory.
-- Una rete virtuale e una subnet di Azure con uno spazio indirizzi IP sufficiente per questi componenti:
-   - Entrambe le macchine virtuali.
-   - Indirizzo IP del cluster di failover.
-   - Indirizzo IP per ogni istanza del cluster di failover.
-- DNS configurato nella rete di Azure, che punta ai controller di dominio.
+- La versione più recente di [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
-Dopo aver soddisfatto questi prerequisiti, è possibile iniziare a creare il cluster di failover. Il primo passaggio consiste nel creare le macchine virtuali.
 
-## <a name="step-1-create-the-virtual-machines"></a>Passaggio 1: Creare le macchine virtuali
+## <a name="add-the-windows-cluster-feature"></a>Aggiungere la funzionalità cluster Windows
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con la propria sottoscrizione.
+1. Connettersi alla prima macchina virtuale utilizzando Remote Desktop Protocol (RDP) con un account di dominio che è membro degli amministratori locali e che dispone dell'autorizzazione per la creazione di oggetti in Active Directory. Usare questo account per il resto della configurazione.
 
-1. [Creare un set di disponibilità di Azure](../../../virtual-machines/linux/tutorial-availability-sets.md).
+1. Aggiungere il clustering di failover a ogni macchina virtuale.
 
-   Un set di disponibilità raggruppa le macchine virtuali in più domini di errore e domini di aggiornamento. Garantisce che l'applicazione non sia interessata da singoli punti di guasto, come il commutatore di rete o l'unità di alimentazione di un rack di server.
+   Per installare il clustering di failover dall'interfaccia utente, eseguire le operazioni seguenti in entrambe le macchine virtuali:
 
-   Se non è stato creato il gruppo di risorse per le macchine virtuali, crearlo al momento della creazione di un set di disponibilità di Azure. Se si usa il portale di Azure per creare il set di disponibilità, seguire questa procedura:
-
-   1. Nel portale di Azure selezionare **Crea una risorsa** per aprire Azure Marketplace. Cercare **Set di disponibilità**.
-   1. Selezionare **Set di disponibilità**.
-   1. Selezionare **Crea**.
-   1. In **Crea set di disponibilità** specificare i valori seguenti:
-      - **Name**: un nome per il set di disponibilità.
-      - **Sottoscrizione** La sottoscrizione di Azure.
-      - **Gruppo di risorse**: se si vuole usare un gruppo esistente, fare clic su **Seleziona esistente** e selezionare il gruppo dall'elenco. In caso contrario, selezionare **Crea nuovo** e immettere un nome per il gruppo.
-      - **Località**: impostare la località in cui si intende creare le macchine virtuali.
-      - **Domini di errore**: usare il valore predefinito (**3**).
-      - **Domini di aggiornamento**: usare il valore predefinito (**5**).
-   1. Selezionare **Crea** per creare il set di disponibilità.
-
-1. Creare le macchine virtuali nel set di disponibilità.
-
-   Effettuare il provisioning di due macchine virtuali di SQL Server nel set di disponibilità di Azure. Per istruzioni, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](create-sql-vm-portal.md).
-
-   Inserire entrambe le macchine virtuali:
-
-   - Nello stesso gruppo di risorse di Azure del set di disponibilità.
-   - Nella stessa rete del controller di dominio.
-   - In una subnet con spazio indirizzi IP sufficiente per entrambe le macchine virtuali e tutte le istanze del cluster di failover che si potrebbero usare nel cluster.
-   - Nel set di disponibilità di Azure.
-
-      >[!IMPORTANT]
-      >Non è possibile impostare o modificare il set di disponibilità dopo aver creato una macchina virtuale.
-
-   Scegliere un'immagine da Azure Marketplace. È possibile usare un'immagine di Azure Marketplace che include Windows Server e SQL Server oppure usarne una che include solo Windows Server. Per informazioni dettagliate, vedere [Panoramica di SQL Server in macchine virtuali di Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
-
-   Le immagini ufficiali di SQL Server nella raccolta di Azure includono un'istanza installata di SQL Server, il software di installazione di SQL Server e la chiave necessaria.
-
-   Scegliere l'immagine appropriata in base alla modalità di pagamento della licenza di SQL Server che si preferisce:
-
-   - **Licenza con pagamento in base al consumo**. il costo al secondo di queste immagini include la licenza di SQL Server:
-      - **SQL Server 2016 Enterprise in Windows Server 2016 Datacenter**
-      - **SQL Server 2016 Standard in Windows Server 2016 Datacenter**
-      - **SQL Server 2016 Developer in Windows Server 2016 Datacenter**
-
-   - **BYOL (Bring Your Own License)**
-
-      - **(BYOL) SQL Server 2016 Enterprise in Windows Server 2016 Datacenter**
-      - **(BYOL) SQL Server 2016 Standard in Windows Server 2016 Datacenter**
-
-   >[!IMPORTANT]
-   >Dopo aver creato la macchina virtuale, rimuovere l'istanza autonoma preinstallata di SQL Server. Usare i supporti dell'istanza preinstallata di SQL Server per creare l'istanza del cluster di failover di SQL Server dopo aver configurato il cluster di failover e Spazi di archiviazione diretta.
-
-   In alternativa, è possibile usare immagini di Azure Marketplace che contengono solo il sistema operativo. Scegliere un'immagine di **Windows Server 2016 Datacenter** e installare l'istanza del cluster di failover di SQL Server dopo aver configurato il cluster di failover e Spazi di archiviazione diretta. Un'immagine di questo tipo non contiene il supporto di installazione di SQL Server. Posizionare il supporto di installazione di SQL Server in una posizione in cui sia possibile eseguirlo per ogni server.
-
-1. Dopo che Azure ha creato le macchine virtuali, connettersi a ognuna usando RDP.
-
-   Quando ci si connette per la prima volta a una macchina virtuale con RDP, un messaggio chiede se si vuole rendere il PC individuabile sulla rete. Selezionare **Sì**.
-
-1. Se si usa un'immagine di macchina virtuale basata su SQL Server, rimuovere l'istanza di SQL Server.
-
-   1. In **Programmi e funzionalità** fare clic con il pulsante destro del mouse su **Microsoft SQL Server 2016 (64 bit)** e scegliere **Disinstalla/Cambia**.
-   1. Selezionare **Rimuovi**.
-   1. Selezionare l'istanza predefinita.
-   1. Rimuovere tutte le funzionalità in **Servizi motore di database**. Non rimuovere **Funzionalità condivise**. Il contenuto visualizzato sarà simile allo screenshot seguente:
-
-      ![Seleziona caratteristiche](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/03-remove-features.png)
-
-   1. Selezionare **Avanti** e quindi **Rimuovi**.
-
-1. <a name="ports"></a>Aprire le porte del firewall.
-
-   In ogni macchina virtuale aprire queste porte in Windows Firewall:
-
-   | Scopo | Porta TCP | Note
-   | ------ | ------ | ------
-   | SQL Server | 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta.
-   | Probe di integrità | 59999 | Qualsiasi porta TCP aperta. In un passaggio successivo, configurare il [probe di integrità](#probe) del servizio di bilanciamento del carico e il cluster per l'uso di questa porta.  
-
-1. Aggiungere risorse di archiviazione alla macchina virtuale. Per informazioni dettagliate, vedere l'articolo relativo all'[aggiunta dell'archiviazione](../../../virtual-machines/linux/disks-types.md).
-
-   Entrambe le macchine virtuali necessitano di almeno due dischi dati.
-
-   Collegare dischi non formattati, ossia senza formattazione NTFS.
-      >[!NOTE]
-      >Se si collegano dischi con formattazione NTFS, è possibile abilitare Spazi di archiviazione diretta solo senza un controllo dell'idoneità del disco.  
-
-   Collegare almeno due unità SSD Premium a ogni macchina virtuale. È consigliabile usare almeno dischi P30 (da 1 TB).
-
-   Impostare la memorizzazione nella cache dell'host su **Sola lettura**.
-
-   La capacità di archiviazione usata negli ambienti di produzione dipende dal carico di lavoro. I valori descritti in questo articolo sono forniti a scopo dimostrativo e di test.
-
-1. [Aggiungere le macchine virtuali al dominio preesistente](availability-group-manually-configure-prerequisites-tutorial.md#joinDomain).
-
-Dopo aver creato e configurato le macchine virtuali, è possibile configurare il cluster di failover.
-
-## <a name="step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct"></a>Passaggio 2: Configurare il cluster di failover di Windows Server con Spazi di archiviazione diretta
-
-Il passaggio successivo consiste nel configurare il cluster di failover con Spazi di archiviazione diretta. Questo passaggio include i passaggi secondari seguenti:
-
-1. Aggiungere la funzionalità Clustering di failover di Windows Server.
-1. Convalidare il cluster.
-1. Creare il cluster di failover.
-1. Creare il cloud di controllo.
-1. Aggiungere la risorsa di archiviazione.
-
-### <a name="add-windows-server-failover-clustering"></a>Aggiungere Clustering di failover di Windows Server
-
-1. Connettersi alla prima macchina virtuale con RDP usando un account di dominio che è membro del gruppo degli amministratori locali e ha l'autorizzazione necessarie per creare oggetti in Active Directory. Usare questo account per il resto della configurazione.
-
-1. [Aggiungere Clustering di failover a ogni macchina virtuale](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
-
-   Per installare Clustering di failover dall'interfaccia utente, seguire questa procedura in entrambe le macchine virtuali:
    1. In **Server Manager** selezionare **Gestione** e quindi **Aggiungi ruoli e funzionalità**.
-   1. Nell'**Aggiunta guidata ruoli e funzionalità** selezionare **Avanti** fino a visualizzare **Seleziona funzionalità**.
-   1. In **Seleziona funzionalità** selezionare **Clustering di failover**. Includere tutte le funzionalità necessarie e gli strumenti di gestione. Selezionare **Aggiungi funzionalità**.
+   1. Nell' **Aggiunta guidata ruoli e funzionalità** selezionare **Avanti** fino a quando non si ottengono le **funzionalità selezionate**.
+   1. In **Seleziona funzionalità** selezionare **Clustering di failover**. Includere tutte le funzionalità necessarie e gli strumenti di gestione. 
+   1. Selezionare **Aggiungi funzionalità**.
    1. Selezionare **Avanti** e quindi selezionare **Fine** per installare le funzionalità.
 
-   Per installare Clustering di failover con PowerShell, eseguire lo script seguente da una sessione di PowerShell in modalità amministratore in una delle macchine virtuali:
+   Per installare il clustering di failover tramite PowerShell, eseguire lo script seguente da una sessione di PowerShell amministratore in una delle macchine virtuali:
 
    ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Per altre informazioni sui passaggi successivi, vedere le istruzioni riportate nel passaggio 3 di [Soluzione iperconvergente che usa Spazi di archiviazione diretta in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Per ulteriori informazioni sui passaggi successivi, vedere le istruzioni riportate nella sezione "Step 3: Configure Spazi di archiviazione diretta" della [soluzione iperconvergente con spazi di archiviazione diretta in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
-### <a name="validate-the-cluster"></a>Convalidare il cluster
+
+## <a name="validate-the-cluster"></a>Convalidare il cluster
 
 Convalidare il cluster nell'interfaccia utente o usando PowerShell.
 
-Per convalidare il cluster usando l'interfaccia utente, seguire questa procedura in una delle macchine virtuali:
+Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni seguenti in una delle macchine virtuali:
 
 1. In **Server Manager** selezionare **Strumenti** e quindi selezionare **Gestione cluster di failover**.
 1. In **Gestione cluster di failover** selezionare **Azione** e quindi selezionare **Convalida configurazione**.
 1. Selezionare **Avanti**.
 1. In **Selezione di server o di un cluster** immettere i nomi di entrambe le macchine virtuali.
-1. In **Opzioni di testing** selezionare **Esegui solo test selezionati**. Selezionare **Avanti**.
+1. In **Opzioni di testing** selezionare **Esegui solo test selezionati**. 
+1. Selezionare **Avanti**.
 1. In **Selezione dei test** selezionare tutti i test tranne **Archiviazione**, come illustrato di seguito:
 
    ![Selezionare i test di convalida del cluster](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
@@ -247,7 +102,7 @@ Per convalidare il cluster usando l'interfaccia utente, seguire questa procedura
 1. Selezionare **Avanti**.
 1. In **Conferma** selezionare **Avanti**.
 
-La Convalida guidata configurazione eseguirà i test di convalida.
+    La convalida guidata **configurazione** esegue i test di convalida.
 
 Per convalidare il cluster usando PowerShell, eseguire lo script seguente da una sessione di PowerShell in modalità amministratore in una delle macchine virtuali:
 
@@ -257,47 +112,46 @@ Per convalidare il cluster usando PowerShell, eseguire lo script seguente da una
 
 Dopo aver convalidato il cluster, creare il cluster di failover.
 
-### <a name="create-the-failover-cluster"></a>Creare il cluster di failover
+
+## <a name="create-failover-cluster"></a>Crea cluster di failover
 
 Per creare il cluster di failover è necessario:
+
 - I nomi delle macchine virtuali che diventeranno i nodi del cluster.
-- un nome per il cluster di failover
+- Nome del cluster di failover.
 - un indirizzo IP per il cluster di failover. È possibile usare un indirizzo IP non usato nella stessa rete virtuale di Azure e nella stessa subnet dei nodi del cluster.
 
-#### <a name="windows-server-2008-through-windows-server-2016"></a>Da Windows Server 2008 a Windows Server 2016
 
-Lo script di PowerShell seguente crea un cluster di failover per le versioni comprese tra Windows Server 2008 e Windows Server 2016. Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure.
+# <a name="windows-server-2012---2016"></a>[Windows Server 2012 - 2016](#tab/windows2012)
+
+Lo script di PowerShell seguente crea un cluster di failover per Windows Server 2012 tramite Windows Server 2016. Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
-#### <a name="windows-server-2019"></a>Windows Server 2019
+# <a name="windows-server-2019"></a>[Windows Server 2019](#tab/windows2019)
 
-Lo script di PowerShell seguente crea un cluster di failover per Windows Server 2019. Per altre informazioni, vedere [Cluster di failover: oggetto di rete cluster](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97). Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure.
+Lo script di PowerShell seguente crea un cluster di failover per Windows Server 2019.  Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
 ```
 
+Per altre informazioni, vedere [Cluster di failover: oggetto di rete cluster](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
 
-### <a name="create-a-cloud-witness"></a>Creare un cloud di controllo
+---
 
-Il cloud di controllo è un nuovo tipo di quorum di controllo del cluster archiviato in un BLOB di archiviazione di Azure. In questo modo si elimina la necessità di una macchina virtuale separata che ospita una condivisione di controllo.
 
-1. [Creare un cloud di controllo per il cluster di failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+## <a name="configure-quorum"></a>Configurare il quorum
 
-1. Creare un contenitore BLOB.
+Configurare la soluzione quorum più adatta alle proprie esigenze aziendali. È possibile configurare un [disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo, un [cloud](/windows-server/failover-clustering/deploy-cloud-witness)di controllo o una [condivisione file](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo. Per altre informazioni, vedere [quorum con SQL Server VM](hadr-cluster-best-practices.md#quorum). 
 
-1. Salvare le chiavi di accesso e l'URL del contenitore.
+## <a name="add-storage"></a>Aggiungere le risorse di archiviazione
 
-1. Configurare il quorum di controllo del cluster di failover. Vedere [Configurare il quorum di controllo nell'interfaccia utente](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono contenere partizioni o altri dati. Per pulire i dischi, seguire le istruzioni riportate in [Deploy spazi di archiviazione diretta](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
 
-### <a name="add-storage"></a>Aggiungere le risorse di archiviazione
-
-I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono contenere partizioni o altri dati. Per pulire i dischi, seguire [la procedura descritta in questa guida](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
-
-1. [Abilitare Spazi di archiviazione diretta ](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Abilitare spazi di archiviazione diretta](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Lo script di PowerShell seguente abilita Spazi di archiviazione diretta:  
 
@@ -309,29 +163,33 @@ I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono con
 
 1. [Creare un volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   Spazi di archiviazione diretta crea automaticamente un pool di archiviazione al momento dell'abilitazione. È ora possibile creare un volume. Il cmdlet di PowerShell `New-Volume` automatizza il processo di creazione del volume. Questo processo include la formattazione, l'aggiunta del volume al cluster e la creazione di un volume condiviso cluster. Questo esempio crea un volume condiviso cluster da 800 GB:
+   Spazi di archiviazione diretta crea automaticamente un pool di archiviazione al momento dell'abilitazione. È ora possibile creare un volume. Il cmdlet di PowerShell `New-Volume` automatizza il processo di creazione del volume. Questo processo include la formattazione, l'aggiunta del volume al cluster e la creazione di un volume CSV. Questo esempio crea un volume condiviso cluster da 800 GB:
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
-   Al termine dell'esecuzione del comando, un volume da 800 GB viene montato come risorsa cluster. Il volume si trova in `C:\ClusterStorage\Volume1\`.
+   Dopo aver eseguito il comando precedente, viene montato un volume di 800 GB come risorsa cluster. Il volume si trova in `C:\ClusterStorage\Volume1\`.
 
-   Questo screenshot mostra un volume condiviso cluster con Spazi di archiviazione diretta:
+   Questo screenshot mostra un volume CSV con Spazi di archiviazione diretta:
 
-   ![Volume condiviso cluster](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/15-cluster-shared-volume.png)
+   ![Screenshot di un Volume condiviso cluster con Spazi di archiviazione diretta](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-failover-cluster-failover"></a>Passaggio 3: Testare il failover del cluster di failover
 
-In **Gestione cluster di failover** verificare che sia possibile spostare la risorsa di archiviazione nell'altro nodo del cluster. Se è possibile connettersi al cluster di failover usando **Gestione cluster di failover** e spostare la risorsa di archiviazione da un nodo all'altro, si può configurare l'istanza del cluster di failover.
 
-## <a name="step-4-create-the-sql-server-fci"></a>Passaggio 4: Creare l'istanza del cluster di failover di SQL Server
+## <a name="test-cluster-failover"></a>Test del failover del cluster
+
+Testare il failover del cluster. In **Gestione cluster di failover**fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo**, quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
+
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testare il failover del cluster spostando le risorse principali negli altri nodi":::
+
+## <a name="create-sql-server-fci"></a>Creare l'istanza del cluster di failover di SQL Server
 
 Dopo aver configurato il cluster di failover e tutti i componenti del cluster, inclusa la risorsa di archiviazione, è possibile creare l'istanza del cluster di failover di SQL Server.
 
 1. Connettersi alla prima macchina virtuale con RDP.
 
-1. In **Gestione cluster di failover** verificare che tutte le risorse cluster principali si trovino nella prima macchina virtuale. Se necessario, spostare tutte le risorse in tale macchina virtuale.
+1. In **Gestione cluster di failover**assicurarsi che tutte le risorse del cluster di base si trovino nella prima macchina virtuale. Se necessario, spostare tutte le risorse in tale macchina virtuale.
 
 1. Individuare i supporti di installazione. Se la macchina virtuale usa una delle immagini di Azure Marketplace, i supporti si trovano in `C:\SQLServer_<version number>_Full`. Selezionare **Imposta**.
 
@@ -339,11 +197,11 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 
 1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
 
-   Le directory di dati dell'istanza del cluster di failover devono trovarsi nelle risorse di archiviazione del cluster. Con Spazi di archiviazione diretta non si tratterà di un disco condiviso, ma di un punto di montaggio per un volume in ogni server. Spazi di archiviazione diretta sincronizza il volume tra i due nodi. Il volume viene presentato al cluster come volume condiviso cluster. Usare il punto di montaggio del volume condiviso cluster per le directory di dati.
+   Le directory di dati dell'istanza del cluster di failover devono trovarsi nelle risorse di archiviazione del cluster. Con Spazi di archiviazione diretta, non si tratta di un disco condiviso, ma di un punto di montaggio su un volume in ogni server. Spazi di archiviazione diretta sincronizza il volume tra i due nodi. Il volume viene presentato al cluster come un volume CSV. Usare il punto di montaggio del volume condiviso cluster per le directory di dati.
 
    ![Directory dati](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
 
-1. Dopo aver completato le istruzioni della procedura guidata, verrà installata un'istanza del cluster di failover di SQL Server nel primo nodo.
+1. Dopo aver completato le istruzioni della procedura guidata, il programma di installazione installa una SQL Server FCI nel primo nodo.
 
 1. Al termine dell'installazione dell'istanza del cluster di failover nel primo nodo, connettersi al secondo nodo usando RDP.
 
@@ -352,160 +210,44 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
 
    >[!NOTE]
-   >Se è stata usata un'immagine della raccolta di Azure Marketplace che contiene SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Vedere [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Se è stata usata un'immagine della raccolta di Azure Marketplace che contiene SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Per altre informazioni, vedere [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >
 
-## <a name="step-5-create-the-azure-load-balancer"></a>Passaggio 5: Creare il servizio di bilanciamento del carico di Azure
 
-Nelle macchine virtuali di Azure, per contenere un indirizzo IP che deve trovarsi in un nodo del cluster alla volta viene usato nei cluster un servizio di bilanciamento del carico. In questa soluzione, il servizio di bilanciamento del carico contiene l'indirizzo IP per l'istanza del cluster di failover di SQL Server.
+## <a name="register-with-the-sql-vm-rp"></a>Eseguire la registrazione con la macchina virtuale SQL RP
 
-Per altre informazioni, vedere [Creare e configurare un servizio di bilanciamento del carico di Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer).
+Per gestire la macchina virtuale SQL Server dal portale, registrarla con il provider di risorse VM SQL (RP) in [modalità di gestione leggera](sql-vm-resource-provider-register.md#lightweight-management-mode), attualmente l'unica modalità supportata con FCI e SQL Server in macchine virtuali di Azure. 
 
-### <a name="create-the-load-balancer-in-the-azure-portal"></a>Creare il servizio di bilanciamento del carico nel portale di Azure
 
-Per creare il servizio di bilanciamento del carico:
+Registrare una macchina virtuale SQL Server in modalità Lightweight con PowerShell:  
 
-1. Nel portale di Azure passare al gruppo di risorse contenente le macchine virtuali.
+```powershell-interactive
+# Get the existing compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+         
+# Register SQL VM with 'Lightweight' SQL IaaS agent
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+   -LicenseType PAYG -SqlManagementType LightWeight  
+```
 
-1. Selezionare **Aggiungi**. Cercare **Bilanciamento del carico** in Azure Marketplace. Selezionare **Bilanciamento del carico**.
+## <a name="configure-connectivity"></a>Configurare la connettività 
 
-1. Selezionare **Crea**.
-
-1. Configurare il servizio di bilanciamento del carico con le impostazioni seguenti.
-
-   - **Sottoscrizione** La sottoscrizione di Azure.
-   - **Gruppo di risorse**: il gruppo di risorse contenente le macchine virtuali.
-   - **Name**: un nome che identifichi il servizio di bilanciamento del carico.
-   - **Area**: la località di Azure contenente le macchine virtuali.
-   - **Tipo**: pubblico o privato. Un servizio di bilanciamento del carico privato è accessibile dalla rete virtuale. La maggior parte delle applicazioni Azure può usare un servizio di bilanciamento del carico privato. Se l'applicazione deve accedere a SQL Server direttamente tramite Internet, usare un servizio di bilanciamento del carico pubblico.
-   - **SKU**: Standard.
-   - **Rete virtuale**: la stessa rete delle macchine virtuali.
-   - **Assegnazione indirizzo IP**: statico. 
-   - **Indirizzo IP privato**: l'indirizzo IP assegnato alla risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
-
- Lo screenshot seguente mostra l'interfaccia utente della pagina **Crea servizio di bilanciamento del carico**:
-
-   ![Configurare il servizio di bilanciamento del carico](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/30-load-balancer-create.png)
-
-### <a name="configure-the-load-balancer-backend-pool"></a>Configurare il pool back-end del servizio di bilanciamento del carico
-
-1. Tornare al gruppo di risorse di Azure contenente le macchine virtuali e individuare il nuovo servizio di bilanciamento del carico. Potrebbe essere necessario aggiornare la visualizzazione del gruppo di risorse. Selezionare l'istanza di Load Balancer.
-
-1. Selezionare **Pool back-end** e quindi **Aggiungi**.
-
-1. Associare il pool back-end con il set di disponibilità contenente le macchine virtuali.
-
-1. In **Configurazioni IP della rete di destinazione** selezionare **MACCHINA VIRTUALE** e scegliere le macchine virtuali che parteciperanno come nodi del cluster. Assicurarsi di includere tutte le macchine virtuali che ospiteranno l'istanza del cluster di failover.
-
-1. Selezionare **OK** per creare il pool back-end.
-
-### <a name="configure-a-load-balancer-health-probe"></a>Configurare un probe di integrità per il servizio di bilanciamento del carico
-
-1. Nel pannello del servizio di bilanciamento del carico selezionare **Probe integrità**.
-
-1. Selezionare **Aggiungi**.
-
-1. Nel pannello **Aggiungi probe integrità** <a name="probe"></a>impostare i parametri del probe di integrità.
-
-   - **Name**: un nome per il probe di integrità.
-   - **Protocollo**: TCP.
-   - **Porta**: impostare sulla porta creata nel firewall per il probe di integrità in [questo passaggio](#ports). In questo articolo, l'esempio usa la porta TCP `59999`.
-   - **Intervallo**: 5 secondi.
-   - **Soglia non integra**: 2 errori consecutivi.
-
-1. Selezionare **OK**.
-
-### <a name="set-load-balancing-rules"></a>Impostare le regole di bilanciamento del carico
-
-1. Nel pannello del servizio di bilanciamento del carico selezionare **Regole di bilanciamento del carico**.
-
-1. Selezionare **Aggiungi**.
-
-1. Impostare i parametri della regola di bilanciamento del carico:
-
-   - **Name**: un nome per le regole di bilanciamento del carico.
-   - **Indirizzo IP front-end**: l'indirizzo IP per la risorsa di rete cluster dell'istanza del cluster di failover di SQL Server.
-   - **Porta**: la porta TCP dell'istanza del cluster di failover di SQL Server. La porta predefinita dell'istanza è 1433.
-   - **Porta back-end**: usa la stessa porta specificata nel campo **Porta** quando si abilita **IP mobile (Direct Server Return)** .
-   - **Pool back-end**: il nome del pool back-end configurato in precedenza.
-   - **Probe di integrità**: il probe di integrità configurato in precedenza.
-   - **Salvataggio permanente sessione**: No.
-   - **Timeout di inattività (minuti)** : 4.
-   - **IP mobile (Direct Server Return)** : abilitato.
-
-1. Selezionare **OK**.
-
-## <a name="step-6-configure-the-cluster-for-the-probe"></a>Passaggio 6: Configurare il cluster per il probe
-
-Impostare il parametro della porta probe del cluster in PowerShell.
-
-Per impostare tale parametro, aggiornare le variabili nello script seguente con i valori dell'ambiente in uso. Rimuovere le parentesi acute (`<` e `>`) dallo script.
-
-   ```powershell
-   $ClusterNetworkName = "<Cluster Network Name>"
-   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
-   $ILBIP = "<n.n.n.n>" 
-   [int]$ProbePort = <nnnnn>
-
-   Import-Module FailoverClusters
-
-   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-   ```
-
-L'elenco seguente offre una descrizione dei valori da aggiornare:
-
-   - `<Cluster Network Name>`: il nome del cluster di failover di Windows Server per la rete. In **Gestione cluster di failover** > **Reti** fare clic con il pulsante destro del mouse sulla rete e scegliere **Proprietà**. Il valore corretto è riportato in **Nome** nella scheda **Generale**.
-
-   - `<SQL Server FCI IP Address Resource Name>`: il nome della risorsa indirizzo IP dell'istanza del cluster di failover di SQL Server. In **Gestione cluster di failover** > **Ruoli** fare clic con il pulsante destro del mouse sulla risorsa indirizzo IP sotto **Nome server** nel ruolo dell'istanza del cluster di failover di SQL Server e quindi scegliere **Proprietà**. Il valore corretto è riportato in **Nome** nella scheda **Generale**. 
-
-   - `<ILBIP>`: indirizzo IP ILB. Questo indirizzo è configurato nel portale di Azure come indirizzo ILB front-end ed è anche l'indirizzo IP dell'istanza del cluster di failover di SQL Server. È riportato in **Gestione cluster di failover** nella stessa pagina delle proprietà in cui si trova `<SQL Server FCI IP Address Resource Name>`.  
-
-   - `<nnnnn>`: la porta probe configurata nel probe di integrità del servizio di bilanciamento del carico. È valida qualsiasi porta TCP inutilizzata.
-
->[!IMPORTANT]
->La subnet mask per il parametro del cluster deve essere l'indirizzo di broadcast IP TCP: `255.255.255.255`.
-
-Dopo aver configurato il probe del cluster, è possibile visualizzare tutti i parametri del cluster in PowerShell. Eseguire questo script:
-
-   ```powershell
-   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
-  ```
-
-## <a name="step-7-test-fci-failover"></a>Passaggio 7: Testare il failover dell'istanza del cluster di failover
-
-Testare il failover dell'istanza del cluster di failover per convalidare le funzionalità del cluster. Eseguire questa procedura:
-
-1. Connettersi a un nodo del cluster dell'istanza del cluster di failover di SQL Server usando RDP.
-
-1. Aprire **Gestione cluster di failover**. Selezionare **Ruoli**. Rilevare quale nodo è proprietario del ruolo dell'istanza del cluster di failover di SQL Server.
-
-1. Fare clic con il pulsante destro del mouse sul ruolo dell'istanza del cluster di failover di SQL Server.
-
-1. Selezionare **Sposta** e quindi selezionare **Miglior nodo possibile**.
-
-**Gestione cluster di failover** visualizza il ruolo e le relative risorse passano alla modalità offline. Le risorse vengono quindi spostate e portate online nell'altro nodo.
-
-### <a name="test-connectivity"></a>Testare la connettività
-
-Per testare la connettività, accedere a un'altra macchina virtuale nella stessa rete virtuale. Aprire **SQL Server Management Studio** e connettersi al nome dell'istanza del cluster di failover di SQL Server.
-
->[!NOTE]
->Se necessario, è possibile [scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+Per instradare il traffico in modo appropriato al nodo primario corrente, configurare l'opzione di connettività adatta per l'ambiente. È possibile creare un servizio di [bilanciamento del carico di Azure](hadr-vnn-azure-load-balancer-configure.md) o, se si usa SQL Server 2019 e Windows Server 2019, è possibile visualizzare in anteprima la funzionalità nome di [rete distribuita](hadr-distributed-network-name-dnn-configure.md) . 
 
 ## <a name="limitations"></a>Limitazioni
 
-Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione in volumi condivisi cluster e un [bilanciamento del carico standard](../../../load-balancer/load-balancer-standard-overview.md).
+- Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione su CSVs e un servizio di [bilanciamento del carico standard](../../../load-balancer/load-balancer-standard-overview.md).
+- I dischi che sono stati collegati come dischi formattati NTFS possono essere usati con Spazi di archiviazione diretta solo se l'opzione di idoneità del disco è deselezionata o cancellata quando è in corso l'aggiunta dell'archiviazione al cluster. 
+- È supportata solo la registrazione con il provider di risorse VM SQL in [modalità di gestione semplice](sql-vm-resource-provider-register.md#management-modes) .
 
-Nelle macchine virtuali di Azure, MSDTC non è supportato in Windows Server 2016 o versione precedente perché:
+## <a name="next-steps"></a>Passaggi successivi
 
-- La risorsa MSDTC in cluster non può essere configurata per usare la risorsa di archiviazione condivisa. In Windows Server 2016, se si crea una risorsa MSDTC, non verrà visualizzata alcuna risorsa di archiviazione condivisa disponibile per l'uso, anche se lo spazio di archiviazione è disponibile. Questo problema è stato risolto per Windows Server 2019.
-- Il servizio di bilanciamento del carico di base non gestisce le porte RPC.
+Se non è già stato fatto, configurare la connettività all'istanza del cluster di failover con un [nome di rete virtuale e un](hadr-vnn-azure-load-balancer-configure.md) servizio di bilanciamento del carico di Azure o un nome di [rete distribuita (DNN)](hadr-distributed-network-name-dnn-configure.md). 
 
-## <a name="see-also"></a>Vedere anche
+Se Spazi di archiviazione diretta non è la soluzione di archiviazione FCI appropriata, provare a creare l'istanza FCI usando i [dischi condivisi di Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) o le [condivisioni file Premium](failover-cluster-instance-premium-file-share-manually-configure.md) . 
 
-[Configurare Spazi di archiviazione diretta con desktop remoto (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+Per altre informazioni, vedere Panoramica di [FCI con SQL Server nelle macchine virtuali di Azure](failover-cluster-instance-overview.md) e [procedure consigliate](hadr-cluster-best-practices.md)per la configurazione del cluster. 
 
-[Soluzione iperconvergente con Spazi di archiviazione diretta](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-
-[Panoramica di Spazi di archiviazione diretta](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
-
-[Supporto di SQL Server per Spazi di archiviazione diretta](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
+Per altre informazioni, vedere: 
+- [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)   
+- [SQL Server istanze del cluster di failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

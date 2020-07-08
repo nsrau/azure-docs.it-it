@@ -7,12 +7,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921862"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Sviluppare .NET Standard funzioni definite dall'utente per i processi di analisi di flusso di Azure (anteprima)
 
@@ -50,7 +49,7 @@ Per usare i valori di analisi di flusso di Azure in C#, è necessario eseguirne 
 |float | double |
 |nvarchar(max) | string |
 |Datetime | Datetime |
-|Record | Stringa\<del dizionario, oggetto> |
+|Record | Dizionario\<string, object> |
 |Array | Oggetto [] |
 
 Lo stesso vale quando è necessario effettuare il marshalling dei dati da C# ad analisi di flusso di Azure, che si verifica sul valore di output di una funzione definita dall'utente. La tabella seguente illustra i tipi supportati:
@@ -64,7 +63,7 @@ Lo stesso vale quando è necessario effettuare il marshalling dei dati da C# ad 
 |struct  |  Record   |
 |object  |  Record   |
 |Oggetto []  |  Array   |
-|Stringa\<del dizionario, oggetto>  |  Record   |
+|Dizionario\<string, object>  |  Record   |
 
 ## <a name="codebehind"></a>CodeBehind
 È possibile scrivere funzioni definite dall'utente nel CodeBehind **Script.asql**. Gli strumenti di Visual Studio compileranno automaticamente il file CodeBehind in un file di assembly. Gli assembly sono inclusi in un pacchetto come file ZIP e caricati nell'account di archiviazione quando si invia il processo ad Azure. È possibile imparare a scrivere una funzione C# definita dall'utente con CodeBehind seguendo l'esercitazione [Funzione C# definita dall'utente per i processi di Analisi di flusso di Azure in IoT Edge](stream-analytics-edge-csharp-udf.md). 
@@ -130,7 +129,7 @@ Per configurare il percorso dell'assembly nel file di configurazione del process
 
 Espandere la sezione **Configurazione di codice definito dall'utente** e compilare la configurazione con i seguenti valori suggeriti:
 
-   |**Impostazione**|**Valore suggerito**|
+   |**Impostazione**|**Valore consigliato**|
    |-------|---------------|
    |Global Storage Settings Resource (Risorsa impostazioni di archiviazione globali)|Scegliere l'origine dati dall'account corrente|
    |Global Storage Settings Subscription (Sottoscrizione impostazioni di archiviazione globali)| < sottoscrizione >|
@@ -139,12 +138,12 @@ Espandere la sezione **Configurazione di codice definito dall'utente** e compila
    |Custom Code Storage Settings Storage Account (Account di archiviazione impostazioni di archiviazione codice personalizzato)|< account di archiviazione >|
    |Custom Code Storage Settings Container (Contenitore impostazioni di archiviazione codice personalizzato)|< contenitore di archiviazione >|
    |Origine assembly di codice personalizzato|Pacchetti di assembly esistenti dal cloud|
-   |Origine assembly di codice personalizzato|UserCustomCode. zip|
+   |Origine assembly di codice personalizzato|UserCustomCode.zip|
 
 ## <a name="user-logging"></a>Registrazione utente
 Il meccanismo di registrazione consente di acquisire informazioni personalizzate mentre un processo è in esecuzione. È possibile utilizzare i dati di log per eseguire il debug o valutare la correttezza del codice personalizzato in tempo reale.
 
-La `StreamingContext` classe consente di pubblicare informazioni di diagnostica utilizzando `StreamingDiagnostics.WriteError` la funzione. Il codice seguente illustra l'interfaccia esposta da analisi di flusso di Azure.
+La `StreamingContext` classe consente di pubblicare informazioni di diagnostica utilizzando la `StreamingDiagnostics.WriteError` funzione. Il codice seguente illustra l'interfaccia esposta da analisi di flusso di Azure.
 
 ```csharp
 public abstract class StreamingContext
@@ -158,7 +157,7 @@ public abstract class StreamingDiagnostics
 }
 ```
 
-`StreamingContext`viene passato come parametro di input al metodo UDF e può essere usato all'interno della funzione definita dall'utente per pubblicare informazioni di log personalizzate. Nell'esempio `MyUdfMethod` seguente, definisce un input di **dati** , fornito dalla query, e un input di **contesto** come `StreamingContext`, fornito dal motore di Runtime. 
+`StreamingContext`viene passato come parametro di input al metodo UDF e può essere usato all'interno della funzione definita dall'utente per pubblicare informazioni di log personalizzate. Nell'esempio seguente, `MyUdfMethod` definisce un input di **dati** , fornito dalla query, e un input di **contesto** come `StreamingContext` , fornito dal motore di Runtime. 
 
 ```csharp
 public static long MyUdfMethod(long data, StreamingContext context)
@@ -187,8 +186,12 @@ L'anteprima della funzione definita dall'utente attualmente presenta le limitazi
 
 * Poiché il codice personalizzato condivide il contesto con il motore di Analisi di flusso di Azure, il codice personalizzato non può riferirsi a nessun elemento con uno spazio dei nomi/DLL_name in conflitto con il codice di Analisi di flusso di Azure. Ad esempio, non è possibile fare riferimento al *Json di Newtonsoft*.
 
+* I file di supporto inclusi nel progetto vengono copiati nel file zip del codice personalizzato dell'utente usato quando si pubblica il processo nel cloud. Tutti i file nelle sottocartelle vengono copiati direttamente nella radice della cartella del codice personalizzato dell'utente nel cloud quando vengono decompressi. Il file zip è "flat" quando viene decompresso.
+
+* Il codice personalizzato dell'utente non supporta le cartelle vuote. Non aggiungere cartelle vuote ai file di supporto nel progetto.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esercitazione: scrivere una funzione C# definita dall'utente per un processo di analisi di flusso di Azure (anteprima)](stream-analytics-edge-csharp-udf.md)
-* [Esercitazione: funzioni JavaScript definite dall'utente per l'Analisi di flusso di Azure](stream-analytics-javascript-user-defined-functions.md)
+* [Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure](stream-analytics-javascript-user-defined-functions.md)
 * [Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure](stream-analytics-vs-tools.md)

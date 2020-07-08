@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 7d6cd4c6ce7991ae83f6f4a1dd6d8b86fe7eedbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81757890"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Distribuire OpenShift container Platform 3,11 in Azure
@@ -241,16 +240,16 @@ Sostituire i parametri con le informazioni specifiche.
 
 Versioni diverse possono avere parametri diversi, pertanto occorre verificare i parametri necessari per il ramo utilizzato.
 
-### <a name="azuredeployparametersjson-file-explained"></a>file azuredeploy. Descrizione del file Parameters. JSON
+### <a name="azuredeployparametersjson-file-explained"></a>Spiegazione azuredeploy.Parameters.jssu file
 
 | Proprietà | Descrizione | Opzioni valide | Valore predefinito |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL per gli artefatti (JSON, script e così via) |  |  https:\//RAW.githubusercontent.com/Microsoft/OpenShift-container-Platform/Master  |
+| `_artifactsLocation`  | URL per gli artefatti (JSON, script e così via) |  |  https: \/ /RAW.githubusercontent.com/Microsoft/OpenShift-container-Platform/Master  |
 | `location` | Area di Azure in cui distribuire le risorse |  |  |
-| `masterVmSize` | Dimensioni della macchina virtuale master. Selezionare una delle dimensioni di macchina virtuale consentite elencate nel file file azuredeploy. JSON |  | Standard_E2s_v3 |
-| `infraVmSize` | Dimensioni della VM infra. Selezionare una delle dimensioni di macchina virtuale consentite elencate nel file file azuredeploy. JSON |  | Standard_D4s_v3 |
-| `nodeVmSize` | Dimensioni della VM del nodo dell'app. Selezionare una delle dimensioni di macchina virtuale consentite elencate nel file file azuredeploy. JSON |  | Standard_D4s_v3 |
-| `cnsVmSize` | Dimensioni della VM del nodo dello spazio di archiviazione nativo (CNS) del contenitore. Selezionare una delle dimensioni di macchina virtuale consentite elencate nel file file azuredeploy. JSON |  | Standard_E4s_v3 |
+| `masterVmSize` | Dimensioni della macchina virtuale master. Consente di selezionare una delle dimensioni di macchina virtuale consentite elencate nel azuredeploy.jsfile |  | Standard_E2s_v3 |
+| `infraVmSize` | Dimensioni della VM infra. Consente di selezionare una delle dimensioni di macchina virtuale consentite elencate nel azuredeploy.jsfile |  | Standard_D4s_v3 |
+| `nodeVmSize` | Dimensioni della VM del nodo dell'app. Consente di selezionare una delle dimensioni di macchina virtuale consentite elencate nel azuredeploy.jsfile |  | Standard_D4s_v3 |
+| `cnsVmSize` | Dimensioni della VM del nodo dello spazio di archiviazione nativo (CNS) del contenitore. Consente di selezionare una delle dimensioni di macchina virtuale consentite elencate nel azuredeploy.jsfile |  | Standard_E4s_v3 |
 | `osImageType` | Immagine RHEL da usare. defaultgallery: su richiesta; Marketplace: immagine di terze parti | defaultgallery <br> marketplace | defaultgallery |
 | `marketplaceOsImage` | Se `osImageType` è Marketplace, immettere i valori appropriati per ' Publisher ',' offer ',' SKU ',' version ' dell'offerta Marketplace. Questo parametro è un tipo di oggetto |  |  |
 | `storageKind` | Tipo di archiviazione da usare  | gestito<br> unmanaged | gestito |
@@ -276,10 +275,10 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `keyVaultName` | Nome del Key Vault creato |  |  |
 | `enableAzure` | Abilita provider di servizi cloud di Azure | true <br> false | true |
 | `aadClientId` | ID client di Azure Active Directory noto anche come ID applicazione per l'entità servizio |  |  |
-| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | none |
-| `masterClusterDnsType` | Tipo di dominio per la console Web OpenShift. con ' default ' viene utilizzata l'etichetta DNS dell'indirizzo IP pubblico del Master infra. ' Custom ' consente di definire un nome personalizzato | default <br> personalizzati | default |
+| `domainName` | Nome del nome di dominio personalizzato da usare, se applicabile. Impostato su "None" se non si distribuisce un cluster completamente privato |  | Nessuno |
+| `masterClusterDnsType` | Tipo di dominio per la console Web OpenShift. con ' default ' viene utilizzata l'etichetta DNS dell'indirizzo IP pubblico del Master infra. ' Custom ' consente di definire un nome personalizzato | default <br> custom | default |
 | `masterClusterDns` | Nome DNS personalizzato da usare per accedere alla console Web di OpenShift se è stata selezionata l'opzione ' Custom ' per`masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Se impostato su "nipio", `routingSubDomain` utilizzerà NIP.io.  Usare "Custom" Se si dispone di un dominio personalizzato che si vuole usare per il routing | nipio <br> personalizzati | nipio |
+| `routingSubDomainType` | Se impostato su "nipio", `routingSubDomain` utilizzerà NIP.io.  Usare "Custom" Se si dispone di un dominio personalizzato che si vuole usare per il routing | nipio <br> custom | nipio |
 | `routingSubDomain` | Nome DNS con caratteri jolly che si vuole usare per il routing se è stato selezionato "Custom" per`routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Scegliere se usare una rete virtuale esistente o creare una nuova rete virtuale | esistenti <br> Nuovo | Nuovo |
 | `virtualNetworkResourceGroupName` | Nome del gruppo di risorse per la nuova rete virtuale se è stata selezionata l'opzione ' nuovo ' per`virtualNetworkNewOrExisting` |  | resourceGroup (). nome |
@@ -299,8 +298,8 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `masterPrivateClusterIp` | Se si selezionano i nodi master privati, è necessario specificare un indirizzo IP privato per l'uso da parte del servizio di bilanciamento del carico interno per i nodi master. Questo indirizzo IP statico deve trovarsi all'interno del blocco CIDR per la subnet master e non è già in uso. Se si selezionano i nodi Master pubblici, questo valore non verrà utilizzato, ma sarà comunque necessario specificarlo |  | 10.1.0.200 |
 | `routerClusterType` | Specificare se il cluster usa i nodi infra privati o pubblici. Se si sceglie private, i nodi infra non verranno esposti a Internet tramite un indirizzo IP pubblico. Utilizzerà invece l'indirizzo IP privato specificato nella`routerPrivateClusterIp` | public <br> private | public |
 | `routerPrivateClusterIp` | Se si selezionano i nodi infra privati, è necessario specificare un indirizzo IP privato per l'uso da parte del servizio di bilanciamento del carico interno per i nodi infra. Questo indirizzo IP statico deve trovarsi all'interno del blocco CIDR per la subnet infra e non è già in uso. Se si selezionano i nodi infra pubblici, questo valore non verrà utilizzato, ma sarà comunque necessario specificarlo |  | 10.2.0.200 |
-| `routingCertType` | Usa certificato personalizzato per il dominio di routing o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> personalizzati | selfsigned |
-| `masterCertType` | Usare un certificato personalizzato per il dominio master o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> personalizzati | selfsigned |
+| `routingCertType` | Usa certificato personalizzato per il dominio di routing o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> custom | selfsigned |
+| `masterCertType` | Usare un certificato personalizzato per il dominio master o il certificato autofirmato predefinito-seguire le istruzioni nella sezione **certificati personalizzati** | selfsigned <br> custom | selfsigned |
 
 <br>
 
@@ -336,7 +335,7 @@ Al termine della distribuzione, recuperare la connessione dalla sezione di outpu
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non servono più, è possibile rimuovere il gruppo di risorse, il cluster OpenShift e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group).
 

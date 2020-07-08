@@ -1,14 +1,13 @@
 ---
 title: Architettura dell'appliance di Azure Migrate
-description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzata per la valutazione e la migrazione dei server.
+description: Offre una panoramica dell'appliance di Azure Migrate usata per la valutazione e la migrazione del server.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: d55d123bb056b46b5e78dd8ac836eeaf9b42fe70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80389019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770901"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architettura dell'appliance di Azure Migrate
 
@@ -16,25 +15,25 @@ Questo articolo descrive l'architettura e i processi di Azure Migrate Appliance.
 
 ## <a name="deployment-scenarios"></a>Scenari di distribuzione
 
-Il dispositivo Azure Migrate viene usato negli scenari seguenti.
+L'appliance di Azure Migrate viene usata negli scenari seguenti.
 
-**Scenario** | **Strumento** | **Utilizzo** 
+**Scenario** | **Strumento** | **Usata per** 
 --- | --- | ---
-**Valutazione VM VMware** | Azure Migrate: valutazione del server | Individuare le macchine virtuali VMware.<br/><br/> Individuare le app e le dipendenze del computer.<br/><br/> Raccogliere i metadati del computer e le prestazioni e inviarli ad Azure.
-**Migrazione di macchine virtuali VMware (senza agenti)** | Azure Migrate: migrazione del server | Individuare le macchine virtuali VMware<br/><br/>  Eseguire la replica di macchine virtuali VMware con [migrazione senza agenti](server-migrate-overview.md).
-**Valutazione della macchina virtuale Hyper-V** | Azure Migrate: valutazione del server | Individuare le VM Hyper-V.<br/><br/> Raccogliere i metadati del computer e le prestazioni e inviarli ad Azure.
-**Computer fisico** |  Azure Migrate: valutazione del server |  Individuare i server fisici.<br/><br/> Raccogliere i metadati del computer e le prestazioni e inviarli ad Azure.
+**Valutazione della macchina virtuale VMware** | Azure Migrate: Valutazione server | Individuare le macchine virtuali VMware.<br/><br/> Individuare le app e le dipendenze del computer.<br/><br/> Raccogliere i metadati del computer e le prestazioni e inviarli ad Azure.
+**Migrazione di macchine virtuali VMware (senza agenti)** | Azure Migrate: Migrazione del server | Individuare le macchine virtuali VMware<br/><br/>  Eseguire la replica di macchine virtuali VMware con [migrazione senza agenti](server-migrate-overview.md).
+**Valutazione della macchina virtuale Hyper-V** | Azure Migrate: Valutazione server | Individuare le VM Hyper-V.<br/><br/> Raccogliere i metadati del computer e le prestazioni e inviarli ad Azure.
+**Computer fisico** |  Azure Migrate: Valutazione server |  Individuare i server fisici.<br/><br/> Raccogliere i metadati del computer e le prestazioni e inviarli ad Azure.
 
-## <a name="appliance-components"></a>Componenti del dispositivo
+## <a name="appliance-components"></a>Componenti dell'appliance
 
 Il dispositivo dispone di un numero di componenti.
 
-- **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. Usato durante la valutazione dei computer per la migrazione ad Azure.
-- **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. Usato durante la valutazione dei computer per la migrazione ad Azure. 
-- **Agente di valutazione**: l'agente raccoglie i dati sulle prestazioni. Usato durante la valutazione dei computer per la migrazione ad Azure.
-- **Agente DRA**: Orchestra la replica della macchina virtuale e coordina la comunicazione tra computer replicati e Azure. Usato solo quando si esegue la replica di macchine virtuali VMware in Azure usando la migrazione senza agente.
-- **Gateway**: Invia i dati replicati in Azure. Usato solo quando si esegue la replica di macchine virtuali VMware in Azure usando la migrazione senza agente.
-- **Aggiornamento automatico del servizio**: Aggiorna i componenti del dispositivo (viene eseguito ogni 24 ore).
+- **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.
+- **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure. 
+- **Agente di valutazione**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.
+- **Agente DRA**: organizza la replica della macchina virtuale e coordina la comunicazione tra computer replicati e Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.
+- **Gateway**: invia i dati replicati ad Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.
+- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.
 
 
 
@@ -51,8 +50,8 @@ Durante l'installazione dell'appliance si registra l'appliance con Azure Migrate
 **Azione** | **Dettagli** | **Autorizzazioni**
 --- | --- | ---
 **Registra provider di origine** | Questi provider di risorse sono registrati nella sottoscrizione scelta durante l'installazione dell'appliance: Microsoft. OffAzure, Microsoft. migrate e Microsoft. insieme di credenziali.<br/><br/> La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. | Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
-**Creare Azure AD app-Communication** | Azure Migrate crea un'app Azure Active Directory (Azure AD) per la comunicazione (autenticazione e autorizzazione) tra gli agenti in esecuzione nell'appliance e i rispettivi servizi in esecuzione in Azure.<br/><br/> Questa app non dispone dei privilegi necessari per effettuare chiamate Azure Resource Manager o l'accesso RBAC a qualsiasi risorsa. | È necessario disporre di [queste autorizzazioni](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) per Azure migrate per creare l'app.
-**Creare app Azure AD-Key Vault** | Questa app viene creata solo per la migrazione senza agenti di macchine virtuali VMware in Azure.<br/><br/> Viene usato esclusivamente per accedere all'insieme di credenziali delle chiavi creato nella sottoscrizione dell'utente per la migrazione senza agenti.<br/><br/> Ha accesso RBAC nell'insieme di credenziali delle chiavi di Azure, creato nel tenant del cliente, quando l'individuazione viene avviata dall'appliance. | È necessario disporre di [queste autorizzazioni](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) per Azure migrate per creare l'app.
+**Creare Azure AD app-Communication** | Azure Migrate crea un'app Azure Active Directory (Azure AD) per la comunicazione (autenticazione e autorizzazione) tra gli agenti in esecuzione nell'appliance e i rispettivi servizi in esecuzione in Azure.<br/><br/> Questa app non dispone dei privilegi necessari per effettuare chiamate Azure Resource Manager o l'accesso RBAC a qualsiasi risorsa. | È necessario disporre di [queste autorizzazioni](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) per Azure migrate per creare l'app.
+**Creare app Azure AD-Key Vault** | Questa app viene creata solo per la migrazione senza agenti di macchine virtuali VMware in Azure.<br/><br/> Viene usato esclusivamente per accedere all'insieme di credenziali delle chiavi creato nella sottoscrizione dell'utente per la migrazione senza agenti.<br/><br/> Ha accesso RBAC nell'insieme di credenziali delle chiavi di Azure, creato nel tenant del cliente, quando l'individuazione viene avviata dall'appliance. | È necessario disporre di [queste autorizzazioni](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) per Azure migrate per creare l'app.
 
 
 
@@ -85,9 +84,9 @@ L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il p
 
 
 
-## <a name="appliance-upgrades"></a>Aggiornamenti Appliance
+## <a name="appliance-upgrades"></a>Aggiornamenti dell'appliance
 
-Il dispositivo viene aggiornato quando vengono aggiornati gli agenti Azure Migrate in esecuzione nell'appliance. Questa operazione viene eseguita automaticamente perché per impostazione predefinita l'aggiornamento automatico è abilitato nell'appliance. È possibile modificare questa impostazione predefinita per aggiornare manualmente gli agenti.
+L'appliance viene aggiornata quando vengono aggiornati gli agenti di Azure Migrate in esecuzione nell'appliance. Questa operazione viene eseguita automaticamente perché per impostazione predefinita l'aggiornamento automatico è abilitato nell'appliance. È possibile modificare questa impostazione predefinita per aggiornare manualmente gli agenti.
 
 Per disattivare l'aggiornamento automatico nel registro di sistema, impostare la chiave HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" su 0 (DWORD).
 

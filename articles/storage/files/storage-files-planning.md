@@ -7,19 +7,18 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659641"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) può essere distribuito in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando sincronizzazione file di Azure. L'opzione di distribuzione scelta cambia gli elementi che è necessario prendere in considerazione durante la pianificazione della distribuzione. 
 
-- **Montaggio diretto di una condivisione file di Azure**: poiché file di Azure fornisce l'accesso SMB, è possibile montare condivisioni file di Azure in locale o nel cloud usando il client SMB standard disponibile in Windows, MacOS e Linux. Poiché le condivisioni file di Azure sono senza server, la distribuzione per gli scenari di produzione non richiede la gestione di un dispositivo file server o NAS. Ciò significa che non è necessario applicare patch software o scambiare dischi fisici. 
+- **Montaggio diretto di una condivisione file di Azure**: Poiché File di Azure offre l'accesso tramite SMB, è possibile montare le condivisioni file di Azure in locale o nel cloud usando il client SMB standard disponibile in Windows, macOS e Linux. Poiché le condivisioni file di Azure sono serverless, la distribuzione per gli scenari di produzione non richiede la gestione di dispositivi NAS o file server. Ciò significa che non è necessario applicare patch software o sostituire dischi fisici. 
 
-- **Memorizzare nella cache la condivisione file di Azure in locale con sincronizzazione file di Azure**: sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in file di Azure, garantendo al tempo stesso la flessibilità, le prestazioni e la compatibilità di un file server locale. Sincronizzazione file di Azure trasforma un server Windows locale (o cloud) in una cache rapida della condivisione file di Azure. 
+- **Memorizzare nella cache locale una condivisione file di Azure con Sincronizzazione file di Azure**: Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma un'istanza locale o cloud di Windows Server in una cache rapida della condivisione file di Azure. 
 
 Questo articolo illustra principalmente le considerazioni sulla distribuzione per la distribuzione di una condivisione file di Azure da montare direttamente da un client locale o cloud. Per pianificare una distribuzione di Sincronizzazione file di Azure, vedere [pianificazione di una distribuzione di sincronizzazione file di Azure](storage-sync-files-planning.md).
 
@@ -30,7 +29,7 @@ Quando si distribuiscono condivisioni file di Azure in account di archiviazione,
 
 - Distribuire solo le condivisioni file di Azure in account di archiviazione con altre condivisioni file di Azure. Sebbene gli account di archiviazione GPv2 consentano di disporre di account di archiviazione per utilizzo misto, poiché le risorse di archiviazione come le condivisioni file di Azure e i contenitori BLOB condividono i limiti dell'account di archiviazione, la combinazione di risorse può rendere più difficile la risoluzione dei problemi di prestazioni in un secondo momento. 
 
-- Prestare attenzione alle limitazioni IOPS di un account di archiviazione durante la distribuzione di condivisioni file di Azure. Idealmente, è consigliabile eseguire il mapping delle condivisioni file 1:1 con gli account di archiviazione, ma ciò potrebbe non essere sempre possibile a causa di diversi limiti e restrizioni, sia dall'organizzazione che da Azure. Quando non è possibile avere una sola condivisione file distribuita in un account di archiviazione, valutare quali condivisioni saranno molto attive e quali condivisioni saranno meno attive per assicurarsi che le condivisioni file più calde non vengano inserite nello stesso account di archiviazione.
+- Quando si distribuiscono condivisioni file di Azure, prestare attenzione alle limitazioni di un account di archiviazione in termini di operazioni di I/O al secondo. Idealmente, si dovrebbe mantenere un mapping 1:1 tra condivisioni file e account di archiviazione, ma questo non sempre è possibile, a causa dei diversi limiti e restrizioni imposti dall'organizzazione e da Azure. Quando non è possibile distribuire una sola condivisione file per account di archiviazione, valutare quali condivisioni saranno particolarmente attive e quali lo saranno meno, per assicurarsi di non inserire le condivisioni file più utilizzate nello stesso account di archiviazione.
 
 - Distribuire solo gli account GPv2 e filestorage e aggiornare utilizzo generico V1 e gli account di archiviazione classici quando vengono individuati nell'ambiente in uso. 
 
@@ -40,12 +39,12 @@ Per accedere a una condivisione file di Azure, l'utente della condivisione file 
 - **Azure Active Directory Domain Services (Azure AD DS)**: Azure AD DS fornisce un controller di dominio gestito da Microsoft che può essere usato per le risorse di Azure. Il dominio che aggiunge l'account di archiviazione a Azure AD DS offre vantaggi simili al dominio che lo aggiunge a una Active Directory di proprietà del cliente. Questa opzione di distribuzione è particolarmente utile per gli scenari di Lift-and-Shift per le applicazioni che richiedono autorizzazioni basate su AD. Poiché Azure AD DS fornisce l'autenticazione basata su Active Directory, questa opzione Usa anche il protocollo di autenticazione Kerberos.
 - **Chiave account di archiviazione**di Azure: le condivisioni file di Azure possono essere montate anche con una chiave dell'account di archiviazione di Azure. Per montare una condivisione file in questo modo, viene usato il nome dell'account di archiviazione come nome utente e la chiave dell'account di archiviazione viene usata come password. L'uso della chiave dell'account di archiviazione per montare la condivisione file di Azure è in realtà un'operazione di amministratore, poiché la condivisione file montata disporrà di autorizzazioni complete per tutti i file e le cartelle della condivisione, anche se contengono ACL. Quando si usa la chiave dell'account di archiviazione per il montaggio tramite SMB, viene usato il protocollo di autenticazione NTLMv2.
 
-Per i clienti che eseguono la migrazione da file server locali o per la creazione di nuove condivisioni file in File di Azure progettati per comportarsi come i file server Windows o i dispositivi NAS, il dominio che aggiunge l'account di archiviazione al **Active Directory di proprietà del cliente** è l'opzione consigliata. Per ulteriori informazioni sul dominio che aggiunge il proprio account di archiviazione a un Active Directory di proprietà del cliente, vedere [File di Azure Active Directory Overview](storage-files-active-directory-overview.md).
+Per i clienti che eseguono la migrazione da file server locali o per la creazione di nuove condivisioni file in File di Azure progettati per comportarsi come i file server Windows o i dispositivi NAS, il dominio che aggiunge l'account di archiviazione al **Active Directory di proprietà del cliente** è l'opzione consigliata. Per altre informazioni sull'aggiunta dell'account di archiviazione a un dominio di Active Directory di proprietà del cliente, vedere [Azure Files Active Directory overview](storage-files-active-directory-overview.md) (Panoramica di Active Directory per File di Azure).
 
 Se si intende usare la chiave dell'account di archiviazione per accedere alle condivisioni file di Azure, è consigliabile usare gli endpoint di servizio come descritto nella sezione [rete](#networking) .
 
 ## <a name="networking"></a>Rete
-Le condivisioni file di Azure sono accessibili da qualsiasi posizione tramite l'endpoint pubblico dell'account di archiviazione. Ciò significa che le richieste autenticate, ad esempio le richieste autorizzate dall'identità di accesso di un utente, possono avere origine in modo sicuro all'interno o all'esterno di Azure. In molti ambienti del cliente, un montaggio iniziale della condivisione file di Azure nella workstation locale avrà esito negativo, anche se i montaggi dalle macchine virtuali di Azure hanno esito positivo. Il motivo è che molte organizzazioni e provider di servizi Internet (ISP) bloccano la porta utilizzata da SMB per comunicare, ovvero la porta 445. Passare a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) per visualizzare un riepilogo degli ISP in grado di consentire o proibire l'accesso dalla porta 445.
+Le condivisioni file di Azure sono accessibili da qualsiasi posizione tramite l'endpoint pubblico dell'account di archiviazione. Questo significa che le richieste autenticate, ad esempio quelle autorizzate dall'identità di accesso di un utente, possono avere origine in modo sicuro all'interno o all'esterno di Azure. In molti ambienti dei clienti, un montaggio iniziale della condivisione file di Azure nella workstation locale avrà esito negativo, anche se i montaggi dalle macchine virtuali di Azure riescono. Il motivo è che molte organizzazioni e provider di servizi Internet (ISP) bloccano la porta usata da SMB per comunicare, ovvero la porta 445. Passare a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) per visualizzare un riepilogo degli ISP in grado di consentire o proibire l'accesso dalla porta 445.
 
 Per sbloccare l'accesso alla condivisione file di Azure, sono disponibili due opzioni principali:
 
@@ -69,7 +68,7 @@ Per impostazione predefinita, la crittografia in transito è abilitata per tutti
 
 È possibile disabilitare la crittografia in transito per un account di archiviazione di Azure. Quando la crittografia è disabilitata, File di Azure consentirà anche SMB 2,1, SMB 3,0 senza crittografia e chiamate API filerest non crittografate su HTTP. La crittografia in transito viene in genere disabilitata principalmente per supportare un'applicazione legacy che deve essere eseguita in un sistema operativo meno recente, ad esempio Windows Server 2008 R2 o una distribuzione Linux precedente. File di Azure consente connessioni SMB 2.1 solo all'interno della stessa area di Azure della condivisione file di Azure. Un client SMB 2.1 situato all'esterno dell'area di Azure in cui si trova la condivisione file di Azure, ad esempio in locale o in un'area di Azure differente, non potrà accedere alla condivisione file.
 
-Si consiglia vivamente di garantire che la crittografia dei dati in transito sia abilitata.
+È fortemente consigliabile verificare che la crittografia dei dati in transito sia abilitata.
 
 Per altre informazioni sulla crittografia in transito, vedere [Richiedere il trasferimento sicuro in Archiviazione di Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
@@ -94,7 +93,7 @@ In generale, le funzionalità di File di Azure e l'interoperabilità con altri s
     - Le condivisioni file standard sono disponibili in ogni area di Azure.
 - Azure Kubernetes Service (AKS) supporta le condivisioni file Premium nella versione 1,13 e successive.
 
-Una volta creata una condivisione file come una condivisione file Premium o standard, non è possibile convertirla automaticamente nell'altro livello. Se si desidera passare all'altro livello, è necessario creare una nuova condivisione file in tale livello e copiare manualmente i dati dalla condivisione originale alla nuova condivisione creata. Per eseguire tale `robocopy` copia, è `rsync` consigliabile usare per Windows o per MacOS e Linux.
+Una volta creata una condivisione file come una condivisione file Premium o standard, non è possibile convertirla automaticamente nell'altro livello. Se si desidera passare all'altro livello, è necessario creare una nuova condivisione file in tale livello e copiare manualmente i dati dalla condivisione originale alla nuova condivisione creata. Per eseguire tale copia, è consigliabile usare `robocopy` per Windows o `rsync` per MacOS e Linux.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Informazioni sul provisioning per le condivisioni file Premium
 Il provisioning delle condivisioni file premium viene effettuato in base a un rapporto fisso tra GiB, operazioni di I/O al secondo e velocità effettiva. Per ogni GiB di cui viene effettuato il provisioning, alla condivisione viene assegnata un'operazione di I/O al secondo con 0,1 MiB/s di velocità effettiva fino ai limiti massimi per singola condivisione. Il valore minimo di provisioning consentito è 100 GiB con il minimo di operazioni di I/O al secondo e velocità effettiva.
@@ -122,7 +121,7 @@ La tabella seguente illustra alcuni esempi di queste formule per le dimensioni d
 |---------|---------|---------|---------|---------|
 |100         | 100     | Fino a 300     | 66   | 44   |
 |500         | 500     | Fino a 1.500   | 90   | 60   |
-|1.024       | 1.024   | Fino a 3.072   | 122   | 81   |
+|1\.024       | 1\.024   | Fino a 3.072   | 122   | 81   |
 |5120       | 5120   | Fino a 15.360  | 368   | 245   |
 |10.240      | 10.240  | Fino a 30.720  | 675 | 450   |
 |33.792      | 33.792  | Fino a 100.000 | 2.088 | 1.392   |
@@ -150,7 +149,7 @@ I crediti di condivisione hanno tre stati:
 
 Le nuove condivisioni file iniziano con il numero completo di crediti nel bucket di espansione. Se i valori di IOPS della condivisione scendono al di sotto della linea di base IOPS a causa della limitazione del server, i crediti di espansione non verranno acquisiti.
 
-### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Consente di estendere le condivisioni file standard fino a 100 TiB
+### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Abilitare condivisioni file standard fino a 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
 #### <a name="limitations"></a>Limitazioni
@@ -160,17 +159,12 @@ Le nuove condivisioni file iniziano con il numero completo di crediti nel bucket
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## <a name="migration"></a>Migrazione
-In molti casi, non verrà stabilita una nuova condivisione file di rete per l'organizzazione, ma la migrazione di una condivisione file esistente da un dispositivo file server o NAS locale a File di Azure. Sono disponibili molti strumenti, forniti da Microsoft e da terze parti, per eseguire una migrazione a una condivisione file, ma possono essere suddivisi approssimativamente in due categorie:
+In molti casi, non verrà stabilita una nuova condivisione file di rete per l'organizzazione, ma la migrazione di una condivisione file esistente da un dispositivo file server o NAS locale a File di Azure. La scelta della strategia e dello strumento di migrazione corretti per lo scenario è importante per il successo della migrazione. 
 
-- **Strumenti che gestiscono attributi file System come ACL e timestamp**:
-    - **[Sincronizzazione file di Azure](storage-sync-files-planning.md)**: è possibile usare sincronizzazione file di Azure come metodo per inserire i dati in una condivisione file di Azure, anche quando la distribuzione finale desiderata non mantiene una presenza locale. Sincronizzazione file di Azure può essere installato sul posto in distribuzioni esistenti di Windows Server 2012 R2, Windows Server 2016 e Windows Server 2019. Un vantaggio dell'uso di Sincronizzazione file di Azure come meccanismo di inserimento è che gli utenti finali possono continuare a usare la condivisione file esistente. il taglio alla condivisione file di Azure può verificarsi dopo il completamento del caricamento di tutti i dati in background.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy è uno strumento di copia noto fornito con Windows e Windows Server. Robocopy può essere usato per trasferire i dati in File di Azure montando la condivisione file in locale e quindi usando il percorso montato come destinazione del comando Robocopy.
-
-- **Strumenti che non gestiscono gli attributi file System**:
-    - **Data Box**: data box fornisce un meccanismo di trasferimento dati offline per la spedizione fisica dei dati in Azure. Questo metodo è progettato per aumentare la velocità effettiva e ridurre la larghezza di banda, ma attualmente non supporta file system attributi come timestamp e ACL.
-    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy è un'utilità della riga di comando progettata per copiare i dati da e verso File di Azure, oltre ad Archiviazione BLOB di Azure usando semplici comandi con prestazioni ottimali.
+L' [articolo Panoramica della migrazione](storage-files-migration-overview.md) illustra brevemente le nozioni di base e contiene una tabella che conduce alle guide alla migrazione che probabilmente coprono lo scenario.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Pianificazione di una distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
 * [Distribuzione di File di Azure](storage-files-deployment-guide.md)
 * [Distribuzione di Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+* [Vedere l'articolo Panoramica della migrazione per trovare la guida alla migrazione per lo scenario](storage-files-migration-overview.md)

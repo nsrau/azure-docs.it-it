@@ -3,15 +3,14 @@ title: Aggiungere spazio di archiviazione a una cache HPC di Azure
 description: Come definire le destinazioni di archiviazione in modo che la cache HPC di Azure possa usare il sistema NFS locale o i contenitori BLOB di Azure per l'archiviazione di file a lungo termine
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: dde29d02f3dbf10ca068d6b3f1ef6c326c206370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4c3ef79806d29b188eb2738919bf912cfedc8ef1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513869"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -22,6 +21,10 @@ Le *destinazioni di archiviazione* sono archiviazione back-end per i file a cui 
 Tenere presente che le esportazioni di archiviazione devono essere accessibili dalla rete virtuale della cache. Per l'archiviazione hardware locale, potrebbe essere necessario configurare un server DNS in grado di risolvere i nomi host per l'accesso con archiviazione NFS. Per altre informazioni, vedere [accesso DNS](hpc-cache-prereqs.md#dns-access).
 
 Aggiungere le destinazioni di archiviazione dopo la creazione della cache. La procedura è leggermente diversa a seconda che si stia aggiungendo un archivio BLOB di Azure o un'esportazione NFS. Di seguito sono riportati i dettagli per ognuno di essi.
+
+Fare clic sull'immagine seguente per visualizzare una [dimostrazione video](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) della creazione di una cache e l'aggiunta di una destinazione di archiviazione.
+
+[![anteprima video: cache HPC di Azure: programma di installazione (fare clic per visitare la pagina del video)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="open-the-storage-targets-page"></a>Aprire la pagina Destinazioni di archiviazione
 
@@ -70,7 +73,7 @@ Passaggi per aggiungere i ruoli RBAC:
 
 1. Aprire la pagina **controllo di accesso (IAM)** per l'account di archiviazione. Il collegamento nella pagina **Aggiungi destinazione di archiviazione** apre automaticamente questa pagina per l'account selezionato.
 
-1. **+** Fare clic su nella parte superiore della pagina e scegliere **Aggiungi un'assegnazione di ruolo**.
+1. Fare clic su nella **+** parte superiore della pagina e scegliere **Aggiungi un'assegnazione di ruolo**.
 
 1. Selezionare il ruolo "collaboratore account di archiviazione" nell'elenco.
 
@@ -149,8 +152,8 @@ In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 
 | Modello di utilizzo | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
 | ---- | ---- | ---- | ---- |
-| Lettura di scritture complesse e non frequenti | Lettura | Never | nessuno |
-| Scritture superiori al 15% | Lettura/Scrittura | Never | 1 ora |
+| Lettura di scritture complesse e non frequenti | Lettura | Mai | nessuno |
+| Scritture superiori al 15% | Lettura/Scrittura | Mai | 1 ora |
 | Client che ignorano la cache | Lettura | 30 secondi | nessuno |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -5,45 +5,55 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 0dea516ea6b938b91fc4b9b833979bcecc285339
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84325134"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in App per la logica di Azure
 
 Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md), assieme al trigger di richiesta e all'azione di risposta predefiniti, è possibile creare attività e flussi di lavoro automatizzati che ricevono le richieste HTTPS in ingresso e rispondono. Ad esempio, è possibile far sì che l'app per la logica:
 
 * Riceva e risponda a una richiesta HTTPS di dati in un database locale.
+
 * Attivi un flusso di lavoro quando si verifica un evento del webhook esterno.
+
 * Riceva e risponda a una chiamata HTTPS da un'altra app per la logica.
 
 Il trigger di richiesta supporta [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) per autorizzare le chiamate in ingresso all'app per la logica. Per altre informazioni sull'abilitazione di questa autenticazione, vedere [Proteggere l'accesso e i dati in App per la logica di Azure: abilitare l'autenticazione OAuth di Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
-
-> [!NOTE]
-> Il trigger di richiesta supporta *solo* Transport Layer Security (TLS) 1.2 per le chiamate in ingresso. Le chiamate in uscita supportano TLS 1.0, 1.1 e 1.2. Per altre informazioni, vedere [Risoluzione del problema relativo a TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
->
-> Se si verificano errori di handshake TLS, assicurarsi di usare TLS 1.2. 
-> Per le chiamate in ingresso, di seguito sono riportati i pacchetti di crittografia supportati:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Conoscenze di base di [app per la logica](../logic-apps/logic-apps-overview.md). Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+
+* Le chiamate in ingresso supportano *solo* Transport Layer Security (TLS) 1,2. Se si verificano errori di handshake TLS, assicurarsi di usare TLS 1.2. Per altre informazioni, vedere [Risoluzione del problema relativo a TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). Le chiamate in uscita supportano TLS 1,0, 1,1 e 1,2, in base alla funzionalità dell'endpoint di destinazione.
+
+* Le chiamate in ingresso supportano questi pacchetti di crittografia:
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 <a name="add-request"></a>
 
@@ -61,7 +71,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    ![Trigger di richiesta](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
    |---------------|--------------------|----------|-------------|
    | **URL POST HTTP** | {none} | Sì | URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
    | **Corpo della richiesta: Schema JSON** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
@@ -158,9 +168,17 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
       }
       ```
 
+1. Per verificare che la chiamata in ingresso disponga di un corpo della richiesta corrispondente allo schema specificato, attenersi alla seguente procedura:
+
+   1. Nella barra del titolo del trigger di richiesta selezionare il pulsante con i puntini di sospensione (**...**).
+   
+   1. Nelle impostazioni del trigger attivare la **convalida dello schema**e selezionare **fine**.
+   
+      Se il corpo della richiesta della chiamata in ingresso non corrisponde allo schema, il trigger restituisce un `HTTP 400 Bad Request` errore.
+
 1. Per specificare proprietà aggiuntive, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
    |---------------|--------------------|----------|-------------|
    | **Metodo** | `method` | No | Metodo che le richieste in ingresso devono usare per chiamare l'app per la logica |
    | **Percorso relativo** | `relativePath` | No | Percorso relativo per il parametro che l'URL dell'endpoint dell'app per la logica può accettare |
@@ -178,13 +196,16 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    È ad esempio possibile rispondere alla richiesta [aggiungendo un'azione di risposta](#add-response), che è possibile usare per restituire una risposta personalizzata ed è descritta più avanti in questo argomento.
 
-   L'app per la logica mantiene aperta la richiesta in ingresso solo per un [periodo di tempo limitato](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supponendo che il flusso di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta una volta trascorso questo intervallo di tempo, l'app per la logica restituisce un `504 GATEWAY TIMEOUT` al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, viene restituita immediatamente una risposta `202 ACCEPTED` al chiamante.
+   L'app per la logica mantiene aperta la richiesta in ingresso solo per un [periodo di tempo limitato](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supponendo che il flusso di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta una volta trascorso questo intervallo di tempo, restituisce un `504 GATEWAY TIMEOUT` al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, viene restituita immediatamente una risposta `202 ACCEPTED` al chiamante.
 
 1. Al termine, salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
    Questo passaggio genera l'URL da usare per l'invio della richiesta che attiva l'app per la logica. Per copiare questo URL, selezionare l'icona di copia accanto all'URL.
 
    ![URL da usare per l'attivazione dell'app per la logica](./media/connectors-native-reqres/generated-url.png)
+
+   > [!NOTE]
+   > Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI quando si effettua una chiamata al trigger request, utilizzare invece questa versione codificata:`%25%23`
 
 1. Per attivare l'app per la logica, inviare un POST HTTP all'URL generato.
 

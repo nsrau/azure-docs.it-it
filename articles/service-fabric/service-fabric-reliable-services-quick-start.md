@@ -4,12 +4,11 @@ description: Introduzione alla creazione di un’applicazione dell’infrastrutt
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
-ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0a8d5a05f922cd01067abbc3e98320a32cd9d256
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083779"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038022"
 ---
 # <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
 
@@ -30,7 +29,7 @@ Per iniziare a usare Reliable Services, è sufficiente comprendere solo alcuni c
 
 ## <a name="create-a-stateless-service"></a>Creare un servizio senza stato
 
-Il servizio senza stato è il tipo di servizio di norma presente nelle applicazioni cloud. Viene considerato senza stato perché il servizio stesso non contiene dati che devono essere archiviati in modo affidabile o resi a disponibilità elevata. Se un'istanza di un servizio senza stato si arresta, il relativo stato interno viene perso. In questi tipi di servizio lo stato deve essere reso persistente mediante un archivio esterno, ad esempio tabelle di Azure o un database SQL, in modo da assicurare elevata disponibilità e affidabilità.
+Il servizio senza stato è il tipo di servizio di norma presente nelle applicazioni cloud. Viene considerato senza stato perché il servizio stesso non contiene dati che devono essere archiviati in modo affidabile o resi a disponibilità elevata. Se un'istanza di un servizio senza stato si arresta, il relativo stato interno viene perso. In questo tipo di servizio, lo stato deve essere salvato in modo permanente in un archivio esterno, ad esempio tabelle di Azure o database SQL, in modo che venga reso altamente disponibile e affidabile.
 
 Avviare Visual Studio 2017 o Visual Studio 2019 come amministratore e creare un nuovo progetto di applicazione Service Fabric denominato *HelloWorld*:
 
@@ -193,7 +192,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Le raccolte Reliable Collections hanno molte delle stesse `System.Collections.Generic` operazioni `System.Collections.Concurrent` eseguite dalle relative controparti e, ad eccezione di Language Integrated Query (LINQ). Le operazioni sulle raccolte Reliable Collections sono asincrone. Questo avviene perché le operazioni di scrittura sulle raccolte Reliable Collections eseguono operazioni di I/O per replicare e rendere persistenti i dati su disco.
+Le raccolte Reliable Collections hanno molte delle stesse operazioni eseguite dalle relative `System.Collections.Generic` `System.Collections.Concurrent` controparti e, ad eccezione di Language Integrated Query (LINQ). Le operazioni sulle raccolte Reliable Collections sono asincrone. Questo avviene perché le operazioni di scrittura sulle raccolte Reliable Collections eseguono operazioni di I/O per replicare e rendere persistenti i dati su disco.
 
 Le operazioni sulle raccolte Reliable Collections sono *transazionali*e consentono di mantenere lo stato coerente tra più raccolte Reliable Collections e operazioni. Ad esempio, è possibile rimuovere un elemento di lavoro da un oggetto ReliableQueue, eseguire un'operazione su tale elemento e salvare il risultato in un oggetto ReliableDictionary, il tutto all'interno di una singola transazione. Questa viene considerata come un'operazione atomica e garantisce la riuscita o il rollback dell'intera operazione. Se si verifica un errore dopo aver rimosso l'elemento dalla coda ma prima di aver salvato il risultato, viene eseguito il rollback dell'intera transazione e l'elemento rimane nella coda per l'elaborazione.
 

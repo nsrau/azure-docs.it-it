@@ -3,12 +3,11 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4183c1eca6b1149c5c61ed77c0ca1101c86f8f4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: c9f9841ac40a39fc51c0e722415c871650bec86d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667319"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -25,8 +24,11 @@ In questo articolo verrà spiegato come:
 > * Eseguire un processo di backup su richiesta
 
 >[!NOTE]
->**L'eliminazione temporanea per SQL Server nella macchina virtuale di Azure e l'eliminazione temporanea per SAP HANA nei carichi di lavoro delle macchine virtuali di Azure** ora sono disponibili in anteprima.<br>
->Per iscriversi all'anteprima, scrivere all'indirizzo AskAzureBackupTeam@microsoft.com
+>[Iniziare](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) con l'anteprima del backup di SAP HANA per RHEL (7.4, 7.6, 7.7 o 8.1). Per ulteriori domande, scrivere all'indirizzo [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
+>[!NOTE]
+>L'**eliminazione temporanea per SQL Server nella macchina virtuale di Azure e l'eliminazione temporanea per SAP HANA nei carichi di lavoro delle macchine virtuali di Azure** ora sono disponibili in anteprima.<br>
+>Per iscriverti all'anteprima, scrivici all'indirizzo [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,7 +66,7 @@ Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureB
 
 1. Fare clic su **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
 
-È possibile creare in modo analogo le regole di sicurezza in uscita NSG per Archiviazione di Azure e Azure AD.
+È possibile creare in modo analogo le regole di sicurezza NSG in uscita NSG per Archiviazione di Azure e Azure AD.
 
 #### <a name="azure-firewall-tags"></a>Tag del Firewall di Azure
 
@@ -72,9 +74,9 @@ Se si usa Firewall di Azure, creare una regola dell'applicazione usando il tag [
 
 #### <a name="allow-access-to-service-ip-ranges"></a>Consentire l'accesso agli intervalli IP del servizio
 
-Se si decide di consentire l’accesso agli IP del servizio, fare riferimento agli intervalli IP nel file JSON disponibile [qui](https://www.microsoft.com/download/confirmation.aspx?id=56519). È necessario consentire l'accesso agli indirizzi IP corrispondenti a Backup di Azure, Archiviazione di Azure e Azure Active Directory.
+Se si decide di consentire l'accesso agli IP del servizio, fare riferimento agli intervalli IP nel file JSON disponibile [qui](https://www.microsoft.com/download/confirmation.aspx?id=56519). È necessario consentire l'accesso agli indirizzi IP corrispondenti a Backup di Azure, Archiviazione di Azure e Azure Active Directory.
 
-#### <a name="allow-access-to-service-fqdns"></a>Consentire l'accesso ai FQDN del servizio
+#### <a name="allow-access-to-service-fqdns"></a>Accesso consentito a FQDN del servizio
 
 È anche possibile usare gli FQDN seguenti per consentire l'accesso ai servizi richiesti dai server:
 
@@ -188,7 +190,7 @@ I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile 
 
 1. Selezionare **Elementi di backup** dal menu dell'insieme di credenziali.
 2. In **Elementi di backup** selezionare la macchina virtuale che esegue il database SAP HANA, quindi fare clic su **Esegui backup**.
-3. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Fare quindi clic su **OK**.
+3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Fare quindi clic su **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
 4. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni del database, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Eseguire il backup di SAP HANA Studio in un database con Backup di Azure abilitato

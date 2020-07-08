@@ -8,19 +8,18 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5773ec2b3ea88fa9a507b7c1b0b84bb7ea305a94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770480"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfacce comuni Plug and Play anteprima
 
-Per tutti i dispositivi Plug and Play si prevede di implementare alcune interfacce comuni. Le interfacce comuni traggono vantaggio dalle soluzioni Internet perché forniscono funzionalità coerenti. Per la [certificazione](tutorial-build-device-certification.md) è necessario che il dispositivo implementi diverse interfacce comuni. È possibile recuperare le definizioni di interfaccia comuni dal repository del modello pubblico.
+Si prevede che tutti i dispositivi Plug and Play IoT implementino alcune interfacce comuni. Le interfacce comuni traggono vantaggio dalle soluzioni Internet perché forniscono funzionalità coerenti. Per la [certificazione](tutorial-build-device-certification.md) è necessario che il dispositivo implementi diverse interfacce comuni. È possibile recuperare le definizioni di interfaccia comune dal repository modelli pubblico.
 
 ## <a name="summary-of-common-interfaces"></a>Riepilogo delle interfacce comuni
 
-| Name | ID | Descrizione | Implementato da Azure Internets SDK | Deve essere dichiarata nel modello di funzionalità |
+| Nome | ID | Descrizione | Implementato da Azure Internets SDK | Deve essere dichiarata nel modello di funzionalità |
 | -------- | -------- | -------- | -------- | -------- | -------- |
 | Informazioni sul modello | urn: azureiot: ModelDiscovery: ModelInformation: 1 | Per i dispositivi per dichiarare l'ID del modello di funzionalità e le interfacce. Obbligatorio per tutti i dispositivi Plug and Play. | Sì | No |
 | Informazioni su Digital Twin client SDK | urn: azureiot: client: SDKInformation: 1 | SDK client per la connessione del dispositivo ad Azure. Obbligatorio per la [certificazione](tutorial-build-device-certification.md) | Sì | No |
@@ -29,7 +28,7 @@ Per tutti i dispositivi Plug and Play si prevede di implementare alcune interfac
 | Gemelli digitali | urn: azureiot: ModelDiscovery: DigitalTwin: 1 | Per gli sviluppatori di soluzioni recuperare l'ID del modello di funzionalità e gli ID interfaccia per un dispositivo gemello digitale. Questa interfaccia non è dichiarata o implementata da un dispositivo Plug and Play. | No | No |
 
 - Implementata da Azure Internets SDK, che l'SDK di Azure è in cui vengono implementate le funzionalità dichiarate nelle interfacce. I dispositivi Plug and Play che usano l'SDK di Azure Internet non devono implementare questa interfaccia.
-- Deve essere dichiarata nel modello di funzionalità: se è' Sì', questa interfaccia deve `"implements":` essere dichiarata all'interno della sezione del modello di funzionalità del dispositivo per questo plug and Play dispositivo.
+- Deve essere dichiarata nel modello di funzionalità: se è' Sì', questa interfaccia deve essere dichiarata all'interno della `"implements":` sezione del modello di funzionalità del dispositivo per questo plug and Play dispositivo.
 
 ## <a name="retrieve-interface-definitions-from-the-public-repository"></a>Recuperare le definizioni di interfaccia dal repository pubblico
 

@@ -6,13 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/22/2020
-ms.openlocfilehash: 1418b26a2a498c43ff61f42b2761c59cbca5d0f4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 06/09/2020
+ms.openlocfilehash: 6b26db522db246add48941da9af4784ed2942a0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84661025"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Creare un account di Automazione usando un modello di Azure Resource Manager
 
@@ -35,8 +34,8 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 
 | Risorsa | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
-| Area di lavoro | aree di lavoro | 2017-03-15-preview |
-| Account di Automazione | automation | 2015-10-31 | 
+| Area di lavoro | aree di lavoro | 2020-03-01-anteprima |
+| Account di Automazione | automation | 2018-06-30 | 
 
 ## <a name="before-you-use-the-template"></a>Prima di iniziare a usare il modello
 
@@ -48,14 +47,14 @@ Il modello JSON è configurato in modo da richiedere:
 
 * Nome dell'area di lavoro.
 * Area in cui creare l'area di lavoro.
+* Per abilitare le autorizzazioni per risorse o aree di lavoro.
 * Nome dell'account di Automazione.
-* Area in cui creare l'account.
+* Area in cui creare l'account di automazione.
 
 I parametri seguenti nel modello vengono impostati con un valore predefinito per l'area di lavoro Log Analytics:
 
 * Il valore predefinito per *sku* è il nuovo piano tariffario per GB rilasciato nel modello di prezzi di aprile 2018.
 * Il valore predefinito per *dataRetention* è 30 giorni.
-* Il valore predefinito per *capacityReservationLevel* è 100 GB.
 
 >[!WARNING]
 >Se si vuole creare o configurare un'area di lavoro Log Analytics in una sottoscrizione basata sul modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è *PerGB2018*.
@@ -63,7 +62,7 @@ I parametri seguenti nel modello vengono impostati con un valore predefinito per
 
 Il modello JSON specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. È possibile archiviare il modello in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md).
 
-Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è importante comprendere i dettagli di configurazione seguenti. Consentono di evitare errori quando si tenta di creare, configurare e usare un'area di lavoro Log Analytics collegata al nuovo account di Automazione. 
+Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è importante comprendere i dettagli di configurazione seguenti. Consentono di evitare errori quando si tenta di creare, configurare e usare un'area di lavoro Log Analytics collegata al nuovo account di Automazione.
 
 * Vedere [altri dettagli](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) per comprendere appieno le opzioni di configurazione dell'area di lavoro, ad esempio la modalità di controllo di accesso, il piano tariffario, la conservazione e il livello di prenotazione della capacità.
 
@@ -107,14 +106,7 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
             "minValue": 7,
             "maxValue": 730,
             "metadata": {
-                "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can have only 7 days."
-            }
-        },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This applies only when retention is being set to 30 days."
+                "description": "Number of days to retain data."
             }
         },
         "location": {
@@ -122,6 +114,12 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -176,13 +174,11 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -194,7 +190,7 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
         "resources": [
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [
@@ -209,7 +205,7 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
             "resources": [
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('sampleGraphicalRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -229,7 +225,7 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePowerShellRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -249,7 +245,7 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePython2RunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -270,10 +266,10 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
                 ]
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"

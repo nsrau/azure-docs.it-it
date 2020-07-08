@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75969281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021892"
 ---
 # <a name="use-case---customer-profiling"></a>Caso di utilizzo - Profilo clienti
 Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per ulteriori informazioni su Cortana Intelligence, vedere [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). In questo documento viene descritto un caso di semplice utilizzo che consente di iniziare a capire come Data Factory di Azure può risolvere problemi comuni di analisi.
@@ -38,7 +37,7 @@ Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporr
 3. Nel pannello **Pipeline di esempio** fare clic sulla **profilatura dei clienti** da distribuire.
 
     ![Pannello Pipeline di esempio](./media/data-factory-samples/SampleTile.png)
-4. Specificare le impostazioni di configurazione per l'esempio, ad esempio il nome e la chiave dell'account di archiviazione di Azure, il nome del server di Azure SQL, il database, l'ID utente e la password.
+4. Specificare le impostazioni di configurazione per l'esempio, Ad esempio, il nome e la chiave dell'account di archiviazione di Azure, il nome logico del server SQL, il database, l'ID utente e la password.
 
     ![Pannello Esempio](./media/data-factory-samples/SampleBlade.png)
 5. Dopo avere specificato le impostazioni di configurazione, fare clic su **Crea** per creare/distribuire le pipeline di esempio e i servizi collegati o le tabelle usati dalle pipeline.
