@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: eseguire la migrazione di SQL Server a un'istanza gestita di SQL"
+title: 'Esercitazione: eseguire la migrazione di SQL Server a SQL Istanza gestita'
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione da SQL Server a un Istanza gestita SQL di Azure usando il servizio migrazione del database di Azure.
 services: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247445"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085531"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server a un Istanza gestita SQL di Azure offline con DMS
 
@@ -60,7 +61,7 @@ Per completare questa esercitazione, è necessario:
 - Se si eseguono più istanze denominate di SQL Server tramite porte dinamiche, è consigliabile abilitare il servizio SQL Browser e consentire l'accesso alla porta UDP 1434 attraverso i firewall, in modo che Servizio Migrazione del database di Azure possa connettersi a un'istanza denominata nel server di origine.
 - Se si usa un'appliance firewall all'ingresso dei database di origine, può essere necessario aggiungere regole del firewall per consentire a Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione, oltre che ai file, attraverso la porta SMB 445.
 - Per creare un Istanza gestita SQL, seguire le istruzioni riportate nell'articolo [creare una istanza gestita SQL nella portale di Azure](https://aka.ms/sqldbmi).
-- Verificare che gli account di accesso usati per la connessione all'istanza di SQL Server di origine e all'istanza gestita di destinazione siano membri del ruolo del server sysadmin.
+- Verificare che gli account di accesso utilizzati per la connessione di SQL Server di origine e di destinazione SQL Istanza gestita siano membri del ruolo del server sysadmin.
 
     >[!NOTE]
     >Per impostazione predefinita, il servizio migrazione del database di Azure supporta solo la migrazione di account di accesso SQL. Tuttavia, è possibile abilitare la migrazione degli account di accesso di Windows in base a quanto segue:
@@ -112,7 +113,7 @@ Per completare questa esercitazione, è necessario:
 
     Per altre informazioni su come creare una rete virtuale in portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
 
-    Per altri dettagli, vedere l'articolo relativo alle [topologie di rete per le migrazioni a istanze gestite di database SQL di Azure con Servizio Migrazione del database di Azure](https://aka.ms/dmsnetworkformi).
+    Per altri dettagli, vedere l'articolo [topologie di rete per le migrazioni di istanza gestita SQL di Azure con il servizio migrazione del database di Azure](https://aka.ms/dmsnetworkformi).
 
 6. Selezione di un piano tariffario.
 
@@ -244,6 +245,6 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per un'esercitazione che illustra come eseguire la migrazione di un database a un'istanza gestita usando il comando T-SQL RESTOre, vedere [ripristinare un backup in un'istanza gestita usando il comando Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Per informazioni sull'istanza gestita, vedere [che cos'è un'istanza gestita](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-- Per informazioni sulla connessione di app a un'istanza gestita, vedere [connettere le applicazioni](../azure-sql/managed-instance/connect-application-instance.md).
+- Per un'esercitazione che illustra come eseguire la migrazione di un database a SQL Istanza gestita usando il comando T-SQL RESTOre, vedere [ripristinare un backup in sql istanza gestita usando il comando Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Per informazioni su SQL Istanza gestita, vedere [che cos'è sql istanza gestita](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+- Per informazioni sulla connessione di app a SQL Istanza gestita, vedere [connettere le applicazioni](../azure-sql/managed-instance/connect-application-instance.md).

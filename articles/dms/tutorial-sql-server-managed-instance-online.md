@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: eseguire la migrazione di SQL Server online a un'istanza gestita di SQL"
+title: 'Esercitazione: eseguire la migrazione di SQL Server online a SQL Istanza gestita'
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire una migrazione in linea da SQL Server a un Istanza gestita SQL di Azure tramite il servizio migrazione del database di Azure.
 services: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 817e1d740ce34704acb4b20a7c3f71807bfa66bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d462fa0fa2afe5937c60985938c8268991dfa41
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187944"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084223"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server a un Istanza gestita SQL di Azure in linea con DMS
 
@@ -77,11 +78,11 @@ Per completare questa esercitazione, è necessario:
 * Se si eseguono più istanze denominate di SQL Server tramite porte dinamiche, è consigliabile abilitare il servizio SQL Browser e consentire l'accesso alla porta UDP 1434 attraverso i firewall, in modo che Servizio Migrazione del database di Azure possa connettersi a un'istanza denominata nel server di origine.
 * Se si usa un'appliance firewall all'ingresso dei database di origine, può essere necessario aggiungere regole del firewall per consentire a Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione, oltre che ai file, attraverso la porta SMB 445.
 * Per creare un Istanza gestita SQL, seguire le istruzioni riportate nell'articolo [creare una istanza gestita SQL nella portale di Azure](https://aka.ms/sqldbmi).
-* Verificare che gli account di accesso usati per la connessione all'istanza di SQL Server di origine e all'istanza gestita di destinazione siano membri del ruolo del server sysadmin.
+* Verificare che gli account di accesso utilizzati per connettere la SQL Server di origine e il Istanza gestita SQL di destinazione siano membri del ruolo del server sysadmin.
 * Specificare una condivisione di rete SMB contenente tutti i file del backup completo del database e i successivi file di backup del log delle transazioni, che possono essere usati da Servizio Migrazione del database di Azure per la migrazione del database.
 * Verificare che l'account del servizio che esegue l'istanza di SQL Server abbia privilegi di scrittura sulla condivisione di rete creata e che l'account computer del server di origine abbia accesso in lettura/scrittura alla stessa condivisione.
 * Prendere nota di un utente (e una password) di Windows con privilegi di controllo completo sulla condivisione di rete creata in precedenza. Il servizio migrazione del database di Azure rappresenta le credenziali dell'utente per caricare i file di backup nel contenitore di archiviazione di Azure per l'operazione di ripristino.
-* Creare un ID applicazione di Azure Active Directory per generare la chiave ID applicazione che potrà essere usata da Servizio Migrazione del database di Azure per connettersi all'istanza gestita di database di Azure di destinazione e al contenitore di archiviazione di Azure. Per altre informazioni, vedere l'articolo [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+* Creare un Azure Active Directory ID applicazione che genera la chiave ID applicazione che il servizio migrazione del database di Azure può usare per connettersi al database di Azure di destinazione Istanza gestita e al contenitore di archiviazione di Azure. Per altre informazioni, vedere l'articolo [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
   > [!NOTE]
   > Servizio Migrazione del database di Azure richiede l'autorizzazione di collaboratore nella sottoscrizione per l'ID applicazione specificato. In alternativa, è possibile creare ruoli personalizzati che concedono le autorizzazioni specifiche richieste da Servizio Migrazione del database di Azure. Per istruzioni dettagliate sull'uso dei ruoli personalizzati, vedere l'articolo [ruoli personalizzati per SQL Server a SQL istanza gestita migrazioni online](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
@@ -265,6 +266,6 @@ Al termine del ripristino del backup completo del database nell'istanza di desti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'esercitazione che illustra come eseguire la migrazione di un database a un'istanza gestita usando il comando T-SQL RESTOre, vedere [ripristinare un backup in un'istanza gestita usando il comando Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-* Per informazioni sull'istanza gestita, vedere [che cos'è un'istanza gestita](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-* Per informazioni sulla connessione di app a un'istanza gestita, vedere [connettere le applicazioni](../azure-sql/managed-instance/connect-application-instance.md).
+* Per un'esercitazione che illustra come eseguire la migrazione di un database a SQL Istanza gestita usando il comando T-SQL RESTOre, vedere [ripristinare un backup in sql istanza gestita usando il comando Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+* Per informazioni su SQL Istanza gestita, vedere [che cos'è sql istanza gestita](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+* Per informazioni sulla connessione di app a SQL Istanza gestita, vedere [connettere le applicazioni](../azure-sql/managed-instance/connect-application-instance.md).

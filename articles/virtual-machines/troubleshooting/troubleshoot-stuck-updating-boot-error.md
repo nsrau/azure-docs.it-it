@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919431"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084019"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>L'avvio della macchina virtuale di Azure si blocca in Windows Update
 
@@ -47,14 +48,19 @@ A seconda del numero di aggiornamenti di cui si sta eseguendo l'installazione o 
 
 4. Aprire un'istanza del prompt dei comandi con privilegi elevati (Esegui come amministratore). Eseguire il comando seguente per ottenere l'elenco dei pacchetti di aggiornamento in esecuzione sul disco del sistema operativo collegato:
 
-        dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```
 
     Se ad esempio il disco del sistema operativo collegato corrisponde all'unità F, eseguire il comando seguente:
 
-        dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```
+
 5. Aprire il file C:\temp\Patch_level.txt e leggerlo dal basso verso l'alto. Individuare l'aggiornamento che si trova in stato **Installazione in sospeso** o **Disinstallazione in sospeso**.  Di seguito è riportato un esempio dello stato di aggiornamento:
 
-     ```
+    ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     State : Install Pending
     Release Type : Security Update

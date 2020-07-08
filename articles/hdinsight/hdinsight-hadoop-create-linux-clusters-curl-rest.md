@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75eda1720e80a886ca0efb2d1f4204416a5b55f8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80239926"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083339"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creare i cluster Apache Hadoop tramite l'API REST di Azure
 
@@ -341,7 +341,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 Questo comando restituisce un documento JSON che contiene informazioni sull'operazione di distribuzione. L'elemento `"provisioningState"` contiene lo stato della distribuzione. Se questo elemento contiene un valore di `"Succeeded"`, la distribuzione è stata completata.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 

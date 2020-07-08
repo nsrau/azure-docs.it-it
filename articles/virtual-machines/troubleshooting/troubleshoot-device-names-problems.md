@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d3e35f44d11cd9ed41badbc64ff7528b5b15558
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058211"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084393"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Risolvere il problema dei nomi di dispositivo nelle macchine virtuali Linux
 
@@ -52,101 +52,115 @@ Se il fstab è già stato modificato in modo che la macchina virtuale non venga 
 
 Le applicazioni usano i LUN per trovare tutti i dischi collegati e creare i collegamenti simbolici. L'agente Linux di Azure include le regole Udev che configurano i collegamenti simbolici da un LUN ai dispositivi:
 
-    $ tree /dev/disk/azure
+```console
+$ tree /dev/disk/azure
 
-    /dev/disk/azure
-    ├── resource -> ../../sdb
-    ├── resource-part1 -> ../../sdb1
-    ├── root -> ../../sda
-    ├── root-part1 -> ../../sda1
-    └── scsi1
-        ├── lun0 -> ../../../sdc
-        ├── lun0-part1 -> ../../../sdc1
-        ├── lun1 -> ../../../sdd
-        ├── lun1-part1 -> ../../../sdd1
-        ├── lun1-part2 -> ../../../sdd2
-        └── lun1-part3 -> ../../../sdd3
+/dev/disk/azure
+├── resource -> ../../sdb
+├── resource-part1 -> ../../sdb1
+├── root -> ../../sda
+├── root-part1 -> ../../sda1
+└── scsi1
+    ├── lun0 -> ../../../sdc
+    ├── lun0-part1 -> ../../../sdc1
+    ├── lun1 -> ../../../sdd
+    ├── lun1-part1 -> ../../../sdd1
+    ├── lun1-part2 -> ../../../sdd2
+    └── lun1-part3 -> ../../../sdd3
+```
 
 Le informazioni LUN dall'account guest Linux possono essere recuperate tramite `lsscsi` o con uno strumento analogo:
 
-      $ sudo lsscsi
+```console
+$ sudo lsscsi
 
-      [1:0:0:0] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
+[1:0:0:0] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
 
-      [2:0:0:0] disk Msft Virtual Disk 1.0 /dev/sda
+[2:0:0:0] disk Msft Virtual Disk 1.0 /dev/sda
 
-      [3:0:1:0] disk Msft Virtual Disk 1.0 /dev/sdb
+[3:0:1:0] disk Msft Virtual Disk 1.0 /dev/sdb
 
-      [5:0:0:0] disk Msft Virtual Disk 1.0 /dev/sdc
+[5:0:0:0] disk Msft Virtual Disk 1.0 /dev/sdc
 
-      [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
+[5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
+```
 
 Le informazioni LUN guest vengono usate con i metadati di sottoscrizione di Azure per individuare il disco rigido virtuale nell'Archiviazione di Azure che contiene i dati della partizione. È ad esempio possibile usare l'interfaccia della riga di comando `az`:
 
-    $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
-    [
-    {
-    "caching": "None",
-      "createOption": "empty",
-    "diskSizeGb": 1023,
-      "image": null,
-    "lun": 0,
-    "managedDisk": null,
-    "name": "testVM-20170619-114353",
-    "vhd": {
-      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
-    }
-    },
-    {
-    "caching": "None",
-    "createOption": "empty",
-    "diskSizeGb": 512,
-    "image": null,
-    "lun": 1,
-    "managedDisk": null,
-    "name": "testVM-20170619-121516",
-    "vhd": {
-      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
-      }
-      }
-    ]
+```azurecli
+$ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
+[
+{
+"caching": "None",
+  "createOption": "empty",
+"diskSizeGb": 1023,
+  "image": null,
+"lun": 0,
+"managedDisk": null,
+"name": "testVM-20170619-114353",
+"vhd": {
+  "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+}
+},
+{
+"caching": "None",
+"createOption": "empty",
+"diskSizeGb": 512,
+"image": null,
+"lun": 1,
+"managedDisk": null,
+"name": "testVM-20170619-121516",
+"vhd": {
+  "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+  }
+  }
+]
+```
 
 ### <a name="discover-filesystem-uuids-by-using-blkid"></a>Individuare l'UUID del file system usando blkid
 
 Le applicazioni e gli script leggono l'output di `blkid` o fonti di informazioni simili per creare collegamenti simbolici nel percorso /dev. L'output visualizza l'UUID di tutti i dischi collegati alla macchina virtuale e i file di dispositivo associati:
 
-    $ sudo blkid -s UUID
+```console
+$ sudo blkid -s UUID
 
-    /dev/sr0: UUID="120B021372645f72"
-    /dev/sda1: UUID="52c6959b-79b0-4bdd-8ed6-71e0ba782fb4"
-    /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
-    /dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
+/dev/sr0: UUID="120B021372645f72"
+/dev/sda1: UUID="52c6959b-79b0-4bdd-8ed6-71e0ba782fb4"
+/dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
+/dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
+```
 
 Le regole Udev dell'agente Linux di Azure creano un set di collegamenti simbolici nel percorso /dev/disk/azure:
 
-    $ ls -l /dev/disk/azure
+```console
+$ ls -l /dev/disk/azure
 
-    total 0
-    lrwxrwxrwx 1 root root  9 Jun  2 23:17 resource -> ../../sdb
-    lrwxrwxrwx 1 root root 10 Jun  2 23:17 resource-part1 -> ../../sdb1
-    lrwxrwxrwx 1 root root  9 Jun  2 23:17 root -> ../../sda
-    lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
+total 0
+lrwxrwxrwx 1 root root  9 Jun  2 23:17 resource -> ../../sdb
+lrwxrwxrwx 1 root root 10 Jun  2 23:17 resource-part1 -> ../../sdb1
+lrwxrwxrwx 1 root root  9 Jun  2 23:17 root -> ../../sda
+lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
+```
 
 Le applicazioni usano i collegamenti per identificare il dispositivo del disco di avvio e il disco della risorsa (temporaneo). Per individuare le partizioni in Azure, le applicazioni devono fare riferimento al percorso /dev/disk/azure/root-part1 o /dev/disk/azure-resource-part1.
 
 Eventuali partizioni aggiuntive dell'elenco `blkid` si trovano in un disco dati. Le applicazioni mantengono l'UUID per tali partizioni e usano un percorso simile al seguente per individuare il nome del dispositivo in runtime:
 
-    $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
+```console
+$ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
-    lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
+lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
+```
 
 
 ### <a name="get-the-latest-azure-storage-rules"></a>Ottenere le regole di Archiviazione di Azure più recenti
 
 Per ottenere le regole di Archiviazione di Azure più recenti, eseguire i comandi seguenti:
 
-    # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
-    # sudo udevadm trigger --subsystem-match=block
+```console
+# sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
+# sudo udevadm trigger --subsystem-match=block
+```
 
 ## <a name="see-also"></a>Vedere anche
 

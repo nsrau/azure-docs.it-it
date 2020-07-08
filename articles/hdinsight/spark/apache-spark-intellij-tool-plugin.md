@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a3884fdfbbc215c305053d8615d690880f4026ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 370ac9528b023f01aaff5e5a7ec62785a02bb4bd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314156"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085345"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -98,7 +98,7 @@ Passaggi per installare il plug-in scala:
 
 9. Aggiungere il codice sorgente dell'applicazione seguendo questa procedura:
 
-    a. Da Project, passare a **MyApp** > **src** > **Main** > **scala**.  
+    a. Da Project, passare a **MyApp**  >  **src**  >  **Main**  >  **scala**.  
 
     b. Fare doppio clic su **scala**, quindi passare a **Nuovo** > **classe Scala**.
 
@@ -205,7 +205,7 @@ L'utente può [accedere alla sottoscrizione di Azure](#sign-in-to-your-azure-sub
         |Tipo di risorsa di collegamento|Selezionare **Livy Service** nell'elenco a discesa.|
         |Livy Endpoint| Inserire Livy Endpoint|
         |Cluster Name| Immettere il nome del cluster.|
-        |Yarn Endpoint|Facoltativo.|
+        |Yarn Endpoint|Facoltativa.|
         |Tipo di autenticazione| Lasciare come **autenticazione di base**|
         |Nome utente| Immettere il nome utente del cluster, il cui valore predefinito è admin.|
         |Password| Immettere la password per il nome utente.|
@@ -262,7 +262,7 @@ Si consiglia anche di usare un altro modo per inviare l'applicazione Spark al cl
 
 ### <a name="access-the-job-view"></a>Accedere alla visualizzazione del processo
 
-1. Da Azure Explorer passare a **HDInsight** > \<il cluster> > **processi**.
+1. Da Azure Explorer passare a **HDInsight**  >  \<Your Cluster>  >  **Jobs**.
 
     ![IntelliJ: nodo per la visualizzazione dei processi in Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 
@@ -446,19 +446,19 @@ Quando gli utenti inviano processi a un cluster con autorizzazione di sola lettu
 
 È possibile convertire le applicazioni Spark Scala esistenti create in IntelliJ IDEA per renderle compatibili con Azure Toolkit for IntelliJ. È possibile usare il plug-in per inviare le applicazioni a un cluster HDInsight Spark.
 
-1. Per un'applicazione Spark scala esistente creata tramite IntelliJ IDEA, aprire il file associato `.iml` .
+1. Per un'applicazione Spark scala esistente creata tramite IntelliJ IDEA, aprire il `.iml` file associato.
 
 2. Al livello radice, è un elemento **modulo** come il testo seguente:
 
-        ```
-        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-        ```
+    ```xml
+    <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+    ```
 
-   Modificare l'elemento da aggiungere `UniqueKey="HDInsightTool"` in modo che l'elemento **modulo** appaia come il testo seguente:
+   Modificare l'elemento da aggiungere in `UniqueKey="HDInsightTool"` modo che l'elemento **modulo** appaia come il testo seguente:
 
-        ```
-        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
-        ```
+    ```xml
+    <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
+    ```
 
 3. Salvare le modifiche. L'applicazione dovrebbe ora essere compatibile con il Toolkit di Azure per IntelliJ. È possibile verificarlo facendo clic con il pulsante destro del mouse sul nome del progetto in Progetti. Nel menu a comparsa viene ora visualizzata l'opzione **Submit Spark Application to HDInsight**(Invia applicazione Spark a HDInsight).
 

@@ -5,13 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/14/2020
-ms.openlocfilehash: 85b7093df99127b690c51e8f2f28d18e3f5f3c95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d16082ed9c7a78cfd02afc1e89ec002a5743d675
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981631"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085753"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (C#)
 
@@ -139,7 +140,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 3. Aprire **EventHubExample. sln**. Nel progetto **EventHubWriter** aprire il file **App.config**. Usare le informazioni dell'hub eventi configurato prima per inserire il valore per le chiavi seguenti:
 
-   | Chiave | valore |
+   | Chiave | Valore |
    | --- | --- |
    | EventHubPolicyName |writer (se è stato usato un altro nome per il criterio con l'autorizzazione *Send*, usare l'altro nome) |
    | EventHubPolicyKey |Chiave per il criterio writer. |
@@ -155,7 +156,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 2. Aprire il file **App.config** per **EventHubReader**. Usare le informazioni dell'hub eventi configurato prima per inserire il valore per le chiavi seguenti:
 
-   | Chiave | valore |
+   | Chiave | Valore |
    | --- | --- |
    | EventHubPolicyName |reader (se è stato usato un altro nome per il criterio con l'autorizzazione *listen*, usare l'altro nome) |
    | EventHubPolicyKey |Chiave per il criterio reader. |

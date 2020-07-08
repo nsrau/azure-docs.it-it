@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 16c7af4d66bd550eb4a286de7c86c436b1fe10e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03bd00ad6d0262aeea31b5d3e2c6dd1733090e32
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75922654"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082795"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Rendere operativa una pipeline di analisi dei dati
 
@@ -51,11 +51,11 @@ Per questa pipeline sono necessari un database SQL di Azure e un cluster HDInsig
 
 ### <a name="provision-azure-sql-database"></a>Effettuare il provisioning del database SQL di Azure
 
-1. Creare un database SQL di Azure. Vedere [creare un database SQL di Azure nel portale di Azure](../sql-database/sql-database-single-database-get-started.md).
+1. Creare un database SQL di Azure. Vedere [creare un database SQL di Azure nel portale di Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-1. Per assicurarsi che il cluster HDInsight possa accedere al database SQL di Azure connesso, configurare le regole del firewall del database SQL di Azure per consentire ai servizi e alle risorse di Azure di accedere al server. È possibile abilitare questa opzione nel portale di Azure selezionando **imposta firewall server**e selezionando **in** sottostante **Consenti ai servizi e alle risorse di Azure di accedere al server** per il database o il server di database SQL di Azure. Per altre informazioni, vedere [Creare e gestire le regole del firewall IP](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+1. Per assicurarsi che il cluster HDInsight possa accedere al database SQL di Azure connesso, configurare le regole del firewall del database SQL di Azure per consentire ai servizi e alle risorse di Azure di accedere al server. È possibile abilitare questa opzione nel portale di Azure selezionando **imposta firewall server**e selezionando **in** sottostante **Consenti ai servizi e alle risorse di Azure di accedere al server per il** database SQL di Azure. Per altre informazioni, vedere [Creare e gestire le regole del firewall IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-1. Utilizzare l' [editor di query](../sql-database/sql-database-single-database-get-started.md#query-the-database) per eseguire le istruzioni SQL seguenti per `dailyflights` creare la tabella in cui archiviare i dati riepilogati a ogni esecuzione della pipeline.
+1. Utilizzare l' [editor di query](../azure-sql/database/single-database-create-quickstart.md#query-the-database) per eseguire le istruzioni SQL seguenti per creare la tabella in `dailyflights` cui archiviare i dati riepilogati a ogni esecuzione della pipeline.
 
     ```sql
     CREATE TABLE dailyflights
@@ -97,7 +97,7 @@ Per usare Oozie Web Console per visualizzare lo stato delle istanze di coordinat
 
     `http://headnodehost:8080`
 
-1. Per accedere alla **console Web di oozie** dall'interno di Ambari, passare a **oozie** > **Quick Links** > [Active Server] > **interfaccia utente Web di oozie**.
+1. Per accedere alla **console Web di oozie** dall'interno di Ambari, passare a **oozie**  >  **Quick Links** > [Active Server] > **interfaccia utente Web di oozie**.
 
 ## <a name="configure-hive"></a>Configurare Hive
 
@@ -209,7 +209,7 @@ Il flusso di lavoro di esempio elabora il dati sui voli giorno per giorno, in tr
 
 Questi tre passaggi vengono coordinati da un flusso di lavoro Oozie.
 
-1. Dalla workstation locale creare un file denominato `job.properties`. Usare il testo seguente come contenuto iniziale per il file.
+1. Dalla workstation locale creare un file denominato `job.properties` . Usare il testo seguente come contenuto iniziale per il file.
 Aggiornare quindi i valori per l'ambiente specifico. Nella tabella sotto il testo viene riepilogata ogni proprietà e viene indicato dove è possibile trovare i valori per il proprio ambiente.
 
     ```text
@@ -248,7 +248,7 @@ Aggiornare quindi i valori per l'ambiente specifico. Nella tabella sotto il test
     | month | Componente mese della data per cui vengono calcolati i dati di riepilogo sui voli. Lasciare invariato. |
     | day | Componente giorno della data per cui vengono calcolati i dati di riepilogo sui voli. Lasciare invariato. |
 
-1. Dalla workstation locale creare un file denominato `hive-load-flights-partition.hql`. Usare il codice riportato di seguito come contenuto del file.
+1. Dalla workstation locale creare un file denominato `hive-load-flights-partition.hql` . Usare il codice riportato di seguito come contenuto del file.
 
     ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -274,7 +274,7 @@ Aggiornare quindi i valori per l'ambiente specifico. Nella tabella sotto il test
 
     Per le variabili di Oozie viene usata la sintassi `${variableName}`. Queste variabili sono impostate nel `job.properties` file. Oozie sostituisce i valori effettivi in fase di runtime.
 
-1. Dalla workstation locale creare un file denominato `hive-create-daily-summary-table.hql`. Usare il codice riportato di seguito come contenuto del file.
+1. Dalla workstation locale creare un file denominato `hive-create-daily-summary-table.hql` . Usare il codice riportato di seguito come contenuto del file.
 
     ```sql
     DROP TABLE ${hiveTableName};
@@ -300,7 +300,7 @@ Aggiornare quindi i valori per l'ambiente specifico. Nella tabella sotto il test
 
     Questa query genera una tabella di staging che archivierà i dati di riepilogo relativi a un singolo giorno. Prendere nota dell'istruzione SELECT che calcola la media dei ritardi e la distanza totale percorsa giornalmente da ogni vettore. I dati inseriti in questa tabella sono archiviati in una posizione nota (il percorso indicato dalla variabile hiveDataFolder) e possono quindi essere usati come origine per Sqoop nel passaggio successivo.
 
-1. Dalla workstation locale creare un file denominato `workflow.xml`. Usare il codice riportato di seguito come contenuto del file. Questi passaggi precedenti sono espressi come azioni separate nel file del flusso di lavoro oozie.
+1. Dalla workstation locale creare un file denominato `workflow.xml` . Usare il codice riportato di seguito come contenuto del file. Questi passaggi precedenti sono espressi come azioni separate nel file del flusso di lavoro oozie.
 
     ```xml
     <workflow-app name="loadflightstable" xmlns="uri:oozie:workflow:0.5">
@@ -378,11 +378,11 @@ Aggiornare quindi i valori per l'ambiente specifico. Nella tabella sotto il test
     </workflow-app>
     ```
 
-È possibile accedere alle due query hive in base al percorso in archiviazione di Azure e i valori delle variabili rimanenti `job.properties` vengono forniti dal file. Questo file consente di configurare il flusso di lavoro per l'esecuzione per la data del 3 gennaio 2017.
+È possibile accedere alle due query hive in base al percorso in archiviazione di Azure e i valori delle variabili rimanenti vengono forniti dal `job.properties` file. Questo file consente di configurare il flusso di lavoro per l'esecuzione per la data del 3 gennaio 2017.
 
 ## <a name="deploy-and-run-the-oozie-workflow"></a>Distribuire ed eseguire il flusso di lavoro Oozie
 
-Usare SCP dalla sessione bash per distribuire il flusso di lavoro di`workflow.xml`oozie (), le query`hive-load-flights-partition.hql` hive `hive-create-daily-summary-table.hql`(e) e la configurazione del`job.properties`processo ().  In Oozie solo il file `job.properties` può essere presente nella risorsa di archiviazione locale del nodo head. Tutti gli altri file devono essere archiviati in HDFS (Hadoop Distributed File System), in questo caso Archiviazione di Azure. Per le comunicazioni con il database SQL, l'azione Sqoop usata dal flusso di lavoro dipende da un driver JDBC, che deve essere copiato dal nodo head in HDFS.
+Usare SCP dalla sessione bash per distribuire il flusso di lavoro di oozie ( `workflow.xml` ), le query hive ( `hive-load-flights-partition.hql` e `hive-create-daily-summary-table.hql` ) e la configurazione del processo ( `job.properties` ).  In Oozie solo il file `job.properties` può essere presente nella risorsa di archiviazione locale del nodo head. Tutti gli altri file devono essere archiviati in HDFS (Hadoop Distributed File System), in questo caso Archiviazione di Azure. Per le comunicazioni con il database SQL, l'azione Sqoop usata dal flusso di lavoro dipende da un driver JDBC, che deve essere copiato dal nodo head in HDFS.
 
 1. Creare la sottocartella `load_flights_by_day` all'interno del percorso dell'utente nella risorsa di archiviazione locale del nodo head. Dalla sessione ssh aperta, eseguire il comando seguente:
 
@@ -422,7 +422,9 @@ Usare SCP dalla sessione bash per distribuire il flusso di lavoro di`workflow.xm
 
 1. Quando lo stato è SUCCEEDed, eseguire una query sulla tabella del database SQL per visualizzare le righe inserite. Tramite il portale di Azure, passare al riquadro relativo al database SQL, selezionare **Strumenti** e aprire **Editor di query**.
 
-        SELECT * FROM dailyflights
+    ```sql
+    SELECT * FROM dailyflights
+    ```
 
 Ora che il flusso di lavoro viene eseguito per il singolo giorno di test, è possibile eseguirne il wrapping con un coordinatore che pianifica l'esecuzione giornaliera del flusso.
 
@@ -505,7 +507,7 @@ Come illustrato nell'esempio, la maggior parte dei dati presenti nel file del co
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    Quest'ultimo è responsabile della pianificazione delle azioni nel periodo compreso tra le date `start` e `end`, in base all'intervallo specificato dall'attributo `frequency`. Ogni azione pianificata esegue a sua volta il flusso di lavoro in base alla configurazione. Nella definizione del coordinatore precedente, il coordinatore è configurato per eseguire le azioni dal 1 ° gennaio 2017 al 5 gennaio 2017. La frequenza è impostata su un giorno dall'espressione `${coord:days(1)}`di frequenza del linguaggio delle [espressioni oozie](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) . Il coordinatore pianifica pertanto l'esecuzione di un'azione, e quindi del flusso di lavoro, una volta al giorno. Per gli intervalli di date già trascorse, come in questo esempio, l'azione verrà pianificata per l'esecuzione immediata. Il momento a partire dal quale è pianificata l'esecuzione di un'azione è definito *data/ora nominale*. Per elaborare i dati per l'1 gennaio 2017, ad esempio, il coordinatore pianifica l'azione con un orario nominale di 2017-01-01T00:00:00 GMT.
+    Quest'ultimo è responsabile della pianificazione delle azioni nel periodo compreso tra le date `start` e `end`, in base all'intervallo specificato dall'attributo `frequency`. Ogni azione pianificata esegue a sua volta il flusso di lavoro in base alla configurazione. Nella definizione del coordinatore precedente, il coordinatore è configurato per eseguire le azioni dal 1 ° gennaio 2017 al 5 gennaio 2017. La frequenza è impostata su un giorno dall'espressione di frequenza del [linguaggio delle espressioni oozie](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) `${coord:days(1)}` . Il coordinatore pianifica pertanto l'esecuzione di un'azione, e quindi del flusso di lavoro, una volta al giorno. Per gli intervalli di date già trascorse, come in questo esempio, l'azione verrà pianificata per l'esecuzione immediata. Il momento a partire dal quale è pianificata l'esecuzione di un'azione è definito *data/ora nominale*. Per elaborare i dati per l'1 gennaio 2017, ad esempio, il coordinatore pianifica l'azione con un orario nominale di 2017-01-01T00:00:00 GMT.
 
 * Punto 2: entro l'intervallo di date del flusso di lavoro, l'elemento `dataset` definisce il percorso in cui cercare i dati per un particolare intervallo di date in HDFS e specifica il modo in cui Oozie determina se i dati sono ancora disponibili per l'elaborazione.
 
@@ -516,7 +518,7 @@ Come illustrato nell'esempio, la maggior parte dei dati presenti nel file del co
     </dataset>
     ```
 
-    Il percorso dei dati in HDFS viene generato dinamicamente in base all'espressione specificata nell'elemento `uri-template`. In questo coordinatore il valore relativo alla frequenza giornaliera viene usato anche con il set di dati. Mentre le date di inizio e fine definite nell'elemento coordinatore controllano i tempi di pianificazione delle azioni, e quindi definiscono le relative date/ore nominali, gli elementi `initial-instance` e `frequency` nel set di dati controllano il calcolo della data usata per la generazione di `uri-template`. In questo caso, impostare l'istanza iniziale sul giorno precedente l'avvio del coordinatore per essere sicuri che selezioni i dati relativi al primo giorno (01/01/2017). Il calcolo della data del set di dati viene eseguito in `initial-instance` avanti rispetto al valore di (12/31/2016) che avanza con incrementi di frequenza del set di dati (un giorno) fino a trovare la data più recente che non supera l'ora nominale impostata dal coordinatore (2017-01-01T00:00:00 GMT per la prima azione).
+    Il percorso dei dati in HDFS viene generato dinamicamente in base all'espressione specificata nell'elemento `uri-template`. In questo coordinatore il valore relativo alla frequenza giornaliera viene usato anche con il set di dati. Mentre le date di inizio e fine definite nell'elemento coordinatore controllano i tempi di pianificazione delle azioni, e quindi definiscono le relative date/ore nominali, gli elementi `initial-instance` e `frequency` nel set di dati controllano il calcolo della data usata per la generazione di `uri-template`. In questo caso, impostare l'istanza iniziale sul giorno precedente l'avvio del coordinatore per essere sicuri che selezioni i dati relativi al primo giorno (01/01/2017). Il calcolo della data del set di dati viene eseguito in avanti rispetto al valore di `initial-instance` (12/31/2016) che avanza con incrementi di frequenza del set di dati (un giorno) fino a trovare la data più recente che non supera l'ora nominale impostata dal coordinatore (2017-01-01T00:00:00 GMT per la prima azione).
 
     L'elemento `done-flag` vuoto indica che, all'ora pianificata per la verifica della presenza di dati di input, Oozie determina la disponibilità dei dati in base alla presenza di una directory o di un file. In questo caso, si tratta della presenza di un file CSV. Se è presente un file in questo formato, Oozie presuppone che i dati siano pronti e avvia un'istanza del flusso di lavoro per elaborare il file. Se non è presente alcun file CSV, oozie presuppone che i dati non siano ancora pronti e che l'esecuzione del flusso di lavoro entra in uno stato di attesa.
 

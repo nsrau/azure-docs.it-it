@@ -6,17 +6,17 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: f7198aeff5e9ef6d37e29c2336dc38e4eec0dda1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3bfd430023330d3a399a0a760fd353b6ee60941
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023974"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085889"
 ---
-# <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Eseguire la migrazione del cluster HDInsight a una versione più recente
+# <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Eseguire la migrazione di un cluster HDInsight a una versione più recente
 
 Per sfruttare le funzionalità più recenti di HDInsight, è consigliabile eseguire regolarmente la migrazione dei cluster HDInsight alla versione più recente. HDInsight non supporta gli aggiornamenti sul posto in cui un cluster esistente viene aggiornato a una versione più recente del componente. È necessario creare un nuovo cluster con il componente e la versione della piattaforma desiderati, quindi eseguire la migrazione delle applicazioni per l'uso del nuovo cluster. Seguire le linee guida seguenti per eseguire la migrazione delle versioni del cluster HDInsight.
 
@@ -51,7 +51,7 @@ I documenti seguenti forniscono indicazioni su come eseguire la migrazione di ca
 
 ## <a name="backup-and-restore"></a>Backup e ripristino
 
-Per altre informazioni sul backup e il ripristino del database, vedere [ripristinare un database SQL di Azure usando i backup automatici del database](../sql-database/sql-database-recovery-using-backups.md).
+Per altre informazioni sul backup e il ripristino del database, vedere [ripristinare un database nel database SQL di Azure usando i backup automatici del database](../azure-sql/database/recovery-using-backups.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

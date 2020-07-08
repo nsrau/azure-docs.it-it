@@ -1,15 +1,15 @@
 ---
 title: Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
 description: Come distribuire e configurare la rete dell'infrastruttura iperledger in Azure Kubernetes Service
-ms.date: 06/04/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e85d8c196afa5535d4d36ffdc03078e2046e4ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209709"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085806"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
 
@@ -19,6 +19,18 @@ Dopo avere letto l'articolo, si sarà in grado di:
 
 - Acquisire familiarità con l'infrastruttura iperledger e i vari componenti che costituiscono i blocchi predefiniti della rete blockchain dell'infrastruttura iperledger.
 - Informazioni su come distribuire e configurare un consorzio di infrastruttura iperledger nel servizio Azure Kubernetes per gli scenari di produzione.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
+
+## <a name="choose-an-azure-blockchain-solution"></a>Scegliere una soluzione Azure blockchain
+
+Prima di scegliere di usare un modello di soluzione, confrontare lo scenario con i casi d'uso comuni delle opzioni blockchain di Azure disponibili.
+
+Opzione | Modello di servizio | Caso d'uso comune
+-------|---------------|-----------------
+Modelli di soluzioni | IaaS | I modelli di soluzione sono Azure Resource Manager modelli che è possibile usare per eseguire il provisioning di una topologia di rete blockchain completamente configurato I modelli distribuiscono e configurano Microsoft Azure servizi di calcolo, rete e archiviazione per un determinato tipo di rete blockchain. I modelli di soluzione sono forniti senza un contratto di servizio. Per il supporto, utilizzare la pagina Domande e risposte di [Microsoft&](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) .
+[Servizio Azure Blockchain](../service/overview.md) | PaaS | Azure blockchain Service Preview semplifica la formazione, la gestione e la governance delle reti blockchain del Consorzio. Usa il servizio Azure blockchain per le soluzioni che richiedono PaaS, la gestione del consorzio o la privacy dei contratti e delle transazioni.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | L'anteprima di Azure Blockchain Workbench è una raccolta di servizi e funzionalità di Azure che consentono di creare e distribuire applicazioni blockchain per condividere dati e processi di business con altre organizzazioni. Usare Azure blockchain Workbench per la realizzazione di prototipi di una soluzione blockchain o di un modello di prova dell'applicazione blockchain. Azure Blockchain Workbench viene fornito senza un contratto di servizio. Per il supporto, utilizzare la pagina Domande e risposte di [Microsoft&](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) .
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Architettura del Consorzio di infrastruttura iperledger
 
@@ -429,6 +441,6 @@ Per inviare un feedback sul prodotto o richiedere nuove funzionalità, pubblicar
 
 È possibile interagire con i tecnici Microsoft e con gli esperti della community di Azure Blockchain.
 
-- [Microsoft Q&una pagina di domande per il servizio Azure blockchain](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Il supporto tecnico per i modelli blockchain è limitato ai problemi di distribuzione.
+- [Microsoft Q&una pagina di domande](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Il supporto tecnico per i modelli blockchain è limitato ai problemi di distribuzione.
 - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

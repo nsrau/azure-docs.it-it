@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: a9bc0564a69124618d0a7e3ff6bafb65b2be0ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907483"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083993"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito
 
@@ -57,7 +57,7 @@ Nel portale il campo Endpoint compatibile con l'hub eventi contiene una stringa 
 | nomehost | abcd1234namespace.servicebus.windows.net |
 | Spazio dei nomi | abcd1234namespace |
 
-È quindi possibile usare qualsiasi criterio di accesso condiviso con autorizzazioni **ServiceConnect** per connettersi all'hub eventi specificato.
+È quindi possibile scegliere i criteri di accesso condivisi dall'elenco a discesa, come illustrato nella schermata precedente. Mostra solo i criteri che dispongono delle autorizzazioni **ServiceConnect** per connettersi all'hub eventi specificato.
 
 Gli SDK che è possibile usare per connettersi all'endpoint compatibile con l'hub eventi predefinito che l'hub IoT espone includono:
 

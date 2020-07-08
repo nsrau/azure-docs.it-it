@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: cc67acca11e7e0f24dc0597dcd19672a38a7bf28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19c40f2a7609d556448641e78fdeffe83e8660b1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495754"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083951"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Usare più cluster HDInsight con un account Azure Data Lake Storage
 
@@ -44,7 +44,7 @@ Nella tabella,
 - **Entità servizio** è l'entità servizio di Azure Active Directory (AAD) associata all'account.
 - **FINGRP** è un gruppo di utenti creato in AAD in cui sono contenuti gli utenti dell'organizzazione Finance.
 
-Per istruzioni su come creare un'applicazione AAD (che crea anche un'entità servizio), vedere [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Per istruzioni su come creare un gruppo di utenti in AAD, vedere [Gestione dei gruppi in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+Per istruzioni su come creare un'applicazione AAD (che crea anche un'entità servizio), vedere [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Per istruzioni su come creare un gruppo di utenti in AAD, vedere [Gestione dei gruppi in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Alcuni punti chiave di cui tener conto.
 
@@ -79,7 +79,9 @@ Quando viene creato un nuovo account Azure Data Lake Storage, la directory radic
 
 Queste impostazioni influiscono su uno specifico caso d'uso di HDInsight acquisito in [YARN 247](https://hwxmonarch.atlassian.net/browse/YARN-247). Gli invii di processi possono avere esito negativo con un messaggio di errore simile al seguente:
 
-    Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```output
+Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```
 
 Come indicato nel documento JIRA YARN citato in precedenza, durante la localizzazione delle risorse pubbliche il localizzatore verifica che tutte le risorse richieste siano realmente pubbliche controllandone le autorizzazioni sul file system remoto. Qualsiasi LocalResource che non soddisfa tale condizione viene rifiutato per la localizzazione. Il controllo delle autorizzazioni include l'accesso in lettura al file per gli altri membri. Questo scenario non funziona in modo predefinito quando si ospitano cluster HDInsight in Azure Data Lake, dal momento che Azure Data Lake nega tutti gli accessi ad altri utenti a livello di cartella radice.
 

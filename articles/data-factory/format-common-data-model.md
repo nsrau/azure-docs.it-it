@@ -5,21 +5,21 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 07/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e75f2203552a69e50ed16176525429c6c9d8810
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c4f2df074bc7feaa42704942a3fd238ab4b333a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807809"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083781"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato Common Data Model in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Il sistema di metadati Common Data Model (CDM) consente di condividere facilmente i dati e il relativo significato tra applicazioni e processi aziendali. Per altre informazioni, vedere Panoramica di [Common Data Model](https://docs.microsoft.com/common-data-model/) .
 
-In Azure Data Factory gli utenti possono trasformare da e verso le entità CDM archiviate in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) usando i flussi di dati di mapping.
+In Azure Data Factory gli utenti possono trasformare da e verso le entità CDM archiviate in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) usando i flussi di dati di mapping. Scegliere tra model.jse le origini CDM dello stile del manifesto e scrivere in file manifesto CDM.
 
 > [!NOTE]
 > Il connettore di formato Common Data Model (CDM) per i flussi di dati ADF è attualmente disponibile come anteprima pubblica.
@@ -28,13 +28,16 @@ In Azure Data Factory gli utenti possono trasformare da e verso le entità CDM a
 
 Common Data Model è disponibile come set di dati [inline](data-flow-source.md#inline-datasets) nel mapping di flussi di dati come origine e sink.
 
+> [!NOTE]
+> Quando si scrivono entità CDM, è necessario avere una definizione di entità CDM esistente (schema dei metadati) già definita. Il sink del flusso di dati ADF leggerà il file di entità CDM e importerà lo schema nel sink per il mapping dei campi.
+
 ### <a name="source-properties"></a>Proprietà origine
 
 La tabella seguente elenca le proprietà supportate da un'origine CDM. È possibile modificare queste proprietà nella scheda **Opzioni di origine** .
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Il formato deve essere`cdm` | sì | `cdm` | format |
+| Formato | Il formato deve essere`cdm` | sì | `cdm` | format |
 | Formato metadati | Dove si trova il riferimento all'entità nei dati. Se si usa CDM versione 1,0, scegliere manifesto. Se si usa una versione CDM prima del 1,0, scegliere model.json. | Sì | `'manifest'` o `'model'` | manifestType |
 | Percorso radice: contenitore | Nome del contenitore della cartella CDM | sì | string | fileSystem |
 | Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | sì | string | folderPath |
@@ -51,8 +54,16 @@ La tabella seguente elenca le proprietà supportate da un'origine CDM. È possib
 
 #### <a name="import-schema"></a>Importa schema
 
-CDM è disponibile solo come set di dati inline e, per impostazione predefinita, non dispone di uno schema associato. Per ottenere i metadati della colonna, fare clic sul pulsante **Importa schema** nella scheda **proiezione** . In questo modo è possibile fare riferimento ai nomi di colonna e ai tipi di dati specificati dal corpus. Per importare lo schema, è necessario che sia attiva una [sessione di debug del flusso di dati](concepts-data-flow-debug-mode.md) .
+CDM è disponibile solo come set di dati inline e, per impostazione predefinita, non dispone di uno schema associato. Per ottenere i metadati della colonna, fare clic sul pulsante **Importa schema** nella scheda **proiezione** . In questo modo è possibile fare riferimento ai nomi di colonna e ai tipi di dati specificati dal corpus. Per importare lo schema, è necessario che sia attiva una [sessione di debug del flusso di dati](concepts-data-flow-debug-mode.md) ed è necessario disporre di un file di definizione dell'entità CDM esistente a cui puntare.
 
+> [!NOTE]
+>  Quando si usa model.jssu un tipo di origine originato da flussi di dati Power BI o Power Platform, è possibile che si verifichino errori di tipo "il percorso del corpus è null o vuoto" della trasformazione di origine. Questa situazione è probabilmente dovuta a problemi di formattazione del percorso della partizione nel model.jssu file. Per risolvere il problema, attenersi alla seguente procedura: 
+
+1. Aprire il model.jsnel file in un editor di testo
+2. Trovare le partizioni. Proprietà Location 
+3. Modificare "blob.core.windows.net" in "dfs.core.windows.net"
+4. Correzione di qualsiasi codifica "% 2F" nell'URL per "/"
+ 
 
 ### <a name="cdm-source-data-flow-script-example"></a>Esempio di script del flusso di dati di origine CDM
 
@@ -84,7 +95,7 @@ La tabella seguente elenca le proprietà supportate da un sink CDM. È possibile
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Il formato deve essere`cdm` | sì | `cdm` | format |
+| Formato | Il formato deve essere`cdm` | sì | `cdm` | format |
 | Percorso radice: contenitore | Nome del contenitore della cartella CDM | sì | string | fileSystem |
 | Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | sì | string | folderPath |
 | File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | no | string | entityPath |

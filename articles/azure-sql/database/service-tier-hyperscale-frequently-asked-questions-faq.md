@@ -11,11 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: d5faa08b0b493ac9b7fc03cd15c4747c3e602f02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d265726835620c5b468c8a81570e80c7167b2997
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038072"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084342"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,11 +43,11 @@ I livelli di servizio basati su vCore sono differenziati in base alla disponibil
 | | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Ideale per** |Tutti|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
-|  **Tipo di risorsa** ||Database singolo/pool elastico/istanza gestita | Database singolo | Database singolo/pool elastico/istanza gestita |
-| **Dimensioni di calcolo**|Singolo database/pool elastico * | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
+|  **Tipo di risorsa** ||Database SQL/SQL Istanza gestita | Database singolo | Database SQL/SQL Istanza gestita |
+| **Dimensioni di calcolo**|Database SQL * | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
 | |Istanza gestita di SQL | 8, 16, 24, 32, 40, 64, 80 vCore | N/D | 8, 16, 24, 32, 40, 64, 80 vCore |
 | **Tipo di archiviazione** | Tutti |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
-| **Dimensioni dello spazio di archiviazione** | Database singolo/pool elastico*| 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
+| **Dimensioni dello spazio di archiviazione** | Database SQL *| 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
 | | Istanza gestita di SQL  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
 | **IOPS** | Database singolo | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPS effettivi dipendono dal carico di lavoro. | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
 | | Istanza gestita di SQL | Dipende dalle dimensioni del file | N/D | 1375 IOPS/vCore |

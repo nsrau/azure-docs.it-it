@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aa8708701af37834ae3b6cdc42de9c691ccacec
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265857"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084291"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
 
@@ -150,7 +150,7 @@ Le sezioni di un file JSON del set di dati, tra cui struttura, disponibilità e 
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sul percorso dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **OracleTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 | --- | --- | --- |
 | tableName |Nome della tabella nel database Oracle a cui fa riferimento il servizio collegato. |No (se è specificato **oracleReaderQuery** o **OracleSource**) |
 
@@ -179,7 +179,7 @@ Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**Intervallo di tempo**<br/><br/> Ad esempio: 00:30:00 (30 minuti) |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**timespan**<br/><br/> Ad esempio: 00:30:00 (30 minuti) |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge il valore di **writeBatchSize**. |Numero intero (numero di righe) |No (valore predefinito: 100) |
 | sqlWriterCleanupScript |Specifica una query da eseguire nell'attività di copia per eseguire la pulizia dei dati di una sezione specifica. |Istruzione di query. |No |
 | sliceIdentifierColumnName |Specifica il nome della colonna per l'attività di copia da riempire con un identificatore di sezione generato automaticamente. Il valore di **sliceIdentifierColumnName** viene usato per eseguire la pulizia dei dati di una sezione specifica quando viene nuovamente eseguita. |Nome di colonna di una colonna con tipo di dati **binary(32)**. |No |
@@ -556,7 +556,9 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 
 **Messaggio di errore**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
+```text
+Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
+```
 
 **Possibili cause**
 
@@ -568,21 +570,25 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 * Se non è stato installato il provider .NET per Oracle, [installarlo](https://www.oracle.com/technetwork/topics/dotnet/downloads/) e quindi ripetere lo scenario.
 * Se viene visualizzato il messaggio di errore anche dopo l'installazione del provider, completare questa procedura:
     1. Aprire il file machine.config per .NET 2.0 dalla cartella <disco di sistema\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-    2. Cercare **Provider di dati Oracle per .NET**. Dovrebbe essere possibile trovare una voce come illustrato nell'esempio seguente in **System. Data** > **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* Copiare questa voce nel file Machine. config nella seguente cartella .NET 4,0: <disco\>di sistema: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Modificare quindi la versione in 4. xxx. x.x.
+    2. Cercare **Provider di dati Oracle per .NET**. Dovrebbe essere possibile trovare una voce come illustrato nell'esempio seguente in **System. Data**  >  **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+* Copiare questa voce nel file machine.config nella seguente cartella .NET 4,0: <disco di sistema \>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Modificare quindi la versione in 4. xxx. x.x.
 * Installare <percorso di installazione di ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll nella Global Assembly Cache eseguendo **gacutil /i [percorso del provider]**.
 
 ### <a name="problem-2-datetime-formatting"></a>Problema 2: formattazione di data/ora
 
 **Messaggio di errore**
 
-    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+```text
+Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+```
 
 **Risoluzione**
 
 Potrebbe essere necessario modificare la stringa di query nell'attività di copia in base alla configurazione delle date nel database Oracle. Di seguito è riportato un esempio (basato sull'uso della funzione **to_date**):
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+```console   
+"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+```
 
 
 ## <a name="type-mapping-for-oracle"></a>Mapping dei tipi per Oracle

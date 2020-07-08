@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: bc9ab6ddf3a9032fd1919b70d830f0d65cdc06ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa961cb94816b50aa515532e69454fce9b370c54
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817990"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083081"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -544,6 +544,10 @@ La distribuzione usa la configurazione di distribuzione per la configurazione de
 Per ospitare la distribuzione del servizio Web, è possibile usare le seguenti destinazioni di calcolo o risorse di calcolo:
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+> [!NOTE]
+> * ACI è adatto solo per piccoli modelli <1 GB di dimensioni. 
+> * Si consiglia di usare l'AKS a nodo singolo per lo sviluppo e il test di modelli più grandi.
 
 ### <a name="define-your-deployment-configuration"></a>Definire la configurazione di distribuzione
 
@@ -1100,7 +1104,7 @@ Per arrestare il contenitore, usare il comando seguente da una shell o riga di c
 docker kill mycontainer
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Per eliminare un servizio Web distribuito, usare `service.delete()`.
 Per eliminare un modello registrato, usare `model.delete()`.

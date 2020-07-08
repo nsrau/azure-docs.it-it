@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: ac3904284ebf20fa1d5e75f9249732be3963f677
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ed8fd2eba175a170c12c032e7c6ecf6a926b64
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78206283"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084614"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
@@ -32,7 +33,7 @@ Prima di inviare un processo batch, è necessario caricare il file con estension
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 * Se il file jar si trova nell'archivio cluster (WASBS)
 
@@ -54,7 +55,7 @@ Sintassi:
 curl -k --user "admin:password" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 * Per recuperare tutti i batch Livy Spark in esecuzione nel cluster:
 

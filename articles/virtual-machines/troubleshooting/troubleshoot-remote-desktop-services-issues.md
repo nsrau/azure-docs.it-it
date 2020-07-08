@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41f3bd38013cb0ebd2cad55168551c303c1d231
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919465"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084328"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
 
@@ -46,7 +47,9 @@ Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari
 
     È anche possibile usare la funzionalità della console di accesso seriale per cercare questi errori eseguendo la query seguente: 
 
-        wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
+    ```console
+   wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+    ```
 
 ## <a name="cause"></a>Causa
  
@@ -178,22 +181,37 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
 1. Questo problema si verifica se l'account di avvio del servizio è stato modificato. Ripristinare il valore predefinito: 
 
-        sc config TermService obj= 'NT Authority\NetworkService'
+    ```console
+    sc config TermService obj= 'NT Authority\NetworkService'
+    ```
+
 2. Avviare il servizio:
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 3. Provare a connettersi alla macchina virtuale usando Desktop remoto.
 
 #### <a name="termservice-service-crashes-or-hangs"></a>Il servizio TermService si arresta in modo anomalo o si interrompe
 1. Se lo stato del servizio è bloccato sull'**avvio** o sull'**arresto**, provare ad arrestare il servizio: 
 
-        sc stop TermService
+    ```console
+    sc stop TermService
+    ```
+
 2. Isolare il servizio nel contenitore "svchost":
 
-        sc config TermService type= own
+    ```console
+    sc config TermService type= own
+    ```
+
 3. Avviare il servizio:
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 4. Se non è ancora possibile avviare il servizio, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="repair-the-vm-offline"></a>Riparare la macchina virtuale in modalità offline

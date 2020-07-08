@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: e73a8a420c7591a45a62ba38123c6b3368e0f738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190640"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085872"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Caricare dati per processi Apache Hadoop in HDInsight
 
@@ -58,15 +58,15 @@ Dopo essersi connessi, è possibile usare la sintassi seguente per caricare un f
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-Ad esempio, usare `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+Ad esempio: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Poiché il file system predefinito per HDInsight è in archiviazione di Azure,/example/data/data.txt è in realtà in archiviazione di Azure. È inoltre possibile fare riferimento al file come segue:
 
-    wasbs:///example/data/data.txt
+`wasbs:///example/data/data.txt`
 
 o
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+`wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
 Per un elenco di altri comandi Hadoop che funzionano con i file, vedere[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -92,13 +92,13 @@ Vedere [Montare Archiviazione di Azure come unità locale](https://blogs.msdn.co
 
 ## <a name="upload-using-services"></a>Caricamento tramite servizi
 
-### <a name="azure-data-factory"></a>Data factory di Azure
+### <a name="azure-data-factory"></a>Azure Data Factory
 
 Il servizio Azure Data Factory è un servizio completamente gestito per la composizione dei dati, ovvero servizi di archiviazione, elaborazione e spostamento, in pipeline di produzione dati semplificate, adattabili e affidabili.
 
 |Tipo di archiviazione|Documentazione|
 |----|----|
-|Archiviazione BLOB di Azure|[Copiare dati da e in archiviazione BLOB di Azure usando Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
+|Archiviazione BLOB di Azure|[Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
 |Azure Data Lake Storage Gen1|[Copiare dati da e in Azure Data Lake Storage di 1° generazione usando Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
 |Azure Data Lake Storage Gen2 |[Caricare dati in Azure Data Lake Storage Gen2 con Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 

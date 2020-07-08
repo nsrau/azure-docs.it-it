@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: e05cd861f899b700e68c151fcbaa6778dc43eb3a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: cf080f2a6173651fce8f306619dba60347067e0e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959195"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085613"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
 
@@ -65,7 +66,7 @@ Alcuni valori hardcoded nel modello:
 
 **Rete virtuale 1**
 
-| Proprietà | valore |
+| Proprietà | Valore |
 |----------|-------|
 | Location | Stati Uniti occidentali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
@@ -82,7 +83,7 @@ Alcuni valori hardcoded nel modello:
 
 **VNet 2**
 
-| Proprietà | valore |
+| Proprietà | Valore |
 |----------|-------|
 | Location | Stati Uniti orientali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
@@ -393,7 +394,7 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
 
   `-m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all`
 
-  o
+  oppure
 
   `--src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>`
 

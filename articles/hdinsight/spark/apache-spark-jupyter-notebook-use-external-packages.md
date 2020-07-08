@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: cec94b2ecb18bc9e8cceb24a21967a3c829d78a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6587a055d672bc309c89ff2a37fabb273a4c4621
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74561715"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084682"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usare pacchetti esterni con notebook di Jupyter nei cluster Apache Spark in HDInsight
 
@@ -67,31 +67,39 @@ Questo articolo illustra come usare il pacchetto [Spark-CSV](https://search.mave
 
     c. Concatenare i tre valori, separati da due punti (**:**).
 
-        com.databricks:spark-csv_2.11:1.5.0
+    ```scala
+    com.databricks:spark-csv_2.11:1.5.0
+    ```
 
 1. Eseguire la cella di codice con `%%configure` magic. Questa operazione configura la sessione Livy sottostante per l'uso del pacchetto fornito. Nelle celle successive del notebook è ora possibile usare il pacchetto, come mostrato di seguito.
 
-        val df = spark.read.format("com.databricks.spark.csv").
-        option("header", "true").
-        option("inferSchema", "true").
-        load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```scala
+    val df = spark.read.format("com.databricks.spark.csv").
+    option("header", "true").
+    option("inferSchema", "true").
+    load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```
 
     Per HDInsight 3,4 e versioni precedenti, è necessario usare il frammento di codice seguente.
 
-        val df = sqlContext.read.format("com.databricks.spark.csv").
-        option("header", "true").
-        option("inferSchema", "true").
-        load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```scala
+    val df = sqlContext.read.format("com.databricks.spark.csv").
+    option("header", "true").
+    option("inferSchema", "true").
+    load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```
 
 1. È quindi possibile eseguire i frammenti di codice, come mostrato di seguito, per visualizzare i dati del frame di dati creato nel passaggio precedente.
 
-        df.show()
+    ```scala
+    df.show()
    
-        df.select("Time").count()
+    df.select("Time").count()
+    ```
 
 ## <a name="see-also"></a><a name="seealso"></a>Vedere anche
 
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+* [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
 
