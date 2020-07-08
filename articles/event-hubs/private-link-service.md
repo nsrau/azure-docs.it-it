@@ -1,18 +1,14 @@
 ---
 title: Integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
 description: Informazioni su come integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
-services: event-hubs
-author: spelluru
-ms.author: spelluru
-ms.date: 03/12/2020
-ms.service: event-hubs
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649904"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312831"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrare Hub eventi di Azure con Collegamento privato di Azure
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio Hub eventi di Azure, Archiviazione di Azure e Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
@@ -22,7 +18,7 @@ Un endpoint privato è un'interfaccia di rete che connette privatamente e in mod
 Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
 > [!IMPORTANT]
-> Questa funzionalità è supportata solo con il livello **dedicato**. Per altre informazioni sul livello dedicato, vedere [Panoramica di Hub eventi Dedicato](event-hubs-dedicated-overview.md). 
+> Questa funzionalità è supportata sia per i livelli **standard** che per quelli **dedicati** . 
 
 >[!WARNING]
 > L'abilitazione di endpoint privati può impedire ad altri servizi di Azure di interagire con Hub eventi.
@@ -62,7 +58,7 @@ Se si ha già uno spazio dei nomi di Hub eventi, è possibile creare una conness
 2. Nella barra di ricerca digitare **Hub eventi**.
 3. Selezionare nell'elenco lo **spazio dei nomi** in cui si vuole aggiungere un endpoint privato.
 4. Selezionare la scheda **Rete** in **Impostazioni**.
-5. Selezionare la scheda **Connessioni endpoint privato** nella parte superiore della pagina. Se non si usa un livello dedicato di Hub eventi, viene visualizzato un messaggio: **Le connessioni endpoint privato in Hub eventi sono supportate solo dagli spazi dei nomi creati in un cluster dedicato**.
+5. Selezionare la scheda **Connessioni endpoint privato** nella parte superiore della pagina. 
 6. Selezionare il pulsante **+ Endpoint privato** nella parte superiore della pagina.
 
     ![Immagine](./media/private-link-service/private-link-service-3.png)
@@ -218,7 +214,7 @@ Sono disponibili quattro stati di provisioning:
 2. Selezionare l'**endpoint privato** che si vuole approvare
 3. Selezionare il pulsante **Approva**.
 
-    ![Immagine](./media/private-link-service/approve-private-endpoint.png)
+    ![Image](./media/private-link-service/approve-private-endpoint.png)
 4. Nella pagina **Approva la connessione** aggiungere un commento (facoltativo) e selezionare **Sì**. Se si seleziona **No**, non accade nulla. 
 5. Si noterà che lo stato della connessione endpoint privato nell'elenco è diventato **Approvata**. 
 

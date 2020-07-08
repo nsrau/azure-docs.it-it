@@ -3,14 +3,14 @@ title: Automazione di Azure - Panoramica di Gestione aggiornamenti
 description: Questo articolo fornisce una panoramica della funzionalità Gestione aggiornamenti che implementa gli aggiornamenti per computer Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 05/22/2020
+ms.date: 06/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4c27fa26b19b870f90f2e7d6ecd34f1f3c083323
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 86116e4aa76b376331e25719d128fc733c3257ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316399"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -29,7 +29,7 @@ ms.locfileid: "83847329"
 È disponibile un [modello di Azure Resource Manager](automation-update-management-deploy-template.md) per semplificare la distribuzione di Gestione aggiornamenti in un account di Automazione nuovo o esistente e in un'area di lavoro Log Analytics nella sottoscrizione.
 
 > [!NOTE]
-> Non è possibile usare un computer configurato con Gestione aggiornamenti per l'esecuzione di script personalizzati da Automazione di Azure. Questo computer può eseguire solo lo script di aggiornamento firmato da Microsoft. 
+> Non è possibile usare un computer configurato con Gestione aggiornamenti per l'esecuzione di script personalizzati da Automazione di Azure. Questo computer può eseguire solo lo script di aggiornamento firmato da Microsoft.
 
 ## <a name="about-update-management"></a>Informazioni su Gestione aggiornamenti
 
@@ -68,21 +68,22 @@ Durante la definizione di una distribuzione, si specifica anche una pianificazio
 Gli aggiornamenti vengono installati da runbook in Automazione di Azure. Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati. Quando si crea una distribuzione degli aggiornamenti, viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificata per i computer inclusi. Il runbook master avvia un runbook figlio in ogni agente per installare gli aggiornamenti necessari.
 
 Alla data e ora specificate nella distribuzione degli aggiornamenti, i computer di destinazione eseguono la distribuzione in parallelo. Prima dell'installazione viene eseguita un'analisi per verificare che gli aggiornamenti siano ancora necessari. Per i computer client WSUS, la distribuzione degli aggiornamenti ha esito negativo se gli aggiornamenti non sono approvati in WSUS.
+
 Non è consentito avere un computer registrato per Gestione aggiornamenti in più di un'area di lavoro Log Analytics (definito anche multihoming).
 
 ## <a name="clients"></a>Client
 
 ### <a name="supported-client-types"></a>Tipi di client supportati
 
-La tabella seguente elenca i sistemi operativi supportati per le valutazioni dell'aggiornamento. L'applicazione di patch richiede un ruolo di lavoro ibrido per runbook. Per informazioni sui requisiti del ruolo di lavoro ibrido per runbook, vedere [Distribuire un ruolo di lavoro ibrido per runbook di Windows](automation-windows-hrw-install.md) e [Distribuire un ruolo di lavoro ibrido per runbook di Linux](automation-linux-hrw-install.md).
+Nella tabella seguente sono elencati i sistemi operativi supportati per la valutazione degli aggiornamenti e l'applicazione di patch. L'applicazione di patch richiede un ruolo di lavoro ibrido per runbook. Per informazioni sui requisiti del ruolo di lavoro ibrido per runbook, vedere [Distribuire un ruolo di lavoro ibrido per runbook di Windows](automation-windows-hrw-install.md) e [Distribuire un ruolo di lavoro ibrido per runbook di Linux](automation-linux-hrw-install.md).
 
 > [!NOTE]
 > La valutazione degli aggiornamenti dei computer Linux è supportata solo in determinate aree, come elencato nella [tabella di mapping](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics. 
 
 |Sistema operativo  |Note  |
 |---------|---------|
-|Windows Server 2019 (Data center/Data center Core/Standard)<br><br>Windows Server 2016 (Data center/Data center Core/Standard)<br><br>Windows Server 2012 R2(Data center/Standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2 (RTM e SP1 Standard)| Gestione aggiornamenti supporta solo le valutazioni per questo sistema operativo. L'applicazione di patch non è supportata perché il [ruolo di lavoro ibrido per runbook](automation-windows-hrw-install.md) non è supportato per Windows Server 2008 R2. |
+|Windows Server 2019 (Data center/Data center Core/Standard)<br><br>Windows Server 2016 (Data center/Data center Core/Standard)<br><br>Windows Server 2012 R2(Data center/Standard)<br><br>Windows Server 2012 ||
+|Windows Server 2008 R2 (RTM e SP1 Standard)| Gestione aggiornamenti supporta le valutazioni e l'applicazione di patch per questo sistema operativo. Il ruolo di [lavoro ibrido per Runbook](automation-windows-hrw-install.md) è supportato per Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede `yum` per restituire i dati sulla sicurezza che non sono disponibili nelle release RTM di CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione in CentOS, vedere [Classificazioni degli aggiornamenti in Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
@@ -103,7 +104,7 @@ La tabella seguente elenca i sistemi operativi non supportati:
 
 ### <a name="client-requirements"></a>Requisiti per i client
 
-Le informazioni seguenti illustrano i requisiti per il client specifici per un sistema operativo. Per altro materiale sussidiario, vedere [Pianificazione della rete](#ports).
+Le informazioni seguenti illustrano i requisiti per il client specifici per un sistema operativo. Per altro materiale sussidiario, vedere [Pianificazione della rete](#ports). Per informazioni sui requisiti dei client per TLS 1,2, vedere [tls 1,2 Enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### <a name="windows"></a>Windows
 
@@ -187,10 +188,10 @@ I seguenti indirizzi sono necessari e specifici per Gestione aggiornamenti. La c
 
 |Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|*.azure-automation.net | *.azure-automation.us|
+|`*.ods.opinsights.azure.com`    | `*.ods.opinsights.azure.us`        |
+|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
+|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+|`*.azure-automation.net` | `*.azure-automation.us`|
 
 Per i computer Windows è necessario consentire anche il traffico verso eventuali endpoint richiesti da Windows Update. Un elenco aggiornato degli endpoint necessari è disponibile in [Problemi correlati a HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se si usa un [server di Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) locale, è necessario consentire anche il traffico verso il server specificato nella [chiave di WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -224,13 +225,20 @@ La tabella seguente definisce le classificazioni supportate per gli aggiornament
 |Aggiornamenti critici e della sicurezza     | Aggiornamenti per un problema specifico o specifico del prodotto, correlato alla sicurezza.         |
 |Altri aggiornamenti     | Tutti gli altri aggiornamenti non critici per loro natura o che non sono aggiornamenti della sicurezza.        |
 
+>[!NOTE]
+>La classificazione degli aggiornamenti per i computer Linux è disponibile solo se usata nelle aree del cloud pubblico di Azure supportate. Quando si usa Gestione aggiornamenti nelle seguenti aree del cloud nazionale:
+>* Azure US Government
+>* 21Vianet in Cina
+>
+> non esiste alcuna classificazione degli aggiornamenti di Linux e vengono segnalati nella categoria **altri aggiornamenti** . Gestione aggiornamenti usa i dati pubblicati dalle distribuzioni supportate, in particolare i file [Oval](https://oval.mitre.org/) (Open vulnerabili and Assessment Language) rilasciati. Poiché l'accesso a Internet è limitato da questi cloud nazionali, Gestione aggiornamenti non può accedere ai file e utilizzarli.
+
 Per Linux, Gestione aggiornamenti è in grado di distinguere tra gli aggiornamenti critici e quelli della sicurezza nel cloud, visualizzando i dati di valutazione dovuti all'arricchimento dei dati nel cloud. Per l'applicazione di patch, Gestione aggiornamenti si affida ai dati di classificazione disponibili nel computer. A differenza di altre distribuzioni, CentOS non mette a disposizione queste informazioni nella versione RTM. Se i computer CentOS sono configurati in modo da restituire dati sulla sicurezza per il comando seguente, Gestione aggiornamenti è in grado di applicare patch in base alle classificazioni.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-Attualmente non è supportato alcun metodo per abilitare la disponibilità dei dati di classificazione nativi in CentOS. In questa fase viene offerto il miglior supporto possibile ai clienti che hanno abilitato autonomamente questa funzionalità. 
+Attualmente non è supportato alcun metodo per abilitare la disponibilità dei dati di classificazione nativi in CentOS. In questa fase viene offerto il miglior supporto possibile ai clienti che hanno abilitato autonomamente questa funzionalità.
 
 Per classificare gli aggiornamenti in Red Hat Enterprise versione 6, è necessario installare il plug-in yum-security. In Red Hat Enterprise Linux 7 il plug-in fa già parte di yum e non è necessario eseguire alcuna installazione supplementare. Per altre informazioni, vedere questo [file di caratteristiche del caso](https://access.redhat.com/solutions/10021) su Red Hat.
 

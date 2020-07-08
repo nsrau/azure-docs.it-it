@@ -1,25 +1,14 @@
 ---
 title: Azure Windows Communication Foundation (WCF) inoltro di applicazioni ibride locali/cloud (.NET) | Microsoft Docs
 description: Informazioni su come esporre un servizio WCF locale a un'applicazione Web nel cloud usando Inoltro di Azure
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus-relay
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.author: spelluru
-ms.openlocfilehash: b86d535e4cbc275b3ee777d7c70146f7711c502c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211593"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314410"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Esporre un servizio WCF locale a un'applicazione Web nel cloud usando Inoltro di Azure
 
@@ -224,7 +213,7 @@ Apportare le seguenti modifiche al codice alla soluzione:
     > [!NOTE]
     > L'errore causato da `transportClientEndpointBehavior` è solo un avviso e non è un problema di blocco per questo esempio.
 
-1. Sempre in *app. config*, nell' `<appSettings>` elemento, sostituire il valore della stringa di connessione con la stringa di connessione ottenuta in precedenza dal portale.
+1. Sempre in *App.config*, nell' `<appSettings>` elemento sostituire il valore della stringa di connessione con la stringa di connessione ottenuta in precedenza dal portale.
 
     ```xml
     <appSettings>

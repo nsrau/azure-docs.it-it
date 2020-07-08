@@ -1,22 +1,14 @@
 ---
 title: Log di diagnostica per le connessioni ibride
 description: Questo articolo illustra tutti i log di attività e diagnostica disponibili per Inoltro di Azure.
-services: service-bus-messaging
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.date: 04/27/2020
-ms.author: spelluru
-ms.openlocfilehash: b7ac5f1da70352115bf05df1a61120f46a85ec5d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211106"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314908"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Abilitare i log di diagnostica per le connessioni ibride di Inoltro di Azure
 Quando si iniziano a usare le connessioni ibride di Inoltro di Azure, potrebbe essere utile monitorare l'apertura e la chiusura di listener e mittenti, nonché la modalità di creazione delle connessioni ibride e l'invio dei messaggi. Questo articolo include una panoramica dei log di attività e diagnostica forniti dal servizio Inoltro di Azure. 

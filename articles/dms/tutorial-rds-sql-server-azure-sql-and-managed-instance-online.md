@@ -12,19 +12,20 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 8d538deca610fd9981d401d28b6bea1c31c6d4c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20ca7f1d9c8322fe9a4d5dd784768bdaaf7cd0d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314941"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server RDS al database SQL di Azure o a un'istanza gestita di database SQL di Azure Online tramite DMS
-È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di RDS SQL Server verso il [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/) o un'[istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con tempi di inattività minimi. In questa esercitazione si userà Servizio Migrazione del database di Azure per eseguire la migrazione del database **AdventureWorks2012** ripristinato in un'istanza di RDS SQL Server con SQL Server 2012 (o versione successiva) verso un database SQL di Azure o un'istanza gestita di tale database.
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>Esercitazione: eseguire la migrazione di Servizi Desktop remoto SQL Server al database SQL di Azure o a una Istanza gestita online di Azure SQL con DMS
+
+È possibile usare il servizio migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di SQL Server RDS al [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/) o a un [istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con tempi di inattività minimi. In questa esercitazione si esegue la migrazione del database **AdventureWorks2012** ripristinato a un'istanza di SQL server RDS di SQL Server 2012 (o versione successiva) al database SQL o a un istanza gestita SQL mediante il servizio migrazione del database di Azure.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
-> * Creare un'istanza di database SQL di Azure o un'istanza gestita di database SQL di Azure. 
+> * Creare un database nel database SQL di Azure o in un Istanza gestita SQL. 
 > * Eseguire la migrazione dello schema di esempio con Data Migration Assistant.
 > * Creare un'istanza del Servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
@@ -40,19 +41,16 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-Questo articolo descrive una migrazione online da RDS SQL Server al database SQL di Azure o a un'istanza gestita di database SQL di Azure.
+Questo articolo descrive una migrazione in linea da Servizi Desktop remoto SQL Server al database SQL o a una Istanza gestita SQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per completare questa esercitazione, è necessario:
 
 * Creare un [database RDS SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).
-* Creare un'istanza del database SQL di Azure seguendo le istruzioni riportate nell'articolo [Creare un database SQL di Azure nel portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
-
-    > [!NOTE]
-    > Se si esegue la migrazione a un'istanza gestita di database SQL di Azure, seguire le istruzioni dettagliate riportate nell'articolo [Creare un'istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) e quindi creare un database vuoto denominato **AdventureWorks2012**. 
- 
+* [Creare un database nel database SQL di Azure nel portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) o [creare un database in SQL istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started), quindi creare un database vuoto denominato **AdventureWorks2012**. 
 * Scaricare e installare [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 3.3 o versione successiva.
-* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager. Se si sta eseguendo la migrazione a un'istanza gestita di database SQL di Azure, assicurarsi di creare l'istanza DMS nella stessa rete virtuale usata per l'istanza gestita di database SQL di Azure, ma in un'altra subnet.  In alternativa, se si usa una rete virtuale diversa per DMS, è necessario creare un peering di rete virtuale tra le due reti virtuali. Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
+* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager. Se si esegue la migrazione a una Istanza gestita SQL, assicurarsi di creare l'istanza DMS nella stessa rete virtuale usata per il Istanza gestita SQL, ma in una subnet diversa.  In alternativa, se si usa una rete virtuale diversa per DMS, è necessario creare un peering di rete virtuale tra le due reti virtuali. Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
 
     > [!NOTE]
     > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete a Microsoft, aggiungere i seguenti [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio alla subnet in cui verrà eseguito il provisioning del servizio:
@@ -66,9 +64,9 @@ Per completare questa esercitazione, è necessario:
 * Verificare che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino le porte di comunicazione in ingresso seguenti al servizio migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere a SQL Server di origine (per impostazione predefinita attraverso la porta TCP 1433).
-* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per il server di database SQL di Azure per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
+* Per database SQL, creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per consentire al servizio migrazione del database di Azure di accedere al database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
 * Assicurarsi che le credenziali usate per connettersi all'istanza di RDS SQL Server di origine siano associate a un account membro del ruolo del server "Processadmin" e del ruolo del database "db_owner" in tutti i database di cui verrà eseguita la migrazione.
-* Assicurarsi che le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione abbiano l'autorizzazione CONTROL DATABASE per i database SQL di Azure di destinazione e siano associate a un membro del ruolo sysadmin in caso di migrazione a un'istanza gestita di database SQL di Azure.
+* Verificare che le credenziali utilizzate per connettersi al database di destinazione dispongano dell'autorizzazione CONTROL DATABASE per il database di destinazione nel database SQL e di un membro del ruolo sysadmin se si esegue la migrazione a un database in SQL Istanza gestita.
 * La versione dell'istanza di RDS SQL Server di origine deve essere SQL Server 2012 o superiore. Per determinare la versione eseguita dall'istanza di SQL Server, vedere l'articolo [Come determinare la versione, l'edizione e il livello di aggiornamento di SQL Server e dei relativi componenti](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
 * Abilitare Change Data Capture (CDC) nel database di RDS SQL Server e in tutte le tabelle utente selezionate per la migrazione.
     > [!NOTE]
@@ -87,26 +85,31 @@ Per completare questa esercitazione, è necessario:
     @supports_net_changes = 1 --for PK table 1, non PK tables 0
     GO
     ```
-* Disabilitare i trigger del database nel database SQL di Azure di destinazione.
+* Disabilitare i trigger del database nel database di destinazione.
     > [!NOTE]
-    > È possibile trovare i trigger del database nel database SQL di Azure di destinazione usando la query seguente:
+    > È possibile trovare i trigger del database nel database di destinazione usando la query seguente:
     ```
     Use <Database name>
+    go
     select * from sys.triggers
     DISABLE TRIGGER (Transact-SQL)
     ```
     Per altre informazioni, vedere l'articolo [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 ## <a name="migrate-the-sample-schema"></a>Eseguire la migrazione dello schema di esempio
-Usare DMA per eseguire la migrazione dello schema a Database SQL di Azure.
+Utilizzare DMA per eseguire la migrazione dello schema.
 
 > [!NOTE]
-> Prima di creare un progetto di migrazione in DMA, assicurarsi di aver già eseguito il provisioning di un database SQL di Azure come indicato nei prerequisiti. Ai fini di questa esercitazione, si presuppone che il nome del database SQL di Azure sia **AdventureWorks2012**, ma è possibile specificare il nome che si preferisce.
+> Prima di creare un progetto di migrazione in DMA, assicurarsi di avere già eseguito il provisioning di un database nel database SQL o in SQL Istanza gestita come indicato nei prerequisiti. Ai fini di questa esercitazione, si presuppone che il nome del database sia **AdventureWorks2012**, ma è possibile specificare il nome desiderato.
 
-Per eseguire la migrazione dello schema **AdventureWorks2012** al database SQL di Azure, eseguire le operazioni seguenti:
+Per eseguire la migrazione dello schema **AdventureWorks2012** , seguire questa procedura:
 
 1. In Data Migration Assistant selezionare l'icona Nuovo (+) e quindi in **Tipo di progetto** selezionare **Migrazione**.
 2. Specificare il nome del progetto, nella casella di testo **Source server type** (Tipo di server di origine) selezionare **SQL Server** e quindi nella casella di testo **Target server type** (Tipo di server di destinazione) selezionare **Database SQL di Azure**.
+
+    > [!NOTE]
+    > Per tipo di server di destinazione selezionare **database SQL di Azure** per la migrazione sia al database SQL di Azure sia a SQL istanza gestita.
+
 3. In **Migration Scope** (Ambito della migrazione) selezionare **Schema only** (Solo schema).
 
     Dopo aver eseguito i passaggi precedenti, viene visualizzata l'interfaccia di DMA come illustrato nella figura seguente:
@@ -118,11 +121,11 @@ Per eseguire la migrazione dello schema **AdventureWorks2012** al database SQL d
 
     ![Dettagli della connessione di origine Data Migration Assistant](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dma-source-connect.png)
 
-6. Selezionare **Avanti**, in **Connetti al server di destinazione** specificare i dettagli della connessione di destinazione per il database SQL di Azure e quindi selezionare **Connetti** e infine il database **AdventureWorksAzure** di cui è già stato effettuato il provisioning in Database SQL di Azure.
+6. Selezionare **Avanti**, in **Connetti al server di destinazione**specificare i dettagli della connessione di destinazione per il database nel database sql o in SQL istanza gestita selezionare **Connetti**, quindi selezionare il database di **AdventureWorksAzure** di cui è stato effettuato il provisioning.
 
     ![Dettagli della connessione di destinazione Data Migration Assistant](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dma-target-connect.png)
 
-7. Selezionare **Avanti** per passare alla schermata **Seleziona oggetti**, in cui è possibile specificare gli oggetti dello schema nel database **AdventureWorks2012** che devono essere distribuiti in database SQL di Azure.
+7. Selezionare **Avanti** per passare alla schermata **Seleziona oggetti** in cui è possibile specificare gli oggetti dello schema nel database **AdventureWorks2012** che devono essere distribuiti.
 
     Per impostazione predefinita, sono selezionati tutti gli oggetti.
 
@@ -132,7 +135,7 @@ Per eseguire la migrazione dello schema **AdventureWorks2012** al database SQL d
 
     ![Script dello schema](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dma-schema-script.png)
 
-9. Selezionare **Deploy schema** (Distribuisci schema) per distribuire lo schema nel database SQL di Azure e in seguito alla distribuzione dello schema, verificare che il server di destinazione non presenti anomalie.
+9. Selezionare **Distribuisci schema** per distribuire lo schema, quindi, dopo la distribuzione dello schema, verificare la presenza di eventuali anomalie nella destinazione.
 
     ![Distribuire lo schema](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dma-schema-deploy.png)
 
@@ -146,7 +149,7 @@ Per eseguire la migrazione dello schema **AdventureWorks2012** al database SQL d
 
     ![Visualizzare i provider di risorse](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
 
-3. Cercare la migrazione e quindi a destra di **Microsoft. DataMigration**selezionare Register ( **registra**).
+3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
 
     ![Registrare il provider di risorse](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/portal-register-resource-provider.png)    
 
@@ -166,7 +169,7 @@ Per eseguire la migrazione dello schema **AdventureWorks2012** al database SQL d
 
 5. Selezionare una rete virtuale esistente o crearne una nuova.
 
-    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso alla SQL Server di origine e l'istanza di database SQL di Azure di destinazione.
+    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso alla SQL Server di origine e al database SQL di destinazione o a SQL Istanza gestita.
 
     Per altre informazioni su come creare una rete virtuale nella portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
 
@@ -194,7 +197,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e selezionare **AWS RDS per SQL Server** nella casella di testo **Tipo del server di origine** e **Database SQL di Azure** nella casella di testo **Tipo del server di destinazione**.
 
     > [!NOTE]
-    > Per il tipo del server di destinazione selezionare **Database SQL di Azure** per la migrazione sia verso un database singleton di database SQL di Azure sia verso un'istanza gestita di database SQL di Azure.
+    > Per tipo di server di destinazione selezionare **database SQL di Azure** per la migrazione sia al database SQL sia a SQL istanza gestita.
 
 5. Nella sezione **scegliere il tipo di attività** selezionare **migrazione dei dati online**.
 
@@ -229,7 +232,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 ## <a name="specify-target-details"></a>Specificare i dettagli della destinazione
 
-1. Selezionare **Salva**, quindi nella schermata **Dettagli destinazione della migrazione** specificare i dettagli di connessione per il server di database SQL di Azure di destinazione, ovvero il database SQL di Azure di cui è già stato eseguito il provisioning e in cui lo schema **AdventureWorks2012** è stato distribuito tramite DMA.
+1. Selezionare **Salva**e quindi nella schermata **Dettagli destinazione migrazione** specificare i dettagli della connessione per il database di destinazione in Azure.
 
     ![Selezionare la destinazione](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-select-target3.png)
 
@@ -241,7 +244,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 3. Selezionare **Salva**, quindi nella schermata **Seleziona tabelle** espandere l'elenco delle tabelle ed esaminare l'elenco dei campi interessati.
 
-    Il servizio Migrazione del database di Azure seleziona automaticamente tutte le tabelle di origine vuote esistenti nell'istanza di database SQL di Azure di destinazione. Se si vuole eseguire di nuovo la migrazione di tabelle che già includono dati, è necessario selezionarle esplicitamente in questa schermata.
+    Il servizio migrazione del database di Azure seleziona automaticamente tutte le tabelle di origine vuote presenti nel database di destinazione. Se si vuole eseguire di nuovo la migrazione di tabelle che già includono dati, è necessario selezionarle esplicitamente in questa schermata.
 
     ![Selezionare le tabelle](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-configure-setting-activity4.png)
 
@@ -285,13 +288,13 @@ Al termine del caricamento completo iniziale, i database vengono contrassegnati 
 
 2. Assicurarsi di arrestare tutte le transazioni in ingresso nel database di origine. Attendere finché il contatore **Modifiche in sospeso** mostra **0**.
 3. Selezionare **Conferma** e quindi **Applica**.
-4. Quando lo stato della migrazione del database è **Completata**, connettere le applicazioni al nuovo database SQL di Azure di destinazione.
+4. Quando lo stato della migrazione del database viene visualizzato **completato**, connettere le applicazioni al nuovo database di destinazione.
 
     ![Stato attività - Completata](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-activity-completed.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulle limitazioni e i problemi noti, vedere l'articolo relativo a [problemi noti e soluzioni alternative per le migrazioni online al database SQL di Azure](known-issues-azure-sql-online.md).
-* Per informazioni sul Servizio Migrazione del database di Azure, vedere l'articolo [Definizione del Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview).
-* Per informazioni sul database SQL di Azure, vedere l'articolo [Servizio database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
-* Per informazioni sulle istanze gestite di database SQL di Azure, vedere la pagina [Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).
+* Per informazioni sui problemi noti e sulle limitazioni durante l'esecuzione di migrazioni online in Azure, vedere l'articolo [problemi noti e soluzioni alternative con migrazioni online](known-issues-azure-sql-online.md).
+* Per informazioni sul servizio migrazione del database, vedere l'articolo [che cos'è il servizio migrazione del database?](https://docs.microsoft.com/azure/dms/dms-overview).
+* Per informazioni sul database SQL, vedere l'articolo [che cos'è il servizio di database SQL?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
+* Per informazioni sulle istanze gestite di SQL, vedere l'articolo [che cos'è sql istanza gestita](https://docs.microsoft.com/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview).

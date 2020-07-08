@@ -1,25 +1,14 @@
 ---
 title: Panoramica delle API Node di inoltro di Azure | Microsoft Docs
-description: Questo articolo fornisce una panoramica dell'API Node. js per il servizio di inoltro di Azure. Viene inoltre illustrato come utilizzare il pacchetto del nodo Hyco-WS.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: b7d6e822-7c32-4cb5-a4b8-df7d009bdc85
-ms.service: service-bus-relay
-ms.devlang: na
+description: Questo articolo fornisce una panoramica dell'API Node.js per il servizio di inoltro di Azure. Viene inoltre illustrato come utilizzare il pacchetto del nodo Hyco-WS.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 71faa2ee143488483aff4300152aab6d1e2b2a88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211840"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316734"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Panoramica dell'API del pacchetto Node per Connessioni ibride di inoltro
 
@@ -131,7 +120,7 @@ Argomenti del costruttore:
 - `server` (obbligatorio): URI completo del nome di una connessione ibrida su cui rimanere in ascolto, costruito in genere con il metodo helper WebSocket.createRelayListenUri().
 - `token` (obbligatorio): questo argomento contiene una stringa di token rilasciata in precedenza o una funzione di callback che è possibile chiamare per ottenere la stringa di token. È preferibile usare l'opzione di callback, perché consente il rinnovo del token.
 
-#### <a name="events"></a>Events
+#### <a name="events"></a>Eventi
 
 Le istanze di `RelayedServer` generano tre eventi che consentono di gestire le richieste in ingresso, stabilire le connessioni e rilevare le condizioni di errore. Per gestire i messaggi è necessario sottoscrivere l'evento `connect`. 
 
@@ -143,7 +132,7 @@ function(headers)
 
 L'evento `headers` viene generato immediatamente prima che venga accettata una connessione in ingresso, consentendo la modifica delle intestazioni da inviare al client. 
 
-##### <a name="connection"></a>connection
+##### <a name="connection"></a>connessione
 
 ```JavaScript
 function(socket)

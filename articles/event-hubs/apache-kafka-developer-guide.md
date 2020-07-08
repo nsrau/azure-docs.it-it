@@ -1,19 +1,14 @@
 ---
 title: Guida per gli sviluppatori Apache Kafka per hub eventi
 description: Questo articolo fornisce collegamenti ad articoli che descrivono come integrare le applicazioni Kafka con hub eventi di Azure.
-services: event-hubs
-author: spelluru
-manager: ''
-ms.author: spelluru
-ms.date: 03/31/2020
+ms.date: 06/23/2020
 ms.topic: article
-ms.service: event-hubs
-ms.openlocfilehash: b4d9dc51451a06b2c87ddce78547655b51c6fabd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbd173a7f81042c0839cec81838172b21f80d5cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314230"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Guida per gli sviluppatori Apache Kafka per hub eventi di Azure
 Questo articolo fornisce collegamenti ad articoli che descrivono come integrare le applicazioni Apache Kafka con hub eventi di Azure. 
@@ -54,7 +49,7 @@ Vedere le esercitazioni seguenti su GitHub:
 | [Filebeat](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/filebeat) | Questo documento illustra l'integrazione di filebeat e hub eventi tramite l'output Kafka di filebeat. | 
 | [Flink](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink) | Questa esercitazione illustra come connettere Apache flink a hub eventi abilitati per Kafka senza modificare i client del protocollo o eseguire i propri cluster. | 
 | [FluentD](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/fluentd) | Questo documento illustra come integrare Fluentd e hub eventi usando il `out_kafka` plug-in di output per fluentd. |
-| [Interop](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop) | Questa esercitazione illustra come scambiare eventi tra consumer e Producer usando protocolli diversi. |
+| [Interoperabilità](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop) | Questa esercitazione illustra come scambiare eventi tra consumer e Producer usando protocolli diversi. |
 | [Logstash](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/logstash) | Questa esercitazione illustra l'integrazione di logstash con hub eventi abilitati per Kafka con i plug-in di input/output di logstash Kafka. | 
 | [MirrorMaker](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker) | Questa esercitazione illustra come un hub eventi e Kafka MirrorMaker possono integrare una pipeline Kafka esistente in Azure eseguendo il mirroring del flusso di input Kafka nel servizio Hub eventi. |
 | [NiFi](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/nifi) | In questa esercitazione viene illustrato come connettere Apache NiFi a uno spazio dei nomi di hub eventi. | 
@@ -68,7 +63,7 @@ Vedere anche l'esercitazione: [elaborare Apache Kafka per gli eventi di hub even
 ## <a name="how-to-guides"></a>Guide pratiche
 Vedere le guide alle procedure seguenti nella documentazione di:
 
-| Articolo | Descrizione | 
+| Articolo | Description | 
 | ------- | ----------- | 
 | [Eseguire il mirroring di un broker Kafka in un hub eventi](event-hubs-kafka-mirror-maker-tutorial.md) | Illustra come eseguire il mirroring di un broker Kafka in un hub eventi usando Kafka MirrorMaker. |
 | [Connettere Apache Spark a un hub eventi](event-hubs-kafka-spark-tutorial.md) | Viene illustrato come connettere l'applicazione Spark a hub eventi per lo streaming in tempo reale. |

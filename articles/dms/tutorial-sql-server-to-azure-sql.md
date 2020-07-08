@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: eseguire la migrazione di SQL Server offline a un database SQL singolo'
 titleSuffix: Azure Database Migration Service
-description: Informazioni su come eseguire la migrazione offline da SQL Server in locale a un database singolo o in pool nel database SQL di Azure offline usando il Servizio Migrazione del database di Azure.
+description: Informazioni su come eseguire la migrazione da SQL Server al database SQL di Azure offline usando il servizio migrazione del database di Azure.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: ff47246482bd0712ea4e741d44b12f2c6767380b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45a343fdbd41abf1388556131f1f53a675d8ab49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298926"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316230"
 ---
-# <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server a un database singolo o a un database in pool nel database SQL di Azure offline con DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Esercitazione: Eseguire la migrazione di SQL Server al database SQL di Azure offline con il Servizio Migrazione del database
 
-È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di SQL Server locale al [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/). In questa esercitazione si esegue la migrazione del database **AdventureWorks2012** ripristinato in un'istanza locale di SQL Server 2016 o versione successiva verso un database singolo o in pool nel database SQL di Azure usando il Servizio Migrazione del database di Azure.
+È possibile usare il servizio migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di SQL Server al [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/). In questa esercitazione si esegue la migrazione del database **AdventureWorks2012** ripristinato in un'istanza locale di SQL Server 2016 o versione successiva verso un database singolo o in pool nel database SQL di Azure usando il Servizio Migrazione del database di Azure.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-Questo articolo illustra una migrazione offline da SQL Server a un database singolo o in pool in Database SQL di Azure. Per una migrazione online, vedere [Eseguire la migrazione di SQL Server al database SQL di Azure online con Servizio Migrazione del database](tutorial-sql-server-azure-sql-online.md).
+Questo articolo descrive una migrazione offline da SQL Server a un database nel database SQL di Azure. Per una migrazione online, vedere [Eseguire la migrazione di SQL Server al database SQL di Azure online con Servizio Migrazione del database](tutorial-sql-server-azure-sql-online.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,7 +44,7 @@ Per completare questa esercitazione, è necessario:
 
 - Scaricare e installare [SQL Server 2016 o versione successiva](https://www.microsoft.com/sql-server/sql-server-downloads).
 - Abilitare il protocollo TCP/IP, che viene disabilitato per impostazione predefinita durante l'installazione di SQL Server Express, seguendo le istruzioni riportate nell'articolo [Abilitare o disabilitare un protocollo di rete del server](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Creare un database singolo o in pool in Database SQL di Azure seguendo le istruzioni dettagliate riportate nell'articolo [Creare un database singolo in Database SQL di Azure usando il portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
+- Creare un database nel database SQL di Azure, seguendo le istruzioni riportate nell'articolo [creare un database nel database SQL di Azure usando il portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
 
     > [!NOTE]
     > Se si usa SQL Server Integration Services (SSIS) e si intende eseguire la migrazione del database di catalogo per i progetti/pacchetti SSIS (SSISDB) da SQL Server al database SQL di Azure, il database SSISDB di destinazione verrà creato e gestito automaticamente per conto dell'utente quando si esegue il provisioning di SSIS in Azure Data Factory (ADF). Per altre informazioni sulla migrazione dei pacchetti SSIS, vedere l'articolo [Eseguire la migrazione di pacchetti SQL Server Integration Services in Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
@@ -68,13 +68,13 @@ Per completare questa esercitazione, è necessario:
 - Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere all'istanza di origine di SQL Server che per impostazione predefinita è tramite la porta TCM 1433.
 - Se si eseguono più istanze denominate di SQL Server tramite porte dinamiche, è consigliabile abilitare il servizio SQL Browser e consentire l'accesso alla porta UDP 1434 attraverso i firewall, in modo che Servizio Migrazione del database di Azure possa connettersi a un'istanza denominata nel server di origine.
 - Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
-- Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) per gli indirizzi IP a livello di server per il server di database SQL di Azure per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
+- Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) IP a livello di server per il database SQL di Azure per consentire al servizio migrazione del database di Azure di accedere ai database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
 - Assicurarsi che le credenziali usate per connettersi all'istanza di origine di SQL Server abbiano le autorizzazioni [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-- Assicurarsi che le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione abbiano l'autorizzazione CONTROL DATABASE nei database SQL di Azure di destinazione.
+- Verificare che le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione dispongano dell'autorizzazione CONTROL DATABASE per i database di destinazione.
 
 ## <a name="assess-your-on-premises-database"></a>Valutare il database locale
 
-Prima di eseguire la migrazione dei dati da un'istanza locale di SQL Server a un database singolo o in pool in Database SQL di Azure, è necessario valutare il database di SQL Server per rilevare eventuali problemi che potrebbero causare un blocco e impedire la migrazione. Usando Data Migration Assistant v3.3 o versione successiva, seguire la procedura descritta nell'articolo [Eseguire una valutazione della migrazione a SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) per completare la valutazione del database locale. Di seguito è riportato un riepilogo dei passaggi necessari:
+Prima di poter eseguire la migrazione dei dati da un'istanza di SQL Server a un database singolo o a un database in pool nel database SQL di Azure, è necessario valutare il database SQL Server per individuare eventuali problemi di blocco che potrebbero impedire la migrazione. Usando Data Migration Assistant v3.3 o versione successiva, seguire la procedura descritta nell'articolo [Eseguire una valutazione della migrazione a SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) per completare la valutazione del database locale. Di seguito è riportato un riepilogo dei passaggi necessari:
 
 1. In Data Migration Assistant selezionare l'icona Nuovo (+) e quindi selezionare il tipo di progetto **Valutazione**.
 2. Specificare il nome del progetto, nella casella di testo **Tipo del server di origine** selezionare **SQL Server**, nella casella di testo **Tipo del server di destinazione** selezionare **Database SQL di Azure** e quindi selezionare **Crea** per creare il progetto.
@@ -97,10 +97,10 @@ Prima di eseguire la migrazione dei dati da un'istanza locale di SQL Server a un
 
     ![Valutare la migrazione dei dati](media/tutorial-sql-server-to-azure-sql/dma-assessments.png)
 
-    Per i database singoli o in pool in Database SQL di Azure, le valutazioni identificano i problemi di parità delle funzionalità e i problemi che causano un blocco della migrazione per la distribuzione in un database singolo o in pool.
+    Per i database nel database SQL di Azure, le valutazioni identificano i problemi di parità delle funzionalità e i problemi di blocco della migrazione per la distribuzione in un database singolo o in pool.
 
     - La categoria **SQL Server funzionalità di parità** offre un set completo di indicazioni, approcci alternativi disponibili in Azure e procedure di mitigazione che consentono di pianificare il lavoro nei progetti di migrazione.
-    - La categoria relativa ai **problemi di compatibilità** identifica funzionalità parzialmente supportate o non supportate che riflettono i problemi di compatibilità che potrebbero bloccare la migrazione dei database di SQL Server locali aL database SQL di Azure. Vengono anche fornite raccomandazioni che consentono di risolvere tali problemi.
+    - La categoria relativa ai **problemi di compatibilità** identifica le funzionalità parzialmente supportate o non supportate che riflettono i problemi di compatibilità che potrebbero bloccare la migrazione di SQL Server database al database SQL di Azure. Vengono anche fornite raccomandazioni che consentono di risolvere tali problemi.
 
 6. Esaminare i risultati della valutazione per identificare problemi di blocco della migrazione e problemi di parità della funzionalità selezionando le opzioni specifiche.
 
@@ -109,7 +109,7 @@ Prima di eseguire la migrazione dei dati da un'istanza locale di SQL Server a un
 Dopo aver acquisito familiarità con la valutazione e aver verificato che il database selezionato è un candidato idoneo per la migrazione a un database singolo o in pool in Database SQL di Azure, usare DMA per eseguire la migrazione dello schema al database SQL di Azure.
 
 > [!NOTE]
-> Prima di creare un progetto di migrazione in Data Migration Assistant, assicurarsi di aver già eseguito il provisioning di un database SQL di Azure come indicato nei prerequisiti. Ai fini di questa esercitazione, si presuppone che il nome del database SQL di Azure sia **AdventureWorksAzure**, ma è possibile specificare il nome che si preferisce.
+> Prima di creare un progetto di migrazione in Data Migration Assistant, assicurarsi di avere già eseguito il provisioning di un database in Azure come indicato nei prerequisiti. Ai fini di questa esercitazione, si presuppone che il nome del database SQL di Azure sia **AdventureWorksAzure**, ma è possibile specificare il nome che si preferisce.
 
 > [!IMPORTANT]
 > Se si usa SSIS, DMA non supporta al momento la migrazione del database SSISDB di origine, ma è possibile ridistribuire i propri progetti/pacchetti SSIS nel database SSISDB di destinazione ospitato dal database SQL di Azure. Per altre informazioni sulla migrazione dei pacchetti SSIS, vedere l'articolo [Eseguire la migrazione di pacchetti SQL Server Integration Services in Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
@@ -229,7 +229,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 ## <a name="specify-target-details"></a>Specificare i dettagli della destinazione
 
-1. Selezionare **Salva** e quindi nella schermata **Dettagli destinazione della migrazione** specificare i dettagli di connessione per il server di database SQL di Azure di destinazione, che è il database SQL di Azure già sottoposto a provisioning in cui è stato distribuito lo schema **AdventureWorks2012** con Data Migration Assistant.
+1. Selezionare **Salva**e quindi nella schermata **Dettagli destinazione migrazione** specificare i dettagli della connessione per il database SQL di Azure di destinazione, ovvero il database SQL di Azure di cui è stato effettuato il provisioning in cui è stato distribuito lo schema **AdventureWorks2012** usando il Data Migration Assistant.
 
     ![Selezionare la destinazione](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
 
@@ -271,7 +271,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 2. Al termine della migrazione, selezionare **Scarica report** per ottenere un report con i dettagli associati al processo di migrazione.
 
-3. Verificare i database di destinazione nel server di database SQL di Azure di destinazione.
+3. Verificare i database di destinazione nel database SQL di Azure di destinazione.
 
 ### <a name="additional-resources"></a>Risorse aggiuntive
 

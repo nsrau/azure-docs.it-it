@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ee69015b52024ba4edaaa414a0d9dda753510b3e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570096"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85313199"
 ---
 # <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Gestire un dispositivo Azure Stack Edge tramite Windows PowerShell
 
@@ -86,7 +86,7 @@ Se il ruolo di calcolo è configurato nel dispositivo, è anche possibile ottene
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>Monitorare e risolvere i problemi dei moduli di calcolo
 
-[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/azure-stack-edge-monitor-troubleshoot-compute.md)]
 
 ## <a name="exit-the-remote-session"></a>Uscire dalla sessione remota
 

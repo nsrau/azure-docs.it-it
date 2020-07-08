@@ -6,16 +6,16 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316081"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider di stato sessione ASP.NET per Cache Redis di Azure
 
-Cache Redis di Azure include un provider di stato della sessione che consente di archiviare lo stato della sessione in memoria con Cache Redis di Azure anziché in un database di SQL Server. Per usare il provider di stato della sessione di memorizzazione nella cache, configurare innanzitutto la cache e quindi l'applicazione ASP.NET per la cache usando il pacchetto NuGet dello stato della sessione per Cache Redis di Azure.
+Cache Redis di Azure include un provider di stato della sessione che consente di archiviare lo stato della sessione in memoria con Cache Redis di Azure anziché in un database di SQL Server. Per usare il provider di stato della sessione di memorizzazione nella cache, configurare innanzitutto la cache e quindi l'applicazione ASP.NET per la cache usando il pacchetto NuGet dello stato della sessione per Cache Redis di Azure. Per ASP.NET Core applicazioni, leggere la [sessione e la gestione dello stato in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/app-state).
 
 In un'app reale per il cloud spesso non è facile evitare di archiviare qualche forma di stato per una sessione utente, ma alcuni approcci hanno più effetto di altri sulle prestazioni e sulla scalabilità. Se è necessario archiviare lo stato, la soluzione migliore è mantenere piccola la quantità di stato e archiviarla nei cookie. Se non è fattibile, la seconda miglior soluzione è usare lo stato della sessione ASP.NET con un provider per la cache distribuita in memoria. La soluzione peggiore dal punto di vista delle prestazioni e della scalabilità è usare un provider di stato della sessione supportato da un database. Questo argomento fornisce indicazioni sull'uso del provider di stato della sessione ASP.NET per Cache Redis di Azure. Per informazioni sulle altre opzioni dello stato sessione, vedere [Opzioni dello stato della sessione ASP.NET](#aspnet-session-state-options).
 
@@ -94,7 +94,7 @@ Configurare gli attributi con i valori del pannello Cache nel portale di Microso
 * **operationTimeoutInMilliseconds** : questa impostazione consente di eseguire l'override dell'impostazione syncTimeout nel client StackExchange.Redis. Se non viene specificato alcun valore, verrà usata l'impostazione di syncTimeout predefinita pari a 1000. Per altre informazioni, vedere [Modello di configurazione StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType**: questa impostazione consente di specificare la serializzazione personalizzata del contenuto di una sessione che viene inviato a Redis. Il tipo specificato deve implementare `Microsoft.Web.Redis.ISerializer` e deve dichiarare un costruttore pubblico senza parametri. Per impostazione predefinita, viene usato `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter`.
 
-Per altre informazioni su queste proprietà, vedere il post di blog originale nell' [annuncio del provider di stato della sessione ASP.NET per Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Per altre informazioni su queste proprietà, vedere il post di blog originale nell' [annuncio del provider di stato della sessione ASP.NET per Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
 
 Non dimenticare di impostare come commento la sezione del provider di stato della sessione InProc standard nel file web.config.
 

@@ -1,18 +1,14 @@
 ---
 title: Sicurezza di rete per hub eventi di Azure
 description: Questo articolo descrive come configurare l'accesso da endpoint privati
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.author: spelluru
-ms.openlocfilehash: 46e6a9ecc2ed09aed1076f12c1f61a966485bdad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: de4c5c6ddc658aab549ccf6960edbca3285e338d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312841"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Sicurezza di rete per hub eventi di Azure 
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con hub eventi di Azure: 
@@ -24,21 +20,21 @@ Questo articolo descrive come usare le funzionalità di sicurezza seguenti con h
 
 
 ## <a name="service-tags"></a>Tag di servizio
-Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi, riducendo al minimo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
+Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
 
-È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi](../virtual-network/security-overview.md#security-rules) di sicurezza di rete o nel [firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **EventHub**) nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
+È possibile usare i tag del servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o in [Firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **EventHub**) nel *source*   campo di origine o di *destinazione*appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
 
-| Tag servizio | Scopo | È possibile usare in ingresso o in uscita? | Può essere regionale? | È possibile usare con il firewall di Azure? |
+| Tag di servizio | Scopo | È possibile usarlo in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **EventHub** | Hub eventi di Azure. | In uscita | Sì | Sì |
 
 
 ## <a name="ip-firewall"></a>Firewall IP 
-Per impostazione predefinita, gli spazi dei nomi di hub eventi sono accessibili da Internet, purché la richiesta venga fornita con autenticazione e autorizzazione valide. Con il firewall IP, è possibile limitarlo ulteriormente a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (instradamento tra domini senza classi)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+Per impostazione predefinita, gli spazi dei nomi di Hub eventi sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Questa funzionalità è utile negli scenari in cui gli hub eventi di Azure devono essere accessibili solo da determinati siti noti. Le regole del firewall consentono di configurare regole per accettare il traffico originato da indirizzi IPv4 specifici. Ad esempio, se si usa hub eventi con [Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services), è possibile creare una **regola del firewall** per consentire il traffico solo da indirizzi IP dell'infrastruttura locale. 
+Questa funzionalità è utile negli scenari in cui Hub eventi di Azure deve essere accessibile solo da siti noti specifici. Le regole del firewall consentono di configurare regole di ammissione del traffico proveniente da indirizzi IPv4 specifici. Se ad esempio si usa Hub eventi con [Azure ExpressRoute](/azure/expressroute/expressroute-faqs#supported-services), è possibile creare una **regola del firewall** per consentire traffico solo dagli indirizzi IP dell'infrastruttura locale. 
 
-Le regole del firewall IP vengono applicate a livello di spazio dei nomi di hub eventi. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione proveniente da un indirizzo IP che non corrisponde a una regola di indirizzi IP consentiti nello spazio dei nomi di Hub eventi viene rifiutato come non autorizzato. Nella risposta non viene fatto riferimento alla regola IP. Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
+Le regole del firewall IP vengono applicate a livello dello spazio dei nomi di Hub eventi. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione proveniente da un indirizzo IP che non corrisponde a una regola di indirizzi IP consentiti nello spazio dei nomi di Hub eventi viene rifiutato come non autorizzato. Nella risposta non viene fatto riferimento alla regola IP. Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
 
 Per ulteriori informazioni, vedere [come configurare un firewall IP per un hub eventi](event-hubs-ip-filtering.md)
 
@@ -47,7 +43,7 @@ L'integrazione di Hub eventi con gli [endpoint del servizio della rete virtuale]
 
 Una volta configurata per l'associazione ad almeno un endpoint del servizio subnet della rete virtuale, il rispettivo spazio dei nomi di hub eventi non accetta più il traffico da tutte le subnet autorizzate nelle reti virtuali. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi di Hub eventi a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica. 
 
-Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi di Hub eventi corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici. Si è verificata un'eccezione a questo comportamento. Per impostazione predefinita, l'abilitazione di un endpoint `denyall` del servizio Abilita la regola nel [firewall IP](event-hubs-ip-filtering.md) associato alla rete virtuale. È possibile aggiungere indirizzi IP specifici nel firewall IP per abilitare l'accesso all'endpoint pubblico dell'hub eventi. 
+Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi di Hub eventi corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici. Si è verificata un'eccezione a questo comportamento. Per impostazione predefinita, l'abilitazione di un endpoint del servizio Abilita la `denyall` regola nel [firewall IP](event-hubs-ip-filtering.md) associato alla rete virtuale. È possibile aggiungere indirizzi IP specifici nel firewall IP per abilitare l'accesso all'endpoint pubblico dell'hub eventi. 
 
 > [!IMPORTANT]
 > Le reti virtuali sono supportate nei livelli **standard** e **dedicato** di Hub eventi. Il livello **Basic** non è supportato.
@@ -74,12 +70,12 @@ Per ulteriori informazioni, vedere [come configurare gli endpoint del servizio r
 
 Il [servizio di collegamento privato di Azure](../private-link/private-link-overview.md) consente di accedere ai servizi di Azure (ad esempio, Hub eventi di Azure, archiviazione di azure e Azure Cosmos DB) e ai servizi cliente/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
 
-Un endpoint privato è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio basato sul collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
+Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
 > [!NOTE]
-> Questa funzionalità è supportata solo con il livello **dedicato** . Per ulteriori informazioni sul livello dedicato, vedere [Panoramica di hub eventi dedicato](event-hubs-dedicated-overview.md). 
+> Questa funzionalità è supportata solo con il livello **dedicato**. Per altre informazioni sul livello dedicato, vedere [Panoramica di Hub eventi Dedicato](event-hubs-dedicated-overview.md). 
 >
-> Questa funzionalità è attualmente disponibile in **Anteprima**. 
+> Questa funzionalità è attualmente disponibile in **anteprima**. 
 
 
 Per altre informazioni, vedere [come configurare gli endpoint privati per un hub eventi](private-link-service.md)

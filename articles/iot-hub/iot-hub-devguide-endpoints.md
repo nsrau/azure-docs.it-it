@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: d054ff893e1bfdc0f48ede2e2aaa6050885ccc0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314034"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -38,23 +38,21 @@ L'elenco seguente offre una descrizione degli endpoint:
 
 * **Gestione delle identità dei dispositivi**. Ogni hub IoT espone un set di endpoint REST HTTPS per gestire le identità dei dispositivi (per operazioni di creazione, recupero, aggiornamento ed eliminazione). Le [identità dei dispositivi](iot-hub-devguide-identity-registry.md) vengono usate per l'autenticazione del dispositivo e il controllo di accesso.
 
-* **Gestione dei dispositivi gemelli**. Ogni hub IoT espone un set di endpoint REST HTTPS orientati ai servizi per eseguire query e aggiornare [dispositivi gemelli](iot-hub-devguide-device-twins.md) (aggiornare tag e proprietà).
+* **Gestione dei dispositivi gemelli**. Ogni hub IoT espone un set di endpoint REST HTTPS orientati ai servizi per eseguire query e aggiornare [dispositivi gemelli](iot-hub-devguide-device-twins.md) (aggiornare tag e proprietà). 
 
 * **Gestione dei processi**. Ogni hub IoT espone un set di endpoint REST HTTPS orientati ai servizi per eseguire query e gestire i [processi](iot-hub-devguide-jobs.md).
 
-* **Endpoint del dispositivo**. Per ogni dispositivo nel registro delle identità, l'hub IoT espone un set di endpoint:
+* **Endpoint del dispositivo**. Per ogni dispositivo nel registro delle identità, l'hub Internet espone un set di endpoint. Ad eccezione dei casi indicati, questi endpoint vengono esposti usando i protocolli [MQTT v 3.1.1](https://mqtt.org/), HTTPS 1,1 e [AMQP 1,0](https://www.amqp.org/) . AMQP e MQTT sono disponibili anche su [WebSocket](https://tools.ietf.org/html/rfc6455) sulla porta 443.
 
   * *Inviare messaggi da dispositivo a cloud*. Un dispositivo usa questo endpoint per [inviare messaggi da dispositivo a cloud](iot-hub-devguide-messages-d2c.md).
 
-  * *Ricezione di messaggi da cloud a dispositivo*. Un dispositivo usa questo endpoint per ricevere [messaggi da cloud a dispositivo](iot-hub-devguide-messages-c2d.md)mirati.
+  * *Ricevere messaggi da cloud a dispositivo*. Un dispositivo usa questo endpoint per ricevere [messaggi da cloud a dispositivo](iot-hub-devguide-messages-c2d.md)mirati.
 
   * *Avvio di caricamenti di file*. Un dispositivo usa questo endpoint per ricevere un URI di firma di accesso condiviso di archiviazione di Azure dall'hub Internet per [caricare un file](iot-hub-devguide-file-upload.md).
 
-  * *Recuperare e aggiornare le proprietà dei dispositivi gemelli*. Un dispositivo usa questo endpoint per accedere alle relative proprietà del [dispositivo gemello](iot-hub-devguide-device-twins.md).
+  * *Recuperare e aggiornare le proprietà dei dispositivi gemelli*. Un dispositivo usa questo endpoint per accedere alle relative proprietà del [dispositivo gemello](iot-hub-devguide-device-twins.md). HTTPS non è supportato.
 
-  * *Ricezione di richieste di metodi diretti*. Un dispositivo usa questo endpoint per ascoltare le richieste di [metodi diretti](iot-hub-devguide-direct-methods.md).
-
-    Questi endpoint vengono esposti con i protocolli [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 e [AMQP 1.0](https://www.amqp.org/). AMQP e MQTT sono disponibili anche su [WebSocket](https://tools.ietf.org/html/rfc6455) sulla porta 443.
+  * *Ricezione di richieste di metodi diretti*. Un dispositivo usa questo endpoint per ascoltare le richieste di [metodi diretti](iot-hub-devguide-direct-methods.md). HTTPS non è supportato.
 
 * **Endpoint di servizio**. Ogni hub IoT espone un set di endpoint per il back-end della soluzione per comunicare con i dispositivi. Con un'eccezione, questi endpoint vengono esposti solo usando i protocolli [AMQP](https://www.amqp.org/) e AMQP su WebSockets. L'endpoint di chiamata del metodo diretto viene esposto tramite il protocollo HTTPS.
   
@@ -85,14 +83,9 @@ Hub IoT supporta attualmente i servizi di Azure seguenti come endpoint aggiuntiv
 
 Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas and throttling](iot-hub-devguide-quotas-throttling.md) (Quote e limitazioni).
 
-È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. Si consiglia di usare le [metriche dell'hub](iot-hub-metrics.md) delle cose correlate alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integra, perché si prevede che la latenza sia superiore quando l'endpoint si trova in uno di questi Stati.
+## <a name="endpoint-health"></a>Integrità endpoint
 
-|Stato integrità|Descrizione|
-|---|---|
-|healthy|L'endpoint accetta messaggi come previsto.|
-|non integro|L'endpoint non accetta messaggi come previsto e l'hub Internet sta tentando di inviare i dati a questo endpoint. Lo stato di un endpoint non integro verrà aggiornato a integro quando lo stato di integrità dell'hub Internet è stabile.|
-|unknown|L'hub cose non ha stabilito una connessione con l'endpoint. Nessun messaggio è stato recapitato o rifiutato da questo endpoint.|
-|morto|L'endpoint non accetta messaggi, dopo che l'hub di Internet delle cose ha ritentato l'invio di messaggi per il periodo di prova.|
+[!INCLUDE [iot-hub-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
 ## <a name="field-gateways"></a>Gateway sul campo
 

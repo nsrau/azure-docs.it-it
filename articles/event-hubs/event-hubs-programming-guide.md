@@ -1,20 +1,14 @@
 ---
 title: Guida per programmatori .NET-Hub eventi di Azure (legacy) | Microsoft Docs
 description: Questo articolo fornisce informazioni su come scrivere codice per Hub eventi di Azure tramite Azure .NET SDK.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-ms.service: event-hubs
-ms.custom: seodec18
 ms.topic: article
-ms.date: 01/15/2020
-ms.author: shvija
-ms.openlocfilehash: d958c2d32c16874676f46bb216067fe2d7bbe784
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: de731d591c367e386fe8ef1eef03f1b90e0fa126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314536"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guida per programmatori .NET per hub eventi di Azure (pacchetto Microsoft. Azure. EventHubs legacy)
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
@@ -117,7 +111,7 @@ Per usare la classe [EventProcessorHost][], è possibile implementare [IEventPro
 Per avviare l'elaborazione di eventi, creare un'istanza di [EventProcessorHost][], fornendo i parametri appropriati per l'hub eventi. Ad esempio:
 
 > [!NOTE]
-> EventProcessorHost e le classi correlate sono disponibili nel pacchetto **Microsoft. Azure. EventHubs. Processor** . Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni riportate in [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) oppure eseguendo il comando seguente nella finestra della [console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost e le classi correlate sono disponibili nel pacchetto **Microsoft. Azure. EventHubs. Processor** . Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni riportate in [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) oppure eseguendo il comando seguente nella finestra della [console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) : `Install-Package Microsoft.Azure.EventHubs.Processor` .
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(
@@ -155,7 +149,7 @@ Per altre informazioni sulla revoca di publisher e su come eseguire l'invio a Hu
 
 Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
 
-* [Panoramica dell'API di hub eventi](event-hubs-api-overview.md)
+* [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
 * [Informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Riferimento all'API host processore di eventi](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)

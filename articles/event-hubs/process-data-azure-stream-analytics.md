@@ -1,19 +1,14 @@
 ---
 title: Elaborare dati da Azure Hub eventi con analisi di flusso | Microsoft Docs
 description: Questo articolo illustra come elaborare i dati dall'hub eventi di Azure usando un processo di analisi di flusso di Azure.
-services: event-hubs
-author: spelluru
-manager: ''
-ms.author: spelluru
-ms.date: 07/09/2019
+ms.date: 06/23/2020
 ms.topic: article
-ms.service: event-hubs
-ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69991938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312899"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Elaborare i dati dall'hub eventi usando analisi di flusso di Azure 
 Il servizio analisi di flusso di Azure semplifica l'inserimento, l'elaborazione e l'analisi dei dati di streaming dagli hub eventi di Azure, consentendo di ottenere informazioni avanzate per l'esecuzione di azioni in tempo reale. Questa integrazione consente di creare rapidamente una pipeline di analisi del percorso critico. È possibile usare la portale di Azure per visualizzare i dati in ingresso e scrivere una query di analisi di flusso. Quando la query è pronta, è possibile spostarla in produzione solo con pochi clic. 
@@ -49,7 +44,7 @@ Ecco i vantaggi principali di hub eventi di Azure e l'integrazione di analisi di
     - È possibile visualizzare in anteprima i dati in ingresso nel formato tabella o in formato non elaborato. 
     - Se i dati visualizzati non sono aggiornati, selezionare **Aggiorna** per visualizzare gli eventi più recenti. 
 
-        Di seguito è riportato un esempio di dati nel **formato tabella**: ![risultati in formato tabella](./media/process-data-azure-stream-analytics/snapshot-results.png)
+        Di seguito è riportato un esempio di dati nel **formato tabella**: ![ Risultati in formato tabella](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
         Di seguito è riportato un esempio di dati in **formato non elaborato**: 
 

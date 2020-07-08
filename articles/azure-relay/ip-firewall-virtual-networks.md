@@ -1,21 +1,14 @@
 ---
 title: Configurare un firewall per gli indirizzi IP per gli spazi dei nomi di Inoltro di Azure
 description: Questo articolo descrive come usare regole del firewall per consentire le connessioni da indirizzi IP specifici a spazi dei nomi di Inoltro di Azure.
-services: service-bus-relay
-documentationcenter: ''
-author: spelluru
-ms.service: service-bus-relay
-ms.devlang: na
-ms.custom: seodec18
 ms.topic: article
-ms.date: 05/13/2020
-ms.author: spelluru
-ms.openlocfilehash: 88eb7acf1e72084a83d6d8631c0ea5d740988640
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: f5fca44c56982e368b762a0b9b3418f1175f7de0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653449"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314849"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurare un firewall per gli indirizzi IP per uno spazio dei nomi di Inoltro di Azure
 Per impostazione predefinita, gli spazi dei nomi di Inoltro sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).

@@ -1,23 +1,14 @@
 ---
 title: Domande frequenti-Hub eventi di Azure per Apache Kafka
 description: Questo articolo illustra in che modo i consumer e i producer che usano protocolli diversi (AMQP, Apache Kafka e HTTPS) possono scambiare eventi quando usano Hub eventi di Azure.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/01/2020
-ms.author: shvija
-ms.openlocfilehash: 0186b90e1d75c5dba6e1ca26e4ba079a3456cea4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 066024f657e011aac1449106ec32689f145c5534
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314192"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Domande frequenti-Hub eventi per Apache Kafka 
 Questo articolo fornisce le risposte ad alcune delle domande frequenti sulla migrazione a hub eventi per Apache Kafka.
@@ -39,7 +30,7 @@ Qual è la differenza tra un gruppo di consumer di hub eventi e un gruppo di con
 
 - Vengono creati in un momento.  I gruppi Kafka possono essere gestiti tramite le API del gruppo di consumer Kafka.
 - Possono archiviare gli offset nel servizio Hub eventi.
-- Vengono usati come chiavi in un archivio chiave-valore di offset. Per una coppia univoca `group.id` di `topic-partition`e, viene archiviato un offset in archiviazione di Azure (replica 3x). Gli utenti di hub eventi non incorrono costi di archiviazione aggiuntivi dall'archiviazione degli offset Kafka. Gli offset sono manipolabile tramite le API del gruppo di consumer Kafka, ma gli *account* di archiviazione offset non sono direttamente visibili o manipolabile per gli utenti dell'hub eventi.  
+- Vengono usati come chiavi in un archivio chiave-valore di offset. Per una coppia univoca di `group.id` e `topic-partition` , viene archiviato un offset in archiviazione di Azure (replica 3x). Gli utenti di hub eventi non incorrono costi di archiviazione aggiuntivi dall'archiviazione degli offset Kafka. Gli offset sono manipolabile tramite le API del gruppo di consumer Kafka, ma gli *account* di archiviazione offset non sono direttamente visibili o manipolabile per gli utenti dell'hub eventi.  
 - Si estendono su uno spazio dei nomi. L'uso dello stesso nome di gruppo Kafka per più applicazioni in più argomenti significa che tutte le applicazioni e i relativi client Kafka verranno ribilanciati ogni volta che è necessario ribilanciare una sola applicazione.  Scegliere i nomi dei gruppi in modo oculato.
 - Sono completamente distinti dai gruppi di consumer di hub eventi. **Non** è necessario usare ' $default ' né preoccuparsi dei client Kafka che interferiscono con i carichi di lavoro AMQP.
 - Non sono visualizzabili nella portale di Azure. Le informazioni sul gruppo di consumer sono accessibili tramite le API Kafka.

@@ -1,20 +1,14 @@
 ---
 title: Spostare uno spazio dei nomi di hub eventi di Azure in un'altra area | Microsoft Docs
 description: Questo articolo illustra come spostare uno spazio dei nomi di hub eventi di Azure dall'area corrente a un'altra area.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 04/14/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 06/23/2020
+ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690479"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312968"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Spostare uno spazio dei nomi di hub eventi di Azure in un'altra area
 Esistono diversi scenari in cui si vuole spostare lo spazio dei nomi di hub eventi esistente da un'area a un'altra. Ad esempio, è possibile creare uno spazio dei nomi con la stessa configurazione per il test. È anche possibile creare uno spazio dei nomi secondario in un'altra area nell'ambito della [pianificazione del ripristino di emergenza](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -24,7 +18,7 @@ Esistono diversi scenari in cui si vuole spostare lo spazio dei nomi di hub even
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Verificare che i servizi e le funzionalità usati dall'account siano supportati nell'area di destinazione.
+- Assicurarsi che i servizi e le funzionalità usati dall'account siano supportati nell'area di destinazione.
 - Per le funzionalità di anteprima, assicurarsi che la sottoscrizione sia consentita per l'area di destinazione.
 - Se è stata abilitata la **funzionalità di acquisizione** per hub eventi nello spazio dei nomi, spostare [Azure Storage o Azure Data Lake Store](../storage/common/storage-account-move.md) gli account di generazione 2 o [Azure Data Lake Store di generazione 1](../data-lake-store/data-lake-store-migration-cross-region.md) prima di spostare lo spazio dei nomi di hub eventi. È anche possibile spostare il gruppo di risorse che contiene gli spazi dei nomi dell'hub eventi e di archiviazione nell'altra area seguendo questa procedura in modo analogo a quelli descritti in questo articolo. 
 - Se lo spazio dei nomi di hub eventi si trova in un **cluster di hub eventi**, [creare un cluster dedicato](event-hubs-dedicated-cluster-create-portal.md) nell' **area di destinazione** prima di procedere con i passaggi descritti in questo articolo. È anche possibile usare il [modello di avvio rapido in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) per creare un cluster di hub eventi. Nel modello rimuovere la parte relativa allo spazio dei nomi di JSON per creare solo il cluster. 
@@ -36,7 +30,7 @@ Per iniziare, esportare un modello di Gestione risorse. Questo modello contiene 
 
 2. Selezionare **tutte le risorse** e quindi selezionare lo spazio dei nomi di hub eventi.
 
-3. Selezionare > **Impostazioni** > **Esporta modello**.
+3. Selezionare > **Impostazioni**  >  **Esporta modello**.
 
 4. Scegliere **download** nella pagina **Esporta modello** .
 
@@ -47,22 +41,22 @@ Per iniziare, esportare un modello di Gestione risorse. Questo modello contiene 
    Questo file zip contiene i file con estensione JSON che includono il modello e gli script per distribuire il modello.
 
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 Distribuire il modello per creare uno spazio dei nomi di hub eventi nell'area di destinazione. 
 
 
 1. Nella portale di Azure selezionare **Crea una risorsa**.
 
-2. In **Cerca nel Marketplace** digitare **distribuzione modelli** e quindi premere **INVIO**.
+2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
 
-3. Selezionare **Distribuzione modello**.
+3. Selezionare **distribuzione modelli**.
 
 4. Selezionare **Crea**.
 
-5. Selezionare **Creare un modello personalizzato nell'editor**.
+5. Selezionare **Compila un modello personalizzato nell'editor**.
 
-6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il file **template. JSON** scaricato nell'ultima sezione.
+6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 
 7. Selezionare **Save (Salva** ) per salvare il modello. 
 
@@ -85,7 +79,7 @@ Distribuire il modello per creare uno spazio dei nomi di hub eventi nell'area di
               ```
               /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
               ```   
-        3. Se l'hub eventi nello spazio dei nomi usa un account di archiviazione per l'acquisizione di eventi, specificare il nome del gruppo `StorageAccounts_<original storage account name>_external` di risorse e l'account di archiviazione per il campo. 
+        3. Se l'hub eventi nello spazio dei nomi usa un account di archiviazione per l'acquisizione di eventi, specificare il nome del gruppo di risorse e l'account di archiviazione per il `StorageAccounts_<original storage account name>_external` campo. 
             
             ```
             /subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/<STORAGE'S RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>
@@ -94,7 +88,7 @@ Distribuire il modello per creare uno spazio dei nomi di hub eventi nell'area di
     
     6. Selezionare quindi **Seleziona Acquista** per avviare il processo di distribuzione. 
 
-## <a name="discard-or-clean-up"></a>Elimina o Pulisci
+## <a name="discard-or-clean-up"></a>Eliminare o pulire
 Dopo la distribuzione, se si desidera ricominciare, è possibile eliminare lo **spazio dei nomi di hub eventi di destinazione**e ripetere i passaggi descritti nelle sezioni [preparare](#prepare) e [spostare](#move) di questo articolo.
 
 Per eseguire il commit delle modifiche e completare lo spostamento di uno spazio dei nomi di hub eventi, eliminare lo **spazio dei nomi di hub eventi di origine**. Prima di eliminare lo spazio dei nomi, verificare di aver elaborato tutti gli eventi nello spazio dei nomi. 
@@ -111,7 +105,7 @@ Per eliminare uno spazio dei nomi di hub eventi (origine o destinazione) usando 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato spostato uno spazio dei nomi di hub eventi di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo trasferimento di risorse tra aree e ripristino di emergenza in Azure, vedere:
+In questa esercitazione è stato spostato uno spazio dei nomi di hub eventi di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo spostamento di risorse tra aree e sul ripristino di emergenza in Azure, vedere:
 
 
 - [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

@@ -1,21 +1,14 @@
 ---
 title: Librerie di gestione - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni per la libreria che è possibile usare per gestire entità e spazi dei nomi di Hub eventi di Azure da .NET.
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: dotnet
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 431fe04461f422274697d1e91c4b56e914ce2d4e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.date: 06/23/2020
+ms.openlocfilehash: f3129ae5586a3096dda89eea3af21eefd1606f30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60746659"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312977"
 ---
 # <a name="event-hubs-management-libraries"></a>Librerie di gestione di Hub eventi
 
