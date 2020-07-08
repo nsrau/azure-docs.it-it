@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: f0efaf593725fd676ae8e85ff9c190c8b850fef1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 493a2b0d0aab47c2e38648ec8f6be75685dfd7ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119495"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Collegamento ad Azure Synapse per Azure Cosmos DB: casi d'uso dell'analisi quasi in tempo reale
 
@@ -34,7 +34,7 @@ I produttori adottano tecnologie native del cloud per interrompere i vincoli da 
 
 L'architettura seguente mostra i vantaggi associati all'uso di Azure Cosmos DB come database operativo nativo del cloud e di Collegamento a Synapse nell'analisi della supply chain:
 
-![Collegamento ad Azure Synapse per Azure Cosmos DB nell'analisi della supply chain ](./media/synapse-link-use-cases/supply-chain-analytics.png)
+:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Collegamento a sinapsi di Azure per Azure Cosmos DB in analisi Supply Chain" border="false":::
 
 In base all'architettura precedente, è possibile ottenere i casi d'uso seguenti con Collegamento a Synapse per Azure Cosmos DB:
 
@@ -70,7 +70,7 @@ Di seguito sono riportate alcune indicazioni per l'integrazione dei dati in batc
 
 Oggi i retailer devono sviluppare soluzioni di e-commerce sicure e scalabili che soddisfino le esigenze dei clienti e del business. Queste soluzioni di e-commerce devono coinvolgere i clienti tramite offerte e prodotti personalizzati, elaborare le transazioni in modo rapido e sicuro e soddisfare i requisiti di evasione degli ordini e assistenza clienti. Azure Cosmos DB, insieme al recente servizio Collegamento a Synapse per Azure Cosmos DB, consente ai retailer di generare raccomandazioni personalizzate per i clienti in tempo reale. Queste soluzioni usano impostazioni di coerenza ottimizzabili e a bassa latenza per generare informazioni dettagliate immediate, come illustrato nell'architettura seguente:
 
-![Collegamento ad Azure Synapse per Azure Cosmos DB nella personalizzazione in tempo reale](./media/synapse-link-use-cases/real-time-personalization.png)
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Collegamento ad Azure Synapse per Azure Cosmos DB nella personalizzazione in tempo reale" border="false":::
 
 Caso d'uso di Collegamento a Synapse per Azure Cosmos DB:
 
@@ -82,7 +82,7 @@ Le innovazioni dell'IoT industriale hanno portato a una riduzione drastica dei t
 
 Di seguito è riportata un'architettura che sfrutta le funzionalità HTAP native del cloud di Collegamento ad Azure Synapse per Azure Cosmos DB nella manutenzione predittiva di IoT:
 
-![Collegamento ad Azure Synapse per Azure Cosmos DB per la manutenzione predittiva di IoT](./media/synapse-link-use-cases/iot-predictive-maintenance.png)
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Collegamento ad Azure Synapse per Azure Cosmos DB per la manutenzione predittiva di IoT" border="false" :::
 
 Casi d'uso di Collegamento a Synapse per Azure Cosmos DB:
 
@@ -104,7 +104,7 @@ L'elenco seguente mostra una panoramica dei vari modelli di carico di lavoro sup
 
 Con Collegamento ad Azure Synapse, oltre a supportare i carichi di lavoro tradizionali, Azure Cosmos DB esegue anche carichi di lavoro analitici in tempo reale su dati operativi cronologici. Questo risultato si ottiene senza requisiti di ETL e con l'isolamento delle prestazioni garantito dai carichi di lavoro transazionali.
 
-L'immagine seguente mostra i modelli di carico di lavoro con Azure Cosmos DB: ![Modelli di carico di lavoro di Collegamento ad Azure Synapse per Azure Cosmos DB](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
+L'immagine seguente mostra i modelli di carico di lavoro con Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Modelli di carico di lavoro di Collegamento ad Azure Synapse per Azure Cosmos DB" border="false":::
 
 Si esaminerà l'esempio di un'azienda di e-commerce, CompanyXYZ, con operazioni globali in 20 paesi o aree geografiche per illustrare i vantaggi derivanti dalla scelta di Azure Cosmos DB come singolo database in tempo reale che soddisfa i requisiti transazionali e analitici di una piattaforma di gestione dell'inventario.
 

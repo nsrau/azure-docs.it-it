@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85129518"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Azure Machine Learning Studio (versione classica)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 NET # è un linguaggio sviluppato da Microsoft e usato per definire architetture di reti neurali complesse, ad esempio reti neurali profonde o convoluzioni di dimensioni arbitrarie. È possibile usare strutture complesse per migliorare l'apprendimento relativo a dati quali immagini, audio e video.
 
@@ -58,7 +56,7 @@ Net# supporta anche i quattro tipi seguenti di aggregazioni di connessioni avanz
 
 ## <a name="supported-customizations"></a>Personalizzazioni supportate
 
-L'architettura dei modelli di rete neurale creati in Azure Machine Learning Studio (classico) può essere ampiamente personalizzata usando NET #. È possibile scegliere:
+L'architettura dei modelli di rete neurale creati in Azure Machine Learning Studio (classico) può essere ampiamente personalizzata usando NET #. È possibile:
 
 + Creare livelli nascosti e controllare il numero di nodi in ogni livello.
 + Specificare la modalità di connessione reciproca dei livelli.
@@ -452,7 +450,7 @@ output Digit [10] from Hid3 all;
 + La parola chiave `convolve` indica che i livelli `Conv1` e `Conv2` sono livelli convoluzionali. Tutte queste dichiarazioni di livelli sono seguite da un elenco di attributi convoluzionali.
 + La rete ha un terzo livello nascosto, `Hid3`, che è completamente connesso al secondo livello nascosto, `Conv2`.
 + Il livello di output, `Digit`, è connesso solo al terzo livello nascosto, `Hid3`. La parola chiave `all` indica che il livello di output è completamente connesso a `Hid3`.
-+ Il grado della convoluzione è tre: la lunghezza delle `InputShape`Tuple, `KernelShape` `Stride`, e. `Sharing`
++ Il grado della convoluzione è tre: la lunghezza delle tuple,, `InputShape` `KernelShape` `Stride` e `Sharing` .
 + Il numero di pesi per kernel è `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Oppure `26 * 50 = 1300`.
 + È possibile calcolare i nodi in ogni livello nascosto come indicato di seguito:
 

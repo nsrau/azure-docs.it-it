@@ -3,12 +3,12 @@ title: Risolvere i problemi del backup delle condivisioni file di Azure
 description: Questo articolo contiene informazioni per la risoluzione dei problemi che si verificano quando si proteggono le condivisioni file di Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 15cea28ee6c6a969b56e34242e2631b0aa760331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562084"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130399"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Risolvere i problemi durante il backup delle condivisioni file di Azure
 
@@ -25,6 +25,7 @@ Questo articolo fornisce informazioni per la risoluzione dei problemi che si ver
   >le condivisioni file di un account di archiviazione possono essere protette solo con un unico insieme di credenziali di Servizi di ripristino. È possibile usare [questo script](scripts/backup-powershell-script-find-recovery-services-vault.md) per trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione.
 
 - Assicurarsi che la condivisione file non sia presente in uno degli account di archiviazione non supportati. Per trovare gli account di archiviazione supportati, è possibile fare riferimento alla [matrice di supporto per il backup di condivisioni file di Azure](azure-file-share-support-matrix.md) .
+- Verificare che la lunghezza combinata del nome dell'account di archiviazione e del nome del gruppo di risorse non superi 84 caratteri nel caso di nuovi account di archiviazione e di 77 caratteri in caso di account di archiviazione classici. 
 - Controllare le impostazioni del firewall dell'account di archiviazione per assicurarsi che sia abilitata l'opzione di consentire ai servizi Microsoft attendibili di accedere all'account di archiviazione.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Un errore visualizzato nel portale indica che non è possibile individuare gli account di archiviazione
@@ -50,7 +51,7 @@ Ripetere la registrazione. Se il problema persiste, contattare il supporto tecni
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Non è possibile eliminare l'insieme di credenziali di servizi di ripristino dopo la rimozione della protezione di una condivisione file
 
-Nella portale di Azure **aprire** > gli**account di archiviazione** dell'**infrastruttura** > di backup dell'insieme di credenziali e fare clic su **Annulla registrazione** per rimuovere gli account di archiviazione dall'insieme di credenziali di servizi di ripristino.
+Nella portale di Azure **aprire gli**  >  **Backup Infrastructure**  >  **account di archiviazione** dell'infrastruttura di backup dell'insieme di credenziali e fare clic su **Annulla registrazione** per rimuovere gli account di archiviazione dall'insieme di credenziali di servizi di ripristino.
 
 >[!NOTE]
 >Un insieme di credenziali di servizi di ripristino può essere eliminato solo dopo l'annullamento della registrazione di tutti gli account di archiviazione registrati con l'insieme di credenziali.
@@ -276,6 +277,45 @@ Codice di errore: BMSUserErrorObjectLocked
 Messaggio di errore: è in corso un'altra operazione sull'elemento selezionato.
 
 Attendere il completamento dell'altra operazione in corso e riprovare in un secondo momento.
+
+Dal file: troubleshoot-azure-files.md
+
+## <a name="common-soft-delete-related-errors"></a>Errori comuni correlati all'eliminazione temporanea
+
+### <a name="usererrorrestoreafsinsoftdeletestate--this-restore-point-is-not-available-as-the-snapshot-associated-with-this-point-is-in-a-file-share-that-is-in-soft-deleted-state"></a>UserErrorRestoreAFSInSoftDeleteState-questo punto di ripristino non è disponibile perché lo snapshot associato a questo punto si trova in una condivisione file in stato di eliminazione temporanea
+
+Codice di errore: UserErrorRestoreAFSInSoftDeleteState
+
+Messaggio di errore: questo punto di ripristino non è disponibile perché lo snapshot associato a questo punto si trova in una condivisione file in stato di eliminazione temporanea.
+
+Non è possibile eseguire un'operazione di ripristino quando la condivisione file è in stato di eliminazione temporanea. Annullare l'eliminazione della condivisione file dal portale dei file o usare lo [script Undelete](scripts/backup-powershell-script-undelete-file-share.md) , quindi provare a eseguire il ripristino.
+
+### <a name="usererrorrestoreafsindeletestate--listed-restore-points-are-not-available-as-the-associated-file-share-containing-the-restore-point-snapshots-has-been-deleted-permanently"></a>UserErrorRestoreAFSInDeleteState: i punti di ripristino elencati non sono disponibili perché la condivisione file associata contenente gli snapshot del punto di ripristino è stata eliminata in modo permanente
+
+Codice di errore: UserErrorRestoreAFSInDeleteState
+
+Messaggio di errore: i punti di ripristino elencati non sono disponibili perché la condivisione file associata contenente gli snapshot del punto di ripristino è stata eliminata in modo permanente.
+
+Controllare se la condivisione file di cui è stato eseguito il backup è stata eliminata. Se è stato eliminato temporaneamente, controllare se il periodo di memorizzazione dell'eliminazione temporanea è scaduto e non è stato ripristinato. In entrambi i casi, si perderanno tutti gli snapshot in modo permanente e non sarà possibile recuperare i dati.
+
+>[!NOTE]
+> Si consiglia di non eliminare la condivisione file di cui è stato eseguito il backup o se si trova in uno stato di eliminazione temporanea, annullare l'eliminazione prima della fine del periodo di memorizzazione dell'eliminazione temporanea, per evitare di perdere tutti i punti di ripristino.
+
+### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState: il backup non è riuscito perché la condivisione file di Azure è in stato di eliminazione temporanea
+
+Codice di errore: UserErrorBackupAFSInSoftDeleteState
+
+Messaggio di errore: il backup non è riuscito perché la condivisione file di Azure è in stato di eliminazione temporanea
+
+Annullare l'eliminazione della condivisione file dal **portale dei file** o utilizzando lo [script Undelete](scripts/backup-powershell-script-undelete-file-share.md) per continuare il backup e impedire l'eliminazione permanente dei dati.
+
+### <a name="usererrorbackupafsindeletestate--backup-failed-as-the-associated-azure-file-share-is-permanently-deleted"></a>UserErrorBackupAFSInDeleteState: il backup non è riuscito perché la condivisione file di Azure associata è stata eliminata definitivamente
+
+Codice di errore: UserErrorBackupAFSInDeleteState
+
+Messaggio di errore: il backup non è riuscito perché la condivisione file di Azure associata è stata eliminata definitivamente
+
+Controllare se la condivisione file di cui è stato eseguito il backup è stata eliminata definitivamente. In caso affermativo, arrestare il backup per la condivisione file per evitare errori di backup ripetuti. Per informazioni su come arrestare la protezione, vedere [arrestare la protezione per la condivisione file di Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

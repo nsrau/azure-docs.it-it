@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 19ca17f66f6818ed4c3ef532e2030cc03f0e73ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126213"
 ---
 # <a name="security-alerts-schemas"></a>Schemi degli avvisi di sicurezza
 
@@ -68,7 +68,7 @@ Per ulteriori informazioni su Azure Sentinel, vedere [la documentazione](https:/
 
 
 
-### <a name="azure-activity-log"></a>[Azure Activity Log](#tab/schema-activitylog)
+### <a name="azure-activity-log"></a>[Log attività di Azure](#tab/schema-activitylog)
 
 Il Centro sicurezza di Azure controlla gli avvisi di sicurezza generati come eventi nel log attività di Azure.
 
@@ -171,7 +171,7 @@ Per visualizzare gli eventi di avviso di sicurezza nel log attività, cercare l'
 
 ### <a name="ms-graph-api"></a>[API Graph MS](#tab/schema-graphapi)
 
-Microsoft Graph è il gateway per dati e intelligence in Microsoft 365. Fornisce un modello di programmabilità unificato che è possibile usare per accedere a una grande quantità di dati in Office 365, Windows 10 e Enterprise Mobility + Security. Usa la vasta gamma di dati in Microsoft Graph per creare app per organizzazioni e consumatori che interagiscono con milioni di utenti.
+Microsoft Graph è il gateway per dati e intelligence in Microsoft 365. Fornisce un modello di programmabilità unificato che è possibile usare per accedere a una grande quantità di dati in Microsoft 365, Windows 10 e Enterprise Mobility + Security. Usa la vasta gamma di dati in Microsoft Graph per creare app per organizzazioni e consumatori che interagiscono con milioni di utenti.
 
 Lo schema e una rappresentazione JSON per gli avvisi di sicurezza inviati a MS Graph sono disponibili nella [documentazione di Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 

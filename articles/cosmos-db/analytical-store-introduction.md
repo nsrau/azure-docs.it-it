@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: f00acf3580130d85d6eaeaee4d52eb748d20aa7b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116027"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
 
@@ -44,7 +44,7 @@ I carichi di lavoro analitici in genere comportano aggregazioni e analisi sequen
 
 Ad esempio, se le tabelle operative hanno il formato seguente:
 
-![Tabella operativa di esempio](./media/analytical-store-introduction/sample-operational-data-table.png)
+:::image type="content" source="./media/analytical-store-introduction/sample-operational-data-table.png" alt-text="Tabella operativa di esempio" border="false":::
 
 L'archivio righe salva in modo permanente i dati sopra riportati in un formato serializzato, per ogni riga, sul disco. Questo formato consente letture e scritture transazionali più veloci e query operative, ad esempio "restituire informazioni su Product1". Tuttavia, man mano che le dimensioni del set di dati aumentano e se si vogliono eseguire query analitiche complesse sui dati, può essere costoso. Se, ad esempio, si vogliono ottenere "le tendenze di vendita per un prodotto nella categoria denominata 'Equipment' in diverse business unit e mesi", è necessario eseguire una query complessa. Le analisi di grandi dimensioni in questo set di dati possono risultare costose in termini di velocità effettiva con provisioning e possono anche influire sulle prestazioni dei carichi di lavoro transazionali che alimentano le applicazioni e i servizi in tempo reale.
 
@@ -52,7 +52,7 @@ L'archivio analitico, che è un archivio colonne, è più adatto per tali query 
 
 Nell'immagine seguente viene illustrato l'archivio righe transazionale rispetto all'archivio colonne analitico in Azure Cosmos DB:
 
-![Archivio righe transazionale rispetto all'archivio colonne analitico in Azure Cosmos DB](./media/analytical-store-introduction/transactional-analytical-data-stores.png)
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Archivio righe transazionale rispetto all'archivio colonne analitico in Azure Cosmos DB" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Prestazioni separate per carichi di lavoro analitici
 

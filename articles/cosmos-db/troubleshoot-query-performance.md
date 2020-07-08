@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117914"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query relativi all'uso di Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Prima di leggere questa guida, è opportuno prendere in considerazione i più pr
 
 Quando si ottimizza una query in Azure Cosmos DB, il primo passaggio consiste sempre nell'[recuperare le metriche](profile-sql-api-query.md) per la query. Le metriche sono disponibili anche tramite il portale di Azure. Una volta eseguita la query in Esplora dati, le metriche della query sono visibili accanto alla scheda dei **risultati**:
 
-[ ![Recupero delle metriche della query](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+:::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Recupero delle metriche della query" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 Dopo aver recuperato le metriche della query, confrontare il **conteggio dei documenti recuperati** con il **conteggio dei documenti di output** per la query. Usare questo confronto per identificare le sezioni rilevanti da esaminare in questo articolo.
 

@@ -3,15 +3,15 @@ title: Informazioni su come gestire gli account di database in Azure Cosmos DB
 description: Informazioni su come gestire Azure Cosmos DB risorse usando i modelli portale di Azure, PowerShell, CLI e Azure Resource Manager
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 35659eba274b4b93ca74e480f6ad2b5edfd2e293
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82745034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116758"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gestire un account Azure Cosmos
 
@@ -23,7 +23,7 @@ Questo articolo descrive come gestire varie attività relative a un account Azur
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>
 
 Vedere [creare un account di Azure Cosmos DB con l'interfaccia della riga di comando di Azure](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
@@ -49,13 +49,13 @@ Vedere [creare un account di Azure Cosmos DB con modelli di Azure Resource Manag
 
 1. Selezionare **OK** per salvare le modifiche.
 
-   ![Aggiungere o rimuovere aree](./media/how-to-manage-database-account/add-region.png)
+   :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="Aggiungere o rimuovere aree":::
 
 In modalità di scrittura in una singola area non è possibile rimuovere l'area di scrittura. È necessario eseguire il failover in un'area diversa prima di poter eliminare l'area di scrittura corrente.
 
 In modalità di scrittura in più aree è possibile aggiungere o rimuovere qualsiasi area, purché resti almeno un'area.
 
-### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>
 
 Vedere [aggiungere o rimuovere aree con l'interfaccia della riga di comando di Azure](manage-with-cli.md#add-or-remove-regions)
 
@@ -69,9 +69,9 @@ Vedere [aggiungere o rimuovere aree con PowerShell](manage-with-powershell.md#up
 
 Aprire la scheda **Replica i dati a livello globale** e selezionare **Abilita** per abilitare le operazioni di scrittura in più aree. Dopo aver abilitato tali operazioni, tutte le aree di lettura di cui si dispone attualmente nell'account diventeranno aree di lettura e scrittura.
 
-![Screenshot relativo alla configurazione della funzionalità multimaster per l'account Azure Cosmos](./media/how-to-manage-database-account/single-to-multi-master.png)
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Screenshot relativo alla configurazione della funzionalità multimaster per l'account Azure Cosmos":::
 
-### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>
 
 Vedere [abilitare aree con più scritture con l'interfaccia della riga di comando di Azure](manage-with-cli.md#enable-multiple-write-regions)
 
@@ -149,15 +149,15 @@ L'opzione di failover automatico consente ad Azure Cosmos DB di eseguire il fail
 
 2. Nella parte superiore del riquadro fare clic sul pulsante **Failover automatico**.
 
-   ![Menu Replica i dati a livello globale](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replica i dati a livello globale":::
 
 3. Nel riquadro **Failover automatico** assicurarsi che **Abilita failover automatico** sia impostato su **SÌ**. 
 
 4. Selezionare **Salva**.
 
-   ![Menu del portale Failover automatico](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu del portale Failover automatico":::
 
-### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>
 
 Vedere [abilitare il failover automatico con l'interfaccia della riga di comando di Azure](manage-with-cli.md#enable-automatic-failover)
 
@@ -178,7 +178,7 @@ Dopo aver configurato un account Cosmos per il failover automatico, è possibile
 
 2. Nella parte superiore del riquadro fare clic sul pulsante **Failover automatico**.
 
-   ![Menu Replica i dati a livello globale](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replica i dati a livello globale":::
 
 3. Nel riquadro **Failover automatico** assicurarsi che **Abilita failover automatico** sia impostato su **SÌ**.
 
@@ -186,9 +186,9 @@ Dopo aver configurato un account Cosmos per il failover automatico, è possibile
 
 5. Selezionare **Salva**.
 
-   ![Menu del portale Failover automatico](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu del portale Failover automatico":::
 
-### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>
 
 Vedere [impostare priorità di failover con l'interfaccia della riga di comando di Azure](manage-with-cli.md#set-failover-priority)
 
@@ -212,15 +212,15 @@ Il processo di esecuzione di un failover manuale prevede la modifica dell'area d
 
 2. Nella parte superiore del menu selezionare **Failover manuale**.
 
-   ![Menu Replica i dati a livello globale](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replica i dati a livello globale":::
 
 3. Nel menu **Failover manuale** selezionare la nuova area di scrittura. Selezionare la casella di controllo per indicare di aver compreso che questa opzione modifica l'area di scrittura.
 
 4. Per attivare il failover, selezionare **OK**.
 
-   ![Menu del portale Failover manuale](./media/how-to-manage-database-account/manual-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menu del portale Failover manuale":::
 
-### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>
 
 Vedere [attivare il failover manuale con l'interfaccia della riga di comando di Azure](manage-with-cli.md#trigger-manual-failover)
 

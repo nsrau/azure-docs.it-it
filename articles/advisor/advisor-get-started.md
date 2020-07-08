@@ -3,12 +3,12 @@ title: Introduzione ad Azure Advisor
 description: Introduzione ad Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259630"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117863"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
 
@@ -27,7 +27,7 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
 1. Nel dashboard di Advisor viene visualizzato un riepilogo dei consigli per tutte le sottoscrizioni selezionate.  È possibile scegliere le sottoscrizioni per le quali si vuole ottenere i consigli usando come filtro il menu a discesa delle sottoscrizioni.
 
-1. Per ricevere consigli per una categoria specifica, fare clic su una delle schede seguenti: **Disponibilità elevata**, **Sicurezza**, **Prestazioni** o **Costo**. 
+1. Per ottenere le raccomandazioni per una categoria specifica, fare clic su una delle schede: **affidabilità**, **sicurezza**, **prestazioni**o **costo**. 
 
    ![Dashboard di Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -124,7 +124,8 @@ L'opzione di download rispetta tutti i filtri che sono stati applicati al dashbo
 Per altre informazioni su Advisor, vedere:
 
 - [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-- [Consigli di Advisor sulla disponibilità elevata](advisor-high-availability-recommendations.md)
+- [Consigli sull'affidabilità di Advisor](advisor-high-availability-recommendations.md)
 - [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 - [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
-- [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
+- [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
+- [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: a44703aabc35131cf040892999409173638437a7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130773"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolleranza di errore dell'attività di copia in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -79,6 +79,21 @@ dataInconsistency | Una delle coppie chiave-valore all'interno del contenitore d
 logStorageSettings  | Un gruppo di proprietà che può essere specificato quando si vuole registrare i nomi degli oggetti ignorati. | &nbsp; | No
 linkedServiceName | Servizio collegato di [Archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) per archiviare i file di log della sessione. | Nomi di un servizio collegato di tipo `AzureBlobStorage` o `AzureBlobFS` che fa riferimento all'istanza da usare per archiviare il file di log. | No
 path | Percorso dei file di log. | Specificare il percorso usato per archiviare i file di log. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No
+
+> [!NOTE]
+> Di seguito sono riportati i prerequisiti per abilitare la tolleranza di errore nell'attività di copia durante la copia di file binari.
+> Per ignorare file specifici quando vengono eliminati dall'archivio di origine:
+> - Il set di dati di origine e il set di dati sink devono essere di formato binario e non è possibile specificare il tipo di compressione. 
+> - I tipi di archivio dati supportati sono archiviazione BLOB di Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, archiviazione file di Azure, file System, FTP, SFTP, Amazon S3, Google Cloud storage e HDFS.
+> - Solo se quando si specificano più file nel set di dati di origine, che può essere una cartella, un carattere jolly o un elenco di file, l'attività di copia può ignorare i file di errore specifici. Se nel set di dati di origine viene specificato un singolo file da copiare nella destinazione, l'attività di copia avrà esito negativo se si verifica un errore.
+>
+> Per ignorare file specifici quando l'accesso non è consentito dall'archivio di origine:
+> - Il set di dati di origine e il set di dati sink devono essere di formato binario e non è possibile specificare il tipo di compressione. 
+> - I tipi di archivio dati supportati sono archiviazione BLOB di Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, archiviazione file di Azure, SFTP, Amazon S3 e HDFS.
+> - Solo se quando si specificano più file nel set di dati di origine, che può essere una cartella, un carattere jolly o un elenco di file, l'attività di copia può ignorare i file di errore specifici. Se nel set di dati di origine viene specificato un singolo file da copiare nella destinazione, l'attività di copia avrà esito negativo se si verifica un errore.
+>
+> Per ignorare file specifici quando vengono verificati come incoerenti tra l'archivio di origine e quello di destinazione:
+> - [Qui](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency)è possibile ottenere altri dettagli dalla documentazione sulla coerenza dei dati.
 
 ### <a name="monitoring"></a>Monitoraggio 
 

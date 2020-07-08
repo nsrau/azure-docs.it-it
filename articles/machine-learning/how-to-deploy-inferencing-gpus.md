@@ -5,17 +5,18 @@ description: Questo articolo illustra come usare Azure Machine Learning per dist
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.custom: tracking-python
+ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78398334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976745"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +53,7 @@ L'inferenza o il punteggio del modello è la fase in cui il modello distribuito 
 Per connettersi a un'area di lavoro esistente, usare il codice seguente:
 
 > [!IMPORTANT]
-> Questo frammento di codice prevede che la configurazione dell'area di lavoro venga salvata nella directory corrente o nel relativo elemento padre. Per ulteriori informazioni sulla creazione di un'area di lavoro, vedere [creare e gestire aree di lavoro Azure Machine Learning](how-to-manage-workspace.md).   Per ulteriori informazioni sul salvataggio della configurazione nel file, vedere [creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
+> Questo frammento di codice prevede che la configurazione dell'area di lavoro sia salvata nella directory corrente o nella relativa directory padre. Per altre informazioni sulla creazione di un'area di lavoro, vedere [Creare e gestire le aree di lavoro di Azure Machine Learning](how-to-manage-workspace.md).   Per altre informazioni sul salvataggio della configurazione in un file, vedere [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -135,11 +136,11 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Questo file è denominato `score.py`. Per ulteriori informazioni sugli script di immissione, vedere [How and where to deploy](how-to-deploy-and-where.md).
+Questo file è denominato `score.py` . Per ulteriori informazioni sugli script di immissione, vedere [How and where to deploy](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Definire l'ambiente conda
 
-Il file dell'ambiente conda specifica le dipendenze per il servizio. Sono incluse le dipendenze richieste dal modello e dallo script di immissione. Si noti che è necessario indicare azureml-defaults con versione >= 1.0.45 come dipendenza PIP, perché contiene la funzionalità necessaria per ospitare il modello come servizio Web. Il YAML seguente definisce l'ambiente per un modello Tensorflow. Specifica `tensorflow-gpu`che utilizzerà la GPU utilizzata in questa distribuzione:
+Il file dell'ambiente conda specifica le dipendenze per il servizio. Sono incluse le dipendenze richieste dal modello e dallo script di immissione. Si noti che è necessario indicare azureml-defaults con versione >= 1.0.45 come dipendenza PIP, perché contiene la funzionalità necessaria per ospitare il modello come servizio Web. Il YAML seguente definisce l'ambiente per un modello Tensorflow. Specifica `tensorflow-gpu` che utilizzerà la GPU utilizzata in questa distribuzione:
 
 ```yaml
 name: project_environment
@@ -157,7 +158,7 @@ channels:
 - conda-forge
 ```
 
-Per questo esempio, il file viene salvato come `myenv.yml`.
+Per questo esempio, il file viene salvato come `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>Definire la configurazione della distribuzione
 
@@ -212,9 +213,6 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
-
-> [!NOTE]
-> Se l' `InferenceConfig` oggetto ha `enable_gpu=True`, il `deployment_target` parametro deve fare riferimento a un cluster che fornisce una GPU. In caso contrario, la distribuzione avrà esito negativo.
 
 Per ulteriori informazioni, vedere la documentazione di riferimento per il [modello](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

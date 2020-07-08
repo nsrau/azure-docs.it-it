@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 1e86317999a34e4ab4cb94f93fb788e3e7314cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85105926"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati e alle aree di lavoro di log in monitoraggio di Azure
 
@@ -20,8 +20,10 @@ Monitoraggio di Azure archivia i dati di [log](data-platform-logs.md) in un'area
 Questo articolo illustra come gestire l'accesso ai log e come amministrare le aree di lavoro che li contengono, inclusa la procedura per concedere l'accesso a: 
 
 * Area di lavoro utilizzando le autorizzazioni dell'area di lavoro.
-* Utenti che devono accedere ai dati di log da risorse specifiche usando il controllo degli accessi in base al ruolo di Azure (RBAC).
+* Utenti che devono accedere ai dati di log da risorse specifiche usando il controllo degli accessi in base al ruolo (RBAC) di Azure, noto anche come [contesto di risorsa](design-logs-deployment.md#access-mode)
 * Utenti che devono accedere ai dati di log in una tabella specifica nell'area di lavoro usando il controllo degli accessi in base al ruolo
+
+Per comprendere i concetti relativi ai log relativi alle strategie di accesso e RBAC, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Configurare la modalità di controllo di accesso
 
@@ -61,10 +63,10 @@ DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-Il valore `False` indica che l'area di lavoro è configurata con la modalità di accesso al contesto dell'area di lavoro.  Il valore `True` indica che l'area di lavoro è configurata con la modalità di accesso del contesto di risorsa.
+`False`Il valore indica che l'area di lavoro è configurata con la modalità di accesso al contesto dell'area di lavoro.  `True`Il valore indica che l'area di lavoro è configurata con la modalità di accesso del contesto di risorsa.
 
 > [!NOTE]
-> Se un'area di lavoro viene restituita senza un valore booleano ed è vuota, corrisponde anche ai `False` risultati di un valore.
+> Se un'area di lavoro viene restituita senza un valore booleano ed è vuota, corrisponde anche ai risultati di un `False` valore.
 >
 
 Usare lo script seguente per impostare la modalità di controllo di accesso per un'area di lavoro specifica sull'autorizzazione del contesto di risorsa:
@@ -104,7 +106,7 @@ A ogni area di lavoro possono essere associati più account, ognuno dei quali pu
 
 Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
-|Azione |Autorizzazioni di Azure necessarie |Note |
+|Action |Autorizzazioni di Azure necessarie |Note |
 |-------|-------------------------|------|
 | Aggiunta e rimozione di soluzioni di monitoraggio | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Queste autorizzazioni devono essere concesse a livello di gruppo di risorse o di sottoscrizione. |
 | Modifica del piano tariffario | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -134,10 +136,10 @@ Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
 | Type    | Autorizzazione | Descrizione |
 | ------- | ---------- | ----------- |
-| Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
-| Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
-| Azione | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecato, non è necessario assegnarli agli utenti. |
-| Azione | `Microsoft.Support/*` | Consente di aprire casi di supporto |
+| Action | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
+| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
+| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecato, non è necessario assegnarli agli utenti. |
+| Action | `Microsoft.Support/*` | Consente di aprire casi di supporto |
 |Non azione | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Impedisce la lettura della chiave dell'area di lavoro, necessaria per l'uso dell'API di raccolta dati e per l'installazione degli agenti. Ciò impedisce all'utente di aggiungere nuove risorse all'area di lavoro |
 
 I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste operazioni:
@@ -168,7 +170,7 @@ Il ruolo di collaboratore di Log Analytics include le azioni di Azure seguenti:
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Consente di visualizzare la chiave dell'account di archiviazione, è necessaria per configurare Log Analytics per la lettura dei log dagli account di archiviazione di Azure |
 | `Microsoft.Insights/alertRules/*` | Consente di aggiungere, aggiornare e rimuovere regole di avviso |
 | `Microsoft.Insights/diagnosticSettings/*` | Consente di aggiungere, aggiornare e rimuovere impostazioni di diagnostica dalle risorse di Azure |
-| `Microsoft.OperationalInsights/*` | Aggiungere, aggiornare e rimuovere la configurazione per le aree di lavoro Log Analytics. Per modificare le impostazioni avanzate dell'area di `Microsoft.OperationalInsights/workspaces/write`lavoro, è necessario. |
+| `Microsoft.OperationalInsights/*` | Aggiungere, aggiornare e rimuovere la configurazione per le aree di lavoro Log Analytics. Per modificare le impostazioni avanzate dell'area di lavoro, è necessario `Microsoft.OperationalInsights/workspaces/write` . |
 | `Microsoft.OperationsManagement/*` | Consente di aggiungere e rimuovere soluzioni di gestione |
 | `Microsoft.Resources/deployments/*` | Consente di creare ed eliminare distribuzioni, è necessaria per aggiungere e rimuovere soluzioni, aree di lavoro e account di automazione |
 | `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Consente di creare ed eliminare distribuzioni, è necessaria per aggiungere e rimuovere soluzioni, aree di lavoro e account di automazione |
@@ -192,7 +194,7 @@ Quando gli utenti eseguono query sui log da un'area di lavoro usando l'accesso a
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Esempi:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Possibilità di visualizzare tutti i dati di log per la risorsa.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Possibilità di configurare l'impostazione di diagnostica per consentire l'impostazione dei log per questa risorsa. |
 
-`/read`l'autorizzazione viene in genere concessa da un ruolo che include _ \*/Read o_ _\*_ autorizzazioni quali i ruoli predefiniti [Reader](../../role-based-access-control/built-in-roles.md#reader) e [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) . I ruoli personalizzati che includono azioni specifiche o ruoli predefiniti dedicati potrebbero non includere questa autorizzazione.
+`/read`l'autorizzazione viene in genere concessa da un ruolo che include _ \* /Read o_ _\*_ autorizzazioni quali i ruoli predefiniti [Reader](../../role-based-access-control/built-in-roles.md#reader) e [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) . I ruoli personalizzati che includono azioni specifiche o ruoli predefiniti dedicati potrebbero non includere questa autorizzazione.
 
 Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizione del controllo degli accessi per tabella](#table-level-rbac) .
 
@@ -202,23 +204,23 @@ Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizi
 
     * Configurare la modalità di controllo di accesso dell'area di lavoro per **utilizzare le autorizzazioni delle risorse**
 
-    * Concedere agli `*/read` utenti `Microsoft.Insights/logs/*/read` o alle autorizzazioni le proprie risorse. Se è già stato assegnato il ruolo di [lettore log Analytics](../../role-based-access-control/built-in-roles.md#reader) nell'area di lavoro, è sufficiente.
+    * Concedere agli utenti `*/read` o `Microsoft.Insights/logs/*/read` alle autorizzazioni le proprie risorse. Se è già stato assegnato il ruolo di [lettore log Analytics](../../role-based-access-control/built-in-roles.md#reader) nell'area di lavoro, è sufficiente.
 
 2. Per concedere a un utente l'accesso ai dati di log dalle risorse e configurare le risorse per inviare i log all'area di lavoro, eseguire le operazioni seguenti:
 
     * Configurare la modalità di controllo di accesso dell'area di lavoro per **utilizzare le autorizzazioni delle risorse**
 
-    * Concedere agli utenti le seguenti autorizzazioni per l'area `Microsoft.OperationalInsights/workspaces/read` di `Microsoft.OperationalInsights/workspaces/sharedKeys/action`lavoro: e. Con queste autorizzazioni, gli utenti non possono eseguire query a livello di area di lavoro. Possono solo enumerare l'area di lavoro e usarla come destinazione per le impostazioni di diagnostica o per la configurazione dell'agente.
+    * Concedere agli utenti le seguenti autorizzazioni per l'area di lavoro: `Microsoft.OperationalInsights/workspaces/read` e `Microsoft.OperationalInsights/workspaces/sharedKeys/action` . Con queste autorizzazioni, gli utenti non possono eseguire query a livello di area di lavoro. Possono solo enumerare l'area di lavoro e usarla come destinazione per le impostazioni di diagnostica o per la configurazione dell'agente.
 
-    * Concedere agli utenti le seguenti autorizzazioni per le risorse `Microsoft.Insights/logs/*/read` : `Microsoft.Insights/diagnosticSettings/write`e. Se è già stato assegnato il ruolo di [collaboratore log Analytics](../../role-based-access-control/built-in-roles.md#contributor) , è sufficiente assegnare il ruolo `*/read` lettore o concedere le autorizzazioni per questa risorsa.
+    * Concedere agli utenti le seguenti autorizzazioni per le risorse: `Microsoft.Insights/logs/*/read` e `Microsoft.Insights/diagnosticSettings/write` . Se è già stato assegnato il ruolo di [collaboratore log Analytics](../../role-based-access-control/built-in-roles.md#contributor) , è sufficiente assegnare il ruolo lettore o concedere le `*/read` autorizzazioni per questa risorsa.
 
 3. Per concedere a un utente l'accesso ai dati di log dalle risorse senza la possibilità di leggere gli eventi di sicurezza e inviare dati, eseguire le operazioni seguenti:
 
     * Configurare la modalità di controllo di accesso dell'area di lavoro per **utilizzare le autorizzazioni delle risorse**
 
-    * Concedere agli utenti le seguenti autorizzazioni per le risorse `Microsoft.Insights/logs/*/read`:.
+    * Concedere agli utenti le seguenti autorizzazioni per le risorse: `Microsoft.Insights/logs/*/read` .
 
-    * Aggiungere la seguente non azione per impedire agli utenti di leggere il tipo di `Microsoft.Insights/logs/SecurityEvent/read`SecurityEvent:. La non azione deve trovarsi nello stesso ruolo personalizzato dell'azione che fornisce l'autorizzazione di lettura (`Microsoft.Insights/logs/*/read`). Se l'utente inerente l'azione di lettura da un altro ruolo assegnato a questa risorsa o alla sottoscrizione o al gruppo di risorse, sarà in grado di leggere tutti i tipi di log. Questo vale anche se ereditano `*/read`, che esistono, ad esempio, con il ruolo lettore o collaboratore.
+    * Aggiungere la seguente non azione per impedire agli utenti di leggere il tipo di SecurityEvent: `Microsoft.Insights/logs/SecurityEvent/read` . La non azione deve trovarsi nello stesso ruolo personalizzato dell'azione che fornisce l'autorizzazione di lettura ( `Microsoft.Insights/logs/*/read` ). Se l'utente inerente l'azione di lettura da un altro ruolo assegnato a questa risorsa o alla sottoscrizione o al gruppo di risorse, sarà in grado di leggere tutti i tipi di log. Questo vale anche se ereditano `*/read` , che esistono, ad esempio, con il ruolo lettore o collaboratore.
 
 4. Per concedere a un utente l'accesso ai dati di log dalle risorse e leggere tutti i Azure AD accesso e leggere Gestione aggiornamenti i dati di log della soluzione dall'area di lavoro, seguire questa procedura:
 
@@ -235,7 +237,7 @@ Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizi
         * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`: necessario per poter usare Gestione aggiornamenti soluzione
         * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: necessario per poter usare Gestione aggiornamenti soluzione
 
-    * Concedere agli utenti le seguenti autorizzazioni per le risorse `*/read`:, assegnate al ruolo Reader o `Microsoft.Insights/logs/*/read`. 
+    * Concedere agli utenti le seguenti autorizzazioni per le risorse: `*/read` , assegnate al ruolo Reader o `Microsoft.Insights/logs/*/read` . 
 
 ## <a name="table-level-rbac"></a>RBAC a livello di tabella
 
@@ -268,6 +270,18 @@ Per creare un ruolo con accesso solo alla tabella _SecurityBaseline_ , creare un
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
+Negli esempi precedenti viene definito un elenco di tabelle consentite. Questo esempio mostra la definizione della blacklist quando un utente può accedere a tutte le tabelle, ma la tabella _SecurityAlert_ :
+
+```
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
+"notActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read"
+],
+```
 
 ### <a name="custom-logs"></a>Log personalizzati
 
@@ -288,9 +302,9 @@ Talvolta i log personalizzati provengono da origini non direttamente associate a
 
 ### <a name="considerations"></a>Considerazioni
 
-* Se a un utente viene concessa l'autorizzazione di lettura globale con i ruoli Reader o collaboratore standard che includono l' _ \*azione/Read_ , eseguirà l'override del controllo di accesso per ogni tabella e consentirà l'accesso a tutti i dati di log.
+* Se a un utente viene concessa l'autorizzazione di lettura globale con i ruoli Reader o collaboratore standard che includono l'azione _ \* /Read_ , eseguirà l'override del controllo di accesso per ogni tabella e consentirà l'accesso a tutti i dati di log.
 * Se a un utente viene concesso l'accesso per tabella ma non altre autorizzazioni, potranno accedere ai dati di log dall'API ma non dal portale di Azure. Per fornire l'accesso dalla portale di Azure, utilizzare Log Analytics Reader come ruolo di base.
-* Gli amministratori della sottoscrizione avranno accesso a tutti i tipi di dati indipendentemente dalle altre impostazioni di autorizzazione.
+* Gli amministratori e i proprietari della sottoscrizione avranno accesso a tutti i tipi di dati indipendentemente dalle altre impostazioni di autorizzazione.
 * I proprietari dell'area di lavoro vengono trattati come qualsiasi altro utente per il controllo di accesso per tabella.
 * È consigliabile assegnare i ruoli ai gruppi di sicurezza anziché ai singoli utenti per ridurre il numero di assegnazioni. Ciò consentirà inoltre di utilizzare gli strumenti di gestione dei gruppi esistenti per configurare e verificare l'accesso.
 

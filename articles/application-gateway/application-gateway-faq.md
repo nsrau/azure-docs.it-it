@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: fd5617af2da9aa00cb75deb82f83be29db78d79d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982000"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione di Azure
 
@@ -72,7 +73,13 @@ Per lo SKU v2, aprire la risorsa IP pubblico e selezionare **Configurazione**. I
 
 Il *timeout keep-alive* controlla per quanto tempo il gateway applicazione deve attendere che un client invii un'altra richiesta HTTP su una connessione permanente prima di riutilizzarla o chiuderla. Il *timeout di inattività TCP* controlla per quanto tempo una connessione TCP viene mantenuta aperta in caso di assenza di attività. 
 
-Il *timeout keep-alive* nello SKU v1 del gateway applicazione è 120 secondi e nello SKU v2 è 75 secondi. Il *timeout di inattività TCP* è un valore predefinito di 4 minuti nell'indirizzo IP virtuale front-end (VIP) dello SKU v1 e v2 del gateway applicazione. Non è possibile modificare questi valori.
+Il *timeout keep-alive* nello SKU v1 del gateway applicazione è 120 secondi e nello SKU v2 è 75 secondi. Il *timeout di inattività TCP* è un valore predefinito di 4 minuti nell'indirizzo IP virtuale front-end (VIP) dello SKU v1 e v2 del gateway applicazione. È possibile configurare il valore di timeout di inattività TCP nei gateway applicazione V1 e V2 in un punto qualsiasi compreso tra 4 minuti e 30 minuti. Per i gateway applicazione V1 e V2 è necessario passare all'indirizzo IP pubblico del gateway applicazione e modificare il timeout di inattività TCP nel pannello "configurazione" dell'indirizzo IP pubblico nel portale. È possibile impostare il valore di timeout di inattività TCP dell'IP pubblico tramite PowerShell eseguendo i comandi seguenti: 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>L'IP o il nome DNS cambia durante il ciclo di vita del gateway applicazione?
 
@@ -211,7 +218,7 @@ Vedere [Ordine di elaborazione delle regole](https://docs.microsoft.com/azure/ap
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Cosa indica il campo Host per i probe personalizzati?
 
-Il campo Host specifica il nome a cui inviare il probe quando è stato configurato il multisito nel gateway applicazione. In caso contrario, usare '127.0.0.1'. Questo valore è diverso dal nome host della macchina virtuale. Il formato è \<protocollo\>://\<host\>:\<porta\>\<percorso\>.
+Il campo Host specifica il nome a cui inviare il probe quando è stato configurato il multisito nel gateway applicazione. In caso contrario, usare '127.0.0.1'. Questo valore è diverso dal nome host della macchina virtuale. Il formato è \<protocol\> :// \<host\> : \<port\> \<path\> .
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>È possibile consentire l'accesso del gateway applicazione solo ad alcuni indirizzi IP di origine?
 
@@ -337,11 +344,31 @@ No, usare solo caratteri alfanumerici nella password del file con estensione pfx
 Kubernetes consente di creare una risorsa `deployment` e `service` per esporre un gruppo di pod internamente nel cluster. Per esporre lo stesso servizio esternamente, viene definita una risorsa [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) che offre il bilanciamento del carico, la terminazione TLS e l'hosting virtuale basato sul nome.
 Per soddisfare questa risorsa `Ingress`, è necessario un controller di ingresso che rimane in ascolto delle modifiche apportate alle risorse `Ingress` e configura i criteri del servizio di bilanciamento del carico.
 
-Il controller di ingresso del gateway applicazione consente di usare il [gateway applicazione di Azure](https://azure.microsoft.com/services/application-gateway/) come ingresso per un [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/), chiamato anche cluster AKS.
+Il controller di ingresso del gateway applicazione (AGIC) consente di usare [applicazione Azure gateway](https://azure.microsoft.com/services/application-gateway/) come ingresso per un [servizio Kubernetes di Azure](https://azure.microsoft.com/services/kubernetes-service/) , noto anche come cluster AKS.
 
 ### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Una singola istanza del controller di ingresso può gestire più gateway applicazione?
 
 Attualmente, un'istanza del controller di ingresso può essere associata a un solo gateway applicazione.
+
+### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Perché il cluster AKS con kubenet non funziona con AGIC?
+
+AGIC tenta di associare automaticamente la risorsa della tabella di route alla subnet del gateway applicazione, ma potrebbe non riuscire a causa della mancanza di autorizzazioni per il AGIC. Se AGIC non è in grado di associare la tabella di route alla subnet del gateway applicazione, si verifica un errore nei log di AGIC. in tal caso, è necessario associare manualmente la tabella di route creata dal cluster AKS alla subnet del gateway applicazione. Per ulteriori informazioni, vedere le istruzioni riportate [qui](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
+### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>È possibile connettere il cluster AKS e il gateway applicazione in reti virtuali separate? 
+
+Sì, purché le reti virtuali vengano sottoposti a peering e non abbiano spazi di indirizzi sovrapposti. Se si esegue AKS con kubenet, assicurarsi di associare la tabella di route generata da AKS alla subnet del gateway applicazione. 
+
+### <a name="what-features-are-not-supported-on-the-agic-add-on"></a>Quali funzionalità non sono supportate nel componente aggiuntivo AGIC? 
+
+Vedere le differenze tra AGIC distribuite tramite Helm e distribuito come componente aggiuntivo AKS [qui](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)
+
+### <a name="when-should-i-use-the-add-on-versus-the-helm-deployment"></a>Quando è consigliabile usare il componente aggiuntivo rispetto alla distribuzione Helm? 
+
+Vedere le differenze tra AGIC distribuite tramite Helm e distribuito come componente aggiuntivo [AKS, in](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)particolare le tabelle che documentano quali scenari sono supportati da AGIC distribuiti tramite Helm anziché un componente aggiuntivo AKS. In generale, la distribuzione tramite Helm consente di testare le funzionalità beta e rilasciare i candidati prima di un rilascio ufficiale. 
+
+### <a name="can-i-control-which-version-of-agic-will-be-deployed-with-the-add-on"></a>È possibile controllare quale versione di AGIC verrà distribuita con il componente aggiuntivo?
+
+No, il componente aggiuntivo AGIC è un servizio gestito che significa che Microsoft aggiornerà automaticamente il componente aggiuntivo alla versione stabile più recente. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnostica e registrazione
 
@@ -411,8 +438,6 @@ Tuttavia, se si vuole usare il gateway applicazione v2 con solo IP privato, è p
 
 Esempio di configurazione del gruppo di sicurezza di rete per l'accesso solo IP privato: ![Configurazione del gruppo di sicurezza di rete del gateway applicazione v2 solo per l'accesso IP privato](./media/application-gateway-faq/appgw-privip-nsg.png)
 
-### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Il cookie di affinità del gateway applicazione supporta l'attributo SameSite?
-Sì, l'[aggiornamento V80](https://chromiumdash.appspot.com/schedule) del [browser Chromium](https://www.chromium.org/Home) ha introdotto un mandato sui cookie HTTP senza attributo SameSite affinché vengano trattati come SameSite=Lax. Ciò significa che il cookie di affinità del gateway applicazione non verrà inviato dal browser in un contesto di terze parti. Per supportare questo scenario, il gateway applicazione inserisce un altro cookie denominato *ApplicationGatewayAffinityCORS* in aggiunta al cookie esistente *ApplicationGatewayAffinity*.  Questi cookie sono simili, ma al cookie *ApplicationGatewayAffinityCORS* sono stati aggiunti altri due attributi: *SameSite=None; Secure*. Questi attributi gestiscono sessioni permanenti anche per le richieste tra origini. Per altre informazioni, vedere la [sezione relativa all'affinità basata su cookie](configuration-overview.md#cookie-based-affinity).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/27/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20ec63efe16f1120ca6e7d07c8917d8ad2b3a0e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78c3c177bfcd5ee969e1430306c7294f0a14b658
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078100"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approva o rifiuta le richieste di accesso in Azure AD gestione dei diritti
 
@@ -43,7 +43,7 @@ Il primo passaggio per approvare o negare le richieste di accesso consiste nell'
 
 Se non si dispone del messaggio di posta elettronica, è possibile trovare le richieste di accesso in attesa di approvazione attenendosi alla seguente procedura.
 
-1. Accedere al portale di accesso personale all'indirizzo [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  Per il governo degli Stati Uniti, il dominio nel collegamento al portale di accesso `myaccess.microsoft.us`personale sarà.
+1. Accedere al portale di accesso personale all'indirizzo [https://myaccess.microsoft.com](https://myaccess.microsoft.com) .  Per il governo degli Stati Uniti, il dominio nel collegamento al portale di accesso personale sarà `myaccess.microsoft.us` .
 
 1. Nel menu a sinistra fare clic su **approvazioni** per visualizzare un elenco di richieste di accesso in attesa di approvazione.
 

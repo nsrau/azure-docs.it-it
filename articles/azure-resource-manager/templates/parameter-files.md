@@ -2,13 +2,13 @@
 title: Creare il file di parametri
 description: Creare il file di parametri per passare i valori durante la distribuzione di un modello di Azure Resource Manager
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.date: 06/19/2020
+ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117506"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creare il file di parametri di Resource Manager
 
@@ -182,12 +182,18 @@ L'esempio seguente illustra i formati di diversi tipi di parametro.
 }
 ```
 
+## <a name="deploy-template-with-parameter-file"></a>Distribuire un modello con un file di parametri
+
+Vedere:
+
+- [Distribuire risorse con modelli ARM e l'interfaccia della riga di comando di Azure](./deploy-powershell.md#pass-parameter-values)
+- [Distribuire le risorse con i modelli ARM e Azure PowerShell](./deploy-cli.md#parameters)
+
 ## <a name="file-name"></a>Nome file
 
 La convenzione generale per la denominazione del file di parametri è l'aggiunta di **.parameters** al nome del modello. Ad esempio, se il modello è denominato **azuredeploy.json**, il file di parametri sarà denominato **azuredeploy.parameters.json**. Questa convenzione di denominazione consente di vedere la connessione tra il modello e i parametri.
 
 Per la distribuzione in ambienti diversi, creare più di un file di parametri. Quando si denomina il file di parametri, identificarne l'uso in qualche modo. Ad esempio, usare **azuredeploy.parameters-dev.json** e **azuredeploy.parameters-prod.json**.
-
 
 ## <a name="parameter-precedence"></a>Precedenza dei parametri
 
@@ -198,6 +204,7 @@ Per la distribuzione in ambienti diversi, creare più di un file di parametri. Q
 ## <a name="parameter-name-conflicts"></a>Conflitti nei nomi di parametro
 
 Se il modello include un parametro con lo stesso nome di uno dei parametri nel comando di PowerShell, PowerShell aggiunge al parametro del modello il suffisso **FromTemplate**. Ad esempio, un parametro denominato **ResourceGroupName** nel modello sarà in conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Verrà quindi richiesto di fornire un valore per **ResourceGroupNameFromTemplate**. È possibile evitare questa confusione usando nomi di parametro non usati per i comandi di distribuzione.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

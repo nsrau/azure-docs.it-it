@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 19e4c61ba930bb9b127e2401174bcea3fd240dce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85112779"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partizionamento e scalabilità orizzontale in Azure Cosmos DB
 
@@ -19,11 +19,11 @@ In questo articolo viene illustrata la relazione tra partizioni logiche e fisich
 
 ## <a name="logical-partitions"></a>Partizioni logiche
 
-Una partizione logica è costituita da un set di elementi con la stessa chiave di partizione. Ad esempio, in un contenitore che contiene i dati relativi al cibo dietetico, tutti `foodGroup` gli elementi contengono una proprietà. È possibile usare `foodGroup` come chiave di partizione per il contenitore. Gruppi di elementi con `foodGroup`valori specifici per, ad esempio `Beef Products`,`Baked Products`e `Sausages and Luncheon Meats`, formano partizioni logiche distinte. Non è necessario preoccuparsi di eliminare una partizione logica quando vengono eliminati i dati sottostanti.
+Una partizione logica è costituita da un set di elementi con la stessa chiave di partizione. Ad esempio, in un contenitore che contiene i dati relativi al cibo dietetico, tutti gli elementi contengono una `foodGroup` Proprietà. È possibile usare `foodGroup` come chiave di partizione per il contenitore. Gruppi di elementi con valori specifici per `foodGroup` , ad esempio `Beef Products` , `Baked Products` e `Sausages and Luncheon Meats` , formano partizioni logiche distinte. Non è necessario preoccuparsi di eliminare una partizione logica quando vengono eliminati i dati sottostanti.
 
 Una partizione logica definisce anche l'ambito delle transazioni del database. È possibile aggiornare gli elementi all'interno di una partizione logica utilizzando una [transazione con isolamento dello snapshot](database-transactions-optimistic-concurrency.md). Quando vengono aggiunti nuovi elementi a un contenitore, le nuove partizioni logiche vengono create in modo trasparente dal sistema.
 
-Non esiste alcun limite al numero di partizioni logiche nel contenitore. Ogni partizione logica può archiviare fino a 20 GB di dati. Le scelte valide per le chiavi di partizione hanno un'ampia gamma di valori possibili. Ad esempio, in un contenitore in cui tutti gli elementi `foodGroup`contengono una proprietà, i dati `Beef Products` all'interno della partizione logica possono aumentare fino a 20 GB. La [selezione di una chiave di partizione](partitioning-overview.md#choose-partitionkey) con una vasta gamma di valori possibili garantisce che il contenitore possa essere ridimensionato.
+Non esiste alcun limite al numero di partizioni logiche nel contenitore. Ogni partizione logica può archiviare fino a 20 GB di dati. Le scelte valide per le chiavi di partizione hanno un'ampia gamma di valori possibili. Ad esempio, in un contenitore in cui tutti gli elementi contengono una `foodGroup` proprietà, i dati all'interno della `Beef Products` partizione logica possono aumentare fino a 20 GB. La [selezione di una chiave di partizione](partitioning-overview.md#choose-partitionkey) con una vasta gamma di valori possibili garantisce che il contenitore possa essere ridimensionato.
 
 ## <a name="physical-partitions"></a>Partizioni fisiche
 
@@ -40,11 +40,11 @@ La velocità effettiva con provisioning per un contenitore è divisa uniformemen
 
 È possibile visualizzare le partizioni fisiche del contenitore nella sezione **archiviazione** del pannello **metriche** del portale di Azure:
 
-[![Visualizzazione del numero di partizioni](./media/partition-data/view-partitions-zoomed-out.png) fisiche](./media/partition-data/view-partitions-zoomed-in.png#lightbox)
+:::image type="content" source="./media/partition-data/view-partitions-zoomed-out.png" alt-text="Visualizzazione del numero di partizioni fisiche" lightbox="./media/partition-data/view-partitions-zoomed-in.png" ::: 
 
-In questo contenitore di esempio, in cui `/foodGroup` è stata scelta come chiave di partizione, ognuno dei tre rettangoli rappresenta una partizione fisica. Nell'immagine l' **intervallo di chiavi di partizione** è identico a quello di una partizione fisica. La partizione fisica selezionata contiene tre partizioni logiche: `Beef Products`, `Vegetable and Vegetable Products`e `Soups, Sauces, and Gravies`.
+In questo contenitore di esempio, in cui è stata scelta `/foodGroup` come chiave di partizione, ognuno dei tre rettangoli rappresenta una partizione fisica. Nell'immagine l' **intervallo di chiavi di partizione** è identico a quello di una partizione fisica. La partizione fisica selezionata contiene tre partizioni logiche: `Beef Products` , `Vegetable and Vegetable Products` e `Soups, Sauces, and Gravies` .
 
-Se si effettua il provisioning di una velocità effettiva di 18.000 unità richiesta al secondo (UR/sec), ciascuna delle tre partizioni fisiche potrà usare 1/3 della velocità effettiva totale con provisioning. All'interno della partizione fisica selezionata, le chiavi `Beef Products`6.000 di `Vegetable and Vegetable Products`partizione logiche `Soups, Sauces, and Gravies` , e possono, collettivamente, utilizzare le UR/sec con provisioning della partizione fisica. Poiché la velocità effettiva con provisioning è divisa uniformemente tra le partizioni fisiche del contenitore, è importante scegliere una chiave di partizione che distribuisca equamente l'utilizzo della velocità effettiva [scegliendo la chiave di partizione logica corretta](partitioning-overview.md#choose-partitionkey). Se si sceglie una chiave di partizione che distribuisce in modo uniforme l'utilizzo della velocità effettiva tra partizioni logiche, si garantisce che l'utilizzo della velocità effettiva tra le partizioni fisiche sia bilanciato.
+Se si effettua il provisioning di una velocità effettiva di 18.000 unità richiesta al secondo (UR/sec), ciascuna delle tre partizioni fisiche potrà usare 1/3 della velocità effettiva totale con provisioning. All'interno della partizione fisica selezionata, le chiavi `Beef Products` 6.000 di partizione logiche, `Vegetable and Vegetable Products` e `Soups, Sauces, and Gravies` possono, collettivamente, utilizzare le UR/sec con provisioning della partizione fisica. Poiché la velocità effettiva con provisioning è divisa uniformemente tra le partizioni fisiche del contenitore, è importante scegliere una chiave di partizione che distribuisca equamente l'utilizzo della velocità effettiva [scegliendo la chiave di partizione logica corretta](partitioning-overview.md#choose-partitionkey). Se si sceglie una chiave di partizione che distribuisce in modo uniforme l'utilizzo della velocità effettiva tra partizioni logiche, si garantisce che l'utilizzo della velocità effettiva tra le partizioni fisiche sia bilanciato.
 
 ## <a name="replica-sets"></a>Set di repliche
 
@@ -54,7 +54,7 @@ La maggior parte dei contenitori Cosmos di piccole dimensioni richiede solo una 
 
 La figura seguente mostra come le partizioni logiche vengono mappate alle partizioni fisiche distribuite a livello globale:
 
-![Immagine che illustra il partizionamento Azure Cosmos DB](./media/partition-data/logical-partitions.png)
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Immagine che illustra il partizionamento Azure Cosmos DB" border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

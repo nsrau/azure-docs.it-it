@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655816"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124475"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Inviare metriche del sistema operativo guest al database di metriche di monitoraggio di Azure per una macchina virtuale Windows (classico)
 
@@ -30,11 +30,11 @@ Il processo illustrato in questo articolo funziona solo sulle macchine virtuali 
 
 - È necessario essere un [amministratore del servizio o un coamministratore](../../cost-management-billing/manage/add-change-subscription-administrator.md) nella sottoscrizione di Azure. 
 
-- La sottoscrizione deve essere registrata con [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- È necessario che sia installato [Azure PowerShell](/powershell/azure) o [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
+- È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-- La risorsa VM deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
+- La risorsa della macchina virtuale deve trovarsi in un'[area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Creare una macchina virtuale classica e un account di archiviazione
 
@@ -48,7 +48,7 @@ Il processo illustrato in questo articolo funziona solo sulle macchine virtuali 
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni disponibili in [Creare un'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md). Tenere presente quanto segue durante questo processo: 
+Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni in [creare un'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md). Tenere presente quanto segue durante questo processo: 
 - Creare un nuovo segreto client per l'app.
 - Salvare la chiave e l'ID client, in quanto saranno necessari nei passaggi successivi.
 

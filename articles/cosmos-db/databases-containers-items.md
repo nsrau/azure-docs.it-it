@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b3874bbe7a5830b0a80b658ac32952fe8985c1c3
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 257d7a2e374867f6ff14aeaa633d95521b7ca39e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85114759"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utilizzare database, contenitori ed elementi in Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Dopo aver creato un [account Azure Cosmos DB](account-overview.md) nella sottosc
 
 Nell'immagine seguente viene illustrata la gerarchia di entità diverse in un account Azure Cosmos DB:
 
-![Entità dell'account Azure Cosmos DB](./media/databases-containers-items/cosmos-entities.png)
+:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Entità dell'account Azure Cosmos DB" border="false":::
 
 ## <a name="azure-cosmos-databases"></a>Database Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Nell'immagine seguente viene illustrata la gerarchia di entità diverse in un ac
 
 | Entità di Azure Cosmos DB | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- |
-|Database Azure Cosmos DB | Database | Keyspace | Database | Database | N/D |
+|Database Azure Cosmos DB | Database | Keyspace | Database | Database | ND |
 
 > [!NOTE]
 > Con API Tabella account, quando si crea la prima tabella, viene creato automaticamente un database predefinito nell'account Azure Cosmos.
@@ -39,10 +39,10 @@ Nell'immagine seguente viene illustrata la gerarchia di entità diverse in un ac
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerare tutti i database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | N/D | N/D |
-|Leggere il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | N/D | N/D |
-|Creare il nuovo database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | N/D | N/D |
-|Aggiornare il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | N/D | N/D |
+|Enumerare tutti i database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Leggere il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Creare il nuovo database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Aggiornare il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
 
 
 ## <a name="azure-cosmos-containers"></a>Contenitori Azure Cosmos DB
@@ -77,7 +77,7 @@ Un contenitore di Azure Cosmos è specializzato in entità specifiche dell'API, 
 |Contenitore Azure Cosmos DB | Contenitore | Tabella | Raccolta | Grafico | Tabella |
 
 > [!NOTE]
-> Quando si creano i contenitori, assicurarsi di non creare due contenitori con lo stesso nome ma con maiuscole e minuscole diverse. Questo perché alcune parti della piattaforma Azure non fanno distinzione tra maiuscole e minuscole e ciò può comportare confusione/collisione dei dati di telemetria e delle azioni sui contenitori con tali nomi.
+> Quando si creano i contenitori, assicurarsi di non creare due contenitori con lo stesso nome ma con una combinazione diversa di maiuscole/minuscole. Questo perché alcune parti della piattaforma Azure non fanno distinzione tra maiuscole e minuscole e ciò può comportare confusione/conflitti dei dati di telemetria e delle azioni sui contenitori con tali nomi.
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Proprietà di un contenitore Azure Cosmos DB
 
@@ -101,15 +101,15 @@ Un contenitore di Azure Cosmos supporta le operazioni seguenti quando si usa una
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-| Enumerare i contenitori in un database | Sì | Sì | Sì | Sì | N/D | N/D |
-| Leggere un contenitore | Sì | Sì | Sì | Sì | N/D | N/D |
-| Crea un nuovo contenitore | Sì | Sì | Sì | Sì | N/D | N/D |
-| Aggiornare un contenitore | Sì | Sì | Sì | Sì | N/D | N/D |
-| Eliminare un contenitore | Sì | Sì | Sì | Sì | N/D | N/D |
+| Enumerare i contenitori in un database | Sì | Sì | Sì | Sì | ND | ND |
+| Leggere un contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Crea un nuovo contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Aggiornare un contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Eliminare un contenitore | Sì | Sì | Sì | Sì | ND | ND |
 
 ## <a name="azure-cosmos-items"></a>Elementi Azure Cosmos DB
 
-A seconda dell'API usata, un elemento di Azure Cosmos può rappresentare un documento in una raccolta, una riga in una tabella o un nodo o un bordo in un grafico. La tabella seguente illustra il mapping di entità specifiche dell'API a un elemento di Azure Cosmos:
+A seconda dell'API usata, un elemento Azure Cosmos DB può rappresentare un documento in una raccolta, una riga in una tabella oppure un nodo o un arco in un grafo. La tabella seguente illustra il mapping di entità specifiche dell'API a un elemento di Azure Cosmos:
 
 | Entità Cosmos | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- |
@@ -129,7 +129,7 @@ Ogni elemento di Azure Cosmos presenta le seguenti proprietà definite dal siste
 |Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (inclusi JSON, BSON e CQL) | Sì | Sì | Sì | Sì | Sì |
 
 > [!NOTE]
-> L' `id` univocità della proprietà viene applicata solo all'interno di ogni partizione logica. Più documenti possono avere la stessa `id` proprietà con valori di chiave di partizione diversi.
+> L'univocità della `id` proprietà viene applicata solo all'interno di ogni partizione logica. Più documenti possono avere la stessa `id` proprietà con valori di chiave di partizione diversi.
 
 ### <a name="operations-on-items"></a>Operazioni sugli elementi
 

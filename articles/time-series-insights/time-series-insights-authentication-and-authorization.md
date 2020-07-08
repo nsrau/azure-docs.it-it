@@ -4,29 +4,24 @@ description: Questo articolo descrive come configurare l'autenticazione e l'auto
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+ms.author: shresha
+manager: dpalled
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/18/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: bf959a7ac8c1038c4306a45ba4519374c5d85f29
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 94fef951bf1c5c9d69a9b49cd9465d7d248c74a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612283"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099223"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
 Questo documento descrive come registrare un'app in Azure Active Directory con il nuovo pannello Azure Active Directory. Le app registrate in Azure Active Directory consentono agli utenti di eseguire l'autenticazione e ottenere l'autorizzazione a usare l'API di Azure Time Series Insights associata a un ambiente Time Series Insights.
-
-> [!IMPORTANT]
-> Azure Time Series Insights supporta entrambe le librerie di autenticazione seguenti:
-> * La più recente [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
-> * L'[Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="service-principal"></a>Entità servizio
 
@@ -81,9 +76,9 @@ Come indicato nel **passaggio 3**, la separazione delle credenziali dell'applica
 
 ### <a name="client-app-initialization"></a>Inizializzazione dell'app client
 
-* Per eseguire l'autenticazione con Azure Time Series Insights, gli sviluppatori possono usare la [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) o l'[Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+* Gli sviluppatori possono utilizzare la [Microsoft Authentication Library (MSAL) per l'autenticazione con Azure Time Series Insights.
 
-* Ad esempio, per eseguire l'autenticazione con ADAL:
+* Per eseguire l'autenticazione con ADAL:
 
    1. Usare l'**ID applicazione** e il **segreto client** (chiave applicazione) indicati nella sezione relativa alla registrazione dell'app Azure Active Directory al fine di acquisire il token per conto dell'applicazione.
 
@@ -93,7 +88,10 @@ Come indicato nel **passaggio 3**, la separazione delle credenziali dell'applica
 
    1. Il token può quindi essere passato nell'intestazione `Authorization` quando l'applicazione chiama l'API Time Series Insights.
 
-* In alternativa, gli sviluppatori possono scegliere di eseguire l'autenticazione con MSAL. Per altre informazioni, vedere [Eseguire la migrazione a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) e l'articolo [Gestire i dati di riferimento di disponibilità generale di un ambiente Azure Time Series Insights con C#](time-series-insights-manage-reference-data-csharp.md).
+> [!IMPORTANT]
+> Se si usa [Azure Active Directory Authentication Library (adal),](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) vedere la pagina relativa [alla migrazione a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
+
+    See our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
 
 ## <a name="common-headers-and-parameters"></a>Intestazioni e parametri comuni
 
@@ -119,7 +117,7 @@ Di seguito sono descritte le intestazioni della richiesta obbligatorie.
 
 > [!IMPORTANT]
 > Il token deve essere emesso esattamente nella risorsa `https://api.timeseries.azure.com/` (nota anche come "destinatario" del token).
-> * L'**AuthURL** [Postman](https://www.getpostman.com/) sarà: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * L'**AuthURL** [Postman](https://www.getpostman.com/) sarà: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
 > * `https://api.timeseries.azure.com/` è valido, ma `https://api.timeseries.azure.com` non lo è.
 
 Di seguito sono descritte le intestazioni della richiesta facoltative.
@@ -161,10 +159,10 @@ I parametri della stringa di query dell'URL facoltativi includono l'impostazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per un esempio di codice che chiama l'API di Time Series Insights a disponibilità generale, vedere [Eseguire query sui dati con C#](./time-series-insights-query-data-csharp.md).
+* Per un esempio di codice che chiama l'API di Time Series Insights a disponibilità generale, vedere [Eseguire query sui dati con C#](./time-series-insights-query-data-csharp.md).
 
-- Per esempi di codice dell'API di Time Series Insights di anteprima, vedere [Eseguire query dei dati di anteprima con C#](./time-series-insights-update-query-data-csharp.md).
+* Per esempi di codice dell'API di Time Series Insights di anteprima, vedere [Eseguire query dei dati di anteprima con C#](./time-series-insights-update-query-data-csharp.md).
 
-- Per le informazioni di riferimento sull'API, vedere la documentazione di [ riferimento sull'API di query](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+* Per le informazioni di riferimento sull'API, vedere la documentazione di [ riferimento sull'API di query](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
-- Informazioni su come [creare un'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md).
+* Informazioni su come [creare un'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md).

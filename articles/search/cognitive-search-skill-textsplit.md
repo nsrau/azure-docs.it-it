@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.openlocfilehash: 52aaeb01fef551eee350c6db662c2690ef7b3e78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73479669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981949"
 ---
 # <a name="text-split-cognitive-skill"></a>Competenza cognitiva Divisione del testo
 
@@ -31,23 +31,23 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 | Nome parametro     | Descrizione |
 |--------------------|-------------|
-| textSplitMode      | "Pagine" o "frasi" | 
-| maximumPageLength | Se textSplitMode è impostato su "pagine", si riferisce alla lunghezza massima della pagina misurata da `String.Length`. Il valore minimo è 100.  Se textSplitMode è impostato su "pages", l'algoritmo tenterà di suddividere il testo in blocchi con una dimensione massima di "maximumPageLength". In questo caso, l'algoritmo cercherà di interrompere una frase al suo termine, per questo motivo la dimensione del blocco potrebbe essere leggermente inferiore a "maximumPageLength". | 
-| defaultLanguageCode   | (facoltativo) Uno dei codici lingua seguenti: `da, de, en, es, fi, fr, it, ko, pt`. La lingua predefinita è Inglese (en). Alcuni aspetti da considerare:<ul><li>Se si passa un formato languagecode-countrycode, viene usata solo la parte languagecode del formato.</li><li>Se la lingua non è presente nell'elenco precedente, la competenza di suddivisione divide il testo in base ai limiti di carattere.</li><li>Fornire un codice di lingua è utile per evitare di tagliare una parola a metà per i linguaggi diversi da uno spazio, come il cinese, il giapponese e il coreano.</li><li>Se non si conosce la lingua (ad esempio, è necessario suddividere il testo per l'input in [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), il valore predefinito di inglese (en) dovrebbe essere sufficiente. </li></ul>  |
+| `textSplitMode`    | "Pagine" o "frasi" | 
+| `maximumPageLength` | Se textSplitMode è impostato su "pagine", si riferisce alla lunghezza massima della pagina misurata da `String.Length`. Il valore minimo è 300.  Se textSplitMode è impostato su "pages", l'algoritmo tenterà di suddividere il testo in blocchi con una dimensione massima di "maximumPageLength". In questo caso, l'algoritmo cercherà di interrompere una frase al suo termine, per questo motivo la dimensione del blocco potrebbe essere leggermente inferiore a "maximumPageLength". | 
+| `defaultLanguageCode` | (facoltativo) Uno dei codici lingua seguenti: `da, de, en, es, fi, fr, it, ko, pt`. La lingua predefinita è Inglese (en). Alcuni aspetti da considerare:<ul><li>Se si passa un formato languagecode-countrycode, viene usata solo la parte languagecode del formato.</li><li>Se la lingua non è presente nell'elenco precedente, la competenza di suddivisione divide il testo in base ai limiti di carattere.</li><li>Fornire un codice di lingua è utile per evitare di tagliare una parola a metà per i linguaggi diversi da uno spazio, come il cinese, il giapponese e il coreano.</li><li>Se non si conosce la lingua (ad esempio, è necessario suddividere il testo per l'input in [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), il valore predefinito di inglese (en) dovrebbe essere sufficiente. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Input competenze
 
 | Nome parametro       | Descrizione      |
 |----------------------|------------------|
-| text  | Testo da suddividere in sottostringhe. |
-| languageCode  | (Facoltativo) Codice lingua per il documento. Se non si conosce la lingua (ad esempio, è necessario suddividere il testo per l'input in [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), è possibile rimuovere questo input.  |
+| `text`    | Testo da suddividere in sottostringhe. |
+| `languageCode`    | (Facoltativo) Codice lingua per il documento. Se non si conosce la lingua (ad esempio, è necessario suddividere il testo per l'input in [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), è possibile rimuovere questo input.  |
 
 ## <a name="skill-outputs"></a>Output competenze 
 
 | Nome parametro     | Descrizione |
 |--------------------|-------------|
-| textItems | Una matrice di sottostringhe che sono state estratte. |
+| `textItems`   | Una matrice di sottostringhe che sono state estratte. |
 
 
 ##  <a name="sample-definition"></a>Definizione di esempio

@@ -5,17 +5,17 @@ description: Informazioni su come applicare le procedure consigliate per la priv
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 05/17/2020
-ms.openlocfilehash: 47497f23da94e529826b8dddb05b869727fb528e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981847"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning"></a>Usare la privacy differenziale in Azure Machine Learning
 
@@ -24,6 +24,9 @@ ms.locfileid: "83663669"
 Informazioni su come applicare le procedure consigliate per la privacy differenziale ai modelli Azure Machine Learning usando i pacchetti Python WhiteNoise.
 
 La privacy differenziale è la definizione per eccellenza di privacy. I sistemi che rispettano questa definizione di privacy forniscono garanzie sicure contro un'ampia gamma di attacchi di ricostruzione e reidentificazione dei dati, inclusi gli attacchi da avversari in possesso di informazioni ausiliarie. Altre informazioni sul [funzionamento della privacy differenziale](./concept-differential-privacy.md).
+
+> [!NOTE]
+> Si noti che il Toolkit viene rinominato e verrà introdotto il nuovo nome nelle prossime settimane. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

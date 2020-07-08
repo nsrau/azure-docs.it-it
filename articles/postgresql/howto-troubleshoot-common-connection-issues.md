@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: cf051da4e2976ca54c95b54cd6ac89cb6f6cc1b1
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: c0011889e59470d94e650a19c6713074155c63fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106559"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Risolvere i problemi di connessione al database di Azure per PostgreSQL-server singolo
 
@@ -48,8 +48,9 @@ Se l'applicazione continua a non riuscire a connettersi a Database di Azure per 
 
 * Configurazione del firewall del server: assicurarsi che il firewall del server di database di Azure per PostgreSQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
 * Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio PostgreSQL, in alcuni firewall.
-* Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso * \@ServerName* mancante nel nome utente, non siano stati digitati.
+* Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso * \@ ServerName* mancante nel nome utente, non siano stati digitati.
 * Se il _server di errore non è configurato per consentire le connessioni IPv6_, si noti che il livello Basic non supporta gli endpoint del servizio VNet. È necessario rimuovere l'endpoint Microsoft. SQL dalla subnet che tenta di connettersi al server di base.
+* Se viene visualizzato l'errore _di connessione sslmode valore "* * *" non valido quando il supporto SSL non è compilato in_ errore, significa che il client PostgreSQL non supporta SSL. Probabilmente, il libpq sul lato client non è stato compilato con il flag "--with-OpenSSL". Provare a connettersi con un client PostgreSQL con supporto SSL. 
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 

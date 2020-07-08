@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de89b7f5a4b14bd4142ea3e9b9c8c0dceabd63dd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 3bc1546566e5bb79a207899fab7418480e5cfab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117880"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -38,22 +38,22 @@ Disabilitare il proxy di applicazione | Amministratore di applicazioni |
 Scaricare servizio connettore | Amministratore di applicazioni | 
 Leggere tutta la configurazione | Amministratore di applicazioni | 
 
-## <a name="b2c"></a>B2C
+## <a name="external-identitiesb2c"></a>Identità esterne/B2C
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Creare directory di Azure AD B2C | Tutti gli utenti non guest ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Creare applicazioni B2C | Amministratore globale | 
 Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore di applicazioni
-Creare, leggere, aggiornare ed eliminare criteri B2C | Amministratore criteri B2C Framework dell'esperienza | 
-Creare, leggere, aggiornare ed eliminare provider di identità | Amministratore del provider di identità esterno | 
-Creare, leggere, aggiornare ed eliminare flussi utente con ripristino delle password | Amministratore flusso utente B2C | 
-Creare, leggere, aggiornare ed eliminare flussi utente con modifica dei profili | Amministratore flusso utente B2C | 
-Creare, leggere, aggiornare ed eliminare flussi utente con accesso | Amministratore flusso utente B2C | 
-Creare, leggere, aggiornare ed eliminare flussi utente con iscrizione |Amministratore flusso utente B2C | 
-Creare, leggere, aggiornare ed eliminare attributi utente | Amministratore attributi flusso utente B2C | 
+Creare, leggere, aggiornare ed eliminare criteri B2C | Amministratore dei criteri IEF B2C | 
+Creare, leggere, aggiornare ed eliminare provider di identità | Amministratore dei provider di identità esterni | 
+Creare, leggere, aggiornare ed eliminare flussi utente con ripristino delle password | Amministratore flusso utente ID esterno | 
+Creare, leggere, aggiornare ed eliminare flussi utente con modifica dei profili | Amministratore flusso utente ID esterno | 
+Creare, leggere, aggiornare ed eliminare flussi utente con accesso | Amministratore flusso utente ID esterno | 
+Creare, leggere, aggiornare ed eliminare flussi utente con iscrizione |Amministratore flusso utente ID esterno | 
+Creare, leggere, aggiornare ed eliminare attributi utente | Amministratore attributo flusso utente ID esterno | 
 Creare, leggere, aggiornare ed eliminare utenti | Amministratore utenti
-Leggere tutta la configurazione | Lettore globale | 
+Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | 
 Log di controllo di B2C di lettura | Lettore globale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
@@ -76,9 +76,17 @@ Configurare le proprietà aziendali | Amministratore globale |
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Autenticazione pass-through | Amministratore identità ibrida  | 
-Leggere tutta la configurazione | Lettore globale | Amministratore identità ibrida  |
-Accesso Single Sign-On facile (Seamless SSO) | Amministratore identità ibrida  | 
+Autenticazione pass-through | Amministratore globale  | 
+Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | Amministratore globale  |
+Accesso Single Sign-On facile (Seamless SSO) | Amministratore globale  | 
+
+## <a name="cloud-provisioning"></a>Provisioning cloud
+
+Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
+---- | --------------------- | ----------------
+Autenticazione pass-through | Amministratore delle identità ibride  | 
+Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | Amministratore delle identità ibride  |
+Accesso Single Sign-On facile (Seamless SSO) | Amministratore delle identità ibride  | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -109,7 +117,7 @@ Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella dire
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Creare un'istanza di Azure AD Domain Services | Amministratore globale | 
-Eseguire tutte le attività di servizi di dominio Azure Active Directory | Gruppo di amministratori Azure AD DC ([vedere la documentazione](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
+Eseguire tutte le attività di servizi di dominio Azure Active Directory | Gruppo di amministratori Azure AD DC ([vedere la documentazione](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Leggere tutta la configurazione | Lettore nella sottoscrizione di Azure che contiene il servizio Active Directory Domain Services | 
 
 ## <a name="devices"></a>Dispositivi
@@ -153,10 +161,10 @@ Aggiungere i siti di SharePoint Online al catalogo | Amministratore globale
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Assegnare una licenza | Amministratore utenti | 
-Creare un gruppo | Amministratore utenti | 
+Creare un gruppo | Amministratore di gruppi | Amministratore utenti
 Creare, aggiornare o cancellare la verifica di accesso di un gruppo o di un'applicazione | Amministratore utenti | 
 Gestire la scadenza dei gruppi | Amministratore utenti | 
-Gestire le impostazioni dei gruppi | Amministratore gruppi | Amministratore utenti | 
+Gestire le impostazioni dei gruppi | Amministratore di gruppi | Amministratore utenti | 
 Leggere tutta la configurazione (eccetto l'appartenenza nascosta) | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Leggere le appartenenze nascoste | Membro di un gruppo | Proprietario del gruppo, amministratore password, amministratore di Exchange, amministratore di SharePoint, amministratore team, Amministratore utenti
 Leggere l'appartenenza dei gruppi con appartenenza nascosta | Amministratore del supporto tecnico | Amministratore utenti, amministratore team
@@ -164,6 +172,7 @@ Revocare la licenza | Amministratore licenze | Amministratore utenti
 Aggiornare l'appartenenza al gruppo | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti
 Aggiornare i proprietari dei gruppi | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti
 Aggiornare proprietà del gruppo | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti
+Eliminare gruppo | Amministratore di gruppi | Amministratore utenti
 
 ## <a name="identity-protection"></a>Identity Protection
 
@@ -226,18 +235,18 @@ Configurare un bypass monouso | Amministratore globale |
 Configurare impostazioni telefonata | Amministratore globale | 
 Configurare provider | Amministratore globale | 
 Configurare le impostazioni del server | Amministratore globale | 
-Leggere il report attività | Lettore globale | 
-Leggere tutta la configurazione | Lettore globale | 
-Leggere lo stato del server | Lettore globale |  
+Leggere il report attività | Ruolo con autorizzazioni di lettura globali | 
+Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | 
+Leggere lo stato del server | Ruolo con autorizzazioni di lettura globali |  
 
 ## <a name="organizational-relationships"></a>Relazioni aziendali
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Gestire i provider di identità | Amministratore del provider di identità esterno | 
+Gestire i provider di identità | Amministratore dei provider di identità esterni | 
 Gestire le impostazioni | Amministratore globale | 
 Gestire le condizioni per l'utilizzo | Amministratore globale | 
-Leggere tutta la configurazione | Lettore globale | 
+Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | 
 
 ## <a name="password-reset"></a>Reimpostazione della password
 
@@ -273,7 +282,9 @@ Leggere tutta la configurazione | Ruolo utente predefinito ([vedere la documenta
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Configurare i metodi di autenticazione | Amministratore globale | 
-Leggere tutta la configurazione | Lettore globale | 
+Configurare la protezione con password | Amministratore della protezione
+Configurare il blocco intelligente | Amministratore della protezione
+Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | 
 
 ## <a name="security---conditional-access"></a>Sicurezza-accesso condizionale
 
@@ -292,15 +303,15 @@ Disabilitare i criteri classici | Amministratore di accesso condizionale | Ammin
 Gestire controlli personalizzati | Amministratore di accesso condizionale | Amministratore della protezione
 Gestire posizioni specifiche | Amministratore di accesso condizionale | Amministratore della protezione
 Gestire le condizioni per l'utilizzo | Amministratore di accesso condizionale | Amministratore della protezione
-Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della protezione
+Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della sicurezza
 Leggere posizioni specifiche | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore dell'accesso condizionale, amministratore della sicurezza
 
 ## <a name="security---identity-security-score"></a>Sicurezza - punteggio di sicurezza delle identità
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi | 
 ---- | --------------------- | ----------------
-Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della protezione
-Leggere punteggio di sicurezza | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della protezione
+Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della sicurezza
+Leggere punteggio di sicurezza | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della sicurezza
 Aggiornare stato dell'evento | Amministratore della protezione | 
 
 ## <a name="security---risky-sign-ins"></a>Sicurezza - accessi a rischio
@@ -330,11 +341,11 @@ Create user | Amministratore utenti |
 Eliminare gli utenti | Amministratore utenti | 
 Invalidare i token di aggiornamento degli amministratori con limitazioni (vedere la documentazione) | Amministratore utenti | 
 Invalidare i token di aggiornamento dei non amministratori (vedere la documentazione) | Amministratore password | Amministratore utenti
-Invalidare i token di aggiornamento degli amministratori con privilegi (vedere la documentazione) | Amministratore di autenticazione con privilegi | 
+Invalidare i token di aggiornamento degli amministratori con privilegi (vedere la documentazione) | Amministratore autenticazione con privilegi | 
 Leggere configurazione di base | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Reimpostare la password per gli amministratori con limitazioni (vedere la documentazione) | Amministratore utenti | 
 Reimpostare la password per i non amministratori (vedere la documentazione) | Amministratore password | Amministratore utenti
-Reimpostare la password degli amministratori con privilegi | Amministratore di autenticazione con privilegi | 
+Reimpostare la password degli amministratori con privilegi | Amministratore autenticazione con privilegi | 
 Revocare la licenza | Amministratore licenze | Amministratore utenti
 Aggiornare tutte le proprietà, ad eccezione del nome dell'entità utente | Amministratore utenti | 
 Aggiornare il nome dell'entità utente per gli amministratori con limitazioni (vedere la documentazione) | Amministratore utenti | 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 16aac5c765c36c49919685ee58e8034786ddf1ae
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 208f0d73b4c8bb11adc9c73796ebc6a622f5ed50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118169"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introduzione all'API etcd di Azure Cosmos DB (anteprima)
 
@@ -31,7 +31,7 @@ Azure Cosmos DB implementa il protocollo Wire etcd versione 3 e consente ai serv
 
 Il diagramma seguente illustra i componenti di un cluster Kubernetes. Nel master del cluster, il server API usa l'API etcd di Azure Cosmos DB anziché etcd installato localmente. 
 
-![Implementazione del protocollo Wire etcd con Azure Cosmos DB](./media/etcd-api-introduction/etcd-api-wire-protocol.png)
+:::image type="content" source="./media/etcd-api-introduction/etcd-api-wire-protocol.png" alt-text="Implementazione del protocollo Wire etcd con Azure Cosmos DB" border="false":::
 
 ## <a name="key-benefits"></a>Vantaggi principali
 

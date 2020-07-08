@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Offre una panoramica dell'appliance di Azure Migrate usata per la valutazione e la migrazione del server.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758946"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106577"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -47,9 +47,9 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Distribuzione supportata** | Distribuire come macchina virtuale di VMware usando il modello OVA.<br/><br/> Distribuire come macchina virtuale VMware o computer fisico con uno script di installazione di PowerShell.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance può individuare fino a 10.000 macchine virtuali VMware in un server vCenter.<br/> Un'appliance può connettersi a un solo server vCenter.
-**Modello OVA** | Scaricare dal portale o da https://aka.ms/migrate/appliance/vmware.<br/><br/> Le dimensioni del download sono 11,2 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
-**Script di PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112) dello script.<br/><br/> 
-**Software/hardware** |  L'appliance deve essere eseguita in un computer con Windows Server 2016, con una RAM di 32 GB, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/> L'appliance richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in una macchina virtuale VMware, è necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale che soddisfa i requisiti.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware. 
+**Modello OVA** | Scaricare dal portale o da https://aka.ms/migrate/appliance/vmware.<br/><br/> Le dimensioni del download sono di 10,9 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
+**Script di PowerShell** | Vedere questo [articolo](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-vmware).<br/><br/> 
+**Software/hardware** |  L'appliance deve essere eseguita in un computer con Windows Server 2016, con una RAM di 32 GB, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/> L'appliance richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in una macchina virtuale VMware, è necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale che soddisfa i requisiti.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.
 **Requisiti di VMware** | Se si distribuisce l'appliance come macchina virtuale VMware, questa deve essere distribuita in un host ESXi che esegue la versione 5.5 o successiva.<br/><br/> Server vCenter che esegue la versione 5.5, 6.0, 6.5 o 6.7.
 **VDDK (migrazione senza agente)** | Se si distribuisce l'appliance come macchina virtuale VMware e si esegue una migrazione senza agente, è necessario installare VMware vSphere VDDK nella macchina virtuale dell'appliance.
 **Valore hash - OVA** | [Verificare](tutorial-assess-vmware.md#verify-security) i valori hash del modello OVA.
@@ -68,8 +68,8 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance consente di individuare fino a 5000 macchine virtuali Hyper-V.<br/> Un'appliance può connettersi al massimo con 300 host Hyper-V.
 **Modello di disco rigido virtuale** | Cartella compressa con include il disco rigido virtuale. Scaricare dal portale o da https://aka.ms/migrate/appliance/hyperv.<br/><br/> Le dimensioni del download sono 10 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
-**Script di PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112) dello script.<br/><br/> 
-**Software/hardware***   |  L'appliance deve essere eseguita in un computer con Windows Server 2016, con una RAM di 32 GB, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance come macchina virtuale Hyper-V, è necessario disporre di risorse sufficienti nell'host Hyper-V per allocare una RAM da 16 GB, 8 vCPU, circa 80 GB di spazio di archiviazione e un commutatore esterno per la macchina virtuale dell'appliance.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware. 
+**Script di PowerShell** | Vedere questo [articolo](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-hyper-v).<br/><br/> 
+**Software/hardware***   |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance come macchina virtuale Hyper-V, è necessario disporre di risorse sufficienti nell'host Hyper-V per allocare una RAM da 16 GB, 8 vCPU, circa 80 GB di spazio di archiviazione e un commutatore esterno per la macchina virtuale dell'appliance.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware. 
 **Requisiti di Hyper-V** | Se si distribuisce l'appliance con il modello di disco rigido virtuale, la macchina virtuale dell'appliance messa a disposizione da Azure Migrate è la macchina virtuale Hyper-V versione 5.0.<br/><br/> L'host Hyper-V deve eseguire Windows Server 2012 R2 o una versione successiva. 
 **Valore hash - Disco rigido virtuale** | [Verificare](tutorial-assess-hyper-v.md#verify-security) i valori hash del modello di disco rigido virtuale.
 **Valore hash - Script di PowerShell** | [Verificare](deploy-appliance-script.md#verify-file-security) i valori hash dello script di PowerShell.
@@ -83,9 +83,9 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Componenti dell'appliance** | L'appliance include i componenti seguenti: <br/><br/> - **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di valutazione**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.
 **Distribuzione supportata** | Distribuire come computer fisico dedicato o macchina virtuale con uno script di installazione di PowerShell. Lo script può essere scaricato dal portale.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
-**Limiti dell'individuazione** | Un'appliance consente di individuare fino a 250 server fisici.
-**Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale. [Altre informazioni](tutorial-assess-physical.md#set-up-the-appliance) In alternativa [scaricare direttamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Le dimensioni del download sono 59,7 MB.
-**Software/hardware** |  L'appliance deve essere eseguita in un computer con Windows Server 2016, con una RAM di 32 GB, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.<br/> L'esecuzione dell'appliance in un computer con Windows Server 2019 non è supportata.
+**Limiti dell'individuazione** | Un'appliance può individuare fino a 1000 di server fisici.
+**Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale. [Altre informazioni](tutorial-assess-physical.md#set-up-the-appliance) In alternativa [scaricare direttamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Le dimensioni del download sono pari a 63,1 MB.
+**Software/hardware** |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.<br/> L'esecuzione dell'appliance in un computer con Windows Server 2019 non è supportata.
 **Valore hash** | [Verificare](deploy-appliance-script.md#verify-file-security) i valori hash dello script di PowerShell.
 
 ## <a name="url-access"></a>accesso con URL
@@ -206,11 +206,77 @@ Operazioni di scrittura su disco al secondo | virtualDisk.numberWriteAveraged.av
 Velocità effettiva di lettura della scheda di interfaccia di rete (MB al secondo) | net.received.average | Calcolo delle dimensioni della macchina virtuale
 Velocità effettiva di scrittura della scheda di interfaccia di rete (MB al secondo) | net.transmitted.average  |Calcolo delle dimensioni della macchina virtuale
 
+
+### <a name="installed-apps-metadata"></a>Metadati delle app installate
+
+L'individuazione applicazioni raccoglie le applicazioni installate e i dati del sistema operativo.
+
+#### <a name="windows-vm-apps-data"></a>Dati delle app VM Windows
+
+Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
+
+**Dati** | **Percorso del registro** | **Chiave**
+--- | --- | ---
+Nome dell'applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
+Versione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Provider  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+
+#### <a name="windows-vm-features-data"></a>Dati delle funzionalità della VM Windows
+
+Ecco i dati sulle funzionalità che l'appliance raccoglie da ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
+
+**Dati**  | **Cmdlet di PowerShell** | **Proprietà**
+--- | --- | ---
+Nome  | Get-WindowsFeature  | Nome
+Feature Type | Get-WindowsFeature  | FeatureType
+Parent  | Get-WindowsFeature  | Parent
+
+#### <a name="windows-vm-sql-server-metadata"></a>Metadati di SQL Server VM Windows
+
+Ecco i metadati di SQL Server raccolti dall'appliance dalle macchine virtuali che eseguono Microsoft SQL Server abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
+
+**Dati**  | **Percorso del registro**  | **Chiave**
+--- | --- | ---
+Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL server\istanza Names\SQL  | installedInstance
+Edizione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Edizione 
+Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
+Versione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Versione 
+
+#### <a name="windows-vm-operating-system-data"></a>Dati del sistema operativo della VM Windows
+
+Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
+
+Data  | classe WMI  | Proprietà della classe WMI
+--- | --- | ---
+Nome  | Win32_operatingsystem  | Sottotitolo
+Versione  | Win32_operatingsystem  | Versione
+Architecture  | Win32_operatingsystem  | OSArchitecture
+
+#### <a name="linux-vm-apps-data"></a>Dati delle app VM Linux
+
+Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchina virtuale abilitata per l'individuazione delle applicazioni. In base al sistema operativo della macchina virtuale, vengono eseguiti uno o più comandi. Questi dati vengono inviati ad Azure.
+
+Data  | Comando
+--- | --- 
+Nome | rpm, dpkg-query, snap
+Versione | rpm, dpkg-query, snap
+Provider | rpm, dpkg-query, snap
+
+#### <a name="linux-vm-operating-system-data"></a>Dati del sistema operativo della VM Linux
+
+Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
+
+**Dati**  | **Comando** 
+--- | --- | ---
+Nome <br/> version | Raccolto da uno o più dei seguenti file:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Architecture | uname
+
+
 ### <a name="app-dependencies-metadata"></a>Metadati delle dipendenze dell'app
 
 L'analisi delle dipendenze senza agenti raccoglie i dati di connessione e del processo.
 
-#### <a name="connection-data"></a>Dati di connessione
+#### <a name="windows-vm-app-dependencies-data"></a>Dati sulle dipendenze dell'app VM Windows
 
 Ecco i dati di connessione raccolti dall'appliance in ogni macchina virtuale abilitata all'analisi delle dipendenze senza agenti. Questi dati vengono inviati ad Azure.
 
@@ -224,7 +290,7 @@ Stato di connessione TCP | netstat
 ID di processo | netstat
 Numero di connessioni attive | netstat
 
-#### <a name="process-data"></a>Elaborazione dei dati
+
 Ecco i dati del processo raccolti dall'appliance in ogni macchina virtuale abilitata all'analisi delle dipendenze senza agenti. Questi dati vengono inviati ad Azure.
 
 **Dati** | **Classe WMI** | **Proprietà della classe WMI**
@@ -233,7 +299,7 @@ Nome del processo | Win32_Process | ExecutablePath
 Argomenti del processo | Win32_Process | CommandLine
 Nome applicazione | Win32_Process | Parametro VersionInfo.ProductName della proprietà ExecutablePath
 
-#### <a name="linux-vm-data"></a>Dati della macchina virtuale Linux
+#### <a name="linux-vm-app-dependencies-data"></a>Dati sulle dipendenze dell'app VM Linux
 
 Ecco i dati di connessione e del processo raccolti dall'appliance in ogni macchina virtuale Linux abilitata all'analisi delle dipendenze senza agenti. Questi dati vengono inviati ad Azure.
 
@@ -358,8 +424,8 @@ Di seguito sono riportati i dati sulle prestazioni del server Windows raccolti d
 
 **Dati** | **Classe WMI** | **Proprietà della classe WMI**
 --- | --- | ---
-Utilizzo di CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
-Utilizzo della memoria | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
+Utilizzo della CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Utilizzo memoria | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
 Numero di schede di interfaccia di rete | Win32_PerfFormattedData_Tcpip_NetworkInterface | Ottenere il numero di dispositivi di rete.
 Dati ricevuti per ogni scheda di interfaccia di rete | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
 Dati trasmessi per ogni scheda di interfaccia di rete | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec

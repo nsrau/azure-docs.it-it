@@ -1,50 +1,66 @@
 ---
-title: Migliorare l'eccellenza operativa per le sottoscrizioni di Azure con Azure Advisor
-description: USA Advisor per ottimizzare e ottenere una maturazione dell'eccellenza operativa per le tue sottoscrizioni di Azure
+title: Miglioramento dell'eccellenza operativa con Advisor
+description: USA Azure Advisor per ottimizzare e maturare l'eccellenza operativa per le tue sottoscrizioni di Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 4133fbe40c0fc1bdaf9c3f734bc19f94437c9acb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1cac5a3f93df8422a3896b1251857bf552731fb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125396"
 ---
-# <a name="achieve-operational-excellence-with-azure-advisor"></a>Ottenere l'eccellenza operativa con Azure Advisor
+# <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Ottenere l'eccellenza operativa usando Azure Advisor
 
-Azure Advisor consigli di eccellenza operativa aiutano i clienti a usare processi e efficienza dei flussi di lavoro, gestibilità delle risorse e procedure consigliate per la distribuzione. È possibile ottenere questi consigli da Advisor nella scheda **Operational excellence** del dashboard di Advisor.
+Le raccomandazioni di eccellenza operativa in Azure Advisor possono essere utili per: 
+- Efficienza dei processi e dei flussi di lavoro.
+- Gestibilità delle risorse.
+- Procedure consigliate per la distribuzione. 
 
-## <a name="create-azure-service-health-alerts-to-be-notified-when-azure-issues-affect-you"></a>Creare avvisi di integrità dei servizi Azure per ricevere una notifica quando si verificano problemi in Azure
+È possibile ottenere questi consigli nella scheda **Operational excellence** del dashboard di Advisor.
 
-Si consiglia di impostare gli avvisi di integrità dei servizi Azure per ricevere una notifica quando si verificano problemi di servizio in Azure. [Integrità dei servizi di Azure](https://azure.microsoft.com/features/service-health/) è un servizio gratuito che fornisce supporto e indicazioni personalizzati quando si verifica un problema di servizio in Azure. Advisor identifica le sottoscrizioni che non dispongono degli avvisi configurati e ne consiglia la creazione.
+## <a name="create-azure-service-health-alerts-to-be-notified-when-azure-problems-affect-you"></a>Crea avvisi di integrità dei servizi di Azure per ricevere una notifica quando si verificano problemi di Azure
 
-## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Progettare gli account di archiviazione per evitare di raggiungere il limite massimo di sottoscrizioni
+Si consiglia di configurare gli avvisi di integrità dei servizi di Azure in modo da ricevere una notifica quando si verificano problemi relativi ai servizi di Azure. [Integrità dei servizi di Azure](https://azure.microsoft.com/features/service-health/) è un servizio gratuito che fornisce indicazioni e supporto personalizzati quando si è interessati da un problema di servizio di Azure. Advisor identifica le sottoscrizioni che non hanno gli avvisi configurati e ne consiglia la configurazione.
 
-Un'area di Azure può supportare un massimo di 250 account di archiviazione per sottoscrizione. Una volta raggiunto il limite, non sarà possibile creare altri account di archiviazione in tale combinazione di area/sottoscrizione. Advisor verificherà le sottoscrizioni e le raccomandazioni sulla superficie per la progettazione per un minor numero di account di archiviazione per qualsiasi valore vicino al raggiungimento del limite massimo.
+
+## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>Progettare gli account di archiviazione per evitare di raggiungere il limite massimo di sottoscrizioni
+
+Un'area di Azure può supportare un massimo di 250 account di archiviazione per sottoscrizione. Una volta raggiunto tale limite, non sarà possibile creare account di archiviazione in tale combinazione di area/sottoscrizione. Advisor controlla le sottoscrizioni e fornisce consigli per la progettazione per un minor numero di account di archiviazione per qualsiasi area/sottoscrizione vicina al raggiungimento del limite.
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Verificare di poter consultare gli esperti di cloud di Azure quando necessario
 
-Quando si esegue un carico di lavoro aziendale critico, è importante avere accesso al supporto tecnico se necessario. Advisor identifica potenziali sottoscrizioni aziendali critiche che non hanno il supporto tecnico incluso nel piano di supporto e consiglia di eseguire l'aggiornamento a un'opzione che includa il supporto tecnico.
+Quando si esegue un carico di lavoro cruciale per l'azienda, è importante avere accesso al supporto tecnico quando necessario. Advisor identifica le potenziali sottoscrizioni cruciali per l'azienda che non hanno il supporto tecnico incluso nel piano di supporto. Si consiglia di eseguire l'aggiornamento a un'opzione che include il supporto tecnico.
+
+## <a name="delete-and-re-create-your-pool-to-remove-a-deprecated-internal-component"></a>Eliminare e ricreare il pool per rimuovere un componente interno deprecato
+
+Se il pool usa un componente interno deprecato, eliminare e ricreare il pool per migliorare la stabilità e le prestazioni.
 
 ## <a name="repair-invalid-log-alert-rules"></a>Ripristinare le regole di avviso del log non valide
 
-Azure Advisor rileverà le regole di avviso con query non valide specificate nella relativa sezione di condizione. Le regole di avviso del log vengono create in Monitoraggio di Azure e vengono usate per eseguire le query di analisi a intervalli specificati. I risultati della query determinano se è necessario attivare un avviso. Le query di analisi doverebbero diventare non valide nel corso del tempo a causa di modifiche nelle risorse, nelle tabelle o nei comandi di riferimento. Advisor consiglia di correggere la query nella regola di avviso per impedirne la disabilitazione automatica e garantire il monitoraggio della copertura delle risorse in Azure. [Ulteriori informazioni sulla risoluzione dei problemi relativi alle regole di avviso](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor rileva le regole di avviso con query non valide specificate nella relativa sezione di condizione. È possibile creare regole di avviso del log in monitoraggio di Azure e usarle per eseguire query di analisi a intervalli specificati. I risultati della query determinano se è necessario attivare un avviso. Le query di analisi possono diventare non valide nel tempo a causa di modifiche nelle risorse, nelle tabelle o nei comandi a cui si fa riferimento. Advisor consiglia di correggere la query nella regola di avviso per impedirne la disabilitazione automatica e garantire il monitoraggio della copertura delle risorse in Azure. [Altre informazioni sulla risoluzione dei problemi relativi alle regole di avviso.](https://aka.ms/aa_logalerts_queryrepair)
 
-## <a name="follow-best-practices-using-azure-policy"></a>Seguire le procedure consigliate con criteri di Azure
+## <a name="use-azure-policy-recommendations"></a>Usare le raccomandazioni relative ai criteri di Azure
 
-Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire criteri. Questi criteri applicano regole ed effetti diversi alle risorse. Di seguito sono riportate le indicazioni per i criteri di Azure che consentono di ottenere l'eccellenza operativa: 
-1. Gestione dei tag con criteri di Azure: questo criterio aggiunge o sostituisce il tag e il valore specificati quando viene creata o aggiornata una risorsa. È possibile correggere le risorse esistenti attivando un'attività di correzione. Inoltre, non modifica i tag nei gruppi di risorse.
-2. Applicare i requisiti di conformità geografica usando criteri di Azure: il criterio consente di limitare le posizioni che l'organizzazione può specificare durante la distribuzione delle risorse. 
-3. Specificare gli SKU delle macchine virtuali consentite per le distribuzioni: questo criterio consente di specificare un set di SKU di macchine virtuali che l'organizzazione può distribuire.
-4. Applicare "Controlla macchine virtuali che non usano dischi gestiti" usando Criteri di Azure
-5. Usare "eredita un tag dai gruppi di risorse" usando criteri di Azure: i criteri aggiungono o sostituiscono il tag e il valore specificati dal gruppo di risorse padre quando viene creata o aggiornata una risorsa. È possibile correggere le risorse esistenti attivando un'attività di correzione.
+Criteri di Azure è un servizio di Azure che è possibile usare per creare, assegnare e gestire i criteri. Questi criteri applicano le regole e gli effetti sulle risorse. Le seguenti raccomandazioni sui criteri di Azure consentono di ottenere l'eccellenza operativa: 
+
+**Gestire i tag.** Questi criteri aggiungono o sostituiscono il tag e il valore specifici quando vengono aggiunte o aggiornate le risorse. È possibile monitorare e aggiornare le risorse esistenti attivando un'attività di correzione. Questo criterio non modifica i tag nei gruppi di risorse.
+
+**Applicare i requisiti di conformità geografica.** Questi criteri consentono di limitare le posizioni che l'organizzazione può specificare durante la distribuzione delle risorse. 
+
+**Specificare gli SKU delle macchine virtuali consentite per le distribuzioni.** Questo criterio consente di specificare un set di SKU di macchine virtuali che possono essere distribuiti dall'organizzazione.
+
+**Applicare le *VM di controllo che non usano Managed disks*.**
+
+**Abilitare *ereditare un tag dai gruppi di risorse*.** Questi criteri aggiungono o sostituiscono il tag e il valore specifici del gruppo di risorse padre quando una risorsa viene aggiunta o aggiornata. È possibile monitorare e aggiornare le risorse esistenti attivando un'attività di correzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Informazioni di base](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
-* [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
-* [Consigli di Advisor sulla disponibilità elevata](advisor-high-availability-recommendations.md)
-* [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
+* [Attività iniziali](advisor-get-started.md)
+* [Raccomandazioni sui costi di Advisor](advisor-cost-recommendations.md)
+* [Raccomandazioni sulle prestazioni di Advisor](advisor-performance-recommendations.md)
+* [Consigli sull'affidabilità di Advisor](advisor-high-availability-recommendations.md)
+* [Raccomandazioni sulla sicurezza di Advisor](advisor-security-recommendations.md)
+* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)

@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 559c894a2212466761de820de7486ae203337802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e17fa3e99de9f429fa279ba2e5413b60e9084de8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77538465"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125703"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Integrazione continua e distribuzione continua del cloud di Azure con azioni GitHub
 
@@ -21,7 +21,7 @@ Le azioni GitHub supportano un flusso di lavoro automatizzato del ciclo di vita 
 Questo esempio richiede l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)della riga di comando di Azure.
 
 ## <a name="set-up-github-repository-and-authenticate"></a>Configurare il repository GitHub ed eseguire l'autenticazione
-Per autorizzare l'azione di accesso di Azure, sono necessarie le credenziali dell'entità servizio di Azure. Per ottenere le credenziali di Azure, eseguire i comandi seguenti nel computer locale:
+Sono necessarie le credenziali dell'entità servizio di Azure per autorizzare l'azione di accesso di Azure. Per ottenere le credenziali di Azure, eseguire i comandi seguenti nel computer locale:
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
@@ -45,7 +45,7 @@ Questo esempio usa l'esempio di [metrica Piggy](https://github.com/Azure-Samples
 
  ![Aggiungi nuovo segreto](./media/github-actions/actions1.png)
 
-Impostare il nome del segreto `AZURE_CREDENTIALS` su e il relativo valore sulla stringa JSON trovata sotto l'intestazione *configurare il repository GitHub ed eseguire l'autenticazione*.
+Impostare il nome del segreto su `AZURE_CREDENTIALS` e il relativo valore sulla stringa JSON trovata sotto l'intestazione *configurare il repository GitHub ed eseguire l'autenticazione*.
 
  ![Imposta dati segreti](./media/github-actions/actions2.png)
 
@@ -99,7 +99,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
     
     - name: Azure Login
       uses: azure/login@v1
@@ -118,7 +118,7 @@ jobs:
         az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
 ```
 ### <a name="deploy-with-azure-cli-action"></a>Eseguire la distribuzione con l'azione CLI di Azure
-Il comando `run` AZ userà la versione più recente dell'interfaccia della riga di comando di Azure. In caso di modifiche di rilievo, è anche possibile usare una versione specifica dell'interfaccia della riga di comando `action`di Azure con Azure/cli. 
+Il comando AZ userà `run` la versione più recente dell'interfaccia della riga di comando di Azure. In caso di modifiche di rilievo, è anche possibile usare una versione specifica dell'interfaccia della riga di comando di Azure con Azure/CLI `action` . 
 
 > [!Note] 
 > Questo comando verrà eseguito in un nuovo contenitore, quindi `env` non funzionerà e l'accesso ai file di azione incrociata potrebbe avere restrizioni aggiuntive.
@@ -142,7 +142,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
         
     - name: Azure Login
       uses: azure/login@v1
@@ -183,7 +183,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
         
     # Maven plugin can cosume this authentication method automatically
     - name: Azure Login
@@ -198,7 +198,7 @@ jobs:
 ```
 
 ## <a name="run-the-workflow"></a>Eseguire il flusso di lavoro
-Le **azioni** di GitHub devono essere abilitate automaticamente `.github/workflow/main.yml` dopo aver eseguito il push in GitHub. L'azione verrà attivata quando si esegue il push di un nuovo commit. Se si crea questo file nel browser, l'azione dovrebbe essere già stata eseguita.
+Le **azioni** di GitHub devono essere abilitate automaticamente dopo aver eseguito il push `.github/workflow/main.yml` in GitHub. L'azione verrà attivata quando si esegue il push di un nuovo commit. Se si crea questo file nel browser, l'azione dovrebbe essere già stata eseguita.
 
 Per verificare che l'azione sia stata abilitata, fare clic sulla scheda **azioni** nella pagina del repository GitHub:
 
@@ -211,4 +211,4 @@ Se l'azione viene eseguita in caso di errore, ad esempio se non sono state impos
 ## <a name="next-steps"></a>Passaggi successivi
 * [Key Vault per le azioni di GitHub Spring cloud](./spring-cloud-github-actions-key-vault.md)
 * [Entità servizio Azure Active Directory](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
-* [Azioni di GitHub per Azure](https://github.com/Azure/actions/)
+* [GitHub Actions per Azure](https://github.com/Azure/actions/)

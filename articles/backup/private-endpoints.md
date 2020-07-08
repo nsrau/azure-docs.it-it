@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bc778506819c44291bb2d8f69cdd9ac0aed51399
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007856"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124256"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -21,9 +21,11 @@ Questo articolo aiuta a comprendere il processo di creazione di endpoint privati
 - È possibile creare endpoint privati solo per i nuovi insiemi di credenziali dei servizi di ripristino (che non hanno elementi registrati nell'insieme di credenziali). È quindi necessario creare endpoint privati prima di provare a proteggere gli elementi nell'insieme di credenziali.
 - Una rete virtuale può contenere endpoint privati per più insiemi di credenziali di servizi di ripristino. Inoltre, un insieme di credenziali di servizi di ripristino può includere endpoint privati in più reti virtuali. Tuttavia, il numero massimo di endpoint privati che è possibile creare per un insieme di credenziali è 12.
 - Dopo aver creato un endpoint privato per un insieme di credenziali, l'insieme di credenziali verrà bloccato. Non sarà accessibile (per i backup e i ripristini) dalle reti separate da quelle che contengono un endpoint privato per l'insieme di credenziali. Se vengono rimossi tutti gli endpoint privati per l'insieme di credenziali, l'insieme di credenziali sarà accessibile da tutte le reti.
+- Una connessione all'endpoint privato per il backup usa un totale di 11 indirizzi IP privati nella subnet. Questo numero può essere maggiore (fino a 15) per determinate aree di Azure. Si consiglia quindi di avere un numero sufficiente di indirizzi IP privati disponibili quando si tenta di creare endpoint privati per il backup.
 - Mentre un insieme di credenziali di servizi di ripristino viene usato da (entrambi) backup di Azure e Azure Site Recovery, questo articolo illustra l'uso degli endpoint privati solo per il backup di Azure.
 - Azure Active Directory attualmente non supporta endpoint privati. Gli indirizzi IP e i nomi di dominio completi necessari per il funzionamento di Azure Active Directory in un'area dovranno quindi consentire l'accesso in uscita dalla rete protetta durante l'esecuzione del backup dei database in macchine virtuali di Azure e di backup con l'agente MARS. È anche possibile usare i tag NSG e i tag del firewall di Azure per consentire l'accesso ai Azure AD, come applicabile.
 - Le reti virtuali con criteri di rete non sono supportate per gli endpoint privati. Prima di continuare, è necessario disabilitare i criteri di rete.
+- È necessario registrare di nuovo il provider di risorse di servizi di ripristino con la sottoscrizione, se è stato registrato prima del 1 2020 maggio. Per registrare di nuovo il provider, passare alla sottoscrizione nel portale di Azure, passare a provider di **risorse** nella barra di spostamento a sinistra, quindi selezionare **Microsoft. RecoveryServices** e fare clic su **registra di nuovo**.
 
 ## <a name="recommended-and-supported-scenarios"></a>Scenari consigliati e supportati
 
@@ -40,9 +42,6 @@ Questa sezione illustra i passaggi necessari per la creazione e l'uso di endpoin
 
 >[!IMPORTANT]
 > Si consiglia vivamente di seguire i passaggi nella stessa sequenza come indicato in questo documento. In caso contrario, è possibile che l'insieme di credenziali venga sottoposto a rendering incompatibile per l'uso di endpoint privati e che sia necessario riavviare il processo con un nuovo insieme di credenziali.
-
->[!NOTE]
-> Alcuni elementi dell'esperienza di portale di Azure potrebbero non essere attualmente disponibili. Fai riferimento alle esperienze alternative in questi scenari fino alla disponibilità completa nella tua area.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -110,7 +109,7 @@ Se si vuole creare una zona DNS privata separata in Azure, è possibile eseguire
 
 Per i codici di area, fare riferimento a [questo elenco](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) .
 
-Per le convenzioni di denominazione degli URL in National GEOS:
+Per le convenzioni di denominazione degli URL nelle aree nazionali:
 
 - [Cina](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Germania](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
@@ -221,7 +220,7 @@ A questo scopo, è necessario creare voci per ogni FQDN nell'endpoint privato ne
 
 1. Passare alla cartella Home (ad esempio: `cd /home/user` )
 
-1. Eseguire lo script seguente:
+1. Eseguire lo script riportato di seguito:
 
     ```azurepowershell
     ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
@@ -344,7 +343,7 @@ Per creare ruoli con le autorizzazioni necessarie, è possibile usare uno dei me
 
 Creare i file JSON seguenti e usare il comando di PowerShell alla fine della sezione per creare i ruoli:
 
-PrivateEndpointContributorRoleDef. JSON
+PrivateEndpointContributorRoleDef.js
 
 ```json
 {
@@ -362,7 +361,7 @@ PrivateEndpointContributorRoleDef. JSON
 }
 ```
 
-NetworkInterfaceReaderRoleDef. JSON
+NetworkInterfaceReaderRoleDef.js
 
 ```json
 {
@@ -380,7 +379,7 @@ NetworkInterfaceReaderRoleDef. JSON
 }
 ```
 
-PrivateEndpointSubnetContributorRoleDef. JSON
+PrivateEndpointSubnetContributorRoleDef.js
 
 ```json
 {
@@ -414,7 +413,7 @@ PrivateEndpointSubnetContributorRoleDef. JSON
 
 1. Passare alla cartella Home (ad esempio: `cd /home/user` )
 
-1. Eseguire lo script seguente:
+1. Eseguire lo script riportato di seguito:
 
     ```azurepowershell
     ./VaultMsiPrereqScript.ps1 -subscription <subscription-Id> -vaultPEResourceGroup <vaultPERG> -vaultPESubnetResourceGroup <subnetRG> -vaultMsiName <msiName>

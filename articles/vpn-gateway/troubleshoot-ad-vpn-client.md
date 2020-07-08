@@ -4,15 +4,15 @@ description: Risolvere i problemi del gateway VPN P2S Azure AD client di autenti
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8871e92f0911c4d3cbcc1772bef1daeb5c70b5d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56a8514fc2531ba0b18925427814e5bfef7d64bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74151962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84988095"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Risolvere i problemi relativi a un client VPN per l'autenticazione Azure AD
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655796"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124460"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure 
 
@@ -30,9 +30,9 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
 - È necessario essere un [amministratore del servizio o un coamministratore](../../cost-management-billing/manage/add-change-subscription-administrator.md) nella sottoscrizione di Azure. 
 
-- La sottoscrizione deve essere registrata con [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- È necessario che sia installato [Azure PowerShell](/powershell/azure) o [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
+- È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 - Il servizio cloud deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
 
@@ -46,7 +46,7 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio 
 
-Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni riportate in [Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tenere presente quanto segue durante questo processo: 
+Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni disponibili in [usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tenere presente quanto segue durante questo processo: 
 
 - È possibile inserire qualsiasi URL come URL di accesso.  
 - Creare un nuovo segreto client per l'app.  

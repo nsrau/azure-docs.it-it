@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1cd80fee51565f2a2c1afa38ed883c10f51a5ee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75896623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113690"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Informazioni sulle differenze tra NoSQL e i database relazionali
 
@@ -29,7 +29,7 @@ In questi scenari, i [database distribuiti](https://en.wikipedia.org/wiki/Distri
 
 Se i volumi transazionali raggiungono livelli estremi, ad esempio molte migliaia di transazioni al secondo, è consigliabile considerare un database NoSQL distribuito. Prendere in considerazione Azure Cosmos DB per la massima efficienza, facilità di manutenzione e riduzione del costo totale di proprietà.
 
-![Back-end](./media/relational-or-nosql/backend-scaled.png)
+:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Back-end" border="false":::
 
 ## <a name="hierarchical-data"></a>Dati gerarchici
 
@@ -39,7 +39,7 @@ Tuttavia, oggi la popolarità dei database di tipo documento è aumentata signif
 
 L'emergenza della [progettazione orientata agli oggetti](https://en.wikipedia.org/wiki/Object-oriented_design)e della [mancata corrispondenza dell'impedenza](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) che si verifica quando la si combina con i modelli relazionali, evidenzia anche un anti-pattern nei database relazionali per determinati casi d'uso. È possibile che si verifichino i costi di manutenzione nascosti ma spesso significativi. Sebbene gli [approcci ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) si siano evoluti per mitigare in parte questo problema, i database orientati ai documenti sono comunque coalesti con approcci orientati agli oggetti. Con questo approccio, gli sviluppatori non sono costretti a eseguire il commit ai driver ORM o ai [motori di database oo](https://en.wikipedia.org/wiki/Object_database)specifici del linguaggio. Se i dati contengono molte relazioni padre-figlio e livelli profondi di gerarchia, è consigliabile usare un database di documenti NoSQL, ad esempio l' [API SQL Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
-![OrderDetails](./media/relational-or-nosql/order-orderdetails.jpg)
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
 ## <a name="complex-networks-and-relationships"></a>Reti e relazioni complesse
 
@@ -49,7 +49,7 @@ Sono emerse varie forme di database di "rete" durante il periodo in cui emergono
 
 Se si gestisce una rete complessa di relazioni nel database, è possibile prendere in considerazione un database a grafo, ad esempio l' [API Gremlin Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) per la gestione di questi dati.
 
-![Grafico](./media/relational-or-nosql/graph.png)
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Graph":::
 
 Azure Cosmos DB è un servizio di database multimodello, che offre una proiezione API per tutti i principali tipi di modelli di NoSQL. Famiglia di colonne, documento, grafo e chiave-valore. I livelli di API dei documenti [Gremlin (Graph)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) e SQL (Core) sono completamente interoperativi. Questa operazione offre vantaggi per il cambio tra modelli diversi a livello di programmabilità. È possibile eseguire query sugli archivi Graph in termini di attraversamenti di rete complessi e di transazioni modellate come record di documenti nello stesso archivio.
 
@@ -76,7 +76,7 @@ Sebbene esistano alcuni vantaggi evidenti quando si implementano i database NoSQ
 
 Esaminando la prima sfida, la regola empirica nei database NoSQL viene in genere denormalizzata, come articolata in precedenza, produce letture più efficienti in un sistema distribuito. Tuttavia, esistono alcuni problemi di progettazione che vengono affrontati con questo approccio. Si prenda ad esempio un prodotto correlato a una categoria e a più Tag:
 
-![Join](./media/relational-or-nosql/many-joins.png)
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Join":::
 
 Un approccio procedura consigliata in un database di documenti NoSQL consiste nel denormalizzare il nome della categoria e i nomi di tag direttamente in un "documento del prodotto". Tuttavia, per mantenere sincronizzate le categorie, i tag e i prodotti, le opzioni di progettazione per semplificare questa operazione hanno aggiunto complessità di manutenzione, perché i dati vengono duplicati tra più record del prodotto, anziché essere un semplice aggiornamento in una relazione "uno-a-molti" e un join per recuperare i dati. 
 

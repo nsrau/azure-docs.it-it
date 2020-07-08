@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125669"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Panoramica
@@ -95,7 +95,7 @@ I log di monitoraggio di Azure possono essere uno strumento utile per analisi fo
 Il [Centro sicurezza](../../security-center/security-center-intro.md) consente di prevenire, rilevare e rispondere alle minacce con maggiore visibilità e controllo sulla sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 Inoltre, il Centro sicurezza aiuta a usare le operazioni di sicurezza fornendo un unico dashboard che presenta avvisi e indicazioni su cui è possibile agire immediatamente. Spesso è possibile correggere i problemi con un solo clic nella console del Centro sicurezza.
-## <a name="applications"></a>APPLICAZIONI
+## <a name="applications"></a>Applicazioni
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle applicazioni e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="web-application-vulnerability-scanning"></a>Analisi delle vulnerabilità delle applicazioni Web
@@ -165,7 +165,7 @@ Per molte organizzazioni, la crittografia dei dati inattivi è un passaggio obbl
 -   [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 
 ### <a name="storage-analytics"></a>di Analisi archiviazione
-L'[Analisi archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) esegue la registrazione e restituisce i dati delle metriche per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione. Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite e non a un servizio di archiviazione. Queste informazioni possono essere utilizzate per monitorare le singole richieste e per diagnosticare problemi relativi a un servizio di archiviazione. Le richieste vengono registrate in base al massimo sforzo. Vengono registrati i seguenti tipi di richieste autenticate:
+[Analisi archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) esegue la registrazione e fornisce i dati di metrica per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione. Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite e non a un servizio di archiviazione. Queste informazioni possono essere utilizzate per monitorare le singole richieste e per diagnosticare problemi relativi a un servizio di archiviazione. Le richieste vengono registrate in base al massimo sforzo. Vengono registrati i seguenti tipi di richieste autenticate:
 -   Richieste riuscite
 
 -   Richieste non riuscite, tra cui timeout, limitazione, rete, autorizzazione e altri errori
@@ -223,7 +223,7 @@ Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) 
 
 ![Express Route](./media/overview/azure-security-fig1.png)
 
-Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e CRM Online. La connettività può essere stabilita da una rete (IP VPN) any-to-any, da una rete Ethernet punto a punto o da una Cross Connection virtuale tramite un provider di connettività presso una struttura di condivisione del percorso.
+Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Microsoft Azure, Microsoft 365 e CRM online. La connettività può essere stabilita da una rete (IP VPN) any-to-any, da una rete Ethernet punto a punto o da una Cross Connection virtuale tramite un provider di connettività presso una struttura di condivisione del percorso.
 
 Le connessioni ExpressRoute non usano la rete Internet pubblica e possono quindi essere considerate più sicure delle soluzioni basate su VPN. In questo modo possono offrire un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali.
 
@@ -308,7 +308,7 @@ Una parte importante della [strategia di continuità aziendale e ripristino di e
 
 Il servizio dell'insieme di credenziali delle chiavi di Azure (AKV) è progettato per migliorare la sicurezza e la gestione di queste chiavi in una posizione sicura e a elevata disponibilità. Il connettore SQL Server consente a SQL Server di usare queste chiavi da Azure Key Vault.
 
-Se si esegue SQL Server con computer locali, è possibile seguire una procedura per accedere ad Azure Key Vault dal computer SQL Server locale. Se si esegue SQL Server in VM di Azure, invece, è possibile risparmiare tempo usando la funzionalità Integrazione di Azure Key Vault. Con alcuni cmdlet di Azure PowerShell che abilitano questa funzionalità, è possibile automatizzare la configurazione necessaria per l'accesso all'insieme di credenziali delle chiavi di una macchina virtuale di SQL.
+Se si esegue SQL Server con computer locali, è possibile seguire la procedura per accedere Azure Key Vault dall'istanza di SQL Server locale. Se si esegue SQL Server in VM di Azure, invece, è possibile risparmiare tempo usando la funzionalità Integrazione di Azure Key Vault. Con alcuni cmdlet di Azure PowerShell che abilitano questa funzionalità, è possibile automatizzare la configurazione necessaria per l'accesso all'insieme di credenziali delle chiavi di una macchina virtuale di SQL.
 
 ### <a name="vm-disk-encryption"></a>Crittografia dei dischi delle VM
 [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) è una nuova funzionalità che consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Applica la funzionalità standard di settore BitLocker di Windows e la funzionalità DM-Crypt di Linux per offrire la crittografia del volume per i dischi dati e del sistema operativo. La soluzione è integrata con Azure Key Vault per consentire il controllo e la gestione dei segreti e delle chiavi di crittografia dei dischi nella sottoscrizione di Key Vault. Questa soluzione assicura anche che tutti i dati nei dischi delle macchine virtuali vengano crittografati quando inattivi in Archiviazione di Azure.

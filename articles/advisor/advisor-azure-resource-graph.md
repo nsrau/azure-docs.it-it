@@ -1,21 +1,21 @@
 ---
-title: Dati di Advisor nel grafico delle risorse di Azure
+title: Dati di Advisor in Azure Resource Graph
 description: Eseguire query per i dati di Advisor in Azure Resource Graph
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: f8ad8fd450bc004d9caa2699922717f38d38b482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502451"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117835"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Eseguire una query per i dati di Advisor in Resource Graph Explorer (grafico delle risorse di Azure)
 
 Le risorse di Advisor vengono ora caricate in [Azure Resource Graph](https://azure.microsoft.com/features/resource-graph/). Questo costituisce la base per molti scenari di clienti su larga scala per le raccomandazioni di Advisor. Pochi scenari che non erano possibili prima di eseguire su larga scala e che ora possono essere realizzati usando il grafico risorse sono:
 * Offre la possibilità di eseguire query complesse per tutte le sottoscrizioni in portale di Azure
-* Indicazioni riepilogate in base ai tipi di categoria (ad esempio disponibilità elevata, prestazioni) e tipi di effetto (alta, media, bassa)
+* Indicazioni riepilogate in base ai tipi di categoria (ad esempio affidabilità, prestazioni) e ai tipi di effetto (alta, media, bassa)
 * Tutti i consigli per un particolare tipo di raccomandazione
 * Conteggio risorse interessate per categoria raccomandazione
 
@@ -36,9 +36,10 @@ Questi tipi di risorse sono elencati in una nuova tabella denominata AdvisorReso
 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Introduzione a Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
-* [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
-* [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
+* [Introduzione ad Advisor](advisor-get-started.md)
+* [Raccomandazioni sui costi di Advisor](advisor-cost-recommendations.md)
+* [Consigli sull'affidabilità di Advisor](advisor-high-availability-recommendations.md)
+* [Raccomandazioni sulle prestazioni di Advisor](advisor-performance-recommendations.md)
+* [Raccomandazioni sulla sicurezza di Advisor](advisor-security-recommendations.md)
 * [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
 * [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)

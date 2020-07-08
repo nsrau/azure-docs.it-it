@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 01e07eaee705634b03cc4462c4058e290daa8bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fdf298357370415c1b3af95dd9ed22ad8539786
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125481"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guida per gli sviluppatori di entità durevoli in .NET
 
@@ -31,7 +31,7 @@ Questo articolo è incentrato principalmente sulla sintassi basata su classi, pe
  
 ## <a name="defining-entity-classes"></a>Definizione delle classi di entità
 
-Nell'esempio seguente viene illustrata un'implementazione `Counter` di un'entità in cui viene archiviato un singolo valore di tipo integer e `Add`sono `Reset`disponibili `Get`quattro operazioni `Delete`,, e.
+Nell'esempio seguente viene illustrata un'implementazione di un' `Counter` entità in cui viene archiviato un singolo valore di tipo integer e sono disponibili quattro operazioni `Add` ,, `Reset` `Get` e `Delete` .
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -70,7 +70,7 @@ public class Counter
 La `Run` funzione contiene lo standard richiesto per l'utilizzo della sintassi basata su classe. Deve essere una funzione di Azure *statica* . Viene eseguita una volta per ogni messaggio di operazione elaborato dall'entità. Quando `DispatchAsync<T>` viene chiamato e l'entità non è già in memoria, costruisce un oggetto di tipo `T` e popola i relativi campi dall'ultimo JSON reso permanente trovato nell'archivio (se presente). Quindi richiama il metodo con il nome corrispondente.
 
 > [!NOTE]
-> Lo stato di un'entità basata su classi viene **creato in modo implicito** prima che l'entità elabori un'operazione e possa essere **eliminata in modo esplicito** in un'operazione chiamando `Entity.Current.DeleteState()`.
+> Lo stato di un'entità basata su classi viene **creato in modo implicito** prima che l'entità elabori un'operazione e possa essere **eliminata in modo esplicito** in un'operazione chiamando `Entity.Current.DeleteState()` .
 
 ### <a name="class-requirements"></a>Requisiti della classe
  
@@ -82,7 +82,7 @@ Le classi di entità sono POCO (Plain Old CLR Object) che non richiedono supercl
 Inoltre, qualsiasi metodo destinato a essere richiamato come operazione deve soddisfare requisiti aggiuntivi:
 
 - Un'operazione deve avere al massimo un argomento e non deve contenere overload o argomenti di tipo generico.
-- Un'operazione che deve essere chiamata da un'orchestrazione mediante un'interfaccia deve `Task` restituire `Task<T>`o.
+- Un'operazione che deve essere chiamata da un'orchestrazione mediante un'interfaccia deve restituire `Task` o `Task<T>` .
 - Gli argomenti e i valori restituiti devono essere valori serializzabili o oggetti.
 
 ### <a name="what-can-operations-do"></a>Operazioni possibili
@@ -103,9 +103,9 @@ Ad esempio, è possibile modificare l'entità contatore in modo da avviare un'or
 ```csharp
     public void Add(int amount) 
     {
-        if (this.Value < 100 && this.Value + amount > 100)
+        if (this.Value < 100 && this.Value + amount >= 100)
         {
-            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId)
+            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
         }
         this.Value += amount;      
     }
@@ -203,7 +203,7 @@ Oltre a fornire il controllo dei tipi, le interfacce sono utili per una migliore
 
 ### <a name="example-client-signals-entity-through-interface"></a>Esempio: l'entità segnala il client tramite l'interfaccia
 
-Il codice client può `SignalEntityAsync<TEntityInterface>` usare per inviare segnali a entità che `TEntityInterface`implementano. Ad esempio:
+Il codice client può usare `SignalEntityAsync<TEntityInterface>` per inviare segnali a entità che implementano `TEntityInterface` . Ad esempio:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -218,11 +218,11 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-In questo esempio, il `proxy` parametro è un'istanza generata dinamicamente di `ICounter`, che converte internamente la chiamata a `Delete` in un segnale.
+In questo esempio, il `proxy` parametro è un'istanza generata dinamicamente di `ICounter` , che converte internamente la chiamata a `Delete` in un segnale.
 
 > [!NOTE]
-> Le `SignalEntityAsync` API possono essere utilizzate solo per operazioni unidirezionali. Anche se un'operazione restituisce `Task<T>`, il valore del `T` parametro sarà sempre null o `default`, non il risultato effettivo.
-Ad esempio, non ha senso segnalare l' `Get` operazione, in quanto non viene restituito alcun valore. Al contrario, i client possono `ReadStateAsync` utilizzare per accedere direttamente allo stato del contatore oppure possono avviare una funzione dell'agente di `Get` orchestrazione che chiama l'operazione. 
+> Le `SignalEntityAsync` API possono essere utilizzate solo per operazioni unidirezionali. Anche se un'operazione restituisce `Task<T>` , il valore del `T` parametro sarà sempre null o `default` , non il risultato effettivo.
+Ad esempio, non ha senso segnalare l' `Get` operazione, in quanto non viene restituito alcun valore. Al contrario, i client possono utilizzare `ReadStateAsync` per accedere direttamente allo stato del contatore oppure possono avviare una funzione dell'agente di orchestrazione che chiama l' `Get` operazione. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Esempio: orchestrazione per primo segnale, quindi chiama l'entità tramite il proxy
 
@@ -246,7 +246,7 @@ public static async Task<int> Run(
 }
 ```
 
-In modo implicito, tutte le `void` operazioni che restituiscono vengono segnalate e vengono `Task` chiamate `Task<T>` le operazioni che restituiscono o. È possibile modificare questo comportamento predefinito e segnalare le operazioni anche se restituiscono un'attività, usando il `SignalEntity<IInterfaceType>` metodo in modo esplicito.
+In modo implicito, tutte le operazioni che restituiscono `void` vengono segnalate e vengono chiamate le operazioni che restituiscono `Task` o `Task<T>` . È possibile modificare questo comportamento predefinito e segnalare le operazioni anche se restituiscono un'attività, usando il `SignalEntity<IInterfaceType>` metodo in modo esplicito.
 
 ### <a name="shorter-option-for-specifying-the-target"></a>Opzione più breve per specificare la destinazione
 
@@ -257,7 +257,7 @@ context.SignalEntity<ICounter>(new EntityId(nameof(Counter), "myCounter"), ...);
 context.SignalEntity<ICounter>("myCounter", ...);
 ```
 
-Se viene specificata solo la chiave di entità e non è possibile trovare un'implementazione univoca `InvalidOperationException` in fase di esecuzione, viene generata un'eccezione. 
+Se viene specificata solo la chiave di entità e non è possibile trovare un'implementazione univoca in fase di esecuzione, `InvalidOperationException` viene generata un'eccezione. 
 
 ### <a name="restrictions-on-entity-interfaces"></a>Restrizioni sulle interfacce di entità
 
@@ -267,12 +267,12 @@ Vengono inoltre applicate alcune regole aggiuntive:
 * Le interfacce di entità devono definire solo metodi.
 * Le interfacce di entità non devono contenere parametri generici.
 * I metodi dell'interfaccia di entità non devono avere più di un parametro.
-* I metodi dell'interfaccia di `void`entità `Task`devono restituire, o`Task<T>` 
+* I metodi dell'interfaccia di entità devono restituire `void` , `Task` o`Task<T>` 
 
-Se una di queste regole viene violata, viene `InvalidOperationException` generata un'eccezione in fase di esecuzione quando l'interfaccia viene usata come argomento `SignalEntity` di `CreateProxy`tipo per o. Il messaggio di eccezione spiega quale regola è stata interrotta.
+Se una di queste regole viene violata, `InvalidOperationException` viene generata un'eccezione in fase di esecuzione quando l'interfaccia viene usata come argomento di tipo per `SignalEntity` o `CreateProxy` . Il messaggio di eccezione spiega quale regola è stata interrotta.
 
 > [!NOTE]
-> I metodi di `void` interfaccia che restituiscono possono essere segnalati (unidirezionali), non chiamati (bidirezionale). I metodi di `Task` interfaccia `Task<T>` che restituiscono o possono essere chiamati o segnalati. Se chiamato, restituiscono il risultato dell'operazione oppure generano di nuovo le eccezioni generate dall'operazione. Tuttavia, quando vengono segnalati, non restituiscono il risultato o l'eccezione effettiva dell'operazione, ma solo il valore predefinito.
+> I metodi di interfaccia che restituiscono `void` possono essere segnalati (unidirezionali), non chiamati (bidirezionale). I metodi di interfaccia che restituiscono `Task` o `Task<T>` possono essere chiamati o segnalati. Se chiamato, restituiscono il risultato dell'operazione oppure generano di nuovo le eccezioni generate dall'operazione. Tuttavia, quando vengono segnalati, non restituiscono il risultato o l'eccezione effettiva dell'operazione, ma solo il valore predefinito.
 
 ## <a name="entity-serialization"></a>Serializzazione di entità
 
@@ -310,8 +310,8 @@ public class User
 ### <a name="serialization-attributes"></a>Attributi di serializzazione
 
 Nell'esempio precedente si è scelto di includere diversi attributi per rendere la serializzazione sottostante più visibile:
-- Viene annotata la classe `[JsonObject(MemberSerialization.OptIn)]` con per ricordare che la classe deve essere serializzabile e per salvare in modo permanente solo i membri contrassegnati in modo esplicito come proprietà JSON.
--  Si annotano i campi da salvare in modo `[JsonProperty("name")]` permanente con per ricordare che un campo fa parte dello stato dell'entità permanente e per specificare il nome della proprietà da usare nella rappresentazione JSON.
+- Viene annotata la classe con `[JsonObject(MemberSerialization.OptIn)]` per ricordare che la classe deve essere serializzabile e per salvare in modo permanente solo i membri contrassegnati in modo esplicito come proprietà JSON.
+-  Si annotano i campi da salvare `[JsonProperty("name")]` in modo permanente con per ricordare che un campo fa parte dello stato dell'entità permanente e per specificare il nome della proprietà da usare nella rappresentazione JSON.
 
 Tuttavia, questi attributi non sono obbligatori. sono consentite altre convenzioni o attributi purché funzionino con Json.NET. Ad esempio, è possibile usare `[DataContract]` gli attributi oppure nessun attributo:
 
@@ -331,11 +331,11 @@ public class Counter
 }
 ```
 
-Per impostazione predefinita, il nome della classe *non* è archiviato come parte della rappresentazione JSON, ovvero si usa `TypeNameHandling.None` come impostazione predefinita. Questo comportamento predefinito può essere sottoposto a `JsonObject` override `JsonProperty` usando gli attributi o.
+Per impostazione predefinita, il nome della classe *non* è archiviato come parte della rappresentazione JSON, ovvero si usa `TypeNameHandling.None` come impostazione predefinita. Questo comportamento predefinito può essere sottoposto a override usando `JsonObject` `JsonProperty` gli attributi o.
 
 ### <a name="making-changes-to-class-definitions"></a>Apportare modifiche alle definizioni delle classi
 
-È necessario prestare attenzione quando si apportano modifiche a una definizione di classe dopo l'esecuzione di un'applicazione, perché l'oggetto JSON archiviato potrebbe non corrispondere più alla nuova definizione di classe. Tuttavia, spesso è possibile gestire correttamente i formati di dati modificabili purché uno conosca il processo di deserializzazione usato da `JsonConvert.PopulateObject`.
+È necessario prestare attenzione quando si apportano modifiche a una definizione di classe dopo l'esecuzione di un'applicazione, perché l'oggetto JSON archiviato potrebbe non corrispondere più alla nuova definizione di classe. Tuttavia, spesso è possibile gestire correttamente i formati di dati modificabili purché uno conosca il processo di deserializzazione usato da `JsonConvert.PopulateObject` .
 
 Ad esempio, di seguito sono riportati alcuni esempi di modifiche e il relativo effetto:
 
@@ -345,7 +345,7 @@ Ad esempio, di seguito sono riportati alcuni esempi di modifiche e il relativo e
 1. Se il tipo di una proprietà viene modificato in modo che non possa più essere deserializzato dal JSON archiviato, viene generata un'eccezione.
 1. Se il tipo di una proprietà viene modificato, ma può comunque essere deserializzato dal file JSON archiviato, questa operazione verrà eseguita.
 
-Sono disponibili molte opzioni per personalizzare il comportamento di Json.NET. Ad esempio, per forzare un'eccezione se il JSON archiviato contiene un campo che non è presente nella classe, specificare l'attributo `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. È anche possibile scrivere codice personalizzato per la deserializzazione in grado di leggere JSON archiviato in formati arbitrari.
+Sono disponibili molte opzioni per personalizzare il comportamento di Json.NET. Ad esempio, per forzare un'eccezione se il JSON archiviato contiene un campo che non è presente nella classe, specificare l'attributo `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)` . È anche possibile scrivere codice personalizzato per la deserializzazione in grado di leggere JSON archiviato in formati arbitrari.
 
 ## <a name="entity-construction"></a>Costruzione di entità
 
@@ -353,7 +353,7 @@ Talvolta si desidera esercitare un maggiore controllo sulla modalità di costruz
 
 ### <a name="custom-initialization-on-first-access"></a>Inizializzazione personalizzata al primo accesso
 
-Occasionalmente è necessario eseguire un'inizializzazione speciale prima di inviare un'operazione a un'entità a cui non è mai stato eseguito l'accesso o che è stata eliminata. Per specificare questo comportamento, è possibile aggiungere un oggetto condizionale `DispatchAsync`prima di:
+Occasionalmente è necessario eseguire un'inizializzazione speciale prima di inviare un'operazione a un'entità a cui non è mai stato eseguito l'accesso o che è stata eliminata. Per specificare questo comportamento, è possibile aggiungere un oggetto condizionale prima di `DispatchAsync` :
 
 ```csharp
 [FunctionName(nameof(Counter))]
@@ -482,7 +482,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="the-entity-context-object"></a>Oggetto contesto dell'entità
 
-È possibile accedere alla funzionalità specifica dell'entità tramite un oggetto di contesto `IDurableEntityContext`di tipo. Questo oggetto context è disponibile come parametro per la funzione dell'entità e tramite la proprietà `Entity.Current`async-local.
+È possibile accedere alla funzionalità specifica dell'entità tramite un oggetto di contesto di tipo `IDurableEntityContext` . Questo oggetto context è disponibile come parametro per la funzione dell'entità e tramite la proprietà async-local `Entity.Current` .
 
 I membri seguenti forniscono informazioni sull'operazione corrente e consentono di specificare un valore restituito. 
 

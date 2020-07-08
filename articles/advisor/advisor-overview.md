@@ -3,32 +3,32 @@ title: Presentazione di Azure Advisor
 description: Usare Azure Advisor per ottimizzare le distribuzioni di Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 74048073677cdf0f9f57d84469959a84e78cd6c7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854426"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117778"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
 
 Informazioni sulle funzionalità chiave di Azure Advisor e risposte alle domande più frequenti.
 
 ## <a name="what-is-advisor"></a>Cos'è Advisor?
-Advisor è un consulente cloud personalizzato che illustra come seguire le procedure consigliate per ottimizzare le distribuzioni di Azure. Analizza i dati di telemetria dell'uso e della configurazione delle risorse e consiglia soluzioni che consentono di migliorare l'efficienza dei costi, le prestazioni, la disponibilità elevata e la sicurezza delle risorse di Azure.
+Advisor è un consulente cloud personalizzato che illustra come seguire le procedure consigliate per ottimizzare le distribuzioni di Azure. Analizza la configurazione delle risorse e i dati di telemetria dell'utilizzo e quindi consiglia soluzioni che consentono di migliorare l'efficienza dei costi, le prestazioni, l'affidabilità (in precedenza denominata disponibilità elevata) e la sicurezza delle risorse di Azure.
 
 Con Advisor, è possibile:
 * Ottenere consigli personalizzati, attuabili e proattivi sulle procedure consigliate. 
-* Migliorare le prestazioni, la sicurezza e la disponibilità elevata delle risorse, cercando le opportunità per ridurre la spesa complessiva di Azure.
+* Migliorare le prestazioni, la sicurezza e l'affidabilità delle risorse, quando si identificano le opportunità per ridurre la spesa complessiva di Azure.
 * Ricevere consigli con azioni proposte incorporate.
 
 È possibile accedere ad Advisor attraverso il [portale di Azure](https://aka.ms/azureadvisordashboard). Accedere al [portale](https://portal.azure.com), individuare **Advisor** nel menu di spostamento oppure cercarlo nel menu **Tutti i servizi**.
 
 Nel dashboard di Advisor vengono visualizzati consigli personalizzati per tutte le sottoscrizioni disponibili.  È possibile applicare filtri per visualizzare i consigli in base a sottoscrizioni e tipi di risorse specifici.  Le indicazioni sono suddivise in cinque categorie: 
 
-* **Disponibilità elevata**: per garantire e migliorare la continuità delle applicazioni aziendali critiche. Per altre informazioni, vedere [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata).
-* **Sicurezza**: per rilevare le minacce e le vulnerabilità che potrebbero portare a potenziali violazioni della sicurezza. Per altre informazioni, vedere [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza).
-* **Prestazioni**: per aumentare la velocità delle applicazioni. Per altre informazioni, vedere [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni).
+* **Affidabilità (in precedenza denominata disponibilità elevata)**: per garantire e migliorare la continuità delle applicazioni cruciali per l'azienda. Per ulteriori informazioni, vedere [consigli sull'affidabilità di Advisor](advisor-high-availability-recommendations.md).
+* **Sicurezza**: per rilevare le minacce e le vulnerabilità che potrebbero causare violazioni della sicurezza. Per altre informazioni, vedere [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza).
+* **Prestazioni**: per migliorare la velocità delle applicazioni. Per altre informazioni, vedere [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni).
 * **Costo**: per ottimizzare e ridurre la spesa complessiva di Azure. Per altre informazioni, vedere [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Azure sui costi).
 * **Eccellenza operativa**: per ottenere l'efficienza dei processi e dei flussi di lavoro, la gestibilità delle risorse e le procedure consigliate per la distribuzione. . Per ulteriori informazioni, vedere [consigli sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md).
 
@@ -67,8 +67,8 @@ Per posporre o ignorare un consiglio, fare clic sul collegamento **Posponi**. Sp
 
 Per altre informazioni sui consigli di Advisor, vedere:
 
-* [Introduzione a Advisor](advisor-get-started.md)
-* [Consigli di Advisor sulla disponibilità elevata](advisor-high-availability-recommendations.md)
+* [Introduzione ad Advisor](advisor-get-started.md)
+* [Consigli sull'affidabilità di Advisor](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 * [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)

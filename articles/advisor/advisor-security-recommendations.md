@@ -3,12 +3,12 @@ title: Aumentare la sicurezza delle risorse con Azure Advisor
 description: Usare Azure Advisor per aumentare la sicurezza delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a4b7e9a9d9a7919155db361fd2c96ed98e6e5a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7a316c893600bed18b9392404af5792e2e31f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113858"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Aumentare la sicurezza delle risorse con Azure Advisor
 
@@ -28,10 +28,10 @@ Per ulteriori informazioni sulle raccomandazioni sulla sicurezza, vedere [gestio
 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Introduzione a Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
-* [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
-* [Consigli di Advisor sulla disponibilità elevata](advisor-high-availability-recommendations.md)
+* [Introduzione ad Advisor](advisor-get-started.md)
+* [Raccomandazioni sui costi di Advisor](advisor-cost-recommendations.md)
+* [Raccomandazioni sulle prestazioni di Advisor](advisor-performance-recommendations.md)
+* [Consigli sull'affidabilità di Advisor](advisor-high-availability-recommendations.md)
 * [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
-
+* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)
  

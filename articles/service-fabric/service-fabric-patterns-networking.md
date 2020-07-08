@@ -3,12 +3,12 @@ title: Modelli di rete per Azure Service Fabric
 description: Questo articolo descrive i modelli di rete comuni per Service Fabric e illustra come creare un cluster con le funzionalità di rete di Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75466284"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106616"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modelli di rete di Service Fabric
 È possibile integrare il cluster di Azure Service Fabric con altre funzionalità di rete di Azure. Questo articolo illustra come creare cluster che fanno uso delle funzionalità seguenti:
@@ -171,7 +171,7 @@ Negli esempi riportati in questo articolo viene usato il file template.json di S
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-Per altre informazioni, vedere un [esempio non specifico di Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+Per altre informazioni, vedere un [esempio non specifico di Service Fabric](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet).
 
 
 <a id="staticpublicip"></a>

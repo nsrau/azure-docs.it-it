@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116299"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indicizzare i dati geospaziali con Azure Cosmos DB
 
@@ -34,13 +34,13 @@ Nel contenitore la **configurazione geospaziale** specifica come verranno indici
 
 Di seguito viene illustrato come impostare la **configurazione geospaziale** in **Esplora dati** all'interno del portale di Azure:
 
-![Impostazione della configurazione geospaziale](./media/sql-query-geospatial-index/geospatial-configuration.png)
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Impostazione della configurazione geospaziale":::
 
 È anche possibile modificare `geospatialConfig` in .NET SDK per modificare la **configurazione geospaziale**:
 
-Se non specificato, per `geospatialConfig` impostazione predefinita viene impostato il tipo di dati geography. Quando si modifica la `geospatialConfig`, tutti i dati geospaziali esistenti nel contenitore verranno reindicizzati.
+Se non specificato, `geospatialConfig` per impostazione predefinita viene impostato il tipo di dati geography. Quando si modifica la `geospatialConfig` , tutti i dati geospaziali esistenti nel contenitore verranno reindicizzati.
 
-Di seguito è riportato un esempio per modificare il tipo di `geometry` dati geospaziale in impostando la `geospatialConfig` proprietà e aggiungendo un **BoundingBox**:
+Di seguito è riportato un esempio per modificare il tipo di dati geospaziale in impostando `geometry` la `geospatialConfig` proprietà e aggiungendo un **BoundingBox**:
 
 ```csharp
     //Retrieve the container's details
@@ -107,7 +107,7 @@ Il frammento di codice JSON seguente mostra un criterio di indicizzazione con in
 
 ## <a name="geometry-data-indexing-examples"></a>Esempi di indicizzazione di dati geometry
 
-Con il tipo di dati **Geometry** , simile al tipo di dati geography, è necessario specificare i percorsi e i tipi rilevanti da indicizzare. Inoltre, è necessario specificare un `boundingBox` valore all'interno dei criteri di indicizzazione per indicare l'area desiderata da indicizzare per il percorso specifico. Ogni percorso geospaziale richiede`boundingBox`un proprio.
+Con il tipo di dati **Geometry** , simile al tipo di dati geography, è necessario specificare i percorsi e i tipi rilevanti da indicizzare. Inoltre, è necessario specificare un valore `boundingBox` all'interno dei criteri di indicizzazione per indicare l'area desiderata da indicizzare per il percorso specifico. Ogni percorso geospaziale richiede un proprio `boundingBox` .
 
 Il rettangolo di delimitazione è costituito dalle proprietà seguenti:
 
@@ -120,7 +120,7 @@ Il rettangolo di delimitazione è costituito dalle proprietà seguenti:
 
 Creare un rettangolo di delimitazione che contenga tutti (o più) i dati. Solo le operazioni calcolate sugli oggetti interamente all'interno del rettangolo di delimitazione saranno in grado di utilizzare l'indice spaziale. Se il riquadro delimitatore è più grande del necessario, avrà un impatto negativo sulle prestazioni delle query.
 
-Ecco un esempio di criterio di indicizzazione che indicizza i dati **Geometry** con `geometry` **geospatialConfig** impostato su:
+Ecco un esempio di criterio di indicizzazione che indicizza i dati **Geometry** con **geospatialConfig** impostato su `geometry` :
 
 ```json
  {
@@ -159,7 +159,7 @@ Ecco un esempio di criterio di indicizzazione che indicizza i dati **Geometry** 
 Il criterio di indicizzazione precedente presenta un **BoundingBox** di (-10, 10) per le coordinate x e (-20, 20) per le coordinate y. Il contenitore con i criteri di indicizzazione elencati sopra indicizza tutti i punti, i poligoni, i multipoligoni e gli oggetti LineString che sono interamente all'interno di questa area.
 
 > [!NOTE]
-> Se si tenta di aggiungere un criterio di indicizzazione con un **BoundingBox** a un `geography` contenitore con tipo di dati, l'operazione avrà esito negativo. È necessario modificare il **geospatialConfig** del contenitore `geometry` prima di aggiungere un **BoundingBox**. È possibile aggiungere dati e modificare il resto del criterio di indicizzazione, ad esempio i percorsi e i tipi, prima o dopo aver selezionato il tipo di dati geospaziale per il contenitore.
+> Se si tenta di aggiungere un criterio di indicizzazione con un **BoundingBox** a un contenitore con `geography` tipo di dati, l'operazione avrà esito negativo. È necessario modificare il **geospatialConfig** del contenitore prima di `geometry` aggiungere un **BoundingBox**. È possibile aggiungere dati e modificare il resto del criterio di indicizzazione, ad esempio i percorsi e i tipi, prima o dopo aver selezionato il tipo di dati geospaziale per il contenitore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

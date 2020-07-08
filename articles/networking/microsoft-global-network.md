@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: HT
+ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982803"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125822"
 ---
 # <a name="microsoft-global-network"></a>Rete globale Microsoft
 
@@ -38,7 +38,7 @@ Per connessioni da Londra a Tokyo, da Washington DC a Los Angeles, le prestazion
 
 Se, ad esempio, un utente a Londra tenta di accedere a un servizio a Tokyo, il traffico Internet raggiunge una delle reti perimetrali a Londra, attraversa la rete WAN Microsoft in Francia, segue i percorsi in Trans-Arabia tra Europa e India e quindi arriva in Giappone, dove è ospitato il servizio. Il traffico di risposta è simmetrico. Questo approccio è noto come [cold-potato routing](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), termine che indica che il traffico resta nella rete Microsoft il più a lungo possibile prima di essere passato ad altre reti.  
   
-Si intende proprio tutto il traffico legato all'uso di servizi Microsoft? Sì, qualsiasi tipo di traffico tra data center, all'interno di Microsoft Azure o tra servizi Microsoft, come Macchine virtuali, Office 365, XBox, database SQL, Archiviazione e reti virtuali, viene instradato all'interno della rete globale e mai sulla rete Internet pubblica, per garantire prestazioni e integrità ottimali.  
+Si intende proprio tutto il traffico legato all'uso di servizi Microsoft? Sì, il traffico tra i Data Center, all'interno Microsoft Azure o tra i servizi Microsoft, ad esempio macchine virtuali, Microsoft 365, XBox, database SQL, archiviazione e reti virtuali, viene instradato all'interno della rete globale e mai sulla rete Internet pubblica, per garantire prestazioni e integrità ottimali.  
  
 Ingenti investimenti nella capacità e nell'eterogeneità della fibra ottica su traiettorie metropolitane, terrestri e sottomarine sono essenziali per Microsoft per mantenere un livello di servizio uniforme ed elevato, garantendo una crescita illimitata del cloud e dei servizi online. Le novità aggiunte di recente alla rete globale sono il cavo sottomarino [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea), il primo sistema a linea aperta (OLS, Open Line System) sottomarino del settore, tra Bilbao in Spagna e Virginia Beach in Virginia, negli Stati Uniti, insieme ad [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1), tra New York negli Stati Uniti e Dublino in Irlanda, e [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) tra Tokyo in Giappone e Portland in Oregon, negli Stati Uniti. 
  

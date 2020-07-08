@@ -8,18 +8,18 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: fa899764e4e80e7eba849e02d617c8c1ca2ae410
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 587e339f2c2d91792ef1c342f7a1f8363da63626
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106012"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Come usare Packer per creare immagini di macchine virtuali di Linux in Azure
 Ogni macchina virtuale (VM, Virtual Machine) in Azure viene creata a partire da un'immagine che ne definisce la distribuzione di Linux e la versione del sistema operativo. Le immagini possono includere applicazioni e configurazioni preinstallate. In Microsoft Azure Marketplace sono disponibili molte prime immagini e immagini di terze parti per gli ambienti applicativi e di distribuzione più diffusi. In alternativa, è possibile creare immagini personalizzate su misura per le proprie esigenze. Questo articolo illustra in dettaglio come definire e compilare immagini personalizzate in Azure tramite lo strumento open source [Packer](https://www.packer.io/).
 
 > [!NOTE]
-> Azure dispone ora di un servizio, generatore di immagini di Azure (anteprima), per la definizione e la creazione di immagini personalizzate. Il generatore di immagini di Azure si basa su Packer, quindi è possibile anche usare gli script esistenti del provisioning della shell di Packer. Per iniziare a usare Azure Image Builder, vedere [creare una VM Linux con Azure Image Builder](image-builder.md).
+> Azure include ora Azure Image Builder, un servizio disponibile in anteprima per la definizione e la creazione di immagini personalizzate. Azure Image Builder è basato su Packer, di conseguenza può essere usato persino con gli script di provisioning della shell Packer esistenti. Per iniziare a usare Azure Image Builder, vedere [creare una VM Linux con Azure Image Builder](image-builder.md).
 
 
 ## <a name="create-azure-resource-group"></a>Creare un gruppo di risorse di Azure
@@ -124,7 +124,7 @@ Questo modello compila un'immagine di Ubuntu 16.04 LTS, installa NGINX, quindi e
 
 
 ## <a name="build-packer-image"></a>Compilare l'immagine in Packer
-Se Packer non è installato nel computer locale, [seguire le istruzioni di installazione di Packer](https://www.packer.io/docs/install/index.html).
+Se Packer non è installato nel computer locale, [seguire le istruzioni di installazione di Packer](https://www.packer.io/docs/install).
 
 Compilare l'immagine specificando il file del modello di Packer come segue:
 
@@ -228,4 +228,4 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-È anche possibile usare gli script di provisioning di Packer esistenti con [Azure Image Builder](image-builder.md).
+È anche possibile usare gli script dello strumento di provisioning di Packer esistenti con [Azure Image Builder](image-builder.md).

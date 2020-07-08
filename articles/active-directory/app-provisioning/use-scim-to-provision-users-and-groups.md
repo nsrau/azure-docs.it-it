@@ -2,21 +2,21 @@
 title: Sviluppare un endpoint SCIM per il provisioning utenti nelle app da Azure AD
 description: System for Cross-domain Identity Management (SCIM) standardizza il provisioning utenti automatico. Questo articolo illustra come sviluppare un endpoint SCIM, integrare l'API SCIM con Azure Active Directory e iniziare ad automatizzare il provisioning di utenti e gruppi nelle applicazioni cloud.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 2fbdf947eb36e1591cc9da52a85e389be63c8535
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826656"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117319"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD
 
@@ -744,6 +744,8 @@ Livello minimo dei pacchetti di crittografia TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
+### <a name="ip-ranges"></a>Intervalli IP
+Il servizio Azure AD provisioning può attualmente opperate in qualsiasi intervallo IP di Azure. Il lavoro è in corso per consolidare il set di intervalli IP su cui opera il servizio. Questo documento verrà aggiornato una volta consolidato l'elenco di intervalli di indirizzi IP. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passaggio 3: Creare un endpoint SCIM
 
@@ -1192,7 +1194,8 @@ La specifica SCIM non definisce uno schema specifico di SCIM per l'autenticazion
 |Concessione del codice di autorizzazione OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata.  Durante l'autorizzazione iniziale deve essere presente un utente reale e questo offre un livello di affidabilità aggiuntivo. |Deve essere presente un utente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|Supportato per le app della raccolta. È in corso di implementazione il supporto per le app non nella raccolta.|
 |Concessione di credenziali client OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata. Sia la concessione del codice di autorizzazione che la concessione delle credenziali client creano lo stesso tipo di token di accesso, quindi il passaggio tra questi metodi è trasparente per l'API.  Il provisioning può essere completamente automatizzato e i nuovi token possono essere richiesti automaticamente senza interazione dell'utente. ||Non supportato sia per le app della raccolta che per quelle non nella raccolta. Il supporto è incluso nel backlog di Microsoft.|
 
-[!NOTE] Non è consigliabile lasciare vuoto il campo del token nell'interfaccia utente dell'app personalizzata per la configurazione del provisioning di Azure AD. Il token generato è disponibile principalmente a scopo di test.
+> [!NOTE]
+> Non è consigliabile lasciare vuoto il campo del token nell'interfaccia utente dell'app personalizzata per la configurazione del provisioning di Azure AD. Il token generato è disponibile principalmente a scopo di test.
 
 **Flusso di concessione del codice di autorizzazione OAuth:** il servizio di provisioning supporta la [concessione del codice di autorizzazione](https://tools.ietf.org/html/rfc6749#page-24). Dopo l'invio della richiesta di pubblicazione dell'app nella raccolta, il team Microsoft collaborerà alla raccolta delle informazioni riportate di seguito.
 *  URL di autorizzazione: URL usato dal client per ottenere l'autorizzazione dal proprietario della risorsa tramite il reindirizzamento dell'agente utente. L'utente viene reindirizzato a questo URL per l'autorizzazione dell'accesso. Si noti che questo URL non è attualmente configurabile per tenant.

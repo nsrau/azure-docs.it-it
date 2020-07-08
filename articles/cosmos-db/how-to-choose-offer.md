@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: b8c4fd3804bfa02b86f62912641eb936ff8cd15e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116809"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Come scegliere tra la velocità effettiva con provisioning standard (manuale) e la velocità effettiva con provisioning a scalabilità automatica 
 
@@ -61,7 +61,7 @@ Dopo aver scelto il tipo di velocità effettiva, è necessario monitorare l'appl
 
 Se si sceglie la scalabilità automatica, usare Monitoraggio di Azure per visualizzare il numero massimo di UR/s con provisioning a scalabilità automatica (**velocità effettiva massima a scalabilità automatica**) e il numero di UR/s a cui si trova attualmente il sistema (**velocità effettiva con provisioning**). Di seguito è riportato un esempio di carico di lavoro variabile o imprevedibile per il quale viene usata la scalabilità automatica. Se non è presente traffico, il sistema ridimensiona il numero di UR/s alla quantità minima del 10% rispetto al numero massimo di UR/s, che in questo caso sono, rispettivamente, 5000 UR/s e 50.000 UR/s. 
 
-![Esempio di carico di lavoro con scalabilità automatica](media/how-to-choose-offer/autoscale-metrics-azure-monitor.png)
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Esempio di carico di lavoro con scalabilità automatica":::
 
 > [!NOTE]
 > Se si usa la velocità effettiva con provisioning standard (manuale), la metrica **Velocità effettiva sottoposta a provisioning** fa riferimento all'impostazione definita dall'utente. Se si usa la velocità effettiva con provisioning a scalabilità automatica, la metrica si riferisce al valore di UR/s a cui si trova attualmente il sistema.

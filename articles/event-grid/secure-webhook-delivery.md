@@ -2,17 +2,17 @@
 title: Distribuzione sicura dei webhook con Azure AD in griglia di eventi di Azure
 description: Viene descritto come recapitare gli eventi agli endpoint HTTPS protetti da Azure Active Directory tramite griglia di eventi di Azure
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: babanisa
-ms.openlocfilehash: 86d647ebfcf6e4c1ea8d05f58dd1f559d6e30cfc
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.author: femila
+ms.openlocfilehash: 7caa5a99f2d4ebdbe858c78c6e36be17aeb003ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900462"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126077"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Pubblicare eventi per Azure Active Directory endpoint protetti
 
@@ -29,10 +29,10 @@ Iniziare creando un'applicazione Azure AD per l'endpoint protetto. Vedere https:
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Abilitare griglia di eventi per l'uso dell'applicazione Azure AD
 
-Usare lo script di PowerShell seguente per creare un ruolo e un principio di servizio nell'applicazione Azure AD. Sono necessari l'ID tenant e l'ID oggetto dell'applicazione Azure AD:
+Usare lo script di PowerShell seguente per creare un ruolo e un'entità servizio nell'applicazione Azure AD. Sono necessari l'ID tenant e l'ID oggetto dell'applicazione Azure AD:
 
    > [!NOTE]
-   > Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) .
+   > Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles).
     
 1. Modificare la $myTenantId dello script di PowerShell in modo da usare l'ID tenant di Azure AD.
 1. Modificare la $myAzureADApplicationObjectId dello script di PowerShell per usare l'ID oggetto dell'applicazione Azure AD
@@ -121,7 +121,7 @@ Nella scheda funzionalità aggiuntive selezionare la casella ' Usa autenticazion
 * Copiare l'ID tenant Azure AD dall'output dello script e immetterlo nel campo ID tenant di AAD.
 * Copiare l'ID dell'applicazione Azure AD dall'output dello script e immetterlo nel campo dell'ID applicazione di AAD.
 
-    ![Azione di Webhook sicura](./media/secure-webhook-delivery/aad-configuration.png)
+    ![Usare l'azione Webhook](./media/secure-webhook-delivery/aad-configuration.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

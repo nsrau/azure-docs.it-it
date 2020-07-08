@@ -5,15 +5,15 @@ description: Questo articolo fornisce esempi di come un certificato TLS/SSL può
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 20f588639c54b0a8b7cd304f33b5a9d633a73be6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 125da04c9fafe33c7f3de3a5849e4238b3b45d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133037"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976541"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creare certificati per consentire il back-end con applicazione Azure gateway
 
@@ -38,7 +38,7 @@ Dal certificato TLS/SSL esportare il file con estensione cer della chiave pubbli
 
 1. Per ottenere un file con estensione cer dal certificato, aprire **Gestire i certificati utente**. Individuare il certificato, in genere in ' Certificates-Current Corrente\personale\certificati ' e fare clic con il pulsante destro del mouse. Fare clic su **Tutte le attività** e quindi su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**. Se non è possibile trovare il certificato in Utente corrente\Personale\Certificati, è possibile aver accidentalmente aperto Certificati - Computer locale" invece di "Certificati - Utente corrente". Se si vuole aprire Gestione certificati nell'ambito dell'utente corrente usando PowerShell, digitare *certmgr* nella finestra della console.
 
-   ![Export](./media/certificates-for-backend-authentication/export.png)
+   ![Esportazione](./media/certificates-for-backend-authentication/export.png)
 
 2. Nella procedura guidata, fare clic su **Avanti**.
 
@@ -54,7 +54,7 @@ Dal certificato TLS/SSL esportare il file con estensione cer della chiave pubbli
 
 5. In **File da esportare** fare clic su **Sfoglia** e passare alla posizione in cui si vuole esportare il certificato. Per **Nome file**, assegnare un nome al file del certificato. Quindi fare clic su **Next**.
 
-   ![Sfoglia](./media/certificates-for-backend-authentication/browse.png)
+   ![Esplora](./media/certificates-for-backend-authentication/browse.png)
 
 6. Fare clic su **Fine** per esportare il certificato.
 
@@ -74,11 +74,11 @@ Dal certificato TLS/SSL esportare il file con estensione cer della chiave pubbli
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Esporta certificato radice trusted (per lo SKU v2)
 
-Il certificato radice trusted è necessario per le istanze back-end dell'elenco elementi consentiti nello SKU del gateway applicazione Il certificato radice è un X. 509 con codifica base 64 (. CER) formattare il certificato radice dai certificati del server back-end. In questo esempio viene usato un certificato TLS/SSL per il certificato back-end, viene esportata la chiave pubblica e quindi viene esportato il certificato radice della CA attendibile dalla chiave pubblica nel formato con codifica Base64 per ottenere il certificato radice attendibile. I certificati intermedi devono essere aggregati con il certificato del server e installati nel server back-end.
+Il certificato radice attendibile è necessario per consentire le istanze back-end nello SKU del gateway applicazione V2. Il certificato radice è un X. 509 con codifica base 64 (. CER) formattare il certificato radice dai certificati del server back-end. In questo esempio viene usato un certificato TLS/SSL per il certificato back-end, viene esportata la chiave pubblica e quindi viene esportato il certificato radice della CA attendibile dalla chiave pubblica nel formato con codifica Base64 per ottenere il certificato radice attendibile. I certificati intermedi devono essere aggregati con il certificato del server e installati nel server back-end.
 
 La procedura seguente consente di esportare il file con estensione CER per il certificato:
 
-1. Usare i passaggi 1-9 indicati nella sezione **esportare il certificato di autenticazione da un certificato back-end (per lo SKU V1)** sopra per esportare la chiave pubblica dal certificato back-end.
+1. Usare i passaggi 1-8 indicati nella sezione precedente [esportare il certificato di autenticazione (per lo SKU V1)](#export-authentication-certificate-for-v1-sku) per esportare la chiave pubblica dal certificato back-end.
 
 2. Una volta esportata la chiave pubblica, aprire il file.
 
@@ -106,5 +106,5 @@ La procedura seguente consente di esportare il file con estensione CER per il ce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto è disponibile il certificato di autenticazione/certificato radice attendibile in base 64 con codifica X. 509 (. Formato CER). È possibile aggiungerlo al gateway applicazione per inserire nell'elenco elementi consentiti i server back-end per la crittografia TLS end-to-end. Vedere [configurare TLS end-to-end usando il gateway applicazione con PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+A questo punto è disponibile il certificato di autenticazione/certificato radice attendibile in base 64 con codifica X. 509 (. Formato CER). È possibile aggiungerlo al gateway applicazione per consentire ai server back-end la crittografia TLS end-to-end. Vedere [configurare TLS end-to-end usando il gateway applicazione con PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 

@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648813"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117227"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -28,13 +28,7 @@ Nei modelli di hosting sono disponibili diversi livelli di isolamento della rete
 
 ## <a name="matrix-of-networking-features"></a>Matrice delle funzionalità di rete
 
-|                |[Piano a consumo](functions-scale.md#consumption-plan)|[Piano Premium](functions-scale.md#premium-plan)|[Piano di servizio app](functions-scale.md#app-service-plan)|[Ambiente del servizio app](../app-service/environment/intro.md)|
-|----------------|-----------|----------------|---------|-----------------------|  
-|[Restrizioni IP in ingresso e accesso al sito privato](#inbound-ip-restrictions)|✅Sì|✅Sì|✅Sì|✅Sì|
-|[Integrazione della rete virtuale](#virtual-network-integration)|❌No|✅Sì (Regionale)|✅Sì (Regional e Gateway)|✅Sì|
-|[Trigger della rete virtuale (non HTTP)](#virtual-network-triggers-non-http)|❌No| ✅Sì |✅Sì|✅Sì|
-|[Connessioni ibride](#hybrid-connections) (solo Windows)|❌No|✅Sì|✅Sì|✅Sì|
-|[Restrizioni IP in uscita](#outbound-ip-restrictions)|❌No| ✅Sì|✅Sì|✅Sì|
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ## <a name="inbound-ip-restrictions"></a>Restrizioni IP in ingresso
 
@@ -139,6 +133,12 @@ Per altre informazioni, vedere la [Documentazione del servizio app per le connes
 Le restrizioni IP in uscita sono disponibili in un piano Premium, un piano di servizio app o un ambiente del servizio app. È possibile configurare le restrizioni in uscita per la rete virtuale in cui è distribuito l'ambiente del servizio app.
 
 Quando si integra un'app per le funzioni in un piano Premium o in un piano di servizio app con una rete virtuale, per impostazione predefinita l'app può comunque effettuare chiamate in uscita a Internet. Se si aggiunge l'impostazione dell'applicazione `WEBSITE_VNET_ROUTE_ALL=1` si forza l'invio di tutto il traffico in uscita alla rete virtuale, in cui è possibile usare regole del gruppo di sicurezza di rete per limitare il traffico.
+
+## <a name="automation"></a>Automazione
+Le seguenti API consentono di gestire a livello di codice le integrazioni delle reti virtuali internazionali:
+
++ **Interfaccia**della riga di comando di Azure: usare i [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandi per aggiungere, elencare o rimuovere le integrazioni di una rete virtuale a livello di area.  
++ **Modelli ARM**: l'integrazione della rete virtuale a livello di area può essere abilitata usando un modello di Azure Resource Manager. Per un esempio completo, vedere [il modello di avvio rapido di funzioni](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

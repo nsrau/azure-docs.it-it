@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/28/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d259c6e2a6ac9ced5f9a1c29d4aec08010f4dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72a9dc504edac01654fb21ec3386a596e03492c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85077788"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Scenari comuni di gestione dei diritti Azure AD
 
@@ -61,7 +61,7 @@ Esistono diversi modi in cui è possibile configurare la gestione dei diritti pe
 
 1. [Accedere al portale di accesso personale](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
 1. Trova pacchetto di accesso
-1. [Richiedi accesso](entitlement-management-request-access.md#request-an-access-package)
+1. [Richiedere l'accesso](entitlement-management-request-access.md#request-an-access-package)
 
 ### <a name="approver-approve-requests-to-resources"></a>Responsabile approvazione: approva le richieste alle risorse
 
@@ -94,7 +94,7 @@ Esistono diversi modi in cui è possibile configurare la gestione dei diritti pe
 
 1. Trovare il collegamento al pacchetto di accesso ricevuto dal contatto
 1. [Accedere al portale di accesso personale](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
-1. [Richiedi accesso](entitlement-management-request-access.md#request-an-access-package)
+1. [Richiedere l'accesso](entitlement-management-request-access.md#request-an-access-package)
 
 ### <a name="approver-approve-requests-to-resources"></a>Responsabile approvazione: approva le richieste alle risorse
 
@@ -154,7 +154,7 @@ Esistono diversi modi in cui è possibile configurare la gestione dei diritti pe
 
 ## <a name="programmatic-administration"></a>Amministrazione a livello di codice
 
-È anche possibile gestire pacchetti di accesso, cataloghi, criteri, richieste e assegnazioni usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell' `EntitlementManagement.ReadWrite.All` autorizzazione delegata può chiamare l'API di gestione dei [diritti](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+È anche possibile gestire pacchetti di accesso, cataloghi, criteri, richieste e assegnazioni usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l' [API di gestione dei diritti](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

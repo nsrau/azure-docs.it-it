@@ -4,15 +4,15 @@ description: Connettere i client Windows e Mac OS X in modo sicuro a una rete vi
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: cb9a02532c3651aca544ed946f40bdcff9e9be83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1bdaa2fd1e435e8bf7ff4b17c7f8a15d5bd249d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411764"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987174"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione RADIUS: PowerShell
 
@@ -109,7 +109,7 @@ Dichiarare le variabili da usare. Usare l'esempio seguente, sostituendo i valori
   $GWIPconfName = "gwipconf"
   ```
 
-## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"> </a>creare il gruppo di risorse, VNet e l'indirizzo IP pubblico
+## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"></a> creare il gruppo di risorse, VNet e l'indirizzo IP pubblico
 
 I passaggi seguenti creano un gruppo di risorse e una rete virtuale nel gruppo di risorse con tre subnet. Quando si sostituiscono i valori, è importante che la subnet gateway venga denominata sempre esattamente 'GatewaySubnet'. Se si assegnano altri nomi, la creazione del gateway ha esito negativo.
 
@@ -143,7 +143,7 @@ I passaggi seguenti creano un gruppo di risorse e una rete virtuale nel gruppo d
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"> </a>configurare il server RADIUS
+## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"></a> configurare il server RADIUS
 
 Prima di creare e configurare il gateway di rete virtuale, il server RADIUS deve essere configurato correttamente per l'autenticazione.
 
@@ -153,12 +153,12 @@ Prima di creare e configurare il gateway di rete virtuale, il server RADIUS deve
 
 L'articolo [Server dei criteri di rete (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) fornisce indicazioni sulla configurazione di un server RADIUS Windows (NPS) per l'autenticazione di un dominio di AD.
 
-## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"> </a>creare il gateway VPN
+## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a> creare il gateway VPN
 
 Configurare e creare il gateway VPN per la rete virtuale.
 
 * -GatewayType deve essere "Vpn" e -VpnType deve essere "RouteBased".
-* Per il completamento di un gateway VPN possono essere necessari fino a 45 minuti, a seconda dello [SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) del gateway selezionato.
+* Per il completamento di un gateway VPN possono essere necessari fino a 45 minuti, a seconda dello [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku)   selezionato.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -166,7 +166,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"> </a>aggiungere il server RADIUS e il pool di indirizzi client
+## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"></a> aggiungere il server RADIUS e il pool di indirizzi client
  
 * -RadiusServer può essere specificato con il nome o con l'indirizzo IP. Se si specifica il nome e il server si trova in locale, il gateway VPN potrebbe non riuscire a risolvere il nome. In tal caso è meglio specificare l'indirizzo IP del server. 
 * -RadiusSecret deve corrispondere a quanto configurato nel server RADIUS.
@@ -223,7 +223,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"> </a>scaricare il pacchetto di configurazione del client VPN e configurare il client VPN
+## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> scaricare il pacchetto di configurazione del client VPN e configurare il client VPN
 
 La configurazione del client VPN consente ai dispositivi di connettersi a una rete virtuale tramite una connessione P2S.Per generare un pacchetto di configurazione del client VPN e configurare il client VPN, vedere [Creare una configurazione del client VPN per l'autenticazione RADIUS](point-to-site-vpn-client-configuration-radius.md).
 

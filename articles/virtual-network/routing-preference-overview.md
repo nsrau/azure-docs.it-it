@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 0ae06a1c3d486b5d5998b4c6d050d86f50910a0a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595550"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193363"
 ---
 # <a name="what-is-routing-preference-preview"></a>Che cos'è la preferenza di routing (anteprima)?
 
@@ -88,7 +88,7 @@ Per informazioni su volumi mensili superiori a 500 TB, [contattare Microsoft](ht
 
 Il supporto per la preferenza di routing è disponibile nelle aree seguenti per servizi come macchine virtuali e servizio di bilanciamento del carico con connessione Internet che usano un indirizzo IP pubblico per l'uscita da Internet, ovvero Europa settentrionale, Europa occidentale, Francia meridionale, Regno Unito meridionale, Stati Uniti orientali, Sta, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti centro-occidentali, Asia sud-orientale, Germania centro-occidentale, Svizzera occidentale, Giappone orientale e Giappone occidentale.
 
-Il supporto per la preferenza di routing per l'account di archiviazione è disponibile nelle aree di Azure Francia meridionale, Stati Uniti centro-settentrionali e Stati Uniti centro-occidentali.
+Il supporto delle preferenze di routing per l'account di archiviazione è disponibile nelle aree di Azure seguenti: Francia meridionale, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Giappone orientale, Giappone occidentale, Germania centro-occidentale e Svizzera occidentale.
 ## <a name="limitations"></a>Limitazioni
 
 * La preferenza di routing è compatibile solo con lo SKU Standard dell'indirizzo IP pubblico. Lo SKU Basic dell'indirizzo IP pubblico non è supportato.

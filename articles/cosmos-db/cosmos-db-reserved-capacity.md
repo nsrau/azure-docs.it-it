@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea1fec022227aba1be09e988b5802f0c1ecd4e8e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77505961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118934"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Ottimizzare il costo con la capacità riservata in Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Vengono calcolate le raccomandazioni per l'acquisto in base al modello di utiliz
 
 1. Accedere al [portale di Azure](https://portal.azure.com).  
 
-2. Selezionare **tutti i servizi** > **prenotazioni** > **Aggiungi**.
+2. Selezionare **tutti i servizi**  >  **prenotazioni**  >  **Aggiungi**.
 
 3. Dal riquadro **prenotazioni acquisti** scegliere **Azure Cosmos DB**.
 
@@ -52,7 +52,7 @@ Inoltre, è possibile definire l'ambito delle raccomandazioni all'interno di un 
 
 Ecco un esempio di Raccomandazione:
 
-![Raccomandazioni sulla capacità riservata](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
+:::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png" alt-text="Raccomandazioni sulla capacità riservata":::
 
 Questa raccomandazione per l'acquisto di una prenotazione di 30.000 UR/sec indica che, tra le prenotazioni di 3 anni, una dimensione di prenotazione di 30.000 UR/s consente di ottimizzare il risparmio. In questo caso, la raccomandazione viene calcolata in base agli ultimi 30 giorni di utilizzo del Azure Cosmos DB. Se il cliente prevede che gli ultimi 30 giorni di utilizzo di Azure Cosmos DB siano rappresentativi di un uso futuro, si otterrebbe un miglioramento del risparmio acquistando una prenotazione di 30.000 UR/s.
 
@@ -60,13 +60,13 @@ Questa raccomandazione per l'acquisto di una prenotazione di 30.000 UR/sec indic
 
 1. Accedere al [portale di Azure](https://portal.azure.com).  
 
-2. Selezionare **tutti i servizi** > **prenotazioni** > **Aggiungi**.  
+2. Selezionare **tutti i servizi**  >  **prenotazioni**  >  **Aggiungi**.  
 
 3. Dal riquadro **prenotazioni acquisti** scegliere **Azure Cosmos DB** per acquistare una nuova prenotazione.  
 
 4. Compilare i campi obbligatori come descritto nella tabella seguente:
 
-   ![Compilare il modulo per la capacità riservata](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Compilare il modulo per la capacità riservata":::
 
    |Campo  |Descrizione  |
    |---------|---------|
@@ -82,7 +82,7 @@ Questa raccomandazione per l'acquisto di una prenotazione di 30.000 UR/sec indic
 
 6. Nel riquadro **prenotazioni acquisti** esaminare lo sconto e il prezzo della prenotazione. Il prezzo della prenotazione si applica alle risorse di Azure Cosmos DB con velocità effettiva di cui è stato effettuato il provisioning in tutte le aree.  
 
-   ![Riepilogo capacità riservata](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Riepilogo capacità riservata":::
 
 7. Selezionare **Review + Buy** , quindi **acquistare ora**. Se l'acquisto ha esito positivo, viene visualizzata la pagina seguente:
 
@@ -92,7 +92,7 @@ Quando la prenotazione scade, le istanze di Azure Cosmos DB continuano a essere 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
-È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [scambi e rimborsi self-service per le prenotazioni di Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

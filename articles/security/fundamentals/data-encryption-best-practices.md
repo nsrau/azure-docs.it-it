@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124052"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la crittografia e la sicurezza dei dati di Azure
 Questo articolo descrive le procedure consigliate per la sicurezza e la crittografia dei dati.
@@ -119,9 +119,9 @@ Le organizzazioni che non riescono a proteggere i dati in transito sono più vul
 
 È opportuno controllare e proteggere i messaggi di posta elettronica, i documenti e i dati sensibili che si condividono con entità esterne all'azienda. [Azure Information Protection](/azure/information-protection/) è una soluzione basata su cloud che consente a un'organizzazione di classificare, etichettare e proteggere i propri documenti e messaggi di posta elettronica. Questa operazione può essere eseguita automaticamente dagli amministratori che definiscono le regole e le condizioni, manualmente dagli utenti o in un sistema misto in cui gli utenti ricevono delle raccomandazioni.
 
-La classificazione è sempre identificabile, indipendentemente dalla posizione in cui vengono archiviati i dati o dalle persone con cui sono condivisi. Le etichette includono contrassegni visivi, ad esempio un'intestazione, un piè di pagina o una filigrana. I metadati vengono aggiunti ai file e alle intestazioni dei messaggio di posta elettronica sotto forma di testo non crittografato. Il testo non crittografato assicura che gli altri servizi, ad esempio le soluzioni per evitare la perdita di dati, possano identificare la classificazione e intraprendere l'azione appropriata.
+La classificazione è sempre identificabile, indipendentemente dalla posizione in cui vengono archiviati i dati o dalle persone con cui sono condivisi. Le etichette includono contrassegni visivi, ad esempio un'intestazione, un piè di pagina o una filigrana. I metadati vengono aggiunti a file e intestazioni di messaggi di posta elettronica come testo non crittografato. Il testo non crittografato assicura che gli altri servizi, ad esempio le soluzioni per evitare la perdita di dati, possano identificare la classificazione e intraprendere l'azione appropriata.
 
-La tecnologia di protezione usa Azure Rights Management (Azure RMS). Questa tecnologia si integra con altri servizi e applicazioni cloud Microsoft, ad esempio Office 365 e Azure Active Directory. Questa tecnologia di protezione usa criteri di crittografia, identità e autorizzazione. La protezione applicata tramite Azure RMS vale per i documenti e i messaggi di posta elettronica, indipendentemente dalla posizione, all'interno o all'esterno dell'organizzazione, delle reti, dei server di file e delle applicazioni.
+La tecnologia di protezione usa Azure Rights Management (Azure RMS). Questa tecnologia è integrata con altre applicazioni e servizi cloud Microsoft, ad esempio Microsoft 365 e Azure Active Directory. Questa tecnologia di protezione usa criteri di crittografia, identità e autorizzazione. La protezione applicata tramite Azure RMS vale per i documenti e i messaggi di posta elettronica, indipendentemente dalla posizione, all'interno o all'esterno dell'organizzazione, delle reti, dei server di file e delle applicazioni.
 
 Questa soluzione di protezione delle informazioni favorisce il controllo dei dati, anche quando sono condivisi con altri utenti. È anche possibile usare Azure RMS con le proprie applicazioni line-of-business e soluzioni di protezione delle informazioni di altri fornitori software, sia che queste applicazioni e soluzioni siano ospitate in locale o nel cloud.
 

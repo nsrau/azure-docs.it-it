@@ -1,38 +1,44 @@
 ---
 title: Aggiungere analizzatori di lingua ai campi stringa
 titleSuffix: Azure Cognitive Search
-description: Analisi del testo lessicale multilingue per query e indici non in lingua inglese in ricerca cognitiva di Azure.
+description: Analisi lessicale multilingue per query e indici non in lingua inglese in ricerca cognitiva di Azure.
+author: HeidiSteen
 manager: nitinme
-author: Yahnoosh
-ms.author: jlembicz
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/10/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130552"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Aggiungere analizzatori di lingua ai campi stringa in un indice di ricerca cognitiva di Azure
 
-L'*analizzatore del linguaggio* è un tipo specifico di [analizzatore di testo](search-analyzers.md) che esegue l'analisi lessicale usando le regole linguistiche della lingua di destinazione. Ogni campo che consente la ricerca ha una proprietà **analyzer**. Se l'indice contiene stringhe tradotte, ad esempio campi separati per un testo in lingua inglese e cinese, è possibile specificare gli analizzatori del linguaggio in ogni campo per accedere alle funzionalità linguistiche avanzate di tali analizzatori.  
+L'*analizzatore del linguaggio* è un tipo specifico di [analizzatore di testo](search-analyzers.md) che esegue l'analisi lessicale usando le regole linguistiche della lingua di destinazione. Ogni campo che consente la ricerca ha una proprietà **analyzer**. Se il contenuto è costituito da stringhe tradotte, ad esempio campi separati per testo in lingua inglese e cinese, è possibile specificare gli analizzatori di lingua in ogni campo per accedere alle funzionalità linguistiche avanzate degli analizzatori.
 
-Azure ricerca cognitiva supporta gli analizzatori 35 supportati da Lucene e 50 analizzatori supportati dalla tecnologia di elaborazione del linguaggio naturale Microsoft usata in Office e Bing.
+## <a name="when-to-use-a-language-analyzer"></a>Quando usare un analizzatore del linguaggio
 
-## <a name="comparing-analyzers"></a>Confronto tra analizzatori
+È consigliabile prendere in considerazione un analizzatore del linguaggio quando il riconoscimento della struttura di parole o frasi aggiunge valore all'analisi del testo. Un esempio comune è costituito dall'associazione di forme di verbi irregolari ("Bring" e "Bring" o plurale ("mice" e "mouse"). Senza la consapevolezza linguistica, queste stringhe vengono analizzate solo sulle caratteristiche fisiche, che non riescono a intercettare la connessione. Poiché è più probabile che i blocchi di testo di grandi dimensioni abbiano questo contenuto, i campi costituiti da descrizioni, revisioni o riepiloghi sono validi candidati per un analizzatore di linguaggio.
+
+È inoltre consigliabile considerare gli analizzatori del linguaggio quando il contenuto è costituito da stringhe di lingua non occidentali. Mentre l' [analizzatore predefinito](search-analyzers.md#default-analyzer) è indipendente dalla lingua, il concetto di uso di spazi e caratteri speciali (trattini e barre) per separare le stringhe tende a essere più applicabile alle lingue occidentali rispetto a quelle non occidentali. 
+
+Ad esempio, in cinese, giapponese, coreano (CJK) e in altre lingue asiatiche, uno spazio non è necessariamente un delimitatore di parola. Si consideri la seguente stringa giapponese. Poiché non contiene spazi, un analizzatore indipendente dalla lingua analizza probabilmente l'intera stringa come un token, quando in realtà la stringa è effettivamente una frase.
+
+```
+これは私たちの銀河系の中ではもっとも重く明るいクラスの球状星団です。
+(This is the heaviest and brightest group of spherical stars in our galaxy.)
+```
+
+Per l'esempio precedente, una query con esito positivo dovrebbe includere il token completo o un token parziale usando un carattere jolly del suffisso, causando un'esperienza di ricerca non naturale e limitante.
+
+Un'esperienza migliore consiste nel cercare singole parole: 明るい (Bright), 私たちの (Our), 銀河系 (Galaxy). L'uso di uno degli analizzatori giapponesi disponibili in ricerca cognitiva è più probabile per sbloccare questo comportamento, perché questi analizzatori sono più idonei a suddividere il blocco di testo in parole significative nella lingua di destinazione.
+
+## <a name="comparing-lucene-and-microsoft-analyzers"></a>Confronto tra Lucene e analizzatori Microsoft
+
+Azure ricerca cognitiva supporta gli analizzatori di lingua 35 supportati da Lucene e gli analizzatori di linguaggio 50 supportati dalla tecnologia di elaborazione del linguaggio naturale Microsoft usata in Office e Bing.
 
 Alcuni sviluppatori potrebbero preferire la soluzione open source di Lucene, più semplice e familiare. Gli analizzatori del linguaggio Lucene sono più veloci, ma gli analizzatori Microsoft dispongono di funzionalità avanzate, ad esempio lemmatizzazione, scomposizione delle parole (in lingue come tedesco, danese, olandese, svedese, norvegese, estone, finlandese, ungherese, slovacco) e riconoscimento di entità (URL, messaggi di posta elettronica, date, numeri). Si consiglia di confrontare, se possibile, gli analizzatori Microsoft e Lucene per scegliere la soluzione più adatta al proprio caso. 
 
@@ -105,7 +111,7 @@ Per altre informazioni sulle proprietà degli indici, vedere [creare un indice &
 |Portoghese (Brasile)|pt-Br.microsoft|pt-Br.lucene|  
 |Portoghese (Portogallo)|pt-Pt.microsoft|pt-Pt.lucene|  
 |Punjabi|pa.microsoft||  
-|Rumeno|ro.microsoft|ro.lucene|  
+|Romeno|ro.microsoft|ro.lucene|  
 |Russo|ru.microsoft|ru.lucene|  
 |Serbo (alfabeto cirillico)|sr-cyrillic.microsoft||  
 |Serbo (alfabeto latino)|sr-latin.microsoft||  

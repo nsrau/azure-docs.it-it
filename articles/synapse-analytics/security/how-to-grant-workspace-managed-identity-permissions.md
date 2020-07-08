@@ -4,15 +4,16 @@ description: Articolo che illustra come configurare le autorizzazioni per l'iden
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1f0644c25d0047f774fe8f99efa34a33e10d7b2b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 8e33bd127fca9ddce7b15d144fd287ec4a6bf0e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193465"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concedere le autorizzazioni per l'identità gestita dell'area di lavoro (anteprima)
 
@@ -73,7 +74,7 @@ Selezionare lo stesso contenitore o file system per concedere al ruolo *collabor
 
 #### <a name="step-3-navigate-to-access-control"></a>Passaggio 3: passare a controllo di accesso
 
-Selezionare **Controllo di accesso (IAM)**.
+Selezionare **Controllo di accesso (IAM)** .
 
 ![Controllo di accesso (IAM)](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-8.png)
 

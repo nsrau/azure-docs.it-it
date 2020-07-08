@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bcce08285c7412644de22f19ddd9d821ad3adea7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77666753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124392"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -34,11 +34,11 @@ Tutti i dati nell'area di lavoro Log Analytics vengono archiviati come record co
 ## <a name="create-a-request"></a>Creare una richiesta
 Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che include i dati da inviare in formato JSON (JavaScript Object Notation).  Le tre tabelle successive indicano gli attributi necessari per ogni richiesta. Ogni attributo viene descritto con maggiori dettagli più avanti nell'articolo.
 
-### <a name="request-uri"></a>URI richiesta
+### <a name="request-uri"></a>URI della richiesta
 | Attributo | Proprietà |
 |:--- |:--- |
 | Metodo |POST |
-| URI |https://\<IdCliente\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Tipo di contenuto |application/json |
 
 ### <a name="request-uri-parameters"></a>Parametri URI della richiesta
@@ -46,10 +46,10 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 |:--- |:--- |
 | CustomerID |Identificatore univoco per l'area di lavoro Log Analytics. |
 | Risorsa |Nome della risorsa API: /api/logs. |
-| Versione dell'API |Versione dell'API da usare con questa richiesta. La versione attuale è 2016-04-01. |
+| Versione API |Versione dell'API da usare con questa richiesta. La versione attuale è 2016-04-01. |
 
 ### <a name="request-headers"></a>Intestazioni della richiesta
-| Intestazione | Descrizione |
+| Header | Descrizione |
 |:--- |:--- |
 | Autorizzazione |Firma di autorizzazione. Più avanti nell'articolo sono disponibili informazioni sulla creazione di un'intestazione HMAC-SHA256. |
 | Log-Type |Specificare il tipo di record dei dati inviati. Può contenere solo lettere, numeri e caratteri di sottolineatura (_) e non può superare i 100 caratteri. |
@@ -92,7 +92,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 Gli esempi nelle sezioni successive indicano il codice di esempio per creare l'intestazione dell'autorizzazione.
 
-## <a name="request-body"></a>Testo della richiesta
+## <a name="request-body"></a>Corpo della richiesta
 Il corpo del messaggio deve essere in formato JSON. Deve includere uno o più record con le coppie nome e valore della proprietà nel formato seguente. Il nome della proprietà può contenere solo lettere, numeri e caratteri di sottolineatura (_).
 
 ```json
@@ -134,10 +134,10 @@ Per identificare il tipo di dati di una proprietà, Monitoraggio di Azure aggiun
 
 | Tipo di dati proprietà | Suffisso |
 |:--- |:--- |
-| Stringa |_s |
+| string |_s |
 | Boolean |_b |
 | Double |_d |
-| Data/ora |_t |
+| Data/Ora |_t |
 | GUID (archiviato come stringa) |_g |
 
 Il tipo di dati usato da Monitoraggio di Azure per ogni proprietà dipende dall'eventuale esistenza di un tipo di record per il nuovo record.
@@ -180,7 +180,7 @@ Il codice di stato HTTP 200 indica che è stata ricevuta la richiesta per l'elab
 
 Questa tabella elenca il set completo di codici di stato che il servizio può restituire:
 
-| Codice | Stato | Codice errore | Descrizione |
+| Codice | Stato | Codice di errore | Descrizione |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |La richiesta è stata accettata. |
 | 400 |Richiesta non valida |InactiveCustomer |L'area di lavoro è stata chiusa. |
@@ -225,7 +225,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $LogType = "MyRecordType"
 
 # You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
-$TimeStampField = "DateValue"
+$TimeStampField = ""
 
 
 # Create two records with the same set of properties to create

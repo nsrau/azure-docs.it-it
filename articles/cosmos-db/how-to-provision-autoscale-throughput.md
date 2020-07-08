@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 16fad7f57d3054c193da2571f1b33cfd77fdd51c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118730"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database o contenitore in Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Questo articolo illustra come effettuare il provisioning della velocità effetti
 
 1. Selezionare **Nuovo contenitore**. Immettere un nome per il database, il contenitore e una chiave di partizione. In **Velocità effettiva** selezionare l'opzione **Scalabilità automatica** e impostare la [velocità effettiva massima (UR/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) per il dimensionamento del database o del contenitore.
 
-   ![Creazione di un contenitore e configurazione del provisioning della velocità effettiva per la scalabilità automatica](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Creazione di un contenitore e configurazione del provisioning della velocità effettiva per la scalabilità automatica":::
 
 1. Selezionare **OK**.
 
@@ -45,7 +45,7 @@ Per effettuare il provisioning della scalabilità automatica per il database con
 
 1. In **Dimensiona** selezionare l'opzione **Scalabilità automatica** e fare clic su **Salva**.
 
-   ![Abilitazione della scalabilità automatica per un contenitore esistente](./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Abilitazione della scalabilità automatica per un contenitore esistente":::
 
 > [!NOTE]
 > Quando si abilita la scalabilità automatica per un database o un contenitore esistente, il valore iniziale per il numero massimo di UR/s è determinato dal sistema, in base alle impostazioni correnti del provisioning della velocità effettiva manuale e allo spazio di archiviazione. Al termine dell'operazione, se necessario, è possibile modificare il numero massimo di UR/s. [Altre informazioni.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 

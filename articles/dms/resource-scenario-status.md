@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: 9652b78674d6a6b905eb049564d1b17cdc7c17b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/20/2020
+ms.openlocfilehash: 84026a5a9ba63bf008eeb25df3d0c42cbd558fa9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78254921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118781"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stato degli scenari di migrazione supportati dal servizio migrazione del database di Azure
 
@@ -48,18 +48,20 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 | Destinazione  | Source (Sorgente) | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Database SQL di Azure** | SQL Server | ✔ | GA |
-|   | Servizi Desktop remoto SQL |  |  |
-|   | Oracle |  |  |
+|   | Servizi Desktop remoto SQL | X |  |
+|   | Oracle | X |  |
 | **Istanza gestita del database SQL di Azure** | SQL Server | ✔ | GA |
-|   | Servizi Desktop remoto SQL |  |  |
-|   | Oracle |  |   |
+|   | Servizi Desktop remoto SQL | X |  |
+|   | Oracle | X |   |
 | **VM di Azure SQL** | SQL Server | ✔ | GA |
-|   | Oracle |   |   |
+|   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Database di Azure per MySQL** | MySQL |   |   |
-|   | Servizi Desktop remoto MySQL |   |   |
-| **Database di Azure per PostgreSQL** | PostgreSQL |  |
-|  | Servizi Desktop remoto PostgreSQL |   |   |
+| **Database di Azure per MySQL** | MySQL | X |   |
+|   | Servizi Desktop remoto MySQL | X |   |
+| **DATABASE di Azure per PostgreSQL-server singolo** | PostgreSQL | X |
+|  | Servizi Desktop remoto PostgreSQL | X |   |
+| **Azure DB per PostgreSQL-iperscalabilità (CITUS)** | PostgreSQL | X |
+|  | Servizi Desktop remoto PostgreSQL | X |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Supporto della migrazione online (sincronizzazione continua)
 
@@ -69,18 +71,20 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL | ✔ | GA |
-|   | Oracle |  |  |
+|   | Oracle | X |  |
 | **Istanza gestita del database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL | ✔ | GA |
 |   | Oracle | ✔ | Anteprima privata |
-| **VM di Azure SQL** | SQL Server |   |   |
-|   | Oracle  |  |  |
+| **VM di Azure SQL** | SQL Server | X |   |
+|   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **Database di Azure per MySQL** | MySQL | ✔ | GA |
 |   | Servizi Desktop remoto MySQL | ✔ | GA |
-| **Database di Azure per PostgreSQL** | PostgreSQL | ✔ | GA |
+| **DATABASE di Azure per PostgreSQL-server singolo** | PostgreSQL | ✔ | GA |
 |   | Servizi Desktop remoto PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | Anteprima pubblica |
+| **Azure DB per PostgreSQL-iperscalabilità (CITUS)** | PostgreSQL | ✔ | GA |
+|   | Servizi Desktop remoto PostgreSQL | ✔ | GA |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

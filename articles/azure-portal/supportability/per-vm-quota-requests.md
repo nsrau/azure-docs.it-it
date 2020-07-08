@@ -4,15 +4,15 @@ description: Come richiedere un aumento del limite di quota vCPU per una serie d
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: de06375dad5999a29691435317e62585a2ea7f64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843734"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117166"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>Quota standard: aumentare i limiti per serie di macchine virtuali
 
@@ -26,7 +26,7 @@ La quota di vCPU standard per le istanze con pagamento in base al consumo e le m
 * Il primo livello è il *limite di vCPU regionale totale*, in tutte le serie di VM.
 * Il secondo livello è il *limite di vCPU serie per macchina virtuale*, ad esempio la serie dv3 vCPU.
 
-Ogni volta che si distribuisce una nuova macchina virtuale spot, l'utilizzo totale nuovo ed esistente di vCPU per tale serie di macchine virtuali non deve superare la quota di vCPU approvata per la serie di macchine virtuali in questione. Inoltre, il numero totale di vCPU nuovi ed esistenti distribuiti in tutte le serie di macchine virtuali non deve superare la quota vCPU regionale totale approvata per la sottoscrizione. Se una di queste quote viene superata, la distribuzione della macchina virtuale non è consentita.
+Ogni volta che si distribuisce una nuova macchina virtuale spot, l'utilizzo totale nuovo ed esistente di vCPU per tutte le istanze di VM spot non deve superare il limite di quota vCPU di punti approvati. Se la quota spot viene superata, la distribuzione della macchina virtuale spot non è consentita.
 
 È possibile richiedere un aumento del limite di quota vCPU per la serie di macchine virtuali usando il portale di Azure. Un aumento della quota della serie di VM aumenta automaticamente il limite di vCPU regionale totale per la stessa quantità.
 
@@ -45,17 +45,17 @@ Per richiedere un aumento della quota di vCPU standard per serie di VM da **Guid
 > [!NOTE]
 > È anche possibile richiedere un aumento del limite di quota per più aree tramite un unico caso di supporto. Per informazioni dettagliate, vedere il passaggio 8.
 
-1. Scegliere **Guida e supporto**dal menu [portale di Azure](https://portal.azure.com) .
+1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Guida e supporto**.
 
-   ![Il collegamento alla guida e al supporto tecnico](./media/resource-manager-core-quotas-request/help-plus-support.png)
+   ![Collegamento Guida e supporto](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. In **Guida e supporto**selezionare **nuova richiesta di supporto**.
+1. In **Guida e supporto** selezionare **Nuova richiesta di supporto**.
 
-    ![Crea una nuova richiesta di supporto](./media/resource-manager-core-quotas-request/new-support-request.png)
+    ![Creare una nuova richiesta di supporto](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Per **Tipo di problema** selezionare **Limiti del servizio e della sottoscrizione (quote)**.
+1. Per **tipo di problema**selezionare **limiti per servizio e sottoscrizione (quote)**.
 
-   ![Seleziona un tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
+   ![Selezionare un tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
 1. Per **Subscription (sottoscrizione**) selezionare la sottoscrizione di cui si vuole aumentare la quota.
 
@@ -67,7 +67,7 @@ Per richiedere un aumento della quota di vCPU standard per serie di VM da **Guid
 
 1. Selezionare **Avanti: soluzioni** per aprire **i dettagli del problema**. Selezionare **specificare i dettagli** per immettere informazioni aggiuntive.
 
-   ![Collegamento "fornire i dettagli"](./media/resource-manager-core-quotas-request/provide-details-link.png)
+   ![Collegamento "Specifica dettagli"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
 1. Nei **Dettagli della quota**, seguire questa procedura:
 

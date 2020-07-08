@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: cf259dfa0b00393cf0fee259b199527569ba1792
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42421f745759d9aee75b285c3fbc6ea7217ba5c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85112702"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Pianificare e gestire i costi per Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Usare il [calcolatore della capacità di Azure Cosmos DB](https://cosmos.azure.c
 
 Lo screenshot seguente mostra la velocità effettiva e la stima dei costi usando il calcolatore della capacità:
 
-![Stima dei costi nel calcolatore di capacità Azure Cosmos DB](./media/plan-manage-costs/capacity-calculator-cost-estimate.png)
+:::image type="content" source="./media/plan-manage-costs/capacity-calculator-cost-estimate.png" alt-text="Stima dei costi nel calcolatore di capacità Azure Cosmos DB":::
 
 ## <a name="review-estimated-costs-from-the-azure-portal"></a>Esaminare i costi stimati dal portale di Azure
 
@@ -41,13 +41,13 @@ Quando si creano Azure Cosmos DB risorse da portale di Azure, è possibile visua
 1. Creare un nuovo contenitore, ad esempio un contenitore Graph.
 1. Immettere la velocità effettiva necessaria per il carico di lavoro, ad esempio 400 ur/sec. Dopo aver inserito il valore di velocità effettiva, è possibile visualizzare la stima dei prezzi come illustrato nello screenshot seguente:
 
-   ![Stima dei costi in portale di Azure](./media/plan-manage-costs/cost-estimate-portal.png)
+   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Stima dei costi in portale di Azure":::
 
 Se la sottoscrizione di Azure ha un limite di spesa, Azure impedisce la spesa rispetto all'importo del credito. Quando si creano e si usano le risorse di Azure, vengono usati i crediti. Quando si raggiunge il limite di credito, le risorse distribuite sono disabilitate per il resto del periodo di fatturazione. Non è possibile modificare il limite di credito, ma è possibile rimuoverlo. Per altre informazioni sui limiti di spesa, vedere [limite di spesa di Azure](../billing/billing-spending-limit.md).
 
 ## <a name="use-budgets-and-cost-alerts"></a>Usare budget e avvisi relativi ai costi
 
-È possibile creare [budget](../cost-management/tutorial-acm-create-budgets.md) per gestire i costi e creare avvisi per informare automaticamente gli stakeholder in caso di anomalie di spesa e rischi di costi eccessivi. Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi. I budget e gli avvisi vengono creati per le sottoscrizioni e i gruppi di risorse di Azure, quindi sono utili come parte di una strategia di monitoraggio dei costi complessiva. Tuttavia, possono avere una funzionalità limitata per gestire i costi dei singoli servizi di Azure, come il costo di Azure Cosmos DB perché sono progettati per tenere traccia dei costi a un livello superiore.
+È possibile creare [budget](../cost-management/tutorial-acm-create-budgets.md) per gestire i costi e creare avvisi per informare automaticamente le persone interessate in caso di anomalie di spesa e rischi di costi eccessivi. Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi. I budget e gli avvisi vengono creati per le sottoscrizioni e i gruppi di risorse di Azure, quindi sono utili come parte di una strategia di monitoraggio dei costi complessiva. Tuttavia, possono avere una funzionalità limitata per gestire i costi dei singoli servizi di Azure, come il costo di Azure Cosmos DB perché sono progettati per tenere traccia dei costi a un livello superiore.
 
 ## <a name="monitor-costs"></a>Monitorare i costi
 
@@ -63,7 +63,7 @@ Quando si usa l'analisi dei costi, è possibile visualizzare i costi Azure Cosmo
 
 1. Per limitare i costi per un singolo servizio, ad esempio Azure Cosmos DB, selezionare **Aggiungi filtro** e quindi selezionare **nome servizio**. Quindi, scegliere **Azure Cosmos DB** dall'elenco. Ecco un esempio che mostra i costi solo per Azure Cosmos DB:
  
-   ![Monitorare i costi con il riquadro analisi costi](./media/plan-manage-costs/cost-analysis-pane.png)
+   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Monitorare i costi con il riquadro analisi costi":::
 
 Nell'esempio precedente viene visualizzato il costo corrente per Azure Cosmos DB per il mese di febbraio. I grafici contengono anche Azure Cosmos DB costi in base alla località e al gruppo di risorse.
 
