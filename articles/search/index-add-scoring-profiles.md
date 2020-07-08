@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890171"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565367"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Aggiungere profili di punteggio a un indice di Ricerca cognitiva di Azure
 
@@ -61,23 +61,23 @@ Il *Punteggio* calcola un punteggio di ricerca per ogni elemento in un set di ri
  Per usare il profilo di punteggio, la query viene formulata in modo da specificare il profilo nella stringa di query. Nella query seguente si noti il parametro di query `scoringProfile=geo` nella richiesta.  
 
 ```  
-GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2019-05-06 
+GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30 
 ```  
 
- Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad `scoringParameter`esempio. I parametri di query sono descritti in [Cerca documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
+ Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter` . I parametri di query sono descritti in [Cerca documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
 
  Fare clic su [Esempio](#bkmk_ex) per esaminare un esempio più dettagliato del profilo di punteggio.  
 
 ## <a name="what-is-default-scoring"></a>Informazioni sull'assegnazione predefinita di punteggio  
  L'assegnazione di punteggio calcola un punteggio di ricerca per ogni elemento in un set di risultati ordinato in base a una classificazione. A ogni elemento nel set di risultati della ricerca viene assegnato un punteggio di ricerca e quindi gli elementi vengono classificati dal maggiore al minore. Gli elementi con i punteggi maggiori vengono restituiti all'applicazione. Per impostazione predefinita, vengono restituiti i primi 50 elementi, ma è possibile usare il parametro `$top` per restituire un numero minore o maggiore di elementi, fino a un massimo di 1000 elementi in una singola risposta.  
 
-Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei dati e della query. Azure ricerca cognitiva trova i documenti che includono i termini di ricerca nella stringa di query (alcuni o tutti, in `searchMode`base a), privilegiando i documenti che contengono molte istanze del termine di ricerca. Il Punteggio di ricerca aumenta ancora di più se il termine è raro nell'indice dati, ma comune all'interno del documento. I concetti di base di questo approccio al calcolo della rilevanza sono noti come [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (Term Frequency-Inverse Document Frequency).  
+Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei dati e della query. Azure ricerca cognitiva trova i documenti che includono i termini di ricerca nella stringa di query (alcuni o tutti, in base a `searchMode` ), privilegiando i documenti che contengono molte istanze del termine di ricerca. Il punteggio di ricerca aumenta ancora di più se il termine risulta raro nell'indice di dati, ma comune all'interno del documento. La base per questo approccio alla rilevanza di calcolo è nota come [tf-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) o frequenza dei termini, frequenza inversa del documento.  
 
  Se non è applicato alcun ordinamento personalizzato, i risultati vengono quindi classificati in base al punteggio di ricerca prima di essere restituiti all'applicazione chiamante. Se non viene specificato $top, verranno restituiti i 50 elementi con il punteggio di ricerca più elevato.  
 
  I valori dei punteggi di ricerca possono essere ripetuti in un set di risultati. Ad esempio, possono essere presenti 10 elementi con punteggio pari a 1,2, 20 elementi con punteggio pari a 1,0 e 20 elementi con punteggio pari a 0,5. Quando più riscontri hanno lo stesso punteggio di ricerca, l'ordine degli stessi elementi con punteggio non è definito e non è quindi stabile. Se si esegue di nuovo la query, è possibile che gli elementi cambino posizione. Se due elementi hanno punteggio identico, non vi è alcuna garanzia su quale elemento verrà visualizzato per primo.  
 
-## <a name="when-to-use-custom-scoring"></a>Quando usare l'assegnazione personalizzata di punteggio  
+## <a name="when-to-add-scoring-logic"></a>Quando aggiungere la logica di assegnazione dei punteggi 
  È consigliabile creare uno o più profili di punteggio quando il comportamento di classificazione predefinito non permette di raggiungere gli obiettivi aziendali stabiliti. È ad esempio possibile che si voglia assegnare una rilevanza di ricerca maggiore agli elementi aggiunti di recente. Analogamente, è possibile che sia presente un campo che include i margini di profitto o un altro campo che indica il potenziale di ricavi. L'aumento della priorità dei riscontri utili per l'azienda può essere un fattore importante nella decisione di usare i profili di punteggio,  
 
  che permettono anche di implementare l'ordinamento basato sulla rilevanza. È consigliabile esaminare le pagine di risultati della ricerca usate in precedenza e che permettevano di ordinare i risultati in base a prezzo, data, classificazione o rilevanza. In ricerca cognitiva di Azure, i profili di Punteggio determinano l'opzione "pertinenza". La definizione della rilevanza è controllata dall'utente, in base agli obiettivi aziendali specifici e al tipo di esperienza di ricerca che si vuole offrire.  
@@ -164,7 +164,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 |||  
 |-|-|  
 |**Pesi**|Specificare le coppie nome-valore che assegnano un peso relativo a un campo. Nell' [esempio](#bkmk_ex), i campi albumTitle, genre e ArtistName vengono incrementati rispettivamente di 1,5, 5 e 2. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, perché, se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di "genre" in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex` "rock" viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.|  
-|**Funzioni**|Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi sono `freshness`, `magnitude`, `distance` e `tag`. Ogni funzione dispone di parametri univoci.<br /><br /> -   `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con campi `datetime` (edm.DataTimeOffset). Si noti `boostingDuration` che l'attributo viene usato solo `freshness` con la funzione.<br />-   È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con i campi di tipo Integer e Double.<br />     Per la funzione `magnitude` è possibile invertire l'intervallo, dal più alto al più basso, se si vuole il modello inverso, ad esempio per aumentare la priorità degli articoli più economici rispetto a quelli più cari. Dato un intervallo di prezzi da €100 a €1, è necessario impostare `boostingRangeStart` su 100 e `boostingRangeEnd` su 1 per aumentare gli elementi con prezzo minore.<br />-   `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `Edm.GeographyPoint` .<br />-   `tag` quando si vuole aumentare la priorità in base ai tag in comune tra documenti e query di ricerca. Questa funzione può essere usata solo con campi `Edm.String` e `Collection(Edm.String)`.<br /><br /> **Regole per l'uso delle funzioni**<br /><br /> Tipo della funzione (`freshness`, `magnitude`, `distance`), `tag` deve essere scritto in lettere minuscole.<br /><br /> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.<br /><br /> Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [creare un indice &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) .<br /><br /> Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.|  
+|**Funzioni**|Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi sono `freshness`, `magnitude`, `distance` e `tag`. Ogni funzione dispone di parametri univoci.<br /><br /> -   `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con campi `datetime` (edm.DataTimeOffset). Si noti che l' `boostingDuration` attributo viene usato solo con la `freshness` funzione.<br />-   È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con i campi di tipo Integer e Double.<br />     Per la funzione `magnitude` è possibile invertire l'intervallo, dal più alto al più basso, se si vuole il modello inverso, ad esempio per aumentare la priorità degli articoli più economici rispetto a quelli più cari. Dato un intervallo di prezzi da €100 a €1, è necessario impostare `boostingRangeStart` su 100 e `boostingRangeEnd` su 1 per aumentare gli elementi con prezzo minore.<br />-   `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `Edm.GeographyPoint` .<br />-   `tag` quando si vuole aumentare la priorità in base ai tag in comune tra documenti e query di ricerca. Questa funzione può essere usata solo con campi `Edm.String` e `Collection(Edm.String)`.<br /><br /> **Regole per l'uso delle funzioni**<br /><br /> Tipo della funzione (`freshness`, `magnitude`, `distance`), `tag` deve essere scritto in lettere minuscole.<br /><br /> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.<br /><br /> Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [creare un indice &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) .<br /><br /> Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.|  
 
  Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni su queste operazioni, vedere [creare un indice &#40;API REST di azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) e [aggiungere, aggiornare o eliminare documenti &#40;API rest di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) . Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.  
 
@@ -227,7 +227,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 > [!NOTE]  
 >  La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.  
 
-|Attributo|Description|  
+|Attributo|Descrizione|  
 |---------------|-----------------|  
 |`name`|Obbligatorio. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase "azureSearch" (distinzione tra maiuscole e minuscole applicata).|  
 |`text`|Contiene la proprietà Weights.|  
@@ -283,4 +283,4 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
 + [Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Create index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-+ [Azure ricerca cognitiva .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [.NET SDK di Ricerca cognitiva di Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

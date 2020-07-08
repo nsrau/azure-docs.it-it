@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35b4b206de9c16d66387135b0ca75b6aaeb7c744
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67805715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565001"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Usare i log per risolvere i problemi di convalida in Azure Data Box Disk
 
@@ -21,13 +21,13 @@ Questo articolo si applica a Microsoft Azure Data Box Disk. Questo articolo desc
 
 ## <a name="validation-tool-log-files"></a>File di log dello strumento di convalida
 
-Quando si convalidano i dati sui dischi utilizzando lo [strumento di convalida](data-box-disk-deploy-copy-data.md#validate-data), viene generato un *errore. XML* per registrare eventuali errori. Il file di log si trova nella `Drive:\DataBoxDiskImport\logs` cartella dell'unità. Quando si esegue la convalida, viene fornito un collegamento al log degli errori di.
+Quando si convalidano i dati sui dischi utilizzando lo [strumento di convalida](data-box-disk-deploy-copy-data.md#validate-data), viene generata un' *error.xml* per registrare eventuali errori. Il file di log si trova nella `Drive:\DataBoxDiskImport\logs` cartella dell'unità. Quando si esegue la convalida, viene fornito un collegamento al log degli errori di.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
 Se si eseguono più sessioni per la convalida, viene generato un log degli errori per sessione.
 
-- Di seguito è riportato un esempio del log degli errori quando i dati caricati `PageBlob` nella cartella non sono allineati a 512 byte. Tutti i dati caricati in PageBlob devono essere allineati a 512 byte, ad esempio un VHD o VHDX. Gli errori in questo file si trovano negli `<Errors>` avvisi e in `<Warnings>`.
+- Di seguito è riportato un esempio del log degli errori quando i dati caricati nella `PageBlob` cartella non sono allineati a 512 byte. Tutti i dati caricati in PageBlob devono essere allineati a 512 byte, ad esempio un VHD o VHDX. Gli errori in questo file si trovano negli `<Errors>` avvisi e in `<Warnings>` .
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -48,7 +48,7 @@ Se si eseguono più sessioni per la convalida, viene generato un log degli error
         </ErrorLog>
     ```
 
-- Di seguito è riportato un esempio del log degli errori quando il nome del contenitore non è valido. La cartella creata in cartelle `BlockBlob`, `PageBlob`o `AzureFile` sul disco diventa un contenitore nell'account di archiviazione di Azure. Il nome del contenitore deve seguire le [convenzioni di denominazione di Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
+- Di seguito è riportato un esempio del log degli errori quando il nome del contenitore non è valido. La cartella creata in `BlockBlob` `PageBlob` cartelle, o `AzureFile` sul disco diventa un contenitore nell'account di archiviazione di Azure. Il nome del contenitore deve seguire le [convenzioni di denominazione di Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
     ```xml
         <?xml version="1.0" encoding="utf-8"?>
@@ -71,9 +71,9 @@ Se si eseguono più sessioni per la convalida, viene generato un log degli error
 
 ## <a name="validation-tool-errors"></a>Errori dello strumento di convalida
 
-Nella tabella seguente sono riepilogati gli errori contenuti nel *file Error. XML* con le azioni consigliate corrispondenti.
+Nella tabella seguente sono riepilogati gli errori contenuti nel *error.xml* con le azioni consigliate corrispondenti.
 
-| Codice errore| Descrizione                       | Azioni consigliate               |
+| Codice di errore| Descrizione                       | Azioni consigliate               |
 |------------|--------------------------|-----------------------------------|
 | `None` | I dati sono stati convalidati. | Non è richiesta alcuna azione. |
 | `InvalidXmlCharsInPath` |Non è stato possibile creare un file manifesto perché il percorso del file contiene caratteri non validi. | Rimuovere questi caratteri per continuare.  |

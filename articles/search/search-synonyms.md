@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23c7913fbe9b3943559d36f5cbf2a21d7ed63dbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78194343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563461"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinonimi in Azure ricerca cognitiva
 
@@ -51,7 +51,7 @@ Le mappe sinonimiche devono essere nel formato Apache Solr descritto di seguito.
 
 È possibile creare una nuova mappa sinonimica usando HTTP POST, come nell'esempio seguente:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
 
     {
@@ -64,7 +64,7 @@ Le mappe sinonimiche devono essere nel formato Apache Solr descritto di seguito.
 
 In alternativa è possibile usare PUT e specificare il nome della mappa sinonimica nell'URI. Se la mappa sinonimica non esiste, verrà creata.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
     {
@@ -90,24 +90,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Elencare le mappe sinonimiche del proprio servizio.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Aggiungere una mappa sinonimica al proprio servizio.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Eliminare una mappa sinonimica dal proprio servizio.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configurare un campo ricercabile per l'uso della mappa sinonimica nella definizione dell'indice.
 
 La nuova proprietà di campo **synonymMaps** consente di specificare una mappa sinonimica da usare per un campo ricercabile. Le mappe sinonimiche sono risorse a livello di servizio e possono essere referenziate da qualsiasi campo di un indice del servizio.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
     api-key: [admin key]
 
     {

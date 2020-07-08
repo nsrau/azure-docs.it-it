@@ -1,28 +1,25 @@
 ---
-title: Introduzione all'archivio conoscenze (anteprima)
+title: Concetti relativi all'archivio informazioni
 titleSuffix: Azure Cognitive Search
-description: Inviare documenti arricchiti ad Archiviazione di Azure in cui è possibile visualizzare, rimodellare e utilizzare tali documenti in Ricerca cognitiva di Azure e in altre applicazioni. Questa funzionalità è disponibile in anteprima pubblica.
+description: Inviare documenti arricchiti ad Archiviazione di Azure in cui è possibile visualizzare, rimodellare e utilizzare tali documenti in Ricerca cognitiva di Azure e in altre applicazioni.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: 20819bc6ec091eddf5d65b1c0d7aa57c821b2fc1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.date: 06/30/2020
+ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565272"
 ---
-# <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduzione agli archivi conoscenze in Ricerca cognitiva di Azure
+# <a name="knowledge-store-in-azure-cognitive-search"></a>Archivio informazioni in Azure ricerca cognitiva
 
-> [!IMPORTANT] 
-> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
+L'archivio conoscenze è una funzionalità di Ricerca cognitiva di Azure che rende persistente l'output di una [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) per analisi indipendenti o elaborazioni downstream. Un *documento arricchito* è l'output di una pipeline, creato da contenuto che è stato estratto, strutturato e analizzato tramite processi di intelligenza artificiale. In una pipeline di intelligenza artificiale standard, i documenti arricchiti sono temporanei, ovvero vengono usati solo durante l'indicizzazione per poi essere rimossi. La scelta di creare un archivio informazioni consentirà di mantenere i documenti arricchiti. 
 
-L'archivio conoscenze è una funzionalità di Ricerca cognitiva di Azure che rende persistente l'output di una [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) per analisi indipendenti o elaborazioni downstream. Un *documento arricchito* è l'output di una pipeline, creato da contenuto che è stato estratto, strutturato e analizzato tramite processi di intelligenza artificiale. In una pipeline di intelligenza artificiale standard, i documenti arricchiti sono temporanei, ovvero vengono usati solo durante l'indicizzazione per poi essere rimossi. Con l'archivio conoscenze, i documenti arricchiti vengono conservati. 
-
-Se le competenze cognitive sono già state usate in precedenza, si saprà che i *set di competenze* consentono di spostare un documento attraverso una sequenza di arricchimenti. Il risultato può essere rappresentato da un indice di ricerca o (novità in questa anteprima) da proiezioni in un archivio conoscenze. I due output, l'indice di ricerca e l'archivio conoscenze sono prodotti della stessa pipeline e derivano dagli stessi input, ma risultano in un output che viene strutturato, archiviato e usato in modi molto diversi.
+Se le competenze cognitive sono già state usate in precedenza, si saprà che i *set di competenze* consentono di spostare un documento attraverso una sequenza di arricchimenti. Il risultato può essere un indice di ricerca o proiezioni in un archivio informazioni. I due output, l'indice di ricerca e l'archivio conoscenze sono prodotti della stessa pipeline e derivano dagli stessi input, ma risultano in un output che viene strutturato, archiviato e usato in modi molto diversi.
 
 Fisicamente, un archivio conoscenze è una [risorsa di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), ad esempio una risorsa di archiviazione tabelle di Azure, di archiviazione BLOB di Azure o entrambe. Qualsiasi strumento o processo in grado di connettersi ad archiviazione di Azure può usare il contenuto di un archivio conoscenze.
 
@@ -103,7 +100,7 @@ L'[indicizzatore](search-indexer-overview.md) è obbligatorio. Un set di compete
 
 ## <a name="how-to-create-a-knowledge-store"></a>Come creare un archivio conoscenze
 
-Per creare un archivio conoscenze, usare il portale o l'API REST di anteprima (`api-version=2019-05-06-Preview`).
+Per creare un archivio informazioni, usare il portale o l'API REST ( `api-version=2020-06-30` ).
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
@@ -117,13 +114,11 @@ La procedura guidata di **importazione dei dati** include le opzioni per la crea
 
 1. Eseguire la procedura guidata. In questo ultimo passaggio vengono eseguite le operazioni di estrazione, arricchimento e archiviazione.
 
-### <a name="use-create-skillset-and-the-preview-rest-api"></a>Usare l'API REST di creazione del set di competenze di anteprima
+### <a name="use-create-skillset-rest-api"></a>Usare create Skills (API REST)]
 
 Un `knowledgeStore` viene definito all'interno di un [set di competenze](cognitive-search-working-with-skillsets.md), che a sua volta viene richiamato da un [indicizzatore](search-indexer-overview.md). Durante l'arricchimento, Ricerca cognitiva di Azure crea uno spazio nell'account di Archiviazione di Azure e proietta i documenti arricchiti come BLOB o tabelle, a seconda della configurazione.
 
-Attualmente, l'API REST di anteprima è l'unico meccanismo mediante il quale è possibile creare un archivio conoscenze in modo programmatico. Una modalità semplice di esplorazione consiste nel [creare il primo archivio conoscenze con Postman e l'API REST](knowledge-store-create-rest.md).
-
-Il contenuto di riferimento relativo a questa funzionalità di anteprima si trova nella sezione [Informazioni di riferimento sulle API](#kstore-rest-api) di questo articolo. 
+L'API REST è un meccanismo mediante il quale è possibile creare un archivio informazioni a livello di codice. Una modalità semplice di esplorazione consiste nel [creare il primo archivio conoscenze con Postman e l'API REST](knowledge-store-create-rest.md).
 
 <a name="tools-and-apps"></a>
 
@@ -141,17 +136,17 @@ Una volta che gli arricchimenti sono presenti nell'archiviazione, è possibile u
 
 ## <a name="api-reference"></a>Informazioni di riferimento sulle API
 
-La versione dell'API REST `2019-05-06-Preview` fornisce l'archivio conoscenze tramite definizioni aggiuntive nei set di competenze. Oltre ai riferimenti, vedere [Creare un archivio conoscenze con Postman](knowledge-store-create-rest.md) per informazioni dettagliate su come chiamare le API.
+La versione dell'API REST `2020-06-30` fornisce l'archivio conoscenze tramite definizioni aggiuntive nei set di competenze. Oltre ai riferimenti, vedere [Creare un archivio conoscenze con Postman](knowledge-store-create-rest.md) per informazioni dettagliate su come chiamare le API.
 
-+ [Creare un set di competenze (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
-+ [Aggiornare un set di competenze (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
++ [Crea competenze (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
++ [Update Skills (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 L'Archivio conoscenze offre la persistenza dei documenti arricchiti, utile durante la progettazione di un set di competenze o la creazione di nuove strutture e contenuto per l'utilizzo da parte di qualsiasi applicazione client in grado di accedere a un account di archiviazione di Azure.
 
-L'approccio più semplice alla creazione di documenti arricchiti consiste nell'[uso del portale](knowledge-store-create-portal.md); tuttavia, è anche possibile usare Postman e l'API REST, alternativa più utile se si desidera ottenere informazioni cognitive dettagliate su come gli oggetti vengono creati e su come viene fatto loro riferimento.
+L'approccio più semplice per la creazione di documenti arricchiti è [tramite il portale](knowledge-store-create-portal.md), ma è anche possibile usare l'API REST e l'API REST, che risulta più utile se si vuole approfondire la creazione e il riferimento agli oggetti.
 
 > [!div class="nextstepaction"]
 > [Creare un archivio conoscenze con REST e Postman](knowledge-store-create-rest.md)

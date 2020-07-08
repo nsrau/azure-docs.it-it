@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fcc70267754f7e66f29dd1b855d3efb8b814e78b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6268bf94350699518d8d578e3a1d5a56a52ad785
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72793009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562343"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Eseguire l'aggiornamento ad Azure search .NET SDK versione 9
 
-Se si usa la versione 7,0-Preview o precedente di [Azure search .NET SDK](https://aka.ms/search-sdk), questo articolo consentirà di aggiornare l'applicazione per l'uso della versione 9.
+Se si usa la versione 7,0-Preview o precedente di [Azure search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), questo articolo consentirà di aggiornare l'applicazione per l'uso della versione 9.
 
 > [!NOTE]
 > Se si vuole usare la versione 8,0-Preview per valutare le funzionalità che non sono ancora disponibili a livello generale, è anche possibile seguire le istruzioni riportate in questo articolo per eseguire l'aggiornamento a 8,0-Preview da versioni precedenti.
@@ -35,7 +35,7 @@ La versione 9 di Azure search .NET SDK contiene molte modifiche rispetto alle ve
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-9"></a>Novità della versione 9
-La versione 9 di Azure search .NET SDK è destinata alla versione più recente disponibile a livello generale dell'API REST di ricerca di Azure, in particolare 2019-05-06. Questo rende possibile usare le nuove funzionalità di Ricerca di Azure da un'applicazione .NET, incluse le seguenti:
+La versione 9 di ricerca di Azure .NET SDK è destinata alla versione 2019-05-06 dell'API REST di ricerca di Azure, con le seguenti funzionalità:
 
 * L' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) è la possibilità di estrarre testo da immagini, BLOB e altre origini dati non strutturate, arricchindo il contenuto per renderlo più ricercabile in un indice di ricerca di Azure.
 * Il supporto per i [tipi complessi](search-howto-complex-data-types.md) consente di modellare praticamente qualsiasi struttura JSON annidata in un indice di ricerca di Azure.
@@ -56,7 +56,7 @@ Una volta che NuGet ha scaricato i nuovi pacchetti e le relative dipendenze, ric
 
 Se la compilazione non riesce, sarà necessario correggere ogni errore di compilazione. Per informazioni dettagliate su come risolvere ogni potenziale errore di compilazione, vedere [modifiche di rilievo nella versione 9](#ListOfChanges) .
 
-È possibile che vengano visualizzati avvisi di compilazione aggiuntivi correlati a proprietà o metodi obsoleti. Gli avvisi indicheranno istruzioni sulle operazioni da eseguire al posto della funzionalità deprecata. Se, ad esempio, l'applicazione usa `DataSourceType.DocumentDb` la proprietà, verrà visualizzato un avviso che indica che questo membro è deprecato. Usare invece CosmosDb ".
+È possibile che vengano visualizzati avvisi di compilazione aggiuntivi correlati a proprietà o metodi obsoleti. Gli avvisi indicheranno istruzioni sulle operazioni da eseguire al posto della funzionalità deprecata. Se, ad esempio, l'applicazione usa la `DataSourceType.DocumentDb` proprietà, verrà visualizzato un avviso che indica che questo membro è deprecato. Usare invece CosmosDb ".
 
 Dopo avere corretto eventuali errori o avvisi di compilazione, è possibile apportare modifiche all'applicazione per sfruttare la nuova funzionalità, se si vuole. Le nuove funzionalità nell'SDK sono descritte in dettaglio in novità della [versione 9](#WhatsNew).
 
@@ -93,14 +93,14 @@ Le seguenti `bool` proprietà ora ammettono valori null:
   - `IsRetrievable`
   - `IsKey`
 
-Questa situazione è dovuta al fatto che `null` queste proprietà devono ora trovarsi nel caso di campi complessi. Se si dispone di codice che legge queste proprietà, è necessario prepararsi per la `null`gestione. Si noti che tutte le altre `Field` proprietà di sono sempre state e continuano a essere nullable e alcune di queste saranno anche `null` nel caso di campi complessi, in particolare quanto segue:
+Questa situazione è dovuta al fatto che queste proprietà devono ora trovarsi `null` nel caso di campi complessi. Se si dispone di codice che legge queste proprietà, è necessario prepararsi per la gestione `null` . Si noti che tutte le altre proprietà di `Field` sono sempre state e continuano a essere nullable e alcune di queste saranno anche `null` nel caso di campi complessi, in particolare quanto segue:
 
   - `Analyzer`
   - `SearchAnalyzer`
   - `IndexAnalyzer`
   - `SynonymMaps`
 
-Il costruttore senza parametri di `Field` è stato creato `internal`. Da questo momento in poi `Field` , ogni richiede un nome esplicito e un tipo di dati al momento della costruzione.
+Il costruttore senza parametri di `Field` è stato creato `internal` . Da questo momento in poi, ogni `Field` richiede un nome esplicito e un tipo di dati al momento della costruzione.
 
 ### <a name="simplified-batch-and-results-types"></a>Tipi di batch e di risultati semplificati
 
@@ -113,13 +113,13 @@ Nella versione 7,0-Preview e versioni precedenti, le varie classi che incapsulan
   -  `SearchResult`e `SearchResult<T>` ereditato da`SearchResultBase`
   -  `SuggestResult`e `SuggestResult<T>` ereditato da`SuggestResultBase`
 
-I tipi derivati senza un parametro di tipo generico devono essere utilizzati in scenari con tipizzazione dinamica e si presuppone l' `Document` utilizzo del tipo.
+I tipi derivati senza un parametro di tipo generico devono essere utilizzati in scenari con tipizzazione dinamica e si presuppone l'utilizzo del `Document` tipo.
 
-A partire dalla versione 8,0-Preview, le classi base e le classi derivate non generiche sono state rimosse. Per gli scenari tipizzati in modo dinamico, è `IndexBatch<Document>`possibile `DocumentSearchResult<Document>`utilizzare, e così via.
+A partire dalla versione 8,0-Preview, le classi base e le classi derivate non generiche sono state rimosse. Per gli scenari tipizzati in modo dinamico, è possibile utilizzare `IndexBatch<Document>` , `DocumentSearchResult<Document>` e così via.
  
 ### <a name="removed-extensibleenum"></a>ExtensibleEnum rimosso
 
-La classe di base `ExtensibleEnum` è stata rimossa. Tutte le classi che lo derivano sono ora struct, ad `AnalyzerName`esempio `DataType`, e `DataSourceType` . Anche `Create` i metodi sono stati rimossi. È possibile rimuovere solo le chiamate `Create` a perché questi tipi sono convertibili in modo implicito da stringhe. Se il risultato è un errore del compilatore, è possibile richiamare in modo esplicito l'operatore di conversione tramite il cast per evitare ambiguità tra i tipi. Ad esempio, è possibile modificare il codice come segue:
+La classe di base `ExtensibleEnum` è stata rimossa. Tutte le classi che lo derivano sono ora struct, ad `AnalyzerName` `DataType` esempio, e `DataSourceType` . `Create`Anche i metodi sono stati rimossi. È possibile rimuovere solo le chiamate a `Create` perché questi tipi sono convertibili in modo implicito da stringhe. Se il risultato è un errore del compilatore, è possibile richiamare in modo esplicito l'operatore di conversione tramite il cast per evitare ambiguità tra i tipi. Ad esempio, è possibile modificare il codice come segue:
 
 ```csharp
 var index = new Index()
@@ -151,7 +151,7 @@ Le proprietà che contenevano valori facoltativi di questi tipi sono ora tipizza
 
 ### <a name="removed-facetresults-and-hithighlights"></a>Rimossi FacetResults e HitHighlights
 
-Le `FacetResults` classi `HitHighlights` e sono state rimosse. I risultati dei facet sono `IDictionary<string, IList<FacetResult>>` ora tipizzati come `IDictionary<string, IList<string>>`e vengono evidenziati come. Un modo rapido per risolvere gli errori di compilazione introdotti da questa modifica `using` consiste nell'aggiungere alias nella parte superiore di ogni file che usa i tipi rimossi. Ad esempio:
+Le `FacetResults` `HitHighlights` classi e sono state rimosse. I risultati dei facet sono ora tipizzati come `IDictionary<string, IList<FacetResult>>` e vengono evidenziati come `IDictionary<string, IList<string>>` . Un modo rapido per risolvere gli errori di compilazione introdotti da questa modifica consiste nell'aggiungere `using` alias nella parte superiore di ogni file che usa i tipi rimossi. Ad esempio:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;
@@ -164,13 +164,13 @@ Il costruttore `SynonymMap` non ha più un parametro `enum` per `SynonymMapForma
 
 ### <a name="miscellaneous-model-class-changes"></a>Modifiche alle classi di modelli varie
 
-La `AutocompleteMode` proprietà di `AutocompleteParameters` non è più Nullable. Se si dispone di codice che assegna questa proprietà a `null`, è possibile rimuoverlo semplicemente e la proprietà verrà inizializzata automaticamente sul valore predefinito.
+La `AutocompleteMode` proprietà di `AutocompleteParameters` non è più Nullable. Se si dispone di codice che assegna questa proprietà a `null` , è possibile rimuoverlo semplicemente e la proprietà verrà inizializzata automaticamente sul valore predefinito.
 
-L'ordine dei parametri per il `IndexAction` costruttore è stato modificato ora che questo costruttore viene generato automaticamente. Anziché utilizzare il costruttore, è consigliabile utilizzare i metodi `IndexAction.Upload`Factory, `IndexAction.Merge`e così via.
+L'ordine dei parametri per il `IndexAction` costruttore è stato modificato ora che questo costruttore viene generato automaticamente. Anziché utilizzare il costruttore, è consigliabile utilizzare i metodi factory `IndexAction.Upload` , `IndexAction.Merge` e così via.
 
 ### <a name="removed-preview-features"></a>Funzionalità di anteprima rimosse
 
-Se si esegue l'aggiornamento dalla versione 8,0-Preview alla versione 9, tenere presente che la crittografia con chiavi gestite dal cliente è stata rimossa perché questa funzionalità è ancora in anteprima. In particolare, `EncryptionKey` le proprietà `Index` di `SynonymMap` e sono state rimosse.
+Se si esegue l'aggiornamento dalla versione 8,0-Preview alla versione 9, tenere presente che la crittografia con chiavi gestite dal cliente è stata rimossa perché questa funzionalità è ancora in anteprima. In particolare, le `EncryptionKey` proprietà di `Index` e `SynonymMap` sono state rimosse.
 
 Se l'applicazione ha una dipendenza rigida da questa funzionalità, non sarà possibile eseguire l'aggiornamento alla versione 9 di Azure search .NET SDK. È possibile continuare a usare la versione 8,0-Preview. Tenere presente, tuttavia, che **non è consigliabile usare SDK in anteprima nelle applicazioni di produzione**. Le funzionalità di anteprima sono destinate esclusivamente alla valutazione e sono soggette a modifiche.
 
@@ -179,7 +179,7 @@ Se l'applicazione ha una dipendenza rigida da questa funzionalità, non sarà po
 
 ### <a name="behavioral-change-in-data-retrieval"></a>Modifica comportamentale del recupero dei dati
 
-Se si usano le API "tipizzate in modo `Search`dinamico `Suggest`", `Get` o che restituiscono istanze di `Document`tipo, tenere presente che ora deserializzano matrici JSON vuote in `object[]` anziché. `string[]`
+Se si usano le API "tipizzate in modo dinamico" `Search` , `Suggest` o `Get` che restituiscono istanze di tipo `Document` , tenere presente che ora deserializzano matrici JSON vuote in `object[]` anziché `string[]` .
 
 ## <a name="conclusion"></a>Conclusioni
 Per altri dettagli sull'uso di .NET SDK Ricerca di Azure, vedere le [Procedure .NET](search-howto-dotnet-sdk.md).

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bf600890bfed570e712a159005b8ef5267298cc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 580c6294856145530e354b6e5cced955dbaa9f9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76122322"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565568"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Come indicizzare i BLOB CSV usando la modalità di analisi delimitedText e gli indicizzatori BLOB in Azure ricerca cognitiva
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, l' [indicizzatore BLOB di Azure ricerca cognitiva]
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-In questo articolo si apprenderà come analizzare i BLOB CSV con un indicizzatore BLOB di Azure ricerca cognitiva impostando `delimitedText` la modalità di analisi. 
+In questo articolo si apprenderà come analizzare i BLOB CSV con un indicizzatore BLOB di Azure ricerca cognitiva impostando la `delimitedText` modalità di analisi. 
 
 > [!NOTE]
 > Seguire i consigli di configurazione dell'indicizzatore nell' [indicizzazione uno-a-molti](search-howto-index-one-to-many-blobs.md) per restituire più documenti di ricerca da un BLOB di Azure.
@@ -60,7 +60,7 @@ Per concludere, ecco gli esempi completi del payload.
 
 Origine dati: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -73,7 +73,7 @@ Origine dati:
 
 Indicizzatore:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

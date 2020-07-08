@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati di syslog ad Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere i dati syslog a Sentinel di Azure.
+description: Connettere qualsiasi appliance locale che supporta syslog ad Azure Sentinel usando un agente in un computer Linux tra il dispositivo e Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 73fd55fc24fd94dc88bba2f591c32480f77c7d5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65c4e5d9e0752379541063c8a80a4316196ad7c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565384"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Connettere la soluzione esterna usando syslog
 
@@ -38,7 +38,7 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
 > - L'agente può raccogliere log da più origini, ma deve essere installato nel computer proxy dedicato.
 > - Per supportare i connettori sia per CEF che per syslog nella stessa VM, seguire questa procedura per evitare la duplicazione dei dati:
 >    1. Seguire le istruzioni per [connettere il CEF](connect-common-event-format.md).
->    2. Per connettere i dati di syslog, passare **a impostazioni** > **area di lavoro** > impostazioni**Avanzate** > **dati** > **syslog** e impostare le funzionalità e le relative priorità in modo che non siano le stesse proprietà usate nella configurazione CEF. <br></br>Se si seleziona **applica la configurazione seguente ai computer**, questi vengono applicati a tutte le VM connesse a questa area di lavoro.
+>    2. Per connettere i dati di syslog, passare a **Impostazioni**  >  **area di lavoro**impostazioni  >  **Avanzate**  >  **dati**  >  **syslog** e impostare le funzionalità e le relative priorità in modo che non siano le stesse proprietà usate nella configurazione CEF. <br></br>Se si seleziona **applica la configurazione seguente ai computer**, questi vengono applicati a tutte le VM connesse a questa area di lavoro.
 
 
 ## <a name="connect-your-syslog-appliance"></a>Connettere l'appliance syslog
@@ -57,9 +57,9 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
 
 4. Selezionare **Apri la configurazione impostazioni avanzate dell'area di lavoro**.
 
-5. Nel pannello **Impostazioni avanzate** selezionare**syslog**per **i dati** > . Aggiungere quindi le funzionalità per il connettore da raccogliere.
+5. Nel pannello **Impostazioni avanzate** selezionare syslog per **i dati**  >  **Syslog**. Aggiungere quindi le funzionalità per il connettore da raccogliere.
     
-    Aggiungere le funzionalità incluse nell'appliance syslog nelle intestazioni dei log. È possibile visualizzare questa configurazione nel dispositivo syslog in **syslog-d** nella `/etc/rsyslog.d/security-config-omsagent.conf` cartella e in **r-syslog** da `/etc/syslog-ng/security-config-omsagent.conf`.
+    Aggiungere le funzionalità incluse nell'appliance syslog nelle intestazioni dei log. È possibile visualizzare questa configurazione nel dispositivo syslog in **syslog-d** nella `/etc/rsyslog.d/security-config-omsagent.conf` cartella e in **r-syslog** da `/etc/syslog-ng/security-config-omsagent.conf` .
     
     Se si vuole usare il rilevamento anomalo degli accessi SSH con i dati raccolti, aggiungere **AUTH** e **authpriv**. Per ulteriori informazioni, vedere la [sezione seguente](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
 
@@ -100,11 +100,11 @@ Questo rilevamento richiede una configurazione specifica del connettore dati sys
     
     Se il conteggio risultante è pari a zero, confermare la configurazione del connettore e verificare che l'attività di accesso dei computer monitorati sia riuscita per il periodo di tempo specificato per la query.
     
-    Se il conteggio risultante è maggiore di zero, i dati syslog sono appropriati per il rilevamento anomalo degli accessi SSH. È possibile abilitare questo rilevamento dal**rilevamento di accessi SSH anomali**dei**modelli** > di regola di **analisi** >  (anteprima).
+    Se il conteggio risultante è maggiore di zero, i dati syslog sono appropriati per il rilevamento anomalo degli accessi SSH. È possibile abilitare questo rilevamento **Analytics**dal  >   rilevamento di accessi SSH anomali dei modelli di**regola**di analisi  >  **(anteprima)**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere le appliance syslog locali ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 

@@ -5,23 +5,23 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b946a360ced05500a4ef89cda7c623d8ae16658e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a06111fbe38f167ddf3512fdb312d7de754a738
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77444576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563582"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quali sono le opzioni di architettura di Azure Firewall Manager?
 
 Azure Firewall Manager può fornire la gestione della sicurezza per due tipi di architettura di rete:
 
-- **Hub virtuale protetto**
+- **hub virtuale protetto**
 
    Un [hub di rete WAN virtuale di Azure](../virtual-wan/virtual-wan-about.md#resources) è una risorsa gestita da Microsoft che consente di creare facilmente architetture hub-spoke. Quando i criteri di sicurezza e routing sono associati a un hub di questo tipo, viene definito *[hub virtuale protetto](secured-virtual-hub.md)*. 
-- **Rete virtuale hub**
+- **rete virtuale Hub**
 
    È una rete virtuale di Azure standard creata e gestita dall'utente. Quando a un hub di questo tipo sono associati criteri di sicurezza, l'hub è definito *rete virtuale hub*. Attualmente sono supportati solo criteri firewall di Azure. È possibile eseguire il peering di reti virtuali spoke contenenti i servizi e i server del carico di lavoro, nonché gestire firewall in reti virtuali autonome non connesse tramite peering a spoke.
 
@@ -30,21 +30,22 @@ Azure Firewall Manager può fornire la gestione della sicurezza per due tipi di 
 Nella tabella seguente vengono confrontate queste due opzioni di architettura che consentono di decidere quale sia la scelta più adatta ai requisiti di sicurezza dell'organizzazione:
 
 
-|  |**Rete virtuale Hub**|**Hub virtuale protetto**  |
+|  |**Rete virtuale hub**|**Hub virtuale protetto**  |
 |---------|---------|---------|
 |**Risorsa sottostante**     |Rete virtuale|Hub WAN virtuale|
 |**Hub & spoke**     |Usa il peering di rete virtuale|Connessione automatizzata tramite la rete virtuale dell'hub|
 |**Connettività locale**     |Gateway VPN fino a 10 Gbps e 30 connessioni S2S; ExpressRoute|Gateway VPN più scalabile fino a 20 Gbps e 1000 connessioni S2S. Express Route|
-|**Connettività del ramo automatizzata con SDWAN**      |Non supportate|Supportato|
+|**Connettività del ramo automatizzata con SDWAN**      |Non supportato|Supportato|
 |**Hub per area**     |Più reti virtuali per area|Hub virtuale singolo per area. Più hub possibili con più WAN virtuali|
-|**Firewall di Azure: più indirizzi IP pubblici**      |Fornito dal cliente|Generato automaticamente. Per essere disponibile da GA.|
-|**zone di disponibilità del firewall di Azure**     |Supportato|Non disponibile in anteprima. Per essere disponibile da GA|
-|**Sicurezza Internet avanzata con partner di sicurezza di terze parti come partner di servizi**     |Connettività VPN gestita e stabilita dal cliente al servizio partner preferito|Automatizzato tramite l'esperienza di gestione dei partner e del flusso di sicurezza attendibile|
+|**Firewall di Azure: più indirizzi IP pubblici**      |Fornito dal cliente|Generato automaticamente|
+|**zone di disponibilità del firewall di Azure**     |Supportato|Non ancora disponibile|
+|**Sicurezza Internet avanzata con partner di sicurezza di terze parti come partner di servizi**     |Connettività VPN gestita e stabilita dal cliente al servizio partner preferito|Automatizzato tramite l'esperienza di gestione dei partner e del flusso del provider del partner sicurezza|
 |**Gestione centralizzata delle route per instradare il traffico all'hub**     |Route definita dall'utente gestita dal cliente|Supportato tramite BGP|
+|**Supporto per più provider di sicurezza**|Supportato con il tunneling forzato configurato manualmente per i firewall di terze parti|Supporto automatizzato per due provider di sicurezza: firewall di Azure per il filtraggio del traffico privato e di terze parti per il filtro Internet|
 |**Web Application Firewall nel gateway applicazione** |Supportato nella rete virtuale|Attualmente supportata nella rete spoke|
 |**Appliance virtuale di rete**|Supportato nella rete virtuale|Attualmente supportata nella rete spoke|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare [Panoramica della distribuzione di Anteprima di Gestione firewall di Azure](deployment-overview.md)
-- Informazioni sugli [Hub virtuali protetti](secured-virtual-hub.md).
+- Vedere [Panoramica della distribuzione di gestione firewall di Azure](deployment-overview.md)
+- Informazioni sugli [hub virtuali protetti](secured-virtual-hub.md).

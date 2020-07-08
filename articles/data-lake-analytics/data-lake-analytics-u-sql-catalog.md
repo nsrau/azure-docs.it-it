@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22a15750a353b88d5a9bbff96f9ed080116792db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71672839"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564193"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Introduzione al catalogo U-SQL di Azure Data Lake Analytics
 
@@ -24,7 +24,7 @@ Nel precedente script U-SQL, è stato usato più volte l'oggetto EXTRACT per leg
 
 Lo script seguente crea una funzione TVF denominata `Searchlog()` nel database e nello schema predefiniti:
 
-```
+```usql
 DROP FUNCTION IF EXISTS Searchlog;
 
 CREATE FUNCTION Searchlog()
@@ -55,7 +55,7 @@ END;
 
 Lo script seguente illustra come usare la funzione con valori di tabella definita nello script precedente:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -76,7 +76,7 @@ Se si ha una sola espressione di query, anziché una funzione TVF è possibile u
 
 Lo script seguente crea una vista denominata `SearchlogView` nel database e nello schema predefiniti:
 
-```
+```usql
 DROP VIEW IF EXISTS SearchlogView;
 
 CREATE VIEW SearchlogView AS  
@@ -93,7 +93,7 @@ USING Extractors.Tsv();
 
 Lo script seguente illustra l'uso della vista definita:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -113,7 +113,7 @@ Analogamente a una tabella di database relazionale, U-SQL consente di creare una
 
 Lo script seguente crea un database e due tabelle:
 
-```
+```usql
 DROP DATABASE IF EXISTS SearchLogDb;
 CREATE DATABASE SearchLogDb;
 USE DATABASE SearchLogDb;
@@ -147,7 +147,7 @@ CREATE TABLE SearchLog2(
 
 Modificare lo script di trasformazione usato in precedenza in modo da leggere i dati direttamente dalle tabelle:
 
-```
+```usql
 @rs1 =
     SELECT
         Region,

@@ -8,43 +8,48 @@ ms.reviewer: jasonwhowell
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 7fb85f179f1e1e1ac873fc7d6d937b34c1d48ada
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: cab647f6102187b094806db0b17c6f781ea27484
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71316596"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564750"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire processi in Azure Data Lake Analytics con il portale di Azure
 
-**Per visualizzare tutti i processi**
+## <a name="to-see-all-the-jobs"></a>Per visualizzare tutti i processi
 
 1. Nel portale di Azure fare clic su **Microsoft Azure** nell'angolo superiore sinistro.
+
 2. Fare clic nel riquadro contenente il nome dell'account di Analisi Data Lake personale.  Viene visualizzato il riepilogo del processo nel riquadro **Gestione processo** .
 
-    ![Azure Data Lake Analytics - Gestione dei processi](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
+   ![Azure Data Lake Analytics - Gestione dei processi](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
     Nel riquadro Gestione processo viene fornito un riepilogo dello stato del processo. Si noti che è presente un processo non riuscito.
 3. Fare clic nel riquadro **Gestione processo** per visualizzare i processi. I processi sono classificati in base agli stati **In esecuzione**, **In coda** e **Terminato**. Il processo non riuscito verrà visualizzato nella sezione **Terminato** e occuperà la prima posizione nell'elenco. Quando sono presenti molti processi, è possibile fare clic su **Filtro** per semplificare l'individuazione dei processi.
 
-    ![Azure Data Lake Analytics - Filtrare i processi](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
+   ![Azure Data Lake Analytics - Filtrare i processi](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
+
 4. Fare clic sul processo non riuscito nell'elenco per aprire i relativi dettagli:
 
-    ![Azure Data Lake Analytics - Processo non riuscito](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
+   ![Azure Data Lake Analytics - Processo non riuscito](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
     Si noti il pulsante **Invia di nuovo** . Dopo aver risolto il problema, è possibile inviare nuovamente il processo.
+
 5. Fare clic sulla parte evidenziata nella schermata precedente per aprire i dettagli dell'errore.  Verrà visualizzato qualcosa di simile a quanto segue:
 
-    ![Azure Data Lake Analytics - Dettagli del processo non riuscito](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
+   ![Azure Data Lake Analytics - Dettagli del processo non riuscito](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
 
-    Indica che la cartella di origine non è disponibile.
+   Indica che la cartella di origine non è disponibile.
+
 6. Fare clic su **Duplicate Script**.
-7. Aggiornare il percorso nella riga **FROM** impostandolo su:
 
-    "/Samples/Data/SearchLog.tsv"
+7. Aggiornare il percorso **da** a:`/Samples/Data/SearchLog.tsv`
+
 8. Fare clic su **Invia processo**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
+
 * [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Gestire Azure Data Lake Analytics tramite portale di Azure](data-lake-analytics-manage-use-portal.md)

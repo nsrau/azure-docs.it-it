@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 69a48952ef273acb8cf7eb0ec5968e12b962b622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 090945a8bedad4a3d39f3f7fb16cae83f4e3f5bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79454364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564799"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "79454364"
 Informazioni su come gestire gli account, le origini dati, gli utenti e i processi di Azure Data Lake Analytics usando l'interfaccia della riga di comando di Azure. Per visualizzare gli argomenti relativi alla gestione tramite altri strumenti, fare clic sul selettore di scheda riportato sopra.
 
 
-**Prerequisiti**
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario avere a disposizione le risorse seguenti:
 
@@ -30,7 +30,7 @@ Prima di iniziare questa esercitazione, è necessario avere a disposizione le ri
 
 * Interfaccia della riga di comando di Azure. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-   * Scaricare e installare gli **Strumenti di Azure CLI** [pre-release](https://github.com/MicrosoftBigData/AzureDataLake/releases) per completare questa demo.
+  * Scaricare e installare gli **Strumenti di Azure CLI** [pre-release](https://github.com/MicrosoftBigData/AzureDataLake/releases) per completare questa demo.
 
 * Eseguire l'autenticazione usando il comando `az login` e selezionare la sottoscrizione che si vuole usare. Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 
@@ -90,7 +90,7 @@ Elencare gli account di Data Lake Analytics all'interno di un gruppo di risorse 
 
 Data Lake Analytics supporta attualmente le due origini dati seguenti:
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+* [Archivio Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
 * [Archiviazione di Azure](../storage/common/storage-introduction.md)
 
 Quando si crea un account di Analytics, è necessario impostare un account di archiviazione di Azure Data Lake come account di archiviazione predefinito. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. Dopo aver creato un account di Analytics, è possibile aggiungere altri account di archiviazione di Data Lake e/o account di archiviazione di Azure. 
@@ -111,7 +111,7 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 
 > [!NOTE]
 > Sono supportati solo nomi brevi di archiviazione BLOB. Non utilizzare FQDN, ad esempio "myblob.blob.core.windows.net".
-> 
+>
 
 ### <a name="add-additional-data-lake-store-accounts"></a>Aggiungere altri account di Data Lake Store
 
@@ -146,6 +146,7 @@ Per elencare l'account di archiviazione BLOB:
 ![Origine dati dell'elenco Data Lake Analytics](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### <a name="delete-data-sources"></a>Eliminare origini dati:
+
 Per eliminare un account Archivio Data Lake:
 
    ```azurecli
@@ -159,6 +160,7 @@ Per eliminare un account di archiviazione BLOB:
    ```
 
 ## <a name="manage-jobs"></a>Gestire i processi
+
 È necessario disporre di un account di Data Lake Analytics prima di poter creare un processo.  Per altre informazioni, vedere [Gestire gli account di Analisi Data Lake](#manage-accounts).
 
 ### <a name="list-jobs"></a>Elencare i processi
@@ -179,7 +181,7 @@ Per eliminare un account di archiviazione BLOB:
 
 > [!NOTE]
 > La priorità predefinita di un processo è 1000 e il livello predefinito di parallelismo per un processo è 1.
-> 
+>
 >    ```azurecli
 >    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
 >    ```
@@ -193,7 +195,7 @@ Utilizzare il comando list per cercare l'id del processo e quindi utilizzare can
 
 ## <a name="pipelines-and-recurrences"></a>Pipeline e ricorrenze
 
-**Ottenere informazioni sulle pipeline e l'intervallo di esecuzione**
+### <a name="get-information-about-pipelines-and-recurrences"></a>Ottenere informazioni sulle pipeline e l'intervallo di esecuzione
 
 Usare i comandi `az dla job pipeline` per visualizzare le informazioni relative alle pipeline per i processi inviati in precedenza.
 
@@ -211,9 +213,8 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introduzione all'uso di Data Lake Analytics con portale di Azure](data-lake-analytics-get-started-portal.md)
 * [Gestire Azure Data Lake Analytics tramite portale di Azure](data-lake-analytics-manage-use-portal.md)
 * [Monitorare e risolvere i problemi Azure Data Lake Analytics processi utilizzando portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-

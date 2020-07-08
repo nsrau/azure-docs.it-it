@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5597528d395c2c8facd4a1b916b1378b659a646
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231612"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565287"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algoritmo di classificazione in Azure ricerca cognitiva
 
 > [!IMPORTANT]
 > A partire dal 15 luglio 2020, i servizi di ricerca appena creati utilizzeranno automaticamente la funzione di classificazione BM25, che si è dimostrata nella maggior parte dei casi per fornire classificazioni di ricerca che si allineano meglio con le aspettative dell'utente rispetto alla classificazione predefinita corrente. Oltre alla classificazione superiore, BM25 Abilita anche le opzioni di configurazione per l'ottimizzazione dei risultati in base a fattori quali le dimensioni del documento.  
 >
-> Con questa modifica, probabilmente si noterà un lieve cambiamento nell'ordinamento dei risultati della ricerca. Per chi vuole testare l'effetto di questa modifica, l'algoritmo BM25 è disponibile in API-Version 2019-05-06-Preview.  
+> Con questa modifica, probabilmente si noterà un lieve cambiamento nell'ordinamento dei risultati della ricerca. Per chi desidera testare l'effetto di questa modifica, l'algoritmo BM25 è disponibile in API-Version 2019-05-06-Preview e in 2020-06-30.  
 
 Questo articolo descrive come usare il nuovo algoritmo di classificazione BM25 nei servizi di ricerca esistenti per i nuovi indici creati e sottoposti a query usando l'API di anteprima.
 
@@ -30,7 +30,7 @@ Sebbene concettualmente simile all'algoritmo di somiglianza classico precedente,
 
 ## <a name="how-to-test-bm25-today"></a>Come testare BM25 oggi stesso
 
-Quando si crea un nuovo indice, è possibile impostare una proprietà di **somiglianza** per specificare l'algoritmo. Sarà necessario usare `api-version=2019-05-06-Preview`, come illustrato di seguito.
+Quando si crea un nuovo indice, è possibile impostare una proprietà di **somiglianza** per specificare l'algoritmo. È possibile usare `api-version=2019-05-06-Preview` , come illustrato di seguito, o `api-version=2020-06-30` .
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
@@ -63,7 +63,7 @@ La proprietà di **somiglianza** è utile durante questo periodo di tempo, quand
 
 | Proprietà | Descrizione |
 |----------|-------------|
-| somiglianza | Facoltativo. I valori validi includono *"#Microsoft. Azure. search. ClassicSimilarity"* o *"#Microsoft. Azure. search. BM25Similarity"*. <br/> Richiede `api-version=2019-05-06-Preview` o versione successiva in un servizio di ricerca creato prima del 15 luglio 2020. |
+| somiglianza | Facoltativa. I valori validi includono *"#Microsoft. Azure. search. ClassicSimilarity"* o *"#Microsoft. Azure. search. BM25Similarity"*. <br/> Richiede `api-version=2019-05-06-Preview` o versione successiva in un servizio di ricerca creato prima del 15 luglio 2020. |
 
 Per i nuovi servizi creati dopo il 15 luglio 2020, BM25 viene usato automaticamente ed è l'unico algoritmo di somiglianza. Se si tenta di impostare la **somiglianza** `ClassicSimilarity` su in un nuovo servizio, verrà restituito un errore 400 poiché tale algoritmo non è supportato in un nuovo servizio.
 
@@ -105,7 +105,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 ## <a name="see-also"></a>Vedere anche  
 
-+ [Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Aggiungere profili di Punteggio all'indice](index-add-scoring-profiles.md)    
 + [Create index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-+ [Azure ricerca cognitiva .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [.NET SDK di Ricerca cognitiva di Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

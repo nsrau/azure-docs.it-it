@@ -1,17 +1,17 @@
 ---
-title: Eseguire la migrazione di app per la logica in sottoscrizioni, gruppi di risorse o aree
+title: Spostare app per la logica in sottoscrizioni, gruppi di risorse o aree
 description: Eseguire la migrazione di app per la logica o account di integrazione ad altre sottoscrizioni di Azure, gruppi di risorse o posizioni (aree)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 065bbc62d65d7e91728b10cd9f95b2e73ea03abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564277"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Spostare le risorse dell'app per la logica in altri gruppi di risorse, aree o sottoscrizioni di Azure
 
@@ -86,7 +86,7 @@ Per ulteriori informazioni sui modelli di distribuzione per le app per la logica
 * [Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Trovare, aprire e scaricare l'app per la logica dal portale di Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 * [Creare modelli di Azure Resource Manager per app per la logica di Azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Distribuire modelli di Azure Resource Manager per app per la logica di Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Implementare modelli di Azure Resource Manager per App per la logica di Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
 ### <a name="related-resources"></a>Risorse correlate
 

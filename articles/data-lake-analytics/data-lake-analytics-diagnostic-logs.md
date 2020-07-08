@@ -5,15 +5,14 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: ba0311da88f1fe0cbc0bf885197785db10b1bac2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60616502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564844"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
 
@@ -46,7 +45,7 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
 
    * Per __Archivia in un account di archiviazione__ specificare il numero di giorni per cui i dati verranno conservati.
 
-   * Fare clic su __Save__.
+   * Fare clic su __Salva__.
 
         > [!NOTE]
         > È necessario selezionare una tra le opzioni __Archivia in un account di archiviazione__, __Streaming in un hub eventi__ o __Invia a Log Analytics__ prima di fare clic sul pulsante __Salva__.
@@ -60,32 +59,34 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
 
 2. All'interno dei contenitori i log vengono archiviati con la struttura file seguente:
 
-        resourceId=/
-          SUBSCRIPTIONS/
-            <<SUBSCRIPTION_ID>>/
-              RESOURCEGROUPS/
-                <<RESOURCE_GRP_NAME>>/
-                  PROVIDERS/
-                    MICROSOFT.DATALAKEANALYTICS/
-                      ACCOUNTS/
-                        <DATA_LAKE_ANALYTICS_NAME>>/
-                          y=####/
-                            m=##/
-                              d=##/
-                                h=##/
-                                  m=00/
-                                    PT1H.json
+   ```text
+   resourceId=/
+     SUBSCRIPTIONS/
+       <<SUBSCRIPTION_ID>>/
+         RESOURCEGROUPS/
+           <<RESOURCE_GRP_NAME>>/
+             PROVIDERS/
+               MICROSOFT.DATALAKEANALYTICS/
+                 ACCOUNTS/
+                   <DATA_LAKE_ANALYTICS_NAME>>/
+                     y=####/
+                       m=##/
+                         d=##/
+                           h=##/
+                             m=00/
+                               PT1H.json
+   ```
 
    > [!NOTE]
    > Il pannello `##` nel percorso contengono l'anno, il mese, il giorno e l'ora in cui è stato creato il log. Data Lake Analytics crea un file ogni ora, in modo `m=` contenga sempre un valore di `00`.
 
     Ad esempio, il percorso completo a un log di controllo potrebbe essere:
 
-        https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
+    `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
 
     Analogamente, il percorso completo a un log della richiesta potrebbe essere:
 
-        https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
+    `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## <a name="log-structure"></a>Struttura di log
 
@@ -95,33 +96,35 @@ I log di controllo e delle richieste sono in formato JSON strutturato.
 
 Di seguito viene riportata una voce di esempio nel log delle richieste in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
 
+```json
+{
+"records":
+  [
+    . . . .
+    ,
     {
-    "records":
-      [        
-        . . . .
-        ,
-        {
-             "time": "2016-07-07T21:02:53.456Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
-             "category": "Requests",
-             "operationName": "GetAggregatedJobHistory",
-             "resultType": "200",
-             "callerIpAddress": "::ffff:1.1.1.1",
-             "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
-             "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-             "properties": {
-                 "HttpMethod":"POST",
-                 "Path":"/JobAggregatedHistory",
-                 "RequestContentLength":122,
-                 "ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8",
-                 "StartTime":"2016-07-07T21:02:52.472Z",
-                 "EndTime":"2016-07-07T21:02:53.456Z"
-                 }
-        }
-        ,
-        . . . .
-      ]
+         "time": "2016-07-07T21:02:53.456Z",
+         "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
+         "category": "Requests",
+         "operationName": "GetAggregatedJobHistory",
+         "resultType": "200",
+         "callerIpAddress": "::ffff:1.1.1.1",
+         "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
+         "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
+         "properties": {
+             "HttpMethod":"POST",
+             "Path":"/JobAggregatedHistory",
+             "RequestContentLength":122,
+             "ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8",
+             "StartTime":"2016-07-07T21:02:52.472Z",
+             "EndTime":"2016-07-07T21:02:53.456Z"
+             }
     }
+    ,
+    . . . .
+  ]
+}
+```
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
 
@@ -142,7 +145,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | Nome | Type | Descrizione |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
-| Path |string |Il percorso coinvolto nell'operazione |
+| Percorso |string |Il percorso coinvolto nell'operazione |
 | RequestContentLength |INT |La lunghezza del contenuto della richiesta HTTP |
 | ClientRequestId |string |Identificatore che identifica in modo univoco la richiesta |
 | StartTime |string |L'ora in cui il server ha ricevuto la richiesta |
@@ -152,28 +155,26 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 
 Di seguito viene riportata una voce di esempio nel log di controllo in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
 
+```json
+{
+"records":
+  [
     {
-    "records":
-      [        
-        . . . .
-        ,
-        {
-             "time": "2016-07-28T19:15:16.245Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
-             "category": "Audit",
-             "operationName": "JobSubmitted",
-             "identity": "user@somewhere.com",
-             "properties": {
-                 "JobId":"D74B928F-5194-4E6C-971F-C27026C290E6",
-                 "JobName": "New Job",
-                 "JobRuntimeName": "default",
-                 "SubmitTime": "7/28/2016 7:14:57 PM"
-                 }
-        }
-        ,
-        . . . .
-      ]
+         "time": "2016-07-28T19:15:16.245Z",
+         "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
+         "category": "Audit",
+         "operationName": "JobSubmitted",
+         "identity": "user@somewhere.com",
+         "properties": {
+             "JobId":"D74B928F-5194-4E6C-971F-C27026C290E6",
+             "JobName": "New Job",
+             "JobRuntimeName": "default",
+             "SubmitTime": "7/28/2016 7:14:57 PM"
+             }
     }
+  ]
+}
+```
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
 
@@ -210,7 +211,8 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 ## <a name="process-the-log-data"></a>Elaborare i dati di log
 
-Azure Data Lake Analytics fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio in [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Azure Data Lake Analytics fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio in [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) .
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
+
+[Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)

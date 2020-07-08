@@ -3,12 +3,12 @@ title: Panoramica di integrità dei servizi di Azure | Microsoft Docs
 description: Informazioni personalizzate su come le app di Azure sono interessate dalla manutenzione e dai problemi attuali e futuri dei servizi di Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563389"
 ---
 # <a name="service-health-overview"></a>Panoramica sull'integrità del servizio
 
@@ -21,7 +21,7 @@ L'integrità dei servizi tiene traccia di quattro tipi di eventi di integrità c
 1. **Problemi dei servizi**: problemi dei servizi di Azure che influiscono in questo momento. 
 2. **Manutenzione pianificata**: manutenzione imminente che può influire sulla disponibilità dei servizi in futuro.  
 3. **Avvisi sull'integrità**: modifiche apportate ai servizi di Azure che richiedono attenzione, Gli esempi includono la deprecazione delle funzionalità di Azure o i requisiti di aggiornamento (ad esempio, l'aggiornamento a un framework PHP supportato).
-4. **Avvisi di sicurezza (anteprima)** : notifiche correlate alla sicurezza che potrebbero influire sulla disponibilità dei servizi di Azure.
+4. **Avvisi di sicurezza** : notifiche o violazioni correlate alla sicurezza che potrebbero influire sulla disponibilità dei servizi di Azure.
 
 > [!NOTE]
 > Per visualizzare gli eventi di integrità del servizio, è necessario che agli utenti venga [concesso il ruolo lettore](../role-based-access-control/role-assignments-portal.md) per una sottoscrizione.
@@ -36,11 +36,11 @@ Per avviare il dashboard di Integrità dei servizi, selezionare il riquadro Inte
 
 La visualizzazione **Problemi del servizio** indica eventuali problemi presenti nei servizi di Azure che influiscono sulle risorse. È possibile capire quando è iniziato il problema e quali sono le aree e i servizi interessati. È anche possibile leggere l'aggiornamento più recente per comprendere che cosa sta facendo Azure per risolvere il problema. 
 
-![Gestire il problema del servizio](./media/service-health-overview/azure-service-health-overview-2.png)
+[![Gestire il problema del servizio](./media/service-health-overview/azure-service-health-overview-2.png)](./media/service-health-overview/azure-service-health-overview-2.png#lightbox)
 
 Scegliere la scheda **Impatto potenziale** per visualizzare l'elenco specifico delle risorse di cui si è proprietari che potrebbero essere interessate dal problema. È possibile scaricare un elenco in formato CSV delle risorse per condividerle con il team.
 
-![Gestire il problema del servizio - Impatto](./media/service-health-overview/azure-service-health-overview-4.png)
+[![Gestire il problema del servizio - Impatto](./media/service-health-overview/azure-service-health-overview-4.png)](./media/service-health-overview/azure-service-health-overview-4.png#lightbox)
 
 ## <a name="see-emerging-issues-which-may-impact-your-services"></a>Vedere i problemi emergenti che possono influito sui servizi
 
@@ -52,7 +52,7 @@ In alcuni casi è possibile che si verifichino problemi di servizio diffusi nell
 
 È possibile ottenere un collegamento relativo al problema e usarlo nel sistema di gestione del problema. È possibile scaricare il file PDF e talvolta i file CSV da condividere con gli utenti che non hanno accesso al portale di Azure.   
 
-![Gestire il problema del servizio - Gestione dei problemi](./media/service-health-overview/azure-service-health-overview-3.png)
+[![Gestire il problema del servizio - Gestione dei problemi](./media/service-health-overview/azure-service-health-overview-3.png)](./media/service-health-overview/azure-service-health-overview-3.png#lightbox)
 
 ## <a name="get-support-from-microsoft"></a>Ricevere assistenza da Microsoft
 
@@ -62,7 +62,7 @@ Contattare il supporto tecnico se la risorsa rimane in uno stato insoddisfacente
 
 Filtrare Integrità dei servizi in modo da visualizzare le sottoscrizioni, le aree e i tipi di risorse cruciali per l'azienda. Salvare il filtro e aggiungere al dashboard del portale una mappa del mondo personalizzata per l'integrità. 
 
-![Mappa di integrità con filtro personalizzato](./media/service-health-overview/azure-service-health-overview-6a.png)
+[![Mappa di integrità con filtro personalizzato](./media/service-health-overview/azure-service-health-overview-6a.png)](./media/service-health-overview/azure-service-health-overview-6a.png#lightbox)
 
 ![Aggiungere una mappa di integrità personalizzata](./media/service-health-overview/azure-service-health-overview-6b.png)
 

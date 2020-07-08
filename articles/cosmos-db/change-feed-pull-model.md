@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 8916f4b9824f88361fdeb9d866f84adb71e8138e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563803"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Modello di pull del feed di modifiche in Azure Cosmos DB
 
@@ -164,7 +164,7 @@ Non è però possibile convertire i token di continuazione in un contenitore di 
 
 Ecco alcune delle differenze principali tra il processore del feed di modifiche e il modello di pull:
 
-|  | Processore dei feed di modifiche| Modello di pull |
+|Funzionalità  | Processore dei feed di modifiche| Modello di pull |
 | --- | --- | --- |
 | Traccia del punto corrente nell'elaborazione del feed di modifiche | Lease (archiviato in un contenitore Azure Cosmos DB) | Token di continuazione (archiviato in memoria o reso persistente manualmente) |
 | Possibilità di riprodurre modifiche precedenti | Sì, con modello di push | Sì, con modello di pull|

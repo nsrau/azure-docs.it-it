@@ -1,7 +1,7 @@
 ---
 title: Indicizzatori per la ricerca per indicizzazione dei dati durante l'importazione
 titleSuffix: Azure Cognitive Search
-description: Eseguire la ricerca per indicizzazione di database SQL di Azure, Azure Cosmos DB o archiviazione di Azure per estrarre dati ricercabili e popolare un indice di ricerca cognitiva di Azure.
+description: Esegui la ricerca per indicizzazione di database SQL di Azure, SQL Istanza gestita, Azure Cosmos DB o archiviazione di Azure per estrarre dati ricercabili e popolare un indice di ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2719bba0e88ba3125bd5ba163804e31885b286a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a728eff7addc7f835f82e795457e722fd60d2e30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564601"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indicizzatori in Ricerca cognitiva di Azure
 
@@ -50,9 +50,9 @@ Gli indicizzatori eseguono ricerche per indicizzazione negli archivi dati in Azu
 * [Azure Data Lake storage Gen2](search-howto-index-azure-data-lake-storage.md) (in anteprima)
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Database SQL di Azure e Istanza gestita SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server in Macchine virtuali di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
-* [Istanze gestite di SQL in Azure](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+* [Istanza gestita di SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ## <a name="basic-configuration-steps"></a>Procedura di configurazione di base
 Gli indicizzatori possono offrire funzionalità univoche per l'origine dati. In questo senso, alcuni aspetti della configurazione dell'indicizzatore o dell'origine dati possono variare a seconda del tipo di indicizzatore. Tutti gli indicizzatori, tuttavia, condividono la stessa composizione e gli stessi requisiti di base. Le procedure comuni a tutti gli indicizzatori sono descritte sotto.
@@ -77,7 +77,7 @@ La definizione dell'indicizzatore è un costrutto che riunisce tutti gli element
 
 Sebbene sia normale pianificare l'indicizzazione, un indicizzatore può anche essere richiamato su richiesta tramite il [comando Run](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2020-06-30
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Sebbene sia normale pianificare l'indicizzazione, un indicizzatore può anche es
 È possibile recuperare lo stato e la cronologia di esecuzione di un indicizzatore tramite il [comando Get Indexer status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
     api-key: [Search service admin key]
 
 La risposta contiene lo stato globale dell'indicizzatore, la chiamata all'indicizzatore ultimo (o in corso) e la cronologia delle chiamate recenti.
@@ -128,7 +128,7 @@ La cronologia di esecuzione contiene fino alle 50 più recenti esecuzioni comple
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver acquisito queste informazioni di base, il passaggio successivo prevede l'analisi dei requisiti e delle attività specifici per ogni tipo di origine dati.
 
-* [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Database SQL di Azure, Istanza gestita SQL o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)

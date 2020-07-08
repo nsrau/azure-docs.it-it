@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564241"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Sostituzione di un controller EBOD nel dispositivo StorSimple
 
@@ -35,14 +35,14 @@ Prima di iniziare, tenere in considerazione le informazioni seguenti:
 * Il controller EBOD è dispone del supporto per lo swapping a caldo e può essere rimosso o sostituito. Non rimuovere un modulo guasto finché non si dispone di una sostituzione. Quando si avvia il processo di sostituzione, deve essere completato entro 10 minuti.
 
 > [!IMPORTANT]
-> Prima di tentare di rimuovere o sostituire qualsiasi componente di StorSimple, leggere le [convenzioni di sicurezza](storsimple-safety.md#safety-icon-conventions) e altre [precauzioni di sicurezza](storsimple-safety.md).
+> Prima di tentare di rimuovere o sostituire qualsiasi componente di StorSimple, leggere le [convenzioni di sicurezza](storsimple-8000-safety.md#safety-icon-conventions) e altre [precauzioni di sicurezza](storsimple-8000-safety.md).
 
 ## <a name="remove-an-ebod-controller"></a>Rimozione di un controller EBOD
 Prima di sostituire il modulo controller EBOD guasto nel dispositivo StorSimple, assicurarsi che l'altro modulo controller EBOD sia attivo e in esecuzione. Nella procedura e nella tabella seguenti viene illustrato come rimuovere il modulo controller EBOD.
 
 #### <a name="to-remove-an-ebod-module"></a>Per rimuovere un modulo EBOD:
 1. Aprire il portale di Azure.
-2. Passare al dispositivo e passare a **Impostazioni** > **integrità hardware**e verificare che lo stato del LED per il modulo controller EBOD attivo sia verde e che il LED per il modulo controller EBOD guasto sia rosso.
+2. Passare al dispositivo e passare a **Impostazioni**  >  **integrità hardware**e verificare che lo stato del LED per il modulo controller EBOD attivo sia verde e che il LED per il modulo controller EBOD guasto sia rosso.
 3. Individuare il modulo controller EBOD guasto nella parte posteriore del dispositivo.
 4. Rimuovere i cavi che collegano il modulo controller EBOD al controller prima di rimuovere il modulo EBOD dal sistema.
 5. Prendere nota dell'esatta porta SAS del modulo controller EBOD collegata al controller. Dopo la sostituzione del modulo EBOD, sarà necessario ripristinare il sistema a questa configurazione.
@@ -54,7 +54,7 @@ Prima di sostituire il modulo controller EBOD guasto nel dispositivo StorSimple,
    
      **Figura 1** Parte posteriore del modulo EBOD
    
-   | Label | Descrizione |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |LED di errore |
    | 2 |LED di alimentazione |
@@ -86,7 +86,7 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
    
     **Figura 4**. Ricollegamento dei cavi
    
-   | Label | Descrizione |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |Enclosure principale |
    | 2 |PCM 0 |

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a0798ee923624aef9f29c1e9cc30f38b55770a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565327"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
@@ -41,7 +41,7 @@ Per creare un componente di suggerimento, aggiungerne uno a uno [schema dell'ind
 
 + USA solo campi stringa
 
-+ Usare l'analizzatore Lucene standard predefinito`"analyzer": null`() o un [analizzatore del linguaggio](index-add-language-analyzers.md) ( `"analyzer": "en.Microsoft"`ad esempio,) nel campo
++ Usare l'analizzatore Lucene standard predefinito ( `"analyzer": null` ) o un [analizzatore del linguaggio](index-add-language-analyzers.md) (ad esempio, `"analyzer": "en.Microsoft"` ) nel campo
 
 ### <a name="choose-fields"></a>Selezionare i campi
 
@@ -136,8 +136,8 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |Proprietà      |Descrizione      |
 |--------------|-----------------|
 |`name`        |Nome dello strumento suggerimenti.|
-|`searchMode`  |La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching`, che attualmente corrisponde all'inizio di un termine.|
-|`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. I campi devono essere di `Edm.String` tipo `Collection(Edm.String)`e. Se un analizzatore viene specificato nel campo, deve essere un analizzatore denominato da [questo elenco](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (non un analizzatore personalizzato).<p/> Come procedura consigliata, specificare solo i campi che si prestano a una risposta prevista e appropriata, indipendentemente dal fatto che si tratti di una stringa completata in una barra di ricerca o in un elenco a discesa.<p/>Il nome di un hotel è un buon candidato perché ha una precisione. I campi dettagliati come descrizioni e commenti sono troppo densi. Analogamente, i campi ripetitivi, ad esempio categorie e tag, sono meno efficaci. Gli esempi includono "Category" per dimostrare che è possibile includere più campi. |
+|`searchMode`  |La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching` , che attualmente corrisponde all'inizio di un termine.|
+|`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. I campi devono essere di tipo `Edm.String` e `Collection(Edm.String)` . Se un analizzatore viene specificato nel campo, deve essere un analizzatore denominato da [questo elenco](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (non un analizzatore personalizzato).<p/> Come procedura consigliata, specificare solo i campi che si prestano a una risposta prevista e appropriata, indipendentemente dal fatto che si tratti di una stringa completata in una barra di ricerca o in un elenco a discesa.<p/>Il nome di un hotel è un buon candidato perché ha una precisione. I campi dettagliati come descrizioni e commenti sono troppo densi. Analogamente, i campi ripetitivi, ad esempio categorie e tag, sono meno efficaci. Gli esempi includono "Category" per dimostrare che è possibile includere più campi. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -155,7 +155,7 @@ In un'applicazione di ricerca, il codice client deve usare una libreria come il 
 L'utilizzo delle API è illustrato nella chiamata seguente all'API REST di completamento automatico. Questo esempio presenta due considerazioni. In primo luogo, come per tutte le query, l'operazione viene eseguita rispetto alla raccolta Documents di un indice e la query include un parametro di **ricerca** , che in questo caso fornisce la query parziale. In secondo luogo, è necessario aggiungere **suggesterName** alla richiesta. Se un suggerimento non è definito nell'indice, una chiamata al completamento automatico o ai suggerimenti avrà esito negativo.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"

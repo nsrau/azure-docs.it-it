@@ -5,15 +5,15 @@ description: Questo articolo descrive come configurare un tunnel utente VPN Alwa
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 03/13/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: dd5b215b143fbaf487325744a158bb8b05707951
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03f67053a5a199c8c64efb05d2b6a65ad6707650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502867"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564055"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel-for-virtual-wan"></a>Configurare un tunnel utente VPN Always On per la rete WAN virtuale
 
@@ -24,7 +24,7 @@ ms.locfileid: "79502867"
 È necessario creare una configurazione da punto a sito e modificare l'assegnazione dell'hub virtuale. Per istruzioni, vedere le sezioni seguenti:
 
 * [Creare una configurazione di P2S](virtual-wan-point-to-site-portal.md#p2sconfig)
-* [Modificare l'assegnazione dell'hub](virtual-wan-point-to-site-portal.md#edit)
+* [Creare hub con il gateway P2S](virtual-wan-point-to-site-portal.md#hub)
 
 ## <a name="configure-a-user-tunnel"></a>Configurare un tunnel utente
 
@@ -46,4 +46,4 @@ Per rimuovere un profilo, attenersi alla procedura seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla rete WAN virtuale, vedere le [domande frequenti](virtual-wan-faq.md).
+Per altre informazioni sulla rete WAN virtuale, vedere le [domande frequenti](virtual-wan-faq.md).

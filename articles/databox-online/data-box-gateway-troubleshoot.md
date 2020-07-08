@@ -5,25 +5,26 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: b452362744d7fbf655ea043127a15f5173d04e4c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 9688df6c27717cc74c874c75a9df0b47ffd24853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564018"
 ---
-# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Risolvere i problemi di Azure Data Box Gateway 
+# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Risolvere i problemi di Azure Data Box Gateway
 
-Questo articolo descrive come risolvere i problemi in Azure Data Box Gateway. In questo articolo vengono illustrate le operazioni seguenti:
+Questo articolo descrive come risolvere i problemi in Azure Data Box Gateway.
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
+>
 > * Eseguire la diagnostica
 > * Ottenere il pacchetto per il supporto
 > * Usare i log per risolvere i problemi
-
 
 ## <a name="run-diagnostics"></a>Eseguire la diagnostica
 
@@ -75,7 +76,7 @@ Gli eventuali errori riscontrati durante i processi di caricamento e aggiornamen
 
 3. Quando viene visualizzato un errore in questo file (evidenziato nell'esempio), annotare il codice di errore, che in questo caso è 16001. Cercare la descrizione di questo codice di errore con il riferimento di errore seguente.
 
-    |     Codice errore     |     Nome dell'eccezione                                         |     Descrizione dell'errore                                                                                                                                                                                                                     |
+    |     Codice di errore     |     Nome dell'eccezione                                         |     Descrizione errore                                                                                                                                                                                                                     |
     |--------------------|------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     |    100             |    ERROR_CONTAINER_OR_SHARE_NAME_LENGTH                    |    Il nome del contenitore o della condivisione deve avere una lunghezza compresa tra 3 e 63 caratteri.                                                                                                                                                                     |
     |    101             |    ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH        |    Il nome del contenitore o della condivisione deve contenere solo lettere, numeri o trattini.                                                                                                                                                       |

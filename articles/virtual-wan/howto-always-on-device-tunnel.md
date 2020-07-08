@@ -5,15 +5,15 @@ description: Procedura per configurare Always On tunnel del dispositivo VPN per 
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 03/13/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3eea639eaa52c07e877476e9215144e916618d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7adeb9682336b19cc87d8c73a7f9ad8bda5e7828
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502854"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564071"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel-for-virtual-wan"></a>Configurare un tunnel del dispositivo VPN Always On per la rete WAN virtuale
 
@@ -24,7 +24,7 @@ ms.locfileid: "79502854"
 È necessario creare una configurazione da punto a sito e modificare l'assegnazione dell'hub virtuale. Per istruzioni, vedere le sezioni seguenti:
 
 * [Creare una configurazione di P2S](virtual-wan-point-to-site-portal.md#p2sconfig)
-* [Modificare l'assegnazione dell'hub](virtual-wan-point-to-site-portal.md#edit)
+* [Creare hub con il gateway P2S](virtual-wan-point-to-site-portal.md#hub)
 
 ## <a name="configure-the-device-tunnel"></a>Configurare il tunnel del dispositivo
 
@@ -38,4 +38,4 @@ Per rimuovere il profilo, eseguire il comando seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla rete WAN virtuale, vedere le [domande frequenti](virtual-wan-faq.md).
+Per altre informazioni sulla rete WAN virtuale, vedere le [domande frequenti](virtual-wan-faq.md).

@@ -5,19 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: e0638cbccd5e3bc282dbdd7d3b5918e29081a12b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bfa1ae5bd0f2ffe92fb37494f9fe589e1b2040e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565541"
 ---
-# <a name="ip-groups-preview-in-azure-firewall"></a>Gruppi IP (anteprima) nel firewall di Azure
-
-> [!IMPORTANT]
-> L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="ip-groups-in-azure-firewall"></a>Gruppi IP nel firewall di Azure
 
 I gruppi IP consentono di raggruppare e gestire gli indirizzi IP per le regole del firewall di Azure nei modi seguenti:
 
@@ -40,7 +37,7 @@ Gli esempi di formato di indirizzo IPv4 seguenti sono validi per l'utilizzo nei 
 
 ## <a name="create-an-ip-group"></a>Creare un gruppo IP
 
-È possibile creare un gruppo IP usando il portale di Azure, l'interfaccia della riga di comando di Azure o l'API REST. Per altre informazioni, vedere [creare un gruppo IP (anteprima)](create-ip-group.md).
+È possibile creare un gruppo IP usando il portale di Azure, l'interfaccia della riga di comando di Azure o l'API REST. Per altre informazioni, vedere [creare un gruppo IP](create-ip-group.md).
 
 ## <a name="browse-ip-groups"></a>Sfoglia gruppi IP
 1. Nella barra di ricerca portale di Azure digitare **gruppi IP** e selezionarlo. È possibile visualizzare l'elenco dei gruppi di indirizzi IP oppure selezionare **Aggiungi** per creare un nuovo gruppo IP.
@@ -64,9 +61,6 @@ Gli esempi di formato di indirizzo IPv4 seguenti sono validi per l'utilizzo nei 
 ## <a name="use-an-ip-group"></a>Usare un gruppo IP
 
 È ora possibile selezionare **gruppo IP** come tipo di **origine** o **destinazione** per gli indirizzi IP quando si creano le regole di DNAT, applicazione o rete del firewall di Azure.
-
-> [!NOTE]
-> I gruppi IP non sono supportati nei criteri firewall. Attualmente è supportata solo con le tradizionali regole del firewall.
 
 ![Gruppi IP nel firewall](media/ip-groups/fw-ipgroup.png)
 
@@ -128,4 +122,4 @@ Per creare e gestire i gruppi IP, è possibile usare i cmdlet di Azure PowerShel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [distribuire e configurare Firewall di Azure](tutorial-firewall-deploy-portal.md).
+- Informazioni su come [distribuire e configurare un firewall di Azure](tutorial-firewall-deploy-portal.md).

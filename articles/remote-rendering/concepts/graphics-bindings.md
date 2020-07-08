@@ -9,12 +9,12 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
-ms.openlocfilehash: 4854d5ff9d697a2bf082a788c0e761a2152b0294
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: d29500db5efd0abde4c9555fde9a7e3d5bbe070a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564979"
 ---
 # <a name="graphics-binding"></a>Binding di grafica
 
@@ -27,7 +27,7 @@ Dopo che è stato configurato, il binding di grafica consente l'accesso a varie 
 In Unity il binding viene interamente gestito dallo struct `RemoteUnityClientInit` passato in `RemoteManagerUnity.InitializeManager`. Per impostare la modalità di grafica, è necessario impostare il campo `GraphicsApiType` sul binding scelto. Il campo verrà popolato automaticamente a seconda della presenza di un XRDevice. È possibile eseguire l'override del comportamento manualmente con i comportamenti seguenti:
 
 * **HoloLens 2**: viene sempre usato il binding di grafica [Windows Mixed Reality](#windows-mixed-reality).
-* **App desktop per la piattaforma UWP flat**: [viene sempre usata la simulazione](#simulation). Per usare questa modalità, assicurarsi di seguire la procedura descritta in [Esercitazione: Configurazione di un progetto Unity da zero](../tutorials/unity/project-setup.md).
+* **App desktop per la piattaforma UWP flat**: [viene sempre usata la simulazione](#simulation).
 * **Editor di Unity**: viene sempre usata la[simulazione](#simulation), a meno che non sia connessa una cuffia per la realtà virtuale Windows Mixed Reality, nel qual caso ARR (Application Request Routing) viene disabilitato per consentire il debug delle parti correlate non ARR dell'applicazione. Vedere anche la [comunicazione remota olografica](../how-tos/unity/holographic-remoting.md).
 
 L'unica altra parte pertinente per Unity è l'accesso al [binding di base](#access). Tutte le altre sezioni riportate di seguito possono essere ignorate.
@@ -233,4 +233,4 @@ else
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Configurazione di un progetto Unity da zero](../tutorials/unity/project-setup.md)
+* [Esercitazione: visualizzazione di modelli sottoposti a rendering remoto](../tutorials/unity/view-remote-models/view-remote-models.md)

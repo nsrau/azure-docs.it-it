@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563125"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Come indicizzare le tabelle dall'archiviazione tabelle di Azure con Azure ricerca cognitiva
 
@@ -26,7 +26,7 @@ Questo articolo illustra come usare ricerca cognitiva di Azure per indicizzare i
 
 * [Azure portal](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) di Azure ricerca cognitiva
-* Azure ricerca cognitiva [.NET SDK](https://aka.ms/search-sdk)
+* Azure ricerca cognitiva [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 
 In questo caso viene illustrato il flusso tramite l'API REST. 
 
@@ -49,7 +49,7 @@ Per l'indicizzazione delle tabelle, l'origine dati deve possedere le proprietà 
 
 Per creare un'origine dati:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -67,7 +67,7 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
 
 Per specificare le credenziali per la tabella, sono disponibili questi modi: 
 
-- **Stringa di connessione dell'account di archiviazione con accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` è possibile ottenere la stringa di connessione dal portale di Azure passando al pannello **account** > di archiviazione**chiavi** **Impostazioni** > (per gli account di archiviazione classici) o **Impostazioni** > **chiavi di accesso** (per Azure Resource Manager account di archiviazione).
+- **Stringa di connessione dell'account di archiviazione con accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` è possibile ottenere la stringa di connessione dal portale di Azure passando al pannello **account di archiviazione**  >  **Settings**  >  **chiavi** impostazioni (per gli account di archiviazione classici) o **Impostazioni**  >  **chiavi di accesso** (per Azure Resource Manager account di archiviazione).
 - **Stringa di connessione della firma di accesso condiviso dell'account di archiviazione**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` la firma di accesso condiviso deve avere le autorizzazioni di elenco e lettura per i contenitori (tabelle in questo caso) e gli oggetti (righe di tabella).
 -  **Firma di accesso condiviso tabella**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` la firma di accesso condiviso deve avere le autorizzazioni di query (lettura) per la tabella.
 
@@ -81,7 +81,7 @@ L'indice consente di specificare i campi in un documento, gli attributi e altri 
 
 Per creare un indice:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ Un indicizzatore si connette a un'origine dati con un indice di ricerca di desti
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -115,7 +115,7 @@ L'indicizzatore verrà eseguito ogni due ore. (L'intervallo di pianificazione è
 
 Per altre informazioni sull'API di creazione dell'indicizzatore dati, vedere [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Per ulteriori informazioni sulla definizione delle pianificazioni degli indicizzatori [, vedere How to Schedule Indexers for Azure ricerca cognitiva](search-howto-schedule-indexers.md).
+Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori, vedere [Come pianificare gli indicizzatori per Ricerca cognitiva di Azure](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Gestire nomi campo diversi
 I nomi campo nell'indice esistente sono talvolta diversi dai nomi proprietà nella tabella. È possibile usare i mapping dei campi per eseguire il mapping dei nomi di proprietà forniti dalla tabella ai nomi di campo nell'indice di ricerca. Per altre informazioni sui mapping dei campi, vedere [mapping dei campi dell'indicizzatore ricerca cognitiva di Azure colmare le differenze tra le origini dati e gli indici di ricerca](search-indexer-field-mappings.md).
@@ -123,7 +123,7 @@ I nomi campo nell'indice esistente sono talvolta diversi dai nomi proprietà nel
 ## <a name="handle-document-keys"></a>Gestire le chiavi del documento
 In Azure ricerca cognitiva la chiave del documento identifica un documento in modo univoco. Ogni indice di ricerca deve avere esclusivamente un campo chiave di tipo `Edm.String`. Il campo chiave è necessario per ogni documento da aggiungere all'indice. È l'unico campo obbligatorio.
 
-Poiché le righe della tabella hanno una chiave composta, Azure ricerca cognitiva genera un campo `Key` sintetico denominato che è una concatenazione di valori di chiave di partizione e chiave di riga. Se ad esempio il parametro PartitionKey di una riga è `PK1` e il parametro RowKey è `RK1`, il valore del campo `Key` è `PK1RK1`.
+Poiché le righe della tabella hanno una chiave composta, Azure ricerca cognitiva genera un campo sintetico denominato `Key` che è una concatenazione di valori di chiave di partizione e chiave di riga. Se ad esempio il parametro PartitionKey di una riga è `PK1` e il parametro RowKey è `RK1`, il valore del campo `Key` è `PK1RK1`.
 
 > [!NOTE]
 > Il valore `Key` può contenere caratteri non validi nelle chiavi del documento, ad esempio i trattini. È possibile risolvere i problemi legati ai caratteri non validi usando la `base64Encode` [funzione di mapping dei campi](search-indexer-field-mappings.md#base64EncodeFunction). In questo caso, ricordarsi di usare la codifica Base64 sicura per gli URL quando si passano le chiavi dei documenti nelle chiamate API, ad esempio in una ricerca.
@@ -135,7 +135,7 @@ Quando un indicizzatore di tabelle viene configurato per l'esecuzione in base a 
 
 Per indicare che alcuni documenti specifici devono essere rimossi dall'indice, è possibile usare una strategia di eliminazione temporanea. Invece di eliminare una riga, aggiungere una proprietà che ne indica l'eliminazione e impostare norme di rilevamento dell'eliminazione temporanea nell'origine dati. Il tipo di norme seguente, ad esempio, indica che una riga viene eliminata se la proprietà `IsDeleted` della riga è impostata sul valore `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -150,7 +150,7 @@ Per indicare che alcuni documenti specifici devono essere rimossi dall'indice, �
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
-Per impostazione predefinita, Azure ricerca cognitiva usa il filtro di query `Timestamp >= HighWaterMarkValue`seguente:. Poiché le tabelle di Azure non dispongono di un indice secondario nel campo `Timestamp`, questo tipo di query richiede un'analisi completa delle tabelle e risulta pertanto lenta nell'analisi delle tabelle di grandi dimensioni.
+Per impostazione predefinita, Azure ricerca cognitiva usa il filtro di query seguente: `Timestamp >= HighWaterMarkValue` . Poiché le tabelle di Azure non dispongono di un indice secondario nel campo `Timestamp`, questo tipo di query richiede un'analisi completa delle tabelle e risulta pertanto lenta nell'analisi delle tabelle di grandi dimensioni.
 
 
 Ecco due possibili approcci per migliorare le prestazioni dell'indicizzazione delle tabelle. Entrambi gli approcci si basano sull'utilizzo delle partizioni delle tabelle: 

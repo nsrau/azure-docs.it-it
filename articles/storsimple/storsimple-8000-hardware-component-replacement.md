@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60321834"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564283"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sostituire un componente hardware sul dispositivo StorSimple serie 8000
 
@@ -28,13 +28,13 @@ ms.locfileid: "60321834"
 Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti hardware del dispositivo Microsoft Azure StorSimple serie 8000 e i passaggi necessari per rimuovere e sostituire i componenti. In questo articolo vengono descritte le icone di sicurezza, vengono forniti dei collegamenti alle esercitazioni dettagliate e vengono elencati i componenti che possono essere sostituiti.
 
 > [!IMPORTANT]
-> Prima di tentare di rimuovere o sostituire qualsiasi componente di StorSimple, leggere le [convenzioni di sicurezza](#safety-icon-conventions) e altre [precauzioni di sicurezza](storsimple-safety.md).
-
+> Prima di tentare di rimuovere o sostituire qualsiasi componente di StorSimple, leggere le [convenzioni di sicurezza](#safety-icon-conventions) e altre [precauzioni di sicurezza](storsimple-8000-safety.md).
 
 ### <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
+
 Nella tabella seguente vengono descritte le icone di sicurezza utilizzate in queste esercitazioni. Prestare particolare attenzione a queste icone di sicurezza quando si eseguono i passaggi per rimuovere e sostituire i componenti del dispositivo.
 
-| Icona | Testo | Altre informazioni |
+| Icona | Text | Informazioni aggiuntive |
 |:--- |:--- |:--- |
 | ![Icona avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
 | ![Icona avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
@@ -47,7 +47,8 @@ Nella tabella seguente vengono descritte le icone di sicurezza utilizzate in que
 | ![Icona suggerimento di pericolo](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Suggerimento di pericolo** | |
 
 ### <a name="before-you-begin"></a>Prima di iniziare
-Acquisire familiarità con le informazioni di sicurezza relative al dispositivo e alle icone di sicurezza utilizzate in questa esercitazione. Andare a [Installazione sicura e funzionamento del dispositivo StorSimple](storsimple-safety.md) per informazioni più dettagliate. Rivedere le [precauzioni di sicurezza](storsimple-safety.md#handling-precautions) prima di gestire il dispositivo StorSimple.
+
+Acquisire familiarità con le informazioni di sicurezza relative al dispositivo e alle icone di sicurezza utilizzate in questa esercitazione. Andare a [Installazione sicura e funzionamento del dispositivo StorSimple](storsimple-8000-safety.md) per informazioni più dettagliate. Rivedere le [precauzioni di sicurezza](storsimple-8000-safety.md#handling-precautions) prima di gestire il dispositivo StorSimple.
 
 Prima di tentare di sostituire un componente, considerare le seguenti informazioni.
 
@@ -61,6 +62,7 @@ Prima di tentare di sostituire un componente, considerare le seguenti informazio
 Quando si sostituisce un modulo, **non lasciare MAI un alloggiamento vuoto nella sporgenza dell’enclosure**. Procurarsi un ricambio o un modulo vuoto prima di rimuovere la parte del problema.
 
 ## <a name="hardware-component-replacement-procedures"></a>Procedure di sostituzione di componenti hardware
+
 Il dispositivo Microsoft Azure StorSimple serie 8000 è costituito da diversi moduli plug-in negli chassis primari e/o EBOD. Il modello 8100 ha un solo chassis principale, mentre il 8600 è un dispositivo a chassis doppio con un chassis principale e uno EBOD.
 
 Nelle tabelle seguenti vengono riepilogati i componenti hardware principali nel dispositivo. Fare clic sul collegamento nella colonna della **Procedura di sostituzione** per passare all'esercitazione associata.
@@ -92,7 +94,7 @@ I moduli plug-in nel dispositivo sono evidenziati nei seguenti diagrammi anterio
 
 **Figura 1** Parte anteriore del dispositivo
 
-| Label | Descrizione |
+| Etichetta | Descrizione |
 |:--- |:--- |
 | 0 - 11 |Unità di dischi (totale pari a 12) |
 
@@ -102,7 +104,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 
 **Figura 2** Pannello posteriore dello chassis principale
 
-| Label | Descrizione |
+| Etichetta | Descrizione |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +115,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 
 **Figura 3** pannello posteriore dell’enclosure EBOD
 
-| Label | Descrizione |
+| Etichetta | Descrizione |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -121,6 +123,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 | 4 |Controller 1 EBOD |
 
 ## <a name="field-replaceable-units"></a>Unità sostituibile sul campo 
+
 Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il dispositivo StorSimple:
 
 * Chassis (incluso il pannello operativo integrato)
@@ -135,5 +138,5 @@ Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il disposit
 Per ordinare una di queste unità sostitutive, [contattare il supporto Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Rivedere tutte le [informazioni sulla sicurezza](storsimple-safety.md) prima di tentare di sostituire un componente hardware StorSimple.
 
+Rivedere tutte le [informazioni sulla sicurezza](storsimple-8000-safety.md) prima di tentare di sostituire un componente hardware StorSimple.

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e55589a388a1883f42284f2e20c6d5619b63f48f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565476"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Interagire con gli oggetti e i componenti di gioco Unity
 
@@ -22,7 +22,7 @@ Di conseguenza, l'integrazione di Unity del rendering remoto di Azure viene forn
 
 ## <a name="load-a-model-in-unity"></a>Caricare un modello in Unity
 
-Quando si carica un modello, si ottiene un riferimento all'oggetto radice del modello caricato. Questo riferimento non è un oggetto gioco Unity, ma è possibile convertirlo in uno usando il metodo `Entity.GetOrCreateGameObject()`di estensione. Questa funzione prevede un argomento di tipo `UnityCreationMode`. Se si passa `CreateUnityComponents`, l'oggetto gioco Unity appena creato verrà popolato con i componenti proxy per tutti i componenti di rendering remoti presenti nell'host. Si consiglia, tuttavia, di preferire `DoNotCreateUnityComponents`, per ridurre il sovraccarico minimo.
+Quando si carica un modello, si ottiene un riferimento all'oggetto radice del modello caricato. Questo riferimento non è un oggetto gioco Unity, ma è possibile convertirlo in uno usando il metodo di estensione `Entity.GetOrCreateGameObject()` . Questa funzione prevede un argomento di tipo `UnityCreationMode` . Se si passa `CreateUnityComponents` , l'oggetto gioco Unity appena creato verrà popolato con i componenti proxy per tutti i componenti di rendering remoti presenti nell'host. Si consiglia, tuttavia, di preferire `DoNotCreateUnityComponents` , per ridurre il sovraccarico minimo.
 
 ### <a name="load-model-with-task"></a>Carica modello con attività
 
@@ -82,21 +82,21 @@ async void LoadModelWithAwait()
 }
 ```
 
-Negli esempi di codice precedenti è stato usato il percorso di caricamento del modello tramite SAS perché il modello incorporato è caricato. L'indirizzamento del modello tramite contenitori BLOB `LoadModelAsync` ( `LoadModelParams`tramite e) funziona in modo completo in modo analogo.
+Negli esempi di codice precedenti è stato usato il percorso di caricamento del modello tramite SAS perché il modello incorporato è caricato. L'indirizzamento del modello tramite contenitori BLOB (tramite `LoadModelAsync` e) funziona in modo completo in modo `LoadModelParams` analogo.
 
 ## <a name="remoteentitysyncobject"></a>RemoteEntitySyncObject
 
-La creazione di un oggetto gioco Unity aggiunge `RemoteEntitySyncObject` implicitamente un componente all'oggetto Game. Questo componente viene usato per sincronizzare la trasformazione dell'entità con il server. Per impostazione `RemoteEntitySyncObject` predefinita, è necessario che l'utente `SyncToRemote()` chiami in modo esplicito per sincronizzare lo stato di Unity locale con il server. Con `SyncEveryFrame` l'abilitazione, l'oggetto verrà sincronizzato automaticamente.
+La creazione di un oggetto gioco Unity aggiunge implicitamente un `RemoteEntitySyncObject` componente all'oggetto Game. Questo componente viene usato per sincronizzare la trasformazione dell'entità con il server. Per impostazione predefinita, è `RemoteEntitySyncObject` necessario che l'utente chiami in modo esplicito `SyncToRemote()` per sincronizzare lo stato di Unity locale con il server. Con `SyncEveryFrame` l'abilitazione, l'oggetto verrà sincronizzato automaticamente.
 
-Per gli oggetti `RemoteEntitySyncObject` con un è possibile creare un'istanza degli elementi figlio remoti e visualizzarli nell'editor di Unity tramite il pulsante **Mostra elementi figlio** .
+Per gli oggetti con un `RemoteEntitySyncObject` è possibile creare l'istanza di elementi figlio remoti e visualizzarli nell'editor di Unity tramite il **:::no-loc text="Show children":::** pulsante.
 
 ![RemoteEntitySyncObject](media/remote-entity-sync-object.png)
 
 ## <a name="wrapper-components"></a>Componenti wrapper
 
-I [componenti](../../concepts/components.md) collegati alle entità di rendering remoto sono esposti a Unity tramite proxy `MonoBehavior`. Questi proxy rappresentano il componente remoto in Unity e inoltrano tutte le modifiche all'host.
+I [componenti](../../concepts/components.md) collegati alle entità di rendering remoto sono esposti a Unity tramite proxy `MonoBehavior` . Questi proxy rappresentano il componente remoto in Unity e inoltrano tutte le modifiche all'host.
 
-Per creare componenti per il rendering remoto del proxy, usare `GetOrCreateArrComponent`il metodo di estensione:
+Per creare componenti per il rendering remoto del proxy, usare il metodo di estensione `GetOrCreateArrComponent` :
 
 ```cs
 var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
@@ -104,9 +104,9 @@ var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteMa
 
 ## <a name="coupled-lifetimes"></a>Durate associate
 
-Il ciclo di vita di un' [entità](../../concepts/entities.md) remota e di un oggetto gioco Unity è associato mentre sono associati `RemoteEntitySyncObject`tramite. Se si chiama `UnityEngine.Object.Destroy(...)` con un oggetto gioco di questo tipo, verrà rimossa anche l'entità remota.
+Il ciclo di vita di un' [entità](../../concepts/entities.md) remota e di un oggetto gioco Unity è associato mentre sono associati tramite `RemoteEntitySyncObject` . Se si chiama `UnityEngine.Object.Destroy(...)` con un oggetto gioco di questo tipo, verrà rimossa anche l'entità remota.
 
-Per eliminare definitivamente l'oggetto gioco Unity, senza influire sull'entità remota, è innanzitutto necessario `Unbind()` chiamare su `RemoteEntitySyncObject`.
+Per eliminare definitivamente l'oggetto gioco Unity, senza influire sull'entità remota, è innanzitutto necessario chiamare `Unbind()` su `RemoteEntitySyncObject` .
 
 Lo stesso vale per tutti i componenti proxy. Per eliminare solo la rappresentazione sul lato client, è prima necessario chiamare `Unbind()` sul componente proxy:
 
@@ -122,4 +122,4 @@ if (cutplane != null)
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Configurare Rendering remoto per Unity](unity-setup.md)
-* [Esercitazione: Uso di entità remote in Unity](../../tutorials/unity/working-with-remote-entities.md)
+* [Esercitazione: modificare entità remote in Unity](../../tutorials/unity/manipulate-models/manipulate-models.md)

@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b647515e9bd802673114de82089ede5f52f9016
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76509819"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562712"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge
 
@@ -38,7 +38,7 @@ Questo modulo include le funzionalità **deviceToCloudUpload** e **deviceAutoDel
 * Specificare l'account di archiviazione di Azure in cui si desidera caricare i dati.
 * Specificare i contenitori che si vuole caricare in Azure. Questo modulo consente di specificare i nomi dei contenitori di origine e di destinazione.
 * Scegliere la possibilità di eliminare immediatamente i BLOB, al termine del caricamento nell'archiviazione cloud
-* Eseguire il caricamento BLOB completo ( `Put Blob` operazione using) e il caricamento a livello `Put Block`di `Put Block List` blocco `Append Block` (usando le operazioni e).
+* Eseguire il caricamento BLOB completo ( `Put Blob` operazione using) e il caricamento a livello di blocco (usando `Put Block` `Put Block List` `Append Block` le operazioni e).
 
 Questo modulo usa il caricamento a livello di blocco, quando il BLOB è costituito da blocchi. Ecco alcuni scenari comuni:
 
@@ -71,29 +71,29 @@ Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in
 
 ## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>Proprietà deviceToCloudUpload e deviceAutoDelete
 
-Usare le proprietà desiderate del modulo per impostare **deviceToCloudUploadProperties** e **deviceAutoDeleteProperties**. Le proprietà desiderate possono essere impostate durante la distribuzione o modificate in un secondo momento modificando il modulo gemello senza la necessità di ridistribuire. Si consiglia di selezionare "modulo gemello" `reported configuration` per `configurationValidation` e per assicurarsi che i valori vengano propagati correttamente.
+Usare le proprietà desiderate del modulo per impostare **deviceToCloudUploadProperties** e **deviceAutoDeleteProperties**. Le proprietà desiderate possono essere impostate durante la distribuzione o modificate in un secondo momento modificando il modulo gemello senza la necessità di ridistribuire. Si consiglia di selezionare "modulo gemello" per `reported configuration` e per assicurarsi che `configurationValidation` i valori vengano propagati correttamente.
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
-Il nome di questa impostazione è `deviceToCloudUploadProperties`. Se si usa il simulatore di IoT Edge, impostare i valori per le variabili di ambiente correlate per queste proprietà, che è possibile trovare nella sezione spiegazione.
+Il nome di questa impostazione è `deviceToCloudUploadProperties` . Se si usa il simulatore di IoT Edge, impostare i valori per le variabili di ambiente correlate per queste proprietà, che è possibile trovare nella sezione spiegazione.
 
 | Proprietà | Valori possibili | Spiegazione |
 | ----- | ----- | ---- |
-| uploadOn | true, false | Impostare su `false` per impostazione predefinita. Se si desidera attivare la funzionalità, impostare questo campo su `true`. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, OldestFirst | Consente di scegliere l'ordine in cui i dati vengono copiati in Azure. Impostare su `OldestFirst` per impostazione predefinita. L'ordine è determinato dall'ora dell'Ultima modifica del BLOB. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`è una stringa di connessione che consente di specificare l'account di archiviazione in cui si desidera caricare i dati. Specificare `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Aggiungi EndpointSuffix appropriati di Azure in cui verranno caricati i dati, che variano in base a Global Azure, Government Azure e Microsoft Azure Stack. <br><br> È possibile scegliere di specificare la stringa di connessione SAS di archiviazione di Azure qui. Tuttavia, è necessario aggiornare questa proprietà quando scade. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Consente di specificare i nomi dei contenitori che si vuole caricare in Azure. Questo modulo consente di specificare i nomi dei contenitori di origine e di destinazione. Se non si specifica il nome del contenitore di destinazione, il nome del contenitore verrà assegnato `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`automaticamente come. È possibile creare stringhe di modello per il nome del contenitore di destinazione, vedere la colonna valori possibili. <br>*% h-> nome dell'hub Internet (3-50 caratteri). <br>*% d-> IoT Edge ID dispositivo (da 1 a 129 caratteri). <br>*% m-> nome del modulo (da 1 a 64 caratteri). <br>*% c-> nome del contenitore di origine (da 3 a 63 caratteri). <br><br>Le dimensioni massime del nome del contenitore sono di 63 caratteri, assegnando automaticamente il nome del contenitore di destinazione se la dimensione del contenitore supera i 63 caratteri, ogni sezione (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) verrà tagliata in 15 caratteri. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
-| deleteAfterUpload | true, false | Impostare su `false` per impostazione predefinita. Quando è impostato su `true`, i dati verranno eliminati automaticamente al termine del caricamento nell'archiviazione cloud. <br><br> **Attenzione**: se si usano i BLOB di Accodamento, questa impostazione eliminerà i BLOB di Accodamento dalla risorsa di archiviazione locale dopo il completamento del caricamento e le successive operazioni di blocco per tali BLOB avranno esito negativo. Usare questa impostazione con cautela. non abilitare questa opzione se l'applicazione esegue operazioni di Accodamento non frequenti o non supporta operazioni di Accodamento continue<br><br> Variabile di ambiente `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`:. |
+| uploadOn | true, false | Impostare su per `false` impostazione predefinita. Se si desidera attivare la funzionalità, impostare questo campo su `true` . <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst, OldestFirst | Consente di scegliere l'ordine in cui i dati vengono copiati in Azure. Impostare su per `OldestFirst` impostazione predefinita. L'ordine è determinato dall'ora dell'Ultima modifica del BLOB. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`è una stringa di connessione che consente di specificare l'account di archiviazione in cui si desidera caricare i dati. Specificare `Azure Storage Account Name` , `Azure Storage Account Key` , `End point suffix` . Aggiungi EndpointSuffix appropriati di Azure in cui verranno caricati i dati, che variano in base a Global Azure, Government Azure e Microsoft Azure Stack. <br><br> È possibile scegliere di specificare la stringa di connessione SAS di archiviazione di Azure qui. Tuttavia, è necessario aggiornare questa proprietà quando scade. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Consente di specificare i nomi dei contenitori che si vuole caricare in Azure. Questo modulo consente di specificare i nomi dei contenitori di origine e di destinazione. Se non si specifica il nome del contenitore di destinazione, il nome del contenitore verrà assegnato automaticamente come `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . È possibile creare stringhe di modello per il nome del contenitore di destinazione, vedere la colonna valori possibili. <br>*% h-> nome dell'hub Internet (3-50 caratteri). <br>*% d-> IoT Edge ID dispositivo (da 1 a 129 caratteri). <br>*% m-> nome del modulo (da 1 a 64 caratteri). <br>*% c-> nome del contenitore di origine (da 3 a 63 caratteri). <br><br>Le dimensioni massime del nome del contenitore sono di 63 caratteri, assegnando automaticamente il nome del contenitore di destinazione se la dimensione del contenitore supera i 63 caratteri, ogni sezione (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) verrà tagliata in 15 caratteri. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
+| deleteAfterUpload | true, false | Impostare su per `false` impostazione predefinita. Quando è impostato su `true` , i dati verranno eliminati automaticamente al termine del caricamento nell'archiviazione cloud. <br><br> **Attenzione**: se si usano i BLOB di Accodamento, questa impostazione eliminerà i BLOB di Accodamento dalla risorsa di archiviazione locale dopo il completamento del caricamento e le successive operazioni di blocco per tali BLOB avranno esito negativo. Usare questa impostazione con cautela. non abilitare questa opzione se l'applicazione esegue operazioni di Accodamento non frequenti o non supporta operazioni di Accodamento continue<br><br> Variabile di ambiente: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` . |
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
-Il nome di questa impostazione è `deviceAutoDeleteProperties`. Se si usa il simulatore di IoT Edge, impostare i valori per le variabili di ambiente correlate per queste proprietà, che è possibile trovare nella sezione spiegazione.
+Il nome di questa impostazione è `deviceAutoDeleteProperties` . Se si usa il simulatore di IoT Edge, impostare i valori per le variabili di ambiente correlate per queste proprietà, che è possibile trovare nella sezione spiegazione.
 
 | Proprietà | Valori possibili | Spiegazione |
 | ----- | ----- | ---- |
-| deleteOn | true, false | Impostare su `false` per impostazione predefinita. Se si desidera attivare la funzionalità, impostare questo campo su `true`. <br><br> Variabile di ambiente: `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteOn | true, false | Impostare su per `false` impostazione predefinita. Se si desidera attivare la funzionalità, impostare questo campo su `true` . <br><br> Variabile di ambiente: `deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | Specificare l'intervallo di tempo in minuti. Il modulo eliminerà automaticamente i BLOB dalla risorsa di archiviazione locale quando questo valore scade. <br><br> Variabile di ambiente: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| retainWhileUploading | true, false | Per impostazione predefinita, è impostato `true`su e manterrà il BLOB mentre viene caricato nell'archiviazione cloud se deleteAfterMinutes scade. È possibile impostarlo su `false` e eliminerà i dati non appena scade deleteAfterMinutes. Nota: affinché questa proprietà funzioni, uploadOn deve essere impostato su true.  <br><br> **Attenzione**: se si usano i BLOB di Accodamento, questa impostazione eliminerà i BLOB di Accodamento dalla risorsa di archiviazione locale quando il valore scade e le successive operazioni di blocco di Accodamento a tali BLOB avranno esito negativo. È possibile assicurarsi che il valore di scadenza sia sufficientemente grande per la frequenza prevista delle operazioni di Accodamento eseguite dall'applicazione.<br><br> Variabile di ambiente: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
+| retainWhileUploading | true, false | Per impostazione predefinita, è impostato su e manterrà `true` il BLOB mentre viene caricato nell'archiviazione cloud se deleteAfterMinutes scade. È possibile impostarlo su `false` e eliminerà i dati non appena scade deleteAfterMinutes. Nota: affinché questa proprietà funzioni, uploadOn deve essere impostato su true.  <br><br> **Attenzione**: se si usano i BLOB di Accodamento, questa impostazione eliminerà i BLOB di Accodamento dalla risorsa di archiviazione locale quando il valore scade e le successive operazioni di blocco di Accodamento a tali BLOB avranno esito negativo. È possibile assicurarsi che il valore di scadenza sia sufficientemente grande per la frequenza prevista delle operazioni di Accodamento eseguite dall'applicazione.<br><br> Variabile di ambiente: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Uso della condivisione SMB come archiviazione locale
 
@@ -121,7 +121,7 @@ Questo comando utilizzerà le credenziali per l'autenticazione con il server SMB
 
 Assicurarsi che l'utente nel dispositivo Internet sia in grado di leggere/scrivere nella condivisione SMB remota.
 
-Per la distribuzione, il valore `<storage mount>` di può essere **G:/ContainerData: C:/BlobRoot**.
+Per la distribuzione, il valore di `<storage mount>` può essere **G:/ContainerData: C:/BlobRoot**.
 
 ## <a name="granting-directory-access-to-container-user-on-linux"></a>Concessione dell'accesso alla directory per l'utente contenitore in Linux
 
@@ -143,7 +143,7 @@ sudo chown -R 11000:11000 /srv/containerdata
 sudo chmod -R 700 /srv/containerdata
 ```
 
-Se è necessario eseguire il servizio come utente diverso da **Absie**, è possibile specificare l'ID utente personalizzato in CreateOptions nella proprietà "User" del manifesto della distribuzione. In tal caso, è necessario utilizzare l'ID `0`gruppo radice o predefinito.
+Se è necessario eseguire il servizio come utente diverso da **Absie**, è possibile specificare l'ID utente personalizzato in CreateOptions nella proprietà "User" del manifesto della distribuzione. In tal caso, è necessario utilizzare l'ID gruppo radice o predefinito `0` .
 
 ```json
 "createOptions": {
@@ -168,7 +168,7 @@ Per informazioni sulla configurazione dei file di log per il modulo, vedere le [
 
 Specificare il dispositivo IoT Edge come endpoint BLOB per qualsiasi richiesta di archiviazione effettuata. È possibile [Creare una stringa di connessione per un endpoint di archiviazione esplicita](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) usando le informazioni del dispositivo IoT Edge e il nome dell'account che è stato configurato.
 
-* Per i moduli distribuiti nello stesso dispositivo in cui è in esecuzione l'archivio BLOB di Azure nel modulo IoT Edge, l'endpoint BLOB è: `http://<module name>:11002/<account name>`.
+* Per i moduli distribuiti nello stesso dispositivo in cui è in esecuzione l'archivio BLOB di Azure nel modulo IoT Edge, l'endpoint BLOB è: `http://<module name>:11002/<account name>` .
 * Per i moduli o le applicazioni in esecuzione in un dispositivo diverso, è necessario scegliere l'endpoint corretto per la rete. A seconda della configurazione della rete, scegliere un formato di endpoint in modo che il traffico dati dal modulo esterno o dall'applicazione possa raggiungere il dispositivo che esegue l'archiviazione BLOB di Azure nel modulo IoT Edge. L'endpoint BLOB per questo scenario è uno dei seguenti:
   * `http://<device IP >:11002/<account name>`
   * `http://<IoT Edge device hostname>:11002/<account name>`
@@ -182,7 +182,7 @@ Gli esempi di avvio rapido seguenti usano linguaggi supportati anche da IoT Edge
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-  * Le versioni precedenti alla versione 2.1 di Python SDK hanno un problema noto in cui il modulo non restituisce la data e l'ora di creazione del BLOB. A causa di questo problema, alcuni metodi come i BLOB di elenco non funzionano. Come soluzione alternativa, impostare in modo esplicito la versione dell'API nel client BLOB su "2017-04-17". Esempio:  `block_blob_service._X_MS_VERSION = '2017-04-17'`
+  * Le versioni precedenti alla versione 2.1 di Python SDK hanno un problema noto in cui il modulo non restituisce la data e l'ora di creazione del BLOB. A causa di questo problema, alcuni metodi come i BLOB di elenco non funzionano. Come soluzione alternativa, impostare in modo esplicito la versione dell'API nel client BLOB su "2017-04-17". Esempio: `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Esempio di Accodamento BLOB](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
 * [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
@@ -291,7 +291,7 @@ Questo archivio BLOB di Azure in IoT Edge modulo offre ora l'integrazione con gr
 
 Di seguito sono riportate le [Note sulla versione nell'hub Docker](https://hub.docker.com/_/microsoft-azure-blob-storage) per questo modulo
 
-## <a name="feedback"></a>Commenti e suggerimenti
+## <a name="suggestions"></a>Suggerimenti
 
 Il feedback è importante per rendere questo modulo e le sue funzionalità utili e facili da usare. Condividi i tuoi commenti e facci scoprire come possiamo migliorare.
 

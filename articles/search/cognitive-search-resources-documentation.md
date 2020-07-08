@@ -7,36 +7,66 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: d2b25fb93a1e35ffa82cf49c60d181b841b1692d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2020
+ms.openlocfilehash: 3399ace71d3a28ea903991e0439f1c9ddcc939d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77616186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565395"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Risorse di documentazione per l'arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure
 
-L'arricchimento tramite intelligenza artificiale è una funzionalità dell'indicizzazione di Ricerca cognitiva di Azure che consente di trovare informazioni latenti in origini non di testo e testo indifferenziato, trasformandolo in contenuto abilitato per la ricerca full-text in Ricerca cognitiva di Azure.
+L'arricchimento di intelligenza artificiale è un componente aggiuntivo per l'indicizzazione basata su indicizzatore che consente di trovare informazioni latenti in origini non di testo e testo non differenziato, trasformarlo in contenuto ricercabile full-text in Azure ricerca cognitiva. 
 
-Gli articoli seguenti rappresentano la documentazione completa per l'arricchimento tramite intelligenza artificiale.
+Per l'elaborazione incorporata, i modelli di intelligenza artificiale pre-sottoposti a training in Servizi cognitivi vengono chiamati internamente per eseguire le analisi. È anche possibile integrare modelli personalizzati usando Azure Machine Learning, funzioni di Azure o altri approcci.
 
-## <a name="getting-started"></a>Guida introduttiva
-+ [Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure](cognitive-search-concept-intro.md)
+Di seguito è riportato un elenco consolidato della documentazione relativa all'arricchimento di intelligenza artificiale.
+
+## <a name="concepts"></a>Concetti
+
++ [Arricchimenti AI](cognitive-search-concept-intro.md)
++ [Set di competenze](cognitive-search-working-with-skillsets.md)
++ [Sessioni di debug](cognitive-search-debug-session.md)
++ [Archivi conoscenze](knowledge-store-concept-intro.md)
++ [Proiezioni](knowledge-store-projection-overview.md)
++ [Arricchimento incrementale (riutilizzo di un documento arricchito memorizzato nella cache)](cognitive-search-incremental-indexing-conceptual.md)
+
+## <a name="hands-on-walkthroughs"></a>Procedure dettagliate
+
 + [Guida introduttiva: creare un di competenze cognitive nell'portale di Azure](cognitive-search-quickstart-blob.md)
 + [Esercitazione: indicizzazione arricchita con intelligenza artificiale](cognitive-search-tutorial-blob.md)
-+ [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
++ [Esercitazione: diagnostica, ripristino e commit delle modifiche apportate alle tue competenze con le sessioni di debug](cognitive-search-tutorial-debug-sessions.md)
+
+## <a name="knowledge-stores"></a>Archivi conoscenze
+
++ [Guida introduttiva: creare un archivio informazioni nell'portale di Azure](knowledge-store-create-portal.md)
++ [Creare un archivio conoscenze con REST e Postman](knowledge-store-create-rest.md)
++ [Visualizzare un archivio conoscenze con Storage Explorer](knowledge-store-view-storage-explorer.md)
++ [Connettere un archivio conoscenze con Power BI](knowledge-store-connect-power-bi.md)
++ [Esempi di proiezione (come modellare ed esportare gli arricchimenti)](knowledge-store-projections-examples.md)
+
+## <a name="custom-skills-advanced"></a>Competenze personalizzate (avanzate)
+
++ [Come definire un'interfaccia di competenze personalizzata](cognitive-search-custom-skill-interface.md)
++ [Esempio: creare una competenza personalizzata usando funzioni di Azure (e API Ricerca entità Bing)](cognitive-search-create-custom-skill-example.md)
++ [Esempio: creare una competenza personalizzata usando Python](cognitive-search-custom-skill-python.md)
++ [Esempio: creare una competenza personalizzata usando il sistema di riconoscimento del modulo](cognitive-search-custom-skill-form.md) 
++ [Esempio: creare una competenza personalizzata usando Azure Machine Learning](cognitive-search-tutorial-aml-custom-skill.md) 
 
 ## <a name="how-to-guidance"></a>Guida alle procedure
-+ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Come fare riferimento alle annotazioni in un insieme di competenze](cognitive-search-concept-annotations-syntax.md)
-+ [Come eseguire la mappatura dei campi a un indice](cognitive-search-output-field-mapping.md)
-+ [Come elaborare ed estrarre informazioni dalle immagini](cognitive-search-concept-image-scenarios.md)
-+ [Come ricompilare un indice di Ricerca cognitiva di Azure](search-howto-reindex.md)
-+ [Come definire un'interfaccia di competenze personalizzata](cognitive-search-custom-skill-interface.md)
-+ [Suggerimenti per la risoluzione dei problemi](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>Informazioni di riferimento
++ [Collegare una risorsa Servizi cognitivi](cognitive-search-attach-cognitive-services.md)
++ [Definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [annotazioni di riferimento in un skillt](cognitive-search-concept-annotations-syntax.md)
++ [Eseguire il mapping di campi a un indice](cognitive-search-output-field-mapping.md)
++ [Elaborare ed estrarre informazioni dalle immagini](cognitive-search-concept-image-scenarios.md)
++ [Configurare la memorizzazione nella cache per l'arricchimento incrementale](search-howto-incremental-index.md)
++ [Come ricompilare un indice di Ricerca cognitiva di Azure](search-howto-reindex.md)
++ [Suggerimenti per la progettazione](cognitive-search-concept-troubleshooting.md)
++ [Errori e avvisi comuni](cognitive-search-common-errors-warnings.md)
+
+## <a name="skills-reference"></a>Informazioni di riferimento sulle competenze
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
@@ -54,14 +84,17 @@ Gli articoli seguenti rappresentano la documentazione completa per l'arricchimen
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Competenze personalizzate
+  + [Microsoft. Skills. Custom. AmlSkill](cognitive-search-aml-skill.md)
   + [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md)
 
 + [Competenze deprecate](cognitive-search-skill-deprecated.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
+## <a name="apis"></a>API
+
 + [REST API](https://docs.microsoft.com/rest/api/searchservice/)
-  + [Creare un set di competenze (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Creare un indicizzatore (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+  + [Crea competenze (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Crea indicizzatore (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Vedere anche
 

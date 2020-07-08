@@ -1,6 +1,6 @@
 ---
 title: Esaminare gli eventi imprevisti con Sentinel di Azure | Microsoft Docs
-description: Usare questa esercitazione per informazioni su come analizzare gli eventi imprevisti con Sentinel di Azure.
+description: Questa esercitazione illustra come usare Sentinel di Azure per creare regole di avviso avanzate per la generazione di eventi imprevisti che è possibile assegnare ed esaminare.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565236"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: esaminare gli eventi imprevisti con Sentinel di Azure
 
@@ -97,7 +97,7 @@ Per usare il grafico di analisi:
 
     ![Visualizza avvisi correlati](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Per ogni query di esplorazione, è possibile selezionare l'opzione per aprire i risultati degli eventi non elaborati e la query utilizzata in Log Analytics, selezionando **gli eventi\>**.
+1. Per ogni query di esplorazione, è possibile selezionare l'opzione per aprire i risultati degli eventi non elaborati e la query utilizzata in Log Analytics, selezionando **gli eventi \> **.
 
 1. Per comprendere l'evento imprevisto, il grafico fornisce una sequenza temporale parallela.
 
@@ -107,7 +107,21 @@ Per usare il grafico di analisi:
 
     ![Usare la sequenza temporale nella mappa per esaminare gli avvisi](media/tutorial-investigate-cases/use-timeline.png)
 
+## <a name="closing-an-incident"></a>Chiusura di un evento imprevisto
 
+Una volta risolto un evento imprevisto specifico, ad esempio quando l'indagine ha raggiunto la conclusione, è necessario impostare lo stato dell'evento imprevisto su **chiuso**. Quando si esegue questa operazione, verrà richiesto di classificare l'evento imprevisto specificando il motivo della chiusura. Questo passaggio è obbligatorio. Fare clic su **Seleziona classificazione** e scegliere una delle seguenti opzioni nell'elenco a discesa:
+
+- Vero positivo-attività sospetta
+- Benigno positivo-sospetto ma previsto
+- Falso positivo: logica di avviso non corretta
+- Falso positivo: dati non corretti
+- Non determinato
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-text}":::
+
+Dopo aver scelto la classificazione appropriata, aggiungere un testo descrittivo nel campo del **Commento** . Questa operazione sarà utile nel caso in cui sia necessario riferire a questo evento imprevisto. Al termine, fare clic su **applica** per chiudere l'evento imprevisto.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come iniziare a esaminare gli eventi imprevisti usando Sentinel di Azure. Continuare con l'esercitazione su [come rispondere alle minacce usando i PlayBook automatici](tutorial-respond-threats-playbook.md).

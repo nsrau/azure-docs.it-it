@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb52cd34d56c227fc689ea70146e99983e17c0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77472452"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564437"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Alleghi una risorsa di servizi cognitivi a un Skills in Azure ricerca cognitiva 
 
@@ -29,7 +29,7 @@ Azure ricerca cognitiva presenta una dipendenza da servizi cognitivi, inclusi [v
 
 + Azure ricerca cognitiva usa la chiave di risorsa Servizi cognitivi fornita in un competenze per la fatturazione per l'arricchimento di immagini e testo. L'esecuzione di competenze fatturabili è il [prezzo con pagamento in base al consumo di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-+ L'estrazione di immagini è un'operazione di ricerca cognitiva di Azure che si verifica quando i documenti vengono incrinati prima dell'arricchimento. L'estrazione delle immagini è fatturabile. Per i prezzi di estrazione delle immagini, vedere la [pagina dei prezzi di Azure ricerca cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
++ L'estrazione di immagini è un'operazione di ricerca cognitiva di Azure che si verifica quando i documenti vengono incrinati prima dell'arricchimento. L'estrazione delle immagini è fatturabile. Per i prezzi di estrazione delle immagini, vedere la [pagina dei prezzi di Azure ricerca cognitiva](https://azure.microsoft.com/pricing/details/search/).
 
 + L'estrazione del testo si verifica anche durante la frase di cracking del documento. Non è fatturabile.
 
@@ -110,10 +110,10 @@ Se si ha un set di competenze esistenti, è possibile collegarlo a una risorsa S
 
 Quando si definisce il set di competenze a livello di codice, aggiungere una sezione `cognitiveServices` al set di competenze. In questa sezione, includere la chiave della risorsa Servizi cognitivi che si desidera associare al proprio insieme di competenze. Tenere presente che la risorsa deve trovarsi nella stessa area della risorsa ricerca cognitiva di Azure. Aggiungere anche `@odata.type` e impostarlo su `#Microsoft.Azure.Search.CognitiveServicesByKey`.
 
-Il formato è indicato nel seguente esempio. Si noti `cognitiveServices` la sezione alla fine della definizione.
+Il formato è indicato nel seguente esempio. Si noti la `cognitiveServices` sezione alla fine della definizione.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```

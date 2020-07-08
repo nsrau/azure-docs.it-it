@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564359"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -122,7 +122,7 @@ Per la valutazione dei modelli di clustering, vengono segnalate le metriche segu
   
      Se il numero di punti dati assegnati ai cluster è minore del numero totale di punti dati disponibili, significa che a un cluster non è stato possibile assegnare punti dati.  
   
--   I punteggi della colonna **Maximal Distance to Cluster Center** rappresentano la somma delle distanze tra ogni punto e il centroide del cluster di tale punto.  
+-   I punteggi nella colonna, **distanza massima da cluster Center**, rappresentano il numero massimo di distanze tra ogni punto e il baricentro del cluster del punto.  
   
      Se questo numero è elevato, può indicare che il cluster è ampiamente distribuito. Per determinare la distribuzione del cluster, è necessario esaminare questa statistica insieme al punteggio **Average Distance to Cluster Center**.   
 

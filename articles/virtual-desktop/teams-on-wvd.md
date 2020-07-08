@@ -4,70 +4,159 @@ description: Come usare Microsoft teams sul desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 03/19/2020
+ms.topic: how-to
+ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a860b005457c6e02187423a3ffbbc63fe7c758b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187529"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564459"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
-> Si applica a: Windows 10 e Windows 10 Internet (Enterprise)
+>[!IMPORTANT]
+>L'ottimizzazione dei supporti per Microsoft teams è attualmente disponibile in anteprima pubblica. È consigliabile valutare l'esperienza utente dei team ottimizzati prima di distribuire i team per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 
-Gli ambienti virtualizzati presentano un set univoco di problemi per le app di collaborazione come Microsoft teams, tra cui una maggiore latenza, un utilizzo elevato della CPU dell'host e una riduzione delle prestazioni audio e video complessiva. Per altre informazioni sull'uso di Microsoft teams in ambienti VDI, vedere [Teams for virtualizzated Desktop Infrastructure](https://docs.microsoft.com/microsoftteams/teams-for-vdi).
+>[!NOTE]
+>L'ottimizzazione dei supporti per Microsoft teams è disponibile solo per il client desktop di Windows nei computer Windows 10. Per le ottimizzazioni dei supporti è necessario Windows desktop client versione 1.2.1026.0 o successiva.
+
+Microsoft teams sul desktop virtuale Windows supporta la chat e la collaborazione. Con le ottimizzazioni dei supporti, supporta anche la funzionalità di chiamata e riunione. Per altre informazioni su come usare Microsoft teams in ambienti Virtual Desktop Infrastructure (VDI), vedere [Teams for virtualizzated Desktop Infrastructure](/microsoftteams/teams-for-vdi/).
+
+Con l'ottimizzazione multimediale per Microsoft teams, il client desktop di Windows gestisce audio e video localmente per le chiamate e le riunioni dei team. È comunque possibile utilizzare Microsoft teams su desktop virtuale Windows con altri client senza chiamate e riunioni ottimizzate. Le funzionalità chat team e collaborazione sono supportate in tutte le piattaforme. Per reindirizzare i dispositivi locali nella sessione remota, vedere [personalizzare Remote Desktop Protocol proprietà di un pool host](#customize-remote-desktop-protocol-properties-for-a-host-pool).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter usare Microsoft teams sul desktop virtuale di Windows, è necessario eseguire queste operazioni:
 
-- Installare il [client desktop di Windows](connect-windows-7-and-10.md) in un dispositivo Windows 10 che soddisfi i [requisiti hardware](https://docs.microsoft.com/microsoftteams/hardware-requirements-for-the-teams-app)di Microsoft teams.
+- [Preparare la rete](/microsoftteams/prepare-network/) per Microsoft teams.
+- Installare il [client desktop di Windows](connect-windows-7-and-10.md) in un dispositivo Windows 10 o Windows 10 Internet che soddisfi i requisiti hardware per i team di Microsoft teams [in un computer Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connettersi a una macchina virtuale (VM) di Windows 10 multisessione o Windows 10 Enterprise.
-- [Preparare la rete](https://docs.microsoft.com/microsoftteams/prepare-network) per Microsoft teams.
+- Installare l'app desktop per i team nell'host usando l'installazione per computer. L'ottimizzazione dei supporti per Microsoft teams richiede team desktop app 1.3.00.4461 o versione successiva.
 
-## <a name="use-unoptimized-microsoft-teams"></a>USA team Microsoft non ottimizzati
+## <a name="install-the-teams-desktop-app"></a>Installare l'app desktop per i team
 
-È possibile utilizzare i team Microsoft negli ambienti desktop virtuali Windows per sfruttare le funzionalità di chat e collaborazione di Microsoft teams. Desktop virtuale di Windows non supporta i team in ottimizzazioni audio/video (AV) VDI. Le chiamate e le riunioni non sono supportate. Se i criteri dell'organizzazione consentono, è comunque possibile effettuare chiamate audio e partecipare a riunioni con audio, ma la qualità audio non ottimizzata nelle chiamate può variare in base alla configurazione dell'host e potrebbe non essere affidabile. Per altre informazioni, vedere la pagina [relativa alla valutazione delle prestazioni di teams in VDI](https://docs.microsoft.com/microsoftteams/teams-for-vdi#teams-on-vdi-performance-considerations).
+In questa sezione viene illustrato come installare l'app desktop per i team nell'immagine di macchina virtuale Windows 10 multisessione o Windows 10 Enterprise. Per altre informazioni, vedere [Install or Update the teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi/).
 
 ### <a name="prepare-your-image-for-teams"></a>Preparare l'immagine per i team
 
-Per abilitare l'installazione dei team per computer, impostare la seguente chiave del registro di sistema nell'host:
+Per abilitare l'ottimizzazione dei supporti per i team, impostare la seguente chiave del registro di sistema nell'host:
 
-```shell
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
-  Type: REG_DWORD
-  Value: 1
-```
+1. Dal menu Start eseguire **Regedit** come amministratore. Passare a **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
+2. Creare il valore seguente per la chiave teams:
+
+| Nome             | Type   | Dati/valore  |
+|------------------|--------|-------------|
+| IsWVDEnvironment | DWORD  | 1           |
+
+### <a name="install-the-teams-websocket-service"></a>Installare il servizio WebSocket Teams
+
+Installare il [servizio WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) nell'immagine di macchina virtuale. Se si verifica un errore di installazione, installare la [versione più recente di Microsoft Visual C++ ridistribuibile](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e riprovare.
 
 ### <a name="install-microsoft-teams"></a>Installare Microsoft Teams
 
-È possibile distribuire l'app desktop dei team usando un'installazione per computer. Per installare Microsoft teams nell'ambiente desktop virtuale Windows:
+È possibile distribuire l'app desktop per i team usando un'installazione per computer o per utente. Per installare Microsoft teams nell'ambiente desktop virtuale Windows:
 
-1. Scaricare il [pacchetto MSI teams](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) corrispondente all'ambiente in uso. È consigliabile usare il programma di installazione a 64 bit in un sistema operativo a 64 bit.
-2. Eseguire questo comando per installare il file MSI nella VM host.
-
-      ```shell
-      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
-      ```
-
-      I team vengono installati in programmi o programmi (x86). Al successivo accesso e avvio dei team, l'app richiederà le credenziali.
+1. Scaricare il [pacchetto MSI teams](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) corrispondente all'ambiente in uso. È consigliabile usare il programma di installazione a 64 bit in un sistema operativo a 64 bit.
 
       > [!NOTE]
-      > Gli utenti e gli amministratori non possono disabilitare l'avvio automatico per i team durante l'accesso in questo momento.
+      > L'ottimizzazione dei supporti per Microsoft teams richiede team desktop app 1.3.00.4461 o versione successiva.
 
-      Per disinstallare MSI dalla macchina virtuale host, eseguire questo comando:
+2. Eseguire uno dei comandi seguenti per installare il file MSI nella VM host:
 
-      ```shell
+    - Installazione per utente
+
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        ```
+
+        Questo processo è l'installazione predefinita, che installa i team nella cartella **% AppData%** User. I team non funzioneranno correttamente con l'installazione per utente in un'installazione non permanente.
+
+    - Installazione per computer
+
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+        ```
+
+        In questo modo, i team vengono installati nella cartella Program Files (x86) in un sistema operativo a 64 bit e nella cartella programmi in un sistema operativo a 32 bit. A questo punto, la configurazione dell'immagine dorata è stata completata. L'installazione di team per computer è necessaria per le configurazioni non permanenti.
+
+        La volta successiva che si aprono i team in una sessione, verranno richieste le credenziali.
+
+        > [!NOTE]
+        > Gli utenti e gli amministratori non possono disabilitare l'avvio automatico per i team durante l'accesso in questo momento.
+
+3. Per disinstallare MSI dalla macchina virtuale host, eseguire questo comando:
+
+      ```powershell
       msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
       ```
 
+      Questa operazione Disinstalla i team dalla cartella Program Files (x86) o Program Files, a seconda dell'ambiente del sistema operativo.
+
       > [!NOTE]
-      > Se si installano i team con l'impostazione MSI ALLUSER = 1, gli aggiornamenti automatici saranno disabilitati. È consigliabile assicurarsi di aggiornare i team almeno una volta al mese. Per altre informazioni sulla distribuzione dell'app desktop per i team, vedere [distribuire l'app desktop per i team nella macchina virtuale](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm).
+      > Quando si installano i team con l'impostazione MSI ALLUSER = 1, gli aggiornamenti automatici saranno disabilitati. È consigliabile assicurarsi di aggiornare i team almeno una volta al mese. Per altre informazioni sulla distribuzione dell'app desktop per i team, vedere [distribuire l'app desktop per i team nella macchina virtuale](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/).
+
+### <a name="verify-media-optimizations-loaded"></a>Verificare le ottimizzazioni del supporto caricate
+
+Dopo aver installato il servizio WebSocket e l'app desktop teams, attenersi alla procedura seguente per verificare che siano state caricate le ottimizzazioni dei supporti Team:
+
+1. Selezionare l'immagine del profilo utente e quindi fare clic **su informazioni su**.
+2. Selezionare la **versione**.
+
+      Se le ottimizzazioni dei supporti sono state caricate, il banner visualizzerà **Wvd media optimized**. Se il banner mostra che i **supporti Wvd non sono connessi**, chiudere l'app teams e riprovare.
+
+3. Selezionare l'immagine del profilo utente e quindi selezionare **Impostazioni**.
+
+      Se le ottimizzazioni del supporto sono state caricate, i dispositivi audio e le fotocamere disponibili localmente verranno enumerati nel menu dispositivo. Se il menu Mostra **audio remoto**, chiudere l'app teams e riprovare. Se i dispositivi non vengono ancora visualizzati nel menu, tornare a [installare Microsoft teams](#install-microsoft-teams) e assicurarsi di aver completato il processo di installazione.
+
+## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
+
+L'utilizzo di team in un ambiente virtualizzato è diverso dall'utilizzo di team in un ambiente non virtualizzato. Per ulteriori informazioni sulle limitazioni dei team negli ambienti virtualizzati, consultare i [team per l'infrastruttura desktop virtualizzata](/microsoftteams/teams-for-vdi#known-issues-and-limitations/).
+
+### <a name="client-deployment-installation-and-setup"></a>Distribuzione, installazione e configurazione del client
+
+- Con l'installazione per computer, i team su VDI non vengono aggiornati automaticamente nello stesso modo in cui sono i client di team non VDI. Per aggiornare il client, è necessario aggiornare l'immagine di macchina virtuale installando un nuovo file MSI.
+- Attualmente i team visualizzano solo il fuso orario UTC in chat, Channels e Calendar.
+- L'ottimizzazione dei supporti per i team è supportata solo per il client desktop di Windows nei computer che eseguono Windows 10.
+- L'utilizzo di proxy HTTP espliciti definiti in un endpoint non è supportato.
+
+### <a name="calls-and-meetings"></a>Chiamate e riunioni
+
+- Il client desktop dei team negli ambienti desktop virtuali Windows non supporta gli eventi live. Per il momento, è consigliabile unire gli eventi live dal [client Web teams](https://teams.microsoft.com) nella sessione remota.
+- Per ridurre al minimo l'app per i team durante una chiamata o una riunione potrebbe verificarsi la scomparsa del feed video in arrivo quando si espande l'app.
+- Le chiamate o le riunioni non supportano attualmente la condivisione delle applicazioni. Le sessioni desktop supportano la condivisione desktop.
+- Quando si esegue la condivisione desktop in una configurazione a più monitor, tutti i monitoraggi sono condivisi.
+- Dare al controllo e assumere il controllo non sono attualmente supportati.
+- I team nel desktop virtuale Windows supportano solo un input video in entrata alla volta. Ciò significa che ogni volta che un utente tenta di condividere lo schermo, viene visualizzata la schermata invece della schermata del leader della riunione.
+- A causa delle limitazioni di WebRTC, la risoluzione del flusso video in entrata e in uscita è limitata a 720p.
+- L'app teams non supporta i pulsanti nascosti o i controlli LED con altri dispositivi.
+
+Per i team problemi noti che non sono correlati agli ambienti virtualizzati, vedere [team di supporto all'interno dell'organizzazione](/microsoftteams/known-issues/)
+
+## <a name="uservoice-site"></a>Sito di UserVoice
+
+Inviare commenti e suggerimenti per Microsoft teams su desktop virtuale Windows nel sito teams [UserVoice](https://microsoftteams.uservoice.com/).
+
+## <a name="collect-teams-logs"></a>Raccogli log dei team
+
+Se si verificano problemi con l'app desktop dei team nell'ambiente desktop virtuale di Windows, raccogliere i log client in **% AppData% \Microsoft\Teams\logs.txt** nella macchina virtuale host.
+
+Se si verificano problemi relativi alle chiamate e alle riunioni, raccogliere i registri dei client Web di team con la combinazione di tasti **CTRL**  +  **ALT**  +  **MAIUSC**  +  **1**. I log verranno scritti nel **log di diagnostica%userprofile%\Downloads\MSTeams DATE_TIME.txt** nella VM host.
+
+## <a name="contact-microsoft-teams-support"></a>Contatta il supporto tecnico Microsoft Teams
+
+Per contattare il supporto Microsoft teams, passare all'interfaccia di [amministrazione di Microsoft 365](/microsoft-365/admin/contact-support-for-business-products).
 
 ## <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool host
-La personalizzazione delle proprietà di Remote Desktop Protocol (RDP) di un pool host, ad esempio l'esperienza multimonitor, l'abilitazione del reindirizzamento microfonico e audio, ti permette di offrire un'esperienza ottimale per gli utenti in base alle esigenze. È possibile personalizzare le proprietà RDP nel desktop virtuale di Windows usando il parametro **-CustomRdpProperty** nel cmdlet **set-RdsHostPool** .
-Per un elenco completo delle proprietà supportate e dei relativi valori predefiniti, vedere [impostazioni del file RDP supportate](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) .
+
+La personalizzazione delle proprietà di Remote Desktop Protocol (RDP) di un pool host, ad esempio l'esperienza a più monitor o l'abilitazione del reindirizzamento audio e microfono, consente di offrire un'esperienza ottimale agli utenti in base alle esigenze.
+
+L'abilitazione dei reindirizzamenti del dispositivo non è necessaria quando si usano i team con l'ottimizzazione del supporto. Se si usano i team senza ottimizzazione dei supporti, impostare le proprietà RDP seguenti per abilitare il reindirizzamento del microfono e della fotocamera:
+
+- `audiocapturemode:i:1`Abilita l'acquisizione audio dal dispositivo locale e reindirizza le applicazioni audio nella sessione remota.
+- `audiomode:i:0`riproduce l'audio nel computer locale.
+- `camerastoredirect:s:*`reindirizza tutte le fotocamere.
+
+Per altre informazioni, vedere [personalizzare le proprietà Remote Desktop Protocol per un pool host](customize-rdp-properties.md).

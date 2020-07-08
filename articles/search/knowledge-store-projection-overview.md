@@ -1,24 +1,21 @@
 ---
-title: Proiezioni in un archivio informazioni (anteprima)
+title: Concetti di proiezione
 titleSuffix: Azure Cognitive Search
-description: Salvare e modellare i dati arricchiti dalla pipeline di indicizzazione dell'intelligenza artificiale in un archivio informazioni per l'uso in scenari diversi dalla ricerca full-text. L'archivio conoscenze è attualmente disponibile in anteprima pubblica.
+description: Salvare e modellare i dati arricchiti dalla pipeline di indicizzazione dell'intelligenza artificiale in un archivio informazioni per l'uso in scenari diversi dalla ricerca full-text.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 22db4f95bacd926208ac7edf3306cd136d81b00e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565182"
 ---
-# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Proiezioni in un archivio informazioni in Azure ricerca cognitiva
-
-> [!IMPORTANT] 
-> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
+# <a name="knowledge-store-projections-in-azure-cognitive-search"></a>"Proiezioni" dell'archivio informazioni in Azure ricerca cognitiva
 
 Azure ricerca cognitiva consente di arricchire il contenuto tramite competenze cognitive predefinite e competenze personalizzate come parte dell'indicizzazione. Gli arricchimenti creano nuove informazioni in cui non esisteva in precedenza: estraendo le informazioni dalle immagini, individuando i sentimenti, le frasi chiave ed entità dal testo, per citarne alcune. Gli arricchimenti aggiungono inoltre la struttura al testo non differenziato. Tutti questi processi generano documenti che rendono più efficace la ricerca full-text. In molti casi, i documenti arricchiti sono utili per scenari diversi dalla ricerca, ad esempio per le informazioni di data mining.
 
@@ -69,7 +66,7 @@ Poiché semplifica l'importazione, si consigliano le proiezioni di tabella per l
 
 ### <a name="defining-a-table-projection"></a>Definizione di una proiezione di tabella
 
-Quando si definisce una proiezione di tabella `knowledgeStore` all'interno dell'elemento dell'elemento Skills, iniziare eseguendo il mapping di un nodo nell'albero di arricchimento all'origine della tabella. In genere, questo nodo è l'output di una competenza di **shaper** aggiunto all'elenco di competenze per produrre una forma specifica che è necessario proiettare nelle tabelle. Il nodo scelto per il progetto può essere sezionato in modo da essere proiettato in più tabelle. La definizione delle tabelle è un elenco di tabelle che si desidera proiettare.
+Quando si definisce una proiezione di tabella all'interno dell' `knowledgeStore` elemento dell'elemento Skills, iniziare eseguendo il mapping di un nodo nell'albero di arricchimento all'origine della tabella. In genere, questo nodo è l'output di una competenza di **shaper** aggiunto all'elenco di competenze per produrre una forma specifica che è necessario proiettare nelle tabelle. Il nodo scelto per il progetto può essere sezionato in modo da essere proiettato in più tabelle. La definizione delle tabelle è un elenco di tabelle che si desidera proiettare.
 
 Ogni tabella richiede tre proprietà:
 
@@ -157,7 +154,7 @@ Per la generazione di una proiezione di oggetti sono necessari alcuni attributi 
 
 ## <a name="file-projection"></a>Proiezione file
 
-Le proiezioni di file sono simili alle proiezioni degli `normalized_images` oggetti e agiscono solo sulla raccolta. Analogamente alle proiezioni di oggetti, le proiezioni di file vengono salvate nel contenitore BLOB con il prefisso della cartella del valore con codifica Base64 dell'ID documento. Le proiezioni di file non possono condividere lo stesso contenitore delle proiezioni di oggetti e devono essere proiettate in un contenitore diverso.
+Le proiezioni di file sono simili alle proiezioni degli oggetti e agiscono solo sulla `normalized_images` raccolta. Analogamente alle proiezioni di oggetti, le proiezioni di file vengono salvate nel contenitore BLOB con il prefisso della cartella del valore con codifica Base64 dell'ID documento. Le proiezioni di file non possono condividere lo stesso contenitore delle proiezioni di oggetti e devono essere proiettate in un contenitore diverso.
 
 ```json
 {
@@ -212,7 +209,7 @@ Come passaggio successivo, creare il primo archivio informazioni usando i dati d
 > [!div class="nextstepaction"]
 > [Creare un archivio informazioni in Rest](knowledge-store-create-rest.md).
 
-Per un'esercitazione che illustra concetti di proiezioni avanzati, ad esempio sezionamento, data shaping e relazioni inline, iniziare a [definire proiezioni in un archivio informazioni](knowledge-store-projections-examples.md)
+Per un'esercitazione sui concetti avanzati delle proiezioni, come il sezionamento, la definizione della forma inline e le relazioni, iniziare con [Definire le proiezioni in un archivio conoscenze](knowledge-store-projections-examples.md)
 
 > [!div class="nextstepaction"]
-> [Definire le proiezioni in un archivio informazioni](knowledge-store-projections-examples.md)
+> [Definire le proiezioni in un archivio conoscenze](knowledge-store-projections-examples.md)

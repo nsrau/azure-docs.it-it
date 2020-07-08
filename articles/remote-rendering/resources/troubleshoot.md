@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563260"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -29,7 +29,7 @@ Assicurarsi che i firewall (sul dispositivo, nei router e così via) non blocchi
 * **8266 (TCP+UDP)** : richiesta per il trasferimento dei dati
 * **5000 (TCP)** , **5433 (TCP)** , **8443 (TCP)** : richieste per [ArrInspector](tools/arr-inspector.md)
 
-## <a name="error-disconnected-videoformatnotavailable"></a>Errore "Disconnected: VideoFormatNotAvailable"
+## <a name="error-disconnected-videoformatnotavailable"></a>Errore ' `Disconnected: VideoFormatNotAvailable` '
 
 Verificare che la GPU supporti la decodifica video hardware. Vedere [PC di sviluppo](../overview/system-requirements.md#development-pc).
 
@@ -37,7 +37,7 @@ Se si lavora su un computer portatile con due GPU, è possibile che la GPU su cu
 
 ## <a name="h265-codec-not-available"></a>Il codec H265 non è disponibile
 
-Esistono due motivi per cui il server potrebbe rifiutare la connessione restituendo l'errore **codec non disponibile**.
+Esistono due motivi per cui il server potrebbe rifiutare la connessione con un `codec not available` errore.
 
 **Il codec H265 non è installato:**
 
@@ -105,9 +105,9 @@ Se questi due passaggi non sono stati utili, è necessario verificare se i fotog
 
 **Il modello supera i limiti della macchina virtuale selezionata, in particolare il numero massimo di poligoni:**
 
-Vedere [Limitazioni delle dimensioni della macchina virtuale](../reference/limits.md#overall-number-of-polygons) per le specifiche.
+Vedere limiti di dimensioni specifiche per le [macchine virtuali](../reference/limits.md#overall-number-of-polygons).
 
-**Il modello non si trova all'interno del frustum della vista:**
+**Il modello non si trova all'interno della fotocamera tronco:**
 
 In molti casi, il modello viene visualizzato correttamente ma si trova al di fuori del frustum della fotocamera. Una causa frequente potrebbe essere legata al fatto che il modello è stato esportato con una trasformazione tramite pivot decentrata in modo che venga ritagliato dal piano di ritaglio anteriore della fotocamera. Consente di eseguire una query sul rettangolo di selezione del modello a livello di codice e di visualizzare il riquadro di Unity come riquadro della riga o di stamparne i valori nel log di debug.
 
@@ -142,9 +142,19 @@ Con questo rettangolo di selezione possono sorgere due problemi da ricondurre al
 
 **La pipeline di rendering di Unity non include gli hook di rendering:**
 
-Rendering remoto di Azure include gli hook alla pipeline di rendering di Unity per eseguire la composizione del fotogramma con il video ed eseguire la riproiezione. Per verificare l'esistenza di questi hook, aprire il menu *Finestra > Analisi > Debugger fotogrammi*. Abilitarlo e verificare la presenza di due voci per `HolographicRemotingCallbackPass` nella pipeline:
+Rendering remoto di Azure include gli hook alla pipeline di rendering di Unity per eseguire la composizione del fotogramma con il video ed eseguire la riproiezione. Per verificare che questi hook esistano, aprire il menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Abilitarlo e verificare la presenza di due voci per `HolographicRemotingCallbackPass` nella pipeline:
 
 ![Debugger fotogrammi di Unity](./media/troubleshoot-unity-pipeline.png)
+
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Il rendering del modello a scacchi viene eseguito dopo il caricamento
+
+Se l'immagine sottoposta a rendering è simile alla seguente: ![ scacchiera, ](../reference/media/checkerboard.png) il renderer raggiunge i [limiti del poligono per le dimensioni della macchina virtuale standard](../reference/vm-sizes.md). Per attenuare, passare alla dimensione della **VM Premium** o ridurre il numero di poligoni visibili.
+
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>L'immagine sottoposta a rendering in Unity è capovolta
+
+Assicurarsi di seguire l' [esercitazione Unity: visualizzare esattamente i modelli remoti](../tutorials/unity/view-remote-models/view-remote-models.md) . Un'immagine rovesciata indica che Unity è necessario per creare una destinazione di rendering fuori schermo. Questo comportamento non è attualmente supportato e crea un notevole effetto sulle prestazioni in HoloLens 2.
+
+I motivi di questo problema potrebbero essere MSAA, HDR o abilitare la post-elaborazione. Verificare che il profilo di bassa qualità sia selezionato e impostato come predefinito in Unity. A tale scopo, passare a *modifica > impostazioni progetto... > qualità*.
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Il codice Unity che usa l'API di Rendering remoto non viene compilato
 
@@ -162,6 +172,10 @@ Provando a compilare esempi di Unity (avvio rapido, ShowCaseApp...) per HoloLens
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Le compilazioni Arm64 per i progetti Unity hanno esito negativo perché manca AudioPluginMsHRTF.dll
+
+`AudioPluginMsHRTF.dll`Per Arm64 è stato aggiunto al pacchetto di *realtà misto Windows* *(com. Unity. XR. windowsmr. metro)* nella versione 3.0.1. Assicurarsi che la versione 3.0.1 o successiva sia installata tramite Gestione pacchetti Unity. Dalla barra dei menu di Unity passare a *finestra > gestione pacchetti* e cercare il pacchetto di *realtà mista di Windows* .
+
 ## <a name="unstable-holograms"></a>Ologrammi instabili
 
 Se gli oggetti di cui è stato eseguito il rendering sembrano sportarsi con i movimenti della testa, potrebbe trattarsi di problemi con la *Riproiezione con ritardo della fase*. Per istruzioni su come affrontare una situazione di questo tipo, fare riferimento alla sezione in [Riproiezione con ritardo della fase](../overview/features/late-stage-reprojection.md).
@@ -171,6 +185,56 @@ Gli ologrammi instabili (oscillazione, distorsione, tremolio o salto degli ologr
 Un altro valore da esaminare è `ARRServiceStats.LatencyPoseToReceiveAvg`. Deve essere sempre inferiore a 100 ms. Se si visualizzano valori più alti, significa che il data center a cui si è connessi è troppo lontano.
 
 Per un elenco delle possibili mitigazioni, vedere le [Linee guida per la connettività di rete](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## <a name="z-fighting"></a>Z-fighting
+
+Sebbene ARR offra la [funzionalità di mitigazione per il combattimento z](../overview/features/z-fighting-mitigation.md), il combattimento z può comunque essere visualizzato nella scena. Questa guida mira a risolvere questi problemi rimanenti.
+
+### <a name="recommended-steps"></a>Procedure consigliate
+
+Usare il flusso di lavoro seguente per attenuare la lotta z:
+
+1. Testare la scena con le impostazioni predefinite di ARR (mitigazione z-Fighting su)
+
+1. Disabilitare la mitigazione del combattimento z tramite la relativa [API](../overview/features/z-fighting-mitigation.md) 
+
+1. Modificare la fotocamera vicino a un piano più vicino a un intervallo più vicino
+
+1. Risolvere i problemi relativi alla scena tramite la sezione successiva
+
+### <a name="investigating-remaining-z-fighting"></a>Analisi delle rimanenti lotte z
+
+Se i passaggi precedenti sono stati esauriti e la restante z-Fighting è inaccettabile, è necessario analizzare la cause sottostante del combattimento z. Come indicato nella [pagina della funzionalità di mitigazione per il combattimento z](../overview/features/z-fighting-mitigation.md), esistono due motivi principali per il combattimento z: la perdita di precisione della profondità all'estremità dell'intervallo di profondità e le superfici che si intersecano durante l'esecuzione complanare. La perdita di precisione della profondità è un'eventualità matematica e può essere mitigata solo seguendo il passaggio 3 precedente. Le superfici complanari indicano un difetto dell'asset di origine e sono più corrette nei dati di origine.
+
+ARR presenta una funzionalità che consente di determinare se le superfici potrebbero combattere z: [evidenziazione della scacchiera](../overview/features/z-fighting-mitigation.md). È anche possibile determinare visivamente la causa della lotta z. La prima animazione seguente mostra un esempio di perdita della precisione della profondità nella distanza e la seconda mostra un esempio di superfici quasi complanari:
+
+![profondità-precisione-z-combattimento](./media/depth-precision-z-fighting.gif)  ![complanante-z-Fighting](./media/coplanar-z-fighting.gif)
+
+Confrontare questi esempi con la z-Fighting per determinare la causare o, facoltativamente, seguire questo flusso di lavoro Step-by-Step:
+
+1. Posizionare la fotocamera sopra le superfici di combattimento z per esaminare direttamente la superficie.
+1. Spostare lentamente la fotocamera indietro, lontano dalle superfici.
+1. Se il combattimento z è sempre visibile, le superfici sono perfettamente complanari. 
+1. Se il combattimento z è visibile nella maggior parte dei casi, le superfici sono quasi complanari.
+1. Se il combattimento z è visibile solo da lontano, la causa è la mancanza di precisione della profondità.
+
+Le superfici complanari possono avere diverse cause:
+
+* Un oggetto è stato duplicato dall'applicazione di esportazione a causa di un errore o di approcci del flusso di lavoro diversi.
+
+    Verificare questi problemi con le rispettive applicazioni e il supporto dell'applicazione.
+
+* Le superfici vengono duplicate e capovolte per apparire a doppio lato nei renderer che usano la selezione front-end o back-face.
+
+    L'importazione tramite la [conversione del modello](../how-tos/conversion/model-conversion.md) determina la facciata principale del modello. Per impostazione predefinita viene utilizzato il doppio lato. Il rendering della superficie verrà eseguito come un sottile muro con un'illuminazione fisicamente corretta da entrambi i lati. L'unilateralità può essere implicita dai flag nell'asset di origine o forzata in modo esplicito durante la [conversione del modello](../how-tos/conversion/model-conversion.md). Inoltre, facoltativamente, la [modalità a singolo lato](../overview/features/single-sided-rendering.md) può essere impostata su "normale".
+
+* Gli oggetti si intersecano negli asset di origine.
+
+     Gli oggetti trasformati in modo tale che alcune delle superfici si sovrappongono creano anche un combattimento z. Anche la trasformazione di parti dell'albero della scena nella scena importata in ARR può creare questo problema.
+
+* Le superfici vengono create espressamente per il tocco, ad esempio decalcomanie o testo sulle pareti.
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

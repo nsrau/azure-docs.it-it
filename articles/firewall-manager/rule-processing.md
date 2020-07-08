@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 74e58c316651a1604984ac14c70a3a65d46d6d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70026173d1cb932d30a59ea2b876ef22217a81bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73518203"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563681"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logica di elaborazione delle regole del Firewall di Azure
 
@@ -20,7 +20,7 @@ Firewall di Azure include regole NAT, regole di rete e regole di applicazione. L
 
 ## <a name="network-rules-and-applications-rules"></a>Regole di rete e di applicazione
 
-Le regole di rete vengono applicate per prime, seguite da quelle di applicazione. L'elaborazione delle regole non avviene a ciclo continuo. Se le regole di rete trovano una corrispondenza, le regole di applicazione non vengono elaborate.  Se non esiste alcuna corrispondenza con una regola di rete e se il protocollo dei pacchetti è HTTP/HTTPS, il pacchetto viene quindi valutato dalle regole di applicazione. Se ancora non viene trovata una corrispondenza, il pacchetto viene valutato in base alla raccolta regole dell'infrastruttura. Se non è ancora presente alcuna corrispondenza, il pacchetto viene rifiutato per impostazione predefinita.
+Le regole di rete vengono applicate per prime, seguite da quelle di applicazione. L'elaborazione delle regole non avviene a ciclo continuo. Quindi, se viene trovata una corrispondenza nelle regole di rete, le regole dell'applicazione non vengono elaborate.  Se nessuna regola di rete corrisponde e se il protocollo del pacchetto è HTTP/HTTPS, il pacchetto viene valutato dalle regole dell'applicazione. Se ancora non viene trovata una corrispondenza, il pacchetto viene valutato in base alla raccolta regole dell'infrastruttura. Se non è ancora presente alcuna corrispondenza, il pacchetto viene negato per impostazione predefinita.
 
 ## <a name="nat-rules"></a>Regole NAT
 
@@ -30,8 +30,8 @@ La connettività in ingresso può essere abilitata configurando DNAT (Destinatio
 
 Le raccolte di regole di rete ereditate da un criterio padre sono sempre classificate in ordine di priorità sopra le raccolte di regole di rete definite come parte del nuovo criterio. La stessa logica si applica anche alle raccolte di regole dell'applicazione. Le raccolte di regole di rete, tuttavia, vengono sempre elaborate prima delle raccolte di regole dell'applicazione indipendentemente dall'ereditarietà.
 
-Per impostazione predefinita, i criteri ereditano la modalità di intelligence per le minacce dei criteri padre. È possibile eseguire l'override impostando la modalità di intelligence per le minacce su un valore diverso nella pagina Impostazioni criteri. È possibile eseguire l'override solo con un valore più restrittivo. Se, ad esempio, il criterio padre è impostato su *avviso solo*, è possibile configurare questo criterio locale per l' *avviso e il rifiuto*, ma non è possibile disattivarlo.
+Per impostazione predefinita, i criteri ereditano la modalità di intelligence per le minacce dei criteri padre. È possibile eseguire l'override impostando la modalità di intelligence per le minacce su un valore diverso nella pagina Impostazioni criteri. La sostituzione è consentita solo con un valore più restrittivo. Se, ad esempio, il criterio padre è impostato su *avviso solo*, è possibile configurare questo criterio locale per l' *avviso e il rifiuto*, ma non è possibile disattivarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scopri di più su Azure Firewall Manager Preview](overview.md)
+- [Scopri di più su Azure Firewall Manager](overview.md)

@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c78889c8d910edb5111c18b9cbb77387d2693f87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71315765"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564778"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introduzione ad Azure Data Lake Analytics con il portale di Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -29,12 +29,12 @@ Prima di iniziare questa esercitazione, è necessario disporre di una **sottoscr
 A questo punto verranno creati un account Data Lake Analytics e un account Azure Data Lake Storage Gen1 contemporaneamente.  Questo passaggio è semplice e richiede solo 60 secondi.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Crea una risorsa** >  **dati e analisi** > **Data Lake Analytics**.
+2. Fare clic su **Crea una risorsa**  >   **dati e analisi**  >  **Data Lake Analytics**.
 3. Selezionare i valori per gli elementi seguenti:
    * **Nome**: il nome dell'account di Data Lake Analytics deve contenere solo lettere minuscole e numeri.
    * **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analytics.
    * **Gruppo di risorse**. Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo.
-   * **Posizione**. Selezionare un data center di Azure per l'account di Data Lake Analytics.
+   * **Località**. Selezionare un data center di Azure per l'account di Data Lake Analytics.
    * **Data Lake Storage Gen1**: seguire le istruzioni per creare un nuovo account Data Lake Storage Gen1 o selezionarne uno esistente. 
 4. Selezionare eventualmente un piano tariffario per l'account di Data Lake Analytics.
 5. Fare clic su **Crea**. 
@@ -44,7 +44,7 @@ A questo punto verranno creati un account Data Lake Analytics e un account Azure
 
 Il testo seguente è uno script U-SQL molto semplice. Definisce un set di dati di piccole dimensioni nello script e quindi scrive il set di dati nell'account Data Lake Storage Gen1 predefinito come file denominato `/data.csv`.
 
-```
+```usql
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -63,7 +63,7 @@ OUTPUT @a
 2. Incollare il testo dello script U-SQL precedente. Assegnare un nome al processo. 
 3. Selezionare il pulsante **Invia** per avviare il processo.   
 4. Monitorare lo **stato** del processo e attendere che lo stato del processo diventi **Completato**.
-5. Selezionare la scheda **dati** , quindi selezionare la scheda **output** . Selezionare il file di output `data.csv` denominato e visualizzare i dati di output.
+5. Selezionare la scheda **dati** , quindi selezionare la scheda **output** . Selezionare il file di output denominato `data.csv` e visualizzare i dati di output.
 
 ## <a name="see-also"></a>Vedere anche
 

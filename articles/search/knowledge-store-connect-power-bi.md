@@ -1,24 +1,21 @@
 ---
-title: Connettersi un archivio conoscenze (anteprima) con Power BI
+title: Connettersi un archivio conoscenze con Power BI
 titleSuffix: Azure Cognitive Search
-description: Connettere un archivio conoscenze di Ricerca cognitiva di Azure (anteprima) con Power BI per l'analisi e l'esplorazione.
+description: Connettere un archivio conoscenze di Ricerca cognitiva di Azure a Power BI per l'analisi e l'esplorazione.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: e67bd688d720ed3d7549a86c9cff752bc19fb2fc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 06/30/2020
+ms.openlocfilehash: 438d8cbc4bf03fa9e03d0d2e1920522768ba9127
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565339"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connettere un archivio conoscenze con Power BI
-
-> [!IMPORTANT] 
-> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
 Questo articolo illustra come connettere ed esplorare un archivio conoscenze usando Power Query nell'app Power BI Desktop. È possibile usare i modelli per iniziare più rapidamente oppure creare un dashboard personalizzato da zero. Questo breve video illustra come migliorare la propria esperienza con i dati usando ricerca cognitiva di Azure in combinazione con Power BI.
 

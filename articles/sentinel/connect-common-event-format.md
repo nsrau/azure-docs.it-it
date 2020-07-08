@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati CEF ad Anteprima di Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere i dati CEF a Sentinel di Azure.
+description: Connettere una soluzione esterna che invia messaggi CEF (Common Event Format) ad Azure Sentinel usando un computer Linux come proxy.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: 8314614616c6b8969832d52fc684d47ba1bf0fe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34091e0c9f18cb87a240054f534f474710eb421d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563925"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connettere la soluzione esterna usando il formato di evento comune
 
@@ -42,7 +42,7 @@ In alternativa, questa configurazione sarà disponibile se si usa una VM in un a
  ![CEF in locale](./media/connect-cef/cef-syslog-onprem.png)
 
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Assicurarsi di configurare la sicurezza del computer in base ai criteri di sicurezza dell'organizzazione. Ad esempio, è possibile configurare la rete in modo che venga allineata ai criteri di sicurezza della rete aziendale e modificare le porte e i protocolli nel daemon per allinearli ai propri requisiti. È possibile usare le istruzioni seguenti per migliorare la configurazione della sicurezza del computer:  [Secure VM in Azure](../virtual-machines/linux/security-policy.md), procedure consigliate [per la sicurezza di rete](../security/fundamentals/network-best-practices.md).
 

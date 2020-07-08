@@ -6,15 +6,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7225b04908753bb7c07ac89510859bac9db5b89c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260137"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565015"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Informazioni sui log per la risoluzione dei problemi di caricamento dei dati in Azure Data Box Disk
 
@@ -46,7 +46,7 @@ In ogni caso vengono visualizzati i log degli errori e i log dettagliati. Selezi
 
 ## <a name="sample-upload-logs"></a>Esempio di log di caricamento
 
-Di seguito `_verbose.xml` è riportato un esempio di. In questo caso, l'ordine è stato completato correttamente senza errori.
+Di `_verbose.xml` seguito è riportato un esempio di. In questo caso, l'ordine è stato completato correttamente senza errori.
 
 ```xml
 
@@ -91,7 +91,7 @@ Di seguito `_verbose.xml` è riportato un esempio di. In questo caso, l'ordine �
 </DriveLog>
 ```
 
-Per lo stesso ordine, di seguito `_error.xml` è riportato un esempio di.
+Per lo stesso ordine, di `_error.xml` seguito è riportato un esempio di.
 
 ```xml
 
@@ -110,13 +110,13 @@ Per lo stesso ordine, di seguito `_error.xml` è riportato un esempio di.
 </DriveLog>
 ```
 
-Di seguito `_error.xml` è riportato un esempio di in cui l'ordine è stato completato con errori. 
+Di `_error.xml` seguito è riportato un esempio di in cui l'ordine è stato completato con errori. 
 
-Il file degli errori in questo caso include `Summary` una sezione e un'altra sezione che contiene tutti gli errori a livello di file. 
+Il file degli errori in questo caso include una `Summary` sezione e un'altra sezione che contiene tutti gli errori a livello di file. 
 
-`Summary` Contiene `ValidationErrors` e `CopyErrors`. In questo caso, 8 file o cartelle sono stati caricati in Azure e non si sono verificati errori di convalida. Quando i dati sono stati copiati nell'account di archiviazione di Azure, 5 file o cartelle sono stati caricati correttamente. I 3 file o le cartelle rimanenti sono stati rinominati in base alle convenzioni di denominazione dei contenitori di Azure e quindi caricati in Azure.
+`Summary`Contiene `ValidationErrors` e `CopyErrors` . In questo caso, 8 file o cartelle sono stati caricati in Azure e non si sono verificati errori di convalida. Quando i dati sono stati copiati nell'account di archiviazione di Azure, 5 file o cartelle sono stati caricati correttamente. I 3 file o le cartelle rimanenti sono stati rinominati in base alle convenzioni di denominazione dei contenitori di Azure e quindi caricati in Azure.
 
-Lo stato a livello di file `BlobStatus` si trova in che descrive le azioni eseguite per caricare i BLOB. In questo caso, tre contenitori vengono rinominati perché le cartelle in cui sono stati copiati i dati non sono conformi alle convenzioni di denominazione di Azure per i contenitori. Per i BLOB caricati in questi contenitori, il nome del nuovo contenitore, il percorso del BLOB in Azure, il percorso file originale non valido e le dimensioni del BLOB sono inclusi.
+Lo stato a livello di file si trova in `BlobStatus` che descrive le azioni eseguite per caricare i BLOB. In questo caso, tre contenitori vengono rinominati perché le cartelle in cui sono stati copiati i dati non sono conformi alle convenzioni di denominazione di Azure per i contenitori. Per i BLOB caricati in questi contenitori, il nome del nuovo contenitore, il percorso del BLOB in Azure, il percorso file originale non valido e le dimensioni del BLOB sono inclusi.
     
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -156,7 +156,7 @@ Lo stato a livello di file `BlobStatus` si trova in che descrive le azioni esegu
 
 Gli errori generati durante il caricamento dei dati in Azure sono riepilogati nella tabella seguente.
 
-| Codice errore | Descrizione                   |
+| Codice di errore | Descrizione                   |
 |-------------|------------------------------|
 |`None` |  Operazione completata.           |
 |`Renamed` | Il BLOB è stato rinominato.   |
@@ -168,12 +168,12 @@ Gli errori generati durante il caricamento dei dati in Azure sono riepilogati ne
 |`ManagedDiskCreationTerminalFailure` | Non è stato possibile caricare come dischi gestiti. I file sono disponibili nell'account di archiviazione di staging come BLOB di pagine. È possibile convertire manualmente i BLOB di pagine in dischi gestiti.  |
 |`DiskConversionNotStartedTierInfoMissing` | Poiché il file VHD è stato copiato al di fuori delle cartelle di livello PreCreate, non è stato creato un disco gestito. Il file viene caricato come BLOB di pagine nell'account di archiviazione di staging come specificato durante la creazione dell'ordine. È possibile convertirlo manualmente in un disco gestito.|
 |`InvalidWorkitem` | Non è stato possibile caricare i dati perché non sono conformi alle convenzioni di denominazione e limiti di Azure.|
-|`InvalidPageBlobUploadAsBlockBlob` | Caricato come BLOB in blocchi in un contenitore con `databoxdisk-invalid-pb-`prefisso.|
-|`InvalidAzureFileUploadAsBlockBlob` | Caricato come BLOB in blocchi in un contenitore con `databoxdisk-invalid-af`prefisso-.|
-|`InvalidManagedDiskUploadAsBlockBlob` | Caricato come BLOB in blocchi in un contenitore con `databoxdisk-invalid-md`prefisso-.|
-|`InvalidManagedDiskUploadAsPageBlob` |Caricati come BLOB di pagine in un contenitore con `databoxdisk-invalid-md-`prefisso. |
-|`MovedToOverflowShare` |I file caricati in una nuova condivisione come dimensioni della condivisione originale superano il limite massimo di dimensioni di Azure. Il nome originale del nuovo nome della condivisione file è con `-2`suffisso.   |
-|`MovedToDefaultAzureShare` |File caricati che non facevano parte di alcuna cartella in una condivisione predefinita. Il nome della condivisione inizia `databox-`con. |
+|`InvalidPageBlobUploadAsBlockBlob` | Caricato come BLOB in blocchi in un contenitore con prefisso `databoxdisk-invalid-pb-` .|
+|`InvalidAzureFileUploadAsBlockBlob` | Caricato come BLOB in blocchi in un contenitore con prefisso `databoxdisk-invalid-af` -.|
+|`InvalidManagedDiskUploadAsBlockBlob` | Caricato come BLOB in blocchi in un contenitore con prefisso `databoxdisk-invalid-md` -.|
+|`InvalidManagedDiskUploadAsPageBlob` |Caricati come BLOB di pagine in un contenitore con prefisso `databoxdisk-invalid-md-` . |
+|`MovedToOverflowShare` |I file caricati in una nuova condivisione come dimensioni della condivisione originale superano il limite massimo di dimensioni di Azure. Il nome originale del nuovo nome della condivisione file è con suffisso `-2` .   |
+|`MovedToDefaultAzureShare` |File caricati che non facevano parte di alcuna cartella in una condivisione predefinita. Il nome della condivisione inizia con `databox-` . |
 |`ContainerRenamed` |Il contenitore per questi file non è conforme alle convenzioni di denominazione di Azure ed è stato rinominato. Il nuovo nome inizia con `databox-` ed è suffisso con l'hash SHA1 del nome originale |
 |`ShareRenamed` |La condivisione per questi file non è conforme alle convenzioni di denominazione di Azure ed è stata rinominata. Il nuovo nome inizia con `databox-` ed è suffisso con l'hash SHA1 del nome originale. |
 |`BlobRenamed` |Questi file non sono conformi alle convenzioni di denominazione di Azure e sono stati rinominati. Controllare il `BlobPath` campo per il nuovo nome. |

@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati Cloud App Security ad Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere Cloud App Security dati ad Azure Sentinel.
+description: Informazioni su come usare il connettore Microsoft Cloud App Security (MCAS) per trasmettere avvisi e Cloud Discovery log da MCAS in Sentinel di Azure. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,16 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 266d97e834247088d40837cbec1436e00d0f4be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8439c8f7aa4e75abd727d2ce2e80d98e6fce5411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563951"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Connettere i dati da Microsoft Cloud App Security 
-
-
 
 Il connettore [Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) consente di trasmettere avvisi e [cloud Discovery log](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) da MCAS in Sentinel di Azure. Questo consentirà di ottenere visibilità sulle app Cloud, ottenere analisi sofisticate per identificare e combattere Cyberthreats e controllare il modo in cui i dati vengono trasmessi.
 
@@ -50,7 +48,9 @@ Se Cloud App Security viene distribuita e si inseriscono i dati, i dati dell'avv
 
 1. Fare clic su **Applica modifiche**.
 
-1. Per utilizzare lo schema pertinente in Log Analytics per gli avvisi di `SecurityAlert` cloud app Security, digitare nella finestra query. Per lo schema dei log di Cloud Discovery `McasShadowItReporting`, digitare.
+1. È possibile scegliere se si desidera che gli avvisi del Centro sicurezza di Azure generino automaticamente gli eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **abilitato** per attivare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi. È quindi possibile modificare questa regola in **Analytics**, nella scheda **regole attive** .
+
+1. Per utilizzare lo schema pertinente in Log Analytics per gli avvisi di Cloud App Security, digitare `SecurityAlert` nella finestra query. Per lo schema dei log di Cloud Discovery, digitare `McasShadowItReporting` .
 
 > [!NOTE]
 > Cloud Discovery consente di rilevare e identificare le tendenze aggregando le connessioni degli utenti sottostanti ai dati alle app cloud.

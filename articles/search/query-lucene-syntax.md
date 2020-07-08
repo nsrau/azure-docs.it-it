@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 06/23/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f4c3330b23b8b724cdbf5d7e09eec8a8dd5b8cfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81258984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564077"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintassi di query Lucene in Azure ricerca cognitiva
 
-È possibile scrivere query su Azure ricerca cognitiva in base alla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per i moduli di query specializzati: i caratteri jolly, la ricerca fuzzy, la ricerca di prossimità, le espressioni regolari sono alcuni esempi. Gran parte della sintassi del parser di query Lucene viene [implementata in modo intatto in azure ricerca cognitiva](search-lucene-query-architecture.md), ad eccezione delle *ricerche di intervallo* costruite `$filter` in Azure ricerca cognitiva tramite espressioni. 
+È possibile scrivere query su Azure ricerca cognitiva in base alla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per i moduli di query specializzati: i caratteri jolly, la ricerca fuzzy, la ricerca di prossimità, le espressioni regolari sono alcuni esempi. Gran parte della sintassi del parser di query Lucene viene [implementata in modo intatto in azure ricerca cognitiva](search-lucene-query-architecture.md), ad eccezione delle *ricerche di intervallo* costruite in Azure ricerca cognitiva tramite `$filter` espressioni. 
 
 > [!NOTE]
 > La sintassi Lucene completa viene usata per le espressioni di query passate nel parametro di **ricerca** dell'API di [ricerca dei documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents) , da non confondere con la [sintassi OData](query-odata-filter-orderby-syntax.md) usata per il parametro [$Filter](search-filters.md) di tale API. Queste diverse sintassi hanno regole proprie per la costruzione di query, l'escape di stringhe e così via.
@@ -46,13 +46,13 @@ L'esempio seguente trova documenti nell'indice usando la sintassi di query Lucen
 Il parametro `searchMode=all` è rilevante in questo esempio. Quando nella query sono presenti operatori, è in genere consigliabile impostare `searchMode=all` per assicurarsi che venga trovata una corrispondenza per *tutti* i criteri.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
 ```
 
  In alternativa, usare POST:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -81,7 +81,7 @@ L'esempio precedente è relativo alla tilde (~), ma lo stesso principio si appli
 
 ### <a name="escaping-special-characters"></a>Escape dei caratteri speciali
 
-Per usare uno degli operatori di ricerca come parte del testo di ricerca, eseguire l'escape del carattere anteponendo una singola barra rovesciata (`\`). Ad esempio, per una ricerca con caratteri `https://`jolly su `://` , dove fa parte della stringa di query, è `search=https\:\/\/*`necessario specificare. Analogamente, un modello di numero di telefono con escape potrebbe `\+1 \(800\) 642\-7676`essere simile al seguente.
+Per usare uno degli operatori di ricerca come parte del testo di ricerca, eseguire l'escape del carattere anteponendo una singola barra rovesciata ( `\` ). Ad esempio, per una ricerca con caratteri jolly su `https://` , dove `://` fa parte della stringa di query, è necessario specificare `search=https\:\/\/*` . Analogamente, un modello di numero di telefono con escape potrebbe essere simile al seguente `\+1 \(800\) 642\-7676` .
 
 I caratteri speciali che richiedono l'escape includono quanto segue:  
 `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`  
@@ -119,19 +119,19 @@ L'operatore AND è una e commerciale o un segno più. Ad esempio, `wifi && luxur
 
 ### <a name="not-operator-not--or--"></a>Operatore NOT `NOT`, `!` o `-`
 
-L'operatore NOT è un segno meno. Ad esempio, `wifi –luxury` cercherà i documenti che hanno il `wifi` termine e/o non hanno `luxury`.
+L'operatore NOT è un segno meno. Ad esempio, `wifi –luxury` cercherà i documenti che hanno il `wifi` termine e/o non hanno `luxury` .
 
-Il parametro **searchMode** su una richiesta di query controlla se un termine con l'operatore Not è individuato o ORed con altri termini nella query (presupponendo che `+` non `|` esista alcun operatore OR negli altri termini). I valori validi sono `any` o `all`.
+Il parametro **searchMode** su una richiesta di query controlla se un termine con l'operatore Not è individuato o ORed con altri termini nella query (presupponendo che non esista alcun `+` operatore OR negli `|` altri termini). I valori validi sono `any` o `all`.
 
 `searchMode=any`aumenta il richiamo delle query includendo più risultati e per impostazione predefinita `-` viene interpretato come "o not". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` o quelli non contenenti il termine `luxury`.
 
-`searchMode=all`aumenta la precisione delle query includendo un minor numero di risultati e, per impostazione predefinita, viene interpretato come "AND NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` e quelli non contenenti il termine "luxury". Si tratta di un comportamento verosimilmente più intuitivo per l'operatore `-`. Pertanto, è consigliabile `searchMode=all` utilizzare anziché `searchMode=any` se si desidera ottimizzare la ricerca di precisione anziché richiamare *e* gli utenti utilizzano spesso l' `-` operatore nelle ricerche.
+`searchMode=all`aumenta la precisione delle query includendo un minor numero di risultati e, per impostazione predefinita, viene interpretato come "AND NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` e quelli non contenenti il termine "luxury". Si tratta di un comportamento verosimilmente più intuitivo per l'operatore `-`. Pertanto, è consigliabile utilizzare `searchMode=all` anziché `searchMode=any` se si desidera ottimizzare la ricerca di precisione anziché richiamare *e* gli utenti utilizzano spesso l' `-` operatore nelle ricerche.
 
 Quando si decide di utilizzare un'impostazione di **searchMode** , considerare i modelli di interazione utente per le query in varie applicazioni. È più probabile che gli utenti che eseguono la ricerca di informazioni includano un operatore in una query, anziché i siti di e-commerce che dispongono di più strutture di navigazione predefinite.
 
 ##  <a name="fielded-search"></a><a name="bkmk_fields"></a>Ricerca nel campo
 
-È possibile definire un'operazione di ricerca in campo con `fieldName:searchExpression` la sintassi, in cui l'espressione di ricerca può essere una singola parola o una frase o un'espressione più complessa tra parentesi, facoltativamente con gli operatori booleani. Ecco alcuni esempi:  
+È possibile definire un'operazione di ricerca in campo con la `fieldName:searchExpression` sintassi, in cui l'espressione di ricerca può essere una singola parola o una frase o un'espressione più complessa tra parentesi, facoltativamente con gli operatori booleani. Ecco alcuni esempi:  
 
 - genre:jazz NOT history  
 
@@ -142,7 +142,7 @@ Assicurarsi di inserire più stringhe racchiuse tra virgolette se si vuole che e
 Il campo specificato in `fieldName:searchExpression` deve essere un campo `searchable`.  Per informazioni dettagliate sull'uso di attributi dell'indice nelle definizioni campo, vedere [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare l'indice).  
 
 > [!NOTE]
-> Quando si usano le espressioni di ricerca nel campo, non è necessario usare `searchFields` il parametro perché ogni espressione di ricerca nel campo ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile utilizzare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti hanno come ambito un campo specifico e il resto può essere applicato a più campi. Ad esempio, la query `search=genre:jazz NOT history&searchFields=description` corrisponderà `jazz` solo al `genre` campo, mentre corrisponderebbe `NOT history` al `description` campo. Il nome del campo fornito `fieldName:searchExpression` in ha sempre la precedenza `searchFields` sul parametro, motivo per cui in questo esempio non è necessario includere `genre` nel `searchFields` parametro.
+> Quando si usano le espressioni di ricerca nel campo, non è necessario usare il `searchFields` parametro perché ogni espressione di ricerca nel campo ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile utilizzare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti hanno come ambito un campo specifico e il resto può essere applicato a più campi. Ad esempio, la query `search=genre:jazz NOT history&searchFields=description` corrisponderà `jazz` solo al `genre` campo, mentre corrisponderebbe al `NOT history` `description` campo. Il nome del campo fornito in ha `fieldName:searchExpression` sempre la precedenza sul `searchFields` parametro, motivo per cui in questo esempio non è necessario includere `genre` nel `searchFields` parametro.
 
 ##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Ricerca fuzzy
 
@@ -166,21 +166,23 @@ L'esempio seguente illustra le differenze. Si supponga che esista un profilo di 
  Per aumentare la priorità di un termine, usare il carattere accento circonflesso "^", con un fattore di aumento di priorità (un numero) alla fine del termine da cercare. È anche possibile aumentare la priorità delle frasi. Maggiore è il fattore di aumento di priorità, più rilevante sarà il termine rispetto ad altri termini di ricerca. Per impostazione predefinita, il fattore di aumento di priorità è 1. Anche se il fattore di aumento di priorità deve essere positivo, può essere minore di 1 (ad esempio 0,20).  
 
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Ricerca basata su espressioni regolari  
- Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
+ Una ricerca di espressioni regolari trova una corrispondenza in base ai modelli validi in Apache Lucene, come documentato nella [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). In ricerca cognitiva di Azure, un'espressione regolare è racchiusa tra barre `/` .
 
  Ad esempio, per trovare i documenti contenenti "motel" o "hotel", specificare `/[mh]otel/`. Le ricerche basate su espressioni regolari vengono confrontate con parole singole.
 
-Alcuni strumenti e linguaggi impongono requisiti di caratteri di escape aggiuntivi. Per JSON, le stringhe che includono una barra vengono precedute da un carattere di escape con una barra `search=/.*microsoft.com\/azure\/.*/` rovesciata: "Microsoft.com/Azure/" diventa `search=/.* <string-placeholder>.*/` dove `microsoft.com\/azure\/` imposta l'espressione regolare e è la stringa con una barra con caratteri di escape.
+Alcuni strumenti e linguaggi impongono requisiti di caratteri di escape aggiuntivi. Per JSON, le stringhe che includono una barra vengono precedute da un carattere di escape con una barra rovesciata: "microsoft.com/azure/" diventa `search=/.*microsoft.com\/azure\/.*/` dove `search=/.* <string-placeholder>.*/` imposta l'espressione regolare e `microsoft.com\/azure\/` è la stringa con una barra con caratteri di escape.
 
-##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Ricerca con caratteri jolly  
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Ricerca con caratteri jolly
 
-È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
+È possibile utilizzare la sintassi generalmente riconosciuta per più `*` ricerche con caratteri jolly () o Single ( `?` ). Ad esempio, un'espressione di query `search=alpha*` restituisce "alfanumerico" o "alfabetico". Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
 
-La ricerca di prefisso usa anche il`*`carattere asterisco (). Ad esempio, un'espressione di query `search=note*` di restituisce "notebook" o "blocco note". La sintassi Lucene completa non è necessaria per la ricerca di prefisso. La sintassi semplice supporta questo scenario.
+La sintassi Lucene completa supporta la corrispondenza con prefisso, infisso e suffisso. Tuttavia, se è sufficiente la corrispondenza con prefisso, è possibile usare la sintassi semplice (la corrispondenza dei prefissi è supportata in entrambi).
 
-La ricerca di suffissi, dove `*` o `?` precede la stringa, richiede la sintassi Lucene completa e un'espressione regolare (non è possibile usare un * o? simbolo come primo carattere di una ricerca). Dato il termine "alfanumerico", un'espressione di query`search=/.*numeric.*/`di () troverà la corrispondenza.
+La corrispondenza dei suffissi, dove `*` o `?` precede la stringa (come in `search=/.*numeric./` ) o la corrispondenza degli infissi richiede la sintassi Lucene completa, nonché i delimitatori di barra delle espressioni regolari `/` . Non è possibile usare un carattere * o ? simbolo come primo carattere di un termine, o all'interno di un termine, senza il `/` . 
 
 > [!NOTE]  
+> Di norma, la corrispondenza dei modelli è lenta, quindi è consigliabile esaminare metodi alternativi, ad esempio la suddivisione in token di n-grammi perimetrale che crea token per sequenze di caratteri in un termine. L'indice sarà più grande, ma le query potrebbero essere eseguite più velocemente, a seconda della costruzione del modello e della lunghezza delle stringhe da indicizzare.
+>
 > Durante l'analisi delle query, le query formulate come prefisso, suffisso, carattere jolly o espressioni regolari vengono passate così come sono all'albero delle query, ignorando l' [analisi lessicale](search-lucene-query-architecture.md#stage-2-lexical-analysis). Le corrispondenze verranno trovate solo se l'indice contiene le stringhe nel formato specificato dalla query. Nella maggior parte dei casi, è necessario un analizzatore alternativo durante l'indicizzazione che conserva l'integrità delle stringhe in modo che i termini parziali e i criteri di ricerca abbiano esito positivo. Per altre informazioni, vedere [ricerca dei termini parziali in Azure ricerca cognitiva query](search-query-partial-matching.md).
 
 ##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Punteggio delle query con caratteri jolly e regex

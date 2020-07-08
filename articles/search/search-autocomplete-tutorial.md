@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 004f1ea55bcda68485d8b11ed472b6cab2ca7545
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758117"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562485"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Aggiungere il completamento automatico e suggerimenti alle app client
 
@@ -34,7 +34,7 @@ Il resto di questo articolo è incentrato sulle query e sul codice client. Usa J
 Gli elementi di una richiesta includono una delle API di ricerca di tipo, una query parziale e un suggerimento. Lo script seguente illustra i componenti di una richiesta, usando l'API REST di AutoComplete come esempio.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -68,10 +68,10 @@ Per i suggerimenti, è necessario affinare ulteriormente la risposta per evitare
 
 | Parametro | Utilizzo |
 |-----------|-------|
-| **$select** | Se si dispone di più **sourceFields** in un suggerimento, utilizzare **$SELECT** per scegliere il campo che contribuisce ai`$select=GameTitle`valori (). |
+| **$select** | Se si dispone di più **sourceFields** in un suggerimento, utilizzare **$SELECT** per scegliere il campo che contribuisce ai valori ( `$select=GameTitle` ). |
 | **searchFields** | Vincolare la query a campi specifici. |
-| **$filter** | Applicare i criteri di corrispondenza nel set di`$filter=Category eq 'ActionAdventure'`risultati (). |
-| **$top** | Limitare i risultati a un numero specifico (`$top=5`).|
+| **$filter** | Applicare i criteri di corrispondenza nel set di risultati ( `$filter=Category eq 'ActionAdventure'` ). |
+| **$top** | Limitare i risultati a un numero specifico ( `$top=5` ).|
 
 ## <a name="add-user-interaction-code"></a>Aggiungi codice interazione utente
 
@@ -116,7 +116,7 @@ $(function () {
 });
 ```
 
-`source` Indica alla funzione di completamento automatico dell'interfaccia utente di jQuery dove ottenere l'elenco di elementi da visualizzare nella casella di ricerca. Poiché questo progetto è un progetto MVC, chiama la funzione **suggest** in **HomeController.cs** che contiene la logica per la restituzione di suggerimenti per la query. Questa funzione passa anche alcuni parametri per controllare evidenziazioni, corrispondenze fuzzy e termini. L'API JavaScript di completamento automatico aggiunge il parametro per i termini.
+`source`Indica alla funzione di completamento automatico dell'interfaccia utente di jQuery dove ottenere l'elenco di elementi da visualizzare nella casella di ricerca. Poiché questo progetto è un progetto MVC, chiama la funzione **suggest** in **HomeController.cs** che contiene la logica per la restituzione di suggerimenti per la query. Questa funzione passa anche alcuni parametri per controllare evidenziazioni, corrispondenze fuzzy e termini. L'API JavaScript di completamento automatico aggiunge il parametro per i termini.
 
 Il `minLength: 3` garantisce che le raccomandazioni vengano visualizzate solo quando nella casella di ricerca sono presenti almeno tre caratteri.
 
