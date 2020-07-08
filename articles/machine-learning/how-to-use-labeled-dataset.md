@@ -5,16 +5,17 @@ description: Informazioni su come esportare le etichette dati dai progetti di et
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.topic: conceptual
+ms.subservice: core
+ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 657b1dbb169d80a3e5563dd1a4fa52eac2278aae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655773"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025727"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creare ed esplorare il set di dati di Azure Machine Learning con etichette
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>Creare ed esplorare Azure Machine Learning set di dati con etichette (anteprima)
 
 In questo articolo si apprenderà come esportare le etichette dati da un progetto di etichettatura dei data di Azure Machine Learning e come caricarle in formati comuni come un dataframe Pandas per l'esplorazione dei dati o un set di dati di Torchvision per la trasformazione delle immagini. 
 
