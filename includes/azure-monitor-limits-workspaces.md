@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 864b37c9e59786546ad2c29faf8457cfc3a21f6b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82161167"
 ---
 **Volume e conservazione della raccolta dati** 
@@ -35,21 +35,21 @@ ms.locfileid: "82161167"
 
 **Azure portal**
 
-| Categoria | Limite | Commenti |
+| Category | Limite | Commenti |
 |:---|:---|:---|
 | Numero massimo di record restituiti da una query di log | 10,000 | Ridurre i risultati utilizzando l'ambito della query, l'intervallo di tempo e i filtri nella query. |
 
 
 **API dell'agente di raccolta dati**
 
-| Categoria | Limite | Commenti |
+| Category | Limite | Commenti |
 |:---|:---|:---|
 | Dimensioni massime per un singolo post | 30 MB | Suddividere i volumi più grandi in più post. |
 | Dimensioni massime per i valori dei campi  | 32 KB | I campi con una lunghezza superiore a 32 KB vengono troncati. |
 
-**API di ricerca**
+**Cerca l'API**
 
-| Categoria | Limite | Commenti |
+| Category | Limite | Commenti |
 |:---|:---|:---|
 | Numero massimo di record restituiti in una singola query | 500.000 | |
 | Dimensioni massime dei dati restituiti | 64 milioni byte (~ 61 MiB)| |
@@ -58,7 +58,7 @@ ms.locfileid: "82161167"
 
 **Limiti generali dell'area di lavoro**
 
-| Categoria | Limite | Commenti |
+| Category | Limite | Commenti |
 |:---|:---|:---|
 | Numero massimo di colonne in una tabella         | 500 | |
 | Numero massimo di caratteri per il nome della colonna | 500 | |
@@ -69,7 +69,7 @@ ms.locfileid: "82161167"
 
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite di velocità del volume di inserimento predefinito per i dati inviati dalle risorse di Azure con [le impostazioni di diagnostica](../articles/azure-monitor/platform/diagnostic-settings.md) è di circa **6 GB/min** per area di lavoro. Si tratta di un valore approssimativo, poiché la dimensione effettiva può variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questo limite non si applica ai dati inviati dagli agenti o dall' [API dell'agente di raccolta dati](../articles/azure-monitor/platform/data-collector-api.md).
 
-Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro inviando un LAIngestionRate@microsoft.com messaggio di posta elettronica o aprendo una richiesta di supporto.
+Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro inviando un messaggio di posta elettronica LAIngestionRate@microsoft.com o aprendo una richiesta di supporto.
  
 Per ricevere una notifica su tale evento nell'area di lavoro, creare una [regola di avviso di log](../articles/azure-monitor/platform/alerts-log.md) usando la query seguente con la logica di avviso base su numero di risultati maggiore di zero.
 

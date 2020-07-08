@@ -1,16 +1,16 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
 ms.openlocfilehash: feea9696316723a2750be6fc1e13001224320324
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81865615"
 ---
 Con la crescita significativa delle macchine virtuali ospitate in Azure, è importante identificare i problemi di prestazioni e integrità che influiscano sulle applicazioni e sui servizi di infrastruttura supportati. Il monitoraggio di base viene fornito per impostazione predefinita con Azure grazie ai tipi di metrica utilizzo CPU, utilizzo dischi, utilizzo memoria e traffico di rete raccolto dall'hypervisor host. È possibile raccogliere dati aggiuntivi relativi a metriche e log usando le [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali dal sistema operativo guest.

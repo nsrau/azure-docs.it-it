@@ -5,14 +5,14 @@ ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
 ms.openlocfilehash: 5deba9d8968f71ef1b21517e74e6af4c39aa9271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76279631"
 ---
 > [!WARNING]
-> Quando si abilita la diagnostica per un ruolo esistente, tutte le estensioni già impostate vengono disabilitate quando viene distribuito il pacchetto. Sono inclusi:
+> Quando si abilita la diagnostica per un ruolo esistente, tutte le estensioni già impostate vengono disabilitate quando viene distribuito il pacchetto. Tra queste sono incluse:
 >
 > * Diagnostica di Microsoft Monitoring Agent
 > * Microsoft Azure Security Monitoring

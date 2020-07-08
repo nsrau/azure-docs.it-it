@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,24 +9,24 @@ ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 427117fe47294a1db1fa8d3fa1e46ee1efb91b4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79129288"
 ---
 ## <a name="limitations"></a>Limitazioni
 
 - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-- Le dimensioni e i tipi di hardware disponibili per gli host dedicati variano in base all'area. Per altre informazioni, vedere la pagina relativa ai [prezzi](https://aka.ms/ADHPricing) per gli host.
+- Le dimensioni e i tipi di hardware disponibili per gli host dedicati variano in base all'area. Per ulteriori informazioni, fare riferimento alla [pagina dei prezzi](https://aka.ms/ADHPricing) dell'host.
 
 ## <a name="create-a-host-group"></a>Creare un gruppo host
 
-Un **gruppo host** è una nuova risorsa che rappresenta una raccolta di host dedicati. È possibile creare un gruppo host in un'area e una zona di disponibilità e aggiungervi host. Quando si pianifica la disponibilità elevata, sono disponibili opzioni aggiuntive. Con gli host dedicati è possibile usare una o entrambe le opzioni seguenti: 
-- Span tra più zone di disponibilità. In questo caso, è necessario disporre di un gruppo host in ognuna delle zone che si desidera utilizzare.
-- Si estende su più domini di errore di cui è stato eseguito il mapping ai rack fisici. 
+Un **gruppo host** è una nuova risorsa che rappresenta una raccolta di host dedicati. È necessario creare un gruppo host in un'area e in una zona di disponibilità e aggiungervi gli host. Quando si pianifica la disponibilità elevata, sono disponibili opzioni aggiuntive. Con gli host dedicati è possibile usare una o entrambe le opzioni seguenti: 
+- Estendersi tra più zone di disponibilità. In questo caso, è necessario disporre di un gruppo host in ognuna delle zone che si desidera usare.
+- Estendersi tra più domini di errore mappati a rack fisici. 
  
-In entrambi i casi, è necessario specificare il numero di domini di errore per il gruppo host. Se non si desidera estendere i domini di errore nel gruppo, utilizzare un numero di domini di errore pari a 1. 
+In entrambi i casi, è necessario specificare il numero di domini di errore per il gruppo host. Se non si desidera estendere i domini di errore nel gruppo, usare un numero di domini di errore pari a 1. 
 
 È anche possibile decidere di usare le zone di disponibilità e i domini di errore. 
 
@@ -50,9 +50,9 @@ La creazione del gruppo host dovrebbe richiedere solo alcuni istanti.
 
 ## <a name="create-a-dedicated-host"></a>Creazione di un host dedicato
 
-A questo punto, creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.
+A questo punto, creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU dell'host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.
 
-Per altre informazioni sugli SKU e i prezzi degli host, vedere [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing).
+Per altre informazioni sugli SKU e i prezzi degli host, vedere [Prezzi degli host dedicati di Azure](https://aka.ms/ADHPricing).
 
 Se si imposta un numero di domini di errore per il gruppo host, verrà richiesto di specificare il dominio di errore per l'host.  
 

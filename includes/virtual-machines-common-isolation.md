@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 033ec0f4011cae657fc464849aac5c5d9a850907
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83343321"
 ---
 Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente.  Queste dimensioni delle macchine virtuali sono particolarmente adatte ai carichi di lavoro che richiedono un elevato livello di isolamento dagli altri clienti, per i carichi di lavoro con aspetti come i requisiti normativi e di conformità.  I clienti possono anche scegliere di suddividere ulteriormente le risorse di tali macchine virtuali con piano Isolato usando il [supporto di Azure per le macchine virtuali annidate](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
@@ -51,7 +51,7 @@ Se è necessario l'isolamento, prima del 15 maggio 2020, è necessario eseguire 
 Per informazioni dettagliate, vedere di seguito:
 
 ## <a name="timeline"></a>Sequenza temporale
-| Data | Azione | 
+| Data | Action | 
 | --- | --- |
 | 18 novembre 2019 | Disponibilità di D/DS15i_v2 (PAYG, 1 anno RI) |
 | 14 maggio 2020  | Ultimo giorno per l'acquisto di D/DS15i_v2 1 anno RI | 
@@ -86,9 +86,9 @@ Per informazioni dettagliate, vedere di seguito:
 
 | RI |  Flessibilità delle dimensioni dell'istanza | Idoneità ai vantaggi |   
 | --- | --- | --- |
-|   D15_v2  |   Disattivato     |   D15_v2 e D15i_v2 |    
-|   D15_v2  |   Attivato  |   La serie D15_v2 e la D15i_v2 riceveranno tutti i vantaggi del RI. |    
-|   D14_v2  |   Attivato  |   La serie D15_v2 e la D15i_v2 riceveranno tutti i vantaggi del RI. |    
+|   D15_v2  |   Off     |   D15_v2 e D15i_v2 |    
+|   D15_v2  |   On  |   La serie D15_v2 e la D15i_v2 riceveranno tutti i vantaggi del RI. |    
+|   D14_v2  |   On  |   La serie D15_v2 e la D15i_v2 riceveranno tutti i vantaggi del RI. |    
  
 Analogamente per la serie Dsv2.
  
@@ -97,10 +97,10 @@ Analogamente per la serie Dsv2.
 
 | RI |  Flessibilità delle dimensioni dell'istanza | Idoneità ai vantaggi |   
 | --- | --- | --- |
-| D15_v2 |  Disattivato |   Solo D15_v2  
-| D15_v2 |  Attivato |    La serie di D15_v2 riceverà il vantaggio di RI. La nuova D15i_v2 non sarà idonea per il vantaggio RI da questo tipo di RI. | 
-| D15i_v2 |     Disattivato | Solo D15i_v2 |  
-| D15i_v2 |     Attivato  | Solo D15i_v2 | 
+| D15_v2 |  Off |   Solo D15_v2  
+| D15_v2 |  On |    La serie di D15_v2 riceverà il vantaggio di RI. La nuova D15i_v2 non sarà idonea per il vantaggio RI da questo tipo di RI. | 
+| D15i_v2 |     Off | Solo D15i_v2 |  
+| D15i_v2 |     On  | Solo D15i_v2 | 
  
 Non è possibile usare la flessibilità delle dimensioni dell'istanza per applicare altre dimensioni, ad esempio D2_v2, D4_v2 o D15_v2. Analogamente, per la serie Dsv2.  
  

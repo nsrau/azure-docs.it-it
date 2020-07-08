@@ -1,7 +1,7 @@
 ---
 title: includere il file
 titleSuffix: Azure
-description: File di inclusione
+description: includere file
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: fda22346a44388248e37473bc7891b8a130569c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81681045"
 ---
 1. Nella scheda **configurazione** della pagina **Crea un peering** compilare le caselle come illustrato qui.
@@ -67,7 +67,7 @@ ms.locfileid: "81681045"
     > [!div class="mx-imgBorder"]
     > ![Invio peering](../media/setup-direct-review-tab-submit.png)
 
-1. Dopo aver inviato la richiesta, attendere il completamento della distribuzione. Se la distribuzione non riesce, contattare il [peering Microsoft](mailto:peering@microsoft.com). Una distribuzione corretta viene visualizzata come illustrato di seguito.
+1. Dopo aver inviato la richiesta, attendere il completamento della distribuzione. Se la distribuzione ha esito negativo, contattare il team [Peer Microsoft](mailto:peering@microsoft.com). Una distribuzione corretta viene visualizzata come illustrato di seguito.
 
     > [!div class="mx-imgBorder"]
     > ![Il peering è riuscito](../media/setup-direct-success.png)

@@ -1,7 +1,7 @@
 ---
 title: includere il file
 titleSuffix: Azure
-description: Includere file
+description: includere file
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: fa8d8ccef7d6ad6e1b5d9f19de61e45ee8c439fa
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82587804"
 ---
-Il cmdlet di PowerShell **Get-AzPeeringLocation** restituisce un elenco di percorsi di peering con il `Kind`parametro obbligatorio, che verrà usato nei passaggi successivi.
+Il cmdlet di PowerShell **Get-AzPeeringLocation** restituisce un elenco di percorsi di peering con il parametro obbligatorio `Kind` , che verrà usato nei passaggi successivi.
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"

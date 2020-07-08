@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,15 +15,15 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 3d4e45d1bf53bab4d1f9c45367f9d051f1668e2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76308951"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>Proprietà di AuthenticationResult in MSAL.NET
 
-I metodi per acquisire i token restituiscono `AuthenticationResult`. Per i metodi asincroni `Task<AuthenticationResult>` , restituisce.
+I metodi per acquisire i token restituiscono `AuthenticationResult` . Per i metodi asincroni, `Task<AuthenticationResult>` restituisce.
 
 In MSAL.NET `AuthenticationResult` espone:
 
@@ -31,13 +31,13 @@ In MSAL.NET `AuthenticationResult` espone:
 - `IdToken`per l'utente. Questo parametro è un JWT codificato. Per altre informazioni, vedere [token ID](../articles/active-directory/develop/id-tokens.md).
 - `ExpiresOn`indica la data e l'ora di scadenza del token.
 - `TenantId`contiene il tenant in cui è stato trovato l'utente. Per gli utenti Guest negli scenari B2B Azure Active Directory (Azure AD), l'ID tenant è il tenant Guest, non il tenant univoco.
-Quando il token viene recapitato per un `AuthenticationResult` utente, contiene anche informazioni su questo utente. Per i flussi client riservati in cui i token vengono richiesti senza utenti per l'applicazione, le informazioni sull'utente sono null.
+Quando il token viene recapitato per un utente, `AuthenticationResult` contiene anche informazioni su questo utente. Per i flussi client riservati in cui i token vengono richiesti senza utenti per l'applicazione, le informazioni sull'utente sono null.
 - Oggetto `Scopes` per il quale è stato emesso il token.
 - ID univoco per l'utente.
 
 ### <a name="iaccount"></a>IAccount
 
-MSAL.NET definisce la nozione di un account tramite `IAccount` l'interfaccia. Questa modifica di rilievo fornisce la semantica corretta. Lo stesso utente può avere più account, in Azure AD directory diverse. Inoltre, MSAL.NET fornisce informazioni migliori in caso di scenari Guest perché vengono fornite informazioni sull'account Home.
+MSAL.NET definisce la nozione di un account tramite l' `IAccount` interfaccia. Questa modifica di rilievo fornisce la semantica corretta. Lo stesso utente può avere più account, in Azure AD directory diverse. Inoltre, MSAL.NET fornisce informazioni migliori in caso di scenari Guest perché vengono fornite informazioni sull'account Home.
 Il diagramma seguente illustra la struttura dell' `IAccount` interfaccia.
 
 ![Struttura dell'interfaccia IAccount](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)
@@ -54,13 +54,13 @@ L' `IAccount` interfaccia rappresenta le informazioni su un singolo account. Lo 
 
 | Proprietà | Descrizione |
 |----------|-------------|
-| `Username` | Stringa che contiene il valore visualizzabile nel formato UserPrincipalName (UPN), ad esempio john.doe@contoso.com. Questa stringa può essere null, a differenza di HomeAccountId e HomeAccountId. Identifier, che non sarà null. Questa proprietà sostituisce la `DisplayableId` proprietà di `IUser` nelle versioni precedenti di MSAL.NET. |
-| `Environment` | Stringa che contiene il provider di identità per l'account, ad esempio `login.microsoftonline.com`. Questa proprietà sostituisce la `IdentityProvider` proprietà di `IUser`, ad eccezione `IdentityProvider` del fatto che include anche informazioni sul tenant, oltre all'ambiente cloud. In questo caso, il valore è solo l'host. |
+| `Username` | Stringa che contiene il valore visualizzabile nel formato UserPrincipalName (UPN), ad esempio john.doe@contoso.com . Questa stringa può essere null, a differenza di HomeAccountId e HomeAccountId. Identifier, che non sarà null. Questa proprietà sostituisce la `DisplayableId` proprietà di `IUser` nelle versioni precedenti di MSAL.NET. |
+| `Environment` | Stringa che contiene il provider di identità per l'account, ad esempio `login.microsoftonline.com` . Questa proprietà sostituisce la `IdentityProvider` proprietà di `IUser` , ad eccezione del fatto che include `IdentityProvider` anche informazioni sul tenant, oltre all'ambiente cloud. In questo caso, il valore è solo l'host. |
 | `HomeAccountId` | ID account dell'account Home per l'utente. Questa proprietà identifica in modo univoco l'utente tra Azure AD tenant. |
 
 ### <a name="use-the-token-to-call-a-protected-api"></a>Usare il token per chiamare un'API protetta
 
-Quando `AuthenticationResult` viene restituito da MSAL in `result`, aggiungerlo all'intestazione di autorizzazione HTTP prima di effettuare la chiamata per accedere all'API Web protetta.
+Quando `AuthenticationResult` viene restituito da MSAL in `result` , aggiungerlo all'intestazione di autorizzazione HTTP prima di effettuare la chiamata per accedere all'API Web protetta.
 
 ```csharp
 httpClient = new HttpClient();

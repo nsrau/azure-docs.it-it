@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
 ms.openlocfilehash: 627b020ce618a2a1f2646a95e143947876bd6a15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82072638"
 ---
 ### <a name="general-query-limits"></a>Limiti di query generali
@@ -32,7 +32,7 @@ Monitoraggio di Azure presenta diversi limiti di limitazione per la protezione d
 | Query simultanee | 5 | Se per l'utente sono già in esecuzione 5 query, le nuove query vengono inserite in una coda di concorrenza per singolo utente. Al termine di una delle query in esecuzione, la query successiva verrà ritirata dalla coda e avviata. Non sono incluse le query dalle regole di avviso.
 | Tempo nella coda di concorrenza | 2,5 minuti | Se una query si trova nella coda per più di 2,5 minuti senza essere avviata, verrà terminata con una risposta di errore HTTP con codice 429. |
 | Totale query nella coda di concorrenza | 40 | Quando il numero di query nella coda raggiunge il 40, eventuali query aggiuntive vengono rifiutate con un codice di errore HTTP 429. Questo numero è in aggiunta alle 5 query che possono essere eseguite contemporaneamente. |
-| Frequenza query | 200 query per 30 secondi | Si tratta della velocità complessiva con cui le query possono essere inviate da un singolo utente a tutte le aree di lavoro.  Questo limite si applica alle query a livello di codice o alle query avviate da parti di visualizzazione come i dashboard di Azure e la pagina di riepilogo dell'area di lavoro Log Analytics. |
+| Frequenza delle query | 200 query per 30 secondi | Si tratta della velocità complessiva con cui le query possono essere inviate da un singolo utente a tutte le aree di lavoro.  Questo limite si applica alle query a livello di codice o alle query avviate da parti di visualizzazione come i dashboard di Azure e la pagina di riepilogo dell'area di lavoro Log Analytics. |
 
 - Ottimizzare le query come descritto in [ottimizzare le query del log in monitoraggio di Azure](../articles/azure-monitor/log-query/query-optimization.md).
 - I dashboard e le cartelle di lavoro possono contenere più query in una singola visualizzazione che generano un picchi di query ogni volta che vengono caricati o aggiornati. Prendere in considerazione la suddivisione in più visualizzazioni che vengono caricate su richiesta. 

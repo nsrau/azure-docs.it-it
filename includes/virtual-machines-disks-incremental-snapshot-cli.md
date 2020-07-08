@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,11 +9,11 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80343059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "82204659"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -33,7 +33,7 @@ In Linux l'installazione dell'interfaccia della riga di comando può variare a s
 
 Per creare uno snapshot incrementale, usare [AZ snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) con il `--incremental` parametro.
 
-Nell'esempio seguente viene creato uno snapshot incrementale, `<yourDesiredSnapShotNameHere>`vengono `<yourResourceGroupNameHere>`sostituiti`<exampleDiskName>`, `<exampleLocation>` , e con valori personalizzati, quindi viene eseguito l'esempio:
+Nell'esempio seguente viene creato uno snapshot incrementale, vengono sostituiti `<yourDesiredSnapShotNameHere>` ,, `<yourResourceGroupNameHere>` `<exampleDiskName>` e `<exampleLocation>` con valori personalizzati, quindi viene eseguito l'esempio:
 
 ```bash
 sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)

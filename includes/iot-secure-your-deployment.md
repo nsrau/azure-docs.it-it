@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76748970"
 ---
 L'articolo fornisce una serie di informazioni avanzate per proteggere l'infrastruttura Azure IoT e fornisce i collegamenti ai dettagli a livello di implementazione per configurare e distribuire ciascun componente. Offre anche una serie di confronti e scelte tra i vari metodi concorrenti.
@@ -43,7 +43,7 @@ Hub IoT usa i token di sicurezza per autenticare i dispositivi e i servizi ed ev
 
 Maggiori dettagli sulla struttura del token di sicurezza e il relativo utilizzo sono forniti all'interno degli articoli seguenti:
 
-* [Struttura dei token di sicurezza](../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure)
+* [Formato del token di sicurezza](../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure)
 
 * [Uso dei token SAS come dispositivo](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
 
@@ -83,9 +83,9 @@ La connessione Internet tra il dispositivo IoT e l'hub IoT è protetta mediante 
 
 L'hub IoT di Azure consente la definizione dei [criteri di controllo di accesso](../articles/iot-hub/iot-hub-devguide-security.md) per ogni chiave di sicurezza, usando il set di autorizzazioni seguente per concedere l'accesso agli endpoint dell'hub IoT. Le autorizzazioni limitano l'accesso a un hub IoT in base alla funzionalità.
 
-* **RegistryRead**. Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro di identità](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+* **RegistryRead**. Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [registro delle identità](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
-* **RegistryReadWrite**. Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro di identità](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+* **RegistryReadWrite**. Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [registro delle identità](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
 * **ServiceConnect**. Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. Ad esempio, concede ai servizi cloud back-end l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti.
 

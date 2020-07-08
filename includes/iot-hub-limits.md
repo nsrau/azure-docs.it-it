@@ -5,17 +5,17 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 007c19a10db5e000770c8c80189453d4a80edec2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82204500"
 ---
 Nella tabella seguente sono elencati i limiti associati ai diversi livelli di servizio S1, S2, S3 e F1. Per informazioni sul costo di ogni *unità* in ogni livello, vedere [prezzi di hub Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Risorsa | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
 | --- | --- | --- | --- | --- |
-| Messaggi al giorno |400.000 |6.000.000 |300.000.000 |8.000 |
+| Messaggi al giorno |400.000 |6\.000.000 |300.000.000 |8\.000 |
 | Unità massime |200 |200 |10 |1 |
 
 > [!NOTE]
@@ -32,10 +32,10 @@ La tabella seguente elenca i limiti che si applicano alle risorse dell'hub Inter
 | Numero massimo di caratteri in un ID dispositivo | 128 |
 | Numero massimo di identità del dispositivo<br/>  restituito in una singola chiamata |1\.000 |
 | Conservazione massima nell'hub IoT per i messaggi dal dispositivo al cloud |7 giorni |
-| Dimensione massima del messaggio del dispositivo al cloud |256 kB |
+| Dimensione massima del messaggio del dispositivo al cloud |256 KB |
 | Dimensione massima del batch del dispositivo al cloud |AMQP e HTTP: 256 kB per l'intero batch <br/>MQTT: 256 kB per ogni messaggio |
 | Messaggi massimi nel batch del dispositivo al cloud |500 |
-| Dimensione massima del messaggio del cloud al dispositivo |64 kB |
+| Dimensione massima del messaggio del cloud al dispositivo |64 KB |
 | TTL massima per i messaggi del cloud al dispositivo |2 giorni |
 | Numero massimo di recapiti per i messaggi  <br/> del cloud al dispositivo |100 |
 | Profondità massima della coda da cloud a dispositivo per dispositivo |50 |

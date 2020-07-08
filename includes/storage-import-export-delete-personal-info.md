@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: azure-policy
 author: craigshoemaker
 ms.service: azure-policy
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67180360"
 ---
 ## <a name="deleting-personal-information"></a>Eliminazione delle informazioni personali
@@ -21,7 +21,7 @@ ms.locfileid: "67180360"
 
 Le informazioni personali sono rilevanti per il servizio di importazione/esportazione (tramite il portale e l'API) durante le operazioni di importazione ed esportazione. I dati usati durante queste procedure includono:
 
-- Nome del contatto
+- Nome contatto
 - Numero di telefono
 - Posta elettronica
 - Indirizzo

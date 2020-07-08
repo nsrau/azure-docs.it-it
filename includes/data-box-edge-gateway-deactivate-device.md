@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 21c19027d21a87e199d74644cfc5c8f3cd52ba4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79128872"
 ---
 Per reimpostare il dispositivo, è necessario eliminare in modo sicuro tutti i dati sul disco dati e sul disco di avvio del dispositivo. 
 
-Usare il `Reset-HcsAppliance` cmdlet per eliminare i dischi dati e il disco di avvio o solo i dischi dati. Le `ClearData` opzioni `BootDisk` e consentono di rimuovere rispettivamente i dischi dati e il disco di avvio.
+Usare il `Reset-HcsAppliance` cmdlet per eliminare i dischi dati e il disco di avvio o solo i dischi dati. Le `ClearData` `BootDisk` Opzioni e consentono di rimuovere rispettivamente i dischi dati e il disco di avvio.
 
 Il `BootDisk` Commuter Cancella il disco di avvio e rende inutilizzabile il dispositivo. Deve essere usato solo quando il dispositivo deve essere restituito a Microsoft. Per ulteriori informazioni, vedere [la pagina relativa alla restituzione del dispositivo a Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
 

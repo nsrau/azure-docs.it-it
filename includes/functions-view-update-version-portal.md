@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -9,10 +9,10 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: aa9a715fdafc143a116458691965087b016dec1f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83343355"
 ---
 Eseguire la procedura seguente per visualizzare e aggiornare la versione del runtime usata attualmente da un'app per le funzioni.

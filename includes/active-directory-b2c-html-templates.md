@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: d43b879057001d62ea72bd2e011ad52957d47470
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78189022"
 ---
 ## <a name="sample-templates"></a>Modelli di esempio
@@ -25,9 +25,9 @@ Questo progetto contiene i modelli seguenti:
 
 Per utilizzare l'esempio:
 
-1. Clonare il repository nel computer locale. Scegliere una cartella `/ocean_blue` del modello `/slate_gray`o.
+1. Clonare il repository nel computer locale. Scegliere una cartella del modello `/ocean_blue` o `/slate_gray` .
 1. Caricare tutti i file nella cartella del modello e nella `/assets` cartella nell'archivio BLOB, come descritto nelle sezioni precedenti.
-1. Aprire quindi ogni `\*.html` file nella radice di `/ocean_blue` o `/slate_gray`, sostituire tutte le istanze degli URL relativi con gli URL dei file CSS, images e fonts caricati nel passaggio 2. Ad esempio:
+1. Aprire quindi ogni `\*.html` file nella radice di `/ocean_blue` o `/slate_gray` , sostituire tutte le istanze degli URL relativi con gli URL dei file CSS, images e fonts caricati nel passaggio 2. Ad esempio:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -38,4 +38,4 @@ Per utilizzare l'esempio:
     ```
 1. Salvare i `\*.html` file e caricarli nell'archivio BLOB.
 1. A questo punto, modificare il criterio, puntando al file HTML, come indicato in precedenza.
-1. Se vengono visualizzati i tipi di carattere, le immagini o i file CSS mancanti, controllare i riferimenti nei \*criteri delle estensioni e nei file con estensione HTML.
+1. Se vengono visualizzati i tipi di carattere, le immagini o i file CSS mancanti, controllare i riferimenti nei criteri delle estensioni e nei file con estensione \* HTML.

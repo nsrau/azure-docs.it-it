@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
 ms.openlocfilehash: 35f506235f698fbcf42308e6f0b0f400e925df29
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68361544"
 ---
 ### <a name="bastion-tier"></a>Livello Bastion
@@ -23,4 +23,4 @@ Di seguito è riportato un esempio di invio dell'agente:
 ssh -A -t user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP`
 ```
 
-Questo comando si connette al Bastion e quindi viene eseguito `ssh` nuovamente immediatamente, in modo da ottenere un terminale nell'istanza di destinazione. Se il cluster è configurato in modo diverso, potrebbe essere necessario specificare un utente diverso dalla radice nell'istanza di destinazione. L' `-A` argomento Invia la connessione dell'agente in modo che la chiave privata nel computer locale venga utilizzata automaticamente. Si noti che l'invio di agenti è una catena, quindi `ssh` il secondo comando `-A` include anche in modo che le connessioni SSH successive avviate dall'istanza di destinazione usino anche la chiave privata locale.
+Questo comando si connette al Bastion e quindi viene eseguito `ssh` nuovamente immediatamente, in modo da ottenere un terminale nell'istanza di destinazione. Se il cluster è configurato in modo diverso, potrebbe essere necessario specificare un utente diverso dalla radice nell'istanza di destinazione. L' `-A` argomento Invia la connessione dell'agente in modo che la chiave privata nel computer locale venga utilizzata automaticamente. Si noti che l'invio di agenti è una catena, quindi il secondo `ssh` comando include anche in `-A` modo che le connessioni SSH successive avviate dall'istanza di destinazione usino anche la chiave privata locale.

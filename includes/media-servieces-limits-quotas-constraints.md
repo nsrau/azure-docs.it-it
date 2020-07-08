@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/31/2020
 ms.author: juliako
 ms.openlocfilehash: d6ff823951e6474a35a514036f02c0aabb17bf01
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82997694"
 ---
 > [!NOTE]
@@ -24,7 +24,7 @@ ms.locfileid: "82997694"
 
 | Risorsa | Limite predefinito | 
 | --- | --- | 
-| Asset per account di servizi multimediali | 1.000.000|
+| Asset per account di servizi multimediali | 1\.000.000|
 
 ### <a name="storage-media-limits"></a>Limiti di archiviazione (supporti)
 
@@ -90,7 +90,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 | Risorsa | Limite predefinito | 
 | --- | --- | 
 | Opzioni per criterio chiave simmetrica |30 | 
-| Licenze al mese per ogni tipo di DRM nel servizio di distribuzione delle chiavi di servizi multimediali per account|1.000.000|
+| Licenze al mese per ogni tipo di DRM nel servizio di distribuzione delle chiavi di servizi multimediali per account|1\.000.000|
 
 ### <a name="support-ticket"></a>Ticket di supporto
 
