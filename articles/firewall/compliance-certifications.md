@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b1e7dce6f652d8c9e0fcf5974c3e72be9e1e7844
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77482182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602721"
 ---
 # <a name="azure-firewall-certifications"></a>Certificazioni del firewall di Azure
 
@@ -29,7 +29,7 @@ Le seguenti certificazioni del firewall di Azure sono destinate a Global Azure:
 - AMF e ACPR (Francia)
 - APRA (Australia)
 - PDPA Argentina
-- IRAP Australia
+- Australia IRAP
 - CDSA
 - CFTC 1,31
 - Attestazione CSA STAR
@@ -38,16 +38,18 @@ Le seguenti certificazioni del firewall di Azure sono destinate a Global Azure:
 - Leggi sulla privacy canadese
 - DPP (REGNO UNITO)
 - IAF DELL'ENISA
-- Clausole del modello UE
+- Clausole modello UE
 - Autorità bancaria europea
 - FCA e PRA (Regno Unito)
-- FERPA (STATI UNITI)
+- FERPA (USA)
 - FFIEC (STATI UNITI)
 - FINMA (Svizzera)
 - FSA (Danimarca)
-- GLBA (STATI UNITI)
+- GLBA (USA)
 - Germania C5
 - GxP (FDA 21 CFR parte 11)
+- HIPPA
+- HITECH Act (Stati Uniti)
 - HITRUST
 - ISO 20000-1:2011
 - ISO 22301:2012
@@ -66,11 +68,11 @@ Le seguenti certificazioni del firewall di Azure sono destinate a Global Azure:
 - Paesi Bassi BIR 2012
 - OSFI (Canada)
 - PCI DSS Livello 1
-- RBI e IRDAi (India)
+- RBI e IRDAI (India)
 - SOC 1 tipo 2
 - SOC 2 tipo 2
 - SOC 3
-- SOX (STATI UNITI)
+- SOX (USA)
 - DPA Spagna
 - TISAX
 - TruSight
@@ -91,18 +93,20 @@ Le seguenti certificazioni di Azure firewall sono destinate ad Azure per enti pu
 - EAR
 - FIPS 140-2
 - FedRAMP High
+- HIPAA
+- HITECH Act (Stati Uniti)
 - HITRUST
 - IRS 1075
 - ITAR
-- MARS-E (STATI UNITI)
+- MARS-E (USA)
 - NERC
 - Framework Cybersecurity NIST
 - NIST SP 800-171
 - SOC 1 tipo 2
 - SOC 2 tipo 2
 - SOC 3
-- SOX (STATI UNITI)
-- Sezione 508 modelli VPAT
+- SOX (USA)
+- Section 508 modelli VPAT
 
 ## <a name="icsa-labs-corporate-firewall-certification"></a>Certificazione del firewall aziendale di ICSA Labs
 

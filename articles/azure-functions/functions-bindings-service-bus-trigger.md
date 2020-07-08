@@ -1,23 +1,24 @@
 ---
-title: Associazioni del bus di servizio di Azure per Funzioni di Azure
+title: Trigger del bus di servizio di Azure per funzioni di Azure
 description: Informazioni su come eseguire una funzione di Azure quando vengono creati i messaggi del bus di servizio di Azure.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: tracking-python
+ms.openlocfilehash: ee4961c6c1bb8cafe25ec2c84affdf0f1789e9f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603027"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Trigger del bus di servizio di Azure per funzioni di Azure
 
 Usare il trigger di bus di servizio per rispondere a messaggi da una coda o da un argomento del bus di servizio. A partire dalla versione dell'estensione 3.1.0, è possibile attivare un argomento o una coda abilitata per la sessione.
 
-Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](functions-bindings-service-bus-output.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-service-bus-output.md).
 
 ## <a name="example"></a>Esempio
 
@@ -119,7 +120,7 @@ module.exports = function(context, myQueueItem) {
 
 Nell'esempio seguente viene illustrato come leggere un messaggio della coda del bus di servizio tramite un trigger.
 
-Un'associazione del bus di servizio è definita in *Function. JSON,* dove *Type* è impostato su `serviceBusTrigger`.
+Un'associazione del bus di servizio viene definita infunction.jsin cui il *tipo* è impostato *su* `serviceBusTrigger` .
 
 ```json
 {
@@ -136,7 +137,7 @@ Un'associazione del bus di servizio è definita in *Function. JSON,* dove *Type*
 }
 ```
 
-Il codice in * _ \_init_\_. py* dichiara un parametro come `func.ServiceBusMessage`, che consente di leggere il messaggio della coda nella funzione.
+Il codice in * _ \_ init_ \_ . py* dichiara un parametro come `func.ServiceBusMessage` , che consente di leggere il messaggio della coda nella funzione.
 
 ```python
 import azure.functions as func
@@ -182,7 +183,7 @@ La funzione Java seguente usa l' `@ServiceBusQueueTrigger` annotazione dalla [li
  }
 ```
 
-Le funzioni Java possono essere attivate anche quando un messaggio viene aggiunto a un argomento del bus di servizio. Nell'esempio seguente viene utilizzata `@ServiceBusTopicTrigger` l'annotazione per descrivere la configurazione del trigger.
+Le funzioni Java possono essere attivate anche quando un messaggio viene aggiunto a un argomento del bus di servizio. Nell'esempio seguente viene utilizzata l' `@ServiceBusTopicTrigger` annotazione per descrivere la configurazione del trigger.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -222,7 +223,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare gli attri
   }
   ```
 
-  Poiché la `Connection` proprietà non è definita, funzioni Cerca un'impostazione dell'app `AzureWebJobsServiceBus`denominata, che è il nome predefinito per la stringa di connessione del bus di servizio. È anche possibile impostare la `Connection` proprietà per specificare il nome di un'impostazione dell'applicazione che contiene la stringa di connessione del bus di servizio da usare, come illustrato nell'esempio seguente:
+  Poiché la `Connection` proprietà non è definita, funzioni Cerca un'impostazione dell'app denominata `AzureWebJobsServiceBus` , che è il nome predefinito per la stringa di connessione del bus di servizio. È anche possibile impostare la `Connection` proprietà per specificare il nome di un'impostazione dell'applicazione che contiene la stringa di connessione del bus di servizio da usare, come illustrato nell'esempio seguente:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -264,7 +265,7 @@ L'account per il bus di servizio da usare è determinato nell'ordine seguente:
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script C#.
+Gli attributi non sono supportati da Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -286,23 +287,23 @@ Per altri dettagli, vedere l' [esempio](#example) di trigger.
 
 ## <a name="configuration"></a>Configurazione
 
-La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `ServiceBusTrigger` attributo.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `ServiceBusTrigger`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "serviceBusTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
-|**direzione** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**name** | n/d | Nome della variabile che rappresenta il messaggio della coda o dell'argomento nel codice della funzione. |
+|**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
+|**nome** | n/d | Nome della variabile che rappresenta il messaggio della coda o dell'argomento nel codice della funzione. |
 |**queueName**|**QueueName**|Nome della coda da monitorare.  Impostare questa proprietà solo quando si monitora una coda, non un argomento.
 |**topicName**|**TopicName**|Nome dell'argomento da monitorare. Impostare questa proprietà solo quando si monitora un argomento, non una coda.|
 |**subscriptionName**|**SubscriptionName**|Nome della sottoscrizione da monitorare. Impostare questa proprietà solo quando si monitora un argomento, non una coda.|
-|**connection**|**Connessione**|Nome di un'impostazione dell'app che contiene la stringa di connessione del bus di servizio da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo la parte restante del nome. Se ad esempio si imposta `connection` su "MyServiceBus", il runtime di funzioni Cerca un'impostazione dell'app denominata "AzureWebJobsMyServiceBus". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione del bus di servizio predefinita nell'impostazione dell'app denominata "AzureWebJobsServiceBus".<br><br>Per ottenere una stringa di connessione, seguire i passaggi indicati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico. |
+|**connection**|**Connection**|Nome di un'impostazione dell'app che contiene la stringa di connessione del bus di servizio da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo la parte restante del nome. Se ad esempio si imposta `connection` su "MyServiceBus", il runtime di funzioni Cerca un'impostazione dell'app denominata "AzureWebJobsMyServiceBus". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione del bus di servizio predefinita nell'impostazione dell'app denominata "AzureWebJobsServiceBus".<br><br>Per ottenere una stringa di connessione, seguire i passaggi indicati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico. |
 |**accessRights**|**Accesso**|Diritti di accesso per la stringa di connessione. I valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci**. Se si usa una stringa di connessione priva dell'autorizzazione **Gestisci**, impostare `accessRights` su "listen". In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione. In funzioni di Azure versione 2. x e successive questa proprietà non è disponibile perché la versione più recente dell'SDK del bus di servizio non supporta le operazioni di gestione.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true`Se ci si connette a una coda o a una sottoscrizione in [grado di riconoscere la sessione](../service-bus-messaging/message-sessions.md) . `false`in caso contrario, che corrisponde al valore predefinito.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -311,9 +312,10 @@ Per il messaggio della coda o dell'argomento sono disponibili i tipi di parametr
 * `string`: se il messaggio è costituito da testo.
 * `byte[]`: utile per i dati binari.
 * Un tipo personalizzato: se il messaggio contiene JSON, Funzioni di Azure tenta di deserializzare i dati JSON.
-* `BrokeredMessage`: Fornisce il messaggio deserializzato con il metodo [BrokeredMessage. GetBody\<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* `BrokeredMessage`: Fornisce il messaggio deserializzato con il metodo [BrokeredMessage. GetBody \<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* [`MessageReceiver`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet)-Usato per ricevere e confermare messaggi dal contenitore di messaggi (obbligatorio quando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) è impostato su `false` )
 
-Questi tipi di parametro sono per funzioni di Azure versione 1. x; per 2. x e versioni successive, [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) usare anziché `BrokeredMessage`.
+Questi tipi di parametro sono per funzioni di Azure versione 1. x; per 2. x e versioni successive, usare [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) anziché `BrokeredMessage` .
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
@@ -322,21 +324,21 @@ Per il messaggio della coda o dell'argomento sono disponibili i tipi di parametr
 * `string`: se il messaggio è costituito da testo.
 * `byte[]`: utile per i dati binari.
 * Un tipo personalizzato: se il messaggio contiene JSON, Funzioni di Azure tenta di deserializzare i dati JSON.
-* `BrokeredMessage`: Fornisce il messaggio deserializzato con il metodo [BrokeredMessage. GetBody\<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* `BrokeredMessage`: Fornisce il messaggio deserializzato con il metodo [BrokeredMessage. GetBody \<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
-Questi parametri sono per funzioni di Azure versione 1. x; per 2. x e versioni successive, [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) usare anziché `BrokeredMessage`.
+Questi parametri sono per funzioni di Azure versione 1. x; per 2. x e versioni successive, usare [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) anziché `BrokeredMessage` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Accedere al messaggio della coda o dell'argomento `context.bindings.<name from function.json>`usando. Il messaggio del bus di servizio viene passato alla funzione come stringa o oggetto JSON.
+Accedere al messaggio della coda o dell'argomento usando `context.bindings.<name from function.json>` . Il messaggio del bus di servizio viene passato alla funzione come stringa o oggetto JSON.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Il messaggio della coda è disponibile per la funzione tramite un parametro tipizzato come `func.ServiceBusMessage`. Il messaggio del bus di servizio viene passato alla funzione come stringa o oggetto JSON.
+Il messaggio della coda è disponibile per la funzione tramite un parametro tipizzato come `func.ServiceBusMessage` . Il messaggio del bus di servizio viene passato alla funzione come stringa o oggetto JSON.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Il messaggio del bus di servizio in ingresso è disponibile `ServiceBusQueueMessage` tramite `ServiceBusTopicMessage` un parametro o.
+Il messaggio del bus di servizio in ingresso è disponibile tramite un `ServiceBusQueueMessage` `ServiceBusTopicMessage` parametro o.
 
 [Per informazioni dettagliate, vedere l'esempio](#example).
 

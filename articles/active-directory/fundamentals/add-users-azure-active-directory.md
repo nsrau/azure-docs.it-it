@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c30730f685945d129ababb27040f34bf8ab2f790
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262113"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603860"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Aggiungere o eliminare utenti tramite Azure Active Directory
 
@@ -32,7 +32,7 @@ Per aggiungere un nuovo utente, attenersi alla seguente procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore dell'organizzazione.
 
-1. Cercare e selezionare *Azure Active Directory* da qualsiasi pagina.
+1. Cercare e selezionare *Azure Active Directory* in qualsiasi pagina.
 
 1. Selezionare **utenti**, quindi selezionare **nuovo utente**.
 
@@ -44,17 +44,17 @@ Per aggiungere un nuovo utente, attenersi alla seguente procedura:
 
    - **Nome utente**. Obbligatorio. Nome utente del nuovo utente. Ad esempio: `mary@contoso.com`.
 
-     La parte del dominio del nome utente deve usare il nome di dominio predefinito iniziale, * \<NomeDominio>. onmicrosoft.com*o un nome di dominio personalizzato, ad esempio *contoso.com*. Per altre informazioni su come creare un nome di dominio personalizzato, vedere [aggiungere il nome di dominio personalizzato usando il portale di Azure Active Directory](add-custom-domain.md).
+     La parte del dominio del nome utente deve usare il nome di dominio predefinito iniziale, * \<yourdomainname> onmicrosoft.com*, o un nome di dominio personalizzato, ad esempio *contoso.com*. Per altre informazioni su come creare un nome di dominio personalizzato, vedere [aggiungere il nome di dominio personalizzato usando il portale di Azure Active Directory](add-custom-domain.md).
 
    - **Gruppi**. Facoltativamente, è possibile aggiungere l'utente a uno o più gruppi esistenti. È anche possibile aggiungere l'utente a gruppi in un secondo momento. Per ulteriori informazioni sull'aggiunta di utenti ai gruppi, vedere [creare un gruppo di base e aggiungere membri utilizzando Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
-   - **Ruolo della directory**: se è necessario Azure ad autorizzazioni amministrative per l'utente, è possibile aggiungerle a un ruolo di Azure ad. È possibile assegnare all'utente un ruolo di amministratore globale o uno o più ruoli di amministratore limitati in Azure AD. Per altre informazioni sull'assegnazione di ruoli, vedere [Come assegnare ruoli agli utenti](active-directory-users-assign-role-azure-portal.md).
+   - **Ruolo della directory**. Se sono necessari autorizzazioni amministrative Azure AD per l'utente, è possibile aggiungerle a un ruolo di Azure AD. È possibile assegnare all'utente un ruolo di amministratore globale o uno o più ruoli di amministratore limitati in Azure AD. Per altre informazioni sull'assegnazione di ruoli, vedere [Come assegnare ruoli agli utenti](active-directory-users-assign-role-azure-portal.md).
 
    - **Informazioni sul processo**: è possibile aggiungere altre informazioni sull'utente oppure eseguirle in un secondo momento. Per altre informazioni sull'aggiunta di informazioni sull'utente, vedere [Come aggiungere o modificare informazioni di un profilo utente](active-directory-users-profile-azure-portal.md).
 
 1. Copiare la password generata automaticamente specificata nella casella **password** . Sarà necessario assegnare questa password all'utente per accedere per la prima volta.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 L'utente viene creato e aggiunto all'organizzazione Azure AD.
 
@@ -78,7 +78,7 @@ Per eliminare un utente, attenersi alla seguente procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando un account amministratore utente per l'organizzazione.
 
-1. Cercare e selezionare *Azure Active Directory* da qualsiasi pagina.
+1. Cercare e selezionare *Azure Active Directory* in qualsiasi pagina.
 
 1. Cercare e selezionare l'utente che si vuole eliminare dal tenant di Azure AD. Ad esempio, _Mary Parker_.
 

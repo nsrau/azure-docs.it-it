@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 06/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc81cca10bacc581e72c7caa70a0b74b7ae99f9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457927"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604217"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -42,7 +42,7 @@ Tutti gli utenti dispongono di una singola *Home* directory per l'autenticazione
 
 Prima di poter associare o aggiungere la sottoscrizione, eseguire le attività seguenti:
 
-- Esaminare l'elenco di modifiche seguente e la relativa modalità di impatto:
+- Esaminare l'elenco seguente di modifiche che verranno eseguite dopo aver associato o aggiunto la sottoscrizione e come potrebbe essere interessata:
 
   - Gli utenti a cui sono stati assegnati ruoli con RBAC perderanno l'accesso
   - L'amministratore del servizio e i coamministratori perderanno l'accesso
@@ -61,23 +61,23 @@ Prima di poter associare o aggiungere la sottoscrizione, eseguire le attività s
 
 Per associare una sottoscrizione esistente alla directory di Azure AD, attenersi alla seguente procedura:
 
-1. Eseguire l'accesso e selezionare una sottoscrizione dalla [pagina Sottoscrizioni del portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Accedere e selezionare la sottoscrizione che si vuole usare [nella pagina sottoscrizioni in portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 1. Selezionare **Cambia directory**.
 
     ![Pagina delle sottoscrizioni con l'opzione Cambia directory evidenziata](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
 
-1. Esaminare eventuali avvisi che vengono visualizzati e selezionare **Cambia**.
+1. Esaminare gli eventuali avvisi visualizzati, quindi selezionare **Cambia**.
 
     ![Pagina di modifica della directory con la nuova directory visualizzata](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    La directory è stata modificata per la sottoscrizione e viene visualizzato un messaggio di operazione riuscita.
+    Una volta modificata la directory per la sottoscrizione, verrà ricevuto un messaggio di operazione completata.
 
-    ![Messaggio di operazione completata sulla modifica della directory](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+  1. Selezionare **Cambia directory** nella pagina sottoscrizione per passare alla nuova directory. 
 
-Usare **Switch directory** per passare alla nuova directory. La visualizzazione corretta di tutti gli elementi può richiedere diverse ore. Se sembra richiedere troppo tempo, controllare il **filtro della sottoscrizione globale**. Assicurarsi che la sottoscrizione spostata non sia nascosta. Potrebbe essere necessario disconnettersi dal portale di Azure ed eseguire di nuovo l'accesso per visualizzare la nuova directory.
+      ![Pagina Switcher directory con informazioni di esempio](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-![Pagina Switcher directory con informazioni di esempio](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+      La visualizzazione corretta di tutti gli elementi può richiedere diverse ore. Se sembra richiedere troppo tempo, controllare il **filtro della sottoscrizione globale**. Assicurarsi che la sottoscrizione spostata non sia nascosta. Potrebbe essere necessario disconnettersi dal portale di Azure ed eseguire di nuovo l'accesso per visualizzare la nuova directory.
 
 La modifica della directory della sottoscrizione è un'operazione a livello di servizio, pertanto non influisce sulla proprietà della fatturazione della sottoscrizione. L'amministratore dell'account può comunque modificare l'amministratore del servizio dal [Centro account](https://account.azure.com/subscriptions). Per eliminare la directory originale, è necessario trasferire la proprietà di fatturazione della sottoscrizione a un nuovo amministratore account. Per altre informazioni sul trasferimento della proprietà della fatturazione, vedere [trasferire la proprietà di una sottoscrizione di Azure a un altro account](../../cost-management-billing/manage/billing-subscription-transfer.md).
 
@@ -87,7 +87,7 @@ Dopo aver associato una sottoscrizione a una directory diversa, potrebbe essere 
 
 - Se sono presenti insiemi di credenziali delle chiavi, è necessario modificare l'ID tenant dell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [modificare un ID tenant di Key Vault dopo uno spostamento della sottoscrizione](../../key-vault/general/subscription-move-fix.md).
 
-- Se sono state usate identità gestite assegnate dal sistema per le risorse, è necessario riabilitare tali identità. Se sono state usate identità gestite assegnate dall'utente, è necessario ricreare tali identità. Dopo aver riattivato o ricreato le identità gestite, è necessario ristabilire le autorizzazioni assegnate a tali identità. Per altre informazioni, vedere informazioni sulle [identità gestite per le risorse di Azure](../managed-identities-azure-resources/overview.md).
+- Se sono state usate identità gestite assegnate dal sistema per le risorse, è necessario riabilitare tali identità. Se sono state usate identità gestite assegnate dall'utente, è necessario ricreare tali identità. Dopo aver riattivato o ricreato le identità gestite, è necessario ristabilire le autorizzazioni assegnate a tali identità. Per altre informazioni, vedere [Informazioni sulle identità gestite per le risorse di Azure](../managed-identities-azure-resources/overview.md).
 
 - Se è stata registrata una Azure Stack usando questa sottoscrizione, è necessario ripetere la registrazione. Per altre informazioni, vedere [registrare Azure stack con Azure](/azure-stack/operator/azure-stack-registration).
 

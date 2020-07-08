@@ -4,14 +4,14 @@ description: Questo articolo descrive come gestire la raccolta di inventario dal
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventario, automazione, modifica, gestione
-ms.date: 01/28/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830617"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603112"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Gestire la raccolta dell'inventario dalle VM
 
@@ -87,7 +87,7 @@ Le sezioni seguenti forniscono informazioni sulle proprietà che possono essere 
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio **/etc/*.conf**.       |
 |Tipo di percorso     | Tipo di elemento da registrare. I valori sono File e Directory.        |
 |Ricorsione     | True se viene usata la ricorsione per la ricerca dell'elemento da rilevare, False in caso contrario.        |
-|Usa Sudo     | True se si utilizza sudo quando si cerca l'elemento e False in caso contrario.         |
+|Usare sudo     | True se si utilizza sudo quando si cerca l'elemento e False in caso contrario.         |
 |Collegamenti     | Valore che determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory. I valori possibili sono: <br> Ignora: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento<br>Segui: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento<br>Gestisci: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
 
 ## <a name="manage-machine-groups"></a>Gestire i gruppi di computer
@@ -100,7 +100,7 @@ Per visualizzare i gruppi di computer, selezionare la scheda **Gruppi di compute
 
 ![Visualizzare i gruppi di computer nella pagina Inventario](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-Selezionando un gruppo di computer nell'elenco, si apre la pagina Gruppi di computer. Questa pagina mostra i dettagli del gruppo di computer. Questi dettagli includono la query di Log Analytics usata per definire il gruppo. Nella parte inferiore della pagina è presente un elenco su più pagine dei computer che fanno parte di tale gruppo.
+Selezionando un gruppo di computer nell'elenco, si apre la pagina Gruppi di computer. Questa pagina mostra i dettagli del gruppo di computer. Questi dettagli includono la query del log di monitoraggio di Azure usata per definire il gruppo. Nella parte inferiore della pagina è presente un elenco su più pagine dei computer che fanno parte di tale gruppo.
 
 ![Visualizzare la pagina del gruppo di computer](./media/automation-vm-inventory/machine-group-page.png)
 
@@ -115,15 +115,18 @@ Per creare un nuovo gruppo di computer, fare clic su **+ Crea un gruppo di compu
 Per rimuovere la macchina virtuale da Rilevamento modifiche e inventario:
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Log Analytics** e quindi selezionare l'area di lavoro usata durante l'abilitazione della macchina virtuale per Rilevamento modifiche e inventario.
-2. Nella pagina Log Analytics aprire il menu **Risorse**.
+2. Nella pagina **log Analytics** aprire il menu **delle risorse** .
 3. Selezionare **Macchine virtuali** in **Origini dati dell'area di lavoro**.
 4. Nell'elenco selezionare la macchina virtuale da disconnettere. La macchina avrà un segno di spunta verde accanto alla voce **Questa area di lavoro** nella colonna **Connessione OMS**.
 
    >[!NOTE]
    >Operations Management Suite (OMS) è ora indicato come log di Monitoraggio di Azure.
-   
+
 5. Nella parte superiore della pagina successiva selezionare **Disconnetti**.
 6. Nella finestra di conferma fare clic su **Sì** per disconnettere la macchina virtuale dalla gestione.
+
+>[!NOTE]
+>Le macchine virtuali vengono comunque visualizzate dopo aver annullato la registrazione, perché si segnalano tutti i computer in inventario nelle ultime 24 ore. Dopo la disconnessione del computer, è necessario attendere 24 ore prima che non vengano più elencate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
