@@ -13,7 +13,6 @@ ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: b6bda6d35391543e416c377557e34de317e293eb
 ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83741578"
