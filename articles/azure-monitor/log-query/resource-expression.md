@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665700"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>espressione Resource () nella query del log di monitoraggio di Azure
@@ -22,7 +21,7 @@ L' `resource` espressione viene usata in una query di monitoraggio di Azure con 
 
 `resource(`*Identificatore*`)`
 
-## <a name="arguments"></a>Argomenti
+## <a name="arguments"></a>Arguments
 
 - *Identificatore*: ID risorsa di una risorsa.
 

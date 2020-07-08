@@ -9,10 +9,9 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e3997fc215637175165402a926bffc6ac8d02771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77914859"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accesso multi-protocollo in Azure Data Lake Storage
@@ -45,7 +44,7 @@ Gli strumenti e le applicazioni esistenti che usano l'API blob ottengono automat
 - [Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
 - [Servizi di Azure che supportano Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 - [Piattaforme open source che supportano Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
-- [Problemi noti con Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+- [Problemi noti di Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 
 
 

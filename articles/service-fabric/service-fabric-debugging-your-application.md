@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: fff8a19d5643f7ce866c9eb9c57486340b6f8a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77624128"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug dell'applicazione di Service Fabric mediante Visual Studio
@@ -56,7 +55,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 ### <a name="running-a-script-as-part-of-debugging"></a>Esecuzione di uno script come parte del debug
 In alcuni scenari potrebbe essere necessario eseguire uno script durante l'avvio di una sessione di debug, ad esempio quando non si utilizzano i servizi predefiniti.
 
-In Visual Studio è possibile aggiungere un file denominato **Start-Service. ps1** nella cartella **Scripts** del progetto di applicazione Service Fabric (. sfproj). Questo script verrà richiamato dopo che l'applicazione è stata creata nel cluster locale.
+In Visual Studio è possibile aggiungere un file denominato **Start-Service.ps1** nella cartella **Scripts** del progetto di applicazione Service Fabric (sfproj). Questo script verrà richiamato dopo che l'applicazione è stata creata nel cluster locale.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

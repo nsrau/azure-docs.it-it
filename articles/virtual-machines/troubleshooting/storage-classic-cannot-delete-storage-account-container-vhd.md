@@ -9,10 +9,9 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77915038"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione della versione classica
@@ -114,7 +113,7 @@ Se l'utente sceglie di effettuare l'eliminazione tramite PowerShell, si verifich
 Seguire questa procedura nel portale di Azure:
 1.  Passare al [portale di Azure](https://portal.azure.com).
 2.  Passare ai dischi (versione classica). 
-3.  Fare clic sulla scheda dischi ![. screenshot del portale, con il riquadro "elenco" del BLOB del contenitore aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Fare clic sulla scheda dischi. ![ Screenshot del portale, con il riquadro "elenco" del blob contenitore aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Selezionare il disco dati, quindi fare clic su Elimina disco.
  ![Screenshot del portale, con il riquadro "elenco" dei BLOB contenitori aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)

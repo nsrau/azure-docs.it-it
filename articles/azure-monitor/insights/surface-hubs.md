@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662502"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorare dispositivi Surface Hub con Monitoraggio di Azure per tracciarne l'integrità
@@ -40,7 +39,7 @@ Saranno necessari l'ID e la chiave dell'area di lavoro per l'area di lavoro Log 
 Intune è un prodotto Microsoft che permette di gestire centralmente le impostazioni di configurazione dell'area di lavoro Log Analytics che si applicano a uno o più dispositivi. Seguire questa procedura per configurare i dispositivi tramite Intune:
 
 1. Accedere a Intune.
-2. Passare a **Impostazioni** > **origini connesse**.
+2. Passare a **Impostazioni**  >  **origini connesse**.
 3. Creare o modificare un criterio basato sul modello di Surface Hub.
 4. Andare alla sezione Azure Operational Insights del criterio e aggiungere al criterio i valori di *ID area di lavoro* e *Chiave dell'area di lavoro* di Log Analytics.
 5. Salvare il criterio.

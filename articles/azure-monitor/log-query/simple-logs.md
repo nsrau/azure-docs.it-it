@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
 ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77660258"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Esperienza dei log semplici in monitoraggio di Azure (anteprima)
@@ -28,7 +27,7 @@ Passare a qualsiasi Cosmos DB o Key Vault nella sottoscrizione di Azure con [le 
 
 ![Menu](media/simple-logs/menu.png)
 
-Selezionare un **campo** e un **operatore** e specificare un **valore** per il confronto. Fare **+** clic e specificare **e/o** per aggiungere altri criteri.
+Selezionare un **campo** e un **operatore** e specificare un **valore** per il confronto. Fare clic **+** e specificare **e/o** per aggiungere altri criteri.
 
 ![Criteri](media/simple-logs/criteria.png)
 

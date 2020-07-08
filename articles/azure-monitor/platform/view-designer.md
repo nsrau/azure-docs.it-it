@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
 ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658490"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creare visualizzazioni personalizzate usando Progettazione viste in monitoraggio di Azure
@@ -49,7 +48,7 @@ Le visualizzazioni create con Progettazione visualizzazioni mostrano le opzioni 
 
 Le opzioni sono descritte nella tabella seguente:
 
-| Opzione | Descrizione |
+| Opzione | Description |
 |:--|:--|
 | Aggiorna   | Aggiorna la visualizzazione con i dati più recenti. | 
 | Log      | Apre il [log Analytics](../log-query/portals.md) per analizzare i dati con le query di log. |
@@ -95,12 +94,12 @@ Le opzioni per l'uso delle visualizzazioni in modalità di modifica sono descrit
 
 ![Menu Modifica](media/view-designer/edit-menu.png)
 
-| Opzione | Descrizione |
+| Opzione | Description |
 |:--|:--|
-| Salvare        | Salva le modifiche e chiude la visualizzazione. |
+| Salva        | Salva le modifiche e chiude la visualizzazione. |
 | Annulla      | Annulla le modifiche e chiude la visualizzazione. |
 | Eliminare la visualizzazione | Elimina la visualizzazione. |
-| Export      | Esporta la visualizzazione in un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) da importare in un'altra area di lavoro. Il nome del file corrisponde al nome della visualizzazione e ha estensione *omsview*. |
+| Esportazione      | Esporta la visualizzazione in un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) da importare in un'altra area di lavoro. Il nome del file corrisponde al nome della visualizzazione e ha estensione *omsview*. |
 | Importa      | Importa il file *omsview* esportato da un'altra area di lavoro. Questa azione sovrascrive la configurazione della visualizzazione esistente. |
 | Clone       | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
 

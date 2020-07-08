@@ -9,17 +9,16 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
 ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925605"
 ---
 # <a name="linux-performance-troubleshooting"></a>Risoluzione dei problemi relativi alle prestazioni di Linux
 
 L'esaurimento delle risorse nei computer Linux è un problema comune che può manifestarsi attraverso un'ampia gamma di sintomi. In questo documento viene fornita una panoramica di alto livello degli strumenti disponibili per la diagnosi di tali problemi.
 
-Molti di questi strumenti accettano un intervallo in cui produrre output in sequenza. Questo formato di output rende in genere più semplice l'individuazione di modelli. Laddove accettata, la chiamata di esempio includerà `[interval]`.
+Molti di questi strumenti accettano un intervallo in cui produrre output in sequenza. Questo formato di output rende in genere più semplice l'individuazione di modelli. Laddove accettata, la chiamata di esempio includerà `[interval]` .
 
 Molti di questi strumenti hanno una cronologia estesa e un ampio set di opzioni di configurazione. Questa pagina fornisce solo un subset semplice di chiamate per evidenziare i problemi comuni. L'origine di informazioni canoniche è sempre la documentazione di riferimento per ogni particolare strumento. La documentazione sarà molto più approfondita rispetto a quanto specificato qui.
 
@@ -119,11 +118,11 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`fornisce informazioni `mpstat` simili e `top`, enumerando il numero di processi in attesa di CPU (colonna r), statistiche della memoria e percentuale del tempo di CPU impiegato in ogni stato di lavoro.
+`vmstat`fornisce informazioni simili `mpstat` e `top` , enumerando il numero di processi in attesa di CPU (colonna r), statistiche della memoria e percentuale del tempo di CPU impiegato in ogni stato di lavoro.
 
-## <a name="memory"></a>Memoria
+## <a name="memory"></a>Memory
 
-La memoria è una risorsa molto importante e fortunatamente facile da tenere traccia. Alcuni strumenti possono segnalare CPU e memoria, ad esempio `vmstat`. Tuttavia, gli `free` strumenti come possono essere ancora utili per il debug rapido.
+La memoria è una risorsa molto importante e fortunatamente facile da tenere traccia. Alcuni strumenti possono segnalare CPU e memoria, ad esempio `vmstat` . Tuttavia, gli strumenti come `free` possono essere ancora utili per il debug rapido.
 
 ### <a name="free"></a>libero
 
@@ -157,7 +156,7 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`fornisce informazioni approfondite sull'utilizzo dei dischi. Questa chiamata passa `-x` per le statistiche estese `-y` , per ignorare le medie iniziali del sistema di stampa dell'output dall' `1 1` avvio e per specificare che si desidera un intervallo di 1 secondo, che termina dopo un blocco di output. 
+`iostat`fornisce informazioni approfondite sull'utilizzo dei dischi. Questa chiamata passa `-x` per le statistiche estese, `-y` per ignorare le medie iniziali del sistema di stampa dell'output dall'avvio e `1 1` per specificare che si desidera un intervallo di 1 secondo, che termina dopo un blocco di output. 
 
 `iostat`espone molte statistiche utili:
 
@@ -199,7 +198,7 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`è uno strumento potente per un'ampia gamma di analisi. Sebbene in questo esempio venga utilizzata la capacità di misurare le statistiche di rete, è ugualmente potente per misurare l'utilizzo della CPU e della memoria. Questo esempio richiama `sar` con `-n` flag per specificare la parola `DEV` chiave (dispositivo di rete), visualizzando la velocità effettiva della rete per dispositivo.
+`sar`è uno strumento potente per un'ampia gamma di analisi. Sebbene in questo esempio venga utilizzata la capacità di misurare le statistiche di rete, è ugualmente potente per misurare l'utilizzo della CPU e della memoria. Questo esempio richiama `sar` con `-n` flag per specificare la `DEV` parola chiave (dispositivo di rete), visualizzando la velocità effettiva della rete per dispositivo.
 
 - La somma di `rxKb/s` e `txKb/s` è la velocità effettiva totale per un determinato dispositivo. Quando questo valore supera il limite per la scheda di interfaccia di rete di Azure di cui è stato effettuato il provisioning, i carichi di lavoro nel computer aumenteranno la latenza
 - `%ifutil`misura l'utilizzo per un determinato dispositivo. Poiché questo valore si avvicina al 100%, i carichi di lavoro riscontrano una maggiore latenza di rete.
@@ -221,7 +220,7 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-Questa chiamata di `sar` usa le parole `TCP,ETCP` chiave per esaminare le connessioni TCP. La terza colonna dell'ultima riga, "retrans", è il numero di ritrasmissioni TCP al secondo. Valori elevati per questo campo indicano una connessione di rete non affidabile. Nella prima e terza riga "Active" indica che la connessione è stata originata dal dispositivo locale, mentre "Remote" indica una connessione in ingresso.  Un problema comune in Azure è l'esaurimento delle porte SNAT `sar` , che può essere utile per il rilevamento. L'esaurimento delle porte SNAT si manifesterà come valori "attivi" elevati, perché il problema è dovuto a una frequenza elevata di connessioni TCP avviate localmente e in uscita.
+Questa chiamata di `sar` Usa le `TCP,ETCP` parole chiave per esaminare le connessioni TCP. La terza colonna dell'ultima riga, "retrans", è il numero di ritrasmissioni TCP al secondo. Valori elevati per questo campo indicano una connessione di rete non affidabile. Nella prima e terza riga "Active" indica che la connessione è stata originata dal dispositivo locale, mentre "Remote" indica una connessione in ingresso.  Un problema comune in Azure è l'esaurimento delle porte SNAT, che può essere utile per il `sar` rilevamento. L'esaurimento delle porte SNAT si manifesterà come valori "attivi" elevati, perché il problema è dovuto a una frequenza elevata di connessioni TCP avviate localmente e in uscita.
 
 Come `sar` accetta un intervallo, stampa l'output in sequenza e quindi stampa le righe finali di output contenenti i risultati medi della chiamata.
 

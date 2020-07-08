@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 08/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8df83439d6754440648688ac1cc36ff66556a4e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77668248"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Informazioni sul processo di migrazione automatica per le regole di avviso classiche
@@ -56,5 +55,5 @@ Per informazioni sui problemi che potrebbero verificarsi durante la migrazione, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Preparare la migrazione](alerts-prepare-migration.md)
+- [Prepararsi per la migrazione](alerts-prepare-migration.md)
 - [Informazioni sul funzionamento dello strumento di migrazione](alerts-understand-migration.md)

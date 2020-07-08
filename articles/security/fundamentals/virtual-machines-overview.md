@@ -17,10 +17,9 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657164"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
@@ -64,7 +63,7 @@ Per una protezione ancora più potente, è consigliabile usare [Windows Defender
 * [Punteggio di sicurezza](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
 * [Ricerca avanzata](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Gestione e API](/windows/security/threat-protection/windows-defender-atp/management-apis)
-* [Protezione da minacce di Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
+* [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
 Altre informazioni:
 
@@ -79,7 +78,7 @@ L'insieme di credenziali delle chiavi consente di archiviare le chiavi in moduli
 
 Altre informazioni:
 
-* [Informazioni sull'insieme di credenziali delle chiavi di Azure](/azure/key-vault/key-vault-overview)
+* [Cos'è l'insieme di credenziali chiave di Azure?](/azure/key-vault/key-vault-overview)
 * [Blog sull'insieme di credenziali delle chiavi di Azure](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Crittografia dischi delle macchine virtuali
@@ -129,7 +128,7 @@ Una rete virtuale di Azure è un costrutto logico basato sull'infrastruttura di 
 Altre informazioni:
 
 * [Panoramica della sicurezza di rete di Azure](network-overview.md)
-* [Panoramica di rete virtuale](/azure/virtual-network/virtual-networks-overview)
+* [Panoramica della rete virtuale](/azure/virtual-network/virtual-networks-overview)
 * [Funzionalità di rete e partnership per scenari aziendali](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Gestione e reporting dei criteri di sicurezza

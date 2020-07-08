@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658711"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Opzioni di conversione di Progettazione viste di monitoraggio di Azure in cartelle di lavoro
@@ -20,17 +19,17 @@ ms.locfileid: "77658711"
 
 Progettazione viste presenta uno stile statico fisso di rappresentazione, mentre le cartelle di lavoro consentono di includere e modificare il modo in cui i dati vengono rappresentati. Le immagini seguenti illustrano due esempi di come è possibile disporre le cartelle di lavoro durante la conversione delle visualizzazioni.
 
-[Cartella di lavoro](view-designer-conversion-examples.md#vertical)
-![verticale verticale](media/view-designer-conversion-options/view-designer-vertical.png)
+[Cartella di lavoro verticale](view-designer-conversion-examples.md#vertical) 
+ ![ Verticale](media/view-designer-conversion-options/view-designer-vertical.png)
 
-[Tabbed workbook](view-designer-conversion-examples.md#tabbed)
-![Scheda distribuzione tipo di dati cartella di](media/view-designer-conversion-options/distribution-tab.png)
-![lavoro schede distribuzione tipi di dati nella scheda tempo](media/view-designer-conversion-options/over-time-tab.png)
+[Cartella di lavoro](view-designer-conversion-examples.md#tabbed) 
+ ![ a schede Scheda distribuzione tipo di dati scheda ](media/view-designer-conversion-options/distribution-tab.png)
+ ![ tipi di dati nel tempo](media/view-designer-conversion-options/over-time-tab.png)
 
 ## <a name="tile-conversion"></a>Conversione di sezioni
 Progettazione viste usa la funzionalità Panoramica del riquadro per rappresentare e riepilogare lo stato generale. Questi sono rappresentati in sette riquadri, che variano da numeri a grafici. Nelle cartelle di lavoro, gli utenti possono creare visualizzazioni simili e aggiungerle allo stile originale dei riquadri di panoramica. 
 
-![Gallery](media/view-designer-conversion-options/overview.png)
+![Raccolta](media/view-designer-conversion-options/overview.png)
 
 
 ## <a name="view-dashboard-conversion"></a>Visualizza la conversione del dashboard

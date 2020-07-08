@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669863"
 ---
 # <a name="performance-testing"></a>Test delle prestazioni
@@ -22,7 +21,7 @@ Application Insights consente di generare test di carico per i siti Web. Analoga
 
 Per creare un test delle prestazioni, è prima di tutto necessario creare una risorsa Application Insights. Se è già stata creata una risorsa, procedere alla sezione successiva.
 
-Dal portale di Azure selezionare **Crea una risorsa** > **strumenti di sviluppo** > **Application Insights** e creare una risorsa Application Insights.
+Dal portale di Azure selezionare **Crea una risorsa**  >  **strumenti di sviluppo**  >  **Application Insights** e creare una risorsa Application Insights.
 
 ## <a name="configure-performance-testing"></a>Configurare il test delle prestazioni
 

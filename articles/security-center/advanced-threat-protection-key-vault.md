@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 449096590df6145c9f80dcf2c97726931909a2ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77914807"
 ---
 # <a name="threat-protection-for-azure-key-vault-preview"></a>Protezione dalle minacce per Azure Key Vault (anteprima)
@@ -44,7 +43,7 @@ Per abilitare o disabilitare la protezione per una sottoscrizione specifica:
 
 In questo articolo si è appreso come abilitare e disabilitare Advanced Threat Protection per Azure Key Vault. 
 
-Per materiale correlato, vedere gli articoli seguenti:
+Per i materiali correlati, vedere gli articoli seguenti:
 
 - [Protezione dalle minacce nel centro sicurezza di Azure](threat-protection.md): questo articolo descrive le origini degli avvisi di sicurezza nel centro sicurezza di Azure.
 - [Key Vault gli avvisi di sicurezza](alerts-reference.md#alerts-azurekv): la sezione Key Vault della tabella di riferimento per tutti gli avvisi del Centro sicurezza di Azure

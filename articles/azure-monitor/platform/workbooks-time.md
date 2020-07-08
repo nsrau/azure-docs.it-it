@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658014"
 ---
 # <a name="workbook-time-parameters"></a>Parametri ora cartella di lavoro
@@ -40,7 +39,7 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
 ## <a name="referencing-a-time-parameter"></a>Riferimento a un parametro time
 ### <a name="via-bindings"></a>Tramite binding
 1. Aggiungere un controllo query alla cartella di lavoro e selezionare una risorsa Application Insights.
-2. La maggior parte dei controlli cartella di lavoro supporta una selezione ambito _intervallo di tempo_ . Aprire l'elenco a discesa _intervallo di tempo_ e selezionare `{TimeRange}` il nel gruppo di parametri time Rang in basso.
+2. La maggior parte dei controlli cartella di lavoro supporta una selezione ambito _intervallo di tempo_ . Aprire l'elenco a discesa _intervallo di tempo_ e selezionare il `{TimeRange}` nel gruppo di parametri time Rang in basso.
 3. In questo modo il parametro dell'intervallo di tempo viene associato all'intervallo di tempo del grafico. L'ambito temporale della query di esempio è ora le ultime 24 ore.
 4. Eseguire la query per visualizzare i risultati
 
@@ -49,7 +48,7 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
 ### <a name="in-kql"></a>In KQL
 1. Aggiungere un controllo query alla cartella di lavoro e selezionare una risorsa Application Insights.
 2. In KQL immettere un filtro per l'ambito temporale utilizzando il parametro:`| where timestamp {TimeRange}`
-3. In questo modo si espande il tempo di `| where timestamp > ago(1d)`valutazione della query in, ovvero il valore dell'intervallo di tempo del parametro.
+3. In questo modo si espande il tempo di valutazione della query in `| where timestamp > ago(1d)` , ovvero il valore dell'intervallo di tempo del parametro.
 4. Eseguire la query per visualizzare i risultati
 
     ![Immagine che mostra un intervallo di tempo a cui viene fatto riferimento in KQL](./media/workbooks-time/time-in-code.png)

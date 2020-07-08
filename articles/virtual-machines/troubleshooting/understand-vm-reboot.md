@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919414"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Informazioni sul riavvio del sistema della macchina virtuale di Azure
@@ -47,7 +46,7 @@ Altri aggiornamenti, invece, richiedono il riavvio. In questi casi, le macchine 
 Per informazioni sulla manutenzione pianificata di Azure e su come può influire sulla disponibilità delle macchine virtuali Linux, vedere gli articoli elencati qui. Gli articoli forniscono informazioni di base sul processo di manutenzione pianificata di Azure e su come pianificare la manutenzione per ridurre ulteriormente l'impatto.
 
 - [Manutenzione pianificata per le macchine virtuali in Azure](../windows/planned-maintenance.md)
-- [Come pianificare la manutenzione pianificata nelle macchine virtuali di Azure](../windows/classic/planned-maintenance-schedule.md)
+- [Come pianificare la manutenzione nelle VM di Azure](../windows/classic/planned-maintenance-schedule.md)
 
 ### <a name="memory-preserving-updates"></a>Aggiornamenti con mantenimento della memoria
 

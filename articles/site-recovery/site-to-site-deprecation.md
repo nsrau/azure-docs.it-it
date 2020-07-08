@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
 ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77661671"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Deprecazione del ripristino di emergenza tra siti gestiti dal cliente (con VMM) con Azure Site Recovery
@@ -57,7 +56,7 @@ Se si sceglie di usare l'opzione 1, seguire questa procedura:
 
 Se si sceglie di usare l'opzione 2 dell'uso della replica Hyper-V, eseguire la procedura seguente:
 
-1. In elementi **protetti** > **elementi replicati**fare clic con il pulsante destro del mouse sul computer > **disabilitare la replica**.
+1. In elementi **protetti**  >  **elementi replicati**fare clic con il pulsante destro del mouse sul computer > **disabilitare la replica**.
 2. In **Disabilita replica**selezionare **Rimuovi**.
 
     L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nella macchina virtuale locale **non** verrà rimossa. 

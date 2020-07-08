@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/21/2019
 ms.openlocfilehash: 7d4459867081d920fefb9471b1a682d21040da9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666616"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Monitoraggio delle posizioni dei dati in monitoraggio di Azure
@@ -21,9 +20,9 @@ Monitoraggio di Azure è basato su una [piattaforma di dati](data-platform.md) d
 
 La tabella seguente identifica le diverse posizioni in cui vengono inviati i dati di monitoraggio in Azure e i diversi metodi di accesso.
 
-| Percorso | Descrizione | Metodi di accesso |
+| Location | Descrizione | Metodi di accesso |
 |:---|:---|:---|:--|
-| Metriche di monitoraggio di Azure | Database di serie temporali ottimizzato per l'analisi di dati timestamp. | [Esplora metriche](metrics-getting-started.md)<br>[API metriche di monitoraggio di Azure](/rest/api/monitor/metrics) |
+| Metriche di Monitoraggio di Azure | Database di serie temporali ottimizzato per l'analisi di dati timestamp. | [Esplora metriche](metrics-getting-started.md)<br>[API metriche di monitoraggio di Azure](/rest/api/monitor/metrics) |
 | Log di Monitoraggio di Azure    | Log Analytics area di lavoro basata su Azure Esplora dati, che fornisce un potente motore di analisi e un linguaggio di query avanzato. | [Log Analytics](../log-query/portals.md)<br>[API Log Analytics](https://dev.loganalytics.io/)<br>[API Application Insights](https://dev.applicationinsights.io/reference/get-query) |
 | Log attività | I dati del log attività sono particolarmente utili quando vengono inviati ai log di monitoraggio di Azure per analizzarli con altri dati, ma vengono raccolti autonomamente, in modo da poterli visualizzare direttamente nel portale di Azure. | [Azure portal](activity-log-view.md#azure-portal)<br>[API per gli eventi di Monitoraggio di Azure](/rest/api/monitor/eventcategories) |
 | Archiviazione di Azure | Alcune origini dati scriveranno direttamente in archiviazione di Azure e richiedono la configurazione per spostare i dati nei log. È anche possibile inviare dati ad archiviazione di Azure per l'archiviazione e l'integrazione con sistemi esterni.  | [Analisi archiviazione](/rest/api/storageservices/storage-analytics)<br>[Esplora server](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |

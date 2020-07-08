@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: spelluru
 ms.openlocfilehash: dda2fd98c4c0d330059156a5ec00baa97ffaf627
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77921063"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
@@ -113,7 +112,7 @@ Griglia di eventi considera **solo** i codici di risposta HTTP seguenti come rec
 
 Tutti gli altri codici non inclusi nel set precedente (200-204) vengono considerati errori e verranno ripetuti. Per alcuni sono disponibili criteri di ripetizione dei tentativi specifici, tutti gli altri seguono il modello di back-off esponenziale standard. È importante tenere presente che, a causa della natura altamente parallela dell'architettura di griglia di eventi, il comportamento di ripetizione dei tentativi è non deterministico. 
 
-| Codice stato | Comportamento in caso di nuovo tentativo |
+| Codice di stato | Comportamento in caso di nuovo tentativo |
 | ------------|----------------|
 | 400 - Richiesta non valida | Riprovare dopo 5 minuti o più (DeadLetter immediatamente se il programma di installazione di DeadLetter) |
 | 401 - Non autorizzato | Riprovare dopo 5 minuti o più |

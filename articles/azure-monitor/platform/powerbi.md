@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
 ms.openlocfilehash: 8ff24d508eb35c4f2a04c7d024254fa6f1875da8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659284"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importare i dati di log di monitoraggio di Azure in Power BI
@@ -29,7 +28,7 @@ Per importare dati da un' [area di lavoro log Analytics](manage-access.md) in mo
 Per iniziare, creare una [query di log](../log-query/log-query-overview.md) che restituisca i dati per i quali si desidera popolare il set di dati Power bi.  Esportare quindi la query nella [lingua di Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification), in modo che possa essere usata da Power BI Desktop.
 
 1. [Creare la query di log in log Analytics](../log-query/get-started-portal.md) per estrarre i dati per il set di dati.
-2. Selezionare **Esporta** > **Power bi query (M)**.  Questa operazione consente di esportare la query in un file di testo denominato **PowerBIQuery. txt**. 
+2. Selezionare **Esporta**  >  **Power bi query (M)**.  Questa operazione consente di esportare la query in un file di testo denominato **PowerBIQuery.txt**. 
 
     ![Esportare la ricerca log](media/powerbi/export-analytics.png)
 
@@ -39,7 +38,7 @@ Per iniziare, creare una [query di log](../log-query/log-query-overview.md) che 
 Power BI Desktop è un'applicazione desktop che consente di creare set di dati e report che possono essere pubblicati in Power BI.  È anche possibile usarlo per creare una query usando il linguaggio di Power Query esportato da monitoraggio di Azure. 
 
 1. Installare [Power BI Desktop](https://powerbi.microsoft.com/desktop/), se non è già stato installato, e aprire quindi l'applicazione.
-2. Selezionare **Get Data** > **blank query** per aprire una nuova query.  Selezionare quindi **Editor avanzato** e incollare il contenuto del file esportato nella query. Fare clic su **Fine**.
+2. Selezionare **Get Data**  >  **blank query** per aprire una nuova query.  Selezionare quindi **Editor avanzato** e incollare il contenuto del file esportato nella query. Fare clic su **Done**.
 
     ![Query di Power BI Desktop](media/powerbi/desktop-new-query.png)
 
@@ -50,7 +49,7 @@ Power BI Desktop è un'applicazione desktop che consente di creare set di dati e
 
 
 
-## <a name="publish-to-power-bi"></a>Pubblicare in Power BI
+## <a name="publish-to-power-bi"></a>Pubblica in Power BI
 Quando si pubblica in Power BI, vengono creati un set di dati e un report.  Se si crea un report in Power BI Desktop, verrà pubblicato completo dei dati.  In caso contrario, verrà creato un report vuoto.  È possibile modificare il report in Power BI o crearne uno nuovo in base al set di dati ottenuto.
 
 1. Creare un report basato sui dati disponibili.  Se necessario, fare riferimento alla [documentazione di Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view).  

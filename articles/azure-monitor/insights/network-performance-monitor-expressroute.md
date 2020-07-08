@@ -7,10 +7,9 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77660751"
 ---
 # <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
@@ -57,7 +56,7 @@ Per altre informazioni sui gruppi di sicurezza di rete, vedere  [Gruppi di sic
 3. Se si intende creare eventi di integrità per la connessione, selezionare **Abilita Monitoraggio integrità per questo peering**. 
 4. Scegliere le condizioni di monitoraggio. È possibile impostare soglie personalizzate per la generazione di eventi di integrità immettendo i valori di soglia. Ogni volta che il valore della condizione supera la soglia selezionata per la connessione peering, viene generato un evento di integrità. 
 5. Selezionare **Aggiungi agenti** per scegliere gli agenti di monitoraggio da usare per il monitoraggio della connessione peering. Assicurarsi di aggiungere agenti a entrambi i lati della connessione. È necessario almeno un agente nella rete virtuale connesso al peering. È anche necessario almeno un agente locale connesso al peering. 
-6. Selezionare **Salva** per salvare la configurazione. 
+6. Selezionare **Save (Salva** ) per salvare la configurazione. 
 
    ![Configurazione del monitoraggio di ExpressRoute](media/network-performance-monitor-expressroute/expressroute-configure-discovery.png)
 

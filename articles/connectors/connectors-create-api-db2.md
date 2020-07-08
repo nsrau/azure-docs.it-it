@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77651382"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Accedere e gestire le risorse IBM DB2 usando app per la logica di Azure
@@ -53,7 +52,7 @@ Il connettore IBM DB2 supporta queste operazioni di database, associabili alle a
 
 * Un database IBM DB2, basato sul cloud o locale
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si intende accedere al database DB2. Questo connettore offre solo azioni, quindi per avviare l'app per la logica, usare un trigger distinto, ad esempio il trigger **Ricorrenza**.
 Gli esempi di questo articolo usano il trigger **Ricorrenza**.
@@ -83,7 +82,7 @@ Per configurare la connessione, specificare questi dettagli quando richiesto, sc
 | Proprietà | Obbligatoria | Descrizione |
 |----------|----------|-------------|
 | **Connetti tramite gateway dati locale** | No | Si applica solo alle connessioni locali. |
-| **Nome connessione** | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" |
+| **Connection Name** (Nome connessione) | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" |
 | **Server** | Sì | L'indirizzo o l'alias-due punti-numero di porta del server DB2, ad esempio, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: questo valore è una stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, seguito da due punti e un numero di porta TCP/IP. |
 | **Database** | Sì | Il nome del database <p><p>**Nota**: questo valore è una stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA: <p>- DB2 per z/OS accetta una stringa di 16 byte, in cui il database è definito come posizione di IBM DB2 per z/OS. <br>- DB2 per i accetta una stringa di 18 byte, in cui il database è definito come database relazionale IBM DB2 per i. <br>- DB2 per LUW accetta una stringa di 8 byte. |
 | **Nome utente** | Sì | Il nome utente del database <p><p>**Nota**: questo valore è una stringa la cui lunghezza è basata sul database specifico: <p><p>- DB2 per z/OS accetta una stringa di 8 byte. <br>- DB2 per i accetta una stringa di 10 byte. <br>- DB2 per Linux o UNIX accetta una stringa di 8 byte. <br>- DB2 per Windows accetta una stringa di 30 byte. |
@@ -103,7 +102,7 @@ Prima di creare la connessione, è necessario aver già installato il gateway da
 | Proprietà | Obbligatoria | Descrizione |
 |----------|----------|-------------|
 | **Connetti tramite gateway dati locale** | Sì | Si applica quando si desidera una connessione locale e mostra le proprietà della connessione locale. |
-| **Nome connessione** | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" | 
+| **Connection Name** (Nome connessione) | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" | 
 | **Server** | Sì | L'indirizzo o l'alias-due punti-numero di porta del server DB2, ad esempio, "myDB2server:50000" <p><p>**Nota**: questo valore è una stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, seguito da due punti e un numero di porta TCP/IP. |
 | **Database** | Sì | Il nome del database <p><p>**Nota**: questo valore è una stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA: <p>- DB2 per z/OS accetta una stringa di 16 byte, in cui il database è definito come posizione di IBM DB2 per z/OS. <br>- DB2 per i accetta una stringa di 18 byte, in cui il database è definito come database relazionale IBM DB2 per i. <br>- DB2 per LUW accetta una stringa di 8 byte. |
 | **autenticazione** | Sì | Il tipo di autenticazione per la connessione, ad esempio, "Base" <p><p>**Nota**: selezionare questo valore dall'elenco, che include Base o Windows (Kerberos). |

@@ -8,10 +8,9 @@ services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
 ms.openlocfilehash: b034159c3d12927f6425b3dc3c5b5609af9b0b76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77649365"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurare una regola di limitazione della frequenza del firewall applicazione Web usando Azure PowerShell
@@ -47,7 +46,7 @@ Install-Module -Name Az.FrontDoor
 Creare un profilo di porta anteriore seguendo le istruzioni descritte nella [Guida introduttiva: creare un profilo di sportello anteriore](../../frontdoor/quickstart-create-front-door.md)
 
 ## <a name="define-url-match-conditions"></a>Definire le condizioni di corrispondenza URL
-Definire una condizione di corrispondenza URL (URL contains/promo) utilizzando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
+Definire una condizione di corrispondenza URL (l'URL contiene/promo) usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
 L'esempio seguente corrisponde a */promo* come valore della variabile *requestUri* :
 
 ```powershell-interactive

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
 ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654869"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Monitoraggio di Azure per le reti (anteprima)
@@ -30,7 +29,7 @@ La vista integrità risorse e avvisi può essere personalizzata usando filtri co
 
 La casella di ricerca può essere usata per cercare le risorse e le risorse associate. Un indirizzo IP pubblico, ad esempio, è associato a un gateway applicazione. La ricerca del nome DNS degli indirizzi IP pubblici identificherà sia l'IP pubblico che il gateway applicazione associato.
 
-![Cerca](media/network-insights-overview/search.png)
+![Ricerca](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Integrità risorse e metrica

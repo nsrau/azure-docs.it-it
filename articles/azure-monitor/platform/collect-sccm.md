@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77655257"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connetti Configuration Manager a monitoraggio di Azure
@@ -47,7 +46,7 @@ Nella procedura seguente si concede il ruolo *Collaboratore* nell'area di lavoro
 > È necessario specificare le autorizzazioni nell'area di lavoro Log Analytics per Configuration Manager. In caso contrario, viene visualizzato un messaggio di errore quando si usa la procedura guidata di configurazione in Configuration Manager.
 >
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco di risorse digitare **log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics**.
+1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics**.
 
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare l'area di lavoro da modificare.
 
@@ -129,7 +128,7 @@ Dopo aver aggiunto una connessione Log Analytics a Configuration Manager e aver 
 
 Dopo aver completato la configurazione iniziale per importare le raccolte di dispositivi dalla gerarchia, le informazioni sulla raccolta vengono recuperate ogni 3 ore per mantenendo l'appartenenza corrente. È possibile scegliere di disabilitare questa opzione in qualsiasi momento.
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco di risorse digitare **log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics aree di lavoro**.
+1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
 2. Nell'elenco delle aree di lavoro di Log Analytics selezionare l'area di lavoro con cui è stato registrato Configuration Manager.  
 3. Selezionare **Impostazioni avanzate**.
 4. Selezionare **Gruppi di computer** e quindi **SCCM**.  

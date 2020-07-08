@@ -12,10 +12,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77648513"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorare l'attività di migrazione con il servizio migrazione del database di Azure
@@ -54,7 +53,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>Migrazione non riuscita. Selezionare il collegamento "Vedere i dettagli dell'errore" nei dettagli della migrazione per visualizzare il messaggio di errore completo.</td>
     </tr>
     <tr>
-      <td rowspan="4" class="Status"><strong>Stato</strong></td>
+      <td rowspan="4" class="Status"><strong>Status</strong></td>
       <td>Inizializzazione in corso</td>
       <td>Il Servizio Migrazione del database sta configurando la pipeline di migrazione.</td>
     </tr>
@@ -132,9 +131,9 @@ La tabella seguente descrive i campi visualizzati nello stato di avanzamento del
 | Nome campo        | Descrizione       |
 | ------------- | ------------- |
 | **Stato - Sincronizzazione**      | Sincronizzazione continua in esecuzione. |
-| **Insert**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |
-| **Aggiornamento** | Numero di aggiornamenti CDC nelle righe applicati alla destinazione.      |
-| **Elimina**      | Numero di eliminazioni CDC nelle righe applicate alla destinazione. |
+| **Inserimento**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |
+| **Update** | Numero di aggiornamenti CDC nelle righe applicati alla destinazione.      |
+| **Eliminazione**      | Numero di eliminazioni CDC nelle righe applicate alla destinazione. |
 | **Totale applicato**      | Totale di aggiornamenti, inserimenti ed eliminazioni CDC nelle righe applicati alla destinazione. |
 | **Errori dei dati** | Numero di errori di dati che si sono verificati nella tabella. Alcuni esempi di errori sono: *511: Cannot create a row of size %d which is greater than the allowable maximum row size of %d (Non è possibile creare una riga di dimensione %d, perché tale valore è maggiore della dimensione di riga massima consentita %d), 8114: Error converting data type %ls to %ls (Errore durante la conversione del tipo di dati %ls in %ls).*  Per visualizzare i dettagli dell'errore, è necessario eseguire una query dalla tabella dms_apply_exceptions nella destinazione di Azure.    |
 

@@ -7,10 +7,9 @@ ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671343"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Abilitare Snapshot Debugger per le app .NET in Azure Service Fabric, servizio cloud e macchine virtuali
@@ -25,7 +24,7 @@ Se l'applicazione è in esecuzione in Service Fabric di Azure, in un servizio cl
 
 2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
 
-3. Se necessario, personalizzare la configurazione Snapshot Debugger aggiunta a [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). La configurazione predefinita del Snapshot Debugger è prevalentemente vuota e tutte le impostazioni sono facoltative. Di seguito è riportato un esempio che mostra una configurazione equivalente alla configurazione predefinita:
+3. Se necessario, personalizzare la configurazione Snapshot Debugger aggiunta al [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). La configurazione predefinita del Snapshot Debugger è prevalentemente vuota e tutte le impostazioni sono facoltative. Di seguito è riportato un esempio che mostra una configurazione equivalente alla configurazione predefinita:
 
     ```xml
     <TelemetryProcessors>
@@ -72,18 +71,18 @@ Se l'applicazione è in esecuzione in Service Fabric di Azure, in un servizio cl
 2. Includere il pacchetto NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'app.
 
 3. Modificare la classe `Startup` dell'applicazione per aggiungere e configurare il processore di telemetria dell'agente di raccolta snapshot.
-    1. Se viene usato [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) versione del pacchetto NuGet 1.3.5 o versione successiva, aggiungere le istruzioni using seguenti `Startup.cs`a.
+    1. Se viene usato [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) versione del pacchetto NuGet 1.3.5 o versione successiva, aggiungere le istruzioni using seguenti a `Startup.cs` .
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       Aggiungere quanto segue alla fine del metodo ConfigureServices nella `Startup` classe in. `Startup.cs`
+       Aggiungere quanto segue alla fine del metodo ConfigureServices nella `Startup` classe in `Startup.cs` .
 
        ```csharp
             services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
-    2. Se viene usato [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) versione del pacchetto NuGet 1.3.4 o di seguito, aggiungere le istruzioni using seguenti `Startup.cs`a.
+    2. Se viene usato [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) versione del pacchetto NuGet 1.3.4 o di seguito, aggiungere le istruzioni using seguenti a `Startup.cs` .
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;
@@ -129,7 +128,7 @@ Se l'applicazione è in esecuzione in Service Fabric di Azure, in un servizio cl
        }
        ```
 
-4. Se necessario, personalizzare la configurazione del Snapshot Debugger aggiungendo una sezione SnapshotCollectorConfiguration a appSettings. JSON. Tutte le impostazioni nella configurazione del Snapshot Debugger sono facoltative. Di seguito è riportato un esempio che mostra una configurazione equivalente alla configurazione predefinita:
+4. Se necessario, personalizzare la configurazione del Snapshot Debugger aggiungendo una sezione SnapshotCollectorConfiguration per appsettings.jssu. Tutte le impostazioni nella configurazione del Snapshot Debugger sono facoltative. Di seguito è riportato un esempio che mostra una configurazione equivalente alla configurazione predefinita:
 
    ```json
    {

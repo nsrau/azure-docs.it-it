@@ -4,10 +4,9 @@ description: Le query di Analisi possono essere visualizzate in Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77663998"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
@@ -36,7 +35,7 @@ Installare [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 3. Nel menu **Esporta** scegliere **Power BI (M)**. Salvare il file di testo.
    
     ![Screenshot di Analisi con il menu Esporta evidenziato](./media/export-power-bi/analytics-export-power-bi.png)
-4. In Power bi desktop selezionare **Ottieni dati** > **query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
+4. In Power bi desktop selezionare **Ottieni dati**  >  **query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
 
     Nell'Editor avanzato incollare lo script in linguaggio M esportato.
 
@@ -61,7 +60,7 @@ Installare [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Screenshot del pulsante Power BI](./media/export-power-bi/button.png)
 
-3. In Power bi desktop selezionare **Ottieni dati** > **query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
+3. In Power bi desktop selezionare **Ottieni dati**  >  **query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
 
    ![Screenshot di Power BI Desktop, con il pulsante Query vuota evidenziato](./media/export-power-bi/blankquery.png)
 
@@ -98,8 +97,8 @@ Se la riduzione del set di dati risultante dalla query di Analisi non è una sol
 
 1. Creare una [chiave API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Aggiornare lo script M di Power BI esportato da Analisi sostituendo l'URL di Azure Resource Manager con l'API di Application Insights.
-   * Sostituisci **https\/:/Management.Azure.com/subscriptions/...**
-   * con, **https:\//API.applicationinsights.io/beta/Apps/...**
+   * Sostituisci **https: \/ /Management.Azure.com/subscriptions/...**
+   * con, **https: \/ /API.applicationinsights.io/beta/Apps/...**
 3. Aggiornare infine le credenziali in credenziali di base e usare la chiave API.
 
 **Script esistente**

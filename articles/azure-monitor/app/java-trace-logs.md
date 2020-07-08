@@ -4,10 +4,9 @@ description: Eseguire la ricerca di tracce Log4J o Logback in Application Insigh
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657215"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Esplorare i log di traccia Java in Application Insights
@@ -18,7 +17,7 @@ Se si usa Logback o Log4J (v1.2 o v2.0) per la traccia, è possibile inviare aut
 
 ## <a name="using-the-application-insights-java-agent"></a>Uso dell'agente Java Application Insights
 
-Per impostazione predefinita, l'agente Java Application Insights acquisisce automaticamente la registrazione `WARN` eseguita a livello e superiore.
+Per impostazione predefinita, l'agente Java Application Insights acquisisce automaticamente la registrazione eseguita a `WARN` livello e superiore.
 
 È possibile modificare la soglia di registrazione acquisita usando il `AI-Agent.xml` file:
 
@@ -33,7 +32,7 @@ Per impostazione predefinita, l'agente Java Application Insights acquisisce auto
 </ApplicationInsightsAgent>
 ```
 
-È possibile disabilitare l'acquisizione della registrazione dell'agente Java usando `AI-Agent.xml` il file:
+È possibile disabilitare l'acquisizione della registrazione dell'agente Java usando il `AI-Agent.xml` file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -126,7 +125,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
 #### <a name="otherwise-"></a>In caso contrario...
 Seguire le linee guida per installare manualmente Application Insights SDK per Java, scaricare il file jar (dopo aver raggiunto la pagina del repository centrale Maven, fare clic sul collegamento "jar" nella sezione di download) per l'appender appropriato e aggiungere il file jar dell'appender scaricato al progetto.
 
-| Logger | Download | Libreria |
+| Logger | Scarica | Libreria |
 | --- | --- | --- |
 | Logback |[Jar dell'appender logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v2.0 |[Jar dell'appender Log4J versione 2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |

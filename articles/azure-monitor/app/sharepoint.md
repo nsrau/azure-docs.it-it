@@ -4,10 +4,9 @@ description: Avviare il monitoraggio di una nuova applicazione con una nuova chi
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671444"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorare un sito di SharePoint con Application Insights
@@ -39,7 +38,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 </script>
 ```
 
-Inserire lo script immediatamente prima del &lt;tag&gt; /Head di ogni pagina di cui si vuole tenere traccia. Se il sito Web dispone di una pagina master, è possibile inserire lo script in tale pagina. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml.
+Inserire lo script immediatamente prima del &lt; &gt; tag/Head di ogni pagina di cui si vuole tenere traccia. Se il sito Web dispone di una pagina master, è possibile inserire lo script in tale pagina. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml.
 
 Lo script contiene la chiave di strumentazione che indirizza i dati di telemetria alla risorsa di Application Insights.
 
@@ -51,7 +50,7 @@ Consultare la pagina master e modificarla mediante SharePoint Designer o un altr
 
 ![](./media/sharepoint/03-master.png)
 
-Aggiungere il codice appena prima del tag </head> . 
+Aggiungere il codice immediatamente prima del </head> Tag. 
 
 ![](./media/sharepoint/04-code.png)
 

@@ -4,10 +4,9 @@ description: Distribuisci il pacchetto ZIP dell'app con l'atomicità. Migliorare
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920723"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Eseguire l'app nel servizio app Azure direttamente da un pacchetto ZIP
@@ -47,7 +46,7 @@ Il modo più semplice per eseguire un pacchetto nel servizio app è con l'interf
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Poiché l' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'app è impostata, questo comando non estrae il contenuto del pacchetto nella directory *D:\home\site\wwwroot* dell'app. Al contrario, carica il file ZIP così com'è in *D:\home\data\SitePackages*e crea un file *PackageName. txt* nella stessa directory che contiene il nome del pacchetto zip da caricare in fase di esecuzione. Se si carica il pacchetto ZIP in modo diverso (ad esempio [FTP](deploy-ftp.md)), è necessario creare manualmente la directory *D:\home\data\SitePackages* e il file *PackageName. txt* .
+Poiché l' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'app è impostata, questo comando non estrae il contenuto del pacchetto nella directory *D:\home\site\wwwroot* dell'app. Al contrario, carica il file ZIP così com'è in *D:\home\data\SitePackages*e crea un *packagename.txt* nella stessa directory che contiene il nome del pacchetto zip da caricare in fase di esecuzione. Se si carica il pacchetto ZIP in modo diverso (ad esempio [FTP](deploy-ftp.md)), è necessario creare manualmente la directory *D:\home\data\SitePackages* e il file di *packagename.txt* .
 
 Il comando Riavvia anche l'app. Poiché `WEBSITE_RUN_FROM_PACKAGE` è impostato, il servizio app monta il pacchetto caricato come la directory di sola lettura *wwwroot* ed esegue l'app direttamente dalla directory montata.
 
@@ -55,7 +54,7 @@ Il comando Riavvia anche l'app. Poiché `WEBSITE_RUN_FROM_PACKAGE` è impostato,
 
 È anche possibile eseguire un pacchetto da un URL esterno, ad esempio archiviazione BLOB di Azure. È possibile usare [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file di pacchetto nell'account di archiviazione BLOB. È consigliabile usare un contenitore di archiviazione privata con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) per consentire al runtime del servizio app di accedere in modo sicuro al pacchetto. 
 
-Dopo aver caricato il file nell'archiviazione BLOB e avere un URL di firma di accesso condiviso per il `WEBSITE_RUN_FROM_PACKAGE` file, impostare l'impostazione dell'app sull'URL. L'esempio seguente esegue questa operazione usando l'interfaccia della riga di comando di Azure:
+Dopo aver caricato il file nell'archiviazione BLOB e avere un URL di firma di accesso condiviso per il file, impostare l' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'app sull'URL. L'esempio seguente esegue questa operazione usando l'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="https://myblobstorage.blob.core.windows.net/content/SampleCoreMVCApp.zip?st=2018-02-13T09%3A48%3A00Z&se=2044-06-14T09%3A48%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=bNrVrEFzRHQB17GFJ7boEanetyJ9DGwBSV8OM3Mdh%2FM%3D"
@@ -65,10 +64,10 @@ Se si pubblica un pacchetto aggiornato con lo stesso nome nell'archivio BLOB, è
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-- L'esecuzione diretta da un pacchetto `wwwroot` rende di sola lettura. L'app riceverà un errore se tenta di scrivere file in questa directory.
+- L'esecuzione diretta da un pacchetto rende di sola `wwwroot` lettura. L'app riceverà un errore se tenta di scrivere file in questa directory.
 - I formati TAR e GZIP non sono supportati.
 - Questa funzionalità non è compatibile con la [cache locale](overview-local-cache.md).
-- Per migliorare le prestazioni di avvio a freddo, usare l'opzione Zip`WEBSITE_RUN_FROM_PACKAGE`locale (= 1).
+- Per migliorare le prestazioni di avvio a freddo, usare l'opzione zip locale ( `WEBSITE_RUN_FROM_PACKAGE` = 1).
 
 ## <a name="more-resources"></a>Altre risorse
 

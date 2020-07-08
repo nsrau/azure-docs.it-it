@@ -8,10 +8,9 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664916"
 ---
 # <a name="application-insights-log-based-metrics"></a>Metriche basate su log Application Insights
@@ -98,7 +97,7 @@ Le metriche del browser vengono raccolte dal Application Insights JavaScript SDK
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -114,7 +113,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -130,7 +129,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -146,7 +145,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -162,7 +161,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ```Kusto
 browserTimings
@@ -184,7 +183,7 @@ Questa metrica riflette il numero di eccezioni generate dal codice dell'applicaz
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 exceptions
@@ -199,7 +198,7 @@ Numero di chiamate di dipendenza non riuscite.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|nessuno|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 dependencies

@@ -4,10 +4,9 @@ description: Ricevere notifiche personalizzate sugli eventi di integrità del se
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654138"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con OpsGenie usando i webhook
@@ -50,7 +49,7 @@ Questo articolo illustra come configurare gli avvisi di integrità dei servizi d
 1. Al termine fare clic su **Salva** per creare l'avviso.
 
 ### <a name="for-an-existing-action-group"></a>Per un gruppo di azioni esistente:
-1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Monitoraggio**.
+1. Nella [portale di Azure](https://portal.azure.com/)selezionare **monitoraggio**.
 
 1. Nella sezione **Impostazioni** selezionare **Gruppi di azioni**.
 
@@ -85,5 +84,5 @@ Questo articolo illustra come configurare gli avvisi di integrità dei servizi d
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare le notifiche webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Informazioni sulle [notifiche sull'integrità del servizio](../azure-monitor/platform/service-notifications.md).
-- Altre informazioni sui [gruppi di azioni](../azure-monitor/platform/action-groups.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](../azure-monitor/platform/service-notifications.md).
+- Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).

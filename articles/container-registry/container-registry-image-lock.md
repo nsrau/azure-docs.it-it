@@ -4,10 +4,9 @@ description: Impostare gli attributi per un'immagine del contenitore o un reposi
 ms.topic: article
 ms.date: 09/30/2019
 ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659697"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloccare un'immagine del contenitore in un registro contenitori di Azure
@@ -17,7 +16,7 @@ In un registro contenitori di Azure è possibile bloccare una versione dell'imma
 Per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure in Azure Cloud Shell o in locale (versione 2.0.55 o successiva consigliata). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 > [!IMPORTANT]
-> Questo articolo non si applica al blocco di un intero registro, ad esempio usando **le impostazioni > i blocchi** nel portale di Azure `az lock` o i comandi nell'interfaccia della riga di comando di Azure. Il blocco di una risorsa del registro di sistema non impedisce la creazione, l'aggiornamento o l'eliminazione dei dati nei repository. Il blocco di un registro influiscono solo sulle operazioni di gestione, ad esempio l'aggiunta o l'eliminazione di repliche o l'eliminazione del registro di sistema. Altre informazioni in [bloccare le risorse per impedire modifiche impreviste](../azure-resource-manager/management/lock-resources.md).
+> Questo articolo non si applica al blocco di un intero registro, ad esempio usando **le impostazioni > i blocchi** nel portale di Azure o `az lock` i comandi nell'interfaccia della riga di comando di Azure. Il blocco di una risorsa del registro di sistema non impedisce la creazione, l'aggiornamento o l'eliminazione dei dati nei repository. Il blocco di un registro influiscono solo sulle operazioni di gestione, ad esempio l'aggiunta o l'eliminazione di repliche o l'eliminazione del registro di sistema. Altre informazioni in [bloccare le risorse per impedire modifiche impreviste](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="scenarios"></a>Scenari
 
@@ -69,7 +68,7 @@ az acr repository update \
 
 ### <a name="lock-an-image-by-manifest-digest"></a>Blocca un'immagine in base al digest del manifesto
 
-Eseguire il comando seguente per bloccare un'immagine di *repository/immagine* identificata dal digest del manifesto (hash SHA `sha256:...`-256, rappresentato come). (Per trovare il digest del manifesto associato a uno o più tag di immagine, eseguire il comando [AZ ACR repository Show-manifests][az-acr-repository-show-manifests] ).
+Eseguire il comando seguente per bloccare un'immagine di *repository/immagine* identificata dal digest del manifesto (hash SHA-256, rappresentato come `sha256:...` ). (Per trovare il digest del manifesto associato a uno o più tag di immagine, eseguire il comando [AZ ACR repository Show-manifests][az-acr-repository-show-manifests] ).
 
 ```azurecli
 az acr repository update \

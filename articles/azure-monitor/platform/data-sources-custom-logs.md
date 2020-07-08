@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
 ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670594"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
@@ -50,7 +49,7 @@ Usare la procedura seguente per definire un file di log personalizzato.  Scorrer
 La procedura guidata per i log personalizzati viene eseguita nel portale di Azure e consente di definire un nuovo log personalizzato da raccogliere.
 
 1. Nel portale di Azure selezionare **Aree di lavoro di Log Analytics** > area di lavoro personale > **Impostazioni avanzate**.
-2. Fare clic su **dati** > **log personalizzati**.
+2. Fare clic su **dati**  >  **log personalizzati**.
 3. Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti. Per gli agenti Linux, viene inviato un file di configurazione all'agente di raccolta dati Fluentd.
 4. Fare clic su **Aggiungi+** per aprire la procedura guidata per i log personalizzati.
 
@@ -74,7 +73,7 @@ Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la da
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
-| Descrizione | Path |
+| Descrizione | Percorso |
 |:--- |:--- |
 | Tutti i file in *C:\Logs* con estensione txt nell'agente Windows |C:\Logs\\\*.txt |
 | Tutti i file in *C:\Logs* il cui nome inizia con log e aventi un'estensione txt nell'agente Windows |C:\Logs\log\*.txt |
@@ -88,7 +87,7 @@ La tabella seguente fornisce esempi di percorsi validi per specificare file di l
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passaggio 4. Specificare un nome e una descrizione per il log
 Il nome specificato viene usato per il tipo di log come descritto in precedenza.  Termina sempre con _CL per definirlo come log personalizzato.
 
-1. Digitare un nome per il log.  Il suffisso ** \_CL** viene specificato automaticamente.
+1. Digitare un nome per il log.  Il suffisso ** \_ CL** viene specificato automaticamente.
 2. Aggiungere una **Descrizione**facoltativa.
 3. Fare clic su **Avanti** per salvare la definizione del log personalizzato.
 
@@ -122,7 +121,7 @@ Il tipo dei record del log personalizzato corrisponde al nome del log specificat
 | TimeGenerated |Data e ora di raccolta del record con Monitoraggio di Azure.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
 | SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br>  Linux – Tutti gli agenti Linux |
 | RawData |Testo completo della voce raccolta. È più probabile che si desideri [analizzare i dati in singole proprietà](../log-query/parse-text.md). |
-| ManagementGroupName |Nome del gruppo di gestione per gli agenti System Center Operations Manager.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
+| ManagementGroupName |Nome del gruppo di gestione per gli agenti System Center Operations Manager.  Per gli altri agenti corrisponde a AOI-\<workspace ID\> |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Procedura dettagliata di esempio per l'aggiunta di un log personalizzato
@@ -140,14 +139,14 @@ Viene fornito uno dei file di log per visualizzare gli eventi che saranno raccol
 ![Caricare e analizzare un log di esempio](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>Aggiungere percorsi di raccolta di log
-I file di log si trovano in *C:\MyApp\Logs*.  Ogni giorno viene creato un nuovo file con un nome che include la data nel modello *appYYYYMMDD.log*.  Un modello sufficiente per questo log è *\\\*C:\MyApp\Logs. log*.
+I file di log si trovano in *C:\MyApp\Logs*.  Ogni giorno viene creato un nuovo file con un nome che include la data nel modello *appYYYYMMDD.log*.  Un modello sufficiente per questo log è *C:\MyApp\Logs \\ \* . log*.
 
 ![Percorso di raccolta di log](media/data-sources-custom-logs/collection-path.png)
 
 ### <a name="provide-a-name-and-description-for-the-log"></a>Specificare un nome e una descrizione per il log
 Viene usato il nome *MyApp_CL* e viene digitata una **descrizione**.
 
-![Nome del log](media/data-sources-custom-logs/log-name.png)
+![Nome registro](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>Verificare che i log personalizzati vengano raccolti
 Viene usata una semplice query di *MyApp_CL* per restituire tutti i record dal log raccolto.

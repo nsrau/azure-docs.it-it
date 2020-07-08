@@ -8,10 +8,9 @@ ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925930"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Web Application Firewall (WAF) con elenchi di esclusione del servizio front door 
@@ -20,10 +19,10 @@ A volte Web Application Firewall (WAF) potrebbe bloccare una richiesta che si de
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Configurare gli elenchi di esclusione usando il portale di Azure
 **Gestire le esclusioni** è accessibile dal portale di WAF in **regole gestite**
 
-![Gestisci](../media/waf-front-door-exclusion/exclusion1.png)
-![gestione esclusioni exclusion_add](../media/waf-front-door-exclusion/exclusion2.png)
+![Gestisci gestione esclusioni ](../media/waf-front-door-exclusion/exclusion1.png)
+ ![ exclusion_add](../media/waf-front-door-exclusion/exclusion2.png)
 
- Elenco di esclusione di esempio ![: gestisci exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
+ Elenco di esclusione di esempio: ![ gestisci exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
 
 In questo esempio viene escluso il valore nel campo dell'intestazione *utente* . Una richiesta valida può includere il campo *utente* che contiene una stringa che attiva una regola SQL injection. In questo caso, è possibile escludere il parametro *User* , in modo che la regola WAF non valuti alcun valore nel campo.
 

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
 ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666944"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Pianificare la capacità delle macchine virtuali Hyper-V con la soluzione Capacità e prestazioni (deprecata)
@@ -85,7 +84,7 @@ Quando si aggiunge la soluzione Capacity and Performance all'area di lavoro, Cap
 
 Fare clic sul riquadro Capacity and Performance per aprire il dashboard Capacity and Performance. Il dashboard include le colonne nella tabella seguente. Ogni colonna elenca fino a dieci elementi corrispondenti ai criteri della colonna per l'ambito e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
 
-- **Ospita**
+- **Host**
     - **Utilizzo CPU host** Visualizza una tendenza grafica dell'utilizzo della CPU da parte dei computer host e un elenco di host, in base al periodo di tempo selezionato. Passare il puntatore sul grafico a linee per visualizzare i dettagli di uno specifico punto nel tempo. Fare clic sul grafico per visualizzare altri dettagli nella ricerca log. Fare clic su un nome host per aprire la ricerca log e visualizzare i dettagli dei contatori CPU per le VM ospitate.
     - **Utilizzo memoria host** Visualizza una tendenza grafica dell'utilizzo della memoria da parte dei computer host e un elenco di host, in base al periodo di tempo selezionato. Passare il puntatore sul grafico a linee per visualizzare i dettagli di uno specifico punto nel tempo. Fare clic sul grafico per visualizzare altri dettagli nella ricerca log. Fare clic su un nome host per aprire la ricerca log e visualizzare i dettagli del contatore della memoria per le VM ospitate.
 - **Macchine virtuali**

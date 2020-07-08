@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
 ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77918224"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Desktop remoto non si avvia in una macchina virtuale di Azure
@@ -91,7 +90,7 @@ Per risolvere questo problema, usare i controllo seriale o [riparare la macchina
 2. Dopo aver collegato il disco del sistema operativo alla macchina virtuale di ripristino, verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 3. Nel disco del sistema operativo collegato passare alla cartella **\windows\system32\config**. Copiare tutti i file in questa cartella come backup, nel caso risulti necessario un ripristino dello stato precedente.
 4. Avviare Editor del Registro di sistema (regedit.exe).
-5. Selezionare la chiave **HKEY_LOCAL_MACHINE**. Nel menu selezionare **file** > **Load hive**:
+5. Selezionare la chiave **HKEY_LOCAL_MACHINE**. Nel menu selezionare **file**  >  **Load hive**:
 6. Passare alla cartella **\windows\system32\config\SYSTEM** nel disco del sistema operativo collegato. Immettere il nome di hive **BROKENSYSTEM**. Il nuovo hive del Registro di sistema viene visualizzato per la chiave **HKEY_LOCAL_MACHINE**. Quindi caricare l'hive del software **\windows\system32\config\SOFTWARE** nella chiave **HKEY_LOCAL_MACHINE**. Immettere il nome di hive **BROKENSOFTWARE**. 
 7. Aprire una finestra del prompt dei comandi con privilegi elevati (**Esegui come amministratore**) ed eseguire i comandi nei passaggi successivi per reimpostare le configurazioni RDP. 
 8. Abbassare il livello di protezione RDP su 0 in modo che le comunicazioni tra server e client usino la crittografia RDP nativa:

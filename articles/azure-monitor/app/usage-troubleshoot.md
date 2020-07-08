@@ -7,10 +7,9 @@ ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670917"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Application Insights
@@ -32,7 +31,7 @@ Gli strumenti di analisi del comportamento degli utenti non supportano attualmen
 ## <a name="naming-events"></a>Denominazione degli eventi
 **L'app dispone di migliaia di visualizzazioni pagina e di nomi di eventi personalizzati diversi. È difficile distinguere tra di essi e gli strumenti di analisi del comportamento degli utenti spesso non rispondono. Come è possibile risolvere questi problemi di denominazione?**
 
-I nomi di visualizzazione pagina e quelli di evento personalizzato vengono usati in tutti gli strumenti di analisi del comportamento degli utenti. La corretta denominazione degli eventi è essenziale per poter ottenere risultati ottimali da questi strumenti. L'obiettivo è un equilibrio tra un numero troppo basso di nomi generici ("pulsante selezionato") e con troppi nomi eccessivamente specifici ("pulsante Modifica selezionato su http:\//www.contoso.com/index").
+I nomi di visualizzazione pagina e quelli di evento personalizzato vengono usati in tutti gli strumenti di analisi del comportamento degli utenti. La corretta denominazione degli eventi è essenziale per poter ottenere risultati ottimali da questi strumenti. L'obiettivo è un equilibrio tra un numero troppo basso di nomi generici ("pulsante selezionato") e con troppi nomi eccessivamente specifici ("pulsante Modifica selezionato su http: \/ /www.contoso.com/index").
 
 Per apportare modifiche ai nomi di visualizzazione pagina e a quelli di evento personalizzato inviati dall'app, è necessario modificare il codice sorgente dell'app ed eseguire nuovamente la distribuzione. **Tutti i dati di telemetria disponibili in Application Insights vengono archiviati per 90 giorni e non possono essere eliminati**. Di conseguenza, le eventuali modifiche apportate ai nomi di evento saranno completamente visibili dopo 90 giorni. Per i 90 giorni successivi alle operazioni di modifica, nei dati di telemetria verranno visualizzati sia i nomi di evento precedenti sia quelli nuovi. Sarà pertanto opportuno modificare le query e comunicare all'interno dei team tenendo presente questo aspetto.
 
@@ -48,6 +47,6 @@ Se l'app invia troppi nomi di evento personalizzato, modificare il nome nel codi
 
 * [Panoramica sugli strumenti di analisi del comportamento degli utenti](usage-overview.md)
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottieni supporto
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669744"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Avviso su problemi in Servizi cloud di Azure tramite l'integrazione di Diagnostica di Azure con Azure Application Insights
@@ -91,7 +90,7 @@ Nella finestra **Crea regola** nella sezione **Definire la condizione dell'avvis
 Nella casella **Query di ricerca** incollare la query combinata preparata nel passaggio precedente.
 
 Continuare quindi con la casella **Soglia** e impostarne il valore su 0. È possibile eventualmente modificare i campi **Periodo** e **Frequenza**.
-Fare clic su **Fine**.
+Fare clic su **Done**.
 
 ![Schermata di configurazione della query logica dei segnali](./media/proactive-cloud-services/003.png)
 
@@ -111,7 +110,7 @@ Dopo aver definito il gruppo di azioni, confermare le modifiche e fare clic su *
 
 Per altre informazioni sul rilevamento automatico:
 
-[Failure anomalies](../../azure-monitor/app/proactive-failure-diagnostics.md)Anomalie
-[delle prestazioni](../../azure-monitor/app/proactive-performance-diagnostics.md) in caso di problemi di[memoria](../../azure-monitor/app/proactive-potential-memory-leak.md)
-
+[Anomalie](../../azure-monitor/app/proactive-failure-diagnostics.md) 
+ degli errori [Perdite](../../azure-monitor/app/proactive-potential-memory-leak.md) 
+ di memoria [Anomalie delle prestazioni](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

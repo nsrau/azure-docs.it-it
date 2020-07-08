@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
 ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664780"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Soluzione Monitoraggio VMware (deprecata) in monitoraggio di Azure
@@ -40,10 +39,10 @@ Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog da
    ![flusso Syslog](./media/vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Configurazione della raccolta di Syslog
-1. Configurare l'inoltro di Syslog per VSphere. Per informazioni dettagliate utili a configurare l'inoltro di Syslog, consultare [Configurazione di Syslog su ESXi 5.0 e versioni successive (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Passare a **ESXi host Configuration** > **software** > **Advanced Settings** > **syslog**.
+1. Configurare l'inoltro di Syslog per VSphere. Per informazioni dettagliate utili a configurare l'inoltro di Syslog, consultare [Configurazione di Syslog su ESXi 5.0 e versioni successive (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Passare a **ESXi host Configuration**  >  **software**  >  **Advanced Settings**  >  **syslog**.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
 1. Nel campo *Syslog.global.logHost*, aggiungere il server Linux e il numero di porta *1514*. Ad esempio, `tcp://hostname:1514` o `tcp://123.456.789.101:1514`
-1. Aprire il firewall dell'host ESXi per Syslog. **ESXi Host Configuration** > **Software**Configurazione > host ESXi**Firewall** del**profilo** > di sicurezza e **Proprietà**aperte.  
+1. Aprire il firewall dell'host ESXi per Syslog. Configurazione dell'host **ESXi**  >  **Software**  >  di **Profilo**  >  di sicurezza **Firewall** e **Proprietà**aperte.  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
 
@@ -64,9 +63,9 @@ Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog da
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. Nella portale di Azure eseguire una query di log per `VMware_CL`. Quando monitoraggio di Azure raccoglie i dati di syslog, conserva il formato syslog. Nel portale vengono acquisiti alcuni campi specifici, come *Hostname* e *ProcessName*.  
+1. Nella portale di Azure eseguire una query di log per `VMware_CL` . Quando monitoraggio di Azure raccoglie i dati di syslog, conserva il formato syslog. Nel portale vengono acquisiti alcuni campi specifici, come *Hostname* e *ProcessName*.  
 
-    ![type](./media/vmware/type.png)  
+    ![tipo](./media/vmware/type.png)  
 
     Se i risultati della ricerca nei log sono simili all'immagine sopra, è tutto pronto per usare il dashboard della soluzione di monitoraggio VMware.  
 
@@ -105,7 +104,7 @@ Nella tabella seguente sono riportati esempi di campi di dati raccolti dalla sol
 ## <a name="vmware-monitoring-solution-overview"></a>Panoramica della soluzione di monitoraggio VMware
 Il riquadro VMware viene visualizzato nell'area di lavoro Log Analytics. che fornisce una visualizzazione dettagliata degli errori. Quando si fa clic sul riquadro, si accede alla vista dashboard.
 
-![riquadro](./media/vmware/tile.png)
+![tile](./media/vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>Accedere alla vista dashboard
 Nella vista dashboard di **VMware** i pannelli sono organizzati in base a questi criteri:

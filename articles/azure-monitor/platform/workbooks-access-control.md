@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 20116ab105e4eb12875ba3cb279fb261eb5c70e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658422"
 ---
 # <a name="access-control"></a>Controllo di accesso
@@ -24,14 +23,14 @@ Il controllo degli accessi nelle cartelle di lavoro fa riferimento a due element
 
 * Accesso richiesto per salvare le cartelle di lavoro
 
-    - Per salvare `("My")` le cartelle di lavoro private non sono necessari privilegi aggiuntivi. Tutti gli utenti possono salvare le cartelle di lavoro private e possono visualizzare solo le cartelle di lavoro.
+    - Per salvare le `("My")` cartelle di lavoro private non sono necessari privilegi aggiuntivi. Tutti gli utenti possono salvare le cartelle di lavoro private e possono visualizzare solo le cartelle di lavoro.
     - Per salvare le cartelle di lavoro condivise, è necessario disporre dei privilegi di scrittura in un gruppo di risorse. Questi privilegi vengono in genere specificati dal ruolo [collaboratore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) , ma possono essere impostati anche tramite il ruolo *collaboratore cartelle di lavoro* .
     
 ## <a name="standard-roles-with-workbook-related-privileges"></a>Ruoli standard con privilegi correlati alla cartella di lavoro
 
 Il [lettore di monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) include privilegi/Read standard che verrebbero usati dagli strumenti di monitoraggio (incluse le cartelle di lavoro) per leggere i dati dalle risorse.
 
-Il [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) del `/write` monitoraggio include privilegi generali utilizzati da vari strumenti di monitoraggio per `workbooks/write` il salvataggio di elementi (incluso il privilegio per salvare cartelle di lavoro condivise).
+Il [collaboratore del monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) include `/write` privilegi generali utilizzati da vari strumenti di monitoraggio per il salvataggio di elementi (incluso il `workbooks/write` privilegio per salvare cartelle di lavoro condivise).
 "Collaboratore cartelle di lavoro" aggiunge privilegi "cartelle di lavoro/scrittura" a un oggetto per salvare le cartelle di lavoro condivise.
 Non sono necessari privilegi speciali per consentire agli utenti di salvare le cartelle di lavoro private che possono visualizzare solo.
 

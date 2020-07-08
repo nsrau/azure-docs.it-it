@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670577"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Raccogliere i log di IIS in Monitoraggio di Azure
@@ -43,7 +42,7 @@ I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive
 | csUserName |Nome dell'utente autenticato che ha eseguito l'accesso al server. Gli utenti anonimi sono indicati da un trattino. |
 | csUriStem |Destinazione della richiesta, ad esempio una pagina Web. |
 | csUriQuery |Eventuale query che il client ha tentato di eseguire. |
-| ManagementGroupName |Nome del gruppo di gestione per gli agenti di Operations Manager.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
+| ManagementGroupName |Nome del gruppo di gestione per gli agenti di Operations Manager.  Per gli altri agenti corrisponde a AOI-\<workspace ID\> |
 | RemoteIPCountry |Paese/area geografica dell'indirizzo IP del client. |
 | RemoteIPLatitude |Latitudine dell'indirizzo IP del client. |
 | RemoteIPLongitude |Longitudine dell'indirizzo IP del client. |
@@ -65,7 +64,7 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 | W3CIISLog |Tutti i record del log di IIS. |
 | W3CIISLog &#124; where scStatus==500 |Tutti i record del log IIS con stato restituito pari a 500. |
 | W3CIISLog &#124; summarize count() by cIP |Numero di voci del log di IIS in base all'indirizzo IP del client. |
-| W3CIISLog &#124; where csHost = = "www\.contoso.com" &#124; riepilogare Count () by csUriStem |Numero di voci del log di IIS per URL per l'\.host www contoso.com. |
+| W3CIISLog &#124; where csHost = = "www \. contoso.com" &#124; riepilogare Count () by csUriStem |Numero di voci del log di IIS per URL per l'host www \. contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Numero totale di byte ricevuti da ogni computer che esegue IIS. |
 
 ## <a name="next-steps"></a>Passaggi successivi

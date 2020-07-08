@@ -10,17 +10,16 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658031"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualizzazioni delle cartelle di lavoro di monitoraggio di Azure
 
 Le cartelle di lavoro di monitoraggio di Azure supportano una serie di stili diversi di visualizzazioni per soddisfare le esigenze di creazione di report. Questo articolo fornisce esempi di ogni tipo di visualizzazione.
 
-## <a name="text"></a>Testo
+## <a name="text"></a>Text
 
 Le cartelle di lavoro consentono agli autori di includere blocchi di testo nelle cartelle di lavoro di. Il testo può essere un'analisi umana dei dati di telemetria, informazioni che consentono agli utenti di interpretare i dati, le intestazioni di sezione e così via.
 
@@ -32,7 +31,7 @@ Il testo viene aggiunto tramite un controllo Markdown che fornisce il controllo 
 
 ### <a name="add-a-text-control"></a>Aggiungere un controllo di testo
 
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti **modifica** .
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce **Modifica** sulla barra degli strumenti.
 2. Utilizzare il collegamento **Aggiungi testo** per aggiungere un controllo di testo alla cartella di lavoro.
 3. Aggiungere Markdown al controllo.
 4. Fare clic sul pulsante **modifica completato** per visualizzare il testo formattato.
@@ -48,7 +47,7 @@ Le cartelle di lavoro supportano i grafici per i log e le origini dati delle met
 
 ### <a name="adding-a-log-chart"></a>Aggiunta di un grafico di log
 
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti **modifica** .
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce **Modifica** sulla barra degli strumenti.
 2. Usare il collegamento **Aggiungi query** per aggiungere un controllo query di log alla cartella di lavoro.
 3. Selezionare il tipo di query come **log**, il tipo di risorsa (ad esempio, Application Insights) e le risorse di destinazione.
 4. Utilizzare l'editor di query per immettere il [KQL](https://docs.microsoft.com/azure/kusto/query/) per l'analisi (ad esempio, la tendenza delle richieste).
@@ -69,11 +68,11 @@ Le cartelle di lavoro supportano i grafici per i log e le origini dati delle met
 | `Size` | Dimensioni verticali del controllo | Small, medium, large o full |
 | `Color palette` | Tavolozza dei colori da utilizzare nel grafico. Ignorato in modalità multimetrica o segmentata. | Blu, verde, rosso e così via. |
 | `Legend` | Funzione di aggregazione da utilizzare per la legenda | Sum o Average of values o Max, min, First, Last value |
-| `Query` | Qualsiasi query KQL che restituisce i dati nel formato previsto dalla visualizzazione del grafico | _richieste \| Make-Series richieste = Count () valore predefinito = 0 in timestamp da ago (1D) a Now () passaggio 1h_ |
+| `Query` | Qualsiasi query KQL che restituisce i dati nel formato previsto dalla visualizzazione del grafico | _richieste \| make-Series richieste = Count () valore predefinito = 0 in timestamp da ago (1D) a Now () passaggio 1h_ |
 
 ### <a name="adding-a-metric-chart"></a>Aggiunta di un grafico delle metriche
 
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti **modifica** .
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce **Modifica** sulla barra degli strumenti.
 2. Usare il collegamento **Aggiungi metrica** per aggiungere un controllo metrica alla cartella di lavoro.
 3. Selezionare un tipo di risorsa, ad esempio account di archiviazione, le risorse di destinazione, lo spazio dei nomi e il nome della metrica e l'aggregazione da usare.
 4. Se necessario, impostare altri parametri, ad esempio intervallo di tempo, Split-by, visualizzazione, dimensioni e tavolozza dei colori.
@@ -105,7 +104,7 @@ Nell'esempio seguente viene illustrata una griglia che combina icone, Heatmaps e
 
 ### <a name="adding-a-log-based-grid"></a>Aggiunta di una griglia basata su log
 
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti **modifica** .
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce **Modifica** sulla barra degli strumenti.
 2. Usare il collegamento **Aggiungi query** per aggiungere un controllo query di log alla cartella di lavoro.
 3. Selezionare il tipo di query come **log**, il tipo di risorsa (ad esempio, Application Insights) e le risorse di destinazione.
 4. Usare l'editor di query per immettere il KQL per l'analisi, ad esempio le VM con memoria al di sotto di una soglia.
@@ -124,7 +123,7 @@ Il supporto dei riquadri della cartella di lavoro mostra un titolo, un sottotito
 
 ### <a name="adding-a-tile"></a>Aggiunta di un riquadro
 
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti _modifica_ .
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce _Modifica_ sulla barra degli strumenti.
 2. Usare il collegamento **Aggiungi query** per aggiungere un controllo query di log alla cartella di lavoro. 
 3. Selezionare il tipo di query come **log**, il tipo di risorsa (ad esempio, Application Insights) e le risorse di destinazione.
 4. Utilizzare l'editor di query per immettere il KQL per l'analisi
@@ -138,7 +137,7 @@ Il supporto dei riquadri della cartella di lavoro mostra un titolo, un sottotito
 7. Fare clic sul pulsante **Impostazioni riquadro** per aprire il riquadro Impostazioni.
 8. In **campi del riquadro**, impostare:
     * Titolo: `name`
-    * Left: `Requests`, renderer: `Big Number`, tavolozza dei `Green to Red`colori:, valore minimo:`0`
+    * Left: `Requests` , renderer: `Big Number` , tavolozza dei colori: `Green to Red` , valore minimo:`0`
     * Parte inferiore`appName`
 9. Fare clic sul pulsante **Salva e Chiudi** nella parte inferiore del riquadro.
 
@@ -157,7 +156,7 @@ Nell'esempio seguente vengono illustrate le metriche di integrità del contenito
 ![Screenshot della visualizzazione Riepilogo dei riquadri](./media/workbooks-visualizations/trees.png)
 
 ### <a name="adding-a-tree-grid"></a>Aggiunta di una griglia ad albero
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti _modifica_ .
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce _Modifica_ sulla barra degli strumenti.
 2. Usare il collegamento **Aggiungi query** per aggiungere un controllo query di log alla cartella di lavoro. 
 3. Selezionare il tipo di query come **log**, il tipo di risorsa (ad esempio, Application Insights) e le risorse di destinazione.
 4. Utilizzare l'editor di query per immettere il KQL per l'analisi
@@ -182,7 +181,7 @@ Nell'esempio seguente vengono illustrate le metriche di integrità del contenito
 8. Nella parte superiore della sezione _colonne_ impostare:
     * Renderer _ID_ -colonna:`Hidden`
     * Renderer della colonna _ID padre_ :`Hidden`
-    * _Richieste_ -renderer colonna: `Bar`, colore: `Blue`, valore minimo:`0`
+    * _Richieste_ -renderer colonna: `Bar` , colore: `Blue` , valore minimo:`0`
 9. Fare clic sul pulsante _Salva e Chiudi_ nella parte inferiore del riquadro.    
 
 ![Screenshot della visualizzazione Riepilogo dei riquadri](./media/workbooks-visualizations/tree-settings.png)
@@ -205,7 +204,7 @@ Il grafico riportato di seguito mostra il flusso di dati all'interno o all'ester
 ![Screenshot della visualizzazione Riepilogo dei riquadri](./media/workbooks-visualizations/graph.png)
 
 ### <a name="adding-a-graph"></a>Aggiunta di un grafico
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti _modifica_ .
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce _Modifica_ sulla barra degli strumenti.
 2. Usare il collegamento **Aggiungi query** per aggiungere un controllo query di log alla cartella di lavoro. 
 3. Selezionare il tipo di query come **log**, il tipo di risorsa (ad esempio, Application Insights) e le risorse di destinazione.
 4. Utilizzare l'editor di query per immettere il KQL per l'analisi
@@ -243,9 +242,9 @@ Il grafico riportato di seguito mostra il flusso di dati all'interno o all'ester
     * `Node Color Field`: `Kind`
     * `Color palette`: `Pastel`
 10. In _Impostazioni formato nodo_ nella parte superiore impostare:
-    * Colonna content-use _principale_: `Name`, renderer di colonna:`Text`
-    * Colonna _Content_-use di Center `Calls`:, renderer di `Big Number`colonna:, tavolozza dei colori:`None`
-    * Colonna _contenuto inferiore_-uso: `Kind`, renderer di colonna:`Text`
+    * Colonna content-use _principale_: `Name` , renderer di colonna:`Text`
+    * Colonna content-use di _Center_: `Calls` , renderer di colonna: `Big Number` , tavolozza dei colori:`None`
+    * Colonna _contenuto inferiore_-uso: `Kind` , renderer di colonna:`Text`
 10. Fare clic sul pulsante _Salva e Chiudi_ nella parte inferiore del riquadro.
 
 ![Screenshot della visualizzazione Riepilogo dei riquadri](./media/workbooks-visualizations/graph-settings.png)

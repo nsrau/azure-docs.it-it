@@ -5,10 +5,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672209"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
@@ -42,7 +41,7 @@ Per configurare un server Grafana locale, [scaricare e installare Grafana nell'a
 
 ## <a name="sign-in-to-grafana"></a>Accedere a Grafana
 
-1. Usando l'indirizzo IP del server, aprire la pagina di accesso all'indirizzo *http://\<indirizzo IP\>:3000* o *\<NomeDNS>\:3000* nel browser. Anche se la porta predefinita è la 3000, tenere presente che potrebbe essere stata selezionata una porta diversa durante la configurazione. Compare una pagina di accesso per il server Grafana creato.
+1. Usando l'indirizzo IP del server, aprire la pagina di accesso in *http:// \<IP address\> : 3000* o * \<DNSName> \: 3000* nel browser. Anche se la porta predefinita è la 3000, tenere presente che potrebbe essere stata selezionata una porta diversa durante la configurazione. Compare una pagina di accesso per il server Grafana creato.
 
     ![Schermata di accesso di Grafana](./media/grafana-plugin/grafana-login-screen.png)
 
@@ -150,7 +149,7 @@ Una delle molte funzionalità utili di Grafana è la playlist di dashboard. È p
 
 ![Esempio di playlist di Grafana](./media/grafana-plugin/grafana7.png)
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se è stato configurato un ambiente Grafana in Azure, è previsto un addebito quando le macchine virtuali sono in esecuzione indipendentemente dal fatto che le si usi o meno. Per evitare di dover sostenere costi aggiuntivi, eliminare il gruppo di risorse creato in questo articolo.
 

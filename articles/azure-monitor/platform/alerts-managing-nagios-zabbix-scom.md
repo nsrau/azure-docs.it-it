@@ -1,17 +1,16 @@
 ---
-title: Gestire gli avvisi da System Center Operations Manager, Zabbix e Nagios in monitoraggio di Azure
-description: Gestire gli avvisi da System Center Operations Manager, Zabbix e Nagios in monitoraggio di Azure
+title: Gestire gli avvisi da System Center Operations Manager, Zabbix e Nagios in Monitoraggio di Azure
+description: Gestire gli avvisi da System Center Operations Manager, Zabbix e Nagios in Monitoraggio di Azure
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.subservice: alerts
 ms.openlocfilehash: 5ef03f522fb91302bfdec985f1e3c5cf8138ae97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77667449"
 ---
-# <a name="manage-alerts-from-system-center-operations-manager-zabbix-and-nagios-in-azure-monitor"></a>Gestire gli avvisi da System Center Operations Manager, Zabbix e Nagios in monitoraggio di Azure
+# <a name="manage-alerts-from-system-center-operations-manager-zabbix-and-nagios-in-azure-monitor"></a>Gestire gli avvisi da System Center Operations Manager, Zabbix e Nagios in Monitoraggio di Azure
 
 È ora possibile visualizzare gli avvisi da Nagios, Zabbix e System Center Operations Manager in [Monitoraggio di Azure](https://aka.ms/azure-alerts-overview). Questi avvisi provengono da integrazioni con i server Nagios o Zabbix o System Center Operations Manager in Log Analytics. 
 

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4d9f6e48722f01970a90a3a1d8d8b58b5d939774
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658269"
 ---
 # <a name="interactive-workbooks"></a>Cartelle di lavoro interattive
@@ -31,7 +30,7 @@ Le cartelle di lavoro consentono agli autori di creare scenari in cui fare clic 
 Ad esempio, un utente può avere una griglia che mostra un elenco di richieste e alcune statistiche come i conteggi degli errori. Potrebbero configurarlo in modo che facendo clic su una riga corrispondente a una richiesta venga visualizzato un grafico dettagliato sotto l'aggiornamento per filtrare solo la richiesta.
 
 ### <a name="setting-up-interactivity-on-grid-row-click"></a>Impostazione dell'interattività sulla riga della griglia fare clic
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti _modifica_ .
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce _Modifica_ sulla barra degli strumenti.
 2. Usare il collegamento _Aggiungi query_ per aggiungere un controllo query di log alla cartella di lavoro. 
 3. Selezionare il tipo di query come _log_, il tipo di risorsa (ad esempio, Application Insights) e le risorse di destinazione.
 4. Utilizzare l'editor di query per immettere il KQL per l'analisi
@@ -70,15 +69,15 @@ Nell'immagine seguente viene illustrato un report interattivo più elaborato in 
 ![Immagine che mostra la creazione di un'esperienza interattiva usando i clic della riga della griglia](./media/workbooks-interactive/grid-click-read-mode.png)
 
 ### <a name="exporting-the-contents-of-an-entire-row"></a>Esportazione del contenuto di un'intera riga
-A volte è preferibile esportare l'intero contenuto della riga selezionata anziché solo una colonna specifica. In questi casi, lasciare la `Field to export` proprietà annullata nel passaggio 7,1 precedente. Le cartelle di lavoro esporteranno l'intero contenuto della riga come JSON nel parametro. 
+A volte è preferibile esportare l'intero contenuto della riga selezionata anziché solo una colonna specifica. In questi casi, lasciare la proprietà annullata `Field to export` nel passaggio 7,1 precedente. Le cartelle di lavoro esporteranno l'intero contenuto della riga come JSON nel parametro. 
 
 Nel controllo KQL di riferimento usare la `todynamic` funzione per analizzare il codice JSON e accedere alle singole colonne.
 
  ## <a name="grid-cell-clicks"></a>Clic sulla cella della griglia
-Le cartelle di lavoro consentono agli autori di aggiungere interattività tramite un tipo speciale di renderer della `link renderer`colonna Grid denominato. Un renderer di collegamenti converte una cella della griglia in un collegamento ipertestuale in base al contenuto della cella. Le cartelle di lavoro supportano molti tipi di renderer di collegamenti, inclusi quelli che consentono l'apertura di pannelli di panoramica delle risorse, visualizzatori del contenitore delle proprietà, ricerca di App Insights, utilizzo, traccia delle transazioni e così via.
+Le cartelle di lavoro consentono agli autori di aggiungere interattività tramite un tipo speciale di renderer della colonna Grid denominato `link renderer` . Un renderer di collegamenti converte una cella della griglia in un collegamento ipertestuale in base al contenuto della cella. Le cartelle di lavoro supportano molti tipi di renderer di collegamenti, inclusi quelli che consentono l'apertura di pannelli di panoramica delle risorse, visualizzatori del contenitore delle proprietà, ricerca di App Insights, utilizzo, traccia delle transazioni e così via.
 
 ### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>Impostazione dell'interattività tramite i clic della cella della griglia
-1. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti _modifica_ .
+1. Impostare la cartella di lavoro in modalità di modifica facendo clic sulla voce _Modifica_ sulla barra degli strumenti.
 2. Usare il collegamento _Aggiungi query_ per aggiungere un controllo query di log alla cartella di lavoro. 
 3. Selezionare il tipo di query come _log_, il tipo di risorsa (ad esempio, Application Insights) e le risorse di destinazione.
 4. Utilizzare l'editor di query per immettere il KQL per l'analisi
@@ -90,8 +89,8 @@ Le cartelle di lavoro consentono agli autori di aggiungere interattività tramit
 5. `Run query`per visualizzare i risultati
 6. Fare clic su _Impostazioni colonna_ per aprire il riquadro Impostazioni.
 7. Nella sezione _Columns_ impostare:
-    1. _Esempio_ -renderer della colonna `Link`:, visualizzazione da aprire `Cell Details`:, etichetta collegamento:`Sample`
-    2. Renderer della colonna _count_ : `Bar`, tavolozza dei `Blue`colori:, valore minimo:`0`
+    1. _Esempio_ -renderer della colonna: `Link` , visualizzazione da aprire: `Cell Details` , etichetta collegamento:`Sample`
+    2. Renderer della colonna _count_ : `Bar` , tavolozza dei colori: `Blue` , valore minimo:`0`
     3. Renderer della colonna _Request_ :`Automatic`
     4. Fare clic su _Salva e Chiudi_ per applicare le modifiche
 8. Fare clic su uno dei `Sample` collegamenti nella griglia. Verrà aperto un riquadro delle proprietà con i dettagli di una richiesta campionata.
@@ -116,7 +115,7 @@ Le cartelle di lavoro consentono agli autori di aggiungere interattività tramit
 La cartella di lavoro consente agli utenti di far apparire o scomparire determinati controlli in base ai valori dei parametri. In questo modo gli autori possono avere un aspetto diverso in base all'input dell'utente o allo stato di telemetria. Un esempio mostra agli utenti solo un riepilogo quando le cose sono valide, ma visualizzano i dettagli completi quando si verifica un errore.
 
 ### <a name="setting-up-interactivity-using-conditional-visibility"></a>Impostazione dell'interattività tramite visibilità condizionale
-1. Per configurare due controlli interattivi, seguire la procedura descritta nella `Setting up interactivity on grid row click` sezione.
+1. `Setting up interactivity on grid row click`Per configurare due controlli interattivi, seguire la procedura descritta nella sezione.
 2. Aggiungere un nuovo parametro nella parte superiore:
     1. Nome: `ShowDetails`
     2. Tipo di parametro:`Drop down`
@@ -127,16 +126,16 @@ La cartella di lavoro consente agli utenti di far apparire o scomparire determin
 3. Impostare il valore del parametro su`Yes`
 4. Nel controllo query con il grafico ad area fare clic sull'icona _delle impostazioni avanzate_ (icona a forma di ingranaggio).
 5. Controllare l'impostazione`Make this item conditionally visible`
-    1. Questo elemento è visibile se `ShowDetails` il valore `equals` del parametro`Yes`
+    1. Questo elemento è visibile se il `ShowDetails` valore `equals` del parametro`Yes`
 6. Fare clic su _modifica completato_ per confermare le modifiche.
 7. Fare clic su _modifica eseguita_ sulla barra degli strumenti della cartella di lavoro per attivare la modalità di lettura.
-8. Impostare il valore del parametro `ShowDetails` su `No`. Si noti che il grafico seguente scompare.
+8. Impostare il valore del parametro `ShowDetails` su `No` . Si noti che il grafico seguente scompare.
 
-L'immagine seguente mostra il caso visibile in `ShowDetails` cui è`Yes`
+L'immagine seguente mostra il caso visibile in cui `ShowDetails` è`Yes`
 
 ![Immagine che mostra la visibilità condizionale in cui è visibile il grafico](./media/workbooks-interactive/conditional-visibility.png)
 
-L'immagine seguente mostra il caso nascosto in `ShowDetails` cui è`No`
+L'immagine seguente mostra il caso nascosto in cui `ShowDetails` è`No`
 
 ![Immagine che mostra la visibilità condizionale in cui il grafico è nascosto](./media/workbooks-interactive/conditional-invisible.png)
 

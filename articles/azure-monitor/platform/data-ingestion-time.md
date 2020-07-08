@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666638"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
@@ -60,7 +59,7 @@ Per determinare la frequenza di raccolta specifica, consultare la documentazione
 Una volta che i record di log vengono inseriti nella pipeline di monitoraggio di Azure (come indicato nella proprietà [_TimeReceived](log-standard-properties.md#_timereceived) ), vengono scritti nell'archiviazione temporanea per garantire l'isolamento dei tenant e per assicurarsi che i dati non vadano perduti. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisioning di nuovi tipi di dati personalizzati
-Quando viene creato un nuovo tipo di dati personalizzati da un [log personalizzato](data-sources-custom-logs.md) o dall'[API dell'agente di raccolta dati](data-collector-api.md), il sistema crea un contenitore di archiviazione dedicato. Questo sovraccarico è occasionale poiché si verifica solo alla prima occorrenza di questo tipo di dati.
+Quando viene creato un nuovo tipo di dati personalizzati da un [log personalizzato](data-sources-custom-logs.md) o dall' [API dell'agente di raccolta dati](data-collector-api.md), il sistema crea un contenitore di archiviazione dedicato. Questo sovraccarico è occasionale poiché si verifica solo alla prima occorrenza di questo tipo di dati.
 
 ### <a name="surge-protection"></a>Protezione in caso di picchi di dati
 La principale priorità di Monitoraggio di Azure è quella di garantire che nessun dato del cliente vada perduto e pertanto il sistema dispone di una protezione predefinita in caso di picchi di dati. La protezione include buffer per assicurare che il sistema continui a funzionare anche in situazioni di carico elevato. In condizioni di carico normale, questi controlli aggiungono meno di un minuto ma, in caso di errori e condizioni eccezionali, possono aggiungere un tempo maggiore assicurando tuttavia la sicurezza dei dati.
@@ -79,7 +78,7 @@ Il tempo di inserimento può variare a seconda delle risorse e delle circostanze
 |:---|:---|:---|
 | Record creato nell'origine dati | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se l'origine dati non imposta questo valore, verrà impostato sulla stessa ora _TimeReceived. |
 | Record ricevuto dall'endpoint di inserimento di monitoraggio di Azure | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| Record archiviato nell'area di lavoro e disponibile per le query | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| Record archiviato nell'area di lavoro e disponibile per le query | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Valori della latenza di inserimento
 È possibile misurare la latenza di un record specifico confrontando il risultato della funzione [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) con la proprietà _TimeGenerated_ . Questi dati possono essere usati con varie aggregazioni per individuare il comportamento della latenza di inserimento. Esaminare qualche percentile del tempo di inserimento per ottenere informazioni dettagliate per una grande quantità di dati. 
@@ -95,7 +94,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-I controlli percentile precedenti sono ideali per individuare le tendenze generali nella latenza. Per identificare un picco a breve termine nella latenza, l'utilizzo del`max()`valore massimo () potrebbe essere più efficace.
+I controlli percentile precedenti sono ideali per individuare le tendenze generali nella latenza. Per identificare un picco a breve termine nella latenza, l'utilizzo del valore massimo ( `max()` ) potrebbe essere più efficace.
 
 Se si desidera eseguire il drill-down del tempo di inserimento per un computer specifico in un periodo di tempo, utilizzare la query seguente, che visualizza anche i dati del giorno precedente in un grafico: 
 

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658218"
 ---
 # <a name="workbook-parameters"></a>Parametri cartella di lavoro
@@ -54,7 +53,7 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
 ## <a name="referencing-a-parameter"></a>Riferimento a un parametro
 ### <a name="via-bindings"></a>Tramite binding
 1. Aggiungere un controllo query alla cartella di lavoro e selezionare una risorsa Application Insights.
-2. Aprire l'elenco a discesa _intervallo di tempo_ e `Time Range` Selezionare l'opzione nella parte inferiore della sezione parametri.
+2. Aprire l'elenco a discesa _intervallo di tempo_ e selezionare l'opzione nella parte `Time Range` inferiore della sezione parametri.
 3. In questo modo il parametro dell'intervallo di tempo viene associato all'intervallo di tempo del grafico. L'ambito temporale della query di esempio è ora le ultime 24 ore.
 4. Eseguire la query per visualizzare i risultati
 
@@ -63,7 +62,7 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
 ### <a name="in-kql"></a>In KQL
 1. Aggiungere un controllo query alla cartella di lavoro e selezionare una risorsa Application Insights.
 2. In KQL immettere un filtro per l'ambito temporale utilizzando il parametro:`| where timestamp {TimeRange}`
-3. In questo modo si espande il tempo di `| where timestamp > ago(1d)`valutazione della query in, ovvero il valore dell'intervallo di tempo del parametro.
+3. In questo modo si espande il tempo di valutazione della query in `| where timestamp > ago(1d)` , ovvero il valore dell'intervallo di tempo del parametro.
 4. Eseguire la query per visualizzare i risultati
 
     ![Immagine che mostra un intervallo di tempo a cui viene fatto riferimento in KQL](./media/workbooks-parameters/time-in-code.png)
@@ -75,7 +74,7 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
 4. Il controllo di testo visualizzerà il testo: _l'intervallo di tempo scelto è le ultime 24 ore_
 
 ## <a name="parameter-options"></a>Opzioni dei parametri:
-La sezione _nel testo_ usava l' `label` oggetto del parametro anziché il relativo valore. I parametri espongono varie opzioni, a seconda del tipo, ad esempio i prelievo di intervallo di tempo consentono valore, etichetta, query, inizio, fine e granularità.
+La sezione _nel testo_ usava l'oggetto `label` del parametro anziché il relativo valore. I parametri espongono varie opzioni, a seconda del tipo, ad esempio i prelievo di intervallo di tempo consentono valore, etichetta, query, inizio, fine e granularità.
 
 Usare la `Previews` sezione del riquadro _modifica parametro_ per visualizzare le opzioni di espansione per il parametro:
 

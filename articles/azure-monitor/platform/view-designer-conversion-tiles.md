@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658627"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Conversioni dei riquadri di Progettazione viste di monitoraggio di Azure
@@ -23,7 +22,7 @@ ms.locfileid: "77658627"
 La ricreazione del riquadro dell'elenco di & ad anello nelle cartelle di lavoro prevede due visualizzazioni separate. Per la porzione di anello sono disponibili due opzioni.
 Per iniziare, selezionare **Aggiungi query** e incollare la query originale da Progettazione viste alla cella.
 
-**Opzione 1:** Selezionare un **grafico a torta** dall'elenco a discesa ![ **visualizzazione** : menu visualizzazione grafico a torta](media/view-designer-conversion-tiles/pie-chart.png)
+**Opzione 1:** Selezionare un **grafico a torta** dall'elenco a discesa **visualizzazione** : ![ menu visualizzazione grafico a torta](media/view-designer-conversion-tiles/pie-chart.png)
 
 **Opzione 2:** Selezionare **imposta per query** dall'elenco a discesa **visualizzazione** e aggiungere `| render piechart` alla query:
 
@@ -146,7 +145,7 @@ search *
 
 Sono disponibili due opzioni per la visualizzazione della query come grafico a barre:
 
-**Opzione 1:** Selezionare un **grafico a barre** dall'elenco a discesa ![ **visualizzazione** : visualizzazione Barchart](media/view-designer-conversion-tiles/bar-visualization.png)
+**Opzione 1:** Selezionare un **grafico a barre** dall'elenco a discesa **visualizzazione** : ![ visualizzazione Barchart](media/view-designer-conversion-tiles/bar-visualization.png)
  
 **Opzione 2:** Selezionare **imposta per query** dall'elenco a discesa **visualizzazione** e aggiungere `| render barchart` alla query:
 
