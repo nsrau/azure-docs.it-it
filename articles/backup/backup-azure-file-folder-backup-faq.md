@@ -3,12 +3,12 @@ title: Backup di file e cartelle-domande comuni
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254751"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056175"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
 
@@ -102,7 +102,7 @@ La dimensione della cartella della cache determina la quantità di dati sottopos
 1. Per impostazione predefinita, la cartella Scratch si trova in`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verificare che il percorso della cartella dei file temporanei corrisponda ai valori delle voci della chiave del registro di sistema mostrate di seguito:
 
-    | Percorso del Registro | Chiave del Registro | valore |
+    | Percorso del Registro | Chiave del Registro di sistema | valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
@@ -112,12 +112,12 @@ La dimensione della cartella della cache determina la quantità di dati sottopos
 1. Eseguire questo comando in un prompt dei comandi con privilegi elevati per arrestare il motore di backup:
 
     ```Net stop obengine```
-2. Se è stato configurato il backup dello stato del sistema, aprire Gestione disco e smontare i dischi con nomi nel formato `"CBSSBVol_<ID>"`.
+2. Se è stato configurato il backup dello stato del sistema, aprire Gestione disco e smontare i dischi con nomi nel formato `"CBSSBVol_<ID>"` .
 3. Per impostazione predefinita, la cartella Scratch si trova in`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copiare l'intera `\Scratch` cartella in un'altra unità con spazio sufficiente. Verificare che il contenuto venga copiato, non spostato.
 5. Aggiornare le voci del registro di sistema seguenti con il percorso della cartella Scratch appena spostata.
 
-    | Percorso del Registro | Chiave del Registro | valore |
+    | Percorso del Registro | Chiave del Registro di sistema | valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso cartella Scratch* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso cartella Scratch* |
@@ -159,7 +159,8 @@ Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per r
 
 ### <a name="manage"></a>Gestione
 
-**È possibile eseguire il ripristino se si dimentica la passphrase?**
+#### <a name="can-i-recover-if-i-forgot-my-passphrase"></a>È possibile eseguire il ripristino se si dimentica la passphrase?
+
 L'agente di backup di Azure richiede una passphrase (fornita durante la registrazione) per decrittografare i dati di cui è stato eseguito il backup durante il ripristino. Esaminare gli scenari seguenti per comprendere le opzioni per la gestione di una passphrase persa:
 
 | Computer originale <br> *(computer di origine in cui sono stati eseguiti i backup)* | Passphrase | Opzioni disponibili |
@@ -177,14 +178,18 @@ Prendere in considerazione le condizioni seguenti:
   * *Passphrase diversa*. non sarà possibile ripristinare i dati di cui è stato eseguito il backup.
 * Se il computer originale è danneggiato (evitando di rigenerare la passphrase tramite la console MARS), ma è possibile ripristinare o accedere alla cartella Scratch originale usata dall'agente MARS, potrebbe essere possibile ripristinare (se la password è stata dimenticata). Per ulteriore assistenza, contattare il supporto tecnico.
 
-**Ricerca per categorie ripristinare se è stato perso il computer originale (in cui sono stati eseguiti I backup)?**
+#### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Ricerca per categorie ripristinare se è stato perso il computer originale (in cui sono stati eseguiti I backup)?
 
 Se si ha la stessa passphrase (fornita durante la registrazione) del computer originale, è possibile ripristinare i dati di cui è stato eseguito il backup in una macchina alternativa. Esaminare gli scenari seguenti per comprendere le opzioni di ripristino.
 
 | Computer originale | Passphrase | Opzioni disponibili |
 | --- | --- | --- |
-| Lost |Disponibile |È possibile installare e registrare l'agente MARS in un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere l' **opzione** > di ripristino in**un altro percorso** per eseguire il ripristino. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Lost |Disponibile |È possibile installare e registrare l'agente MARS in un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere l' **opzione di ripristino**  >  in**un altro percorso** per eseguire il ripristino. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Lost |Lost |Non è possibile recuperare i dati o i dati non sono disponibili |
+
+### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>I processi di backup sono in errore o non sono in esecuzione da molto tempo. Ho superato il periodo di conservazione. Posso ancora ripristinare?
+
+Come misura di sicurezza, backup di Azure conserverà l'ultimo punto di ripristino, anche se è passato al periodo di conservazione. Quando i backup vengono ripresi e i punti di ripristino aggiornati diventano disponibili, il punto di ripristino meno recente verrà rimosso in base alla conservazione specificata.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Cosa accade se si annulla un processo di ripristino in corso?
 
@@ -194,7 +199,7 @@ Se un processo di ripristino in corso viene annullato, il processo di ripristino
 
 * L'agente MARS esegue il backup degli ACL impostati su file, cartelle e volumi
 * Per l'opzione ripristino del volume, l'agente MARS fornisce un'opzione per ignorare il ripristino delle autorizzazioni ACL per il file o la cartella da ripristinare
-* Per le singole opzioni di ripristino di file e cartelle, l'agente MARS verrà ripristinato con le autorizzazioni ACL (non è possibile ignorare il ripristino ACL).
+* Per le singole opzioni di ripristino di file e cartelle, l'agente MARS viene ripristinato con le autorizzazioni ACL (non è possibile ignorare il ripristino ACL).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

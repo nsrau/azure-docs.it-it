@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156107"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055240"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Sviluppare modelli ARM per la coerenza cloud
 
@@ -51,7 +51,7 @@ Le nuove funzioni di modello che vengono introdotte in Azure Resource Manager no
 
 Le funzionalità di Azure Resource Manager saranno sempre introdotte prima di tutto in Azure globale. È possibile utilizzare il seguente script PowerShell per verificare se le nuove funzioni dei template sono disponibili anche in Azure Stack:
 
-1. Creare un clone del repository GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions).
+1. Creare un clone del repository GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions) .
 
 1. Dopo aver creato un clone locale del repository, connettersi all’Azure Resource Manager della destinazione con PowerShell.
 
@@ -133,7 +133,7 @@ In tutto il modello, i collegamenti sono generati combinando l'URI di base (dal 
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
+    "apiVersion": "2019-10-01",
     "name": "shared",
     "properties": {
       "mode": "Incremental",
@@ -301,7 +301,7 @@ Per questo motivo, Resource Manager ha introdotto il concetto di profili di API 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -342,7 +342,7 @@ Una versione di profilo API funge da alias per una singola versione API per tipo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -384,7 +384,7 @@ Il profilo di API non è un elemento obbligatorio in un modello. Anche se si agg
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -574,7 +574,7 @@ Le stesse modifiche si applicano anche ai [dischi di dati](../../virtual-machine
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Verificare che le estensioni di macchina virtuale siano disponibili in Azure Stack
 
-Un'altra considerazione per la coerenza del cloud è l'uso di [estensioni virtuali della macchina](../../virtual-machines/windows/extensions-features.md) per configurare le risorse all'interno di una macchina virtuale. Verificare che le estensioni di macchina virtuale siano disponibili in Azure Stack. Un modello può specificare le risorse dedicate per l'estensione di macchina virtuale, la creazione di dipendenze e le condizioni all'interno del modello.
+Un'altra considerazione per la coerenza del cloud è l'uso di [estensioni virtuali della macchina](../../virtual-machines/extensions/features-windows.md) per configurare le risorse all'interno di una macchina virtuale. Verificare che le estensioni di macchina virtuale siano disponibili in Azure Stack. Un modello può specificare le risorse dedicate per l'estensione di macchina virtuale, la creazione di dipendenze e le condizioni all'interno del modello.
 
 Ad esempio, se si desidera configurare una macchina virtuale che esegue Microsoft SQL Server, l'estensione di macchina virtuale può configurare SQL Server come parte della distribuzione del modello. Considerare cosa succede se il modello di installazione client contiene anche un server applicativo configurato per creare un database sulla macchina virtuale con SQL Server in esecuzione. Oltre a utilizzare un'estensione di macchina virtuale per i server applicativi, è possibile configurare la dipendenza del server applicativo dal ritorno corretto della risorsa di estensione di macchina virtuale di SQL Server. Questo approccio assicura che la macchina virtuale che esegue SQL Server sia configurata e disponibile quando al server di applicazioni viene richiesto di creare il database.
 

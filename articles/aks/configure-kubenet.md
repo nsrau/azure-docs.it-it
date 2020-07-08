@@ -3,14 +3,14 @@ title: Configurare funzionalità di rete kubenet nel servizio Azure Kubernetes
 description: Informazioni su come configurare una rete kubenet (di base) nel servizio Azure Kubernetes per distribuire un cluster del servizio Azure Kubernetes in una rete virtuale e una subnet esistenti.
 services: container-service
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120913"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055495"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 
@@ -40,7 +40,7 @@ Questo articolo illustra come usare le funzionalità di rete *kubenet* per crear
 
 Molti ambienti sono caratterizzati da reti virtuali e subnet definite con intervalli di indirizzi IP allocati. Queste risorse di rete virtuale vengono usate per supportare più servizi e applicazioni. Per fornire connettività di rete, i cluster del servizio Azure Kubernetes possono usare *kubenet* (funzionalità di rete di base) o Azure CNI (*funzionalità di rete avanzate*).
 
-Con *kubenet* solo i nodi ricevono un indirizzo IP nella subnet della rete virtuale. I pod non possono comunicare tra loro direttamente. Per la connettività tra i pod nei vari nodi vengono usati il routing definito dall'utente e l'inoltro di indirizzi IP. Si potrebbero anche distribuire i pod dietro un servizio che riceve un indirizzo IP assegnato e bilancia il carico del traffico dell'applicazione. Il diagramma seguente mostra che i nodi del servizio Azure Kubernetes ricevono un indirizzo IP nella subnet della rete virtuale, mentre i pod non lo ricevono:
+Con *kubenet* solo i nodi ricevono un indirizzo IP nella subnet della rete virtuale. I pod non possono comunicare tra loro direttamente. Per la connettività tra i pod nei vari nodi vengono usati il routing definito dall'utente e l'inoltro di indirizzi IP. Per impostazione predefinita, la configurazione di inoltro IP e UdR viene creata e gestita dal servizio AKS, ma è possibile scegliere di [importare una tabella di route personalizzata per la gestione di route personalizzata][byo-subnet-route-table]. Si potrebbero anche distribuire i pod dietro un servizio che riceve un indirizzo IP assegnato e bilancia il carico del traffico dell'applicazione. Il diagramma seguente mostra che i nodi del servizio Azure Kubernetes ricevono un indirizzo IP nella subnet della rete virtuale, mentre i pod non lo ricevono:
 
 ![Modello di rete Kubenet con un cluster del servizio Azure Kubernetes](media/use-kubenet/kubenet-overview.png)
 
@@ -84,7 +84,7 @@ Usare *Azure CNI* quando:
 
 - È disponibile uno spazio indirizzi IP adeguato.
 - La maggior parte delle comunicazioni dei pod avviene con risorse esterne al cluster.
-- Non si vuole gestire UdR.
+- Non si vuole gestire le route definite dall'utente per la connettività pod.
 - Sono necessarie funzionalità avanzate di AKS, ad esempio nodi virtuali o criteri di rete di Azure.  Usare i [criteri di rete di calice][calico-network-policies].
 
 Per ulteriori informazioni sulla scelta del modello di rete da utilizzare, vedere [confrontare i modelli di rete e il relativo ambito di supporto][network-comparisons].
@@ -139,15 +139,15 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Assegnare ora l'entità servizio per le autorizzazioni *Collaboratore* del cluster del servizio Azure Kubernetes nella rete virtuale usando il comando [az role assignment create][az-role-assignment-create]. Specificare l' * \< AppID>* come illustrato nell'output del comando precedente per creare l'entità servizio:
+Assegnare ora l'entità servizio per le autorizzazioni di *collaboratore rete* del cluster AKS per la rete virtuale usando il comando [AZ Role Assignment create][az-role-assignment-create] . Specificare il proprio *\<appId>* come illustrato nell'output del comando precedente per creare l'entità servizio:
 
 ```azurecli-interactive
-az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
+az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
 ```
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Creare un cluster del servizio Azure Kubernetes nella rete virtuale
 
-A questo punto sono state create una rete virtuale e una subnet e sono state create e assegnate le autorizzazioni per consentire a un'entità servizio di usare tali risorse di rete. Creare ora un cluster del servizio Azure Kubernetes nella rete virtuale e nella subnet usando il comando [az aks create][az-aks-create]. Definire il * \<>AppID* dell'entità servizio e la * \< password>*, come illustrato nell'output del comando precedente per creare l'entità servizio.
+A questo punto sono state create una rete virtuale e una subnet e sono state create e assegnate le autorizzazioni per consentire a un'entità servizio di usare tali risorse di rete. Creare ora un cluster del servizio Azure Kubernetes nella rete virtuale e nella subnet usando il comando [az aks create][az-aks-create]. Definire l'entità servizio *\<appId>* e *\<password>* , come illustrato nell'output del comando precedente per creare l'entità servizio.
 
 Durante il processo di creazione del cluster vengono definiti anche gli intervalli di indirizzi IP seguenti:
 
@@ -195,7 +195,43 @@ az aks create \
     --client-secret <password>
 ```
 
-Quando si crea un cluster del servizio Azure Kubernetes, vengono creati un gruppo di sicurezza e una tabella di route. Queste risorse di rete sono gestite dal piano di controllo AKS. Il gruppo di sicurezza di rete viene associato automaticamente alle schede NIC virtuali nei nodi. La tabella di route viene associata automaticamente alla subnet della rete virtuale. Le regole del gruppo di sicurezza di rete e le tabelle di routing vengono aggiornate automaticamente durante la creazione e l'esposizione dei servizi.
+Quando si crea un cluster AKS, vengono creati automaticamente un gruppo di sicurezza di rete e una tabella di route. Queste risorse di rete sono gestite dal piano di controllo AKS. Il gruppo di sicurezza di rete viene associato automaticamente alle schede NIC virtuali nei nodi. La tabella di route viene associata automaticamente alla subnet della rete virtuale. Le regole del gruppo di sicurezza di rete e le tabelle di routing vengono aggiornate automaticamente durante la creazione e l'esposizione dei servizi.
+
+## <a name="bring-your-own-subnet-and-route-table-with-kubenet"></a>Portare la propria subnet e la tabella di route con kubenet
+
+Con kubenet è necessario che sia presente una tabella di route nelle subnet del cluster. AKS supporta l'introduzione della propria subnet e della tabella di route esistenti.
+
+Se la subnet personalizzata non contiene una tabella di route, AKS ne crea una per l'utente e aggiunge le relative regole nell'intero ciclo di vita del cluster. Se la subnet personalizzata contiene una tabella di route quando si crea il cluster, AKS riconosce la tabella di route esistente durante le operazioni del cluster e aggiunge/aggiorna le regole di conseguenza per le operazioni del provider di servizi cloud.
+
+> [!WARNING]
+> È possibile aggiungere regole personalizzate alla tabella di route personalizzata e aggiornarle. Tuttavia, le regole vengono aggiunte dal provider di servizi cloud Kubernetes che non devono essere aggiornate o rimosse. Regole come 0.0.0.0/0 devono sempre esistere in una determinata tabella di route ed eseguire il mapping alla destinazione del gateway Internet, ad esempio un appliance virtuale di rete o un altro gateway in uscita. Prestare attenzione quando si aggiornano le regole in cui vengono modificate solo le regole personalizzate.
+
+Altre informazioni sulla configurazione di una [tabella di route personalizzata][custom-route-table].
+
+La rete Kubenet richiede regole della tabella di route organizzata per indirizzare correttamente le richieste. A causa di questa progettazione, le tabelle di route devono essere gestite con attenzione per ogni cluster che si basa su di esso. Più cluster non possono condividere una tabella di route perché Pod CIDRs da cluster diversi possono sovrapporsi, causando un routing imprevisto e interrotta. Quando si configurano più cluster nella stessa rete virtuale o si dedica una rete virtuale a ogni cluster, assicurarsi che siano considerate le limitazioni seguenti.
+
+Limitazioni
+
+* Le autorizzazioni devono essere assegnate prima della creazione del cluster, assicurarsi di usare un'entità servizio con autorizzazioni di scrittura per la subnet personalizzata e la tabella di route personalizzata.
+* Le identità gestite non sono attualmente supportate con le tabelle di route personalizzate in kubenet.
+* Una tabella di route personalizzata deve essere associata alla subnet prima di creare il cluster AKS.
+* Non è possibile aggiornare la risorsa della tabella di route associata dopo la creazione del cluster. Anche se non è possibile aggiornare la risorsa della tabella di route, è possibile modificare le regole personalizzate nella tabella di route.
+* Ogni cluster AKS deve usare una singola tabella di route univoca per tutte le subnet associate al cluster. Non è possibile riutilizzare una tabella di route con più cluster a causa della possibilità di sovrapposizione di Pod CIDRs e di regole di routing in conflitto.
+
+Dopo aver creato una tabella di route personalizzata e averla associata alla subnet nella rete virtuale, è possibile creare un nuovo cluster AKS che usa la tabella di route.
+È necessario usare l'ID subnet per la posizione in cui si prevede di distribuire il cluster AKS. Anche questa subnet deve essere associata alla tabella di route personalizzata.
+
+```azurecli-interactive
+# Find your subnet ID
+az network vnet subnet list --resource-group
+                            --vnet-name
+                            [--subscription]
+```
+
+```azurecli-interactive
+# Create a kubernetes cluster with with a custom subnet preconfigured with a route table
+az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -217,9 +253,11 @@ Dopo aver distribuito un cluster del servizio Azure Kubernetes nella propria sub
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
+[custom-route-table]: ../virtual-network/manage-route-table.md

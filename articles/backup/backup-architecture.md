@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273618"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055257"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -52,7 +52,7 @@ Gli insiemi di credenziali dei servizi di ripristino includono le funzionalità 
 
 Backup di Azure fornisce diversi agenti di backup, a seconda del tipo di computer di cui viene eseguito il backup:
 
-**Agente** | **Dettagli**
+**Agent** | **Dettagli**
 --- | ---
 **Agente MARS** | <ul><li>Viene eseguito nei singoli computer Windows Server locali per eseguire il backup di file, cartelle e lo stato del sistema.</li> <li>Viene eseguito in macchine virtuali di Azure per eseguire il backup di file, cartelle e lo stato del sistema.</li> <li>Viene eseguito nei server DPM/MAB per eseguire il backup del disco di archiviazione locale di DPM/MAB in Azure.</li></ul>
 **Estensione per le macchine virtuali di Azure** | Viene eseguito in macchine virtuali di Azure per eseguirne il backup in un insieme di credenziali.
@@ -65,7 +65,7 @@ Nella tabella seguente sono illustrati i diversi tipi di backup e quando vengono
 --- | --- | ---
 **Completo** | Un backup completo contiene l'intera origine dati. Richiede una maggiore larghezza di banda di rete rispetto al backup differenziale o incrementale. | Usato per il backup iniziale.
 **Differenziale** |  Un backup differenziale archivia i blocchi modificati dopo il backup completo iniziale. Usa una quantità minore di spazio di archiviazione e di rete e non mantiene copie ridondanti di dati non modificati.<br/><br/> Inefficiente poiché i blocchi di dati che non sono stati modificati tra i backup successivi vengono trasferiti e archiviati. | Non è usato da Backup di Azure.
-**Incrementale** | Un backup incrementale archivia solo i blocchi di dati modificati rispetto al backup precedente. Efficienza elevata per rete e archiviazione. <br/><br/> Con il backup incrementale, non è necessario integrare i backup completi. | Usato da DPM/MABS per i backup su disco e usato in tutti i backup in Azure. Non usato per il backup SQL Server.
+**Incremental** | Un backup incrementale archivia solo i blocchi di dati modificati rispetto al backup precedente. Efficienza elevata per rete e archiviazione. <br/><br/> Con il backup incrementale, non è necessario integrare i backup completi. | Usato da DPM/MABS per i backup su disco e usato in tutti i backup in Azure. Non usato per il backup SQL Server.
 
 ## <a name="sql-server-backup-types"></a>Tipi di backup di SQL Server
 
@@ -105,9 +105,7 @@ Backup di dischi deduplicati | | | ![Parziale][yellow]<br/><br/> Solo per i serv
 ## <a name="backup-policy-essentials"></a>Informazioni di base sui criteri di backup
 
 - Un criterio di backup viene creato per ogni insieme di credenziali.
-- Un criterio di backup può essere creato per il backup dei carichi di lavoro seguenti
-  - Macchina virtuale Azure
-  - SQL in macchine virtuali di Azure
+- È possibile creare criteri di backup per il backup dei carichi di lavoro seguenti: macchine virtuali di Azure, SQL in macchine virtuali di Azure, SAP HANA nelle macchine virtuali di Azure e condivisioni file di Azure. I criteri per il backup di file e cartelle con l'agente MARS sono specificati nella console di MARS.
   - Condivisione file di Azure
 - Un criterio può essere assegnato a più risorse. Un criterio di backup di macchine virtuali di Azure può essere usato per proteggere più macchine virtuali di Azure.
 - Un criterio è costituito da due componenti
@@ -115,9 +113,12 @@ Backup di dischi deduplicati | | | ![Parziale][yellow]<br/><br/> Solo per i serv
   - Conservazione: per quanto tempo ogni backup deve essere conservato.
 - La pianificazione può essere "giornaliera" o "settimanale" rispetto a uno specifico punto temporale.
 - La conservazione può essere definita per punti di backup "giornalieri", "settimanali", "mensili" e "annuali".
-- "Settimanale" si riferisce a un backup eseguito in un determinato giorno della settimana, "mensile" indica un backup eseguito in un determinato giorno del mese e "annuale" fa riferimento a un backup eseguito in un determinato giorno dell'anno.
-- La conservazione per i punti di backup "mensili" o "annuali" viene definita "LongTermRetention".
-- Quando viene creato un insieme di credenziali, viene creato anche un criterio per i backup di VM di Azure denominato "DefaultPolicy" e può essere usato per eseguire il backup di macchine virtuali di Azure.
+  - "settimanale" si riferisce a un backup in un determinato giorno della settimana
+  - "mensile" fa riferimento a un backup in un determinato giorno del mese
+  - "yearly" si riferisce a un backup in un determinato giorno dell'anno
+- La conservazione per i punti di backup "mensili", "annuali" viene definita conservazione a lungo termine (LTR)
+- Quando viene creato un insieme di credenziali, viene creato anche un "DefaultPolicy" e può essere usato per eseguire il backup delle risorse.
+- Tutte le modifiche apportate al periodo di conservazione di un criterio di backup verranno applicate in modo retroattivo a tutti i punti di ripristino precedenti, oltre a quelli nuovi.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architettura: backup di macchine virtuali di Azure predefinito
 
@@ -214,7 +215,7 @@ Quando si ripristinano le VM con Managed disks, è possibile eseguire il riprist
 
 - Esaminare la matrice di supporto per informazioni [sulle funzionalità supportate e sulle limitazioni per gli scenari di backup](backup-support-matrix.md).
 - Configurare il backup per uno di questi scenari:
-  - [Eseguire il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md).
+  - [Eseguire il backup delle macchine virtuali di Azure](backup-azure-arm-vms-prepare.md).
   - [Eseguire il backup di computer Windows direttamente](tutorial-backup-windows-server-to-azure.md), senza un server di backup.
   - [Configurare MABS](backup-azure-microsoft-azure-backup.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in MABS.
   - [Configurare DPM](backup-azure-dpm-introduction.md) per il backup in Azure e quindi eseguire il backup dei carichi di lavoro in DPM.

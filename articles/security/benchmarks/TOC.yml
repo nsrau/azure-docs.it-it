@@ -41,10 +41,14 @@
       href: ../../automation/security-baseline.md
     - name: Baseline di sicurezza di Cache di Azure per Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Baseline di sicurezza di Criteri di Azure
+      href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Baseline di sicurezza di Backup
       href: ../../backup/security-baseline.md
     - name: Baseline di sicurezza di Batch
       href: ../../batch/security-baseline.md
+    - name: Baseline di sicurezza di Servizi cognitivi
+      href: ../../cognitive-services/security-baseline.md
     - name: Baseline di sicurezza di Istanze di Container
       href: ../../container-instances/security-baseline.md
     - name: Baseline di sicurezza di Registro Container
@@ -87,3 +91,5 @@
       href: ../../stream-analytics/security-baseline.md
     - name: Baseline di sicurezza di Archiviazione
       href: ../../storage/common/security-baseline.md
+    - name: Baseline di sicurezza di Synapse Analytics
+      href: ../../synapse-analytics/security-baseline.md

@@ -1,5 +1,5 @@
 ---
-title: Eseguire il debug e risolvere i problemi delle pipeline di Machine Learning in Application Insights
+title: Monitorare &raccogliere i file di log della pipeline
 titleSuffix: Azure Machine Learning
 description: Aggiungere la registrazione alle pipeline di assegnazione dei punteggi di training e batch e visualizzare i risultati registrati in Application Insights.
 services: machine-learning
@@ -7,18 +7,17 @@ author: sanpil
 ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2020
-ms.custom: seodec18
-ms.openlocfilehash: b3e4bf19a7ec153f85483f3c5028e468e06ed7f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: a87ceb5a216b05f3fae6d570bbfed1c4a622c911
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982362"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055716"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Eseguire il debug e risolvere i problemi delle pipeline di Machine Learning in Application Insights
+# <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Raccolta dei file di log della pipeline di Machine Learning in Application Insights per gli avvisi e il debug
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 La libreria Python di [OpenCensus](https://opencensus.io/quickstart/python/) può essere usata per indirizzare i log ai Application Insights dagli script. L'aggregazione dei log dalle esecuzioni di pipeline in un'unica posizione consente di compilare query e diagnosticare i problemi. L'uso di Application Insights consente di tenere traccia dei log nel tempo e confrontare i log della pipeline tra le esecuzioni.

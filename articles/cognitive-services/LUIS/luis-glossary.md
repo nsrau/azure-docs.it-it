@@ -3,12 +3,12 @@ title: Glossario-LUIS
 description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681606"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056379"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
 Il Glossario di Language Understanding (LUIS) illustra i termini che possono verificarsi durante l'utilizzo del servizio LUIS.
@@ -38,11 +38,11 @@ La creazione è la possibilità di creare, gestire e distribuire un'app LUIS, us
 
 ### <a name="authoring-key"></a>Chiave di creazione
 
-La [chiave di creazione](luis-concept-keys.md) viene usata per creare l'app. Non utilizzata per le query di endpoint a livello di produzione. Per ulteriori informazioni, vedere [Limiti della chiave](luis-limits.md#key-limits).
+La [chiave di creazione](luis-how-to-azure-subscription.md) viene usata per creare l'app. Non utilizzata per le query di endpoint a livello di produzione. Per ulteriori informazioni, vedere [Limiti della chiave](luis-limits.md#key-limits).
 
 ### <a name="authoring-resource"></a>Creazione di una risorsa
 
-La [risorsa Luis authoring](luis-concept-keys.md#azure-resources-for-luis) è un elemento gestibile disponibile tramite Azure. La risorsa è l'accesso alle funzionalità di creazione, formazione e pubblicazione associate del servizio di Azure. La risorsa include le informazioni di autenticazione, autorizzazione e sicurezza necessarie per accedere al servizio di Azure associato.
+La [risorsa Luis authoring](luis-how-to-azure-subscription.md#azure-resources-for-luis) è un elemento gestibile disponibile tramite Azure. La risorsa è l'accesso alle funzionalità di creazione, formazione e pubblicazione associate del servizio di Azure. La risorsa include le informazioni di autenticazione, autorizzazione e sicurezza necessarie per accedere al servizio di Azure associato.
 
 La risorsa di creazione ha una "tipologia" di Azure `LUIS-Authoring` .
 
@@ -234,7 +234,7 @@ Una stima è una richiesta REST al servizio di stima di Azure LUIS che accetta i
 
 ### <a name="prediction-key"></a>Chiave di stima
 
-La [chiave di stima](luis-concept-keys.md) , nota in precedenza come chiave di sottoscrizione, è la chiave associata al servizio Luis creato in Azure che autorizza l'utilizzo dell'endpoint di stima.
+La [chiave di stima](luis-how-to-azure-subscription.md) , nota in precedenza come chiave di sottoscrizione, è la chiave associata al servizio Luis creato in Azure che autorizza l'utilizzo dell'endpoint di stima.
 
 Questa chiave non è la chiave di crezione. Se si dispone di una chiave dell'endpoint di stima, è consigliabile utilizzarla per tutte le richieste endpoint anziché per la chiave di creazione. È possibile visualizzare la chiave di stima corrente all'interno dell'URL dell'endpoint nella parte inferiore della pagina delle risorse di Azure nel sito Web LUIS. Si tratta del valore della coppia nome/valore della chiave di sottoscrizione.
 
@@ -283,9 +283,9 @@ Nelle entità di LUIS [List](reference-entity-list.md)è possibile creare un val
 
 |Valore Nomalized| Sinonimi|
 |--|--|
-|Small| il piccolo, 8 once|
-|Medium| normale, 12 once|
-|Large| grande, 16 once|
+|Piccolo| il piccolo, 8 once|
+|Media| normale, 12 once|
+|Grande| grande, 16 once|
 |Xtra Large| quello più grande, 24 once|
 
 Il modello restituirà il valore normalizzato per l'entità quando uno dei sinonimi viene visualizzato nell'input.
@@ -300,7 +300,7 @@ L'endpoint include [timezoneOffset](luis-concept-data-alteration.md#change-time-
 
 Vedere [Cambiare il fuso orario dell'entità datetimeV2 predefinita](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
-## <a name="token"></a>Token
+## <a name="token"></a>token
 Un [token](luis-language-support.md#tokenization) è la più piccola unità di testo che Luis può riconoscere. Questo comportamento differisce leggermente tra le lingue.
 
 Per l' **inglese**, un token è un intervallo continuo (senza spazi o punteggiatura) di lettere e numeri. Uno spazio non è un token.

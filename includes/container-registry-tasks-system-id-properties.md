@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 07/12/2019
+ms.date: 07/06/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 700dbfde3be2f24eb57acbdeb9d2841ef2bdfe44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1b7c8487eb42204f2741679c9ef6eb2717c272cd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77112305"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057356"
 ---
 Nell'output del comando la sezione `identity` mostra che nell'attività è impostata l'identità di tipo `SystemAssigned`. `principalId` è l'ID entità dell'identità dell'attività:
 
@@ -31,7 +31,9 @@ Nell'output del comando la sezione `identity` mostra che nell'attività è impos
 Usare il comando [az acr task show][az-acr-task-show] per archiviare il valore di principalId in una variabile, da usare nei comandi successivi. Sostituire il nome dell'attività e del registro con i propri valori nel comando seguente:
 
 ```azurecli
-principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)
+principalID=$(az acr task show \
+  --name <task_name> --registry <registry_name> \
+  --query identity.principalId --output tsv)
 ```
 
 <!-- LINKS - Internal -->

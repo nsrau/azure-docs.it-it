@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a81d6edfd887dc935a53742b7bc1492651c9bda5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6d89b36123267c0bdc5d8fdbfd56c83610418c9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74887119"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056209"
 ---
 # <a name="input-metadata"></a>Metadati di input 
 
@@ -50,12 +50,12 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 ### <a name="attributes"></a>Attributes
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **Nome**<br /><br /> Obbligatoria |**xs:string** |Nome del file di asset |
-| **Dimensione**<br /><br /> Obbligatoria |**xs:long** |Dimensioni del file di asset in byte. |
-| **Duration**<br /><br /> Obbligatoria |**xs:duration** |Durata della riproduzione del contenuto. Esempio: Duration="PT25M37.757S". |
-| **NumberOfStreams**<br /><br /> Obbligatoria |**xs:int** |Numero di flussi nel file di asset. |
-| **FormatNames**<br /><br /> Obbligatoria |**xs: string** |Nomi del formato. |
-| **FormatVerboseNames**<br /><br /> Obbligatoria |**xs: string** |Nomi dettagliati del formato. |
+| **Nome**<br /><br /> Necessario |**xs:string** |Nome del file di asset |
+| **Dimensione**<br /><br /> Necessario |**xs:long** |Dimensioni del file di asset in byte. |
+| **Duration**<br /><br /> Necessario |**xs:duration** |Durata della riproduzione del contenuto. Esempio: Duration="PT25M37.757S". |
+| **NumberOfStreams**<br /><br /> Necessario |**xs:int** |Numero di flussi nel file di asset. |
+| **FormatNames**<br /><br /> Necessario |**xs: string** |Nomi del formato. |
+| **FormatVerboseNames**<br /><br /> Necessario |**xs: string** |Nomi dettagliati del formato. |
 | **StartTime** |**xs:duration** |Ora di inizio del contenuto. Esempio: StartTime="PT2.669S". |
 | **OverallBitRate** |**xs: int** |Media della velocità in bit del file di asset, espressa in kbps. |
 
@@ -65,7 +65,7 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 > 
 
 ### <a name="child-elements"></a>Elementi figlio
-| Nome | Type | Description |
+| Nome | Type | Descrizione |
 | --- | --- | --- |
 | **Programmi**<br /><br /> minOccurs="0" | |Raccolta di tutti gli [Elementi Programs](media-services-input-metadata-schema.md#Programs) quando il file di asset è in formato MPEG-TS. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |Ogni file di asset fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. Questo elemento contiene una raccolta di tutti i [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) che fanno parte del file di asset. |
@@ -78,10 +78,10 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 ### <a name="attributes"></a>Attributes
 | Nome | Type | Description |
 | --- | --- | --- |
-| **Id**<br /><br /> Obbligatoria |**xs:int** |Indice in base zero della traccia audio o video.<br /><br /> Non corrisponde necessariamente al TrackID usato in un file MP4. |
+| **Id**<br /><br /> Necessario |**xs:int** |Indice in base zero della traccia audio o video.<br /><br /> Non corrisponde necessariamente al TrackID usato in un file MP4. |
 | **Codec** |**xs:string** |Stringa del codec della traccia video. |
 | **CodecLongName** |**xs: string** |Nome lungo del codec della traccia audio o video. |
-| **TimeBase**<br /><br /> Obbligatoria |**xs:string** |Tempo base. Esempio: TimeBase="1/48000" |
+| **TimeBase**<br /><br /> Necessario |**xs:string** |Tempo base. Esempio: TimeBase="1/48000" |
 | **NumberOfFrames** |**xs:int** |Numero di frame (presenti per le tracce video). |
 | **StartTime** |**xs: duration** |Ora di inizio della traccia. Esempio: StartTime="PT2.669S" |
 | **Duration** |**xs:duration** |Durata della traccia. Esempio: Duration="PTSampleFormat M37.757S". |
@@ -109,8 +109,8 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 | --- | --- | --- |
 | **SampleFormat** |**xs:string** |Formato del campione. |
 | **ChannelLayout** |**xs: string** |Layout del canale. |
-| **Channels**<br /><br /> Obbligatoria |**xs:int** |Numero di canali audio (da 0 in su). |
-| **SamplingRate**<br /><br /> Obbligatoria |**xs:int** |Frequenza di campionamento dell'audio in campioni/sec o Hz. |
+| **Channels**<br /><br /> Necessario |**xs:int** |Numero di canali audio (da 0 in su). |
+| **SamplingRate**<br /><br /> Necessario |**xs:int** |Frequenza di campionamento dell'audio in campioni/sec o Hz. |
 | **Bitrate** |**xs:int** |Velocità media in bit audio in bit al secondo, calcolata in base al file di asset. Viene contato solo il payload del flusso elementare, mentre l'overhead di creazione dei pacchetti è escluso dal conteggio. |
 | **BitsPerSample** |**xs:int** |Tipo di bit per campione per il formato wFormatTag. |
 
@@ -124,18 +124,18 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 ### <a name="attributes"></a>Attributes
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **FourCC**<br /><br /> Obbligatoria |**xs:string** |Codice FourCC del codec video. |
+| **FourCC**<br /><br /> Necessario |**xs:string** |Codice FourCC del codec video. |
 | **Profilo** |**xs: string** |Profilo della traccia video. |
 | **Level** |**xs: string** |Livello della traccia video. |
 | **PixelFormat** |**xs: string** |Formato pixel della traccia video. |
-| **Larghezza**<br /><br /> Obbligatoria |**xs:int** |Larghezza del video codificata in pixel. |
-| **Altezza**<br /><br /> Obbligatoria |**xs:int** |Altezza del video codificata in pixel. |
-| **DisplayAspectRatioNumerator**<br /><br /> Obbligatoria |**xs: double** |Numeratore delle proporzioni della visualizzazione video. |
-| **DisplayAspectRatioDenominator**<br /><br /> Obbligatoria |**xs:double** |Denominatore delle proporzioni della visualizzazione video. |
-| **DisplayAspectRatioDenominator**<br /><br /> Obbligatoria |**xs: double** |Numeratore delle proporzioni del campione video. |
+| **Larghezza**<br /><br /> Necessario |**xs:int** |Larghezza del video codificata in pixel. |
+| **Altezza:**<br /><br /> Necessario |**xs:int** |Altezza del video codificata in pixel. |
+| **DisplayAspectRatioNumerator**<br /><br /> Necessario |**xs: double** |Numeratore delle proporzioni della visualizzazione video. |
+| **DisplayAspectRatioDenominator**<br /><br /> Necessario |**xs:double** |Denominatore delle proporzioni della visualizzazione video. |
+| **DisplayAspectRatioDenominator**<br /><br /> Necessario |**xs: double** |Numeratore delle proporzioni del campione video. |
 | **SampleAspectRatioNumerator** |**xs: double** |Numeratore delle proporzioni del campione video. |
 | **SampleAspectRatioNumerator** |**xs:double** |Denominatore delle proporzioni del campione video. |
-| **FrameRate**<br /><br /> Obbligatoria |**xs:decimal** |Frequenza dei frame misurata in formato .3F. |
+| **FrameRate**<br /><br /> Necessario |**xs:decimal** |Frequenza dei frame misurata in formato .3F. |
 | **Bitrate** |**xs:int** |Velocità media in bit video in kilobit al secondo, calcolata in base al file di asset. Viene contato solo il payload del flusso elementare, mentre l'overhead di creazione dei pacchetti è escluso. |
 | **MaxGOPBitrate** |**xs: int** |Velocità media in bit Max GOP per la traccia video, in kilobit al secondo. |
 | **HasBFrames** |**xs:int** |Numero di traccia video dei fotogrammi B. |
@@ -148,8 +148,8 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 ### <a name="attributes"></a>Attributes
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **key**<br /><br /> Obbligatoria |**xs:string** |La chiave nella coppia chiave-valore. |
-| **value**<br /><br /> Obbligatoria |**xs:string** |Il valore nella coppia chiave-valore. |
+| **key**<br /><br /> Necessario |**xs:string** |La chiave nella coppia chiave-valore. |
+| **value**<br /><br /> Necessario |**xs:string** |Il valore nella coppia chiave-valore. |
 
 ## <a name="programtype"></a><a name="ProgramType"></a>ProgramType
 **ProgramType** è un tipo globale complesso che descrive un programma.  
@@ -157,10 +157,10 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 ### <a name="attributes"></a>Attributes
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **ProgramId**<br /><br /> Obbligatoria |**xs:int** |ID programma |
-| **NumberOfPrograms**<br /><br /> Obbligatoria |**xs:int** |Numero di programmi. |
-| **PmtPid**<br /><br /> Obbligatoria |**xs:int** |Tabelle di mappa dei programmi (PMT) che contengono informazioni sui programmi.  Per altre informazioni, vedere [PMT](https://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
-| **PcrPid**<br /><br /> Obbligatoria |**xs: int** |Usato dal decodificatore. Per altre informazioni, vedere [PCR](https://en.wikipedia.org/wiki/MPEG_transport_stream#PCR). |
+| **ProgramId**<br /><br /> Necessario |**xs:int** |ID programma |
+| **NumberOfPrograms**<br /><br /> Necessario |**xs:int** |Numero di programmi. |
+| **PmtPid**<br /><br /> Necessario |**xs:int** |Tabelle di mappa dei programmi (PMT) che contengono informazioni sui programmi.  Per altre informazioni, vedere [PMT](https://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
+| **PcrPid**<br /><br /> Necessario |**xs: int** |Usato dal decodificatore. Per altre informazioni, vedere [PCR](https://en.wikipedia.org/wiki/MPEG_transport_stream#PCR). |
 | **StartPTS** |**xs: long** |Timestamp di avvio della presentazione. |
 | **EndPTS** |**xs: long** |Timestamp di fine della presentazione. |
 
@@ -172,17 +172,17 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 ### <a name="attributes"></a>Attributes
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **Predefinito**<br /><br /> Obbligatoria |**xs: int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione predefinita. |
-| **Dub**<br /><br /> Obbligatoria |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione doppiata. |
-| **Originale**<br /><br /> Obbligatoria |**xs: int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione originale. |
-| **Commento**<br /><br /> Obbligatoria |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia contiene commenti. |
-| **Lyrics**<br /><br /> Obbligatoria |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia contiene testi. |
-| **Karaoke**<br /><br /> Obbligatoria |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della traccia karaoke (musica di sottofondo, senza cantato). |
-| **Forzato**<br /><br /> Obbligatoria |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione forzata. |
-| **HearingImpaired**<br /><br /> Obbligatoria |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia è destinata agli utenti con difficoltà di udito. |
-| **VisualImpaired**<br /><br /> Obbligatoria |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia è destinata agli utenti con problemi di vista. |
-| **CleanEffects**<br /><br /> Obbligatoria |**xs: int** |Impostare questo attributo su 1 per indicare che questa traccia contiene effetti clean. |
-| **AttachedPic**<br /><br /> Obbligatoria |**xs: int** |Impostare questo attributo su 1 per indicare che questa traccia contiene foto. |
+| **Default**<br /><br /> Necessario |**xs: int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione predefinita. |
+| **Dub**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione doppiata. |
+| **Originale**<br /><br /> Necessario |**xs: int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione originale. |
+| **Commento**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia contiene commenti. |
+| **Lyrics**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia contiene testi. |
+| **Karaoke**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della traccia karaoke (musica di sottofondo, senza cantato). |
+| **Forzato**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione forzata. |
+| **HearingImpaired**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia è destinata agli utenti con difficoltà di udito. |
+| **VisualImpaired**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia è destinata agli utenti con problemi di vista. |
+| **CleanEffects**<br /><br /> Necessario |**xs: int** |Impostare questo attributo su 1 per indicare che questa traccia contiene effetti clean. |
+| **AttachedPic**<br /><br /> Necessario |**xs: int** |Impostare questo attributo su 1 per indicare che questa traccia contiene foto. |
 
 ## <a name="programs-element"></a><a name="Programs"></a> Elemento Programs
 Elemento wrapper contenente più elementi **Program**.  
@@ -213,72 +213,146 @@ Elemento wrapper contenente più elementi **Program**.
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType (eredita da TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Contiene informazioni sulle tracce audio presenti nel file di asset. |
 
 ## <a name="schema-code"></a><a name="code"></a>Codice schema
-    <?xml version="1.0" encoding="utf-8"?>  
-    <xs:schema xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
-               xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
-               targetNamespace="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
-               elementFormDefault="qualified">  
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<xs:schema xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
+            xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
+            targetNamespace="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
+            elementFormDefault="qualified">  
 
-      <xs:complexType name="MetadataType">  
-        <xs:attribute name="key"   type="xs:string" use="required"/>  
-        <xs:attribute name="value" type="xs:string" use="required"/>  
-      </xs:complexType>  
+  <xs:complexType name="MetadataType">  
+    <xs:attribute name="key"   type="xs:string" use="required"/>  
+    <xs:attribute name="value" type="xs:string" use="required"/>  
+  </xs:complexType>  
 
-      <xs:complexType name="ProgramType">  
-        <xs:attribute name="ProgramId" type="xs:int" use="required">  
-          <xs:annotation>  
-            <xs:documentation>Program Id</xs:documentation>  
-          </xs:annotation>  
-        </xs:attribute>  
-        <xs:attribute name="NumberOfPrograms" type="xs:int" use="required">  
-          <xs:annotation>  
-            <xs:documentation>Number of programs</xs:documentation>  
-          </xs:annotation>  
-        </xs:attribute>  
-        <xs:attribute name="PmtPid" type="xs:int" use="required">  
-          <xs:annotation>  
-            <xs:documentation>pmt pid</xs:documentation>  
-          </xs:annotation>  
-        </xs:attribute>  
-        <xs:attribute name="PcrPid" type="xs:int" use="required">  
-          <xs:annotation>  
-            <xs:documentation>pcr pid</xs:documentation>  
-          </xs:annotation>  
-        </xs:attribute>  
-        <xs:attribute name="StartPTS" type="xs:long">  
-          <xs:annotation>  
-            <xs:documentation>start pts</xs:documentation>  
-          </xs:annotation>  
-        </xs:attribute>  
-        <xs:attribute name="EndPTS" type="xs:long">  
-          <xs:annotation>  
-            <xs:documentation>end pts</xs:documentation>  
-          </xs:annotation>  
-        </xs:attribute>  
-      </xs:complexType>  
+  <xs:complexType name="ProgramType">  
+    <xs:attribute name="ProgramId" type="xs:int" use="required">  
+      <xs:annotation>  
+        <xs:documentation>Program Id</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+    <xs:attribute name="NumberOfPrograms" type="xs:int" use="required">  
+      <xs:annotation>  
+        <xs:documentation>Number of programs</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+    <xs:attribute name="PmtPid" type="xs:int" use="required">  
+      <xs:annotation>  
+        <xs:documentation>pmt pid</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+    <xs:attribute name="PcrPid" type="xs:int" use="required">  
+      <xs:annotation>  
+        <xs:documentation>pcr pid</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+    <xs:attribute name="StartPTS" type="xs:long">  
+      <xs:annotation>  
+        <xs:documentation>start pts</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+    <xs:attribute name="EndPTS" type="xs:long">  
+      <xs:annotation>  
+        <xs:documentation>end pts</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+  </xs:complexType>  
 
-      <xs:complexType name="StreamDispositionType">  
-        <xs:attribute name="Default"          type="xs:int" use="required" />  
-        <xs:attribute name="Dub"              type="xs:int" use="required" />  
-        <xs:attribute name="Original"         type="xs:int" use="required" />  
-        <xs:attribute name="Comment"          type="xs:int" use="required" />  
-        <xs:attribute name="Lyrics"           type="xs:int" use="required" />  
-        <xs:attribute name="Karaoke"          type="xs:int" use="required" />  
-        <xs:attribute name="Forced"           type="xs:int" use="required" />  
-        <xs:attribute name="HearingImpaired"  type="xs:int" use="required" />  
-        <xs:attribute name="VisualImpaired"   type="xs:int" use="required" />  
-        <xs:attribute name="CleanEffects"     type="xs:int" use="required" />  
-        <xs:attribute name="AttachedPic"      type="xs:int" use="required" />  
-      </xs:complexType>  
+  <xs:complexType name="StreamDispositionType">  
+    <xs:attribute name="Default"          type="xs:int" use="required" />  
+    <xs:attribute name="Dub"              type="xs:int" use="required" />  
+    <xs:attribute name="Original"         type="xs:int" use="required" />  
+    <xs:attribute name="Comment"          type="xs:int" use="required" />  
+    <xs:attribute name="Lyrics"           type="xs:int" use="required" />  
+    <xs:attribute name="Karaoke"          type="xs:int" use="required" />  
+    <xs:attribute name="Forced"           type="xs:int" use="required" />  
+    <xs:attribute name="HearingImpaired"  type="xs:int" use="required" />  
+    <xs:attribute name="VisualImpaired"   type="xs:int" use="required" />  
+    <xs:attribute name="CleanEffects"     type="xs:int" use="required" />  
+    <xs:attribute name="AttachedPic"      type="xs:int" use="required" />  
+  </xs:complexType>  
 
-      <xs:complexType name="TrackType" abstract="true">  
-        <xs:sequence>  
-          <xs:element name="Disposition" type="StreamDispositionType" minOccurs="0" maxOccurs="1"/>  
-          <xs:element name="Metadata" type="MetadataType" minOccurs="0" maxOccurs="unbounded"/>  
-        </xs:sequence>  
-        <xs:attribute name="Id" use="required">  
+  <xs:complexType name="TrackType" abstract="true">  
+    <xs:sequence>  
+      <xs:element name="Disposition" type="StreamDispositionType" minOccurs="0" maxOccurs="1"/>  
+      <xs:element name="Metadata" type="MetadataType" minOccurs="0" maxOccurs="unbounded"/>  
+    </xs:sequence>  
+    <xs:attribute name="Id" use="required">  
+      <xs:annotation>  
+        <xs:documentation>zero-based index of this video track. Note: this is not necessarily the TrackID as used in an MP4 file</xs:documentation>  
+      </xs:annotation>  
+      <xs:simpleType>  
+        <xs:restriction base="xs:int">  
+          <xs:minInclusive value="0"/>  
+        </xs:restriction>  
+      </xs:simpleType>  
+    </xs:attribute>  
+    <xs:attribute name="Codec" type="xs:string">  
+      <xs:annotation>  
+        <xs:documentation>video track codec string</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+    <xs:attribute name="CodecLongName" type="xs:string">  
+      <xs:annotation>  
+        <xs:documentation>video track codec long name</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+    <xs:attribute name="TimeBase"  type="xs:string" use="required">  
+      <xs:annotation>  
+        <xs:documentation>Time base. Example: TimeBase="1/48000"</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+    <xs:attribute name="NumberOfFrames">  
+      <xs:annotation>  
+        <xs:documentation>number of frames</xs:documentation>  
+      </xs:annotation>  
+      <xs:simpleType>  
+        <xs:restriction base="xs:int">  
+          <xs:minInclusive value="0"/>  
+        </xs:restriction>  
+      </xs:simpleType>  
+    </xs:attribute>  
+    <xs:attribute name="StartTime" type="xs:duration">  
+      <xs:annotation>  
+        <xs:documentation>Track start time. Example: StartTime="PT2.669S"</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+    <xs:attribute name="Duration" type="xs:duration">  
+      <xs:annotation>  
+        <xs:documentation>Track duration. Example: Duration="PT25M37.757S"</xs:documentation>  
+      </xs:annotation>  
+    </xs:attribute>  
+  </xs:complexType>  
+
+  <xs:complexType name="VideoTrackType">  
+    <xs:annotation>  
+      <xs:documentation>A specific video track in the parent AssetFile</xs:documentation>  
+    </xs:annotation>  
+    <xs:complexContent>  
+      <xs:extension base="TrackType">  
+        <xs:attribute name="FourCC" type="xs:string" use="required">  
           <xs:annotation>  
-            <xs:documentation>zero-based index of this video track. Note: this is not necessarily the TrackID as used in an MP4 file</xs:documentation>  
+            <xs:documentation>video codec FourCC code</xs:documentation>  
+          </xs:annotation>  
+        </xs:attribute>  
+        <xs:attribute name="Profile" type="xs:string">  
+          <xs:annotation>  
+            <xs:documentation>profile</xs:documentation>  
+          </xs:annotation>  
+        </xs:attribute>  
+        <xs:attribute name="Level" type="xs:string">  
+          <xs:annotation>  
+            <xs:documentation>level</xs:documentation>  
+          </xs:annotation>  
+        </xs:attribute>  
+        <xs:attribute name="PixelFormat" type="xs:string">  
+          <xs:annotation>  
+            <xs:documentation>Video track's pixel format</xs:documentation>  
+          </xs:annotation>  
+        </xs:attribute>  
+        <xs:attribute name="Width" use="required">  
+          <xs:annotation>  
+            <xs:documentation>encoded video width in pixels</xs:documentation>  
           </xs:annotation>  
           <xs:simpleType>  
             <xs:restriction base="xs:int">  
@@ -286,24 +360,9 @@ Elemento wrapper contenente più elementi **Program**.
             </xs:restriction>  
           </xs:simpleType>  
         </xs:attribute>  
-        <xs:attribute name="Codec" type="xs:string">  
+        <xs:attribute name="Height" use="required">  
           <xs:annotation>  
-            <xs:documentation>video track codec string</xs:documentation>  
-          </xs:annotation>  
-        </xs:attribute>  
-        <xs:attribute name="CodecLongName" type="xs:string">  
-          <xs:annotation>  
-            <xs:documentation>video track codec long name</xs:documentation>  
-          </xs:annotation>  
-        </xs:attribute>  
-        <xs:attribute name="TimeBase"  type="xs:string" use="required">  
-          <xs:annotation>  
-            <xs:documentation>Time base. Example: TimeBase="1/48000"</xs:documentation>  
-          </xs:annotation>  
-        </xs:attribute>  
-        <xs:attribute name="NumberOfFrames">  
-          <xs:annotation>  
-            <xs:documentation>number of frames</xs:documentation>  
+            <xs:documentation>encoded video height in pixels</xs:documentation>  
           </xs:annotation>  
           <xs:simpleType>  
             <xs:restriction base="xs:int">  
@@ -311,47 +370,233 @@ Elemento wrapper contenente più elementi **Program**.
             </xs:restriction>  
           </xs:simpleType>  
         </xs:attribute>  
-        <xs:attribute name="StartTime" type="xs:duration">  
+        <xs:attribute name="DisplayAspectRatioNumerator" use="required">  
           <xs:annotation>  
-            <xs:documentation>Track start time. Example: StartTime="PT2.669S"</xs:documentation>  
+            <xs:documentation>video display aspect ratio numerator</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:double">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="DisplayAspectRatioDenominator" use="required">  
+          <xs:annotation>  
+            <xs:documentation>video display aspect ratio denominator</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:double">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="SampleAspectRatioNumerator">  
+          <xs:annotation>  
+            <xs:documentation>video sample aspect ratio numerator</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:double">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="SampleAspectRatioDenominator">  
+          <xs:annotation>  
+            <xs:documentation>video sample aspect ratio denominator</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:double">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="FrameRate" use="required">  
+          <xs:annotation>  
+            <xs:documentation>measured video frame rate in .3f format</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:decimal">  
+              <xs:minInclusive value="0"/>  
+              <xs:fractionDigits value="3"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="Bitrate">  
+          <xs:annotation>  
+            <xs:documentation>average video bit rate in kilobits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:int">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="MaxGOPBitrate">  
+          <xs:annotation>  
+            <xs:documentation>Max GOP average bitrate for this video track, in kilobits per second</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:int">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="HasBFrames" type="xs:int">  
+          <xs:annotation>  
+            <xs:documentation>video track number of B frames</xs:documentation>  
           </xs:annotation>  
         </xs:attribute>  
-        <xs:attribute name="Duration" type="xs:duration">  
+      </xs:extension>  
+    </xs:complexContent>  
+  </xs:complexType>  
+
+  <xs:complexType name="AudioTrackType">  
+    <xs:annotation>  
+      <xs:documentation>a specific audio track in the parent AssetFile</xs:documentation>  
+    </xs:annotation>  
+    <xs:complexContent>  
+      <xs:extension base="TrackType">  
+        <xs:attribute name="SampleFormat"  type="xs:string">  
           <xs:annotation>  
-            <xs:documentation>Track duration. Example: Duration="PT25M37.757S"</xs:documentation>  
+            <xs:documentation>sample format</xs:documentation>  
           </xs:annotation>  
         </xs:attribute>  
-      </xs:complexType>  
+        <xs:attribute name="ChannelLayout"  type="xs:string">  
+          <xs:annotation>  
+            <xs:documentation>channel layout</xs:documentation>  
+          </xs:annotation>  
+        </xs:attribute>  
+        <xs:attribute name="Channels" use="required">  
+          <xs:annotation>  
+            <xs:documentation>number of audio channels</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:int">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="SamplingRate" use="required">  
+          <xs:annotation>  
+            <xs:documentation>audio sampling rate in samples/sec or Hz</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:int">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="Bitrate">  
+          <xs:annotation>  
+            <xs:documentation>average audio bit rate in bits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:int">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+        <xs:attribute name="BitsPerSample">  
+          <xs:annotation>  
+            <xs:documentation>Bits per sample for the wFormatTag format type</xs:documentation>  
+          </xs:annotation>  
+          <xs:simpleType>  
+            <xs:restriction base="xs:int">  
+              <xs:minInclusive value="0"/>  
+            </xs:restriction>  
+          </xs:simpleType>  
+        </xs:attribute>  
+      </xs:extension>  
+    </xs:complexContent>  
+  </xs:complexType>  
 
-      <xs:complexType name="VideoTrackType">  
-        <xs:annotation>  
-          <xs:documentation>A specific video track in the parent AssetFile</xs:documentation>  
-        </xs:annotation>  
-        <xs:complexContent>  
-          <xs:extension base="TrackType">  
-            <xs:attribute name="FourCC" type="xs:string" use="required">  
+  <xs:element name="AssetFiles">  
+    <xs:annotation>  
+      <xs:documentation>Collection of AssetFile entries for the encoding job</xs:documentation>  
+    </xs:annotation>  
+    <xs:complexType>  
+      <xs:sequence>  
+        <xs:element name="AssetFile" minOccurs="1" maxOccurs="unbounded">  
+          <xs:annotation>  
+            <xs:documentation>asset file</xs:documentation>  
+          </xs:annotation>  
+          <xs:complexType>  
+            <xs:sequence>  
+              <xs:element name="Programs" minOccurs="0">  
+                <xs:annotation>  
+                  <xs:documentation>This is the collection of all programs when file is MPEG-TS</xs:documentation>  
+                </xs:annotation>  
+                <xs:complexType>  
+                  <xs:sequence>  
+                    <xs:element name="Program" type="ProgramType" minOccurs="0" maxOccurs="unbounded" />  
+                  </xs:sequence>  
+                </xs:complexType>  
+              </xs:element>  
+              <xs:element name="VideoTracks" minOccurs="0">  
+                <xs:annotation>  
+                  <xs:documentation>Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks</xs:documentation>  
+                </xs:annotation>  
+                <xs:complexType>  
+                  <xs:sequence>  
+                    <xs:element name="VideoTrack" type="VideoTrackType" minOccurs="0" maxOccurs="unbounded" />  
+                  </xs:sequence>  
+                </xs:complexType>  
+              </xs:element>  
+              <xs:element name="AudioTracks" minOccurs="0">  
+                <xs:annotation>  
+                  <xs:documentation>each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks</xs:documentation>  
+                </xs:annotation>  
+                <xs:complexType>  
+                  <xs:sequence>  
+                    <xs:element name="AudioTrack" type="AudioTrackType" minOccurs="0" maxOccurs="unbounded" />  
+                  </xs:sequence>  
+                </xs:complexType>  
+              </xs:element>  
+              <xs:element name="Metadata" type="MetadataType" minOccurs="0" maxOccurs="unbounded" />  
+            </xs:sequence>  
+            <xs:attribute name="Name" type="xs:string" use="required">  
               <xs:annotation>  
-                <xs:documentation>video codec FourCC code</xs:documentation>  
+                <xs:documentation>the media asset file name</xs:documentation>  
               </xs:annotation>  
             </xs:attribute>  
-            <xs:attribute name="Profile" type="xs:string">  
+            <xs:attribute name="Size" use="required">  
               <xs:annotation>  
-                <xs:documentation>profile</xs:documentation>  
+                <xs:documentation>size of file in bytes</xs:documentation>  
+              </xs:annotation>  
+              <xs:simpleType>  
+                <xs:restriction base="xs:long">  
+                  <xs:minInclusive value="0"/>  
+                </xs:restriction>  
+              </xs:simpleType>  
+            </xs:attribute>  
+            <xs:attribute name="Duration" type="xs:duration" use="required">  
+              <xs:annotation>  
+                <xs:documentation>content play back duration. Example: Duration="PT25M37.757S"</xs:documentation>  
               </xs:annotation>  
             </xs:attribute>  
-            <xs:attribute name="Level" type="xs:string">  
+            <xs:attribute name="NumberOfStreams" type="xs:int" use="required">  
               <xs:annotation>  
-                <xs:documentation>level</xs:documentation>  
+                <xs:documentation>number of streams in asset file</xs:documentation>  
               </xs:annotation>  
             </xs:attribute>  
-            <xs:attribute name="PixelFormat" type="xs:string">  
+            <xs:attribute name="FormatNames" type="xs:string" use="required">  
               <xs:annotation>  
-                <xs:documentation>Video track's pixel format</xs:documentation>  
+                <xs:documentation>format names</xs:documentation>  
               </xs:annotation>  
             </xs:attribute>  
-            <xs:attribute name="Width" use="required">  
+            <xs:attribute name="FormatVerboseName" type="xs:string" use="required">  
               <xs:annotation>  
-                <xs:documentation>encoded video width in pixels</xs:documentation>  
+                <xs:documentation>format verbose names</xs:documentation>  
+              </xs:annotation>  
+            </xs:attribute>  
+            <xs:attribute name="StartTime" type="xs:duration">  
+              <xs:annotation>  
+                <xs:documentation>content start time. Example: StartTime="PT2.669S"</xs:documentation>  
+              </xs:annotation>  
+            </xs:attribute>  
+            <xs:attribute name="OverallBitRate">  
+              <xs:annotation>  
+                <xs:documentation>average bitrate of the asset file in kbps</xs:documentation>  
               </xs:annotation>  
               <xs:simpleType>  
                 <xs:restriction base="xs:int">  
@@ -359,291 +604,50 @@ Elemento wrapper contenente più elementi **Program**.
                 </xs:restriction>  
               </xs:simpleType>  
             </xs:attribute>  
-            <xs:attribute name="Height" use="required">  
-              <xs:annotation>  
-                <xs:documentation>encoded video height in pixels</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:int">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="DisplayAspectRatioNumerator" use="required">  
-              <xs:annotation>  
-                <xs:documentation>video display aspect ratio numerator</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:double">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="DisplayAspectRatioDenominator" use="required">  
-              <xs:annotation>  
-                <xs:documentation>video display aspect ratio denominator</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:double">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="SampleAspectRatioNumerator">  
-              <xs:annotation>  
-                <xs:documentation>video sample aspect ratio numerator</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:double">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="SampleAspectRatioDenominator">  
-              <xs:annotation>  
-                <xs:documentation>video sample aspect ratio denominator</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:double">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="FrameRate" use="required">  
-              <xs:annotation>  
-                <xs:documentation>measured video frame rate in .3f format</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:decimal">  
-                  <xs:minInclusive value="0"/>  
-                  <xs:fractionDigits value="3"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="Bitrate">  
-              <xs:annotation>  
-                <xs:documentation>average video bit rate in kilobits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:int">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="MaxGOPBitrate">  
-              <xs:annotation>  
-                <xs:documentation>Max GOP average bitrate for this video track, in kilobits per second</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:int">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="HasBFrames" type="xs:int">  
-              <xs:annotation>  
-                <xs:documentation>video track number of B frames</xs:documentation>  
-              </xs:annotation>  
-            </xs:attribute>  
-          </xs:extension>  
-        </xs:complexContent>  
-      </xs:complexType>  
-
-      <xs:complexType name="AudioTrackType">  
-        <xs:annotation>  
-          <xs:documentation>a specific audio track in the parent AssetFile</xs:documentation>  
-        </xs:annotation>  
-        <xs:complexContent>  
-          <xs:extension base="TrackType">  
-            <xs:attribute name="SampleFormat"  type="xs:string">  
-              <xs:annotation>  
-                <xs:documentation>sample format</xs:documentation>  
-              </xs:annotation>  
-            </xs:attribute>  
-            <xs:attribute name="ChannelLayout"  type="xs:string">  
-              <xs:annotation>  
-                <xs:documentation>channel layout</xs:documentation>  
-              </xs:annotation>  
-            </xs:attribute>  
-            <xs:attribute name="Channels" use="required">  
-              <xs:annotation>  
-                <xs:documentation>number of audio channels</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:int">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="SamplingRate" use="required">  
-              <xs:annotation>  
-                <xs:documentation>audio sampling rate in samples/sec or Hz</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:int">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="Bitrate">  
-              <xs:annotation>  
-                <xs:documentation>average audio bit rate in bits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:int">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="BitsPerSample">  
-              <xs:annotation>  
-                <xs:documentation>Bits per sample for the wFormatTag format type</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:int">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-          </xs:extension>  
-        </xs:complexContent>  
-      </xs:complexType>  
-
-      <xs:element name="AssetFiles">  
-        <xs:annotation>  
-          <xs:documentation>Collection of AssetFile entries for the encoding job</xs:documentation>  
-        </xs:annotation>  
-        <xs:complexType>  
-          <xs:sequence>  
-            <xs:element name="AssetFile" minOccurs="1" maxOccurs="unbounded">  
-              <xs:annotation>  
-                <xs:documentation>asset file</xs:documentation>  
-              </xs:annotation>  
-              <xs:complexType>  
-                <xs:sequence>  
-                  <xs:element name="Programs" minOccurs="0">  
-                    <xs:annotation>  
-                      <xs:documentation>This is the collection of all programs when file is MPEG-TS</xs:documentation>  
-                    </xs:annotation>  
-                    <xs:complexType>  
-                      <xs:sequence>  
-                        <xs:element name="Program" type="ProgramType" minOccurs="0" maxOccurs="unbounded" />  
-                      </xs:sequence>  
-                    </xs:complexType>  
-                  </xs:element>  
-                  <xs:element name="VideoTracks" minOccurs="0">  
-                    <xs:annotation>  
-                      <xs:documentation>Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks</xs:documentation>  
-                    </xs:annotation>  
-                    <xs:complexType>  
-                      <xs:sequence>  
-                        <xs:element name="VideoTrack" type="VideoTrackType" minOccurs="0" maxOccurs="unbounded" />  
-                      </xs:sequence>  
-                    </xs:complexType>  
-                  </xs:element>  
-                  <xs:element name="AudioTracks" minOccurs="0">  
-                    <xs:annotation>  
-                      <xs:documentation>each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks</xs:documentation>  
-                    </xs:annotation>  
-                    <xs:complexType>  
-                      <xs:sequence>  
-                        <xs:element name="AudioTrack" type="AudioTrackType" minOccurs="0" maxOccurs="unbounded" />  
-                      </xs:sequence>  
-                    </xs:complexType>  
-                  </xs:element>  
-                  <xs:element name="Metadata" type="MetadataType" minOccurs="0" maxOccurs="unbounded" />  
-                </xs:sequence>  
-                <xs:attribute name="Name" type="xs:string" use="required">  
-                  <xs:annotation>  
-                    <xs:documentation>the media asset file name</xs:documentation>  
-                  </xs:annotation>  
-                </xs:attribute>  
-                <xs:attribute name="Size" use="required">  
-                  <xs:annotation>  
-                    <xs:documentation>size of file in bytes</xs:documentation>  
-                  </xs:annotation>  
-                  <xs:simpleType>  
-                    <xs:restriction base="xs:long">  
-                      <xs:minInclusive value="0"/>  
-                    </xs:restriction>  
-                  </xs:simpleType>  
-                </xs:attribute>  
-                <xs:attribute name="Duration" type="xs:duration" use="required">  
-                  <xs:annotation>  
-                    <xs:documentation>content play back duration. Example: Duration="PT25M37.757S"</xs:documentation>  
-                  </xs:annotation>  
-                </xs:attribute>  
-                <xs:attribute name="NumberOfStreams" type="xs:int" use="required">  
-                  <xs:annotation>  
-                    <xs:documentation>number of streams in asset file</xs:documentation>  
-                  </xs:annotation>  
-                </xs:attribute>  
-                <xs:attribute name="FormatNames" type="xs:string" use="required">  
-                  <xs:annotation>  
-                    <xs:documentation>format names</xs:documentation>  
-                  </xs:annotation>  
-                </xs:attribute>  
-                <xs:attribute name="FormatVerboseName" type="xs:string" use="required">  
-                  <xs:annotation>  
-                    <xs:documentation>format verbose names</xs:documentation>  
-                  </xs:annotation>  
-                </xs:attribute>  
-                <xs:attribute name="StartTime" type="xs:duration">  
-                  <xs:annotation>  
-                    <xs:documentation>content start time. Example: StartTime="PT2.669S"</xs:documentation>  
-                  </xs:annotation>  
-                </xs:attribute>  
-                <xs:attribute name="OverallBitRate">  
-                  <xs:annotation>  
-                    <xs:documentation>average bitrate of the asset file in kbps</xs:documentation>  
-                  </xs:annotation>  
-                  <xs:simpleType>  
-                    <xs:restriction base="xs:int">  
-                      <xs:minInclusive value="0"/>  
-                    </xs:restriction>  
-                  </xs:simpleType>  
-                </xs:attribute>  
-              </xs:complexType>  
-            </xs:element>  
-          </xs:sequence>  
-        </xs:complexType>  
-      </xs:element>  
-    </xs:schema>  
+          </xs:complexType>  
+        </xs:element>  
+      </xs:sequence>  
+    </xs:complexType>  
+  </xs:element>  
+</xs:schema>  
+```
 
 
 ## <a name="xml-example"></a><a name="xml"></a>Esempio XML
 Di seguito è riportato un esempio di file di metadati di input.  
 
-    <?xml version="1.0" encoding="utf-8"?>  
-    <AssetFiles xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata">  
-      <AssetFile Name="bear.mp4" Size="1973733" Duration="PT12.678S" NumberOfStreams="2" FormatNames="mov,mp4,m4a,3gp,3g2,mj2" FormatVerboseName="QuickTime / MOV" StartTime="PT0S" OverallBitRate="1245">  
-        <VideoTracks>  
-          <VideoTrack Id="1" Codec="h264" CodecLongName="H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10" TimeBase="1/29970" NumberOfFrames="375" StartTime="PT0.034S" Duration="PT12.645S" FourCC="avc1" Profile="High" Level="4.1" PixelFormat="yuv420p" Width="512" Height="384" DisplayAspectRatioNumerator="4" DisplayAspectRatioDenominator="3" SampleAspectRatioNumerator="1" SampleAspectRatioDenominator="1" FrameRate="29.656" Bitrate="1043" HasBFrames="1">  
-            <Disposition Default="1" Dub="0" Original="0" Comment="0" Lyrics="0" Karaoke="0" Forced="0" HearingImpaired="0" VisualImpaired="0" CleanEffects="0" AttachedPic="0" />  
-            <Metadata key="creation_time" value="2010-03-10 16:11:56" />  
-            <Metadata key="language" value="eng" />  
-            <Metadata key="handler_name" value="Mainconcept MP4 Video Media Handler" />  
-          </VideoTrack>  
-        </VideoTracks>  
-        <AudioTracks>  
-          <AudioTrack Id="0" Codec="aac" CodecLongName="AAC (Advanced Audio Coding)" TimeBase="1/44100" NumberOfFrames="546" StartTime="PT0S" Duration="PT12.678S" SampleFormat="fltp" ChannelLayout="stereo" Channels="2" SamplingRate="44100" Bitrate="156" BitsPerSample="0">  
-            <Disposition Default="1" Dub="0" Original="0" Comment="0" Lyrics="0" Karaoke="0" Forced="0" HearingImpaired="0" VisualImpaired="0" CleanEffects="0" AttachedPic="0" />  
-            <Metadata key="creation_time" value="2010-03-10 16:11:56" />  
-            <Metadata key="language" value="eng" />  
-            <Metadata key="handler_name" value="Mainconcept MP4 Sound Media Handler" />  
-          </AudioTrack>  
-        </AudioTracks>  
-        <Metadata key="major_brand" value="mp42" />  
-        <Metadata key="minor_version" value="0" />  
-        <Metadata key="compatible_brands" value="mp42mp41" />  
-        <Metadata key="creation_time" value="2010-03-10 16:11:53" />  
-        <Metadata key="comment" value="Courtesy of National Geographic.  Used by Permission." />  
-      </AssetFile>  
-    </AssetFiles>  
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<AssetFiles xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata">  
+  <AssetFile Name="bear.mp4" Size="1973733" Duration="PT12.678S" NumberOfStreams="2" FormatNames="mov,mp4,m4a,3gp,3g2,mj2" FormatVerboseName="QuickTime / MOV" StartTime="PT0S" OverallBitRate="1245">  
+    <VideoTracks>  
+      <VideoTrack Id="1" Codec="h264" CodecLongName="H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10" TimeBase="1/29970" NumberOfFrames="375" StartTime="PT0.034S" Duration="PT12.645S" FourCC="avc1" Profile="High" Level="4.1" PixelFormat="yuv420p" Width="512" Height="384" DisplayAspectRatioNumerator="4" DisplayAspectRatioDenominator="3" SampleAspectRatioNumerator="1" SampleAspectRatioDenominator="1" FrameRate="29.656" Bitrate="1043" HasBFrames="1">  
+        <Disposition Default="1" Dub="0" Original="0" Comment="0" Lyrics="0" Karaoke="0" Forced="0" HearingImpaired="0" VisualImpaired="0" CleanEffects="0" AttachedPic="0" />  
+        <Metadata key="creation_time" value="2010-03-10 16:11:56" />  
+        <Metadata key="language" value="eng" />  
+        <Metadata key="handler_name" value="Mainconcept MP4 Video Media Handler" />  
+      </VideoTrack>  
+    </VideoTracks>  
+    <AudioTracks>  
+      <AudioTrack Id="0" Codec="aac" CodecLongName="AAC (Advanced Audio Coding)" TimeBase="1/44100" NumberOfFrames="546" StartTime="PT0S" Duration="PT12.678S" SampleFormat="fltp" ChannelLayout="stereo" Channels="2" SamplingRate="44100" Bitrate="156" BitsPerSample="0">  
+        <Disposition Default="1" Dub="0" Original="0" Comment="0" Lyrics="0" Karaoke="0" Forced="0" HearingImpaired="0" VisualImpaired="0" CleanEffects="0" AttachedPic="0" />  
+        <Metadata key="creation_time" value="2010-03-10 16:11:56" />  
+        <Metadata key="language" value="eng" />  
+        <Metadata key="handler_name" value="Mainconcept MP4 Sound Media Handler" />  
+      </AudioTrack>  
+    </AudioTracks>  
+    <Metadata key="major_brand" value="mp42" />  
+    <Metadata key="minor_version" value="0" />  
+    <Metadata key="compatible_brands" value="mp42mp41" />  
+    <Metadata key="creation_time" value="2010-03-10 16:11:53" />  
+    <Metadata key="comment" value="Courtesy of National Geographic.  Used by Permission." />  
+  </AssetFile>  
+</AssetFiles>  
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

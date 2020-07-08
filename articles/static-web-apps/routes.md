@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4a9639343827ebc5bb17a6d62d9b65d0b561e932
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595130"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056787"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Route in App Web statiche di Azure (anteprima)
 
-Il routing nelle app Web statiche di Azure definisce le regole di routing back-end e il comportamento di autorizzazione per il contenuto statico e le API. Le regole sono definite come una matrice di regole nel file _routes.json_.
+Il routing nelle app Web statiche di Azure definisce le regole di routing di back-end e il comportamento di autorizzazione per il contenuto statico e le API<sup>1</sup>. Le regole sono definite come una matrice di regole nel file _routes.json_.
 
 - Il file _routes.json_ deve essere presente nella radice della cartella dell'artefatto della compilazione dell'app.
 - Le regole vengono eseguite nell'ordine in cui sono visualizzate nella matrice `routes`.
@@ -25,6 +25,8 @@ Il routing nelle app Web statiche di Azure definisce le regole di routing back-e
 - L'utente ha il controllo completo sui nomi dei ruoli.
 
 L'argomento sul routing si sovrappone in modo significativo ai concetti relativi all'autenticazione e all'autorizzazione. Leggere la guida all'[autenticazione e all'autorizzazione](authentication-authorization.md) insieme a questo articolo.
+
+Per informazioni dettagliate, vedere il [file di route di esempio](#example-route-file) .
 
 ## <a name="location"></a>Location
 
@@ -46,7 +48,7 @@ Le route sono definite nel file _routes.json_ come una matrice di regole di rout
 | Proprietà regola  | Obbligatoria | Valore predefinito | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Sì      | n/d          | Modello di route richiesto dal chiamante.<ul><li>I [caratteri jolly](#wildcards) sono supportati alla fine dei percorsi di route. Ad esempio, la route _admin/\*_ cerca le corrispondenze con qualsiasi route nel percorso _admin_.<li>Il file predefinito di una route è _index.html_.</ul>|
-| `serve`        | No       | n/d          | Definisce il file o il percorso restituito dalla richiesta. Il percorso e il nome del file possono essere diversi dal percorso richiesto. Se viene definito un valore per `serve`, viene usato il percorso richiesto. |
+| `serve`        | No       | n/d          | Definisce il file o il percorso restituito dalla richiesta. Il percorso e il nome del file possono essere diversi dal percorso richiesto. Se un `serve` valore non è definito, viene usato il percorso richiesto. I parametri QueryString non sono supportati. `serve`i valori devono puntare ai file effettivi.  |
 | `allowedRoles` | No       | anonymous     | Matrice di nomi di ruolo. <ul><li>I caratteri validi includono `a-z`, `A-Z`, `0-9` e `_`.<li>Il ruolo predefinito `anonymous` si applica a tutti gli utenti non autenticati.<li>Il ruolo predefinito `authenticated` si applica a qualsiasi utente connesso.<li>Gli utenti devono appartenere ad almeno un ruolo.<li>Per la corrispondenza dei ruoli viene usato l'operatore _OR_. Se un utente è incluso in uno dei ruoli elencati, viene concesso l'accesso.<li>I singoli utenti sono associati ai ruoli tramite [inviti](authentication-authorization.md).</ul> |
 | `statusCode`   | No       | 200           | [Codice di stato HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) di risposta per la richiesta. |
 
@@ -150,6 +152,9 @@ I reindirizzamenti funzionano anche con i percorsi che non definiscono file dist
 
 Gli utenti potrebbero riscontrare numerose situazioni diverse che restituiscono un errore. Usando la matrice `platformErrorOverrides`, è possibile fornire un'esperienza personalizzata in risposta a questi errori. Per il posizionamento della matrice nel file [routes.json](#example-route-file), vedere il _file di route di esempio_.
 
+> [!NOTE]
+> Quando una richiesta lo rende il livello di override della piattaforma, le regole di route non vengono eseguite nuovamente.
+
 La tabella seguente elenca gli override degli errori della piattaforma disponibili:
 
 | Tipo di errore  | Stato codice HTTP | Descrizione |
@@ -161,6 +166,53 @@ La tabella seguente elenca gli override degli errori della piattaforma disponibi
 | `Unauthorized_MissingRoles` | 401 | L'utente non è un membro di un ruolo necessario. |
 | `Unauthorized_TooManyUsers` | 401 | Il sito ha raggiunto il numero massimo di utenti e il server limita ulteriori aggiunte. Questo errore viene esposto al client perché non esiste alcun limite per il numero di [inviti](authentication-authorization.md) che è possibile generare e alcuni utenti potrebbero non accettare mai il proprio invito.|
 | `Unauthorized_Unknown` | 401 | Si è verificato un problema sconosciuto durante il tentativo di autenticazione dell'utente. È possibile che l'utente non sia stato riconosciuto perché non ha concesso il consenso all'applicazione.|
+
+## <a name="custom-mime-types"></a>Tipi MIME personalizzati
+
+L' `mimeTypes` oggetto, elencato allo stesso livello della `routes` matrice, consente di associare [tipi MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) a estensioni di file.
+
+```json
+{
+    "routes": [],
+    "mimeTypes": {
+        "custom": "text/html"
+    }
+}
+```
+
+Nell'esempio precedente, tutti i file con `.custom` estensione sono serviti con il `text/html` tipo MIME.
+
+Le considerazioni seguenti sono importanti quando si utilizzano i tipi MIME:
+
+- Le chiavi non possono essere null o vuote o contenere più di 50 caratteri
+- I valori non possono essere null o vuoti o contenere più di 1000 caratteri
+
+## <a name="default-headers"></a>Intestazioni predefinite
+
+L' `defaultHeaders` oggetto, elencato allo stesso livello della `routes` matrice, consente di aggiungere, modificare o rimuovere [intestazioni di risposta](https://developer.mozilla.org/docs/Web/HTTP/Headers).
+
+Se si specifica un valore per un'intestazione, viene aggiunta o modificata l'intestazione. Se si specifica un valore vuoto, l'intestazione viene rimossa dal client.
+
+```json
+{
+    "routes": [],
+    "defaultHeaders": {
+      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'",
+      "cache-control": "must-revalidate, max-age=6000",
+      "x-dns-prefetch-control": ""
+    }
+}
+```
+
+Nell'esempio precedente viene aggiunta una nuova `content-security-policy` intestazione, `cache-control` modifica il valore predefinito del server e l' `x-dns-prefectch-control` intestazione viene rimossa.
+
+Le considerazioni seguenti sono importanti quando si utilizzano le intestazioni:
+
+- Le chiavi non possono essere null o vuote.
+- Valori null o vuoti rimuovere un'intestazione dall'elaborazione.
+- Le chiavi o i valori non possono superare i 8.000 caratteri.
+- Le intestazioni definite vengono gestite con tutte le richieste.
+- Le intestazioni definite in _routes.json_ si applicano solo al contenuto statico. È possibile personalizzare le intestazioni di risposta di un endpoint API nel codice della funzione.
 
 ## <a name="example-route-file"></a>File di route di esempio
 
@@ -214,33 +266,47 @@ L'esempio seguente mostra come creare le regole di route per il contenuto static
     },
     {
       "errorType": "Unauthenticated",
+      "statusCode": "302",
       "serve": "/login"
     }
-  ]
+  ],
+  "defaultHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+  },
+  "mimeTypes": {
+      "custom": "text/html"
+  }
 }
 ```
 
 Gli esempi seguenti descrivono cosa accade quando una richiesta corrisponde a una regola.
 
-|Richieste a...  | Risultato... |
-|---------|---------|---------|
+| Richieste a... | Risultato... |
+|--|--|--|
 | _/profile_ | Agli utenti autenticati viene restituito il file _/profile/index.html_. Gli utenti non autenticati vengono reindirizzati a _/login_. |
-| _/admin/reports_ | Agli utenti autenticati nel ruolo _administrators_ viene restituito il file _/admin/reports/index.html_. Agli utenti autenticati non appartenenti al ruolo _administrators_ viene restituito un errore di tipo 401 <sup>1</sup>. Gli utenti non autenticati vengono reindirizzati a _/login_. |
+| _/admin/reports_ | Agli utenti autenticati nel ruolo _administrators_ viene restituito il file _/admin/reports/index.html_. Agli utenti autenticati che non fanno parte del ruolo _Administrators_ viene servito un errore 401<sup>2</sup>. Gli utenti non autenticati vengono reindirizzati a _/login_. |
 | _/api/admin_ | Le richieste provenienti da utenti autenticati nel ruolo _administrators_ vengono inviate all'API. Agli utenti autenticati non appartenenti al ruolo _administrators_ e agli utenti non autenticati viene restituito un errore di tipo 401. |
-| _/customers/contoso_ | Agli utenti autenticati che appartengono al _administrators_ o _customers\_contoso_ viene restituito il file _/customers/contoso/index.html_<sup>1</sup>. Agli utenti autenticati non appartenenti al ruolo _administrators_ o _customers\_contoso_ viene restituito un errore di tipo 401. Gli utenti non autenticati vengono reindirizzati a _/login_. |
-| _/login_     | Agli utenti non autenticati viene richiesto di eseguire l'autenticazione con GitHub. |
-| _/.auth/login/twitter_     | L'autorizzazione con Twitter è disabilitata. Il server risponde con un errore di tipo 404. |
-| _/logout_     | Gli utenti vengono disconnessi da qualsiasi provider di autenticazione. |
+| _/customers/contoso_ | Gli utenti autenticati che appartengono ai ruoli di Contoso _Administrators_ o _Customers \_ _ sono serviti _/Customers/contoso/index.html_ file<sup>2</sup>. Agli utenti autenticati non appartenenti al ruolo _administrators_ o _customers\_contoso_ viene restituito un errore di tipo 401. Gli utenti non autenticati vengono reindirizzati a _/login_. |
+| _/login_ | Agli utenti non autenticati viene richiesto di eseguire l'autenticazione con GitHub. |
+| _/.auth/login/twitter_ | L'autorizzazione con Twitter è disabilitata. Il server risponde con un errore di tipo 404. |
+| _/logout_ | Gli utenti vengono disconnessi da qualsiasi provider di autenticazione. |
 | _/calendar/2020/01_ | Al browser viene restituito il file _/calendar.html_. |
 | _/specials_ | Il browser viene reindirizzato a _/deals_. |
-| _/unknown-folder_     | Viene restituito il file _/custom-404.html_. |
+| _/unknown-folder_ | Viene restituito il file _/custom-404.html_. |
+| File con `.custom` estensione | Sono serviti con il `text/html` tipo MIME |
 
-<sup>1</sup> È possibile specificare una pagina di errore personalizzata definendo una regola `Unauthorized_MissingRoles` nella matrice `platformErrorOverrides`.
+- Tutte le risposte includono le `content-security-policy` intestazioni con un valore `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
+
+<sup>1</sup> le regole di route per le funzioni API supportano solo i [reindirizzamenti](#redirects) e [la protezione delle route con i ruoli](#securing-routes-with-roles).
+
+<sup>2</sup> è possibile specificare una pagina di errore personalizzata definendo una `Unauthorized_MissingRoles` regola nella `platformErrorOverrides` matrice.
 
 ## <a name="restrictions"></a>Restrizioni
 
 - Le dimensioni del file _routes.json_ non possono essere maggiori di 100 kB
 - Il file _routes.json_ supporta un massimo di 50 ruoli distinti
+
+Vedere l' [articolo sulle quote](quotas.md) per limitazioni e limitazioni generali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,20 +1,20 @@
 ---
-title: Connettersi in privato a un'app Web usando un endpoint privato di Azure
+title: Connettersi privatamente a un'app Web di Azure con un endpoint privato
 description: Connettersi in privato a un'app Web usando un endpoint privato di Azure
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295440"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054577"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso di endpoint privati per app Web di Azure (anteprima)
 
@@ -31,7 +31,7 @@ L'uso di un endpoint privato per l'app Web consente di:
 - Connettersi in modo sicuro all'app Web da reti locali che si connettono alla VNet usando un peering privato VPN o ExpressRoute.
 - Evitare l'esfiltrazione dei dati dalla VNet. 
 
-Se è necessaria una connessione sicura tra la VNet e l'app Web, un endpoint servizio è la soluzione più semplice. Se è necessario anche raggiungere l'app Web dall'ambiente locale tramite un gateway di Azure, una VNet con peering a livello di area o una VNet con peering globale, la soluzione è un endpoint privato.  
+Se è necessaria una connessione sicura tra la VNet e l'app Web, un endpoint servizio è la soluzione più semplice. Se è necessario anche raggiungere l'app Web dall'ambiente locale tramite un gateway di Azure, una VNet con peering a livello di area o un VNet con peering globale, l'endpoint privato è la soluzione.  
 
 Per altre informazioni, vedere [Endpoint servizio][serviceendpoint].
 
@@ -45,7 +45,7 @@ La subnet a cui si collega l'endpoint privato può includere altre risorse, non 
 È anche possibile distribuire l'endpoint privato in un'area diversa da quella dell'app Web. 
 
 > [!Note]
->La funzionalità di integrazione VNet non può usare la stessa subnet dell'endpoint privato. Si tratta di una limitazione della funzionalità di integrazione VNet.
+>La funzionalità di integrazione VNet non può usare la stessa subnet dell'endpoint privato. si tratta di una limitazione della funzionalità di integrazione di VNet.
 
 Dal punto di vista della sicurezza:
 
@@ -57,7 +57,7 @@ Dal punto di vista della sicurezza:
 - Quando si abilita l'endpoint privato per l'app Web, la configurazione delle [restrizioni di accesso][accessrestrictions] dell'app Web non viene valutata.
 - È possibile eliminare il rischio di esfiltrazione dei dati dalla VNet rimuovendo tutte le regole NSG in cui la destinazione corrisponde al tag Internet o servizi di Azure. Quando si distribuisce un endpoint privato per un'app Web, è possibile raggiungere questa specifica app Web solo tramite l'endpoint privato. Se è disponibile un'altra app Web, è necessario distribuire un altro endpoint privato dedicato per quest'altra app Web.
 
-Nei log HTTP Web dell'app Web è presente l'IP di origine del client. L'implementazione avviene tramite il protocollo proxy TCP, che inoltra la proprietà IP del client all'app Web. Per altre informazioni, vedere [Ottenere informazioni sulla connessione usando il protocollo proxy TCP v2][tcpproxy].
+Nei log HTTP Web dell'app Web è presente l'IP di origine del client. Questa funzionalità viene implementata usando il protocollo proxy TCP, che invia la proprietà IP del client all'app Web. Per altre informazioni, vedere [Ottenere informazioni sulla connessione usando il protocollo proxy TCP v2][tcpproxy].
 
 
   > [!div class="mx-imgBorder"]
@@ -65,12 +65,50 @@ Nei log HTTP Web dell'app Web è presente l'IP di origine del client. L'implemen
 
 ## <a name="dns"></a>DNS
 
-Poiché questa funzionalità è in anteprima, la voce DNS non viene modificata durante l'anteprima. È necessario gestire manualmente la voce DNS nel server DNS privato o nella zona privata di DNS di Azure.
+Quando si usa l'endpoint privato per l'app Web, l'URL richiesto deve corrispondere al nome dell'app Web. Per impostazione predefinita mywebappname.azurewebsites.net.
+
+Per impostazione predefinita, senza endpoint privato, il nome pubblico dell'app Web è un nome canonico per il cluster.
+Ad esempio, la risoluzione dei nomi sarà:
+
+|Nome |Type |valore |
+|-----|-----|------|
+|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|Una|40.122.110.154| 
+
+
+Quando si distribuisce un endpoint privato, la voce DNS viene aggiornata in modo che punti al nome canonico mywebapp.privatelink.azurewebsites.net.
+Ad esempio, la risoluzione dei nomi sarà:
+
+|Nome |Type |valore |Commento |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|Una|40.122.110.154|<: questo IP pubblico non è l'endpoint privato. verrà visualizzato un errore 403.|
+
+È necessario configurare un server DNS privato o una zona privata di DNS di Azure, per i test è possibile modificare la voce host del computer di test.
+La zona DNS che è necessario creare è: **privatelink.azurewebsites.NET**. Registrare il record per l'app Web con un record A e l'IP dell'endpoint privato.
+Ad esempio, la risoluzione dei nomi sarà:
+
+|Nome |Type |valore |Commento |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|Una|10.10.10.8|<: si gestisce questa voce nel sistema DNS per puntare all'indirizzo IP dell'endpoint privato|
+
+Dopo questa configurazione DNS, è possibile raggiungere l'app Web privata con il nome predefinito mywebappname.azurewebsites.net.
+
+
 Se occorre usare un nome DNS personalizzato, è necessario aggiungere il nome personalizzato nell'app Web. Durante l'anteprima, il nome personalizzato deve essere convalidato come qualsiasi nome personalizzato, usando la risoluzione DNS pubblica. Per altre informazioni, vedere [Convalida DNS personalizzata][dnsvalidation].
 
-Se è necessario usare la console Kudu o l'API REST Kudu (distribuzione con gli agenti self-hosted di Azure DevOps, ad esempio), è necessario creare due record nella zona privata di DNS di Azure o nel server DNS personalizzato. 
-- PrivateEndpointIP nomeappweb.azurewebsites.net 
-- PrivateEndpointIP nomeappweb.scm.azurewebsites.net 
+Per la console Kudu o l'API REST Kudu (distribuzione con gli agenti self-hosted di Azure DevOps, ad esempio), è necessario creare due record nella zona privata di DNS di Azure o nel server DNS personalizzato. 
+
+| Nome | Type | valore |
+|-----|-----|-----|
+| mywebapp.privatelink.azurewebsites.net | Una | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | Una | PrivateEndpointIP | 
+
+
 
 ## <a name="pricing"></a>Prezzi
 
@@ -86,8 +124,9 @@ Vengono introdotti regolarmente miglioramenti per la funzionalità di collegamen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per distribuire un endpoint privato per l'app Web tramite il portale, vedere [Come connettersi privatamente a un'app Web][howtoguide]
-
+- Per distribuire un endpoint privato per l'app Web tramite il portale, vedere la pagina relativa alla [modalità di connessione privata a un'app Web con il portale][howtoguide1]
+- Per distribuire endpoint privato per l'app Web usando l'interfaccia della riga di comando di Azure, vedere [come connettersi privatamente a un'app Web con l'interfaccia][howtoguide2] della riga di comando di Azure
+- Per distribuire un endpoint privato per l'app Web usando PowerShell, vedere [come connettersi privatamente a un'app Web con PowerShell][howtoguide3]
 
 
 
@@ -101,4 +140,6 @@ Per distribuire un endpoint privato per l'app Web tramite il portale, vedere [Co
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint

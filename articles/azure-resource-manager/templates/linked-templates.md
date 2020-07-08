@@ -2,13 +2,13 @@
 title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: f71d8cc62daf68b158bed444da1446e016194b56
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 06/26/2020
+ms.openlocfilehash: 1b63ebc62a944b43aef3b777dd7d285369356c29
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609307"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056685"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -16,7 +16,7 @@ Per distribuire soluzioni complesse, è possibile suddividere il modello in molt
 
 Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un unico file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione. È possibile riutilizzare facilmente questi modelli per altri scenari.
 
-Per un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](template-tutorial-create-linked-templates.md).
+Per un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
 > Per modelli collegati o annidati, è possibile usare solo la modalità di distribuzione [Incrementale](deployment-modes.md).
@@ -34,9 +34,9 @@ Per annidare un modello, aggiungere una [risorsa distribuzioni](/azure/templates
   "variables": {},
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
@@ -63,13 +63,13 @@ Nell'esempio seguente viene distribuito un account di archiviazione tramite un m
   },
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "resources": [
             {
@@ -96,7 +96,7 @@ Nell'esempio seguente viene distribuito un account di archiviazione tramite un m
 
 Quando si utilizza un modello annidato, è possibile specificare se le espressioni modello vengono valutate nell'ambito del modello padre o del modello annidato. L'ambito determina il modo in cui vengono risolti i parametri, le variabili e le funzioni come [resourceGroup](template-functions-resource.md#resourcegroup) e la [sottoscrizione](template-functions-resource.md#subscription) .
 
-L'ambito viene impostato tramite la `expressionEvaluationOptions` proprietà. Per impostazione predefinita, `expressionEvaluationOptions` la proprietà è impostata `outer`su, il che significa che usa l'ambito del modello padre. Impostare il valore su `inner` per determinare la valutazione delle espressioni nell'ambito del modello annidato.
+L'ambito viene impostato tramite la `expressionEvaluationOptions` Proprietà. Per impostazione predefinita, la `expressionEvaluationOptions` proprietà è impostata su `outer` , il che significa che usa l'ambito del modello padre. Impostare il valore su `inner` per determinare la valutazione delle espressioni nell'ambito del modello annidato.
 
 ```json
 {
@@ -132,7 +132,7 @@ Il modello seguente illustra come vengono risolte le espressioni di modello in b
         },
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "variables": {
             "exampleVar": "from nested template"
@@ -158,18 +158,18 @@ Il modello seguente illustra come vengono risolte le espressioni di modello in b
 }
 ```
 
-Il valore di `exampleVar` cambia a seconda del valore della `scope` proprietà in. `expressionEvaluationOptions` Nella tabella seguente vengono illustrati i risultati di entrambi gli ambiti.
+Il valore di `exampleVar` cambia a seconda del valore della `scope` Proprietà in `expressionEvaluationOptions` . Nella tabella seguente vengono illustrati i risultati di entrambi gli ambiti.
 
 | `expressionEvaluationOptions` `scope` | Output |
 | ----- | ------ |
 | interno | da modello annidato |
 | Outer (o predefinito) | dal modello padre |
 
-Nell'esempio seguente viene distribuito un server SQL e viene recuperato un segreto dell'insieme di credenziali delle chiavi da usare per la password. L'ambito è impostato su `inner` perché crea in modo dinamico l'ID dell'insieme di credenziali `adminPassword.reference.keyVault` delle chiavi (vedere `parameters`nei modelli esterni) e lo passa come parametro al modello annidato.
+Nell'esempio seguente viene distribuito un server SQL e viene recuperato un segreto dell'insieme di credenziali delle chiavi da usare per la password. L'ambito è impostato su `inner` perché crea in modo dinamico l'ID dell'insieme di credenziali delle chiavi (vedere `adminPassword.reference.keyVault` nei modelli esterni `parameters` ) e lo passa come parametro al modello annidato.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -232,7 +232,7 @@ Nell'esempio seguente viene distribuito un server SQL e viene recuperato un segr
           }
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {
@@ -277,7 +277,7 @@ Nell'esempio seguente viene distribuito un server SQL e viene recuperato un segr
 
 > [!NOTE]
 >
-> Quando l'ambito è impostato `outer`su, non è possibile `reference` usare la funzione nella sezione Outputs di un modello annidato per una risorsa distribuita nel modello annidato. Per restituire i valori per una risorsa distribuita in un modello annidato, `inner` usare l'ambito o convertire il modello annidato in un modello collegato.
+> Quando l'ambito è impostato su `outer` , non è possibile usare la `reference` funzione nella sezione Outputs di un modello annidato per una risorsa distribuita nel modello annidato. Per restituire i valori per una risorsa distribuita in un modello annidato, usare l' `inner` ambito o convertire il modello annidato in un modello collegato.
 
 ## <a name="linked-template"></a>Modello collegato
 
@@ -308,13 +308,11 @@ Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/template
 }
 ```
 
-Quando si fa riferimento a un modello collegato, `uri` il valore di non deve essere un file locale o un file disponibile solo nella rete locale. È necessario specificare un valore URI scaricabile come **http** o **https**. 
+Quando si fa riferimento a un modello collegato, il valore di `uri` non deve essere un file locale o un file disponibile solo nella rete locale. È necessario specificare un valore URI scaricabile come **http** o **https**.
 
 > [!NOTE]
 >
-> È possibile fare riferimento a modelli usando parametri che in definitiva si risolvono in un elemento che usa **http** o **https**, `_artifactsLocation` ad esempio, usando il parametro come segue:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
-
-
+> È possibile fare riferimento a modelli usando parametri che in definitiva si risolvono in un elemento che usa **http** o **https**, ad esempio, usando il `_artifactsLocation` parametro come segue:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 Il servizio Resource Manager deve poter accedere al modello. È possibile inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento.
 
@@ -358,7 +356,7 @@ Per passare i valori dei parametri inline, utilizzare la proprietà **Parameters
       "contentVersion":"1.0.0.0"
      },
      "parameters": {
-      "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
+      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
     }
    }
   }
@@ -369,7 +367,7 @@ Non è possibile usare i parametri inline e un collegamento a un file di paramet
 
 ## <a name="contentversion"></a>contentVersion
 
-Non è necessario specificare la `contentVersion` proprietà per la `templateLink` proprietà o `parametersLink` . Se non si specifica un `contentVersion`oggetto, viene distribuita la versione corrente del modello. Se si specifica un valore per la versione del contenuto, questa deve corrispondere alla versione del modello collegato. In caso contrario, la distribuzione ha esito negativo con un errore.
+Non è necessario specificare la `contentVersion` proprietà per la `templateLink` proprietà o `parametersLink` . Se non si specifica un oggetto `contentVersion` , viene distribuita la versione corrente del modello. Se si specifica un valore per la versione del contenuto, questa deve corrispondere alla versione del modello collegato. In caso contrario, la distribuzione ha esito negativo con un errore.
 
 ## <a name="using-variables-to-link-templates"></a>Uso di variabili per collegare i modelli
 
@@ -393,7 +391,7 @@ Nell'esempio seguente viene illustrato come usare un URL di base per creare due 
 }
 ```
 
-Infine, si utilizzerà la variabile nella `uri` proprietà di una `templateLink` proprietà.
+Infine, si utilizzerà la variabile nella `uri` proprietà di una `templateLink` Proprietà.
 
 ```json
 "templateLink": {
@@ -425,7 +423,7 @@ Il modello di esempio seguente mostra come usare copy con un modello annidato.
     "scope": "inner"
     },
     "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
       {
@@ -461,7 +459,7 @@ Gli esempi seguenti illustrano come fare riferimento a un modello collegato e re
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {},
@@ -479,7 +477,7 @@ Il modello principale distribuisce il modello collegato e ottiene il valore rest
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {},
@@ -512,7 +510,7 @@ L'esempio seguente illustra un modello che distribuisce un indirizzo IP pubblico
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publicIPAddresses_name": {
@@ -543,11 +541,11 @@ L'esempio seguente illustra un modello che distribuisce un indirizzo IP pubblico
 }
 ```
 
-Per usare l'indirizzo IP pubblico del modello precedente quando si distribuisce un servizio di bilanciamento del carico, collegarsi al modello e dichiarare una `Microsoft.Resources/deployments` dipendenza dalla risorsa. L'indirizzo IP pubblico nel servizio di bilanciamento del carico è impostato sul valore di output del modello collegato.
+Per usare l'indirizzo IP pubblico del modello precedente quando si distribuisce un servizio di bilanciamento del carico, collegarsi al modello e dichiarare una dipendenza dalla `Microsoft.Resources/deployments` risorsa. L'indirizzo IP pubblico nel servizio di bilanciamento del carico è impostato sul valore di output del modello collegato.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "loadBalancers_name": {
@@ -620,7 +618,7 @@ Resource Manager elabora ogni modello come distribuzione distinta nella cronolog
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publicIPAddresses_name": {
@@ -658,7 +656,7 @@ Il modello seguente stabilisce un collegamento al modello precedente. Crea tre i
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   },
@@ -725,7 +723,7 @@ L'esempio seguente mostra come passare un token di firma di accesso condiviso qu
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   "containerSasToken": { "type": "securestring" }
@@ -791,11 +789,11 @@ Gli esempi seguenti mostrano gli usi più frequenti dei modelli collegati.
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Restituisce una stringa dal modello collegato. |
 |[Load Balancer con indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Restituisce l'indirizzo IP pubblico dal modello collegato e imposta tale valore nel servizio di bilanciamento del carico. |
-|[Indirizzi IP multipli](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Crea diversi indirizzi IP pubblici nel modello collegato.  |
+|[Più indirizzi IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Crea diversi indirizzi IP pubblici nel modello collegato.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per eseguire un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](template-tutorial-create-linked-templates.md).
+* Per eseguire un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](./deployment-tutorial-linked-template.md).
 * Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definire l'ordine per la distribuzione delle risorse nei modelli di Azure Resource Manager](define-resource-dependency.md).
 * Per informazioni su come definire una sola risorsa e crearne molte istanze, vedere [Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager](copy-resources.md).
 * Per conoscere la procedura per la configurazione di un modello in un account di archiviazione e per la generazione di un token con firma di accesso condiviso, consultare [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md) (Distribuire le risorse con i modelli di Resource Manager e Azure PowerShell) o [Deploy resources with Resource Manager templates and Azure CLI](deploy-cli.md) (Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure).

@@ -4,12 +4,12 @@ description: Creare avvisi del log attività usando il portale di Azure, un mode
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744260"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056260"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure  
 
@@ -200,6 +200,11 @@ Per creare una regola di avviso del log attività usando un modello di Azure Res
 }
 ```
 Il codice JSON di esempio precedente può essere salvato, ad esempio con il nome sampleActivityLogAlert.json ai fini di questa procedura dettagliata, e distribuito usando [Azure Resource Manager nel portale di Azure](../../azure-resource-manager/templates/deploy-portal.md).
+
+  > [!NOTE]
+  > 
+  > Si noti che è possibile definire gli avvisi del log attività di livello più alto è Subscription.
+  > Il che significa che non è possibile definire un avviso per due sottoscrizioni, pertanto la definizione deve essere un avviso per ogni sottoscrizione.
 
 I campi seguenti sono le opzioni che è possibile usare nel modello di Azure Resource Manager per i campi delle condizioni: Si noti che "Resource Health", "Advisor" e "Service Health" hanno campi di proprietà aggiuntivi per i propri campi speciali. 
 1. resourceId:  ID risorsa della risorsa interessata nell'evento del log attività su cui deve essere generato l'avviso.

@@ -3,18 +3,19 @@ title: Come usare le chiavi di creazione e di runtime-LUIS
 description: Quando si usa per la prima volta Language Understanding (LUIS), non è necessario creare una chiave di creazione. Quando si intende pubblicare l'app, usare l'endpoint di runtime, è necessario creare e assegnare la chiave di runtime all'app.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 5f6d62a63ea5ae0d3e4ca5913d6e7834ba07692a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/07/2020
+ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560434"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055767"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
 Le risorse di creazione e di runtime di query di stima forniscono l'autenticazione per l'app LUIS e l'endpoint di stima.
 
+<a name="azure-resources-for-luis"></a>
 <a name="programmatic-key" ></a>
 <a name="endpoint-key"></a>
 <a name="authoring-key"></a>
@@ -38,7 +39,7 @@ Al termine del processo di creazione delle risorse di Azure, [assegnare la chiav
 
 Una risorsa di Azure, ad esempio LUIS, appartiene alla sottoscrizione che contiene la risorsa.
 
-Per trasferire la proprietà di una risorsa, ou può effettuare una delle operazioni seguenti:
+Per trasferire la proprietà di una risorsa, è possibile effettuare una delle operazioni seguenti:
 * Trasferire la [Proprietà](../../cost-management-billing/manage/billing-subscription-transfer.md) della sottoscrizione
 * Esportare l'app LUIS come file e quindi importare l'app in una sottoscrizione diversa. L'esportazione è disponibile nella pagina **app personali** del portale Luis.
 
@@ -70,6 +71,8 @@ Per le app che non sono ancora state migrate: la chiave viene reimpostata su tut
 
 Rigenerare le chiavi di Azure dalla portale di Azure, nella pagina **chiavi** .
 
+
+<a name="securing-the-endpoint"></a>
 
 ## <a name="app-ownership-access-and-security"></a>Proprietà, accesso e sicurezza dell'app
 
@@ -158,11 +161,10 @@ Un'app pubblica viene pubblicata in tutte le regioni in modo che un utente con u
 1. Al termine del processo di selezione delle risorse, [creare una nuova app](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
 
-## <a name="create-azure-resources"></a>Creare le risorse di Azure
-
+<a name="create-azure-resources"></a>
 <a name="create-resources-in-the-azure-portal"></a>
 
-[!INCLUDE [Create LUIS resource in Azure Portal](includes/create-luis-resource.md)]
+[!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
 ### <a name="create-resources-in-azure-cli"></a>Creare risorse nell'interfaccia della riga di comando di Azure
 
@@ -237,15 +239,15 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API restituisce una matrice di oggetti JSON delle sottoscrizioni LUIS inclusi ID sottoscrizione, gruppo di risorse e nome della risorsa restituito come nome dell'account. Trovare l'elemento della matrice che rappresenta la risorsa LUIS da assegnare all'app LUIS.
 
-1. Assegnare il token alla risorsa servizio LUIS con l'API [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) (Assegnare un account LUIS di Azure a un'applicazione).
+1. Assegnare il token alla risorsa LUIS con l'API [Assign an Luis Azure accounts to an Application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) .
 
     Questa API POST richiede le impostazioni seguenti:
 
     |Type|Impostazione|Valore|
     |--|--|--|
-    |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
-    |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
-    |Intestazione|`Content-type`|`application/json`|
+    |Header|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
+    |Header|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
+    |Header|`Content-type`|`application/json`|
     |QueryString|`appid`|L'ID dell'app LUIS.
     |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 

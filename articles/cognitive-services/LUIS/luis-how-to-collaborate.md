@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: f1aed6b1c03a2b83e3b4fd91f1106614adb5a701
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d1f534b801ec3a71e891bf654628f9e49fc04b0d
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344391"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055631"
 ---
 # <a name="add-contributors-to-your-app"></a>Aggiungere collaboratori all'app
 
@@ -97,6 +97,6 @@ Altre informazioni sugli utenti di Azure Active Directory e sul consenso:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni [su come usare le versioni](luis-how-to-manage-versions.md) per controllare il ciclo di vita dell'app.
-* Comprendere i concetti che includono la [risorsa di creazione](luis-concept-keys.md#authoring-key) e i [collaboratori](luis-concept-keys.md#contributions-from-other-authors) di tale risorsa.
+* Comprendere i concetti che includono la [risorsa di creazione](luis-how-to-azure-subscription.md#authoring-key) e i [collaboratori](luis-how-to-azure-subscription.md#contributions-from-other-authors) di tale risorsa.
 * Informazioni [su come creare risorse di](luis-how-to-azure-subscription.md) creazione e di runtime
 * Eseguire la migrazione alla nuova [risorsa di creazione](luis-migration-authoring.md)

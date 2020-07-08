@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/25/2020
 ms.author: jgao
-ms.openlocfilehash: 24a0891b57f67bfb78cf3699bddbcf8d345ee679
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
-ms.translationtype: HT
+ms.openlocfilehash: b3de286bbf4513d252b42304cdc667877c72f6da
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708007"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057416"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -60,7 +60,7 @@ La risorsa script di distribuzione è disponibile solo nelle aree in cui è disp
   read resourceGroupName &&
   echo "Enter the managed identity name:" &&
   read idName &&
-  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  az identity show -g $resourceGroupName -n $idName --query id
   ```
 
   # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -74,10 +74,10 @@ La risorsa script di distribuzione è disponibile solo nelle aree in cui è disp
 
   ---
 
-- **Azure PowerShell** o **interfaccia della riga di comando di Azure**. Per un elenco delle versioni di Azure PowerShell supportate, vedere [qui](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list); per un elenco delle versioni dell'interfaccia della riga di comando di Azure supportate, vedere [qui](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+- **Azure PowerShell** o **interfaccia della riga di comando di Azure**. Vedere un elenco di [versioni di Azure PowerShell supportate](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Vedere un elenco delle [versioni supportate dell'interfaccia](https://mcr.microsoft.com/v2/azure-cli/tags/list)della riga di comando di Azure.
 
     >[!IMPORTANT]
-    > Lo script di distribuzione usa le immagini dell'interfaccia della riga di comando disponibili del Registro Microsoft Container (MCR). La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Se viene usata una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
+    > Lo script di distribuzione usa le immagini dell'interfaccia della riga di comando disponibili del Registro Microsoft Container (MCR). La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Se viene usata una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
 
     Queste versioni non sono necessarie per la distribuzione di modelli. Queste versioni sono tuttavia necessarie per testare localmente gli script di distribuzione. Vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). È possibile usare un'immagine Docker preconfigurata.  Vedere [Configurare l'ambiente di sviluppo](#configure-development-environment).
 
@@ -108,7 +108,7 @@ Di seguito è riportato un file json di esempio.  Lo schema di modello più rece
       "storageAccountKey": "myKey"
     },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
-    "arguments": "[concat('-name ', parameters('name'))]",
+    "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
         "name": "someSecret",
@@ -131,7 +131,7 @@ Di seguito è riportato un file json di esempio.  Lo schema di modello più rece
 ```
 
 > [!NOTE]
-> Questo esempio è fornito a scopo dimostrativo.  **scriptContent** e **primaryScriptUris** non possono coesistere in un modello.
+> Questo esempio è fornito a scopo dimostrativo.  **scriptContent** e **primaryScriptUri** non possono coesistere in un modello.
 
 Dettagli sui valori delle proprietà:
 
@@ -139,9 +139,22 @@ Dettagli sui valori delle proprietà:
 - **kind**: specificare il tipo di script. Attualmente gli script di Azure PowerShell e dell'interfaccia della riga di comando di Azure sono supportati. I valori sono **AzurePowerShell** e **AzureCLI**.
 - **forceUpdateTag**: La modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Usare la funzione newGuid() o utcNow() che deve essere impostata come defaultValue di un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
 - **containerSettings**: Specificare le impostazioni per personalizzare l'istanza di contenitore di Azure.  **containerGroupName** serve a specificare il nome del gruppo di contenitori.  Se non è specificato, il nome del gruppo verrà generato automaticamente.
-- **storageAccountSettings**: Specificare le impostazioni per l'uso di un account di archiviazione esistente. Se non è specificato, un account di archiviazione viene creato automaticamente. Vedere [Usare un account di archiviazione esistente](#use-an-existing-storage-account).
+- **storageAccountSettings**: Specificare le impostazioni per l'uso di un account di archiviazione esistente. Se non è specificato, un account di archiviazione viene creato automaticamente. Vedere [Usare un account di archiviazione esistente](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Specificare la versione del modulo da usare. Per un elenco delle versioni supportate di PowerShell e dell'interfaccia della riga di comando, vedere [Prerequisiti](#prerequisites).
 - **arguments**: Specificare i valori del parametro. I valori sono separati da uno spazio.
+
+    Gli script di distribuzione suddividono gli argomenti in una matrice di stringhe richiamando la chiamata di sistema [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Questa operazione è necessaria perché gli argomenti vengono passati come [proprietà del comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) a un'istanza di contenitore di Azure e la proprietà Command è una matrice di stringa.
+
+    Se gli argomenti contengono caratteri di escape, usare [JsonEscaper](https://www.jsonescaper.com/) per eseguire il doppio escape dei caratteri. Incollare la stringa di escape originale nello strumento, quindi selezionare **escape**.  Lo strumento restituisce una doppia stringa con caratteri di escape. Nel modello di esempio precedente, ad esempio, l'argomento è **-Name \\ "John Dole \\ "**.  La stringa con caratteri di escape è il **nome \\ \\ \\ "John Dole \\ \\ \\ "**.
+
+    Per passare un parametro di modello ARM di tipo Object come argomento, convertire l'oggetto in una stringa usando la funzione [String ()](./template-functions-string.md#string) e quindi usare la funzione [Replace ()](./template-functions-string.md#replace) per sostituire qualsiasi ** \\ "** into ** \\ \\ \\ "**. Ad esempio:
+
+    ```json
+    replace(string(parameters('tables')), '\"', '\\\"')
+    ```
+
+    Per visualizzare un modello di esempio, selezionare [qui](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+
 - **environmentVariables**: Specificare le variabili di ambiente da passare allo script. Per altre informazioni, vedere [Sviluppare script di distribuzione](#develop-deployment-scripts).
 - **scriptContent**: specificare il contenuto dello script. Per eseguire uno script esterno, usare `primaryScriptUri`. Per esempi, vedere [Usare script inline](#use-inline-scripts) e [Usare script esterni](#use-external-scripts).
 - **primaryScriptUri**: Specificare un URL accessibile pubblicamente per lo script di distribuzione primario con estensioni di file supportate.
@@ -152,9 +165,9 @@ Dettagli sui valori delle proprietà:
 
 ### <a name="additional-samples"></a>Altri esempi
 
-- [Creare e assegnare un certificato a un insieme di credenziali delle chiavi](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)
-
-- [Creare e assegnare un'identità gestita assegnata dall'utente a un gruppo di risorse ed eseguire uno script di distribuzione](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json).
+- [Esempio 1](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json): creare un insieme di credenziali delle chiavi e usare lo script di distribuzione per assegnare un certificato all'insieme di credenziali delle chiavi.
+- [Esempio 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): creare un gruppo di risorse a livello di sottoscrizione, creare un insieme di credenziali delle chiavi nel gruppo di risorse e quindi usare lo script di distribuzione per assegnare un certificato all'insieme di credenziali delle chiavi.
+- [Esempio 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): creare un'identità gestita assegnata dall'utente, assegnare il ruolo Collaboratore all'identità a livello di gruppo di risorse, creare un insieme di credenziali delle chiavi e usare lo script di distribuzione per assegnare un certificato all'insieme di credenziali delle chiavi.
 
 > [!NOTE]
 > È consigliabile creare un'identità assegnata dall'utente e concedere in anticipo le autorizzazioni. È possibile che vengano restituiti errori di accesso e di autorizzazione se si crea l'identità e si concedono le autorizzazioni nello stesso modello in cui vengono eseguiti gli script di distribuzione. È necessario del tempo prima che le autorizzazioni diventino effettive.
@@ -166,9 +179,9 @@ Il modello seguente include una risorsa definita con il tipo `Microsoft.Resource
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
-> Poiché gli script di distribuzione inline sono racchiusi tra virgolette doppie, le stringhe all'interno degli script di distribuzione devono essere racchiuse tra virgolette singole. Il carattere di escape per PowerShell è **&#92;** . È anche possibile prendere in considerazione l'uso della sostituzione di stringhe come illustrato nell'esempio JSON precedente. Vedere il valore predefinito del nome del parametro.
+> Poiché gli script di distribuzione inline sono racchiusi tra virgolette doppie, le stringhe all'interno degli script di distribuzione devono essere sottoposte a escape utilizzando un **&#92;** o racchiuso tra virgolette singole. È anche possibile prendere in considerazione l'uso della sostituzione di stringhe come illustrato nell'esempio JSON precedente.
 
-Lo script richiede un parametro e genera l'output del valore del parametro. **DeploymentScriptOutputs** è usato per l'archiviazione degli output.  Nella sezione Output, la riga del **valore** mostra come accedere ai valori archiviati. `Write-Output` è usato a scopo di debug. Per informazioni su come accedere al file di output, vedere [Debug degli script di distribuzione](#debug-deployment-scripts).  Per le descrizioni delle proprietà, vedere [Modelli di esempio](#sample-templates).
+Lo script richiede un parametro e genera l'output del valore del parametro. **DeploymentScriptOutputs** è usato per l'archiviazione degli output.  Nella sezione Output, la riga del **valore** mostra come accedere ai valori archiviati. `Write-Output` è usato a scopo di debug. Per informazioni su come accedere al file di output, vedere [monitorare e risolvere i problemi degli script di distribuzione](#monitor-and-troubleshoot-deployment-scripts).  Per le descrizioni delle proprietà, vedere [Modelli di esempio](#sample-templates).
 
 Per eseguire lo script, selezionare **Prova** per aprire Cloud Shell e quindi incollare il codice seguente nel riquadro della shell.
 
@@ -244,69 +257,24 @@ Gli output dello script di distribuzione devono essere salvati nel percorso AZ_S
 
 Nell'esempio precedente viene usato [jq](https://stedolan.github.io/jq/). Viene fornito con le immagini del contenitore. Vedere [Configurare l'ambiente di sviluppo](#configure-development-environment).
 
-## <a name="develop-deployment-scripts"></a>Sviluppare script di distribuzione
-
-### <a name="handle-non-terminating-errors"></a>Gestire errori non fatali
-
-È possibile controllare il modo in cui PowerShell risponde a errori non fatali usando la variabile [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) nello script di distribuzione. Il servizio script non imposta o modifica il valore.  Nonostante il valore impostato per $ErrorActionPreference, lo script di distribuzione imposta lo stato di provisioning delle risorse su *Non riuscito* quando lo script rileva un errore.
-
-### <a name="pass-secured-strings-to-deployment-script"></a>Passare stringhe protette allo script di distribuzione
-
-L'impostazione delle variabili di ambiente (EnvironmentVariable) nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. Lo script di distribuzione gestisce variabili di ambiente non protette e protette in modo analogo all'istanza di contenitore di Azure. Per altre informazioni, vedere [Impostare variabili di ambiente in istanze di contenitore](../../container-instances/container-instances-environment-variables.md#secure-values).
-
-La dimensione massima consentita per le variabili di ambiente è 64 kB.
-
-## <a name="debug-deployment-scripts"></a>Debug degli script di distribuzione
-
-Il servizio script crea un [account di archiviazione](../../storage/common/storage-account-overview.md) (a meno che non si specifichi un account di archiviazione esistente) e un'[istanza di contenitore](../../container-instances/container-instances-overview.md) per l'esecuzione dello script. Se queste risorse vengono create automaticamente dal servizio script, entrambe hanno il suffisso **azscripts** nei nomi delle risorse.
-
-![Nomi delle risorse dello script di distribuzione del modello di Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
-
-Lo script utente, i risultati dell'esecuzione e il file stdout vengono archiviati nelle condivisioni file dell'account di archiviazione. È presente una cartella denominata **azscripts**. Nella cartella sono presenti altre due cartelle per i file di input e di output: **azscriptinput** e **azscriptoutput**.
-
-La cartella di output contiene un file **executionresult.json** e il file di output dello script. È possibile visualizzare il messaggio di errore dell'esecuzione dello script in **executionresult.json**. Il file di output viene creato solo quando lo script viene eseguito correttamente. La cartella di input contiene un file di script di sistema di PowerShell e i file di script di distribuzione dell'utente. È possibile sostituire il file di script di distribuzione dell'utente con uno modificato ed eseguire nuovamente lo script di distribuzione dall'istanza di contenitore di Azure.
-
-È possibile ottenere le informazioni sulla distribuzione delle risorse dello script di distribuzione a livello di gruppo di risorse e a livello di sottoscrizione usando l'API REST:
-
-```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2019-10-01-preview
-```
-
-```rest
-/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2019-10-01-preview
-```
-
-Nell'esempio seguente viene usato [ARMClient](https://github.com/projectkudu/ARMClient):
-
-```azurepowershell
-armclient login
-armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2019-10-01-preview
-```
-
-L'output è simile a:
-
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-status.json" range="1-37" highlight="15,34":::
-
-L'output mostra lo stato di distribuzione e gli ID delle risorse dello script di distribuzione.
-
-L'API REST seguente restituisce il log:
-
-```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2019-10-01-preview
-```
-
-Funziona solo prima che vengano eliminate le risorse dello script di distribuzione.
-
-Per visualizzare la risorsa deploymentScripts nel portale, selezionare **Mostra tipi nascosti**:
-
-![Script di distribuzione del modello di Resource Manager, mostra tipi nascosti, portale](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
-
-## <a name="use-an-existing-storage-account"></a>Usare un account di archiviazione esistente
+## <a name="use-existing-storage-account"></a>Usa account di archiviazione esistente
 
 Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un account di archiviazione e un'istanza di contenitore. Sono disponibili le opzioni per specificare un account di archiviazione esistente. In caso contrario, l'account di archiviazione e l'istanza di contenitore vengono creati automaticamente dal servizio script. Requisiti per l'uso di un account di archiviazione esistente:
 
-- I tipi di account di archiviazione supportati sono: account per utilizzo generico V2, utilizzo generico V1 e FileStorage. Solo FileStorage supporta l'SKU Premium. Per altre informazioni, vedere [Tipi di account di archiviazione](../../storage/common/storage-account-overview.md).
+- I tipi di account di archiviazione supportati sono:
+
+    | SKU             | Tipo supportato     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Archiviazione, archiviazione V2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Archiviazione, archiviazione V2 |
+    | Standard_RAGRS  | Archiviazione, archiviazione V2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    Queste combinazioni supportano la condivisione file.  Per altre informazioni, vedere [creare una condivisione file di Azure](../../storage/files/storage-how-to-create-file-share.md) e [i tipi di account di archiviazione](../../storage/common/storage-account-overview.md).
 - Le regole del firewall dell'account di archiviazione non sono ancora supportate. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../../storage/common/storage-network-security.md).
 - L'identità gestita assegnata dall'utente dello script di distribuzione deve avere le autorizzazioni per gestire l'account di archiviazione, che include condivisioni file di lettura, creazione ed eliminazione.
 
@@ -333,6 +301,228 @@ Vedere [Modelli di esempio](#sample-templates) per un esempio di definizione di 
 
 Quando viene usato un account di archiviazione esistente, il servizio script crea una condivisione file con un nome univoco. Vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources) per informazioni su come il servizio script pulisce la condivisione file.
 
+## <a name="develop-deployment-scripts"></a>Sviluppare script di distribuzione
+
+### <a name="handle-non-terminating-errors"></a>Gestire errori non fatali
+
+È possibile controllare il modo in cui PowerShell risponde a errori non fatali usando la variabile  **$ErrorActionPreference** nello script di distribuzione. Se la variabile non è impostata nello script di distribuzione, il servizio script utilizzerà il valore predefinito **continue (continua**).
+
+Il servizio script imposta lo stato di provisioning delle risorse su **non riuscito** quando lo script rileva un errore nonostante l'impostazione di $ErrorActionPreference.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>Passare stringhe protette allo script di distribuzione
+
+L'impostazione delle variabili di ambiente (EnvironmentVariable) nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. Lo script di distribuzione gestisce variabili di ambiente non protette e protette in modo analogo all'istanza di contenitore di Azure. Per altre informazioni, vedere [Impostare variabili di ambiente in istanze di contenitore](../../container-instances/container-instances-environment-variables.md#secure-values).
+
+La dimensione massima consentita per le variabili di ambiente è 64 kB.
+
+## <a name="monitor-and-troubleshoot-deployment-scripts"></a>Monitorare e risolvere i problemi degli script di distribuzione
+
+Il servizio script crea un [account di archiviazione](../../storage/common/storage-account-overview.md) (a meno che non si specifichi un account di archiviazione esistente) e un'[istanza di contenitore](../../container-instances/container-instances-overview.md) per l'esecuzione dello script. Se queste risorse vengono create automaticamente dal servizio script, entrambe hanno il suffisso **azscripts** nei nomi delle risorse.
+
+![Nomi delle risorse dello script di distribuzione del modello di Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
+
+Lo script utente, i risultati dell'esecuzione e il file stdout vengono archiviati nelle condivisioni file dell'account di archiviazione. È presente una cartella denominata **azscripts**. Nella cartella sono presenti altre due cartelle per i file di input e di output: **azscriptinput** e **azscriptoutput**.
+
+La cartella di output contiene un file **executionresult.json** e il file di output dello script. È possibile visualizzare il messaggio di errore dell'esecuzione dello script in **executionresult.json**. Il file di output viene creato solo quando lo script viene eseguito correttamente. La cartella di input contiene un file di script di sistema di PowerShell e i file di script di distribuzione dell'utente. È possibile sostituire il file di script di distribuzione dell'utente con uno modificato ed eseguire nuovamente lo script di distribuzione dall'istanza di contenitore di Azure.
+
+### <a name="use-the-azure-portal"></a>Usare il portale di Azure
+
+Dopo aver distribuito una risorsa di script di distribuzione, la risorsa viene elencata sotto il gruppo di risorse nella portale di Azure. La schermata seguente mostra la pagina Panoramica di una risorsa script di distribuzione:
+
+![Panoramica del portale di script di distribuzione del modello di Gestione risorse](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
+
+La pagina Panoramica Visualizza alcune informazioni importanti della risorsa, ad esempio **stato di provisioning**, **account di archiviazione**, istanza del **contenitore**e **log**.
+
+Dal menu a sinistra è possibile visualizzare il contenuto dello script di distribuzione, gli argomenti passati allo script e l'output.  È anche possibile esportare un modello per lo script di distribuzione, incluso lo script di distribuzione.
+
+### <a name="use-powershell"></a>Usare PowerShell
+
+Utilizzando Azure PowerShell, è possibile gestire gli script di distribuzione nell'ambito della sottoscrizione o del gruppo di risorse:
+
+- [Get-AzDeploymentScript](/powershell/module/az.resources/get-azdeploymentscript): Ottiene o elenca gli script di distribuzione.
+- [Get-AzDeploymentScriptLog](/powershell/module/az.resources/get-azdeploymentscriptlog): Ottiene il log di un'esecuzione dello script di distribuzione.
+- [Remove-AzDeploymentScript](/powershell/module/az.resources/remove-azdeploymentscript): rimuove uno script di distribuzione e le risorse associate.
+- [Save-AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): Salva il log di un'esecuzione dello script di distribuzione su disco.
+
+L'output di Get-AzDeploymentScript è simile al seguente:
+
+```output
+Name                : runPowerShellInlineWithOutput
+Id                  : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
+ResourceGroupName   : myds0618rg
+Location            : centralus
+SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
+ProvisioningState   : Succeeded
+Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
+ScriptKind          : AzurePowerShell
+AzPowerShellVersion : 3.0
+StartTime           : 6/18/2020 7:46:45 PM
+EndTime             : 6/18/2020 7:49:45 PM
+ExpirationDate      : 6/19/2020 7:49:45 PM
+CleanupPreference   : OnSuccess
+StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
+ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
+Outputs             :
+                      Key                 Value
+                      ==================  ==================
+                      text                Hello John Dole
+
+RetentionInterval   : P1D
+Timeout             : PT1H
+```
+
+### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+
+Usando l'interfaccia della riga di comando di Azure, è possibile gestire gli script di distribuzione nell'ambito della sottoscrizione o del gruppo
+
+- [AZ Deployment-scripts Delete](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): eliminare uno script di distribuzione.
+- [AZ Deployment-scripts list](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): elenca tutti gli script di distribuzione.
+- [AZ Deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): recuperare uno script di distribuzione.
+- [AZ Deployment-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): Mostra i log di script di distribuzione.
+
+L'output del comando list è simile al seguente:
+
+```json
+[
+  {
+    "arguments": "-name \\\"John Dole\\\"",
+    "azPowerShellVersion": "3.0",
+    "cleanupPreference": "OnSuccess",
+    "containerSettings": {
+      "containerGroupName": null
+    },
+    "environmentVariables": null,
+    "forceUpdateTag": "20200625T025902Z",
+    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+    "identity": {
+      "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+      "type": "userAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+          "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+          "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+        }
+      }
+    },
+    "kind": "AzurePowerShell",
+    "location": "centralus",
+    "name": "runPowerShellInlineWithOutput",
+    "outputs": {
+      "text": "Hello John Dole"
+    },
+    "primaryScriptUri": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myds0624rg",
+    "retentionInterval": "1 day, 0:00:00",
+    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "status": {
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "endTime": "2020-06-25T03:00:16.796923+00:00",
+      "error": null,
+      "expirationTime": "2020-06-26T03:00:16.796923+00:00",
+      "startTime": "2020-06-25T02:59:07.595140+00:00",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
+    },
+    "storageAccountSettings": null,
+    "supportingScriptUris": null,
+    "systemData": {
+      "createdAt": "2020-06-25T02:59:04.750195+00:00",
+      "createdBy": "someone@contoso.com",
+      "createdByType": "User",
+      "lastModifiedAt": "2020-06-25T02:59:04.750195+00:00",
+      "lastModifiedBy": "someone@contoso.com",
+      "lastModifiedByType": "User"
+    },
+    "tags": null,
+    "timeout": "1:00:00",
+    "type": "Microsoft.Resources/deploymentScripts"
+  }
+]
+```
+
+### <a name="use-rest-api"></a>Usare l'API REST
+
+È possibile ottenere le informazioni sulla distribuzione delle risorse dello script di distribuzione a livello di gruppo di risorse e a livello di sottoscrizione usando l'API REST:
+
+```rest
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2019-10-01-preview
+```
+
+```rest
+/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2019-10-01-preview
+```
+
+Nell'esempio seguente viene usato [ARMClient](https://github.com/projectkudu/ARMClient):
+
+```azurepowershell
+armclient login
+armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2019-10-01-preview
+```
+
+L'output è simile a:
+
+```json
+{
+  "kind": "AzurePowerShell",
+  "identity": {
+    "type": "userAssigned",
+    "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+    "userAssignedIdentities": {
+      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+        "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+        "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+      }
+    }
+  },
+  "location": "centralus",
+  "systemData": {
+    "createdBy": "someone@contoso.com",
+    "createdByType": "User",
+    "createdAt": "2020-06-25T02:59:04.7501955Z",
+    "lastModifiedBy": "someone@contoso.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2020-06-25T02:59:04.7501955Z"
+  },
+  "properties": {
+    "provisioningState": "Succeeded",
+    "forceUpdateTag": "20200625T025902Z",
+    "azPowerShellVersion": "3.0",
+    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "arguments": "-name \\\"John Dole\\\"",
+    "retentionInterval": "P1D",
+    "timeout": "PT1H",
+    "containerSettings": {},
+    "status": {
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
+      "startTime": "2020-06-25T02:59:07.5951401Z",
+      "endTime": "2020-06-25T03:00:16.7969234Z",
+      "expirationTime": "2020-06-26T03:00:16.7969234Z"
+    },
+    "outputs": {
+      "text": "Hello John Dole"
+    },
+    "cleanupPreference": "OnSuccess"
+  },
+  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+  "type": "Microsoft.Resources/deploymentScripts",
+  "name": "runPowerShellInlineWithOutput"
+}
+
+```
+
+L'API REST seguente restituisce il log:
+
+```rest
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2019-10-01-preview
+```
+
+Funziona solo prima che vengano eliminate le risorse dello script di distribuzione.
+
+Per visualizzare la risorsa deploymentScripts nel portale, selezionare **Mostra tipi nascosti**:
+
+![Script di distribuzione del modello di Resource Manager, mostra tipi nascosti, portale](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
+
 ## <a name="clean-up-deployment-script-resources"></a>Pulire le risorse dello script di distribuzione
 
 Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un account di archiviazione e un'istanza di contenitore. Sono disponibili opzioni per specificare un account di archiviazione esistente. In caso contrario, l'account di archiviazione e l'istanza di contenitore vengono creati automaticamente dal servizio script. Le due risorse create automaticamente vengono eliminate dal servizio script quando l'esecuzione dello script di distribuzione raggiunge uno stato finale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per informazioni sui prezzi, vedere [Prezzi di Istanze di Container](https://azure.microsoft.com/pricing/details/container-instances/) e [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
@@ -341,9 +531,9 @@ Il ciclo di vita di queste risorse è controllato dalle proprietà seguenti nel 
 
 - **cleanupPreference**: Pulire le preferenze quando l'esecuzione dello script si trova in uno stato terminale. I valori supportati sono:
 
-  - **Sempre**: Eliminare le risorse create automaticamente una volta che l'esecuzione dello script si trova in uno stato terminale. Se viene usato un account di archiviazione esistente, il servizio script elimina la condivisione file creata nell'account di archiviazione. Poiché la risorsa deploymentScripts può essere ancora presente dopo la pulizia delle risorse, i servizi script salvano in modo permanente i risultati dell'esecuzione dello script, ad esempio stdout, output, valore restituito e così via, prima che le risorse vengano eliminate.
+  - **Sempre**: Eliminare le risorse create automaticamente una volta che l'esecuzione dello script si trova in uno stato terminale. Se viene usato un account di archiviazione esistente, il servizio script elimina la condivisione file creata nell'account di archiviazione. Poiché la risorsa deploymentScripts potrebbe essere ancora presente dopo la pulizia delle risorse, il servizio script Salva in modo permanente i risultati dell'esecuzione dello script, ad esempio stdout, output, valore restituito e così via, prima che le risorse vengano eliminate.
   - **OnSuccess**: Eliminare le risorse create automaticamente solo quando l'esecuzione dello script ha esito positivo. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file solo quando l'esecuzione dello script ha esito positivo. È comunque possibile accedere alle risorse per trovare le informazioni di debug.
-  - **OnExpiration**: Eliminare le risorse create automaticamente solo quando l'impostazione **retentionInterval** è scaduta. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file, ma conserva l'account di archiviazione.
+  - **Onexpireation**: eliminare le risorse create automaticamente solo quando l'impostazione **retentionInterval** è scaduta. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file, ma conserva l'account di archiviazione.
 
 - **retentionInterval**: Specificare l'intervallo di tempo durante il quale una risorsa di script verrà conservata e dopo cui scadrà e verrà eliminata.
 
@@ -366,17 +556,9 @@ L'esecuzione dello script di distribuzione è un'operazione idempotente. Se ness
 
 ## <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
 
-È possibile usare un'immagine del contenitore Docker preconfigurata come ambiente di sviluppo dello script di distribuzione. La procedura seguente illustra come configurare l'immagine Docker in Windows. Per Linux e Mac, è possibile trovare le informazioni su Internet.
+È possibile usare un'immagine del contenitore Docker preconfigurata come ambiente di sviluppo dello script di distribuzione. Per installare Docker, vedere [Get Docker](https://docs.docker.com/get-docker/).
+È anche necessario configurare la condivisione di file per montare la directory che contiene gli script di distribuzione nel contenitore docker.
 
-1. Installare [Docker Desktop](https://www.docker.com/products/docker-desktop) nel computer di sviluppo.
-1. Aprire Docker Desktop.
-1. Selezionare l'icona di Docker Desktop nella barra delle applicazioni e quindi selezionare **Impostazioni**.
-1. Selezionare **Unità condivise**, selezionare un'unità locale che si vuole che sia disponibile per i contenitori, quindi selezionare **Applica**
-
-    ![Script di distribuzione del modello di Resource Manager docker drive](./media/deployment-script-template/resource-manager-deployment-script-docker-setting-drive.png)
-
-1. Immettere le credenziali di Windows al prompt.
-1. Aprire una finestra del terminale, ovvero il prompt dei comandi o Windows PowerShell (non usare PowerShell ISE).
 1. Eseguire il pull dell'immagine del contenitore dello script di distribuzione nel computer locale:
 
     ```command
@@ -413,12 +595,11 @@ L'esecuzione dello script di distribuzione è un'operazione idempotente. Se ness
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. Selezionare **Condividi** quando si riceve una richiesta.
-1. Lo screenshot seguente illustra come eseguire uno script di PowerShell, dato che è presente un file helloworld.ps1 nella cartella d:\docker.
+1. Lo screenshot seguente illustra come eseguire uno script di PowerShell, dato che è presente un file di helloworld.ps1 nell'unità condivisa.
 
     ![Script di distribuzione del modello di Resource Manager docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-Una volta testato correttamente lo script, è possibile usarlo come script di distribuzione.
+Una volta testato correttamente lo script, è possibile utilizzarlo come script di distribuzione nei modelli.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

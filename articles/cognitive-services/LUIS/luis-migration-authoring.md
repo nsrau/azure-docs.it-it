@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 440162d6cddd790cdb2859c119d60a6dbe28dcbf
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374875"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055461"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Eseguire la migrazione a una chiave di creazione delle risorse di Azure
 
@@ -25,7 +25,7 @@ Language Understanding (LUIS) la creazione dell'autenticazione è cambiata da un
 
 ## <a name="what-is-migration"></a>Che cos'è la migrazione?
 
-La migrazione è il processo di modifica dell'autenticazione di creazione da un account di posta elettronica a una risorsa di Azure. L'account verrà collegato a una sottoscrizione di Azure e a una risorsa di creazione di Azure dopo la migrazione. *Tutti gli utenti di LUIS (proprietari o collaboratori) dovranno eseguire la migrazione.* 
+La migrazione è il processo di modifica dell'autenticazione di creazione da un account di posta elettronica a una risorsa di Azure. L'account verrà collegato a una sottoscrizione di Azure e a una risorsa di creazione di Azure dopo la migrazione. *Tutti gli utenti di LUIS (proprietari o collaboratori) dovranno eseguire la migrazione.*
 
 La migrazione deve essere eseguita dal portale LUIS. Se si creano le chiavi di creazione usando l'interfaccia della riga di comando di LUIS, ad esempio, sarà necessario completare il processo di migrazione nel portale LUIS. È comunque possibile disporre di coautori nelle applicazioni dopo la migrazione, ma questi verranno aggiunti a livello di risorsa di Azure invece che a livello di applicazione.
 
@@ -81,7 +81,7 @@ La migrazione deve essere eseguita dal portale LUIS. Se si creano le chiavi di c
 3. Se una qualsiasi delle app dispone di collaboratori, viene richiesto di inviare loro un messaggio di posta elettronica che informa sulla migrazione. Si tratta di un passaggio facoltativo.
 
    Per ogni collaboratore e app, l'applicazione di posta elettronica predefinita si apre con un messaggio di posta elettronica in formato lieve. È possibile modificare il messaggio di posta elettronica prima di inviarlo. Il modello di messaggio di posta elettronica include l'ID app esatto e il nome dell'app.
-   
+
    ```html
    Dear Sir/Madam,
 
@@ -89,10 +89,10 @@ La migrazione deve essere eseguita dal portale LUIS. Se si creano le chiavi di c
 
    App Id: <app-ID-omitted>
    App name: Human Resources
-      
+
    Thank you
    ```
-   
+
    > [!Note]
    > Dopo aver eseguito la migrazione dell'account ad Azure, le app non saranno più disponibili per i collaboratori.
 
@@ -162,7 +162,7 @@ L'elenco **app personali** Mostra le app di cui è stata eseguita la migrazione 
  > [!div class="mx-imgBorder"]
  > ![Caselle per la sottoscrizione e la risorsa di creazione](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
-Non è necessario essere a conoscenza della chiave della risorsa di creazione per continuare a modificare le app nel portale LUIS. 
+Non è necessario essere a conoscenza della chiave della risorsa di creazione per continuare a modificare le app nel portale LUIS.
 
 Se si prevede di modificare le app a livello di codice, saranno necessari i valori delle chiavi di creazione. Questi valori vengono visualizzati nella pagina **Gestisci**  >  **risorse di Azure** nel portale Luis. Sono disponibili anche nella portale di Azure nella pagina **chiavi** della risorsa. È anche possibile creare altre risorse di creazione e assegnarle dalla stessa pagina.
 
@@ -246,5 +246,5 @@ Se viene visualizzato l'errore seguente, controllare la [procedura consigliata s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esaminare i [concetti relativi alla creazione e alle chiavi di runtime](luis-concept-keys.md). 
+* Esaminare i [concetti relativi alla creazione e alle chiavi di runtime](luis-how-to-azure-subscription.md).
 * Vedere come [assegnare chiavi](luis-how-to-azure-subscription.md) e [aggiungere collaboratori](luis-how-to-collaborate.md).

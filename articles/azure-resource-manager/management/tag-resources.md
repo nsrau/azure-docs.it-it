@@ -2,13 +2,13 @@
 title: Contrassegnare risorse, gruppi di risorse e sottoscrizioni per l'organizzazione logica
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.date: 07/01/2020
+ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864488"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056923"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 
@@ -17,11 +17,13 @@ I tag vengono applicati alle risorse, ai gruppi di risorse e alle sottoscrizioni
 Per indicazioni su come implementare una strategia di assegnazione di tag, vedere la pagina [relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> I nomi di tag non fanno distinzione tra maiuscole e minuscole. I valori dei tag distinguono tra maiuscole e minuscole
+> I nomi di tag non fanno distinzione tra maiuscole e minuscole per le operazioni. Un tag con un nome di tag, indipendentemente dalla combinazione di maiuscole e minuscole, viene aggiornato o recuperato. Tuttavia, il provider di risorse potrebbe mantenere le maiuscole e minuscole fornite per il nome del tag. Si noterà che le maiuscole e minuscole nei report sui costi.
+> 
+> I valori dei tag distinguono tra maiuscole e minuscole
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="required-access"></a>Accesso richiesto
+## <a name="required-access"></a>Accesso obbligatorio
 
 Per applicare i tag a una risorsa, è necessario disporre dell'accesso in scrittura al tipo di risorsa **Microsoft. resources/Tags** . Il ruolo di [collaboratore Tag](../../role-based-access-control/built-in-roles.md#tag-contributor) consente di applicare tag a un'entità senza avere accesso all'entità stessa. Attualmente, il ruolo Collaboratore tag non può applicare tag a risorse o gruppi di risorse tramite il portale. Può applicare tag alle sottoscrizioni tramite il portale. Supporta tutte le operazioni sui tag tramite PowerShell e l'API REST.  
 
@@ -31,7 +33,7 @@ Il ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contr
 
 ### <a name="apply-tags"></a>Applica tag
 
-Azure PowerShell offre due comandi per l'applicazione di tag- [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). È necessario avere il modulo AZ. resources 1.12.0 o versione successiva. È possibile controllare la versione con `Get-Module Az.Resources`. È possibile installare il modulo o [installare Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 o versione successiva.
+Azure PowerShell offre due comandi per l'applicazione di tag- [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). È necessario avere il modulo AZ. resources 1.12.0 o versione successiva. È possibile controllare la versione con `Get-Module Az.Resources` . È possibile installare il modulo o [installare Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 o versione successiva.
 
 **New-AzTag** sostituisce tutti i tag per la risorsa, il gruppo di risorse o la sottoscrizione. Quando si chiama il comando, passare l'ID risorsa dell'entità a cui si vuole assegnare un tag.
 
@@ -263,7 +265,7 @@ Per aggiungere un tag ai tag esistenti in un gruppo di risorse, usare:
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Attualmente l'interfaccia della riga di comando di Azure non supporta l'applicazione di tag alle sottoscrizioni
+Attualmente, l'interfaccia della riga di comando di Azure non dispone di un comando per applicare tag alle sottoscrizioni. Tuttavia, è possibile usare l'interfaccia della riga di comando per distribuire un modello ARM che applica i tag a una sottoscrizione. Vedere [applicare tag a gruppi di risorse o sottoscrizioni](#apply-tags-to-resource-groups-or-subscriptions).
 
 ### <a name="list-tags"></a>Elencare tag
 
@@ -326,7 +328,7 @@ IFS=$origIFS
 
 ### <a name="apply-values"></a>Applica valori
 
-Nell'esempio seguente viene distribuito un account di archiviazione con tre tag. Due dei tag (`Dept` e `Environment`) sono impostati su valori letterali. Un tag (`LastDeployed`) è impostato su un parametro il cui valore predefinito è la data corrente.
+Nell'esempio seguente viene distribuito un account di archiviazione con tre tag. Due dei tag ( `Dept` e `Environment` ) sono impostati su valori letterali. Un tag ( `LastDeployed` ) è impostato su un parametro il cui valore predefinito è la data corrente.
 
 ```json
 {
@@ -436,7 +438,7 @@ Per memorizzare più valori in un singolo tag, è possibile applicare una string
 
 ### <a name="apply-tags-from-resource-group"></a>Applicare i tag dal gruppo di risorse
 
-Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup](../templates/template-functions-resource.md#resourcegroup) . Quando si recupera il valore del tag, `tags[tag-name]` usare la sintassi invece `tags.tag-name` della sintassi, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
+Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup](../templates/template-functions-resource.md#resourcegroup) . Quando si recupera il valore del tag, usare la `tags[tag-name]` sintassi invece della `tags.tag-name` sintassi, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
 
 ```json
 {
@@ -523,6 +525,8 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
+Per altre informazioni sulle distribuzioni delle sottoscrizioni, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](../templates/deploy-to-subscription.md).
+
 Il modello seguente aggiunge i tag da un oggetto a un gruppo di risorse o a una sottoscrizione.
 
 ```json
@@ -574,7 +578,7 @@ I tag applicati al gruppo di risorse o alla sottoscrizione non vengono ereditati
 
 È possibile usare i tag per raggruppare i dati di fatturazione. Se, ad esempio, sono in esecuzione più macchine virtuali per organizzazioni diverse, usare i tag per raggrupparne l'uso in base al centro di costo. È anche possibile usare i tag per classificare i costi in base all'ambiente di runtime; ad esempio, l'uso di fatturazione per le macchine virtuali in esecuzione nell'ambiente di produzione.
 
-Le informazioni sui tag possono essere recuperate tramite l' [API di utilizzo della risorsa di Azure e della Rate Card](../../billing/billing-usage-rate-card-overview.md) o il file di utilizzo con valori delimitati da virgole (CSV). Il file d'uso può essere scaricato dal [Centro account di Azure](https://account.azure.com/Subscriptions) o dal portale di Azure. Per altre informazioni, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](../../billing/billing-download-azure-invoice-daily-usage-date.md). Quando si scarica il file d'uso dal Centro account di Azure, selezionare **Versione 2**. Per i servizi che supportano tag con fatturazione, i tag vengono visualizzati nella colonna **Tag**.
+Le informazioni sui tag possono essere recuperate tramite l' [API di utilizzo della risorsa di Azure e della Rate Card](../../cost-management-billing/manage/usage-rate-card-overview.md) o il file di utilizzo con valori delimitati da virgole (CSV). Il file d'uso può essere scaricato dal [Centro account di Azure](https://account.azure.com/Subscriptions) o dal portale di Azure. Per altre informazioni, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Quando si scarica il file d'uso dal Centro account di Azure, selezionare **Versione 2**. Per i servizi che supportano tag con fatturazione, i tag vengono visualizzati nella colonna **Tag**.
 
 Per le operazioni API REST, vedere [Riferimento API REST alla fatturazione di Azure](/rest/api/billing/).
 
@@ -583,17 +587,15 @@ Per le operazioni API REST, vedere [Riferimento API REST alla fatturazione di Az
 Ai tag si applicano le limitazioni seguenti:
 
 * Non tutti i tipi di risorse supportano i tag. Per determinare se è possibile applicare un tag a un tipo di risorsa, vedere [Supporto dei tag per le risorse di Azure](tag-support.md).
-* I gruppi di gestione attualmente non supportano i tag.
 * Ogni risorsa, gruppo di risorse e sottoscrizione può avere un massimo di 50 coppie nome/valore di tag. Se è necessario applicare più tag rispetto al numero massimo consentito, usare una stringa JSON per il valore del tag. La stringa JSON può contenere diversi valori applicati a un singolo nome di tag. Un gruppo di risorse o una sottoscrizione può contenere molte risorse, ognuna delle quali ha 50 coppie nome/valore di tag.
 * Il nome del tag è limitato a 512 caratteri e il valore del tag è limitato a 256 caratteri. Per gli account di archiviazione, il nome del tag è limitato a 128 caratteri e il valore a 256 caratteri.
-* Le macchine virtuali generalizzate non supportano i tag.
 * Non è possibile applicare tag alle risorse classiche, ad esempio Servizi cloud.
 * I nomi dei tag non possono contenere i caratteri seguenti: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
    > Attualmente, le zone DNS di Azure e i servizi di gestione traffico non consentono l'uso di spazi nel tag.
    >
-   > La porta anteriore di Azure non supporta l' `#` uso di nel nome del tag.
+   > La porta anteriore di Azure non supporta l'uso di `#` nel nome del tag.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

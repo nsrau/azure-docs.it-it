@@ -2,13 +2,13 @@
 title: Autenticazione tra più registri da un'attività del Registro Azure Container
 description: Configurare un'attività del Registro Azure Container per accedere a un altro registro contenitori di Azure privato usando un'identità gestita per le risorse di Azure
 ms.topic: article
-ms.date: 01/14/2020
-ms.openlocfilehash: 47b2a50784cf56b089fea0981e5a06d581b8ba3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 07/06/2020
+ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842495"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057357"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticazione tra più registri in un'attività del Registro Azure Container usando un'identità gestita da Azure 
 
@@ -44,6 +44,7 @@ Creare prima di tutto una directory di lavoro e quindi un file denominato Docker
 ```bash
 echo FROM node:9-alpine > Dockerfile
 ```
+
 Nella directory corrente eseguire il comando [az acr build][az-acr-build] per compilare ed eseguire il push dell'immagine di base nel registro di base. Nella pratica, un altro team o processo nell'organizzazione potrebbe gestire il registro di base.
     
 ```azurecli
@@ -85,6 +86,27 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
+### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Assegnare all'identità le autorizzazioni per eseguire il pull dal registro di base
+
+In questa sezione concedere all'identità gestita le autorizzazioni per eseguire il pull dal registro di base, *mybaseregistry*.
+
+Usare il comando [az acr show][az-acr-show] per ottenere l'ID risorsa del registro di base e archiviarlo in una variabile:
+
+```azurecli
+baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
+```
+
+Usare il comando [az role assignment create][az-role-assignment-create] per assegnare all'identità il ruolo `acrpull` per il registro di base. Questo ruolo ha solo le autorizzazioni per eseguire il pull di immagini dal registro.
+
+```azurecli
+az role assignment create \
+  --assignee $principalID \
+  --scope $baseregID \
+  --role acrpull
+```
+
+Continuare ad [aggiungere le credenziali del registro di sistema di destinazione all'attività](#add-target-registry-credentials-to-task).
+
 ## <a name="option-2-create-task-with-system-assigned-identity"></a>Opzione 2: Creare un'attività con un'identità assegnata dal sistema
 
 I passaggi di questa sezione creano un'attività e abilitano un'identità assegnata dal sistema. Per abilitare invece un'identità assegnata dall'utente, vedere [Opzione 1: Creare un'attività con un'identità assegnata dall'utente](#option-1-create-task-with-user-assigned-identity). 
@@ -103,7 +125,7 @@ az acr task create \
 ```
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="give-identity-pull-permissions-to-the-base-registry"></a>Assegnare all'identità le autorizzazioni per eseguire il pull dal registro di base
+### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Assegnare all'identità le autorizzazioni per eseguire il pull dal registro di base
 
 In questa sezione concedere all'identità gestita le autorizzazioni per eseguire il pull dal registro di base, *mybaseregistry*.
 
