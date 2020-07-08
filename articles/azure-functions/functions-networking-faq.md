@@ -7,10 +7,9 @@ ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75409540"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Domande frequenti sulla rete in funzioni di Azure
@@ -63,8 +62,8 @@ Per gli scenari in cui è necessario solo l'accesso unidirezionale alle risorse 
 
 Per ulteriori informazioni su rete e funzioni: 
 
-* [Segui l'esercitazione su come iniziare a usare l'integrazione della rete virtuale](./functions-create-vnet.md)
+* [Eseguire l'esercitazione Integrare Funzioni con una rete virtuale di Azure](./functions-create-vnet.md)
 * [Altre informazioni sulle opzioni di rete in funzioni di Azure](./functions-networking-options.md)
 * [Scopri di più sull'integrazione della rete virtuale con il servizio app e le funzioni](../app-service/web-sites-integrate-with-vnet.md)
-* [Altre informazioni sulle reti virtuali in Azure](../virtual-network/virtual-networks-overview.md)
-* [Abilitare altre funzionalità di rete e controllare con gli ambienti del servizio app](../app-service/environment/intro.md)
+* [Informazioni sulle reti virtuali in Azure](../virtual-network/virtual-networks-overview.md)
+* [Abilitare altre funzionalità e il controllo di rete con gli ambienti di servizio app](../app-service/environment/intro.md)

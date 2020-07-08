@@ -4,10 +4,9 @@ description: Vengono descritti i parametri relativi all'aggiornamento di un'appl
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377974"
 ---
 # <a name="application-upgrade-parameters"></a>Parametri di aggiornamento di un'applicazione
@@ -80,7 +79,7 @@ Gli aggiornamenti dell'applicazione Service Fabric che impiegano l'interfaccia d
 
 | Parametro | Descrizione |
 | --- | --- |
-| application-id  |ID dell'applicazione in corso di aggiornamento. <br> Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Ad esempio, se il nome dell'applicazione è "Fabric:/MyApp/App1", l'identità dell'applicazione sarà "\~MyApp App1" in 6.0 + e "MyApp/App1" nelle versioni precedenti.|
+| application-id  |ID dell'applicazione in corso di aggiornamento. <br> Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Ad esempio, se il nome dell'applicazione è "Fabric:/MyApp/App1", l'identità dell'applicazione sarà "MyApp \~ App1" in 6.0 + e "MyApp/App1" nelle versioni precedenti.|
 application-version |Versione del tipo di applicazione a cui è destinato l'aggiornamento.|
 parametri  |Elenco con codifica JSON di sostituzioni del parametro dell'applicazione da applicare quando si esegue l'aggiornamento dell'applicazione.|
 

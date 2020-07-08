@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430584"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Non è stato possibile aggiornare i nomi host del servizio gestione API
@@ -28,7 +27,7 @@ Questo articolo descrive l'errore "non è stato possibile aggiornare i nomi host
 
 Quando si tenta di aggiungere un dominio personalizzato per il servizio gestione API utilizzando un certificato di Azure Key Vault, viene visualizzato il messaggio di errore seguente:
 
-- Non è stato possibile aggiornare i nomi host del servizio gestione API. La richiesta alla risorsahttps://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0'' non è riuscita con StatusCode: Forbidden per RequestId:. Messaggio di eccezione: l'operazione ha restituito un codice di stato non valido ' Forbidden '.
+- Non è stato possibile aggiornare i nomi host del servizio gestione API. La richiesta alla risorsa ' https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0 ' non è riuscita con StatusCode: Forbidden per RequestId:. Messaggio di eccezione: l'operazione ha restituito un codice di stato non valido ' Forbidden '.
 
 ## <a name="cause"></a>Causa
 

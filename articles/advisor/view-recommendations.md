@@ -4,10 +4,9 @@ description: Visualizzare e filtrare Azure Advisor consigli per ridurre il rumor
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 10d7b16864f8e449dc51e870c5ff9f20d8c0dc87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75422365"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Visualizza Azure Advisor raccomandazioni più importanti
@@ -87,7 +86,7 @@ Azure Advisor consente di ignorare o posticipare le raccomandazioni su una singo
 
 Questo articolo illustra come è possibile visualizzare le raccomandazioni più importanti in Azure Advisor. Per altre informazioni su Advisor, vedere: 
 
-- [Informazioni su Azure Advisor](advisor-overview.md)
+- [Cos'è Azure Advisor?](advisor-overview.md)
 - [Introduzione con Advisor](advisor-get-started.md)
 - [Autorizzazioni in Azure Advisor](permissions.md)
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75429161"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Come clonare un hub Azure Internet in un'altra area
@@ -107,7 +106,7 @@ Questa sezione fornisce istruzioni specifiche per la migrazione dell'hub.
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Trovare l'Hub originale ed esportarlo in un modello di risorsa.
 
-1. Accedi al [portale di Azure](https://portal.azure.com). 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 
 1. Passare a **gruppi di risorse** e selezionare il gruppo di risorse che contiene l'hub che si vuole spostare. È anche possibile passare a **risorse** e trovare l'hub in questo modo. Selezionare l'hub.
 
@@ -121,7 +120,7 @@ Questa sezione fornisce istruzioni specifiche per la migrazione dell'hub.
 
 ### <a name="view-the-template"></a>Visualizzare il modello 
 
-1. Passare alla cartella Downloads (o a qualsiasi cartella usata al momento dell'esportazione del modello) e trovare il file zip. Aprire il file zip e trovare il file denominato `template.json`. Selezionarlo, quindi premere CTRL + C per copiare il modello. Passare a una cartella diversa che non si trova nel file zip e incollare il file (CTRL + V). A questo punto è possibile modificarlo.
+1. Passare alla cartella Downloads (o a qualsiasi cartella usata al momento dell'esportazione del modello) e trovare il file zip. Aprire il file zip e trovare il file denominato `template.json` . Selezionarlo, quindi premere CTRL + C per copiare il modello. Passare a una cartella diversa che non si trova nel file zip e incollare il file (CTRL + V). A questo punto è possibile modificarlo.
  
     L'esempio seguente è relativo a un hub generico senza configurazione di routing. Si tratta di un hub di livello S1 (con 1 unità) denominato **ContosoTestHub29358** nell'area **westus**. Ecco il modello esportato.
 
@@ -347,13 +346,13 @@ A questo punto si dispone di un modello che creerà un nuovo hub simile a quello
 
 Creare il nuovo hub nella nuova posizione usando il modello. Se si dispone di risorse di routing che saranno spostate, le risorse devono essere configurate nella nuova posizione e i riferimenti nel modello aggiornati per la corrispondenza. Se non si intende trasferire le risorse di routing, è necessario che si trovino nel modello con le chiavi aggiornate.
 
-1. Accedi al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Selezionare **Crea una risorsa**. 
 
 1. Nella casella di ricerca inserire "distribuzione modello" e premere INVIO.
 
-1. Selezionare **distribuzione modello (Distribuisci usando modelli personalizzati)**. Verrà visualizzata una schermata per la Distribuzione modelli. Selezionare **Create** (Crea). Verrà visualizzata la schermata seguente:
+1. Selezionare **distribuzione modello (Distribuisci usando modelli personalizzati)**. Verrà visualizzata una schermata per la Distribuzione modelli. Selezionare **Crea**. Verrà visualizzata la schermata seguente:
 
    ![Screenshot che mostra il comando per la creazione di un modello personalizzato](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -421,7 +420,7 @@ L'applicazione è destinata a .NET Core, quindi può essere eseguita in Windows 
 
    Il motivo è dovuto al fatto che le stringhe di connessione sono lunghe e indesiderate ed è improbabile che si modifichino, ma è possibile modificare le opzioni ed eseguire l'applicazione più volte. Per modificare il valore di una variabile di ambiente, è necessario chiudere la finestra di comando e Visual Studio o VS Code, a seconda del valore utilizzato. 
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Di seguito sono riportate le cinque opzioni specificate durante l'esecuzione dell'applicazione. Questi verranno inseriti nella riga di comando in un minuto.
 
@@ -549,7 +548,7 @@ A questo punto si dispone delle variabili di ambiente in un file con i comandi S
 
 1. Passare al nuovo hub usando il [portale di Azure](https://portal.azure.com). Selezionare l'hub e quindi selezionare **dispositivi**. Vengono visualizzati i dispositivi appena copiati dall'hub precedente nell'hub clonato. È anche possibile visualizzare le proprietà dell'hub clonato. 
 
-1. Verificare la presenza di errori di importazione/esportazione accedendo all'account di archiviazione di Azure nella [portale di Azure](https://portal.azure.com) e `devicefiles` cercando il contenitore `ImportErrors.log`per il. Se il file è vuoto (la dimensione è 0), non si sono verificati errori. Se si tenta di importare lo stesso dispositivo più di una volta, il dispositivo viene rifiutato la seconda volta e viene aggiunto un messaggio di errore al file di log.
+1. Verificare la presenza di errori di importazione/esportazione accedendo all'account di archiviazione di Azure nella [portale di Azure](https://portal.azure.com) e cercando il `devicefiles` contenitore per il `ImportErrors.log` . Se il file è vuoto (la dimensione è 0), non si sono verificati errori. Se si tenta di importare lo stesso dispositivo più di una volta, il dispositivo viene rifiutato la seconda volta e viene aggiunto un messaggio di errore al file di log.
 
 ### <a name="committing-the-changes"></a>Commit delle modifiche 
 

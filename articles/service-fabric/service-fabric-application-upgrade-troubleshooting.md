@@ -4,10 +4,9 @@ description: Questo articolo descrive alcuni problemi comuni relativi all'aggior
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377923"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Risolvere i problemi relativi agli aggiornamenti delle applicazioni
@@ -212,9 +211,9 @@ Il tempo per il completamento dell'aggiornamento dipende dai controlli di integr
 
 Segue un rapido ripasso sull'interazione dei timeout con i tempi di aggiornamento:
 
-Gli aggiornamenti per un dominio di aggiornamento non possono essere completati più velocemente di *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
+Gli aggiornamenti per un dominio di aggiornamento non possono essere completati più velocemente di *HealthCheckWaitDuration*  +  *HealthCheckStableDuration*.
 
-L'errore di aggiornamento non può essere più veloce di *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
+L'errore di aggiornamento non può essere più veloce di *HealthCheckWaitDuration*  +  *HealthCheckRetryTimeout*.
 
 Il tempo di aggiornamento di un dominio di aggiornamento è limitato da *UpgradeDomainTimeout*.  Se i valori di *HealthCheckRetryTimeout* e *HealthCheckStableDuration* sono entrambi diversi da zero e l'integrità dell'applicazione continua a oscillare, si verifica il timeout dell'aggiornamento in *UpgradeDomainTimeout*. *UpgradeDomainTimeout* inizia il conto alla rovescia dopo l'avvio dell'aggiornamento del dominio di aggiornamento corrente.
 

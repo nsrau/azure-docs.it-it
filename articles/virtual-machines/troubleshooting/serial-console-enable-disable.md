@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451294"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Abilitare e disabilitare la console seriale di Azure
@@ -34,7 +33,7 @@ La console seriale può essere disabilitata per una VM specifica o un set di sca
 ## <a name="subscription-level-enabledisable"></a>Abilita/Disabilita a livello di sottoscrizione
 
 > [!NOTE]
-> Prima di eseguire questo comando, assicurarsi di trovarsi nel cloud appropriato (cloud pubblico di Azure, cloud per il governo degli Stati Uniti di Azure). È possibile verificare con `az cloud list` e impostare il cloud con `az cloud set -n <Name of cloud>`.
+> Prima di eseguire questo comando, assicurarsi di trovarsi nel cloud appropriato (cloud pubblico di Azure, cloud per il governo degli Stati Uniti di Azure). È possibile verificare con `az cloud list` e impostare il cloud con `az cloud set -n <Name of cloud>` .
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.openlocfilehash: 6b841d6b47e009c3b01d9925e11d352c00ed5c19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75426424"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Informazioni sugli input per Analisi di flusso di Azure
@@ -21,7 +20,7 @@ I processi di Analisi di flusso di Azure si connettono a uno o più input di dat
 Analisi di flusso offre un'integrazione di prima classe con tre tipi di risorse come input:
 - [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)
 - [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/) 
-- [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) 
+- [Archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) 
 
 Queste risorse di input possono risiedere nella stessa sottoscrizione di Azure del processo di analisi di flusso o in una sottoscrizione diversa.
 
@@ -42,4 +41,4 @@ Per altre informazioni sugli input di dati di riferimento, vedere [Uso dei dati 
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Avvio rapido: creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+> [Avvio rapido: Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)

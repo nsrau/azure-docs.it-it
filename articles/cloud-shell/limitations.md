@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74951480"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitazioni di Azure Cloud Shell
@@ -45,7 +44,7 @@ Cloud Shell supporta le versioni più recenti di Microsoft Edge, Microsoft Inter
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Per un determinato utente, può essere attiva una sola shell
 
-Gli utenti possono avviare solo un tipo di shell contemporaneamente, **Bash** o **PowerShell**. Tuttavia, si possono avere più istanze di Bash o PowerShell in esecuzione contemporaneamente. Lo scambio tra bash o PowerShell tramite il menu causa il riavvio Cloud Shell, che termina le sessioni esistenti. In alternativa, è possibile eseguire bash all'interno di PowerShell `bash`digitando ed è possibile eseguire PowerShell all'interno `pwsh`di bash digitando.
+Gli utenti possono avviare solo un tipo di shell contemporaneamente, **Bash** o **PowerShell**. Tuttavia, si possono avere più istanze di Bash o PowerShell in esecuzione contemporaneamente. Lo scambio tra bash o PowerShell tramite il menu causa il riavvio Cloud Shell, che termina le sessioni esistenti. In alternativa, è possibile eseguire bash all'interno di PowerShell digitando `bash` ed è possibile eseguire PowerShell all'interno di bash digitando `pwsh` .
 
 ### <a name="usage-limits"></a>Limiti di consumo
 
@@ -77,7 +76,7 @@ Usando i cmdlet di PowerShell, gli utenti non possono creare file nell'unità Az
 
 ### <a name="gui-applications-are-not-supported"></a>Le applicazioni GUI non sono supportate
 
-Se l'utente esegue un comando che crea una finestra di dialogo di Windows, viene visualizzato un messaggio di errore simile `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`al seguente:.
+Se l'utente esegue un comando che crea una finestra di dialogo di Windows, viene visualizzato un messaggio di errore simile al seguente: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` .
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Ampio spazio vuoto dopo aver visualizzato l'indicatore di stato
 

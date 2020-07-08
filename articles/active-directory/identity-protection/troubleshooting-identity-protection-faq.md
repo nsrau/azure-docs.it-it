@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75443579"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
@@ -24,7 +23,7 @@ ms.locfileid: "75443579"
 
 **Ignorare i rischi** per gli utenti in classica Identity Protection imposta l'attore nella cronologia dei rischi dell'utente in Identity protection per **Azure ad**.
 
-**Ignorare i rischi** per gli utenti in Identity Protection imposta l'attore nella cronologia dei rischi dell'utente in Identity Protection sul ** \<nome dell'amministratore con un collegamento ipertestuale\>che punta al pannello dell'utente**.
+**Ignorare i rischi** per gli utenti in Identity Protection imposta l'attore nella cronologia dei rischi dell'utente in Identity Protection su **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
 Si è verificato un problema noto corrente che causa la latenza nel flusso di rischio dell'utente. Se si hanno "criteri di rischio utente", questi criteri smetteranno di venire applicati agli utenti rimossi entro alcuni minuti da quando si fa clic su "Ignora rischio utente". Tuttavia, ci sono ritardi noti nell'esperienza utente di aggiornamento dello "stato del rischio" degli utenti rimossi. Come soluzione alternativa, aggiornare la pagina a livello di browser per visualizzare lo "stato del rischio" più recente per l'utente.
 

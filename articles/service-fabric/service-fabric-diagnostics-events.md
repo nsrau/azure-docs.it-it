@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451721"
 ---
 # <a name="service-fabric-events"></a>Eventi di Service Fabric 
@@ -18,7 +17,7 @@ La piattaforma Service Fabric scrive diversi eventi strutturati per le attività
 * Cluster
 * Applicazione
 * Servizio
-* Partition
+* Partizione
 * Replica 
 * Contenitore
 

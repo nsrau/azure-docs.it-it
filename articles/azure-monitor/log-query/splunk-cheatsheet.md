@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 6346055f1169bfa533d5dbfe441ecf27fb0d78a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75397756"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk in query di log di Monitoraggio di Azure
@@ -30,7 +29,7 @@ La tabella seguente confronta i concetti e le strutture di dati tra Splunk e i l
  | Record dei dati | event | riga |  Solo modifica terminologica. |
  | Attributo di record di dati | campo |  colonna |  In Monitoraggio di Azure, questo è già definito come parte della struttura della tabella. In Splunk, ogni evento ha un proprio set di campi. |
  | Tipi | tipo di dati |  tipo di dati |  I tipi di dati di Monitoraggio di Azure sono più espliciti poiché vengono impostati nelle colonne. Entrambi sono in grado di lavorare in modo dinamico con i tipi di dati e con i set quasi equivalenti ai tipi di dati che includono il supporto JSON. |
- | Query e ricerca  | ricerca | query |  I concetti sono essenzialmente uguali tra Monitoraggio di Azure e Splunk. |
+ | Query e ricerca  | cerca | query |  I concetti sono essenzialmente uguali tra Monitoraggio di Azure e Splunk. |
  | Tempo di inserimento evento | Ora di sistema | ingestion_time() |  In Splunk, ogni evento ottiene un timestamp di sistema del momento in cui l'evento è stato indicizzato. In Monitoraggio di Azure, è possibile definire un criterio denominato ingestion_time che espone una colonna di sistema a cui è possibile fare riferimento tramite la funzione ingestion_time(). |
 
 ## <a name="functions"></a>Funzioni
@@ -70,7 +69,7 @@ In Splunk, è possibile omettere la parola chiave `search` e specificare una str
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **ricerca** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
+| Splunk | **search** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
 | Monitoraggio di Azure | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
@@ -79,7 +78,7 @@ Le query di Monitoraggio di Azure iniziano da un risultato tabulare in cui è im
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **ricerca** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
+| Splunk | **search** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
 | Monitoraggio di Azure | **where** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
 | | |
 
@@ -90,7 +89,7 @@ Le query di log di Monitoraggio di Azure supportano anche `take` come alias per 
 | |  | |
 |:---|:---|:---|
 | Splunk | **Head** | <code>Event.Rule=330009.2<br>&#124; head 100</code> |
-| Monitoraggio di Azure | **limite** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
+| Monitoraggio di Azure | **limit** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
 | | |
 
 
@@ -101,7 +100,7 @@ Per ottenere risultati nella parte inferiore, usare in Splunk `tail`. In Monitor
 | |  | |
 |:---|:---|:---|
 | Splunk | **Head** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
-| Monitoraggio di Azure | **In alto** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
+| Monitoraggio di Azure | **top** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
 | | |
 
 
@@ -113,12 +112,12 @@ Splunk ha anche una funzione `eval` che non deve essere confrontabile con l'oper
 | |  | |
 |:---|:---|:---|
 | Splunk | **EVAL** |  <code>Event.Rule=330009.2<br>&#124; eval state= if(Data.Exception = "0", "success", "error")</code> |
-| Monitoraggio di Azure | **estendere** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
+| Monitoraggio di Azure | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 | | |
 
 
-### <a name="rename"></a>Rinominare 
-Monitoraggio di Azure usa `project-rename` l'operatore per rinominare un campo. `project-rename`consente alla query di sfruttare i vantaggi di tutti gli indici predefiniti per un campo. Splunk ha un `rename` operatore che esegue la stessa operazione.
+### <a name="rename"></a>Rinomina 
+Monitoraggio di Azure usa l' `project-rename` operatore per rinominare un campo. `project-rename`consente alla query di sfruttare i vantaggi di tutti gli indici predefiniti per un campo. Splunk ha un `rename` operatore che esegue la stessa operazione.
 
 | |  | |
 |:---|:---|:---|
@@ -135,7 +134,7 @@ Splunk sembra non disporre di un operatore simile a `project-away`. È possibile
 | |  | |
 |:---|:---|:---|
 | Splunk | **tabella** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
-| Monitoraggio di Azure | **progetto**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
+| Monitoraggio di Azure | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
 
@@ -145,8 +144,8 @@ Vedere le [Aggregazioni nelle query di log di Monitoraggio di Azure](aggregation
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Statistiche** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
-| Monitoraggio di Azure | **riepilogare** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
+| Splunk | **stats** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
+| Monitoraggio di Azure | **summarize** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
 | | |
 
 
@@ -156,8 +155,8 @@ Join in Splunk presenta limitazioni significative. La sottoquery ha un limite de
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
-| Monitoraggio di Azure | **Join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
+| Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
+| Monitoraggio di Azure | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 | | |
 
 

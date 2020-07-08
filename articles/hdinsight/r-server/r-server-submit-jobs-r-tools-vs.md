@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435260"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Inviare processi da R Tools per Visual Studio
@@ -21,7 +20,7 @@ ms.locfileid: "75435260"
 
 RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R interattivo](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (completamento del codice), [visualizzazione tracciato](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) tramite librerie R come ggplot2 e ggviz, [debug del codice R](https://docs.microsoft.com/visualstudio/rtvs/debugging)e altro ancora.
 
-## <a name="set-up-your-environment"></a>Configurare l'ambiente
+## <a name="set-up-your-environment"></a>Configura il tuo ambiente
 
 1. Installare [R Tools per Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
@@ -32,7 +31,7 @@ RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R inter
 3. È necessario disporre di chiavi pubbliche e private per l'autenticazione SSH.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Installare [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) nel computer. ML Server fornisce le [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) funzioni `RxSpark` e.
+4. Installare [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) nel computer. ML Server fornisce le [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) `RxSpark` funzioni e.
 
 5. Installare [PuTTY](https://www.putty.org/) per fornire un contesto di calcolo per eseguire le funzioni `RevoScaleR` dal client locale al cluster HDInsight.
 
@@ -66,7 +65,7 @@ RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R inter
 
 Usando Microsoft ML Server/Microsoft R Client da un computer Windows dotato di PuTTY, è possibile creare un contesto di calcolo che eseguirà funzioni `RevoScaleR` distribuite dal client locale al cluster HDInsight. Usare `RxSpark` per creare il contesto di calcolo, specificare il nome utente, il nodo perimetrale del cluster Apache Hadoop, gli switch SSH e così via.
 
-1. L'indirizzo del nodo perimetrale di ML Services `CLUSTERNAME-ed-ssh.azurehdinsight.net` in `CLUSTERNAME` HDInsight è dove è il nome del cluster di servizi ml.
+1. L'indirizzo del nodo perimetrale di ML Services in HDInsight è `CLUSTERNAME-ed-ssh.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster di servizi ml.
 
 1. Incollare il codice seguente nella finestra R interattivo in Visual Studio, modificando i valori delle variabili di installazione in base all'ambiente.
 
@@ -108,7 +107,7 @@ Usando Microsoft ML Server/Microsoft R Client da un computer Windows dotato di P
 
     L'output dovrebbe essere simile al seguente:
 
-    ![Esecuzione](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) comando RX riuscita a
+    ![Esecuzione comando RX riuscita ](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) a
 1. Verificare che `rxHadoopCopy` abbia copiato correttamente il file `people.json` dalla cartella di dati di esempio nella cartella `/user/RevoShare/newUser` appena creata:
 
     1. Nel riquadro del cluster HDInsight ML Services in Azure selezionare **Account di archiviazione** dal menu a sinistra.

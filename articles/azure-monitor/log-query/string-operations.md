@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75397461"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Usare le stringhe nelle query di log di Monitoraggio di Azure
@@ -27,7 +26,7 @@ Ogni carattere in una stringa ha un numero di indice, in base alla relativa posi
 
 
 ## <a name="strings-and-escaping-them"></a>Stringhe e caratteri di escape
-I valori di stringa sono racchiusi tra virgolette singole o doppie. La barra\\rovesciata () viene usata per usare caratteri di escape per il carattere che lo segue, ad esempio \t per Tab \" , \n per la nuova riga e il carattere di virgolette.
+I valori di stringa sono racchiusi tra virgolette singole o doppie. La barra rovesciata ( \\ ) viene usata per usare caratteri di escape per il carattere che lo segue, ad esempio \t per Tab, \n per la nuova riga e \" il carattere di virgolette.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -44,14 +43,14 @@ print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
 
-## <a name="string-comparisons"></a>Confronti di stringhe
+## <a name="string-comparisons"></a>Confronti tra stringhe
 
 Operatore       |Descrizione                         |Distinzione maiuscole/minuscole|Esempio (restituisce `true`)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Uguale a                              |Sì           |`"aBc" == "aBc"`
-`!=`           |Non uguale a                          |Sì           |`"abc" != "ABC"`
+`!=`           |Diverso da                          |Sì           |`"abc" != "ABC"`
 `=~`           |Uguale a                              |No            |`"abc" =~ "ABC"`
-`!~`           |Non uguale a                          |No            |`"aBc" !~ "xyz"`
+`!~`           |Diverso da                          |No            |`"aBc" !~ "xyz"`
 `has`          |La stringa a destra corrisponde a un termine completo a sinistra |No|`"North America" has "america"`
 `!has`         |La stringa a destra non corrisponde a un termine completo a sinistra       |No            |`"North America" !has "amer"` 
 `has_cs`       |La stringa a destra corrisponde a un termine completo a sinistra |Sì|`"North America" has_cs "America"`
@@ -93,9 +92,9 @@ countof(text, search [, kind])
 ### <a name="arguments"></a>Argomenti:
 - `text`: stringa di input 
 - `search`: stringa di testo normale o espressione regolare di cui trovare la corrispondenza nel testo.
-- `kind` - _normal_ | _Regex_ normale (impostazione predefinita: normale).
+- `kind` - _normale_  |  _Regex_ (impostazione predefinita: Normal).
 
-### <a name="returns"></a>Valori di codice restituiti
+### <a name="returns"></a>Restituisce
 
 Il numero di volte in cui la stringa di ricerca può essere trovata nel contenitore. Le corrispondenze con stringhe di testo normale possono sovrapporsi, mentre quelle con espressioni regolari no.
 
@@ -137,7 +136,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text`: stringa da cercare.
 - `typeLiteral`: valore letterale di tipo facoltativo, ad esempio typeof(long). Se specificato, la sottostringa estratta viene convertita nel tipo.
 
-### <a name="returns"></a>Valori di codice restituiti
+### <a name="returns"></a>Restituisce
 La sottostringa corrispondente nel gruppo Capture indicato da captureGroup, facoltativamente convertita in typeLiteral.
 Se non ci sono corrispondenze o la conversione del tipo non riesce, restituisce null.
 
@@ -243,7 +242,7 @@ replace(regex, rewrite, input_text)
 - `rewrite`: espressione regolare che sostituisce un'eventuale corrispondenza in base a un'espressione regolare. Usare \0 per fare riferimento all'intera corrispondenza, \1 per il primo gruppo Capture, \2 e così via per i gruppi Capture successivi.
 - `input_text`: stringa di input in cui cercare.
 
-### <a name="returns"></a>Valori di codice restituiti
+### <a name="returns"></a>Restituisce
 Il testo dopo la sostituzione di tutte le corrispondenze dell'espressione regolare con le valutazioni di rewrite. Le corrispondenze non si sovrappongono.
 
 ### <a name="examples"></a>Esempi

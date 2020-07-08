@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74900364"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identità del dispositivo e virtualizzazione desktop
@@ -51,11 +50,11 @@ Prima di configurare le identità del dispositivo in Azure AD per l'ambiente VDI
 |   |   | Dispositivi Windows di livello inferiore | Non persistente | Sì |
 | Aggiunta ad Azure AD | Federato | Windows corrente | Persistente | No |
 |   |   |   | Non persistente | No |
-|   | Gestiti | Windows corrente | Persistente | No |
+|   | Gestito | Windows corrente | Persistente | No |
 |   |   |   | Non persistente | No |
-| Registrazione in Azure AD | Federato | Windows corrente | Persistente | No |
+| Registrato con AAD | Federato | Windows corrente | Persistente | No |
 |   |   |   | Non persistente | No |
-|   | Gestiti | Windows corrente | Persistente | No |
+|   | Gestito | Windows corrente | Persistente | No |
 |   |   |   | Non persistente | No |
 
 \*Un ambiente di infrastruttura di identità **federato** rappresenta un ambiente con un provider di identità, ad esempio ad FS o un altro IDP di terze parti.
@@ -73,7 +72,7 @@ Gli amministratori devono fare riferimento agli articoli seguenti, in base alla 
 - [Configurare il join di Azure Active Directory ibrido per l'ambiente federato](hybrid-azuread-join-federated-domains.md)
 - [Configurare il join di Azure Active Directory ibrido per l'ambiente gestito](hybrid-azuread-join-managed-domains.md)
 
-Se si utilizza l'utilità preparazione sistema (Sysprep. exe) e se si utilizza un'immagine precedente a Windows 10 1809 per l'installazione, assicurarsi che l'immagine non venga da un dispositivo già registrato con Azure AD come ibrido Azure AD aggiunto.
+Se si utilizza l'utilità preparazione sistema (sysprep.exe) e si utilizza un'immagine precedente a Windows 10 1809 per l'installazione, assicurarsi che l'immagine non venga da un dispositivo già registrato con Azure AD come ibrido Azure AD aggiunto.
 
 Se si utilizza uno snapshot di macchina virtuale (VM) per creare altre macchine virtuali, assicurarsi che lo snapshot non venga da una macchina virtuale già registrata con Azure AD come Azure AD ibrido join.
 
@@ -81,7 +80,7 @@ Quando si distribuisce un'infrastruttura VDI non persistente, gli amministratori
 
 - Creare e utilizzare un prefisso per il nome visualizzato del computer che indica il desktop come basato su VDI.
 - Implementare il comando seguente come parte dello script di disconnessione. Questo comando attiverà una chiamata al massimo sforzo per Azure AD eliminare il dispositivo.
-   - Per dispositivi Windows di livello inferiore – autoarea di lavoro. exe/Leave
+   - Per dispositivi Windows di livello inferiore-autoworkplace.exe/Leave
 - Definire e implementare il processo per la [gestione dei dispositivi non aggiornati](manage-stale-devices.md).
    - Quando si ha una strategia per identificare i dispositivi non persistenti Azure AD ibrido aggiunti, è possibile essere più aggressivi per la pulizia di questi dispositivi per assicurarsi che la directory non venga usata con molti dispositivi non aggiornati.
  

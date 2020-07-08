@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74932057"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script PowerShell: trasformare dati nel cloud con Azure Data Factory
@@ -54,7 +53,7 @@ Questo script PowerShell di esempio crea una pipeline che trasforma i dati nel c
     if __name__ == "__main__":
         main()
     ```
-2. Sostituire ** &lt;storageAccountName&gt; ** con il nome dell'account di archiviazione di Azure. Salvare quindi il file. 
+2. Sostituire ** &lt; storageAccountName &gt; ** con il nome dell'account di archiviazione di Azure. Salvare quindi il file. 
 3. Nell'Archivio BLOB di Azure creare un contenitore denominato **adftutorial**, se non esiste. 
 4. Creare una cartella denominata **spark**.
 5. Creare una sottocartella denominata **script** nella cartella **spark**. 

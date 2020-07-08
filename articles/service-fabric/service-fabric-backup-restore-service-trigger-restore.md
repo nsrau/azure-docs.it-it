@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377906"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Ripristino del backup in Azure Service Fabric
@@ -201,7 +200,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
     ![Attiva ripristino partizione FileShare][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>Ripristino dei dati per la_perdita_ di dati _danneggiati_/
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Ripristino dei dati _data corruption_per la / _perdita_ di dati danneggiati
 
 In caso di _perdita dei dati_ o _danneggiamento dei dati_, per le partizioni sottoposte a backup del servizio Reliable con stato e Reliable Actors il ripristino può essere eseguito in uno qualsiasi dei backup scelti.
 
@@ -209,7 +208,7 @@ L'esempio seguente è la continuazione dell'esempio menzionato in [Abilita i bac
 
 Selezionare un backup dall'output di [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). In questo scenario il backup viene generato dallo stesso cluster usato in precedenza.
 
-Per attivare il ripristino, scegliere un backup dall'elenco. Per il_danneggiamento dei dati_di _perdita_/dei dati correnti, selezionare il backup seguente:
+Per attivare il ripristino, scegliere un backup dall'elenco. Per il danneggiamento dei dati di _perdita dei dati_correnti / _data corruption_, selezionare il backup seguente:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -317,7 +316,7 @@ La richiesta di ripristino procede nell'ordine seguente:
 
 ## <a name="automatic-restore"></a>Ripristino automatico
 
-È possibile configurare le partizioni del servizio Reliable con stato e Reliable Actors nel cluster di Service Fabric per il _ripristino automatico_. Nei criteri di backup impostare `AutoRestore` su _true_. L'abilitazione del _ripristino automatico_ ripristina automaticamente i dati dal backup più recente della partizione quando viene segnalata una perdita di dati. Per altre informazioni, vedi:
+È possibile configurare le partizioni del servizio Reliable con stato e Reliable Actors nel cluster di Service Fabric per il _ripristino automatico_. Nei criteri di backup impostare `AutoRestore` su _true_. L'abilitazione del _ripristino automatico_ ripristina automaticamente i dati dal backup più recente della partizione quando viene segnalata una perdita di dati. Per altre informazioni, vedere:
 
 - [Abilitazione del ripristino automatico nei criteri di backup](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [Informazioni di riferimento sull'API RestorePartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)

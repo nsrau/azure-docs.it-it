@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74975075"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
@@ -48,7 +47,7 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
     
     1. Scegliere il meccanismo per ```attestation```, che può essere TPM o X.509.
         1. **TPM**: usando la chiave di verifica dell'autenticità da un dispositivo fisico o da simulatore TPM come input, è possibile chiamare l'API dell'SDK del servizio ```TpmAttestation``` per creare l'attestazione per la registrazione. 
-        2. **X. 509**: usando il certificato client come input, è possibile chiamare l'API ```X509Attestation.createFromClientCertificate``` dell'SDK del servizio per creare l'attestazione per la registrazione.
+        2. **X. 509**: usando il certificato client come input, è possibile chiamare l'API dell'SDK del servizio ```X509Attestation.createFromClientCertificate``` per creare l'attestazione per la registrazione.
     2. Creare una nuova variabile ```IndividualEnrollment``` usando il valore del parametro ```attestation``` creato e un valore univoco del parametro ```registrationId``` come input, disponibile nel dispositivo o generato dal simulatore TPM.  Facoltativamente, è possibile impostare parametri quali, ad esempio, ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
     3. Chiamare l'API dell'SDK del servizio ```createOrUpdateIndividualEnrollment``` nell'applicazione back-end tramite ```IndividualEnrollment``` per creare una registrazione singola.
 

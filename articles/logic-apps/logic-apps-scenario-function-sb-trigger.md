@@ -7,10 +7,9 @@ ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75428715"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chiamare o attivare app per la logica usando funzioni di Azure e il bus di servizio di Azure
@@ -25,7 +24,7 @@ ms.locfileid: "75428715"
 
 * App per le funzioni di Azure, un contenitore per funzioni di Azure. Se non si dispone di un'app per [le funzioni, creare prima l'app per le funzioni](../azure-functions/functions-create-first-azure-function.md)e assicurarsi di selezionare .NET come stack di Runtime.
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="create-logic-app"></a>Creare l'app per la logica
 
@@ -113,7 +112,7 @@ A questo punto creare la funzione che agisce come trigger e rimane in ascolto su
 
      ![Selezionare il modello per l'app per le funzioni esistente](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. Nel riquadro **trigger della coda del bus di servizio di Azure** specificare un nome per il trigger e configurare la **connessione del bus di servizio** per la coda, che usa il listener SDK `OnMessageReceive()` del bus di servizio di Azure e selezionare **Crea**.
+1. Nel riquadro **trigger della coda del bus di servizio di Azure** specificare un nome per il trigger e configurare la **connessione del bus di servizio** per la coda, che usa il listener SDK del bus di servizio di Azure `OnMessageReceive()` e selezionare **Crea**.
 
 1. Scrivere una funzione di base per chiamare l'endpoint dell'app per la logica creato in precedenza usando il messaggio della coda come trigger. Prima di scrivere la funzione, esaminare le considerazioni seguenti:
 
@@ -123,7 +122,7 @@ A questo punto creare la funzione che agisce come trigger e rimane in ascolto su
    
    * Se possibile, riutilizzare l'istanza di client HTTP. Per altre informazioni, vedere [Manage Connections in funzioni di Azure](../azure-functions/manage-connections.md).
 
-   In questo esempio viene utilizzato il [ `Task.Run` metodo](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) in modalità [asincrona](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) . Per altre informazioni, vedere [programmazione asincrona con Async e await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
+   In questo esempio viene utilizzato il [ `Task.Run` Metodo](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) in modalità [asincrona](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) . Per altre informazioni, vedere [programmazione asincrona con Async e await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
    ```csharp
    using System;

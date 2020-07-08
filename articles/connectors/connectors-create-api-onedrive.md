@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
 ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75378433"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Accedere e gestire i file in OneDrive Connector usando app per la logica di Azure
@@ -38,7 +37,7 @@ Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario
 
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. I trigger eseguono il "polling" del servizio agli intervalli e con la frequenza desiderati. [Altre informazioni sui trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Nella finestra di progettazione dell'app per `onedrive` la logica digitare per ottenere un elenco dei trigger:  
+1. Nella finestra di progettazione dell'app per la logica digitare `onedrive` per ottenere un elenco dei trigger:  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 

@@ -4,10 +4,9 @@ description: Le autorizzazioni di Advisor e il modo in cui possono bloccare la p
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: c850d757044066d5c4a793e076436906d715833c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75422326"
 ---
 # <a name="permissions-in-azure-advisor"></a>Autorizzazioni in Azure Advisor
@@ -18,7 +17,7 @@ Azure Advisor fornisce consigli basati sull'utilizzo e la configurazione delle r
 
 Nella tabella seguente vengono definiti i ruoli e l'accesso in Advisor:
 
-| **Ruolo** | **Visualizza le raccomandazioni** | **Modifica regole** | **Modificare la configurazione della sottoscrizione** | **Modificare la configurazione del gruppo di risorse**| **Ignorare e posticipare le raccomandazioni**|
+| **Role** | **Visualizza le raccomandazioni** | **Modifica regole** | **Modificare la configurazione della sottoscrizione** | **Modificare la configurazione del gruppo di risorse**| **Ignorare e posticipare le raccomandazioni**|
 |---|:---:|:---:|:---:|:---:|:---:|
 |Proprietario della sottoscrizione|**X**|**X**|**X**|**X**|**X**|
 |Collaboratore alla sottoscrizione|**X**|**X**|**X**|**X**|**X**|
@@ -49,5 +48,5 @@ Se viene visualizzato un errore durante il tentativo di posticipare o ignorare u
 
 Questo articolo ha fornito una panoramica del modo in cui Advisor usa il controllo degli accessi in base al ruolo per controllare le autorizzazioni utente e risolvere i problemi comuni Per altre informazioni su Advisor, vedere:
 
-- [Informazioni su Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview)
+- [Cos'è Azure Advisor?](https://docs.microsoft.com/azure/advisor/advisor-overview)
 - [Introduzione ad Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)

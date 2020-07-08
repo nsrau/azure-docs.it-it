@@ -4,10 +4,9 @@ description: Vengono descritte le operazioni di sviluppo, distribuzione, test, a
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75378005"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo di vita dell'applicazione Service Fabric
@@ -69,7 +68,7 @@ Per gli esempi, vedere l'articolo relativo all' [esercitazione sull'aggiornament
 4. Un *operatore* aggiunge e rimuove i nodi specificati dall'*amministratore di applicazioni*.
 5. Quando nel cluster vengono aggiunti nuovi nodi o rimossi nodi esistenti, Service Fabric esegue automaticamente il bilanciamento del carico delle applicazioni in esecuzione in tutti i nodi del cluster per ottenere prestazioni ottimali.
 
-## <a name="remove"></a>Rimuovere
+## <a name="remove"></a>Rimuovi
 1. Un *operatore* può eliminare un'istanza specifica di un servizio in esecuzione nel cluster senza rimuovere l'intera applicazione usando il metodo [**DeleteServiceAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient), il cmdlet [**Remove-ServiceFabricService**](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice) o l'operazione [**Delete Service** REST](https://docs.microsoft.com/rest/api/servicefabric/delete-a-service).  
 2. Un *operatore* può anche eliminare un'istanza di un'applicazione e tutti i relativi servizi usando il metodo [**DeleteApplicationAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), il cmdlet [**Remove-ServiceFabricApplication**](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricapplication) o l'operazione [**Delete Application** REST](https://docs.microsoft.com/rest/api/servicefabric/delete-an-application).
 3. Dopo l'arresto dell'applicazione e dei servizi, l'*operatore* può annullare il provisioning del tipo di applicazione usando il metodo [**UnprovisionApplicationAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), il cmdlet [**Unregister-ServiceFabricApplicationType**](https://docs.microsoft.com/powershell/module/servicefabric/unregister-servicefabricapplicationtype) o l'operazione [**Unprovision an Application** REST](https://docs.microsoft.com/rest/api/servicefabric/unprovision-an-application). L'annullamento del provisioning del tipo di applicazione non comporta la rimozione del pacchetto applicazione da ImageStore. Il pacchetto applicazione dovrà essere rimosso manualmente.

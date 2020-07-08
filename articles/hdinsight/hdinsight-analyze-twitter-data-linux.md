@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435606"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analizzare i dati di Twitter mediante Apache Hive e Apache Hadoop in HDInsight
@@ -28,7 +27,7 @@ Twitter consente di recuperare i dati relativi ad ogni tweet come documento JSON
 
 ### <a name="create-a-twitter-application"></a>Creare un'applicazione Twitter
 
-1. Da un Web browser accedere a [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/). Selezionare il collegamento **Iscriviti ora** se non si ha un account Twitter.
+1. Da un Web browser accedere a [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) . Selezionare il collegamento **Iscriviti ora** se non si ha un account Twitter.
 
 2. Selezionare **Crea nuova app**.
 
@@ -59,7 +58,7 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
 > [!NOTE]  
 > I passaggi indicati di seguito vengono eseguiti nel cluster HDInsight, poiché Python è già installato.
 
-1. Usare il [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare il [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster in uso e quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -84,7 +83,7 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
    nano gettweets.py
    ```
 
-1. Modificare il codice seguente sostituendo `Your consumer secret`, `Your consumer key`, `Your access token`e `Your access token secret` con le informazioni rilevanti dell'applicazione Twitter. Incollare quindi il codice modificato come contenuto del file **gettweets.py** .
+1. Modificare il codice seguente sostituendo `Your consumer secret` , `Your consumer key` , `Your access token` e `Your access token secret` con le informazioni rilevanti dell'applicazione Twitter. Incollare quindi il codice modificato come contenuto del file **gettweets.py** .
 
    ```python
    #!/usr/bin/python

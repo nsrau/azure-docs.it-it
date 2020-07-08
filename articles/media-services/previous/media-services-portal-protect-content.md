@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74978203"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurare i criteri di protezione dei contenuti tramite il portale di Azure
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 >
 
  Con Servizi multimediali di Azure, è possibile proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e distribuzione. È possibile usare Servizi multimediali per distribuire contenuti crittografati dinamicamente con Advanced Encryption Standard (AES), tramite chiavi di crittografia a 128 bit. È inoltre possibile usarlo con crittografia comune (CENC) tramite Digital Rights Management (DRM) PlayReady e/o Widevine e Apple FairPlay. 
@@ -38,7 +37,7 @@ Per usare il portale al fine di configurare la protezione globale del contenuto 
 
 1. Nel [portale](https://portal.azure.com/) selezionare l'account Servizi multimediali.
 
-1. Selezionare **Impostazioni** > **protezione del contenuto**.
+1. Selezionare **Impostazioni**  >  **protezione del contenuto**.
 
     ![Protezione del contenuto](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -76,7 +75,7 @@ Il modello di licenza Widevine imposta la funzionalità abilitata nelle licenze 
 ### <a name="basic"></a>Basic
 Se si seleziona **Basic**, il modello verrà creato con tutti i valori predefiniti.
 
-### <a name="advanced"></a>Avanzate
+### <a name="advanced"></a>Avanzato
 Per altre informazioni sul modello dei diritti Widevine, vedere [Panoramica del modello di licenza Widevine](media-services-widevine-license-template-overview.md).
 
 ![Protezione del contenuto avanzata](./media/media-services-portal-content-protection/media-services-content-protection005.png)
@@ -90,7 +89,7 @@ Per abilitare la crittografia FairPlay, selezionare **Configurazione FairPlay**.
 Per sfruttare i vantaggi della crittografia dinamica, è necessario codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Selezionare un asset da crittografare
-Per visualizzare tutti gli asset, selezionare **Impostazioni** > **Asset**.
+Per visualizzare tutti gli asset, selezionare **Impostazioni**  >  **Asset**.
 
 ![Opzione Asset](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
@@ -131,6 +130,6 @@ La crittografia con chiave non crittografata AES è abilitata su tutti i protoco
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

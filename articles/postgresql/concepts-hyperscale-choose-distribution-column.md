@@ -8,10 +8,9 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74975670"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Scegliere le colonne di distribuzione nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
@@ -28,18 +27,18 @@ L'architettura multi-tenant utilizza una forma di modellazione di database gerar
 
 Iperscale (CITUS) esamina le query per individuare l'ID tenant che coinvolgono e trova la partizione della tabella corrispondente. Instrada la query a un singolo nodo di lavoro che contiene la partizione. L'esecuzione di una query con tutti i dati rilevanti posizionati nello stesso nodo viene chiamata condivisione percorso.
 
-Il diagramma seguente illustra la condivisione percorso nel modello di dati multi-tenant. Contiene due tabelle, account e campagne, ognuno distribuito da `account_id`. Le caselle ombreggiate rappresentano le partizioni. Le partizioni verdi vengono archiviate insieme in un nodo di lavoro e le partizioni blu vengono archiviate in un altro nodo di lavoro. Si noti come una query di join tra account e campagne includa tutti i dati necessari insieme in un nodo quando entrambe le tabelle sono limitate\_allo stesso ID account.
+Il diagramma seguente illustra la condivisione percorso nel modello di dati multi-tenant. Contiene due tabelle, account e campagne, ognuno distribuito da `account_id` . Le caselle ombreggiate rappresentano le partizioni. Le partizioni verdi vengono archiviate insieme in un nodo di lavoro e le partizioni blu vengono archiviate in un altro nodo di lavoro. Si noti come una query di join tra account e campagne includa tutti i dati necessari insieme in un nodo quando entrambe le tabelle sono limitate allo stesso \_ ID account.
 
 ![Condivisione percorso multi-tenant](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
-Per applicare questa progettazione nello schema, identificare ciò che costituisce un tenant nell'applicazione. Le istanze comuni includono società, account, organizzazione o cliente. Il nome della colonna sarà simile a `company_id` o `customer_id`. Esaminare ogni query e chiedersi se sono presenti clausole WHERE aggiuntive per limitare tutte le tabelle incluse nelle righe con lo stesso ID tenant.
+Per applicare questa progettazione nello schema, identificare ciò che costituisce un tenant nell'applicazione. Le istanze comuni includono società, account, organizzazione o cliente. Il nome della colonna sarà simile a `company_id` o `customer_id` . Esaminare ogni query e chiedersi se sono presenti clausole WHERE aggiuntive per limitare tutte le tabelle incluse nelle righe con lo stesso ID tenant.
 Le query nel modello multi-tenant hanno come ambito un tenant. Ad esempio, l'ambito delle query sulle vendite o sull'inventario rientra in un determinato archivio.
 
 #### <a name="best-practices"></a>Procedure consigliate
 
--   **Partizionare le tabelle distribuite in\_base a una colonna ID tenant comune.** Ad esempio, in un'applicazione SaaS in cui i tenant sono società, è\_probabile che l'ID tenant sia l'\_ID società.
+-   **Partizionare le tabelle distribuite in base a una \_ colonna ID tenant comune.** Ad esempio, in un'applicazione SaaS in cui i tenant sono società, \_ è probabile che l'ID tenant sia l' \_ ID società.
 -   **Convertire le tabelle di piccole dimensioni tra tenant in tabelle di riferimento.** Quando più tenant condividono una piccola tabella di informazioni, è possibile distribuirla come tabella di riferimento.
--   **Limita filtro per tutte le query dell'\_applicazione in base all'ID tenant.** Ogni query deve richiedere informazioni per un tenant alla volta.
+-   **Limita filtro per tutte le query dell'applicazione in base all' \_ ID tenant.** Ogni query deve richiedere informazioni per un tenant alla volta.
 
 Per un esempio di creazione di questo tipo di applicazione, vedere l' [esercitazione multi-tenant](./tutorial-design-database-hyperscale-multi-tenant.md) .
 

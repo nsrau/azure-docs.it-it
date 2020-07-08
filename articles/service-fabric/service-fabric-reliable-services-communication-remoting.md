@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75433876"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicazione remota nei servizi C# con Reliable Services
@@ -268,7 +267,7 @@ Compilare l'assembly client con l'assembly dell'interfaccia, per assicurarsi che
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Usare le classi esplicite di comunicazione remota per creare un listener/client factory per la versione V2 (compatibile con l'interfaccia)
 
-A tale scopo, seguire questa procedura:
+Attenersi ai passaggi descritti di seguito.
 
 1. Aggiungere una risorsa endpoint con il nome "ServiceEndpointV2_1" nel manifesto del servizio.
 
@@ -313,7 +312,7 @@ A tale scopo, seguire questa procedura:
 Per eseguire l'aggiornamento da V1 a V2 (compatibile con l'interfaccia e noto anche come V2_1), sono necessari due passaggi di aggiornamento. Seguire i passaggi descritti in questa sequenza.
 
 > [!NOTE]
-> Quando si esegue l'aggiornamento da V1 a v2 `Remoting` , assicurarsi che lo spazio dei nomi venga aggiornato in modo da usare V2. Esempio:' Microsoft. ServiceFabric. Services. Remoting. v2. FabricTransport. client '
+> Quando si esegue l'aggiornamento da V1 a V2, assicurarsi `Remoting` che lo spazio dei nomi venga aggiornato in modo da usare V2. Esempio:' Microsoft. ServiceFabric. Services. Remoting. v2. FabricTransport. client '
 >
 >
 
@@ -357,7 +356,7 @@ Questo passaggio assicura che il servizio sia in ascolto solo sul listener V2.
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Usare la serializzazione personalizzata con i messaggi di comunicazione remota su cui è stato eseguito il wrapping
 
 Nei messaggi di comunicazione remota su cui è stato eseguito il wrapping, si creano singoli oggetti sottoposti a wrapping, i cui parametri vengono visualizzati al loro interno come campi.
-A tale scopo, seguire questa procedura:
+Attenersi ai passaggi descritti di seguito.
 
 1. Implementare l'interfaccia `IServiceRemotingMessageSerializationProvider`, al fine di fornire l'implementazione per la serializzazione personalizzata.
     Questo frammento di codice mostra come appare l'implementazione.

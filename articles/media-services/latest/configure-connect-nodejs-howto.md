@@ -1,6 +1,6 @@
 ---
-title: Connettersi all'API di servizi multimediali di Azure V3-node. js
-description: Questo articolo illustra come connettersi all'API di servizi multimediali V3 con node. js.
+title: Connettersi all'API di servizi multimediali di Azure V3-Node.js
+description: Questo articolo illustra come connettersi all'API di servizi multimediali V3 con Node.js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,27 +14,26 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896108"
 ---
-# <a name="connect-to-media-services-v3-api---nodejs"></a>Connettersi a servizi multimediali V3 API-Node. js
+# <a name="connect-to-media-services-v3-api---nodejs"></a>Connettersi all'API di servizi multimediali V3-Node.js
 
-Questo articolo illustra come connettersi a node. js SDK di servizi multimediali di Azure v3 usando il metodo di accesso dell'entità servizio.
+Questo articolo illustra come connettersi a servizi multimediali di Azure V3 node.js SDK usando il metodo di accesso dell'entità servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Installare [node. js](https://nodejs.org/en/download/).
+- Installare [Node.js](https://nodejs.org/en/download/).
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
 
 > [!IMPORTANT]
-> Esaminare le [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
+> Vedere [Convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
 
-## <a name="create-packagejson"></a>Creazione di Package. JSON
+## <a name="create-packagejson"></a>Crea package.jsin
 
-1. Creare un file Package. JSON usando l'editor preferito.
+1. Creare una package.jsnel file usando l'editor preferito.
 1. Aprire il file e incollare il codice seguente:
 
 ```json
@@ -56,7 +55,7 @@ Questo articolo illustra come connettersi a node. js SDK di servizi multimediali
 
 |Pacchetto|Descrizione|
 |---|---|
-|`azure-arm-mediaservices`|SDK di servizi multimediali di Azure. <br/>Per assicurarsi di usare il pacchetto di servizi multimediali di Azure più recente, selezionare [NPM install Azure-ARM-MediaServices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
+|`azure-arm-mediaservices`|SDK di Servizi multimediali di Azure. <br/>Per assicurarsi di usare il pacchetto di servizi multimediali di Azure più recente, selezionare [NPM install Azure-ARM-MediaServices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
 |`azure-storage`|SDK di archiviazione. Usato quando si caricano file in asset.|
 |`ms-rest-azure`| Usato per l'accesso.|
 
@@ -66,7 +65,7 @@ Questo articolo illustra come connettersi a node. js SDK di servizi multimediali
 npm install azure-arm-mediaservices
 ```
 
-## <a name="connect-to-nodejs-client"></a>Connettersi al client Node. js
+## <a name="connect-to-nodejs-client"></a>Connetti a client Node.js
 
 1. Creare un file con estensione js usando l'editor preferito.
 1. Aprire il file e incollare il codice seguente.

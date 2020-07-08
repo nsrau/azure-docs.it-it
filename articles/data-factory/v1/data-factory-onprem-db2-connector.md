@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74931793"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Spostare dati da DB2 mediante l'attività di copia di Azure Data Factory
@@ -81,11 +80,11 @@ La tabella seguente elenca le proprietà JSON che sono specifiche di un servizio
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **type** |Questa proprietà deve essere impostata su **OnPremisesDb2**. |Sì |
-| **Server** |Il nome del server DB2. |Sì |
+| **server** |Il nome del server DB2. |Sì |
 | **database** |Il nome del database DB2. |Sì |
-| **Schema** |Il nome dello schema nel database DB2. Questa proprietà fa distinzione tra maiuscole e minuscole. |No |
+| **schema** |Il nome dello schema nel database DB2. Questa proprietà fa distinzione tra maiuscole e minuscole. |No |
 | **authenticationType** |Il tipo di autenticazione utilizzato per connettersi al database DB2. I valori possibili sono: anonima, di base e Windows. |Sì |
-| **nome utente** |Il nome dell'account utente, se si usa l'autenticazione di base o di Windows. |No |
+| **username** |Il nome dell'account utente, se si usa l'autenticazione di base o di Windows. |No |
 | **password** |La password per l'account utente. |No |
 | **gatewayName** |Il nome del gateway che il servizio Data factory deve usare per connettersi al database DB2 locale. |Sì |
 

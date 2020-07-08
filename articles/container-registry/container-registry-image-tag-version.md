@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75445747"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Suggerimenti per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore
@@ -53,11 +52,11 @@ Il contrassegno univoco significa semplicemente che ogni immagine inserita in un
 * **Digest del manifesto** : ogni immagine del contenitore di cui è stato eseguito il push in un registro contenitori è associata a un manifesto, identificato da un hash SHA-256 univoco o digest. Sebbene sia univoco, il digest è lungo, difficile da leggere e non correlato con l'ambiente di compilazione.
 * **ID compilazione** : questa opzione può essere ottimale poiché è probabilmente incrementale e consente di eseguire la correlazione alla compilazione specifica per trovare tutti gli elementi e i log. Tuttavia, come un digest del manifesto, potrebbe essere difficile da leggere.
 
-  Se l'organizzazione dispone di diversi sistemi di compilazione, il prefisso del tag con il nome del sistema di compilazione è una variante `<build-system>-<build-id>`di questa opzione:. È possibile, ad esempio, distinguere le compilazioni dal sistema di compilazione Jenkins del team API e dal sistema Azure Pipelines build del team Web.
+  Se l'organizzazione dispone di diversi sistemi di compilazione, il prefisso del tag con il nome del sistema di compilazione è una variante di questa opzione: `<build-system>-<build-id>` . È possibile, ad esempio, distinguere le compilazioni dal sistema di compilazione Jenkins del team API e dal sistema Azure Pipelines build del team Web.
 
 ### <a name="lock-deployed-image-tags"></a>Blocca tag immagine distribuiti
 
-Come procedura consigliata, è consigliabile [bloccare](container-registry-image-lock.md) qualsiasi tag immagine distribuito, impostando il relativo `write-enabled` attributo su. `false` Questa procedura impedisce di rimuovere inavvertitamente un'immagine dal registro di sistema e probabilmente di danneggiare le distribuzioni. È possibile includere il passaggio di blocco nella pipeline di rilascio.
+Come procedura consigliata, è consigliabile [bloccare](container-registry-image-lock.md) qualsiasi tag immagine distribuito, impostando il relativo `write-enabled` attributo su `false` . Questa procedura impedisce di rimuovere inavvertitamente un'immagine dal registro di sistema e probabilmente di danneggiare le distribuzioni. È possibile includere il passaggio di blocco nella pipeline di rilascio.
 
 Il blocco di un'immagine distribuita consente comunque di rimuovere altre immagini non distribuite dal registro di sistema usando le funzionalità di Container Registry di Azure per gestire il registro di sistema. Ad esempio, [ripulire automaticamente](container-registry-auto-purge.md) i manifesti senza tag o le immagini sbloccate anteriori a una durata specificata oppure impostare un [criterio di conservazione](container-registry-retention-policy.md) per i manifesti senza tag.
 

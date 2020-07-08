@@ -7,10 +7,9 @@ ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75351708"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Esercitazione: Informazioni su come aggiornare un'applicazione Service Fabric tramite Visual Studio
@@ -45,23 +44,23 @@ Questo articolo illustra come aggiornare un microservizio all'interno di un'appl
 
 Quando si crea un'app mesh Service Fabric, Visual Studio aggiunge un file **Parameters. YAML** per ogni ambiente di distribuzione (cloud e locale). In questi file è possibile definire i parametri e i relativi valori a cui è possibile fare riferimento dai file mesh *. YAML, ad esempio Service. YAML o Network. yaml.  Visual Studio fornisce alcune variabili, ad esempio la quantità di CPU che il servizio può usare.
 
-Il `WebFrontEnd_cpu` parametro verrà aggiornato in modo da aggiornare le risorse della `1.5` CPU in anticipo che il servizio **WebFrontEnd** verrà usato più frequentemente.
+Il parametro verrà aggiornato in `WebFrontEnd_cpu` modo da aggiornare le risorse della CPU `1.5` in anticipo che il servizio **WebFrontEnd** verrà usato più frequentemente.
 
-1. Nel progetto **todolistapp** , in **ambienti** > **cloud**, aprire il file **Parameters. YAML** . Modificare il `WebFrontEnd_cpu`valore di in `1.5`. Il nome del parametro è preceduto dal nome `WebFrontEnd_` del servizio come procedura consigliata per distinguerlo dai parametri con lo stesso nome che si applicano a servizi diversi.
+1. Nel progetto **todolistapp** , in **ambienti**  >  **cloud**, aprire il file **Parameters. YAML** . Modificare il `WebFrontEnd_cpu` valore di in `1.5` . Il nome del parametro è preceduto dal nome del servizio `WebFrontEnd_` come procedura consigliata per distinguerlo dai parametri con lo stesso nome che si applicano a servizi diversi.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Aprire il file **Service. YAML** del progetto **WebFrontEnd** nelle**risorse del servizio** **WebFrontEnd** > .
+2. Aprire il file **Service. YAML** del progetto **WebFrontEnd** nelle risorse del servizio **WebFrontEnd**  >  **Service Resources**.
 
-    Si noti che la `resources:` sezione in `cpu:` è impostata su `"[parameters('WebFrontEnd_cpu')]"`. Se il progetto viene compilato per il cloud, `'WebFrontEnd_cpu` il valore per verrà ricavato dal file dei parametri del**cloud** >  **environments** > **. YAML** e sarà `1.5`. Se è in corso la compilazione del progetto per l'esecuzione in locale, il valore viene ricavato dal file**local** > **Parameters. YAML** degli **ambienti** > e sarà "0,5".
+    Si noti che la `resources:` sezione in `cpu:` è impostata su `"[parameters('WebFrontEnd_cpu')]"` . Se il progetto viene compilato per il cloud, il valore per `'WebFrontEnd_cpu` verrà ricavato dal file dei parametri del cloud **environments**  >  **Cloud**  >  **. YAML** e sarà `1.5` . Se è in corso la compilazione del progetto per l'esecuzione in locale, il valore viene **Environments**ricavato dal  >  file**local**  >  **Parameters. YAML** degli ambienti e sarà "0,5".
 
 > [!Tip]
 > Per impostazione predefinita, il file dei parametri che è un peer del file profile. YAML verrà usato per fornire i valori per il file profile. yaml.
 > Ad esempio, environments > cloud > Parameters. YAML fornisce i valori dei parametri per gli ambienti > cloud > profile. yaml.
 >
-> È possibile eseguire l'override di questa operazione aggiungendo il codice seguente al file profile`parametersFilePath=”relative or full path to the parameters file”` . YAML: `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ad esempio, o`parametersFilePath=”..\CommonParameters.yaml”`
+> È possibile eseguire l'override di questa operazione aggiungendo il codice seguente al file profile. YAML: `parametersFilePath=”relative or full path to the parameters file”` ad esempio, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` o`parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificare il modello
 

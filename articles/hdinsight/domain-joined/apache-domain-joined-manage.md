@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: 93880269edd72477f3aa85b2dbdc9d9f3ec8ef25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435912"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gestire i cluster HDInsight con Enterprise Security Package
@@ -54,7 +53,7 @@ La sicurezza e l'isolamento degli utenti sono importanti per un cluster HDInsigh
 |Apache Hadoop|Hive - query/processi interattivi  |<ul><li>[Beeline](#beeline)</li><li>[Visualizzazione hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Query/processi interattivi, PySpark interattivo|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin con Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Visualizzazione hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Scenari batch - Spark-submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
-|Interactive Query (LLAP)|Interactive (Interattivo)|<ul><li>[Beeline](#beeline)</li><li>[Visualizzazione hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Interactive Query (LLAP)|Interattività|<ul><li>[Beeline](#beeline)</li><li>[Visualizzazione hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC - Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Strumenti di Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Qualsiasi|Installazione applicazione personalizzata|<ul><li>[Azioni script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
    > [!NOTE]  
@@ -87,7 +86,7 @@ Per trovare il nome di dominio completo di un nodo head, usare le informazioni c
 
 Un cluster HDInsight non ESP dispone di due account utente creati durante la creazione del cluster:
 
-- **Amministratore Ambari**: questo account è denominato anche *Utente Hadoop* o *Utente HTTP*. Questo account può essere usato per accedere a Ambari all'indirizzo `https://CLUSTERNAME.azurehdinsight.net`. Può anche essere usato per eseguire query su viste Ambari, eseguire processi tramite strumenti esterni (ad esempio, PowerShell, Templeton, Visual Studio) ed eseguire l'autenticazione con il driver ODBC hive e gli strumenti di Business Intelligence (ad esempio Excel, Power BI o Tableau).
+- **Amministratore Ambari**: questo account è denominato anche *Utente Hadoop* o *Utente HTTP*. Questo account può essere usato per accedere a Ambari all'indirizzo `https://CLUSTERNAME.azurehdinsight.net` . Può anche essere usato per eseguire query su viste Ambari, eseguire processi tramite strumenti esterni (ad esempio, PowerShell, Templeton, Visual Studio) ed eseguire l'autenticazione con il driver ODBC hive e gli strumenti di Business Intelligence (ad esempio Excel, Power BI o Tableau).
 
 Un cluster HDInsight con ESP ha tre nuovi utenti, oltre all'amministratore di Ambari.
 

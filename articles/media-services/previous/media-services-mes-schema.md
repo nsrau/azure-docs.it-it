@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 622f14beabb1f2f109dff5d28c1591ffdd5aa000
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74901443"
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
@@ -30,7 +29,7 @@ Definisce un set di impostazioni per la codifica.
 
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **Codifica** |[Codifica](media-services-mes-schema.md#Encoding) |Elemento radice, indica che le origini dell'input devono essere codificate. |
+| **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Elemento radice, indica che le origini dell'input devono essere codificate. |
 | **Output** |[Output](media-services-mes-schema.md#Output) |Raccolta dei file dell'output desiderato. |
 | **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|Controlla la dimensione dei fotogrammi, la spaziatura interna, le proporzioni dei pixel o quelle di visualizzazione del video di output. **StretchMode** può essere impostato su uno dei valori seguenti: **None**, **AutoSize** (impostazione predefinita) o **AutoFit**.<br/><br/>**None**: segue rigorosamente la risoluzione dell'output (ad esempio, i valori di **Width** e **Height** nel set di impostazioni) senza considerare le proporzioni dei pixel o quelle di visualizzazione del video di input. Questo valore è consigliato per gli scenari, ad esempio il [ritaglio](media-services-crop-video.md), in cui il video di output ha proporzioni diverse rispetto all'input. <br/><br/>**AutoSize**: la risoluzione dell'output viene adattata alle dimensioni della finestra (Width * Height) specificate dal set di impostazioni. Il codificatore genera tuttavia un video di output con proporzioni pixel quadrate (1:1). È pertanto possibile che la larghezza o l'altezza di output venga sostituita in modo da stabilire una corrispondenza con le proporzioni di visualizzazione dell'input, senza spaziatura interna. Se ad esempio l'input è 1920x1080 e il set di impostazioni di codifica richiede 1280x1280, il valore dell'altezza nel set di impostazioni verrà sostituito e l'output sarà 1280x720, in modo da mantenere le proporzioni di 16:9 dell'input. <br/><br/>**AutoFit**: se necessario, nel video di output viene aggiunta la spaziatura interna (nel formato 16:9 o 4:3) per rispettare la risoluzione di output desiderata, assicurando che l'area attiva del video nell'output abbia le stesse proporzioni dell'input. Si supponga, ad esempio, che l'input abbia una risoluzione di 1920x1080 e che il set di impostazioni di codifica richieda invece 1280x1280. Il video di output avrà una risoluzione pari a 1280x1280, ma conterrà un rettangolo di 1280x720 per il video attivo con proporzioni di 16:9 e, nella parte superiore e inferiore, aree in formato 16:9 con 280 pixel di altezza. Sempre a titolo di esempio, se l'input ha una risoluzione di 1440x1080 e il set di impostazioni di codifica richiede invece 1280x720, l'output avrà una risoluzione pari a 1280x720 e conterrà un rettangolo interno di 960x720 con proporzioni di 4:3 e, a sinistra e destra, aree in formato 4:3 con 160 pixel di larghezza. 
 
@@ -38,7 +37,7 @@ Definisce un set di impostazioni per la codifica.
 
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **Versione**<br/><br/> Obbligatoria |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
+| **Versione**<br/><br/> Necessario |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
 
 ## <a name="encoding"></a><a name="Encoding"></a>Codifica
 Contiene una sequenza degli elementi seguenti:  
@@ -97,7 +96,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 | **MaxBitrate**<br/><br/> minOccurs="0" |**xs: int** |La velocità in bit massima usata per questo livello video, espressa in kbps. |
 | **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs: time** |Lunghezza del buffer video. |
 | **Larghezza**<br/><br/> minOccurs="0" |**xs: int** |Larghezza del frame video di output, espressa in pixel.<br/><br/> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari. |
-| **Altezza**<br/><br/> minOccurs="0" |**xs:int** |Altezza del frame video di output, espressa in pixel.<br/><br/> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari.|
+| **Altezza:**<br/><br/> minOccurs="0" |**xs:int** |Altezza del frame video di output, espressa in pixel.<br/><br/> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari.|
 | **BFrames**<br/><br/> minOccurs="0" |**xs: int** |Numero di fotogrammi B tra frame di riferimento. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Numero di frame di riferimento in un GOP. |
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs: string** |Può corrispondere a uno dei valori seguenti: **Cabac** e **Cavlc**. |
@@ -181,8 +180,8 @@ Codec audio|Dettagli
 | Nome | Type | Descrizione |
 | --- | --- | --- |
 | **Inizia** |**xs:string** | |
-| **Passaggio** |**xs:string** | |
-| **Intervallo** |**xs:string** | |
+| **Step** |**xs:string** | |
+| **Range** |**xs:string** | |
 | **PreserveResolutionAfterRotation** |**xs:boolean** |Per informazioni dettagliate, vedere la sezione seguente: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a>PreserveResolutionAfterRotation
@@ -215,7 +214,7 @@ In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e
 | Nome | Type | Descrizione |
 | --- | --- | --- |
 | **Larghezza**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Altezza**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Altezza:**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attributes
 
@@ -229,7 +228,7 @@ In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e
 | Nome | Type | Descrizione |
 | --- | --- | --- |
 | **Larghezza**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Altezza**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Altezza:**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attributes
 
@@ -243,7 +242,7 @@ In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e
 | Nome | Type | Descrizione |
 | --- | --- | --- |
 | **Larghezza**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Altezza**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Altezza:**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Quality**<br/><br/> minOccurs="0" |**xs:int** |I valori validi sono 1(worst)-100(best) |
 
 ### <a name="attributes"></a>Attributes
@@ -300,6 +299,6 @@ Per osservare esempi di set di impostazioni XML compilati in base a questo schem
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
