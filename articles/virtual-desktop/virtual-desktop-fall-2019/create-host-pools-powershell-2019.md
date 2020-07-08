@@ -4,16 +4,16 @@ description: Come creare un pool di host in Desktop virtuale Windows con i cmdle
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1d312417017676d0b0bc53e3e16e229e45f1aa17
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 79bd13deb66998c8a1acde28774b47fd567d368c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659425"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204711"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 
@@ -71,7 +71,7 @@ A questo punto è possibile creare una macchina virtuale di Azure che può esser
 >[!NOTE]
 >Se si distribuisce una macchina virtuale usando Windows 7 come sistema operativo host, il processo di creazione e distribuzione sarà leggermente diverso. Per altre informazioni, vedere [Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows](deploy-windows-7-virtual-machine.md).
 
-Dopo aver creato le macchine virtuali dell'host di sessione, [applicare una licenza Windows a una macchina virtuale dell'host di sessione](../apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) per eseguire le macchine virtuali Windows o Windows Server senza pagare un licenza aggiuntiva. 
+Dopo aver creato le macchine virtuali dell'host di sessione, [applicare una licenza Windows a una macchina virtuale dell'host di sessione](../apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) per eseguire le macchine virtuali Windows o Windows Server senza pagare un licenza aggiuntiva.
 
 ## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparare le macchine virtuali per le installazioni di agenti Desktop virtuale Windows
 

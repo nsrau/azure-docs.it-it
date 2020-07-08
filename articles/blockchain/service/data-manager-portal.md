@@ -2,14 +2,14 @@
 title: Configurare Data Manager blockchain usando portale di Azure-Azure blockchain Service
 description: Creare e gestire Data Manager blockchain per il servizio Azure blockchain usando il portale di Azure.
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200682"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurare Blockchain Data Manager con il portale di Azure
 

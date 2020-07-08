@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbadfb63b9f575053feca87bda2c3ad2e64e91eb
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e8f5564f9e7e1176db1fed5fae38eee58874c2eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204202"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per un'autorità di certificazione del token JWT nei criteri personalizzati di Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `None
 
 Nell'esempio seguente viene illustrato un profilo tecnico per `JwtIssuer`:
 
-```XML
+```xml
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
   <Protocol Name="OpenIdConnect" />
@@ -63,9 +63,9 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 | refresh_token_lifetime_secs | No | Durata del token di aggiornamento. Il periodo di tempo massimo prima del quale un token di aggiornamento può essere usato per acquisire un nuovo token di accesso, nel caso in cui all'applicazione fosse stato concesso l'ambito offline_access. Il valore predefinito è 120.9600 secondi (14 giorni). Il massimo valore (inclusivo) è 86.400 secondi (24 ore). Il massimo valore (inclusivo) è 7.776.000 secondi (90 giorni). |
 | rolling_refresh_token_lifetime_secs | No | Durata della finestra temporale scorrevole del token di aggiornamento. Allo scadere di questo periodo di tempo, l'utente deve ripetere l'autenticazione, indipendentemente dal periodo di validità del token di aggiornamento più recente acquisito dall'applicazione. Se non si desidera applicare una durata di una finestra temporale scorrevole, impostare il valore di allow_infinite_rolling_refresh_token su `true`. Il valore predefinito è 7.776.000 secondi (90 giorni). Il massimo valore (inclusivo) è 86.400 secondi (24 ore). Il massimo valore (inclusivo) è 31.536.000 secondi (365 giorni). |
 | allow_infinite_rolling_refresh_token | No | Se impostato su `true`, la durata della finestra temporale scorrevole del token di aggiornamento non scade mai. |
-| IssuanceClaimPattern | No | Controlla l'attestazione dell'autorità di certificazione (iss). Uno dei valori:<ul><li>AuthorityAndTenantGuid-l'attestazione ISS include il nome di dominio, `login.microsoftonline` ad `tenant-name.b2clogin.com`esempio o, e l'identificatore del\/tenant https:/login.microsoftonline.com/00000000-0000-0000-0000-000000000000/V2.0/</li><li>AuthorityWithTfp - l'attestazione iss include il nome di dominio, ad esempio `login.microsoftonline` o `tenant-name.b2clogin.com`, l'identificatore del tenant e il nome dei criteri relying party. https:\//login.microsoftonline.com/TFP/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/V2.0/</li></ul> Valore predefinito: AuthorityAndTenantGuid |
+| IssuanceClaimPattern | No | Controlla l'attestazione dell'autorità di certificazione (iss). Uno dei valori:<ul><li>AuthorityAndTenantGuid-l'attestazione ISS include il nome di dominio, ad esempio `login.microsoftonline` o `tenant-name.b2clogin.com` , e l'identificatore del tenant https: \/ /login.microsoftonline.com/00000000-0000-0000-0000-000000000000/V2.0/</li><li>AuthorityWithTfp - l'attestazione iss include il nome di dominio, ad esempio `login.microsoftonline` o `tenant-name.b2clogin.com`, l'identificatore del tenant e il nome dei criteri relying party. https: \/ /login.microsoftonline.com/TFP/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/V2.0/</li></ul> Valore predefinito: AuthorityAndTenantGuid |
 | AuthenticationContextReferenceClaimPattern | No | Controllare il valore di attestazione `acr`.<ul><li>Nessuno - Azure AD B2C non rilascia l'attestazione acr (record di controllo di accesso)</li><li>PolicyId: l'attestazione `acr` contiene il nome del criterio</li></ul>Le opzioni per impostare questo valore sono TFP (criteri del framework attendibilità) e ACR (riferimento al contesto di autenticazione). È consigliabile impostare questo valore su TFP, per impostare il valore, assicurarsi che `<Item>` con `Key="AuthenticationContextReferenceClaimPattern"` esista e il valore sia `None`. Nei criteri relying party, aggiungere l'elemento `<OutputClaims>`, aggiungere questo elemento `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Inoltre assicurarsi che i criteri contengano il tipo di attestazione `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
-|RefreshTokenUserJourneyId| No | Identificatore di un percorso utente che deve essere eseguito durante l' [aggiornamento di una](authorization-code-flow.md#4-refresh-the-token) richiesta post del token di accesso `/token` all'endpoint. |
+|RefreshTokenUserJourneyId| No | Identificatore di un percorso utente che deve essere eseguito durante l'aggiornamento di una richiesta post del [token di accesso](authorization-code-flow.md#4-refresh-the-token) all' `/token` endpoint. |
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 

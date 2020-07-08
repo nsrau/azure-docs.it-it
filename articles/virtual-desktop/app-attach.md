@@ -4,22 +4,23 @@ description: Procedura di configurazione della connessione all'app MSIX per Desk
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a222e5a0602a676872eb8119e565f243f2ecc1b4
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204473"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurare la connessione all'app MSIX
 
 > [!IMPORTANT]
-> La connessione all'app MSIX è attualmente in modalità anteprima privata.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La connessione all'app MSIX è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo argomento descrive come configurare la connessione all'app MSIX in un ambiente Desktop virtuale Windows.
 
@@ -28,13 +29,32 @@ Questo argomento descrive come configurare la connessione all'app MSIX in un amb
 Prima di iniziare, è necessario configurare la connessione all'app MSIX:
 
 - Accedere al portale di Windows Insider per ottenere la versione di Windows 10 con supporto per le API di connessione all'app MSIX.
-- Una distribuzione di Desktop virtuale Windows funzionante. Per informazioni, vedere [Creare un tenant in Desktop virtuale Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
-- Strumenti per la creazione di pacchetti MSIX
-- Condivisione di rete nella distribuzione di Desktop virtuale Windows in cui verrà archiviato il pacchetto MSIX
+- Una distribuzione di Desktop virtuale Windows funzionante. Per informazioni su come distribuire la versione 2019 del desktop virtuale di Windows, vedere [creare un tenant in un desktop virtuale di Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Per informazioni su come distribuire la versione Spring 2020 per desktop virtuale di Windows, vedere [creare un pool host con il portale di Azure](./create-host-pools-azure-marketplace.md).
+- Strumento per la creazione di pacchetti MSIX.
+- Una condivisione di rete nella distribuzione di desktop virtuale Windows in cui verrà archiviato il pacchetto MSIX.
 
 ## <a name="get-the-os-image"></a>Ottenere l'immagine del sistema operativo
 
-Innanzitutto, è necessario ottenere l'immagine del sistema operativo da usare per l'app MSIX. Per ottenere l'immagine del sistema operativo:
+Prima di tutto, è necessario ottenere l'immagine del sistema operativo. È possibile ottenere l'immagine del sistema operativo tramite la portale di Azure. Tuttavia, se si è un membro del programma Windows Insider, è possibile usare invece il portale di Windows Insider.
+
+### <a name="get-the-os-image-from-the-azure-portal"></a>Ottenere l'immagine del sistema operativo dal portale di Azure
+
+Per ottenere l'immagine del sistema operativo dal portale di Azure:
+
+1. Aprire il [portale di Azure](https://portal.azure.com) e accedere.
+
+2. Passare a **creare una macchina virtuale**.
+
+3. Nella scheda di **base** selezionare **Windows 10 Enterprise Multisession, versione 2004**.
+
+4. Per completare la creazione della macchina virtuale, seguire le istruzioni rimanenti.
+
+     >[!NOTE]
+     >È possibile usare questa macchina virtuale per testare direttamente la connessione all'app MSIX. Per altre informazioni, andare avanti per [generare un pacchetto VHD o VHDX per MSIX](#generate-a-vhd-or-vhdx-package-for-msix). In caso contrario, continua a leggere questa sezione.
+
+### <a name="get-the-os-image-from-the-windows-insider-portal"></a>Ottenere l'immagine del sistema operativo dal portale di Windows Insider
+
+Per ottenere l'immagine del sistema operativo dal portale di Windows Insider:
 
 1. Aprire il [portale di Windows Insider](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) ed accedere.
 
@@ -44,15 +64,15 @@ Innanzitutto, è necessario ottenere l'immagine del sistema operativo da usare p
 2. Scorrere verso il basso fino alla sezione **Seleziona un'edizione** e selezionare **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** o versione successiva.
 
 3. Selezionare **Conferma**, quindi selezionare la lingua da usare e selezionare  di nuovo **Conferma**.
-    
+
      >[!NOTE]
      >Al momento, l'inglese è l'unica lingua ad essere stata testata con la funzionalità. Anche se è possibile selezionare altre lingue, queste potrebbero non essere visualizzate come previsto.
-    
+
 4. Quando viene generato il collegamento per il download, selezionare **Download a 64 bit** e salvarlo sul disco rigido locale.
 
-## <a name="prepare-the-vhd-image-for-azure"></a>Preparare l'immagine del disco rigido virtuale per Azure 
+## <a name="prepare-the-vhd-image-for-azure"></a>Preparare l'immagine del disco rigido virtuale per Azure
 
-Prima di iniziare, è necessario creare un'immagine del disco rigido virtuale master. Se non è ancora stata creata alcuna immagine del disco rigido virtuale master, passare a [Preparare e personalizzare un'immagine master di disco rigido virtuale](set-up-customize-master-image.md) e seguire le istruzioni riportate. 
+Successivamente, sarà necessario creare un'immagine del disco rigido virtuale master. Se non è ancora stata creata alcuna immagine del disco rigido virtuale master, passare a [Preparare e personalizzare un'immagine master di disco rigido virtuale](set-up-customize-master-image.md) e seguire le istruzioni riportate.
 
 Dopo aver creato l'immagine del disco rigido virtuale master, è necessario disabilitare gli aggiornamenti automatici per le applicazioni di connessione all'app MSIX. Per disabilitare gli aggiornamenti automatici, è necessario eseguire i comandi seguenti in un prompt dei comandi con privilegi elevati:
 
@@ -74,10 +94,10 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-Dopo aver disabilitato gli aggiornamenti automatici, è necessario abilitare Hyper-V perché si userà il comando Mound-VHD per eseguire lo staging e smontare il disco rigido virtuale per la fase di disinstallazione. 
+Dopo aver disabilitato gli aggiornamenti automatici, è necessario abilitare Hyper-V perché si userà il comando Mount-VHD per eseguire il staging e smontare il disco rigido virtuale per la fase di disinstallazione.
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 >[!NOTE]
 >Questa modifica richiede il riavvio della macchina virtuale.
@@ -86,7 +106,7 @@ Preparare quindi il disco rigido virtuale della macchina virtuale per Azure e ca
 
 Dopo aver caricato il disco rigido virtuale in Azure, creare un pool host basato su questa nuova immagine seguendo le istruzioni riportate nell'esercitazione [Creare un pool di host tramite Azure Marketplace](create-host-pools-azure-marketplace.md).
 
-## <a name="prepare-the-application-for-msix-app-attach"></a>Per preparare l'applicazione per la connessione all'app MSIX 
+## <a name="prepare-the-application-for-msix-app-attach"></a>Per preparare l'applicazione per la connessione all'app MSIX
 
 Se si dispone già di un pacchetto MSIX, passare a [Configurare l'infrastruttura di Desktop virtuale Windows](#configure-windows-virtual-desktop-infrastructure). Per testare le applicazioni legacy, seguire le istruzioni riportate in [Creare un pacchetto MSIX da un programma di installazione desktop in una macchina virtuale](/windows/msix/packaging-tool/create-app-package-msi-vm/) per convertire l'applicazione legacy in un pacchetto MSIX.
 
@@ -169,7 +189,7 @@ Prima di iniziare, assicurarsi che la condivisione di rete soddisfi i requisiti 
 - La condivisione è compatibile con SMB.
 - Le macchine virtuali che fanno parte del pool di host della sessione dispongono di autorizzazioni NTFS per la condivisione.
 
-### <a name="set-up-an-msix-app-attach-share"></a>Configurare una condivisione di connessione all'app MSIX 
+### <a name="set-up-an-msix-app-attach-share"></a>Configurare una condivisione di connessione all'app MSIX
 
 Nell'ambiente Desktop virtuale Windows, creare una condivisione di rete e spostarvi il pacchetto.
 
@@ -410,16 +430,16 @@ Ognuno di questi script automatici esegue una fase degli script di associazione 
 
 ## <a name="use-packages-offline"></a>Usare pacchetti offline
 
-Se si usano pacchetti di [Microsoft Store for Business](https://businessstore.microsoft.com/) o [Microsoft Store for Education](https://educationstore.microsoft.com/) all'interno della rete o in dispositivi non connessi a Internet, sarà necessario ottenere le licenze del pacchetto da Microsoft Store e installarle sul dispositivo per eseguire correttamente l'app. Se il dispositivo è online ed è in grado di connettersi a Microsoft Store for Business, le licenze necessarie saranno scaricate automaticamente, mentre se si è offline sarà necessario configurarle manualmente. 
+Se si usano pacchetti di [Microsoft Store for Business](https://businessstore.microsoft.com/) o [Microsoft Store for Education](https://educationstore.microsoft.com/) all'interno della rete o in dispositivi non connessi a Internet, sarà necessario ottenere le licenze del pacchetto da Microsoft Store e installarle sul dispositivo per eseguire correttamente l'app. Se il dispositivo è online ed è in grado di connettersi a Microsoft Store for Business, le licenze necessarie saranno scaricate automaticamente, mentre se si è offline sarà necessario configurarle manualmente.
 
-Per installare i file di licenza, sarà necessario usare uno script di PowerShell che chiami la classe MDM_EnterpriseModernAppManagement_StoreLicenses02_01 nel provider del bridge WMI.  
+Per installare i file di licenza, sarà necessario usare uno script di PowerShell che chiami la classe MDM_EnterpriseModernAppManagement_StoreLicenses02_01 nel provider del bridge WMI.
 
-Di seguito viene illustrato come configurare le licenze per l'uso offline: 
+Di seguito viene illustrato come configurare le licenze per l'uso offline:
 
 1. Scaricare il pacchetto dell'app, le licenze e i framework necessari da Microsoft Store for Business. Sono necessari sia il file di licenza codificato che quello non codificato. Le istruzioni dettagliate per il download sono disponibili [qui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Aggiornare le variabili seguenti nello script per il passaggio 3:
       1. `$contentID` è il valore ContentID del file di licenza non codificato (.xml). Il file di licenza può essere aperto in un editor di testo di propria scelta.
-      2. `$licenseBlob` è la stringa intera per il BLOB di licenza nel file di licenza codificato (.bin). Il file di licenza codificato può essere aperto in un editor di testo di propria scelta. 
+      2. `$licenseBlob` è la stringa intera per il BLOB di licenza nel file di licenza codificato (.bin). Il file di licenza codificato può essere aperto in un editor di testo di propria scelta.
 3. Eseguire lo script seguente da un prompt di PowerShell come amministratore. Un percorso ideale per eseguire l'installazione delle licenze è alla fine dello [script di staging](#stage-the-powershell-script) che deve essere eseguito anche da un prompt di amministratore.
 
 ```powershell
@@ -434,14 +454,14 @@ $contentID = "{'ContentID'_in_unencoded_license_file}"
 #TODO - Update $licenseBlob with the entire String in the encoded license file (.bin)
 $licenseBlob = "{Entire_String_in_encoded_license_file}"
 
-$session = New-CimSession 
+$session = New-CimSession
 
 #The final string passed into the AddLicenseMethod should be of the form <License Content="encoded license blob" />
-$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />' 
+$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />'
 
 $params = New-Object Microsoft.Management.Infrastructure.CimMethodParametersCollection
 $param = [Microsoft.Management.Infrastructure.CimMethodParameter]::Create("param",$licenseString ,"String", "In")
-$params.Add($param) 
+$params.Add($param)
 
 
 try
@@ -453,7 +473,7 @@ try
 catch [Exception]
 {
      write-host $_ | out-string
-}  
+}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

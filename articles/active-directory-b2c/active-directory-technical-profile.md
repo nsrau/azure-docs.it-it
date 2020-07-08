@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7db47eda47850c1c080b6a49256c8a0b37bb0d3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330378"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201515"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Gli [Starter Pack per i criteri personalizzati](custom-policy-get-started.md#cus
 
 Nell'esempio seguente viene illustrato un profilo tecnico **AAD-Common**:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -96,7 +96,7 @@ L'elemento **PersistedClaims** contiene tutti i valori che devono essere salvati
 
 Il profilo tecnico **AAD-UserWriteUsingLogonEmail** che crea un nuovo account locale, rende persistenti le attestazioni seguenti:
 
-```XML
+```xml
   <PersistedClaims>
     <!-- Required claims -->
     <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
@@ -126,7 +126,7 @@ Il nome dell'attestazione è il nome dell'attributo Azure AD, a meno che non sia
 
 L'operazione di **lettura** legge i dati su un singolo account utente. Il profilo tecnico seguente legge i dati su un account utente usando l'objectId dell'utente:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -156,7 +156,7 @@ L'operazione di **lettura** legge i dati su un singolo account utente. Il profil
 
 L'operazione di **scrittura** crea o aggiorna un singolo account utente. Il profilo tecnico seguente crea nuovi account social:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Write</Item>
@@ -196,7 +196,7 @@ L'operazione di **scrittura** crea o aggiorna un singolo account utente. Il prof
 
 L'operazione **DeleteClaims** elimina le informazioni da un elenco specificato di attestazioni. Il profilo tecnico seguente elimina le attestazioni:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaims</Item>
@@ -217,7 +217,7 @@ L'operazione **DeleteClaims** elimina le informazioni da un elenco specificato d
 
 L'operazione **DeleteClaimsPrincipal** elimina un singolo account utente dalla directory. Il profilo tecnico seguente elimina un account utente dalla directory usando il nome dell'entità utente:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -232,7 +232,7 @@ L'operazione **DeleteClaimsPrincipal** elimina un singolo account utente dalla d
 
 Il profilo tecnico seguente elimina un account utente social mediante **alternativeSecurityId**:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -253,11 +253,11 @@ Il profilo tecnico seguente elimina un account utente social mediante **alternat
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Genera un errore se l'oggetto utente esiste già. I valori possibili sono: `true` o `false`.|
 | ApplicationObjectId | No | L'identificatore di oggetto dell'applicazione per gli attributi di estensione. Valore: ObjectID di un'applicazione. Per altre informazioni, vedere [usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](custom-policy-custom-attributes.md). |
 | ClientId | No | L'identificatore client per l'accesso ai tenant come terza parte. Per altre informazioni, vedere [Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](custom-policy-custom-attributes.md) |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`, o `false`  (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione `true`su. |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 
 ### <a name="ui-elements"></a>Elementi dell'interfaccia utente
  
-Per configurare il messaggio di errore visualizzato in caso di errore, è possibile utilizzare le impostazioni seguenti. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . È possibile [localizzare](localization.md)i messaggi di errore.
+Per configurare il messaggio di errore visualizzato in caso di errore, è possibile utilizzare le impostazioni seguenti. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . I messaggi di errore possono essere [localizzati](localization.md).
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |

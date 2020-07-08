@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 189343888d2856a6945723c030485e58394c912f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: d705c7fbdb744082b402f4dd598551107563ed2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203164"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,8 +64,8 @@ L'elemento **OrchestrationStep** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | `Order` | Sì | Ordine dei passaggi di orchestrazione. |
-| `Type` | Sì | Tipo del passaggio di orchestrazione. Valori possibili: <ul><li>**ClaimsProviderSelection**: indica che il passaggio di orchestrazione mostra diversi provider di attestazioni all'utente per selezionarne uno.</li><li>**CombinedSignInAndSignUp**: indica che il passaggio di orchestrazione mostra una pagina combinata di accesso a provider di social network e iscrizione ad account locali.</li><li>**ClaimsExchange**: indica che il passaggio di orchestrazione scambia attestazioni con un provider di attestazioni.</li><li>**Getclaims** : specifica che il passaggio di orchestrazione deve elaborare i dati di attestazione inviati a Azure AD B2C `InputClaims` dal relying party tramite la relativa configurazione.</li><li>**SendClaims**: indica che il passaggio di orchestrazione invia le attestazioni alla relying party con un token emesso da un'autorità di certificazione delle attestazioni.</li></ul> |
-| ContentDefinitionReferenceId | No | Identificatore della [definizione del contenuto](contentdefinitions.md) associata a questo passaggio di orchestrazione. In genere l'identificatore di riferimento della definizione del contenuto viene definito nel profilo tecnico autocertificato. In alcuni casi, tuttavia, Azure AD B2C deve visualizzare un elemento senza un profilo tecnico. Esistono due esempi: se il tipo di passaggio dell'orchestrazione è uno dei seguenti: `ClaimsProviderSelection` o `CombinedSignInAndSignUp`, Azure ad B2C necessario visualizzare la selezione del provider di identità senza avere un profilo tecnico. |
+| `Type` | Sì | Tipo del passaggio di orchestrazione. Valori possibili: <ul><li>**ClaimsProviderSelection**: indica che il passaggio di orchestrazione mostra diversi provider di attestazioni all'utente per selezionarne uno.</li><li>**CombinedSignInAndSignUp**: indica che il passaggio di orchestrazione mostra una pagina combinata di accesso a provider di social network e iscrizione ad account locali.</li><li>**ClaimsExchange**: indica che il passaggio di orchestrazione scambia attestazioni con un provider di attestazioni.</li><li>**Getclaims** : specifica che il passaggio di orchestrazione deve elaborare i dati di attestazione inviati a Azure AD B2C dal relying party tramite la relativa `InputClaims` configurazione.</li><li>**SendClaims**: indica che il passaggio di orchestrazione invia le attestazioni alla relying party con un token emesso da un'autorità di certificazione delle attestazioni.</li></ul> |
+| ContentDefinitionReferenceId | No | Identificatore della [definizione del contenuto](contentdefinitions.md) associata a questo passaggio di orchestrazione. In genere l'identificatore di riferimento della definizione del contenuto viene definito nel profilo tecnico autocertificato. In alcuni casi, tuttavia, Azure AD B2C deve visualizzare un elemento senza un profilo tecnico. Esistono due esempi: se il tipo di passaggio dell'orchestrazione è uno dei seguenti: `ClaimsProviderSelection` o `CombinedSignInAndSignUp` , Azure ad B2C necessario visualizzare la selezione del provider di identità senza avere un profilo tecnico. |
 | CpimIssuerTechnicalProfileReferenceId | No | Il tipo del passaggio di orchestrazione è `SendClaims`. Questa proprietà definisce l'identificatore del profilo tecnico del provider di attestazioni che emette il token per la relying party.  Se assente, non viene creato alcun token di relying party. |
 
 
@@ -99,14 +99,14 @@ L'elemento **Precondition** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| Valore | 1:n | ClaimTypeReferenceId per cui eseguire una query. Un altro elemento value contiene il valore da controllare.</li></ul>|
-| Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Se il valore di `Action` è impostato su `SkipThisOrchestrationStep`, l'elemento `OrchestrationStep` associato non deve essere eseguito. |
+| valore | 1:n | ClaimTypeReferenceId per cui eseguire una query. Un altro elemento value contiene il valore da controllare.</li></ul>|
+| Action | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Se il valore di `Action` è impostato su `SkipThisOrchestrationStep`, l'elemento `OrchestrationStep` associato non deve essere eseguito. |
 
 #### <a name="preconditions-examples"></a>Esempi di precondizioni
 
 Le precondizioni seguenti determinano l'esistenza del valore objectId dell'utente. Nel percorso utente l'utente ha scelto di eseguire l'accesso con l'account locale. Se il valore objectId è presente, ignorare questo passaggio di orchestrazione.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -123,7 +123,7 @@ Le precondizioni seguenti determinano l'esistenza del valore objectId dell'utent
 
 Le precondizioni seguenti determinano se l'utente ha eseguito l'accesso con un account di social network. Viene effettuato un tentativo per trovare l'account utente nella directory. Se l'utente accede o effettua l'iscrizione con un account locale, ignorare questo passaggio dell'orchestrazione.
 
-```XML
+```xml
 <OrchestrationStep Order="3" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
@@ -140,7 +140,7 @@ Le precondizioni seguenti determinano se l'utente ha eseguito l'accesso con un a
 
 Le precondizioni possono verificare più precondizioni. L'esempio seguente determina se è presente 'objectId' o 'email'. Se la prima condizione è true, il percorso passa al passaggio successivo dell'orchestrazione.
 
-```XML
+```xml
 <OrchestrationStep Order="4" Type="ClaimsExchange">
   <Preconditions>
   <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -172,7 +172,7 @@ L'elemento **ClaimsProviderSelections** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| DisplayOption| No | Controlla il comportamento di un caso in cui è disponibile una singola selezione del provider di attestazioni. Valori possibili: `DoNotShowSingleProvider` (impostazione predefinita), l'utente viene reindirizzato immediatamente al provider di identità federato. In `ShowSingleProvider` alternativa, Azure ad B2C Visualizza la pagina di accesso con la selezione del singolo provider di identità. Per usare questo attributo, la [versione della definizione](page-layout.md) del contenuto `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` deve essere e versioni successive.|
+| DisplayOption| No | Controlla il comportamento di un caso in cui è disponibile una singola selezione del provider di attestazioni. Valori possibili:  `DoNotShowSingleProvider`   (impostazione predefinita), l'utente viene reindirizzato immediatamente al provider di identità federato.  `ShowSingleProvider`   In alternativa, Azure ad B2C Visualizza la pagina di accesso con la selezione del singolo provider di identità. Per usare questo attributo, la [versione della definizione del contenuto](page-layout.md) deve essere  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` e versioni successive.|
 
 L'elemento **ClaimsProviderSelection** contiene gli attributi seguenti:
 
@@ -185,7 +185,7 @@ L'elemento **ClaimsProviderSelection** contiene gli attributi seguenti:
 
 Nel passaggio di orchestrazione seguente l'utente può scegliere di accedere con Facebook, LinkedIn, Twitter, Google o un account locale. Se l'utente sceglie uno dei provider di identità di social networking, il secondo passaggio di orchestrazione viene eseguito con lo scambio di attestazioni selezionato specificato nell'attributo `TargetClaimsExchangeId`. Il secondo passaggio di orchestrazione reindirizza l'utente al provider di identità di social network per completare il processo di accesso. Se l'utente sceglie di eseguire l'accesso con l'account locale, Azure AD B2C rimane nello stesso passaggio di orchestrazione (la stessa pagina di iscrizione o accesso) e ignora il secondo passaggio.
 
-```XML
+```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
     <ClaimsProviderSelections>
     <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />

@@ -5,14 +5,29 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
-ms.openlocfilehash: bf8b9370abc58902d9c751505f633dee852210a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184351"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200176"
 ---
-#### <a name="applications"></a>[Applicazioni](#tab/applications/)
+#### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/) 
+
+1. In **Gestisci** selezionare **Autorizzazioni API**.
+1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
+1. Selezionare la scheda **API Microsoft** , quindi selezionare **Microsoft Graph**.
+1. Selezionare **Autorizzazioni applicazione**.
+1. Espandere il gruppo di autorizzazioni appropriato e selezionare la casella di controllo relativa all'autorizzazione da concedere all'applicazione di gestione. Ad esempio:
+    * **Auditlog**  >  **Auditlog. Read. All**: per leggere i log di controllo della directory.
+    * **Directory**  >  di **Directory. ReadWrite. All**: per gli scenari di migrazione utenti o gestione utenti.
+    * **Criteri**  >  di **Policy. ReadWrite. TrustFramework**: per gli scenari di integrazione continua/recapito continuo (ci/CD). Ad esempio, la distribuzione di criteri personalizzati con Azure Pipelines.
+1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere con il passaggio successivo.
+1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
+1. Se non si è attualmente connessi con l'account amministratore globale, accedere con un account nel tenant di Azure AD B2C a cui è stato assegnato almeno il ruolo di *amministratore dell'applicazione cloud* , quindi selezionare **concedi il consenso dell'amministratore per (il nome del tenant)**.
+1. Selezionare **Aggiorna**, quindi verificare che "concesso per..." viene visualizzato in **stato**. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
+
+#### <a name="applications-legacy"></a>[Applicazioni (legacy)](#tab/applications-legacy/)
 
 1. Nella pagina Panoramica dell' **app registrata** selezionare **Impostazioni**.
 1. In **accesso all'API**selezionare **autorizzazioni necessarie**.
@@ -23,19 +38,3 @@ ms.locfileid: "78184351"
     * **Leggere e scrivere i criteri del Framework di attendibilità dell'organizzazione**: selezionare questa autorizzazione per gli scenari di integrazione continua/recapito continuo (ci/CD). Ad esempio, la distribuzione di criteri personalizzati con Azure Pipelines.
 1. Selezionare **Salva**.
 1. Selezionare **Concedi autorizzazioni** e quindi selezionare **Sì**. Potrebbero essere necessari alcuni minuti per la propagazione completa delle autorizzazioni.
-
-#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
-
-1. In **Gestisci** selezionare **Autorizzazioni API**.
-1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
-1. Selezionare la scheda **API Microsoft** , quindi selezionare **Microsoft Graph**.
-1. Selezionare **Autorizzazioni applicazione**.
-1. Espandere il gruppo di autorizzazioni appropriato e selezionare la casella di controllo relativa all'autorizzazione da concedere all'applicazione di gestione. Ad esempio:
-    * **AuditLog** > **auditlog. Read. All**: per la lettura dei log di controllo della directory.
-    * **Directory**directory **. ReadWrite. All**: per gli scenari di migrazione utenti o gestione utenti. > 
-    * **Policy**Policy policy **. ReadWrite. TrustFramework**: per gli scenari di integrazione continua/recapito continuo (ci/CD). >  Ad esempio, la distribuzione di criteri personalizzati con Azure Pipelines.
-1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere con il passaggio successivo.
-1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
-1. Selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui sia stato assegnato almeno il ruolo di *amministratore applicazione cloud*.
-1. Selezionare **Accetta**.
-1. Selezionare **Aggiorna**, quindi verificare che "concesso per..." viene visualizzato in **stato**. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.

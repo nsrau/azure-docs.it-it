@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4f03033942517f4778192e0b12f84610df8fd469
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194995"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il server di cronologia Apache Spark esteso per eseguire il debug e la diagnosi delle applicazioni Apache Spark
 
@@ -106,7 +106,7 @@ Selezionare l'ID processo per il processo che si desidera visualizzare. Selezion
 
 ![ID del processo dell'applicazione Spark e del grafico del processo](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
-### <a name="display"></a>Visualizzazione
+### <a name="display"></a>Schermo
 
 Per impostazione predefinita, è selezionata la visualizzazione **stato** . È possibile controllare il flusso di dati selezionando **Leggi** o **scritto** nell'elenco a discesa **Visualizza** .
 
@@ -123,7 +123,7 @@ Per riprodurre il processo, selezionare **riproduzione**. È possibile seleziona
 |Colore|Significato|
 |-|-|
 |Green|Succeeded: il processo è stato completato correttamente.|
-|Arancione|Tentativi: istanze delle attività non riuscite, ma non influiscono sul risultato finale del processo. Per queste attività sono presenti istanze duplicate o nuovi tentativi che potrebbero riuscire in un secondo momento.|
+|Orange|Tentativi: istanze delle attività non riuscite, ma non influiscono sul risultato finale del processo. Per queste attività sono presenti istanze duplicate o nuovi tentativi che potrebbero riuscire in un secondo momento.|
 |Blu|Running: l'attività è in esecuzione.|
 |bianco|In attesa o ignorata: l'attività è in attesa di esecuzione oppure la fase è stata ignorata.|
 |Rosso|Non riuscito: l'attività non è riuscita.|
@@ -149,7 +149,7 @@ Usare lo scorrimento del mouse per eseguire lo zoom avanti e indietro nel grafic
 
 ![Adatta allo zoom del grafico del processo e dell'applicazione Spark](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
 
-### <a name="tooltips"></a>Tooltips
+### <a name="tooltips"></a>Descrizioni comando
 
 Passare il puntatore del mouse sul nodo del grafo per visualizzare la descrizione comando quando sono presenti attività non riuscite e selezionare una fase per aprire la relativa pagina di gestione temporanea.
 
@@ -159,7 +159,7 @@ Nella scheda grafico processo le fasi hanno una descrizione comando e una piccol
 
 |Condizione|Descrizione|
 |-|-|
-|Asimmetria dati|dimensioni lettura dati > dimensione media lettura dati di tutte le attività all'interno di questa fase * 2 e dimensioni lettura dati > 10 MB|
+|Asimmetria dei dati|dimensioni lettura dati > dimensione media lettura dati di tutte le attività all'interno di questa fase * 2 e dimensioni lettura dati > 10 MB|
 |Sfasamento dell'ora|tempo di esecuzione > tempo medio di esecuzione di tutte le attività all'interno di questa fase * 2 e tempo di esecuzione > 2 minuti|
    
 ![Icona dell'applicazione Spark e della distorsione del grafico del processo](./media/apache-spark-history-server/sparkui-graph-skew-icon.png)
@@ -182,7 +182,7 @@ Nel nodo del grafico del processo vengono visualizzate le informazioni seguenti 
     >  
     > Le dimensioni dei dati di lettura e scrittura sono pari a 1 MB = 1000 KB = 1000 * 1000 byte.
 
-### <a name="provide-feedback"></a>Inviare feedback
+### <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Inviare commenti e suggerimenti con problemi selezionando Invia **commenti e suggerimenti**.
 
@@ -214,7 +214,7 @@ Quando si seleziona la scheda **asimmetria dati** , le attività inclinate corri
 
 La scheda **Sfasamento dell'ora** visualizza le attività asimmetriche in base al tempo di esecuzione.
 
-* **Specificare i parametri** : la prima sezione Visualizza i parametri, che vengono usati per rilevare lo sfasamento dell'ora. I criteri predefiniti per il rilevamento dello sfasamento dell'ora sono: il tempo di esecuzione dell'attività è maggiore di tre volte rispetto al tempo medio di esecuzione e il tempo di esecuzione dell'attività è maggiore di 30 secondi. È possibile modificare i parametri in base alle esigenze. Le sezioni **Fase asimmetrica** e **Skew Chart** (Grafico asimmetrie) visualizzano le informazioni sulle fasi e sulle attività corrispondenti come nella scheda **Asimmetria dei dati** precedente.
+* **Specificare i parametri** - La prima sezione visualizza i parametri, che vengono usati per rilevare lo sfasamento dell'ora. I criteri predefiniti per il rilevamento dello sfasamento dell'ora sono: il tempo di esecuzione dell'attività è maggiore di tre volte rispetto al tempo medio di esecuzione e il tempo di esecuzione dell'attività è maggiore di 30 secondi. È possibile modificare i parametri in base alle esigenze. Le sezioni **Fase asimmetrica** e **Skew Chart** (Grafico asimmetrie) visualizzano le informazioni sulle fasi e sulle attività corrispondenti come nella scheda **Asimmetria dei dati** precedente.
 
 * Selezionare **sfasamento dell'ora**, quindi il risultato filtrato viene visualizzato nella sezione **fase inclinata** in base ai parametri impostati nella sezione **specificare i parametri**. Selezionare un elemento nella sezione **fase inclinata** , quindi il grafico corrispondente viene redatto in sezione3 e i dettagli dell'attività vengono visualizzati nel pannello in basso a destra.
 

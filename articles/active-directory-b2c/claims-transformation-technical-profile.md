@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84c1cf798e88e4067da8a495c1591143d2ee1bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6553b9ec120ca0e1e479b400495b61bc68c88cf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189787"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201209"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di trasformazione delle attestazioni in un criterio personalizzato di Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Prop
 
 Nell'esempio seguente viene illustrato un profilo tecnico di trasformazione delle attestazioni:
 
-```XML
+```xml
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
     <DisplayName>Unlink Facebook</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -52,7 +52,7 @@ L'elemento **OutputClaims** è obbligatorio. È necessario fornire almeno un'att
 
 L'elemento **OutputClaimsTransformations** può contenere una raccolta di elementi**OutputClaimsTransformation** che vengono usati per modificare le attestazioni o generarne di nuove. Il seguente profilo tecnico chiama la trasformazione delle attestazioni **RemoveAlternativeSecurityIdByIdentityProvider**. Questa trasformazione delle attestazioni elimina un identificatore sociale dalla raccolta di **AlternativeSecurityIds**. Le attestazioni di output di questo profilo tecnico sono **identityProvider2**, impostate su `facebook.com`, e **AlternativeSecurityIds**, che contiene l'elenco delle identità sociali associate a questo utente, una volta che l'identità facebook.com è stata eliminata.
 
-```XML
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider"
 TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
@@ -84,7 +84,7 @@ TransformationClaimType="collection" />
 
 Il profilo tecnico di trasformazione delle attestazioni consente di eseguire una trasformazione delle attestazioni dal passaggio di orchestrazione di qualsiasi percorso utente. Nell'esempio seguente, il passaggio di orchestrazione chiama uno dei profili tecnici di scollegamento, ad esempio **UnLink-Facebook-OAUTH**. Questo profilo tecnico chiama il profilo tecnico della trasformazione delle attestazioni **RemoveAlternativeSecurityIdByIdentityProvider**, che genera una nuova attestazione **AlternativeSecurityIds2** che contiene l'elenco di identità di social networking, rimuovendo l'identità di Facebook dalle raccolte.
 
-```XML
+```xml
 <UserJourney Id="AccountUnLink">
   <OrchestrationSteps>
     ...
@@ -104,13 +104,13 @@ Il profilo tecnico di trasformazione delle attestazioni consente di eseguire una
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`, o `false`  (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione `true`su. |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 
 ## <a name="use-a-validation-technical-profile"></a>Usare un profilo tecnico di convalida
 
 Si può usare un profilo tecnico di trasformazione delle attestazioni per convalidare le informazioni. Nell'esempio seguente, il [profilo tecnico autocertificato](self-asserted-technical-profile.md) denominato **LocalAccountSignUpWithLogonEmail** richiede all'utente di immettere due volte l'e-mail, quindi chiama il [profilo tecnico di convalida](validation-technical-profile.md) denominato **Convalida-email** per convalidare le e-mail. Il profilo tecnico**Convalida-email** chiama la trasformazione delle attestazioni **AssertEmailAreEqual** per confrontare le due attestazioni **email** e **emailRepeat**e genera un'eccezione se non sono uguali in base al confronto specificato.
 
-```XML
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="AssertEmailAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
     <InputClaims>
@@ -126,7 +126,7 @@ Si può usare un profilo tecnico di trasformazione delle attestazioni per conval
 
 Il profilo tecnico di trasformazione delle attestazioni chiama la trasformazione delle attestazioni **AssertEmailAreEqual** secondo cui le e-mail fornite dall'utente sono uguali.
 
-```XML
+```xml
 <TechnicalProfile Id="Validate-Email">
   <DisplayName>Unlink Facebook</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -145,7 +145,7 @@ Il profilo tecnico di trasformazione delle attestazioni chiama la trasformazione
 
 Un profilo tecnico autocertificato può chiamare il profilo tecnico di convalida e visualizzare il messaggio di errore come specificato nei metadati **UserMessageIfClaimsTransformationStringsAreNotEqual**.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>User ID signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

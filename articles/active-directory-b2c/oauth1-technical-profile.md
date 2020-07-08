@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7f734844859d44e66bddbc2ddd999659e52f9668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204082"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 in un Azure Active Directory B2C criteri personalizzati
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider d
 
 L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `OAuth1`. Ad esempio, il protocollo per il profilo tecnico **Twitter-OAUTH1** è `OAuth1`.
 
-```XML
+```xml
 <TechnicalProfile Id="Twitter-OAUTH1">
   <DisplayName>Twitter</DisplayName>
   <Protocol Name="OAuth1" />

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81756750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204371"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
 
@@ -28,15 +28,15 @@ Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazion
 
 Usare valori di attestazione o costanti per generare una stringa JSON. La stringa di percorso che segue la notazione del punto viene usata per indicare dove inserire i dati in una stringa JSON. Dopo la suddivisione in base ai punti, tutti i numeri interi vengono interpretati come l'indice di una matrice JSON e i valori non integer vengono interpretati come indice di un oggetto JSON.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Qualsiasi stringa che segue la notazione del punto | stringa | JsonPath del file JSON in cui verrà inserito il valore dell'attestazione. |
-| InputParameter | Qualsiasi stringa che segue la notazione del punto | stringa | JsonPath del codice JSON in cui verrà inserito il valore stringa costante. |
-| OutputClaim | outputClaim | stringa | Stringa JSON generata. |
+| InputClaim | Qualsiasi stringa che segue la notazione del punto | string | JsonPath del file JSON in cui verrà inserito il valore dell'attestazione. |
+| InputParameter | Qualsiasi stringa che segue la notazione del punto | string | JsonPath del codice JSON in cui verrà inserito il valore stringa costante. |
+| OutputClaim | outputClaim | string | Stringa JSON generata. |
 
 Nell'esempio seguente viene generata una stringa JSON basata sul valore dell'attestazione "email" e "OTP", nonché sulle stringhe costanti.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
@@ -58,16 +58,16 @@ Nell'esempio seguente viene generata una stringa JSON basata sul valore dell'att
 La trasformazione delle attestazioni seguente restituisce un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a SendGrid (un provider di posta elettronica di terze parti). La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value".
 
 - Attestazioni di input:
-  - **indirizzo di posta elettronica**, trasformazione tipo di attestazione **personalizzazione. 0. a. 0. messaggio di posta elettronica**: "someone@example.com"
+  - **indirizzo di posta elettronica**, trasformazione tipo di attestazione **personalizzazione. 0. a. 0. messaggio di posta elettronica**: " someone@example.com "
   - **OTP**, tipo di attestazione di trasformazione **personalizzazioni. 0. dynamic_template_data. OTP** "346349"
 - Parametro di input:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **da. email**: "service@contoso.com"
+  - **da. email**: " service@contoso.com "
   - **personalizzazioni. 0. oggetto** "contoso account email verifica codice"
 - Attestazione di output:
   - **requestBody**: valore JSON
 
-```JSON
+```json
 {
   "personalizations": [
     {
@@ -94,15 +94,15 @@ La trasformazione delle attestazioni seguente restituisce un'attestazione di str
 
 Consente di ottenere un elemento specificato da un dato JSON.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | stringa | I ClaimType che vengono usati dalla trasformazione delle attestazioni per ottenere l'elemento. |
-| InputParameter | claimToExtract | stringa | il nome dell'elemento JSON da estrarre. |
-| OutputClaim | extractedClaim | stringa | Il ClaimType che viene generato dopo aver richiamato questa trasformazione delle attestazioni, il valore dell'elemento specificato nel parametro di input _claimToExtract_. |
+| InputClaim | inputJson | string | I ClaimType che vengono usati dalla trasformazione delle attestazioni per ottenere l'elemento. |
+| InputParameter | claimToExtract | string | il nome dell'elemento JSON da estrarre. |
+| OutputClaim | extractedClaim | string | Il ClaimType che viene generato dopo aver richiamato questa trasformazione delle attestazioni, il valore dell'elemento specificato nel parametro di input _claimToExtract_. |
 
 Nell'esempio seguente la trasformazione delle attestazioni ha estratto l'elemento `emailAddress` dai dati JSON: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="customUserData" TransformationClaimType="inputJson" />
@@ -130,22 +130,22 @@ Nell'esempio seguente la trasformazione delle attestazioni ha estratto l'element
 
 Consente di ottenere un elenco di elementi specificati dai dati Json.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | jsonSourceClaim | stringa | I ClaimType usati dalla trasformazione delle attestazioni per ottenere le attestazioni. |
+| InputClaim | jsonSourceClaim | string | I ClaimType usati dalla trasformazione delle attestazioni per ottenere le attestazioni. |
 | InputParameter | errorOnMissingClaims | boolean | Specifica se generare un errore quando manca una delle attestazioni. |
-| InputParameter | includeEmptyClaims | stringa | Specifica se includere attestazioni vuote. |
-| InputParameter | jsonSourceKeyName | stringa | Nome della chiave dell'elemento |
-| InputParameter | jsonSourceValueName | stringa | Nome del valore dell'elemento |
+| InputParameter | includeEmptyClaims | string | Specifica se includere attestazioni vuote. |
+| InputParameter | jsonSourceKeyName | string | Nome della chiave dell'elemento |
+| InputParameter | jsonSourceValueName | string | Nome del valore dell'elemento |
 | OutputClaim | Raccolta | string, int, boolean e datetime |Elenco di attestazioni da estrarre. Il nome dell'attestazione deve essere uguale a quello specificato nell'attestazione di input _jsonSourceClaim_. |
 
 Nell'esempio seguente la trasformazione delle attestazioni estrae le attestazioni seguenti: email (string), displayName (string), membershipNum (int), active (boolean) e birthdate (datetime) dai dati JSON.
 
-```JSON
+```json
 [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetClaimsFromJson" TransformationMethod="GetClaimsFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="jsonSourceClaim" TransformationClaimType="jsonSource" />
@@ -174,7 +174,7 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae le attestazion
     - **jsonSourceKeyName**: key
     - **jsonSourceValueName**: value
 - Attestazioni di output:
-  - **posta elettronica**:someone@example.com""
+  - **posta elettronica**: " someone@example.com "
   - **displayName**: "Someone"
   - **membershipNum**: 6353399
   - **active**: true
@@ -184,15 +184,15 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae le attestazion
 
 Consente di ottenere un elemento numerico (lungo) specificato da un dato JSON.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | stringa | I ClaimType usati dalla trasformazione delle attestazioni per ottenere l'attestazione. |
-| InputParameter | claimToExtract | stringa | Il nome dell'elemento JSON da estrarre. |
+| InputClaim | inputJson | string | I ClaimType usati dalla trasformazione delle attestazioni per ottenere l'attestazione. |
+| InputParameter | claimToExtract | string | Il nome dell'elemento JSON da estrarre. |
 | OutputClaim | extractedClaim | long | Il ClaimType che viene generato dopo aver richiamato ClaimsTransformation, il valore dell'elemento specificato nei parametri di input _claimToExtract_. |
 
 Nell'esempio seguente la trasformazione delle attestazioni estrae l'elemento `id` dai dati JSON.
 
-```JSON
+```json
 {
     "emailAddress": "someone@example.com",
     "displayName": "Someone",
@@ -200,7 +200,7 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae l'elemento `id
 }
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetIdFromResponse" TransformationMethod="GetNumericClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="exampleInputClaim" TransformationClaimType="inputJson" />
@@ -227,15 +227,15 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae l'elemento `id
 
 Ottiene il primo elemento da un dato JSON.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | stringa | Oggetto ClaimTypes usato dalla trasformazione delle attestazioni per ottenere l'elemento dai dati JSON. |
-| OutputClaim | Key | stringa | Chiave del primo elemento in JSON. |
+| InputClaim | inputJson | string | Oggetto ClaimTypes usato dalla trasformazione delle attestazioni per ottenere l'elemento dai dati JSON. |
+| OutputClaim | Key | string | Chiave del primo elemento in JSON. |
 | OutputClaim | Valore | string | Il primo valore dell'elemento in JSON. |
 
 Nell'esempio seguente, la trasformazione delle attestazioni estrae il primo elemento (dato il nome) dai dati JSON.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
@@ -260,14 +260,14 @@ Nell'esempio seguente, la trasformazione delle attestazioni estrae il primo elem
 
 Consente di ottenere il primo elemento da una matrice di dati JSON.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJsonClaim | stringa | I ClaimType che vengono usati dalla trasformazione delle attestazioni per ottenere l'elemento dalla matrice JSON. |
-| OutputClaim | extractedClaim | stringa | Il ClaimType che viene generato dopo che è stata richiamata questa ClaimsTransformation, il primo elemento nella matrice JSON. |
+| InputClaim | inputJsonClaim | string | I ClaimType che vengono usati dalla trasformazione delle attestazioni per ottenere l'elemento dalla matrice JSON. |
+| OutputClaim | extractedClaim | string | Il ClaimType che viene generato dopo che è stata richiamata questa ClaimsTransformation, il primo elemento nella matrice JSON. |
 
 Nell'esempio seguente la trasformazione delle attestazioni estrae il primo elemento (indirizzo di posta elettronica) dalla matrice JSON `["someone@example.com", "Someone", 6353399]`.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userData" TransformationClaimType="inputJsonClaim" />
@@ -281,7 +281,7 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae il primo eleme
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **inputJsonClaim**: ["someone@example.com", "qualcuno", 6353399]
+  - **inputJsonClaim**: [" someone@example.com ", "qualcuno", 6353399]
 - Attestazioni di output:
   - **extractedClaim**:someone@example.com
 
@@ -289,12 +289,12 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae il primo eleme
 
 Converte i dati XML nel formato JSON.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Xml | stringa | I ClaimType che vengono usati dalla trasformazione delle attestazioni per convertire i dati dal formato XML al formato JSON. |
-| OutputClaim | json | stringa | Il ClaimType che viene generato dopo che è stata richiamata questa ClaimsTransformation, i dati in formato JSON. |
+| InputClaim | Xml | string | I ClaimType che vengono usati dalla trasformazione delle attestazioni per convertire i dati dal formato XML al formato JSON. |
+| OutputClaim | json | string | Il ClaimType che viene generato dopo che è stata richiamata questa ClaimsTransformation, i dati in formato JSON. |
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="intpuXML" TransformationClaimType="xml" />
@@ -310,7 +310,7 @@ Nell'esempio seguente la trasformazione delle attestazioni converte i dati XML s
 #### <a name="example"></a>Esempio
 Attestazione di input:
 
-```XML
+```xml
 <user>
   <name>Someone</name>
   <email>someone@example.com</email>
@@ -319,7 +319,7 @@ Attestazione di input:
 
 Attestazione di output:
 
-```JSON
+```json
 {
   "user": {
     "name":"Someone",

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c672caaedd3e5cc591659f24c73f54f399c73de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096221"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194004"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -149,19 +149,19 @@ Per informazioni sul livello di peering MS, usare la query indicata di seguito i
 
     NetworkMonitoring 
      | where SubType == "ERMSPeeringUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond 
     
 Per informazioni sul livello di peering privato, usare la query indicata di seguito in ricerca log
 
     NetworkMonitoring 
      | where SubType == "ERVNetConnectionUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
   
 Per informazioni a livello di circuito, usare la query indicata di seguito in ricerca log
 
     NetworkMonitoring 
         | where SubType == "ERCircuitTotalUtilization"
-        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | project CircuitName, BitsInPerSecond, BitsOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Quali aree sono supportate per la funzionalità Performance Monitor di Monitoraggio prestazioni rete?
 Monitoraggio prestazioni rete può monitorare la connettività tra reti in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle [aree supportate](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
@@ -213,7 +213,7 @@ Questa situazione può verificarsi se il firewall dell'host o il firewall interm
 * Per verificare che un firewall di rete intermedio o un gruppo di sicurezza di rete di Azure non blocchi le comunicazioni sulla porta richiesta, eseguire l'utilità PsPing di terze parti usando le istruzioni seguenti:
   * L'utilità PsPing è disponibile [qui](https://technet.microsoft.com/sysinternals/psping.aspx) per il download. 
   * Eseguire il comando seguente dal nodo di origine.
-    * psping -n 15 \<IndirizzoIP nodo destinazione\>:portNumber Per impostazione predefinita, Monitoraggio prestazioni rete usa la porta 8084. Se si è esplicitamente cambiato il numero di porta tramite lo script EnableRules.ps1, immettere il numero di porta impostato. Questo è un ping dal computer di Azure al sistema locale.
+    * psping-n 15 \<destination node IPAddress\> :P Ortnumber per impostazione predefinita NPM usa la porta 8084. Se si è esplicitamente cambiato il numero di porta tramite lo script EnableRules.ps1, immettere il numero di porta impostato. Questo è un ping dal computer di Azure al sistema locale.
 * Controllare se i ping hanno esito positivo. Se l'esito è negativo, significa che il traffico su questa porta viene bloccato da un firewall di rete intermedio o da un gruppo di sicurezza di rete di Azure.
 * A questo punto, eseguire il comando dal nodo di destinazione all'indirizzo IP del nodo di origine.
 
@@ -222,7 +222,7 @@ Questa situazione può verificarsi se il firewall dell'host o il firewall interm
 I percorsi di rete tra il nodo A e il B possono essere diversi da quelli tra il nodo B e l'A ed è quindi possibile osservare valori diversi per la perdita e la latenza.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Per quale motivo non tutti i circuiti e le connessioni di peering di ExpressRoute vengono individuati?
-NPM individua ora i circuiti ExpressRoute e le connessioni di peering in tutte le sottoscrizioni a cui l'utente ha accesso. Scegliere tutte le sottoscrizioni in cui sono collegate risorse di ExpressRoute e abilitare il monitoraggio per ogni risorsa individuata. NPM cerca gli oggetti di connessione durante l'individuazione di un peering privato, verificare quindi se il peering è associato a una rete virtuale.
+NPM individua ora i circuiti ExpressRoute e le connessioni di peering in tutte le sottoscrizioni a cui l'utente ha accesso. Scegliere tutte le sottoscrizioni in cui sono collegate risorse di ExpressRoute e abilitare il monitoraggio per ogni risorsa individuata. NPM cerca gli oggetti di connessione durante l'individuazione di un peering privato, verificare quindi se il peering è associato a una rete virtuale. NPM non rileva i circuiti e il peering che si trovano in un tenant diverso dall'area di lavoro Log Analytics.
 
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La funzionalità Monitoraggio di ExpressRoute visualizza un messaggio di diagnostica per segnalare che il traffico non passa attraverso alcun circuito. Che cosa significa?
 
@@ -233,6 +233,12 @@ Ciò avviene se:
 * Il circuito di ExpressRoute è inattivo.
 * I filtri di route sono configurati in modo da dare priorità ad altre route, ad esempio una connessione VPN o un altro circuito ExpressRoute, attraverso il circuito ExpressRoute previsto. 
 * Non è presente connettività attraverso il circuito ExpressRoute previsto tra il nodo locale e quello di Azure selezionati per il monitoraggio del circuito ExpressRoute nella configurazione di monitoraggio. Assicurarsi di aver scelto i nodi corretti tra cui è presente connettività attraverso il circuito ExpressRoute che si intende monitorare.
+
+### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Perché ExpressRoute monitor segnala il circuito/peering come non integro quando è disponibile e passa i dati.
+ExpressRoute Monitor confronta i valori delle prestazioni di rete (perdita, latenza e utilizzo della larghezza di banda) segnalati dagli agenti o dal servizio con le soglie impostate durante la configurazione. Per un circuito, se l'utilizzo della larghezza di banda segnalato è maggiore della soglia impostata nella configurazione, il circuito viene contrassegnato come non integro. Per i peering, se la perdita, la latenza o l'utilizzo della larghezza di banda segnalato è maggiore della soglia impostata nella configurazione, il peering viene contrassegnato come non integro. NPM non utilizza metriche o qualsiasi altra forma di dati per deicde lo stato di integrità.
+
+### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Perché l'utilizzo di ExpressRoute Monitor'bandwidth segnala un valore differrent dai bit di metrica in/out
+Per ExpressRoute monitor, la larghezza di banda utiliation è la media della larghezza di banda in ingresso e in uscita negli ultimi 20 minuti, espressa in bit al secondo. Per le metriche di Express Route, i bit in/out sono punti dati al minuto. Internamente, il set di dati usato per entrambi è lo stesso, ma l'aggregazione vali tra le metriche NPM e ER. Per il monitoraggio granulare, minuto per minuto e gli avvisi veloci, è consigliabile impostare avvisi direttamente sulle metriche ER
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Per quale motivo, quando si configura il monitoraggio del circuito ExpressRoute, i nodi di Azure non vengano rilevati?
 Questo problema può verificarsi se i nodi di Azure sono connessi tramite Operations Manager. La funzionalità Monitoraggio di ExpressRoute supporta solo i nodi di Azure connessi come agenti diretti.

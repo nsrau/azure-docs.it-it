@@ -4,12 +4,12 @@ description: Fornisce indicazioni sulla risoluzione dei problemi per diagnostica
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c229bd836029226a1e042de9bfe706654f97dc26
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: d65eca685748499f52a990c7ac588bf44cbbba31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194026"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 
@@ -96,7 +96,7 @@ Gli indicatori seguenti possono risultare utili per individuare il collo di bott
 * **L'interfaccia utente visualizza lo stato di avanzamento per il trasferimento dei dati**. I dati sono ancora in fase di trasferimento. La larghezza di banda di rete o le dimensioni dei dati potrebbero causare ritardi.
 * **L'interfaccia utente non visualizza lo stato di avanzamento per il trasferimento dei dati**. Aprire i log disponibili in "C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\Temp" e quindi cercare la voce FileProvider::EndData nei log. Questa voce indica che il trasferimento dei dati è stato completato e che l'operazione di catalogo è in corso. Non annullare i processi di backup. Al contrario, attendere ancora qualche istante che l'operazione di catalogo venga completata. Se il problema persiste, contattare il [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-Se si sta provando a eseguire il backup di dischi di grandi dimensioni, è consigliabile usare [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) per il primo backup (Replica iniziale).  Se non è possibile usare Data Box, eventuali problemi di rete temporanei che si verificano nell'ambiente durante i trasferimenti di dati di lunga durata sulla rete possono causare errori di backup.  Per evitare questi errori, è possibile aggiungere alcune cartelle al backup iniziale e continuare ad aggiungerle in modo incrementale fino a quando non viene completato il backup di tutte le cartelle in Azure.  I successivi backup incrementali saranno relativamente più veloci.
+Se si sta provando a eseguire il backup di dischi di grandi dimensioni, è consigliabile usare [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) per il primo backup (replica iniziale).  Se non è possibile usare Data Box, eventuali problemi di rete temporanei che si verificano nell'ambiente durante i trasferimenti di dati di lunga durata sulla rete possono causare errori di backup.  Per evitare questi errori, è possibile aggiungere alcune cartelle al backup iniziale e continuare ad aggiungerle in modo incrementale fino a quando non viene completato il backup di tutte le cartelle in Azure.  I successivi backup incrementali saranno relativamente più veloci.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

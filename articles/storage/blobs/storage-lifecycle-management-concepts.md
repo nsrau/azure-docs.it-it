@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 789d70f77558bbade854ba31fd10ecd2b8e7b853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194706"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -130,7 +130,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Lo script di PowerShell seguente può essere usato per aggiungere un criterio all'account di archiviazione. La `$rgname` variabile deve essere inizializzata con il nome del gruppo di risorse. La `$accountName` variabile deve essere inizializzata con il nome dell'account di archiviazione.
+Lo script di PowerShell seguente può essere usato per aggiungere un criterio all'account di archiviazione. La variabile `$rgname` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione.
 
 ```powershell
 #Install the latest module
@@ -202,7 +202,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ---
 
-## <a name="policy"></a>Criteri di
+## <a name="policy"></a>Policy
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -236,7 +236,7 @@ Ogni regola all'interno del criterio presenta diversi parametri:
 |----------------|----------------|-------|----------|
 | `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True |
 | `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True |
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | True |
 | `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
 
 ## <a name="rules"></a>Regole
@@ -245,7 +245,7 @@ La definizione di ogni regola include un set di filtri e un set di azioni. Il [s
 
 ### <a name="sample-rule"></a>Regola di esempio
 
-La regola di esempio seguente Filtra l'account per eseguire le azioni sugli oggetti presenti all' `container1` interno di e `foo`iniziare con.  
+La regola di esempio seguente Filtra l'account per eseguire le azioni sugli oggetti presenti all'interno di `container1` e iniziare con `foo` .  
 
 >[!NOTE]
 >Gestione del ciclo di vita supporta solo il tipo di BLOB in blocchi.  
@@ -291,12 +291,12 @@ I filtri includono:
 
 | Nome filtro | Tipo di filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Sì |
-| prefixMatch | Matrice di stringhe per i prefissi da confrontare. Ogni regola può definire un massimo di 10 prefissi. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si desidera trovare la corrispondenza di tutti i `https://myaccount.blob.core.windows.net/container1/foo/...` BLOB in per una regola, prefixMatch `container1/foo`è. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione.  | No |
-| blobIndexMatch | Matrice di valori del dizionario costituito da condizioni di chiave e valore del tag di indice BLOB da confrontare. Ogni regola può definire fino a 10 condizioni di tag di indice BLOB. Se ad esempio si desidera trovare la corrispondenza di tutti i `Project = Contoso` BLOB `https://myaccount.blob.core.windows.net/` con in per una regola, blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}`è. | Se non si definisce blobIndexMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione. | No |
+| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob` . | Sì |
+| prefixMatch | Matrice di stringhe per i prefissi da confrontare. Ogni regola può definire un massimo di 10 prefissi. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si desidera trovare la corrispondenza di tutti i BLOB in `https://myaccount.blob.core.windows.net/container1/foo/...` per una regola, prefixMatch è `container1/foo` . | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione.  | No |
+| blobIndexMatch | Matrice di valori del dizionario costituito da condizioni di chiave e valore del tag di indice BLOB da confrontare. Ogni regola può definire fino a 10 condizioni di tag di indice BLOB. Se ad esempio si desidera trovare la corrispondenza di tutti i BLOB con `Project = Contoso` in `https://myaccount.blob.core.windows.net/` per una regola, blobIndexMatch è `{"name": "Project","op": "==","value": "Contoso"}` . | Se non si definisce blobIndexMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione. | No |
 
 > [!NOTE]
-> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Francia centrale** e **Francia meridionale** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)](storage-manage-find-blobs.md).
+> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Francia centrale** e **Francia meridionale**. Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Azioni della regola
 
@@ -304,10 +304,10 @@ Le azioni vengono applicate ai BLOB filtrati quando viene soddisfatta la condizi
 
 La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazione di BLOB e l'eliminazione di snapshot BLOB. Definire almeno un'azione per ogni regola sui BLOB o sugli snapshot dei BLOB.
 
-| Azione        | BLOB di base                                   | Snapshot      |
+| Action        | BLOB di base                                   | Snapshot      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportate |
-| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportate |
+| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportato |
+| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportato |
 | eliminare        | Supportato                                   | Supportato     |
 
 >[!NOTE]
@@ -354,10 +354,10 @@ Questo esempio illustra la transizione di BLOB in blocchi con prefisso `containe
 
 ### <a name="archive-data-after-ingest"></a>Archiviare i dati dopo l'inserimento
 
-Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. I criteri del ciclo di vita seguenti sono configurati per archiviare i dati subito dopo l'inserimento. Questo esempio esegue la transizione dei BLOB in blocchi nell'account di `archivecontainer` archiviazione all'interno del contenitore in un livello archivio. La transizione viene eseguita agendo sui BLOB 0 giorni dopo l'ora dell'Ultima modifica:
+Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. I criteri del ciclo di vita seguenti sono configurati per archiviare i dati subito dopo l'inserimento. Questo esempio esegue la transizione dei BLOB in blocchi nell'account di archiviazione all'interno del contenitore `archivecontainer` in un livello archivio. La transizione viene eseguita agendo sui BLOB 0 giorni dopo l'ora dell'Ultima modifica:
 
 > [!NOTE] 
-> È consigliabile caricare i BLOB direttamente nel livello Archivio per essere più efficienti. È possibile usare l'intestazione x-MS-Acess-Tier per [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con la versione 2018-11-09 e successive o le librerie client di archiviazione BLOB più recenti. 
+> È consigliabile caricare i BLOB direttamente nel livello Archivio per essere più efficienti. È possibile usare l'intestazione x-MS-Access-Tier per [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con REST versione 2018-11-09 e più recente o le librerie client di archiviazione BLOB più recenti. 
 
 ```json
 {
@@ -410,7 +410,7 @@ Si prevede che alcuni dati scadano giorni o mesi dopo la creazione. È possibile
 ```
 
 ### <a name="delete-data-with-blob-index-tags"></a>Eliminare dati con tag di indice BLOB
-Alcuni dati devono essere scaduti solo se contrassegnati in modo esplicito per l'eliminazione. È possibile configurare i criteri di gestione del ciclo di vita in modo che scadano i dati contrassegnati con gli attributi chiave/valore dell'indice BLOB. L'esempio seguente illustra un criterio che elimina tutti i BLOB in blocchi `Project = Contoso`contrassegnati con. Per altre informazioni sull'indice BLOB, vedere [gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)](storage-manage-find-blobs.md).
+Alcuni dati devono essere scaduti solo se contrassegnati in modo esplicito per l'eliminazione. È possibile configurare i criteri di gestione del ciclo di vita in modo che scadano i dati contrassegnati con gli attributi chiave/valore dell'indice BLOB. L'esempio seguente illustra un criterio che elimina tutti i BLOB in blocchi contrassegnati con `Project = Contoso` . Per altre informazioni sull'indice BLOB, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 ```json
 {

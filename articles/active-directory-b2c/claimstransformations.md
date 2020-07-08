@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2a919996d00f8ef3fa00109944b60d53b63d95ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202960"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -121,7 +121,7 @@ Se l'attestazione di input e l'attestazione di output sono dello stesso tipo (st
 
 Ad esempio, è possibile archiviare l'ultima versione delle condizioni d'uso accettare dall'utente. Quando si aggiornano le condizioni d'uso, è possibile chiedere all'utente di accettare la nuova versione. Nell'esempio seguente la trasformazione delle attestazioni **HasTOSVersionChanged** confronta il valore dell'attestazione **TOSVersion** con il valore dell'attestazione **LastTOSAcceptedVersion** e quindi restituisce l'attestazione booleana **TOSVersionChanged**.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="TOSVersionChanged">
@@ -160,8 +160,8 @@ Ad esempio, è possibile archiviare l'ultima versione delle condizioni d'uso acc
 Per esempi di trasformazioni delle attestazioni, vedere le pagine seguenti:
 
 - [Boolean](boolean-transformations.md)
-- [Data](date-transformations.md)
-- [Intero](integer-transformations.md)
+- [Date](date-transformations.md)
+- [Integer](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Numero di telefono](phone-number-claims-transformations.md)
 - [Generale](general-transformations.md)

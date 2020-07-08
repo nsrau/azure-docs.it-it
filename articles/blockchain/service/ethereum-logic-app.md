@@ -2,14 +2,14 @@
 title: Usare il connettore blockchain di Ethereum con app per la logica di Azure-servizio blockchain di Azure
 description: Usare il connettore blockchain per Ethereum con App per la logica di Azure per attivare funzioni di contratto intelligente e rispondere agli eventi di contratto intelligente.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325212"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200733"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usare il connettore blockchain per Ethereum con App per la logica di Azure
 
@@ -132,7 +132,7 @@ Ad esempio, la procedura seguente genera un'app per la logica di microservizio b
 
     ![Riquadro Progettazione app per la logica con URL POST HTTP](./media/ethereum-logic-app/post-url.png)
 
-1. Usare il comando cURL per creare una richiesta HTTP POST. Sostituire il testo * \<segnaposto http post\> URL* con l'URL del passaggio precedente.
+1. Usare il comando cURL per creare una richiesta HTTP POST. Sostituire il testo segnaposto *\<HTTP POST URL\>* con l'URL del passaggio precedente.
 
     ``` bash
     curl -d "{}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"
@@ -181,7 +181,7 @@ L'indirizzo dell'endpoint RPC del servizio Azure Blockchain è necessario per co
 
     ![Pagina dei nodi transazione con l'opzione (nodo predefinito) selezionata](./media/ethereum-logic-app/transaction-nodes.png)
 
-1. Selezionare **Connection strings** > **chiavi di accesso**per le stringhe di connessione.
+1. Selezionare chiavi di accesso per le **stringhe di connessione**  >  **Access keys**.
 1. Copiare l'indirizzo dell'endpoint da **HTTPS (chiave di accesso 1)** o **HTTPS (chiave di accesso 2)**.
 
     ![Portale di Azure con le chiavi di accesso della stringa di connessione](./media/ethereum-logic-app/connection-string.png)

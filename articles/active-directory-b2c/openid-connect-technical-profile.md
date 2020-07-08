@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e259a57a9cd6b24362862ffd6cb738157ca912d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff5a83a8ab608e685f43056debe45877965e0c53
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203997"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider d
 
 L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `OpenIdConnect`. Ad esempio, il protocollo per il profilo tecnico **MSA-OIDC** è `OpenIdConnect`:
 
-```XML
+```xml
 <TechnicalProfile Id="MSA-OIDC">
   <DisplayName>Microsoft Account</DisplayName>
   <Protocol Name="OpenIdConnect" />
@@ -39,7 +39,7 @@ L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Open
 
 Gli elementi **InputClaims** e **InputClaimsTransformations** non sono obbligatori. Tuttavia, è possibile inviare parametri aggiuntivi al provider di identità. L'esempio seguente aggiunge il parametro della stringa di query **domain_hint** e il valore di `contoso.com` alla richiesta di autorizzazione.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="domain_hint" DefaultValue="contoso.com" />
 </InputClaims>
@@ -79,22 +79,22 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
 | IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se l' `aud` attestazione in un token restituito dal provider di identità è uguale a quella specificata nei metadati IdTokenAudience.  |
 | METADATI | Sì | Un URL che punta a un documento di configurazione del provider di identità OpenID Connect, noto anche come endpoint di configurazione OpenID noto. L'URL può contenere l' `{tenant}` espressione, che viene sostituita con il nome del tenant.  |
-| authorization_endpoint | No | URL che punta a un endpoint di autorizzazione della configurazione del provider di identità OpenID Connect. Il valore di authorization_endpoint metadati ha la precedenza su `authorization_endpoint` quello specificato nell'endpoint di configurazione OpenID noto. L'URL può contenere l' `{tenant}` espressione, che viene sostituita con il nome del tenant. |
-| autorità di certificazione | No | Identificatore univoco di un provider di identità OpenID Connect. Il valore dei metadati dell'autorità emittente ha la precedenza `issuer` su quello specificato nell'endpoint di configurazione OpenID noto.  Se specificato, Azure AD B2C controlla se l' `iss` attestazione in un token restituito dal provider di identità è uguale a quella specificata nei metadati dell'emittente. |
+| authorization_endpoint | No | URL che punta a un endpoint di autorizzazione della configurazione del provider di identità OpenID Connect. Il valore di authorization_endpoint metadati ha la precedenza su quello `authorization_endpoint` specificato nell'endpoint di configurazione OpenID noto. L'URL può contenere l' `{tenant}` espressione, che viene sostituita con il nome del tenant. |
+| autorità di certificazione | No | Identificatore univoco di un provider di identità OpenID Connect. Il valore dei metadati dell'autorità emittente ha la precedenza su quello `issuer` specificato nell'endpoint di configurazione OpenID noto.  Se specificato, Azure AD B2C controlla se l' `iss` attestazione in un token restituito dal provider di identità è uguale a quella specificata nei metadati dell'emittente. |
 | ProviderName | No | Il nome del provider di identità.  |
 | response_types | No | Il tipo di risposta in base alla specifica di OpenID Connect Core 1.0. I valori possibili sono: `id_token`, `code` o `token`. |
 | response_mode | No | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
-| ambito | No | Ambito della richiesta definito in base alla specifica di OpenID Connect Core 1,0. Ad esempio `openid`, `profile`, e `email`. |
+| scope | No | Ambito della richiesta definito in base alla specifica di OpenID Connect Core 1,0. Ad esempio `openid`, `profile`, e `email`. |
 | HttpBinding | No | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I valori possibili sono: `GET` o `POST`.  |
 | ValidTokenIssuerPrefixes | No | Una chiave che può essere usata per accedere ai tenant quando si usa un provider di identità multi-tenant, ad esempio Azure Active Directory. |
-| UsePolicyInRedirectUri | No | Indica se usare un criterio durante la costruzione dell'URI di reindirizzamento. Quando si configura l'applicazione nel provider di identità, è necessario specificare l'URI di reindirizzamento. L'URI di reindirizzamento punta a Azure AD B2C `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`,.  Se si specifica `false`, è necessario aggiungere un URI di reindirizzamento per ogni criterio usato. Ad esempio: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
+| UsePolicyInRedirectUri | No | Indica se usare un criterio durante la costruzione dell'URI di reindirizzamento. Quando si configura l'applicazione nel provider di identità, è necessario specificare l'URI di reindirizzamento. L'URI di reindirizzamento punta a Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp` .  Se si specifica `false`, è necessario aggiungere un URI di reindirizzamento per ogni criterio usato. Ad esempio: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 | MarkAsFailureOnStatusCode5xx | No | Indica se una richiesta a un servizio esterno deve essere contrassegnata come non riuscita se il codice di stato http è compreso nell'intervallo 5xx. Il valore predefinito è `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indica se i metadati OIDC devono essere individuati tramite l'autorità di certificazione nel token JWT. |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`, o `false`  (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione `true`su. |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 
 ### <a name="ui-elements"></a>Elementi dell'interfaccia utente
  
-Per configurare il messaggio di errore visualizzato in caso di errore, è possibile utilizzare le impostazioni seguenti. I metadati devono essere configurati nel profilo tecnico di OpenID Connect. È possibile [localizzare](localization-string-ids.md#sign-up-or-sign-in-error-messages)i messaggi di errore.
+Per configurare il messaggio di errore visualizzato in caso di errore, è possibile utilizzare le impostazioni seguenti. I metadati devono essere configurati nel profilo tecnico di OpenID Connect. I messaggi di errore possono essere [localizzati](localization-string-ids.md#sign-up-or-sign-in-error-messages).
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |

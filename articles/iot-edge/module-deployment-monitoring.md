@@ -8,12 +8,12 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127596"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194791"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informazioni sulle distribuzioni automatiche IoT Edge per singoli dispositivi o su vasta scala
 
@@ -47,7 +47,7 @@ Un manifesto di distribuzione è un documento JSON che descrive i moduli da conf
 I metadati di configurazione per ogni modulo includono:
 
 * Versione
-* Tipo
+* Type
 * Stato (ad esempio, in esecuzione o arrestato)
 * Criterio di riavvio
 * Registro di immagini e contenitori
@@ -69,7 +69,7 @@ Esempi di condizioni di destinazione:
 * tags.environment ='prod'
 * tags.environment = 'prod' AND tags.location = 'westus'
 * tags.environment = 'prod' OR tags.location = 'westus'
-* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+* Tags. Operator =' John ' e Tags. Environment =' prod ' e NOT deviceId =' linuxprod1'
 * Properties. reported. DeviceModel =' 4000X '
 
 Prendere in considerazione questi vincoli quando si crea una condizione di destinazione:
@@ -107,7 +107,7 @@ SELECT deviceId FROM devices
 
 L'aggiunta di metriche personalizzate è facoltativa e non ha alcun effetto sulla configurazione effettiva dei dispositivi IoT Edge.
 
-## <a name="layered-deployment"></a>Distribuzione a più livelli
+## <a name="layered-deployment"></a>Distribuzione a livelli
 
 Le distribuzioni sovrapposte sono distribuzioni automatiche che possono essere combinate insieme per ridurre il numero di distribuzioni univoche che devono essere create. Le distribuzioni sovrapposte sono utili negli scenari in cui gli stessi moduli vengono riutilizzati in combinazioni diverse in molte distribuzioni automatiche.
 
@@ -142,7 +142,7 @@ In una distribuzione standard, ad esempio, è possibile aggiungere il modulo di 
 }
 ```
 
-In una distribuzione a più livelli destinata ad alcuni o a tutti gli stessi dispositivi, è possibile aggiungere una proprietà che indica al sensore simulato di inviare 1000 messaggi e quindi di arrestarsi. Non si desidera sovrascrivere le proprietà esistenti, quindi creare una nuova sezione all'interno delle proprietà desiderate `layeredProperties`, denominata, che contiene la nuova proprietà:
+In una distribuzione a più livelli destinata ad alcuni o a tutti gli stessi dispositivi, è possibile aggiungere una proprietà che indica al sensore simulato di inviare 1000 messaggi e quindi di arrestarsi. Non si desidera sovrascrivere le proprietà esistenti, quindi creare una nuova sezione all'interno delle proprietà desiderate `layeredProperties` , denominata, che contiene la nuova proprietà:
 
 ```json
 "SimulatedTemperatureSensor": {

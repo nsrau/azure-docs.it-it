@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77172aacc4c58e6430339328410744cc866def3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207125"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso al servizio app Azure
 
@@ -30,7 +30,7 @@ La possibilità di limitare l'accesso all'app Web da una rete virtuale di Azure 
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Aggiunta e modifica di regole di restrizione di accesso nel portale ##
 
-Per aggiungere una regola di restrizione di accesso all'app, usare il menu per aprire**restrizioni di accesso** alla **rete**>e fare clic su **configura restrizioni di accesso**
+Per aggiungere una regola di restrizione di accesso all'app, usare il menu per aprire restrizioni di accesso alla **rete** > **Access Restrictions** e fare clic su **configura restrizioni di accesso**
 
 ![Opzioni di connettività di rete del servizio app](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -59,6 +59,10 @@ Gli endpoint di servizio consentono di limitare l'accesso alle subnet della rete
 Gli endpoint di servizio non possono essere usati per limitare l'accesso alle app eseguite in un ambiente del servizio app. Quando l'app si trova in una ambiente del servizio app, è possibile controllare l'accesso all'app con le regole di accesso IP. 
 
 Con gli endpoint di servizio è possibile configurare l'app con gateway applicazione o altri dispositivi WAF. È anche possibile configurare applicazioni multilivello con backend protetti. Per altri dettagli su alcune delle possibilità, vedere [funzionalità di rete e integrazione del servizio app](networking-features.md) e del [gateway applicazione con gli endpoint di servizio](networking/app-gateway-with-service-endpoints.md).
+
+> [!NOTE]
+> Gli endpoint di servizio non sono attualmente supportati per le app Web che usano IP SSL IP virtuale (VIP). 
+>
 
 ## <a name="managing-access-restriction-rules"></a>Gestione delle regole di restrizione dell'accesso
 

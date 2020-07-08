@@ -4,16 +4,16 @@ description: Come configurare il metodo di bilanciamento del carico per un ambie
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 447de339d3ceef7aeb1c232605b0e30bbbb1e7d8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d5c39ff867add80833ee522ef173506fa1c642c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612436"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204345"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows
 
@@ -33,15 +33,15 @@ Il bilanciamento del carico con un primo respiro è la configurazione predefinit
 Per configurare un pool di host per eseguire il bilanciamento del carico con ampiezza del primo senza modificare il limite massimo della sessione, eseguire il cmdlet PowerShell seguente:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst' 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst'
 ```
 
-Successivamente, per assicurarsi di aver impostato il metodo di bilanciamento del carico per la prima volta, eseguire il cmdlet seguente: 
+Successivamente, per assicurarsi di aver impostato il metodo di bilanciamento del carico per la prima volta, eseguire il cmdlet seguente:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType
 
-Name             : hostpoolname 
+Name             : hostpoolname
 LoadBalancerType : BreadthFirst
 ```
 
@@ -58,13 +58,13 @@ Il bilanciamento del carico depth-first distribuisce le nuove sessioni utente a 
 Per configurare un pool di host per eseguire il bilanciamento del carico per il primo livello di profondità, eseguire il cmdlet PowerShell seguente:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ### 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
 
 Per assicurarsi che l'impostazione sia stata aggiornata, eseguire il cmdlet seguente:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit
 
 Name             : hostpoolname
 LoadBalancerType : DepthFirst
@@ -77,8 +77,8 @@ MaxSessionLimit  : 6
 
 Per configurare il bilanciamento del carico:
 
-1. Accedere al portale di Azure all'indirizzo https://portal.azure.com. 
-2. Cercare e selezionare **desktop virtuale Windows** in servizi. 
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+2. Cercare e selezionare **desktop virtuale Windows** in servizi.
 3. Nella pagina desktop virtuale di Windows selezionare **pool host**.
 4. Selezionare il nome del pool host che si desidera modificare.
 5. Selezionare **Proprietà**.

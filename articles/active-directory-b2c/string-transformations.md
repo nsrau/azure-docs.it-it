@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c2291d4d2eca2abd11ef9c0f18f3fda52424ab93
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739091"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203436"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -41,7 +41,7 @@ La trasformazione dell'attestazione **AssertStringClaimsAreEqual** viene sempre 
 
 È possibile usare questa trasformazione per verificare che due elementi ClaimType abbiano lo stesso valore. In caso contrario, viene generato un messaggio di errore. L'esempio seguente controlla che l'elemento ClaimType **strongAuthenticationEmailAddress** sia uguale all'elemento ClaimType **email**. In caso contrario, viene generato un messaggio di errore.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim1" />
@@ -55,7 +55,7 @@ La trasformazione dell'attestazione **AssertStringClaimsAreEqual** viene sempre 
 
 
 Il profilo tecnico di convalida **login-NonInteractive** chiama la trasformazione di attestazioni **AssertEmailAndStrongAuthenticationEmailAddressAreEqual**.
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -66,7 +66,7 @@ Il profilo tecnico di convalida **login-NonInteractive** chiama la trasformazion
 
 Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteractive** di convalida.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationStringsAreNotEqual">Custom error message the email addresses you provided are not the same.</Item>
@@ -98,7 +98,7 @@ Modifica le maiuscole/minuscole dell'attestazione specificata a seconda dell'ope
 
 Usare questa trasformazione per cambiare le maiuscole/minuscole di qualsiasi stringa ClaimType.
 
-```XML
+```xml
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim1" />
@@ -132,7 +132,7 @@ Crea un'attestazione di stringa dal parametro di input specificato nella trasfor
 
 Usare questa trasformazione di attestazioni per impostare un valore ClaimType di stringa.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateTermsOfService" TransformationMethod="CreateStringClaim">
   <InputParameters>
     <InputParameter Id="value" DataType="string" Value="Contoso terms of service..." />
@@ -164,7 +164,7 @@ Determina se un'attestazione di stringa è uguale a un'altra. Il risultato è un
 
 Usare questa trasformazione di attestazioni per verificare se un'attestazione è uguale a un'altra. La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **email** è uguale a quello dell'attestazione **Verified.Email**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckEmail" TransformationMethod="CompareClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="Email" TransformationClaimType="inputClaim1" />
@@ -205,7 +205,7 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 
 È possibile usare questa trasformazione di attestazioni per controllare se un'attestazione è uguale a un valore specificato. La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **termsOfUseConsentVersion** è uguale a `v1`.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsTermsOfUseConsentRequiredForVersion" TransformationMethod="CompareClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim1" />
@@ -246,7 +246,7 @@ Crea una stringa casuale tramite il generatore di numeri casuali. Se il generato
 
 L'esempio seguente genera un ID univoco globale. Questa trasformazione di attestazioni viene usata per creare un nome UPN casuale (nome dell'entità utente).
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateRandomUPNUserName" TransformationMethod="CreateRandomString">
   <InputParameters>
     <InputParameter Id="randomGeneratorType" DataType="string" Value="GUID" />
@@ -265,7 +265,7 @@ L'esempio seguente genera un ID univoco globale. Questa trasformazione di attest
 
 L'esempio seguente genera un valore intero casuale compreso tra 0 e 1000. Il valore viene formattato su OTP_{valore casuale}.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
   <InputParameters>
     <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
@@ -302,7 +302,7 @@ Formatta un'attestazione in base alla stringa formato specificata. Questa trasfo
 
 Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con un parametro {0}. L'esempio seguente crea un elemento **userPrincipalName**. Tutti i profili tecnici di provider di identità social, ad esempio `Facebook-OAUTH`, chiamano **CreateUserPrincipalName** per generare un elemento **userPrincipalName**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="upnUserName" TransformationClaimType="inputClaim" />
@@ -338,7 +338,7 @@ Formatta due attestazioni in base alla stringa di formato specificata. Questa tr
 
 Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con due parametri, {0} e {1}. L'esempio seguente crea un elemento **displayName** con il formato specificato:
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateDisplayNameFromFirstNameAndLastName" TransformationMethod="FormatStringMultipleClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputClaim1" />
@@ -385,7 +385,7 @@ Nell'esempio seguente vengono cercati l'oggetto, il corpo, il messaggio di codic
 
 Definire le stringhe localizzate per la lingua inglese (impostazione predefinita) e per lo spagnolo.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
     <SupportedLanguage>en</SupportedLanguage>
@@ -413,7 +413,7 @@ Definire le stringhe localizzate per la lingua inglese (impostazione predefinita
 
 La trasformazione di attestazioni imposta il valore del tipo di attestazione *subject* sul valore *email_subject* di `StringId`.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
@@ -444,7 +444,7 @@ Cerca un elemento da un'attestazione da una raccolta **Restriction** di attestaz
 
 L'esempio seguente cerca la descrizione del messaggio di errore in base alla chiave di errore. L'attestazione **responseMsg** contiene una raccolta di messaggi di errori da presentare all'utente finale o da inviare alla relying party.
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>
@@ -458,7 +458,7 @@ L'esempio seguente cerca la descrizione del messaggio di errore in base alla chi
 ```
 La trasformazione di attestazioni esegue la ricerca del testo dell'elemento e ne restituisce il valore. Se la restrizione è localizzata usando `<LocalizedCollection>`, la trasformazione di attestazioni restituisce il valore localizzato.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetResponseMsgMappedToResponseCode" TransformationMethod="GetMappedValueFromLocalizedCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
@@ -489,7 +489,7 @@ Esegue la ricerca di un valore di attestazione da un elenco di valori in base al
 
 L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters. La trasformazione delle attestazioni esegue la ricerca del nome di dominio nell'identificatore e ne restituisce il valore (ID applicazione).
 
-```XML
+```xml
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
@@ -524,7 +524,7 @@ Quando il parametro di input `errorOnFailedLookup` è impostato su `true`, la tr
 
 L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters. La trasformazione di attestazioni esegue la ricerca del nome di dominio nell'identificatore e ne restituisce il valore (ID applicazione) oppure genera un messaggio di errore.
 
-```XML
+```xml
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
@@ -564,7 +564,7 @@ Pulisce il valore di una determinata attestazione.
 
 Usare questa trasformazione di attestazione per rimuovere i dati non necessari dal contenitore delle proprietà delle attestazioni, in modo che il cookie di sessione sia minore. L'esempio seguente rimuove il valore del tipo di attestazione `TermsOfService`.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
   <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="TermsOfService" TransformationClaimType="claim_to_null" />
@@ -588,7 +588,7 @@ Ottiene la parte di dominio di un indirizzo di posta elettronica.
 
 Usare questa trasformazione di attestazioni per analizzare il nome di dominio dopo il simbolo @ dell'utente. La trasformazione di attestazioni seguenti dimostra come analizzare il nome di dominio da un'attestazione **email**.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="emailAddress" />
@@ -624,7 +624,7 @@ Verifica che un'attestazione di stringa e il parametro di input `claimToMatch` s
 
 Verifica se il numero di telefono indicato è valido, in base al modello di espressione regolare del numero di telefono.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
@@ -653,7 +653,7 @@ Verifica se il numero di telefono indicato è valido, in base al modello di espr
 
 Verifica se l'indirizzo e-mail specificato è valido e restituisce l'alias di posta elettronica.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
@@ -699,7 +699,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 
 È possibile usare questa trasformazione di attestazioni per controllare se un'attestazione è uguale a un valore specificato. La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **termsOfUseConsentVersion** è uguale a `v1`. In caso affermativo, impostare il valore su `v2`.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim" />
@@ -746,7 +746,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 
 La trasformazione di attestazioni seguente, ad esempio, controlla se il valore dell'attestazione **ageGroup** è uguale a `Minor`. In caso affermativo, restituisce il valore a `B2C_V1_90001`.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="ageGroup" TransformationClaimType="claimToMatch" />
@@ -789,7 +789,7 @@ Determina se una substring specificata si trova all'interno dell'attestazione di
 
 Usare questa trasformazione di attestazioni per verificare se un tipo di attestazione di stringa contiene una substring. Nell'esempio seguente viene verificato se il tipo di attestazione di stringa `roles` contiene il valore **admin**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
@@ -828,7 +828,7 @@ Estrae parti di un tipo di attestazione di stringa, a partire dal carattere in c
 Ottenere ad esempio il prefisso del paese/area geografica del numero di telefono.
 
 
-```XML
+```xml
 <ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
@@ -866,7 +866,7 @@ Cerca un valore specificato in una stringa del tipo di attestazione e restituisc
 Normalizzare ad esempio un numero di telefono rimuovendo i caratteri `-`
 
 
-```XML
+```xml
 <ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
@@ -902,7 +902,7 @@ Concatena gli elementi di un tipo di attestazione della raccolta di stringhe spe
 
 L'esempio seguente accetta una raccolta di stringhe di ruoli utente e la converte in una stringa con delimitatore virgola. È possibile usare questo metodo per archiviare una raccolta di stringhe nell'account utente di Azure AD. In seguito, quando l'account viene letto dalla directory, usare `StringSplit` per convertire nuovamente la stringa con delimitatore virgola nella raccolta di stringhe.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
   <InputClaims>
    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim" />
@@ -938,7 +938,7 @@ Restituisce una matrice di stringhe contenente le sottostringhe di questa string
 
 L'esempio seguente accetta una stringa di ruoli utente con delimitatore virgola e la converte in una raccolta di stringhe.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="rolesCommaDelimiter" TransformationClaimType="inputClaim" />

@@ -2,26 +2,25 @@
 title: Accedere alle API locali con Azure AD proxy di applicazione
 description: Il proxy di applicazione di Azure Active Directory consente alle app native di accedere in modo sicuro alle API e alla logica di business ospitate in locale o in macchine virtuali cloud.
 services: active-directory
-author: jeevanbisht
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: has-adal-ref
-ms.openlocfilehash: 74c6951a718d15a9ca7b84e92662272ba1bfd182
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206445"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Proteggere l'accesso alle API locali con Azure AD proxy di applicazione
 
-È possibile che siano presenti API per la logica di business in esecuzione in locale o ospitate in macchine virtuali nel cloud. Le app native per Android, iOS, Mac o Windows devono interagire con gli endpoint dell'API per usare i dati o fornire l'interazione dell'utente. Azure AD proxy di applicazione e le [librerie di autenticazione Azure Active Directory (adal)](/azure/active-directory/develop/active-directory-authentication-libraries) consentono alle app native di accedere in modo sicuro alle API locali. Azure Active Directory Application Proxy è una soluzione più veloce e sicura rispetto all'apertura delle porte del firewall e al controllo dell'autenticazione e dell'autorizzazione a livello di app.
+È possibile che siano presenti API per la logica di business in esecuzione in locale o ospitate in macchine virtuali nel cloud. Le app native per Android, iOS, Mac o Windows devono interagire con gli endpoint dell'API per usare i dati o fornire l'interazione dell'utente. Azure AD proxy di applicazione e [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/active-directory-authentication-libraries) consentono alle app native di accedere in modo sicuro alle API locali. Azure Active Directory Application Proxy è una soluzione più veloce e sicura rispetto all'apertura delle porte del firewall e al controllo dell'autenticazione e dell'autorizzazione a livello di app.
 
 Questo articolo illustra la configurazione di una soluzione Azure AD proxy di applicazione per l'hosting di un servizio API Web a cui possono accedere le app native.
 
@@ -35,7 +34,7 @@ Il diagramma seguente illustra come è possibile usare Azure AD proxy di applica
 
 ![Accesso all'API del proxy dell'applicazione Azure AD](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-Il proxy dell'applicazione Azure AD costituisce il backbone della soluzione, funziona come endpoint pubblico per l'accesso all'API e fornisce l'autenticazione e l'autorizzazione. È possibile accedere alle API da una vasta gamma di piattaforme usando le librerie [adal](/azure/active-directory/develop/active-directory-authentication-libraries) .
+Il proxy dell'applicazione Azure AD costituisce il backbone della soluzione, funziona come endpoint pubblico per l'accesso all'API e fornisce l'autenticazione e l'autorizzazione. È possibile accedere alle API da una vasta gamma di piattaforme usando le librerie di [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/active-directory-authentication-libraries) .
 
 Poiché Azure AD l'autenticazione e l'autorizzazione del proxy di applicazione sono basate su Azure AD, è possibile usare Azure AD l'accesso condizionale per garantire che solo i dispositivi attendibili possano accedere alle API pubblicate tramite il proxy di applicazione. Usare Azure AD join o Azure AD ibrido aggiunto per i desktop e Intune gestito per i dispositivi. È anche possibile sfruttare le funzionalità di Azure Active Directory Premium come Azure Multi-Factor Authentication e la sicurezza basata su Machine Learning di [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
@@ -113,7 +112,7 @@ Per registrare l'app nativa AppProxyNativeAppSample:
 
    1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
 
-   1. In **URL di reindirizzamento**, a discesa e selezionare **client pubblico (mobile & desktop)**, quindi immettere *https:\//appproxynativeapp*.
+   1. In **URL di reindirizzamento**, a discesa e selezionare **client pubblico (mobile & desktop)**, quindi immettere *https://login.microsoftonline.com/common/oauth2/nativeclient* .
 
    1. Selezionare **Register (registra**) e attendere che l'app venga registrata correttamente.
 
@@ -121,7 +120,7 @@ Per registrare l'app nativa AppProxyNativeAppSample:
 
 A questo punto è stata registrata l'app AppProxyNativeAppSample in Azure Active Directory. Per concedere all'app nativa l'accesso all'API Web SecretAPI:
 
-1. Nella pagina Azure Active Directory **Panoramica** > delle**registrazioni dell'app** selezionare l'app **AppProxyNativeAppSample** .
+1. Nella pagina Azure Active Directory **Panoramica**delle  >  **registrazioni dell'app** selezionare l'app **AppProxyNativeAppSample** .
 
 1. Nella pagina **AppProxyNativeAppSample** selezionare **autorizzazioni API** nel percorso di spostamento a sinistra.
 
@@ -137,26 +136,42 @@ A questo punto è stata registrata l'app AppProxyNativeAppSample in Azure Active
 
 ## <a name="configure-the-native-app-code"></a>Configurare il codice dell'app nativa
 
-L'ultimo passaggio consiste nel configurare l'app nativa. Il frammento di codice seguente dal file *Form1.cs* nell'app di esempio NativeClient fa in modo che la libreria adal acquisisca il token per la richiesta della chiamata API e lo colleghi come Bearer all'intestazione dell'app.
+L'ultimo passaggio consiste nel configurare l'app nativa. Il frammento di codice seguente dal file *Form1.cs* nell'app di esempio NativeClient fa in modo che la libreria MSAL acquisisca il token per la richiesta della chiamata API e lo colleghi come Bearer all'intestazione dell'app.
 
-   ```csharp
-       AuthenticationResult result = null;
-       HttpClient httpClient = new HttpClient();
-       authContext = new AuthenticationContext(authority);
-       result = await authContext.AcquireTokenAsync(todoListResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Auto));
-
-       // Append the token as bearer in the request header.
-       httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-       // Call the API.
-       HttpResponseMessage response = await httpClient.GetAsync(todoListBaseAddress + "/api/values/4");
-
-       // MessageBox.Show(response.RequestMessage.ToString());
-       string s = await response.Content.ReadAsStringAsync();
-       MessageBox.Show(s);
    ```
+   // Acquire Access Token from AAD for Proxy Application
+ IPublicClientApplication clientApp = PublicClientApplicationBuilder
+.Create(<App ID of the Native app>)
+.WithDefaultRedirectUri() // will automatically use the default Uri for native app
+.WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
+.Build();
 
-Per configurare l'app nativa per connettersi a Azure Active Directory e chiamare il proxy dell'app per le API, aggiornare i valori segnaposto nel file *app. config* dell'app di esempio NativeClient con i valori da Azure ad:
+AuthenticationResult authResult = null;
+var accounts = await clientApp.GetAccountsAsync();
+IAccount account = accounts.FirstOrDefault();
+
+IEnumerable<string> scopes = new string[] {"<Scope>"};
+
+try
+ {
+    authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
+ }
+    catch (MsalUiRequiredException ex)
+ {
+     authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();                
+ }
+ 
+if (authResult != null)
+ {
+  //Use the Access Token to access the Proxy Application
+  
+  HttpClient httpClient = new HttpClient();
+  HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+  HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
+ }
+```
+
+Per configurare l'app nativa per la connessione a Azure Active Directory e chiamare il proxy dell'app per le API, aggiornare i valori segnaposto nel file di *App.config* dell'app di esempio NativeClient con i valori da Azure ad:
 
 - Incollare l' **ID di directory (tenant)** nel `<add key="ida:Tenant" value="" />` campo. È possibile trovare e copiare questo valore (un GUID) dalla pagina **Panoramica** di una delle app.
 
@@ -166,7 +181,7 @@ Per configurare l'app nativa per connettersi a Azure Active Directory e chiamare
 
 - Incollare l' **URI dell'ID applicazione** SecretAPI nel `<add key="todo:TodoListResourceId" value="" />` campo. È possibile trovare e copiare questo valore (un URI) dal SecretAPI **esporre una** pagina dell'API.
 
-- Incollare l' **URL della Home page** di SecretAPI `<add key="todo:TodoListBaseAddress" value="" />` nel campo. È possibile trovare e copiare questo valore (un URL) dalla pagina di **personalizzazione** di SecretAPI.
+- Incollare l' **URL della Home page** di SecretAPI nel `<add key="todo:TodoListBaseAddress" value="" />` campo. È possibile trovare e copiare questo valore (un URL) dalla pagina di **personalizzazione** di SecretAPI.
 
 Dopo aver configurato i parametri, compilare ed eseguire l'app nativa. Quando si seleziona il pulsante **Accedi** , l'app consente di accedere e quindi Visualizza una schermata di operazione completata per verificare che sia stata connessa correttamente a SecretAPI.
 
@@ -174,6 +189,6 @@ Dopo aver configurato i parametri, compilare ed eseguire l'app nativa. Quando si
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
-- [Guida introduttiva: Configurare un'applicazione client per accedere alle API Web](../develop/quickstart-configure-app-access-web-apis.md)
-- [Come abilitare le applicazioni client native per l'interazione con le applicazioni proxy](application-proxy-configure-native-client-application.md)
+- [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Avvio rapido: Configurare un'applicazione client per l'accesso ad API Web](../develop/quickstart-configure-app-access-web-apis.md)
+- [Come abilitare applicazioni client native per l'interazione con applicazioni proxy](application-proxy-configure-native-client-application.md)

@@ -2,14 +2,14 @@
 title: Configurare Data Manager blockchain usando l'interfaccia della riga di comando di Azure-servizio blockchain di Azure
 description: Creare e gestire un Data Manager blockchain per il servizio blockchain di Azure con l'interfaccia della riga di comando di Azure
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200461"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurare Blockchain Data Manager con l'interfaccia della riga di comando di Azure
 
@@ -25,7 +25,7 @@ Per configurare un'istanza di Data Manager blockchain, è necessario:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Installare la versione più recente dell' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli) della riga `az login`di comando di Azure e accedere usando.
+* Installare la versione più recente dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e accedere usando `az login` .
 * [Guida introduttiva completa: usare Visual Studio Code per connettersi a una rete di Azure blockchain Service Consortium](connect-vscode.md). Il livello *standard* del servizio Azure blockchain è consigliato quando si usa blockchain Data Manager.
 * Creare un [argomento di griglia di eventi](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Informazioni su [Gestori eventi di Griglia di eventi di Azure](../../event-grid/event-handlers.md)
@@ -125,7 +125,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | Nome del gruppo di risorse in cui creare la risorsa di input. |
 | name | Nome dell'input. |
-| namespace | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
+| spazio dei nomi | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
 | tipo di risorsa | Il tipo di risorsa per un input di Data Manager **blockchain è input**. |
 | padre | Percorso al Watcher a cui è associato l'input. Ad esempio, **Watcher/** controllo. |
 | is-full-object | Indica che le proprietà contengono opzioni per la risorsa di input. |
@@ -133,7 +133,7 @@ az resource create \
 
 ### <a name="input-examples"></a>Esempi di input
 
-Esempio JSON di configurazione per creare una risorsa di input nell'area *Stati Uniti orientali* connessa \<al membro\>blockchain.
+Esempio JSON di configurazione per creare una risorsa di input nell'area *Stati Uniti orientali* a cui è connessa \<Blockchain member\> .
 
 ``` json
 {
@@ -151,7 +151,7 @@ Esempio JSON di configurazione per creare una risorsa di input nell'area *Stati 
 |---------|-------------|
 | posizione | Area in cui creare la risorsa di input. |
 | inputType | Tipo di Ledger del membro del servizio Azure blockchain. Attualmente, **Ethereum** è supportato. |
-| resourceId | Nodo della transazione a cui è connesso l'input. Sostituire \<l'ID\>sottoscrizione \<, il\>gruppo di \<risorse e\> il membro blockchain con i valori per la risorsa del nodo della transazione. L'input si connette al nodo di transazione predefinito per il membro del servizio Azure blockchain. |
+| resourceId | Nodo della transazione a cui è connesso l'input. Sostituire \<Subscription ID\> , \<Resource group\> e \<Blockchain member\> con i valori per la risorsa del nodo della transazione. L'input si connette al nodo di transazione predefinito per il membro del servizio Azure blockchain. |
 
 Creare un input denominato input per il *controllo* tramite una stringa *JSON per la* configurazione.
 
@@ -197,7 +197,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | Nome del gruppo di risorse in cui creare la risorsa di output. |
 | name | Nome dell'output. |
-| namespace | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
+| spazio dei nomi | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
 | tipo di risorsa | Il tipo di risorsa per un output di blockchain **Data Manager è**Outputs. |
 | padre | Percorso al Watcher a cui è associato l'output. Ad esempio, **Watcher/** controllo. |
 | is-full-object | Indica che le proprietà contengono opzioni per la risorsa di output. |
@@ -205,7 +205,7 @@ az resource create \
 
 ### <a name="output-examples"></a>Esempi di output
 
-Esempio di JSON di configurazione per creare una risorsa di output nell'area *Stati Uniti orientali* connessa a un argomento di \<griglia di eventi\>denominato griglia di eventi.
+Esempio JSON di configurazione per creare una risorsa di output nell'area *Stati Uniti orientali* connessa a un argomento di griglia di eventi denominato \<event grid topic\> .
 
 ``` json
 {
@@ -223,7 +223,7 @@ Esempio di JSON di configurazione per creare una risorsa di output nell'area *St
 |---------|-------------|
 | posizione | Area in cui creare la risorsa di output. |
 | outputType | Tipo di output. Attualmente, **EventGrid** è supportato. |
-| resourceId | Risorsa a cui è connesso l'output. Sostituire \<ID\>sottoscrizione, \<gruppo\>di risorse e \<membro\> blockchain con i valori per la risorsa griglia di eventi. |
+| resourceId | Risorsa a cui è connesso l'output. Sostituire \<Subscription ID\> , \<Resource group\> e \<Blockchain member\> con i valori per la risorsa griglia di eventi. |
 
 Creare un output denominato output per il *controllo* che si connette a un *argomento di griglia* di eventi usando una stringa di configurazione JSON.
 
@@ -274,7 +274,7 @@ az resource create \
 |-----------|-------------|
 | resource-group | Nome del gruppo di risorse in cui creare la risorsa dell'applicazione. |
 | name | Nome dell'applicazione. |
-| namespace | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
+| spazio dei nomi | Utilizzare lo spazio dei nomi del provider **Microsoft. blockchain** . |
 | tipo di risorsa | Il tipo di risorsa per un'applicazione blockchain Data Manager è **artefatti**. |
 | padre | Percorso al Watcher a cui è associata l'applicazione. Ad esempio, **Watcher/** controllo. |
 | is-full-object | Indica che le proprietà contengono opzioni per la risorsa dell'applicazione. |
@@ -345,10 +345,10 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| Parametro | Descrizione |
+| Parametro | Description |
 |-----------|-------------|
 | action | Usare **Start** per eseguire il Watcher. |
-| ids | ID risorsa Watcher. Sostituire \<l'ID\>sottoscrizione \<, il\>gruppo di \<risorse e\> il nome del Watcher con i valori per la risorsa Watcher.|
+| ids | ID risorsa Watcher. Sostituire \<Subscription ID\> , \<Resource group\> e \<Watcher name\> con i valori per la risorsa Watcher.|
 
 ### <a name="start-instance-example"></a>Esempio di istanza di avvio
 
@@ -370,10 +370,10 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| Parametro | Descrizione |
+| Parametro | Description |
 |-----------|-------------|
 | action | Utilizzare **Interrompi** per arrestare il Watcher. |
-| ids | Nome del Watcher. Sostituire \<l'ID\>sottoscrizione \<, il\>gruppo di \<risorse e\> il nome del Watcher con i valori per la risorsa Watcher. |
+| ids | Nome del Watcher. Sostituire \<Subscription ID\> , \<Resource group\> e \<Watcher name\> con i valori per la risorsa Watcher. |
 
 ### <a name="stop-watcher-example"></a>Esempio di arresta Watcher
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396882"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203810"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
 
@@ -73,15 +73,15 @@ L'elemento **Parameter** contiene gli attributi seguenti:
 
 Il metodo IsLengthRange controlla se la lunghezza di un valore di attestazione di stringa rientra nell'intervallo dei parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | ------- | ----------- | ----------- |
 | Massimo | Sì | Numero massimo di caratteri che è possibile immettere. |
-| Minima | Sì | Numero minimo di caratteri che devono essere immessi. |
+| Minimo | Sì | Numero minimo di caratteri che devono essere immessi. |
 
 
-Nell'esempio seguente viene illustrato un metodo IsLengthRange con i `Minimum` parametri `Maximum` e che specificano l'intervallo di lunghezza della stringa:
+Nell'esempio seguente viene illustrato un metodo IsLengthRange con i parametri `Minimum` e `Maximum` che specificano l'intervallo di lunghezza della stringa:
 
-```XML
+```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
   <Parameters>
     <Parameter Id="Minimum">8</Parameter>
@@ -94,13 +94,13 @@ Nell'esempio seguente viene illustrato un metodo IsLengthRange con i `Minimum` p
 
 Il metodo MatchesRegex controlla se un valore di attestazione stringa corrisponde a un'espressione regolare. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | ------- | ----------- | ----------- |
 | RegularExpression | Sì | Criterio di espressione regolare di cui trovare la corrispondenza. |
 
 L'esempio seguente mostra un metodo `MatchesRegex` con il parametro `RegularExpression` che specifica un'espressione regolare:
 
-```XML
+```xml
 <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
@@ -112,13 +112,13 @@ L'esempio seguente mostra un metodo `MatchesRegex` con il parametro `RegularExpr
 
 Il metodo IncludesCharacters controlla se un valore di attestazione stringa contiene un set di caratteri. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | ------- | ----------- | ----------- |
-| CharacterSet | Sì | Set di caratteri che è possibile immettere. Ad `a-z`esempio, caratteri minuscoli, caratteri `A-Z`maiuscoli, `0-9`cifre o un elenco di simboli, ad esempio `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`. |
+| CharacterSet | Sì | Set di caratteri che è possibile immettere. Ad esempio, caratteri minuscoli, `a-z` caratteri maiuscoli `A-Z` , cifre `0-9` o un elenco di simboli, ad esempio `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
 L'esempio seguente mostra un metodo `IncludesCharacters` con il parametro `CharacterSet` che specifica il set di caratteri:
 
-```XML
+```xml
 <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
@@ -130,14 +130,14 @@ L'esempio seguente mostra un metodo `IncludesCharacters` con il parametro `Chara
 
 Il metodo IsDateRange controlla se un valore di attestazione data è compreso tra un intervallo di parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | ------- | ----------- | ----------- |
-| Massimo | Sì | Data massima consentita per l'immissione. Il formato della data segue `yyyy-mm-dd` la convenzione o. `Today` |
-| Minima | Sì | Data minima che è possibile immettere. Il formato della data segue `yyyy-mm-dd` la convenzione o. `Today`|
+| Massimo | Sì | Data massima consentita per l'immissione. Il formato della data segue la `yyyy-mm-dd` convenzione o `Today` . |
+| Minimo | Sì | Data minima che è possibile immettere. Il formato della data segue la `yyyy-mm-dd` convenzione o `Today` .|
 
 L'esempio seguente mostra un metodo `IsDateRange` con i parametri `Minimum` e `Maximum` che specificano l'intervallo di date con un formato `yyyy-mm-dd` e `Today`.
 
-```XML
+```xml
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
   <Parameters>
     <Parameter Id="Minimum">1970-01-01</Parameter>
@@ -152,7 +152,7 @@ Mentre i predicati definiscono la convalida da controllare rispetto a un tipo di
 
 L'elemento **PredicateValidations** deve essere visualizzato direttamente dopo l'elemento **Predicates** all'interno dell'elemento [BuildingBlocks](buildingblocks.md) .
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="">
     <PredicateGroups>
@@ -234,12 +234,12 @@ Con gli elementi **Predicates** e **PredicateValidationsInput** è possibile con
 - **Lowercase** con il metodo `IncludesCharacters`, convalida che la password contiene una lettera minuscola.
 - **Uppercase** con il metodo `IncludesCharacters` convalida che la password contiene una lettera maiuscola.
 - **Number** con il metodo `IncludesCharacters` convalida che la password contiene una cifra.
-- **Simbolo** che usa `IncludesCharacters` il metodo, verifica che la password contenga uno dei diversi caratteri simbolo.
+- **Simbolo** che usa il `IncludesCharacters` metodo, verifica che la password contenga uno dei diversi caratteri simbolo.
 - **PIN** con il metodo `MatchesRegex` convalida che la password contiene solo numeri.
 - **AllowedAADCharacters** con il metodo `MatchesRegex` convalida che la password è costituita solo da caratteri non validi.
 - **DisallowedWhitespace** con il metodo `MatchesRegex` convalida che la password non inizia o non finisce con un carattere di spazio.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
@@ -297,7 +297,7 @@ Dopo aver definito le convalide di base, è possibile combinarle e creare un set
 - **StrongPassword** convalida DisallowedWhitespace, AllowedAADCharacters e IsLengthBetween8And64. L'ultimo gruppo `CharacterClasses` esegue un set di predicati aggiuntivo con `MatchAtLeast` impostato su 3. La password dell'utente deve essere compresa tra 8 e 16 caratteri e includere tre dei caratteri seguenti: minuscola, maiuscola, numero o simbolo.
 - **CustomPassword** convalida solo DisallowedWhitespace e AllowedAADCharacters. L'utente può pertanto specificare una password di qualsiasi lunghezza, purché i caratteri siano validi.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="SimplePassword">
     <PredicateGroups>
@@ -367,7 +367,7 @@ Dopo aver definito le convalide di base, è possibile combinarle e creare un set
 
 Nel tipo di attestazione aggiungere l'elemento **PredicateValidationReference** e specificare l'identificatore come una delle convalide di predicato, ad esempio SimplePassword, StrongPassword o CustomPassword.
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -386,7 +386,7 @@ Di seguito viene illustrato come vengono organizzati gli elementi quando Azure A
 
 Con gli elementi **Predicates** e **PredicateValidations** è possibile controllare i valori di data minimo e massimo di **UserInputType** usando un elemento `DateTimeDropdown`. Creare a tale scopo un elemento **Predicate** con il metodo `IsDateRange` e specificare i parametri minimo e massimo.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
@@ -399,7 +399,7 @@ Con gli elementi **Predicates** e **PredicateValidations** è possibile controll
 
 Aggiungere un elemento **PredicateValidation** con un riferimento al predicato `DateRange`.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="CustomDateRange">
     <PredicateGroups>
@@ -415,7 +415,7 @@ Aggiungere un elemento **PredicateValidation** con un riferimento al predicato `
 
 Nel tipo di attestazione aggiungere l'elemento **PredicateValidationReference** e specificare l'identificatore come `CustomDateRange`.
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>
   <DataType>date</DataType>

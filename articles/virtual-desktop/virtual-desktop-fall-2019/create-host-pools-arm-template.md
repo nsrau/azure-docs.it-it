@@ -4,21 +4,21 @@ description: Come creare un pool host in un desktop virtuale Windows con un mode
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c24e212f901f0af38a24ab203070f637de860fc7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 925d3ab7c01ef8dc4a2c5d590a56b4d558170472
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204762"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creare un pool di host con un modello di Azure Resource Manager
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 
@@ -28,11 +28,11 @@ Seguire le istruzioni di questa sezione per creare un pool di host per un tenant
 
 Prima di eseguire il modello di Azure Resource Manager, assicurarsi di avere a conoscenza gli elementi seguenti:
 
-- Dove l'origine dell'immagine che si vuole usare è. Si tratta di una raccolta di Azure o è personalizzata?
+- Dove si trova l'origine dell'immagine da usare, ovvero Si tratta di una raccolta di Azure o è personalizzata?
 - Credenziali di aggiunta al dominio.
 - Credenziali del desktop virtuale di Windows.
 
-Quando si crea un pool di host per desktop virtuali Windows con il modello di Azure Resource Manager, è possibile creare una macchina virtuale dalla raccolta di Azure, da un'immagine gestita o da un'immagine non gestita. Per altre informazioni su come creare immagini di VM, vedere [preparare un disco rigido virtuale Windows o VHDX per il caricamento in Azure](../../virtual-machines/windows/prepare-for-upload-vhd-image.md) e [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../../virtual-machines/windows/capture-image-resource.md).
+Quando si crea un pool di host di Desktop virtuale Windows con il modello di Azure Resource Manager, è possibile creare una macchina virtuale dalla raccolta di Azure, da un'immagine gestita o da un'immagine non gestita. Per altre informazioni su come creare immagini della macchina virtuale, vedere [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](../../virtual-machines/windows/prepare-for-upload-vhd-image.md) e [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../../virtual-machines/windows/capture-image-resource.md).
 
 ## <a name="run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool"></a>Eseguire il modello di Azure Resource Manager per il provisioning di un nuovo pool di host
 
@@ -46,7 +46,7 @@ Se si esegue la distribuzione in una sottoscrizione Cloud Solution Provider, att
 
 1. Scorrere in basso e fare clic con il pulsante destro del mouse su **Distribuisci in Azure**, quindi scegliere **Copia collegamento**.
 2. Aprire un editor di testo, come il Blocco note, e incollarvi il collegamento.
-3. Subito dopo "https://portal.azure.com/" e prima dell'hashtag (#) immettere un simbolo di chiocciola (@) seguito dal nome di dominio del tenant. Di seguito è riportato un esempio del formato da usare: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/`.
+3. Subito dopo " https://portal.azure.com/ " e prima dell'hashtag (#) immettere un simbolo di chiocciola (@) seguito dal nome di dominio del tenant. Di seguito è riportato un esempio del formato da usare: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/` .
 4. Accedere al portale di Azure come utente con autorizzazioni di Amministratore/Collaboratore per la sottoscrizione di Cloud Solution Provider.
 5. Incollare nella barra degli indirizzi il collegamento copiato nell'editor di testo.
 
@@ -70,7 +70,7 @@ Successivamente, aggiungere gli utenti al gruppo di applicazioni desktop con que
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-L'UPN dell'utente deve corrispondere all'identità dell'utente in Azure Active Directory (ad esempio, user1@contoso.com). Se si vogliono aggiungere più utenti, è necessario eseguire questo cmdlet per ognuno.
+L'UPN dell'utente deve corrispondere all'identità dell'utente in Azure Active Directory (ad esempio, user1@contoso.com ). Se si vogliono aggiungere più utenti, è necessario eseguire questo cmdlet per ognuno.
 
 Dopo aver completato questi passaggi, gli utenti aggiunti al gruppo di applicazioni desktop possono accedere a Desktop virtuale Windows con i client di Desktop remoto supportati e vedere una risorsa per un desktop di sessione.
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202858"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -30,7 +30,7 @@ L'elemento **ContentDefinitions** include gli URL per i template HTML5 che posso
 
 L'esempio seguente mostra l'identificatore di definizione del contenuto e la definizione di risorse localizzate:
 
-```XML
+```xml
 <ContentDefinition Id="api.localaccountsignup">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -46,7 +46,7 @@ L'esempio seguente mostra l'identificatore di definizione del contenuto e la def
 
 I metadati del profilo tecnico autocertificato **LocalAccountSignUpWithLogonEmail** contengono l'identificatore di definizione del contenuto **ContentDefinitionReferenceId** impostato su `api.localaccountsignup`
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -70,7 +70,7 @@ L'elemento **ContentDefinition** contiene gli elementi seguenti:
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Una stringa che contiene l'URL della pagina HTML5 per la definizione del contenuto. |
-| RecoveryUri | 1:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. Al momento non usato, il valore deve `~/common/default_page_error.html`essere. |
+| RecoveryUri | 1:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. Al momento non usato, il valore deve essere `~/common/default_page_error.html` . |
 | DataUri | 1:1 | Una stringa che contiene l'URL relativo di un file HTML che fornisce l'esperienza utente da richiamare per il passaggio. |
 | Metadati | 0:1 | Una raccolta di coppie chiave/valore che contiene i metadati usati per la definizione del contenuto. |
 | LocalizedResourcesReferences | 0:1 | Una raccolta di riferimenti di risorse localizzate. Usare questo elemento per personalizzare la localizzazione di un'interfaccia utente e di un attributo delle attestazioni. |
@@ -94,9 +94,9 @@ L'elemento **DataUri** viene usato per specificare l'identificatore della pagina
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Nella parte della [versione](page-layout.md) di `DataUri` è specificato il pacchetto di contenuto contenente HTML, CSS e JavaScript per gli elementi dell'interfaccia utente nei criteri. Se si intende abilitare il codice JavaScript lato client, gli elementi su cui si basa il codice JavaScript non devono essere modificabili. Se non sono immutabili, le eventuali modifiche potrebbero provocare comportamenti imprevisti nelle pagine utente. Per evitare questi problemi, imporre l'utilizzo di un layout di pagina e specificare una versione del layout di pagina. In questo modo si garantisce che tutte le definizioni di contenuto su cui si basa JavaScript siano non modificabili. Anche se non si intende abilitare JavaScript, è comunque necessario specificare la versione del layout di pagina per le pagine.
+Nella parte della [versione](page-layout.md) di è `DataUri` specificato il pacchetto di contenuto contenente HTML, CSS e JavaScript per gli elementi dell'interfaccia utente nei criteri. Se si intende abilitare il codice JavaScript lato client, gli elementi su cui si basa il codice JavaScript non devono essere modificabili. Se non sono immutabili, le eventuali modifiche potrebbero provocare comportamenti imprevisti nelle pagine utente. Per evitare questi problemi, imporre l'utilizzo di un layout di pagina e specificare una versione del layout di pagina. In questo modo si garantisce che tutte le definizioni di contenuto su cui si basa JavaScript siano non modificabili. Anche se non si intende abilitare JavaScript, è comunque necessario specificare la versione del layout di pagina per le pagine.
 
-Nell'esempio seguente viene illustrato **DataUri** il DataUri `selfasserted` di `1.2.0`versione:
+Nell'esempio seguente viene illustrato il **DataUri** di `selfasserted` versione `1.2.0` :
 
 ```xml
 <ContentDefinition Id="api.localaccountpasswordreset">
@@ -111,7 +111,7 @@ Nell'esempio seguente viene illustrato **DataUri** il DataUri `selfasserted` di 
 
 #### <a name="migrating-to-page-layout"></a>Migrazione al layout di pagina
 
-Il formato del valore deve contenere la parola `contract`: _urn: com: Microsoft: AAD: B2C: Elements:**Contract**:p Age-Name: Version_. Per specificare un layout di pagina nei criteri personalizzati che usano un valore **DataUri** precedente, usare la tabella seguente per eseguire la migrazione al nuovo formato.
+Il formato del valore deve contenere la parola `contract` : _urn: com: Microsoft: AAD: B2C: Elements:**Contract**:p Age-Name: Version_. Per specificare un layout di pagina nei criteri personalizzati che usano un valore **DataUri** precedente, usare la tabella seguente per eseguire la migrazione al nuovo formato.
 
 | Valore di DataUri precedente | Nuovo valore di DataUri |
 | ----------------- | ----------------- |
@@ -166,7 +166,7 @@ L'elemento **LocalizedResourcesReference** contiene gli attributi seguenti:
 
 Nell'esempio seguente viene illustrata una definizione del contenuto di iscrizione o accesso con un riferimento alla localizzazione per inglese, francese e spagnolo:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>

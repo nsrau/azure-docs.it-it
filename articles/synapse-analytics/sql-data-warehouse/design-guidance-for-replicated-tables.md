@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f3418d73496ae25782b57a43e3357dc0bc7131a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201702"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Linee guida di progettazione per l'uso di tabelle replicate nel pool Synapse SQL
 
@@ -126,7 +126,7 @@ WHERE d.FiscalYear = 2004
 
 Il pool SQL implementa una tabella replicata mantenendo una versione master della tabella. Copia la versione master nel primo database di distribuzione in ogni nodo di calcolo. Quando viene eseguita una modifica, prima viene aggiornata la versione master e quindi le tabelle in ogni nodo di calcolo vengono ricompilate. La ricompilazione di una tabella replicata include la copia della tabella in ogni nodo di calcolo e quindi la compilazione degli indici.  Una tabella replicata su DW2000c, ad esempio, ha 5 copie dei dati.  Una copia master e una copia completa in ogni nodo di calcolo.  Tutti i dati vengono archiviati nei database di distribuzione. Il pool SQL usa questo modello per supportare istruzioni di modifica dei dati più veloci e operazioni di ridimensionamento flessibili.
 
-Le compilazioni sono necessarie dopo le operazioni seguenti:
+Le ricompilazioni asincrone vengono attivate dalla prima query sulla tabella replicata dopo:
 
 - Vengono caricati o modificati dati
 - L'istanza di Synapse SQL viene ridimensionata a un livello diverso

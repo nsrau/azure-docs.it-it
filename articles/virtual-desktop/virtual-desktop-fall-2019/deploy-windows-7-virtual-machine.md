@@ -4,21 +4,21 @@ description: Come configurare e distribuire una macchina virtuale Windows 7 su d
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0cb5b2ee8b8391dc4fcb78cc1d3bd212c44f1803
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: eafe2050f834fdd9aecba492c7121be9c1e121e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206003"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 Il processo di distribuzione di una macchina virtuale (VM) Windows 7 in un desktop virtuale Windows è leggermente diverso rispetto a quello delle macchine virtuali che eseguono versioni successive di Windows. Questa guida illustra come distribuire Windows 7.
 
@@ -32,28 +32,29 @@ Dopo aver completato i prerequisiti, si è pronti per configurare la VM di Windo
 
 Per configurare una macchina virtuale Windows 7 in un desktop virtuale Windows:
 
-1. Accedere al portale di Azure e cercare l'immagine di Windows 7 Enterprise o caricare un'immagine personalizzata di Windows 7 Enterprise (x64).  
+1. Accedere al portale di Azure e cercare l'immagine di Windows 7 Enterprise o caricare un'immagine personalizzata di Windows 7 Enterprise (x64).
 2. Distribuire una o più macchine virtuali con Windows 7 Enterprise come sistema operativo host. Verificare che le macchine virtuali consentano Remote Desktop Protocol (RDP) (porta TCP/3389).
-3. Connettersi all'host Windows 7 Enterprise usando il protocollo RDP ed eseguire l'autenticazione con le credenziali definite durante la configurazione della distribuzione. 
+3. Connettersi all'host Windows 7 Enterprise usando il protocollo RDP ed eseguire l'autenticazione con le credenziali definite durante la configurazione della distribuzione.
 4. Aggiungere l'account usato durante la connessione all'host con RDP al gruppo "Desktop remoto user". Se non si esegue questa operazione, potrebbe non essere possibile connettersi alla macchina virtuale dopo l'aggiunta al dominio Active Directory.
 5. Passare a Windows Update nella macchina virtuale.
 6. Installare tutti gli aggiornamenti di Windows nella categoria importante.
 7. Installare tutti gli aggiornamenti di Windows nella categoria facoltativa (esclusi i Language Pack). Viene installato l'aggiornamento di Remote Desktop Protocol 8,0 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35387)) necessario per completare queste istruzioni.
-8. Aprire il Editor criteri di gruppo locali e passare a **configurazione** > computer**modelli amministrativi** > **componenti** > di Windows**Servizi Desktop remoto** > **host sessione Desktop remoto** > **ambiente sessione remota**.
+8. Aprire il Editor criteri di gruppo locali e passare a **Configurazione computer**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Servizi Desktop remoto**  >  **host sessione Desktop remoto**  >  **ambiente sessione remota**.
 9. Abilitare i criteri Remote Desktop Protocol 8,0.
 10. Aggiungere questa macchina virtuale al dominio Active Directory.
 11. Riavviare la macchina virtuale eseguendo il comando seguente:
-    
+
      ```cmd
      shutdown /r /t 0
      ```
-    
+
 12. Seguire le istruzioni riportate [qui](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) per ottenere un token di registrazione.
 13. [Scaricare l'agente desktop virtuale Windows per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Scaricare il desktop virtuale windows Agent Manager per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Aprire il programma di installazione dell'agente desktop virtuale di Windows e seguire le istruzioni. Quando richiesto, fornire la chiave di registrazione creata nel passaggio 12.
-16. Aprire il programma di installazione del desktop virtuale di Windows e seguire le istruzioni.
+16. Aprire il desktop virtuale di Windows Agent Manager e seguire le istruzioni.
 17. Facoltativamente, bloccare la porta TCP/3389 per rimuovere l'accesso diretto Remote Desktop Protocol alla macchina virtuale.
+18. Facoltativamente, verificare che la versione di .NET Framework sia almeno la 4.7.2. Questo è particolarmente importante se si sta creando un'immagine personalizzata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

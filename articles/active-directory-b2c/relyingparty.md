@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 733a33881fe3acc962aeda4b05a1b01be4e148ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8c4e65c7ee97b33acbd68bfd8267a334508e25c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203742"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -25,7 +25,7 @@ L'elemento **RelyingParty** specifica il percorso utente da applicare per la ric
 
 L'esempio seguente mostra un elemento **RelyingParty** nel file dei criteri *B2C_1A_signup_signin*:
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
@@ -86,7 +86,7 @@ L'elemento `DefaultUserJourney` specifica un riferimento all'identificatore del 
 
 Criterio *B2C_1A_signup_signin*:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn">
   ...
@@ -94,7 +94,7 @@ Criterio *B2C_1A_signup_signin*:
 
 *B2C_1A_TrustFrameWorkBase* o *B2C_1A_TrustFrameworkExtensionPolicy*:
 
-```XML
+```xml
 <UserJourneys>
   <UserJourney Id="SignUpOrSignIn">
   ...
@@ -222,7 +222,7 @@ L'elemento **SubjectNamingInfo** contiene l'attributo seguente:
 
 Nell'esempio seguente viene illustrato come definire un relying party OpenID Connect. Le informazioni sul nome del soggetto sono configurate come `objectId`:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <TechnicalProfile Id="PolicyProfile">
@@ -242,7 +242,7 @@ Nell'esempio seguente viene illustrato come definire un relying party OpenID Con
 ```
 Il token JWT include l'attestazione `sub` con l'elemento objectId dell'utente:
 
-```JSON
+```json
 {
   ...
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",

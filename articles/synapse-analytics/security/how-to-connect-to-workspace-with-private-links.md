@@ -4,15 +4,16 @@ description: Questo articolo illustra come connettersi all'area di lavoro di Azu
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: d217e6d49f33db099d54e6521073c56ec146c0b8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 0f2e01390a1ddd179e50523a8b5748994524a52e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193873"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Connettersi all'area di lavoro di Azure Synapse con i collegamenti privati (anteprima)
 

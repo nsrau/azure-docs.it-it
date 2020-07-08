@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202221"
 ---
 # <a name="general-claims-transformations"></a>Trasformazioni delle attestazioni generali
 
@@ -28,14 +28,14 @@ Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazion
 
 Copia il valore di un'attestazione in un altro. Entrambe le attestazioni devono essere dello stesso tipo.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | stringa, int | Tipo di attestazione da copiare. |
 | OutputClaim | outputClaim | stringa, int | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Usare questa trasformazione delle attestazioni per copiare un valore da un'attestazione stringa o numerica a un'altra attestazione. Nell'esempio seguente il valore dell'attestazione externalEmail viene copiato in attestazione posta elettronica.
 
-```XML
+```xml
 <ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
@@ -51,20 +51,20 @@ Usare questa trasformazione delle attestazioni per copiare un valore da un'attes
 - Attestazioni di input:
     - **attestazione**:bob@contoso.com
 - Attestazioni di output:
-    - **outputClaim**:bob@contoso.com
+    - **outputClaim**: bob@contoso.com
 
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
 Controlla se **inputClaim** esiste o meno e imposta **outputClaim** su true o false di conseguenza.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Qualsiasi | L'attestazione di input di cui deve essere verificata l'esistenza. |
 | OutputClaim | outputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Usare questa trasformazione delle attestazioni per verificare se un'attestazione esiste o contiene un valore. Il valore restituito è un valore booleano che indica se l'attestazione esiste. L'esempio controlla se l'indirizzo di posta elettronica esiste.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckIfEmailPresent" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim" />
@@ -86,14 +86,14 @@ Usare questa trasformazione delle attestazioni per verificare se un'attestazione
 
 Eseguire l'hash del testo normale specificato usando il salt e un segreto. L'algoritmo hash usato è SHA-256.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | plaintext | stringa | L'attestazione di input da crittografare |
-| InputClaim | salt | stringa | Il parametro salt. È possibile creare un valore casuale, usando le trasformazione delle attestazioni `CreateRandomString`. |
-| InputParameter | randomizerSecret | stringa | Punta a una chiave di **criteri**di Azure ad B2C esistente. Per creare una nuova chiave dei criteri: nel tenant di Azure AD B2C, in **Gestisci**selezionare **Framework dell'esperienza**di gestione delle identità. Selezionare **chiavi dei criteri** per visualizzare le chiavi disponibili nel tenant. Selezionare **Aggiungi**. Selezionare **Manuale** in **Opzioni**. Specificare un nome (il prefisso *B2C_1A_* potrebbe essere aggiunto automaticamente.) Nella casella di testo **Secret** immettere il segreto da usare, ad esempio 1234567890. Per **Uso chiave** selezionare **Firma**. Selezionare **Create** (Crea). |
-| OutputClaim | hash | stringa | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. L'attestazione configurata in `plaintext` inputClaim. |
+| InputClaim | plaintext | string | L'attestazione di input da crittografare |
+| InputClaim | salt | string | Il parametro salt. È possibile creare un valore casuale, usando le trasformazione delle attestazioni `CreateRandomString`. |
+| InputParameter | randomizerSecret | string | Punta a una chiave di **criteri**di Azure ad B2C esistente. Per creare una nuova chiave dei criteri: nel tenant di Azure AD B2C, in **Gestisci**selezionare **Framework dell'esperienza**di gestione delle identità. Selezionare **chiavi dei criteri** per visualizzare le chiavi disponibili nel tenant. Selezionare **Aggiungi**. Selezionare **Manuale** in **Opzioni**. Specificare un nome (il prefisso *B2C_1A_* potrebbe essere aggiunto automaticamente.) Nella casella di testo **Secret** immettere il segreto da usare, ad esempio 1234567890. Per **Uso chiave** selezionare **Firma**. Selezionare **Create** (Crea). |
+| OutputClaim | hash | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. L'attestazione configurata in `plaintext` inputClaim. |
 
-```XML
+```xml
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="password" TransformationClaimType="plaintext" />

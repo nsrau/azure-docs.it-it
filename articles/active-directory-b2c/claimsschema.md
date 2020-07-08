@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78397809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201362"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -23,7 +23,7 @@ ms.locfileid: "78397809"
 
 L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile fare riferimento nei criteri. Lo schema di attestazioni è il posto in cui si dichiarano le attestazioni. Un'attestazione può essere un nome, un cognome, un nome visualizzato, un numero di telefono e altro ancora. L'elemento ClaimsSchema contiene l'elenco degli elementi **ClaimType**. Un elemento **ClaimType** contiene l'attributo **Id**, che è il nome dell'attestazione.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="Id">
@@ -71,11 +71,11 @@ L'elemento **DataType** supporta i valori seguenti:
 |boolean|Rappresenta un valore booleano (`true` o `false`).|
 |Data| Rappresenta un istante di tempo, in genere espresso come data di un giorno. Il valore della data segue la convenzione ISO 8601.|
 |dateTime|Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Il valore della data segue la convenzione ISO 8601.|
-|duration|Rappresenta un intervallo di tempo in anni, mesi, giorni, ore, minuti e secondi. Il formato di è `PnYnMnDTnHnMnS`, dove `P` indica positivo o `N` per un valore negativo. `nY`numero di anni seguito da un valore letterale `Y`. `nMo`numero di mesi seguito da un valore letterale `Mo`. `nD`numero di giorni seguito da un valore letterale `D`. Esempi: `P21Y` rappresenta 21 anni. `P1Y2Mo`rappresenta un anno e due mesi. `P1Y2Mo5D`rappresenta un anno, due mesi e cinque giorni.  `P1Y2M5DT8H5M620S`rappresenta un anno, due mesi, cinque giorni, otto ore, cinque minuti e venti secondi.  |
+|duration|Rappresenta un intervallo di tempo in anni, mesi, giorni, ore, minuti e secondi. Il formato di è `PnYnMnDTnHnMnS` , dove `P` indica positivo o `N` per un valore negativo. `nY`numero di anni seguito da un valore letterale `Y` . `nMo`numero di mesi seguito da un valore letterale `Mo` . `nD`numero di giorni seguito da un valore letterale `D` . Esempi: `P21Y` rappresenta 21 anni. `P1Y2Mo`rappresenta un anno e due mesi. `P1Y2Mo5D`rappresenta un anno, due mesi e cinque giorni.  `P1Y2M5DT8H5M620S`rappresenta un anno, due mesi, cinque giorni, otto ore, cinque minuti e venti secondi.  |
 |phoneNumber|Rappresenta un numero di telefono. |
 |INT| Rappresenta il numero compreso tra-2.147.483.648 e 2.147.483.647|
 |long| Rappresenta il numero compreso tra-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |
-|stringa| Rappresenta il testo come sequenza di unità di codice UTF-16.|
+|string| Rappresenta il testo come sequenza di unità di codice UTF-16.|
 |stringCollection|Rappresenta una raccolta di oggetti `string`.|
 |userIdentity| Rappresenta un'identità utente.|
 |userIdentityCollection|Rappresenta una raccolta di oggetti `userIdentity`.|
@@ -97,7 +97,7 @@ L'elemento **Protocollo** contiene gli attributi seguenti:
 
 Nell'esempio seguente, quando il framework dell'esperienza di gestione delle identità interagisce con un provider di identità SAML2 o un'applicazione basata su attestazioni, l'attestazione **surname** (cognome) viene mappata a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Quando il framework interagisce con OpenIdConnect e OAuth2, l'attestazione viene mappata a `family_name`.
 
-```XML
+```xml
 <ClaimType Id="surname">
   <DisplayName>Surname</DisplayName>
   <DataType>string</DataType>
@@ -111,7 +111,7 @@ Nell'esempio seguente, quando il framework dell'esperienza di gestione delle ide
 
 Il token JWT emesso da Azure AD B2C crea quindi `family_name` invece del nome di ClaimType **surname** (cognome).
 
-```JSON
+```json
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   "auth_time": 1535013501,
@@ -128,11 +128,11 @@ L'elemento **Mask** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | `Type` | Sì | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
-| `Regex` | No | Se **`Type`** è impostato su `Regex`, specificare l'espressione regolare da usare.
+| `Regex` | No | Se **`Type`** è impostato su `Regex` , specificare l'espressione regolare da usare.
 
 L'esempio seguente configura un'attestazione **PhoneNumber** con la maschera `Simple`:
 
-```XML
+```xml
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
@@ -147,7 +147,7 @@ Il framework dell'esperienza di gestione delle identità esegue il rendering del
 
 L'esempio seguente configura un'attestazione **AlternateEmail** con la maschera `Regex`:
 
-```XML
+```xml
 <ClaimType Id="AlternateEmail">
   <DisplayName>Please verify the secondary email linked to your account</DisplayName>
   <DataType>string</DataType>
@@ -178,19 +178,19 @@ L'elemento **Restriction** contiene gli elementi seguenti:
 
 #### <a name="enumeration"></a>Enumerazione
 
-L'elemento **Enumeration** definisce le opzioni disponibili che l'utente deve selezionare per un'attestazione nell'interfaccia utente, ad esempio un valore in `CheckboxMultiSelect`un `DropdownSingleSelect`oggetto, `RadioSingleSelect`o. In alternativa, è possibile definire e localizzare le opzioni disponibili con l'elemento [LocalizedCollections](localization.md#localizedcollections) . Per cercare un elemento da una raccolta di **enumerazioni** di attestazioni, usare la trasformazione delle attestazioni [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) .
+L'elemento **Enumeration** definisce le opzioni disponibili che l'utente deve selezionare per un'attestazione nell'interfaccia utente, ad esempio un valore in un oggetto `CheckboxMultiSelect` , `DropdownSingleSelect` o `RadioSingleSelect` . In alternativa, è possibile definire e localizzare le opzioni disponibili con l'elemento [LocalizedCollections](localization.md#localizedcollections) . Per cercare un elemento da una raccolta di **enumerazioni** di attestazioni, usare la trasformazione delle attestazioni [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) .
 
 L'elemento **Enumeration** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Testo | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
+| Text | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
 |valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
 L'esempio seguente configura un'attestazione di elenco a discesa di **città** con il valore predefinito impostato su `New York`:
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
   <DataType>string</DataType>
@@ -218,7 +218,7 @@ L'elemento **Pattern** può contenere gli attributi seguenti:
 
 L'esempio seguente configura un'attestazione **messaggio e-mail** con la convalida di input dell'espressione regolare e con il testo della Guida:
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -262,7 +262,7 @@ Il tipo di input utente **TextBox** viene usato per visualizzare una casella di 
 
 ![TextBox che mostra le proprietà specificate nel tipo di attestazione](./media/claimsschema/textbox.png)
 
-```XML
+```xml
 <ClaimType Id="displayName">
   <DisplayName>Display Name</DisplayName>
   <DataType>string</DataType>
@@ -277,7 +277,7 @@ Il tipo di input utente **EmailBox** viene usato per visualizzare un campo di in
 
 ![EmailBox che mostra le proprietà specificate nel tipo di attestazione](./media/claimsschema/emailbox.png)
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -295,7 +295,7 @@ Il tipo di input utente **Password** viene usato per registrare una password imm
 
 ![Utilizzo del tipo di attestazione con password](./media/claimsschema/password.png)
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -310,7 +310,7 @@ Il tipo di input utente **DateTimeDropdown** viene usato per visualizzare un set
 
 ![Utilizzo del tipo di attestazione con menu a discesa data e ora (datetimedropdown)](./media/claimsschema/datetimedropdown.png)
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
   <DataType>date</DataType>
@@ -325,7 +325,7 @@ Il tipo di input utente **RadioSingleSelect** viene usato per visualizzare una r
 
 ![Utilizzo del tipo di attestazione con pulsanti radio a selezione singola (radiodsingleselect)](./media/claimsschema/radiosingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="color">
   <DisplayName>Preferred color</DisplayName>
   <DataType>string</DataType>
@@ -344,7 +344,7 @@ Il tipo di input utente **DropdownSingleSelect** viene usato per visualizzare un
 
 ![Utilizzo del tipo di attestazione con casella a discesa a selezione singola (dropdownsingleselect)](./media/claimsschema/dropdownsingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>City where you work</DisplayName>
   <DataType>string</DataType>
@@ -363,7 +363,7 @@ Il tipo di input utente **CheckboxMultiSelect** viene usato per visualizzare una
 
 ![Utilizzo del tipo di attestazione con casella di controllo a più selezioni (checkboxmultiselect)](./media/claimsschema/checkboxmultiselect.png)
 
-```XML
+```xml
 <ClaimType Id="languages">
   <DisplayName>Languages you speak</DisplayName>
   <DataType>string</DataType>
@@ -382,7 +382,7 @@ Il tipo di input utente **Readonly** viene usato per visualizzare un campo di so
 
 ![Utilizzo del tipo di attestazione con sola lettura (readonly)](./media/claimsschema/readonly.png)
 
-```XML
+```xml
 <ClaimType Id="membershipNumber">
   <DisplayName>Membership number</DisplayName>
   <DataType>string</DataType>
@@ -394,11 +394,11 @@ Il tipo di input utente **Readonly** viene usato per visualizzare un campo di so
 
 #### <a name="paragraph"></a>Paragraph
 
-Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo,  ad esempio &lt;p&gt;testo&lt;/p&gt;. Un **Paragraph** tipo `OutputClaim` di input utente di paragrafo del profilo tecnico autocertificato, deve impostare l' `Required` attributo `false` (impostazione predefinita).
+Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo,  ad esempio &lt;p&gt;testo&lt;/p&gt;. Un **Paragraph** tipo di input utente `OutputClaim` di paragrafo del profilo tecnico autocertificato, deve impostare l' `Required` attributo `false` (impostazione predefinita).
 
 ![Utilizzo del tipo di attestazione con paragrafo (paragraph)](./media/claimsschema/paragraph.png)
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>

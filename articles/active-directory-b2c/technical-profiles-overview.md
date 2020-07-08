@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 125d89301e9d2cc3fc863bffb9b9e6c41e0c129e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203215"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Un profilo tecnico supporta i tipi di scenario riportati di seguito.
 Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attestazioni di input, si esegue la trasformazione delle attestazioni e si comunica con l'entità configurata, ad esempio un provider di identità, un'API REST o servizi directory di Azure AD. Al termine del processo, il profilo tecnico restituisce le attestazioni di output ed è possibile che venga eseguita la trasformazione delle attestazioni di output. Il diagramma seguente illustra come vengono elaborati le trasformazioni e i mapping a cui viene fatto riferimento nel profilo tecnico. Indipendentemente dall'entità con cui interagisce il profilo tecnico, dopo l'esecuzione di qualsiasi trasformazione delle attestazioni, le attestazioni di output del profilo tecnico vengono immediatamente archiviate nel contenitore delle attestazioni.
 
 ![Diagramma che illustra il flusso del profilo tecnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
- 
+
 1. **Gestione delle sessioni Single Sign-on (SSO)** : Ripristina lo stato della sessione del profilo tecnico, usando la [gestione delle sessioni SSO](custom-policy-reference-sso.md).
 1. **Input Claims Transformation** : le attestazioni di input di ogni [trasformazione delle attestazioni](claimstransformations.md) di input vengono prelevate dall'elenco delle attestazioni.  Le attestazioni di output di una trasformazione delle attestazioni di input possono essere le attestazioni di input di una successiva trasformazione delle attestazioni di input.
 1. **Attestazioni di input** : le attestazioni vengono prelevate dall'elenco di attestazioni e vengono usate per il profilo tecnico. Un [profilo tecnico autocertificato](self-asserted-technical-profile.md), ad esempio, usa le attestazioni di input per prepopolare le attestazioni di output fornite dall'utente. Un profilo tecnico API REST usa le attestazioni di input per inviare i parametri di input all'endpoint API REST. Azure Active Directory usa l'attestazione di input come identificatore univoco per la lettura, l'aggiornamento o l'eliminazione di un account.
@@ -68,9 +68,9 @@ Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attes
 
 Un profilo tecnico può includere un altro profilo tecnico per modificare le impostazioni o aggiungere nuove funzionalità.  L' `IncludeTechnicalProfile` elemento è un riferimento al profilo tecnico di base da cui deriva un profilo tecnico. Non sono previsti limiti per il numero di livelli.
 
-Il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId-NoError**, ad esempio, include **AAD-UserReadUsingAlternativeSecurityId**. Questo profilo tecnico imposta l' `RaiseErrorIfClaimsPrincipalDoesNotExist` elemento dei metadati `true`su e genera un errore se un account di social networking non esiste nella directory. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** esegue l'override di questo comportamento e Disabilita il messaggio di errore.
+Il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId-NoError**, ad esempio, include **AAD-UserReadUsingAlternativeSecurityId**. Questo profilo tecnico imposta l' `RaiseErrorIfClaimsPrincipalDoesNotExist` elemento dei metadati su `true` e genera un errore se un account di social networking non esiste nella directory. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** esegue l'override di questo comportamento e Disabilita il messaggio di errore.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
   <Metadata>
     <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
@@ -81,7 +81,7 @@ Il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId-NoError**, ad esempi
 
 **AAD-UserReadUsingAlternativeSecurityId** include il profilo tecnico `AAD-Common`.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -105,7 +105,7 @@ Il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId-NoError**, ad esempi
 
 **AAD-UserReadUsingAlternativeSecurityId-NOERROR** e **AAD-UserReadUsingAlternativeSecurityId** non specificano l'elemento del **protocollo** richiesto perché è specificato nel profilo tecnico **comune di AAD** .
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

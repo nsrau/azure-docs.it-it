@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c02ac9392d6f3f95deef38ff86250e96dfb76d96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202552"
 ---
 # <a name="date-claims-transformations"></a>Trasformazioni delle attestazioni di data
 
@@ -27,21 +27,21 @@ Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazion
 
 Verifica che un'attestazione di data e ora (tipo di dati stringa) sia successiva a una seconda attestazione di data e ora (tipo di dati stringa) e genera un'eccezione.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | stringa | Tipo della prima attestazione, che deve essere successiva alla seconda attestazione. |
-| InputClaim | rightOperand | stringa | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
+| InputClaim | leftOperand | string | Tipo della prima attestazione, che deve essere successiva alla seconda attestazione. |
+| InputClaim | rightOperand | string | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
 | InputParameter | AssertIfEqualTo | boolean | Specifica se questa asserzione debba passare se l'operando sinistro è uguale all'operando destro. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifica se questa asserzione debba passare se l'operando destro è assente. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | INT | Specifica il numero di millisecondi che devono trascorrere tra le due date e ore affinché le ore vengano considerate uguali (ad esempio, per tenere conto di un eventuale sfasamento di orario). |
 
-La trasformazione dell'asserzione **AssertDateTimeIsGreaterThan** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [ profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **DateTimeGreaterThan** controllano il messaggio di errore che il profilo tecnico presenta all'utente. È possibile [localizzare](localization-string-ids.md#claims-transformations-error-messages)i messaggi di errore.
+La trasformazione dell'asserzione **AssertDateTimeIsGreaterThan** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [ profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **DateTimeGreaterThan** controllano il messaggio di errore che il profilo tecnico presenta all'utente. I messaggi di errore possono essere [localizzati](localization-string-ids.md#claims-transformations-error-messages).
 
 ![Esecuzione di AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
 Nell'esempio seguente viene confrontata l'attestazione `currentDateTime` con l'attestazione `approvedDateTime`. Se `currentDateTime` è successivo ad `approvedDateTime`, viene generato un errore. La trasformazione considera uguali i valori se rientrano in una differenza di 5 minuti (30000 millisecondi).
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="approvedDateTime" TransformationClaimType="leftOperand" />
@@ -56,7 +56,7 @@ Nell'esempio seguente viene confrontata l'attestazione `currentDateTime` con l'a
 ```
 
 Il profilo tecnico di convalida `login-NonInteractive` chiama la trasformazione delle attestazioni `AssertApprovedDateTimeLaterThanCurrentDateTime`.
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -67,7 +67,7 @@ Il profilo tecnico di convalida `login-NonInteractive` chiama la trasformazione 
 
 Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteractive** di convalida.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="DateTimeGreaterThan">Custom error message if the provided left operand is greater than the right operand.</Item>
@@ -89,14 +89,14 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
 
 Converte un ClaimType **Date** in un ClaimType **DateTime**. La trasformazione delle attestazioni converte il formato dell'ora e aggiunge 12:00:00 AM alla data.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | Data | ClaimType da convertire. |
 | OutputClaim | outputClaim | dateTime | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 L'esempio seguente illustra la conversione dell'attestazione `dateOfBirth` (tipo di dati date) in un'altra attestazione `dateOfBirthWithTime` (tipo di dati dateTime).
 
-```XML
+```xml
   <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
@@ -118,14 +118,14 @@ L'esempio seguente illustra la conversione dell'attestazione `dateOfBirth` (tipo
 
 Converte un ClaimType **DateTime** in un ClaimType di **Data** . La trasformazione delle attestazioni rimuove il formato dell'ora dalla data.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | dateTime | ClaimType da convertire. |
 | OutputClaim | outputClaim | Data | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
-Nell'esempio seguente viene illustrata la conversione dell' `systemDateTime` attestazione (tipo di dati DateTime) `systemDate` in un'altra attestazione (tipo di dati date).
+Nell'esempio seguente viene illustrata la conversione dell'attestazione `systemDateTime` (tipo di dati DateTime) in un'altra attestazione `systemDate` (tipo di dati date).
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
@@ -147,11 +147,11 @@ Nell'esempio seguente viene illustrata la conversione dell' `systemDateTime` att
 
 Ottiene la data e ora UTC correnti e aggiunge il valore a un ClaimType.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | currentDateTime | dateTime | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
-```XML
+```xml
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="currentDateTime" />
@@ -168,18 +168,18 @@ Ottiene la data e ora UTC correnti e aggiunge il valore a un ClaimType.
 
 Determinare se un valore dateTime è successivo, precedente o uguale a un altro. Il risultato è un valore booleano ClaimType nuovo con un valore `true` o `false`.
 
-| Item | TransformationClaimType | Tipo di dati | Note |
+| Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | Il primo valore dateTime da confrontare per verificare se è precedente o successivo al secondo valore dateTime. I valori Null generano un'eccezione. |
 | InputClaim | secondDateTime | dateTime | Il secondo valore dateTime da confrontare per verificare se è precedente o successivo al primo valore dateTime. Il valore Null viene considerato come il valore dateTime corrente. |
-| InputParameter | operator | stringa | Uno dei seguenti valori: uguale, successiva a o precedente a. |
+| InputParameter | operator | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
 | InputParameter | timeSpanInSeconds | INT | Aggiungere l'intervallo di tempo al primo valore datetime. |
 | OutputClaim | result | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Usare questa trasformazione di attestazione per determinare se due valori ClaimType sono uguali oppure se uno è successivo o precedente all'altro. Ad esempio, è possibile archiviare l'ultima volta che un utente ha accettato le condizioni d'uso. Dopo 3 mesi, è possibile chiedere all'utente di accedere nuovamente alle condizioni d'uso.
 Per eseguire la trasformazione delle attestazioni, è prima necessario ottenere il valore dateTime corrente e l'ultimo orario in cui l'utente ha accettato le condizioni d'uso.
 
-```XML
+```xml
 <ClaimsTransformation Id="CompareLastTOSAcceptedWithCurrentDateTime" TransformationMethod="DateTimeComparison">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="currentDateTime" TransformationClaimType="firstDateTime" />

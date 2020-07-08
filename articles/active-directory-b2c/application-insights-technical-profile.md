@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f50373b0841b7626bc405f121015c15ae1587a97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80108575"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201413"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico Application Insights in un criterio personalizzato Azure AD B2C
 
@@ -45,9 +45,9 @@ Nell'esempio seguente viene illustrato il profilo tecnico Application Insights c
 
 ## <a name="input-claims"></a>Attestazioni di input
 
-L'elemento **InputClaims** contiene un elenco di attestazioni da inviare a Application Insights. È anche possibile eseguire il mapping del nome dell'attestazione a un nome che si preferisce visualizzare in Application Insights. Nell'esempio seguente viene illustrato come inviare telemetrie a Application Insights. Le proprietà di un evento vengono aggiunte tramite la `{property:NAME}`sintassi, dove name è la proprietà aggiunta all'evento. DefaultValue può essere un valore statico o un valore risolto da uno dei [resolver di attestazioni](claim-resolver-overview.md)supportati.
+L'elemento **InputClaims** contiene un elenco di attestazioni da inviare a Application Insights. È anche possibile eseguire il mapping del nome dell'attestazione a un nome che si preferisce visualizzare in Application Insights. Nell'esempio seguente viene illustrato come inviare telemetrie a Application Insights. Le proprietà di un evento vengono aggiunte tramite la sintassi `{property:NAME}` , dove name è la proprietà aggiunta all'evento. DefaultValue può essere un valore statico o un valore risolto da uno dei [resolver di attestazioni](claim-resolver-overview.md)supportati.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
   <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />
@@ -82,5 +82,5 @@ L'elemento CryptographicKeys non viene usato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare una risorsa Application Insights](../azure-monitor/app/create-new-resource.md)
+- [Creare una risorsa di Application Insights](../azure-monitor/app/create-new-resource.md)
 - Informazioni su come [tenere traccia del comportamento degli utenti in Azure Active Directory B2C usando Application Insights](analytics-with-application-insights.md)

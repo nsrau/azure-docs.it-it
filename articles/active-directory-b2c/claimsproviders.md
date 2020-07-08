@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/29/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dfb34085181e0b759d1d77485ff21b5bc59e0de3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d1928de8c9731b54966e566d4dddf9c01073d41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201260"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -23,7 +23,7 @@ ms.locfileid: "78189770"
 
 Un provider di attestazioni contiene un set di [profili tecnici](technicalprofiles.md). Ogni provider di attestazioni deve disporre di uno o più profili tecnici che determinano gli endpoint e i protocolli necessari per comunicare con il provider stesso. Un provider di attestazioni può avere più profili tecnici. Potrebbero essere definiti più profili tecnici, ad esempio, perché il provider di attestazioni supporta più protocolli o vari endpoint con funzionalità diverse oppure rilascia attestazioni diverse per livelli di controllo diversi. Potrebbe essere accettabile rilasciare attestazioni sensibili in un percorso utente, ma non in un altro.
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <Domain>Domain name</Domain>
@@ -57,7 +57,7 @@ Un provider di attestazioni contiene un set di [profili tecnici](technicalprofil
 
 **ClaimsProvider** organizza il modo in cui i profili tecnici sono correlati al provider di attestazioni. L'esempio seguente illustra il provider di attestazioni Azure Active Directory con i profili tecnici di Azure Active Directory:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Azure Active Directory</DisplayName>
   <TechnicalProfiles>
@@ -95,7 +95,7 @@ Un provider di attestazioni contiene un set di [profili tecnici](technicalprofil
 
 L'esempio seguente illustra il provider di attestazioni Facebook con il profilo tecnico **Facebook-OAUTH**.
 
-```XML
+```xml
 <ClaimsProvider>
   <Domain>facebook.com</Domain>
   <DisplayName>Facebook</DisplayName>

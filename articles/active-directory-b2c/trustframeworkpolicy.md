@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203096"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -23,7 +23,7 @@ ms.locfileid: "78186387"
 
 Un criterio personalizzato è rappresentato come uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. Gli elementi XML definiscono gli elementi del criterio, come lo schema delle attestazioni, le trasformazioni delle attestazioni, le definizioni di contenuto, i provider di attestazioni, i profili tecnici, il percorso utente e le procedure di orchestrazione. Ogni file dei criteri è definito all'interno dell'elemento di primo livello **TrustFrameworkPolicy** di un file di criteri.
 
-```XML
+```xml
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
@@ -45,7 +45,7 @@ L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 | TenantId | Sì | L'identificatore univoco del tenant a cui appartiene questo criterio. |
 | PolicyId | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
 | PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
-| DeploymentMode | No | Valori possibili: `Production`, o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
+| DeploymentMode | No | Valori possibili: `Production` , o `Development` . Il valore predefinito è `Production`. Usare questa proprietà per eseguire il debug del criterio. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
 | UserJourneyRecorderEndpoint | No | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
 
 
@@ -122,7 +122,7 @@ All'interno del file di criteri di relying party, si specifica l'elemento **Defa
 
 Criterio B2C_1A_signup_signin:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn">
   ...
@@ -130,7 +130,7 @@ Criterio B2C_1A_signup_signin:
 
 B2C_1A_TrustFrameWorkBase o B2C_1A_TrustFrameworkExtensionPolicy:
 
-```XML
+```xml
 <UserJourneys>
   <UserJourney Id="SignUpOrSignIn">
   ...

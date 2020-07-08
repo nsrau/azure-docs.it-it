@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: adf0d72763e0cb1892d64c68a6dce05abbf6f582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc869a8ab905275c8082c4fd375f8f6d6d48d97e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205459"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Informazioni sul file di configurazione locale (agente C#)
 
@@ -30,9 +30,9 @@ L'agente di sicurezza legge il file di configurazione una volta all'avvio dell'a
 
 L'agente di sicurezza C# usa più file di configurazione:
 
-- **General. config** : configurazioni correlate agli agenti.
-- **Authentication. config** : configurazione correlata all'autenticazione (inclusi i dettagli di autenticazione).
-- Configurazioni relative a **SecurityIotInterface. config** -Internet.
+- Configurazioni correlate a **General.config** -Agent.
+- **Authentication.config** la configurazione correlata all'autenticazione (inclusi i dettagli di autenticazione).
+- Configurazioni correlate **SecurityIotInterface.config** -Internet.
 
 I file di configurazione contengono la configurazione predefinita. La configurazione dell'autenticazione viene popolata durante l'installazione dell'agente e le modifiche apportate al file di configurazione vengono eseguite quando l'agente viene riavviato.
 
@@ -40,13 +40,13 @@ I file di configurazione contengono la configurazione predefinita. La configuraz
 
 Per Linux:
 
-- I file di configurazione del sistema operativo `/var/ASCIoTAgent`si trovano in.
+- I file di configurazione del sistema operativo si trovano in `/var/ASCIoTAgent` .
 
 Per Windows:
 
 - I file di configurazione del sistema operativo si trovano all'interno della directory dell'agente sicurezza.
 
-### <a name="generalconfig-configurations"></a>Configurazioni generali. config
+### <a name="generalconfig-configurations"></a>Configurazioni di General.config
 
 | Nome della configurazione | Valori possibili | Dettagli |
 |:-----------|:---------------|:--------|
@@ -62,9 +62,9 @@ Per Windows:
 | logFilePath | Percorso del file | Se fileLogLevel > off, i log vengono scritti in questo file. |
 | defaultEventPriority | "High", "low", "off" | Priorità evento predefinita. |
 
-### <a name="generalconfig-example"></a>Esempio generale. config
+### <a name="generalconfig-example"></a>Esempio di General.config
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <General>
   <add key="agentId" value="da00006c-dae9-4273-9abc-bcb7b7b4a987" />
@@ -81,24 +81,24 @@ Per Windows:
 </General>
 ```
 
-### <a name="authenticationconfig"></a>Authentication. config
+### <a name="authenticationconfig"></a>Authentication.config
 
 | Nome configurazione | Valori possibili | Dettagli |
 |:-----------|:---------------|:--------|
-| moduleName | stringa | Nome dell'identità del modulo di sicurezza. Questo nome deve corrispondere al nome dell'identità del modulo nel dispositivo. |
-| deviceId | stringa | ID del dispositivo, registrato nell'hub Azure. || schedulerInterval | Stringa TimeSpan | Intervallo di pianificazione interno. |
-| gatewayHostname | stringa | Nome host dell'hub Azure. In genere <My-Hub>. azure-devices.net |
+| moduleName | string | Nome dell'identità del modulo di sicurezza. Questo nome deve corrispondere al nome dell'identità del modulo nel dispositivo. |
+| deviceId | string | ID del dispositivo, registrato nell'hub Azure. || schedulerInterval | Stringa TimeSpan | Intervallo di pianificazione interno. |
+| gatewayHostname | string | Nome host dell'hub Azure. In genere <My-Hub>. azure-devices.net |
 | filePath | stringa-percorso del file | Percorso del file che contiene il segreto di autenticazione.|
-| type | "SelfSignedCertificate" | Il segreto utente per l'autenticazione. Scegliere dise il segreto utente è una chiave simmetrica, scegliere il *certificato autofirmato* *se il* segreto è un certificato autofirmato. |
+| tipo | "SelfSignedCertificate" | Il segreto utente per l'autenticazione. Scegliere dise il segreto utente è una chiave simmetrica, scegliere il *certificato autofirmato* *se il* segreto è un certificato autofirmato. |
 | identity | "DPS", "Module", "Device" | Identity di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, modulo se l'autenticazione viene eseguita usando le credenziali del modulo o il dispositivo se l'autenticazione viene eseguita usando le credenziali del dispositivo.
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile se il certificato è archiviato in un file, archiviare se il certificato si trova in un archivio certificati. |
-| idScope | stringa | Ambito ID di DPS |
-| registrationId | stringa  | ID registrazione dispositivo DPS. |
+| idScope | string | Ambito ID di DPS |
+| registrationId | string  | ID registrazione dispositivo DPS. |
 |
 
-### <a name="authenticationconfig-example"></a>Esempio di Authentication. config
+### <a name="authenticationconfig-example"></a>Esempio di Authentication.config
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
   <add key="moduleName" value="azureiotsecurity"/>
@@ -113,16 +113,16 @@ Per Windows:
 </Authentication>
 ```
 
-### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface. config
+### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface.config
 
 | Nome della configurazione | Valori possibili | Dettagli |
 |:-----------|:---------------|:--------|
 | transportType | "Ampq" "MQTT" | Tipo trasporto hub Internet. |
 |
 
-### <a name="securityiotinterfaceconfig-example"></a>Esempio di SecurityIotInterface. config
+### <a name="securityiotinterfaceconfig-example"></a>Esempio di SecurityIotInterface.config
 
-```XML
+```xml
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
   <add key="transportType" value="Amqp"/>

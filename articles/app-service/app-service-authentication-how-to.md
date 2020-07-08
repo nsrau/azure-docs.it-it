@@ -4,12 +4,12 @@ description: Informazioni su come personalizzare la funzionalità di autenticazi
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6efa5461fab9faf3ce1599a01540cf314b34281b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205646"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -35,7 +35,7 @@ In **Azione da eseguire quando la richiesta non è autenticata** selezionare **C
 
 Nella pagina di accesso, sulla barra di spostamento o in qualsiasi altra posizione nell'app aggiungere un collegamento per l'accesso a ognuno dei provider abilitati (`/.auth/login/<provider>`). Ad esempio:
 
-```HTML
+```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
 <a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
@@ -47,7 +47,7 @@ Quando l'utente fa clic su uno dei collegamenti, viene aperta la pagina di acces
 
 Per reindirizzare l'utente dopo l'accesso a un URL personalizzato, usare il parametro della stringa di query `post_login_redirect_url`, da non confondere con l'URI di reindirizzamento nella configurazione del provider di identità. Ad esempio, per passare l'utente a `/Home/Index` dopo l'accesso, usare il seguente codice HTML:
 
-```HTML
+```html
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
@@ -103,7 +103,7 @@ Gli utenti possono avviare una disconnessione inviando una richiesta `GET` all'e
 
 Ecco un semplice collegamento di disconnessione in una pagina Web:
 
-```HTML
+```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
@@ -176,9 +176,9 @@ Quando il token di accesso del provider (non il [token di sessione](#extend-sess
 - **Account Microsoft**: in fase di [configurazione delle impostazioni di autenticazione dell'account Microsoft](configure-authentication-provider-microsoft.md), selezionare l'ambito `wl.offline_access`.
 - **Azure Active Directory**: in [https://resources.azure.com](https://resources.azure.com) seguire questa procedura:
     1. Nella parte superiore della pagina selezionare **Lettura/scrittura**.
-    2. Nel browser a sinistra passare a **sottoscrizioni** > **_\<nome\__** > **sottoscrizione resourceGroups** > **_\<nome\_gruppo\_di risorse>_**  >  **provider** > **Microsoft. Web** > **sites** > **_\<app\_Name>_**  >  **config** > **authsettings**. 
-    3. Fare clic su **Edit**.
-    4. Modificare la proprietà seguente. Sostituire _ \<ID\_app>_ con l'ID dell'applicazione Azure Active Directory del servizio a cui si vuole accedere.
+    2. Nel browser a sinistra passare a **sottoscrizioni** > * *_ \<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * **provider**>  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
+    3. Fare clic su **Modifica**.
+    4. Modificare la proprietà seguente. Sostituire _\<app\_id>_ con il Azure Active Directory ID applicazione del servizio a cui si vuole accedere.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
@@ -188,9 +188,9 @@ Quando il token di accesso del provider (non il [token di sessione](#extend-sess
 
 Dopo aver configurato il provider è possibile [trovare il token di aggiornamento e l'ora di scadenza del token di accesso](#retrieve-tokens-in-app-code) nell'archivio token. 
 
-Per aggiornare il token di accesso in qualsiasi momento, è `/.auth/refresh` sufficiente chiamare in qualsiasi linguaggio. Il frammento di codice seguente usa jQuery per aggiornare i token di accesso da un client JavaScript.
+Per aggiornare il token di accesso in qualsiasi momento, è sufficiente chiamare `/.auth/refresh` in qualsiasi linguaggio. Il frammento di codice seguente usa jQuery per aggiornare i token di accesso da un client JavaScript.
 
-```JavaScript
+```javascript
 function refreshTokens() {
   let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
@@ -221,17 +221,17 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Limitare il dominio degli account di accesso
 
-Sia l'account Microsoft che Azure Active Directory consentono l'accesso da più domini. L'account Microsoft consente, ad esempio, gli account _outlook.com_, _live.com_ e _hotmail.com_. Azure AD consente un numero qualsiasi di domini personalizzati per gli account di accesso. Tuttavia, potrebbe essere necessario accelerare gli utenti direttamente alla pagina di accesso personalizzata Azure AD (ad esempio `contoso.com`). Per suggerire il nome di dominio degli account di accesso, seguire questa procedura.
+Sia l'account Microsoft che Azure Active Directory consentono l'accesso da più domini. L'account Microsoft consente, ad esempio, gli account _outlook.com_, _live.com_ e _hotmail.com_. Azure AD consente un numero qualsiasi di domini personalizzati per gli account di accesso. Tuttavia, potrebbe essere necessario accelerare gli utenti direttamente alla pagina di accesso personalizzata Azure AD (ad esempio `contoso.com` ). Per suggerire il nome di dominio degli account di accesso, seguire questa procedura.
 
-In [https://resources.azure.com](https://resources.azure.com)passare a **sottoscrizioni** > **_\<nome\__** > sottoscrizione**resourceGroups** > **_\_nome gruppo\_di risorse>provider Microsoft. Web sites app name>config authsettings.\< _****Microsoft.Web** > **sites** >   >  **config** **providers** > **authsettings****_\<\_ _**  >  >  
+In [https://resources.azure.com](https://resources.azure.com) passare a **sottoscrizioni** > * *_ \<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * **provider**>  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
 
-Fare clic su **Modifica**, modificare la proprietà seguente e quindi fare clic su **Put**. Assicurarsi di sostituire _ \<il nome\_di dominio>_ con il dominio desiderato.
+Fare clic su **Modifica**, modificare la proprietà seguente e quindi fare clic su **Put**. Assicurarsi di sostituire _\<domain\_name>_ con il dominio desiderato.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
 
-Questa impostazione Accoda il parametro `domain_hint` della stringa di query all'URL di reindirizzamento dell'account di accesso. 
+Questa impostazione Accoda il `domain_hint` parametro della stringa di query all'URL di reindirizzamento dell'account di accesso. 
 
 > [!IMPORTANT]
 > Il client può rimuovere il `domain_hint` parametro dopo la ricezione dell'URL di reindirizzamento e quindi eseguire l'accesso con un dominio diverso. Anche se questa funzione è comoda, non è una funzionalità di sicurezza.
@@ -247,13 +247,13 @@ Sebbene il servizio app si occupi del caso di autorizzazione più semplice (ovve
 
 ### <a name="server-level-windows-apps-only"></a>Livello server (solo app di Windows)
 
-Per qualsiasi app di Windows, è possibile definire il comportamento di autorizzazione del server Web IIS modificando il file *Web. config* . Le app Linux non usano IIS e non possono essere configurate tramite *Web. config*.
+Per qualsiasi app di Windows, è possibile definire il comportamento di autorizzazione del server Web IIS modificando il file di *Web.config* . Le app Linux non usano IIS e non possono essere configurate tramite *Web.config*.
 
 1. Passare a `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. In Esplora browser dei file del servizio app passare a *site/wwwroot*. Se il file *Web. config* non esiste, crearlo **+**  > selezionando **nuovo file**. 
+1. In Esplora browser dei file del servizio app passare a *site/wwwroot*. Se un *Web.config* non esiste, crearlo selezionando **+**  >  **nuovo file**. 
 
-1. Selezionare la matita per *Web. config* per modificarla. Aggiungere il codice di configurazione seguente e fare clic su **Salva**. Se *Web. config* esiste già, è sufficiente aggiungere `<authorization>` l'elemento con tutti gli elementi al suo interno. Aggiungere gli account che si desidera consentire nell' `<allow>` elemento.
+1. Selezionare la matita per *Web.config* per modificarla. Aggiungere il codice di configurazione seguente e fare clic su **Salva**. Se *Web.config* esiste già, è sufficiente aggiungere l' `<authorization>` elemento con tutti gli elementi al suo interno. Aggiungere gli account che si desidera consentire nell' `<allow>` elemento.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -281,5 +281,5 @@ Se uno degli altri livelli non fornisce l'autorizzazione necessaria o se la piat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: autenticare e autorizzare gli utenti end-to-end (Windows)](app-service-web-tutorial-auth-aad.md)
-> [esercitazione: autenticare e autorizzare gli utenti end-to-end (Linux)](containers/tutorial-auth-aad.md)
+> [Esercitazione: autenticare e autorizzare gli utenti end-to-end (Windows)](app-service-web-tutorial-auth-aad.md) 
+>  [Esercitazione: autenticare e autorizzare gli utenti end-to-end (Linux)](containers/tutorial-auth-aad.md)

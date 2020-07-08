@@ -1,43 +1,43 @@
 ---
-title: Problemi di diagnostica del desktop virtuale Windows-Azure
-description: Come utilizzare la funzionalità diagnostica desktop virtuali di Windows per diagnosticare i problemi.
+title: Problemi di diagnostica di Desktop virtuale Windows - Azure
+description: Come utilizzare la funzionalità di diagnostica di Desktop virtuale Windows per diagnosticare i problemi.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cffc6393ef6f5c1a33be615d9d5d4b8729ab711f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 2ead16c655d4790e81931371e67da8106dabf83e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611858"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200546"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificare e diagnosticare i problemi
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
+>Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
 >
-> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Desktop virtuale di Windows offre una funzionalità di diagnostica che consente all'amministratore di identificare i problemi tramite un'unica interfaccia. Per ulteriori informazioni sulle funzionalità di diagnostica di desktop virtuale di Windows, vedere [utilizzare log Analytics per la funzionalità di diagnostica](diagnostics-log-analytics.md).
-  
-Le connessioni che non raggiungono il desktop virtuale di Windows non verranno visualizzate nei risultati della diagnostica perché il servizio ruolo di diagnostica fa parte del desktop virtuale di Windows. Problemi di connessione di desktop virtuali Windows possono verificarsi quando si verificano problemi di connettività di rete da parte dell'utente finale.
+Desktop virtuale Windows offre una funzionalità di diagnostica che consente all'amministratore di identificare i problemi usando un'unica interfaccia. Per ulteriori informazioni sulle funzionalità di diagnostica di desktop virtuale di Windows, vedere [utilizzare log Analytics per la funzionalità di diagnostica](diagnostics-log-analytics.md).
+
+Le connessioni che non raggiungono Desktop virtuale Windows non vengono visualizzate nei risultati della diagnostica perché il servizio dei ruoli di diagnostica fa parte del servizio Desktop virtuale Windows. Quando l'utente finale riscontra problemi di connettività di rete, possono verificarsi problemi di connessione di Desktop virtuale Windows.
 
 ## <a name="common-error-scenarios"></a>Scenari di errore comuni
 
-Gli scenari di errore sono suddivisi in categorie interne al servizio ed esterni al desktop virtuale di Windows.
+Gli scenari di errore sono suddivisi in problemi interni al servizio e problemi esterni a Desktop virtuale Windows.
 
 * Problema interno: specifica scenari che non possono essere mitigati dal cliente e che devono essere risolti come un problema di supporto. Quando si forniscono commenti e suggerimenti tramite la [community Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), includere l'ID di correlazione e l'intervallo di tempo approssimativo in cui si è verificato il problema.
-* Problema esterno: si riferiscono a scenari che possono essere mitigati dal cliente. Sono esterni al desktop virtuale di Windows.
+* Problema esterno: si riferiscono a scenari che possono essere mitigati dal cliente. e che sono esterni a Desktop virtuale Windows.
 
-La tabella seguente elenca gli errori comuni che possono essere eseguiti dagli amministratori.
+La tabella seguente elenca gli errori comuni che possono essere riscontrati dagli amministratori.
 
 >[!NOTE]
->Questo elenco include gli errori più comuni e viene aggiornato a cadenza regolare. Per assicurarsi di disporre delle informazioni più aggiornate, assicurarsi di consultare nuovamente questo articolo almeno una volta al mese.
+>L'elenco include gli errori più comuni e viene aggiornato con frequenza regolare. Per assicurarsi di avere le informazioni più aggiornate, consultare questo articolo almeno una volta al mese.
 
 ## <a name="management-errors"></a>Errori di gestione
 
@@ -51,23 +51,23 @@ La tabella seguente elenca gli errori comuni che possono essere eseguiti dagli a
 |Non è stato possibile annullare l'assegnazione dell'utente dal gruppo di applicazioni|Non è stato possibile annullare la pubblicazione di un gruppo di app per un utente. Verificare se l'utente è disponibile in Azure AD. Verificare se l'utente fa parte di un gruppo di utenti in cui è pubblicato il gruppo di app. |
 |Si è verificato un errore durante il recupero delle posizioni disponibili |Controllare la posizione della macchina virtuale usata nella creazione guidata pool host. Se l'immagine non è disponibile in tale percorso, aggiungere l'immagine in quel percorso o scegliere una posizione diversa per la macchina virtuale. |
 
-### <a name="external-connection-error-codes"></a>Codici di errore della connessione esterna
+### <a name="external-connection-error-codes"></a>Codici di errore relativi alla connessione esterna
 
-|Codice numerico|Codice errore|Soluzione suggerita|
+|Codice numerico|Codice di errore|Soluzione suggerita|
 |---|---|---|
-|-2147467259|ConnectionFailedAdTrustedRelationshipFailure|L'host sessione non è stato aggiunto correttamente al Active Directory.|
-|-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Connessioni non riuscite perché l'host sessione non è disponibile. Controllare l'integrità dell'host sessione.|
+|-2147467259|ConnectionFailedAdTrustedRelationshipFailure|L'host di sessione non è stato aggiunto correttamente ad Active Directory.|
+|-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Le connessioni non sono riuscite perché l'host di sessione non è disponibile. Controllare l'integrità dell'host di sessione.|
 |-2146233088|ConnectionFailedClientDisconnect|Se questo errore viene visualizzato di frequente, verificare che il computer dell'utente sia connesso alla rete.|
-|-2146233088|ConnectionFailedNoHealthyRdshAvailable|La sessione a cui l'utente host ha tentato di connettersi non è integro. Eseguire il debug della macchina virtuale.|
-|-2146233088|ConnectionFailedUserNotAuthorized|L'utente non è autorizzato ad accedere all'app pubblicata o al desktop. L'errore potrebbe essere visualizzato dopo che l'amministratore ha rimosso le risorse pubblicate. Richiedere all'utente di aggiornare il feed nell'applicazione Desktop remoto.|
+|-2146233088|ConnectionFailedNoHealthyRdshAvailable|La sessione a cui l'utente dell'host ha tentato di connettersi non è integra. Eseguire il debug della macchina virtuale.|
+|-2146233088|ConnectionFailedUserNotAuthorized|L'utente non è autorizzato ad accedere all'app pubblicata o al desktop. L'errore potrebbe essere visualizzato dopo che l'amministratore ha rimosso le risorse pubblicate. Chiedere all'utente di aggiornare il feed nell'applicazione Desktop remoto.|
 |2|FileNotFound|L'applicazione a cui l'utente ha tentato di accedere non è installata correttamente o è impostata su un percorso errato.<br><br>Quando si pubblicano nuove app mentre l'utente ha una sessione attiva, l'utente non sarà in grado di accedere a questa app. La sessione deve essere arrestata e riavviata prima che l'utente possa accedere all'app. |
-|3|InvalidCredentials|Il nome utente o la password immessi dall'utente non corrisponde ad alcun nome utente o password esistente. Verificare le credenziali per i digitazioni e riprovare.|
-|8|ConnectionBroken|La connessione tra il client e il gateway o il server è stata eliminata. Non è necessaria alcuna azione a meno che non venga eseguita in modo imprevisto.|
-|14|UnexpectedNetworkDisconnect|Connessione alla rete eliminata. Richiedere all'utente di connettersi di nuovo.|
-|24|ReverseConnectFailed|La macchina virtuale host non dispone di una linea di visibilità diretta per Gateway Desktop remoto. Verificare che l'indirizzo IP del gateway possa essere risolto.|
+|3|InvalidCredentials|Il nome utente o la password che l'utente ha immesso non corrisponde ad alcun nome utente o password esistente. Verificare che le credenziali siano state digitate correttamente e riprovare.|
+|8|ConnectionBroken|La connessione tra il client e il gateway o il server si è interrotta. Non è necessaria alcuna azione a meno che l'interruzione sia avvenuta in modo imprevisto.|
+|14|UnexpectedNetworkDisconnect|La connessione alla rete si è interrotta. Chiedere all'utente di connettersi di nuovo.|
+|24|ReverseConnectFailed|La macchina virtuale host non comunica direttamente con Gateway Desktop remoto. Verificare che l'indirizzo IP del gateway possa essere risolto.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sui ruoli all'interno di desktop virtuale di Windows, vedere [ambiente desktop virtuale di Windows](environment-setup.md).
+Per altre informazioni sui ruoli all'interno di Desktop virtuale Windows, vedere [Ambiente di Desktop virtuale Windows](environment-setup.md).
 
-Per visualizzare un elenco dei cmdlet di PowerShell disponibili per desktop virtuale di Windows, vedere le informazioni di [riferimento su PowerShell](/powershell/windows-virtual-desktop/overview).
+Per visualizzare l'elenco dei cmdlet di PowerShell disponibili per Desktop virtuale Windows, vedere le [informazioni di riferimento su PowerShell](/powershell/windows-virtual-desktop/overview).

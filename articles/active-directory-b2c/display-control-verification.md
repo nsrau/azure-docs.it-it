@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188784"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202315"
 ---
 # <a name="verification-display-control"></a>Controllo visualizzazione Verifica
 
@@ -40,12 +40,12 @@ Il controllo di visualizzazione verifica è costituito da due passaggi (azioni):
 
 **VerificationControl** deve contenere gli elementi seguenti:
 
-- Il tipo di `DisplayControl` è `VerificationControl`.
+- Il tipo di `DisplayControl` è `VerificationControl` .
 - `DisplayClaims`
   - **Invia a** -una o più attestazioni che specificano la posizione a cui inviare il codice di verifica. Ad esempio, *indirizzo di posta elettronica* o *codice paese* e *numero di telefono*.
-  - **Codice di verifica** : il codice di verifica attestazione fornito dall'utente dopo l'invio del codice. Questa attestazione deve essere impostata come obbligatoria e `ControlClaimType` deve essere impostata su. `VerificationCode`
+  - **Codice di verifica** : il codice di verifica attestazione fornito dall'utente dopo l'invio del codice. Questa attestazione deve essere impostata come obbligatoria e `ControlClaimType` deve essere impostata su `VerificationCode` .
 - Attestazione di output (facoltativo) da restituire alla pagina autocertificata dopo che l'utente ha completato il processo di verifica. Ad esempio, *indirizzo di posta elettronica* o *codice paese* e *numero di telefono*. Il profilo tecnico autocertificato utilizza le attestazioni per salvare in modo permanente i dati o eseguire il bubbling delle attestazioni di output nel passaggio di orchestrazione successivo.
-- Due `Action`con i nomi seguenti:
+- Due `Action` con i nomi seguenti:
   - **SendCode** : Invia un codice all'utente. Questa azione contiene in genere due profili tecnici di convalida, per generare un codice e per inviarlo.
   - **VerifyCode** : verifica il codice. Questa azione contiene in genere un singolo profilo tecnico di convalida.
 
@@ -53,7 +53,7 @@ Nell'esempio seguente viene visualizzata una casella di testo di **posta elettro
 
 Quindi, l'utente immette il **verificationCode** e seleziona **VerifyCode** per attivare l'azione **VerifyCode** nel back-end. Se tutte le convalide passano, il **VerificationControl** viene considerato completo e l'utente può continuare con il passaggio successivo.
 
-```XML
+```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />

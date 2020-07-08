@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69368ecd7234912bcaf5eb606545f62ddb7b30a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681407"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204184"
 ---
 # <a name="localization"></a>Localizzazione
 
@@ -26,7 +26,7 @@ L'elemento **Localizzazione** consente di supportare più impostazioni locali o 
 - Configurare l'elenco esplicito delle lingue supportate di un criterio e selezionare una lingua predefinita.
 - Fornire stringhe specifiche della lingua e raccolte.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -41,7 +41,7 @@ L'elemento **Localizzazione** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Attivato | No | I valori possibili sono: `true` o `false`. |
+| Abilitato | No | I valori possibili sono: `true` o `false`. |
 
 L'elemento **Localizazzione**contiene gli elementi XML seguenti
 
@@ -110,13 +110,13 @@ L'elemento **Item** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Testo | Sì | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
+| Text | Sì | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
 | valore | Sì | Il valore di attestazione della stringa associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
 L'esempio seguente illustra l'uso dell'elemento **LocalizedCollections**. Contiene due elementi **LocalizedCollection**, uno per l'inglese e un altro per lo spagnolo. Entrambi impostano la raccolta **Restriction** dell'attestazione `Gender` con un elenco di elementi per l'inglese e lo spagnolo.
 
-```XML
+```xml
 <LocalizedResources Id="api.selfasserted.en">
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
@@ -147,7 +147,7 @@ L'elemento **LocalizedString** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ElementType | Sì | Valori possibili: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predicate](#predicate), [InputValidation](#inputvalidation)o [UxElement](#uxelement).   | 
-| ElementId | Sì | Se **elementType** è impostato su `ClaimType`, `Predicate`o `InputValidation`, questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema. |
+| ElementId | Sì | Se **elementType** è impostato su `ClaimType` , `Predicate` o `InputValidation` , questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema. |
 | ID stringa | Sì | Se **ElementType** è impostato su `ClaimType`, questo elemento contiene un riferimento a un attributo di un tipo di attestazione. I valori possibili sono: `DisplayName`, `AdminHelpText` o `PatternHelpText`. Il valore`DisplayName` viene usato per impostare il nome visualizzato di attestazione. Il valore `AdminHelpText` viene usato per impostare il nome del testo di istruzioni dell'utente di attestazione. Il valore`PatternHelpText` viene usato per impostare il testo di istruzioni del criterio di attestazione. Se **ElementType** è impostato su `UxElement`, questo elemento contiene un riferimento a un elemento dell'interfaccia utente. Se **ElementType** è impostato su `ErrorMessage`, questo elemento specifica l'identificatore di un messaggio di errore. Visualizzare gli [ID stringa di localizzazione](localization-string-ids.md) per un elenco completo degli `UxElement` identificatori.|
 
 ## <a name="elementtype"></a>ElementType
@@ -157,10 +157,10 @@ Riferimento ElementType a un tipo di attestazione, a una trasformazione di attes
 | Elemento da localizzare | ElementType | ElementId |ID stringa |
 | --------- | -------- | ----------- |----------- |
 | Nome del provider di identità |`ClaimsProvider`| | ID dell'elemento ClaimsExchange|
-| Attributi del tipo di attestazione|`ClaimType`|Nome del tipo di attestazione| Attributo dell'attestazione da localizzare. Valori possibili: `AdminHelpText`, `DisplayName` `PatternHelpText`, e `UserHelpText`.|
+| Attributi del tipo di attestazione|`ClaimType`|Nome del tipo di attestazione| Attributo dell'attestazione da localizzare. Valori possibili: `AdminHelpText` , `DisplayName` , `PatternHelpText` e `UserHelpText` .|
 |Messaggio di errore|`ErrorMessage`||ID del messaggio di errore |
 |Copia le stringhe localizzate in attestazioni|`GetLocalizedStringsTra nsformationClaimType`||Nome dell'attestazione di output|
-|Messaggio utente predicato|`Predicate`|Nome del predicato| Attributo del predicato da localizzare. Valori possibili: `HelpText`.|
+|Messaggio utente predicato|`Predicate`|Nome del predicato| Attributo del predicato da localizzare. Valori possibili: `HelpText` .|
 |Messaggio utente gruppo predicato|`InputValidation`|ID dell'elemento PredicateValidation.|ID dell'elemento PredicateGroup. Il gruppo predicato deve essere un elemento figlio dell'elemento validation Predicate come definito in ElementId.|
 |Elementi dell'interfaccia utente |`UxElement` | | ID dell'elemento dell'interfaccia utente da localizzare.|
 
@@ -205,7 +205,7 @@ Il valore ClaimType viene usato per localizzare uno degli attributi di attestazi
 
 Nell'esempio seguente viene illustrato come localizzare gli attributi DisplayName, UserHelpText e PatternHelpText del tipo di attestazione e-mail.
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
@@ -228,7 +228,7 @@ Il valore ErrorMessage viene utilizzato per localizzare uno dei messaggi di erro
 Nell'esempio seguente viene illustrato come localizzare il messaggio di errore UserMessageIfClaimsPrincipalAlreadyExists.
 
 
-```XML
+```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
 ```
 
@@ -319,7 +319,7 @@ Il valore InputValidation viene usato per localizzare uno dei messaggi di errore
 
 Nell'esempio seguente viene illustrato come localizzare il testo della guida del gruppo di convalida del predicato.
 
-```XML
+```xml
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
@@ -327,7 +327,7 @@ Nell'esempio seguente viene illustrato come localizzare il testo della guida del
 
 Il valore UxElement viene usato per localizzare uno degli elementi dell'interfaccia utente. Nell'esempio seguente viene illustrato come localizzare i pulsanti continua e Annulla.
 
-```XML
+```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```

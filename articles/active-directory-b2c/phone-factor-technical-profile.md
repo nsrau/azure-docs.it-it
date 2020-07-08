@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2b30e8f6bcbe7c0e739455f4942712f68ff8404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203861"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico del fattore di telefono in un Azure Active Directory B2C criteri personalizzati
 
@@ -36,7 +36,7 @@ L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Prop
 
 Nell'esempio seguente viene illustrato un profilo tecnico del fattore telefonico per la registrazione e la convalida:
 
-```XML
+```xml
 <TechnicalProfile Id="PhoneFactor-InputOrVerify">
   <DisplayName>PhoneFactor</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -45,7 +45,7 @@ Nell'esempio seguente viene illustrato un profilo tecnico del fattore telefonico
 
 ## <a name="input-claims-transformations"></a>Trasformazioni di attestazioni di input
 
-L'elemento InputClaimsTransformations può contenere una raccolta di trasformazioni di attestazioni di input utilizzate per modificare le attestazioni di input o per generarne di nuove. La trasformazione delle attestazioni di input `UserId` seguente genera un'attestazione che viene utilizzata in un secondo momento nella raccolta di attestazioni di input.
+L'elemento InputClaimsTransformations può contenere una raccolta di trasformazioni di attestazioni di input utilizzate per modificare le attestazioni di input o per generarne di nuove. La trasformazione delle attestazioni di input seguente genera un' `UserId` attestazione che viene utilizzata in un secondo momento nella raccolta di attestazioni di input.
 
 ```xml
 <InputClaimsTransformations>
@@ -59,12 +59,12 @@ L'elemento InputClaims deve contenere le attestazioni seguenti. È anche possibi
 
 |  Tipo di dati| Obbligatoria | Descrizione |
 | --------- | -------- | ----------- | 
-| string| Sì | Identificatore univoco per l'utente. Il nome dell'attestazione o PartnerClaimType deve essere impostato `UserId`su. Questa attestazione non deve contenere informazioni personali.|
-| stringa| Sì | Elenco dei tipi di attestazione. Ogni attestazione contiene un numero di telefono. Se una delle attestazioni di input non contiene un numero di telefono, all'utente verrà richiesto di registrare e verificare un nuovo numero di telefono. Il numero di telefono convalidato viene restituito come attestazione di output. Se una delle attestazioni di input contiene un numero di telefono, viene richiesto all'utente di verificarlo. Se più attestazioni di input contengono un numero di telefono, all'utente viene richiesto di scegliere e verificare uno dei numeri di telefono. |
+| string| Sì | Identificatore univoco per l'utente. Il nome dell'attestazione o PartnerClaimType deve essere impostato su `UserId` . Questa attestazione non deve contenere informazioni personali.|
+| string| Sì | Elenco dei tipi di attestazione. Ogni attestazione contiene un numero di telefono. Se una delle attestazioni di input non contiene un numero di telefono, all'utente verrà richiesto di registrare e verificare un nuovo numero di telefono. Il numero di telefono convalidato viene restituito come attestazione di output. Se una delle attestazioni di input contiene un numero di telefono, viene richiesto all'utente di verificarlo. Se più attestazioni di input contengono un numero di telefono, all'utente viene richiesto di scegliere e verificare uno dei numeri di telefono. |
 
 Nell'esempio seguente viene illustrato l'utilizzo di più numeri di telefono. Per ulteriori informazioni, vedere [criteri di esempio](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="userIdForMFA" PartnerClaimType="UserId" />
   <InputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" />
@@ -79,7 +79,7 @@ L'elemento OutputClaims contiene un elenco di attestazioni restituite dal profil
 |  Tipo di dati| Obbligatoria | Descrizione |
 |  -------- | ----------- |----------- |
 | boolean | Sì | Indica se il nuovo numero di telefono è stato immesso dall'utente. Il nome dell'attestazione o PartnerClaimType deve essere impostato su`newPhoneNumberEntered`|
-| stringa| Sì | Numero di telefono verificato. Il nome dell'attestazione o PartnerClaimType deve essere impostato `Verified.OfficePhone`su.|
+| string| Sì | Numero di telefono verificato. Il nome dell'attestazione o PartnerClaimType deve essere impostato su `Verified.OfficePhone` .|
 
 L'elemento OutputClaimsTransformations può contenere una raccolta di elementi OutputClaimsTransformation usati per modificare le attestazioni di output o generarne di nuovi.
 
@@ -93,9 +93,9 @@ L'elemento **CryptographicKeys** non viene usato.
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ContentDefinitionReferenceId | Sì | Identificatore della [definizione di contenuto](contentdefinitions.md) associata a questo profilo tecnico. |
-| ManualPhoneNumberEntryAllowed| No | Specificare se un utente è autorizzato o meno a immettere manualmente un numero di telefono. Valori possibili: `true`, o `false` (impostazione predefinita).|
-| impostazione di. authenticationMode | No | Metodo per convalidare il numero di telefono. Valori possibili: `sms`, `phone`o `mixed` (impostazione predefinita).|
-| impostazione. Autodial| No| Specificare se il profilo tecnico deve comporre automaticamente o inviare automaticamente un SMS. Valori possibili: `true`, o `false` (impostazione predefinita). Per la composizione automatica `setting.authenticationMode` è necessario che i `sms`metadati siano `phone`impostati su o. La raccolta di attestazioni di input deve avere un solo numero di telefono. |
+| ManualPhoneNumberEntryAllowed| No | Specificare se un utente è autorizzato o meno a immettere manualmente un numero di telefono. Valori possibili: `true` o `false` (impostazione predefinita).|
+| impostazione di. authenticationMode | No | Metodo per convalidare il numero di telefono. Valori possibili: `sms` , `phone` o `mixed` (impostazione predefinita).|
+| impostazione. Autodial| No| Specificare se il profilo tecnico deve comporre automaticamente o inviare automaticamente un SMS. Valori possibili: `true` o `false` (impostazione predefinita). Per la composizione automatica `setting.authenticationMode` è necessario che i metadati siano impostati su `sms` o `phone` . La raccolta di attestazioni di input deve avere un solo numero di telefono. |
 
 ### <a name="ui-elements"></a>Elementi dell'interfaccia utente
 

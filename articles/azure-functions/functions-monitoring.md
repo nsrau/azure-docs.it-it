@@ -4,12 +4,13 @@ description: Imparare a usare Azure Application Insights con Funzioni di Azure p
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207008"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -245,7 +246,7 @@ Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzio
 
 ## <a name="configure-sampling"></a>Configurare il campionamento
 
-Application Insights ha una funzionalità di [campionamento](../azure-monitor/app/sampling.md) che consente di evitare la produzione di un numero eccessivo di dati di telemetria sulle esecuzioni completate nei picchi di carico. Quando la frequenza delle esecuzioni in ingresso supera una soglia specificata, Application Insights inizia a ignorare in modo casuale alcune delle esecuzioni in ingresso. Il valore predefinito per il numero massimo di elementi al secondo è 20 (cinque nella versione 1.x). È possibile configurare il campionamento nel file [host.json].  Ad esempio:
+Application Insights ha una funzionalità di [campionamento](../azure-monitor/app/sampling.md) che consente di evitare la produzione di un numero eccessivo di dati di telemetria sulle esecuzioni completate nei picchi di carico. Quando la frequenza delle esecuzioni in ingresso supera una soglia specificata, Application Insights inizia a ignorare in modo casuale alcune delle esecuzioni in ingresso. Il valore predefinito per il numero massimo di elementi al secondo è 20 (cinque nella versione 1.x). È possibile configurare il campionamento nel file [host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Ad esempio:
 
 ### <a name="version-2x-and-later"></a>Versione 2.x e successive
 
@@ -255,12 +256,15 @@ Application Insights ha una funzionalità di [campionamento](../azure-monitor/ap
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 20
+        "maxTelemetryItemsPerSecond" : 20,
+        "excludedTypes": "Request"
       }
     }
   }
 }
 ```
+
+Nella versione 2. x è possibile escludere determinati tipi di dati di telemetria dal campionamento. Nell'esempio precedente, i dati di tipo `Request` vengono esclusi dal campionamento. In questo modo si garantisce che *tutte le* esecuzioni di funzioni (richieste) vengano registrate mentre altri tipi di dati di telemetria rimangono soggetti al campionamento.
 
 ### <a name="version-1x"></a>Versione 1.x 
 
@@ -313,7 +317,7 @@ Ecco una rappresentazione JSON di esempio dei dati `customDimensions`:
 
 ```json
 {
-  customDimensions: {
+  "customDimensions": {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
     "Category":"Function",
     "LogLevel":"Information",
@@ -683,6 +687,28 @@ Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
+
+## <a name="scale-controller-logs"></a>Ridimensiona log del controller
+
+Il [controller di scalabilità di funzioni di Azure](./functions-scale.md#runtime-scaling) monitora le istanze dell'host di funzioni che eseguono l'app e decide quando aggiungere o rimuovere le istanze dell'host di funzione. Se è necessario comprendere le decisioni che il controller di ridimensionamento sta effettuando nell'applicazione, è possibile configurarlo in modo da creare log per Application Insights o nell'archivio BLOB.
+
+> [!WARNING]
+> Questa funzionalità è in anteprima. Non è consigliabile lasciare abilitata questa funzionalità per un periodo illimitato ed è invece necessario abilitarla quando sono necessarie le informazioni raccolte e quindi disabilitarla.
+
+Per abilitare questa funzionalità, aggiungere una nuova impostazione dell'applicazione denominata `SCALE_CONTROLLER_LOGGING_ENABLED` . Il valore di questa impostazione deve avere il formato `{Destination}:{Verbosity}` , dove:
+* `{Destination}`Specifica la destinazione per i log da inviare a e deve essere `AppInsights` o `Blob` .
+* `{Verbosity}`Specifica il livello di registrazione desiderato e deve essere uno tra `None` , `Warning` o `Verbose` .
+
+Ad esempio, per registrare le informazioni dettagliate dal controller di scalabilità a Application Insights, usare il valore `AppInsights:Verbose` .
+
+> [!NOTE]
+> Se si Abilita il `AppInsights` tipo di destinazione, è necessario assicurarsi [di configurare Application Insights per l'app per le funzioni](#enable-application-insights-integration).
+
+Se si imposta la destinazione su `Blob` , i log verranno creati in un contenitore BLOB denominato nell' `azure-functions-scale-controller` account di archiviazione impostato nell' `AzureWebJobsStorage` impostazione dell'applicazione.
+
+Se si imposta il livello di dettaglio su `Verbose` , il controller di ridimensionamento registrerà un motivo per ogni modifica nel conteggio dei thread di lavoro, nonché informazioni sui trigger che fanno parte delle decisioni del controller di scala. Ad esempio, i log includeranno gli avvisi dei trigger e gli hash usati dai trigger prima e dopo l'esecuzione del controller di scalabilità.
+
+Per disabilitare la registrazione del controller di scalabilità, impostare il valore di `{Verbosity}` su `None` o rimuovere l' `SCALE_CONTROLLER_LOGGING_ENABLED` impostazione dell'applicazione.
 
 ## <a name="disable-built-in-logging"></a>Disabilitare la registrazione predefinita
 

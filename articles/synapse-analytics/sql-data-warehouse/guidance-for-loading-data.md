@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745503"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201634"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Procedure consigliate per il caricamento di dati tramite il pool di sinapsi SQL
 
@@ -28,8 +28,6 @@ Per ridurre al minimo la latenza, colocare il livello di archiviazione e il pool
 
 In caso di esportazione di dati in un formato di file ORC, quando sono presenti colonne di testo di grandi dimensioni potrebbero verificarsi errori di memoria insufficiente di Java. Per risolvere questo problema, esportare solo un subset di colonne.
 
-La polibase non può caricare righe contenenti più di 1 milione byte di dati. I dati inseriti nei file di testo nell'archivio BLOB di Azure o in Azure Data Lake Store devono corrispondere a meno di 1.000.000 di byte. Questa limitazione in termini di byte vale indipendentemente dallo schema di tabella.
-
 Tutti i formati di file hanno caratteristiche di prestazioni diverse. Per ottenere la velocità di caricamento massima, usare file di testo delimitati compressi. La differenza di prestazioni tra UTF-8 e UTF-16 è minima.
 
 Suddividere i file compressi di grandi dimensioni in file compressi di dimensioni inferiori.
@@ -38,38 +36,47 @@ Suddividere i file compressi di grandi dimensioni in file compressi di dimension
 
 Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se ciò non è possibile, eseguire un numero minimo di caricamenti simultaneamente. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL prima del caricamento.
 
-Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  
-
-> [!NOTE]
-> Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
+Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Classificare ogni utente di caricamento in un gruppo di carico di lavoro specifico. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il carico viene eseguito con il gruppo del carico di lavoro dell'utente.  
 
 ### <a name="example-of-creating-a-loading-user"></a>Esempio di creazione di un utente addetto al caricamento
 
-Questo esempio crea un utente addetto al caricamento per la classe di risorse staticrc20. Il primo passaggio consiste nel **connettersi al master** e creare un account di accesso.
+In questo esempio viene creato un utente di caricamento Classificato in un gruppo di carico di lavoro specifico. Il primo passaggio consiste nel **connettersi al master** e creare un account di accesso.
 
 ```sql
    -- Connect to master
-   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+   CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connettersi al pool SQL e creare un utente. Il codice seguente presuppone che l'utente sia connesso al database denominato mySampleDataWarehouse. Viene illustrato come creare un utente denominato LoaderRC20 e viene assegnata l'autorizzazione di controllo utente per un database. Quindi aggiunge l'utente come membro del ruolo del database staticrc20.  
+Connettersi al pool SQL e creare un utente. Il codice seguente presuppone che l'utente sia connesso al database denominato mySampleDataWarehouse. Mostra come creare un utente chiamato Loader e concede all'utente le autorizzazioni per creare tabelle e caricare usando l' [istruzione Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). L'utente viene quindi Classificato al gruppo di carico di lavoro dei carichi di lavoro con le risorse massime. 
 
 ```sql
-   -- Connect to the database
-   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+   -- Connect to the SQL pool
+   CREATE USER loader FOR LOGIN loader;
+   GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
+   GRANT INSERT ON <yourtablename> TO loader;
+   GRANT SELECT ON <yourtablename> TO loader;
+   GRANT CREATE TABLE TO loader;
+   GRANT ALTER ON SCHEMA::dbo TO loader;
+   
+   CREATE WORKLOAD GROUP DataLoads
+   WITH ( 
+      MIN_PERCENTAGE_RESOURCE = 100
+       ,CAP_PERCENTAGE_RESOURCE = 100
+       ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
+    );
+
+   CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
+   WITH (
+         WORKLOAD_GROUP = 'DataLoads'
+       ,MEMBERNAME = 'loader'
+   );
 ```
 
-Per eseguire un caricamento con risorse per le classi di risorse staticRC20, accedere come LoaderRC20 ed eseguire il caricamento.
+Per eseguire un caricamento con risorse per il gruppo del carico di lavoro di caricamento, accedere come caricatore ed eseguire il caricamento.
 
-Eseguire i caricamenti con classi di risorse statiche anziché dinamiche. L'uso di classi di risorse statiche garantisce le stesse risorse indipendentemente dalle [unità data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Se si usa una classe di risorse dinamica, le risorse variano in base al livello di servizio.
+## <a name="allowing-multiple-users-to-load-polybase"></a>Consentire il caricamento di più utenti (polibase)
 
-Per le classi dinamiche, un livello di servizio inferiore renderà probabilmente necessario usare una classe di risorse di maggiori dimensioni per l'utente addetto al caricamento.
-
-## <a name="allowing-multiple-users-to-load"></a>Consentire il caricamento a più utenti
-
-Spesso è necessario che più utenti carichino i dati in un pool SQL. Il caricamento con [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) richiede autorizzazioni CONTROL per il database.  L'autorizzazione CONTROL fornisce il controllo degli accessi a tutti gli schemi.
+Spesso è necessario che più utenti carichino i dati in un pool SQL. Il caricamento con il [create table come Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (polibase) richiede autorizzazioni Control per il database.  L'autorizzazione CONTROL fornisce il controllo degli accessi a tutti gli schemi.
 
 È consigliabile che non tutti gli utenti che eseguono caricamenti abbiano il controllo degli accessi a tutti gli schemi. Per limitare le autorizzazioni, usare l'istruzione DENY CONTROL.
 
@@ -104,7 +111,7 @@ In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riusci
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si usa l'API SqLBulkCopy o BCP
 
-Il caricamento con polibase fornirà la massima velocità effettiva con il pool SQL. Se non è possibile usare la polibase per caricare e usare l' [API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), è consigliabile prendere in considerazione l'aumento delle dimensioni del batch per una migliore velocità effettiva.
+Il caricamento con l'istruzione COPY fornirà la massima velocità effettiva con il pool SQL. Se non è possibile usare la copia per caricare e usare l' [API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), è consigliabile prendere in considerazione l'aumento delle dimensioni del batch per una migliore velocità effettiva.
 
 > [!TIP]
 > Una dimensione di batch compresa tra 100 e 1 milione di righe è la linea di base consigliata per determinare la capacità ottimale per le dimensioni del batch.
@@ -142,7 +149,7 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="rotate-storage-keys"></a>Ruotare le chiavi di archiviazione
+## <a name="rotate-storage-keys-polybase"></a>Ruotare le chiavi di archiviazione (base)
 
 Ai fini della sicurezza è consigliabile modificare regolarmente la chiave di accesso all'archivio BLOB. Sono disponibili due chiavi di archiviazione per l'account di archiviazione BLOB ed è quindi possibile passare da una chiave all'altra.
 
@@ -168,6 +175,6 @@ Non sono necessarie altre modifiche alle origini dati esterne.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su PolyBase e sulla progettazione di un processo di estrazione, caricamento e trasformazione, vedere l'articolo su come [progettare estrazione, caricamento e trasformazione per SQL Data Warehouse](design-elt-data-loading.md).
-- Per un'esercitazione sul caricamento, vedere [Usare PolyBase per caricare dati dall'archivio BLOB di Azure ad Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- Per altre informazioni sull'istruzione di copia o sulla polibase durante la progettazione di un processo di estrazione, caricamento e trasformazione (ELT), vedere [progettare ELT per SQL data warehouse](design-elt-data-loading.md).
+- Per un'esercitazione sul caricamento, [usare l'istruzione Copy per caricare dati dall'archivio BLOB di Azure a sinapsi SQL](load-data-from-azure-blob-storage-using-polybase.md).
 - Per monitorare il caricamento dei dati, vedere [Monitoraggio del carico di lavoro mediante DMV](sql-data-warehouse-manage-monitor.md).

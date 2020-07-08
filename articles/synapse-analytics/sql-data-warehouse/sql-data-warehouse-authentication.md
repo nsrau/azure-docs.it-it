@@ -6,18 +6,18 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 86cd3d2f7675ca5111c29be278c9433ec7f66945
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206731"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Eseguire l'autenticazione in Azure Synapse Analytics
 
@@ -54,16 +54,16 @@ L'autenticazione di [Azure Active Directory](../../active-directory/fundamentals
 I vantaggi di Azure Active Directory includono i seguenti:
 
 * Offre un'alternativa all'autenticazione di SQL Server.
-* Contribuisce ad arrestare la proliferazione delle identità utente nei server di database.
+* Contribuisce ad arrestare la proliferazione delle identità utente nei server.
 * Consente la rotazione delle password in un'unica posizione.
 * Consente di gestire le autorizzazioni del database tramite gruppi di Azure AD esterni.
-* Consente di eliminare l'archiviazione delle password abilitando l'autenticazione integrata di Windows e altre forme di autenticazione supportate da Azure Active Directory.
+* Elimina l'archiviazione delle password abilitando l'autenticazione integrata di Windows e o le forme di autenticazione supportate da Azure Active Directory.
 * Usa gli utenti di database indipendente per autenticare le identità a livello di database.
 * Supporta l'autenticazione basata su token per le applicazioni che si connettono al pool SQL.
-* Supporta l'autenticazione a più fattori tramite Autenticazione universale di Active Directory per vari strumenti, tra cui [SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+* Supporta l'autenticazione a più fattori tramite Autenticazione universale di Active Directory per vari strumenti, tra cui [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 > [!NOTE]
-> Azure Active Directory è ancora relativamente nuovo e presenta alcune limitazioni. Per assicurarsi che Azure Active Directory sia ideale per l'ambiente di riferimento, vedere [le funzionalità e le limitazioni di Azure AD](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), in particolare le Considerazioni aggiuntive.
+> Azure Active Directory è ancora relativamente nuovo e presenta alcune limitazioni. Per assicurarsi che Azure Active Directory sia ideale per l'ambiente di riferimento, vedere [le funzionalità e le limitazioni di Azure AD](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), in particolare le Considerazioni aggiuntive.
 
 ### <a name="configuration-steps"></a>Passaggi di configurazione
 
@@ -80,7 +80,7 @@ Gli utenti di Azure Active Directory non sono attualmente visualizzati in Esplor
 
 ### <a name="find-the-details"></a>Informazioni dettagliate
 
-* La procedura per configurare e usare l'autenticazione di Azure Active Directory è quasi identica per Database SQL di Azure e Synapse SQL in Azure Synapse. Seguire la procedura dettagliata riportata nell'argomento [Connessione al database SQL o al pool SQL con l'autenticazione di Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* La procedura per configurare e usare l'autenticazione di Azure Active Directory è quasi identica per Database SQL di Azure e Synapse SQL in Azure Synapse. Seguire la procedura dettagliata riportata nell'argomento [Connessione al database SQL o al pool SQL con l'autenticazione di Azure Active Directory](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Creare ruoli di database personalizzati e aggiungere utenti ai ruoli. Concedere quindi autorizzazioni granulari ai ruoli. Per altre informazioni, vedere [Introduzione alle autorizzazioni del motore di database](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Passaggi successivi

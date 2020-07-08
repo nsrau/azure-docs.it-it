@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 842a69c27ceb0d56df5a7b49eb9922b88d8d4b32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206938"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Informazioni sul file LocalConfiguration.json - Agente C
 
@@ -40,22 +40,22 @@ Le modifiche apportate al file di configurazione vengono applicate quando l'agen
 | AgentId | GUID | Identificatore univoco dell'agente |
 | TriggerdEventsInterval | Stringa ISO8601 | Intervallo di utilità di pianificazione per la raccolta di eventi attivati |
 | ConnectionTimeout | Stringa ISO8601 | Si è verificato il timeout del periodo di tempo prima della connessione a IoThub |
-| Autenticazione | JsonObject | Configurazione dell'autenticazione. Questo oggetto contiene tutte le informazioni necessarie per l'autenticazione in IoTHub |
+| Authentication | JsonObject | Configurazione dell'autenticazione. Questo oggetto contiene tutte le informazioni necessarie per l'autenticazione in IoTHub |
 | Identità | "DPS", "SecurityModule", "Device" | Identità di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, SecurityModule se l'autenticazione viene eseguita tramite il dispositivo o le credenziali del modulo di sicurezza se viene eseguita l'autenticazione con le credenziali del dispositivo |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | il segreto utente per l'autenticazione: scegliere SasToken se il segreto di utilizzo è una chiave simmetrica, scegliere certificato autofirmato se il segreto è un certificato autofirmato  |
 | FilePath | Percorso del file (stringa) | Percorso del file che contiene il segreto di autenticazione |
-| HostName | stringa | Nome host dell'hub Azure. in genere <My-Hub>. azure-devices.net |
-| DeviceId | stringa | ID del dispositivo, come registrato nell'hub Azure. |
+| HostName | string | Nome host dell'hub Azure. in genere <My-Hub>. azure-devices.net |
+| deviceId | string | ID del dispositivo, come registrato nell'hub Azure. |
 | DPS | JsonObject | Configurazioni correlate a DPS |
-| IDScope | stringa | Ambito ID di DPS |
-| ID registrazione | stringa  | ID registrazione dispositivo DPS |
+| IDScope | string | Ambito ID di DPS |
+| ID registrazione | string  | ID registrazione dispositivo DPS |
 | Registrazione | JsonObject | Configurazioni correlate al logger agente |
 | SystemLoggerMinimumSeverity | 0 <= numero <= 4 | i messaggi di log uguali e superiori a questa gravità verranno registrati in/var/log/syslog (0 è la gravità minima) |
 | DiagnosticEventMinimumSeverity | 0 <= numero <= 4 | i messaggi di log uguali e superiori a questa gravità verranno inviati come eventi di diagnostica (0 è la gravità minima) |
 
 ## <a name="security-agent-configurations-code-example"></a>Esempio di codice delle configurazioni degli agenti di sicurezza
 
-```JSON
+```json
 {
     "Configuration" : {
         "AgentId" : "b97faf0a-0f57-471f-9dab-46a8e1764946",

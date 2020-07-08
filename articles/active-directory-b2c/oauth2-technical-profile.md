@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 86ec7a5745a58546faf6f0ff15d6dc5f452baa88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cda04ad57f1984064692cb1df4accc5a99de0910
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204031"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un Azure Active Directory B2C criteri personalizzati
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider d
 
 L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `OAuth2`. Ad esempio, il protocollo per il profilo tecnico **Facebook-OAUTH** è `OAuth2`:
 
-```XML
+```xml
 <TechnicalProfile Id="Facebook-OAUTH">
   <DisplayName>Facebook</DisplayName>
   <Protocol Name="OAuth2" />
@@ -39,7 +39,7 @@ L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `OAut
 
 Gli elementi **InputClaims** e **InputClaimsTransformations** non sono obbligatori. Tuttavia, è possibile inviare parametri aggiuntivi al provider di identità. L'esempio seguente aggiunge il parametro della stringa di query **domain_hint** e il valore di `contoso.com` alla richiesta di autorizzazione.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="domain_hint" DefaultValue="contoso.com" />
 </InputClaims>
@@ -91,13 +91,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ClaimsEndpointFormat | No | Il valore del parametro della stringa di query di formato. Ad esempio, è possibile impostare il valore su `json` in questo endpoint attestazioni LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
 | ProviderName | No | Il nome del provider di identità. |
 | response_mode | No | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
-| ambito | No | Ambito della richiesta definito in base alla specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
+| scope | No | Ambito della richiesta definito in base alla specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
 | HttpBinding | No | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I valori possibili sono: `GET` o `POST`.  |
 | ResponseErrorCodeParamName | No | Il nome del parametro che contiene il messaggio di errore restituito nel messaggio HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | No | Contiene altri parametri che possono essere restituiti nella risposta di **AccessTokenEndpoint** da alcuni provider di identità. Ad esempio, la risposta di **AccessTokenEndpoint** contiene un altro parametro, ad esempio `openid`, ovvero un parametro obbligatorio oltre all'access_token in una stringa di query della richiesta **ClaimsEndpoint**. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
 | ExtraParamsInClaimsEndpointRequest | No | Contiene altri parametri che possono essere restituiti nella richiesta **ClaimsEndpoint** da alcuni provider di identità. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`, o `false`  (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione `true`su. |
-| ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true`, o `false` (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [OutputClaim](technicalprofiles.md#outputclaims)impostare sull' `PartnerClaimType` elemento JSON Path che si vuole restituire. Ad esempio: `firstName.localized`o `data.0.to.0.email`.|
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
+| ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true` o `false` (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [OutputClaim](technicalprofiles.md#outputclaims)impostare sull' `PartnerClaimType` elemento JSON Path che si vuole restituire. Ad esempio: `firstName.localized` o `data.0.to.0.email` .|
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
@@ -105,7 +105,7 @@ L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token`, è possibile omettere la chiave crittografica. |
+| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` , è possibile omettere la chiave crittografica. |
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 

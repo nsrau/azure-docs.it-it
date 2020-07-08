@@ -6,17 +6,17 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b7e980f2ffd31bd10b481fe4fc8e0617c40717a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205085"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Ripristino geografico per il pool SQL
 
@@ -26,7 +26,7 @@ Questo articolo illustra come ripristinare il pool SQL da un backup geografico t
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verificare la capacità in DTU.** Ogni pool SQL è ospitato da un server SQL (ad esempio, myserver.database.windows.net) con una quota DTU predefinita. Verificare che SQL Server disponga di una quota DTU rimanente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere maggiore DTU, vedere come [richiedere una modifica della quota DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verificare la capacità in DTU.** Ogni pool SQL è ospitato da un [server SQL logico](../../azure-sql/database/logical-servers.md) (ad esempio, myserver.database.Windows.NET) con una quota DTU predefinita. Verificare che SQL Server disponga di una quota DTU rimanente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere maggiore DTU, vedere come [richiedere una modifica della quota DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Eseguire il ripristino da un'area geografica di Azure tramite PowerShell
 
@@ -49,7 +49,7 @@ Per eseguire il ripristino da un backup geografico, usare il cmdlet [Get-AzSqlDa
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different logical server.
+$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different server.
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
@@ -81,7 +81,7 @@ Attenersi alla procedura descritta di seguito per ripristinare un pool SQL da un
 
    ![Nuovo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Fare clic su **database** e quindi * * Azure sinapsi Analytics (in precedenza SQL DW) * *.
+3. Fare clic su **database** e quindi su **Azure sinapsi Analytics (in precedenza SQL DW)**.
 
    ![Nuovo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
@@ -89,7 +89,7 @@ Attenersi alla procedura descritta di seguito per ripristinare un pool SQL da un
 
    ![Nozioni di base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. Per **Usa parametro dati esistente** selezionare **backup** e selezionare il backup appropriato dalle opzioni Scorri verso il basso. Fare clic su **Verifica + crea**.
+5. Per **Usa parametro dati esistente** selezionare **backup** e selezionare il backup appropriato dalle opzioni Scorri verso il basso. Fare clic su **Rivedi e crea**.
 
    ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 

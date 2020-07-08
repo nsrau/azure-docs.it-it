@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b29b8b0975639e5c5315a55e1382794d7662665
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203453"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Prop
 
 L'esempio seguente illustra un profilo tecnico autocertificato per l'iscrizione alla posta elettronica:
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -40,7 +40,7 @@ L'esempio seguente illustra un profilo tecnico autocertificato per l'iscrizione 
 
 In un profilo tecnico autocertificato, è possibile usare gli elementi **InputClaims** e **InputClaimsTransformations** per prepopolare il valore delle attestazioni visualizzate nella pagina autocertificata (visualizzare le attestazioni). Nei criteri del profilo di modifica ad esempio il percorso utente legge prima il profilo utente dal servizio directory di Azure AD B2C, quindi il profilo tecnico autocertificato imposta le attestazioni di input con i dati utente archiviati nel profilo utente. Queste attestazioni vengono raccolte dal profilo utente e successivamente presentate all'utente che può quindi modificare i dati esistenti.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
 ...
   <InputClaims>
@@ -57,7 +57,7 @@ La funzionalità di visualizzazione delle attestazioni è attualmente in **Antep
 
 L'elemento **DisplayClaims** contiene un elenco di attestazioni da presentare sullo schermo per la raccolta di dati da parte dell'utente. Per prepopolare i valori delle attestazioni di visualizzazione, usare le attestazioni di input descritte in precedenza. L'elemento può contenere anche un valore predefinito.
 
-L'ordine delle attestazioni in **DisplayClaims** specifica l'ordine in cui Azure ad B2C esegue il rendering delle attestazioni sullo schermo. Per forzare l'utente a fornire un valore per un'attestazione specifica, impostare l'attributo **obbligatorio** dell'elemento **DisplayClaim** su `true`.
+L'ordine delle attestazioni in **DisplayClaims** specifica l'ordine in cui Azure ad B2C esegue il rendering delle attestazioni sullo schermo. Per forzare l'utente a fornire un valore per un'attestazione specifica, impostare l'attributo **obbligatorio** dell'elemento **DisplayClaim** su `true` .
 
 L'elemento **ClaimType** nella raccolta **DisplayClaims** deve impostare l'elemento **tipo** su qualsiasi tipo di input utente supportato da Azure ad B2C. Ad esempio, `TextBox` o `DropdownSingleSelect`.
 
@@ -65,13 +65,13 @@ L'elemento **ClaimType** nella raccolta **DisplayClaims** deve impostare l'eleme
 
 Nella raccolta di attestazioni di visualizzazione è possibile includere un riferimento a un [DisplayControl](display-controls.md) creato. Un controllo display è un elemento dell'interfaccia utente che dispone di funzionalità speciali e interagisce con il servizio back-end Azure AD B2C. Consente all'utente di eseguire azioni nella pagina che richiama un profilo tecnico di convalida nel back-end. Ad esempio, verificando un indirizzo di posta elettronica, un numero di telefono o un numero di fedeltà del cliente.
 
-Nell'esempio `TechnicalProfile` seguente viene illustrato l'utilizzo di attestazioni di visualizzazione con i controlli di visualizzazione.
+Nell'esempio seguente `TechnicalProfile` viene illustrato l'utilizzo di attestazioni di visualizzazione con i controlli di visualizzazione.
 
 * La prima attestazione di visualizzazione fa riferimento al `emailVerificationControl` controllo display, che raccoglie e verifica l'indirizzo di posta elettronica.
 * La Quinta attestazione di visualizzazione fa riferimento al `phoneVerificationControl` controllo display, che raccoglie e verifica un numero di telefono.
 * Le altre attestazioni di visualizzazione sono ClaimTypes da raccogliere dall'utente.
 
-```XML
+```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
@@ -91,9 +91,9 @@ Come indicato in precedenza, un'attestazione di visualizzazione con un riferimen
 
 Se si specificano uno o più elementi **DisplayClaim** in un profilo tecnico autocertificato, è necessario usare un DisplayClaim per *ogni* attestazione che si desidera visualizzare sullo schermo e raccogliere dall'utente. Nessuna attestazione di output viene visualizzata da un profilo tecnico autocertificato che contiene almeno un'attestazione di visualizzazione.
 
-Si consideri l'esempio seguente `age` in cui un'attestazione viene definita come attestazione di **output** in un criterio di base. Prima di aggiungere attestazioni di visualizzazione al profilo tecnico autocertificato, l' `age` attestazione viene visualizzata sullo schermo per la raccolta di dati dall'utente:
+Si consideri l'esempio seguente in cui un' `age` attestazione viene definita come attestazione di **output** in un criterio di base. Prima di aggiungere attestazioni di visualizzazione al profilo tecnico autocertificato, l' `age` attestazione viene visualizzata sullo schermo per la raccolta di dati dall'utente:
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="age" />
@@ -103,7 +103,7 @@ Si consideri l'esempio seguente `age` in cui un'attestazione viene definita come
 
 Se un criterio foglia che eredita tale base successivamente specifica `officeNumber` come attestazione di **visualizzazione** :
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="officeNumber" />
@@ -120,7 +120,7 @@ L' `age` attestazione nei criteri di base non viene più visualizzata sullo sche
 
 L'elemento **OutputClaims** contiene un elenco di attestazioni da restituire al passaggio di orchestrazione successivo. L'attributo **DefaultValue** viene applicato solo se l'attestazione non è mai stata impostata. Se è stato impostato in un passaggio di orchestrazione precedente, il valore predefinito non diventa effettivo anche se l'utente lascia vuoto il valore. Per forzare l'utilizzo di un valore predefinito, impostare l'attributo **AlwaysUseDefaultValue** su `true`.
 
-Per motivi di sicurezza, un valore di attestazione`UserInputType` password `Password`(impostato su) è disponibile solo per i profili tecnici di convalida del profilo tecnico autocertificato. Non è possibile usare l'attestazione password nei passaggi successivi dell'orchestrazione. 
+Per motivi di sicurezza, un valore di attestazione password ( `UserInputType` impostato su `Password` ) è disponibile solo per i profili tecnici di convalida del profilo tecnico autocertificato. Non è possibile usare l'attestazione password nei passaggi successivi dell'orchestrazione. 
 
 > [!NOTE]
 > Nelle versioni precedenti di Identity Experience Framework (Framework dell'esperienza), le attestazioni di output sono state usate per raccogliere dati dall'utente. Per raccogliere dati dall'utente, usare invece una raccolta **DisplayClaims** .
@@ -140,7 +140,7 @@ USA attestazioni di output nei casi seguenti:
 
 Nell'esempio seguente viene illustrato l'utilizzo di un profilo tecnico autocertificato che utilizza sia le attestazioni di visualizzazione sia le attestazioni di output.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -202,11 +202,11 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 | impostazione. showSignupLink <sup>2</sup>| No | Visualizza il pulsante di iscrizione. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | impostazione. forgotPasswordLinkLocation <sup>2</sup>| No| Visualizza il collegamento password dimenticata. Valori possibili: `AfterInput` (impostazione predefinita) il collegamento viene visualizzato nella parte inferiore della pagina o `None` rimuove il collegamento password dimenticata.|
 | impostazione. enableRememberMe <sup>2</sup>| No| Visualizza la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) . Valori possibili: `true` , o `false` (impostazione predefinita). |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`, o `false`  (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione `true`su. |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 
 Note:
-1. Disponibile per la definizione [DataUri](contentdefinitions.md#datauri) del contenuto DataUri `unifiedssp`tipo di `unifiedssd`o.
-1. Disponibile per la definizione [DataUri](contentdefinitions.md#datauri) del contenuto DataUri `unifiedssp`tipo di `unifiedssd`o. [Layout di pagina](page-layout.md) 1.1.0 e versioni successive.
+1. Disponibile per la definizione del contenuto [DataUri](contentdefinitions.md#datauri) tipo di `unifiedssp` o `unifiedssd` .
+1. Disponibile per la definizione del contenuto [DataUri](contentdefinitions.md#datauri) tipo di `unifiedssp` o `unifiedssd` . [Layout di pagina](page-layout.md) 1.1.0 e versioni successive.
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 

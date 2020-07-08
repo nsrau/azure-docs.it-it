@@ -4,16 +4,16 @@ description: Come connettersi al desktop virtuale di Windows tramite il client d
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b16818856ca8196b82eb8f618cf22b5fc1b6854
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d333b2f8bbb660e9fd71339159d942c0520f4f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201549"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Connettersi con il client desktop di Windows
 
@@ -22,7 +22,7 @@ ms.locfileid: "82612691"
 È possibile accedere alle risorse del desktop virtuale di Windows nei dispositivi con Windows 7, Windows 10 e Windows 10, Enterprise usando il client desktop di Windows.
 
 >[!NOTE]
->Per impostazione predefinita, il client Windows viene impostato automaticamente su Windows Virtual Desktop Fall 2019 release. Tuttavia, se il client rileva che l'utente dispone anche di Azure Resource Manager risorse, aggiunge automaticamente le risorse o notifica all'utente che sono disponibili. 
+>Per impostazione predefinita, il client Windows viene impostato automaticamente su Windows Virtual Desktop Fall 2019 release. Tuttavia, se il client rileva che l'utente dispone anche di Azure Resource Manager risorse, aggiunge automaticamente le risorse o notifica all'utente che sono disponibili.
 
 > [!IMPORTANT]
 > Desktop virtuale Windows non supporta il client RADC (RemoteApp and Desktop Connections) o il client Connessione Desktop remoto.
@@ -60,7 +60,7 @@ Una volta eseguito correttamente l'accesso, verrà visualizzato un elenco delle 
 - Avviare una risorsa come si farebbe normalmente con altre app dal menu Start.
   - È anche possibile cercare le app nella barra di ricerca.
 
-Una volta effettuata la sottoscrizione a un feed, il contenuto del feed viene aggiornato automaticamente regolarmente. Le risorse possono essere aggiunte, modificate o rimosse in base alle modifiche apportate dall'amministratore.
+Una volta effettuata la sottoscrizione a un feed, il contenuto del feed viene aggiornato automaticamente regolarmente. È possibile che vengano aggiunte, cambiate o rimosse risorse in base alle modifiche apportate dall'amministratore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

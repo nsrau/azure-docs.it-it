@@ -11,14 +11,14 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202297"
 ---
-# <a name="display-controls"></a>Controlli di visualizzazione
+# <a name="display-controls"></a>Controlli per la visualizzazione
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -34,7 +34,7 @@ Nell'immagine seguente viene illustrata una pagina di iscrizione autocertificata
 
  Nella sezione dei [metadati](self-asserted-technical-profile.md#metadata) di un [profilo tecnico autocertificato](self-asserted-technical-profile.md), il [ContentDefinition](contentdefinitions.md) a cui si fa riferimento deve essere `DataUri` impostato su page Contract versione 2.0.0 o successiva. Ad esempio:
 
-```XML
+```xml
 <ContentDefinition Id="api.selfasserted">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -66,7 +66,7 @@ In un controllo di visualizzazione è possibile usare gli elementi **InputClaims
 
 Nell'esempio seguente viene prepopolato l'indirizzo di posta elettronica da verificare con l'indirizzo già presente.
 
-```XML
+```xml
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailAddress" />
@@ -78,11 +78,11 @@ Nell'esempio seguente viene prepopolato l'indirizzo di posta elettronica da veri
 
 Ogni tipo di controllo di visualizzazione richiede un set diverso di attestazioni di visualizzazione, [attestazioni di output](#output-claims)e [azioni](#display-control-actions) da eseguire.
 
-Analogamente alle **attestazioni di visualizzazione** definite in un [profilo tecnico autocertificato](self-asserted-technical-profile.md#display-claims), le attestazioni di visualizzazione rappresentano le attestazioni che devono essere raccolte dall'utente all'interno del controllo di visualizzazione. L'elemento **ClaimType** a cui si fa riferimento deve specificare l'elemento **tipo** per un tipo di input utente supportato da Azure ad B2C `TextBox` , `DropdownSingleSelect`ad esempio o. Se per un' **azione**è richiesto un valore di attestazione di visualizzazione, impostare l' `true` attributo **obbligatorio** su per forzare l'utente a fornire un valore per l'attestazione di visualizzazione specifica.
+Analogamente alle **attestazioni di visualizzazione** definite in un [profilo tecnico autocertificato](self-asserted-technical-profile.md#display-claims), le attestazioni di visualizzazione rappresentano le attestazioni che devono essere raccolte dall'utente all'interno del controllo di visualizzazione. L'elemento **ClaimType** a cui si fa riferimento deve specificare l'elemento **tipo** per un tipo di input utente supportato da Azure ad B2C, ad esempio `TextBox` o `DropdownSingleSelect` . Se per un' **azione**è richiesto un valore di attestazione di visualizzazione, impostare l'attributo **obbligatorio** su `true` per forzare l'utente a fornire un valore per l'attestazione di visualizzazione specifica.
 
 Alcune attestazioni di visualizzazione sono necessarie per determinati tipi di controllo di visualizzazione. Ad esempio, **VerificationCode** è obbligatorio per il controllo di visualizzazione di tipo **VerificationControl**. Usare l'attributo **ControlClaimType** per specificare quale DisplayClaim è designato per l'attestazione richiesta. Ad esempio:
 
-```XML
+```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
@@ -100,7 +100,7 @@ Un'azione definisce un elenco di **profili tecnici di convalida**. Vengono utili
 
 Nell'esempio seguente viene inviato un codice in un messaggio di posta elettronica o in un SMS in base alla selezione dell'attestazione **mfaType** da parte dell'utente.
 
-```XML
+```xml
 <Action Id="SendCode">
   <ValidationClaimsExchange>
     <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms">
@@ -131,7 +131,7 @@ Ai controlli di visualizzazione viene fatto riferimento nelle [attestazioni di v
 
 Ad esempio:
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
   ...
   <DisplayClaims>

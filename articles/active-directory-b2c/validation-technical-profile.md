@@ -11,20 +11,20 @@ ms.topic: reference
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1eaf159149bb353b1cf0474aad5bc233decddc5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d4c538a9292698fecc8b44c055ab201748e292c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202994"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di convalida in un criterio personalizzato di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un profilo tecnico di convalida è un profilo tecnico standard di un qualsiasi protocollo, ad esempio [Azure Active Directory](active-directory-technical-profile.md) o un'[API REST](restful-technical-profile.md). Il profilo tecnico di convalida restituisce le attestazioni di output oppure restituisce il codice di stato HTTP 4xx con i dati seguenti. Per ulteriori informazioni, vedere [restituzione](restful-technical-profile.md#returning-error-message) di un messaggio di errore
+Un profilo tecnico di convalida è un profilo tecnico standard di un qualsiasi protocollo, ad esempio [Azure Active Directory](active-directory-technical-profile.md) o un'[API REST](restful-technical-profile.md). Il profilo tecnico di convalida restituisce le attestazioni di output oppure restituisce il codice di stato HTTP 4xx con i dati seguenti. Per ulteriori informazioni, vedere [restituzione](restful-technical-profile.md#returning-validation-error-message) di un messaggio di errore
 
-```JSON
+```json
 {
     "version": "1.0.0",
     "status": 409,
@@ -76,8 +76,8 @@ L'elemento **Precondition** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| Valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, mentre un altro elemento Value contiene il valore da controllare.|
-| Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore di **Action** è `SkipThisValidationTechnicalProfile`. Specifica che il profilo tecnico convalida associato non deve essere eseguito. |
+| valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, mentre un altro elemento Value contiene il valore da controllare.|
+| Action | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore di **Action** è `SkipThisValidationTechnicalProfile`. Specifica che il profilo tecnico convalida associato non deve essere eseguito. |
 
 ### <a name="example"></a>Esempio
 
@@ -87,7 +87,7 @@ Questo esempio usa i profili tecnici di convalida seguenti:
 2. Il profilo tecnico di convalida successivo non viene eseguito se l'attestazione userType non esiste o se il valore di userType è `Partner`. Il profilo tecnico di convalida prova a leggere il profilo utente dal database clienti interno e continua se si verifica un errore, ad esempio se il servizio API REST non è disponibile o in caso di errore interno.
 3. L'ultimo profilo tecnico di convalida non viene eseguito se l'attestazione userType non esiste o se il valore di userType è `Customer`. Il profilo tecnico di convalida prova a leggere il profilo utente dal database dei clienti interno e continua se si verifica un errore, ad esempio se il servizio API REST non è disponibile o in caso di errore interno.
 
-```XML
+```xml
 <ValidationTechnicalProfiles>
   <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false" />
   <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomertsDatabase" ContinueOnError="true" >

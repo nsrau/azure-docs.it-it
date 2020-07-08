@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 007d613a1f170a0ee278a838c92ade2fce9c6dec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201277"
 ---
 # <a name="boolean-claims-transformations"></a>Trasformazioni delle attestazioni booleane
 
@@ -36,7 +36,7 @@ Esegue un'operazione And con due inputClaims booleani e imposta l'outputClaim co
 
 La trasformazione delle attestazioni seguente mostra come usare due ClaimType booleani: `isEmailNotExist` e `isSocialAccount`. L'attestazione di output `presentEmailSelfAsserted` è impostata su `true` se il valore di entrambe le attestazioni di input è `true`. In una fase di orchestrazione è possibile usare una precondizione per preimpostare una pagina autocertificata, solo se l'e-mail di un account di social networking è vuota.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
@@ -48,7 +48,7 @@ La trasformazione delle attestazioni seguente mostra come usare due ClaimType bo
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Esempio
+### <a name="example-of-andclaims"></a>Esempio di AndClaims
 
 - Attestazioni di input:
     - **inputClaim1**: true
@@ -72,7 +72,7 @@ La trasformazione delle attestazioni **AssertBooleanClaimIsEqualToValue** viene 
 
 La trasformazione delle attestazioni seguente mostra come controllare il valore di un ClaimType booleano con un valore `true`. Se il valore del ClaimType `accountEnabled` è false, viene generato un messaggio di errore.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="accountEnabled" TransformationClaimType="inputClaim" />
@@ -85,7 +85,8 @@ La trasformazione delle attestazioni seguente mostra come controllare il valore 
 
 
 Il profilo tecnico di convalida `login-NonInteractive` chiama la trasformazione delle attestazioni `AssertAccountEnabledIsTrue`.
-```XML
+
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -96,7 +97,7 @@ Il profilo tecnico di convalida `login-NonInteractive` chiama la trasformazione 
 
 Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteractive** di convalida.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Custom error message if account is disabled.</Item>
@@ -107,7 +108,7 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Esempio
+### <a name="example-of-assertbooleanclaimisequaltovalue"></a>Esempio di AssertBooleanClaimIsEqualToValue
 
 - Attestazioni di input:
     - **inputClaim**: false
@@ -124,10 +125,9 @@ Verifica che il valore booleano di un'attestazione sia uguale a `true` o `false`
 | InputParameter |valueToCompareTo | boolean | Il valore da confrontare (true o false). |
 | OutputClaim | compareResult | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
-
 La trasformazione delle attestazioni seguente mostra come controllare il valore di un ClaimType booleano con un valore `true`. Se il valore del ClaimType `IsAgeOver21Years` è uguale a `true`, la trasformazione delle attestazioni restituisce `true`, in caso contrario `false`.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
@@ -141,7 +141,7 @@ La trasformazione delle attestazioni seguente mostra come controllare il valore 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Esempio
+### <a name="example-of-comparebooleanclaimtovalue"></a>Esempio di CompareBooleanClaimToValue
 
 - Attestazioni di input:
     - **inputClaim**: false
@@ -149,8 +149,6 @@ La trasformazione delle attestazioni seguente mostra come controllare il valore 
     - **valueToCompareTo**: true
 - Attestazioni di output:
     - **compareResult**: false
-
-
 
 ## <a name="notclaims"></a>NotClaims
 
@@ -163,7 +161,7 @@ Esegue un'operazione Not dell'inputClaim booleano e imposta l'outputClaim con il
 
 Usare questa trasformazione delle attestazioni per eseguire la negazione logica su un'attestazione.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
@@ -174,7 +172,7 @@ Usare questa trasformazione delle attestazioni per eseguire la negazione logica 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Esempio
+### <a name="example-of-notclaims"></a>Esempio di NotClaims
 
 - Attestazioni di input:
     - **inputClaim**: false
@@ -193,7 +191,7 @@ Calcola un'operazione Or di due inputClaims booleani e imposta l'outputClaim con
 
 La trasformazione delle attestazioni seguente mostra come usare `Or` due ClaimType booleani. In una fase di orchestrazione è possibile usare una precondizione per preimpostare una pagina autocertificata, se il valore di una delle attestazioni è `true`.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
@@ -205,7 +203,7 @@ La trasformazione delle attestazioni seguente mostra come usare `Or` due ClaimTy
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Esempio
+### <a name="example-of-orclaims"></a>Esempio di OrClaims
 
 - Attestazioni di input:
     - **inputClaim1**: true
