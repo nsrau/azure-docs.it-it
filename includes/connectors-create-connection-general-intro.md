@@ -3,12 +3,18 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 09/18/2019
-ms.openlocfilehash: 0e2d63db1afd4bb169e5aeb1c202674808f081ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/06/2020
+ms.openlocfilehash: 1113201941ce0757b58e361c08c9d79d7dd374cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74786887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449095"
 ---
-Quando si usa un trigger o un'azione che accede a un servizio per la prima volta, la finestra di progettazione di app per la logica richiede di creare una *connessione* a tale servizio. È quindi possibile fornire le informazioni di connessione necessarie direttamente dall'app per la logica all'interno della finestra di progettazione.
+Quando si aggiunge un trigger o un'azione che si connette a un servizio o a un sistema per la prima volta, la finestra di progettazione dell'app per la logica richiede di creare una *connessione* fornendo le informazioni necessarie, che variano in base alla connessione, ad esempio:
+
+* Nome da utilizzare per la nuova connessione
+* Nome del server o del sistema
+* Credenziali dell'utente o dell'account
+* Tipo di autenticazione da usare
+* La sottoscrizione e il nome di Azure per il gateway dati creato in precedenza durante la connessione alle origini dati locali

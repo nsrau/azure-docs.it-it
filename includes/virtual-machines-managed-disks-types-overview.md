@@ -1,19 +1,19 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/15/2019
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72d87142f9b9c1f7bcb2b02281851bd1e29bc9c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45b611144d5a62171061febfd4efa98db69bacb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78262530"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84436024"
 ---
 Azure Managed Disks offre attualmente quattro tipi di dischi, ciascuno dei quali è destinato a scenari specifici del cliente.
 
@@ -26,7 +26,7 @@ La tabella seguente fornisce un confronto tra dischi Ultra, unità SSD Premium, 
 |Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |Carichi di lavoro intensivo di i/o, come [SAP Hana](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), database di livello superiore (ad esempio, SQL, Oracle) e altri carichi di lavoro con transazioni pesanti.   |Carichi di lavoro di produzione su cui influiscono le prestazioni   |Server Web, applicazioni aziendali con un utilizzo non intensivo e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
 |Dimensioni massime disco   |65.536 gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
-|Velocità effettiva massima   |2.000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Velocità effettiva massima   |2\.000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
 |Operazioni di I/O al secondo max   |160.000    |20.000   |6000   |2\.000   |
 
 ## <a name="ultra-disk"></a>Disco Ultra
