@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: victorh
-ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791487"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078426"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -218,3 +219,7 @@ No, il trasferimento di un gruppo IP a un altro gruppo di risorse non è attualm
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Che cos'è il timeout di inattività TCP per il firewall di Azure?
 
 Un comportamento standard di un firewall di rete è garantire che le connessioni TCP vengano mantenute attive e chiuderle immediatamente se non è presente alcuna attività. Il timeout di inattività TCP del firewall di Azure è di quattro minuti. Questa impostazione non è configurabile. Se un periodo di inattività è più lungo del valore di timeout, non vi è alcuna garanzia che la sessione TCP o HTTP venga mantenuta. Una prassi comune consiste nell'usare una connessione TCP keep-alive per mantenere la connessione attiva per un periodo più lungo. Per ulteriori informazioni, vedere gli [esempi di .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+
+## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>È possibile distribuire il firewall di Azure senza un indirizzo IP pubblico?
+
+No, attualmente è necessario distribuire il firewall di Azure con un indirizzo IP pubblico.
