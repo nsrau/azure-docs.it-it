@@ -12,10 +12,9 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78184249"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operazioni disponibili per Azure AD B2C
@@ -85,14 +84,14 @@ La risorsa di primo livello per le chiavi dei criteri nell'API Microsoft Graph √
 - [Caricare un certificato X. 509](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadcertificate)
 - [Carica un certificato in formato PKCS12](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12)
 
-## <a name="applications"></a>APPLICAZIONI
+## <a name="applications"></a>Applicazioni
 
-- [Elencare le applicazioni](https://docs.microsoft.com/graph/api/application-list)
+- [Elenco applicazioni](https://docs.microsoft.com/graph/api/application-list)
 - [Creare un'applicazione](https://docs.microsoft.com/graph/api/resources/application)
-- [Aggiorna applicazione](https://docs.microsoft.com/graph/api/application-update)
+- [Update application](https://docs.microsoft.com/graph/api/application-update)
 - [Crea servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
 - [Crea concessione oauth2Permission](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
-- [Eliminare l'applicazione](https://docs.microsoft.com/graph/api/application-delete)
+- [Elimina applicazione](https://docs.microsoft.com/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>Propriet√† dell'estensione dell'applicazione
 

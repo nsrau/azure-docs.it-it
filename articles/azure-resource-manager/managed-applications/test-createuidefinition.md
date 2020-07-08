@@ -6,15 +6,14 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
 ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78250187"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testare l'interfaccia del portale per le applicazioni gestite di Azure
 
-Dopo aver [creato il file createUiDefinition. JSON](create-uidefinition-overview.md) per l'applicazione gestita, è necessario testare l'esperienza utente. Per semplificare i test, usare un ambiente sandbox che carica il file nel portale. Non è necessario distribuire l'applicazione gestita. Il sandbox presenta l'interfaccia utente nell'esperienza del portale a schermo intero corrente. In alternativa, è possibile usare uno script per testare l'interfaccia. Entrambi gli approcci sono illustrati in questo argomento. Il sandbox è il modo consigliato per visualizzare l'anteprima dell'interfaccia.
+Dopo aver [creato il createUiDefinition.jsnel file](create-uidefinition-overview.md) per l'applicazione gestita, è necessario testare l'esperienza utente. Per semplificare i test, usare un ambiente sandbox che carica il file nel portale. Non è necessario distribuire l'applicazione gestita. Il sandbox presenta l'interfaccia utente nell'esperienza del portale a schermo intero corrente. In alternativa, è possibile usare uno script per testare l'interfaccia. Entrambi gli approcci sono illustrati in questo argomento. Il sandbox è il modo consigliato per visualizzare l'anteprima dell'interfaccia.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +27,7 @@ Dopo aver [creato il file createUiDefinition. JSON](create-uidefinition-overview
 
    ![Mostra sandbox](./media/test-createuidefinition/show-sandbox.png)
 
-1. Sostituire la definizione vuota con il contenuto del file createUiDefinition. JSON. Selezionare **Anteprima**.
+1. Sostituire la definizione vuota con il contenuto del createUiDefinition.jssu file. Selezionare **Anteprima**.
 
    ![Seleziona anteprima](./media/test-createuidefinition/select-preview.png)
 

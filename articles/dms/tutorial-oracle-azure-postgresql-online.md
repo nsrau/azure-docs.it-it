@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
 ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255573"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Esercitazione: eseguire la migrazione di Oracle al database di Azure per PostgreSQL online con DMS (anteprima)
@@ -221,7 +220,7 @@ Se si crea uno schema PostgreSQL usando strumenti come ora2pg prima di iniziare 
     ![Mostra le sottoscrizioni del portale](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> Se è necessario eseguire il mapping dei nomi delle tabelle di origine a tabelle con [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) nomi diversi, inviare un messaggio di posta elettronica ed è possibile fornire uno script per automatizzare il processo.
+> Se è necessario eseguire il mapping dei nomi delle tabelle di origine a tabelle con nomi diversi, inviare un messaggio di posta elettronica [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) ed è possibile fornire uno script per automatizzare il processo.
 
 ### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>Quando lo schema di tabella PostgreSQL non esiste
 
@@ -249,7 +248,7 @@ Attività iniziali
     | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
     | HR | targetHR.Hr | * Non è possibile eseguire il mapping con combinazioni di maiuscole/minuscole |
 
-    * Per creare schemi di maiuscole e minuscole miste in PostgreSQL [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)di destinazione, contattare. Si riceverà uno script per configurare lo schema di tabella con combinazioni di maiuscole/minuscole nel database PostgreSQL di destinazione.
+    * Per creare schemi di maiuscole e minuscole miste in PostgreSQL di destinazione, contattare [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com) . Si riceverà uno script per configurare lo schema di tabella con combinazioni di maiuscole/minuscole nel database PostgreSQL di destinazione.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrare il provider di risorse Microsoft.DataMigration
 
@@ -261,7 +260,7 @@ Attività iniziali
 
     ![Visualizzare i provider di risorse](media/tutorial-oracle-azure-postgresql-online/portal-select-resource-provider.png)
 
-3. Cercare la migrazione e quindi a destra di **Microsoft. DataMigration**selezionare Register ( **registra**).
+3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
 
     ![Registrare il provider di risorse](media/tutorial-oracle-azure-postgresql-online/portal-register-resource-provider.png)
 
@@ -322,7 +321,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 ## <a name="upload-oracle-oci-driver"></a>Caricare il driver Oracle OCI
 
-1. Selezionare **Save (Salva**) e quindi nella schermata **Install OCI driver (installa driver OCI** ) accedere al proprio account Oracle e scaricare il driver **instantclient-basiclite-Windows. x64-12.2.0.1.0. zip** (37.128.586 Byte) (SHA1 checksum: 865082268) da [qui](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
+1. Selezionare **Save (Salva**) e quindi nella schermata **Install OCI driver (installa driver OCI** ) accedere al proprio account Oracle e scaricare il driver **instantclient-basiclite-windows.x64-12.2.0.1.0.zip** (37.128.586 Byte) (SHA1 checksum: 865082268) da [qui](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
 2. Scaricare il driver in una cartella condivisa.
 
    Verificare che la cartella sia condivisa con il nome utente specificato con accesso minimo di sola lettura. Il Servizio Migrazione del database di Azure accede e legge dalla condivisione per caricare il driver OCI in Azure impersonando il nome utente specificato.

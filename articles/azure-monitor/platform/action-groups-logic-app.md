@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206237"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
@@ -110,7 +109,7 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
 12. Configurare l'azione di Microsoft Teams. In **Progettazione app per la logica** viene chiesto di autenticarsi con l'account Office 365. Scegliere l'**ID team** e l'**ID canale** per l'invio del messaggio.
 
-13. Configurare il messaggio usando una combinazione di testo statico e riferimenti ai \<campi\> nel contenuto dinamico. Copiare e incollare il testo seguente nel campo **Messaggio**:
+13. Configurare il messaggio utilizzando una combinazione di testo statico e riferimenti a \<fields\> nel contenuto dinamico. Copiare e incollare il testo seguente nel campo **Messaggio**:
 
     ```text
       Activity Log Alert: <eventSource>
@@ -119,7 +118,7 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
       resourceId: <resourceId>
     ```
 
-    Cercare e sostituire quindi i \<campi\> con tag di contenuto dinamico dello stesso nome.
+    Cercare e sostituire \<fields\> con i tag di contenuto dinamici con lo stesso nome.
 
     > [!NOTE]
     > Sono disponibili due campi dinamici denominati **stato**. Aggiungere entrambi questi campi al messaggio. Usare il campo che si trova nell'elenco delle proprietà **activityLog** ed eliminare l'altro campo. Passare il cursore sul campo **stato** per visualizzare il riferimento completo del campo, come mostrato nella schermata seguente:
@@ -296,5 +295,5 @@ App per la logica dispone di una serie di connettori diversi che consentono di a
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere una [panoramica degli avvisi del log attività](../../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi quando viene inviata una notifica sull'integrità dei servizi di Azure](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-* Altre informazioni sui [gruppi di azioni](../../azure-monitor/platform/action-groups.md).
+* Altre informazioni sui [gruppi di azione](../../azure-monitor/platform/action-groups.md).
 

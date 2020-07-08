@@ -10,10 +10,9 @@ ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
 ms.openlocfilehash: b83effa95b17d712d4019f8ab5bf13c4f02a7d2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206521"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Problemi noti e risoluzione dei problemi relativi alla Data Science Virtual Machine di Azure
@@ -24,7 +23,7 @@ Questo articolo consente di individuare e correggere gli errori o gli errori che
 
 ### <a name="installing-packages-with-pip-breaks-dependencies-on-linux"></a>L'installazione di pacchetti con pip interrompe le dipendenze in Linux
 
-Usare `sudo pip install` anziché quando `pip install` si installano i pacchetti.
+Usare `sudo pip install` anziché `pip install` quando si installano i pacchetti.
 
 ## <a name="disk-encryption-issues"></a>Problemi di crittografia dischi
 

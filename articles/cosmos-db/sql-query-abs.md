@@ -8,10 +8,9 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6d173827f2695cc20fa208d390731acf0edb3848
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78301098"
 ---
 # <a name="abs-azure-cosmos-db"></a>ABS (Azure Cosmos DB)
@@ -34,7 +33,7 @@ ABS (<numeric_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente vengono illustrati i risultati dell' `ABS` utilizzo della funzione su tre numeri diversi.  
+  Nell'esempio seguente vengono illustrati i risultati dell'utilizzo della `ABS` funzione su tre numeri diversi.  
   
 ```sql
 SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 
@@ -48,10 +47,10 @@ SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema trae vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

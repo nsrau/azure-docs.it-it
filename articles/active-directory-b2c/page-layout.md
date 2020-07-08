@@ -12,10 +12,9 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78183976"
 ---
 # <a name="page-layout-versions"></a>Versioni del layout di pagina
@@ -26,7 +25,7 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 
 ## <a name="200"></a>2.0.0
 
-- Pagina autocertificata (`selfasserted`)
+- Pagina autocertificata ( `selfasserted` )
   - Aggiunta del supporto per la [visualizzazione dei controlli](display-controls.md) nei criteri personalizzati.
 
 ## <a name="120"></a>1.2.0
@@ -36,10 +35,10 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
   - È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
     - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
     - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
-  - Il campo posta elettronica `type=email` è ora e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
+  - Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
   - Supporto per la conversione di Chrome
 - Pagine unificate e autocertificate
-  - I campi nome utente/indirizzo di posta elettronica e `form` password ora usano l'elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
+  - I campi nome utente/indirizzo di posta elettronica e password ora usano l' `form` elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
 
 ## <a name="110"></a>1.1.0
 

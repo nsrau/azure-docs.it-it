@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: ac3904284ebf20fa1d5e75f9249732be3963f677
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206283"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
@@ -77,7 +76,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.a
 
 ### <a name="example"></a>Esempio
 
-Eliminazione di un processo batch con ID `5`batch.
+Eliminazione di un processo batch con ID batch `5` .
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
@@ -97,9 +96,9 @@ Questa sezione esamina alcuni esempi di come usare Livy Spark per inviare un pro
 * Il file jar dell'applicazione è già stato copiato nell'account di archiviazione associato al cluster.
 * CuRL è installato nel computer in cui si sta provando a eseguire questi passaggi.
 
-Eseguire la procedura seguente:
+Seguire questa procedura:
 
-1. Per semplicità d'uso, impostare le variabili di ambiente. Questo esempio è basato su un ambiente Windows, modificare le variabili in base alle esigenze dell'ambiente in uso. Sostituire `CLUSTERNAME`e `PASSWORD` con i valori appropriati.
+1. Per semplicità d'uso, impostare le variabili di ambiente. Questo esempio è basato su un ambiente Windows, modificare le variabili in base alle esigenze dell'ambiente in uso. Sostituire `CLUSTERNAME` e `PASSWORD` con i valori appropriati.
 
     ```cmd
     set clustername=CLUSTERNAME

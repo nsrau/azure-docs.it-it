@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196927"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
@@ -27,7 +26,7 @@ Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Connettersi all'interfaccia utente di amministrazione di Apache Ranger
 **Per connettersi all'interfaccia utente di amministrazione di Ranger**
 
-1. Da un browser, passare all'interfaccia utente di amministrazione di `https://CLUSTERNAME.azurehdinsight.net/Ranger/` Ranger in dove clustername è il nome del cluster.
+1. Da un browser, passare all'interfaccia utente di amministrazione di Ranger in `https://CLUSTERNAME.azurehdinsight.net/Ranger/` dove clustername è il nome del cluster.
 
    > [!NOTE]  
    > Ranger usa credenziali diverse da quelle del cluster Apache Hadoop. Per evitare che i browser usino credenziali memorizzate nella cache di Hadoop, connettersi all'interfaccia utente di amministrazione di Ranger da una nuova finestra del browser InPrivate.

@@ -8,10 +8,9 @@ ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78247986"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
@@ -46,7 +45,7 @@ Quando si esegue un'operazione di scalabilità orizzontale successiva, ad esempi
 
 * Quando si elimina un database modello dal server primario, quest'ultima non viene automaticamente eliminata dalle repliche nel pool di query. È necessario eseguire un'operazione di sincronizzazione usando il comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) di PowerShell che rimuove il file o i file per quel database dal percorso di archiviazione BLOB condiviso della replica e quindi Elimina il database modello nelle repliche nel pool di query. Per determinare se un database modello esiste nelle repliche nel pool di query, ma non nel server primario, assicurarsi che l'impostazione **separa il server di elaborazione dal pool di query** sia impostata su **Sì**. Utilizzare quindi SSMS per connettersi al server primario utilizzando il `:rw` qualificatore per verificare se il database esiste. Connettersi quindi alle repliche nel pool di query connettendosi senza il `:rw` qualificatore per verificare se esiste anche lo stesso database. Se il database è presente nelle repliche nel pool di query ma non nel server primario, eseguire un'operazione di sincronizzazione.   
 
-* Quando si rinomina un database nel server primario, è necessario eseguire un passaggio aggiuntivo per verificare che il database sia correttamente sincronizzato con tutte le repliche. Dopo la ridenominazione, eseguire una sincronizzazione usando il comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) specificando `-Database` il parametro con il nome del database precedente. Questa sincronizzazione rimuove il database e i file con il nome precedente dalle repliche. Quindi eseguire un'altra sincronizzazione specificando il `-Database` parametro con il nuovo nome del database. La seconda sincronizzazione copia il database appena denominato nel secondo set di file e idrata tutte le repliche. Queste sincronizzazioni non possono essere eseguite usando il comando Sincronizza modello nel portale.
+* Quando si rinomina un database nel server primario, è necessario eseguire un passaggio aggiuntivo per verificare che il database sia correttamente sincronizzato con tutte le repliche. Dopo la ridenominazione, eseguire una sincronizzazione usando il comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) specificando il `-Database` parametro con il nome del database precedente. Questa sincronizzazione rimuove il database e i file con il nome precedente dalle repliche. Quindi eseguire un'altra sincronizzazione specificando il `-Database` parametro con il nuovo nome del database. La seconda sincronizzazione copia il database appena denominato nel secondo set di file e idrata tutte le repliche. Queste sincronizzazioni non possono essere eseguite usando il comando Sincronizza modello nel portale.
 
 ### <a name="synchronization-mode"></a>Modalità di sincronizzazione
 
@@ -98,7 +97,7 @@ Usare i log di monitoraggio di Azure per una diagnostica più dettagliata delle 
 
 1. Nel portale fare clic su **scale-out**. Usare il dispositivo di scorrimento per selezionare il numero di server di replica di query. Il numero di repliche scelto viene aggiunto al server esistente.  
 
-2. In **Separare il server di elaborazione dal pool di query** selezionare Sì per escludere il server di elaborazione dal server di query. Le [connessioni](#connections) client che utilizzano la stringa di connessione `:rw`predefinita (senza) vengono reindirizzate alle repliche nel pool di query. 
+2. In **Separare il server di elaborazione dal pool di query** selezionare Sì per escludere il server di elaborazione dal server di query. Le [connessioni](#connections) client che utilizzano la stringa di connessione predefinita (senza `:rw` ) vengono reindirizzate alle repliche nel pool di query. 
 
    ![Dispositivo di scorrimento di ridimensionamento orizzontale](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -136,7 +135,7 @@ Codici di stato restituiti:
 |-1     |  Non valido       |
 |0     | Replicating        |
 |1     |  Reidratanti       |
-|2     |   Completi       |
+|2     |   Completed       |
 |3     |   Operazione non riuscita      |
 |4     |    Finalizzazione     |
 |||
@@ -152,7 +151,7 @@ Per eseguire la sincronizzazione, usare [Sync-AzAnalysisServicesInstance](https:
 
 Per impostare il numero di repliche di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare il parametro facoltativo `-ReadonlyReplicaCount`.
 
-Per separare il server di elaborazione dal pool di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Consente di specificare `-DefaultConnectionMode` il parametro facoltativo `Readonly`da utilizzare.
+Per separare il server di elaborazione dal pool di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Consente di specificare il `-DefaultConnectionMode` parametro facoltativo da utilizzare `Readonly` .
 
 Per altre informazioni, vedere [uso di un'entità servizio con il modulo AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
@@ -172,9 +171,9 @@ Per SSMS, Visual Studio e le stringhe di connessione in PowerShell, app per le f
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-**Problema:** viene restituito un errore per segnalare che **non è possibile trovare l'istanza del server '\<nome del server>' in modalità di connessione 'ReadOnly'.**
+**Problema:** Errore di errore degli utenti **Impossibile trovare l' \<Name of the server> istanza del server '' in modalità di connessione ' ReadOnly '.**
 
-**Soluzione:** Quando si seleziona l'opzione **separa il server di elaborazione dal pool di query** , le connessioni client che usano la stringa di `:rw`connessione predefinita (senza) vengono reindirizzate alle repliche del pool di query. Se le repliche nel pool di query non sono ancora online perché la sincronizzazione non è stata ancora completata, le connessioni client reindirizzate possono avere esito negativo. Quando si esegue una sincronizzazione, per evitare errori di connessione, nel pool di query devono essere presenti almeno due server. Ogni server viene sincronizzato singolarmente, mentre gli altri rimangono online. Se si sceglie di non tenere il server di elaborazione all'interno del pool di query durante l'elaborazione, è possibile rimuoverlo dal pool per l'elaborazione e quindi riaggiungerlo al termine di questa, ma prima della sincronizzazione. Usare le metriche di memoria e di QPU per monitorare lo stato della sincronizzazione.
+**Soluzione:** Quando si seleziona l'opzione **separa il server di elaborazione dal pool di query** , le connessioni client che usano la stringa di connessione predefinita (senza `:rw` ) vengono reindirizzate alle repliche del pool di query. Se le repliche nel pool di query non sono ancora online perché la sincronizzazione non è stata ancora completata, le connessioni client reindirizzate possono avere esito negativo. Quando si esegue una sincronizzazione, per evitare errori di connessione, nel pool di query devono essere presenti almeno due server. Ogni server viene sincronizzato singolarmente, mentre gli altri rimangono online. Se si sceglie di non tenere il server di elaborazione all'interno del pool di query durante l'elaborazione, è possibile rimuoverlo dal pool per l'elaborazione e quindi riaggiungerlo al termine di questa, ma prima della sincronizzazione. Usare le metriche di memoria e di QPU per monitorare lo stato della sincronizzazione.
 
 
 

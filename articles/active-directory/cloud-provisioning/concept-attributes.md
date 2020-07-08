@@ -16,10 +16,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78299330"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Informazioni sullo schema di Azure AD
@@ -42,7 +41,7 @@ Ad esempio, un utente potrebbe far parte di un reparto marketing. Il relativo at
 
 La sincronizzazione degli attributi potrebbe essere diretta, in cui il valore in Azure AD viene impostato direttamente sul valore dell'attributo locale. In alternativa, un'espressione a livello di codice potrebbe gestire la sincronizzazione. Un'espressione a livello di codice è necessaria nei casi in cui deve essere eseguita una determinata logica o una determinazione per popolare il valore.
 
-Se ad esempio si dispone dell'attributo mail "john.smith@contoso.com" ed è necessario rimuovere la parte "@contoso.com" e propagarne solo il valore "John. Smith", si utilizzerebbe qualcosa di simile al seguente:
+Se ad esempio si dispone dell'attributo mail " john.smith@contoso.com " ed è necessario rimuovere la @contoso.com parte "" e propagarne solo il valore "John. Smith", si utilizzerebbe qualcosa di simile al seguente:
 
 `Replace([mail], "@contoso.com", , ,"", ,)`  
 
@@ -75,8 +74,8 @@ Per visualizzare lo schema e verificarlo, attenersi alla seguente procedura.
 1.  Passare a [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1.  Accedere con l'account amministratore globale.
 1.  A sinistra selezionare **modifica autorizzazioni** e assicurarsi che la **Directory. ReadWrite. All** sia *consentita*.
-1.  Eseguire la query `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`. Questa query restituisce un elenco filtrato di entità servizio.
-1.  Individuare `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` e prendere nota del valore `"id"`di.
+1.  Eseguire la query `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')` . Questa query restituisce un elenco filtrato di entità servizio.
+1.  Individuare `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` e prendere nota del valore di `"id"` .
     ```
     "value": [
             {
@@ -149,8 +148,8 @@ Per visualizzare lo schema e verificarlo, attenersi alla seguente procedura.
                 "passwordCredentials": []
             },
     ```
-1. Sostituire `{Service Principal id}` con il valore e quindi eseguire la query `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`.
-1. Individuare `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` e prendere nota del valore `"id"`di.
+1. Sostituire `{Service Principal id}` con il valore e quindi eseguire la query `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/` .
+1. Individuare `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` e prendere nota del valore di `"id"` .
     ```
     {
                 "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976",
@@ -241,7 +240,7 @@ Per visualizzare lo schema e verificarlo, attenersi alla seguente procedura.
                 ]
             }
     ```
-1. A questo punto, `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`eseguire la query.
+1. A questo punto, eseguire la query `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema` .
  
     Esempio: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 

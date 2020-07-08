@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78244649"
 ---
 # <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
@@ -51,7 +50,7 @@ Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento L
 | Risoluzione video massima del video di output|Uguale all'input|Standard-720p, Premium1080p-1080p|
 | Frequenza massima dei fotogrammi del video di input|60 frame al secondo|Standard o Premium1080p-30 frame al secondo|
 | Protocolli di input|RTMP, MP4 frammentato (Smooth Streaming)|RTMP, MP4 frammentato (Smooth Streaming)|
-| Price|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|
+| Prezzo|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|
 | Tempo di esecuzione massimo| 24 ore su 24, 365 giorni all'anno, live linear | 24 ore x 365 giorni, linea dinamica (anteprima)|
 | Possibilità di trasferire dati dei sottotitoli CEA 608/708 integrati|Sì|Sì|
 | Possibilità di attivare la trascrizione in tempo reale|Sì|Sì|
@@ -76,12 +75,12 @@ Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazi
 
 | Bitrate | Larghezza | Altezza: | MaxFPS | Profilo |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alto |
-| 2200 |960 |540 |30 |Alto |
-| 1350 |704 |396 |30 |Alto |
-| 850 |512 |288 |30 |Alto |
-| 550 |384 |216 |30 |Alto |
-| 200 |340 |192 |30 |Alto |
+| 3500 |1280 |720 |30 |Alta |
+| 2200 |960 |540 |30 |Alta |
+| 1350 |704 |396 |30 |Alta |
+| 850 |512 |288 |30 |Alta |
+| 550 |384 |216 |30 |Alta |
+| 200 |340 |192 |30 |Alta |
 
 > [!NOTE]
 > Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che vi sia un solo livello a 720p e un massimo di 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Live standard.
@@ -93,12 +92,12 @@ Se il feed di contributo è di risoluzione 1080p, il set di impostazioni **Defau
 
 | Bitrate | Larghezza | Altezza: | MaxFPS | Profilo |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Alto |
-| 3000 |1280 |720 |30 |Alto |
-| 1600 |960 |540 |30 |Alto |
-| 800 |640 |360 |30 |Alto |
-| 400 |480 |270 |30 |Alto |
-| 200 |320 |180 |30 |Alto |
+| 5500 |1920 |1080 |30 |Alta |
+| 3000 |1280 |720 |30 |Alta |
+| 1600 |960 |540 |30 |Alta |
+| 800 |640 |360 |30 |Alta |
+| 400 |480 |270 |30 |Alta |
+| 200 |320 |180 |30 |Alta |
 
 > [!NOTE]
 > Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che sia presente un solo livello a 1080p e al massimo 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Premium1080p Live.

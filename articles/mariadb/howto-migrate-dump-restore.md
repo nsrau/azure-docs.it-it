@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 72735e83af97fde8377e27daa45501704ef5a3c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78164543"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Eseguire la migrazione del database MariaDB a Database di Azure per MariaDB tramite dump e ripristino
@@ -21,8 +20,8 @@ Questo articolo illustra due modi comuni per eseguire il backup e il ripristino 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per proseguire con questa guida è necessario:
 - [Creare un database di Azure per il server MariaDB - portale di Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
-- utilità della riga di comando [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) installata in un computer.
-- MySQL Workbench [MySQL Workbench download](https://dev.mysql.com/downloads/workbench/) o un altro strumento MySQL di terze parti per eseguire i comandi dump e Restore.
+- Avere installato su un computer l'utilità della riga di comando [mysqldump](https://mariadb.com/kb/en/library/mysqldump/).
+- MySQL Workbench [Download di MySQL Workbench](https://dev.mysql.com/downloads/workbench/) o di un altro strumento MySQL di terze parti per i comandi di dump e ripristino.
 
 ## <a name="use-common-tools"></a>Usare strumenti comuni
 Usare utilità e strumenti comuni, come MySQL Workbench o mysqldump, per connettersi in modalità remota e ripristinare i dati nel database di Azure per MariaDB. Usare tali strumenti sul computer client con una connessione internet per connettersi al database di Azure per MariaDB. Usare una connessione SSL crittografata per le procedure di sicurezza consigliate. Vedere anche [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md) (Configurare la connettività SSL nel database di Azure per MariaDB). Durante la migrazione al database di Azure per MariaDB non è necessario spostare i file di dump in alcun percorso cloud speciale. 
@@ -105,7 +104,7 @@ $ mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p te
 Per l'esportazione è possibile usare lo strumento comune phpMyAdmin, che potrebbe essere già installato in locale nel proprio ambiente. Per esportare il database MariaDB mediante PHPMyAdmin:
 1. Aprire phpMyAdmin.
 2. Selezionare il database. Fare clic sul nome del database nell'elenco a sinistra. 
-3. Fare clic sul collegamento **Esporta** . Viene visualizzata una nuova pagina per eseguire il dump del database.
+3. Fare clic sul collegamento **Export** (Esporta). Viene visualizzata una nuova pagina per eseguire il dump del database.
 4. Nell'area Export (Esporta) fare clic sul collegamento **Select All** (Seleziona tutto) per scegliere le tabelle nel database. 
 5. Nell'area delle opzioni SQL, fare clic sulle opzioni appropriate. 
 6. Fare clic sull'opzione **Save as file** (Salva come file) e sull'opzione di compressione corrispondente e quindi fare clic sul pulsante **Go** (Vai). Verrà visualizzata una finestra di dialogo che richiede di salvare il file in locale.
@@ -116,7 +115,7 @@ L'importazione del database è simile all'esportazione. Procedere come segue:
 2. Nella pagina di impostazione di phpMyAdmin fare clic su **Add** (Aggiungi) per aggiungere il database di Azure per il server MariaDB. Specificare i dettagli della connessione e le informazioni di accesso.
 3. Creare un database denominato in modo appropriato e selezionarlo a sinistra della schermata. Per riscrivere il database esistente, fare clic sul nome del database, selezionare tutte le caselle di controllo accanto ai nomi delle tabelle e selezionare **Drop** (Elimina) per eliminare le tabelle esistenti. 
 4. Fare clic sul collegamento **SQL** per visualizzare la pagina in cui è possibile digitare i comandi SQL o caricare il file SQL. 
-5. Utilizzare il pulsante **Sfoglia** per trovare il file di database. 
+5. Usare il pulsante **Browse** (Sfoglia) per trovare il file nel database. 
 6. Fare clic sul pulsante **Go** (Vai) per esportare il backup, eseguire i comandi SQL e ricreare il database.
 
 ## <a name="next-steps"></a>Passaggi successivi

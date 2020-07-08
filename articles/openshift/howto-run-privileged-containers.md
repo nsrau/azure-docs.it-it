@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: Aro, OpenShift, aquasec, Twistlock, Red Hat
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78271367"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Eseguire contenitori con privilegi in un cluster di Azure Red Hat OpenShift
@@ -29,9 +28,9 @@ I titoli di sezione nei passaggi specifici del prodotto indicati di seguito si r
 La documentazione della maggior parte dei prodotti di sicurezza presuppone che si disponga di privilegi di amministratore del cluster.
 Gli amministratori del cliente non hanno tutti i privilegi in Azure Red Hat OpenShift. Le autorizzazioni necessarie per modificare le risorse a livello di cluster sono limitate.
 
-Prima di tutto, assicurarsi che l'utente sia connesso al cluster come amministratore del cliente, eseguendo `oc get scc`. Tutti gli utenti membri del gruppo di amministratori del cliente dispongono delle autorizzazioni per visualizzare i vincoli del contesto di sicurezza (SCCs) nel cluster.
+Prima di tutto, assicurarsi che l'utente sia connesso al cluster come amministratore del cliente, eseguendo `oc get scc` . Tutti gli utenti membri del gruppo di amministratori del cliente dispongono delle autorizzazioni per visualizzare i vincoli del contesto di sicurezza (SCCs) nel cluster.
 
-Assicurarsi quindi che la `oc` versione binaria sia `3.11.154`.
+Assicurarsi quindi che la `oc` versione binaria sia `3.11.154` .
 ```
 oc version
 oc v3.11.154
@@ -74,9 +73,9 @@ Continuare seguendo le istruzioni rimanenti nel passaggio 1.  Queste istruzioni 
 ### <a name="step-2-deploy-the-aqua-server-database-and-gateway"></a>Passaggio 2: distribuire il server Aqua, il database e il gateway
 Seguire i passaggi indicati nella documentazione di Aqua per l'installazione di Aqua-console. yaml.
 
-Modificare l'oggetto `aqua-console.yaml`fornito.  Rimuovere i primi due oggetti con etichetta, `kind: ClusterRole` e `kind: ClusterRoleBinding`.  Queste risorse non verranno create perché l'amministratore del cliente non dispone dell'autorizzazione in questo momento `ClusterRole` per `ClusterRoleBinding` modificare gli oggetti e.
+Modificare l'oggetto fornito `aqua-console.yaml` .  Rimuovere i primi due oggetti con etichetta, `kind: ClusterRole` e `kind: ClusterRoleBinding` .  Queste risorse non verranno create perché l'amministratore del cliente non dispone dell'autorizzazione in questo momento per modificare `ClusterRole` `ClusterRoleBinding` gli oggetti e.
 
-La seconda modifica sarà la `kind: Route` parte di. `aqua-console.yaml` Sostituire il seguente YAML per l' `kind: Route` oggetto nel `aqua-console.yaml` file.
+La seconda modifica sarà la `kind: Route` parte di `aqua-console.yaml` . Sostituire il seguente YAML per l' `kind: Route` oggetto nel `aqua-console.yaml` file.
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -115,13 +114,13 @@ Quando si distribuiscono i campi, impostare i campi seguenti:
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | Aqua-account  |
-| Progetto        | Aqua-sicurezza |
+| Project        | Aqua-sicurezza |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Passaggi specifici del prodotto per Prism cloud/Twistlock
 
 Le istruzioni di base che verranno modificate sono disponibili nella [documentazione relativa alla distribuzione di Prism cloud](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Per iniziare, installare `twistcli` lo strumento come descritto nelle sezioni "installare il cloud Prisma" e "scaricare il software per il cloud Prism".
+Per iniziare, installare lo `twistcli` strumento come descritto nelle sezioni "installare il cloud Prisma" e "scaricare il software per il cloud Prism".
 
 Creare un nuovo progetto OpenShift
 ```
@@ -136,7 +135,7 @@ Iniziare con la sezione "installare la console".
 ### <a name="install-console"></a>Installare la console
 
 Durante `oc create -f twistlock_console.yaml` il passaggio 2 viene ricevuto un errore durante la creazione dello spazio dei nomi.
-È possibile tranquillamente ignorarlo. lo spazio dei nomi è stato creato in `oc new-project` precedenza con il comando.
+È possibile tranquillamente ignorarlo. lo spazio dei nomi è stato creato in precedenza con il `oc new-project` comando.
 
 Usare `azure-disk` per il tipo di archiviazione.
 

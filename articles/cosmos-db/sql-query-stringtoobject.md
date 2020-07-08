@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78296382"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
@@ -34,7 +33,7 @@ StringToObject(<str_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene illustrato `StringToObject` il comportamento di tra tipi diversi. 
+  Nell'esempio seguente viene illustrato il comportamento di `StringToObject` tra tipi diversi. 
   
  Di seguito sono riportati esempi con input valido.
 
@@ -56,7 +55,7 @@ Questo è il set di risultati.
 ```
 
  Di seguito sono riportati esempi con input non valido.
-Anche se sono valide all'interno di una query, non verranno analizzate in oggetti validi. Le stringhe all'interno della stringa dell'oggetto devono essere precedute\\da un\\carattere di\\Escape "\\{" a ":" Str "}" oppure la virgoletta circostante deve essere singola ' {"a": "Str"}'.
+Anche se sono valide all'interno di una query, non verranno analizzate in oggetti validi. Le stringhe all'interno della stringa dell'oggetto devono essere precedute da un carattere di escape "{ \\ " a \\ ": \\ " Str \\ "}" oppure la virgoletta circostante deve essere singola ' {"a": "Str"}'.
 
 Le virgolette singole che racchiudono i nomi delle proprietà non sono JSON valide.
 
@@ -110,6 +109,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni stringa in Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

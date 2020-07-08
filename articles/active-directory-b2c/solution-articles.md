@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 9e00c872bb2794cdd8eb2560392ce058ae41b257
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78186727"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluzioni e training per Azure Active Directory B2C
@@ -22,7 +21,7 @@ Azure Active Directory B2C (Azure AD B2C) consente alle organizzazioni di implem
 
 | Titolo | Descrizione |
 | ----- | ----------- |
-| [Customer Identity Management with Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) (Gestione delle identità dei clienti con Azure AD B2C) | In questa panoramica del servizio Pinto Jain ([@jainparakh](https://twitter.com/jainparakh)) del team di Azure ad B2C fornisce una panoramica del funzionamento del servizio e Mostra anche come è possibile connettere rapidamente B2C a un'applicazione ASP.NET Core. |
+| [Customer Identity Management with Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) (Gestione delle identità dei clienti con Azure AD B2C) | In questa panoramica del servizio Pinto Jain () del [@jainparakh](https://twitter.com/jainparakh) team di Azure ad B2C fornisce una panoramica del funzionamento del servizio e Mostra anche come è possibile connettere rapidamente B2C a un'applicazione ASP.NET Core. |
 | [An overview of Azure Active Directory B2C](https://aka.ms/b2coverview) (Panoramica di Azure Active Directory B2C) | Comprendere i vantaggi e scenari comuni di Azure AD B2C e il modo in cui le applicazioni possono usare questo servizio di gestione delle identità e degli accessi per consumatori. |
 | [Gaining Expertise in Azure AD B2C: A Course for Developers](https://aka.ms/learnAADB2C) (Acquisire competenze in Azure AD B2C: Corso per gli sviluppatori) | Questo corso end-to-end guida gli sviluppatori in un processo completo per lo sviluppo di applicazioni con Azure AD B2C come meccanismo di autenticazione. In dieci moduli approfonditi, completi di laboratori, vengono trattati tutti gli aspetti, a partire dalla configurazione di una sottoscrizione di Azure per la creazione di criteri personalizzati che definiscono i percorsi che coinvolgono i clienti. |
 | [Enabling partners, Suppliers, and Customers to Access Applications with Azure active Directory](https://aka.ms/aadexternalidentities) (Come consentire a partner, fornitori e clienti di accedere alle applicazioni con Azure Active Directory) | Il successo di ogni organizzazione, a prescindere da dimensioni, settore o approccio ai temi di conformità e sicurezza, si basa sulla sua capacità di collaborare con altre organizzazioni e comunicare con i clienti.<br><br>Riunendo Azure AD, Azure AD B2C e la collaborazione B2B di Azure AD, questa guida descrive in dettaglio il valore aziendale e i meccanismi di compilazione di un'applicazione o esperienza Web che offre un'esperienza di autenticazione consolidata adatta ai contesti di dipendenti, partner e fornitori aziendali e clienti. |

@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255247"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guida del backup di SAP HANA in macchine virtuali di Azure
@@ -116,12 +115,12 @@ Come descritto in precedenza, la descrizione delle funzionalità di backup di sn
 > Backup basati su snapshot del disco per SAP HANA nelle distribuzioni in cui vengono usati più contenitori di database, richiede una versione minima di HANA 2,0 SP04
 > 
 
-Archiviazione di Azure non fornisce file system coerenza tra più dischi o volumi collegati a una macchina virtuale durante il processo di snapshot. Ciò significa che la coerenza dell'applicazione durante lo snapshot deve essere recapitata dall'applicazione, in questo caso SAP HANA. La [Nota SAP 2039883](https://launchpad.support.sap.com/#/notes/2039883) contiene informazioni importanti sui backup SAP Hana da snapshot di archiviazione. Con i file system XFS, ad esempio, è necessario eseguire **XFS\_Freeze** prima di avviare uno snapshot di archiviazione per garantire la coerenza dell'applicazione (vedere [XFS\_Freeze (8)-Linux man page](https://linux.die.net/man/8/xfs_freeze) per informazioni dettagliate su **XFS\_Freeze**).
+Archiviazione di Azure non fornisce file system coerenza tra più dischi o volumi collegati a una macchina virtuale durante il processo di snapshot. Ciò significa che la coerenza dell'applicazione durante lo snapshot deve essere recapitata dall'applicazione, in questo caso SAP HANA. La [Nota SAP 2039883](https://launchpad.support.sap.com/#/notes/2039883) contiene informazioni importanti sui backup SAP Hana da snapshot di archiviazione. Con i file system XFS, ad esempio, è necessario eseguire **XFS \_ Freeze** prima di avviare uno snapshot di archiviazione per garantire la coerenza dell'applicazione (vedere [XFS \_ Freeze (8)-Linux man page](https://linux.die.net/man/8/xfs_freeze) per informazioni dettagliate su **XFS \_ Freeze**).
 
 Presupponendo che sia presente un file system XFS che si estende su quattro dischi virtuali di Azure, i passaggi seguenti offrono uno snapshot coerente che rappresenta l'area dati HANA:
 
 1. Crea preparazione snapshot dei dati HANA
-1. Blocca i file System di tutti i dischi e i volumi (ad esempio, USA **XFS\_Freeze**)
+1. Blocca i file System di tutti i dischi e i volumi (ad esempio, USA **XFS \_ Freeze**)
 1. Creare tutti gli snapshot BLOB necessari in Azure.
 1. Sbloccare il file system.
 1. Confermare lo snapshot dei dati HANA (eliminerà lo snapshot)

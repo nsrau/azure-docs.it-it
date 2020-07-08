@@ -4,10 +4,9 @@ description: Informazioni su come configurare Azure Active Directory (Azure AD) 
 ms.topic: conceptual
 ms.date: 6/28/2019
 ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78193382"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurare Azure Active Directory per l'autenticazione client
@@ -49,7 +48,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9
 > [!NOTE]
 > Per i cloud nazionali (ad esempio Azure per enti pubblici, Azure Cina o Azure Germania), specificare anche il parametro `-Location`.
 
-È possibile trovare il *TenantId* eseguendo il comando `Get-AzureSubscription`di PowerShell. Eseguendo questo comando, viene visualizzato il TenantId per ogni sottoscrizione.
+È possibile trovare il *TenantId* eseguendo il comando di PowerShell `Get-AzureSubscription` . Eseguendo questo comando, viene visualizzato il TenantId per ogni sottoscrizione.
 
 *ClusterName* viene usato come prefisso per le applicazioni Azure AD create dallo script. Non è necessario che corrisponda esattamente al nome effettivo del cluster. Ha solo lo scopo di facilitare il mapping degli elementi di Azure AD al cluster di Service Fabric con cui vengono usati.
 
@@ -110,13 +109,13 @@ Nella pagina di registrazione dell'app Azure AD per il cluster, selezionare **au
 
 ### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>La connessione al cluster con l'autenticazione Azure AD tramite PowerShell genera un errore quando si esegue l'accesso: "AADSTS50011"
 #### <a name="problem"></a>Problema
-Quando si tenta di connettersi a un cluster Service Fabric usando Azure AD tramite PowerShell, la pagina di accesso restituisce un errore: "AADSTS50011: l'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione &lt;:&gt;GUID".
+Quando si tenta di connettersi a un cluster Service Fabric usando Azure AD tramite PowerShell, la pagina di accesso restituisce un errore: "AADSTS50011: l'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione: &lt; GUID &gt; ".
 
 #### <a name="reason"></a>Motivo
 Analogamente al problema precedente, PowerShell tenta di eseguire l'autenticazione con Azure AD, che fornisce un URL di reindirizzamento non elencato nell'elenco Azure AD **URL di risposta** dell'applicazione.  
 
 #### <a name="solution"></a>Soluzione
-Utilizzare lo stesso processo del problema precedente, ma l'URL deve essere impostato su `urn:ietf:wg:oauth:2.0:oob`, un reindirizzamento speciale per l'autenticazione da riga di comando.
+Utilizzare lo stesso processo del problema precedente, ma l'URL deve essere impostato su `urn:ietf:wg:oauth:2.0:oob` , un reindirizzamento speciale per l'autenticazione da riga di comando.
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Connettere il cluster usando l'autenticazione di Azure AD tramite PowerShell
 Per connettere il cluster di Service Fabric, usare il comando di PowerShell di esempio seguente:

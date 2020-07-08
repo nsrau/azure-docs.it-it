@@ -4,10 +4,9 @@ description: Informazioni su come montare un volume gitRepo per clonare un repos
 ms.topic: article
 ms.date: 06/15/2018
 ms.openlocfilehash: 405cacd7a1649f95640a8dabf476729e101d03f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78252092"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montare un volume gitRepo in Istanze di Azure Container
@@ -33,7 +32,7 @@ Quando si monta un volume *gitRepo*, è possibile impostare tre proprietà per c
 
 Per montare un volume gitRepo quando si distribuiscono le istanze di contenitore con l'[interfaccia della riga di comando di Azure](/cli/azure), fornire i parametri `--gitrepo-url` e `--gitrepo-mount-path` al comando [az container create][az-container-create]. Facoltativamente, è possibile specificare la directory del volume in cui eseguire la clonazione (`--gitrepo-dir`) e l'hash commit della revisione da clonare (`--gitrepo-revision`).
 
-Questo comando `/mnt/aci-helloworld` di esempio Clona l'applicazione di esempio Microsoft [ACI-HelloWorld][aci-helloworld] in nell'istanza del contenitore:
+Questo comando di esempio Clona l'applicazione di esempio Microsoft [ACI-HelloWorld][aci-helloworld] in `/mnt/aci-helloworld` nell'istanza del contenitore:
 
 ```azurecli-interactive
 az container create \

@@ -9,10 +9,9 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 59d385ba7de5bf7bceae4dc8ddadbca813046094
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78269720"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versione di aggiornamento Threat Modeling Tool 7.1.60408.1-4/9/2019
@@ -40,7 +39,7 @@ La versione client del Threat Modeling Tool viene ora visualizzata nella scherma
 
 ### <a name="support-links-have-been-updated"></a>Sono stati aggiornati i collegamenti di supporto
 
-Tutti i collegamenti di supporto all'interno dello strumento sono stati aggiornati per [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) indirizzare gli utenti a anziché a un forum di MSDN.
+Tutti i collegamenti di supporto all'interno dello strumento sono stati aggiornati per indirizzare gli utenti a [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) anziché a un forum di MSDN.
 
 ## <a name="system-requirements"></a>Requisiti di sistema
 

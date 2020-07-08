@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/19/2020
 ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77921165"
 ---
 # <a name="module-k-means-clustering"></a>Modulo: clustering K-means
@@ -101,7 +100,7 @@ Quando elabora i dati di training, l'algoritmo K-means inizia con un set inizial
 
 8.  Selezionare l'opzione **normalizza funzionalità** se si vuole normalizzare le funzionalità prima del training.
   
-     Se si applica la normalizzazione, prima del training, i punti dati vengono `[0,1]` normalizzati in MinMaxNormalizer.
+     Se si applica la normalizzazione, prima del training, i punti dati vengono normalizzati in `[0,1]` MinMaxNormalizer.
 
 10. Eseguire il training del modello.  
   

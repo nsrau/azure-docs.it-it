@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 07a339d82f5e4bea1ea0412a5d5b19522611b54a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78296117"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
@@ -34,7 +33,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene illustrato come trovare tutti i documenti della famiglia all'interno `ST_WITHIN`di un poligono usando.  
+  Nell'esempio seguente viene illustrato come trovare tutti i documenti della famiglia all'interno di un poligono usando `ST_WITHIN` .  
   
 ```sql
 SELECT f.id
@@ -58,5 +57,5 @@ Questa funzione di sistema trarrà vantaggio da un [Indice geospaziale](index-po
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Funzioni spaziali Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

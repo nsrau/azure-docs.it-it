@@ -9,10 +9,9 @@ ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 422b814f1d9738ca4f03d08dfecc6761b764f997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196026"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Piattaforme open source che supportano Azure Data Lake Storage Gen2
@@ -36,7 +35,7 @@ Questa tabella elenca le piattaforme open source che supportano Data Lake Storag
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Problemi noti con Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+- [Problemi noti di Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
 - [Servizi di Azure che supportano Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 - [Accesso multi-protocollo in Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
 ms.openlocfilehash: f8e694f658d6e9de04c92001214ecd5c32ff7753
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206861"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurare la pianificazione dell'applicazione di patch del sistema operativo per i cluster HDInsight basati su Linux
@@ -45,7 +44,7 @@ L'applicazione di patch è facoltativa e a propria discrezione.
   
 La pianificazione dello script [-](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh)riavvia, imposta il tipo di riavvio che verrà eseguito nei computer del cluster. Quando si invia l'azione script, impostarla su applica a tutti e tre i tipi di nodo: nodo Head, nodo del ruolo di lavoro e Zookeeper. Se lo script non viene applicato a un tipo di nodo, le macchine virtuali per quel tipo di nodo non verranno aggiornate o riavviate.
 
-`schedule-reboots script` Accetta un parametro numerico:
+`schedule-reboots script`Accetta un parametro numerico:
 
 | Parametro | Valori accettati | Definizione |
 | --- | --- | --- |

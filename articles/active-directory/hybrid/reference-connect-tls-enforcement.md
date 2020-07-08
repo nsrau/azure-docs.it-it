@@ -16,10 +16,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ff5c75785622b43e66b808009c4674d4b2f2b50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78300849"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>Imposizione di TLS 1.2 per Azure AD Connect
@@ -34,10 +33,10 @@ Per forzare il server Azure AD Connect a usare solo TLS 1.2, è necessario aggio
 
 
 ### <a name="enable-tls-12"></a>Abilitare TLS 1.2
-- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319
+- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft \\ . NETFramework\v4.0.30319
   - "Systemdefaulttlsversions su" = DWORD: 00000001
   - "SchUseStrongCrypto" = DWORD: 0000001
-- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\\. NETFramework\v4.0.30319
+- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319
   - "Systemdefaulttlsversions su" = DWORD: 00000001
   - "SchUseStrongCrypto"=dword:00000001
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Server]
@@ -80,10 +79,10 @@ Per forzare il server Azure AD Connect a usare solo TLS 1.2, è necessario aggio
 ```
 
 ### <a name="disable-tls-12"></a>Disabilitare TLS 1.2
-- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319
+- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft \\ . NETFramework\v4.0.30319
   - "Systemdefaulttlsversions su" = DWORD: 00000000
   - "SchUseStrongCrypto" = DWORD: 0000000
-- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\\. NETFramework\v4.0.30319
+- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319
   - "Systemdefaulttlsversions su" = DWORD: 00000000
   - "SchUseStrongCrypto" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Server]
