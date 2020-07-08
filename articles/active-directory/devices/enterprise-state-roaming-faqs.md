@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78672382"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Domande frequenti su impostazioni e dati in roaming
@@ -77,7 +76,7 @@ Nella versione di Windows 10 di novembre 2015 o successiva, l'Enterprise State R
 Quando su uno stesso dispositivo sono presenti più account di Azure AD provenienti da tenant diversi, è necessario aggiornare il registro del dispositivo per comunicare con il servizio Azure Rights Management per ogni tenant di Azure AD.  
 
 1. Accedere al GUID di ogni tenant di Azure AD. Aprire il portale di Azure e selezionare un tenant di Azure AD. Il GUID per il tenant si trova nella pagina Proprietà del tenant selezionato (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), con etichetta **ID Directory**. 
-2. Dopo aver creato il GUID, è necessario aggiungere la chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
+2. Dopo aver eseguito il GUID, sarà necessario aggiungere la chiave del registro di sistema **HKEY_LOCAL_MACHINE \<tenant ID GUID> \software\microsoft\windows\settingsync\winmsipc**.
    Dalla chiave **tenant ID GUID**, creare un nuovo valore multistringa (REG-MULTI-SZ) denominato **AllowedRMSServerUrls**. Come dati, specificare gli URL del punto di distribuzione delle licenze di altri tenant Azure ai quali accede il dispositivo.
 3. Per trovare gli URL del punto di distribuzione delle licenze, è possibile eseguire il cmdlet **Get-AadrmConfiguration** dal modulo AADRM. Se i valori **LicensingIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** sono diversi, specificarli entrambi. Se i valori sono uguali, specificare il valore solo una volta.
 

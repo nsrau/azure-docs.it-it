@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: f5867850db6eb3d6552bc129cca3708ef7747072
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303886"
 ---
 # <a name="is_array-azure-cosmos-db"></a>IS_ARRAY (Azure Cosmos DB)
@@ -34,7 +33,7 @@ IS_ARRAY(<expr>)
   
 ## <a name="examples"></a>Esempi
   
-  L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando `IS_ARRAY` la funzione.  
+  L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando la `IS_ARRAY` funzione.  
   
 ```sql
 SELECT   
@@ -55,10 +54,10 @@ SELECT
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema trae vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Funzioni di controllo dei tipi Azure Cosmos DB](sql-query-type-checking-functions.md)
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

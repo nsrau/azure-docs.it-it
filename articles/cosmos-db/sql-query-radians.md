@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7831ef4bbd65bce7329b1ecf0f602b110a16834b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302237"
 ---
 # <a name="radians-azure-cosmos-db"></a>RADIAnti (Azure Cosmos DB)
@@ -59,5 +58,5 @@ Questa funzione di sistema non utilizzerà l'indice.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

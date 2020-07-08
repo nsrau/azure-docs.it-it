@@ -8,10 +8,9 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78304260"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
@@ -34,7 +33,7 @@ ToString(<expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene illustrato `ToString` il comportamento di tra tipi diversi.   
+  Nell'esempio seguente viene illustrato il comportamento di `ToString` tra tipi diversi.   
   
 ```sql
 SELECT 
@@ -57,7 +56,7 @@ SELECT
 ```json
 {"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
 ```    
- Nell'esempio seguente viene illustrato `ToString` come può essere utilizzato con altre funzioni di `CONCAT`stringa come.   
+ Nell'esempio seguente viene illustrato come `ToString` può essere utilizzato con altre funzioni di stringa come `CONCAT` .   
  
 ```sql
 SELECT 
@@ -78,7 +77,7 @@ Con l'input seguente.
 ```json
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-Nell'esempio seguente viene illustrato `ToString` come può essere utilizzato con altre funzioni di `REPLACE`stringa come.   
+Nell'esempio seguente viene illustrato come `ToString` può essere utilizzato con altre funzioni di stringa come `REPLACE` .   
 ```sql
 SELECT 
     n.id AS nutrientID,
@@ -101,6 +100,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni stringa in Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

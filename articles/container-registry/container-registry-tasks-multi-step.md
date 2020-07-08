@@ -4,10 +4,9 @@ description: Introduzione alle attività in più passaggi, una funzionalità del
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78399690"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Eseguire attività di creazione, test e applicazione di patch in più passaggi in Attività di Registro Azure Container
@@ -43,7 +42,7 @@ Le attività in più passaggi rendono possibili scenari come la logica seguente:
 
 Un'attività in più passaggi in Attività di Registro Azure Container viene definita come una serie di passaggi all'interno di un file YAML. Ogni passaggio può specificare le dipendenze dal completamento di uno o più passaggi precedenti. Sono disponibili i tipi di passaggi di attività seguenti:
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): Compilare una o più immagini del contenitore usando `docker build` una sintassi familiare, in serie o in parallelo.
+* [`build`](container-registry-tasks-reference-yaml.md#build): Compilare una o più immagini del contenitore usando una `docker build` sintassi familiare, in serie o in parallelo.
 * [`push`](container-registry-tasks-reference-yaml.md#push): Eseguire il push delle immagini compilate in un registro contenitori. Sono supportati i registri privati, ad esempio Registro Azure Container, nonché l'hub Docker pubblico.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Esegue un contenitore, in modo che possa funzionare come una funzione all'interno del contesto dell'attività in esecuzione. È possibile passare parametri a `[ENTRYPOINT]` del contenitore e specificare proprietà come env, detach e altri parametri `docker run` comuni. Il tipo di passaggio `cmd` consente l'esecuzione di test funzionali e di unit test, con l'esecuzione simultanea del contenitore.
 

@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78403239"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: inviare eventi dal registro contenitori privato a griglia di eventi
@@ -19,7 +18,7 @@ Al termine dei passaggi descritti in questo articolo, gli eventi inviati dal reg
 
 ![Rendering nel Web browser dell'applicazione Web di esempio con tre eventi ricevuti][sample-app-01]
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-account] prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito][azure-account].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -202,7 +201,7 @@ Lo screenshot seguente mostra l'app di esempio con tre eventi. L'evento `ImageDe
 
 Congratulazioni! Se vengono visualizzati gli eventi `ImagePushed` e `ImageDeleted`, significa che il registro invia eventi a Griglia di eventi e che quest'ultimo li inoltra a sua volta all'endpoint dell'app Web.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando le risorse create in questa guida introduttiva non sono più necessarie, è possibile eliminarle tutte con il seguente comando dell'interfaccia della riga di comando di Azure. Quando si elimina un gruppo di risorse, vengono eliminate definitivamente tutte le risorse contenute nel gruppo.
 

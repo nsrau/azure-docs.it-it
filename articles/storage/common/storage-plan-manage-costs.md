@@ -10,10 +10,9 @@ ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
 ms.openlocfilehash: aa0b789b31f50c8b1ccf5450700874a02ad4664c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78304524"
 ---
 # <a name="plan-and-manage-costs-for-azure-storage"></a>Pianificare e gestire i costi per archiviazione di Azure
@@ -46,7 +45,7 @@ Usa il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/cal
 
 ## <a name="use-budgets-and-cost-alerts"></a>Usare budget e avvisi relativi ai costi
 
-È possibile creare [budget](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) per gestire i costi e creare avvisi per informare automaticamente gli stakeholder in caso di anomalie di spesa e rischi di costi eccessivi. Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi. I budget e gli avvisi vengono creati per le sottoscrizioni e i gruppi di risorse di Azure, quindi sono utili come parte di una strategia di monitoraggio dei costi complessiva. Tuttavia, potrebbero avere funzionalità limitate per gestire i costi dei singoli servizi di Azure, come il costo di archiviazione di Azure, perché sono progettati per tenere traccia dei costi a un livello superiore.
+È possibile creare [budget](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) per gestire i costi e creare avvisi per informare automaticamente le persone interessate in caso di anomalie di spesa e rischi di costi eccessivi. Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi. I budget e gli avvisi vengono creati per le sottoscrizioni e i gruppi di risorse di Azure, quindi sono utili come parte di una strategia di monitoraggio dei costi complessiva. Tuttavia, potrebbero avere funzionalità limitate per gestire i costi dei singoli servizi di Azure, come il costo di archiviazione di Azure, perché sono progettati per tenere traccia dei costi a un livello superiore.
 
 ## <a name="monitor-costs"></a>Monitorare i costi
 
@@ -56,7 +55,7 @@ Quando si usa l'analisi dei costi, è possibile visualizzare i costi di archivia
 
 Per visualizzare i costi di archiviazione di Azure nell'analisi dei costi:
 
-1. Accedi al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Aprire la finestra **Gestione costi e fatturazione** , selezionare **Gestione costi** dal menu e quindi selezionare **analisi dei costi**. È quindi possibile modificare l'ambito per una sottoscrizione specifica dall'elenco a discesa **ambito** .
 

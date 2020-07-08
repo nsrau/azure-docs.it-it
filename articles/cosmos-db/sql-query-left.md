@@ -8,10 +8,9 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 0eac35a91e4d5158335d6797d49a09f8f6f391e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303750"
 ---
 # <a name="left-azure-cosmos-db"></a>A sinistra (Azure Cosmos DB)
@@ -51,10 +50,10 @@ SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema trae vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni stringa in Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

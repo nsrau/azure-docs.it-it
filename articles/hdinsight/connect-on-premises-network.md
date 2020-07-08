@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78897933"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
@@ -46,7 +45,7 @@ Nel diagramma seguente le linee verdi sono richieste di risorse che terminano ne
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
-* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Crea configurazione rete virtuale
 
@@ -65,11 +64,11 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
   
-1. Dal menu in alto selezionare **+ Crea una risorsa**.
+1. Nel menu in alto selezionare **+ Crea una risorsa**.
 
     ![Creare una macchina virtuale Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-1. Selezionare **calcolo** > **macchina virtuale** per passare alla pagina **creare una macchina virtuale** .
+1. Selezionare **calcolo**  >  **macchina virtuale** per passare alla pagina **creare una macchina virtuale** .
 
 1. Nella scheda __Informazioni di base__ immettere le informazioni seguenti:  
   
@@ -80,7 +79,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
     |Nome macchina virtuale | Immettere un nome descrittivo che identifica la macchina virtuale. In questo esempio viene usato **DNSProxy**.|
     |Region | Selezionare la stessa area della rete virtuale creata in precedenza.  Non tutte le dimensioni di macchina virtuale sono disponibili in tutte le aree.  |
     |Opzioni di disponibilità |  Selezionare il livello di disponibilità desiderato.  Azure offre una gamma di opzioni per la gestione della disponibilità e della resilienza delle applicazioni.  Progettando una soluzione per l'uso di macchine virtuali replicate in zone di disponibilità o set di disponibilità è possibile proteggere le app e i dati da eventuali interruzioni del data center ed eventi di manutenzione. Im questo esempio viene usata l'opzione **La ridondanza dell'infrastruttura non è richiesta**. |
-    |Immagine | Uscire da **Ubuntu Server 18,04 LTS**. |
+    |Image | Uscire da **Ubuntu Server 18,04 LTS**. |
     |Tipo di autenticazione | __Password__ o __chiave pubblica SSH__: il metodo di autenticazione per l'account SSH. Si consiglia di usare le chiavi pubbliche, perché sono più sicure. In questo esempio viene utilizzata la **password**.  Per altre informazioni, vedere il documento [Creare e usare chiavi SSH per VM Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
     |Nome utente |Immettere il nome utente dell'amministratore della macchina virtuale.  In questo esempio viene usato **sshuser**.|
     |Password o chiave pubblica SSH | Il campo disponibile è determinato dall'opzione selezionata per **Tipo di autenticazione**.  Immettere il valore appropriato.|
@@ -234,7 +233,7 @@ Una volta creata la macchina virtuale, si riceverà una notifica di **distribuzi
 
 Per configurare la rete virtuale per usare il server DNS personalizzato invece del resolver ricorsivo di Azure, seguire questa procedura nel [portale di Azure](https://portal.azure.com):
 
-1. Dal menu a sinistra passare a **tutti i servizi** > **rete** > **reti virtuali**.
+1. Dal menu a sinistra passare a **tutti i servizi**  >  **rete**  >  **reti virtuali**.
 
 2. Selezionare la rete virtuale dall'elenco, che aprirà la visualizzazione predefinita per la rete virtuale.  
 

@@ -4,10 +4,9 @@ description: In questa esercitazione si apprenderà come eseguire un'attività d
 ms.topic: article
 ms.date: 06/27/2019
 ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78402874"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Eseguire un'attività ACR in base a una pianificazione definita
@@ -54,7 +53,7 @@ az acr task create \
   --context /dev/null
 ```
 
-Eseguire il comando [AZ ACR task show][az-acr-task-show] per verificare che il trigger del timer sia configurato. Per impostazione predefinita, è abilitato anche il trigger di aggiornamento dell'immagine di base.
+Eseguire il comando [az acr task show][az-acr-task-show] per verificare che il trigger del timer sia configurato. Per impostazione predefinita, è abilitato anche il trigger di aggiornamento dell'immagine di base.
 
 ```azurecli
 az acr task show --name mytask --registry registry --output table
@@ -174,11 +173,11 @@ Le attività ACR usano la libreria [NCronTab](https://github.com/atifaziz/NCront
 Il fuso orario utilizzato con le espressioni cron è Coordinated Universal Time (UTC). Le ore sono in formato 24 ore.
 
 > [!NOTE]
-> Le attività ACR non supportano il `{second}` campo `{year}` o nelle espressioni cron. Se si copia un'espressione cron usata in un altro sistema, assicurarsi di rimuovere i campi, se usati.
+> Le attività ACR non supportano il `{second}` `{year}` campo o nelle espressioni cron. Se si copia un'espressione cron usata in un altro sistema, assicurarsi di rimuovere i campi, se usati.
 
 Ogni campo può avere uno dei tipi di valori seguenti:
 
-|Tipo  |Esempio  |Quando viene attivato  |
+|Type  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
 |Valore specifico |<nobr>`"5 * * * *"`</nobr>|ogni ora a 5 minuti dopo l'ora|
 |Tutti i valori (`*`)|<nobr>`"* 5 * * *"`</nobr>|ogni minuto dell'ora inizia 5:00 UTC (60 volte al giorno)|
@@ -200,7 +199,7 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 |`"30 9 * * 1-5"`|alle 9:30 UTC di ogni giorno feriale|
 |`"30 9 * Jan Mon"`|alle 9:30 UTC ogni lunedì di gennaio|
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per rimuovere tutte le risorse create in questa serie di esercitazioni, tra cui il registro contenitori o i registri, l'istanza del contenitore, l'insieme di credenziali delle chiavi e l'entità servizio, eseguire i comandi seguenti:
 

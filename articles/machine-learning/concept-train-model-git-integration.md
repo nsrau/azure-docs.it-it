@@ -10,10 +10,9 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.openlocfilehash: 7cc2e346a35cd1cdf1278b527dc451a903d60f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78402829"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integrazione git per Azure Machine Learning
@@ -26,7 +25,7 @@ Quando si invia un processo a Azure Machine Learning, se i file di origine sono 
 
 Poiché Azure Machine Learning tiene traccia delle informazioni da un repository git locale, non è associato ad alcun repository centrale specifico. Il repository può essere clonato da GitHub, GitLab, Bitbucket, Azure DevOps o da qualsiasi altro servizio compatibile con git.
 
-## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonare i repository git nell'area di lavoro file system
+## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonare i repository GIT nel file system dell'area di lavoro
 Azure Machine Learning fornisce un file system condiviso per tutti gli utenti nell'area di lavoro.
 Per clonare un repository git in questa condivisione file, è consigliabile creare un'istanza di calcolo & aprire un terminale.
 Una volta aperto il terminale, è possibile accedere a un client Git completo ed è possibile clonare e usare git usando l'interfaccia della riga di comando di git.
@@ -49,7 +48,7 @@ Quando si invia un'esecuzione di training da Python SDK o Machine Learning CLI, 
 | `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | Ramo attivo al momento dell'invio dell'esecuzione. |
 | `azureml.git.commit` | `git rev-parse HEAD` | Hash di commit del codice che è stato inviato per l'esecuzione. |
 | `mlflow.source.git.commit` | `git rev-parse HEAD` | Hash di commit del codice che è stato inviato per l'esecuzione. |
-| `azureml.git.dirty` | `git status --porcelain .` | `True`, se il ramo/commit è modificato; in caso `false`contrario,. |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`, se il ramo/commit è modificato; in caso contrario, `false` . |
 
 Queste informazioni vengono inviate per le esecuzioni che usano un estimatore, una pipeline di Machine Learning o un'esecuzione di script.
 
@@ -62,7 +61,7 @@ Se i file di training non si trovano in un repository git nell'ambiente di svilu
 > git --version
 > ```
 >
-> Se installato e nel percorso, si riceve una risposta simile a `git version 2.4.1`. Per ulteriori informazioni sull'installazione di git nell'ambiente di sviluppo, vedere il [sito Web git](https://git-scm.com/).
+> Se installato e nel percorso, si riceve una risposta simile a `git version 2.4.1` . Per ulteriori informazioni sull'installazione di git nell'ambiente di sviluppo, vedere il [sito Web git](https://git-scm.com/).
 
 ## <a name="view-the-logged-information"></a>Visualizzare le informazioni registrate
 
@@ -73,7 +72,7 @@ Le informazioni git vengono archiviate nelle proprietà di un'esecuzione di trai
 1. Dalla [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro.
 1. Selezionare __esperimenti__, quindi selezionare uno degli esperimenti.
 1. Selezionare una delle esecuzioni dalla colonna __numero di esecuzione__ .
-1. Selezionare __logs__, quindi espandere i __registri__ e le voci __azureml__ . Selezionare il collegamento che inizia con __ ### \_Azure__.
+1. Selezionare __logs__, quindi espandere i __registri__ e le voci __azureml__ . Selezionare il collegamento che inizia con __ ### \_ Azure__.
 
     ![La voce # # #_azure nel portale](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
@@ -106,7 +105,7 @@ run.properties['azureml.git.commit']
 
 ### <a name="cli"></a>CLI
 
-Il `az ml run` comando CLI può essere usato per recuperare le proprietà da un'esecuzione. Ad esempio, il comando seguente restituisce le proprietà dell'ultima esecuzione nell'esperimento denominata `train-on-amlcompute`:
+Il `az ml run` comando CLI può essere usato per recuperare le proprietà da un'esecuzione. Ad esempio, il comando seguente restituisce le proprietà dell'ultima esecuzione nell'esperimento denominata `train-on-amlcompute` :
 
 ```azurecli-interactive
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
@@ -116,4 +115,4 @@ Per ulteriori informazioni, vedere la documentazione di riferimento [AZ ml Run](
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare e usare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md)
+* [Configurare e usare destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md)

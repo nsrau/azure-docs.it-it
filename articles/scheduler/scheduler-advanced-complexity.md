@@ -10,18 +10,17 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78898596"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Compilare pianificazioni avanzate e ricorrenze per i processi in Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
+> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà Utilità di pianificazione di Azure di cui è [in corso il ritiro](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
 >
-> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
+> Utilità di pianificazione non è più disponibile nel portale di Azure, ma l'[API REST](/rest/api/scheduler) e i [cmdlet di PowerShell per Utilità di pianificazione di Azure](scheduler-powershell-reference.md) rimangono attualmente disponibili, quindi è possibile gestire processi e raccolte di processi.
 
 All'interno di un processo in [Utilità di pianificazione Azure](../scheduler/scheduler-intro.md), la pianificazione è la componente principale che determina come e quando il servizio Utilità di pianificazione esegue il processo. Con Utilità di pianificazione è possibile configurare più pianificazioni singole e ricorrenti per un processo. Le pianificazioni singole vengono eseguite una sola volta a un'ora specificata e sono essenzialmente pianificazioni ricorrenti eseguite una sola volta. Le pianificazioni ricorrenti vengono eseguite con una frequenza specificata. Grazie a questa flessibilità, è possibile usare l'Utilità di pianificazione per diversi scenari aziendali, ad esempio:
 
@@ -69,7 +68,7 @@ Questa tabella fornisce una panoramica generale degli elementi JSON principali c
 | **startTime** | No | Valore di stringa DateTime nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che specifica quando il processo inizia per le prima volta in una pianificazione di base. <p>Per le pianificazioni complesse, il processo viene attivato non prima del valore di **startTime**. | 
 | **ricorrenza** | No | Regole di ricorrenza per l'esecuzione del processo. L'oggetto **recurrence** supporta i seguenti elementi: **frequency**, **interval**, **schedule**, **count**, e **endTime**. <p>Se si usa l'elemento **recurrence**, è necessario usare anche l’elemento **frequency**, mentre altri elementi **recurrence** sono facoltativi. |
 | **frequenza** | Sì, quando si usa **recurrence** | L'unità di tempo tra le occorrenze supporta questi valori: "Minute", "Hour", "Day", "Week", "Month" e "Year" | 
-| **interval** | No | Un numero intero positivo che determina il numero di unità di tempo tra le occorrenze sulla base della **frequency**. <p>Se ad esempio **interval** è 10 e **frequency** è "Week", il processo si ripete ogni 10 settimane. <p>Di seguito il numero massimo di intervalli per ogni frequenza: <p>- 18 mesi <br>- 78 settimane <br>- 548 giorni <br>Per ore e minuti, l'intervallo è 1 <= <*interval*><= 1000. | 
+| **intervallo** | No | Un numero intero positivo che determina il numero di unità di tempo tra le occorrenze sulla base della **frequency**. <p>Se ad esempio **interval** è 10 e **frequency** è "Week", il processo si ripete ogni 10 settimane. <p>Di seguito il numero massimo di intervalli per ogni frequenza: <p>- 18 mesi <br>- 78 settimane <br>- 548 giorni <br>Per ore e minuti, l'intervallo è 1 <= <*interval*><= 1000. | 
 | **pianificazione** | No | Definisce le modifiche alla ricorrenza in base agli indicatori di minuti, ore, giorni della settimana e giorni del mese | 
 | **count** | No | Numero intero positivo che specifica il numero di volte in cui viene eseguito il processo prima del completamento. <p>Ad esempio, quando il **count** di un processo giornaliero è impostato su 7, e la data di inizio è lunedì, il processo viene completato di domenica. Se la data di inizio è già passata, la prima esecuzione verrà calcolata dall'ora di creazione. <p>Senza **endTime** o un **count**, il processo viene eseguito all'infinito. Non è possibile usare sia **count** che **endTime** in uno stesso processo, ma viene applicata la regola che termina per prima. | 
 | **endTime** | No | Valore di stringa Date o DateTime nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che specifica quando avviene l'arresto del processo. Per **endTime** è possibile impostare un valore nel passato. <p>Senza **endTime** o un **count**, il processo viene eseguito all'infinito. Non è possibile usare sia **count** che **endTime** in uno stesso processo, ma viene applicata la regola che termina per prima. |
@@ -162,10 +161,10 @@ La tabella seguente illustra in modo dettagliato gli elementi dell'oggetto sched
 
 | Nome JSON | Descrizione | Valori validi |
 |:--- |:--- |:--- |
-| **minuti** |Minuti dell'ora in cui viene eseguito il processo. |Matrice di numeri interi. |
+| **minutes** |Minuti dell'ora in cui viene eseguito il processo. |Matrice di numeri interi. |
 | **ore** |Ora del giorno in cui viene eseguito il processo. |Matrice di numeri interi. |
 | **Giorni feriali** |Giorni della settimana in cui viene eseguito il processo. Può essere specificato solo se la frequenza è settimanale. |Matrice di uno dei valori seguenti (la dimensione massima della matrice è 7):<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />Non viene applicata la distinzione tra maiuscole e minuscole. |
-| **monthlyOccurrences** |Determina in quali giorni del mese viene eseguito il processo. Può essere specificato solo con una frequenza mensile. |Matrice di oggetti **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** indica il giorno della settimana in cui viene eseguito il processo. Ad esempio, *{Sunday}* corrisponde a ogni domenica del mese. Obbligatorio.<br /><br />**occurrence** indica l'occorrenza del giorno durante il mese. Ad esempio, *{Sunday, -1}* corrisponde all'ultima domenica del mese. Facoltativo. |
+| **monthlyOccurrences** |Determina in quali giorni del mese viene eseguito il processo. Può essere specificato solo con una frequenza mensile. |Matrice di oggetti **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** indica il giorno della settimana in cui viene eseguito il processo. Ad esempio, *{Sunday}* corrisponde a ogni domenica del mese. Obbligatorio.<br /><br />**occurrence** indica l'occorrenza del giorno durante il mese. Ad esempio, *{Sunday, -1}* corrisponde all'ultima domenica del mese. Facoltativa. |
 | **monthDays** |Giorno del mese in cui viene eseguito il processo. Può essere specificato solo con una frequenza mensile. |Matrice dei valori seguenti:<br />- Qualsiasi valore <= -1 e >= -31<br />- Qualsiasi valore >= 1 e <= 31|
 
 ## <a name="examples-recurrence-schedules"></a>Esempi: pianificazioni di ricorrenza

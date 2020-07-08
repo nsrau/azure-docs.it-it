@@ -4,10 +4,9 @@ description: Informazioni dettagliate su come gestire in modo efficace le dimens
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78403344"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Eliminare immagini del contenitore in Azure Container Registry usando l'interfaccia della riga di comando di Azure
@@ -117,7 +116,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Dopo aver identificato i digest del manifesto obsoleti, è possibile eseguire lo script bash seguente per eliminare i digest del manifesto anteriori a un timestamp specificato. e richiede l'interfaccia della riga di comando di Azure e **xargs**. Per impostazione predefinita, lo script non esegue alcuna operazione di eliminazione. Modificare il valore `ENABLE_DELETE` in `true` per abilitare l'eliminazione delle immagini.
 
 > [!WARNING]
-> Usare lo script di esempio seguente con cautela. i dati dell'immagine eliminati sono irreversibili. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione dei digest del manifesto impedisce a tali sistemi di estrarre le immagini dal registro di sistema. Invece di eseguire il pull tramite manifesto, adottare uno schema di *assegnazione di tag univoci*, una [procedura consigliata](container-registry-image-tag-version.md). 
+> Usare lo script di esempio seguente con cautela. i dati dell'immagine eliminati sono irreversibili. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione dei digest del manifesto impedisce a tali sistemi di estrarre le immagini dal registro di sistema. Invece di eseguire il pull con il manifesto, adottare uno schema di *assegnazione di tag univoci*, una [procedura consigliata](container-registry-image-tag-version.md). 
 
 ```bash
 #!/bin/bash
@@ -212,7 +211,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Utilizzando questo comando in uno script, è possibile eliminare tutte le immagini senza tag in un repository.
 
 > [!WARNING]
-> Usare lo script di esempio seguente con cautela: i dati di un'immagine eliminata NON POSSONO ESSERE RIPRISTINATI. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione delle immagini senza tag impedirà a tali sistemi di eseguire il pull delle immagini dal registro. Invece di eseguire il pull tramite manifesto, adottare uno schema di *assegnazione di tag univoci*, una [procedura consigliata](container-registry-image-tag-version.md).
+> Usare lo script di esempio seguente con cautela: i dati di un'immagine eliminata NON POSSONO ESSERE RIPRISTINATI. Se si dispone di sistemi che effettuano il pull di immagini dal digest del manifesto (in contrapposizione al nome dell'immagine), è consigliabile non eseguire questi script. L'eliminazione delle immagini senza tag impedirà a tali sistemi di eseguire il pull delle immagini dal registro. Invece di eseguire il pull con il manifesto, adottare uno schema di *assegnazione di tag univoci*, una [procedura consigliata](container-registry-image-tag-version.md).
 
 **Interfaccia della riga di comando di Azure in Bash**
 

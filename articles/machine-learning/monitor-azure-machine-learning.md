@@ -10,10 +10,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78399100"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning di monitoraggio
@@ -42,7 +41,7 @@ Azure Machine Learning raccoglie gli stessi tipi di dati di monitoraggio delle a
 
 ## <a name="analyzing-metric-data"></a>Analisi dei dati delle metriche
 
-È possibile analizzare le metriche per Azure Machine Learning aprendo le **metriche** dal menu **monitoraggio di Azure** . Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione ad Azure Esplora metriche](/azure/azure-monitor/platform/metrics-getting-started) .
+È possibile analizzare le metriche per Azure Machine Learning aprendo le **metriche** dal menu **monitoraggio di Azure** . Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](/azure/azure-monitor/platform/metrics-getting-started).
 
 Tutte le metriche per Azure Machine Learning si trovano nell' **area di lavoro Machine Learning servizio**spazio dei nomi.
 
@@ -50,7 +49,7 @@ Tutte le metriche per Azure Machine Learning si trovano nell' **area di lavoro M
 
 ### <a name="filtering-and-splitting"></a>Filtro e suddivisione
 
-Per le metriche che supportano le dimensioni, è possibile applicare filtri usando un valore della dimensione. Ad esempio, filtrando i **core attivi** per il **nome** di `cpu-cluster`un cluster. 
+Per le metriche che supportano le dimensioni, è possibile applicare filtri usando un valore della dimensione. Ad esempio, filtrando i **core attivi** per il nome di un **cluster** `cpu-cluster` . 
 
 È inoltre possibile suddividere una metrica per dimensione per visualizzare il modo in cui i diversi segmenti della metrica si confrontano tra loro. Ad esempio, suddividere il **tipo di passaggio della pipeline** per visualizzare un conteggio dei tipi di passaggi usati nella pipeline.
 
@@ -62,11 +61,11 @@ Per altre informazioni sul filtro e la suddivisione, vedere [funzionalità avanz
 
 La tabella seguente elenca le regole di avviso delle metriche comuni e consigliate per Azure Machine Learning:
 
-| Tipo di avviso | Condizione | Descrizione |
+| Tipo di avviso | Condizione | Description |
 |:---|:---|:---|
-| Distribuzione modello non riuscito | Tipo di aggregazione: totale, operatore: maggiore di, valore soglia: 0 | Quando una o più distribuzioni di modelli non sono riuscite |
-| Percentuale di utilizzo della quota | Tipo di aggregazione: media, operatore: maggiore di, valore soglia: 90| Quando la percentuale di utilizzo della quota è superiore al 90% |
-| Nodi inutilizzabili | Tipo di aggregazione: totale, operatore: maggiore di, valore soglia: 0 | Quando sono presenti uno o più nodi inutilizzabili |
+| Model Deploy Failed (Distribuzione di modelli non riuscita) | Tipo di aggregazione: totale, operatore: maggiore di, valore soglia: 0 | Quando una o più distribuzioni di modelli non sono riuscite |
+| Quota Utilization Percentage (Percentuale di utilizzo quota) | Tipo di aggregazione: media, operatore: maggiore di, valore soglia: 90| Quando la percentuale di utilizzo della quota è superiore al 90% |
+| Unusable Nodes (Nodi non utilizzabili) | Tipo di aggregazione: totale, operatore: maggiore di, valore soglia: 0 | Quando sono presenti uno o più nodi inutilizzabili |
 
 ## <a name="configuration"></a>Configurazione
 
@@ -85,7 +84,7 @@ Per altre informazioni sulla creazione di un'impostazione di diagnostica, vedere
 
 Per Azure Machine Learning è possibile configurare i log seguenti:
 
-| Categoria | Descrizione |
+| Category | Descrizione |
 |:---|:---|
 | AmlComputeClusterEvent | Eventi da Azure Machine Learning cluster di elaborazione. |
 | AmlComputeClusterNodeEvent | Eventi dai nodi all'interno di un cluster di calcolo Azure Machine Learning. |
@@ -107,7 +106,7 @@ I dati nei log di monitoraggio di Azure vengono archiviati in tabelle, in cui og
 | AmlComputeJobEvent | Eventi dei processi in esecuzione in Azure Machine Learning calcolo. |
 
 > [!IMPORTANT]
-> Quando si seleziona **log** dal menu Azure Machine Learning, log Analytics viene aperto con l'ambito della query impostato sull'area di lavoro corrente. Ciò significa che le query di log includeranno solo i dati di tale risorsa. Per eseguire una query che includa i dati di altri database o dati di altri servizi di Azure, selezionare **registri** dal menu **monitoraggio di Azure** . Per informazioni dettagliate, vedere [ambito di query di log e intervallo di tempo in monitoraggio di Azure log Analytics](/azure/azure-monitor/log-query/scope/) .
+> Quando si seleziona **log** dal menu Azure Machine Learning, log Analytics viene aperto con l'ambito della query impostato sull'area di lavoro corrente. Ciò significa che le query di log includeranno solo i dati di tale risorsa. Se si vuole eseguire una query che includa dati di altri database o dati di altri servizi di Azure, selezionare **Log** dal menu di **Monitoraggio di Azure**. Per i dettagli, vedere [Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure](/azure/azure-monitor/log-query/scope/).
 
 Per un riferimento dettagliato dei log e delle metriche, vedere [Azure Machine Learning riferimento ai dati di monitoraggio](monitor-resource-reference.md).
 

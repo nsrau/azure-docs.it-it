@@ -8,10 +8,9 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303444"
 ---
 # <a name="square-azure-cosmos-db"></a>QUADRATO (Azure Cosmos DB)
@@ -53,5 +52,5 @@ Questa funzione di sistema non utilizzerà l'indice.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funzioni di sistema in Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

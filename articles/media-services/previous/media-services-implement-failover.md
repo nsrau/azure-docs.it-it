@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78939220"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementare lo streaming del failover con servizi multimediali V2
@@ -57,13 +56,13 @@ Si applicano le considerazioni seguenti:
 * .NET Framework 4.5 o .NET Framework 4.
 * Visual Studio 2010 SP1 o versioni successive (Professional, Premium, Ultimate o Express).
 
-## <a name="set-up-your-project"></a>Configurare il progetto
+## <a name="set-up-your-project"></a>Impostare il progetto
 
 In questa sezione si crea e si configura un progetto di applicazione console in C#.
 
 1. Usare Visual Studio per creare una nuova soluzione contenente il progetto di applicazione console in C#. Immettere **HandleRedundancyForOnDemandStreaming** come nome e quindi fare clic su **OK**.
-2. Creare la cartella **SupportFiles** allo stesso livello del file di progetto **HandleRedundancyForOnDemandStreaming.csproj**. Nella cartella **SupportFiles** creare le cartelle **OutputFiles** e **MP4Files**. Copiare un file con estensione .mp4 nella cartella **MP4Files**. In questo esempio viene usato il file **Ignite. mp4** . 
-3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a servizi multimediali. Nel **menu principale di Visual Studio**selezionare **strumenti** > **gestione** > pacchetti NuGet**console di gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
+2. Creare la cartella **SupportFiles** allo stesso livello del file di progetto **HandleRedundancyForOnDemandStreaming.csproj**. Nella cartella **SupportFiles** creare le cartelle **OutputFiles** e **MP4Files**. Copiare un file con estensione .mp4 nella cartella **MP4Files**. In questo esempio viene usato il file di **ignite.mp4** . 
+3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a servizi multimediali. Nel **menu principale di Visual Studio**selezionare **strumenti**  >  **Gestione pacchetti NuGet**  >  **console di gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
 4. Aggiungere altri riferimenti necessari per il progetto: System. Runtime. Serialization e System. Web.
 5. Sostituire le istruzioni **using** aggiunte per impostazione predefinita al file **Programs.cs** con le seguenti:
 
@@ -763,6 +762,6 @@ Per altre informazioni sulla protezione del contenuto, vedere [usare la crittogr
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
