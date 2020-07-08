@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68727197"
 ---
 # <a name="azure-infrastructure-integrity"></a>Integrità dell'infrastruttura di Azure
@@ -60,10 +59,10 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 
 - [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
-- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
+- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
 - [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
-- [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
+- [Azure production operations and management](infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)

@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 05/30/2019
 ms.author: terrylan
 ms.openlocfilehash: d41fe409b4a44a4c2af3670d76dd3a83a300feae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68727124"
 ---
 # <a name="management-and-operation-of-the-azure-production-network"></a>Gestione e funzionamento della rete di produzione di Azure    
@@ -55,7 +54,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 
 - [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
-- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
+- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
 - [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)

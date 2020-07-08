@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76119619"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi di una VM di Azure non funzionante usando la virtualizzazione annidata in Azure
@@ -42,13 +41,13 @@ Per montare la macchina virtuale difettosa, è necessario che la macchina virtua
 
 2.  Dopo aver creato la macchina virtuale di ripristino, stabilire una connessione Desktop remoto con la macchina virtuale di ripristino.
 
-3.  In Server Manager selezionare **Gestisci** > **Aggiungi ruoli e funzionalità**.
+3.  In Server Manager selezionare **Gestisci**  >  **Aggiungi ruoli e funzionalità**.
 
 4.  Nella sezione **Tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità**.
 
 5.  Nella sezione **Selezione server di destinazione** verificare che la macchina virtuale di ripristino sia selezionata.
 
-6.  Selezionare > il **ruolo Hyper-V****Aggiungi funzionalità**.
+6.  Selezionare il **ruolo Hyper-V**  >  **Aggiungi funzionalità**.
 
 7.  Scegliere **Avanti** nella sezione **Funzionalità**.
 
@@ -74,7 +73,7 @@ Per montare la macchina virtuale difettosa, è necessario che la macchina virtua
 
 4.  Aprire la console di gestione di Hyper-V: in **Server Manager** selezionare il **ruolo Hyper-V**. Fare clic con il pulsante destro del mouse sul server e quindi scegliere **Console di gestione di Hyper-V**.
 
-5.  Nella console di gestione di Hyper-V fare clic con il pulsante destro del mouse sulla macchina virtuale di ripristino e quindi scegliere **nuova** > **macchina** > virtuale**Avanti**.
+5.  Nella console di gestione di Hyper-V fare clic con il pulsante destro del mouse sulla macchina virtuale di ripristino e quindi scegliere **nuova**  >  **macchina virtuale**  >  **Avanti**.
 
 6.  Digitare un nome per la macchina virtuale e quindi scegliere **Avanti**.
 

@@ -12,17 +12,16 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720470"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase di modellazione del ciclo di vita del processo di data science per i team
 
 Questo argomento descrive gli obiettivi, le attività e i risultati finali associati alla fase di modellazione del processo TDSP. Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-   1. **Comprensione del business**
+   1. **Informazioni commerciali**
    2. **Acquisizione e comprensione dei dati**
    3. **Modellazione**
    4. **Distribuzione**
@@ -38,7 +37,7 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 * Creare un modello di Machine Learning informativo che consente di stimare il target in modo più accurato.
 * Creare un modello di Machine Learning adatto alla produzione.
 
-## <a name="how-to-do-it"></a>Procedura
+## <a name="how-to-do-it"></a>Come eseguirla
 Questa fase comprende tre attività principali:
 
   * **Progettazione delle funzionalità**: creare le funzionalità dei dati dai dati non elaborati per facilitare il training del modello.
@@ -69,7 +68,7 @@ Il processo di training del modello include i passaggi seguenti:
 
 Con il processo TDSP è disponibile uno [strumento di creazione di report e modellazione automatizzato](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling), da eseguire in diversi algoritmi e sweep parametrici per produrre un modello di base. Lo strumento produce anche un report di modellazione di base che riepiloga le prestazioni di ogni combinazione di modello e parametro, inclusa l'importanza delle variabili. Anche questo processo è iterativo poiché potrebbe risultare in una nuova progettazione di funzionalità. 
 
-## <a name="artifacts"></a>Elementi
+## <a name="artifacts"></a>Artifacts
 Gli elementi generati in questa fase includono:
 
    * [Set di funzionalità](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): le funzionalità sviluppate per la modellazione sono descritte nella sezione **set di funzionalità** del report di **definizione dei dati** . Il report contiene i puntatori al codice per generare le funzionalità e una descrizione della modalità di generazione della funzionalità.
@@ -82,7 +81,7 @@ Gli elementi generati in questa fase includono:
 
 Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data science per i team:
 
-   1. [Comprensione del business](lifecycle-business-understanding.md)
+   1. [Informazioni commerciali](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)

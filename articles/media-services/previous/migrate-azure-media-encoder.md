@@ -14,17 +14,16 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
 ms.openlocfilehash: f8fe1b13db6473e80f0d7cdc638b775a0c8062c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76513502"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Eseguire la migrazione da Azure Media Encoder a Media Encoder Standard
 
-Questo articolo illustra i passaggi per eseguire la migrazione dal processore di contenuti multimediali Azure Media Encoder (AME) Legacy (in fase di ritiro) al processore di contenuti multimediali Media Encoder Standard. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](legacy-components.md) .
+Questo articolo illustra i passaggi per eseguire la migrazione dal processore di contenuti multimediali Azure Media Encoder (AME) Legacy (in fase di ritiro) al processore di contenuti multimediali Media Encoder Standard. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md).
 
-Quando si codificano i file con AME, i clienti utilizzano in genere una `H264 Adaptive Bitrate MP4 Set 1080p`stringa di set di impostazioni denominata come. Per eseguire la migrazione, è necessario aggiornare il codice per usare il processore di contenuti multimediali **Media Encoder standard** anziché AME e uno dei [set di impostazioni di sistema](media-services-mes-presets-overview.md) equivalenti `H264 Multiple Bitrate 1080p`, ad esempio. 
+Quando si codificano i file con AME, i clienti utilizzano in genere una stringa di set di impostazioni denominata come `H264 Adaptive Bitrate MP4 Set 1080p` . Per eseguire la migrazione, è necessario aggiornare il codice per usare il processore di contenuti multimediali **Media Encoder standard** anziché AME e uno dei [set di impostazioni di sistema](media-services-mes-presets-overview.md) equivalenti, ad esempio `H264 Multiple Bitrate 1080p` . 
 
 ## <a name="migrating-to-media-encoder-standard"></a>Migrazione a Media Encoder Standard
 

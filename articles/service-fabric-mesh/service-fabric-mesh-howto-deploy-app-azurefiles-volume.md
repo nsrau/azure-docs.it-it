@@ -7,10 +7,9 @@ ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76718821"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montare un volume basato su File di Azure in un'applicazione di Service Fabric Mesh 

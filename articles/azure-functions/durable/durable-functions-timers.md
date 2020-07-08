@@ -5,25 +5,24 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0565cc149a36baf31d8516fffcf48b194c465760
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76261484"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timer in Funzioni permanenti (Funzioni di Azure)
 
 [Funzioni permanenti](durable-functions-overview.md) fornisce *timer permanenti* da usare nelle funzioni di orchestrazione per implementare ritardi o per impostare timeout nelle azioni asincrone. I timer permanenti devono essere usati nelle funzioni dell'agente di orchestrazione al posto di `Thread.Sleep` e `Task.Delay` (C#) oppure di `setTimeout()` e `setInterval()` (JavaScript).
 
-Si crea un timer durevole chiamando il `CreateTimer` metodo (.NET) o il `createTimer` metodo (JavaScript) dell'associazione del [trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger). Il metodo restituisce un'attività che viene completata in una data e un'ora specificate.
+Si crea un timer durevole chiamando il metodo `CreateTimer` (.NET) o il `createTimer` Metodo (JavaScript) dell'associazione del [trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger). Il metodo restituisce un'attività che viene completata in una data e un'ora specificate.
 
 ## <a name="timer-limitations"></a>Limitazioni dei timer
 
 Quando si crea un timer che scade alle 4:30 PM, il Framework di attività permanenti sottostante Accoda un messaggio che diventa visibile solo alle 4:30. Quando si esegue il piano a consumo di funzioni di Azure, il messaggio del timer appena visibile garantisce che l'app per le funzioni venga attivata in una macchina virtuale appropriata.
 
 > [!NOTE]
-> * I timer durevoli sono attualmente limitati a 7 giorni. Se sono necessari ritardi più lunghi, è possibile simularli usando le API del timer in `while` un ciclo.
-> * Usare `CurrentUtcDateTime` `DateTime.UtcNow` sempre anziché in .NET o `currentUtcDateTime` al posto di `Date.now` o `Date.UTC` in JavaScript quando si calcola il tempo di attivazione per i timer durevoli. Per ulteriori informazioni, vedere l'articolo sui vincoli del codice della funzione dell'agente di [orchestrazione](durable-functions-code-constraints.md) .
+> * I timer durevoli sono attualmente limitati a 7 giorni. Se sono necessari ritardi più lunghi, è possibile simularli usando le API del timer in un `while` ciclo.
+> * Usare sempre `CurrentUtcDateTime` anziché `DateTime.UtcNow` in .NET o al `currentUtcDateTime` posto di `Date.now` o `Date.UTC` in JavaScript quando si calcola il tempo di attivazione per i timer durevoli. Per ulteriori informazioni, vedere l'articolo sui vincoli del codice della funzione dell'agente di [orchestrazione](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Utilizzo per il ritardo
 
@@ -46,7 +45,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> L'esempio C# precedente è destinato a Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> L'esempio C# precedente è destinato a Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -104,7 +103,7 @@ public static async Task<bool> Run(
 ```
 
 > [!NOTE]
-> L'esempio C# precedente è destinato a Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> L'esempio C# precedente è destinato a Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

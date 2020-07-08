@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76544719"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Estensione macchina virtuale Chef per Linux e Windows
@@ -67,26 +66,26 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 
 ### <a name="core-property-values"></a>Valori delle proprietà principali
 
-| Name | Valore/Esempio | Tipo di dati
+| Nome | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | stringa |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | stringa |
+| publisher | `Chef.Bootstrap.WindowsAzure` | string |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.13` | string (double) |
 
 ### <a name="settings"></a>Impostazioni
 
-| Name | Valore/Esempio | Tipo di dati | Necessaria?
+| Nome | Valore/Esempio | Tipo di dati | Necessaria?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | stringa | S |
-| settings/runlist | `recipe[mycookbook::default]` | stringa | S |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
+| settings/runlist | `recipe[mycookbook::default]` | string | S |
 
 ### <a name="protected-settings"></a>Impostazioni protette
 
-| Name | Esempio | Tipo di dati | Necessaria?
+| Nome | Esempio | Tipo di dati | Necessaria?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | stringa | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 
 <!--
 ### Linux-specific settings
@@ -106,7 +105,7 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
 
 Un modello di Gestione risorse di esempio che include l'estensione della macchina virtuale chef è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
-La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [impostare il nome e il tipo per le risorse figlio](../../azure-resource-manager/resource-manager-template-child-resource.md).
+La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md) (Impostare il nome e il tipo per le risorse figlio).
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
@@ -157,4 +156,4 @@ Altre informazioni sulla risoluzione dei problemi sono disponibili nel [file Leg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

@@ -14,10 +14,9 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76696522"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usare MSAL per Android con B2C
@@ -34,7 +33,7 @@ Data un'applicazione B2C con due criteri:
 - Modifica profilo
     * Chiamato`B2C_1_EditProfile`
 
-Il file di configurazione per l'app dichiarerebbe due `authorities`. Uno per ogni criterio. La `type` proprietà di ogni autorità è `B2C`.
+Il file di configurazione per l'app dichiarerebbe due `authorities` . Uno per ogni criterio. La `type` proprietà di ogni autorità è `B2C` .
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -81,7 +80,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>Acquisire un token in modo interattivo
 
-Per acquisire un token in modo interattivo con MSAL, `AcquireTokenParameters` compilare un'istanza di e fornirla al `acquireToken` metodo. La richiesta di token riportata di `default` seguito utilizza l'autorità.
+Per acquisire un token in modo interattivo con MSAL, compilare un' `AcquireTokenParameters` istanza di e fornirla al `acquireToken` metodo. La richiesta di token riportata di seguito utilizza l' `default` autorità.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -112,7 +111,7 @@ pca.acquireToken(parameters);
 
 ## <a name="silently-renew-a-token"></a>Rinnovare automaticamente un token
 
-Per acquisire un token in modo invisibile all'utente con MSAL `AcquireTokenSilentParameters` , compilare un'istanza di e `acquireTokenSilentAsync` fornirla al metodo. A differenza del `acquireToken` metodo, è `authority` necessario specificare per acquisire un token in modo invisibile all'utente.
+Per acquisire un token in modo invisibile all'utente con MSAL, compilare un' `AcquireTokenSilentParameters` istanza di e fornirla al `acquireTokenSilentAsync` metodo. A differenza del `acquireToken` metodo, `authority` è necessario specificare per acquisire un token in modo invisibile all'utente.
 
 ```java
 IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -139,7 +138,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Specificare un criterio
 
-Poiché i criteri in B2C sono rappresentati come autorità separate, la chiamata di un criterio diverso da quello predefinito viene eseguita `fromAuthority` specificando una clausola `acquireToken` quando `acquireTokenSilent` si costruiscono parametri o.  Ad esempio:
+Poiché i criteri in B2C sono rappresentati come autorità separate, la chiamata di un criterio diverso da quello predefinito viene eseguita specificando una `fromAuthority` clausola quando si costruiscono `acquireToken` `acquireTokenSilent` parametri o.  Ad esempio:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -157,7 +156,7 @@ Il flusso dell'utente per l'iscrizione o l'accesso all'account locale Visualizza
 
 Viene invece restituito il codice di errore `AADB2C90118` all'app. L'app deve gestire questo codice di errore eseguendo un flusso utente specifico che reimposta la password.
 
-Per intercettare un codice di errore di reimpostazione della password, è possibile usare `AuthenticationCallback`l'implementazione seguente all'interno di:
+Per intercettare un codice di errore di reimpostazione della password, è possibile usare l'implementazione seguente all'interno di `AuthenticationCallback` :
 
 ```java
 new AuthenticationCallback() {
@@ -185,7 +184,7 @@ new AuthenticationCallback() {
 
 ## <a name="use-iauthenticationresult"></a>Usare IAuthenticationResult
 
-L'acquisizione di un token ha avuto `IAuthenticationResult` esito positivo in un oggetto. Contiene il token di accesso, le attestazioni utente e i metadati.
+L'acquisizione di un token ha avuto esito positivo in un `IAuthenticationResult` oggetto. Contiene il token di accesso, le attestazioni utente e i metadati.
 
 ### <a name="get-the-access-token-and-related-properties"></a>Ottenere il token di accesso e le proprietà correlate
 
@@ -227,15 +226,15 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>Attestazioni IdToken
 
-Le attestazioni restituite in IdToken vengono popolate dal servizio token di sicurezza (STS), non da MSAL. A seconda del provider di identità (IdP) usato, alcune attestazioni potrebbero essere assenti. Alcuni IDP attualmente non forniscono l' `preferred_username` attestazione. Poiché questa attestazione viene utilizzata da MSAL per la memorizzazione nella cache, al `MISSING FROM THE TOKEN RESPONSE`suo posto viene utilizzato un valore segnaposto. Per altre informazioni sulle attestazioni IdToken B2C, vedere [Cenni preliminari sui token in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Le attestazioni restituite in IdToken vengono popolate dal servizio token di sicurezza (STS), non da MSAL. A seconda del provider di identità (IdP) usato, alcune attestazioni potrebbero essere assenti. Alcuni IDP attualmente non forniscono l' `preferred_username` attestazione. Poiché questa attestazione viene utilizzata da MSAL per la memorizzazione nella cache, `MISSING FROM THE TOKEN RESPONSE` al suo posto viene utilizzato un valore segnaposto. Per altre informazioni sulle attestazioni IdToken B2C, vedere [Cenni preliminari sui token in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Gestione di account e criteri
 
 B2C considera ogni criterio come un'autorità separata. Pertanto, i token di accesso, i token di aggiornamento e i token ID restituiti da ogni criterio non sono intercambiabili. Questo significa che ogni criterio restituisce un `IAccount` oggetto separato i cui token non possono essere usati per richiamare altri criteri.
 
-Ogni criterio aggiunge un `IAccount` alla cache per ogni utente. Se un utente accede a un'applicazione e richiama due criteri, avranno due `IAccount`. Per rimuovere l'utente dalla cache, è necessario chiamare `removeAccount()` per ogni criterio.
+Ogni criterio aggiunge un `IAccount` alla cache per ogni utente. Se un utente accede a un'applicazione e richiama due criteri, avranno due `IAccount` . Per rimuovere l'utente dalla cache, è necessario chiamare `removeAccount()` per ogni criterio.
 
-Quando si rinnovano i token per un criterio `acquireTokenSilent`con, specificare lo `IAccount` stesso valore restituito dalle chiamate precedenti del criterio a `AcquireTokenSilentParameters`. Se si specifica un account restituito da un altro criterio, verrà generato un errore.
+Quando si rinnovano i token per un criterio con `acquireTokenSilent` , specificare lo stesso valore `IAccount` restituito dalle chiamate precedenti del criterio a `AcquireTokenSilentParameters` . Se si specifica un account restituito da un altro criterio, verrà generato un errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

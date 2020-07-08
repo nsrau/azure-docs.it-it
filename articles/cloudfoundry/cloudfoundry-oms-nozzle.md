@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277367"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuire il nozzle di Azure Log Analytics per il monitoraggio del sistema Cloud Foundry
@@ -67,7 +66,7 @@ Prima di configurare il client della riga di comando sau, verificare che RubyGem
    * **Località**: immettere la località.
    * **Piano tariffario:** fare clic su **OK** per completare.
 
-Per altre informazioni, vedere [Introduzione ai log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Per altre informazioni, vedere [Introduzione ai log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Per creare l'area di lavoro Log Analytics tramite il modello di monitoraggio da Azure Marketplace:
 
@@ -183,7 +182,7 @@ Se l'area di lavoro Log Analytics è stata creata manualmente, seguire questa pr
 
 ### <a name="1-import-the-oms-view"></a>1. importare la visualizzazione OMS
 
-Dal portale di OMS passare a **Visualizza finestra di progettazione** > **Importa** > **Sfoglia**e selezionare uno dei file omsview. Selezionare ad esempio *Foundry.omsview Cloud*e salvare la vista. A questo punto viene visualizzato un riquadro nella pagina **Panoramica**. Selezionare per visualizzare le metriche visualizzate.
+Dal portale di OMS passare a **Visualizza finestra di progettazione**  >  **Importa**  >  **Sfoglia**e selezionare uno dei file omsview. Selezionare ad esempio *Foundry.omsview Cloud*e salvare la vista. A questo punto viene visualizzato un riquadro nella pagina **Panoramica**. Selezionare per visualizzare le metriche visualizzate.
 
 È possibile personalizzare le visualizzazioni o creare nuove visualizzazioni tramite **Visualizza finestra di progettazione**.
 

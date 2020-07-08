@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263864"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Come usare Hub di notifica da Java
@@ -71,7 +70,7 @@ Per creare:
     hub = namespaceManager.createNotificationHub(hub);
     ```
 
- OR
+ OPPURE
 
     ```java
     hub = new NotificationHub("connection string", "hubname");

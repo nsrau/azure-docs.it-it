@@ -12,17 +12,16 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76710344"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase di comprensione delle strategie aziendali nel ciclo di vita del processo di data science per i team
 
 Questo argomento descrive gli obiettivi, le attività e i risultati finali associati alla fase di comprensione del business del processo di data science per i team. Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-   1. **Comprensione del business**
+   1. **Informazioni commerciali**
    2. **Acquisizione e comprensione dei dati**
    3. **Modellazione**
    4. **Distribuzione**
@@ -37,7 +36,7 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 * Specificare le variabili principali da usare come target di modelli e le cui metriche vengono usate per determinare la riuscita del progetto.
 * Identificare le origini dati pertinenti a cui l'azienda ha accesso o per le quali deve ottenere l'accesso.
 
-## <a name="how-to-do-it"></a>Procedura
+## <a name="how-to-do-it"></a>Come eseguirla
 Questa fase comprende due attività principali: 
 
    * **Definizione degli obiettivi**: interagire con il cliente e altre parti interessate per comprendere e identificare i problemi aziendali. Formulare domande che definiscano i target aziendali e a cui si possano applicare le tecniche di data science.
@@ -74,7 +73,7 @@ Identificare le origini dati che contengono esempi noti di risposte a domande pr
 
 Si può ad esempio scoprire che i sistemi esistenti devono raccogliere e registrare tipi di dati aggiuntivi per risolvere il problema e raggiungere gli obiettivi del progetto. In questo caso si possono cercare origini dati esterne o aggiornare i sistemi per raccogliere nuovi dati.
 
-## <a name="artifacts"></a>Elementi
+## <a name="artifacts"></a>Artifacts
 Ecco i risultati finali di questa fase:
 
    * [Documento di charter](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): viene fornito un modello standard nella definizione della struttura del progetto TDSP. Il documento di dichiarazione di intenti è sempre in evoluzione. Il modello viene aggiornato nel corso del progetto man mano che si ottengono nuove informazioni e cambiano i requisiti aziendali. È importante eseguire l'iterazione di questo documento, aggiungendo dettagli durante l'avanzamento del processo di scoperta. Coinvolgere il cliente e le altre parti interessate nelle modifiche e comunicare chiaramente l'importanza di tali modifiche.  
@@ -85,7 +84,7 @@ Ecco i risultati finali di questa fase:
 
 Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data science per i team:
 
-   1. [Comprensione del business](lifecycle-business-understanding.md)
+   1. [Informazioni commerciali](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)

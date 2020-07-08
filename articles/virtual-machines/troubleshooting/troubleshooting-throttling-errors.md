@@ -14,10 +14,9 @@ ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
 ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76045367"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Risoluzione degli errori di limitazione delle richieste delle API 
@@ -32,7 +31,7 @@ Quando un client API di Azure riceve un errore di limitazione delle richieste, l
 
 ## <a name="call-rate-informational-response-headers"></a>Intestazioni di risposta informativa sulla frequenza delle chiamate 
 
-| Intestazione                            | Formato del valore                           | Esempio                               | Descrizione                                                                                                                                                                                               |
+| Header                            | Formato del valore                           | Esempio                               | Descrizione                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Numero di chiamate API rimanenti per i criteri di limitazione delle richieste che coprono il contenitore di risorse o il gruppo di operazioni che include la destinazione della richiesta                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Numero di chiamate "addebitato" per questa richiesta HTTP rispetto al limite dei criteri applicabili. Generalmente è 1. Le richieste batch, ad esempio per il ridimensionamento di un set di scalabilità di macchine virtuali, possono comportare l'addebito di un numero superiore. |

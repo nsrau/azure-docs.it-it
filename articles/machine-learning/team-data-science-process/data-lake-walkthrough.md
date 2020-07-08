@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9409f14b20684afa1a39d45e663ff316f405cc97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76717920"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
@@ -158,7 +157,7 @@ Per eseguire U-SQL, aprire Visual Studio, fare clic su **File --> Nuovo --> Prog
 
 ### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Inserimento di dati: leggere i dati dal BLOB pubblico
 
-Alla posizione dei dati nel BLOB di Azure viene fatto riferimento come **\_nome\@wasb://container account\_\_di archiviazione\_BLOB Name.blob.Core.Windows.NET/BLOB_NAME** ed è possibile estrarlo utilizzando **Extracts. csv ()**. Sostituire il nome del contenitore e il nome dell'account di archiviazione negli script\_seguenti\@per\_nome\_contenitore\_nome account di archiviazione BLOB nell'indirizzo Wasb. Poiché i nomi dei file hanno lo stesso formato, è possibile usare **Trip\_data\_\{\*\}. csv** per leggere tutti i 12 file di viaggio.
+Alla posizione dei dati nel BLOB di Azure viene fatto riferimento come **nome Wasb://Container \_ \@ account di \_ archiviazione \_ BLOB \_ name.blob.core.windows.net/blob_name** e possono essere estratti usando **Extractors.Csv ()**. Sostituire il nome del contenitore e il nome dell'account di archiviazione negli script seguenti per nome contenitore nome \_ \@ account di \_ archiviazione BLOB \_ \_ nell'indirizzo Wasb. Poiché i nomi dei file hanno lo stesso formato, è possibile usare **Trip \_ data \_ \{ \* \} . csv** per leggere tutti i 12 file di viaggio.
 
     ///Read in Trip data
     @trip0 =
@@ -181,7 +180,7 @@ Alla posizione dei dati nel BLOB di Azure viene fatto riferimento come **\_nome\
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati in Azure Data Lake Storage usando **swebhdfs://data_lake_storage_name. azuredatalakestorage. NET/Folder_Name/file_name**_ o nell'account di archiviazione BLOB di Azure usando **wasb:/\@/container_name blob_storage_account_name. blob. Core. Windows. NET/BLOB_NAME**.
+Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati in Azure Data Lake Storage usando **swebhdfs://data_lake_storage_name. azuredatalakestorage. NET/Folder_Name/file_name**_ o nell'account di archiviazione BLOB di Azure usando **wasb://container_name \@ blob_storage_account_name. blob. Core. windows. NET/BLOB_NAME**.
 
     // change data types
     @trip =
@@ -569,7 +568,7 @@ In questo passaggio viene creato un modello di classificazione binaria per preve
 ### <a name="build-web-service-api-and-consume-it-in-python"></a>Compilare l'API del servizio Web e utilizzarla in Python
 Si vuole rendere operativo il modello di Machine Learning dopo la compilazione. In questa sezione viene usato come esempio il modello logistico binario. Verificare che la versione di Scikit-learn nel computer locale sia 0.15.1 (Azure Machine Learning Studio è già presente almeno in questa versione).
 
-* Trovare le credenziali dell'area di lavoro dalle impostazioni Azure Machine Learning Studio (classico). In Azure Machine Learning Studio fare clic su **Impostazioni** --> **nome** --> **token di autorizzazione**.
+* Trovare le credenziali dell'area di lavoro dalle impostazioni Azure Machine Learning Studio (classico). In Azure Machine Learning Studio fare clic su **Impostazioni**  -->  **nome**  -->  **token di autorizzazione**.
 
     ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
@@ -612,7 +611,7 @@ Aprire il [Portale di Azure](https://portal.azure.com) per creare un cluster HDI
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Creare una tabella Hive in HDInsight
-È ora possibile creare tabelle hive da usare in Azure Machine Learning Studio (classico) nel cluster HDInsight usando i dati archiviati in Azure Data Lake Storage nel passaggio precedente. Passare al cluster HDInsight creato. Fare clic su **Impostazioni** --> **proprietà** --> **cluster AAD Identity** --> **ADLS Access**, assicurarsi che l'account Azure Data Lake Storage venga aggiunto nell'elenco con diritti di lettura, scrittura ed esecuzione.
+È ora possibile creare tabelle hive da usare in Azure Machine Learning Studio (classico) nel cluster HDInsight usando i dati archiviati in Azure Data Lake Storage nel passaggio precedente. Passare al cluster HDInsight creato. Fare clic su **Impostazioni**  -->  **proprietà**  -->  **cluster AAD Identity**  -->  **ADLS Access**, assicurarsi che l'account Azure Data Lake Storage venga aggiunto nell'elenco con diritti di lettura, scrittura ed esecuzione.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -675,7 +674,7 @@ Un esempio di esperimento di classificazione binaria per la lettura di dati dall
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
-Dopo aver creato l'esperimento, fare clic su **Configura** --> servizio Web**predittivo servizio Web**
+Dopo aver creato l'esperimento, fare clic su **Configura**servizio Web  -->  **predittivo servizio Web**
 
  ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
 
@@ -687,7 +686,7 @@ Il dashboard del servizio Web verrà visualizzato a breve:
 
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Completando questa procedura dettagliata, è stato creato un ambiente di data science per la creazione di soluzioni end-to-end scalabili in Azure Data Lake. Questo ambiente è stato quindi usato per analizzare un set di dati pubblico di grandi dimensioni, sottoposto ai passaggi del processo di analisi scientifica dei dati: dall'acquisizione dei dati al training del modello, fino alla distribuzione del modello come servizio Web. U-SQL è stato usato per elaborare, esplorare ed eseguire il campionamento dei dati. Python e hive sono stati usati con Azure Machine Learning Studio (classico) per compilare e distribuire modelli predittivi.
 
 ## <a name="whats-next"></a>Quali sono le operazioni successive?

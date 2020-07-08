@@ -1,6 +1,6 @@
 ---
 title: Supporto per la piattaforma di Azure IoT SDK per dispositivi | Microsoft Docs
-description: Gli SDK per dispositivi Open Source sono disponibili su GitHub in C, .NET (C#), Java, node. js e Python per connettere i dispositivi all'hub Azure e al servizio Device provisioning (DPS).
+description: Gli SDK per dispositivi Open Source sono disponibili su GitHub in C, .NET (C#), Java, Node.js e Python per connettere i dispositivi all'hub Azure e al servizio Device provisioning (DPS).
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
 ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76045125"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Supporto della piattaforma SDK per dispositivi Azure
 
-Microsoft si impegna a espandere continuamente l'universo dei dispositivi in grado di supportare l'hub Azure. Microsoft pubblica gli SDK per dispositivi Open Source su GitHub per consentire la connessione dei dispositivi all'hub di Azure e al servizio Device provisioning. Gli SDK per dispositivi sono disponibili per C, .NET (C#), Java, node. js e Python. Microsoft testa ogni SDK per assicurarsi che sia in esecuzione sulle configurazioni supportate in modo dettagliato nella sezione relativa al [supporto di Microsoft SDK e della piattaforma per dispositivi](#microsoft-sdks-and-device-platform-support) .
+Microsoft si impegna a espandere continuamente l'universo dei dispositivi in grado di supportare l'hub Azure. Microsoft pubblica gli SDK per dispositivi Open Source su GitHub per consentire la connessione dei dispositivi all'hub di Azure e al servizio Device provisioning. Gli SDK per dispositivi sono disponibili per C, .NET (C#), Java, Node.js e Python. Microsoft testa ogni SDK per assicurarsi che sia in esecuzione sulle configurazioni supportate in modo dettagliato nella sezione relativa al [supporto di Microsoft SDK e della piattaforma per dispositivi](#microsoft-sdks-and-device-platform-support) .
 
 Oltre agli SDK per dispositivi, Microsoft offre diverse altre strade per consentire ai clienti e agli sviluppatori di connettere i propri dispositivi ad Azure:
 
@@ -30,7 +29,7 @@ Questo argomento fornisce informazioni sugli SDK Microsoft e sulle configurazion
 
 ## <a name="microsoft-sdks-and-device-platform-support"></a>Microsoft SDK e supporto della piattaforma per dispositivi
 
-Microsoft pubblica SDK open source su GitHub per le lingue seguenti: C, .NET (C#), node. js, Java e Python. In questa sezione sono elencati gli SDK e le relative dipendenze. Gli SDK sono supportati in qualsiasi piattaforma per dispositivi che soddisfi tali dipendenze.
+Microsoft pubblica gli SDK open source su GitHub per le lingue seguenti: C, .NET (C#), Node.js, Java e Python. In questa sezione sono elencati gli SDK e le relative dipendenze. Gli SDK sono supportati in qualsiasi piattaforma per dispositivi che soddisfi tali dipendenze.
 
 Per ognuno degli SDK elencati, Microsoft:
 
@@ -78,7 +77,7 @@ L' [SDK per dispositivi .NET (C#) dell'hub Azure](https://github.com/Azure/azure
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
-L' [SDK del dispositivo node. js dell'hub Azure](https://github.com/Azure/azure-iot-sdk-node) è testato con e supporta le configurazioni seguenti.
+L' [Hub Azure e l'SDK Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) sono testati con e supportano le configurazioni seguenti.
 
 | OS                  | Versione del nodo    |
 |---------------------|-----------------|
@@ -103,7 +102,7 @@ Microsoft collabora con diversi partner per fornire kit di sviluppo per diverse 
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Modem Iot Qualcomm MDM9206 LTE     | [Qualcomm LTE per IoT SDK](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
-| ST Microelectronics | Serie STM32L4 <br/> Serie STM32F4 <br/>  Serie STM32F7 <br/>  STM32L4 Kit Discovery per nodo IoT    | [X-CUBE-AZURE](https://www.st.com/en/embedded-software/x-cube-azure.html) <br/>  <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Supporto tecnico](https://www.st.com/content/st_com/en/support/support-home.html)
+| ST Microelectronics | Serie STM32L4 <br/> Serie STM32F4 <br/>  Serie STM32F7 <br/>  STM32L4 Kit Discovery per nodo IoT    | [X-CUBE-AZURE](https://www.st.com/en/embedded-software/x-cube-azure.html) <br/>  <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Supporto](https://www.st.com/content/st_com/en/support/support-home.html)
 | Texas Instruments   | LaunchPad CC3220SF </br> LaunchPad CC3220S </br> LaunchPad CC3235SF </br> LaunchPad CC3235S </br> LaunchPad MSP432E4 | [Plug-in Azure IoT per SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [Forum di TI E2E](https://e2e.ti.com) <br/> [Forum di E2E TI per CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [Forum di E2E TI per MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
 
 ## <a name="porting-the-microsoft-azure-iot-c-sdk"></a>Porting di Microsoft Azure SDK di C
@@ -134,7 +133,7 @@ Se si verificano problemi durante l'uso degli SDK per dispositivi Azure, è poss
 
 * [Problemi di Java SDK per hub Azure.](https://github.com/Azure/azure-iot-sdk-java/issues)
 
-* [Problemi relativi a node. js SDK per hub Azure.](https://github.com/Azure/azure-iot-sdk-node/issues)
+* [Problemi dell'SDK Node.js dell'hub Azure](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Problemi di Python SDK per hub Azure](https://github.com/Azure/azure-iot-sdk-python/issues)
 

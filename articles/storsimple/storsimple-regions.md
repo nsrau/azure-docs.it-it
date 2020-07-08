@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76275118"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Aree disponibili per StorSimple
@@ -63,15 +62,15 @@ Se si usa un dispositivo fisico StorSimple 8100 o 8600, il dispositivo è dispon
 
 | #  | Paese/Area geografica        | #  | Paese/Area geografica     | #  | Paese/Area geografica      | #  | Paese/Area geografica             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
-| 1  | Australia             | 16 | RAS di Hong Kong      | 31 | Nuova Zelanda         | 46 | Sud Africa               |
+| 1  | Australia             | 16 | RAS di Hong Kong      | 31 | Nuova Zelanda         | 46 | Sudafrica               |
 | 2  | Austria               | 17 | Ungheria            | 32 | Nigeria             | 47 | Corea del Sud                |
-| 3  | Bahrain               | 18 | Islanda            | 33 | Norvegia              | 48 | Spagna                      |
+| 3  | Bahrein               | 18 | Islanda            | 33 | Norvegia              | 48 | Spagna                      |
 | 4  | Belgio               | 19 | India              | 34 | Perù                | 49 | Sri Lanka                  |
 | 5  | Brasile                | 20 | Indonesia          | 35 | Filippine         | 50 | Svezia                     |
 | 6  | Canada                | 21 | Irlanda            | 36 | Polonia              | 51 | Svizzera                |
 | 7  | Cile                 | 22 | Israele             | 37 | Portogallo            | 52 | Taiwan                     |
 | 8  | Colombia              | 23 | Italia              | 38 | Portorico         | 53 | Thailandia                   |
-| 9  | Repubblica ceca        | 24 | Giappone              | 39 | Qatar               | 54 | Turchia                     |
+| 9  | Repubblica Ceca        | 24 | Giappone              | 39 | Qatar               | 54 | Turchia                     |
 | 10 | Danimarca               | 25 | Kenya              | 40 | Romania             | 55 | Ucraina                    |
 | 11 | Egitto                 | 26 | Kuwait             | 41 | Russia              | 56 | Emirati Arabi Uniti       |
 | 12 | Finlandia               | 27 | RAS di Macao          | 42 | Arabia Saudita        | 57 | Regno Unito             |

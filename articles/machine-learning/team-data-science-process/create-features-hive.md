@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721779"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creare funzionalità per i dati in un cluster Hadoop con query Hive
@@ -89,14 +88,14 @@ In Hive è disponibile un set di funzioni definite dall'utente per elaborare i c
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Questa query hive presuppone che il * \<campo DateTime>* sia nel formato DateTime predefinito.
+Questa query hive presuppone che *\<datetime field>* sia nel formato DateTime predefinito.
 
 Se un campo data/ora non è nel formato predefinito, è necessario convertire innanzitutto il campo Datetime in indicatore data/ora Unix e convertire quest'ultimo in una stringa data/ora nel formato predefinito. Quando la stringa data/ora è nel formato predefinito, è possibile applicare le funzioni data/ora incorporate e definite dall'utente al fine di estrarre le funzionalità.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-In questa query, se il * \<campo DateTime>* ha il modello come *03/26/2015 12:04:39*, il * \<modello del campo DateTime>'* deve essere. `'MM/dd/yyyy HH:mm:ss'` Per eseguire il test, gli utenti possono eseguire
+In questa query, se *\<datetime field>* ha il modello come *03/26/2015 12:04:39*, * \<pattern of the datetime field> '* deve essere `'MM/dd/yyyy HH:mm:ss'` . Per eseguire il test, gli utenti possono eseguire
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -132,7 +131,7 @@ I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si s
 
 Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a>, creato da Peter Lapisu. In questo JavaScript, la funzione `toRad()` è solo *lat_or_lon*pi/180, che converte i gradi in radianti. Qui *lat_or_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
-![Creare un'area di lavoro](./media/create-features-hive/atan2new.png)
+![Creare l'area di lavoro](./media/create-features-hive/atan2new.png)
 
 Nella sezione **Funzionalità integrate** del <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Wiki su Apache Hive</a> è disponibile un elenco completo delle funzioni definite e incorporate di Hive.  
 

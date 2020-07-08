@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/16/2020
 ms.openlocfilehash: a37a8bb45c11d5b74f3059a153806e3d083cf452
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76311955"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Sviluppare programmi Java MapReduce per Apache Hadoop in HDInsight
@@ -50,7 +49,7 @@ cd C:\HDI
     * src\main\java\org\apache\hadoop\examples: contiene il codice dell'applicazione.
     * src\test\java\org\apache\hadoop\examples: contiene i test per l'applicazione.
 
-1. Rimuovere il codice di esempio generato. Eliminare i file `AppTest.java`di test e dell'applicazione generati `App.java` e immettendo i comandi seguenti:
+1. Rimuovere il codice di esempio generato. Eliminare i file di test e dell'applicazione generati `AppTest.java` e `App.java` immettendo i comandi seguenti:
 
     ```cmd
     cd wordcountjava
@@ -68,7 +67,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-In `pom.xml`aggiungere il testo seguente nella `<dependencies>` sezione:
+In `pom.xml` aggiungere il testo seguente nella `<dependencies>` sezione:
 
 ```xml
 <dependency>
@@ -143,11 +142,11 @@ Questa sezione Configura il plug-in Apache Maven Compiler e il plug-in shader pe
 
 Il plug-in maven-shade-plugin produce anche un file uberjar, che contiene tutte le dipendenze richieste dall'applicazione.
 
-Salvare il file.`pom.xml`
+Salvare il file `pom.xml`.
 
 ## <a name="create-the-mapreduce-application"></a>Creare l'applicazione MapReduce
 
-1. Immettere il comando seguente per creare e aprire un nuovo file `WordCount.java`. Selezionare **Sì** quando viene richiesto di creare un nuovo file.
+1. Immettere il comando seguente per creare e aprire un nuovo file `WordCount.java` . Selezionare **Sì** quando viene richiesto di creare un nuovo file.
 
     ```cmd
     notepad src\main\java\org\apache\hadoop\examples\WordCount.java

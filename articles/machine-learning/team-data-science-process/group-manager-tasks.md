@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721354"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Attività del responsabile del gruppo in un processo di data science per i team
@@ -57,7 +56,7 @@ Nell'esercitazione riportata di seguito vengono illustrati i passaggi dettagliat
    
    ![Crea progetto](./media/group-manager-tasks/create-project.png)
 
-Verrà visualizzata la pagina di **Riepilogo** del progetto **GroupCommon** . L'URL della pagina è *https\//\<: servername>\</Organization-Name>/groupcommon*.
+Verrà visualizzata la pagina di **Riepilogo** del progetto **GroupCommon** . L'URL della pagina è *https: \/ / \<servername> / \<organization-name> /GroupCommon*.
 
 ![Pagina Riepilogo progetto](./media/group-manager-tasks/project-summary.png)
 
@@ -121,13 +120,13 @@ Per importare i repository del team TDSP:
    
    ![Selezionare Importa](./media/group-manager-tasks/import-repo.png)
    
-1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* per l'URL del **Clone**. Quindi selezionare **Importa**. Il contenuto del repository Microsoft TDSP team ProjectTemplate viene importato nel repository GroupProjectTemplate. 
+1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere *https: \/ /github.com/Azure/Azure-TDSP-ProjectTemplate.git* per l'URL del **Clone**. Quindi selezionare **Importa**. Il contenuto del repository Microsoft TDSP team ProjectTemplate viene importato nel repository GroupProjectTemplate. 
    
    ![Importa repository Microsoft TDSP team](./media/group-manager-tasks/import-repo-2.png)
    
 1. Nella parte superiore **della pagina repository** , a discesa e selezionare il repository **GroupUtilities** .
    
-1. Ripetere il processo di importazione per importare il contenuto del repository Microsoft TDSP Team **Utilities** , *https:\//github.com/Azure/Azure-TDSP-Utilities.git*, nel repository **GroupUtilities** . 
+1. Ripetere il processo di importazione per importare il contenuto del repository Microsoft TDSP Team **Utilities** , *https: \/ /github.com/Azure/Azure-TDSP-Utilities.git*, nel repository **GroupUtilities** . 
    
 Ognuno dei due repository di gruppo contiene ora tutti i file, ad eccezione di quelli nella directory *. git* , dal repository corrispondente del team di Microsoft TDSP. 
 
@@ -215,7 +214,7 @@ git push
 ```
 
 > [!NOTE]
-> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User. email* prima di `git commit` eseguire il comando. Eseguire questi due comandi:
+> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User. email* prima di eseguire il `git commit` comando. Eseguire questi due comandi:
 > 
 > `git config --global user.name <your name>`
 > 

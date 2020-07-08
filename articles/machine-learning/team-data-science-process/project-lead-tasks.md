@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76714419"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Attività del responsabile di progetto nel processo di Data Science per i team
@@ -57,7 +56,7 @@ Per clonare i repository e modificare il contenuto nel computer locale o Data Sc
 
 Per creare un **repository di progetto nel progetto team** del team:
 
-1. Passare alla pagina di **Riepilogo** del progetto del team in *https\//\<: nome server>\</nome organizzazione>\</nome Team>*, ad esempio **https:\//dev.Azure.com/DataScienceUnit/myTeam**, e selezionare **repository** dal dispositivo di spostamento a sinistra. 
+1. Passare alla pagina di **Riepilogo** del progetto del team in *https \/ / \<server name> / \<organization name> / \<team name> :*, ad esempio **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**, quindi selezionare **repository** nel percorso di spostamento a sinistra. 
    
 1. Selezionare il nome del repository nella parte superiore della pagina e quindi selezionare **nuovo repository** nell'elenco a discesa.
    
@@ -83,7 +82,7 @@ Per popolare il repository del progetto con il contenuto del repository del mode
    
    ![Selezionare Importa](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere l'URL del repository **teamTemplate** in **Clone URL**. L'URL è *https:\//\<nome server>/\<nome organizzazione>/\<nome Team>/_git/\<nome del repository del modello Team>*. Ad esempio: **https:\//dev.Azure.com/DataScienceUnit/myTeam/_git/teamTemplate**. 
+1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere l'URL del repository **teamTemplate** in **Clone URL**. L'URL è *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name> *. Ad esempio: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/teamTemplate**. 
    
 1. Selezionare **Importa**. Il contenuto del repository del modello team viene importato nel repository del progetto. 
    

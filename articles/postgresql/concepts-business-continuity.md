@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981922"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Panoramica della continuità aziendale con database di Azure per PostgreSQL-server singolo
@@ -23,7 +22,7 @@ Database di Azure per PostgreSQL offre funzionalità di continuità aziendale ch
 
 La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità disponibili:
 
-| **Funzionalità** | **Basic** | **per utilizzo generico** | **Ottimizzate per la memoria** |
+| **Funzionalità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
 | Ripristino geografico dai backup con replica geografica | Non supportato | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |

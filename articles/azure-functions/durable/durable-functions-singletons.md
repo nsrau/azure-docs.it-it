@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76262810"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Agenti di orchestrazione singleton in Funzioni permanenti (Funzioni di Azure)
@@ -52,7 +51,7 @@ public static async Task<HttpResponseMessage> RunSingle(
 ```
 
 > [!NOTE]
-> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `OrchestrationClient` l'attributo anziché l' `DurableClient` attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `OrchestrationClient` l'attributo anziché l' `DurableClient` attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di parametro anziché `IDurableOrchestrationClient` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -114,7 +113,7 @@ module.exports = async function(context, req) {
 
 ---
 
-Per impostazione predefinita, gli ID delle istanze sono GUID generati in modo casuale. Nell'esempio precedente, tuttavia, l'ID istanza viene passato nei dati della route dall'URL. Il codice chiama `GetStatusAsync`(C#) o `getStatus` (JavaScript) per verificare se un'istanza con l'ID specificato è già in esecuzione. Se tale istanza non è in esecuzione, viene creata una nuova istanza con tale ID.
+Per impostazione predefinita, gli ID delle istanze sono GUID generati in modo casuale. Nell'esempio precedente, tuttavia, l'ID istanza viene passato nei dati della route dall'URL. Il codice chiama `GetStatusAsync` (C#) o `getStatus` (JavaScript) per verificare se un'istanza con l'ID specificato è già in esecuzione. Se tale istanza non è in esecuzione, viene creata una nuova istanza con tale ID.
 
 > [!NOTE]
 > In questo esempio c'è una possibile race condition. Se due istanze di **HttpStartSingle** vengono eseguite contemporaneamente, entrambe le chiamate di funzione segnaleranno l'esito positivo, ma verrà effettivamente avviata solo un'istanza dell'orchestrazione. A seconda dei requisiti, questo potrebbe avere effetti indesiderati. Per questo motivo è importante assicurarsi che due richieste non possano eseguire questa funzione trigger contemporaneamente.

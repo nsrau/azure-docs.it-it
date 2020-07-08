@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
 ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76024733"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenari di applicazione di Service Fabric
@@ -55,15 +54,15 @@ La compilazione di applicazioni con i ruoli di lavoro di servizi cloud di Azure 
 
 I servizi con stato in Service Fabric di garantire la disponibilità elevata a tutti i tipi di applicazioni, non solo ai database e ad altri archivi dati. Si tratta di un progresso naturale. Le applicazioni sono già passate dall'uso di database puramente relazionali per la disponibilità elevata a database NoSQL. Ora le applicazioni stesse possono avere un proprio stato "attivo" e i dati possono essere gestiti al loro interno per migliorare ancora le prestazioni senza compromettere l'affidabilità, la coerenza o la disponibilità.
 
-Quando si compilano applicazioni costituite da microservizi, in genere si ha una combinazione di app Web senza stato, ad esempio ASP.NET e node. js, che eseguono chiamate a servizi di livello intermedio business con e senza stato. Le app e i servizi vengono tutti distribuiti nello stesso cluster di Service Fabric tramite i comandi di distribuzione di Service Fabric. Ognuno di questi servizi è indipendente rispetto a scalabilità, affidabilità e utilizzo delle risorse. Questa indipendenza migliora l'agilità e la flessibilità di sviluppo e gestione del ciclo di vita.
+Quando si compilano applicazioni costituite da microservizi, in genere si ha una combinazione di app Web senza stato (ad esempio ASP.NET e Node.js) che eseguono chiamate a servizi di livello intermedio business senza stato e con stato. Le app e i servizi vengono tutti distribuiti nello stesso cluster di Service Fabric tramite i comandi di distribuzione di Service Fabric. Ognuno di questi servizi è indipendente rispetto a scalabilità, affidabilità e utilizzo delle risorse. Questa indipendenza migliora l'agilità e la flessibilità di sviluppo e gestione del ciclo di vita.
 
 I microservizi con stato semplificano la progettazione delle applicazioni perché eliminano la necessità di usare code e cache aggiuntive, che invece erano necessarie in passato per soddisfare i requisiti di disponibilità e latenza di applicazioni interamente senza stato. Poiché i servizi con stato hanno disponibilità elevata e bassa latenza, sono disponibili meno dettagli da gestire nell'applicazione.
 
 I diagrammi seguenti illustrano le differenze tra la progettazione di un'applicazione senza stato e una con stato. Sfruttando i vantaggi dei modelli di programmazione [Reliable Services](service-fabric-reliable-services-introduction.md) e [Reliable Actors](service-fabric-reliable-actors-introduction.md) , i servizi con stato riducono la complessità delle applicazioni, ottenendo al tempo stesso una velocità effettiva elevata e bassa latenza.
 
-Di seguito è riportato un esempio di applicazione che usa ![servizi senza stato: applicazione che usa servizi senza stato][Image1]
+Di seguito è riportato un esempio di applicazione che usa servizi senza stato: ![ applicazione che usa servizi senza stato][Image1]
 
-Di seguito è riportato un esempio di applicazione che usa i ![servizi con stato: applicazione che usa i servizi con stato][Image2]
+Di seguito è riportato un esempio di applicazione che usa i servizi con stato: ![ applicazione che usa i servizi con stato][Image2]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

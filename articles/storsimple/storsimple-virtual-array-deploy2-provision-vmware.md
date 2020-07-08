@@ -9,10 +9,9 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76272084"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in VMware
@@ -30,7 +29,7 @@ Questa esercitazione illustra come eseguire il provisioning di StorSimple Virtua
 I prerequisiti per il provisioning di un dispositivo virtuale in un sistema host che esegue VMware ESXi 5.0, 5.5, 6.0 o 6.5 sono i seguenti.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Per il servizio Gestione dispositivi StorSimple
-Prima di iniziare:
+Prima di iniziare, verificare che:
 
 * Tutti i passaggi sulla [preparazione del portale per StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)siano stati completati.
 * L'immagine del dispositivo virtuale per VMware sia stata scaricata dal portale di Azure. Per altre informazioni, vedere **Passaggio 3: Scaricare l'immagine dell'array virtuale** nella [guida alla preparazione del portale per l'array virtuale StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
@@ -47,7 +46,7 @@ Prima di distribuire un dispositivo virtuale, è necessario:
   * Un disco virtuale da 500 GB per i dati di sistema.
 
 ### <a name="for-the-network-in-datacenter"></a>Per la rete nel data center
-Prima di iniziare:
+Prima di iniziare, verificare che:
 
 * I requisiti di rete per distribuire un dispositivo virtuale StorSimple siano stati esaminati e la rete del data center sia stata configurata in base ai requisiti. 
 
@@ -101,7 +100,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 9. La nuova cartella viene visualizzata nel riquadro a sinistra di **Datastore Browser** (Browser archivio dati).
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. Fare clic sull'icona ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) carica e selezionare **Carica file**.
+10. Fare clic sull'icona carica ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) e selezionare **Carica file**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. Trovare e scegliere i file VMDK scaricati. Sono disponibili due file. Selezionare un file da caricare.
@@ -151,10 +150,10 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 26. Nella pagina **Advanced Options** (Opzioni avanzate) accettare il valore predefinito e fare clic su **Next** (Avanti).
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
-27. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Controllare **Edit the virtual machine settings before completion**. Fare clic su **Continua**.
+27. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Controllare **Edit the virtual machine settings before completion**. Fare clic su **Continue**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. Nella pagina **Virtual Machines Properties** (Proprietà macchine virtuali) nella scheda **Hardware** individuare l'hardware del dispositivo. Selezionare **New Hard Disk**. Fare clic su **Aggiungi**.
+28. Nella pagina **Virtual Machines Properties** (Proprietà macchine virtuali) nella scheda **Hardware** individuare l'hardware del dispositivo. Selezionare **New Hard Disk**. Scegliere **Aggiungi**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
 29. Viene visualizzata la finestra **Add Hardware** (Aggiungi hardware). Nella pagina **tipo di dispositivo** , in **scegliere il tipo di dispositivo che si desidera aggiungere**, selezionare **disco rigido**e fare clic su **Avanti**.
@@ -237,7 +236,7 @@ Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visua
 
 In presenza di altri errori durante la configurazione iniziale con l'interfaccia utente Web locale, vedere i flussi di lavoro seguenti:
 
-* Eseguire i test diagnostici per [risolvere i problemi di installazione dell'interfaccia utente Web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
+* Eseguire test diagnostici per [risolvere i problemi di installazione dell'interfaccia utente Web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 * [Generare un pacchetto di log e visualizzare i file di log](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="next-steps"></a>Passaggi successivi

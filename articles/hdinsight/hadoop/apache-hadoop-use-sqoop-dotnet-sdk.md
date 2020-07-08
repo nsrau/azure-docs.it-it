@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/14/2020
 ms.openlocfilehash: f0f767273a40bc91b1d49477c896b0b157623106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157067"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Eseguire processi Apache Sqoop con .NET SDK per Apache Hadoop in HDInsight
@@ -23,21 +22,21 @@ Informazioni su come usare Azure HDInsight .NET SDK per eseguire processi Apache
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Il completamento della [configurazione dell'ambiente di test](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) da [usare Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+* Il completamento della [configurazione dell'ambiente di test](./hdinsight-use-sqoop.md#create-cluster-and-sql-database), come indicato nell'articolo [Usare Apache Sqoop con Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 * [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
-* Familiarità con Sqoop. Per ulteriori informazioni, vedere la [Guida dell'utente di Sqoop](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html).
+* Familiarità con Sqoop. Per altre informazioni, vedere il [Manuale dell'utente di Sqoop](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>Usare Sqoop nei cluster HDInsight con .NET SDK
 
-HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET. In questa sezione viene creata un'applicazione console C# per esportare la `hivesampletable` nella tabella del database SQL di Azure creata dai prerequisiti.
+HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET. In questa sezione viene creata un'applicazione console C# per esportare la nella `hivesampletable` tabella del database SQL di Azure creata dai prerequisiti.
 
-## <a name="set-up"></a>Configurare
+## <a name="set-up"></a>Configurazione
 
 1. Avviare Visual Studio e creare un'applicazione console C#.
 
-1. Passare a **strumenti** > **gestione** > pacchetti NuGet**console di gestione pacchetti** ed eseguire il comando seguente:
+1. Passare a **strumenti**  >  **Gestione pacchetti NuGet**  >  **console di gestione pacchetti** ed eseguire il comando seguente:
 
     ```
     Install-Package Microsoft.Azure.Management.HDInsight.Job
@@ -45,9 +44,9 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 
 ## <a name="sqoop-export"></a>Esportazione con Sqoop
 
-Da hive a SQL Server.  Questo esempio Mostra come esportare i dati dalla `hivesampletable` tabella hive alla `mobiledata` tabella nel database SQL.
+Da Hive a SQL Server.  Questo esempio mostra come esportare i dati dalla tabella Hive `hivesampletable` alla tabella del database SQL `mobiledata`.
 
-1. Usare il codice seguente nel file Program.cs. Modificare il codice per impostare i valori per `ExistingClusterName`, e `ExistingClusterPassword`.
+1. Usare il codice seguente nel file Program.cs. Modificare il codice per impostare i valori per `ExistingClusterName` , e `ExistingClusterPassword` .
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
@@ -115,7 +114,7 @@ Da hive a SQL Server.  Questo esempio Mostra come esportare i dati dalla `hivesa
 
 ## <a name="sqoop-import"></a>Importazione con Sqoop
 
-Da SQL Server ad archiviazione di Azure. Questo esempio dipende dall'esportazione precedente eseguita.  Questo esempio importa i dati dalla `mobiledata` tabella del database SQL alla `wasb:///tutorials/usesqoop/importeddata` directory nell'account di archiviazione predefinito del cluster.
+Da SQL Server ad Archiviazione di Azure. Questo esempio dipende dall'esportazione precedente eseguita.  Questo esempio importa i dati dalla `mobiledata` tabella del database SQL alla `wasb:///tutorials/usesqoop/importeddata` Directory nell'account di archiviazione predefinito del cluster.
 
 1. Sostituire il codice precedente nel `//sqoop start //sqoop end` blocco con il codice seguente:
 
@@ -135,13 +134,13 @@ Da SQL Server ad archiviazione di Azure. Questo esempio dipende dall'esportazion
 
 HDInsight basato su Linux prevede le limitazioni seguenti:
 
-* Esportazione in blocco: il connettore Sqoop usato per esportare i dati in Microsoft SQL Server o nel database SQL di Azure attualmente non supporta gli inserimenti bulk.
+* Esportazione in blocco: il connettore Sqoop usato per esportare dati in Microsoft SQL Server o nel database SQL di Azure non supporta al momento gli inserimenti in blocco.
 
 * Invio in batch: usando l' `-batch` opzione, Sqoop esegue più inserimenti invece di suddividere in batch le operazioni di inserimento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto si è appreso come usare Sqoop. Per altre informazioni, vedere:
+In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, vedere:
 
-* [Usare Apache oozie con HDInsight](../hdinsight-use-oozie-linux-mac.md): usare l'azione Sqoop in un flusso di lavoro oozie.
-* [Caricare i dati in HDInsight](../hdinsight-upload-data.md): trovare altri metodi per caricare i dati in HDInsight o in Archiviazione BLOB di Azure.
+* [Usare Apache Oozie con HDInsight](../hdinsight-use-oozie-linux-mac.md): Usare l'azione Sqoop in un flusso di lavoro Oozie.
+* [Caricare dati in HDInsight](../hdinsight-upload-data.md): trovare altri metodi per il caricamento di dati in HDInsight o nell'archiviazione BLOB di Azure.

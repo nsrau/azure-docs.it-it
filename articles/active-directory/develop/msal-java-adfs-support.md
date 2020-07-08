@@ -14,10 +14,9 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 3d834a8d1524595304c22fed9897094622dfd93f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76696215"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Supporto Active Directory Federation Services in MSAL per Java
@@ -32,7 +31,7 @@ L' [autorità](msal-client-application-configuration.md#authority) utilizzata in
 
 ## <a name="acquire-a-token-interactively-for-a-federated-user"></a>Acquisire un token in modo interattivo per un utente federato
 
-Quando si chiama `ConfidentialClientApplication.AcquireToken()` o `PublicClientApplication.AcquireToken()` con `AuthorizationCodeParameters` o `DeviceCodeParameters`, l'esperienza utente è in genere:
+Quando si chiama `ConfidentialClientApplication.AcquireToken()` o `PublicClientApplication.AcquireToken()` con `AuthorizationCodeParameters` o `DeviceCodeParameters` , l'esperienza utente è in genere:
 
 1. L'utente immette il proprio ID account.
 2. Azure AD Visualizza brevemente "accesso alla pagina dell'organizzazione" e l'utente viene reindirizzato alla pagina di accesso del provider di identità. La pagina di accesso viene in genere personalizzata con il logo dell'organizzazione.
@@ -44,7 +43,7 @@ Le versioni di AD FS supportate in questo scenario federato sono:
 
 ## <a name="acquire-a-token-via-username-and-password"></a>Acquisire un token tramite nome utente e password
 
-Quando si acquisisce un token `ConfidentialClientApplication.AcquireToken()` usando `PublicClientApplication.AcquireToken()` o `IntegratedWindowsAuthenticationParameters` con `UsernamePasswordParameters`o, MSAL per Java ottiene il provider di identità da contattare in base al nome utente. MSAL per Java ottiene un token [token SAML 1,1](reference-saml-tokens.md) dal provider di identità, che fornisce quindi a Azure ad che restituisce il token JSON Web (JWT).
+Quando si acquisisce un token usando `ConfidentialClientApplication.AcquireToken()` o `PublicClientApplication.AcquireToken()` con `IntegratedWindowsAuthenticationParameters` o `UsernamePasswordParameters` , MSAL per Java ottiene il provider di identità da contattare in base al nome utente. MSAL per Java ottiene un token [token SAML 1,1](reference-saml-tokens.md) dal provider di identità, che fornisce quindi a Azure ad che restituisce il token JSON Web (JWT).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

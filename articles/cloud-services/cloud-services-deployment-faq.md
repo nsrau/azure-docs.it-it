@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75980637"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di distribuzione per Servizi cloud di Azure: domande frequenti
@@ -54,7 +53,7 @@ Per verificare le dimensioni disponibili nella propria area, vedere [Microsoft A
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Perché la distribuzione di un servizio cloud a volte non riesce a causa di limiti/quote/vincoli nella sottoscrizione o nel servizio?
 La distribuzione di un servizio cloud potrebbe non riuscire se le risorse che devono essere allocate superano la quota predefinita o massima consentita per il servizio a livello di area o di data center. Per altre informazioni, vedere [Limiti relativi a Servizi cloud](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-È anche possibile tenere traccia dell'utilizzo o della quota correnti per la sottoscrizione nel portale: Portale di Azure = > Sottoscrizioni = > \< sottoscrizione appropriata> = > "Utilizzo e quote".
+È anche possibile tenere traccia dell'utilizzo e della quota correnti per la sottoscrizione nel portale: portale di Azure => subscriptions => \<appropriate subscription>   => "Usage + quota".
 
 Le informazioni relative all'utilizzo e al consumo di risorse possono anche essere recuperate tramite le API di fatturazione di Azure. Vedere [API di utilizzo delle risorse di Azure (anteprima)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 

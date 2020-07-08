@@ -8,10 +8,9 @@ ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76310153"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale

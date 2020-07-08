@@ -14,17 +14,16 @@ ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
 ms.openlocfilehash: e75e3f3eecf6c34050aeaa7fe387fffb0de58a74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76513202"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Eseguire la migrazione da Azure Media Encoder Windows a Media Encoder Standard
 
-Questo articolo illustra i passaggi per eseguire la migrazione dal processore di contenuti multimediali Windows Azure Media Encoder (BIAIGI) Legacy (in fase di ritiro) al processore di contenuti multimediali di Media Encoder Standard. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](legacy-components.md) .
+Questo articolo illustra i passaggi per eseguire la migrazione dal processore di contenuti multimediali Windows Azure Media Encoder (BIAIGI) Legacy (in fase di ritiro) al processore di contenuti multimediali di Media Encoder Standard. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md).
 
-Quando si codificano i file con BIAIGI, i clienti utilizzano in genere una `H264 Adaptive Bitrate MP4 Set 1080p`stringa di set di impostazioni denominata come. Per eseguire la migrazione, è necessario aggiornare il codice per usare il processore di contenuti multimediali **Media Encoder standard** invece di biaigi e uno dei set di [impostazioni di sistema](media-services-mes-presets-overview.md) equivalenti, ad esempio `H264 Multiple Bitrate 1080p`. 
+Quando si codificano i file con BIAIGI, i clienti utilizzano in genere una stringa di set di impostazioni denominata come `H264 Adaptive Bitrate MP4 Set 1080p` . Per eseguire la migrazione, è necessario aggiornare il codice per usare il processore di contenuti multimediali **Media Encoder standard** invece di biaigi e uno dei set di [impostazioni di sistema](media-services-mes-presets-overview.md) equivalenti, ad esempio `H264 Multiple Bitrate 1080p` . 
 
 ## <a name="migrating-to-media-encoder-standard"></a>Migrazione a Media Encoder Standard
 
@@ -74,9 +73,9 @@ Media Encoder Standard è più affidabile, affidabile, offre prestazioni miglior
 * Media Encoder Standard produce elementi quali file contenenti i metadati del [file di input](media-services-input-metadata-schema.md) e i [metadati dei file di output](media-services-output-metadata-schema.md).
 * Come descritto nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/#encoding) (soprattutto nella sezione delle domande frequenti), quando si codificano i video con Media Encoder standard, viene addebitato in base alla durata dei file prodotti come output. Con BIAIGI, la fatturazione viene effettuata in base alle dimensioni dei file video di input e dei file video di output.
 
-## <a name="need-help"></a>Serve assistenza?
+## <a name="need-help"></a>Richiesta di assistenza
 
-È possibile aprire un ticket di supporto passando alla [nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

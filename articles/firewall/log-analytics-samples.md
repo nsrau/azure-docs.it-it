@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: victorh
 ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705983"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Esempi di log Analytics di Azure firewall
@@ -30,7 +29,7 @@ Eseguire la procedura seguente per aggiungere la visualizzazione all'area di lav
 2. Aprire **Progettazione viste** sotto **Generale**.
 3. Fare clic su **Importa**.
 4. Sfogliare e selezionare il file **AzureFirewall.omsview** scaricato in precedenza.
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
 Ecco come è illustrato l'aspetto della visualizzazione dei dati del log delle regole di applicazione:
 
@@ -166,7 +165,7 @@ AzureDiagnostics
 | sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
 ```
 
-## <a name="sample-logs"></a>Esempi di log
+## <a name="sample-logs"></a>Esempi di registro
 
 Negli esempi di log seguenti vengono illustrati i dati inclusi in una voce di log.
 

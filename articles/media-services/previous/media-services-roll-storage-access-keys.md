@@ -16,10 +16,9 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
 ms.openlocfilehash: 2a0d1c5af572c88dc11bed950b46706f0a2f081f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981950"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione 
@@ -76,7 +75,7 @@ L'articolo seguente illustra come aggiungere gli account di archiviazione all'ac
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Ringraziamenti

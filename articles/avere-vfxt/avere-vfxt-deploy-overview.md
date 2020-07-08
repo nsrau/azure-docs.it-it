@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 78140fea74272dff6056bebfbd44ed9d55b0e1db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76153684"
 ---
 <!-- filename is linked to in the marketplace template, make sure it gets a redirect if we rename it -->
@@ -21,7 +20,7 @@ Questo articolo offre una panoramica dei passaggi necessari per attivare un clus
 
 È necessario eseguire diverse attività prima e dopo la creazione del cluster vFXT da Azure Marketplace. Facendosi una chiara idea del processo dall'inizio alla fine, sarà possibile determinare l'entità del lavoro necessario.
 
-## <a name="deployment-steps"></a>Fasi di distribuzione
+## <a name="deployment-steps"></a>Passaggi di distribuzione
 
 Dopo aver eseguito la [pianificazione del sistema](avere-vfxt-deploy-plan.md), è possibile iniziare a creare il cluster Avere vFXT.
 

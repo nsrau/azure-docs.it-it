@@ -4,10 +4,9 @@ description: Usare Visual Studio per creare un progetto Gruppo di risorse di Azu
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76152732"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
@@ -20,7 +19,7 @@ Questo articolo illustra come usare [Visual Studio 2019 o versione successiva co
 
 In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un modello **App Web**.
 
-1. In Visual Studio scegliere **file**>**nuovo**>**progetto**.
+1. In Visual Studio scegliere **file** > **nuovo** > **progetto**.
 1. Selezionare il modello di progetto **Gruppo di risorse di Azure** e **Avanti**.
 
     ![Crea progetto](./media/create-visual-studio-deployment-project/create-project.png)
@@ -139,7 +138,7 @@ Per lo script del modulo Az aprire una console di PowerShell ed eseguire:
 
 Per lo script del modulo AzureRM usare Visual Studio:
 
-1. Nel menu di scelta rapida del nodo del progetto di distribuzione scegliere **Distribuisci** > **nuovo**.
+1. Nel menu di scelta rapida del nodo del progetto di distribuzione scegliere **Distribuisci**  >  **nuovo**.
 
     ![Voce di menu per una nuova distribuzione](./media/create-visual-studio-deployment-project/deploy.png)
 
@@ -167,7 +166,7 @@ A questo punto è possibile esaminare i risultati.
 
 A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato ancora distribuito il codice effettivo con il progetto.
 
-1. Aggiungere un progetto alla soluzione Visual Studio. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi** > **nuovo progetto**.
+1. Aggiungere un progetto alla soluzione Visual Studio. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi**  >  **nuovo progetto**.
 
     ![Aggiunta del progetto](./media/create-visual-studio-deployment-project/add-project.png)
 

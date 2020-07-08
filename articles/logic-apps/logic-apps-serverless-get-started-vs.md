@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981156"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Creare la prima app senza server usando app per la logica di Azure e funzioni di Azure in Visual Studio
@@ -64,7 +63,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
    ![Creare un nuovo progetto in Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. In **Installato** selezionare **Visual C#** o **Visual Basic**. Quindi selezionare**gruppo di risorse di Azure** **cloud** > .
+1. In **Installato** selezionare **Visual C#** o **Visual Basic**. Quindi selezionare **Cloud**  >  **gruppo di risorse di Azure**cloud.
 
    > [!NOTE]
    > Se la categoria **cloud** o il progetto **gruppo di risorse di Azure** non esiste, verificare di aver installato Azure SDK per Visual Studio.
@@ -90,7 +89,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
    ![Selezionare il modello di avvio rapido di Azure](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
    Visual Studio crea e visualizza una soluzione per il progetto Gruppo di risorse. 
-   Il modello di avvio rapido di Azure selezionato consente di creare un modello di distribuzione denominato file azuredeploy. JSON nel progetto del gruppo di risorse. Questo modello di distribuzione include la definizione di una semplice app per la logica attivata da una richiesta HTTP, chiama una funzione di Azure e restituisce il risultato come risposta HTTP.
+   Il modello di avvio rapido di Azure selezionato consente di creare un modello di distribuzione denominato azuredeploy.jsall'interno del progetto del gruppo di risorse. Questo modello di distribuzione include la definizione di una semplice app per la logica attivata da una richiesta HTTP, chiama una funzione di Azure e restituisce il risultato come risposta HTTP.
 
    ![Nuova soluzione senza server](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
@@ -100,7 +99,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
 Prima di poter aprire l'app per la logica in progettazione app per la logica in Visual Studio, è necessario avere un gruppo di risorse di Azure già distribuito in Azure. Il progettista può quindi creare le connessioni ai servizi e alle risorse disponibili nell'app per la logica. Per questa attività, seguire questa procedura per distribuire la soluzione da Visual Studio nel portale di Azure:
 
-1. In Esplora soluzioni scegliere **Distribuisci** > **nuovo**dal menu di scelta rapida del progetto di risorsa.
+1. In Esplora soluzioni scegliere **Distribuisci**nuovo dal menu di scelta rapida del progetto di risorsa  >  **New**.
 
    ![Creare una nuova distribuzione per il gruppo di risorse](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
@@ -119,9 +118,9 @@ Prima di poter aprire l'app per la logica in progettazione app per la logica in 
 
 Per modificare l'app per la logica dopo la distribuzione, aprire l'app per la logica usando la finestra di progettazione dell'app per la logica in Visual Studio.
 
-1. In Esplora soluzioni scegliere **Apri con progettazione app**per la logica dal menu di scelta rapida del file file azuredeploy. JSON.
+1. In Esplora soluzioni dal menu di scelta rapida del azuredeploy.jssu file selezionare **Apri con progettazione app per la logica**.
 
-   ![Aprire file azuredeploy. JSON in progettazione app per la logica](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
+   ![Aprire azuredeploy.jsin progettazione app per la logica](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
    > [!TIP]
    > Se non si dispone di questo comando in Visual Studio 2019, verificare di aver installato gli aggiornamenti più recenti per Visual Studio.
@@ -140,7 +139,7 @@ Per creare il progetto e la funzione di funzioni usando JavaScript, Python, F #,
 
 ## <a name="deploy-functions-from-visual-studio"></a>Distribuire le funzioni da Visual Studio
 
-Il modello di distribuzione distribuisce tutte le funzioni di Azure presenti nella soluzione dal repository git specificato dalle variabili nel file file azuredeploy. JSON. Se si crea e si crea il progetto di funzioni nella soluzione, è possibile controllare il progetto nel controllo del codice sorgente git (ad esempio, GitHub o Azure DevOps) e `repo` quindi aggiornare la variabile in modo che il modello distribuisca la funzione di Azure.
+Il modello di distribuzione distribuisce tutte le funzioni di Azure presenti nella soluzione dal repository git specificato dalle variabili nel azuredeploy.jssu file. Se si crea e si crea il progetto di funzioni nella soluzione, è possibile controllare il progetto nel controllo del codice sorgente git (ad esempio, GitHub o Azure DevOps) e quindi aggiornare la `repo` variabile in modo che il modello distribuisca la funzione di Azure.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>Gestire le app per la logica e visualizzare la cronologia di esecuzione
 

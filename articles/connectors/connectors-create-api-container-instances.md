@@ -12,10 +12,9 @@ ms.topic: article
 tags: connectors
 ms.date: 01/14/2020
 ms.openlocfilehash: ecb1049d64197f2a60438df7eedfb244907f7327
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76046292"
 ---
 # <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Distribuire e gestire istanze di contenitore di Azure usando app per la logica di Azure
@@ -54,7 +53,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
      -oppure-
 
    * Spostare il puntatore del mouse sulla freccia visualizzata tra i passaggi in cui si vuole aggiungere un'azione. 
-   Scegliere il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere "istanza contenitore" come filtro. Nell'elenco azioni selezionare l'azione del connettore dell'istanza di contenitore di Azure desiderata.
 

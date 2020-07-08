@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705769"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>Caricare file in un account di servizi multimediali v3 usando REST
@@ -39,7 +38,7 @@ Per completare i passaggi descritti in questo argomento, è necessario:
 
 Questa sezione illustra come creare un nuovo asset.
 
-1. Selezionare **Asset** -> **Crea o aggiorna un asset**.
+1. Selezionare **Asset**  ->  **Crea o aggiorna un asset**.
 2. Fare clic su **Invia**.
 
     ![Creare un asset](./media/upload-files/postman-create-asset.png)
@@ -50,7 +49,7 @@ Viene visualizzata la **risposta** con le informazioni sull'asset appena creato.
 
 Questa sezione illustra come ottenere un URL di firma di accesso condiviso generato per l'asset creato. L'URL di firma di accesso condiviso viene creato con autorizzazioni di lettura/scrittura e si può usare per caricare i file digitali nel contenitore di asset.
 
-1. Selezionare **Asset** -> **elencare gli URL asset**.
+1. Selezionare **Asset**  ->  **elencare gli URL asset**.
 2. Fare clic su **Invia**.
 
     ![Caricare un file](./media/upload-files/postman-create-sas-locator.png)

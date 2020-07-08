@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76312261"
 ---
 # <a name="evaluate-recommender"></a>Evaluate Recommender
@@ -65,7 +64,7 @@ Quando si valutano le classificazioni stimate, il set di dati con Punteggio (il 
 -   La terza colonna contiene le classificazioni degli elementi utente corrispondenti.  
   
 > [!IMPORTANT] 
-> Affinché la valutazione abbia esito positivo, i nomi `User`delle `Item`colonne devono `Rating`essere rispettivamente, e.  
+> Affinché la valutazione abbia esito positivo, i nomi delle colonne devono essere `User` `Item` rispettivamente, e `Rating` .  
   
 Evaluate Recommender Confronta le classificazioni nel set di dati "Ground Truth" con le classificazioni stimate del set di dati con punteggio. Viene quindi calcolato l'errore assoluto medio (MAE) e la radice errore quadratico medio (valori RMSE).
 
@@ -81,7 +80,7 @@ Quando si valutano le raccomandazioni per gli elementi, usare un set di dati con
 Prima di connettere questo set di dati, è consigliabile ordinare il set di dati in modo che gli elementi più rilevanti vengano prima.  
 
 > [!IMPORTANT] 
-> Per il corretto funzionamento di Evaluate Recommender, i nomi delle `User`colonne `Item 1`devono `Item 2`essere `Item 3` ,, e così via.  
+> Per il corretto funzionamento di Evaluate Recommender, i nomi delle colonne devono essere `User` ,, `Item 1` `Item 2` `Item 3` e così via.  
   
 Evaluate Recommender calcola il guadagno cumulativo scontato normalizzato medio (NDCG) e lo restituisce nel set di dati di output.  
   

@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/15/2020
 ms.openlocfilehash: e50510f2420d69be37af584a2648a794e1561ee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157051"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Eseguire processi MapReduce con HDInsight .NET SDK
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Informazioni su come inviare processi MapReduce con HDInsight .NET SDK. I cluster HDInsight includono un file JAR con alcuni esempi di MapReduce. Il file jar è `/example/jars/hadoop-mapreduce-examples.jar`.  Uno degli esempi è **wordcount**. Per inviare un processo wordcount, è necessario sviluppare un'applicazione console C#.  Il processo legge il `/example/data/gutenberg/davinci.txt` file e restituisce i risultati in `/example/data/davinciwordcount`.  Se si vuole eseguire di nuovo l'applicazione, è necessario pulire la cartella di output.
+Informazioni su come inviare processi MapReduce con HDInsight .NET SDK. I cluster HDInsight includono un file JAR con alcuni esempi di MapReduce. Il file jar è `/example/jars/hadoop-mapreduce-examples.jar` .  Uno degli esempi è **wordcount**. Per inviare un processo wordcount, è necessario sviluppare un'applicazione console C#.  Il processo legge il `/example/data/gutenberg/davinci.txt` file e restituisce i risultati in `/example/data/davinciwordcount` .  Se si vuole eseguire di nuovo l'applicazione, è necessario pulire la cartella di output.
 
 > [!NOTE]  
 > I passaggi descritti in questo articolo devono essere eseguiti da un client Windows. Per informazioni sull'uso di un client Linux, OS X o Unix con Hive, usare il selettore di schede visualizzato all'inizio dell'articolo.
@@ -36,13 +35,13 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 
 1. Avviare Visual Studio e creare un'applicazione console C#.
 
-1. Passare a **strumenti** > **gestione** > pacchetti NuGet**console di gestione pacchetti** e immettere il comando seguente:
+1. Passare a **strumenti**  >  **Gestione pacchetti NuGet**  >  **console di gestione pacchetti** e immettere il comando seguente:
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Copiare il codice seguente in **Program.cs**. Modificare quindi il codice impostando i valori per: `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey`e `defaultStorageContainerName`.
+1. Copiare il codice seguente in **Program.cs**. Modificare quindi il codice impostando i valori per: `existingClusterName` , `existingClusterPassword` , `defaultStorageAccountName` , `defaultStorageAccountKey` e `defaultStorageContainerName` .
 
     ```csharp
     using System.Collections.Generic;
@@ -163,9 +162,9 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 
 1. Premere **F5** per eseguire l'applicazione.
 
-Per eseguire di nuovo il processo, è necessario modificare il nome della cartella di output del processo, nell' `/example/data/davinciwordcount`esempio.
+Per eseguire di nuovo il processo, è necessario modificare il nome della cartella di output del processo, nell'esempio `/example/data/davinciwordcount` .
 
-Quando il processo viene completato correttamente, l'applicazione stampa il contenuto del file `part-r-00000`di output.
+Quando il processo viene completato correttamente, l'applicazione stampa il contenuto del file di output `part-r-00000` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

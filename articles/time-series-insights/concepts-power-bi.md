@@ -9,10 +9,9 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: ce566080c6ddbc4784365ceda6011c3f6612732a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76276859"
 ---
 # <a name="connect-time-series-insights-to-power-bi"></a>Connetti Time Series Insights a Power BI  

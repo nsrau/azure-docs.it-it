@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720453"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Ciclo di vita del processo di data science per i team
@@ -28,7 +27,7 @@ Questo ciclo di vita è stato messo a punto per i progetti di data science desti
 
 Il ciclo di vita TDSP è composto da cinque fasi principali che vengono eseguite in modo iterativo. Queste fasi includono:
 
-   1. [Comprensione del business](lifecycle-business-understanding.md)
+   1. [Informazioni commerciali](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)

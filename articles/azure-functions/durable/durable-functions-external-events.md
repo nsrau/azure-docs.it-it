@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76262963"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestione di eventi esterni in Funzioni permanenti (Funzioni di Azure)
@@ -20,7 +19,7 @@ Le funzioni di orchestrazione possono rimanere in attesa e in ascolto di eventi 
 
 ## <a name="wait-for-events"></a>Attendere eventi
 
-I `WaitForExternalEvent` metodi (.NET) `waitForExternalEvent` e (JavaScript) dell' [associazione del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger) consentono a una funzione dell'agente di orchestrazione di attendere in modo asincrono e restare in ascolto di un evento esterno. La funzione di orchestrazione in ascolto dichiara il *nome* dell'evento e la *forma dei dati* che si aspetta di ricevere.
+I `WaitForExternalEvent` metodi (.NET) e `waitForExternalEvent` (JavaScript) dell' [associazione del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger) consentono a una funzione dell'agente di orchestrazione di attendere in modo asincrono e restare in ascolto di un evento esterno. La funzione di orchestrazione in ascolto dichiara il *nome* dell'evento e la *forma dei dati* che si aspetta di ricevere.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -42,7 +41,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -93,7 +92,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -141,7 +140,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Il codice precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Il codice precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 In .NET se il payload dell'evento non può essere convertito nel tipo previsto `T`, viene generata un'eccezione.
 
@@ -173,7 +172,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>Inviare eventi
 
-Il `RaiseEventAsync` metodo (.NET) `raiseEvent` o (JavaScript) dell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) invia gli `WaitForExternalEvent` eventi in attesa di `waitForExternalEvent` (.NET) o (JavaScript).  Il metodo `RaiseEventAsync` accetta *eventName* e *eventData* come parametri. I dati dell'evento devono essere serializzabile in JSON.
+Il `RaiseEventAsync` Metodo (.NET) o `raiseEvent` (JavaScript) dell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) invia gli eventi `WaitForExternalEvent` in attesa di (.NET) o `waitForExternalEvent` (JavaScript).  Il metodo `RaiseEventAsync` accetta *eventName* e *eventData* come parametri. I dati dell'evento devono essere serializzabile in JSON.
 
 Di seguito è riportata una funzione di esempio attivata da coda che invia un evento di "approvazione" a un'istanza della funzione dell'agente di orchestrazione. L'ID istanza di orchestrazione proviene dal corpo del messaggio in coda.
 
@@ -190,7 +189,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `OrchestrationClient` l'attributo anziché l' `DurableClient` attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Il codice C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `OrchestrationClient` l'attributo anziché l' `DurableClient` attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di parametro anziché `IDurableOrchestrationClient` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

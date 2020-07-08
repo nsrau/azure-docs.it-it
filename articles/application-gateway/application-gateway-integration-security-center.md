@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277197"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Panoramica dell'integrazione tra il gateway applicazione e il Centro sicurezza di Azure
@@ -30,7 +29,7 @@ Se si fa clic su una raccomandazione relativa a web application firewall, viene 
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Aggiungere un web application firewall a una risorsa esistente
 
-Passare a **tutti i servizi** > **sicurezza e identità** > **Centro sicurezza** e nel **Centro sicurezza-Panoramica**, fare clic su **applicazioni**. La tabella in **Centro sicurezza PC - Applicazioni** contiene un elenco delle applicazioni rilevate dal Centro sicurezza nella sottoscrizione.
+Passare a **tutti i servizi**  >  **sicurezza e identità**  >  **Centro sicurezza** e nel **Centro sicurezza-Panoramica**, fare clic su **applicazioni**. La tabella in **Centro sicurezza PC - Applicazioni** contiene un elenco delle applicazioni rilevate dal Centro sicurezza nella sottoscrizione.
 
 ![applicazioni Web][3]
 
@@ -50,7 +49,7 @@ L'aggiunta di un'applicazione Web a un gateway applicazione tramite il Centro si
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Aggiungere una risorsa a un web application firewall esistente
 
-Passare a **tutti i servizi** > **sicurezza e identità** > **Centro sicurezza** e nel **Centro sicurezza-Panoramica**fare clic su **soluzioni partner**. I gateway applicazione compatibili con il Centro sicurezza esistenti sono visualizzati nella pagina **Soluzioni partner**.
+Passare a **tutti i servizi**  >  **sicurezza e identità**  >  **Centro sicurezza** e nel **Centro sicurezza-Panoramica**fare clic su **soluzioni partner**. I gateway applicazione compatibili con il Centro sicurezza esistenti sono visualizzati nella pagina **Soluzioni partner**.
 
 ![soluzioni partner][7]
 
@@ -66,7 +65,7 @@ Il Centro sicurezza rileva le applicazioni aggiunte a un gateway applicazione co
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 
-Nel centro sicurezza passare a **rilevamento** > **avvisi di sicurezza**.  Vengono visualizzati gli avvisi WAF per i gateway applicazione. Gli avvisi sono suddivisi per regola WAF.
+Nel centro sicurezza passare a **rilevamento**  >  **avvisi di sicurezza**.  Vengono visualizzati gli avvisi WAF per i gateway applicazione. Gli avvisi sono suddivisi per regola WAF.
 
 ![avvisi di sicurezza][8]
 

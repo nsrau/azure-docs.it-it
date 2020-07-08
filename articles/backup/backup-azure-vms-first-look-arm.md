@@ -4,10 +4,9 @@ description: Questo articolo illustra come eseguire il backup di una singola mac
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705446"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
@@ -64,7 +63,7 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
 
 ## <a name="run-a-backup-immediately"></a>Eseguire immediatamente un backup
 
-1. Per eseguire immediatamente un backup **, scegliere** > backup backup**ora**dal menu VM.
+1. Per eseguire immediatamente un backup **, scegliere backup backup**  >  **ora**dal menu VM.
 
     ![Esegui backup](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
@@ -79,11 +78,11 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
 Seguire le istruzioni in questo articolo per abilitare il backup per macchine virtuali di Azure configurando un insieme di credenziali di Servizi di ripristino di Backup di Azure e per abilitare il backup nell'insieme di credenziali.
 
 >[!NOTE]
-> **Backup di Azure supporta ora il backup e il ripristino dei dischi selettivi con la soluzione di backup della macchina virtuale di Azure.**
+> **Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tramite la soluzione di backup delle macchine virtuali di Azure.**
 >
->Attualmente, backup di Azure supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale con la soluzione di backup della macchina virtuale. Con la funzionalità Escludi disco è possibile scegliere di eseguire il backup di uno o più dischi dati in una macchina virtuale. Questo offre una soluzione efficiente ed economica per le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup, che consente di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
+>Backup di Azure attualmente supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale contemporaneamente tramite la soluzione di backup delle macchine virtuali. Con la funzionalità di esclusione disco è possibile scegliere di eseguire il backup di uno o più dischi dati tra quelli disponibili in una macchina virtuale. Questa è una soluzione efficiente ed economica per soddisfare le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup. Questo consente anche di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
 >
->**Per iscriverti all'anteprima, scrivici all'indirizzoAskAzureBackupTeam@microsoft.com**
+>**Per registrarsi per l'anteprima, inviare un messaggio all'indirizzo AskAzureBackupTeam@microsoft.com**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

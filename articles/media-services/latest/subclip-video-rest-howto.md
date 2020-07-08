@@ -14,15 +14,14 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
 ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76514324"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Sottoclip di un video durante la codifica con servizi multimediali-REST
 
-È possibile tagliare o sottotagliare un video quando lo si codifica usando un [processo](https://docs.microsoft.com/rest/api/media/jobs). Questa funzionalità può essere utilizzata con qualsiasi [trasformazione](https://docs.microsoft.com/rest/api/media/transforms) compilata mediante i set di impostazioni [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) . 
+È possibile tagliare o sottotagliare un video quando lo si codifica usando un [processo](https://docs.microsoft.com/rest/api/media/jobs). Questa funzionalità può essere usata con qualsiasi [Trasformazione](https://docs.microsoft.com/rest/api/media/transforms) compilata mediante i set di impostazioni [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o i set di impostazioni [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
 
 Nell'esempio REST in questo argomento viene creato un processo che consente di tagliare un video quando invia un processo di codifica. 
 
@@ -39,7 +38,7 @@ Per completare i passaggi descritti in questo argomento, è necessario:
 
 ## <a name="create-a-subclipping-job"></a>Creazione di un processo di ritaglio
 
-1. Nella raccolta dei messaggi scaricati selezionare **trasformazioni e processi** -> **Crea processo con il ritaglio secondario**.
+1. Nella raccolta dei messaggi scaricati selezionare **trasformazioni e processi**  ->  **Crea processo con il ritaglio secondario**.
     
     La richiesta **put** ha un aspetto simile al seguente:
     

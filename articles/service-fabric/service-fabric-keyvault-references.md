@@ -4,10 +4,9 @@ description: Questo articolo illustra come usare il supporto KeyVaultReference d
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76545484"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Supporto di KeyVaultReference per applicazioni Service Fabric (anteprima)
@@ -24,7 +23,7 @@ Un problema comune durante la creazione di applicazioni cloud è come archiviare
 
     L'archivio dei segreti centrali (CSS) è la cache dei segreti locali crittografati di Service Fabric. CSS è una cache di archivio Secret locale che consente di mantenere i dati sensibili, ad esempio password, token e chiavi, crittografati in memoria. KeyVaultReference, una volta recuperati, vengono memorizzati nella cache in CSS.
 
-    Aggiungere quanto riportato di seguito alla configurazione del `fabricSettings` cluster in per abilitare tutte le funzionalità necessarie per il supporto di KeyVaultReference.
+    Aggiungere quanto riportato di seguito alla configurazione del cluster in `fabricSettings` per abilitare tutte le funzionalità necessarie per il supporto di KeyVaultReference.
 
     ```json
     "fabricSettings": 
@@ -86,18 +85,18 @@ Per rendere effettive le modifiche, sarà anche necessario modificare i criteri 
     Fare riferimento a questo [documento](how-to-grant-access-other-resources.md) per vedere come concedere l'accesso all'identità gestita all'insieme di credenziali delle credenziali. Si noti anche che se si usa l'identità gestita assegnata dal sistema, l'identità gestita viene creata solo dopo la distribuzione dell'applicazione.
 
 ## <a name="keyvault-secret-as-application-parameter"></a>Segreto dell'insieme di credenziali delle credenziali come parametro dell'applicazione
-Supponiamo che l'applicazione debba leggere la password del database back-end archiviata nell'insieme di credenziali delle credenziali, Service Fabric il supporto di KeyVaultReference facilita l'operazione. Nell'esempio seguente `DBPassword` viene letta la chiave privata dell'insieme di credenziali delle credenziali usando Service Fabric supporto KeyVaultReference.
+Supponiamo che l'applicazione debba leggere la password del database back-end archiviata nell'insieme di credenziali delle credenziali, Service Fabric il supporto di KeyVaultReference facilita l'operazione. Nell'esempio seguente viene letta la chiave `DBPassword` privata dell'insieme di credenziali delle credenziali usando Service Fabric supporto KeyVaultReference.
 
-- Aggiungere una sezione a Settings. XML
+- Aggiungere una sezione a settings.xml
 
-    Definire `DBPassword` il parametro con `KeyVaultReference` il tipo e il valore`<KeyVaultURL>`
+    Definire il `DBPassword` parametro con il tipo `KeyVaultReference` e il valore`<KeyVaultURL>`
 
     ```xml
     <Section Name="dbsecrets">
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Fare riferimento alla nuova sezione in ApplicationManifest. XML in`<ConfigPackagePolicies>`
+- Fare riferimento alla nuova sezione in ApplicationManifest.xml`<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>
@@ -126,7 +125,7 @@ Supponiamo che l'applicazione debba leggere la password del database back-end ar
     }
     ```
     > [!NOTE] 
-    > Per lo scenario contenitore, è possibile usare MountPoint per controllare la `secrets` posizione in cui verrà montato.
+    > Per lo scenario contenitore, è possibile usare MountPoint per controllare la posizione in cui `secrets` verrà montato.
 
 ## <a name="keyvault-secret-as-environment-variable"></a>Segreto dell'insieme di credenziali delle credenziali come variabile di ambiente
 

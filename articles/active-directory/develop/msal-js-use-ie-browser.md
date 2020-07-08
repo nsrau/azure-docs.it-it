@@ -1,7 +1,7 @@
 ---
-title: Problemi in Internet Explorer (MSAL. js) | Azure
+title: Problemi in Internet Explorer (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Utilizzare Microsoft Authentication Library per JavaScript (MSAL. js) con il browser Internet Explorer.
+description: Utilizzare Microsoft Authentication Library per JavaScript (MSAL.js) con il browser Internet Explorer.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -14,18 +14,17 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: c4f3c4153e1404a5576427be7ef218f5a669387e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76695858"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemi noti di Internet Explorer e dei browser Microsoft Edge (MSAL. js)
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemi noti dei browser Internet Explorer e Microsoft Edge (MSAL.js)
 
-Microsoft Authentication Library per JavaScript (MSAL. js) viene generato per [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) , in modo che possa essere eseguito in Internet Explorer. Esistono, tuttavia, alcuni aspetti da sapere.
+Microsoft Authentication Library per JavaScript (MSAL.js) viene generato per [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) in modo che possa essere eseguito in Internet Explorer. Esistono, tuttavia, alcuni aspetti da sapere.
 
 ## <a name="run-an-app-in-internet-explorer"></a>Eseguire un'app in Internet Explorer
-Se si intende usare MSAL. js nelle applicazioni che possono essere eseguite in Internet Explorer, è necessario aggiungere un riferimento a un riempimento di promessa prima di fare riferimento allo script MSAL. js.
+Se si intende utilizzare MSAL.js in applicazioni eseguibili in Internet Explorer, è necessario aggiungere un riferimento a un riempimento di promessa prima di fare riferimento allo script di MSAL.js.
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js" class="pre"></script>
@@ -39,9 +38,9 @@ Questo perché Internet Explorer non supporta le promesse JavaScript in modo nat
 La distribuzione dell'applicazione in produzione (ad esempio in app Web di Azure) normalmente funziona correttamente, purché l'utente finale abbia accettato i popup. È stato testato con Internet Explorer 11.
 
 ### <a name="running-locally"></a>Esecuzione in locale
-Se si desidera eseguire ed eseguire il debug in locale dell'applicazione in esecuzione in Internet Explorer, è necessario tenere presenti le considerazioni seguenti (si supponga di voler eseguire l'applicazione come *http://localhost:1234*):
+Se si desidera eseguire ed eseguire il debug in locale dell'applicazione in esecuzione in Internet Explorer, è necessario tenere presenti le considerazioni seguenti (si supponga di voler eseguire l'applicazione come *http://localhost:1234* ):
 
-- Internet Explorer dispone di un meccanismo di sicurezza denominato "modalità protetta", che impedisce il corretto funzionamento di MSAL. js. Tra i sintomi, dopo l'accesso, è possibile reindirizzare la pagina http://localhost:1234/nulla.
+- Internet Explorer dispone di un meccanismo di sicurezza denominato "modalità protetta", che impedisce il corretto funzionamento di MSAL.js. Tra i sintomi, dopo l'accesso, è possibile reindirizzare la pagina a http://localhost:1234/null .
 
 - Per eseguire ed eseguire il debug dell'applicazione in locale, è necessario disabilitare questa "modalità protetta". Per questo:
 
@@ -51,7 +50,7 @@ Se si desidera eseguire ed eseguire il debug in locale dell'applicazione in esec
     1. Riavviare Internet Explorer.
     1. Eseguire ed eseguire il debug dell'applicazione.
 
-Al termine, ripristinare le impostazioni di sicurezza di Internet Explorer.  Selezionare **Impostazioni** -> **Opzioni** -> Internet**sicurezza** -> **Reimposta tutte le zone sul livello predefinito**.
+Al termine, ripristinare le impostazioni di sicurezza di Internet Explorer.  Selezionare **Impostazioni**  ->  **Opzioni Internet**  ->  **sicurezza**  ->  **Reimposta tutte le zone sul livello predefinito**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sui [problemi noti quando si usa MSAL. js in Internet Explorer](msal-js-use-ie-browser.md).
+Per ulteriori informazioni sui problemi noti, vedere l'articolo relativo [all'utilizzo di MSAL.js in Internet Explorer](msal-js-use-ie-browser.md).

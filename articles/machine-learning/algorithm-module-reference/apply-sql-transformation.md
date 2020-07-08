@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76314539"
 ---
 # <a name="apply-sql-transformation"></a>Applicare la trasformazione SQL
@@ -33,7 +32,7 @@ Con il modulo Apply SQL Transformation è possibile:
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Come configurare Apply SQL Transformation  
 
-Il modulo può accettare come input fino a tre set di dati. Quando si fa riferimento ai set di dati connessi a ogni porta di input, è necessario `t1`utilizzare `t2`i nomi `t3`, e. Il numero di tabella indica l'indice della porta di input.  
+Il modulo può accettare come input fino a tre set di dati. Quando si fa riferimento ai set di dati connessi a ogni porta di input, è necessario utilizzare i nomi `t1` , `t2` e `t3` . Il numero di tabella indica l'indice della porta di input.  
   
 Il parametro rimanente è una query SQL che usa la sintassi SQLite. Quando si digitano più righe nella casella di testo **script SQL** , utilizzare un punto e virgola per terminare ciascuna istruzione. In caso contrario, le interruzioni di riga vengono convertite in spazi.  
 
@@ -53,7 +52,7 @@ Anche se supporta gran parte dello standard ANSI SQL, SQLite non include molte f
   
 - SQLite usa la tipizzazione dinamica dei valori anziché assegnare un tipo a una colonna, come avviene nella maggior parte dei sistemi di database relazionali. È scarsamente tipizzato e consente la conversione implicita del tipo.  
   
-- `LEFT OUTER JOIN`viene implementato, ma non `RIGHT OUTER JOIN` o `FULL OUTER JOIN`.  
+- `LEFT OUTER JOIN`viene implementato, ma non `RIGHT OUTER JOIN` o `FULL OUTER JOIN` .  
 
 - È possibile usare istruzioni `RENAME TABLE` e `ADD COLUMN` con il comando `ALTER TABLE`, ma altre clausole non sono supportate, tra cui `DROP COLUMN`, `ALTER COLUMN` e `ADD CONSTRAINT`.  
   
