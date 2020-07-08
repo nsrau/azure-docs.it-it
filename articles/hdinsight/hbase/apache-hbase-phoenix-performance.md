@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
-ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d1dff01c9e7b5232cfac0cf5581c077e67f6937
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75552645"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079497"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Procedure consigliate per le prestazioni di Apache Phoenix
 
@@ -33,30 +33,30 @@ Una tabella di contatti, ad esempio, ha nome, cognome, numero di telefono e indi
 
 |rowkey|       address|   phone| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
-|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
+|  1000|1111 San Gabriel Dr.|1-425-000-0002|    Luca|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Tuttavia, se si eseguono spesso query in base al valore di lastName, questa chiave primaria potrebbe non essere ottimale, perché ogni query richiede un'analisi completa della tabella per leggere il valore di ogni oggetto lastName. In alternativa, è possibile definire una chiave primaria in base alle colonne lastName, firstName e socialSecurityNum. L'ultima colonna permette di evitare ambiguità tra due persone che risiedono allo stesso indirizzo e hanno lo stesso nome, ad esempio padre e figlio.
 
 |rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
+|  1000|1111 San Gabriel Dr.|1-425-000-0002|    Luca|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Con questa nuova chiave primaria, i valori rowkey generati da Phoenix sono:
 
 |rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
+|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    Luca|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Nella prima riga sopra, i dati per rowkey sono rappresentati come illustrato:
 
-|rowkey|       Key|   value|
+|rowkey|       Key|   Valore|
 |------|--------------------|---|
 |  Dole-John-111|address |1111 San Gabriel Dr.|  
 |  Dole-John-111|phone |1-425-000-0002|  
-|  Dole-John-111|firstName |John|  
+|  Dole-John-111|firstName |Luca|  
 |  Dole-John-111|lastName |Dole|  
 |  Dole-John-111|socialSecurityNum |111|
 
@@ -82,13 +82,17 @@ Phoenix consente di controllare il numero di aree in cui i dati sono distribuiti
 
 Per usare il salting per una tabella durante la creazione, specificare il numero di bucket di tipo salt:
 
-    CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```sql
+CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```
 
 Il salting divide la tabella lungo i valori delle chiavi primarie, scegliendo automaticamente i valori. 
 
 Per controllare la posizione in cui la tabella viene divisa, è possibile dividere preventivamente la tabella fornendo i valori di intervallo lungo cui si verifica la divisione. Per creare, ad esempio, una divisione della tabella lungo tre aree:
 
-    CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```sql
+CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```
 
 ## <a name="index-design"></a>Struttura degli indici
 
@@ -115,16 +119,20 @@ Nella tabella di contatti di esempio, è possibile creare ad esempio un indice s
 
 |rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
+|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    Luca|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Se, tuttavia, in genere si vuole cercare firstName e lastName in base a socialSecurityNum, è possibile creare un indice di copertura che include firstName e lastName come dati effettivi nella tabella dell'indice:
 
-    CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```sql
+CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```
 
 Questo indice di copertura consente alla query seguente di acquisire tutti i dati semplicemente leggendo la tabella contenente l'indice secondario:
 
-    SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```sql
+SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```
 
 ### <a name="use-functional-indexes"></a>Usare gli indici funzionali
 
@@ -132,7 +140,9 @@ Gli indici funzionali consentono di creare un indice in base a un'espressione ar
 
 È ad esempio possibile creare un indice per consentire di eseguire ricerche senza distinzione tra maiuscole e minuscole sul valore combinato di nome e cognome di una persona:
 
-     CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```sql
+CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```
 
 ## <a name="query-design"></a>Struttura delle query
 
@@ -153,46 +163,64 @@ In [SQLLine](http://sqlline.sourceforge.net/) usare il comando EXPLAIN seguito d
 
 Si supponga, ad esempio, di avere una tabella denominata FLIGHTS che archivia le informazioni sui ritardi dei voli.
 
-Per selezionare tutti i voli con un airlineid di `19805`, dove airlineid è un campo che non si trova nella chiave primaria o in un indice:
+Per selezionare tutti i voli con un airlineid di `19805` , dove airlineid è un campo che non si trova nella chiave primaria o in un indice:
 
-    select * from "FLIGHTS" where airlineid = '19805';
+```sql
+select * from "FLIGHTS" where airlineid = '19805';
+```
 
 Eseguire il comando explain come illustrato di seguito:
 
-    explain select * from "FLIGHTS" where airlineid = '19805';
+```sql
+explain select * from "FLIGHTS" where airlineid = '19805';
+```
 
 Il piano di query è simile al seguente:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
-        SERVER FILTER BY AIRLINEID = '19805'
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
+   SERVER FILTER BY AIRLINEID = '19805'
+```
 
 In questo piano si noti l'espressione FULL SCAN OVER FLIGHTS. Questa espressione indica l'esecuzione di una scansione di tabella su tutte le righe nella tabella, invece di usare la più efficiente opzione RANGE SCAN o SKIP SCAN.
 
 Si supponga ora di voler eseguire una query per i voli del 2 gennaio 2014 per il vettore (carrier) `AA` con flightnum maggiore di 1. Si supponga che nella tabella di esempio siano presenti le colonne year, month, dayofmonth, carrier e flightnum, che fanno tutte parte della chiave primaria composta. La query sarà simile alla seguente:
 
-    select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 Si esamini il piano per la query:
 
-    explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 Il piano risultante è:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```
 
 I valori tra parentesi quadre rappresentano l'intervallo di valori per le chiavi primarie. In questo caso, i valori dell'intervallo sono fissi con year 2014, month 1 e dayofmonth 2, mentre i valori per flightnum vanno da 2 in su (`*`). Questo piano di query conferma che viene usata la chiave primaria, come previsto.
 
 Creare quindi un indice nella tabella FLIGHTS denominato `carrier2_idx` solo sul campo carrier. Questo indice include anche flightdate, tailnum, origin e flightnum come colonne di copertura i cui dati vengono archiviati anch'essi nell'indice.
 
-    CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```sql
+CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```
 
 Si supponga di voler ottenere i valori relativi a carrier, flightdate e tailnum, come nella query seguente:
 
-    explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```sql
+explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```
 
 L'indice in uso dovrebbe essere il seguente:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```
 
 Per un elenco completo degli elementi che possono essere presenti nei risultati di un piano Explain, vedere la sezione relativa ai piani Explain nella [guida all'ottimizzazione di Apache Phoenix](https://phoenix.apache.org/tuning_guide.html).
 
@@ -222,7 +250,9 @@ Quando si elimina un set di dati di grandi dimensioni, attivare autocommit prima
 
 Se lo scenario predilige la velocità di scrittura rispetto all'integrità dei dati, prendere in considerazione la disabilitazione del log write-ahead durante la creazione delle tabelle:
 
-    CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```sql
+CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```
 
 Per informazioni dettagliate su questa e altre opzioni, vedere la [grammatica di Apache Phoenix](https://phoenix.apache.org/language/index.html#options).
 

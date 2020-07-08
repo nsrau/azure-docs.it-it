@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d462f146f3f094602835d88e48815d5537c58665
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687447"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078783"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenari per l'analisi avanzata in Azure Machine Learning
 Questo articolo descrive le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con il [Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Il TDSP offre un approccio sistematico per consentire ai team di collaborare sulla compilazione di applicazioni intelligenti. Gli scenari presentati illustrano le opzioni disponibili nel flusso di lavoro dell'elaborazione dei dati basato su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
@@ -193,9 +194,7 @@ Per replicare l'intero database SQL Server nella macchina virtuale di SQL Server
 1. Creare un cluster Hadoop di Azure HDInsight
 1. (Facoltativo) Pre-elaborare e pulire i dati.
    
-   a.  Pre-elaborare e pulire i dati in IPython Notebook, accedendo ai dati da Azure
-   
-       blobs.
+   a.  Pre-elaborare e pulire i dati in IPython Notebook, accedere ai dati dai BLOB di Azure.
    
    b.  Trasformare i dati in un formato tabulare pulito, se necessario.
    

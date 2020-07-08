@@ -8,11 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ca8f5d629a110d2a4d3b35cb357af2c723ec312
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2b26016ec67f0eecd785e3bfb951fe5fd607545
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339196"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079149"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Gateway 
 
@@ -91,23 +92,23 @@ La funzionalità di aggiornamento consente di aggiornare il contenuto di una con
 
 Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivisione.
 
-1.   Passare a **Condivisioni** nel portale di Azure. Fare clic sulla condivisione che si vuole aggiornare.
+1. Passare a **Condivisioni** nel portale di Azure. Fare clic sulla condivisione che si vuole aggiornare.
 
-    ![Selezionare condivisione](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Selezionare condivisione](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   Fare clic su **Aggiorna**. 
+2. Fare clic su **Aggiorna**. 
 
-    ![Fare clic su Aggiorna](media/data-box-gateway-manage-shares/refresh-2.png)
+   ![Fare clic su Aggiorna](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.   Quando viene richiesta la conferma, fare clic su **Sì**. Viene avviato un processo di aggiornamento del contenuto della condivisione locale. 
+3. Quando viene richiesta la conferma, fare clic su **Sì**. Viene avviato un processo di aggiornamento del contenuto della condivisione locale. 
 
-    ![Confermare l'aggiornamento](media/data-box-gateway-manage-shares/refresh-3.png)
+   ![Confermare l'aggiornamento](media/data-box-gateway-manage-shares/refresh-3.png)
  
 4.   Durante l'aggiornamento, l'opzione di aggiornamento non è disponibile nel menu di scelta rapida. Fare clic sulla notifica del processo per visualizzare lo stato del processo di aggiornamento.
 
-5.   Il tempo necessario per aggiornare dipende dal numero di file nel contenitore di Azure, nonché dai file nel dispositivo. Dopo aver completato l'aggiornamento, viene aggiornato il timestamp di condivisione. Anche se l'aggiornamento include gli errori parziali, l'operazione è considerata riuscita e il timestamp viene aggiornato. 
+5. Il tempo necessario per aggiornare dipende dal numero di file nel contenitore di Azure, nonché dai file nel dispositivo. Dopo aver completato l'aggiornamento, viene aggiornato il timestamp di condivisione. Anche se l'aggiornamento include gli errori parziali, l'operazione è considerata riuscita e il timestamp viene aggiornato. 
 
-    ![Timestamp aggiornato](media/data-box-gateway-manage-shares/refresh-4.png)
+   ![Timestamp aggiornato](media/data-box-gateway-manage-shares/refresh-4.png)
  
 Se si verifica un errore, viene generato un avviso. L'avviso illustra in dettaglio la causa e i suggerimenti per correggere il problema. L'avviso contiene anche collegamenti a un file con il riepilogo completo degli errori, inclusi i file che non è stato possibile aggiornare o eliminare.
 

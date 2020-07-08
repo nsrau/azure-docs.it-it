@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918241"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078630"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Non è possibile stabilire una connessione Desktop remoto a Macchine virtuali di Azure perché la scheda di interfaccia di rete è disabilitata
 
@@ -39,21 +40,29 @@ Per abilitare l'interfaccia per la macchina virtuale, usare il controllo seriale
 ). Se la console seriale non è abilitata nella macchina virtuale, vedere [Reimposta interfaccia di rete](#reset-network-interface).
 2. Controllare lo stato dell'interfaccia di rete:
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Prendere nota del nome dell'interfaccia di rete disabilitata.
 
 3. Abilitare l'interfaccia di rete:
 
-        netsh interface set interface name="interface Name" admin=enabled
+    ```console
+    netsh interface set interface name="interface Name" admin=enabled
+    ```
 
     Ad esempio, se il nome dell'interfaccia di rete è "Ethernet 2", eseguire il comando seguente:
 
-        netsh interface set interface name="Ethernet 2" admin=enabled
+    ```console
+    netsh interface set interface name="Ethernet 2" admin=enabled
+    ```
 
 4.  Controllare di nuovo lo stato dell'interfaccia di rete per assicurarsi che sia abilitata.
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Non è necessario riavviare la macchina virtuale a questo punto. La VM sarà nuovamente raggiungibile.
 

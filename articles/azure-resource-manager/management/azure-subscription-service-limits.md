@@ -4,19 +4,19 @@ description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle 
 ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
-ms.date: 04/21/2020
-ms.openlocfilehash: 865c39ea9a48f9f5e0fbf04dea629b6886cf7ae4
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.date: 06/04/2020
+ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584075"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080976"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote.
 
-Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azure](https://azure.microsoft.com/pricing/). Qui è possibile stimare i costi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/). È anche possibile passare alla pagina dei dettagli prezzi per un particolare servizio, ad esempio [macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Per suggerimenti su come gestire i costi, vedere [Evitare costi imprevisti con la fatturazione del costi e la fatturazione di Azure](../../billing/billing-getting-started.md).
+Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azure](https://azure.microsoft.com/pricing/). Qui è possibile stimare i costi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/). È anche possibile passare alla pagina dei dettagli prezzi per un particolare servizio, ad esempio [macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Per suggerimenti su come gestire i costi, vedere [Evitare costi imprevisti con la fatturazione del costi e la fatturazione di Azure](../../cost-management-billing/manage/getting-started.md).
 
 ## <a name="managing-limits"></a>Gestione dei limiti
 
@@ -29,7 +29,7 @@ Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azu
 >
 > Per aumentare il limite o la quota superiore al limite predefinito, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](../templates/error-resource-quota.md).
 
-Le [sottoscrizioni della versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonee per aumenti limite o quota Se si ha una [sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Per altre informazioni, vedere [aggiornare la sottoscrizione della versione di valutazione gratuita di Azure a una sottoscrizione con pagamento in base](../../billing/billing-upgrade-azure-subscription.md) al consumo e le [domande frequenti sulla sottoscrizione della versione di valutazione gratuita](https://azure.microsoft.com/free/free-account-faq).
+Le [sottoscrizioni della versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonee per aumenti limite o quota Se si ha una [sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Per altre informazioni, vedere [aggiornare la sottoscrizione della versione di valutazione gratuita di Azure a una sottoscrizione con pagamento in base](../../cost-management-billing/manage/upgrade-azure-subscription.md) al consumo e le [domande frequenti sulla sottoscrizione della versione di valutazione gratuita](https://azure.microsoft.com/free/free-account-faq).
 
 Alcuni limiti vengono gestiti a livello di area.
 
@@ -127,6 +127,8 @@ Per i limiti del Database di Azure per PostgreSQL, vedere [Limiti di Database di
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
+Per altre informazioni, vedere [confronto dei piani di hosting di funzioni](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+
 ## <a name="azure-kubernetes-service-limits"></a>Limiti del servizio Azure Kubernetes
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
@@ -217,6 +219,13 @@ La tabella seguente illustra in dettaglio le funzionalità e i limiti dei [livel
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## <a name="digital-twins-limits"></a>Limiti per i gemelli digitali
+
+> [!NOTE]
+> Alcune aree di questo servizio hanno limiti regolabili e altre no. Questa situazione è rappresentata nelle tabelle seguenti con la colonna *regolabile?* . Quando è possibile modificare il limite, il valore *regolabile?* è *Sì*.
+
+[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
+
 ## <a name="event-grid-limits"></a>Limiti di griglia di eventi
 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
@@ -250,7 +259,7 @@ La tabella seguente illustra in dettaglio le funzionalità e i limiti dei [livel
 
 ### <a name="media-services-v2-legacy"></a>Servizi multimediali v2 (legacy)
 
-Per i limiti specifici di servizi multimediali V2 (legacy), vedere [servizi multimediali V2 (legacy)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
+Per i limiti specifici di servizi multimediali V2 (legacy), vedere [servizi multimediali V2 (legacy)](../../media-services/previous/media-services-quotas-and-limitations.md)
 
 ## <a name="mobile-services-limits"></a>Limiti relativi a Servizi mobili
 
@@ -323,11 +332,11 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 
 ## <a name="sql-database-limits"></a>Limiti relativi a database SQL
 
-Per i limiti del database SQL, vedere limiti [delle risorse del database SQL per database singoli](../../sql-database/sql-database-vcore-resource-limits-single-databases.md), [limiti delle risorse del database SQL per pool elastici e database in pool](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)e [limiti delle risorse del database SQL per le istanze gestite](../../sql-database/sql-database-managed-instance-resource-limits.md).
+Per i limiti del database SQL, vedere limiti [delle risorse del database SQL per database singoli](../../azure-sql/database/resource-limits-vcore-single-databases.md), [limiti delle risorse del database SQL per pool elastici e database in pool](../../azure-sql/database/resource-limits-vcore-elastic-pools.md)e [limiti delle risorse del database SQL per istanza gestita SQL](../../azure-sql/managed-instance/resource-limits.md).
 
-## <a name="sql-data-warehouse-limits"></a>Limiti relativi a SQL Data Warehouse
+## <a name="azure-synapse-analytics-limits"></a>Limiti di Azure sinapsi Analytics
 
-Per SQL Data Warehouse limiti, vedere [limiti delle risorse SQL data warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+Per i limiti di Azure sinapsi Analytics, vedere [limiti delle risorse della sinapsi di Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 
@@ -401,17 +410,17 @@ Quando si usano Azure Resource Manager e i gruppi di risorse di Azure, si applic
 
 ### <a name="shared-image-gallery-limits"></a>Limiti della raccolta immagini condivise
 
-Per la distribuzione delle risorse tramite le raccolte di immagini condivise sono previsti limiti, per sottoscrizione:
+Sono previsti limiti, per sottoscrizione, per la distribuzione delle risorse tramite Raccolte immagini condivise:
 
-- 100 raccolte di immagini condivise, per sottoscrizione, per area
-- 1.000 definizioni di immagine, per sottoscrizione, per area
-- 10.000 versioni dell'immagine, per sottoscrizione, per area
+- 100 raccolte di immagini condivise, per ogni sottoscrizione, per area
+- 1\.000 definizioni di immagini, per ogni sottoscrizione, per area
+- 10.000 versioni di immagini, per ogni sottoscrizione, per area
 
 ## <a name="virtual-machine-scale-sets-limits"></a>Limiti dei set di scalabilità di macchine virtuali
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Informazioni sui limiti e sugli aumenti di Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -13,11 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ad7dc2452cdc2756413db1a07da74e2a1dc3fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344629"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080177"
 ---
 # <a name="what-is-azure-sql"></a>Che cos'è SQL di Azure? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -58,7 +59,7 @@ Azure monitora costantemente i dati per individuare le minacce. Con SQL di Azure
 Esistono diversi fattori che possono influenzare la scelta tra le diverse offerte di dati:
 
 - [Costo](#cost): le opzioni PaaS e IaaS includono il prezzo di base che copre l'infrastruttura e le licenze sottostanti. Tuttavia, con l'opzione IaaS è necessario investire ulteriore tempo e risorse per gestire il database, mentre in PaaS si ottengono queste funzionalità di amministrazione incluse nel prezzo. IaaS consente di arrestare le risorse senza utilizzarle per ridurre i costi, mentre PaaS è sempre in esecuzione, a meno che non vengano eliminate e ricreate le risorse quando sono necessarie.
-- [Amministrazione](#administration): le opzioni di PaaS consentono di ridurre la quantità di tempo necessaria per l'amministrazione del database. Tuttavia, limita anche la gamma di script e attività di amministrazione personalizzati che è possibile eseguire o eseguire. Il CLR, ad esempio, non è supportato con database singoli o in pool, ma è supportato per un'istanza di SQL Istanza gestita. Inoltre, nessuna opzione di distribuzione in PaaS supporta l'utilizzo dei flag di traccia.
+- [Amministrazione](#administration): le opzioni di PaaS consentono di ridurre la quantità di tempo necessaria per l'amministrazione del database. Tuttavia, limita anche la gamma di script e attività di amministrazione personalizzati che è possibile eseguire o eseguire. Il CLR, ad esempio, non è supportato con il database SQL, ma è supportato per un'istanza di SQL Istanza gestita. Inoltre, nessuna opzione di distribuzione in PaaS supporta l'utilizzo dei flag di traccia.
 - [Contratto di servizio](#service-level-agreement-sla): IaaS e PaaS forniscono un contratto di servizio standard di settore elevato. L'opzione PaaS garantisce un contratto di servizio del 99,99%, mentre l'opzione IaaS garantisce un contratto di servizio del 99,95% per l'infrastruttura, ovvero è necessario implementare meccanismi aggiuntivi per garantire la disponibilità dei database. È possibile raggiungere il contratto di servizi del 99,99% creando un'altra macchina virtuale SQL e implementando la soluzione di disponibilità elevata del gruppo di disponibilità SQL Server Always On. 
 - [Tempo per passare ad Azure](#market): SQL Server in una macchina virtuale di Azure è la corrispondenza esatta dell'ambiente, quindi la migrazione da locale alla macchina virtuale di Azure non è diversa dallo spostamento dei database da un server locale a un altro. SQL Istanza gestita consente inoltre una migrazione semplificata; Tuttavia, potrebbero esserci alcune modifiche che è necessario applicare prima della migrazione. 
 

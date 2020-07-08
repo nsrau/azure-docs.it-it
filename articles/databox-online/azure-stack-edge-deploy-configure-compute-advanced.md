@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: eb7bb7933303aaf16f320e219ad3673bf1efde72
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564659"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080482"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Esercitazione: Trasformare i dati con Azure Stack Edge per il flusso di distribuzione avanzata
 
@@ -22,7 +22,7 @@ Questa esercitazione descrive come configurare un ruolo di calcolo per il flusso
 
 Il calcolo può essere configurato per un flusso di distribuzione semplice o avanzata sul dispositivo.
 
-|                  | Distribuzione semplice                                | Distribuzione avanzata                   |
+| Criteri | Distribuzione semplice                                | Distribuzione avanzata                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Destinatari     | Amministratori IT                                | Sviluppatori                            |
 | Type             | Usare il servizio Azure Stack Edge per distribuire moduli      | Usare il servizio hub IoT per distribuire moduli |
@@ -70,7 +70,7 @@ Per configurare il calcolo in Azure Stack Edge, si creerà una risorsa hub IoT.
 
     ![Introduzione al calcolo](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Selezionare **Create** (Crea). La creazione della risorsa hub IoT richiede qualche minuto. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo Edge** viene aggiornato per mostrare la configurazione di calcolo. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza configurazione** nel riquadro **Configura calcolo**.
+4. Selezionare **Crea**. La creazione della risorsa hub IoT richiede qualche minuto. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo Edge** viene aggiornato per mostrare la configurazione di calcolo. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza configurazione** nel riquadro **Configura calcolo**.
     
     ![Introduzione al calcolo](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
@@ -215,9 +215,9 @@ In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edg
 
         ![Aggiungere un modulo personalizzato](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
-5.    In **Specifica route** impostare le route tra i moduli.  
-    
-    ![Specifica route](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
+5. In **Specifica route** impostare le route tra i moduli.  
+   
+   ![Specifica route](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
     È possibile sostituire *route* con questa stringa di route copiata in precedenza. In questo esempio immettere il nome della condivisione locale che eseguirà il push dei dati nella condivisione cloud. Sostituire `modulename` con il nome del modulo. Selezionare **Avanti**.
         
@@ -227,9 +227,9 @@ In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edg
 
     ![Sezione Specifica route](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)
 
-6.    In **Rivedi distribuzione** controllare tutte le impostazioni e quindi selezionare **Invia** per inviare il modulo per la distribuzione.
+6. In **Rivedi distribuzione** controllare tutte le impostazioni e quindi selezionare **Invia** per inviare il modulo per la distribuzione.
 
-    ![Pagina Imposta moduli](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![Pagina Imposta moduli](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Questa azione avvia la distribuzione del modulo. Al termine della distribuzione, lo **Stato di runtime** del modulo risulta in **esecuzione**.
 
@@ -241,13 +241,13 @@ Il passaggio finale consiste nell'assicurarsi che il modulo sia connesso e in es
 
 Eseguire i passaggi seguenti per verificare la trasformazione e il trasferimento dei dati ad Azure.
  
-1.    In Esplora file connettersi alla condivisione locale Edge e alla condivisione Edge create in precedenza.
+1. In Esplora file connettersi alla condivisione locale Edge e alla condivisione Edge create in precedenza.
 
-    ![Verificare la trasformazione dei dati](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
+   ![Verificare la trasformazione dei dati](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
  
-1.    Aggiungere i dati alla condivisione locale.
+1. Aggiungere i dati alla condivisione locale.
 
-    ![Verificare la trasformazione dei dati](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Verificare la trasformazione dei dati](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     I dati vengono spostati nella condivisione cloud.
 

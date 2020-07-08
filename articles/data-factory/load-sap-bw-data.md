@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415847"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081282"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -269,7 +269,7 @@ In seguito, tutte le DTPs delta successive e le estrazioni differenziali Data Fa
 
 Per impostare lo stato del DTP Delta su **recuperato**, è possibile usare l'opzione seguente per eseguire manualmente il DTP Delta:
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*Nessun Trasferimento dati; Stato Delta nell'origine: recuperato*
 
 ## <a name="next-steps"></a>Passaggi successivi
 

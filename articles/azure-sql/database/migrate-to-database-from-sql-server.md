@@ -1,5 +1,5 @@
 ---
-title: SQL Server la migrazione di database a un database singolo o in pool nel database SQL di Azure
+title: Migrazione di un database SQL Server al database SQL di Azure
 description: Informazioni sulla migrazione di SQL Server database al database SQL di Azure.
 keywords: migrazione di database, migrazione di database sql server, strumenti di migrazione del database, eseguire la migrazione di database, eseguire la migrazione di database sql
 services: sql-database
@@ -12,20 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 861c6749c7843d64a39376366544668c77883c9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 106337fb4756052ee682624290620093bf4a70b3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338346"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081945"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrazione di un database SQL Server al database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Questo articolo illustra i metodi principali per eseguire la migrazione di un database SQL Server 2005 o versione successiva a un database SQL di Azure singolo o in pool. Per informazioni sulla migrazione ad Azure SQL Istanza gestita, vedere [eseguire la migrazione di un'istanza di SQL Server a SQL di azure istanza gestita](../managed-instance/migrate-to-instance-from-sql-server.md). Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
+Questo articolo illustra i metodi principali per eseguire la migrazione di un database SQL Server 2005 o versione successiva al database SQL di Azure. Per informazioni sulla migrazione ad Azure SQL Istanza gestita, vedere [eseguire la migrazione di un'istanza di SQL Server a SQL di azure istanza gestita](../managed-instance/migrate-to-instance-from-sql-server.md). Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Eseguire la migrazione a un database singolo o in pool
 
-Esistono due metodi principali per eseguire la migrazione di un database SQL Server 2005 o versione successiva a un database SQL di Azure singolo o in pool. Il primo metodo è più semplice, ma comporta tempi di inattività anche lunghi durante la migrazione. Il secondo metodo è più complesso, ma elimina quasi completamente i tempi di inattività durante la migrazione.
+Esistono due metodi principali per eseguire la migrazione di un database SQL Server 2005 o versione successiva al database SQL di Azure. Il primo metodo è più semplice, ma comporta tempi di inattività anche lunghi durante la migrazione. Il secondo metodo è più complesso, ma elimina quasi completamente i tempi di inattività durante la migrazione.
 
 In entrambi i casi, è necessario assicurarsi che il database di origine sia compatibile con database SQL di Azure, tramite [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). Il database SQL sta raggiungendo la [parità di funzionalità](features-comparison.md) con SQL Server, ad eccezione dei problemi relativi alle operazioni a livello di server e tra database. I database e le applicazioni basati su [funzionalità non supportate o supportate parzialmente](transact-sql-tsql-differences-sql-server.md) devono essere [riprogettati per risolvere tali incompatibilità](migrate-to-database-from-sql-server.md#resolving-database-migration-compatibility-issues) prima della migrazione del database SQL Server.
 

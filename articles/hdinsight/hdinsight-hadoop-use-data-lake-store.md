@@ -5,22 +5,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: b45af924b75392374265ca41bd4dc1627edd4e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89e3aa1fec2157d77ac5c180bc4dd193f10398cd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190810"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078953"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usare Data Lake Storage Gen1 con i cluster Azure HDInsight
 
 > [!Note]
 > Distribuire i nuovi cluster HDInsight usando [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md) per ottenere prestazioni migliori e nuove funzionalità.
 
-Per analizzare i dati nel cluster HDInsight, è possibile archiviare i dati in [`Azure Storage`](../storage/common/storage-introduction.md), [Azure Data Lake storage generazione 1](../data-lake-store/data-lake-store-overview.md)o [Azure Data Lake storage generazione 2](../storage/blobs/data-lake-storage-introduction.md). Tutte le opzioni di archiviazione consentono l'eliminazione sicura dei cluster HDInsight utilizzati per i calcoli, senza perdita di dati utente.
+Per analizzare i dati nel cluster HDInsight, è possibile archiviare i dati in [`Azure Storage`](../storage/common/storage-introduction.md) , [Azure Data Lake storage generazione 1](../data-lake-store/data-lake-store-overview.md)o [Azure Data Lake storage generazione 2](../storage/blobs/data-lake-storage-introduction.md). Tutte le opzioni di archiviazione consentono l'eliminazione sicura dei cluster HDInsight utilizzati per i calcoli, senza perdita di dati utente.
 
 Questo articolo illustra come funziona Data Lake Storage Gen1 con i cluster HDInsight. Per sapere come usare Archiviazione di Azure con i cluster HDInsight, vedere [Usare Archiviazione di Azure con cluster Azure HDInsight](hdinsight-hadoop-use-blob-storage.md). Per altre informazioni sulla creazione di un cluster HDInsight, vedere [Configurare i cluster di HDInsight con Hadoop, Spark, Kafka e altro ancora](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -62,7 +62,7 @@ Quando si distribuisce HDInsight con Data Lake Storage Gen1 come risorsa di arch
 * Cluster1 può usare il percorso `adl://mydatalakestore/cluster1storage`
 * Cluster2 può usare il percorso `adl://mydatalakestore/cluster2storage`
 
-Si noti che entrambi i cluster usano lo stesso account di Data Lake Storage Gen1, **mydatalakestore**. Ogni cluster ha accesso al proprio file system radice in Data Lake Storage. L'esperienza di distribuzione di portale di Azure richiede di usare un nome di cartella, ad esempio **/Clusters/\<clustername>** per il percorso radice.
+Si noti che entrambi i cluster usano lo stesso account di Data Lake Storage Gen1, **mydatalakestore**. Ogni cluster ha accesso al proprio file system radice in Data Lake Storage. L'esperienza di distribuzione di portale di Azure richiede di usare un nome di cartella, ad esempio **/Clusters/ \<clustername> ** , per il percorso radice.
 
 Per usare Data Lake Storage Gen1 come risorsa di archiviazione predefinita, è necessario concedere all'entità servizio l'accesso ai percorsi seguenti:
 
@@ -110,13 +110,13 @@ New-AzResourceGroupDeployment `
 
 È possibile usare Data Lake Storage Gen1 anche come risorsa di archiviazione aggiuntiva per il cluster. In questi casi la risorsa di archiviazione predefinita del cluster può essere un BLOB del servizio di archiviazione di Azure o un account Data Lake Storage. Quando si eseguono processi HDInsight sui dati archiviati in Data Lake Storage come risorsa di archiviazione aggiuntiva, usare il percorso completo. Ad esempio:
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 Non è presente alcun **cluster_root_path** nell'URL. Questo perché Data Lake Storage non è un archivio predefinito in questo caso. Quindi, è sufficiente specificare il percorso dei file.
 
 Per usare un Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva, concedere all'entità servizio l'accesso ai percorsi in cui sono archiviati i file.  Ad esempio:
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 Per altre informazioni su come creare un'entità servizio e concedere l'accesso, consultare la sezione Configurare l'accesso a Data Lake Storage.
 
@@ -143,7 +143,7 @@ Esistono diversi modi per accedere ai file in Data Lake Storage da un cluster HD
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Uso del formato con percorso abbreviato**. Con questo approccio, si sostituisce il percorso fino alla radice del cluster con:
+* **Uso del formato con percorso abbreviato**. Con questo approccio si sostituisce il percorso fino alla radice del cluster con:
 
     ```
     adl:///<file path>
@@ -157,17 +157,17 @@ Esistono diversi modi per accedere ai file in Data Lake Storage da un cluster HD
 
 ### <a name="data-access-examples"></a>Esempi di accesso ai dati
 
-Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo head del cluster. Negli esempi vengono utilizzati tutti e tre gli schemi URI. Sostituire `DATALAKEACCOUNT` e `CLUSTERNAME` con i valori pertinenti.
+Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo head del cluster. Negli esempi vengono usati tutti e tre gli schemi URI. Sostituire `DATALAKEACCOUNT` e `CLUSTERNAME` con i valori pertinenti.
 
 #### <a name="a-few-hdfs-commands"></a>Alcuni comandi HDFS
 
-1. Creare un file nella risorsa di archiviazione locale.
+1. Creare un file nell'archiviazione locale.
 
     ```bash
     touch testFile.txt
     ```
 
-1. Creare directory nell'archivio cluster.
+1. Creare directory nell'archiviazione del cluster.
 
     ```bash
     hdfs dfs -mkdir adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -175,7 +175,7 @@ Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. Copiare i dati dalla risorsa di archiviazione locale all'archiviazione cluster.
+1. Copiare i dati dall'archiviazione locale all'archiviazione del cluster.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -183,7 +183,7 @@ Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh
     hdfs dfs -copyFromLocal testFile.txt /sampledata3/
     ```
 
-1. Elencare il contenuto della directory nell'archivio cluster.
+1. Elencare il contenuto della directory nell'archiviazione del cluster.
 
     ```bash
     hdfs dfs -ls adl://DATALAKEACCOUNT.azuredatalakestore.net/clusters/CLUSTERNAME/sampledata1/
@@ -191,9 +191,9 @@ Gli esempi sono basati su una [connessione SSH](./hdinsight-hadoop-linux-use-ssh
     hdfs dfs -ls /sampledata3/
     ```
 
-#### <a name="creating-a-hive-table"></a>Creazione di una tabella hive
+#### <a name="creating-a-hive-table"></a>Creazione di una tabella Hive
 
-Per scopi illustrativi, vengono visualizzati tre percorsi di file. Per l'esecuzione effettiva, utilizzare solo una delle `LOCATION` voci.
+Per scopi illustrativi, vengono visualizzati tre percorsi di file. Per l'esecuzione effettiva, usare solo una delle voci `LOCATION`.
 
 ```hql
 DROP TABLE myTable;
@@ -214,7 +214,7 @@ LOCATION '/example/data/';
 
 ## <a name="identify-storage-path-from-ambari"></a>Identificare il percorso di archiviazione da Ambari
 
-Per identificare il percorso completo dell'archivio predefinito configurato, passare a **HDFS** > **configs** e immettere `fs.defaultFS` nella casella Filter input.
+Per identificare il percorso completo dell'archivio predefinito configurato, passare a **HDFS**  >  **configs** e immettere `fs.defaultFS` nella casella Filter input.
 
 ## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage-gen1"></a>Creare cluster HDInsight con accesso a Data Lake Storage Gen1
 
@@ -227,7 +227,7 @@ Usare i collegamenti seguenti per informazioni dettagliate su come creare cluste
 
 ## <a name="refresh-the-hdinsight-certificate-for-data-lake-storage-gen1-access"></a>Aggiornare il certificato di HDInsight per l'accesso a Data Lake Storage Gen1
 
-Il codice di PowerShell di esempio seguente legge un certificato da un file locale o da Azure Key Vault e aggiorna il cluster HDInsight con il nuovo certificato per accedere ad Azure Data Lake Storage Gen1. Specificare il nome del cluster HDInsight, il nome del gruppo di risorse, `app ID`l'ID sottoscrizione, il percorso locale del certificato. Scrivere la password quando richiesto.
+Il codice di PowerShell di esempio seguente legge un certificato da un file locale o da Azure Key Vault e aggiorna il cluster HDInsight con il nuovo certificato per accedere ad Azure Data Lake Storage Gen1. Specificare il nome del cluster HDInsight, il nome del gruppo di risorse, l'ID sottoscrizione, `app ID` il percorso locale del certificato. Scrivere la password quando richiesto.
 
 ```powershell-interactive
 $clusterName = '<clustername>'
@@ -303,9 +303,9 @@ Invoke-AzResourceAction `
 
 In questo articolo si è appreso come usare Azure Data Lake Storage Gen1, compatibile con Hadoop Distributed File System (HDFS), con HDInsight. Questa risorsa di archiviazione consente di creare soluzioni di acquisizione dei dati di archiviazione a lungo termine e adattabili. Usare HDInsight per sbloccare le informazioni all'interno dei dati strutturati e non strutturati archiviati.
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 * [Guida introduttiva: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Creare un cluster HDInsight per l'uso di Data Lake Storage Gen1 con Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
-* [Caricare i dati in HDInsight](hdinsight-upload-data.md)
+* [Caricare dati in HDInsight](hdinsight-upload-data.md)
 * [Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati con HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)

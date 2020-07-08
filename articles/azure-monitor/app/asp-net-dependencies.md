@@ -3,15 +3,16 @@ title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft D
 description: Monitorare le chiamate alle dipendenze dall'applicazione Web locale o Microsoft Azure con Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 472d7d26c8a478f521159a44959d7e0a5d749e0d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445220"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081350"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rilevamento delle dipendenze in applicazione Azure Insights 
 
-Una *dipendenza* è un componente esterno chiamato dall'applicazione. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misura la durata delle chiamate alle dipendenze, indipendentemente dal fatto che si verifichino o meno, insieme a informazioni aggiuntive come il nome della dipendenza e così via. È possibile analizzare chiamate di dipendenza specifiche e metterle in correlazione a richieste ed eccezioni.
+Una *dipendenza* è un componente chiamato dall'applicazione. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misura la durata delle chiamate alle dipendenze, indipendentemente dal fatto che si verifichino o meno, insieme a informazioni aggiuntive come il nome della dipendenza e così via. È possibile analizzare chiamate di dipendenza specifiche e metterle in correlazione a richieste ed eccezioni.
 
 ## <a name="automatically-tracked-dependencies"></a>Dipendenze rilevate automaticamente
 

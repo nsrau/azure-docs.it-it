@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767542"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082251"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -173,7 +173,7 @@ Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla
 >&2 echo "An error occurred installing Foo"
 ```
 
-Questo codice reindirizza a STDERR (2) le informazioni scritte in STDOUT. Per ulteriori informazioni sul reindirizzamento IO, vedere [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html).
+Questo codice reindirizza a STDERR (2) le informazioni scritte in STDOUT. Per ulteriori informazioni sul reindirizzamento IO, vedere [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html) .
 
 Per ulteriori informazioni sulla visualizzazione delle informazioni registrate dalle azioni script, vedere [risolvere i problemi relativi alle azioni script](./troubleshoot-script-action.md).
 
@@ -264,11 +264,15 @@ I valori passati allo script come parametri devono essere racchiusi tra virgolet
 
 L'impostazione di una variabile di ambiente viene eseguita con l'istruzione seguente:
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
 Dove VARIABLENAME è il nome della variabile. Per accedere alla variabile, usare `$VARIABLENAME`. Per assegnare un valore fornito da un parametro posizionale come variabile di ambiente denominata PASSWORD, ad esempio, usare l'istruzione seguente:
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
 Per il successivo accesso alle informazioni, si potrà quindi usare `$PASSWORD`.
 
@@ -328,7 +332,7 @@ Microsoft fornisce script di esempio per installare i componenti in un cluster H
 
 Di seguito sono riportati gli errori che possono verificarsi durante l'uso di script sviluppati:
 
-**Errore**: `$'\r': command not found`. A volte seguito da `syntax error: unexpected end of file`.
+**Errore**: `$'\r': command not found` . A volte seguito da `syntax error: unexpected end of file`.
 
 *Causa*: questo errore si verifica quando le righe di uno script terminano con CRLF. I sistemi Unix prevedono unicamente LF come terminazione di riga.
 
@@ -346,13 +350,15 @@ Questo problema si verifica più spesso quando lo script viene creato in un ambi
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifica direttamente il file |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE contiene una versione solo con le terminazioni LF. |
 
-**Errore**: `line 1: #!/usr/bin/env: No such file or directory`.
+**Errore**: `line 1: #!/usr/bin/env: No such file or directory` .
 
 *Causa*: questo errore si verifica quando lo script è stato salvato in formato UTF-8 con un byte order mark (BOM).
 
 *Risoluzione*: salvare il file in formato ASCII o UTF-8 senza un carattere BOM. È anche possibile usare il comando seguente in un sistema Linux o Unix per creare un file senza il carattere BOM:
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 Sostituire `INFILE` con il file contenente il carattere BOM. `OUTFILE` deve essere un nuovo nome di file, contenente lo script senza il carattere BOM.
 

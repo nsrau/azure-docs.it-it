@@ -3,12 +3,12 @@ title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 8ff4e2d8f778d05e9a0fa271600446e1c24380be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130630"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078562"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Ridurre i costi del servizio usando Azure Advisor
 
@@ -60,7 +60,7 @@ Advisor analizza i modelli di utilizzo per gli ultimi 30 giorni per le risorse s
 Advisor analizza i modelli di utilizzo del Azure Cosmos DB negli ultimi 30 giorni e consiglia gli acquisti di capacità riservata per ottimizzare i costi. Utilizzando la capacità riservata, è possibile effettuare il pre-acquisto Azure Cosmos DB utilizzo orario e risparmiare sui costi con pagamento in base al consumo. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola le stime di risparmio per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni e estrapolando i modelli di utilizzo osservati negli ultimi 30 giorni. Sono disponibili raccomandazioni per l'ambito condiviso per gli acquisti di capacità riservata e possono aumentare il risparmio.
 
 ### <a name="sql-paas-reserved-capacity"></a>Capacità riservata di SQL PaaS
-Advisor analizza i pool di database elastici di SQL PaaS e i modelli di utilizzo delle istanze gestite negli ultimi 30 giorni. Si consiglia quindi di acquistare la capacità riservata per ottimizzare i costi. Con la capacità riservata è possibile pre-acquistare l'utilizzo orario del database SQL e risparmiare sui costi di calcolo SQL. La licenza SQL viene addebitata separatamente e non viene scontata dalla prenotazione. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola le stime di risparmio per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni e estrapolando i modelli di utilizzo osservati negli ultimi 30 giorni. Sono disponibili raccomandazioni per l'ambito condiviso per gli acquisti di capacità riservata e possono aumentare il risparmio.
+Advisor analizza i pool di database elastici di SQL PaaS e i modelli di utilizzo di SQL Istanza gestita negli ultimi 30 giorni. Si consiglia quindi di acquistare la capacità riservata per ottimizzare i costi. Con la capacità riservata è possibile pre-acquistare l'utilizzo orario del database SQL e risparmiare sui costi di calcolo SQL. La licenza SQL viene addebitata separatamente e non viene scontata dalla prenotazione. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola le stime di risparmio per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni e estrapolando i modelli di utilizzo osservati negli ultimi 30 giorni. Sono disponibili raccomandazioni per l'ambito condiviso per gli acquisti di capacità riservata e possono aumentare il risparmio.
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Capacità riservata del timbro del servizio app
 Advisor analizza il modello di utilizzo della tariffa per gli Stamp per l'ambiente di isolamento del servizio app Azure negli ultimi 30 giorni e consiglia gli acquisti di capacità riservata che ottimizzano i costi. Con la capacità riservata è possibile pre-acquistare l'utilizzo orario per la tassa di timbro per l'ambiente isolato e risparmiare sui costi con pagamento in base al consumo. Si noti che la capacità riservata si applica solo alla tariffa di timbro e non alle istanze del servizio app. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola il salvataggio delle stime per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni in base ai modelli di utilizzo negli ultimi 30 giorni.

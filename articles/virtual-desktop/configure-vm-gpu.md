@@ -7,11 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 96881154a368da15d703b43ba2ffe5d6dd034bd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a26b6a622368fe9601ea3b6555386b6a121540
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213262"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081095"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configura l'accelerazione GPU (Graphics Processing Unit) per Desktop virtuale Windows
 
@@ -59,27 +60,41 @@ Per impostazione predefinita, le app e i desktop eseguiti in configurazioni con 
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurare la codifica del frame con accelerazione GPU
 
-Desktop remoto codifica tutti i grafici sottoposti a rendering dalle app e dai desktop (se sottoposti a rendering con GPU o CPU) per la trasmissione ai client Desktop remoto. Per impostazione predefinita, Desktop remoto non sfrutta le GPU disponibili per questa codifica. Configurare Criteri di gruppo per l'host di sessione, per abilitare la codifica del frame con accelerazione GPU. Continuando la procedura precedente:
+Desktop remoto codifica tutti i grafici sottoposti a rendering dalle app e dai desktop (se sottoposti a rendering con GPU o CPU) per la trasmissione ai client Desktop remoto. Quando una parte della schermata viene aggiornata di frequente, questa parte dello schermo viene codificata con un codec video (H. 264/AVC). Per impostazione predefinita, Desktop remoto non sfrutta le GPU disponibili per questa codifica. Configurare Criteri di gruppo per l'host di sessione, per abilitare la codifica del frame con accelerazione GPU. Continuando la procedura precedente:
+ 
+>[!NOTE]
+>La codifica del frame con accelerazione GPU non è disponibile nelle macchine virtuali della serie NVv4.
 
-1. Selezionare il criterio **Assegna priorità alla modalità grafica H.264/AVC 444 per le connessioni Desktop remoto** e impostarlo su **Abilitato**, per forzare il codec H.264/AVC 444 nella sessione remota.
-2. Selezionare il criterio **Configura codifica hardware H.264/AVC per le connessioni Desktop remoto** e impostarlo su **Abilitato** per abilitare la codifica hardware per AVC/H.264 nella sessione remota.
+1. Selezionare il criterio **Configura codifica hardware H.264/AVC per le connessioni Desktop remoto** e impostarlo su **Abilitato** per abilitare la codifica hardware per AVC/H.264 nella sessione remota.
 
     >[!NOTE]
     >In Windows Server 2016, impostare l'opzione **Preferisci la codifica hardware AVC** su **Tenta sempre**.
 
-3. Ora che i criteri di gruppo sono stati modificati, forzare un aggiornamento dei criteri di gruppo. Aprire il prompt dei comandi e digitare:
+2. Ora che i criteri di gruppo sono stati modificati, forzare un aggiornamento dei criteri di gruppo. Aprire il prompt dei comandi e digitare:
 
     ```batch
     gpupdate.exe /force
     ```
 
-4. Disconnettersi dalla sessione Desktop remoto.
+3. Disconnettersi dalla sessione Desktop remoto.
 
+## <a name="configure-fullscreen-video-encoding"></a>Configurare la codifica video a schermo intero
+
+Se si usano spesso applicazioni che producono contenuti con frequenza elevata, ad esempio la modellazione 3D, le applicazioni CAD/CAM e video, è possibile scegliere di abilitare una codifica video a schermo intero per una sessione remota. Il profilo video a schermo intero offre una frequenza dei fotogrammi più elevata e un'esperienza utente migliore per tali applicazioni a scapito della larghezza di banda di rete e delle risorse client e host della sessione. È consigliabile usare la codifica dei frame con accelerazione GPU per una codifica video a schermo intero. Configurare Criteri di gruppo per l'host sessione per abilitare la codifica video a schermo intero. Continuando la procedura precedente:
+
+1. Selezionare il criterio **Assegna priorità alla modalità grafica H.264/AVC 444 per le connessioni Desktop remoto** e impostarlo su **Abilitato**, per forzare il codec H.264/AVC 444 nella sessione remota.
+2. Ora che i criteri di gruppo sono stati modificati, forzare un aggiornamento dei criteri di gruppo. Aprire il prompt dei comandi e digitare:
+
+    ```batch
+    gpupdate.exe /force
+    ```
+
+3. Disconnettersi dalla sessione Desktop remoto.
 ## <a name="verify-gpu-accelerated-app-rendering"></a>Verificare il rendering delle app con accelerazione GPU
 
 Per verificare che le app stiano usando la GPU per il rendering, provare a eseguire una delle operazioni seguenti:
 
-* Per le macchine virtuali di Azure con una GPU NVIDIA, usare l'utilità `nvidia-smi` come descritto in [Verificare l'installazione del driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) per verificare l'utilizzo della GPU durante l'esecuzione delle app.
+* Per le macchine virtuali di Azure con una GPU NVIDIA, usare l' `nvidia-smi` utilità come descritto in [verificare l'installazione del driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) per verificare l'utilizzo della GPU quando si eseguono le app.
 * Nelle versioni supportate del sistema operativo, è possibile usare Gestione attività, per verificare l'utilizzo della GPU. Per vedere se le app utilizzano la GPU, selezionare la GPU nella scheda "Prestazioni".
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Verificare la codifica del frame con accelerazione GPU
@@ -89,7 +104,14 @@ Per verificare che Desktop remoto usi la codifica con accelerazione GPU:
 1. Connettersi al desktop della macchina virtuale usando il client Desktop virtuale Windows.
 2. Avviare il Visualizzatore eventi e passare al nodo seguente: **Registri applicazioni e servizi** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operativo**
 3. Per determinare se viene usata la codifica con accelerazione GPU, cercare l'ID evento 170. Se si visualizza "Codifica hardware AVC abilitata: 1 ", allora la codifica GPU viene usata.
-4. Per determinare se viene usata la modalità AVC 444, cercare l'ID evento 162. Se viene visualizzato "AVC disponibile: 1 Profilo iniziale: 2048 ", allora AVC 444 viene usata.
+
+## <a name="verify-fullscreen-video-encoding"></a>Verifica codifica video a schermo intero
+
+Per verificare che Desktop remoto usi la codifica video a schermo intero:
+
+1. Connettersi al desktop della macchina virtuale usando il client Desktop virtuale Windows.
+2. Avviare il Visualizzatore eventi e passare al nodo seguente: **Registri applicazioni e servizi** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operativo**
+3. Per determinare se viene usata la codifica video a schermo intero, cercare l'ID evento 162. Se viene visualizzato "AVC disponibile: 1 Profilo iniziale: 2048 ", allora AVC 444 viene usata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

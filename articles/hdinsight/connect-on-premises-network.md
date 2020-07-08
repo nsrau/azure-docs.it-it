@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b6753d7c04951839852b3090e99fd8cde1fe2d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78897933"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079803"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -91,7 +92,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 4. Nella scheda **Rete** immettere le informazioni seguenti:
 
-    | Campo | valore |
+    | Campo | Valore |
     | --- | --- |
     |Rete virtuale | Selezionare la rete virtuale creata in precedenza.|
     |Subnet | Selezionare la subnet predefinita per la rete virtuale creata in precedenza. __Non__ selezionare la subnet usata dal gateway VPN.|

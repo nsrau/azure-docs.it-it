@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/4/2020
-ms.openlocfilehash: d9d600b4ac34e4608b7747bee0e0a704ad2ab3be
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 7/7/2020
+ms.openlocfilehash: b733ef771444e080eb794b300e75d4396c3ef674
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846053"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079174"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -20,6 +20,12 @@ La funzionalità relativa alle repliche in lettura consente di replicare i dati 
 Le repliche sono nuovi server da gestire in modo simile ai normali server di Database di Azure per MySQL. Per ogni replica in lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese.
 
 Per altre informazioni sulle funzionalità di replica di MySQL e sui relativi problemi, vedere la [documentazione sulle repliche di MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+
+> [!NOTE]
+> Comunicazione senza distorsione
+>
+> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+>
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usare una replica in lettura
 
@@ -41,9 +47,7 @@ Questa funzionalità di replica in lettura si avvale della replica asincrona di 
 ### <a name="universal-replica-regions"></a>Aree di replica universali
 È possibile creare una replica in lettura in una delle aree seguenti, indipendentemente dalla posizione del server master. Le aree di replica universali supportate includono:
 
-Australia orientale, Australia sud-orientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali.
-
-*Stati Uniti occidentali 2 è temporaneamente non disponibile come posizione della replica tra più aree.
+Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali.
 
 ### <a name="paired-regions"></a>Aree abbinate
 Oltre alle aree di replica universali, è possibile creare una replica in lettura nell'area associata di Azure del server master. Se non si conosce la coppia di aree di appartenenza, vedere l'[articolo Aree associate di Azure](../best-practices-availability-paired-regions.md) per altre informazioni.
@@ -52,16 +56,19 @@ Se si usano repliche tra più aree per la pianificazione del ripristino di emerg
 
 È tuttavia necessario considerare due limitazioni: 
 
-* Disponibilità a livello di area: Database di Azure per MySQL è disponibile in Stati Uniti occidentali 2, Francia centrale, Emirati Arabi Uniti settentrionali e Germania centrale. Tuttavia, le relative aree associate non sono disponibili.
+* Disponibilità a livello di area: database di Azure per MySQL è disponibile in Francia centrale, Emirati Arabi Uniti settentrionali e Germania centrale. Tuttavia, le relative aree associate non sono disponibili.
     
 * Coppie unidirezionali: alcune aree di Azure sono associate in una sola direzione. Queste aree includono India occidentale, Brasile meridionale e US Gov Virginia. 
    Ciò significa che un server master in India occidentale può creare una replica in India meridionale. Al contrario, un server master in India meridionale non può creare una replica in India occidentale. Questo si verifica perché l'area secondaria dell'India occidentale è l'India meridionale, mentre l'area secondaria dell'India meridionale non è l'India occidentale.
 
 ## <a name="create-a-replica"></a>Creare una replica
 
+> [!IMPORTANT]
+> La funzionalità relativa alle repliche in lettura è disponibile solo per i server di Database di Azure per MySQL nei piani tariffari Utilizzo generico o Con ottimizzazione per la memoria. Verificare che il server master sia incluso in uno di questi piani tariffari.
+
 Se per un server master non sono presenti server di replica, il master verrà prima riavviato per prepararsi per la replica.
 
-Quando viene avviato il flusso di lavoro per la creazione della replica, viene creato un server di Database di Azure per MySQL vuoto. Il nuovo server viene riempito con i dati presenti nel server master. Il tempo necessario per la creazione dipende dalla quantità di dati nel master e dal tempo trascorso dall'ultimo backup completo settimanale. L'intervallo di tempo può variare da pochi minuti a diverse ore. Il server di replica viene sempre creato nello stesso gruppo di risorse e nella stessa sottoscrizione del server master. Per creare un server di replica in un gruppo di risorse diverso o in una sottoscrizione diversa, è possibile [spostare il server di replica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) dopo averlo creato.
+Quando viene avviato il flusso di lavoro per la creazione della replica, viene creato un server di Database di Azure per MySQL vuoto. Il nuovo server viene riempito con i dati presenti nel server master. Il tempo necessario per la creazione dipende dalla quantità di dati nel master e dal tempo trascorso dall'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore. Il server di replica viene creato sempre nello stesso gruppo di risorse e nella stessa sottoscrizione del server master. Per creare un server di replica in un gruppo di risorse diverso o in una sottoscrizione diversa, è possibile [spostare il server di replica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) dopo averlo creato.
 
 Ogni replica è abilitata per l'[aumento automatico](concepts-pricing-tiers.md#storage-auto-grow) dello spazio di archiviazione. La funzionalità di aumento automatico consente alla replica di adattarsi ai dati replicati e impedire un'interruzione della replica causata da errori di spazio di archiviazione insufficiente.
 
@@ -101,11 +108,33 @@ Quando si sceglie di arrestare la replica in una replica, vengono persi tutti i 
 
 Informazioni su come [arrestare la replica in una replica](howto-read-replicas-portal.md).
 
+## <a name="failover"></a>Failover
+
+Non esiste un failover automatico tra i server master e di replica. 
+
+Poiché la replica è asincrona, si verifica un ritardo tra il database master e la replica. La quantità di ritardo può essere influenzata da una serie di fattori quali la quantità di carico di lavoro in esecuzione nel server master e la latenza tra i Data Center. Nella maggior parte dei casi, il ritardo di replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
+
+> [!Tip]
+> Se si esegue il failover alla replica, il ritardo nel momento in cui si scollega la replica dal database master indicherà la quantità di dati persi.
+
+Dopo aver deciso di voler eseguire il failover a una replica, 
+
+1. Arrestare la replica nella replica<br/>
+   Questo passaggio è necessario per consentire al server di replica di accettare le Scritture. Come parte di questo processo, il server di replica verrà decollegato dal master. Una volta avviata l'arresto della replica, il completamento del processo back-end richiede in genere circa 2 minuti. Per comprendere le implicazioni di questa azione, vedere la sezione [arrestare la replica](#stop-replication) di questo articolo.
+    
+2. Puntare l'applicazione alla replica (precedente)<br/>
+   Ogni server dispone di una stringa di connessione univoca. Aggiornare l'applicazione in modo che punti alla replica (precedente) invece che al database master.
+    
+Una volta che l'applicazione ha elaborato correttamente le operazioni di lettura e scrittura, il failover è stato completato. La quantità di tempo di inattività di cui l'applicazione dipenderà quando si rileva un problema e si completano i passaggi 1 e 2 precedenti.
+
 ## <a name="considerations-and-limitations"></a>Considerazioni e limiti
 
 ### <a name="pricing-tiers"></a>Piani tariffari
 
 Le repliche in lettura sono attualmente disponibili solo nei livelli di prezzo per utilizzo generico e ottimizzato per la memoria.
+
+> [!NOTE]
+> Il costo dell'esecuzione del server di replica è basato sull'area in cui è in esecuzione il server di replica.
 
 ### <a name="master-server-restart"></a>Riavvio del server master
 

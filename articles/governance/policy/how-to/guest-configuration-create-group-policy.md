@@ -3,12 +3,12 @@ title: Come creare definizioni dei criteri di configurazione Guest da Criteri di
 description: Informazioni su come convertire Criteri di gruppo dalla linea di base di sicurezza di Windows Server 2019 in una definizione dei criteri.
 ms.date: 06/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 021e8cc4aa34a21f980363e71de1a4b9afbf3ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbb634ed55acf8aa994045fbef6569fae031c841
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268741"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080670"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Come creare definizioni dei criteri di configurazione Guest da Criteri di gruppo baseline per Windows
 
@@ -92,7 +92,7 @@ Il passaggio successivo consiste nel pubblicare il file nell'archiviazione BLOB.
 1. Lo script seguente contiene una funzione che è possibile usare per automatizzare questa attività. Si noti che i comandi usati nella `publish` funzione richiedono il `Az.Storage` modulo.
 
    ```azurepowershell-interactive
-    function publish {
+    function Publish-Configuration {
         param(
         [Parameter(Mandatory=$true)]
         $resourceGroup,
@@ -147,25 +147,29 @@ Il passaggio successivo consiste nel pubblicare il file nell'archiviazione BLOB.
 
 1. Usare la funzione Publish con i parametri assegnati per pubblicare il pacchetto di configurazione Guest nell'archivio BLOB pubblico.
 
-   ```azurepowershell-interactive
-   $uri = publish `
-    -resourceGroup $resourceGroup `
-    -storageAccountName $storageAccount `
-    -storageContainerName $storageContainer `
-    -filePath $path `
-    -blobName $blob
-    -FullUri
-    ```
 
+   ```azurepowershell-interactive
+   $PublishConfigurationSplat = @{
+       resourceGroup = $resourceGroup
+       storageAccountName = $storageAccount
+       storageContainerName = $storageContainer
+       filePath = $path
+       blobName = $blob
+       FullUri = $true
+   }
+   $uri = Publish-Configuration @PublishConfigurationSplat
+    ```
 1. Una volta creato e caricato un pacchetto di criteri personalizzati di Configurazione guest, creare la definizione dei criteri di Configurazione guest. Usare il `New-GuestConfigurationPolicy` cmdlet per creare la configurazione Guest.
 
    ```azurepowershell-interactive
-   New-GuestConfigurationPolicy `
-    -ContentUri $Uri `
-    -DisplayName 'Server 2019 Configuration Baseline' `
-    -Description 'Validation of using a completely custom baseline configuration for Windows VMs' `
-    -Path C:\git\policyfiles\policy  `
-    -Platform Windows 
+    $NewGuestConfigurationPolicySplat = @{
+        ContentUri = $Uri 
+        DisplayName = 'Server 2019 Configuration Baseline' 
+        Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
+        Path = 'C:\git\policyfiles\policy'  
+        Platform = Windows 
+        }
+   New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
     
 1. Pubblicare le definizioni dei criteri usando il `Publish-GuestConfigurationPolicy` cmdlet. Il cmdlet ha solo il parametro **Path** che punta al percorso dei file JSON creati da `New-GuestConfigurationPolicy`. Per eseguire il comando Publish, è necessario l'accesso per creare le definizioni dei criteri in Azure. I requisiti di autorizzazione specifici sono documentati nella pagina [Panoramica di Criteri di Azure](../overview.md#getting-started). Il ruolo predefinito migliore è **Collaboratore ai criteri delle risorse**.

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76548935"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079293"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usare le funzionalità estese del server di cronologia Apache Spark per eseguire il debug e la diagnosi delle applicazioni Spark
 
@@ -32,7 +32,7 @@ Il server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Aprire l'interfaccia utente Web del server cronologia Spark per URL
 
-Aprire il server cronologia Spark passando a `https://CLUSTERNAME.azurehdinsight.net/sparkhistory`, dove **clustername** è il nome del cluster Spark.
+Aprire il server cronologia Spark passando a `https://CLUSTERNAME.azurehdinsight.net/sparkhistory` , dove **clustername** è il nome del cluster Spark.
 
 L'interfaccia utente Web del server cronologia Spark può essere simile all'immagine seguente:
 
@@ -100,7 +100,7 @@ Selezionare l'ID del processo e quindi scegliere **dati** dal menu strumento per
     |Colore |Descrizione |
     |---|---|
     |Green|il processo è stato completato correttamente.|
-    |Arancione|L'attività non è riuscita, ma ciò non influisce sul risultato finale del processo. Queste attività hanno istanze duplicate o tentativi che possono avere esito positivo in un secondo momento.|
+    |Orange|L'attività non è riuscita, ma ciò non influisce sul risultato finale del processo. Queste attività hanno istanze duplicate o tentativi che possono avere esito positivo in un secondo momento.|
     |Blu|l'attività è in esecuzione.|
     |bianco|l'attività è in attesa di esecuzione o la fase è stata ignorata.|
     |Rosso|l'attività non è riuscita.|
@@ -137,7 +137,7 @@ Selezionare l'ID del processo e quindi scegliere **dati** dal menu strumento per
   + Scrittura dei dati: somma delle dimensioni di output e della dimensione di scrittura casuale
   + Tempo di esecuzione: l'ora di inizio del primo tentativo e l'ora di completamento dell'ultimo tentativo
   + Conteggio righe: la somma dei record di input, dei record di output, dei record di lettura casuale e dei record di scrittura shuffle
-  + Progress
+  + Avanzamento
 
     > [!NOTE]  
     > Per impostazione predefinita, il nodo del grafico del processo visualizzerà le informazioni dell'ultimo tentativo di ogni fase, ad eccezione del tempo di esecuzione della fase. Durante la riproduzione, tuttavia, nel nodo del grafico del processo vengono visualizzate informazioni su ogni tentativo.
@@ -208,12 +208,12 @@ Selezionare l'icona del colore per selezionare o deselezionare il contenuto corr
 Per ripristinare la versione community, seguire questa procedura.
 
 1. Aprire il cluster in Ambari.
-1. Passare a **Spark2** > **configs**.
+1. Passare a **Spark2**  >  **configs**.
 1. Selezionare **Custom spark2-defaults**.
 1. Selezionare **Aggiungi proprietà...**.
 1. Aggiungere **Spark. UI. Enhancement. Enabled = false**e quindi salvarlo.
 1. La proprietà viene impostata su **false**.
-1. Selezionare **Salva** per salvare la configurazione.
+1. Selezionare **Save (Salva** ) per salvare la configurazione.
 
     ![Disabilitare una funzionalità in Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
@@ -245,7 +245,7 @@ Se si è eseguito un errore nel server della cronologia Spark, seguire questa pr
 
 ### <a name="how-do-i-upgrade-a-jar-file-in-a-hotfix-scenario"></a>Ricerca per categorie aggiornare un file con estensione jar in uno scenario di hotfix?
 
-Se si vuole eseguire l'aggiornamento con un hotfix, usare lo script seguente, che aggiornerà `spark-enhancement.jar*`.
+Se si vuole eseguire l'aggiornamento con un hotfix, usare lo script seguente, che aggiornerà `spark-enhancement.jar*` .
 
 **upgrade_spark_enhancement.sh**:
 
@@ -310,7 +310,7 @@ Se si vuole eseguire l'aggiornamento con un hotfix, usare lo script seguente, ch
     |Proprietà |valore |
     |---|---|
     |Tipo di script|- Personalizzato|
-    |Name|UpgradeJar|
+    |Nome|UpgradeJar|
     |URI script Bash|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
     |Tipo/i di nodo|Head, ruolo di lavoro|
     |Parametri|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
@@ -328,6 +328,6 @@ Se si vuole eseguire l'aggiornamento con un hotfix, usare lo script seguente, ch
 + [Gestire le risorse di un cluster Apache Spark in HDInsight](apache-spark-resource-manager.md)
 + [Configurare le impostazioni di Apache Spark](apache-spark-settings.md)
 
-## <a name="feedback"></a>Commenti e suggerimenti
+## <a name="suggestions"></a>Suggerimenti
 
-In caso di commenti o problemi durante l'uso di questo strumento, inviare un messaggio di posta elettronica a[hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)().
+In caso di commenti o problemi durante l'uso di questo strumento, inviare un messaggio di posta elettronica a ( [hdivstool@microsoft.com](mailto:hdivstool@microsoft.com) ).

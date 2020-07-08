@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/24/2019
-ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f367f7fb6201a62c7fb47e0c593d04d41e0b378
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495790"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079514"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
 
@@ -57,13 +57,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    Questo comando crea una nuova directory denominata `hbaseapp` nella posizione corrente, contenente un progetto Maven di base. Il secondo comando modifica la directory di lavoro `hbaseapp`in. Il terzo comando crea una nuova directory, `conf`, che verrà usata in un secondo momento. La directory `hbaseapp` contiene gli elementi seguenti:
+    Questo comando crea una nuova directory denominata `hbaseapp` nella posizione corrente, contenente un progetto Maven di base. Il secondo comando modifica la directory di lavoro in `hbaseapp` . Il terzo comando crea una nuova directory, `conf` , che verrà usata in un secondo momento. La directory `hbaseapp` contiene gli elementi seguenti:
 
     * `pom.xml`: Il modello a oggetti di Project ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contiene informazioni e dettagli di configurazione usati per compilare il progetto.
     * `src\main\java\com\microsoft\examples`: contiene il codice dell'applicazione.
     * `src\test\java\com\microsoft\examples`: contiene i test per l'applicazione.
 
-2. Rimuovere il codice di esempio generato. Eliminare i file `AppTest.java`di test e dell'applicazione generati `App.java` e immettendo i comandi seguenti:
+2. Rimuovere il codice di esempio generato. Eliminare i file di test e dell'applicazione generati `AppTest.java` e `App.java` immettendo i comandi seguenti:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -80,7 +80,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-In `pom.xml`aggiungere il testo seguente nella `<dependencies>` sezione:
+In `pom.xml` aggiungere il testo seguente nella `<dependencies>` sezione:
 
 ```xml
 <dependency>
@@ -179,7 +179,7 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 
 ### <a name="implement-a-createtable-class"></a>Implementare una classe CreateTable
 
-Immettere il comando seguente per creare e aprire un nuovo file `CreateTable.java`. Selezionare **Sì** quando viene richiesto di creare un nuovo file.
+Immettere il comando seguente per creare e aprire un nuovo file `CreateTable.java` . Selezionare **Sì** quando viene richiesto di creare un nuovo file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\CreateTable.java
@@ -257,11 +257,11 @@ public class CreateTable {
 }
 ```
 
-Questo codice è la `CreateTable` classe, che consente di creare una `people` tabella denominata e di popolarla con alcuni utenti predefiniti.
+Questo codice è la `CreateTable` classe, che consente di creare una tabella denominata `people` e di popolarla con alcuni utenti predefiniti.
 
 ### <a name="implement-a-searchbyemail-class"></a>Implementare una classe SearchByEmail
 
-Immettere il comando seguente per creare e aprire un nuovo file `SearchByEmail.java`. Selezionare **Sì** quando viene richiesto di creare un nuovo file.
+Immettere il comando seguente per creare e aprire un nuovo file `SearchByEmail.java` . Selezionare **Sì** quando viene richiesto di creare un nuovo file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
@@ -346,7 +346,7 @@ La `SearchByEmail` classe può essere usata per eseguire query per le righe in b
 
 ### <a name="implement-a-deletetable-class"></a>Implementare una classe DeleteTable
 
-Immettere il comando seguente per creare e aprire un nuovo file `DeleteTable.java`. Selezionare **Sì** quando viene richiesto di creare un nuovo file.
+Immettere il comando seguente per creare e aprire un nuovo file `DeleteTable.java` . Selezionare **Sì** quando viene richiesto di creare un nuovo file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
@@ -425,12 +425,14 @@ La procedura seguente usa `scp` per copiare il file JAR nel nodo head primario d
 
     Si ottengono i risultati seguenti:
 
-        Franklin Holtz - ID: 2
-        Franklin Holtz - franklin@contoso.com - ID: 2
-        Rae Schroeder - ID: 4
-        Rae Schroeder - rae@contoso.com - ID: 4
-        Gabriela Ingram - ID: 6
-        Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```console
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
 5. Per eliminare la tabella, usare il comando seguente:
 
@@ -442,7 +444,7 @@ La procedura seguente usa `scp` per copiare il file JAR nel nodo head primario d
 
 I passaggi seguenti usano il [modulo Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) per caricare il file jar nella risorsa di archiviazione predefinita per il cluster Apache HBase. I cmdlet di HDInsight vengono quindi usati per eseguire gli esempi in modalità remota.
 
-1. Dopo aver installato e configurato il modulo AZ, creare un file `hbase-runner.psm1`denominato. Usare il testo seguente come contenuto del file:
+1. Dopo aver installato e configurato il modulo AZ, creare un file denominato `hbase-runner.psm1` . Usare il testo seguente come contenuto del file:
 
    ```powershell
     <#
@@ -646,7 +648,7 @@ I passaggi seguenti usano il [modulo Azure PowerShell AZ](https://docs.microsoft
    * **Add-HDInsightFile**: viene usato per caricare file nel cluster
    * **Start-HBaseExample**: usato per eseguire le classi create prima
 
-2. Salvare il `hbase-runner.psm1` file nella `hbaseapp` directory.
+2. Salvare il `hbase-runner.psm1` file nella `hbaseapp` Directory.
 
 3. Registrare i moduli con Azure PowerShell. Aprire una nuova finestra di Azure PowerShell e modificare il comando seguente sostituendo `CLUSTERNAME` con il nome del cluster. Immettere quindi i comandi seguenti:
 
@@ -684,12 +686,14 @@ I passaggi seguenti usano il [modulo Azure PowerShell AZ](https://docs.microsoft
 
     Questo comando usa la classe `SearchByEmail` per cercare le righe in cui la famiglia della colonna `contactinformation` e la colonna `email` contengono la stringa `contoso.com`. Dovrebbero essere visualizzati i risultati seguenti:
 
-          Franklin Holtz - ID: 2
-          Franklin Holtz - franklin@contoso.com - ID: 2
-          Rae Schroeder - ID: 4
-          Rae Schroeder - rae@contoso.com - ID: 4
-          Gabriela Ingram - ID: 6
-          Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```output
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
     L'uso di **fabrikam.com** per il valore `-emailRegex` restituirà gli utenti il cui campo email contiene **fabrikam.com**. È anche possibile usare espressioni regolari come termini di ricerca. Ad esempio, **^ r** restituisce gli indirizzi di posta elettronica che iniziano con la lettera "r".
 

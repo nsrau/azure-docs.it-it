@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44262c30dc49182314fb70dbb814be25c49e9d50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192485"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080007"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
@@ -49,7 +49,7 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 
 Usare l' [azione script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) per applicare le modifiche con le considerazioni seguenti:
 
-|Proprietà | Valore |
+|Proprietà | valore |
 |---|---|
 |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |Tipo/i di nodo|Head|
@@ -133,14 +133,6 @@ Per risolvere il problema:
 
 > [!IMPORTANT]  
 > La rotazione della chiave di archiviazione per l'account di archiviazione primario collegato a un cluster non è supportata.
-
-### <a name="poor-performance"></a>Prestazioni non ottimali
-
-Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che le prestazioni non siano ottimali. L'accesso ai dati in un'area diversa invia il traffico di rete all'esterno del data center di Azure regionale. E attraverso la rete Internet pubblica, che può introdurre latenza.
-
-### <a name="additional-charges"></a>Costi aggiuntivi
-
-Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che la fatturazione di Azure includa addebiti di uscita aggiuntivi. Viene applicato un addebito di uscita quando i dati escono dal data center di un'area, anche se il traffico è destinato a un altro data center di Azure in un'area diversa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

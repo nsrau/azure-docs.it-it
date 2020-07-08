@@ -12,11 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: b7cf4ab817f222f3a36a047e1e4d379f5bd6b73e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668407"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078970"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Risolvere gli errori di connessione temporanei nel database SQL e in SQL Istanza gestita
 
@@ -104,7 +105,7 @@ Per semplificare il test, disconnettere il computer dalla rete prima di avviare 
 - Sospensione delle ulteriori esecuzioni con il metodo **Console.ReadLine** o una finestra di dialogo con un pulsante OK. L'utente preme il tasto INVIO dopo la connessione del computer alla rete.
 - Nuovo tentativo di connessione, con esito positivo previsto.
 
-#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Eseguire il test mediante la digitazione non corretta del nome del database durante la connessione
+#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>Eseguire un test eseguendo l'errore ortografico del nome utente durante la connessione
 
 Il programma può intenzionalmente digitare in modo errato il nome utente prima del primo tentativo di connessione. L'errore è:
 

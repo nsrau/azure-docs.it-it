@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74559338"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080874"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come gestire il comportamento di sicurezza dell'organizzazione su larga scala applicando criteri di sicurezza a tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory.
@@ -73,7 +74,7 @@ Un amministratore del tenant di Azure Active Directory non ha accesso diretto al
 
 3. In **Access management for Azure resources** (Gestione degli accessi per le risorse di Azure) impostare l'interruttore su **Sì**.
 
-   ![Gli amministratori globali possono gestire le sottoscrizioni di Azure e i gruppi di gestione - Screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Gestione degli accessi per le risorse di Azure - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - Quando si imposta l'interruttore su Sì, si viene assegnati al ruolo Amministratore Accesso utenti in Controllo degli accessi in base al ruolo Azure nell'ambito radice (/). In questo modo si ottiene l'autorizzazione ad assegnare ruoli in tutte le sottoscrizioni e i gruppi di gestione di Azure associati a questa directory di Azure AD. Questo interruttore è disponibile solo per gli utenti a cui è assegnato il ruolo Amministratore globale in Azure AD.
 
@@ -160,7 +161,7 @@ Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati a
 
 2. Nell'elenco di navigazione fare clic su **Azure Active Directory** e quindi su **Proprietà**.
 
-3. In **Gli amministratori globali possono gestire le sottoscrizioni di Azure e i gruppi di gestione** impostare l'opzione su **No**.
+3. In **gestione accessi per le risorse di Azure**impostare l'opzione su **No**.
 
 4. Fare clic su **Salva** per salvare l'impostazione.
 
